@@ -1,3 +1,316 @@
+# Named native coefficient kernels
+
+This continuation plans the named subgroup adapter at NC.3. The roadmap remains partial and every implementation status is unchecked.
+
+Partial anabelian checkpoint with 276 declaration-sized nodes. This continuation adds an actual native subgroup-to-twisted-kernel multiplicative identification, its jointly continuous transported inner action, a genuine continuous gauge-H¹ equivalence, and exact native ambient inclusion range criteria. Its explicit hypothesis is S≤U with x∈S iff f(x)=1; mapped-target and original-fibre converses also require f surjective. All 258 inherited mathematical contracts, seven stage statuses, nine gaps, seventeen supplier requests and eleven planets are preserved. NC.0 and NC.3 remain partial, other stages not_read, every node unchecked. The general abstract embedded-kernel adapter, central H², geometry, representability, local conditions, additive comparison, étale K(pi,1), Chen and BDMTV obligations are not closed.
+
+## Conventions and scope
+
+Write F_c:Twist(c)→Twist(f∘c), K_c=ker(F_c), and i:S→Twist(c) for the native inclusion. The exact membership witness is x∈S iff f(x)=1. The topology on S is the native subspace topology, and its G-action is the inner action transported from K_c. The quotient neutral-fibre criterion holds for arbitrary f; the mapped-target and original-fibre converses require f surjective. Their target in original H¹ is [f∘c], which can be non-neutral.
+
+The actual named native subgroup S=ker(f) adapter is now specified with its continuous inner action, genuine H¹ equivalence and three inclusion-range criteria. General abstract embedded kernel A with explicit topological equivalence to the native kernel remains open; arbitrary G-stable/non-normal subgroups are not covered. Central H² obstruction and cochain independence, fibre orbit stabilizers/invariant conditions, geometric and unipotent-point topology/local conditions, and additive comparison remain required.
+
+## Declaration plan
+
+### Named subgroup identified with the twisted kernel
+
+`TauCeti.NonabelianCohomology.Twist.namedKernelEquiv`
+
+Construct the actual multiplicative equivalence e:S≃K_c, K_c=ker(F_c), by the unchanged underlying value, where F_c:Twist(c)→Twist(f∘c) is the equivariant coefficient map. The two subgroups carry their native subspace topologies.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-equivalence`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group`, `mathlib:MulEquiv`, `mathlib:Subgroup.subtype`.
+
+Proof: Use the exact membership witness hS to form the two subtype maps. Their values are unchanged, so the inverse and multiplication identities hold by native subtype equality.
+
+Uses: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence-value`: Evaluate the actual forward subtype map.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence-inverse-value`: Evaluate the actual inverse subtype map.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence-continuity`: Restrict the continuous native subtype inclusion using the exact pointwise kernel witness.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence-inverse-continuity`: Restrict the continuous native subtype inclusion in the other direction using hS.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-inner-action`: Define g•x=e⁻¹(g•e(x)). Check identity, composition, identity element and multiplication using the actual multiplicative equivalence and restricted kernel action.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence-equivariance`: Cancel e with its inverse in the transported action formula.
+
+API:
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_apply`: For x∈S, applying e then the underlying twist identification gives exactly x.val.
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_symm_apply`: For k∈K_c, the value of e⁻¹(k) is the original underlying value of k.
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_continuous`: The forward map e:S→K_c is continuous in the native induced topologies.
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_symm_continuous`: The inverse map e⁻¹:K_c→S is continuous in the native induced topologies.
+
+Tests:
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv.test_constant_top` (degenerate): For the constant identity-valued homomorphism f:U→V, take S=⊤ and the canonical membership witness; the kernel identification sends every x∈U to a twisted-kernel element with exactly underlying value x.
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv.test_identity_bot` (degenerate): For the identity homomorphism U→U, take S=⊥; every identified twisted-kernel value is 1.
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv.test_wrong_subgroup_rejected` (non-example): If some x∈S satisfies f(x)≠1, then the exact kernel-membership witness ∀y,y∈S iff f(y)=1 is impossible.
+
+### Underlying value of the named kernel identification
+
+`TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_apply`
+
+For x∈S, applying e then the underlying twist identification gives exactly x.val.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence`.
+
+Proof: Evaluate the actual forward subtype map.
+
+### Underlying value of the inverse identification
+
+`TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_symm_apply`
+
+For k∈K_c, the value of e⁻¹(k) is the original underlying value of k.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence`.
+
+Proof: Evaluate the actual inverse subtype map.
+
+### Continuity of the named kernel identification
+
+`TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_continuous`
+
+The forward map e:S→K_c is continuous in the native induced topologies.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence`, `mathlib:continuous_subtype_val`, `mathlib:Continuous.subtype_mk`.
+
+Proof: Restrict the continuous native subtype inclusion using the exact pointwise kernel witness.
+
+### Continuity of the inverse kernel identification
+
+`TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_symm_continuous`
+
+The inverse map e⁻¹:K_c→S is continuous in the native induced topologies.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence`, `mathlib:continuous_subtype_val`, `mathlib:Continuous.subtype_mk`.
+
+Proof: Restrict the continuous native subtype inclusion in the other direction using hS.
+
+### Inner action on a named coefficient kernel
+
+`TauCeti.NonabelianCohomology.Twist.namedKernelAction`
+
+Transport the actual restricted G-action on K_c through e to obtain a MulDistribMulAction G S. Its value is c(g)(g•x)c(g)⁻¹ in U.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action`.
+
+Proof: Define g•x=e⁻¹(g•e(x)). Check identity, composition, identity element and multiplication using the actual multiplicative equivalence and restricted kernel action.
+
+Uses: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-inner-action-value`: Evaluate the transport and the inherited restricted inner action; no commuting of factors.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence-equivariance`: Cancel e with its inverse in the transported action formula.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-inner-action-continuity`: Compose c with the first projection, multiply with the continuous original action and inverse c-value, then restrict into S using actual pointwise membership.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-equivalence`: Map cocycles and their gauge-orbit classes through e and e⁻¹. Derive inverse equivariance by cancellation. Choose representatives only to verify the two inverse laws; subtype values identify the composites.
+
+API:
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelAction_value`: For g∈G and x∈S, the underlying value of the transported action is c(g)(g•x.val)c(g)⁻¹, in this order.
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_smul`: For the transported S-action and restricted K_c-action, e(g•x)=g•e(x).
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelContinuousSMul`: The transported G-action on S is jointly continuous for the native subspace topology.
+
+Tests:
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelAction.test_neutral_twist` (compatibility): For the neutral cocycle c=1, the underlying named-kernel action agrees with the original G-action: (g•x).val=g•x.val.
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelAction.test_multiplication` (characterisation): For x,y∈S and g∈G, the underlying value of g•(xy) equals (g•x).val(g•y).val, so the transported action really acts by group automorphisms.
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelAction.test_noncommutative_inner_action` (non-example): If c(g)(g•x.val)c(g)⁻¹ differs from g•x.val, the actual named-kernel action on x differs from the original action. The following S₃ witness makes this hypothesis concrete.
+
+- `TauCeti.NonabelianCohomology.Twist.namedKernelAction.test_inner_action_witness` (computation): For U=S₃ and G=ConjAct(U), both discrete, c the coboundary of (01), g=(12) and x=(01), c(g)(g•x)c(g)⁻¹ differs from g•x. Together with the preceding subtype example this rejects an unchanged original action.
+
+### Conjugated value of the named kernel action
+
+`TauCeti.NonabelianCohomology.Twist.namedKernelAction_value`
+
+For g∈G and x∈S, the underlying value of the transported action is c(g)(g•x.val)c(g)⁻¹, in this order.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-inner-action`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action-value`.
+
+Proof: Evaluate the transport and the inherited restricted inner action; no commuting of factors.
+
+### Equivariance of the kernel identification
+
+`TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_smul`
+
+For the transported S-action and restricted K_c-action, e(g•x)=g•e(x).
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-inner-action`, `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence`.
+
+Proof: Cancel e with its inverse in the transported action formula.
+
+### Joint continuity on the named kernel
+
+`TauCeti.NonabelianCohomology.Twist.namedKernelContinuousSMul`
+
+The transported G-action on S is jointly continuous for the native subspace topology.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-inner-action`, `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-inner-action-value`, `mathlib:Continuous.subtype_mk`.
+
+Proof: Compose c with the first projection, multiply with the continuous original action and inverse c-value, then restrict into S using actual pointwise membership.
+
+### Continuous H¹ comparison for the named kernel
+
+`TauCeti.NonabelianCohomology.H1.namedKernelEquiv`
+
+Construct a genuine pointed-set equivalence E:H¹(G,S with transported inner action)≃H¹(G,K_c) from e and e⁻¹. Both maps are induced by continuous equivariant native homomorphisms on actual continuous cocycles.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-inner-action`, `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence-continuity`, `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence-inverse-continuity`, `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence-equivariance`, `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-inner-action-continuity`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action-continuity`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map`.
+
+Proof: Map cocycles and their gauge-orbit classes through e and e⁻¹. Derive inverse equivariance by cancellation. Choose representatives only to verify the two inverse laws; subtype values identify the composites.
+
+Uses: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-representative`: Evaluate the induced actual quotient map on a representative.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-inverse-representative`: Evaluate the inverse quotient map with its actual equivariance proof.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-neutral`: Use the neutral-class law for a continuous equivariant coefficient homomorphism.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-inclusion-triangle`: Choose an actual cocycle representative. Both compositions have the same underlying subtype values, hence the identical mapped cocycle and gauge class.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-inclusion-range`: Transport each range witness through E or E⁻¹ and use the inclusion triangle. No uniqueness of ambient preimages is deduced.
+`AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-original-fibre-range`: Transport the original translated range witnesses through the genuine comparison E and its inverse, then apply the inherited repointed range criterion.
+
+API:
+
+- `TauCeti.NonabelianCohomology.H1.namedKernelEquiv_mk`: For d∈Z¹(G,S), E([d])=[e∘d] as actual continuous gauge classes.
+
+- `TauCeti.NonabelianCohomology.H1.namedKernelEquiv_symm_mk`: For d∈Z¹(G,K_c), E⁻¹([d])=[e⁻¹∘d], with inverse continuity and equivariance.
+
+- `TauCeti.NonabelianCohomology.H1.namedKernelEquiv_one`: E sends the neutral H¹ class in S to the neutral H¹ class in K_c.
+
+- `TauCeti.NonabelianCohomology.H1.namedKernelEquiv_inclusion`: For a∈H¹(G,S), inclusion_*(E(a))=i_*(a), where i:S→Twist(c) is the native S-subtype homomorphism, with its target viewed as the actual twist synonym. This compares actual H¹ maps, not merely their cardinalities.
+
+Tests:
+
+- `TauCeti.NonabelianCohomology.H1.namedKernelEquiv.test_neutral_class` (degenerate): The class of the actual neutral S-valued cocycle maps to the neutral K_c gauge class.
+
+- `TauCeti.NonabelianCohomology.H1.namedKernelEquiv.test_inverse_on_classes` (characterisation): For every actual gauge class a∈H¹(G,S), applying E followed by E⁻¹ returns a; the comparison is bijective at the quotient level.
+
+- `TauCeti.NonabelianCohomology.H1.namedKernelEquiv.test_repointed_non_neutral` (non-example): For surjective f and [f∘c]≠1, the neutral class of H¹(G,U) is excluded from the translated named-kernel inclusion range; the original fibre is not silently replaced by the neutral fibre.
+
+### Forward H¹ representative comparison
+
+`TauCeti.NonabelianCohomology.H1.namedKernelEquiv_mk`
+
+For d∈Z¹(G,S), E([d])=[e∘d] as actual continuous gauge classes.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-equivalence`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map`.
+
+Proof: Evaluate the induced actual quotient map on a representative.
+
+### Inverse H¹ representative comparison
+
+`TauCeti.NonabelianCohomology.H1.namedKernelEquiv_symm_mk`
+
+For d∈Z¹(G,K_c), E⁻¹([d])=[e⁻¹∘d], with inverse continuity and equivariance.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-equivalence`, `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence-inverse-continuity`, `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-equivalence-equivariance`.
+
+Proof: Evaluate the inverse quotient map with its actual equivariance proof.
+
+### Neutral class preserved by the kernel comparison
+
+`TauCeti.NonabelianCohomology.H1.namedKernelEquiv_one`
+
+E sends the neutral H¹ class in S to the neutral H¹ class in K_c.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-equivalence`, `AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map`.
+
+Proof: Use the neutral-class law for a continuous equivariant coefficient homomorphism.
+
+### Comparison with the native ambient inclusion
+
+`TauCeti.NonabelianCohomology.H1.namedKernelEquiv_inclusion`
+
+For a∈H¹(G,S), inclusion_*(E(a))=i_*(a), where i:S→Twist(c) is the native S-subtype homomorphism, with its target viewed as the actual twist synonym. This compares actual H¹ maps, not merely their cardinalities.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-equivalence`, `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-representative`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-inclusion`, `mathlib:Subgroup.subtype`.
+
+Proof: Choose an actual cocycle representative. Both compositions have the same underlying subtype values, hence the identical mapped cocycle and gauge class.
+
+### Exact range of the named kernel inclusion
+
+`TauCeti.NonabelianCohomology.H1.namedKernelInclusion_range`
+
+The set-theoretic range of i_*:H¹(G,S)→H¹(G,Twist(c)) equals the range of the inherited native K_c inclusion, for arbitrary f.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-inclusion-triangle`, `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-equivalence`.
+
+Proof: Transport each range witness through E or E⁻¹ and use the inclusion triangle. No uniqueness of ambient preimages is deduced.
+
+### Named kernel image is the quotient neutral fibre
+
+`TauCeti.NonabelianCohomology.H1.namedKernelInclusion_quotient_range_iff`
+
+For arbitrary f, a∈H¹(G,Twist(c)) belongs to range(i_*) iff its image in the actual quotient H¹(G,Twist(c)/K_c) is neutral.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-inclusion-range`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-quotient-range`.
+
+Proof: Rewrite the named inclusion range by the native kernel range and apply the inherited quotient neutral-fibre equivalence.
+
+### Named kernel image under a surjective coefficient map
+
+`TauCeti.NonabelianCohomology.H1.namedKernelInclusion_mapped_range_iff`
+
+If f is surjective, a∈H¹(G,Twist(c)) belongs to range(i_*) iff H¹.map(F_c)(a)=1. No topological quotient-map or continuous section is required.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work. f is surjective as a function; this witness is used for the mapped-target and original-fibre converses.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-inclusion-range`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-mapped-range`.
+
+Proof: Rewrite the named inclusion range, then apply the native mapped-target range equivalence under the explicit surjectivity witness.
+
+### Named kernel realizes the entire repointed fibre
+
+`TauCeti.NonabelianCohomology.H1.namedKernelInclusion_fibre_range_iff`
+
+If f is surjective, a∈H¹(G,U) lies in the range of b↦T_c(i_*(b)) iff H¹.map(f)(a)=[f∘c]. This distinguished target class need not be neutral.
+
+Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is an actual native Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are actual continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective; kernel-fibre orbit stabilizers, central H², additive comparison and geometric representability remain separate work. f is surjective as a function; this witness is used for the mapped-target and original-fibre converses.
+
+Inputs: `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-inclusion-triangle`, `AnabelianGeometryAndNonabelianChabauty:NC.3/named-kernel-h1-equivalence`, `AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-original-fibre-range`.
+
+Proof: Transport the original translated range witnesses through the genuine comparison E and its inverse, then apply the inherited repointed range criterion.
+
+## Reading and library boundary
+
+The current full issue and seven stages, all seven reviewed library-audit rows, the reserved all-degrees finite-coefficient étale K(pi,1) contract and the NC.3 correction in REV-AUDIT-08 were inspected. The 36 link maps contain 29 relevant negative examined entries and no relevant actual links or overlaps. This does not assert that the maps contain no entries. The R02.6 supplier stage now concerns numerical inequalities, and is not evidence for a generic continuous-cohomology theorem. Existing seventeen requests and the RT-A2/A6 and BDMTV/Chen source ownership contracts remain in place.
+
+Fresh selected Kim §1 passages define actual continuous cocycles and ordered gauges, discuss coefficient functors and prove Proposition 2 by the central-extension induction. The subgroup paragraph can involve non-normal subgroups and a pointed coset set. The present adapter is an authored native normal-kernel deduction and does not replace that general paragraph by a quotient group. The original source obligations remain open. Pinned MulEquiv, Continuous.subtype_mk and continuous_subtype_val statements were inspected; the open Mathlib PR #31613 remains prior art and is not part of the pinned baseline.
+
+Fresh execution: NativeFinal.lean passes at pinned Mathlib with 278 axiom audits, 129 examples, zero admissions and zero warnings. The precisely bounded canonical Mathlib-only projection passes with 509 admission warnings and no other warnings. The full canonical file, including the exact Tau Ceti import and Abelian section, remains UNCOMPILED. No new Mathlib or Tau Ceti implementation is claimed; the earlier execution notes below are historical. Source-bound hashes, resource guards and public recovery are in the handoff.
+
+## Preserved earlier plan
+
 # NC.3 continuation: exact kernel-H¹ images
 
 This partial continuation retains the full incoming roadmap. G has an arbitrary topology; U and V are topological groups with jointly continuous automorphism actions. For a continuous equivariant f and a continuous cocycle c, F_c maps the actual inner twist to the twist by f∘c. Its native kernel K_c has the restricted inner action and subspace topology.

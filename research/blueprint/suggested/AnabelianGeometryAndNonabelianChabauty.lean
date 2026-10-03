@@ -3835,3 +3835,276 @@ example :
 
 end KernelImageTests
 end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section NamedKernel
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U]
+  [MulDistribMulAction G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+variable (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+  (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+  (S : Subgroup U) (hS : ∀ x : U, x ∈ S ↔ f x = 1)
+
+/-- A named subgroup has to be the actual kernel, with its native subspace topology. -/
+def Twist.namedKernelEquiv (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (S : Subgroup U) (hS : ∀ x : U, x ∈ S ↔ f x = 1) : S ≃* (Twist.map c f hf hG).ker := by sorry
+
+lemma Twist.namedKernelEquiv_apply (x : S) :
+    Twist.toOriginal c (Twist.namedKernelEquiv c f hf hG S hS x).val = x.val := by sorry
+
+lemma Twist.namedKernelEquiv_symm_apply (x : (Twist.map c f hf hG).ker) :
+    ((Twist.namedKernelEquiv c f hf hG S hS).symm x).val =
+      Twist.toOriginal c x.val := by sorry
+
+lemma Twist.namedKernelEquiv_continuous :
+    Continuous (Twist.namedKernelEquiv c f hf hG S hS) := by sorry
+
+lemma Twist.namedKernelEquiv_symm_continuous :
+    Continuous (Twist.namedKernelEquiv c f hf hG S hS).symm := by sorry
+
+@[instance_reducible]
+def Twist.namedKernelAction (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (S : Subgroup U) (hS : ∀ x : U, x ∈ S ↔ f x = 1)
+    [hTopU : IsTopologicalGroup U] [hActionU : ContinuousSMul G U]
+    [hTopV : IsTopologicalGroup V] [hActionV : ContinuousSMul G V] : MulDistribMulAction G S := by sorry
+
+variable [hTopU : IsTopologicalGroup U] [hActionU : ContinuousSMul G U]
+  [hTopV : IsTopologicalGroup V] [hActionV : ContinuousSMul G V]
+
+lemma Twist.namedKernelAction_value (g : G) (x : S) :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     (g • x).val = c g * (g • x.val) * (c g)⁻¹) := by sorry
+
+lemma Twist.namedKernelEquiv_smul (g : G) (x : S) :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     Twist.namedKernelEquiv c f hf hG S hS (g • x) =
+       g • Twist.namedKernelEquiv c f hf hG S hS x) := by sorry
+
+lemma Twist.namedKernelContinuousSMul :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     ContinuousSMul G S) := by sorry
+
+def H1.namedKernelEquiv (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (S : Subgroup U) (hS : ∀ x : U, x ∈ S ↔ f x = 1) :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     H1 G S ≃ H1 G (Twist.map c f hf hG).ker) := by sorry
+
+lemma H1.namedKernelEquiv_mk :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ d : Z1 G S,
+     H1.namedKernelEquiv c f hf hG S hS (H1.mk d) =
+       H1.mk (Z1.map (Twist.namedKernelEquiv c f hf hG S hS).toMonoidHom
+         (Twist.namedKernelEquiv_continuous c f hf hG S hS)
+         (Twist.namedKernelEquiv_smul c f hf hG S hS) d)) := by sorry
+
+lemma H1.namedKernelEquiv_symm_mk :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     let e := Twist.namedKernelEquiv c f hf hG S hS
+     ∀ d : Z1 G (Twist.map c f hf hG).ker,
+     (H1.namedKernelEquiv c f hf hG S hS).symm (H1.mk d) =
+       H1.mk (Z1.map e.symm.toMonoidHom
+         (Twist.namedKernelEquiv_symm_continuous c f hf hG S hS)
+         (fun g x => by
+           apply e.injective
+           change e (e.symm (g • x)) = e (g • e.symm x)
+           rw [e.apply_symm_apply, Twist.namedKernelEquiv_smul, e.apply_symm_apply]) d)) := by sorry
+
+lemma H1.namedKernelEquiv_one :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     H1.namedKernelEquiv c f hf hG S hS 1 = 1) := by sorry
+
+lemma H1.namedKernelEquiv_inclusion :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     let j : H1 G S → H1 G (Twist c) := H1.map (G := G) (U := S) (U' := Twist c) (show S →* Twist c from S.subtype)
+         continuous_subtype_val (fun g x => by
+           change (show Twist c from (g • x).val) = g • (show Twist c from x.val)
+           rw [Twist.smul_def]
+           exact Twist.namedKernelAction_value c f hf hG S hS g x)
+     ∀ a : H1 G S,
+     H1.twistedKernelInclusion (G := G) (U := U) (V := V) c f hf hG
+       ((H1.namedKernelEquiv c f hf hG S hS).toFun a) =
+       j a) := by sorry
+
+lemma H1.namedKernelInclusion_range :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     Set.range (H1.map (G := G) (U := S) (U' := Twist c) (show S →* Twist c from S.subtype)
+       continuous_subtype_val (fun g x => by
+           change (show Twist c from (g • x).val) = g • (show Twist c from x.val)
+           rw [Twist.smul_def]
+           exact Twist.namedKernelAction_value c f hf hG S hS g x)) =
+       Set.range (H1.twistedKernelInclusion c f hf hG)) := by sorry
+
+lemma H1.namedKernelInclusion_quotient_range_iff :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist c),
+     a ∈ Set.range (H1.map (G := G) (U := S) (U' := Twist c) (show S →* Twist c from S.subtype)
+       continuous_subtype_val (fun g x => by
+           change (show Twist c from (g • x).val) = g • (show Twist c from x.val)
+           rw [Twist.smul_def]
+           exact Twist.namedKernelAction_value c f hf hG S hS g x)) ↔ H1.twistedQuotient c f hf hG a = 1) := by sorry
+
+lemma H1.namedKernelInclusion_mapped_range_iff (hsur : Function.Surjective f) :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist c),
+     a ∈ Set.range (H1.map (G := G) (U := S) (U' := Twist c) (show S →* Twist c from S.subtype)
+       continuous_subtype_val (fun g x => by
+           change (show Twist c from (g • x).val) = g • (show Twist c from x.val)
+           rw [Twist.smul_def]
+           exact Twist.namedKernelAction_value c f hf hG S hS g x)) ↔
+       H1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+         (Twist.map_smul c f hf hG) a = 1) := by sorry
+
+lemma H1.namedKernelInclusion_fibre_range_iff (hsur : Function.Surjective f) :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ a : H1 G U,
+     a ∈ Set.range (fun b => H1.twistEquiv c
+       (H1.map (G := G) (U := S) (U' := Twist c) (show S →* Twist c from S.subtype)
+         continuous_subtype_val (fun g x => by
+           change (show Twist c from (g • x).val) = g • (show Twist c from x.val)
+           rw [Twist.smul_def]
+           exact Twist.namedKernelAction_value c f hf hG S hS g x) b)) ↔
+       H1.map f hf hG a = H1.mk (Z1.map f hf hG c)) := by sorry
+
+end NamedKernel
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section NamedKernelTests
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [MulDistribMulAction G V]
+
+-- test: Twist.namedKernelEquiv.test_constant_top
+example (c : Z1 G U) (x : U) :
+    let f : U →* V := 1
+    let hG : ∀ (g : G) (x : U), f (g • x) = g • f x := fun g _ => (smul_one g).symm
+    let hS : ∀ x : U, x ∈ (⊤ : Subgroup U) ↔ f x = 1 := fun _ => by simp [f]
+    Twist.toOriginal c
+      (Twist.namedKernelEquiv c f continuous_const hG ⊤ hS ⟨x, by simp⟩).val = x := by sorry
+
+-- test: Twist.namedKernelEquiv.test_identity_bot
+example (c : Z1 G U) (x : (⊥ : Subgroup U)) :
+    let hS : ∀ x : U, x ∈ (⊥ : Subgroup U) ↔ MonoidHom.id U x = 1 := fun _ => by simp
+    Twist.toOriginal c
+      (Twist.namedKernelEquiv c (MonoidHom.id U) continuous_id
+        (fun (_ : G) _ => rfl) ⊥ hS x).val = 1 := by sorry
+
+-- test: Twist.namedKernelEquiv.test_wrong_subgroup_rejected
+example (f : U →* V) (S : Subgroup U) (x : U) (hx : x ∈ S) (hbad : f x ≠ 1) :
+    ¬ (∀ y : U, y ∈ S ↔ f y = 1) := by sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U]
+  [IsTopologicalGroup V] [ContinuousSMul G V]
+
+-- test: Twist.namedKernelAction.test_neutral_twist
+example (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (S : Subgroup U) (hS : ∀ x : U, x ∈ S ↔ f x = 1) (g : G) (x : S) :
+    (letI := Twist.namedKernelAction (1 : Z1 G U) f hf hG S hS
+     (g • x).val = g • x.val) := by sorry
+
+-- test: Twist.namedKernelAction.test_multiplication
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (S : Subgroup U) (hS : ∀ x : U, x ∈ S ↔ f x = 1) (g : G) (x y : S) :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     (g • (x * y)).val = (g • x).val * (g • y).val) := by sorry
+
+-- test: Twist.namedKernelAction.test_noncommutative_inner_action
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (S : Subgroup U) (hS : ∀ x : U, x ∈ S ↔ f x = 1) (g : G) (x : S)
+    (hbad : c g * (g • x.val) * (c g)⁻¹ ≠ g • x.val) :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     (g • x).val ≠ g • x.val) := by sorry
+
+-- test: Twist.namedKernelAction.test_inner_action_witness
+example :
+    let U := Equiv.Perm (Fin 3)
+    let G := ConjAct U
+    letI : TopologicalSpace U := ⊥
+    letI : TopologicalSpace G := ⊥
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : ContinuousSMul G U := ⟨continuous_of_discreteTopology⟩
+    let c : Z1 G U := Z1.coboundary (Equiv.swap (0 : Fin 3) 1)
+    let g : G := ConjAct.toConjAct (Equiv.swap (1 : Fin 3) 2)
+    let x : U := Equiv.swap (0 : Fin 3) 1
+    c g * (g • x) * (c g)⁻¹ ≠ g • x := by sorry
+
+-- test: H1.namedKernelEquiv.test_neutral_class
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (S : Subgroup U) (hS : ∀ x : U, x ∈ S ↔ f x = 1) :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     H1.namedKernelEquiv c f hf hG S hS (H1.mk (1 : Z1 G S)) = 1) := by sorry
+
+-- test: H1.namedKernelEquiv.test_inverse_on_classes
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (S : Subgroup U) (hS : ∀ x : U, x ∈ S ↔ f x = 1) :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ a : H1 G S, (H1.namedKernelEquiv c f hf hG S hS).symm
+       (H1.namedKernelEquiv c f hf hG S hS a) = a) := by sorry
+
+-- test: H1.namedKernelEquiv.test_repointed_non_neutral
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (S : Subgroup U) (hS : ∀ x : U, x ∈ S ↔ f x = 1)
+    (hsur : Function.Surjective f) (hfc : H1.mk (Z1.map f hf hG c) ≠ 1) :
+    (letI := Twist.namedKernelAction c f hf hG S hS
+     letI := Twist.namedKernelContinuousSMul c f hf hG S hS
+     letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     (1 : H1 G U) ∉ Set.range (fun b => H1.twistEquiv c
+       (H1.map (G := G) (U := S) (U' := Twist c)
+         (show S →* Twist c from S.subtype)
+         continuous_subtype_val (fun g x => by
+           change (show Twist c from (g • x).val) = g • (show Twist c from x.val)
+           rw [Twist.smul_def]
+           exact Twist.namedKernelAction_value c f hf hG S hS g x) b))) := by sorry
+
+end NamedKernelTests
+end TauCeti.NonabelianCohomology
