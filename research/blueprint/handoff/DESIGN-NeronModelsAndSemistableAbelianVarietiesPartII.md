@@ -1,3 +1,283 @@
+# Current checkpoint — specified quadratic overlap
+
+Codex — codex-7e92bd, 3 October 2026. Refs #3378. Claim5964213769 was confirmed by bot5964214952. The complete issue was read before and after confirmation and its body was unchanged. Mathematical base `53622870caaae54edc6a25556a8cf82007e454ce`; publication base `1cb7fbca1727576cfc5c3fa0de58b9f1092552ea`. This is a partial planning checkpoint; all seven stages remain partial and every implementation status remains unchecked.
+
+## Mathematical result
+
+For Q(c,a,b)=ct²+at+b, use the actual localization L(c,a,b)=R[t,1/(tQ)]. Its coordinate t has the specified inverse v=Q/(tQ). Evaluation at v reverses c and b, because Q(c,a,b)(v)=v²Q(b,a,c)(t). The resulting specified R-algebra homomorphisms are inverses; native Spec gives their actual affine scheme isomorphism. These statements cover every commutative ring, including nilpotents, the zero ring and zero Q.
+
+Over a field, the actual pinch subring A_Q=k+Qk[t] contains tQ in its conductor. The existing G.0 conductor-localization theorem therefore gives the specified bijection and ring equivalence A_Q[1/(tQ)]≃L(c,a,b). The recovered general conductor theorem is reused; its theory is not replanned.
+
+For the existing infinity quotient Chart(a,b)=R[u][z]/(Q∞z−u³), the incoming explicit inverse of Q∞ makes its localization at u a native localization of R[u] at uQ∞. The specified coefficient-compatible equivalence identifies it with L(b,a,1). The root z becomes a unit under any receiving ring homomorphism exactly when u does. Applying native principal-open identities to Q∞z=u³ gives D(z)=D(u) inside the actual prime spectrum of Chart(a,b).
+
+Composing the finite comparison, reciprocal equivalence and inverse infinity comparison gives the specified finite-to-infinity chart transition for q=t²+at+b. Its equation on every finite pinch element is explicit. The native homogeneous normalization tuples at (1,t⁻¹) and (t,1) agree by the unit factor t⁻³, in all three coordinates. These ring and affine scheme statements are inputs to the global construction; they do not construct a relative-Proj curve or the global normalization morphism.
+
+## Contracts and ownership
+
+This continuation adds52 declaration nodes (12 constructions and40 lemmas),38 API entries and37 named tests. Final totals:325 nodes,174 API entries,169 definition/construction tests and200 raw tests,29 planets,244 baseline citations,17 gaps and23 supplier requests. All273 incoming statement, hypothesis, acceptance, API and test contracts are preserved.272 whole node objects are unchanged; the I₁ genus consumer gains three dependencies and one proof step. The previous full suggested file is an exact prefix of the submitted file. Requests,78 routed items,21 source findings, Ferrand key and seven-stage scope are retained.
+
+Generic localization, polynomial evaluation, Laurent inversion, Spec and principal-open identities are imported from the pinned libraries. In particular, native LaurentPolynomial.invert already exists; this continuation specifies its required coordinate-inversion behavior directly on the two actual localized polynomial rings, without a replacement Laurent carrier. Generic Proj charts and affine gluing remain in the existing SF.0 request. The original arbitrary-subring conductor and common-ideal localization proofs are recovered from their public archive and reused as inherited helpers.
+
+## Reading and verification boundary
+
+Fresh primary reading: [Schröer, arXiv2004.07025v3 HTML](https://arxiv.org/html/2004.07025v3), complete §3, both conductor diagrams, Propositions3.1–3.2 with proofs/count table and Proposition3.3 statement/table. Retained HTML2087533bytes, SHA256d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456. The overlap formulas are authored deductions. No whole-paper reread, published-version erratum collation or inherited finite-field parity/count rerun is claimed.
+
+The complete issue, WORKERS and applicable protocols, all seven stage descriptions, current reserved Ferrand key, six reviewed R11 audit rows, applicable SF.0/SF.1/SF.3 contracts, parent R11.2/R11.4 descriptions and scoped source route were inspected in this continuation. The incoming current handoff and selected historical conductor sections were read; preserved historical handoffs are not claimed freshly read in full. The continuous session's earlier upstream exemplar reading remains in effect. The real atlas assembly below checks current stage relationships. No PartII entries were present in the screened blueprint link files or static atlas stage-edge file; the proposed roadmap definition is explicitly overlaid in the actual assembler.
+
+Actual native declaration statements and ambient hypotheses were read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 before use. Twelve new baseline entries carry pinned source-file hashes. Tau Ceti remains pinned to f790474821cf4256814db967cb154e7af3d0c369. A bounded open Mathlib PR query for Ferrand, pinching and quadratic normalization found no hits; indexed Zulip queries for pinching/schemes and LaurentPolynomial/invert found no hits. These searches do not prove absence.
+
+The native prototype compiles:1717lines,95 examples,132 axiom audits, zero errors/warnings/admissions,31.71s, maximumRSS6845144KiB,38GiB available before execution. All audit outputs use only ordinary logical/choice/quotient axioms. The exact admitted extraction compiles:1247lines,95 examples,175 expected admission warnings, no other warning/error,25.76s, maximumRSS6775392KiB,37GiB available. Its20 inherited audits concern retained actual helper proofs. All52 new declaration headers and37 example headers match between proof and admitted planning forms. Small carrier abbreviations are retained, with the finite-denominator membership proof admitted in the planning form.
+
+The full canonical2999-line file with189 examples is UNCOMPILED. The existing build lacks TauCeti EllipticCurve.Affine.Point.VariableChange, WeilDivisor.Scheme.Basic, Curves.StableReduction.Model.Basic and EllipticCurve.PointCount artifacts. Its Mathlib HEAD is the exact pin; its Tau Ceti HEAD is cf386627e9176a3827c1a5fe804989fd94a4d216, not the pin. Both executed checks use only Mathlib and run sequentially under timeout1200 with memory checks. No project setup, library build, update, cache download or LSP was used.
+
+Tests include characteristic-two cusps, the nonsplit F₂ polynomial X²+X+1, the rational split polynomial X²−1, Z/4 coefficients, Z/1 and zero-polynomial localizations. They check the specified polynomial/coordinate maps, both ring and actual Spec inverse laws, equality of the infinity principal opens, the composed transition and all three homogeneous coordinates. They do not assert point counts, cohomology or geometric classification.
+
+The real indexed checker and five-file intake scan pass without errors, warnings, path problems or automatic refusals. All three actual graphs are acyclic: stage3043/8727, own declarations325/767, and combined3339/10007. All69 required stage pairs are reachable. There are no unresolved or external declaration prerequisites, no own skipped/pending links, unchanged stage edges and unchanged unrelated skipped/pending records compared with the incoming control. The control uses the same full atlas and actual assembly code. Publication main was fast-forwarded into this own branch after verifying the five incoming deliverables and governing instructions/audit unchanged; other changes were unrelated job submissions. The full validation was repeated at that publication tree.
+
+## Public evidence and reproduction
+
+Checked native proof archive: [f7a1fffe0f68cf0e244fbf63f35a3274dce15e6e](https://github.com/CBirkbeck/tauceti-explorer/blob/f7a1fffe0f68cf0e244fbf63f35a3274dce15e6e/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean), between BEGIN/END ARCHIVED CHECKED QUADRATIC OVERLAP. This archive commit is an ancestor of the submission. The final file removes the inert proof comment and carries admitted signatures. The prior infinity proof is retained byte-for-byte; inherited conductor helpers are reconstructed from the common-ideal archive. No evidence depends on a private scratch path.
+
+- Native: SHA256 `4dea38c44f292785e5f1963a8ca06eb5c12dbda08cbf0bab2ee66f2d18bbab3a`; normalized log `89dc684dd1b2fe45e0373bffdcf242eb8c6bf7d984c303ffcf5ac24198939a0c`.
+- Canonical: SHA256 `3f431253b8e81febedcef21ae532bb6f779cd15d7eb211c223d86961a9b25f23`; normalized log `e64238c1a7b58f7d4446a3c349358cb86c15683fd405f9620a5b458c5c7d95d8`.
+- FullCanonical: SHA256 `52f3b495707593b9207778b476521c52338eec3496bfd9fb0be5f0642662b780`.
+- New: SHA256 `3e8e25fca15d3a838e6215ed4bdd8b73e22059f81b71cfa43ffc3037d686ef24`.
+- CommonHelpers: SHA256 `51aef66ceb501ddf3d3f74663d6e15493ffe6ee9d72e6e9d14d6e5350e41ea87`.
+
+Save the three Python fences below as recover.py, verify.py and graph.py in one small disk-backed scratch directory outside the checkout. From the submitted checkout, run `python3 recover.py <submitted-commit> <scratch-directory>`; it fetches immutable public blobs, reconstructs both executed sources and verifies their hashes. Fetch the mathematical base into your existing checkout if needed. Run `python3 verify.py <scratch-directory> <pinned-declarations.tsv>` and `python3 graph.py <scratch-directory>` from the repository root. The verifier distinguishes absent local execution logs from a new Lean run; recovery alone does not recertify compilation.
+
+If an existing build at the Mathlib pin and at least20GiB available memory are present, execute `timeout 1200 /usr/bin/time -v lake env lean <scratch-directory>/Native.lean` and then the same command for Canonical.lean, redirecting both stdout and stderr to native.log and canonical.log respectively. Wait for each process to finish and check memory before the next. Run verify.py again to check these logs. Normalize logs by removing the timing footer, replacing the source-directory prefix with an empty string and retaining one final newline. The source hashes and metadata above describe this submission's runs. Do not set up or build libraries to reproduce them. Delete disposable reproduction scratch after use.
+
+recover.py SHA256 `a46240440689789c6d43a542d2c68374dca98f745d7c83e6ccde75014469f299`.
+
+```python
+from pathlib import Path
+from urllib.request import urlopen
+import hashlib,json,sys
+PATH='research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean'
+ARCHIVE='f7a1fffe0f68cf0e244fbf63f35a3274dce15e6e'
+INCOMING='5e68ad29cdbd5dcbaba5e45d303f7f91bdd5001d'
+COMMON='f5288262eeafbced0db1da046651a4128ccdd167'
+BASE='53622870caaae54edc6a25556a8cf82007e454ce'
+PUBLICATION='1cb7fbca1727576cfc5c3fa0de58b9f1092552ea'
+def read(ref,path=PATH):
+ return urlopen('https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path).read().decode()
+def section(text,start,end):return text.split(start+'\n',1)[1].split(end+'\n',1)[0]
+def sha(text):return hashlib.sha256(text.encode()).hexdigest()
+def reconstruct(submitted_ref):
+ native=section(read(ARCHIVE),'BEGIN ARCHIVED CHECKED QUADRATIC OVERLAP','END ARCHIVED CHECKED QUADRATIC OVERLAP')
+ assert sha(native)=='4dea38c44f292785e5f1963a8ca06eb5c12dbda08cbf0bab2ee66f2d18bbab3a'
+ previous=read(INCOMING)
+ incoming=section(previous,'-- BEGIN ARCHIVED CHECKED QUADRATIC INFINITY CHART','-- END ARCHIVED CHECKED QUADRATIC INFINITY CHART')
+ admitted=section(previous,'-- BEGIN ARCHIVED ADMITTED QUADRATIC INFINITY CHART','-- END ARCHIVED ADMITTED QUADRATIC INFINITY CHART')
+ assert sha(incoming)=='d80ef1ec69b215b8e20ca606fdc56855552fec6026a65da21cc345add78dd651'
+ assert sha(admitted)=='1222e696fc01949de932b5a935a018e5788f29d3ed21e3357f7f763238fc5ef4'
+ common=section(read(COMMON),'BEGIN ARCHIVED CHECKED COMMON IDEAL LOCALIZATION','END ARCHIVED CHECKED COMMON IDEAL LOCALIZATION')
+ assert sha(common)=='116f478ae802f6ca455a0299d4af2e355ab3c97b41f0bdba598453f11225507b'
+ a=common[common.index('namespace Subring'):common.index('namespace TauCeti.GenusOne.QuadraticPinch')]
+ start=common.index('namespace TauCeti.GenusOne.AffinePinching');end=common.index('namespace TauCeti.GenusOne.QuadraticPinch',start)
+ helpers='universe z\n'+a+common[start:end]
+ assert sha(helpers)=='51aef66ceb501ddf3d3f74663d6e15493ffe6ee9d72e6e9d14d6e5350e41ea87'
+ assert native.startswith(incoming+helpers)
+ tail=native[len(incoming+helpers):];auditstart=tail.index('#print axioms TauCeti.GenusOne.QuadraticPinch.Overlap.quadratic\n')
+ new=tail[:auditstart];audits=tail[auditstart:]
+ assert sha(new)=='3e8e25fca15d3a838e6215ed4bdd8b73e22059f81b71cfa43ffc3037d686ef24'
+ full=read(submitted_ref);assert sha(full)=='52f3b495707593b9207778b476521c52338eec3496bfd9fb0be5f0642662b780'
+ newadmitted=section(full,'/- BEGIN QUADRATIC OVERLAP COMPARISON -/','/- END QUADRATIC OVERLAP COMPARISON -/')
+ canonical=admitted+helpers+newadmitted
+ assert sha(canonical)=='3f431253b8e81febedcef21ae532bb6f779cd15d7eb211c223d86961a9b25f23'
+ return {'Native.lean':native,'IncomingNative.lean':incoming,'IncomingAdmitted.lean':admitted,
+  'CommonNative.lean':common,'CommonHelpers.lean':helpers,'New.lean':new,'Audits.lean':audits,
+  'FullCanonical.lean':full,'Canonical.lean':canonical,'NewAdmitted.lean':newadmitted,
+  'base.txt':BASE+'\n','publication-base.txt':PUBLICATION+'\n',
+  'original-packet.json':read(BASE,'research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json'),
+  'original-roadmap.json':read(BASE,'research/blueprint/roadmaps/NeronModelsAndSemistableAbelianVarietiesPartII.json')}
+if __name__=='__main__':
+ out=Path(sys.argv[2]);out.mkdir(parents=True,exist_ok=True)
+ for name,text in reconstruct(sys.argv[1]).items():(out/name).write_text(text)
+```
+
+verify.py SHA256 `46241f9e0abc312b5b1a8b237a5c4be73bf45c117b8a7657154daa47a498e51e`.
+
+```python
+from pathlib import Path
+import ast,collections,hashlib,json,re,subprocess,sys
+R=Path.cwd();S=Path(sys.argv[1]);RID='NeronModelsAndSemistableAbelianVarietiesPartII'
+files=['research/blueprint/'+f+'/'+('DESIGN-' if f=='handoff' else '')+RID+'.'+ext for f,ext in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+p=json.loads((R/files[1]).read_text());old=json.loads((S/'original-packet.json').read_text());nodes={n['id']:n for n in p['nodes']}
+assert len(old['nodes'])==273 and len(nodes)==325
+consumer=RID+':G.1/quadratic-pinch-i1-genus'
+for n in old['nodes']:
+ v=nodes[n['id']]
+ if n['id']!=consumer:assert v==n,n['id']
+ else:
+  assert {k:x for k,x in v.items() if k not in ['prerequisites','proofSteps']}=={k:x for k,x in n.items() if k not in ['prerequisites','proofSteps']}
+  assert v['prerequisites'][:-3]==n['prerequisites'] and v['proofSteps'][:-1]==n['proofSteps']
+for k in old:
+ if k not in ['summary','nodes','sources','baseline','coverage','gaps']:assert p[k]==old[k],k
+assert p['sources'][:-1]==old['sources']
+assert p['baseline']['declarations'][:232]==old['baseline']['declarations']
+assert p['gaps'][:-1]==old['gaps'][:-1]
+assert {k:v for k,v in p['gaps'][-1].items() if k!='overlapContinuation'}==old['gaps'][-1]
+for a,b in zip(p['coverage'],old['coverage']):
+ if a['stageId']==RID+':G.1':assert a['remaining'][:-1]==b['remaining'] and a['status']==b['status']
+ else:assert a==b
+assert all(n['implementationStatus']=='unchecked' for n in p['nodes']) and p['status']=='partial'
+roadmap=json.loads((R/files[0]).read_text());oldroad=json.loads((S/'original-roadmap.json').read_text())
+assert {k:v for k,v in roadmap.items() if k!='stages'}=={k:v for k,v in oldroad.items() if k!='stages'}
+for a,b in zip(roadmap['stages'],oldroad['stages']):
+ if a['key']=='G.1':assert a['description'].startswith(b['description']) and {k:v for k,v in a.items() if k!='description'}=={k:v for k,v in b.items() if k!='description'}
+ else:assert a==b
+base=(S/'base.txt').read_text().strip()
+def blob(path):return subprocess.check_output(['git','show',base+':'+path],text=True)
+full=(R/files[3]).read_text();reader=(R/files[2]).read_text()
+incoming=(S/'IncomingNative.lean').read_text();helpers=(S/'CommonHelpers.lean').read_text();new=(S/'New.lean').read_text();native=(S/'Native.lean').read_text();audits=(S/'Audits.lean').read_text()
+assert hashlib.sha256(incoming.encode()).hexdigest()=='d80ef1ec69b215b8e20ca606fdc56855552fec6026a65da21cc345add78dd651'
+assert native==incoming+helpers+new+audits and not re.search(r'\bsorry\b|\baxiom\b',native)
+assert full.startswith(blob(files[3])) and reader.startswith(blob(files[2]).rstrip()+'\n')
+newadmitted=full.split('/- BEGIN QUADRATIC OVERLAP COMPARISON -/\n')[1].split('/- END QUADRATIC OVERLAP COMPARISON -/')[0]
+def headers(text):
+ lines=text.splitlines(keepends=True);out={};i=0
+ while i<len(lines):
+  m=re.match(r'^(def|lemma|abbrev|example)\b(?: (\w+))?',lines[i])
+  if not m:i+=1;continue
+  j=i+1
+  while j<len(lines) and (not lines[j].strip() or lines[j][0].isspace()):j+=1
+  raw=''.join(lines[i:j]);sep=raw.index(' :=');name=m[2] if m[1]!='example' else lines[i-1].removeprefix('-- test: ').strip()
+  out[(m[1],name)]=' '.join(raw[:sep].split());i=j
+ return out
+assert headers(new)==headers(newadmitted)
+hh=headers(new);decls={name for (kind,name) in hh if kind!='example'};tests={name for (kind,name) in hh if kind=='example'}
+assert len(decls)==52 and len(tests)==37
+for n in p['nodes'][273:]:
+ assert n['declarationName'].split('.')[-1] in decls
+ assert n['declarationName'] in reader and n['statement'] in reader
+ for a in n.get('api',[]):assert a['name'] in reader and a['statement'] in reader and a['name'].split('.')[-1] in decls
+ for t in n.get('tests',[]):assert t['name'] in tests and t['statement'] in reader
+assert {t['name'] for n in p['nodes'][273:] for t in n.get('tests',[])}==tests
+expected=(S/'IncomingAdmitted.lean').read_text()+helpers+newadmitted
+assert (S/'Canonical.lean').read_text()==expected and (S/'FullCanonical.lean').read_text()==full
+lean={}
+for name,count,warnings in [('Native',132,0),('Canonical',20,175)]:
+ path=S/(name.lower()+'.log')
+ if not path.exists():lean[name]='No local execution log supplied; source/header validation only.';continue
+ log=path.read_text();assert 'Exit status: 0' in log and not re.search(r'error(?:\(|:)|sorryAx',log)
+ assert log.count('warning:')==log.count('warning: declaration uses')==warnings
+ assert log.count('depends on axioms:')+log.count('does not depend on any axioms')==count
+ lean[name]={'warnings':warnings,'audits':count,'exit':0}
+tree=ast.parse((R/'research/blueprint/intake.py').read_text());names={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in names]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='DESIGN-'+RID)
+problems=[x for path in files for x in env['file_problems'](path,(R/path).read_text())]
+refusals=env['auto_refusals'](job,files,False,{'codex-7e92bd'},set());assert not problems and not refusals,(problems,refusals)
+for path in files:
+ text=(R/path).read_text();assert not re.search(r'[ \t]+$',text,re.M),path
+ assert not re.search(r'/(?:home|Users)/[^/\s]+/',text),path
+pub=(S/'publication-base.txt').read_text().strip() if (S/'publication-base.txt').exists() else base
+changed=set(subprocess.check_output(['git','diff','--name-only',pub],text=True).splitlines());assert changed<=set(files),changed
+sys.path.insert(0,str(R/'scripts'));import check_blueprint
+errors,warnings,summary=check_blueprint.check(R/files[1],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world());assert not errors and not warnings,(errors,warnings)
+report={'oldNodeObjectsPreserved':272,'oldContractsPreserved':273,'newHeadersMatched':52,'newTestsMatched':37,'incomingProofPreserved':True,'canonicalPrefixPreserved':True,'readerPrefixPreserved':True,'intakeFileProblems':problems,'intakeAutoRefusals':refusals,'checker':summary,'rawApiItems':174,'rawTests':200,'lean':lean,'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+print(json.dumps(report,indent=2))
+```
+
+graph.py SHA256 `748694ed59b668c57cacf5134a328ed20b8e9dd0444c12ab84090c9dd849c4e3`.
+
+```python
+from pathlib import Path
+import os,sys,json,collections,copy
+R=Path.cwd();S=Path(sys.argv[1]);RID='NeronModelsAndSemistableAbelianVarietiesPartII';STEM=RID
+sys.path.insert(0,str(R/'scripts'))
+import check_blueprint
+p=json.loads((R/'research/blueprint/packets'/f'{STEM}.json').read_text())
+old=json.loads((S/'original-packet.json').read_text())
+nodes={n['id']:n for n in p['nodes']}
+import build,blueprints
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=STEM];documents[STEM]='research/blueprint/readmes/'+STEM+'.md'
+own_definition=json.loads((R/'research/blueprint/roadmaps'/f'{RID}.json').read_text())
+old_definition=json.loads((S/'original-roadmap.json').read_text())
+def assemble(candidate,definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,own_definition);b=assemble(old,old_definition)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+roadmap=own_definition
+pairs={(d,RID+':'+s['key']) for s in roadmap['stages'] for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ q=json.loads(file.read_text())
+ if q.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source','').startswith(RID+':') or x.get('target','').startswith(RID+':')}
+assert all(reachable(s,t) for s,t in pairs|rspairs),sorted((s,t) for s,t in pairs|rspairs if not reachable(s,t))
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']==len(nodes)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True}
+print(json.dumps(summary,indent=2))
+```
+
+## Resume here
+
+Use the actual SF.0 relative-Proj hypersurface chart comparison and gluing exports to identify this two-chart curve with the specified Weierstrass cubic. In that comparison, prove the named coordinate equations z=1/(tq) and u=1/t for the specified transition and all required structure-map compatibilities. The current general polynomial-image equation and D(z)=D(u) provide their algebraic inputs; no global morphism is yet constructed. Glue the homogeneous normalization P¹→C, compare it with the existing finite affine normalization and the infinity chart, and derive global finiteness/birationality. Then identify the actual conductor ideal sheaf, the structure-sheaf sequence and E/k quotient, and derive H⁰/H¹ through finite pushforward. Preserve the cusp/nodal/inseparable distinctions and separate I₂ geometry.
+
+All G.0–G.6 fibration, Picard, Néron, classification, model certificate, resolution/orbit, minimality, completeness and full source-extraction obligations remain required. The finite-field parity/count strand is already checked in an earlier checkpoint; do not redo it because historical remaining lists are stale. The generic SF.0/SF.1/SF.3 suppliers and all23 requests remain open. No stage is closed.
+
+## Preserved incoming handoff
+
 # Current checkpoint — Codex codex-5ebb6f, 3 October 2026
 
 Refs #3378. Claim5963866915 was confirmed for this identity by bot5963867959. The whole issue was read before claiming and reread after the bot confirmed the claim. Mathematical read base: 83fa0ef3fbe575ab72692cb37f5c5a06cc330f2e. Publication main 14122f5410315c7254b29874b6b80bf3f7bdd159 was fetched and merged into this own branch; all five incoming issue files were byte-identical and the complete overlay validation was repeated successfully against its immutable tree. This is a partial planning checkpoint; all seven stages remain partial and all implementation statuses remain unchecked.
