@@ -3701,31 +3701,24 @@ noncomputable section FullCurveGraded
 open scoped DirectSum
 set_option backward.isDefEq.respectTransparency false
 variable {σ k : Type*} [CommRing k] [Finite σ]
-local notation "R" => MvPowerSeries σ k
-local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
-local notation "H" => MvPolynomial.homogeneousSubmodule σ k
-variable (f : R)
-local notation "F" => Ideal.span ({f} : Set R)
-local notation "π" => Ideal.Quotient.mk F
-local notation "q" => Ideal.map π v
-local notation "G" => adicGradedRing q
+variable (f : (MvPowerSeries σ k))
 attribute [local instance] MvPolynomial.gradedAlgebra
 
-lemma homogeneousCurveRepresentative_mem (n : ℕ) (p : ↥(H n)) :
-    π (p.val : R) ∈ q ^ n := by
+lemma homogeneousCurveRepresentative_mem (n : ℕ) (p : ↥((MvPolynomial.homogeneousSubmodule σ k) n)) :
+    (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries σ k)))) (p.val : (MvPowerSeries σ k)) ∈ (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries σ k)))) (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k)))) ^ n := by
   sorry
 
-def curveHomogeneousToGraded (n : ℕ) : ↥(H n) →ₗ[k] G := by
+def curveHomogeneousToGraded (n : ℕ) : ↥((MvPolynomial.homogeneousSubmodule σ k) n) →ₗ[k] (adicGradedRing (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries σ k)))) (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))))) := by
   sorry
 
-lemma curveHomogeneousToGraded_apply (n : ℕ) (p : ↥(H n)) :
+lemma curveHomogeneousToGraded_apply (n : ℕ) (p : ↥((MvPolynomial.homogeneousSubmodule σ k) n)) :
     curveHomogeneousToGraded f n p =
-      adicMonomial q n ⟨π (p.val : R), homogeneousCurveRepresentative_mem f n p⟩ := by
+      adicMonomial (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries σ k)))) (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k)))) n ⟨(Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries σ k)))) (p.val : (MvPowerSeries σ k)), homogeneousCurveRepresentative_mem f n p⟩ := by
   sorry
 
-lemma curveHomogeneousToGraded_piece (n : ℕ) (p : ↥(H n)) :
+lemma curveHomogeneousToGraded_piece (n : ℕ) (p : ↥((MvPolynomial.homogeneousSubmodule σ k) n)) :
     curveHomogeneousToGraded f n p =
-      adicPieceInclusion q n
+      adicPieceInclusion (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries σ k)))) (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k)))) n
         (homogeneousNativeCurveDegreeEquiv f n (Submodule.Quotient.mk p)) := by
   sorry
 
@@ -3733,15 +3726,15 @@ lemma curveHomogeneousToGraded_one :
     curveHomogeneousToGraded f 0 ⟨1, MvPolynomial.isHomogeneous_one σ k⟩ = 1 := by
   sorry
 
-lemma curveHomogeneousToGraded_mul (n m : ℕ) (p : ↥(H n)) (r : ↥(H m)) :
-    curveHomogeneousToGraded f (n + m) (GradedMonoid.GMul.mul p r) =
+lemma curveHomogeneousToGraded_mul (n m : ℕ) (p : ↥((MvPolynomial.homogeneousSubmodule σ k) n)) (r : ↥((MvPolynomial.homogeneousSubmodule σ k) m)) :
+    curveHomogeneousToGraded f (n + m) (GradedMonoid.GMul.mul (A := fun n : ℕ => ↥((MvPolynomial.homogeneousSubmodule σ k) n)) p r) =
       curveHomogeneousToGraded f n p * curveHomogeneousToGraded f m r := by
   sorry
 
-def curveGradedMap : MvPolynomial σ k →ₐ[k] G := by
+def curveGradedMap : MvPolynomial σ k →ₐ[k] (adicGradedRing (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries σ k)))) (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))))) := by
   sorry
 
-lemma curveGradedMap_homogeneous (n : ℕ) (p : ↥(H n)) :
+lemma curveGradedMap_homogeneous (n : ℕ) (p : ↥((MvPolynomial.homogeneousSubmodule σ k) n)) :
     curveGradedMap f p.val = curveHomogeneousToGraded f n p := by
   sorry
 
@@ -3751,14 +3744,14 @@ lemma curveGradedMap_X (i : σ) :
   sorry
 
 lemma curveGradedMap_C (a : k) :
-    curveGradedMap f (MvPolynomial.C a) = algebraMap k G a := by
+    curveGradedMap f (MvPolynomial.C a) = algebraMap k (adicGradedRing (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries σ k)))) (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))))) a := by
   sorry
 
 lemma curveGradedMap_surjective : Function.Surjective (curveGradedMap f) := by
   sorry
 
 lemma curveGradedMap_projection (n : ℕ) (p : MvPolynomial σ k) :
-    adicRingProjection q n (curveGradedMap f p) =
+    adicRingProjection (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries σ k)))) (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k)))) n (curveGradedMap f p) =
       curveGradedMap f (MvPolynomial.homogeneousComponent n p) := by
   sorry
 
@@ -3768,7 +3761,7 @@ lemma curveGradedMap_eq_zero_iff (p : MvPolynomial σ k) :
         ⟨MvPolynomial.homogeneousComponent n p, MvPolynomial.homogeneousComponent_mem n p⟩ = 0 := by
   sorry
 
-lemma curveHomogeneousToGraded_eq_zero (n : ℕ) (p : ↥(H n)) :
+lemma curveHomogeneousToGraded_eq_zero (n : ℕ) (p : ↥((MvPolynomial.homogeneousSubmodule σ k) n)) :
     curveHomogeneousToGraded f n p = 0 ↔ homogeneousCurveProjection f n p = 0 := by
   sorry
 
@@ -3782,7 +3775,7 @@ lemma curveGradedMap_ker [NoZeroDivisors k] (d : ℕ) (hd : f.order = d) :
   sorry
 
 def curveTangentConeEquiv [NoZeroDivisors k] (d : ℕ) (hd : f.order = d) :
-    (MvPolynomial σ k ⧸ Ideal.span ({homogeneousPolynomial d f} : Set (MvPolynomial σ k))) ≃ₐ[k] G := by
+    (MvPolynomial σ k ⧸ Ideal.span ({homogeneousPolynomial d f} : Set (MvPolynomial σ k))) ≃ₐ[k] (adicGradedRing (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries σ k)))) (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))))) := by
   sorry
 
 lemma curveTangentConeEquiv_mk [NoZeroDivisors k] (d : ℕ) (hd : f.order = d)
@@ -3791,15 +3784,15 @@ lemma curveTangentConeEquiv_mk [NoZeroDivisors k] (d : ℕ) (hd : f.order = d)
   sorry
 
 lemma curveTangentConeEquiv_homogeneous [NoZeroDivisors k] (d : ℕ) (hd : f.order = d)
-    (n : ℕ) (p : ↥(H n)) :
+    (n : ℕ) (p : ↥((MvPolynomial.homogeneousSubmodule σ k) n)) :
     curveTangentConeEquiv f d hd (Ideal.Quotient.mk _ p.val) =
       curveHomogeneousToGraded f n p := by
   sorry
 
 lemma curveTangentConeEquiv_component [NoZeroDivisors k] (d : ℕ) (hd : f.order = d) (n : ℕ) :
     Submodule.map ((curveTangentConeEquiv f d hd).toLinearMap.comp
-      (Ideal.Quotient.mkₐ k _).toLinearMap) (H n) =
-        (adicRingComponents q n).restrictScalars k := by
+      (Ideal.Quotient.mkₐ k _).toLinearMap) ((MvPolynomial.homogeneousSubmodule σ k) n) =
+        (adicRingComponents (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries σ k)))) (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k)))) n).restrictScalars k := by
   sorry
 
 end FullCurveGraded
@@ -3944,61 +3937,56 @@ end ScalarRestriction
 
 noncomputable section CurveMultiplicity
 variable {k : Type*} [Field k] (f : MvPowerSeries (Fin 2) k)
-local notation "R" => MvPowerSeries (Fin 2) k
-local notation "I" => Ideal.span ({f} : Set R)
-local notation "C" => R ⧸ I
-local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
-local notation "q" => v.map (Ideal.Quotient.mk I)
-variable [IsNoetherianRing C] [IsLocalRing C]
+variable [IsNoetherianRing ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))] [IsLocalRing ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))]
 
 lemma planeCurve_polynomial_eq_explicit (d : ℕ) (hd : f.order = (d : ℕ∞))
-    (hq : q.radical = IsLocalRing.maximalIdeal C) :
-    polynomial (A := C) (M := C) q hq = planeCurvePolynomial d := by sorry
+    (hq : Ideal.radical (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) = IsLocalRing.maximalIdeal ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) :
+    polynomial (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) hq = planeCurvePolynomial d := by sorry
 
 lemma planeCurve_multiplicity (d : ℕ) (hd : f.order = (d : ℕ∞))
-    (hq : q.radical = IsLocalRing.maximalIdeal C) :
-    multiplicity (A := C) (M := C) q hq = (d : ℚ) := by sorry
+    (hq : Ideal.radical (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) = IsLocalRing.maximalIdeal ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) :
+    multiplicity (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) hq = (d : ℚ) := by sorry
 
 lemma planeCurve_polynomial_degree (d : ℕ) (hd : f.order = (d : ℕ∞))
-    (hq : q.radical = IsLocalRing.maximalIdeal C) (hd0 : d ≠ 0) :
-    (polynomial (A := C) (M := C) q hq).natDegree = 1 := by sorry
+    (hq : Ideal.radical (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) = IsLocalRing.maximalIdeal ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (hd0 : d ≠ 0) :
+    (polynomial (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) hq).natDegree = 1 := by sorry
 
 lemma planeCurve_polynomial_leadingCoeff (d : ℕ) (hd : f.order = (d : ℕ∞))
-    (hq : q.radical = IsLocalRing.maximalIdeal C) :
-    (polynomial (A := C) (M := C) q hq).leadingCoeff = (d : ℚ) := by sorry
+    (hq : Ideal.radical (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) = IsLocalRing.maximalIdeal ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) :
+    (polynomial (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) hq).leadingCoeff = (d : ℚ) := by sorry
 
-lemma planeCurve_supportDim [Nontrivial C] (d : ℕ) (hd : f.order = (d : ℕ∞))
-    (hq : q.radical = IsLocalRing.maximalIdeal C) (hd0 : d ≠ 0) :
-    Module.supportDim C C = (1 : WithBot ℕ∞) := by sorry
+lemma planeCurve_supportDim (d : ℕ) (hd : f.order = (d : ℕ∞))
+    (hq : Ideal.radical (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) = IsLocalRing.maximalIdeal ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (hd0 : d ≠ 0) :
+    Module.supportDim ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) = (1 : WithBot ℕ∞) := by sorry
 
 lemma planeCurve_multiplicityInDegree_one (d : ℕ) (hd : f.order = (d : ℕ∞))
-    (hq : q.radical = IsLocalRing.maximalIdeal C) (hd0 : d ≠ 0) :
-    multiplicityInDegree (A := C) (M := C) q hq 1 = (d : ℚ) := by sorry
+    (hq : Ideal.radical (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) = IsLocalRing.maximalIdeal ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (hd0 : d ≠ 0) :
+    multiplicityInDegree (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) hq 1 = (d : ℚ) := by sorry
 
 lemma planeCurve_multiplicityInDegree_gt_one (d D : ℕ) (hd : f.order = (d : ℕ∞))
-    (hq : q.radical = IsLocalRing.maximalIdeal C) (hd0 : d ≠ 0) (hD : 1 < D) :
-    multiplicityInDegree (A := C) (M := C) q hq D = 0 := by sorry
+    (hq : Ideal.radical (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) = IsLocalRing.maximalIdeal ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (hd0 : d ≠ 0) (hD : 1 < D) :
+    multiplicityInDegree (A := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) hq D = 0 := by sorry
 
-variable [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R C]
+variable [IsNoetherianRing (MvPowerSeries (Fin 2) k)] [IsLocalRing (MvPowerSeries (Fin 2) k)] [Module.Finite (MvPowerSeries (Fin 2) k) ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))]
 
 lemma planeCurve_multiplicityInDegree_two_restrictScalars (d : ℕ)
     (hd : f.order = (d : ℕ∞)) (hd0 : d ≠ 0)
-    (hv : v.radical = IsLocalRing.maximalIdeal R)
-    (hq : q.radical = IsLocalRing.maximalIdeal C) :
-    multiplicityInDegree (A := R) (M := C) v hv 2 = 0 := by sorry
+    (hv : Ideal.radical (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) = IsLocalRing.maximalIdeal (MvPowerSeries (Fin 2) k))
+    (hq : Ideal.radical (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) = IsLocalRing.maximalIdeal ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) :
+    multiplicityInDegree (A := (MvPowerSeries (Fin 2) k)) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) hv 2 = 0 := by sorry
 
 lemma planeCurve_multiplicity_restrictScalars (d : ℕ)
     (hd : f.order = (d : ℕ∞))
-    (hv : v.radical = IsLocalRing.maximalIdeal R)
-    (hq : q.radical = IsLocalRing.maximalIdeal C) :
-    multiplicity (A := R) (M := C) v hv = (d : ℚ) := by sorry
+    (hv : Ideal.radical (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) = IsLocalRing.maximalIdeal (MvPowerSeries (Fin 2) k))
+    (hq : Ideal.radical (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) = IsLocalRing.maximalIdeal ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) :
+    multiplicity (A := (MvPowerSeries (Fin 2) k)) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) hv = (d : ℚ) := by sorry
 
 lemma planeCurve_degree_two_ne_intrinsic (d : ℕ)
     (hd : f.order = (d : ℕ∞)) (hd0 : d ≠ 0)
-    (hv : v.radical = IsLocalRing.maximalIdeal R)
-    (hq : q.radical = IsLocalRing.maximalIdeal C) :
-    multiplicityInDegree (A := R) (M := C) v hv 2 ≠
-      multiplicity (A := R) (M := C) v hv := by sorry
+    (hv : Ideal.radical (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) = IsLocalRing.maximalIdeal (MvPowerSeries (Fin 2) k))
+    (hq : Ideal.radical (Ideal.map (Ideal.Quotient.mk (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k)))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k))))) = IsLocalRing.maximalIdeal ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) :
+    multiplicityInDegree (A := (MvPowerSeries (Fin 2) k)) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) hv 2 ≠
+      multiplicity (A := (MvPowerSeries (Fin 2) k)) (M := ((MvPowerSeries (Fin 2) k) ⧸ (Ideal.span (Set.singleton f : Set (MvPowerSeries (Fin 2) k))))) (Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → (MvPowerSeries (Fin 2) k)))) hv := by sorry
 
 end CurveMultiplicity
 end TauCeti.HilbertSamuel
@@ -4019,78 +4007,78 @@ local notation "R" => MvPowerSeries (Fin 2) (ℚ)
 local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
 local notation "y" => (MvPowerSeries.X (1 : Fin 2) : R)
 local notation "f" => (x)
-local notation "I" => Ideal.span ({f} : Set R)
+local notation "I" => Ideal.span (Set.singleton f : Set R)
 local notation "C" => R ⧸ I
 local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
-local notation "q" => v.map (Ideal.Quotient.mk I)
+local notation "q" => Ideal.map (Ideal.Quotient.mk I) v
 variable [IsNoetherianRing C] [IsLocalRing C]
 -- test: ScalarCurveTests.smooth_intrinsic
-example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 1 := by sorry
+example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 1 := by sorry
 end smooth
 section node
 local notation "R" => MvPowerSeries (Fin 2) (ℚ)
 local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
 local notation "y" => (MvPowerSeries.X (1 : Fin 2) : R)
 local notation "f" => (x * y)
-local notation "I" => Ideal.span ({f} : Set R)
+local notation "I" => Ideal.span (Set.singleton f : Set R)
 local notation "C" => R ⧸ I
 local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
-local notation "q" => v.map (Ideal.Quotient.mk I)
+local notation "q" => Ideal.map (Ideal.Quotient.mk I) v
 variable [IsNoetherianRing C] [IsLocalRing C]
 -- test: ScalarCurveTests.node_intrinsic
-example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 2 := by sorry
+example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 2 := by sorry
 -- test: ScalarCurveTests.node_actual_polynomial
-example (hq : q.radical = IsLocalRing.maximalIdeal C) : polynomial (A := C) (M := C) q hq = Polynomial.C 2 * Polynomial.X + 1 := by sorry
+example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : polynomial (A := C) (M := C) q hq = Polynomial.C 2 * Polynomial.X + 1 := by sorry
 -- test: ScalarCurveTests.node_support_dimension
-example [Nontrivial C] (hq : q.radical = IsLocalRing.maximalIdeal C) : Module.supportDim C C = (1 : WithBot ℕ∞) := by sorry
+example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : Module.supportDim C C = (1 : WithBot ℕ∞) := by sorry
 end node
 section cusp
 local notation "R" => MvPowerSeries (Fin 2) (ℚ)
 local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
 local notation "y" => (MvPowerSeries.X (1 : Fin 2) : R)
 local notation "f" => (y ^ 2 - x ^ 3)
-local notation "I" => Ideal.span ({f} : Set R)
+local notation "I" => Ideal.span (Set.singleton f : Set R)
 local notation "C" => R ⧸ I
 local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
-local notation "q" => v.map (Ideal.Quotient.mk I)
+local notation "q" => Ideal.map (Ideal.Quotient.mk I) v
 variable [IsNoetherianRing C] [IsLocalRing C]
 -- test: ScalarCurveTests.cusp_intrinsic
-example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 2 := by sorry
+example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 2 := by sorry
 end cusp
 section nonreduced_char_two
 local notation "R" => MvPowerSeries (Fin 2) (ZMod 2)
 local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
 local notation "y" => (MvPowerSeries.X (1 : Fin 2) : R)
 local notation "f" => (x ^ 2)
-local notation "I" => Ideal.span ({f} : Set R)
+local notation "I" => Ideal.span (Set.singleton f : Set R)
 local notation "C" => R ⧸ I
 local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
-local notation "q" => v.map (Ideal.Quotient.mk I)
+local notation "q" => Ideal.map (Ideal.Quotient.mk I) v
 variable [IsNoetherianRing C] [IsLocalRing C]
 -- test: ScalarCurveTests.nonreduced_char_two_intrinsic
-example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 2 := by sorry
+example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 2 := by sorry
 -- test: ScalarCurveTests.nonreduced_char_two_actual_polynomial
-example (hq : q.radical = IsLocalRing.maximalIdeal C) : polynomial (A := C) (M := C) q hq = Polynomial.C 2 * Polynomial.X + 1 := by sorry
+example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : polynomial (A := C) (M := C) q hq = Polynomial.C 2 * Polynomial.X + 1 := by sorry
 -- test: ScalarCurveTests.nilpotent_higher_extraction
-example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicityInDegree (A := C) (M := C) q hq 3 = 0 := by sorry
+example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : multiplicityInDegree (A := C) (M := C) q hq 3 = 0 := by sorry
 variable [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R C]
 -- test: ScalarCurveTests.nilpotent_intrinsic_degree_two_distinction
-example (hv : v.radical = IsLocalRing.maximalIdeal R) (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := R) (M := C) v hv = 2 ∧ multiplicityInDegree (A := R) (M := C) v hv 2 = 0 := by sorry
+example (hv : Ideal.radical v = IsLocalRing.maximalIdeal R) (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : multiplicity (A := R) (M := C) v hv = 2 ∧ multiplicityInDegree (A := R) (M := C) v hv 2 = 0 := by sorry
 end nonreduced_char_two
 section order_three
 local notation "R" => MvPowerSeries (Fin 2) (ℚ)
 local notation "x" => (MvPowerSeries.X (0 : Fin 2) : R)
 local notation "y" => (MvPowerSeries.X (1 : Fin 2) : R)
 local notation "f" => (x ^ 3)
-local notation "I" => Ideal.span ({f} : Set R)
+local notation "I" => Ideal.span (Set.singleton f : Set R)
 local notation "C" => R ⧸ I
 local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : Fin 2 → R))
-local notation "q" => v.map (Ideal.Quotient.mk I)
+local notation "q" => Ideal.map (Ideal.Quotient.mk I) v
 variable [IsNoetherianRing C] [IsLocalRing C]
 -- test: ScalarCurveTests.order_three_intrinsic
-example (hq : q.radical = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 3 := by sorry
+example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : multiplicity (A := C) (M := C) q hq = 3 := by sorry
 -- test: ScalarCurveTests.order_three_actual_polynomial
-example (hq : q.radical = IsLocalRing.maximalIdeal C) : polynomial (A := C) (M := C) q hq = Polynomial.C 3 * Polynomial.X := by sorry
+example (hq : Ideal.radical q = IsLocalRing.maximalIdeal C) : polynomial (A := C) (M := C) q hq = Polynomial.C 3 * Polynomial.X := by sorry
 end order_three
 -- test: ScalarCurveTests.unit_function_boundary
 example (n : ℕ) : let R := MvPowerSeries (Fin 2) ℚ; let I : Ideal R := Ideal.span {(1 : R)}; let C := R ⧸ I; let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X); function (A := C) (M := C) (v.map (Ideal.Quotient.mk I)) n = 0 := by sorry
@@ -4108,4 +4096,913 @@ end TauCeti.HilbertSamuel
     "NewProofDraft.lean": "9b07520442b33b65bba24e57478ea6ee9338ec5b18745f47ee01a93b6afc686a"
   }
 }
+-/
+
+/-! Annihilator enlargement continuation (Codex — codex-a71f92).
+Canonical forms remain admitted. The native prototype below is inert evidence.
+The reader and handoff distinguish successful prototypes from implementation. -/
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+
+lemma idealSupAnnihilator_smul (q : Ideal A) (N : Submodule A M) :
+    (q ⊔ Module.annihilator A M) • N = q • N := by
+  sorry
+
+lemma idealSupAnnihilator_pow_smul (q : Ideal A) (r : ℕ) (N : Submodule A M) :
+    (q ⊔ Module.annihilator A M) ^ r • N = q ^ r • N := by
+  sorry
+
+def adicQuotientAnnihilatorEquiv (q : Ideal A) (r : ℕ) :
+    (M ⧸ ((q ⊔ Module.annihilator A M) ^ r • (⊤ : Submodule A M))) ≃ₗ[A]
+      M ⧸ (q ^ r • (⊤ : Submodule A M)) := by
+  sorry
+
+lemma adicQuotientAnnihilatorEquiv_mk (q : Ideal A) (r : ℕ) (m : M) :
+    adicQuotientAnnihilatorEquiv q r (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk m := by
+  sorry
+
+lemma adicQuotientAnnihilatorEquiv_symm_mk (q : Ideal A) (r : ℕ) (m : M) :
+    (adicQuotientAnnihilatorEquiv q r).symm (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk m := by
+  sorry
+
+lemma function_sup_annihilator (q : Ideal A) (n : ℕ) :
+    function (M := M) (q ⊔ Module.annihilator A M) n =
+      function (M := M) q n := by
+  sorry
+
+-- test: AnnihilatorAdicTests.identity_representative
+example : adicQuotientAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 1
+    (Submodule.Quotient.mk (7 : ℚ)) = Submodule.Quotient.mk (7 : ℚ) := by
+  sorry
+
+-- test: AnnihilatorAdicTests.zeroth_power
+example : adicQuotientAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 0
+    (Submodule.Quotient.mk (7 : ℚ)) = 0 := by
+  sorry
+
+-- test: AnnihilatorAdicTests.nonfaithful_integer_module
+example (r : ℕ) : adicQuotientAnnihilatorEquiv (M := ZMod 4) (⊥ : Ideal ℤ) r
+    (Submodule.Quotient.mk (1 : ZMod 4)) = Submodule.Quotient.mk (1 : ZMod 4) := by
+  sorry
+
+-- test: AnnihilatorAdicTests.nonannihilating_ideal_fails
+example : ¬ ((⊤ : Ideal ℚ) ^ 1 • (⊤ : Submodule ℚ ℚ) =
+    (⊥ : Ideal ℚ) ^ 1 • (⊤ : Submodule ℚ ℚ)) := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+/- ANNIHILATOR_NATIVE_ARCHIVE
+BEGIN AnnihilatorNative.lean
+import Mathlib.RingTheory.Ideal.Maps
+import Mathlib.LinearAlgebra.Quotient.Basic
+import Mathlib.RingTheory.Length
+import Mathlib.Data.Rat.Defs
+import Mathlib.Data.ZMod.Basic
+
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+
+def function (q : Ideal A) (n : ℕ) : ℕ∞ :=
+  Module.length A (M ⧸ (q ^ (n + 1) • (⊤ : Submodule A M)))
+
+lemma idealSupAnnihilator_smul (q : Ideal A) (N : Submodule A M) :
+    (q ⊔ Module.annihilator A M) • N = q • N := by
+  have hz : Module.annihilator A M • N = ⊥ := by
+    apply Submodule.le_annihilator_iff.mp
+    rw [← Submodule.annihilator_top]
+    exact Submodule.annihilator_mono le_top
+  rw [Submodule.sup_smul, hz, sup_bot_eq]
+
+lemma idealSupAnnihilator_pow_smul (q : Ideal A) (r : ℕ) (N : Submodule A M) :
+    (q ⊔ Module.annihilator A M) ^ r • N = q ^ r • N := by
+  induction r with
+  | zero => simp
+  | succ r ih =>
+      rw [pow_succ', pow_succ', Submodule.mul_smul, Submodule.mul_smul, ih,
+        idealSupAnnihilator_smul]
+
+def adicQuotientAnnihilatorEquiv (q : Ideal A) (r : ℕ) :
+    (M ⧸ ((q ⊔ Module.annihilator A M) ^ r • (⊤ : Submodule A M))) ≃ₗ[A]
+      M ⧸ (q ^ r • (⊤ : Submodule A M)) :=
+  Submodule.quotEquivOfEq _ _ (idealSupAnnihilator_pow_smul q r ⊤)
+
+lemma adicQuotientAnnihilatorEquiv_mk (q : Ideal A) (r : ℕ) (m : M) :
+    adicQuotientAnnihilatorEquiv q r (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk m := by
+  apply Submodule.quotEquivOfEq_mk
+
+lemma adicQuotientAnnihilatorEquiv_symm_mk (q : Ideal A) (r : ℕ) (m : M) :
+    (adicQuotientAnnihilatorEquiv q r).symm (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk m := by
+  apply (adicQuotientAnnihilatorEquiv q r).injective
+  simp only [LinearEquiv.apply_symm_apply, adicQuotientAnnihilatorEquiv_mk]
+
+lemma function_sup_annihilator (q : Ideal A) (n : ℕ) :
+    function (M := M) (q ⊔ Module.annihilator A M) n =
+      function (M := M) q n := by
+  exact (adicQuotientAnnihilatorEquiv (M := M) q (n + 1)).length_eq
+
+-- test: AnnihilatorAdicTests.identity_representative
+example : adicQuotientAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 1
+    (Submodule.Quotient.mk (7 : ℚ)) = Submodule.Quotient.mk (7 : ℚ) := by
+  exact adicQuotientAnnihilatorEquiv_mk _ _ _
+
+-- test: AnnihilatorAdicTests.zeroth_power
+example : adicQuotientAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 0
+    (Submodule.Quotient.mk (7 : ℚ)) = 0 := by
+  rw [adicQuotientAnnihilatorEquiv_mk]
+  change Ideal.Quotient.mk _ (7 : ℚ) = 0
+  simp [Ideal.Quotient.eq_zero_iff_mem]
+
+-- test: AnnihilatorAdicTests.nonfaithful_integer_module
+example (r : ℕ) : adicQuotientAnnihilatorEquiv (M := ZMod 4) (⊥ : Ideal ℤ) r
+    (Submodule.Quotient.mk (1 : ZMod 4)) = Submodule.Quotient.mk (1 : ZMod 4) := by
+  exact adicQuotientAnnihilatorEquiv_mk _ _ _
+
+-- test: AnnihilatorAdicTests.nonannihilating_ideal_fails
+example : ¬ ((⊤ : Ideal ℚ) ^ 1 • (⊤ : Submodule ℚ ℚ) =
+    (⊥ : Ideal ℚ) ^ 1 • (⊤ : Submodule ℚ ℚ)) := by
+  simp
+
+#print axioms idealSupAnnihilator_smul
+#print axioms idealSupAnnihilator_pow_smul
+#print axioms adicQuotientAnnihilatorEquiv
+#print axioms adicQuotientAnnihilatorEquiv_mk
+#print axioms adicQuotientAnnihilatorEquiv_symm_mk
+#print axioms function_sup_annihilator
+end
+end TauCeti.HilbertSamuel
+END AnnihilatorNative.lean
+
+BEGIN NewAdmitted.lean
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+noncomputable section
+variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+
+lemma idealSupAnnihilator_smul (q : Ideal A) (N : Submodule A M) :
+    (q ⊔ Module.annihilator A M) • N = q • N := by
+  sorry
+
+lemma idealSupAnnihilator_pow_smul (q : Ideal A) (r : ℕ) (N : Submodule A M) :
+    (q ⊔ Module.annihilator A M) ^ r • N = q ^ r • N := by
+  sorry
+
+def adicQuotientAnnihilatorEquiv (q : Ideal A) (r : ℕ) :
+    (M ⧸ ((q ⊔ Module.annihilator A M) ^ r • (⊤ : Submodule A M))) ≃ₗ[A]
+      M ⧸ (q ^ r • (⊤ : Submodule A M)) := by
+  sorry
+
+lemma adicQuotientAnnihilatorEquiv_mk (q : Ideal A) (r : ℕ) (m : M) :
+    adicQuotientAnnihilatorEquiv q r (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk m := by
+  sorry
+
+lemma adicQuotientAnnihilatorEquiv_symm_mk (q : Ideal A) (r : ℕ) (m : M) :
+    (adicQuotientAnnihilatorEquiv q r).symm (Submodule.Quotient.mk m) =
+      Submodule.Quotient.mk m := by
+  sorry
+
+lemma function_sup_annihilator (q : Ideal A) (n : ℕ) :
+    function (M := M) (q ⊔ Module.annihilator A M) n =
+      function (M := M) q n := by
+  sorry
+
+-- test: AnnihilatorAdicTests.identity_representative
+example : adicQuotientAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 1
+    (Submodule.Quotient.mk (7 : ℚ)) = Submodule.Quotient.mk (7 : ℚ) := by
+  sorry
+
+-- test: AnnihilatorAdicTests.zeroth_power
+example : adicQuotientAnnihilatorEquiv (M := ℚ) (⊥ : Ideal ℚ) 0
+    (Submodule.Quotient.mk (7 : ℚ)) = 0 := by
+  sorry
+
+-- test: AnnihilatorAdicTests.nonfaithful_integer_module
+example (r : ℕ) : adicQuotientAnnihilatorEquiv (M := ZMod 4) (⊥ : Ideal ℤ) r
+    (Submodule.Quotient.mk (1 : ZMod 4)) = Submodule.Quotient.mk (1 : ZMod 4) := by
+  sorry
+
+-- test: AnnihilatorAdicTests.nonannihilating_ideal_fails
+example : ¬ ((⊤ : Ideal ℚ) ^ 1 • (⊤ : Submodule ℚ ℚ) =
+    (⊥ : Ideal ℚ) ^ 1 • (⊤ : Submodule ℚ ℚ)) := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+END NewAdmitted.lean
+
+BEGIN NativeLog.txt
+'TauCeti.HilbertSamuel.idealSupAnnihilator_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.idealSupAnnihilator_pow_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.adicQuotientAnnihilatorEquiv_symm_mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TauCeti.HilbertSamuel.function_sup_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+	User time (seconds): 1.00
+	System time (seconds): 0.32
+	Percent of CPU this job got: 110%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.20
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2251784
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 52264
+	Voluntary context switches: 2939
+	Involuntary context switches: 38
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+END NativeLog.txt
+
+BEGIN CanonicalLog.txt
+Submodule.IsQuotientEquivQuotientPrime.{u, v} {A : Type u} [CommRing A] {M : Type v} [AddCommGroup M] [Module A M]
+  (N₁ N₂ : Submodule A M) : Prop
+Submodule.isQuotientEquivQuotientPrime_iff.{u, v} {A : Type u} [CommRing A] {M : Type v} [AddCommGroup M] [Module A M]
+  {N₁ N₂ : Submodule A M} : N₁.IsQuotientEquivQuotientPrime N₂ ↔ ∃ x, (⊥.colon {N₁.mkQ x}).IsPrime ∧ N₂ = N₁ ⊔ A ∙ x
+IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime.{u, v} (A : Type u) [CommRing A] (M : Type v)
+  [AddCommGroup M] [Module A M] [IsNoetherianRing A] [Module.Finite A M] : ∃ s, s.head = ⊥ ∧ s.last = ⊤
+IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime.{u, v} (A : Type u) [CommRing A] [IsNoetherianRing A]
+  ⦃M : Type v⦄ [AddCommGroup M] [Module A M] (x✝ : Module.Finite A M)
+  {motive : (N : Type v) → [inst : AddCommGroup N] → [inst_1 : Module A N] → [Module.Finite A N] → Prop}
+  (subsingleton :
+    ∀ (N : Type v) [inst : AddCommGroup N] [inst_1 : Module A N] [inst_2 : Module.Finite A N] [Subsingleton N],
+      motive N)
+  (quotient :
+    ∀ (N : Type v) [inst : AddCommGroup N] [inst_1 : Module A N] [inst_2 : Module.Finite A N] (p : PrimeSpectrum A)
+      (a : N ≃ₗ[A] A ⧸ p.asIdeal), motive N)
+  (exact :
+    ∀ (N₁ : Type v) [inst : AddCommGroup N₁] [inst_1 : Module A N₁] [inst_2 : Module.Finite A N₁] (N₂ : Type v)
+      [inst_3 : AddCommGroup N₂] [inst_4 : Module A N₂] [inst_5 : Module.Finite A N₂] (N₃ : Type v)
+      [inst_6 : AddCommGroup N₃] [inst_7 : Module A N₃] [inst_8 : Module.Finite A N₃] (f : N₁ →ₗ[A] N₂)
+      (g : N₂ →ₗ[A] N₃),
+      Function.Injective ⇑f → Function.Surjective ⇑g → Function.Exact ⇑f ⇑g → motive N₁ → motive N₃ → motive N₂) :
+  motive M
+associatedPrimes.finite.{u, v} (A : Type u) [CommRing A] (M : Type v) [AddCommGroup M] [Module A M] [IsNoetherianRing A]
+  [Module.Finite A M] : (associatedPrimes A M).Finite
+IsDiscreteValuationRing.irreducible_iff_uniformizer.{u} {R : Type u} [CommRing R] [IsDomain R]
+  [IsDiscreteValuationRing R] (ϖ : R) : Irreducible ϖ ↔ IsLocalRing.maximalIdeal R = Ideal.span {ϖ}
+IsDiscreteValuationRing.iff_pid_with_one_nonzero_prime.{u} (R : Type u) [CommRing R] [IsDomain R] :
+  IsDiscreteValuationRing R ↔ IsPrincipalIdealRing R ∧ ∃! P, P ≠ ⊥ ∧ P.IsPrime
+IsDiscreteValuationRing.exists_irreducible.{u} (R : Type u) [CommRing R] [IsDomain R] [IsDiscreteValuationRing R] :
+  ∃ ϖ, Irreducible ϖ
+IsDiscreteValuationRing.length_quotient_pow_maximalIdeal.{u_1} (R : Type u_1) [CommRing R] [IsDomain R]
+  [IsDiscreteValuationRing R] (n : ℕ) : Module.length R (R ⧸ IsLocalRing.maximalIdeal R ^ n) = ↑n
+Module.length_ne_top_iff.{u_1, u_2} {R : Type u_1} {M : Type u_2} [Ring R] [AddCommGroup M] [Module R M] :
+  Module.length R M ≠ ⊤ ↔ IsFiniteLength R M
+isFiniteLength_iff_isNoetherian_isArtinian.{u_1, u_2} {R : Type u_1} [Ring R] {M : Type u_2} [AddCommGroup M]
+  [Module R M] : IsFiniteLength R M ↔ IsNoetherian R M ∧ IsArtinian R M
+isArtinian_of_tower.{u_1, u_2, u_3} (R : Type u_1) {S : Type u_2} {M : Type u_3} [Semiring R] [Semiring S]
+  [AddCommMonoid M] [SMul R S] [Module S M] [Module R M] [IsScalarTower R S M] (h : IsArtinian R M) : IsArtinian S M
+IsArtinianRing.of_finite.{u_1, u_2} (R : Type u_1) (S : Type u_2) [Ring R] [Ring S] [Module R S] [IsScalarTower R S S]
+  [IsArtinianRing R] [Module.Finite R S] : IsArtinianRing S
+IsArtinianRing.isMaximal_of_isPrime.{u_2} {R : Type u_2} [CommRing R] (p : Ideal R) [p.IsPrime] [IsArtinianRing R] :
+  p.IsMaximal
+Ring.krullDimLE_zero_iff.{u_1} {R : Type u_1} [CommSemiring R] :
+  Ring.KrullDimLE 0 R ↔ ∀ (I : Ideal R), I.IsPrime → I.IsMaximal
+Ring.krullDimLE_iff.{u_1} {R : Type u_1} [CommSemiring R] {n : ℕ} : Ring.KrullDimLE n R ↔ ringKrullDim R ≤ ↑n
+nilpotent_iff_mem_prime.{u_1} {R : Type u_1} [CommSemiring R] {x : R} :
+  IsNilpotent x ↔ ∀ (J : Ideal R), J.IsPrime → x ∈ J
+Algebra.finite_iff_isIntegral_and_finiteType.{u_1, u_2} {R : Type u_1} {A : Type u_2} [CommRing R] [CommRing A]
+  [Algebra R A] : Module.Finite R A ↔ Algebra.IsIntegral R A ∧ Algebra.FiniteType R A
+IsAlgClosed.lift.{u, v, w} {M : Type w} [Field M] [IsAlgClosed M] {R : Type u} [CommRing R] [IsDomain R] {S : Type v}
+  [CommRing S] [IsDomain S] [Algebra R S] [Algebra R M] [Module.IsTorsionFree R S] [Module.IsTorsionFree R M]
+  [Algebra.IsAlgebraic R S] : S →ₐ[R] M
+Module.Finite.exists_fin'.{u_1, u_2} (R : Type u_1) (M : Type u_2) [Semiring R] [AddCommMonoid M] [Module R M]
+  [Module.Finite R M] : ∃ n f, Function.Surjective ⇑f
+Algebra.IsIntegral.inv_mem.{u_1, u_2} {R : Type u_1} {S : Type u_2} [Field R] [DivisionRing S] [Algebra R S] {x : S}
+  {A : Subalgebra R S} [Algebra.IsIntegral R ↥A] (hx : x ∈ A) : x⁻¹ ∈ A
+IsIntegralClosure.finite.{u_1, u_2, u_3, u_4} (A : Type u_1) (K : Type u_2) [CommRing A] [Field K] [Algebra A K]
+  [IsFractionRing A K] (L : Type u_3) [Field L] (C : Type u_4) [CommRing C] [Algebra K L] [Algebra A L]
+  [IsScalarTower A K L] [Algebra C L] [IsIntegralClosure C A L] [Algebra A C] [IsScalarTower A C L]
+  [FiniteDimensional K L] [IsDomain A] [Algebra.IsSeparable K L] [IsIntegrallyClosed A] [IsNoetherianRing A] :
+  Module.Finite A C
+integralClosure.isIntegral.{u_1, u_2} {R : Type u_1} {A : Type u_2} [CommRing R] [CommRing A] [Algebra R A]
+  (x : ↥(integralClosure R A)) : IsIntegral R x
+Algebra.IsIntegral.tower_top.{u_1, u_4, u_5} (R : Type u_1) {S : Type u_4} {T : Type u_5} [CommRing R] [CommRing S]
+  [CommRing T] [Algebra R S] [Algebra R T] [Algebra S T] [IsScalarTower R S T] [h : Algebra.IsIntegral R T] :
+  Algebra.IsIntegral S T
+RingHom.IsIntegral.isLocalHom.{u_1, u_4} {R : Type u_1} {S : Type u_4} [CommRing R] [CommRing S] {f : R →+* S}
+  (hf : f.IsIntegral) (inj : Function.Injective ⇑f) : IsLocalHom f
+IsLocalHom.of_surjective.{u_1, u_2} {R : Type u_1} {S : Type u_2} [CommRing R] [CommRing S] [Nontrivial S]
+  [IsLocalRing R] (f : R →+* S) (hf : Function.Surjective ⇑f) : IsLocalHom f
+RingHom.isLocalHom_comp.{u_1, u_2, u_3} {R : Type u_1} {S : Type u_2} {T : Type u_3} [Semiring R] [Semiring S]
+  [Semiring T] (g : S →+* T) (f : R →+* S) [IsLocalHom g] [IsLocalHom f] : IsLocalHom (g.comp f)
+EVIDENCE/Canonical.lean:188:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:194:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:202:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:228:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:236:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:246:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:257:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:271:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:287:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:292:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:297:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:301:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:328:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:332:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:336:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:341:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:348:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:358:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:368:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:371:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:375:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:379:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:385:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:424:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:427:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:431:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:439:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:444:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:452:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:462:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:468:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:474:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:478:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:484:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:503:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:513:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:519:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:525:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:535:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:541:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:547:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:552:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:561:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:581:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:599:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:612:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:616:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:621:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:624:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:628:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:633:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:646:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:655:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:661:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:666:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:672:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:678:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:686:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:693:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:705:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:710:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:759:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:764:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:767:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:774:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:776:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:779:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:783:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:786:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:792:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:795:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:799:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:803:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:805:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:810:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:813:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:815:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:819:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:828:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:832:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:846:15: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:854:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:858:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:861:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:863:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:866:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:873:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:875:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:878:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:880:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:885:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:892:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:900:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:907:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:917:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:923:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:926:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:934:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:941:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:949:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:954:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:959:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:969:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:976:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:993:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1008:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1033:18: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1037:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1059:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1071:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1076:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1084:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1105:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1113:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1118:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1123:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1128:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1132:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1138:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1141:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1173:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1176:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1179:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1183:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1187:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1193:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1198:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1203:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1220:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1222:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1225:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1228:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1231:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1234:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1238:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1244:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1249:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1267:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1272:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1277:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1281:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1287:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1301:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1306:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1311:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1316:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1323:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1328:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1331:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1334:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1356:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1357:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1362:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1366:18: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1385:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1398:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1405:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1415:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1422:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1428:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1433:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1438:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1440:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1442:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1446:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1450:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1453:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1456:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1458:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1462:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1465:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1468:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1472:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1511:9: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1514:9: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1521:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1523:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1526:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1532:18: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1538:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1542:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1545:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1549:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1565:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1567:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1573:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1583:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1589:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1594:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1599:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1603:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1607:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1624:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1626:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1628:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1633:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1635:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1639:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1647:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1652:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1656:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1661:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1666:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1699:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1704:9: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1717:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1721:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1747:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1752:9: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1757:9: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1770:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1779:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1783:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1789:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1793:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1796:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1798:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1800:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1803:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1807:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1811:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1814:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1817:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1820:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1824:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1843:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1848:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1852:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1859:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1863:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1892:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1897:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1904:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1910:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1930:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1948:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1957:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1976:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1980:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1984:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1988:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1993:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:1999:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2002:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2006:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2011:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2014:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2019:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2025:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2032:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2040:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2046:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2052:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2060:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2067:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2072:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2090:15: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2093:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2095:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2099:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2103:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2107:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2110:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2114:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2120:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2127:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2133:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2139:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2143:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2147:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2163:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2167:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2173:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2188:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2196:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2201:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2207:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2213:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2218:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2225:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2232:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2241:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2251:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2260:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2269:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2278:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2292:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2302:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2318:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2324:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2331:8: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2337:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2342:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2347:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2352:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2359:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2367:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2379:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2385:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2390:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2395:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2399:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2404:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2411:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2417:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2421:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2425:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2429:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2435:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2441:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2450:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2456:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2584:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2588:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2591:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2594:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2597:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2600:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2603:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2606:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2612:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2616:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2621:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2624:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2629:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2632:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2637:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2642:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2647:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2651:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2657:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2661:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2664:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2671:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2677:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2680:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2683:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2686:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2701:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2705:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2711:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2715:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2719:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2723:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2727:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2739:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2748:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2767:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2775:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2781:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2787:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2793:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2802:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2807:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2812:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2815:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2819:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2837:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2842:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2846:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2850:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2854:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2858:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2864:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2870:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2876:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2880:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2892:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2895:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2899:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2902:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2906:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2910:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2914:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2917:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2921:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2924:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2926:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2932:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2936:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2940:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2945:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2949:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2953:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2958:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2974:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2979:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2984:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2987:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2992:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:2997:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3001:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3006:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3011:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3018:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3027:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3046:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3049:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3052:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3059:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3072:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3078:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3081:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3088:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3093:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3106:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3109:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3112:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3117:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3122:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3127:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3147:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3151:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3157:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3162:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3167:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3172:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3177:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3182:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3187:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3192:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3197:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3202:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3209:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3215:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3223:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3229:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3239:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3244:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3250:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3256:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3262:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3268:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3288:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3291:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3295:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3298:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3302:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3306:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3309:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3313:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3318:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3322:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3326:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3330:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3334:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3339:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3343:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3347:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3353:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3358:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3363:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3380:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3384:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3389:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3397:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3401:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3408:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3413:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3418:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3423:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3430:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3434:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3439:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3447:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3453:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3459:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3476:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3479:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3482:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3487:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3492:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3497:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3502:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3505:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3510:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3517:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3522:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3528:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3536:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3542:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3550:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3557:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3563:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3571:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3589:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3593:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3600:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3607:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3611:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3621:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3629:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3633:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3644:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3652:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3657:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3662:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3670:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3679:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3687:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3707:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3711:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3714:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3719:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3725:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3729:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3734:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3737:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3741:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3746:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3750:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3753:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3758:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3764:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3768:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3772:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3777:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3781:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3786:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3792:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3807:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3811:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3815:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3825:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3830:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3836:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3843:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3851:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3857:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3861:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3867:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3873:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3879:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3893:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3897:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3901:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3905:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3914:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3921:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3928:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3942:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3946:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3950:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3954:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3958:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3962:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3966:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3972:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3978:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3984:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:3998:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4000:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4002:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4004:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4016:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4029:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4031:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4033:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4046:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4059:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4061:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4063:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4066:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4079:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4081:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4084:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4086:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4110:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4114:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4118:4: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4123:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4128:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4133:6: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4139:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4144:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4149:0: warning: declaration uses `sorry`
+EVIDENCE/Canonical.lean:4154:0: warning: declaration uses `sorry`
+	User time (seconds): 48.58
+	System time (seconds): 1.02
+	Percent of CPU this job got: 126%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:39.12
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3739616
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 136134
+	Voluntary context switches: 70752
+	Involuntary context switches: 2757
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 136
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+END CanonicalLog.txt
 -/
