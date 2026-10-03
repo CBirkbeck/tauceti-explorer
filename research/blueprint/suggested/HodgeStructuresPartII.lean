@@ -1,3 +1,4 @@
+import Mathlib.Algebra.Polynomial.Derivation
 import Mathlib.RingTheory.Finiteness.Projective
 import Mathlib.Data.Fintype.BigOperators
 import Mathlib.Data.Fin.Tuple.Basic
@@ -3819,6 +3820,248 @@ example : ∃ Ω : TwoForms ℤ A A (Fin 0 → A), ∃ D : Preconnection Ω (2 :
     u (0, 1) = (MvPolynomial.X (0 : Fin 1), 1) ∧
     (TensorProduct.rid A P) ((D.transport u).toAddHom (0, 1)) = (-2, 0) ∧
     (TensorProduct.rid A P) ((D.transport u).toAddHom (0, 1)) ≠ 0 := by sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open scoped TensorProduct
+universe u v w z t p q
+variable {k R S : Type u} [CommRing k] [CommRing R] [CommRing S]
+  [Algebra k R] [Algebra k S]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V]
+variable {Y : Type q} [AddCommGroup Y] [Module S Y]
+variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Y}
+variable {f : R →+* S}
+
+/-- A map of the supplied degree-zero/one/two calculi across actual coefficient rings.
+It does not construct universal exterior forms or sheaf pullback. -/
+structure TwoForms.Morphism (f : R →+* S) (Ω : TwoForms k R W Z)
+    (Γ : TwoForms k S V Y) where
+  one : W →ₛₗ[f] V
+  two : Z →ₛₗ[f] Y
+  d0_map : ∀ a, Γ.d0 (f a) = one (Ω.d0 a)
+  d1_map : ∀ ω, Γ.d1 (one ω) = two (Ω.d1 ω)
+  wedge_map : ∀ ω α, Γ.wedge (one ω) (one α) = two (Ω.wedge ω α)
+
+def TwoForms.Morphism.refl (Ω : TwoForms k R W Z) :
+    TwoForms.Morphism (RingHom.id R) Ω Ω where
+  one := LinearMap.id
+  two := LinearMap.id
+  d0_map := by sorry
+  d1_map := by sorry
+  wedge_map := by sorry
+
+lemma TwoForms.Morphism.refl_one (ω : W) : (TwoForms.Morphism.refl Ω).one ω = ω := by sorry
+
+lemma TwoForms.Morphism.refl_two (η : Z) : (TwoForms.Morphism.refl Ω).two η = η := by sorry
+
+lemma TwoForms.Morphism.constant_parameter (m : TwoForms.Morphism f Ω Γ)
+    {lam : R} (h : Ω.d0 lam = 0) : Γ.d0 (f lam) = 0 := by sorry
+
+section Composition
+variable {T : Type u} [CommRing T] [Algebra k T]
+variable {P : Type v} [AddCommGroup P] [Module T P] [Module k P]
+variable {Q : Type t} [AddCommGroup Q] [Module T Q]
+variable {Δ : TwoForms k T P Q} {g : S →+* T}
+local instance : RingHomCompTriple f g (g.comp f) := ⟨rfl⟩
+
+def TwoForms.Morphism.comp (n : TwoForms.Morphism g Γ Δ) (m : TwoForms.Morphism f Ω Γ) :
+    TwoForms.Morphism (g.comp f) Ω Δ where
+  one := n.one.comp m.one
+  two := n.two.comp m.two
+  d0_map := by sorry
+  d1_map := by sorry
+  wedge_map := by sorry
+
+lemma TwoForms.Morphism.comp_one (n : TwoForms.Morphism g Γ Δ)
+    (m : TwoForms.Morphism f Ω Γ) (ω : W) : (n.comp m).one ω = n.one (m.one ω) := by sorry
+
+lemma TwoForms.Morphism.comp_two (n : TwoForms.Morphism g Γ Δ)
+    (m : TwoForms.Morphism f Ω Γ) (η : Z) : (n.comp m).two η = n.two (m.two η) := by sorry
+
+end Composition
+
+variable {E : Type v} [AddCommGroup E] [Module R E]
+variable {F : Type t} [AddCommGroup F] [Module S F]
+variable {lam : R}
+
+def Preconnection.SemilinearHorizontal [IsScalarTower k R W] [IsScalarTower k S V]
+    (m : TwoForms.Morphism f Ω Γ)
+    (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
+    (h : E →ₛₗ[f] F) : Prop :=
+  ∀ e, C.toAddHom (h e) = TensorProduct.map h m.one (D.toAddHom e)
+
+variable [IsScalarTower k R W] [IsScalarTower k S V]
+
+lemma Preconnection.semilinearHorizontal_refl (D : Preconnection Ω lam E) :
+    Preconnection.SemilinearHorizontal (TwoForms.Morphism.refl Ω) D D LinearMap.id := by sorry
+
+lemma Preconnection.semilinearHorizontal_unit (m : TwoForms.Morphism f Ω Γ) :
+    Preconnection.SemilinearHorizontal m (Preconnection.unit Ω lam)
+      (Preconnection.unit Γ (f lam)) f.toSemilinearMap := by sorry
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] in
+lemma TwoForms.Morphism.wedgeRight_natural (m : TwoForms.Morphism f Ω Γ)
+    (h : E →ₛₗ[f] F) (ω : W) (x : E ⊗[R] W) :
+    Γ.wedgeRight (m.one ω) (TensorProduct.map h m.one x) =
+      TensorProduct.map h m.two (Ω.wedgeRight ω x) := by sorry
+
+lemma Preconnection.extend_semilinear (m : TwoForms.Morphism f Ω Γ)
+    (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
+    (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
+    (x : E ⊗[R] W) :
+    C.extend (TensorProduct.map h m.one x) = TensorProduct.map h m.two (D.extend x) := by sorry
+
+lemma Preconnection.curvature_semilinear (m : TwoForms.Morphism f Ω Γ)
+    (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
+    (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h) (e : E) :
+    C.curvature (h e) = TensorProduct.map h m.two (D.curvature e) := by sorry
+
+lemma Preconnection.flat_on_image (m : TwoForms.Morphism f Ω Γ)
+    (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
+    (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
+    (hD : ∀ e, D.curvature e = 0) (e : E) : C.curvature (h e) = 0 := by sorry
+
+lemma Preconnection.flat_of_surjective (m : TwoForms.Morphism f Ω Γ)
+    (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
+    (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
+    (hs : Function.Surjective h) (hD : ∀ e, D.curvature e = 0) (x : F) :
+    C.curvature x = 0 := by sorry
+
+lemma Preconnection.flat_reflect (m : TwoForms.Morphism f Ω Γ)
+    (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
+    (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
+    (hi : Function.Injective (TensorProduct.map h m.two))
+    (hC : ∀ x, C.curvature x = 0) (e : E) : D.curvature e = 0 := by sorry
+
+lemma Preconnection.flat_semilinear_iff (m : TwoForms.Morphism f Ω Γ)
+    (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
+    (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
+    (hs : Function.Surjective h) (hi : Function.Injective (TensorProduct.map h m.two)) :
+    (∀ x, C.curvature x = 0) ↔ ∀ e, D.curvature e = 0 := by sorry
+
+lemma Preconnection.curvatureLinear_semilinear (m : TwoForms.Morphism f Ω Γ)
+    (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
+    (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
+    (hlam : Ω.d0 lam = 0) (e : E) :
+    C.curvatureLinear (m.constant_parameter hlam) (h e) =
+      TensorProduct.map h m.two (D.curvatureLinear hlam e) := by sorry
+
+section Composition
+variable {T : Type u} [CommRing T] [Algebra k T]
+variable {P : Type w} [AddCommGroup P] [Module T P] [Module k P]
+variable {Q : Type z} [AddCommGroup Q] [Module T Q]
+variable {G : Type v} [AddCommGroup G] [Module T G]
+variable [IsScalarTower k T P]
+variable {Δ : TwoForms k T P Q} {g : S →+* T}
+local instance : RingHomCompTriple f g (g.comp f) := ⟨rfl⟩
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] [IsScalarTower k T P] in
+lemma TwoForms.Morphism.tensorMap_comp (n : TwoForms.Morphism g Γ Δ)
+    (m : TwoForms.Morphism f Ω Γ) (h : E →ₛₗ[f] F) (i : F →ₛₗ[g] G)
+    (x : E ⊗[R] W) :
+    TensorProduct.map (i.comp h) (n.comp m).one x =
+      TensorProduct.map i n.one (TensorProduct.map h m.one x) := by sorry
+
+lemma Preconnection.semilinearHorizontal_comp (n : TwoForms.Morphism g Γ Δ)
+    (m : TwoForms.Morphism f Ω Γ) (D : Preconnection Ω lam E)
+    (C : Preconnection Γ (f lam) F) (B : Preconnection Δ ((g.comp f) lam) G)
+    (h : E →ₛₗ[f] F) (i : F →ₛₗ[g] G)
+    (hh : Preconnection.SemilinearHorizontal m D C h)
+    (hi : Preconnection.SemilinearHorizontal n C B i) :
+    Preconnection.SemilinearHorizontal (n.comp m) D B (i.comp h) := by sorry
+
+end Composition
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open scoped TensorProduct
+universe u v w z t p q
+variable {k R S : Type u} [CommRing k] [CommRing R] [CommRing S]
+  [Algebra k R] [Algebra k S]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V]
+variable {Y : Type q} [AddCommGroup Y] [Module S Y]
+variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Y} {f : R →+* S}
+variable {E : Type v} [AddCommGroup E] [Module R E]
+variable {F : Type t} [AddCommGroup F] [Module S F] {lam : R}
+
+-- test: TwoForms.Morphism.test_balanced
+example (m : TwoForms.Morphism f Ω Γ) (a : R) (ω : W) :
+    m.one (a • ω) = f a • m.one ω := by sorry
+
+-- test: TwoForms.Morphism.test_wedge
+example (m : TwoForms.Morphism f Ω Γ) (ω α : W) :
+    Γ.wedge (m.one ω) (m.one α) = m.two (Ω.wedge ω α) := by sorry
+
+-- test: TwoForms.Morphism.refl.test_degree_one
+example (ω : W) : (TwoForms.Morphism.refl Ω).one ω = ω := by sorry
+
+-- test: TwoForms.Morphism.refl.test_degree_two
+example (η : Z) : (TwoForms.Morphism.refl Ω).two η = η := by sorry
+
+-- test: TwoForms.Morphism.refl.test_differential
+example (a : R) : Ω.d0 ((RingHom.id R) a) =
+    (TwoForms.Morphism.refl Ω).one (Ω.d0 a) := by sorry
+
+-- test: Preconnection.SemilinearHorizontal.test_identity
+example [IsScalarTower k R W] (D : Preconnection Ω lam E) :
+    Preconnection.SemilinearHorizontal (TwoForms.Morphism.refl Ω) D D LinearMap.id := by sorry
+
+-- test: Preconnection.SemilinearHorizontal.test_unit
+example [IsScalarTower k R W] [IsScalarTower k S V] (m : TwoForms.Morphism f Ω Γ) :
+    Preconnection.SemilinearHorizontal m (Preconnection.unit Ω lam)
+      (Preconnection.unit Γ (f lam)) f.toSemilinearMap := by sorry
+
+-- test: Preconnection.SemilinearHorizontal.test_zero_map
+example [IsScalarTower k R W] [IsScalarTower k S V]
+    (m : TwoForms.Morphism f Ω Γ) (D : Preconnection Ω lam E)
+    (C : Preconnection Γ (f lam) F) :
+    Preconnection.SemilinearHorizontal m D C (0 : E →ₛₗ[f] F) := by sorry
+
+-- test: Preconnection.curvature_semilinear.test_identity
+example [IsScalarTower k R W] (D : Preconnection Ω lam E) (e : E) :
+    D.curvature e = TensorProduct.map LinearMap.id (TwoForms.Morphism.refl Ω).two
+      (D.curvature e) := by sorry
+
+-- test: Preconnection.flat_reflect.test_identity
+example [IsScalarTower k R W] (D : Preconnection Ω lam E) (hD : ∀ e, D.curvature e = 0) (e : E) :
+    D.curvature e = 0 := by sorry
+
+local notation "A" => Polynomial ℤ
+
+-- test: TwoForms.Morphism.comp.test_left_identity
+example (m : TwoForms.Morphism f Ω Γ) (ω : W) :
+    ((TwoForms.Morphism.refl Γ).comp m).one ω = m.one ω := by sorry
+
+-- test: TwoForms.Morphism.comp.test_right_identity
+example (m : TwoForms.Morphism f Ω Γ) (η : Z) :
+    (m.comp (TwoForms.Morphism.refl Ω)).two η = m.two η := by sorry
+
+-- test: TwoForms.Morphism.comp.test_differential
+example (m : TwoForms.Morphism f Ω Γ) (a : R) :
+    Γ.d0 (((RingHom.id S).comp f) a) =
+      ((TwoForms.Morphism.refl Γ).comp m).one (Ω.d0 a) := by sorry
+
+-- test: TwoForms.Morphism.test_ramified_chain_rule
+example : ∃ Ω : TwoForms ℤ A A (Fin 0 → A),
+    ∃ m : TwoForms.Morphism (Polynomial.compRingHom (Polynomial.X ^ 2)) Ω Ω,
+      m.one 1 = 2 * Polynomial.X ∧
+      m.one 1 ≠ 1 ∧
+      (∀ a : A, Ω.d0 ((Polynomial.compRingHom (Polynomial.X ^ 2)) a) = m.one (Ω.d0 a)) ∧
+      Preconnection.SemilinearHorizontal m (Preconnection.unit Ω (2 : A))
+        (Preconnection.unit Ω ((Polynomial.compRingHom (Polynomial.X ^ 2)) 2))
+        (Polynomial.compRingHom (Polynomial.X ^ 2)).toSemilinearMap := by sorry
 
 end
 end TauCeti.Hodge.ParameterConnection.Intrinsic
