@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Partial anabelian checkpoint with 246 declaration-sized nodes. The 26-node continuation specifies the actual jointly continuous automorphism action on the native quotient of an inner twist by an equivariant coefficient kernel; native continuous cocycle and pointed H¹ projections; and genuine cocycle/H¹ equivalences with the mapped target twist under explicit surjectivity and quotient-map hypotheses. Projection triangles, the killed kernel inclusion, and the repointed coefficient-map fibre are separated. All 220 inherited contracts, seven stage statuses, nine gaps, sixteen supplier requests and eleven planets survive. NC.0 and NC.3 remain partial and the other stages not_read. No geometric, étale K(pi,1), Selmer, torsor-classification, Chen or BDMTV obligation is closed. Final new Lean forms have not been compiled under the worker resource guard.",
+  "summary": "Partial anabelian checkpoint with 246 declaration-sized nodes. The 26-node continuation specifies the actual jointly continuous automorphism action on the native quotient of an inner twist by an equivariant coefficient kernel; native continuous cocycle and pointed H¹ projections; and genuine cocycle/H¹ equivalences with the mapped target twist under explicit surjectivity and quotient-map hypotheses. Projection triangles, the killed kernel inclusion, and the repointed coefficient-map fibre are separated. All 220 inherited contracts, seven stage statuses, nine gaps, sixteen supplier requests and eleven planets survive. NC.0 and NC.3 remain partial and the other stages not_read. No geometric, étale K(pi,1), Selmer, torsor-classification, Chen or BDMTV obligation is closed. Final new Lean forms have not been compiled under the worker resource guard. This continuation supplies twelve declaration-sized kernel-image leaves and twelve typed examples, retaining all 246 incoming mathematical contracts and all stage/source gaps.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1014,6 +1014,13 @@
         "sourceSha256": "54d12da7845705c511a89b705f4cb5ea55cb8017df66737af77d8319e229713c",
         "provides": "Surjectivity of the native subgroup quotient projection; does not require the coefficient map f to be surjective.",
         "checked": "Complete statement, body and surrounding variables freshly read at the exact pinned Mathlib commit on 2026-10-03; used without rebuilding general quotient machinery."
+      },
+      {
+        "ref": "mathlib:Continuous.subtype_mk",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions.lean",
+        "provides": "A continuous function with pointwise membership witnesses is continuous into the genuine subtype topology; used for normalized kernel cocycles.",
+        "checked": "Exact statement with surrounding variables read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 416–418; name confirmed in the pinned index."
       }
     ]
   },
@@ -1284,6 +1291,19 @@
         "Complete QuotientAction criterion, native quotient MulAction and smul_mk with surrounding variables",
         "Native quotient-group projection, representative surjectivity, quotient topology and open quotient-map statements; product open quotient-map and continuous_comp_iff"
       ]
+    },
+    {
+      "id": "KimKernelImageConverse-codex-rtOQ9t",
+      "title": "The motivic fundamental group of P¹ ∖ {0,1,∞} and the theorem of Siegel",
+      "authors": "Minhyong Kim",
+      "edition": "Exact arXiv:math/0409456v1, authored abstract kernel-image deductions",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Complete selected printed/PDF pp.5–9: continuous cocycle and ordered gauge definitions, Proposition 1 statement/proof, coefficient-functor discussion, Proposition 2 statement/proof and subgroup exactness paragraph."
+      ],
+      "readingExtent": "Selected five pages, not a whole-paper or published-version collation. No new source error is alleged. Chen, BDMTV and geometric proof closure are not claimed."
     }
   ],
   "nodes": [
@@ -2032,7 +2052,8 @@
       "proofSteps": [
         "Choose a continuous cocycle d representing y. Triviality of π_*y supplies x ∈ C with π(d(g))=x(g•x)⁻¹.",
         "Lift the single element x to b ∈ B by surjectivity; the gauge b⁻¹•d takes values in ker π=i(A). Restrict it to A using unique pointwise preimages, and transfer continuity with the embedding continuous_iff theorem. The cocycle law follows by equivariance and injectivity.",
-        "Its H¹ class maps to y because it is a gauge transform of d. Conversely π∘i=1, so every class in the image is killed. Openness allows application to the canonical topological-group quotient; it is not used to lift a whole function."
+        "Its H¹ class maps to y because it is a gauge transform of d. Conversely π∘i=1, so every class in the image is killed. Openness allows application to the canonical topological-group quotient; it is not used to lift a whole function.",
+        "The kernel-of-map case now has an actual native cocycle restriction after inverse-gauge normalization. Its native quotient neutral fibre is exactly the kernel-H¹ image for arbitrary f; the target coefficient-map fibre is exactly that image when f is surjective. The latter requires no quotient-map or continuous-section condition. The original fibre is over [f∘c]. This does not finish the arbitrary named-subgroup adapter, prove kernel-H¹ injectivity, or construct the central H² obstruction, local conditions or representability."
       ],
       "acceptance": [
         "Canonical quotient by a closed normal subgroup is an instance; the H⁰ connecting cocycle for a nonnormal subgroup does not require this theorem."
@@ -2042,7 +2063,10 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
         "mathlib:Topology.IsEmbedding.continuous_iff",
         "mathlib:QuotientGroup.continuous_mk",
-        "mathlib:QuotientGroup.isOpenMap_coe"
+        "mathlib:QuotientGroup.isOpenMap_coe",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-quotient-range",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-mapped-range",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-original-fibre-range"
       ],
       "sources": [
         {
@@ -2138,7 +2162,8 @@
         "(b) For the lift c = s ∘ c̄, the defect (g, h) ↦ c(g)(g•c(h))c(gh)⁻¹ lies in Z (its image in C is 1), is continuous, and satisfies the 2-cocycle identity in Z (a direct computation using centrality). Changing c̄ within its class or changing the lift by a Z-valued continuous 1-cochain changes the defect by a 2-coboundary of a continuous cochain, so δ² is well defined into Z²/B² with Tau Ceti's B² (coboundaries of continuous cochains). δ²[c̄] = 0 iff the lift can be corrected by a continuous Z-valued cochain to a cocycle, i.e. iff [c̄] lifts to H¹(G, B).",
         "(c) If z·c = u·c with u ∈ B, then projecting to C gives ū·c̄ = c̄, i.e. ū is invariant for the action twisted by c̄; by hypothesis ū = 1, so u ∈ Z and z(g) = u(g•u)⁻¹ is a coboundary of Z (Kim's argument).",
         "For the kernel of the native central-quotient projection, first identify it with the specified central subgroup and then import its restricted inner action and joint continuity, its native underlying kernel comparison and the native quotient comparison when f is surjective. The quotient comparison is a homeomorphism exactly when f is a quotient map. This supplies actual group/topology realizations in the kernel-of-map case; a descended quotient G-action, quotient H¹ comparison and arbitrary G-stable subgroup adapters remain required.",
-        "In the kernel-of-coefficient-map case the descended quotient G-action and native pointed H¹ comparison are now specified, with joint continuity supplied by the open native quotient projection. The cohomology equivalence retains the quotient-map hypothesis. Its quotient projection kills the kernel-inclusion image, but does not establish the converse, arbitrary kernel-H¹ injectivity, a continuous section, geometric torsor classification or representability."
+        "In the kernel-of-coefficient-map case the descended quotient G-action and native pointed H¹ comparison are now specified, with joint continuity supplied by the open native quotient projection. The cohomology equivalence retains the quotient-map hypothesis. Its quotient projection kills the kernel-inclusion image, but does not establish the converse, arbitrary kernel-H¹ injectivity, a continuous section, geometric torsor classification or representability.",
+        "The kernel-of-map case now has an actual native cocycle restriction after inverse-gauge normalization. Its native quotient neutral fibre is exactly the kernel-H¹ image for arbitrary f; the target coefficient-map fibre is exactly that image when f is surjective. The latter requires no quotient-map or continuous-section condition. The original fibre is over [f∘c]. This does not finish the arbitrary named-subgroup adapter, prove kernel-H¹ injectivity, or construct the central H² obstruction, local conditions or representability."
       ],
       "acceptance": [
         "For the lower central series of a unipotent group U with H⁰(G, U^i/U^{i+1}) = 0, (c) applies at every step, which is how Kim shows H¹(G, U_{n+1}) ≅ H¹(G, U^{n+1}/U^{n+2}) × δ²⁻¹(0) (Kim 2005, Proposition 2).",
@@ -2163,7 +2188,10 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-action",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-action-continuity",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-kernel-image"
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-kernel-image",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-quotient-range",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-mapped-range",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-original-fibre-range"
       ],
       "sources": [
         {
@@ -12820,6 +12848,21 @@
           "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_fibre",
           "role": "characterisation",
           "statement": "For every a∈H¹(G,K_c), H1.map f (T_c(twistedKernelInclusion a))=[f∘c], where T_c is the existing twist H¹ translation. This is one image inclusion, without surjectivity onto the fibre."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.exists_twistedKernelInclusion_of_map_eq_one",
+          "role": "characterisation",
+          "statement": "If f is surjective, every a∈H¹(G,Twist(c)) killed by the mapped twisted coefficient homomorphism F_c lies in the image of twistedKernelInclusion. No quotient-map, openness or continuous-section hypothesis on f is required."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_range_iff",
+          "role": "characterisation",
+          "statement": "For surjective f and every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if H1.map(F_c)(a)=1. Kernel-H¹ injectivity is not asserted."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_fibre_range_iff",
+          "role": "characterisation",
+          "statement": "For surjective f and every a∈H¹(G,U), a lies in the range of b↦T_c(twistedKernelInclusion(b)) if and only if H1.map(f)(a)=[f∘c], where T_c is the native twist translation. The distinguished fibre is over [f∘c], which need not be neutral."
         }
       ],
       "tests": [
@@ -12837,6 +12880,26 @@
           "name": "H1.twistedKernelInclusion.test_repointed_fibre",
           "kind": "characterisation",
           "statement": "After twist translation, every class from K_c lies in the actual coefficient-map fibre over [f∘c], without claiming the converse."
+        },
+        {
+          "name": "H1.kernelImage.test_no_quotient_map",
+          "kind": "characterisation",
+          "statement": "For any continuous equivariant surjective f, mapped neutrality gives a kernel-H¹ preimage without any IsQuotientMap or continuous-section premise."
+        },
+        {
+          "name": "H1.kernelImage.test_non_neutral_rejected",
+          "kind": "non-example",
+          "statement": "A class whose mapped twisted-coefficient H¹ image is non-neutral cannot lie in the kernel-inclusion range, even without surjectivity."
+        },
+        {
+          "name": "H1.kernelImage.test_shifted_basepoint",
+          "kind": "non-example",
+          "statement": "If [f∘c]≠1, the neutral class of H¹(G,U) does not belong to the twist-translated kernel-inclusion range."
+        },
+        {
+          "name": "H1.kernelImage.test_constant_map",
+          "kind": "degenerate",
+          "statement": "For the constant-identity coefficient homomorphism into arbitrary V, every class of H¹(G,Twist(c)) lies in the kernel-inclusion range; no surjectivity onto V is assumed."
         }
       ]
     },
@@ -14210,6 +14273,11 @@
           "name": "TauCeti.NonabelianCohomology.H1.twistedQuotient_kernel",
           "role": "compatibility",
           "statement": "Every class in H¹(G,K_c) maps under the existing restricted kernel inclusion and the new native quotient H¹ map to 1. This is one image inclusion, not its converse or injectivity."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedQuotient_range_iff",
+          "role": "characterisation",
+          "statement": "For every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if twistedQuotient(a)=1, without assumptions of surjectivity or quotient topology on f."
         }
       ],
       "tests": [
@@ -14227,6 +14295,11 @@
           "name": "H1.twistedQuotient.test_kernel",
           "kind": "characterisation",
           "statement": "Every class from the actual restricted twisted kernel is killed by the native quotient H¹ map; no converse or injectivity of the kernel inclusion is presumed."
+        },
+        {
+          "name": "H1.kernelImage.test_quotient_neutral",
+          "kind": "degenerate",
+          "statement": "The neutral class of the ambient inner twist belongs to the actual kernel-inclusion range."
         }
       ]
     },
@@ -15168,6 +15241,601 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/mapped-inverse-gauge-normalization",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Inverse gauge after a lifted coboundary",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.map_gauge_normalizes",
+      "statement": "For a continuous equivariant coefficient homomorphism f:U→V, a continuous cocycle d, and x∈U with f(d(g))=f(x)(g•f(x))⁻¹ for all g, mapping the inverse gauge x⁻¹•d gives the neutral cocycle.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-gauge"
+      ],
+      "proofSteps": [
+        "Apply equivariance of the cocycle map to the inverse gauge. Evaluate at g, use f(x⁻¹)=f(x)⁻¹ and the given ordered coboundary formula. Cancellation gives the identity without commuting any factors."
+      ],
+      "acceptance": [
+        "For a continuous equivariant coefficient homomorphism f:U→V, a continuous cocycle d, and x∈U with f(d(g))=f(x)(g•f(x))⁻¹ for all g, mapping the inverse gauge x⁻¹•d gives the neutral cocycle.",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.map_gauge_normalizes"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "construction",
+      "title": "Cocycle valued in the actual twisted kernel",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift",
+      "statement": "Given d∈Z¹(G,Twist(c)) and F_c(d(g))=1 for every g, construct its unique value-preserving cocycle k∈Z¹(G,K_c), where F_c=Twist.map(c,f), K_c=ker(F_c), and K_c has its restricted inner action and subspace topology.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map",
+        "mathlib:Continuous.subtype_mk"
+      ],
+      "proofSteps": [
+        "Take the native subtype-valued function g↦⟨d(g),F_c(d(g))=1⟩. Continuous.subtype_mk supplies continuity into the actual subspace topology. Transfer the cocycle identity through the injective subtype inclusion and the already specified restricted action."
+      ],
+      "acceptance": [
+        "Given d∈Z¹(G,Twist(c)) and F_c(d(g))=1 for every g, construct its unique value-preserving cocycle k∈Z¹(G,K_c), where F_c=Twist.map(c,f), K_c=ker(F_c), and K_c has its restricted inner action and subspace topology.",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-quotient-converse",
+          "how": "After lifting one quotient gauge element, restrict the normalized continuous cocycle to the actual native kernel."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-mapped-converse",
+          "how": "For surjective coefficients, realize the normalized cocycle as a continuous kernel cocycle without selecting a continuous section."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_apply",
+          "role": "projection",
+          "statement": "For every g, the underlying value of twistedKernelLift(c,f,d) at g is exactly d(g)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_inclusion",
+          "role": "compatibility",
+          "statement": "Mapping twistedKernelLift(c,f,d) by the native K_c→Twist(c) inclusion returns the exact cocycle d."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_one",
+          "role": "characterisation",
+          "statement": "The kernel lift of the neutral cocycle with its canonical identity-value witness is the neutral cocycle in K_c."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_gauge",
+          "role": "functoriality",
+          "statement": "For x∈K_c, whenever d and x.val•d have their specified pointwise kernel witnesses, lifting x.val•d gives x•twistedKernelLift(c,f,d) as actual K_c-valued continuous cocycles."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_injective",
+          "role": "characterisation",
+          "statement": "For two cocycles d,e with specified pointwise kernel witnesses, their K_c-valued lifts agree if and only if d=e. This is equality of cocycles, not injectivity on H¹."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Z1.twistedKernelLift.test_value",
+          "kind": "computation",
+          "statement": "The underlying lifted value at any g is exactly d(g)."
+        },
+        {
+          "name": "Z1.twistedKernelLift.test_inclusion",
+          "kind": "compatibility",
+          "statement": "The actual native inclusion maps the lifted kernel cocycle to d."
+        },
+        {
+          "name": "Z1.twistedKernelLift.test_neutral",
+          "kind": "degenerate",
+          "statement": "The canonical lift of the identity cocycle is the identity cocycle of K_c."
+        },
+        {
+          "name": "Z1.twistedKernelLift.test_detection",
+          "kind": "characterisation",
+          "statement": "Equality of two native kernel lifts is equivalent to equality of the original cocycles, with their specified kernel witnesses."
+        },
+        {
+          "name": "Z1.twistedKernelLift.test_gauge",
+          "kind": "compatibility",
+          "statement": "A kernel-valued gauge agrees before and after the native cocycle lift."
+        },
+        {
+          "name": "Z1.twistedKernelLift.test_non_kernel_rejected",
+          "kind": "non-example",
+          "statement": "If F_c(d(g))≠1 at one g, no K_c-valued cocycle can have every underlying value equal to d."
+        },
+        {
+          "name": "Z1.kernelImage.test_inverse_gauge_order",
+          "kind": "non-example",
+          "statement": "For G=ConjAct(S₃), U=S₃ with the conjugation action and discrete topologies, x=(01)(12) and d=x•1, the inverse gauge x⁻¹•d equals 1, whereas x•d does not equal 1."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Value of the kernel cocycle lift",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_apply",
+      "statement": "For every g, the underlying value of twistedKernelLift(c,f,d) at g is exactly d(g).",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift"
+      ],
+      "proofSteps": [
+        "Unfold the native subtype-valued lift and project its underlying value."
+      ],
+      "acceptance": [
+        "For every g, the underlying value of twistedKernelLift(c,f,d) at g is exactly d(g).",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift-inclusion",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Kernel lift followed by the coefficient inclusion",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_inclusion",
+      "statement": "Mapping twistedKernelLift(c,f,d) by the native K_c→Twist(c) inclusion returns the exact cocycle d.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action-value"
+      ],
+      "proofSteps": [
+        "Use continuous-cocycle extensionality. Each value is d(g) by the value formula; the inclusion is the actual continuous subtype inclusion."
+      ],
+      "acceptance": [
+        "Mapping twistedKernelLift(c,f,d) by the native K_c→Twist(c) inclusion returns the exact cocycle d.",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_inclusion"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift-neutral",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Neutral kernel cocycle lift",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_one",
+      "statement": "The kernel lift of the neutral cocycle with its canonical identity-value witness is the neutral cocycle in K_c.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift"
+      ],
+      "proofSteps": [
+        "Use cocycle extensionality and equality of the native subtype values."
+      ],
+      "acceptance": [
+        "The kernel lift of the neutral cocycle with its canonical identity-value witness is the neutral cocycle in K_c.",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_one"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift-gauge",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Kernel-valued gauges of the cocycle lift",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_gauge",
+      "statement": "For x∈K_c, whenever d and x.val•d have their specified pointwise kernel witnesses, lifting x.val•d gives x•twistedKernelLift(c,f,d) as actual K_c-valued continuous cocycles.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action-continuity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles"
+      ],
+      "proofSteps": [
+        "Use cocycle extensionality and the injective native subtype inclusion. The two ordered gauge expressions have identical underlying values, with the restricted inner action."
+      ],
+      "acceptance": [
+        "For x∈K_c, whenever d and x.val•d have their specified pointwise kernel witnesses, lifting x.val•d gives x•twistedKernelLift(c,f,d) as actual K_c-valued continuous cocycles.",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_gauge"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift-detection",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Equality detected by the kernel cocycle lift",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_injective",
+      "statement": "For two cocycles d,e with specified pointwise kernel witnesses, their K_c-valued lifts agree if and only if d=e. This is equality of cocycles, not injectivity on H¹.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles"
+      ],
+      "proofSteps": [
+        "Project equality at each g through the subtype inclusion; conversely substitute equal cocycles and use proof irrelevance for membership witnesses."
+      ],
+      "acceptance": [
+        "For two cocycles d,e with specified pointwise kernel witnesses, their K_c-valued lifts agree if and only if d=e. This is equality of cocycles, not injectivity on H¹.",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.twistedKernelLift_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-quotient-converse",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Lift from the native quotient neutral fibre",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.exists_twistedKernelInclusion_of_quotient_eq_one",
+      "statement": "Every a∈H¹(G,Twist(c)) killed by the actual quotient map Twist(c)→Twist(c)/K_c lies in the image of H¹(G,K_c)→H¹(G,Twist(c)). This needs neither surjectivity nor a quotient-map hypothesis on f.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-neutral-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/mapped-inverse-gauge-normalization",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift-inclusion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-representative",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-representative",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-action-continuity",
+        "mathlib:QuotientGroup.mk_surjective",
+        "mathlib:QuotientGroup.eq_one_iff"
+      ],
+      "proofSteps": [
+        "Choose a continuous representative d and a quotient gauge witness y to the neutrality of its mapped class. Lift the single y using native quotient-projection surjectivity. Normalize d by the inverse gauge of that lift. QuotientGroup.eq_one_iff identifies each normalized value with K_c. Construct its continuous kernel cocycle with twistedKernelLift. The inclusion returns the normalized cocycle, whose class is [d] by gauge invariance. No continuous lifting function is chosen."
+      ],
+      "acceptance": [
+        "Every a∈H¹(G,Twist(c)) killed by the actual quotient map Twist(c)→Twist(c)/K_c lies in the image of H¹(G,K_c)→H¹(G,Twist(c)). This needs neither surjectivity nor a quotient-map hypothesis on f.",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.exists_twistedKernelInclusion_of_quotient_eq_one"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-quotient-range",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Exact image for the native twisted quotient",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedQuotient_range_iff",
+      "statement": "For every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if twistedQuotient(a)=1, without assumptions of surjectivity or quotient topology on f.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-quotient-converse",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-kernel-image"
+      ],
+      "proofSteps": [
+        "The inherited quotient-kernel image supplies one implication; the single-gauge lifting lemma supplies the converse."
+      ],
+      "acceptance": [
+        "For every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if twistedQuotient(a)=1, without assumptions of surjectivity or quotient topology on f.",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedQuotient_range_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-mapped-converse",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Lift from a surjective coefficient-map neutral fibre",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.exists_twistedKernelInclusion_of_map_eq_one",
+      "statement": "If f is surjective, every a∈H¹(G,Twist(c)) killed by the mapped twisted coefficient homomorphism F_c lies in the image of twistedKernelInclusion. No quotient-map, openness or continuous-section hypothesis on f is required.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-neutral-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/mapped-inverse-gauge-normalization",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-cocycle-lift-inclusion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-representative",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-map-surjectivity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map"
+      ],
+      "proofSteps": [
+        "Choose a representative d and a gauge witness y in the target inner twist to neutrality of its mapped H¹ class. Lift the one element y along the surjective F_c. Inverse-gauge normalization makes the mapped cocycle pointwise identity. Construct the continuous native kernel cocycle and identify its included class with [d]. Continuity comes from a constant gauge and the subspace restriction, without a continuous section or inverse quotient comparison."
+      ],
+      "acceptance": [
+        "If f is surjective, every a∈H¹(G,Twist(c)) killed by the mapped twisted coefficient homomorphism F_c lies in the image of twistedKernelInclusion. No quotient-map, openness or continuous-section hypothesis on f is required.",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.exists_twistedKernelInclusion_of_map_eq_one"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-mapped-range",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Exact image under a surjective coefficient map",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_range_iff",
+      "statement": "For surjective f and every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if H1.map(F_c)(a)=1. Kernel-H¹ injectivity is not asserted.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-mapped-converse",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-image"
+      ],
+      "proofSteps": [
+        "Combine the inherited kernel image inclusion with the mapped neutral-fibre converse."
+      ],
+      "acceptance": [
+        "For surjective f and every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if H1.map(F_c)(a)=1. Kernel-H¹ injectivity is not asserted.",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_range_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-original-fibre-range",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Entire repointed fibre of a surjective coefficient map",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_fibre_range_iff",
+      "statement": "For surjective f and every a∈H¹(G,U), a lies in the range of b↦T_c(twistedKernelInclusion(b)) if and only if H1.map(f)(a)=[f∘c], where T_c is the native twist translation. The distinguished fibre is over [f∘c], which need not be neutral.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous actions of G by automorphisms. G need not itself be a topological group; compactness, discreteness, finiteness, commutativity and closed kernels are not assumed.",
+        "f:U→V is a continuous G-equivariant group homomorphism. c is an actual continuous cocycle; F_c has target Twist(f∘c). K_c is the native kernel of F_c with its subspace topology and restricted inner action.",
+        "The mapped neutral-fibre converse and original repointed range criterion require f surjective. The native quotient criteria impose no extra condition on f. None requires f to be a quotient map, open, or equipped with a continuous section. The exact typed declaration determines which parameters it uses.",
+        "All H¹ objects are the actual native continuous gauge-orbit pointed sets. Existence of a kernel preimage does not supply uniqueness, kernel-H¹ injectivity, representability, a scheme-level torsor classification or geometric local conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-mapped-range",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-fibre"
+      ],
+      "proofSteps": [
+        "Apply the mapped range criterion to T_c⁻¹(a). Use the inherited coefficient-map/twist fibre criterion, and transport witnesses through the genuine H¹ equivalence. This gives existence in the correct fibre, without uniqueness or kernel-H¹ injectivity."
+      ],
+      "acceptance": [
+        "For surjective f and every a∈H¹(G,U), a lies in the range of b↦T_c(twistedKernelInclusion(b)) if and only if H1.map(f)(a)=[f∘c], where T_c is the native twist translation. The distinguished fibre is over [f∘c], which need not be neutral.",
+        "The twelve actual typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_fibre_range_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "KimKernelImageConverse-codex-rtOQ9t",
+          "locator": "Exact arXiv:math/0409456v1 §1, printed/PDF pp.5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph",
+          "excerpt": "continuous",
+          "match": "Authored single-gauge lifting and native subtype deductions from the freshly read continuous cocycle/gauge conventions; not a named printed geometric, Selmer or representability theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -15313,6 +15981,13 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-killing-descent",
         "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change"
       ]
+    },
+    {
+      "supplier": "AbelianSchemesAndArithmeticModuli:A2",
+      "need": "RT-AREA-algebraicgeometry/8: at field level, import the actual NS(A)=Pic(A)/Pic⁰(A), the injective map [L]↦φ_L into symmetric Hom(A,A∨), finite generation from the A6 field Hom input, and ρ(A)=rank NS(A). The existing A6 finite-rank theorem mentions NS but supplies no NS/Picard-number definition or quotient/injection node. A2 owns these missing constructions; NC.5 is their consumer and BDMTV /9 must be logically retargeted to A2. No local NC.5 or SF.3 duplicate is permitted. This is a requested contract, not a claim the supplier has completed it.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ]
     }
   ],
   "coverage": [
@@ -15357,7 +16032,8 @@
         "Continuous gauge conjugation between inner twists and the canonical pointed H¹ comparison for cohomologous representatives are now specified with checked native proofs, including the gauge-pushforward comparison and composition law. The group isomorphism still depends on a supplied gauge element; only the specified H¹ comparison avoids a gauge-witness choice. Source-group naturality, actual twisted subgroup/quotient realization, compatibility with local conditions, the genuine additive comparison, unipotent point topologies and all geometric/representability/source obligations remain open.",
         "Source-group naturality is supplied for continuous φ:H→*G with explicit action compatibility on U: the underlying actual inner twists, direct continuous cocycle pullback, native H¹ quotient lift, repointed translation squares, gauge conjugation and canonical representative comparison are compatible. Surjective φ gives injectivity and neutral reflection; a constant source map can kill a nonneutral class. Identity/composition are stated with actual dependent twists via their translations. Twisted subgroup/normal-quotient realizations, geometric local conditions, genuine additive comparison, unipotent point topologies, torsor classification, representability and all source/supplier obligations remain open.",
         "Actual kernels of continuous equivariant coefficient maps are now realized in the inner twist with restricted jointly continuous action, native underlying kernel comparison and induced H¹ inclusion. Its translated image lies in the fibre over [f∘c]; no converse or H¹ injectivity is claimed. For surjective f the actual native group quotient is identified with the target twist, and its inverse is continuous exactly when f is a quotient map. A descended quotient G-action and quotient H¹ comparison, arbitrary G-stable subgroup realization, geometric local conditions, genuine additive comparison, unipotent point topologies, geometric torsor classification, representability and all reserved K(pi,1)/source/supplier obligations remain open.",
-        "The actual native twisted-kernel quotient now has a specified jointly continuous descended automorphism action, continuous cocycle/H¹ projections for every continuous equivariant f, and two-way cocycle/pointed-H¹ comparisons when f is surjective and a quotient map. The kernel-inclusion image is killed by the quotient projection, and the neutral quotient fibre translates to the original coefficient-map fibre over [f∘c]. No converse image equality, kernel-H¹ injectivity or lifting of arbitrary quotient cocycles is asserted. Final 26 declarations and 16 tests are uncompiled prototypes because available memory remained below 20 GiB. Arbitrary G-stable subgroups, geometric local conditions, genuine additive comparison, unipotent point topologies, geometric torsor classification, representability and every reserved-key/source/supplier obligation remain open."
+        "The actual native twisted-kernel quotient now has a specified jointly continuous descended automorphism action, continuous cocycle/H¹ projections for every continuous equivariant f, and two-way cocycle/pointed-H¹ comparisons when f is surjective and a quotient map. The kernel-inclusion image is killed by the quotient projection, and the neutral quotient fibre translates to the original coefficient-map fibre over [f∘c]. No converse image equality, kernel-H¹ injectivity or lifting of arbitrary quotient cocycles is asserted. Final 26 declarations and 16 tests are uncompiled prototypes because available memory remained below 20 GiB. Arbitrary G-stable subgroups, geometric local conditions, genuine additive comparison, unipotent point topologies, geometric torsor classification, representability and every reserved-key/source/supplier obligation remain open.",
+        "The native twisted quotient and the surjective coefficient-map neutral fibres now equal the actual kernel-H¹ image, by lifting one gauge element and restricting its inverse-gauge normalized continuous cocycle. The original fibre is over [f∘c]. No kernel-H¹ injectivity or unique preimage follows. Arbitrary named G-stable subgroup adapters, central H² obstruction, geometric torsor classification, unipotent point topologies, genuine additive comparison, representability, local conditions and every inherited source/supplier obligation remain open."
       ]
     },
     {
@@ -15486,7 +16162,8 @@
       "gaugeRepresentativeContinuation": "Continuous gauge conjugation between inner twists and the canonical pointed H¹ comparison for cohomologous representatives are now specified with checked native proofs, including the gauge-pushforward comparison and composition law. The group isomorphism still depends on a supplied gauge element; only the specified H¹ comparison avoids a gauge-witness choice. Source-group naturality, actual twisted subgroup/quotient realization, compatibility with local conditions, the genuine additive comparison, unipotent point topologies and all geometric/representability/source obligations remain open.",
       "twistedSourceContinuation": "Source-group naturality is supplied for continuous φ:H→*G with explicit action compatibility on U: the underlying actual inner twists, direct continuous cocycle pullback, native H¹ quotient lift, repointed translation squares, gauge conjugation and canonical representative comparison are compatible. Surjective φ gives injectivity and neutral reflection; a constant source map can kill a nonneutral class. Identity/composition are stated with actual dependent twists via their translations. Twisted subgroup/normal-quotient realizations, geometric local conditions, genuine additive comparison, unipotent point topologies, torsor classification, representability and all source/supplier obligations remain open.",
       "twistedKernelContinuation": "Actual kernels of continuous equivariant coefficient maps are now realized in the inner twist with restricted jointly continuous action, native underlying kernel comparison and induced H¹ inclusion. Its translated image lies in the fibre over [f∘c]; no converse or H¹ injectivity is claimed. For surjective f the actual native group quotient is identified with the target twist, and its inverse is continuous exactly when f is a quotient map. A descended quotient G-action and quotient H¹ comparison, arbitrary G-stable subgroup realization, geometric local conditions, genuine additive comparison, unipotent point topologies, geometric torsor classification, representability and all reserved K(pi,1)/source/supplier obligations remain open.",
-      "twistedQuotientContinuation": "The actual native twisted-kernel quotient now has a specified jointly continuous descended automorphism action, continuous cocycle/H¹ projections for every continuous equivariant f, and two-way cocycle/pointed-H¹ comparisons when f is surjective and a quotient map. The kernel-inclusion image is killed by the quotient projection, and the neutral quotient fibre translates to the original coefficient-map fibre over [f∘c]. No converse image equality, kernel-H¹ injectivity or lifting of arbitrary quotient cocycles is asserted. Final 26 declarations and 16 tests are uncompiled prototypes because available memory remained below 20 GiB. Arbitrary G-stable subgroups, geometric local conditions, genuine additive comparison, unipotent point topologies, geometric torsor classification, representability and every reserved-key/source/supplier obligation remain open."
+      "twistedQuotientContinuation": "The actual native twisted-kernel quotient now has a specified jointly continuous descended automorphism action, continuous cocycle/H¹ projections for every continuous equivariant f, and two-way cocycle/pointed-H¹ comparisons when f is surjective and a quotient map. The kernel-inclusion image is killed by the quotient projection, and the neutral quotient fibre translates to the original coefficient-map fibre over [f∘c]. No converse image equality, kernel-H¹ injectivity or lifting of arbitrary quotient cocycles is asserted. Final 26 declarations and 16 tests are uncompiled prototypes because available memory remained below 20 GiB. Arbitrary G-stable subgroups, geometric local conditions, genuine additive comparison, unipotent point topologies, geometric torsor classification, representability and every reserved-key/source/supplier obligation remain open.",
+      "kernelImageConverseContinuation": "The native twisted quotient and the surjective coefficient-map neutral fibres now equal the actual kernel-H¹ image, by lifting one gauge element and restricting its inverse-gauge normalized continuous cocycle. The original fibre is over [f∘c]. No kernel-H¹ injectivity or unique preimage follows. Arbitrary named G-stable subgroup adapters, central H² obstruction, geometric torsor classification, unipotent point topologies, genuine additive comparison, representability, local conditions and every inherited source/supplier obligation remain open."
     }
   ],
   "sourceIssues": [],
@@ -17450,5 +18127,18 @@
     "nativeScope": "Complete byte-identical 2856-line incoming Mathlib-native proof prefix, plus actual kernel/H¹ inclusion/normal quotient continuation. No admitted assumptions or TauCeti imports in the checked native program.",
     "canonicalLimit": "Full canonical suggested file imports pinned TauCeti LowDegree, for which no compiled exact-pin build is available. The exact Mathlib projection strips only TauCeti imports and the existing section Abelian; it preserves all other inherited and new signatures/tests.",
     "frontier": "Actual kernels of continuous equivariant coefficient maps are now realized in the inner twist with restricted jointly continuous action, native underlying kernel comparison and induced H¹ inclusion. Its translated image lies in the fibre over [f∘c]; no converse or H¹ injectivity is claimed. For surjective f the actual native group quotient is identified with the target twist, and its inverse is continuous exactly when f is a quotient map. A descended quotient G-action and quotient H¹ comparison, arbitrary G-stable subgroup realization, geometric local conditions, genuine additive comparison, unipotent point topologies, geometric torsor classification, representability and all reserved K(pi,1)/source/supplier obligations remain open."
+  },
+  "kernelImageConverseContinuation": {
+    "worker": "Codex — codex-rtOQ9t",
+    "issue": 1020,
+    "claim": 5967707818,
+    "claimConfirmation": 5967709356,
+    "mathematicalBase": "fb0e92df4ec58dd838a845679655f272a804590e",
+    "newDeclarations": 12,
+    "newTypedTests": 12,
+    "frontier": "The native twisted quotient and the surjective coefficient-map neutral fibres now equal the actual kernel-H¹ image, by lifting one gauge element and restricting its inverse-gauge normalized continuous cocycle. The original fibre is over [f∘c]. No kernel-H¹ injectivity or unique preimage follows. Arbitrary named G-stable subgroup adapters, central H² obstruction, geometric torsor classification, unipotent point topologies, genuine additive comparison, representability, local conditions and every inherited source/supplier obligation remain open.",
+    "fullCanonicalCompiled": false,
+    "nativeScope": "Complete recovered 3795-line native proof program, with eight explicit proof-body repairs, and all twelve new declarations/tests. Exact checked receipt is in the handoff; no packet item is implemented.",
+    "canonicalLimit": "Full canonical imports TauCeti LowDegree; no exact-pin compiled Tau Ceti build is authenticated. The separately checked Mathlib-only projection removes exactly this import and the inherited Abelian section; it is not full canonical checking."
   }
 }
