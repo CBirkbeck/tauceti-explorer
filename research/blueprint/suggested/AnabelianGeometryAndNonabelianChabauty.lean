@@ -4369,3 +4369,259 @@ example (x : C) (hx : x⁻¹ ≠ x) :
 
 end InverseCoordinateTest
 end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section GaugeStabilizers
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+
+lemma Z1.stabilizer_iff_twisted_fixed (c : Z1 G U) (x : U) :
+    x ∈ MulAction.stabilizer U c ↔
+      (Twist.toOriginal c).symm x ∈ H0 G (Twist c) := by sorry
+
+def Twist.invariantStabilizerEquiv (c : Z1 G U) :
+    H0 G (Twist c) ≃* MulAction.stabilizer U c := by sorry
+
+lemma Twist.invariantStabilizerEquiv_apply (c : Z1 G U) (x : H0 G (Twist c)) :
+    (Twist.invariantStabilizerEquiv c x).val = Twist.toOriginal c x.val := by sorry
+
+lemma Twist.invariantStabilizerEquiv_symm_apply (c : Z1 G U)
+    (x : MulAction.stabilizer U c) :
+    ((Twist.invariantStabilizerEquiv c).symm x).val =
+      (Twist.toOriginal c).symm x.val := by sorry
+
+lemma Twist.invariantStabilizerEquiv_continuous (c : Z1 G U) :
+    Continuous (Twist.invariantStabilizerEquiv c) := by sorry
+
+lemma Twist.invariantStabilizerEquiv_symm_continuous (c : Z1 G U) :
+    Continuous (Twist.invariantStabilizerEquiv c).symm := by sorry
+
+lemma Z1.gauge_transporter_iff (c d : Z1 G U) (x : U) (hx : x • c = d) (y : U) :
+    y • c = d ↔ x⁻¹ * y ∈ MulAction.stabilizer U c := by sorry
+
+def Z1.gaugeTransporterEquiv (c d : Z1 G U) (x : U) (hx : x • c = d) :
+    MulAction.stabilizer U c ≃ {y : U // y • c = d} := by sorry
+
+lemma Z1.gaugeTransporterEquiv_apply (c d : Z1 G U) (x : U) (hx : x • c = d)
+    (s : MulAction.stabilizer U c) :
+    (Z1.gaugeTransporterEquiv c d x hx s).val = x * s.val := by sorry
+
+lemma Z1.gaugeTransporterEquiv_symm_apply (c d : Z1 G U) (x : U) (hx : x • c = d)
+    (y : {y : U // y • c = d}) :
+    ((Z1.gaugeTransporterEquiv c d x hx).symm y).val = x⁻¹ * y.val := by sorry
+
+lemma Z1.gaugeTransporterEquiv_continuous (c d : Z1 G U) (x : U) (hx : x • c = d) :
+    Continuous (Z1.gaugeTransporterEquiv c d x hx) := by sorry
+
+lemma Z1.gaugeTransporterEquiv_symm_continuous (c d : Z1 G U) (x : U) (hx : x • c = d) :
+    Continuous (Z1.gaugeTransporterEquiv c d x hx).symm := by sorry
+
+lemma Z1.gauge_witness_unique_iff (c d : Z1 G U) (x : U) (hx : x • c = d) :
+    (∀ y : U, y • c = d → y = x) ↔ MulAction.stabilizer U c = ⊥ := by sorry
+
+end GaugeStabilizers
+
+section KernelInjectivity
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {A : Type*} [Group A] [TopologicalSpace A] [IsTopologicalGroup A]
+  [MulDistribMulAction G A] [ContinuousSMul G A]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [IsTopologicalGroup V]
+  [MulDistribMulAction G V] [ContinuousSMul G V]
+
+lemma Z1.kernel_gauge_projects_fixed (i : A →* U) (hi : Continuous i)
+    (hiG : ∀ (g : G) (a : A), i (g • a) = g • i a)
+    (f : U →* V) (_hf : Continuous f)
+    (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+    (hzero : ∀ a : A, f (i a) = 1) (c d : Z1 G A) (x : U)
+    (hx : x • Z1.map i hi hiG c = Z1.map i hi hiG d) :
+    f x ∈ H0 G V := by sorry
+
+lemma H1.kernelMap_injective_of_stabilizer_lifts (i : A →* U) (hi : Continuous i)
+    (hiG : ∀ (g : G) (a : A), i (g • a) = g • i a) (hinj : Function.Injective i)
+    (f : U →* V) (hf : Continuous f)
+    (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+    (hK : ∀ u : U, u ∈ i.range ↔ f u = 1)
+    (hlift : ∀ (c : Z1 G A) (v : H0 G V),
+      ∃ t : MulAction.stabilizer U (Z1.map i hi hiG c), f t.val = v.val) :
+    Function.Injective (H1.map i hi hiG) := by sorry
+
+lemma H1.kernelMap_injective_of_fixed_trivial (i : A →* U) (hi : Continuous i)
+    (hiG : ∀ (g : G) (a : A), i (g • a) = g • i a) (hinj : Function.Injective i)
+    (f : U →* V) (hf : Continuous f)
+    (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+    (hK : ∀ u : U, u ∈ i.range ↔ f u = 1)
+    (hfix : H0 G V = ⊥) : Function.Injective (H1.map i hi hiG) := by sorry
+
+end KernelInjectivity
+
+section TwistedKernelInjectivity
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [IsTopologicalGroup V]
+  [MulDistribMulAction G V] [ContinuousSMul G V]
+
+lemma H1.twistedKernelInclusion_injective (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+    (hfix : H0 G (Twist (Z1.map f hf hG c)) = ⊥) :
+    (letI := Twist.kernelAction c f hf hG
+     let := Twist.kernelContinuousSMul c f hf hG
+     Function.Injective (H1.twistedKernelInclusion c f hf hG)) := by sorry
+
+end TwistedKernelInjectivity
+
+section EmbeddedKernelInjectivity
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [IsTopologicalGroup V]
+  [MulDistribMulAction G V] [ContinuousSMul G V]
+  {A : Type*} [Group A] [TopologicalSpace A] [IsTopologicalGroup A]
+
+lemma H1.embeddedKernelInclusion_injective (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+    (i : A →* U) (hi : Topology.IsEmbedding i)
+    (hK : ∀ u : U, u ∈ i.range ↔ f u = 1)
+    (hfix : H0 G (Twist (Z1.map f hf hG c)) = ⊥) :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     Function.Injective (H1.embeddedKernelInclusion c f hf hG i hi hK)) := by sorry
+
+lemma H1.embeddedKernel_fibre_existsUnique (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+    (i : A →* U) (hi : Topology.IsEmbedding i)
+    (hK : ∀ u : U, u ∈ i.range ↔ f u = 1) (hsur : Function.Surjective f)
+    (hfix : H0 G (Twist (Z1.map f hf hG c)) = ⊥) :
+    (letI := Twist.embeddedKernelAction c f hf hG i hi hK
+     letI := Twist.embeddedKernelContinuousSMul c f hf hG i hi hK
+     ∀ a : H1 G U,
+     (∃! b : H1 G A, H1.twistEquiv c (H1.embeddedKernelInclusion c f hf hG i hi hK b) = a) ↔
+       H1.map f hf hG a = H1.mk (Z1.map f hf hG c)) := by sorry
+
+end EmbeddedKernelInjectivity
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section GaugeStabilizerTests
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+
+-- test: invariant_stabilizer_inverse
+example (c : Z1 G U) (s : H0 G (Twist c)) :
+    (Twist.invariantStabilizerEquiv c).symm (Twist.invariantStabilizerEquiv c s) = s := by sorry
+
+-- test: invariant_stabilizer_multiplication
+example (c : Z1 G U) (s t : H0 G (Twist c)) :
+    (Twist.invariantStabilizerEquiv c (s * t)).val =
+      (Twist.invariantStabilizerEquiv c s).val * (Twist.invariantStabilizerEquiv c t).val := by sorry
+
+-- test: gauge_transporter_inverse
+example (c d : Z1 G U) (x : U) (hx : x • c = d)
+    (y : {y : U // y • c = d}) :
+    Z1.gaugeTransporterEquiv c d x hx ((Z1.gaugeTransporterEquiv c d x hx).symm y) = y := by sorry
+
+-- test: gauge_transporter_right_order
+example (c d : Z1 G U) (x : U) (hx : x • c = d)
+    (s : MulAction.stabilizer U c) (horder : x * s.val ≠ s.val * x) :
+    (Z1.gaugeTransporterEquiv c d x hx s).val ≠ s.val * x := by sorry
+
+-- test: gauge_transporter_continuous_roundtrip
+example (c d : Z1 G U) (x : U) (hx : x • c = d) :
+    Continuous ((Z1.gaugeTransporterEquiv c d x hx).symm ∘ Z1.gaugeTransporterEquiv c d x hx) := by sorry
+
+-- test: gauge_witness_nonunique
+example (c d : Z1 G U) (x : U) (hx : x • c = d)
+    (s : MulAction.stabilizer U c) (hs : s.val ≠ 1) :
+    ∃ y : U, y • c = d ∧ y ≠ x := by sorry
+
+-- test: gauge_witness_unique
+example (c d : Z1 G U) (x y : U) (hx : x • c = d)
+    (hy : y • c = d) (hbot : MulAction.stabilizer U c = ⊥) : y = x := by sorry
+
+-- test: neutral_stabilizer_fixed_points
+example (x : U) : x ∈ MulAction.stabilizer U (1 : Z1 G U) ↔ x ∈ H0 G U := by sorry
+
+end GaugeStabilizerTests
+
+section KernelInjectivityTests
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {A : Type*} [Group A] [TopologicalSpace A] [IsTopologicalGroup A]
+  [MulDistribMulAction G A] [ContinuousSMul G A]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [IsTopologicalGroup V]
+  [MulDistribMulAction G V] [ContinuousSMul G V]
+
+-- test: kernel_neutral_reflection
+example (i : A →* U) (hi : Continuous i)
+    (hiG : ∀ (g : G) (a : A), i (g • a) = g • i a) (hinj : Function.Injective i)
+    (f : U →* V) (hf : Continuous f)
+    (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+    (hK : ∀ u : U, u ∈ i.range ↔ f u = 1) (hfix : H0 G V = ⊥) (a : H1 G A) :
+    H1.map i hi hiG a = 1 ↔ a = 1 := by sorry
+
+-- test: trivial_action_fixed_obstruction
+example (htriv : ∀ (g : G) (v : V), g • v = v) (v : V) (hv : v ≠ 1) :
+    H0 G V ≠ ⊥ := by sorry
+
+end KernelInjectivityTests
+
+section PermutationRegression
+set_option maxHeartbeats 3000000
+local notation "C3" => Multiplicative (ZMod 3)
+local notation "S3" => Equiv.Perm (Fin 3)
+local instance : TopologicalSpace C3 := ⊥
+local instance : TopologicalSpace S3 := ⊥
+local instance : DiscreteTopology C3 := ⟨rfl⟩
+local instance : DiscreteTopology S3 := ⟨rfl⟩
+local instance trivialC3Action : MulDistribMulAction C3 C3 :=
+  { smul := fun _ x => x
+    one_smul := fun _ => rfl
+    mul_smul := fun _ _ _ => rfl
+    smul_one := fun _ => rfl
+    smul_mul := fun _ _ _ => rfl }
+local instance : MulDistribMulAction C3 S3 :=
+  { smul := fun _ x => x
+    one_smul := fun _ => rfl
+    mul_smul := fun _ _ _ => rfl
+    smul_one := fun _ => rfl
+    smul_mul := fun _ _ _ => rfl }
+local instance (priority := 3000) : SMul C3 C3 := trivialC3Action.toSMul
+local instance : ContinuousSMul C3 C3 := ⟨continuous_snd⟩
+local instance : ContinuousSMul C3 S3 := ⟨continuous_snd⟩
+
+-- test: injective_coefficients_noninjective_h1
+example :
+    let p : S3 := Equiv.swap 0 1 * Equiv.swap 1 2
+    let i : C3 →* S3 :=
+      { toFun := fun a => if a = 1 then 1 else if a = Multiplicative.ofAdd (1 : ZMod 3) then p else p⁻¹
+        map_one' := by decide
+        map_mul' := by decide }
+    let c : Z1 C3 C3 := ⟨id, continuous_id, by intro a b; rfl⟩
+    let d : Z1 C3 C3 := ⟨fun a => a⁻¹, continuous_of_discreteTopology, by
+      intro a b; exact mul_inv_rev a b |>.trans (mul_comm _ _)⟩
+    Function.Injective i ∧ H1.mk c ≠ H1.mk d ∧
+      H1.map i continuous_of_discreteTopology (fun _ _ => rfl) (H1.mk c) =
+        H1.map i continuous_of_discreteTopology (fun _ _ => rfl) (H1.mk d) := by sorry
+
+-- test: concrete_gauge_nonunique_noncommutative
+example :
+    let c : Z1 C3 S3 := ⟨fun a => if a = 1 then 1 else
+      if a = Multiplicative.ofAdd (1 : ZMod 3) then Equiv.swap 0 1 * Equiv.swap 1 2
+      else (Equiv.swap 0 1 * Equiv.swap 1 2)⁻¹,
+      continuous_of_discreteTopology, by decide⟩
+    (1 : S3) • c = c ∧ (Equiv.swap (0 : Fin 3) 1 * Equiv.swap 1 2) • c = c ∧
+      (1 : S3) ≠ Equiv.swap (0 : Fin 3) 1 * Equiv.swap 1 2 := by sorry
+
+end PermutationRegression
+end TauCeti.NonabelianCohomology

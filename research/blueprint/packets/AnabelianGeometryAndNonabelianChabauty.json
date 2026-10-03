@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Abstract embedded-kernel continuation: 19 declaration-sized nodes, 15 promoted API leaves and 14 typed tests. Partial anabelian checkpoint with 276 declaration-sized nodes. This continuation adds an actual native subgroup-to-twisted-kernel multiplicative identification, its jointly continuous transported inner action, a genuine continuous gauge-H¹ equivalence, and exact native ambient inclusion range criteria. Its explicit hypothesis is S≤U with x∈S iff f(x)=1; mapped-target and original-fibre converses also require f surjective. All 258 inherited mathematical contracts, seven stage statuses, nine gaps, seventeen supplier requests and eleven planets are preserved. NC.0 and NC.3 remain partial, other stages not_read, every node unchecked. The general abstract embedded-kernel adapter, central H², geometry, representability, local conditions, additive comparison, étale K(pi,1), Chen and BDMTV obligations are not closed.",
+  "summary": "Gauge stabilizer and kernel uniqueness continuation: native twisted-invariant/stabilizer comparison, actual gauge-witness spaces, sufficient invariant/stabilizer-lift criteria for kernel H¹ injectivity and unique repointed-fibre classes. Abstract embedded-kernel continuation: 19 declaration-sized nodes, 15 promoted API leaves and 14 typed tests. Partial anabelian checkpoint with 276 declaration-sized nodes. This continuation adds an actual native subgroup-to-twisted-kernel multiplicative identification, its jointly continuous transported inner action, a genuine continuous gauge-H¹ equivalence, and exact native ambient inclusion range criteria. Its explicit hypothesis is S≤U with x∈S iff f(x)=1; mapped-target and original-fibre converses also require f surjective. All 258 inherited mathematical contracts, seven stage statuses, nine gaps, seventeen supplier requests and eleven planets are preserved. NC.0 and NC.3 remain partial, other stages not_read, every node unchecked. The general abstract embedded-kernel adapter, central H², geometry, representability, local conditions, additive comparison, étale K(pi,1), Chen and BDMTV obligations are not closed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1049,6 +1049,20 @@
         "module": "Mathlib/Topology/Algebra/Group/Basic.lean",
         "provides": "A homomorphism inducing the source topology transfers the topological-group structure; explains the H¹ source assumption without a duplicate NC.3 node.",
         "checked": "Actual statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 275–278; exact name checked in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MulAction.stabilizer",
+        "kind": "definition",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+        "provides": "The existing actual stabilizer subgroup of a group action, reused for the cocycle gauge action.",
+        "checked": "Statement and surrounding hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 511–516; native names checked by compilation and pinned index."
+      },
+      {
+        "ref": "mathlib:MulAction.mem_stabilizer_iff",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+        "provides": "Membership in the native stabilizer iff the element fixes the point under the action.",
+        "checked": "Statement and surrounding hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 524–525; native names checked by compilation and pinned index."
       }
     ]
   },
@@ -1357,6 +1371,19 @@
         "Fresh parsed continuous cocycle/gauge definitions, Proposition 1 proof and coefficient functor; complete Proposition 2 proof and subgroup paragraph, printed pp.5–9."
       ],
       "readingExtent": "Not a whole-paper, visual or published-version collation; abstract embedded-kernel deductions are authored here. Geometric/unipotent-point topology proofs remain open."
+    },
+    {
+      "id": "KimGaugeStabilizers-codex-5ebb6f",
+      "title": "The motivic fundamental group of P¹ minus 0,1,infinity and the theorem of Siegel",
+      "authors": "Minhyong Kim",
+      "edition": "Exact arXiv:math/0409456v1; selected continuous cocycle/gauge conventions and Proposition 2 proof",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Fresh web-parsed printed pp.5–9: continuous cocycle/gauge definitions, full Proposition 1 proof, coefficient functor and complete Proposition 2 proof including the freeness claim and subgroup paragraph. The downloaded exact PDF hash matches; no fresh visual or published-version collation."
+      ],
+      "readingExtent": "The new abstract stabilizer and injectivity statements are authored deductions. Geometric representability, central H² and unipotent-point topologies remain open."
     }
   ],
   "nodes": [
@@ -17531,6 +17558,889 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-stabilizer-fixed",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Gauge stabilizers are twisted invariants",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.stabilizer_iff_twisted_fixed",
+      "statement": "For an actual continuous cocycle c and x∈U, x belongs to the native gauge stabilizer Stab_U(c) exactly when its underlying element in Twist(c) is G-fixed. No topology on the space of cocycles is required.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Expand the ordered gauge equation x c(g)(g•x)⁻¹=c(g). Multiply on the right by g•x and compare with the already specified twisted-invariant equation c(g)(g•x)=x c(g)."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-invariant-criterion",
+        "mathlib:MulAction.stabilizer",
+        "mathlib:MulAction.mem_stabilizer_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.stabilizer_iff_twisted_fixed"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-equivalence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Twisted invariants and the actual gauge stabilizer",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv",
+      "statement": "Construct the multiplicative equivalence H⁰(G,Twist(c))≃*Stab_U(c), taking a fixed element to its unchanged underlying U-value. Both groups carry their native subgroup topologies.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Restrict the existing underlying multiplicative equivalence of the inner twist to the actual fixed-point and stabilizer subgroups. The preceding iff supplies membership in both directions; the inverse identities and multiplication formula are inherited."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-stabilizer-fixed",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group",
+        "mathlib:MulAction.stabilizer"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_apply",
+          "role": "characterisation",
+          "statement": "The U-value of the image of s∈H⁰(G,Twist(c)) is toOriginal(c)(s)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_apply",
+          "role": "characterisation",
+          "statement": "The underlying twisted value of the inverse image of s∈Stab_U(c) is toOriginal(c)⁻¹(s)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_continuous",
+          "role": "compatibility",
+          "statement": "The fixed-point-to-stabilizer map is continuous for the two native subgroup topologies."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_continuous",
+          "role": "compatibility",
+          "statement": "The stabilizer-to-fixed-point inverse is continuous for the same native topologies."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-value",
+          "how": "Evaluate the native subtype construction."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-inverse-value",
+          "how": "Evaluate the inverse restriction."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-continuity",
+          "how": "Its underlying map is the continuous subtype inclusion on the unchanged topological group; restrict the codomain to the native stabilizer subtype."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-inverse-continuity",
+          "how": "Use the continuous underlying subtype map and its fixed-point membership. No topology on H¹ or Z¹ is introduced."
+        }
+      ],
+      "tests": [
+        {
+          "name": "invariant_stabilizer_inverse",
+          "kind": "characterisation",
+          "statement": "For every actual fixed s, the inverse comparison of its forward image equals s."
+        },
+        {
+          "name": "invariant_stabilizer_multiplication",
+          "kind": "compatibility",
+          "statement": "The stabilizer value of the image of s t equals the product of the two stabilizer values, in that order."
+        },
+        {
+          "name": "neutral_stabilizer_fixed_points",
+          "kind": "degenerate",
+          "statement": "For the identity cocycle the actual gauge stabilizer consists exactly of elements fixed by the original G-action on U."
+        },
+        {
+          "name": "concrete_gauge_nonunique_noncommutative",
+          "kind": "computation",
+          "statement": "For discrete C₃ acting trivially on S₃, the continuous cocycle sending the generator to the three-cycle p=(01)(12) is fixed by both distinct gauge elements 1 and p. A canonical H¹ comparison does not imply unique gauge elements."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Fixed-element stabilizer value",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_apply",
+      "statement": "The U-value of the image of s∈H⁰(G,Twist(c)) is toOriginal(c)(s).",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Evaluate the native subtype construction."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_apply"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-inverse-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Stabilizer inverse value",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_apply",
+      "statement": "The underlying twisted value of the inverse image of s∈Stab_U(c) is toOriginal(c)⁻¹(s).",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Evaluate the inverse restriction."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_apply"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-continuity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Continuous invariant-stabilizer comparison",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_continuous",
+      "statement": "The fixed-point-to-stabilizer map is continuous for the two native subgroup topologies.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Its underlying map is the continuous subtype inclusion on the unchanged topological group; restrict the codomain to the native stabilizer subtype."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_continuous"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-inverse-continuity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Continuous stabilizer inverse",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_continuous",
+      "statement": "The stabilizer-to-fixed-point inverse is continuous for the same native topologies.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Use the continuous underlying subtype map and its fixed-point membership. No topology on H¹ or Z¹ is introduced."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-stabilizer-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_continuous"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-characterisation",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Gauge witnesses differ by a right stabilizer",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.gauge_transporter_iff",
+      "statement": "Given x•c=d, another y satisfies y•c=d exactly when x⁻¹y∈Stab_U(c). The witnesses form the left translate x Stab_U(c); the correction is on the right of x.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Act on the gauge equality by x⁻¹ for the forward direction. For the reverse direction multiply the stabilizing action by x and cancel x x⁻¹."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "mathlib:MulAction.stabilizer"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.gauge_transporter_iff"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "The actual space of gauge witnesses",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv",
+      "statement": "Given a specified witness x•c=d, construct Stab_U(c)≃{y∈U | y•c=d} by s↦x s, with inverse y↦x⁻¹y. The target is an actual subtype of U with its inherited topology, not a chosen witness field or a cocycle quotient.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Use the native stabilizer action to construct the forward witness and the transporter iff for the inverse membership. Both inverse identities are actual multiplication cancellation."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-characterisation",
+        "mathlib:MulAction.stabilizer"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_apply",
+          "role": "characterisation",
+          "statement": "The underlying U-value of the transporter image of s is x s."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_apply",
+          "role": "characterisation",
+          "statement": "The underlying U-value of the transporter inverse at y is x⁻¹y."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_continuous",
+          "role": "compatibility",
+          "statement": "The stabilizer-to-transporter equivalence is continuous."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_continuous",
+          "role": "compatibility",
+          "statement": "The transporter-to-stabilizer inverse is continuous."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.gauge_witness_unique_iff",
+          "role": "characterisation",
+          "statement": "If x•c=d, all witnesses y•c=d equal x exactly when Stab_U(c) is the trivial subgroup. This is uniqueness of a group element, distinct from uniqueness of a class in kernel H¹."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-value",
+          "how": "Evaluate the forward subtype map."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-inverse-value",
+          "how": "Evaluate the inverse subtype map."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-continuity",
+          "how": "Multiply the continuous subtype inclusion by the constant x on the left and restrict its codomain."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-inverse-continuity",
+          "how": "Multiply the continuous subtype inclusion by the constant x⁻¹ and restrict its codomain."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-witness-uniqueness",
+          "how": "If witnesses are unique, apply uniqueness to x s for each stabilizer element s and cancel x. Conversely the transporter iff puts x⁻¹y in the trivial subgroup, forcing y=x."
+        }
+      ],
+      "tests": [
+        {
+          "name": "gauge_transporter_inverse",
+          "kind": "characterisation",
+          "statement": "Every actual transporter element is recovered after applying the transporter inverse and forward maps."
+        },
+        {
+          "name": "gauge_transporter_right_order",
+          "kind": "non-example",
+          "statement": "If x s≠s x for an actual stabilizer element s, the transporter image is not s x. Swapping the side of the stabilizer correction fails."
+        },
+        {
+          "name": "gauge_transporter_continuous_roundtrip",
+          "kind": "compatibility",
+          "statement": "The inverse composed with the forward transporter map is continuous for the native subspace topologies."
+        },
+        {
+          "name": "gauge_witness_nonunique",
+          "kind": "non-example",
+          "statement": "A nonidentity stabilizer element s supplies a second actual witness x s≠x for the same cocycle gauge equality."
+        },
+        {
+          "name": "gauge_witness_unique",
+          "kind": "characterisation",
+          "statement": "If the native stabilizer is trivial, every second gauge witness y equals the specified witness x."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Gauge transporter forward formula",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_apply",
+      "statement": "The underlying U-value of the transporter image of s is x s.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Evaluate the forward subtype map."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_apply"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-inverse-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Gauge transporter inverse formula",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_apply",
+      "statement": "The underlying U-value of the transporter inverse at y is x⁻¹y.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Evaluate the inverse subtype map."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_apply"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-continuity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Continuous gauge transporter",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_continuous",
+      "statement": "The stabilizer-to-transporter equivalence is continuous.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Multiply the continuous subtype inclusion by the constant x on the left and restrict its codomain."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_continuous"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-inverse-continuity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Continuous inverse transporter",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_continuous",
+      "statement": "The transporter-to-stabilizer inverse is continuous.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Multiply the continuous subtype inclusion by the constant x⁻¹ and restrict its codomain."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_continuous"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-witness-uniqueness",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Uniqueness of an actual gauge witness",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.gauge_witness_unique_iff",
+      "statement": "If x•c=d, all witnesses y•c=d equal x exactly when Stab_U(c) is the trivial subgroup. This is uniqueness of a group element, distinct from uniqueness of a class in kernel H¹.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "If witnesses are unique, apply uniqueness to x s for each stabilizer element s and cancel x. Conversely the transporter iff puts x⁻¹y in the trivial subgroup, forcing y=x."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-characterisation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-transporter-equivalence",
+        "mathlib:MulAction.stabilizer"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.gauge_witness_unique_iff"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-gauge-fixed-projection",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Kernel gauge witnesses project to invariants",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.kernel_gauge_projects_fixed",
+      "statement": "Let i:A→U be continuous and equivariant, f:U→V continuous and equivariant, and f∘i=1 pointwise. For c,d∈Z¹(G,A), an ambient gauge x carrying i∘c to i∘d has f(x)∈H⁰(G,V). No injectivity or surjectivity is needed for this lemma.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Apply f pointwise to the actual gauge equality. Both cocycle values map to 1, so f(x)(g•f(x))⁻¹=1 for every g. Cancel to obtain invariance."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1.kernel_gauge_projects_fixed"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-injectivity-stabilizer-lifts",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Kernel H¹ injectivity from stabilizer lifts",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelMap_injective_of_stabilizer_lifts",
+      "statement": "Let i:A→U be continuous, equivariant and injective, with range(i)=ker(f) for a continuous equivariant f:U→V. Suppose for every c∈Z¹(G,A) and every v∈H⁰(G,V), there is t∈Stab_U(i∘c) with f(t)=v. Then the actual inclusion map H¹(G,A)→H¹(G,U) is injective. Neither f-surjectivity nor a continuous section is assumed.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Represent two equal ambient classes by c,d and a gauge x. Its projection is fixed. Lift f(x) to t stabilizing i∘c. The corrected gauge x t⁻¹ lies in ker(f), still carries i∘c to i∘d, and therefore comes from y∈A. Injectivity of i reflects the pointwise gauge equality, proving equality of the two original classes."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-gauge-fixed-projection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
+        "mathlib:MulAction.stabilizer"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelMap_injective_of_stabilizer_lifts"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "injective_coefficients_noninjective_h1",
+          "kind": "non-example",
+          "statement": "With discrete trivial actions, the injective homomorphism C₃→S₃ sending a generator to p=(01)(12) maps the distinct H¹ classes of identity and inversion C₃→C₃ to the same S₃-valued H¹ class: conjugation by (01) interchanges p and p⁻¹. Injectivity of a coefficient embedding alone is insufficient."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-injectivity-fixed-trivial",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Kernel H¹ injectivity for trivial quotient invariants",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.kernelMap_injective_of_fixed_trivial",
+      "statement": "Under the same continuous equivariant injection and exact-image hypotheses, H⁰(G,V)=1 implies injectivity of H¹(G,A)→H¹(G,U). This is a sufficient hypothesis, not a necessary characterization of injectivity.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Every fixed v equals 1; choose the identity element of the actual stabilizer as its lift and apply the stabilizer-lift criterion."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-injectivity-stabilizer-lifts"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.kernelMap_injective_of_fixed_trivial"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "kernel_neutral_reflection",
+          "kind": "degenerate",
+          "statement": "Under the exact-image, coefficient-injectivity and trivial-quotient-invariants hypotheses, the actual inclusion sends a class to the neutral class exactly when the original class is neutral."
+        },
+        {
+          "name": "trivial_action_fixed_obstruction",
+          "kind": "non-example",
+          "statement": "For a trivial G-action on V and a specified v≠1, H⁰(G,V) is not the trivial subgroup. The injectivity hypothesis cannot be silently discharged by naming an exact sequence."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-inclusion-injectivity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Injective inclusion of the actual twisted kernel",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_injective",
+      "statement": "For c∈Z¹(G,U) and continuous equivariant f:U→V, if H⁰(G,Twist(f∘c))=1 then the already constructed native twisted-kernel H¹ inclusion into H¹(G,Twist(c)) is injective. The invariant condition belongs to the target inner twist, not automatically to the original V-action.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Apply the general kernel criterion to the actual subtype inclusion of ker(F_c), the continuous equivariant twisted map F_c and its exact native kernel. The inherited action is the actual restricted inner action."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-injectivity-fixed-trivial",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-inclusion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-continuity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-equivariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action-continuity"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_injective"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-inclusion-injectivity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Injective H¹ of an abstract embedded kernel",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_injective",
+      "statement": "For a supplied topological embedding i:A→U exactly onto ker(f), with its existing transported inner action, H⁰(G,Twist(f∘c))=1 makes the actual embedded-kernel inclusion on H¹ injective. The topology and multiplication on A are retained.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Compare the two actual inclusions using the already specified pointed H¹ equivalence E. Apply native-kernel injectivity and then injectivity of E."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-inclusion-injectivity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-h1-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-h1-inclusion-comparison"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_injective"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-fibre-unique",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Unique embedded-kernel class in a repointed fibre",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.embeddedKernel_fibre_existsUnique",
+      "statement": "If additionally f is surjective, then for a∈H¹(G,U) there exists exactly one b∈H¹(G,A_c) with twistEquiv(c)(j(b))=a exactly when f*(a)=[f∘c], provided H⁰(G,Twist(f∘c))=1. Uniqueness concerns a gauge class; it does not select or uniquely determine a cocycle or gauge element.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the existing actual continuous objects and gauge-orbit sets.",
+        "Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results."
+      ],
+      "proofSteps": [
+        "Use the existing surjective-map image criterion to obtain an actual kernel class in the original repointed fibre. The twist equivalence and the new inclusion injectivity give uniqueness. Conversely any preimage lies in the recorded fibre."
+      ],
+      "acceptance": [
+        "Retain the actual gauge order and native subgroup carriers. The hypotheses are not fields declaring the requested conclusion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-inclusion-injectivity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/embedded-kernel-repointed-range",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "KimGaugeStabilizers-codex-5ebb6f",
+          "locator": "§1 continuous cocycle/gauge conventions, pp.5–6; Proposition 2 freeness claim and complete proof, pp.8–9",
+          "match": "Authored abstract topological-group deduction. The printed geometric representability theorem is not asserted proved here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Stabilizers",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.embeddedKernel_fibre_existsUnique"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -17730,7 +18640,8 @@
         "The actual native twisted-kernel quotient now has a specified jointly continuous descended automorphism action, continuous cocycle/H¹ projections for every continuous equivariant f, and two-way cocycle/pointed-H¹ comparisons when f is surjective and a quotient map. The kernel-inclusion image is killed by the quotient projection, and the neutral quotient fibre translates to the original coefficient-map fibre over [f∘c]. No converse image equality, kernel-H¹ injectivity or lifting of arbitrary quotient cocycles is asserted. Final 26 declarations and 16 tests are uncompiled prototypes because available memory remained below 20 GiB. Arbitrary G-stable subgroups, geometric local conditions, genuine additive comparison, unipotent point topologies, geometric torsor classification, representability and every reserved-key/source/supplier obligation remain open.",
         "The native twisted quotient and the surjective coefficient-map neutral fibres now equal the actual kernel-H¹ image, by lifting one gauge element and restricting its inverse-gauge normalized continuous cocycle. The original fibre is over [f∘c]. No kernel-H¹ injectivity or unique preimage follows. Arbitrary named G-stable subgroup adapters, central H² obstruction, geometric torsor classification, unipotent point topologies, genuine additive comparison, representability, local conditions and every inherited source/supplier obligation remain open.",
         "The actual named native subgroup S=ker(f) adapter is now specified with its continuous inner action, genuine H¹ equivalence and three inclusion-range criteria. General abstract embedded kernel A with explicit topological equivalence to the native kernel remains open; arbitrary G-stable/non-normal subgroups are not covered. Central H² obstruction and cochain independence, fibre orbit stabilizers/invariant conditions, geometric and unipotent-point topology/local conditions, and additive comparison remain required.",
-        "The abstract embedded-kernel adapter is specified for a supplied topological embedding i:A→U with range(i)=ker(f), with two-way continuity, transported inner action, actual pointed H¹ comparison, inclusion comparison and all three image criteria. No ambient H¹ injectivity or unique kernel preimage is claimed. Arbitrary non-normal or merely G-stable subgroups, stabilizers/invariant hypotheses, central H²/cochain independence, genuine additive comparison, unipotent point topologies, representability, geometric torsors/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain open."
+        "The abstract embedded-kernel adapter is specified for a supplied topological embedding i:A→U with range(i)=ker(f), with two-way continuity, transported inner action, actual pointed H¹ comparison, inclusion comparison and all three image criteria. No ambient H¹ injectivity or unique kernel preimage is claimed. Arbitrary non-normal or merely G-stable subgroups, stabilizers/invariant hypotheses, central H²/cochain independence, genuine additive comparison, unipotent point topologies, representability, geometric torsors/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain open.",
+        "Gauge stabilizers are identified with actual twisted invariants, and the space of witnesses is the right stabilizer translate x Stab(c), with both continuity directions. Kernel H¹ injectivity is supplied under the explicit all-cocycle stabilizer-lift condition, in particular under trivial quotient invariants. The twisted and abstract embedded-kernel inclusions are injective when H⁰(G,Twist(f∘c))=1; surjective f then gives a unique class in each actual original fibre over [f∘c]. These are sufficient conditions, not unconditional injectivity or unique cocycle/gauge representatives. Classification of general kernel fibres by an invariant action, arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent-point topologies, geometric torsors, representability/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain required."
       ]
     },
     {
@@ -19961,5 +20872,70 @@
     },
     "incomingPR": 5982,
     "incomingArchive": "e22d9cb132c9f6179634ea881407797089e5e572"
+  },
+  "gaugeStabilizerContinuation": {
+    "agent": "Codex",
+    "session": "codex-5ebb6f",
+    "newNodes": 19,
+    "constructions": 2,
+    "apiLeaves": 9,
+    "typedTests": 12,
+    "incomingPR": 5990,
+    "incomingHead": "cc71b30687681da8f6871db4bac7a0fc91e7d459",
+    "incomingArchive": "0293c3ad676f382472bff0ca080a420a52703210",
+    "scope": "Actual continuous gauge stabilizers, witness subspaces and sufficient hypotheses for kernel H¹ inclusion injectivity and unique repointed-fibre classes.",
+    "frontier": "Gauge stabilizers are identified with actual twisted invariants, and the space of witnesses is the right stabilizer translate x Stab(c), with both continuity directions. Kernel H¹ injectivity is supplied under the explicit all-cocycle stabilizer-lift condition, in particular under trivial quotient invariants. The twisted and abstract embedded-kernel inclusions are injective when H⁰(G,Twist(f∘c))=1; surjective f then gives a unique class in each actual original fibre over [f∘c]. These are sufficient conditions, not unconditional injectivity or unique cocycle/gauge representatives. Classification of general kernel fibres by an invariant action, arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent-point topologies, geometric torsors, representability/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain required.",
+    "execution": {
+      "native": {
+        "source": "NativeFinal.lean",
+        "sourceSha256": "966463527690e48e1ea212960674ff6d19d4b458d0082197ff68fc85cbb23e5c",
+        "log": "NativeFinal.lean.log",
+        "logSha256": "f5911d38ce2b0d478ea55d1a11569cabd0a444a1a5f816f544f9019ed3291b4d",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "NativeFinal.lean"
+        ],
+        "availableGiB": 39,
+        "timeoutSeconds": 1200,
+        "killAfterSeconds": 30,
+        "elapsedSeconds": 26.82,
+        "startedUTC": "2026-10-03T13:53:38.173519+00:00",
+        "exit": 0,
+        "axiomAudits": 316,
+        "examples": 155,
+        "errors": 0,
+        "warnings": 0,
+        "admissions": 0,
+        "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
+      },
+      "sketch": {
+        "source": "Sketch.lean",
+        "sourceSha256": "0dd64b6de7318d627ce046232f3dec1d0061cffe55d6185bbac0a4d16cef1917",
+        "log": "Sketch.lean.log",
+        "logSha256": "43a18db7d041f6dff9af8b4b8f837cce7b153c7b8b0577008a60961f82cbae3b",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "Sketch.lean"
+        ],
+        "availableGiB": 39,
+        "timeoutSeconds": 1200,
+        "killAfterSeconds": 30,
+        "elapsedSeconds": 26.12,
+        "startedUTC": "2026-10-03T13:54:41.619224+00:00",
+        "exit": 0,
+        "axiomAudits": 0,
+        "examples": 228,
+        "errors": 0,
+        "warnings": 573,
+        "admissions": 573,
+        "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
+      }
+    }
   }
 }
