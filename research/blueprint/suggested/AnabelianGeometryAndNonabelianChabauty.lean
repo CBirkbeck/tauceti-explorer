@@ -447,6 +447,8 @@ instance (c : Z1 G U) : Group (Twist c) := inferInstanceAs (Group U)
 instance (c : Z1 G U) : TopologicalSpace (Twist c) := inferInstanceAs (TopologicalSpace U)
 instance (c : Z1 G U) : IsTopologicalGroup (Twist c) := inferInstanceAs (IsTopologicalGroup U)
 
+def Twist.toOriginal (c : Z1 G U) : Twist c ≃* U := by sorry
+
 /-- The twisted action `g ⋆ u = c(g) · (g • u) · c(g)⁻¹`. -/
 instance (c : Z1 G U) : MulDistribMulAction G (Twist c) := sorry
 instance (c : Z1 G U) : ContinuousSMul G (Twist c) := sorry
@@ -2309,4 +2311,94 @@ example {G : Type*} [Group G] [TopologicalSpace G]
     H1.res φ hφ (fun _ _ => rfl) (1 : H1 G U) = 1 := by
   sorry
 
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section TwistingContinuation
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+
+
+lemma Z1.twistEquiv_apply (c : Z1 G U) (d : Z1 G (Twist c)) (g : G) :
+    Z1.twistEquiv c d g = (Twist.toOriginal c (d g)) * c g := by sorry
+
+lemma Z1.twistEquiv_symm_apply (c : Z1 G U) (d : Z1 G U) (g : G) :
+    (Z1.twistEquiv c).symm d g = (show Twist c from d g * (c g)⁻¹) := by sorry
+
+lemma Z1.twistEquiv_smul (c : Z1 G U) (x : Twist c) (d : Z1 G (Twist c)) :
+    Z1.twistEquiv c (x • d) = (Twist.toOriginal c x) • Z1.twistEquiv c d := by sorry
+
+lemma H1.twistEquiv_mk (c : Z1 G U) (d : Z1 G (Twist c)) :
+    H1.twistEquiv c (H1.mk d) = H1.mk (Z1.twistEquiv c d) := by sorry
+
+lemma H1.twistEquiv_eq_class_iff (c : Z1 G U) (a : H1 G (Twist c)) :
+    H1.twistEquiv c a = H1.mk c ↔ a = 1 := by sorry
+
+lemma Twist.mem_fixed_iff (c : Z1 G U) (x : Twist c) :
+    x ∈ H0 G (Twist c) ↔ ∀ g : G, c g * (g • (Twist.toOriginal c x)) = (Twist.toOriginal c x) * c g := by sorry
+
+-- test: TauCeti.NonabelianCohomology.tests.twist_unit_value
+example (c : Z1 G U) (g : G) : Z1.twistEquiv c 1 g = c g := by sorry
+
+-- test: TauCeti.NonabelianCohomology.tests.twist_untwist
+example (c d : Z1 G U) : Z1.twistEquiv c ((Z1.twistEquiv c).symm d) = d := by sorry
+
+-- test: TauCeti.NonabelianCohomology.tests.twist_neutral_fibre
+example (c : Z1 G U) : (H1.twistEquiv c).symm (H1.mk c) = 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.tests.twist_commutative_action
+example (hcomm : ∀ x y : U, x * y = y * x) (c : Z1 G U) (g : G) (x : Twist c) :
+    g • x = (show Twist c from g • (Twist.toOriginal c x)) := by sorry
+
+-- test: TauCeti.NonabelianCohomology.tests.twist_translation_order
+example (c : Z1 G U) (d : Z1 G (Twist c)) (g : G) :
+    (Z1.twistEquiv c).symm (Z1.twistEquiv c d) g = d g := by sorry
+
+-- test: TauCeti.NonabelianCohomology.tests.twist_transposition_invariants
+example :
+    let G := Equiv.Perm (Fin 2)
+    let U := Equiv.Perm (Fin 3)
+    letI : TopologicalSpace G := ⊥
+    letI : TopologicalSpace U := ⊥
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : MulDistribMulAction G U := {
+      smul := fun _ x => x
+      one_smul := fun _ => rfl
+      mul_smul := fun _ _ _ => rfl
+      smul_one := fun _ => rfl
+      smul_mul := fun _ _ _ => rfl }
+    letI : ContinuousSMul G U := ⟨continuous_snd⟩
+    let c : Z1 G U := ⟨fun g => if g = 1 then 1 else Equiv.swap 0 1,
+      continuous_of_discreteTopology, by decide⟩
+    ∀ x : U, (show Twist c from x) ∈ H0 G (Twist c) ↔
+      x = 1 ∨ x = Equiv.swap 0 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.tests.twist_not_neutral
+example :
+    let G := Equiv.Perm (Fin 2)
+    let U := Equiv.Perm (Fin 3)
+    letI : TopologicalSpace G := ⊥
+    letI : TopologicalSpace U := ⊥
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : MulDistribMulAction G U := {
+      smul := fun _ x => x
+      one_smul := fun _ => rfl
+      mul_smul := fun _ _ _ => rfl
+      smul_one := fun _ => rfl
+      smul_mul := fun _ _ _ => rfl }
+    letI : ContinuousSMul G U := ⟨continuous_snd⟩
+    let c : Z1 G U := ⟨fun g => if g = 1 then 1 else Equiv.swap 0 1,
+      continuous_of_discreteTopology, by decide⟩
+    H1.twistEquiv c 1 ≠ 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.tests.twist_class_representative
+example (c : Z1 G U) (d : Z1 G (Twist c)) :
+    H1.twistEquiv c (H1.mk d) = H1.mk (Z1.twistEquiv c d) := by sorry
+
+end TwistingContinuation
 end TauCeti.NonabelianCohomology
