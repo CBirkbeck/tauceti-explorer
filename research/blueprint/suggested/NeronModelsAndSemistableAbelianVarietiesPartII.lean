@@ -16,6 +16,7 @@ ledger names every API, example and layer theorem whose full signature needs sup
 The two partial data structures below are not substitutes for their mathematical definitions.
 -/
 
+import Mathlib.AlgebraicGeometry.EllipticCurve.Projective.Basic
 import Mathlib.LinearAlgebra.Isomorphisms
 import Mathlib.LinearAlgebra.Quotient.Basic
 import Mathlib.LinearAlgebra.FiniteDimensional.Basic
@@ -2448,3 +2449,215 @@ example (f : k[X]) :
         (Submodule.Quotient.mk f : k[X] ⧸ (algebra (0 : k[X])).toSubmodule) := by sorry
 
 end TauCeti.GenusOne.QuadraticPinch
+
+
+/-! Specialized reciprocal infinity chart. The actual native quotient carrier is retained; mathematical bodies and tests are admitted planning signatures. Projective gluing and sheaf/cohomology comparison remain required. -/
+
+namespace TauCeti.GenusOne.QuadraticPinch.InfinityChart
+variable {R : Type u} [CommRing R]
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-curve
+def curve (a b : R) : WeierstrassCurve R := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator
+def denominator (a b : R) : R[X] := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-relation
+def relation (a b : R) : R[X][X] := by sorry
+
+abbrev Chart (a b : R) := AdjoinRoot (relation a b)
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equation-chart
+lemma equation_chart (a b u z : R) :
+    (curve a b).toProjective.Equation ![u, 1, z] ↔
+      z * (1 + a * u + b * u ^ 2) = u ^ 3 := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-bezout
+lemma bezout (a b : R) :
+    denominator a b * (1 - C a * X + C (a ^ 2 - b) * X ^ 2) =
+      1 + X ^ 3 * (C (a ^ 3 - 2 * a * b) + C (b * (a ^ 2 - b)) * X) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-root-relation
+lemma root_relation (a b : R) :
+    algebraMap R[X] (Chart a b) (denominator a b) * AdjoinRoot.root (relation a b) =
+      algebraMap R[X] (Chart a b) (X ^ 3) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator-inverse
+def denominatorInverse (a b : R) : Chart a b := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-mul-inverse
+lemma mul_inverse (a b : R) :
+    algebraMap R[X] (Chart a b) (denominator a b) * denominatorInverse a b = 1 := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-denominator-is-unit
+lemma denominator_isUnit (a b : R) :
+    IsUnit (algebraMap R[X] (Chart a b) (denominator a b)) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization
+def toLocalization (a b : R) : Chart a b →ₐ[R[X]] Localization.Away (denominator a b) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization
+def fromLocalization (a b : R) : Localization.Away (denominator a b) →ₐ[R[X]] Chart a b := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-localization-root
+lemma toLocalization_root (a b : R) :
+    toLocalization a b (AdjoinRoot.root (relation a b)) =
+      algebraMap R[X] (Localization.Away (denominator a b)) (X ^ 3) *
+        IsLocalization.Away.invSelf (denominator a b) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-to-from
+lemma to_from (a b : R) :
+    (toLocalization a b).comp (fromLocalization a b) = AlgHom.id R[X] _ := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-to
+lemma from_to (a b : R) :
+    (fromLocalization a b).comp (toLocalization a b) = AlgHom.id R[X] _ := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv
+def equiv (a b : R) : Chart a b ≃ₐ[R[X]] Localization.Away (denominator a b) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-base
+lemma equiv_base (a b : R) (f : R[X]) :
+    equiv a b (algebraMap R[X] (Chart a b) f) =
+      algebraMap R[X] (Localization.Away (denominator a b)) f := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-root
+lemma equiv_root (a b : R) :
+    equiv a b (AdjoinRoot.root (relation a b)) =
+      algebraMap R[X] (Localization.Away (denominator a b)) (X ^ 3) *
+        IsLocalization.Away.invSelf (denominator a b) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-from-localization-inv
+lemma fromLocalization_inv (a b : R) :
+    fromLocalization a b (IsLocalization.Away.invSelf (denominator a b)) =
+      denominatorInverse a b := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-inverse-base
+lemma equiv_inverse_base (a b : R) (f : R[X]) :
+    (equiv a b).symm (algebraMap R[X] (Localization.Away (denominator a b)) f) =
+      algebraMap R[X] (Chart a b) f := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-equiv-inverse-inv
+lemma equiv_inverse_inv (a b : R) :
+    (equiv a b).symm (IsLocalization.Away.invSelf (denominator a b)) =
+      denominatorInverse a b := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-localization
+lemma localization (a b : R) :
+    IsLocalization.Away (denominator a b) (Chart a b) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-spec-open-immersion
+lemma spec_openImmersion (a b : R) :
+    AlgebraicGeometry.IsOpenImmersion (AlgebraicGeometry.Spec.map
+      (CommRingCat.ofHom (algebraMap R[X] (Chart a b)))) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-coordinates
+def normalizationCoordinates (a b T U : R) : Fin 3 → R := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-homogeneous
+lemma normalization_homogeneous (a b T U r : R) :
+    normalizationCoordinates a b (r * T) (r * U) =
+      r ^ 3 • normalizationCoordinates a b T U := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-nonzero
+lemma normalization_nonzero {k : Type u} [Field k] (a b T U : k)
+    (h : T ≠ 0 ∨ U ≠ 0) : normalizationCoordinates a b T U ≠ 0 := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-normalization-equation
+lemma normalization_equation (a b T U : R) :
+    (curve a b).toProjective.Equation (normalizationCoordinates a b T U) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-infinity-infinity-nonsingular
+lemma infinity_nonsingular {k : Type u} [Field k] (a b : k) :
+    (curve a b).toProjective.Nonsingular ![0, 1, 0] := by sorry
+
+-- test: InfinityChart.normalizationCoordinates.finite
+example (a b t : R) : normalizationCoordinates a b t 1 =
+    ![t ^ 2 + a * t + b, t * (t ^ 2 + a * t + b), 1] := by sorry
+
+-- test: InfinityChart.normalizationCoordinates.infinity
+example (a b : R) : normalizationCoordinates a b 1 0 = ![0, 1, 0] := by sorry
+
+-- test: InfinityChart.normalizationCoordinates.nonzero_char2
+example : normalizationCoordinates (0 : ZMod 2) 1 1 0 ≠ 0 := by sorry
+
+-- test: InfinityChart.curve.origin
+example (a b : R) : (curve a b).toProjective.Equation ![0, 0, 1] := by sorry
+
+-- test: InfinityChart.curve.finite_normalization
+example (a b t : R) : (curve a b).toProjective.Equation
+    ![t ^ 2 + a * t + b, t * (t ^ 2 + a * t + b), 1] := by sorry
+
+-- test: InfinityChart.curve.infinity_smooth
+example (a b : ZMod 2) : (curve a b).toProjective.Nonsingular ![0, 1, 0] := by sorry
+
+-- test: InfinityChart.denominator.constant
+example (a b : R) : (denominator a b).coeff 0 = 1 := by sorry
+
+-- test: InfinityChart.denominator.cusp
+example : denominator (0 : R) 0 = 1 := by sorry
+
+-- test: InfinityChart.denominator.base_change
+example {S : Type*} [CommRing S] (f : R →+* S) (a b : R) :
+    (denominator a b).map f = denominator (f a) (f b) := by sorry
+
+-- test: InfinityChart.relation.leading
+example (a b : R) : (relation a b).coeff 1 = denominator a b := by sorry
+
+-- test: InfinityChart.relation.constant
+example (a b : R) : (relation a b).coeff 0 = -(X ^ 3 : R[X]) := by sorry
+
+-- test: InfinityChart.relation.cusp
+example : relation (0 : R) 0 = X - C (X ^ 3 : R[X]) := by sorry
+
+-- test: InfinityChart.denominatorInverse.cusp
+example : denominatorInverse (0 : R) 0 = 1 := by sorry
+
+-- test: InfinityChart.denominatorInverse.nonreduced
+example : algebraMap (ZMod 4)[X] (Chart (2 : ZMod 4) 0) (1 + C 2 * X) *
+    denominatorInverse (2 : ZMod 4) 0 = 1 := by sorry
+
+-- test: InfinityChart.denominatorInverse.repeated_char2
+example : algebraMap (ZMod 2)[X] (Chart (0 : ZMod 2) 1) (1 + X ^ 2) *
+    denominatorInverse (0 : ZMod 2) 1 = 1 := by sorry
+
+-- test: InfinityChart.toLocalization.base
+example (a b : R) (f : R[X]) :
+    toLocalization a b (algebraMap R[X] (Chart a b) f) =
+      algebraMap R[X] (Localization.Away (denominator a b)) f := by sorry
+
+-- test: InfinityChart.toLocalization.root
+example (a b : R) :
+    toLocalization a b (AdjoinRoot.root (relation a b)) =
+      algebraMap R[X] (Localization.Away (denominator a b)) (X ^ 3) *
+        IsLocalization.Away.invSelf (denominator a b) := by sorry
+
+-- test: InfinityChart.toLocalization.cusp
+example : toLocalization (0 : R) 0 (AdjoinRoot.root (relation (0 : R) 0)) =
+    algebraMap R[X] (Localization.Away (denominator (0 : R) 0)) (X ^ 3) := by sorry
+
+-- test: InfinityChart.fromLocalization.base
+example (a b : R) (f : R[X]) :
+    fromLocalization a b (algebraMap R[X] (Localization.Away (denominator a b)) f) =
+      algebraMap R[X] (Chart a b) f := by sorry
+
+-- test: InfinityChart.fromLocalization.inverse
+example (a b : R) : fromLocalization a b
+    (IsLocalization.Away.invSelf (denominator a b)) = denominatorInverse a b := by sorry
+
+-- test: InfinityChart.fromLocalization.cusp
+example : fromLocalization (0 : R) 0
+    (IsLocalization.Away.invSelf (denominator (0 : R) 0)) = 1 := by sorry
+
+-- test: InfinityChart.equiv.actual_forward
+example (a b : R) : (equiv a b).toAlgHom = toLocalization a b := by sorry
+
+-- test: InfinityChart.equiv.actual_inverse
+example (a b : R) : (equiv a b).symm.toAlgHom = fromLocalization a b := by sorry
+
+-- test: InfinityChart.equiv.coefficient
+example (a b : R) (f : R[X]) :
+    (equiv a b).symm (equiv a b (algebraMap R[X] (Chart a b) f)) =
+      algebraMap R[X] (Chart a b) f := by sorry
+
+end TauCeti.GenusOne.QuadraticPinch.InfinityChart
