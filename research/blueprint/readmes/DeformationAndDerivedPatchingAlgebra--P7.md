@@ -1,3 +1,247 @@
+# The actual curve degree quotient
+
+Current checkpoint: Codex — codex-rtOQ9t; Refs #551. The packet has 210 nodes; all 192 incoming node objects remain identical. Every implementation status is unchecked and every existing stage remains partial or not_read.
+
+This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open.
+
+Let R=k[[σ]], v=(X_i), F=(f), A=R/F and π:R→A. Write q=Ideal.map π v and π_n:A→A/q^(n+1). The actual degree carrier is the quotient of the native ideal subtype q^n by the A-submodule q • top; its denominator is q·q^n=q^(n+1). Coefficient scalars descend through the actual quotient algebra maps. The image and ideal-power comparisons allow arbitrary σ. Finite σ is imposed for the existing homogeneous polynomial comparisons.
+
+The construction follows the actual maps. Since ideal maps commute with powers, the pinned third algebra isomorphism gives A/q^(n+1) ≃ R/(F+v^(n+1)). A representative of π_n(q^n) lifts first to q^n and then to v^n; the representative formula puts its image in the existing equation-jet range. Conversely a witness g∈v^n gives π(g)∈q^n and an actual preimage. Injectivity comes from the jet equivalence. Mathlib already supplies the generic q^n/(q·q^n) ≃ π_n(q^n); scalar restriction to k and composition supply the curve comparison. Finally compose with the incoming homogeneous quotient-image equivalence. No dimension, support or eventual-polynomial theorem is used.
+
+For no-zero-divisor coefficients and exact finite order d, the actual degree class of p vanishes exactly when p=H_d(f)w with w homogeneous of degree n−d and d≤n. Below an order lower bound, the class vanishes exactly when p=0 without the domain condition. The zero equation has infinite order and is tested separately. The unit equation gives zero in every actual degree piece. The characteristic-two equation X² is not assumed reduced: X survives in degree one and X² vanishes in degree two. Over Z/4Z and f=0, 2X survives in degree one.
+
+The actual equation-jet image is now compared with the native q^n/(q·q^n) carrier in A=R/(f), using the pinned general quotient theorem, with homogeneous representative and principal degreewise kernel adapters. Assemble the generator-compatible multiplication and full graded tangent-cone isomorphism. Curve/support dimension, comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain open. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain required; canonical bodies remain admitted and all nodes unchecked.
+
+The new node specifications, APIs and tests are listed below. The historical reader follows unchanged and remains attributed to its original workers.
+
+## Powers of the curve variable ideal
+
+DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-ideal-power · TauCeti.HilbertSamuel.curveAdicIdeal_pow
+
+For R=k[[σ]], F=(f), A=R/F, π:R→A and q=π(v), q^n=π(v^n) for every n.
+
+Proof: Apply the existing ideal-map power theorem to the actual quotient map and reverse the equality.
+
+Prerequisites: mathlib:Ideal.map_pow.
+
+## The actual curve adic jet
+
+DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-equivalence · TauCeti.HilbertSamuel.curveJetEquiv
+
+Define the canonical k-algebra equivalence A/q^(n+1) ≃ R/(F+v^(n+1)), for every equation f and every n.
+
+Proof: Transport the denominator along q^(n+1)=π(v^(n+1)). Apply the pinned third isomorphism theorem for algebras to F and v^(n+1); no order or domain hypothesis enters.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-ideal-power, mathlib:Ideal.quotEquivOfEq, mathlib:AlgEquiv.ofRingEquiv, mathlib:DoubleQuot.quotQuotEquivQuotSupₐ.
+
+- TauCeti.HilbertSamuel.curveJetEquiv_mk (simp): The jet equivalence sends the iterated class of π(g) to the actual class of g modulo F+v^(n+1).
+- TauCeti.HilbertSamuel.curveAdicIdeal_pow (compatibility): For R=k[[σ]], F=(f), A=R/F, π:R→A and q=π(v), q^n=π(v^n) for every n.
+- TauCeti.HilbertSamuel.curveJetEquiv_image_mem (compatibility): The curve jet equivalence sends π_n(q^n), an ideal in A/q^(n+1), into the k-linear image of the existing degree projection φ_f,n:v^n→R/(F+v^(n+1)).
+
+- NativeCurveDegreeTests.jet_zero: For every f and n, the actual curve jet equivalence preserves zero.
+- NativeCurveDegreeTests.jet_unit: For f=1, every iterated representative maps to zero in the actual equation-jet quotient.
+- NativeCurveDegreeTests.jet_inverse: The inverse actual jet equivalence returns the iterated quotient representative for every g.
+
+## The curve jet on representatives
+
+DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-representative · TauCeti.HilbertSamuel.curveJetEquiv_mk
+
+The jet equivalence sends the iterated class of π(g) to the actual class of g modulo F+v^(n+1).
+
+Proof: Evaluate equal-ideal transport and the native third isomorphism equivalence on the actual quotient representative.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-equivalence, mathlib:Ideal.quotEquivOfEq_mk.
+
+## The curve jet image lies in the equation-jet image
+
+DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-membership · TauCeti.HilbertSamuel.curveJetEquiv_image_mem
+
+The curve jet equivalence sends π_n(q^n), an ideal in A/q^(n+1), into the k-linear image of the existing degree projection φ_f,n:v^n→R/(F+v^(n+1)).
+
+Proof: Use surjectivity of A→A/q^(n+1) to lift an ideal-image element to a∈q^n. Use q^n=π(v^n) and surjectivity of π to lift a to g∈v^n. Evaluate the jet comparison on g to obtain the required image witness.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-ideal-power, DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-representative, DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection, mathlib:Ideal.mem_map_iff_of_surjective.
+
+## The actual curve degree image map
+
+DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-map · TauCeti.HilbertSamuel.curveJetImageMap
+
+Restrict the curve jet k-linear map to π_n(q^n) and corestrict its target to image(φ_f,n).
+
+Proof: Compose the native ideal subtype inclusion with the algebra equivalence viewed as a k-linear map. Corestrict using the proved membership lemma.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-membership, DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-equivalence, mathlib:LinearMap.codRestrict, mathlib:LinearMap.restrictScalars.
+
+- TauCeti.HilbertSamuel.curveJetImageMap_apply (simp): After coercion, the actual image map agrees with the curve jet equivalence on each element of π_n(q^n).
+- TauCeti.HilbertSamuel.curveJetImageMap_bijective (characterisation): The k-linear map π_n(q^n)→image(φ_f,n) is bijective.
+- TauCeti.HilbertSamuel.curveJetEquiv_image_mem (compatibility): The curve jet equivalence sends π_n(q^n), an ideal in A/q^(n+1), into the k-linear image of the existing degree projection φ_f,n:v^n→R/(F+v^(n+1)).
+
+- NativeCurveDegreeTests.image_zero: The actual image map sends zero in π_n(q^n) to zero in the equation-jet range.
+- NativeCurveDegreeTests.image_representative: The actual image map sends the quotient representative of π(g), with its proved membership, to φ_f,n(g).
+- NativeCurveDegreeTests.image_inverse: The inverse actual image equivalence returns each original element of π_n(q^n) after the image map.
+
+## The curve image map value
+
+DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-value · TauCeti.HilbertSamuel.curveJetImageMap_apply
+
+After coercion, the actual image map agrees with the curve jet equivalence on each element of π_n(q^n).
+
+Proof: Evaluate subtype composition and corestriction.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-map.
+
+## The curve image map is bijective
+
+DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-bijective · TauCeti.HilbertSamuel.curveJetImageMap_bijective
+
+The k-linear map π_n(q^n)→image(φ_f,n) is bijective.
+
+Proof: Injectivity follows by coercing an equality and using injectivity of the jet equivalence. For an image witness g∈v^n, use π(g)∈q^n and the class of π(g) as a preimage. The representative formula gives equality.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-map, DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-representative, DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-ideal-power, mathlib:Ideal.mem_map_of_mem.
+
+## The curve image comparison
+
+DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-equivalence · TauCeti.HilbertSamuel.curveJetImageEquiv
+
+Upgrade the proved curve image map to a k-linear equivalence π_n(q^n) ≃ image(φ_f,n).
+
+Proof: Apply the native equivalence constructor to the actual map and its proved bijectivity.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-bijective, mathlib:LinearEquiv.ofBijective.
+
+- TauCeti.HilbertSamuel.curveJetImageEquiv_mk (simp): For g∈v^n and its proved membership π(g)∈q^n, the image equivalence sends the actual class of π(g) to φ_f,n(g).
+- TauCeti.HilbertSamuel.curveJetImageMap_bijective (characterisation): The k-linear map π_n(q^n)→image(φ_f,n) is bijective.
+- TauCeti.HilbertSamuel.curveJetImageMap_apply (coercion): After coercion, the actual image map agrees with the curve jet equivalence on each element of π_n(q^n).
+
+- NativeCurveDegreeTests.image_zero: The actual image map sends zero in π_n(q^n) to zero in the equation-jet range.
+- NativeCurveDegreeTests.image_representative: The actual image map sends the quotient representative of π(g), with its proved membership, to φ_f,n(g).
+- NativeCurveDegreeTests.image_inverse: The inverse actual image equivalence returns each original element of π_n(q^n) after the image map.
+
+## The curve image equivalence on representatives
+
+DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-representative · TauCeti.HilbertSamuel.curveJetImageEquiv_mk
+
+For g∈v^n and its proved membership π(g)∈q^n, the image equivalence sends the actual class of π(g) to φ_f,n(g).
+
+Proof: Evaluate the equivalence constructor on the image representative and use the jet representative formula.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-equivalence, DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-representative.
+
+## The actual curve graded piece
+
+DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-equivalence · TauCeti.HilbertSamuel.nativeCurveDegreeEquiv
+
+Define the k-linear equivalence (q^n/(q·q^n)) ≃ image(φ_f,n), using the native quotient of the q^n subtype by q • top, with its actual A-module structure restricted to k.
+
+Proof: Reuse the pinned general equivalence from the successive ideal-power quotient to π_n(q^n); it is already in Mathlib and is not re-planned. Restrict this A-linear equivalence to k using the actual scalar tower, then compose with the proved image equivalence.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-image-equivalence, mathlib:Ideal.powQuotPowSuccLinearEquivMapMkPowSuccPow, mathlib:LinearEquiv.restrictScalars.
+
+- TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_mk (simp): For g∈v^n and π(g)∈q^n, the curve degree equivalence sends the native class of π(g) in q^n/(q·q^n) to φ_f,n(g).
+- TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_symm (equivalence): The inverse curve degree equivalence sends the image element φ_f,n(g) to the native class of π(g), for every g∈v^n and its membership proof.
+- TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_mk_eq_zero (characterisation): For g∈v^n, its native class of π(g) in q^n/(q·q^n) is zero if and only if g∈F+v^(n+1).
+
+- NativeCurveDegreeTests.native_zero: The actual successive-power quotient equivalence preserves zero for every f and n.
+- NativeCurveDegreeTests.native_roundtrip: Every element of the actual q^n/(q·q^n) carrier survives the forward and inverse comparison unchanged.
+- NativeCurveDegreeTests.zero_equation: For f=0, the actual degree class of p vanishes exactly when the homogeneous polynomial p is zero, including non-domain coefficients.
+
+## The curve graded piece on representatives
+
+DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-representative · TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_mk
+
+For g∈v^n and π(g)∈q^n, the curve degree equivalence sends the native class of π(g) in q^n/(q·q^n) to φ_f,n(g).
+
+Proof: Evaluate the pinned ideal-power quotient equivalence on a subtype representative, then apply the curve jet representative formula.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-equivalence, DeformationAndDerivedPatchingAlgebra:R03.3/curve-adic-jet-representative.
+
+## The inverse curve degree comparison
+
+DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-inverse · TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_symm
+
+The inverse curve degree equivalence sends the image element φ_f,n(g) to the native class of π(g), for every g∈v^n and its membership proof.
+
+Proof: Apply injectivity of the forward equivalence, its right inverse law and the proved representative formula.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-equivalence, DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-representative.
+
+## Homogeneous polynomials and the actual curve graded piece
+
+DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-equivalence · TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv
+
+For finite σ, compose the existing homogeneous quotient-image equivalence with the inverse curve degree equivalence to obtain P_n/ker(ψ_f,n) ≃ q^n/(q·q^n), k-linearly.
+
+Proof: Compose the existing equivalence with the inverse of the new actual ideal-power quotient equivalence. Keep both native quotient carriers and their scalar structures.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-quotient-image-equivalence, DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-equivalence.
+
+- TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv_mk (simp): The homogeneous comparison sends the class of p∈P_n to the native class of π(p) in q^n/(q·q^n), using polynomial inclusion into R.
+- TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv_eq_zero (characterisation): The image of the class of p∈P_n in the actual curve graded piece is zero if and only if ψ_f,n(p)=0.
+- TauCeti.HilbertSamuel.nativeCurveDegree_principal_kernel (relation): If k has no zero divisors, order(f)=d is finite and d≤n, the image of p∈P_n in q^n/(q·q^n) is zero if and only if p=H_d(f)w for a native homogeneous polynomial w of degree n−d.
+- TauCeti.HilbertSamuel.nativeCurveDegree_below_order (characterisation): If d≤order(f) and n<d, the image of p∈P_n in q^n/(q·q^n) is zero if and only if p=0; no no-zero-divisors assumption is needed.
+
+- NativeCurveDegreeTests.homogeneous_roundtrip: A homogeneous polynomial quotient class survives the actual curve comparison and its inverse unchanged.
+- NativeCurveDegreeTests.zero_equation: For f=0, the actual degree class of p vanishes exactly when the homogeneous polynomial p is zero, including non-domain coefficients.
+- NativeCurveDegreeTests.unit_equation: For f=1, every homogeneous polynomial maps to zero in the actual curve degree quotient.
+- NativeCurveDegreeTests.no_variables_constant: Over F₂ with no variables, the degree-zero constant 1 survives in the actual quotient for f=0.
+- NativeCurveDegreeTests.nilpotent_coeff_survives: Over Z/4Z and f=0, the homogeneous polynomial 2X has nonzero actual degree-one class, without assuming the coefficient ring is a domain.
+- NativeCurveDegreeTests.characteristic_two_repeated_killed: Over F₂ with f=X², the homogeneous polynomial X² maps to zero in the actual curve degree-two quotient.
+- NativeCurveDegreeTests.characteristic_two_repeated_survives: Over F₂ with the nonreduced equation f=X², the homogeneous polynomial X has nonzero actual degree-one class.
+
+## The homogeneous comparison on representatives
+
+DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-representative · TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv_mk
+
+The homogeneous comparison sends the class of p∈P_n to the native class of π(p) in q^n/(q·q^n), using polynomial inclusion into R.
+
+Proof: Apply injectivity of the curve degree equivalence and compare both sides in the actual equation-jet quotient using the two representative formulas.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-equivalence, DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-quotient-representative, DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-representative, DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift.
+
+## Vanishing in the actual curve graded piece
+
+DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-class-vanishing · TauCeti.HilbertSamuel.nativeCurveDegreeEquiv_mk_eq_zero
+
+For g∈v^n, its native class of π(g) in q^n/(q·q^n) is zero if and only if g∈F+v^(n+1).
+
+Proof: Use injectivity and preservation of zero for the equivalence to compare vanishing with φ_f,n(g)=0. Apply the existing equation-jet vanishing criterion. This is an actual quotient statement, with no reducedness or equation-order assumption.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-equivalence, DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-representative, DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-vanishing.
+
+## The homogeneous comparison vanishing criterion
+
+DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-vanishing · TauCeti.HilbertSamuel.homogeneousNativeCurveDegreeEquiv_eq_zero
+
+The image of the class of p∈P_n in the actual curve graded piece is zero if and only if ψ_f,n(p)=0.
+
+Proof: Injectivity and zero preservation reduce to vanishing of the source quotient class. The native quotient criterion identifies that vanishing with membership in the actual kernel of ψ.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-equivalence, mathlib:LinearEquiv.map_eq_zero_iff, mathlib:Submodule.Quotient.mk_eq_zero, mathlib:LinearMap.mem_ker.
+
+## The principal relation in the actual graded piece
+
+DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-principal-kernel · TauCeti.HilbertSamuel.nativeCurveDegree_principal_kernel
+
+If k has no zero divisors, order(f)=d is finite and d≤n, the image of p∈P_n in q^n/(q·q^n) is zero if and only if p=H_d(f)w for a native homogeneous polynomial w of degree n−d.
+
+Proof: Apply the proved homogeneous vanishing criterion and the existing principal equation-jet kernel theorem. Both directions retain the exact finite-order and no-zero-divisors hypotheses.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-vanishing, DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-principal-kernel.
+
+## Curve graded pieces below the equation order
+
+DeformationAndDerivedPatchingAlgebra:R03.3/native-curve-degree-below-order · TauCeti.HilbertSamuel.nativeCurveDegree_below_order
+
+If d≤order(f) and n<d, the image of p∈P_n in q^n/(q·q^n) is zero if and only if p=0; no no-zero-divisors assumption is needed.
+
+Proof: Apply the homogeneous vanishing criterion and the existing strict-below-order equation-jet theorem. The infinite order of the zero equation is not replaced by a finite exact order.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-native-curve-degree-vanishing, DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-low-degree-injectivity.
+
+The fresh source basis is the credited [DDPA jet argument](https://github.com/CBirkbeck/tauceti-explorer/blob/eb645dc85df65608c56fafc4d9ed0e71ab0ca3ce/research/blueprint/handoff/BP-DeformationAndDerivedPatchingAlgebra--P7.md), §§2–5, and [Stacks 00K4](https://stacks.math.columbia.edu/tag/00K4), with the exact pinned native ideal quotient statements recorded in the packet. The finite-variable arbitrary-coefficient application is authored here; this is not attributed to a printed general Hilbert–Serre theorem.
+
+---
 # Native degree quotients and equation-jet images
 
 Let σ be finite and k be any commutative ring. Write R=k[[X_i]], v=(X_i), P=k[X_i], P_n for the native degree-n homogeneous polynomial submodule, H_n for the existing polynomial component, φ for the existing ideal-power-to-equation-jet map. All maps below are k-linear. The denominator v•top is the native submodule of the ideal-power subtype, restricted from R to k; no new quotient carrier is introduced.

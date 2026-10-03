@@ -3463,3 +3463,234 @@ lemma quotient_zero_equation (n : ℕ) (p : ↥(H n)) :
 end
 end TauCeti.HilbertSamuel.DegreeQuotientTests
 /- END DEGREE QUOTIENT COMPARISON -/
+
+/- BEGIN ACTUAL CURVE DEGREE COMPARISON -/
+namespace TauCeti.HilbertSamuel
+noncomputable section NativeCurveDegrees
+set_option backward.isDefEq.respectTransparency false
+set_option maxHeartbeats 800000
+variable {σ k : Type*} [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+
+lemma curveAdicIdeal_pow (f : R) (n : ℕ) : (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n = Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) (v ^ n) := by
+  sorry
+
+def curveJetEquiv (f : R) (n : ℕ) : ((R ⧸ (Ideal.span ({f} : Set R))) ⧸ (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ (n + 1)) ≃ₐ[k] R ⧸ ((Ideal.span ({f} : Set R)) ⊔ v ^ (n + 1)) := by
+  sorry
+
+lemma curveJetEquiv_mk (f : R) (n : ℕ) (g : R) :
+    curveJetEquiv f n (Ideal.Quotient.mk ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ (n + 1)) ((Ideal.Quotient.mk (Ideal.span ({f} : Set R))) g)) =
+      Ideal.Quotient.mk ((Ideal.span ({f} : Set R)) ⊔ v ^ (n + 1)) g := by
+  sorry
+
+lemma curveJetEquiv_image_mem (f : R) (n : ℕ)
+    (z : Ideal.map (Ideal.Quotient.mk ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ (n + 1))) ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n)) :
+    curveJetEquiv f n (z : (R ⧸ (Ideal.span ({f} : Set R))) ⧸ (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ (n + 1)) ∈ LinearMap.range (curveDegreeProjection f n) := by
+  sorry
+
+def curveJetImageMap (f : R) (n : ℕ) :
+    ↥(Ideal.map (Ideal.Quotient.mk ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ (n + 1))) ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n)) →ₗ[k]
+      LinearMap.range (curveDegreeProjection f n) := by
+  sorry
+
+lemma curveJetImageMap_apply (f : R) (n : ℕ)
+    (z : Ideal.map (Ideal.Quotient.mk ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ (n + 1))) ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n)) :
+    (curveJetImageMap f n z : R ⧸ ((Ideal.span ({f} : Set R)) ⊔ v ^ (n + 1))) = curveJetEquiv f n z := by
+  sorry
+
+lemma curveJetImageMap_bijective (f : R) (n : ℕ) : Function.Bijective (curveJetImageMap f n) := by
+  sorry
+
+def curveJetImageEquiv (f : R) (n : ℕ) :
+    ↥(Ideal.map (Ideal.Quotient.mk ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ (n + 1))) ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n)) ≃ₗ[k]
+      LinearMap.range (curveDegreeProjection f n) := by
+  sorry
+
+lemma curveJetImageEquiv_mk (f : R) (n : ℕ) (g : ↥(v ^ n))
+    (hg : (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) (g : R) ∈ (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n) :
+    (curveJetImageEquiv f n
+      ⟨Ideal.Quotient.mk ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ (n + 1)) ((Ideal.Quotient.mk (Ideal.span ({f} : Set R))) (g : R)), Ideal.mem_map_of_mem _ hg⟩ :
+      R ⧸ ((Ideal.span ({f} : Set R)) ⊔ v ^ (n + 1))) = curveDegreeProjection f n g := by
+  sorry
+
+def nativeCurveDegreeEquiv (f : R) (n : ℕ) :
+    (↥((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n) ⧸ ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) • ⊤ : Submodule (R ⧸ (Ideal.span ({f} : Set R))) ↥((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n))) ≃ₗ[k]
+      LinearMap.range (curveDegreeProjection f n) := by
+  sorry
+
+lemma nativeCurveDegreeEquiv_mk (f : R) (n : ℕ) (g : ↥(v ^ n))
+    (hg : (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) (g : R) ∈ (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n) :
+    (nativeCurveDegreeEquiv f n (Submodule.Quotient.mk (⟨(Ideal.Quotient.mk (Ideal.span ({f} : Set R))) (g : R), hg⟩ : ↥((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n))) :
+      R ⧸ ((Ideal.span ({f} : Set R)) ⊔ v ^ (n + 1))) = curveDegreeProjection f n g := by
+  sorry
+
+lemma nativeCurveDegreeEquiv_symm (f : R) (n : ℕ) (g : ↥(v ^ n))
+    (hg : (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) (g : R) ∈ (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n) :
+    (nativeCurveDegreeEquiv f n).symm ⟨curveDegreeProjection f n g, g, rfl⟩ =
+      Submodule.Quotient.mk (⟨(Ideal.Quotient.mk (Ideal.span ({f} : Set R))) (g : R), hg⟩ : ↥((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n)) := by
+  sorry
+
+variable [Finite σ]
+
+def homogeneousNativeCurveDegreeEquiv (f : R) (n : ℕ) :
+    (↥(MvPolynomial.homogeneousSubmodule σ k n) ⧸
+      LinearMap.ker (homogeneousCurveProjection f n)) ≃ₗ[k]
+        (↥((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n) ⧸ ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) • ⊤ : Submodule (R ⧸ (Ideal.span ({f} : Set R))) ↥((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n))) := by
+  sorry
+
+lemma homogeneousNativeCurveDegreeEquiv_mk (f : R) (n : ℕ)
+    (p : ↥(MvPolynomial.homogeneousSubmodule σ k n))
+    (hp : (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) (p.val : R) ∈ (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n) :
+    homogeneousNativeCurveDegreeEquiv f n (Submodule.Quotient.mk p) =
+      Submodule.Quotient.mk (⟨(Ideal.Quotient.mk (Ideal.span ({f} : Set R))) (p.val : R), hp⟩ : ↥((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n)) := by
+  sorry
+
+omit [Finite σ] in
+lemma nativeCurveDegreeEquiv_mk_eq_zero (f : R) (n : ℕ) (g : ↥(v ^ n))
+    (hg : (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) (g : R) ∈ (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n) :
+    (Submodule.Quotient.mk (⟨(Ideal.Quotient.mk (Ideal.span ({f} : Set R))) (g : R), hg⟩ : ↥((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n)) :
+      ↥((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n) ⧸ ((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) • ⊤ : Submodule (R ⧸ (Ideal.span ({f} : Set R))) ↥((Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v) ^ n))) = 0 ↔
+        (g : R) ∈ (Ideal.span ({f} : Set R)) ⊔ v ^ (n + 1) := by
+  sorry
+
+lemma homogeneousNativeCurveDegreeEquiv_eq_zero (f : R) (n : ℕ)
+    (p : ↥(MvPolynomial.homogeneousSubmodule σ k n)) :
+    homogeneousNativeCurveDegreeEquiv f n (Submodule.Quotient.mk p) = 0 ↔
+      homogeneousCurveProjection f n p = 0 := by
+  sorry
+
+lemma nativeCurveDegree_principal_kernel [NoZeroDivisors k] (f : R) (d n : ℕ)
+    (hd : f.order = d) (hdn : d ≤ n)
+    (p : ↥(MvPolynomial.homogeneousSubmodule σ k n)) :
+    homogeneousNativeCurveDegreeEquiv f n (Submodule.Quotient.mk p) = 0 ↔
+      ∃ w : MvPolynomial σ k, w.IsHomogeneous (n - d) ∧
+        p.val = homogeneousPolynomial d f * w := by
+  sorry
+
+lemma nativeCurveDegree_below_order (f : R) (d n : ℕ)
+    (hd : (d : WithTop ℕ) ≤ f.order) (hnd : n < d)
+    (p : ↥(MvPolynomial.homogeneousSubmodule σ k n)) :
+    homogeneousNativeCurveDegreeEquiv f n (Submodule.Quotient.mk p) = 0 ↔ p = 0 := by
+  sorry
+
+end NativeCurveDegrees
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel.NativeCurveDegreeTests
+noncomputable section
+set_option backward.isDefEq.respectTransparency false
+set_option maxHeartbeats 800000
+variable {σ k : Type*} [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+
+-- test: NativeCurveDegreeTests.jet_zero
+lemma jet_zero (f : R) (n : ℕ) : curveJetEquiv f n 0 = 0 := by
+  sorry
+
+-- test: NativeCurveDegreeTests.jet_unit
+lemma jet_unit (n : ℕ) (g : R) :
+    curveJetEquiv (1 : R) n (Ideal.Quotient.mk
+      (Ideal.map (Ideal.Quotient.mk (Ideal.span ({1} : Set R))) v ^ (n + 1))
+        (Ideal.Quotient.mk (Ideal.span ({1} : Set R)) g)) = 0 := by
+  sorry
+
+-- test: NativeCurveDegreeTests.jet_inverse
+lemma jet_inverse (f : R) (n : ℕ) (g : R) :
+    (curveJetEquiv f n).symm (Ideal.Quotient.mk (Ideal.span {f} ⊔ v ^ (n + 1)) g) =
+      Ideal.Quotient.mk (Ideal.map (Ideal.Quotient.mk (Ideal.span {f})) v ^ (n + 1))
+        (Ideal.Quotient.mk (Ideal.span {f}) g) := by
+  sorry
+
+-- test: NativeCurveDegreeTests.image_zero
+lemma image_zero (f : R) (n : ℕ) : curveJetImageMap f n 0 = 0 := by
+  sorry
+
+-- test: NativeCurveDegreeTests.image_representative
+lemma image_representative (f : R) (n : ℕ) (g : ↥(v ^ n))
+    (hg : Ideal.Quotient.mk (Ideal.span {f}) (g : R) ∈
+      Ideal.map (Ideal.Quotient.mk (Ideal.span {f})) v ^ n) :
+    (curveJetImageMap f n
+      ⟨Ideal.Quotient.mk (Ideal.map (Ideal.Quotient.mk (Ideal.span {f})) v ^ (n + 1))
+        (Ideal.Quotient.mk (Ideal.span {f}) (g : R)), Ideal.mem_map_of_mem _ hg⟩ :
+          R ⧸ (Ideal.span {f} ⊔ v ^ (n + 1))) = curveDegreeProjection f n g := by
+  sorry
+
+-- test: NativeCurveDegreeTests.image_inverse
+lemma image_inverse (f : R) (n : ℕ)
+    (z : Ideal.map (Ideal.Quotient.mk
+      (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v ^ (n + 1)))
+        (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v ^ n)) :
+    (curveJetImageEquiv f n).symm (curveJetImageMap f n z) = z := by
+  sorry
+
+-- test: NativeCurveDegreeTests.native_zero
+lemma native_zero (f : R) (n : ℕ) : nativeCurveDegreeEquiv f n 0 = 0 := by
+  sorry
+
+-- test: NativeCurveDegreeTests.native_roundtrip
+lemma native_roundtrip (f : R) (n : ℕ)
+    (z : ↥(Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v ^ n) ⧸
+      (Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v • ⊤ :
+        Submodule (R ⧸ Ideal.span ({f} : Set R))
+          ↥(Ideal.map (Ideal.Quotient.mk (Ideal.span ({f} : Set R))) v ^ n))) :
+    (nativeCurveDegreeEquiv f n).symm (nativeCurveDegreeEquiv f n z) = z := by
+  sorry
+
+variable [Finite σ]
+
+-- test: NativeCurveDegreeTests.homogeneous_roundtrip
+lemma homogeneous_roundtrip (f : R) (n : ℕ)
+    (p : ↥(MvPolynomial.homogeneousSubmodule σ k n)) :
+    (homogeneousNativeCurveDegreeEquiv f n).symm
+      (homogeneousNativeCurveDegreeEquiv f n (Submodule.Quotient.mk p)) =
+        Submodule.Quotient.mk p := by
+  sorry
+
+-- test: NativeCurveDegreeTests.zero_equation
+lemma zero_equation (n : ℕ) (p : ↥(MvPolynomial.homogeneousSubmodule σ k n)) :
+    homogeneousNativeCurveDegreeEquiv (0 : R) n (Submodule.Quotient.mk p) = 0 ↔ p = 0 := by
+  sorry
+
+-- test: NativeCurveDegreeTests.unit_equation
+lemma unit_equation (n : ℕ) (p : ↥(MvPolynomial.homogeneousSubmodule σ k n)) :
+    homogeneousNativeCurveDegreeEquiv (1 : R) n (Submodule.Quotient.mk p) = 0 := by
+  sorry
+
+-- test: NativeCurveDegreeTests.no_variables_constant
+lemma no_variables_constant :
+    let p : ↥(MvPolynomial.homogeneousSubmodule PEmpty (ZMod 2) 0) :=
+      ⟨1, MvPolynomial.isHomogeneous_one PEmpty (ZMod 2)⟩
+    homogeneousNativeCurveDegreeEquiv (0 : MvPowerSeries PEmpty (ZMod 2)) 0
+      (Submodule.Quotient.mk p) ≠ 0 := by
+  sorry
+
+-- test: NativeCurveDegreeTests.nilpotent_coeff_survives
+lemma nilpotent_coeff_survives :
+    let p : ↥(MvPolynomial.homogeneousSubmodule (Fin 2) (ZMod 4) 1) :=
+      ⟨MvPolynomial.C 2 * MvPolynomial.X 0,
+        (MvPolynomial.isHomogeneous_X (ZMod 4) (0 : Fin 2)).C_mul 2⟩
+    homogeneousNativeCurveDegreeEquiv (0 : MvPowerSeries (Fin 2) (ZMod 4)) 1
+      (Submodule.Quotient.mk p) ≠ 0 := by
+  sorry
+
+-- test: NativeCurveDegreeTests.characteristic_two_repeated_killed
+lemma characteristic_two_repeated_killed :
+    let f := (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 2)) ^ 2
+    let p : ↥(MvPolynomial.homogeneousSubmodule (Fin 2) (ZMod 2) 2) :=
+      ⟨MvPolynomial.X 0 ^ 2, by simpa using (MvPolynomial.isHomogeneous_X (ZMod 2) (0 : Fin 2)).pow 2⟩
+    homogeneousNativeCurveDegreeEquiv f 2 (Submodule.Quotient.mk p) = 0 := by
+  sorry
+
+-- test: NativeCurveDegreeTests.characteristic_two_repeated_survives
+lemma characteristic_two_repeated_survives :
+    let f := (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 2)) ^ 2
+    let p : ↥(MvPolynomial.homogeneousSubmodule (Fin 2) (ZMod 2) 1) :=
+      ⟨MvPolynomial.X 0, MvPolynomial.isHomogeneous_X (ZMod 2) (0 : Fin 2)⟩
+    homogeneousNativeCurveDegreeEquiv f 1 (Submodule.Quotient.mk p) ≠ 0 := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel.NativeCurveDegreeTests
+/- END ACTUAL CURVE DEGREE COMPARISON -/
