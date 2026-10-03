@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import Mathlib.Algebra.Polynomial.Roots
 import Mathlib.Algebra.Polynomial.Degree.SmallDegree
 import Mathlib.Order.Interval.Set.Infinite
@@ -3132,3 +3133,143 @@ example [NoZeroDivisors k] (f : R) (d : ℕ)
           MvPowerSeries.homogeneousComponent d f * w := by sorry
 end
 end TauCeti.HilbertSamuel.InitialRelationTests
+
+/- BEGIN POLYNOMIAL HOMOGENEOUS COMPARISON -/
+
+namespace TauCeti.HilbertSamuel
+noncomputable section HomogeneousPolynomials
+variable {σ k : Type*} [Finite σ] [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "P" => MvPolynomial σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-component
+def homogeneousPolynomial (n : ℕ) : R →ₗ[k] P := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff
+lemma homogeneousPolynomial_coeff (n : ℕ) (f : R) (β : σ →₀ ℕ) :
+    (homogeneousPolynomial n f).coeff β =
+      if β.degree = n then MvPowerSeries.coeff β f else 0 := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series
+lemma coe_homogeneousPolynomial (n : ℕ) (f : R) :
+    (homogeneousPolynomial n f : R) = MvPowerSeries.homogeneousComponent n f := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree
+lemma homogeneousPolynomial_isHomogeneous (n : ℕ) (f : R) :
+    (homogeneousPolynomial n f).IsHomogeneous n := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion
+lemma homogeneousPolynomial_coe (n : ℕ) (p : P) :
+    homogeneousPolynomial n (p : R) = MvPolynomial.homogeneousComponent n p := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-series-homogeneity
+lemma coe_isHomogeneous_iff (n : ℕ) (p : P) :
+    (p : R).IsHomogeneous n ↔ p.IsHomogeneous n := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-retraction
+lemma homogeneousPolynomial_coe_of_homogeneous (n : ℕ) (p : P)
+    (hp : p.IsHomogeneous n) : homogeneousPolynomial n (p : R) = p := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-series-unique-polynomial
+lemma homogeneous_existsUnique_polynomial (n : ℕ) (f : R) (hf : f.IsHomogeneous n) :
+    ∃! p : P, p.IsHomogeneous n ∧ (p : R) = f := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing
+lemma homogeneousPolynomial_eq_zero_iff (n : ℕ) (f : R) :
+    homogeneousPolynomial n f = 0 ↔ MvPowerSeries.homogeneousComponent n f = 0 := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-initial-truncation
+lemma homogeneousPolynomial_eq_truncTotal (n : ℕ) (f : R) (hf : (n : ℕ∞) ≤ f.order) :
+    homogeneousPolynomial n f = MvPowerSeries.truncTotal (n + 1) f := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-initial-nonzero
+lemma homogeneousPolynomial_ne_zero_of_order (n : ℕ) (f : R)
+    (hf : f.order = (n : ℕ∞)) : homogeneousPolynomial n f ≠ 0 := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-initial-product
+lemma homogeneousPolynomial_mul_of_le_order (m n : ℕ) (f g : R)
+    (hf : (m : ℕ∞) ≤ f.order) (hg : (n : ℕ∞) ≤ g.order) :
+    homogeneousPolynomial (m + n) (f * g) =
+      homogeneousPolynomial m f * homogeneousPolynomial n g := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-projections
+lemma homogeneousPolynomial_component (m n : ℕ) (f : R) :
+    homogeneousPolynomial m (homogeneousPolynomial n f : R) =
+      if m = n then homogeneousPolynomial n f else 0 := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-kernel
+lemma curveDegreeProjection_polynomial_kernel [NoZeroDivisors k] (f : R) (d n : ℕ)
+    (hd : f.order = (d : ℕ∞)) (hdn : d ≤ n) (g : ↥(v ^ n)) :
+    curveDegreeProjection f n g = 0 ↔
+      ∃ w : P, w.IsHomogeneous (n - d) ∧
+        homogeneousPolynomial n (g : R) = homogeneousPolynomial d f * w := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-below
+lemma curveDegreeProjection_polynomial_below_order (f : R) (d n : ℕ)
+    (hd : (d : ℕ∞) ≤ f.order) (hnd : n < d) (g : ↥(v ^ n)) :
+    curveDegreeProjection f n g = 0 ↔ homogeneousPolynomial n (g : R) = 0 := by sorry
+
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-zero
+lemma curveDegreeProjection_polynomial_zero_equation (n : ℕ) (g : ↥(v ^ n)) :
+    curveDegreeProjection (0 : R) n g = 0 ↔ homogeneousPolynomial n (g : R) = 0 := by sorry
+
+end HomogeneousPolynomials
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel.HomogeneousPolynomialTests
+noncomputable section
+
+-- test: HomogeneousPolynomialTests.zero_input
+example {σ k : Type*} [Finite σ] [CommRing k] (n : ℕ) :
+    homogeneousPolynomial n (0 : MvPowerSeries σ k) = 0 := by sorry
+
+
+-- test: HomogeneousPolynomialTests.native_polynomial
+example {σ k : Type*} [Finite σ] [CommRing k]
+    (n : ℕ) (p : MvPolynomial σ k) (hp : p.IsHomogeneous n) :
+    homogeneousPolynomial n (p : MvPowerSeries σ k) = p := by sorry
+
+
+-- test: HomogeneousPolynomialTests.no_variables
+example (a : ℚ) :
+    homogeneousPolynomial 0 (MvPowerSeries.C a : MvPowerSeries Empty ℚ) = MvPolynomial.C a ∧
+    homogeneousPolynomial 1 (MvPowerSeries.C a : MvPowerSeries Empty ℚ) = 0 := by sorry
+
+
+-- test: HomogeneousPolynomialTests.exact_degree_not_truncation
+example :
+    let x := (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 2))
+    homogeneousPolynomial 1 (1 + x + x ^ 2) = MvPolynomial.X (0 : Fin 2) := by sorry
+
+
+-- test: HomogeneousPolynomialTests.not_multiplicative_in_fixed_degree
+example :
+    let x := (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) ℚ)
+    homogeneousPolynomial 1 (x * x) ≠ homogeneousPolynomial 1 x * homogeneousPolynomial 1 x := by sorry
+
+
+-- test: HomogeneousPolynomialTests.nilpotent_coefficients
+example :
+    let p : MvPolynomial (Fin 2) (ZMod 4) := MvPolynomial.C 2 * MvPolynomial.X 0
+    homogeneousPolynomial 1 (p : MvPowerSeries (Fin 2) (ZMod 4)) ≠ 0 ∧
+    homogeneousPolynomial 2 ((p : MvPowerSeries (Fin 2) (ZMod 4)) ^ 2) = 0 := by sorry
+
+end
+end TauCeti.HilbertSamuel.HomogeneousPolynomialTests
+/- END POLYNOMIAL HOMOGENEOUS COMPARISON -/

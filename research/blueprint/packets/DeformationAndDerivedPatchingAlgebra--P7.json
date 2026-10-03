@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked. Codex — codex-7e92bd refines the total-jet kernel/equivalence/basis/count proof chains through six declaration-sized coefficient and cardinality adapters, with an admission-free native prototype covering the actual polynomial equivalence, coefficient coordinates, monomial basis and all-cutoff two-variable count. All inherited general multiplicity and patching obligations remain open. The exact-order variable-ideal preimage now has a separate lemma, and admission-free native prototypes connect the actual shifted multiplication/projection to the preceding principal-quotient proofs. The canonical suggested bodies and all stage coverage remain unchecked/partial. Native finite-plane-curve graded lengths and exact rational postulation now distinguish the two sharp thresholds, including characteristic-two and zero/unit boundaries. Native continuation supplies explicit rational curve and surface polynomials, their evaluation, degree and leading-coefficient API, actual sharp curve tails and unique eventual polynomial existence for both finite-order and zero equations. Polynomial factorial normalization is checked separately from the still-open general multiplicity and curve-dimension comparison. Native degree-wise initial relations now have ten additional exact declarations (one actual projection construction and nine lemmas), six distinguishing typed tests and an admission-free combined prototype; full tangent-cone assembly and dimension remain open.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked. Codex — codex-7e92bd refines the total-jet kernel/equivalence/basis/count proof chains through six declaration-sized coefficient and cardinality adapters, with an admission-free native prototype covering the actual polynomial equivalence, coefficient coordinates, monomial basis and all-cutoff two-variable count. All inherited general multiplicity and patching obligations remain open. The exact-order variable-ideal preimage now has a separate lemma, and admission-free native prototypes connect the actual shifted multiplication/projection to the preceding principal-quotient proofs. The canonical suggested bodies and all stage coverage remain unchecked/partial. Native finite-plane-curve graded lengths and exact rational postulation now distinguish the two sharp thresholds, including characteristic-two and zero/unit boundaries. Native continuation supplies explicit rational curve and surface polynomials, their evaluation, degree and leading-coefficient API, actual sharp curve tails and unique eventual polynomial existence for both finite-order and zero equations. Polynomial factorial normalization is checked separately from the still-open general multiplicity and curve-dimension comparison. Native degree-wise initial relations now have ten additional exact declarations (one actual projection construction and nine lemmas), six distinguishing typed tests and an admission-free combined prototype; full tangent-cone assembly and dimension remain open. Polynomial representatives now reuse native truncation and homogeneous components, with coefficient, inclusion, unique-representative, order and product comparisons and the actual equation-jet kernel in polynomial form; no full graded or dimension comparison is claimed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2087,6 +2087,90 @@
         "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
         "provides": "Native composition of compatible linear maps.",
         "checked": "Complete selected declaration, surrounding coefficient/module assumptions and displayed construction/proof personally read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-a71f92. HS-INITIAL-RELATION-PIN-a71f92 records file digests. These are baseline imports, not newly planned general APIs."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.coe_eq_zero_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Native polynomial inclusion into formal series vanishes if and only if the polynomial is zero.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.coe_injective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Polynomial inclusion into multivariate formal series is injective over every commutative semiring.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.coe_mul",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Polynomial inclusion preserves products over every commutative semiring.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.coeff_coe",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Each coefficient of an included polynomial equals its native polynomial coefficient.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.coeff_homogeneousComponent",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "The polynomial component of degree n retains precisely the coefficients whose total exponent degree is n.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.homogeneousComponent",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "Native coefficient-linear degree-n projection on multivariate polynomials over a commutative semiring.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.homogeneousComponent_eq_self",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "A native homogeneous polynomial of degree n is fixed by its degree-n component.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.homogeneousComponent_isHomogeneous",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "The degree-n polynomial component is native homogeneous of degree n.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.homogeneousComponent_of_mem",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "For a degree-n homogeneous polynomial, its degree-m component is itself when m=n and zero otherwise.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_truncTotal_eq_ite",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Trunc.lean",
+        "provides": "For finite variables, total truncation at n retains precisely coefficients of total exponent degree strictly below n.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.homogeneousComponent_of_order",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "If a series has exact finite order n, its native degree-n homogeneous component is nonzero.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.truncTotal",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Trunc.lean",
+        "provides": "Native coefficient-linear polynomial-valued total truncation in finitely many variables over a commutative semiring.",
+        "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
       }
     ]
   },
@@ -2938,6 +3022,25 @@
         "Mathlib/LinearAlgebra/Quotient/Defs.lean": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3",
         "Mathlib/Algebra/Module/LinearMap/Defs.lean": "242ce4f144fbc775bc424e6b9e088f583fb485fa72f89135d157b5586a987ae7",
         "Mathlib/Algebra/Module/Submodule/LinearMap.lean": "51b927c0a53b41f443cb053f81d6c065e0e462f1a016ea813111a0ecfa81f145"
+      }
+    },
+    {
+      "id": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+      "title": "Polynomial-valued homogeneous components and actual equation-jet kernel comparison",
+      "authors": "The Mathlib contributors; source-proof checkpoint ChatGPT — gpt6astra-20261002-7d2f90; native adapters Codex — codex-7e92bd",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; authored adapter 2026-10-03",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Complete selected native declaration statements and surrounding assumptions: polynomial Homogeneous.lean 40–114 and 508–581; series Basic.lean 823–936, Trunc.lean 316–345, Order.lean 675–740. Existing order coefficient and linear-composition interfaces were read earlier in this continuous loop.",
+        "Fresh DDPA-JET-HANDOFF §§2–5, including coefficient proof, exact order, both equation (9) kernel directions and full graded-map boundary. Complete Stacks 00K4 mathematical section read for graded/cumulative conventions; no new whole-paper or general Hilbert–Serre closure is claimed.",
+        "All nine reviewed AUDIT-17 roadmap rows and complete accepted review read, together with whole campaign reader, applicable accepted RS-08 decisions, scope and owner records, all 22 touching campaign edges, one matching link/overlap record, two current requests and reserved general key/catalog entry. Two upstream style readers were inspected earlier in the continuous loop; this is not a fresh full historical packet proof audit."
+      ],
+      "sourceHashes": {
+        "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean": "cc14ab54a1e88b37d838b98f7371540b9df545bdf071d8cb92740ddbea654335",
+        "Mathlib/RingTheory/MvPowerSeries/Basic.lean": "fb6303b35ede9edf896a799d46d5656faca3e55f7f05cbfb02b86e3c7bb9b865",
+        "Mathlib/RingTheory/MvPowerSeries/Trunc.lean": "413e3cb0130b634de540bf20a6cab33ae9561f6795ceed473bc5f51372799a2e",
+        "Mathlib/RingTheory/MvPowerSeries/Order.lean": "cda7e4c6c23c83c61b97a8b365d95faaf43cec5996a3c4aada0401ebe9ecdd34"
       }
     }
   ],
@@ -12155,6 +12258,821 @@
       "acceptance": [
         "For finite σ and every commutative coefficient ring, φ_0,n(g)=0 iff HC_n(g)=0 for every g:↥(v^n). This includes the zero equation of infinite order without order.toNat."
       ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-component",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Polynomial-valued homogeneous component",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousPolynomial",
+      "statement": "For finite σ and a commutative ring k, H_n:R=k[[X_i]]→k[X_i] is the k-linear composite of native total truncation at n+1 with the native polynomial degree-n component. It keeps exactly the coefficients of total degree n.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Compose the two native linear maps. Finite σ ensures that each degree has finitely many monomials.",
+        "Do not identify this map with total truncation on arbitrary series or equip a fixed component projection with a ring-homomorphism structure."
+      ],
+      "prerequisites": [
+        "mathlib:MvPolynomial.homogeneousComponent",
+        "mathlib:MvPowerSeries.truncTotal",
+        "mathlib:LinearMap.comp"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter homogeneousPolynomial",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For finite σ and a commutative ring k, H_n:R=k[[X_i]]→k[X_i] is the k-linear composite of native total truncation at n+1 with the native polynomial degree-n component. It keeps exactly the coefficients of total degree n."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousPolynomial_coeff",
+          "role": "characterisation",
+          "statement": "For every exponent β, coeff_β(H_n(f)) equals coeff_β(f) when totalDegree(β)=n, and zero otherwise."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.coe_homogeneousPolynomial",
+          "role": "compatibility",
+          "statement": "Under the native injective polynomial inclusion ι:k[X_i]→k[[X_i]], ι(H_n(f))=HC_n(f), the existing series-valued homogeneous component."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousPolynomial_isHomogeneous",
+          "role": "compatibility",
+          "statement": "For every f and n, H_n(f) satisfies native MvPolynomial.IsHomogeneous of degree n, including the zero polynomial."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousPolynomial_coe",
+          "role": "compatibility",
+          "statement": "For every polynomial p, H_n(ι(p)) is exactly its native polynomial homogeneousComponent n p."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.coe_isHomogeneous_iff",
+          "role": "compatibility",
+          "statement": "For every polynomial p and n, the included series ι(p) is homogeneous of degree n if and only if p is homogeneous of degree n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousPolynomial_coe_of_homogeneous",
+          "role": "compatibility",
+          "statement": "If p is a native homogeneous polynomial of degree n, then H_n(ι(p))=p."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneous_existsUnique_polynomial",
+          "role": "characterisation",
+          "statement": "For every native degree-n homogeneous series f in finitely many variables, there exists a unique polynomial p with native degree-n homogeneity and ι(p)=f. The representative is H_n(f)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousPolynomial_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "For every n and f, H_n(f)=0 if and only if HC_n(f)=0."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousPolynomial_eq_truncTotal",
+          "role": "compatibility",
+          "statement": "If n≤order(f), with order in extended naturals, then H_n(f)=truncTotal(n+1,f). This assertion retains its order hypothesis and includes f=0."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousPolynomial_ne_zero_of_order",
+          "role": "compatibility",
+          "statement": "If order(f)=n in extended naturals, then H_n(f)≠0. No no-zero-divisors assumption is needed for this single-series statement."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousPolynomial_mul_of_le_order",
+          "role": "compatibility",
+          "statement": "If m≤order(f) and n≤order(g), then H_(m+n)(fg)=H_m(f)H_n(g). This identity holds over arbitrary commutative coefficients; it does not assert that the product is nonzero."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousPolynomial_component",
+          "role": "compatibility",
+          "statement": "For every m,n,f, H_m(ι(H_n(f))) is H_n(f) when m=n, and zero otherwise."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_kernel",
+          "role": "compatibility",
+          "statement": "Let v=(X_i)⊂R, k have no zero divisors, order(f)=d≤n and g∈v^n. Its actual image φ_f,n(g) in R/((f)+v^(n+1)) is zero iff H_n(g)=H_d(f)w for some native homogeneous polynomial w of degree n−d."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_below_order",
+          "role": "compatibility",
+          "statement": "For arbitrary commutative k, n<d≤order(f) and g∈v^n, the actual image φ_f,n(g) vanishes if and only if H_n(g)=0. No finite exact order or no-zero-divisors assumption is required."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_zero_equation",
+          "role": "compatibility",
+          "statement": "For f=0 and every n and g∈v^n, the actual image φ_0,n(g) vanishes if and only if H_n(g)=0. The zero equation retains its infinite order."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HomogeneousPolynomialTests.zero_input",
+          "kind": "degenerate",
+          "statement": "For every finite variable type, commutative coefficient ring and n, H_n(0)=0."
+        },
+        {
+          "name": "HomogeneousPolynomialTests.native_polynomial",
+          "kind": "compatibility",
+          "statement": "For every native degree-n homogeneous polynomial p, H_n(ι(p))=p."
+        },
+        {
+          "name": "HomogeneousPolynomialTests.no_variables",
+          "kind": "degenerate",
+          "statement": "With no variables and coefficient a∈ℚ, H_0(C(a))=C(a) and H_1(C(a))=0."
+        },
+        {
+          "name": "HomogeneousPolynomialTests.exact_degree_not_truncation",
+          "kind": "computation",
+          "statement": "In two variables over F₂, H_1(1+X₀+X₀²)=X₀; the constant term must be discarded as well as the square."
+        },
+        {
+          "name": "HomogeneousPolynomialTests.not_multiplicative_in_fixed_degree",
+          "kind": "non-example",
+          "statement": "In two variables over ℚ, H_1(X₀X₀)=0 differs from H_1(X₀)H_1(X₀)=X₀². A fixed-degree component is not a ring map."
+        },
+        {
+          "name": "HomogeneousPolynomialTests.nilpotent_coefficients",
+          "kind": "non-example",
+          "statement": "In two variables over ℤ/4ℤ, for p=2X₀, H_1(ι(p))≠0 but H_2(ι(p)²)=0. The product identity must not be strengthened to nonzero products for all coefficient rings."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §§4–5, equation (9)",
+          "how": "Convert the existing series-valued initial relation into an equality of actual homogeneous polynomials, retaining both kernel directions."
+        },
+        {
+          "where": "R03.3 formal-curve and reserved Hilbert–Samuel comparison obligations",
+          "how": "Supply polynomial representatives and product coherence for the remaining tangent-cone graded assembly. No dimension or multiplicity theorem is inferred from this comparison alone."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficients of the polynomial component",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousPolynomial_coeff",
+      "statement": "For every exponent β, coeff_β(H_n(f)) equals coeff_β(f) when totalDegree(β)=n, and zero otherwise.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Apply the polynomial-component and total-truncation coefficient formulas. If degree β=n, the cutoff n+1 retains that coefficient; otherwise the component kills it."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-component",
+        "mathlib:MvPolynomial.coeff_homogeneousComponent",
+        "mathlib:MvPowerSeries.coeff_truncTotal_eq_ite"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter homogeneousPolynomial_coeff",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every exponent β, coeff_β(H_n(f)) equals coeff_β(f) when totalDegree(β)=n, and zero otherwise."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Polynomial inclusion recovers the native series component",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.coe_homogeneousPolynomial",
+      "statement": "Under the native injective polynomial inclusion ι:k[X_i]→k[[X_i]], ι(H_n(f))=HC_n(f), the existing series-valued homogeneous component.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Compare every coefficient using polynomial inclusion and the two exact degree formulas."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff",
+        "mathlib:MvPolynomial.coeff_coe",
+        "mathlib:MvPowerSeries.coeff_homogeneousComponent"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter coe_homogeneousPolynomial",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Under the native injective polynomial inclusion ι:k[X_i]→k[[X_i]], ι(H_n(f))=HC_n(f), the existing series-valued homogeneous component."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Homogeneity of the polynomial component",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousPolynomial_isHomogeneous",
+      "statement": "For every f and n, H_n(f) satisfies native MvPolynomial.IsHomogeneous of degree n, including the zero polynomial.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use native homogeneity of a polynomial homogeneous component on the truncated polynomial."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-component",
+        "mathlib:MvPolynomial.homogeneousComponent_isHomogeneous"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter homogeneousPolynomial_isHomogeneous",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every f and n, H_n(f) satisfies native MvPolynomial.IsHomogeneous of degree n, including the zero polynomial."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Compatibility with the native polynomial component",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousPolynomial_coe",
+      "statement": "For every polynomial p, H_n(ι(p)) is exactly its native polynomial homogeneousComponent n p.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Compare coefficients; polynomial inclusion preserves each coefficient."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff",
+        "mathlib:MvPolynomial.coeff_coe",
+        "mathlib:MvPolynomial.coeff_homogeneousComponent"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter homogeneousPolynomial_coe",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every polynomial p, H_n(ι(p)) is exactly its native polynomial homogeneousComponent n p."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-series-homogeneity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Polynomial and series homogeneity agree",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.coe_isHomogeneous_iff",
+      "statement": "For every polynomial p and n, the included series ι(p) is homogeneous of degree n if and only if p is homogeneous of degree n.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Translate series homogeneity to equality with HC_n, use the component comparison and injectivity of inclusion, and recover polynomial homogeneity.",
+        "Conversely a homogeneous polynomial is fixed by its native component; include this equality and use the native series characterization."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion",
+        "mathlib:MvPolynomial.coe_injective",
+        "mathlib:MvPowerSeries.isHomogeneous_iff_eq_homogeneousComponent",
+        "mathlib:MvPolynomial.homogeneousComponent_eq_self",
+        "mathlib:MvPolynomial.homogeneousComponent_isHomogeneous"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter coe_isHomogeneous_iff",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every polynomial p and n, the included series ι(p) is homogeneous of degree n if and only if p is homogeneous of degree n."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-retraction",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Retraction on homogeneous polynomials",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousPolynomial_coe_of_homogeneous",
+      "statement": "If p is a native homogeneous polynomial of degree n, then H_n(ι(p))=p.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Apply compatibility with the polynomial component and its existing fixed-point theorem."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion",
+        "mathlib:MvPolynomial.homogeneousComponent_eq_self"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter homogeneousPolynomial_coe_of_homogeneous",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "If p is a native homogeneous polynomial of degree n, then H_n(ι(p))=p."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-series-unique-polynomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Unique polynomial representative of a homogeneous series",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneous_existsUnique_polynomial",
+      "statement": "For every native degree-n homogeneous series f in finitely many variables, there exists a unique polynomial p with native degree-n homogeneity and ι(p)=f. The representative is H_n(f).",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use H_n(f), its homogeneity and the series fixed-point characterization for existence.",
+        "Injectivity of the native polynomial inclusion proves uniqueness; no new series or polynomial carrier is introduced."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series",
+        "mathlib:MvPolynomial.coe_injective",
+        "mathlib:MvPowerSeries.isHomogeneous_iff_eq_homogeneousComponent"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter homogeneous_existsUnique_polynomial",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every native degree-n homogeneous series f in finitely many variables, there exists a unique polynomial p with native degree-n homogeneity and ι(p)=f. The representative is H_n(f)."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Vanishing comparison for homogeneous components",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousPolynomial_eq_zero_iff",
+      "statement": "For every n and f, H_n(f)=0 if and only if HC_n(f)=0.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Include the polynomial and use the native injective inclusion zero criterion."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series",
+        "mathlib:MvPolynomial.coe_eq_zero_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter homogeneousPolynomial_eq_zero_iff",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every n and f, H_n(f)=0 if and only if HC_n(f)=0."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-initial-truncation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Initial polynomial as total truncation",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousPolynomial_eq_truncTotal",
+      "statement": "If n≤order(f), with order in extended naturals, then H_n(f)=truncTotal(n+1,f). This assertion retains its order hypothesis and includes f=0.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "For degree below n, the native order bound kills the coefficient. At degree n both formulas retain it, and above n both vanish."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff",
+        "mathlib:MvPowerSeries.coeff_truncTotal_eq_ite",
+        "mathlib:MvPowerSeries.coeff_of_lt_order"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter homogeneousPolynomial_eq_truncTotal",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "If n≤order(f), with order in extended naturals, then H_n(f)=truncTotal(n+1,f). This assertion retains its order hypothesis and includes f=0."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-initial-nonzero",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Nonzero initial polynomial at exact finite order",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousPolynomial_ne_zero_of_order",
+      "statement": "If order(f)=n in extended naturals, then H_n(f)≠0. No no-zero-divisors assumption is needed for this single-series statement.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Transfer a hypothetical polynomial vanishing to HC_n and contradict the native exact-order nonvanishing theorem."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing",
+        "mathlib:MvPowerSeries.homogeneousComponent_of_order"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter homogeneousPolynomial_ne_zero_of_order",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "If order(f)=n in extended naturals, then H_n(f)≠0. No no-zero-divisors assumption is needed for this single-series statement."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-initial-product",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Multiplication of polynomial initial components",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousPolynomial_mul_of_le_order",
+      "statement": "If m≤order(f) and n≤order(g), then H_(m+n)(fg)=H_m(f)H_n(g). This identity holds over arbitrary commutative coefficients; it does not assert that the product is nonzero.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Include both sides into series, preserve multiplication under inclusion and apply the existing native homogeneous-component product formula with both order bounds.",
+        "Use injectivity of polynomial inclusion. Distinguish the identity from additive equality of exact orders in the presence of zero divisors."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series",
+        "mathlib:MvPolynomial.coe_injective",
+        "mathlib:MvPolynomial.coe_mul",
+        "mathlib:MvPowerSeries.homogeneousComponent_mul_of_le_order"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter homogeneousPolynomial_mul_of_le_order",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "If m≤order(f) and n≤order(g), then H_(m+n)(fg)=H_m(f)H_n(g). This identity holds over arbitrary commutative coefficients; it does not assert that the product is nonzero."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-projections",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Orthogonality and idempotence of polynomial components",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousPolynomial_component",
+      "statement": "For every m,n,f, H_m(ι(H_n(f))) is H_n(f) when m=n, and zero otherwise.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use polynomial compatibility and the native component formula on the degree-n homogeneous polynomial H_n(f)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree",
+        "mathlib:MvPolynomial.homogeneousComponent_of_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter homogeneousPolynomial_component",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every m,n,f, H_m(ι(H_n(f))) is H_n(f) when m=n, and zero otherwise."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-kernel",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Polynomial equation-jet kernel above equation order",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_kernel",
+      "statement": "Let v=(X_i)⊂R, k have no zero divisors, order(f)=d≤n and g∈v^n. Its actual image φ_f,n(g) in R/((f)+v^(n+1)) is zero iff H_n(g)=H_d(f)w for some native homogeneous polynomial w of degree n−d.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Invoke the existing actual series-valued kernel equivalence.",
+        "Replace its homogeneous series witness by the unique polynomial representative and reflect the product equality through native polynomial inclusion.",
+        "Conversely include a polynomial witness, use the homogeneity equivalence and product compatibility, then apply the old kernel theorem. Both directions retain d≤n and exact order."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-kernel",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-series-unique-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-series-homogeneity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series",
+        "mathlib:MvPolynomial.coe_injective",
+        "mathlib:MvPolynomial.coe_mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter curveDegreeProjection_polynomial_kernel",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Let v=(X_i)⊂R, k have no zero divisors, order(f)=d≤n and g∈v^n. Its actual image φ_f,n(g) in R/((f)+v^(n+1)) is zero iff H_n(g)=H_d(f)w for some native homogeneous polynomial w of degree n−d."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-below",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Polynomial equation-jet kernel below equation order",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_below_order",
+      "statement": "For arbitrary commutative k, n<d≤order(f) and g∈v^n, the actual image φ_f,n(g) vanishes if and only if H_n(g)=0. No finite exact order or no-zero-divisors assumption is required.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use the existing lower-degree kernel theorem and transfer homogeneous-component vanishing through the native polynomial inclusion."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-below-order",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter curveDegreeProjection_polynomial_below_order",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For arbitrary commutative k, n<d≤order(f) and g∈v^n, the actual image φ_f,n(g) vanishes if and only if H_n(g)=0. No finite exact order or no-zero-divisors assumption is required."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-zero",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Polynomial kernel for the zero equation",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveDegreeProjection_polynomial_zero_equation",
+      "statement": "For f=0 and every n and g∈v^n, the actual image φ_0,n(g) vanishes if and only if H_n(g)=0. The zero equation retains its infinite order.",
+      "hypotheses": [
+        "σ is finite and k is a commutative ring; R and P are the native multivariate formal-series and polynomial carriers.",
+        "All additional order, degree-range and no-zero-divisors hypotheses are exactly those stated; no field, reducedness, irreducibility or characteristic assumption is imposed."
+      ],
+      "proofSteps": [
+        "Use the existing zero-equation kernel theorem and the polynomial/series vanishing equivalence, without converting infinite order to a natural number."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-zero-equation",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4 lowest homogeneous polynomial and §5 equation (9), both degreewise kernel directions",
+          "match": "Authored finite-variable commutative-coefficient adapter of the credited coefficient proof; uses native polynomial inclusion. The full graded algebra and dimension comparison remain separate."
+        },
+        {
+          "sourceId": "HS-POLYNOMIAL-COMPONENT-PIN-7e92bd",
+          "locator": "Pinned polynomial Homogeneous.lean 512–575; series Basic.lean 823–910, Trunc.lean 316–337 and Order.lean 683–735; checked adapter curveDegreeProjection_polynomial_zero_equation",
+          "match": "Native components, truncation and inclusion are reused; this node supplies their cross-carrier comparison or its actual equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For f=0 and every n and g∈v^n, the actual image φ_0,n(g) vanishes if and only if H_n(g)=0. The zero equation retains its infinite order."
+      ]
     }
   ],
   "baselineCoverage": [
@@ -12289,7 +13207,8 @@
         "The codex-J6LwjP exact-order continuation supplies checked native prototypes for the shifted denominator, actual map/projection agreement, exact-order injectivity, right exactness and small-index projection. Canonical bodies remain admitted. Combine these with the existing total-jet basis/count and quotient/scalar comparison to prove all-index curve lengths; then prove the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. Preserve the separate small-index, zero/unit and zero-divisor boundaries. General Hilbert–Serre induction, degree/dimension, Artin–Rees, associativity, completion and every routed-paper/stage obligation remain open.",
         "The actual native graded function, general quotient-transition length proof, exact rational postulation defect, sharp cumulative threshold, sharp graded threshold, unit defect just before agreement, and separate zero-equation graded branch now have admission-free proof prototypes. All ten new named tests use actual characteristic-two quotient modules or the exact native integer/rational count expressions. Canonical bodies remain admitted and all nodes unchecked. Still prove the full tangent-cone kernel and dimension of the actual curve ring, compare with the existing cumulative polynomial/intrinsic and ambient multiplicities without assuming generic existence, and discharge general Hilbert–Serre induction, support/degree, Artin–Rees, localization lengths, completion, associativity, all eight stage targets and every inherited routed-paper obligation. The graded and cumulative sharp thresholds are distinct; the zero equation has no finite order.",
         "The actual plane-curve and zero-equation functions now have independently proved unique eventual rational polynomials, explicit degree/leading-coefficient API and factorial coefficient arithmetic. Compare these with the existing general polynomial constructor through its proved specification, identify intrinsic/ambient multiplicities under proved support and dimension hypotheses, and prove the native tangent-cone kernel and curve dimension. General Hilbert–Serre induction, support/degree, Artin–Rees, completion, localization lengths, associativity, every routed source obligation and all eight stage targets remain required.",
-        "The codex-a71f92 continuation proves the actual degree-wise series/ideal kernel adapters and coefficient-linear equation-jet projection, including both principal relation directions, small-index, zero/unit and characteristic-two nonreduced tests. It preserves the complete incoming proof prefix. Still construct the polynomial-valued homogeneous comparison, identify the map's image with the existing q^n/q^(n+1) carrier, and assemble the multiplicatively compatible full tangent-cone graded isomorphism. Curve/support dimension, comparison with the general Hilbert–Samuel constructor, intrinsic/ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed source obligation remain required; canonical bodies remain admitted and every node/stage retains unchecked/partial status."
+        "The codex-a71f92 continuation proves the actual degree-wise series/ideal kernel adapters and coefficient-linear equation-jet projection, including both principal relation directions, small-index, zero/unit and characteristic-two nonreduced tests. It preserves the complete incoming proof prefix. Still construct the polynomial-valued homogeneous comparison, identify the map's image with the existing q^n/q^(n+1) carrier, and assemble the multiplicatively compatible full tangent-cone graded isomorphism. Curve/support dimension, comparison with the general Hilbert–Samuel constructor, intrinsic/ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed source obligation remain required; canonical bodies remain admitted and every node/stage retains unchecked/partial status.",
+        "The polynomial/series homogeneous comparison and actual polynomial equation-jet kernel now have checked native prototypes. Construct the actual image identification with q^n/q^(n+1), then assemble the generator-compatible and multiplicative full graded tangent-cone isomorphism. Curve/support dimension and comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain required. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain open; canonical bodies and implementation statuses remain admitted/unchecked."
       ]
     },
     {
@@ -12479,7 +13398,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial",
         "DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function"
       ],
-      "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open. Current codex-rtOQ9t continuation: The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open. The current finite-variable continuation provides an admission-free native prototype for the algebraic ideal-power/order equivalence via three new proof lemmas, over arbitrary commutative coefficients. This resolves the predecessor's prototype omission for that one adapter, not canonical library implementation or any shifted-sequence/jet-basis/curve-multiplicity obligation; all node statuses and stage coverage remain unchecked/partial. The codex-7e92bd coefficient-coordinate continuation now supplies admission-free native prototypes for total truncation kernel/surjectivity, the actual polynomial equivalence, low-coefficient linear equivalence, monomial basis, finite generation and all-cutoff two-variable rank/cardinality. This supersedes the preceding prototype omissions for those adapters only. Canonical bodies and all implementation statuses stay unchecked. Shifted series exact-order injectivity/exactness, all-index curve lengths, tangent cone and curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, Artin–Rees, degree/dimension, completion, associativity, all eight stage targets and all routed-paper obligations remain open. The combined native proof now establishes finite equation jets over arbitrary commutative coefficients, the field length/dimension adapter, ambient R-length, shifted length balance, all-index equation and actual cumulative curve lengths, and the separate zero equation. It includes the complete preceding jet/shifted, residue and quotient-comparison proof bodies. This supersedes their historical prototype omissions only; canonical bodies and all implementation statuses remain admitted/unchecked. The graded-function proof, postulation defect and sharp threshold, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre induction, degree/dimension, Artin–Rees, associativity, completion and all eight stage/routed-paper obligations remain open."
+      "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open. Current codex-rtOQ9t continuation: The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open. The current finite-variable continuation provides an admission-free native prototype for the algebraic ideal-power/order equivalence via three new proof lemmas, over arbitrary commutative coefficients. This resolves the predecessor's prototype omission for that one adapter, not canonical library implementation or any shifted-sequence/jet-basis/curve-multiplicity obligation; all node statuses and stage coverage remain unchecked/partial. The codex-7e92bd coefficient-coordinate continuation now supplies admission-free native prototypes for total truncation kernel/surjectivity, the actual polynomial equivalence, low-coefficient linear equivalence, monomial basis, finite generation and all-cutoff two-variable rank/cardinality. This supersedes the preceding prototype omissions for those adapters only. Canonical bodies and all implementation statuses stay unchecked. Shifted series exact-order injectivity/exactness, all-index curve lengths, tangent cone and curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, Artin–Rees, degree/dimension, completion, associativity, all eight stage targets and all routed-paper obligations remain open. The combined native proof now establishes finite equation jets over arbitrary commutative coefficients, the field length/dimension adapter, ambient R-length, shifted length balance, all-index equation and actual cumulative curve lengths, and the separate zero equation. It includes the complete preceding jet/shifted, residue and quotient-comparison proof bodies. This supersedes their historical prototype omissions only; canonical bodies and all implementation statuses remain admitted/unchecked. The graded-function proof, postulation defect and sharp threshold, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre induction, degree/dimension, Artin–Rees, associativity, completion and all eight stage/routed-paper obligations remain open.",
+      "polynomialComponentContinuation": "The polynomial/series homogeneous comparison and actual polynomial equation-jet kernel now have checked native prototypes. Construct the actual image identification with q^n/q^(n+1), then assemble the generator-compatible and multiplicative full graded tangent-cone isomorphism. Curve/support dimension and comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain required. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain open; canonical bodies and implementation statuses remain admitted/unchecked."
     }
   ],
   "sourceIssues": [],
@@ -14127,6 +15047,301 @@
         "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
         "DeformationAndDerivedPatchingAlgebra:R03.4"
       ]
+    }
+  },
+  "polynomialComponentContinuation": {
+    "agent": "Codex — codex-7e92bd",
+    "date": "2026-10-03",
+    "issue": 551,
+    "base": "1a0342b3b20f9b2faae813b2f5a230890264eef8",
+    "claimComment": 5965260354,
+    "botConfirmation": 5965261825,
+    "newNodes": [
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-component",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-coeff",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-inclusion",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-series-homogeneity",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-retraction",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-series-unique-polynomial",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-initial-truncation",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-initial-nonzero",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-initial-product",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-projections",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-kernel",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-below",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-zero"
+    ],
+    "boundary": "The polynomial/series homogeneous comparison and actual polynomial equation-jet kernel now have checked native prototypes. Construct the actual image identification with q^n/q^(n+1), then assemble the generator-compatible and multiplicative full graded tangent-cone isomorphism. Curve/support dimension and comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain required. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain open; canonical bodies and implementation statuses remain admitted/unchecked.",
+    "readingScope": "Fresh readings recorded in HS-POLYNOMIAL-COMPONENT-PIN-7e92bd; all prior source receipts retain their original attribution.",
+    "priorArt": {
+      "mathlibPR": {
+        "files": [
+          {
+            "path": "Mathlib.lean",
+            "additions": 13,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/Category/FGModuleCat/Abelian.lean",
+            "additions": 79,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/Category/FGModuleCat/Basic.lean",
+            "additions": 134,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/Category/FGModuleCat/EpiMono.lean",
+            "additions": 72,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/Category/FGModuleCat/Kernels.lean",
+            "additions": 124,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/Category/FGModuleCat/Limits.lean",
+            "additions": 38,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/DirectSum/Basic.lean",
+            "additions": 39,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/GradedMonoid.lean",
+            "additions": 1,
+            "deletions": 1
+          },
+          {
+            "path": "Mathlib/Algebra/HilbertSerre/AdditiveFunction.lean",
+            "additions": 440,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/HilbertSerre/FiniteInstances.lean",
+            "additions": 272,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/HilbertSerre/HilbertPolynomial.lean",
+            "additions": 131,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/HilbertSerre/Theorem.lean",
+            "additions": 1010,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/Module/GradeZeroModule.lean",
+            "additions": 53,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/Algebra/Module/GradedModule.lean",
+            "additions": 205,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Topology.lean",
+            "additions": 1,
+            "deletions": 1
+          },
+          {
+            "path": "Mathlib/RingTheory/FiniteType.lean",
+            "additions": 17,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/RingTheory/Finiteness.lean",
+            "additions": 16,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/RingTheory/GradedAlgebra/Basic.lean",
+            "additions": 48,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/RingTheory/GradedAlgebra/HomogeneousIdeal.lean",
+            "additions": 795,
+            "deletions": 205
+          },
+          {
+            "path": "Mathlib/RingTheory/GradedAlgebra/Noetherian.lean",
+            "additions": 744,
+            "deletions": 9
+          },
+          {
+            "path": "Mathlib/RingTheory/GradedAlgebra/Radical.lean",
+            "additions": 1,
+            "deletions": 1
+          },
+          {
+            "path": "Mathlib/RingTheory/GradedAlgebra/Subgrading.lean",
+            "additions": 493,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/RingTheory/Polynomial/Hilbert.lean",
+            "additions": 278,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+            "additions": 1660,
+            "deletions": 0
+          },
+          {
+            "path": "Mathlib/RingTheory/PowerSeries/WellKnown.lean",
+            "additions": 81,
+            "deletions": 0
+          }
+        ],
+        "headRefOid": "413e5b872a7c758e0eb91f99cb96d6a61c81f0a2",
+        "number": 9819,
+        "state": "OPEN",
+        "title": "fg graded ring",
+        "url": "https://github.com/leanprover-community/mathlib4/pull/9819"
+      },
+      "interpretation": "Open PR9819 covers graded finite generation and Hilbert–Serre, already relevant to the inherited general backlog. Its fresh metadata, body and changed-file list were read. No code copied, no unpinned theorem imported, and no claim that this polynomial/series adapter is supplied there.",
+      "zulip": "Fresh bounded web-indexed power-series/homogeneous-polynomial search returned no relevant API discussion; generic GitHub results are not evidence of exhaustive absence."
+    },
+    "verification": {
+      "nativeAndCanonical": {
+        "Native": {
+          "sha256": "6af365e82b4f3db615436237ee78b14c214e46509f8af8fcaa5653996c240139",
+          "lines": 2473,
+          "anonymousExamples": 64,
+          "audits": 151,
+          "warnings": 0,
+          "availableGiBBefore": 36,
+          "elapsed": "0:11.10",
+          "peakRSSKiB": 3590856,
+          "normalizedLogSha256": "6ee3146d0fc0596d23dc6132cc647888803732481e38d5920b335780827c4f6c"
+        },
+        "Canonical": {
+          "sha256": "269dfcb080265133bf2e1e2fc459e0e70ff36447303b5646fc228ee70e5d91b2",
+          "lines": 3275,
+          "anonymousExamples": 213,
+          "audits": 0,
+          "warnings": 433,
+          "availableGiBBefore": 35,
+          "elapsed": "0:28.21",
+          "peakRSSKiB": 3592004,
+          "normalizedLogSha256": "c4682599b766c0723fd0b7463cfa6f95f4ab42dd5a82f3e9e3e3a7d8485fc365"
+        }
+      },
+      "nativeProofArchive": "ad60c74c52d6e284558f4c3c87a435897e5eaa4f",
+      "incomingArchive": "1ee3d626cd226cffc0ee869aff618df03e133c65",
+      "incomingNativeSha256": "695a088a82bfd4d432a4af5bf41d4f1b99d33138db2bcf86f3d9c08c9973a3a5",
+      "graph": {
+        "stageDAG": {
+          "vertices": 3003,
+          "edges": 8623,
+          "acyclic": true
+        },
+        "ownDAG": {
+          "vertices": 173,
+          "edges": 261,
+          "acyclic": true
+        },
+        "combinedDAG": {
+          "vertices": 3164,
+          "edges": 9058,
+          "acyclic": true
+        },
+        "reachableDeclarations": 174,
+        "externalDeclarations": [
+          "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+        ],
+        "reachableBaselineReferences": 274,
+        "unresolved": [],
+        "otherPartsRetained": [
+          "DeformationAndDerivedPatchingAlgebra--R03.6"
+        ],
+        "partDeclarations": 173,
+        "partPlanets": 13,
+        "roadmapDeclarations": 226,
+        "requiredStagePairs": 13,
+        "requiredStagePairsReachable": 12,
+        "inheritedMissingStagePairs": [
+          [
+            "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+            "DeformationAndDerivedPatchingAlgebra:R03.4"
+          ]
+        ],
+        "acceptedRestructurePairs": 65,
+        "acceptedRestructurePairsReachable": 65,
+        "stageEdgesUnchanged": true,
+        "otherSkippedPendingUnchanged": true,
+        "ownSkippedPendingEmpty": true
+      },
+      "preservation": {
+        "oldNodeObjectsPreserved": 157,
+        "newHeadersMatched": 16,
+        "newTestsMatched": 6,
+        "incomingProofPreservedAfterOneImport": true,
+        "canonicalPrefixPreservedAfterOneImport": true,
+        "readerSuffixPreserved": true,
+        "intakeFileProblems": [],
+        "intakeAutoRefusals": [],
+        "checker": {
+          "packet": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json",
+          "roadmap": "DeformationAndDerivedPatchingAlgebra",
+          "status": "partial",
+          "nodes": 173,
+          "kinds": {
+            "lemma": 123,
+            "theorem": 16,
+            "definition": 8,
+            "construction": 26
+          },
+          "apiItems": 154,
+          "unitTests": 135,
+          "planets": 13,
+          "baselineDeclarations": 304,
+          "prerequisites": {
+            "baseline": 411,
+            "node (this packet)": 261,
+            "node (integrated)": 1
+          },
+          "gaps": 15,
+          "requests": 2,
+          "stagesInScope": 8,
+          "stagesClosed": 0
+        },
+        "rawApiItems": 154,
+        "rawTests": 189,
+        "lean": {
+          "Native": {
+            "warnings": 0,
+            "audits": 151,
+            "exit": 0
+          },
+          "Canonical": {
+            "warnings": 433,
+            "audits": 0,
+            "exit": 0
+          }
+        },
+        "fullCanonicalCompiled": true,
+        "scriptSha256": "9d9baacd7d52af6501266d458ab4c25f7881efb3e800c5c49616e1c110df092f"
+      },
+      "publicationBase": "b725306dcef5613ca909fcaafaded4840e72777c",
+      "publicScripts": {
+        "recover.py": "eabd5b8003e4b82680d30f21bdd501e8f3bf8bb2430a994b0bf51a6c0bec7c23",
+        "verify.py": "9d9baacd7d52af6501266d458ab4c25f7881efb3e800c5c49616e1c110df092f",
+        "graph.py": "2ab5184487d1061bb9dde1ddb2b3f823e7ae4b9729eef348f694649fa0820292"
+      },
+      "compilation": "Full Mathlib-only canonical compiled; exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 in existing Lean4.34.0-rc2 build, serial runs under1200-second timeout, no project/cache/library build or language server. Native has no admissions; final canonical bodies remain admitted. Log normalization replaces only evidence-directory prefix with EVIDENCE."
     }
   }
 }
