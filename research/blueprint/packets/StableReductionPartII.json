@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Continuation of the inherited source-faithful pointed-moduli checkpoint. Adds 26 consumed native declaration-sized inputs for arbitrary coefficient-module exactness of both alternating matrix complexes and their transposes, the actual symplectic rotation, and the two characterized tensor cokernels. Preserves all inherited mathematical contracts and reserved moduli ownership; all eight stages remain partial with the explicit Hom/Ext, completion, supplier and family gaps.",
+  "summary": "Partial pointed-moduli roadmap. Adds twelve consumed declaration-sized inputs for ordinary R-bidual reflexivity of the actual polynomial section ideal, with explicit inverse F↦F(incl), native evaluation equivalence and dual reflexivity through the existing Mathlib instance. All inherited contracts remain, all eight stages stay partial, and arbitrary coefficient-module Hom exchange, higher Ext, completion and family geometry remain required.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -877,6 +877,41 @@
         "module": "Mathlib/LinearAlgebra/TensorProduct/RightExactness.lean",
         "provides": "Over a commutative ring, tensoring an exact pair f,g with g surjective gives an exact pair for any coefficient module M.",
         "checked": "Complete statement and surrounding scalar/module assumptions read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration confirmed on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Module.Dual",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "provides": "The actual R-linear dual, definition at line62.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Module.Dual.eval",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "provides": "The native bidual evaluation linear map, line80.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Module.IsReflexive",
+        "kind": "class",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "provides": "Bijectivity of native bidual evaluation, line213.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Module.evalEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "provides": "The canonical linear equivalence from proved native reflexivity, line226.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Module.Dual.instIsReflecive",
+        "kind": "instance",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "provides": "The dual of a reflexive module is reflexive; native instance at line264.",
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
       }
     ]
   },
@@ -3690,13 +3725,18 @@
         "StableReductionPartII:MC.2/section-complex-transpose-left-tensor-exact",
         "StableReductionPartII:MC.2/section-complex-transpose-right-tensor-exact",
         "StableReductionPartII:MC.2/section-ideal-tensor-cokernel",
-        "StableReductionPartII:MC.2/section-dual-tensor-cokernel"
+        "StableReductionPartII:MC.2/section-dual-tensor-cokernel",
+        "StableReductionPartII:MC.2/section-ideal-ordinary-reflexive",
+        "StableReductionPartII:MC.2/section-bidual-equivalence-apply",
+        "StableReductionPartII:MC.2/section-bidual-equivalence-inverse",
+        "StableReductionPartII:MC.2/section-bidual-equivalence-native"
       ],
       "proofSteps": [
         "Apply the separately named polynomial dual, residue, coefficient-flatness, ring-linear tensor and actual quotient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
         "Use the named flat ambient ideal/Hom/multiplication-quotient and actual module-completion adapters where their hypotheses hold. Separately prove/import Knudsen Appendix Theorem2, Proposition6, the pointed completed-local hull identification, and coefficient-compatible descent; the ambient adapters alone do not discharge these relative S→R requirements.",
         "Use the invertible-ideal calculation at smooth points and descend the fibrewise-compatible local identifications.",
-        "Use the four separately proved coefficient-universal matrix tensor pairs and the two actual tensorized cokernel identifications. Arbitrary coefficient-module Hom exchange, bidual evaluation and higher Ext require their own comparison proofs before invoking the exact relative stable-reflexivity input."
+        "Use the four separately proved coefficient-universal matrix tensor pairs and the two actual tensorized cokernel identifications. Arbitrary coefficient-module Hom exchange, bidual evaluation and higher Ext require their own comparison proofs before invoking the exact relative stable-reflexivity input.",
+        "The ordinary polynomial R-bidual step now has its own explicit calculation: ψ(F)=F(incl) lies in J by the dual syzygy, cancels against η on both sides, and identifies native Module.evalEquiv and its inverse. The dual D is reflexive by the native dual-of-reflexive instance. The preceding broader Hom/Ext and relative stable-reflexivity obligations still require arbitrary coefficient modules and the completion/sheaf comparison; ordinary reflexivity alone does not discharge them."
       ],
       "acceptance": [
         "Do not strengthen this to J·J∨=J throughout a smoothing family: that equality holds only on the nodal-section locus."
@@ -12836,6 +12876,620 @@
           "how": "The stated coordinate or canonical quotient API is part of the local universally acyclic polynomial model calculation."
         }
       ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-dual-generator-module-relation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The dual generator module relation",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. d·ε=b·incl in D.",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-generator-formula",
+        "StableReductionPartII:MC.2/section-dual-multiplication"
+      ],
+      "proofSteps": [
+        "Evaluate both linear maps at j∈J and use dε(j)=bj; multiplication by 1 is inclusion."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.dualGenerator_module_relation",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-relation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "The bidual generator relation",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. Every F∈Hom_R(D,R) satisfies dF(ε)=bF(incl).",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-dual-generator-module-relation"
+      ],
+      "proofSteps": [
+        "Apply the R-linear functional F to d·ε=b·incl and use R-linearity."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidual_relation",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-value-membership",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Bidual values belong to the section ideal",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every F∈Hom_R(D,R), F(incl)∈J.",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-bidual-relation",
+        "StableReductionPartII:MC.2/section-dual-syzygy",
+        "mathlib:Ideal.mem_span_pair"
+      ],
+      "proofSteps": [
+        "Apply the earlier dual syzygy to x=F(ε), y=F(incl). It gives y=dr+ιαc, hence ideal membership."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidual_value_mem",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-inverse",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Inverse of section bidual evaluation",
+      "kind": "construction",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. Construct the R-linear map ψ:Hom_R(D,R)→J with underlying value ψ(F)=F(incl).",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-bidual-value-membership"
+      ],
+      "proofSteps": [
+        "Use membership to form the actual ideal subtype. Addition and scalar multiplication are inherited from evaluation at incl."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidualInverse",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualInverse_value",
+          "role": "projection",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The image of ψ(F) in R is F(incl)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualInverse_eval",
+          "role": "relation",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every j∈J, ψ(η(j))=j."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidual_eval_inverse",
+          "role": "relation",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every F∈Hom_R(D,R), η(ψ(F))=F."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_zero",
+          "kind": "degenerate",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. ψ(0)=0."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_first",
+          "kind": "computation",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. ψ(η(⟨c,c∈J⟩))=⟨c,c∈J⟩."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_second",
+          "kind": "computation",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. ψ(η(⟨d,d∈J⟩))=⟨d,d∈J⟩."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-inverse-value",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Underlying value of the bidual inverse",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The image of ψ(F) in R is F(incl).",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-bidual-inverse"
+      ],
+      "proofSteps": [
+        "Unfold the defining subtype map."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidualInverse_value",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-inverse-evaluation",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Evaluation has a left inverse",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every j∈J, ψ(η(j))=j.",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-bidual-inverse",
+        "mathlib:Module.Dual.eval"
+      ],
+      "proofSteps": [
+        "Evaluate η(j) at incl; the underlying value is incl(j)=j. Apply subtype extensionality."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidualInverse_eval",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-evaluation-inverse",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Evaluation has a right inverse",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every F∈Hom_R(D,R), η(ψ(F))=F.",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-bidual-inverse-value",
+        "StableReductionPartII:MC.2/section-bidual-relation",
+        "StableReductionPartII:MC.2/section-coordinate-regular",
+        "StableReductionPartII:MC.2/section-dual-generator-formula",
+        "StableReductionPartII:MC.2/section-dual-presentation-surjective",
+        "StableReductionPartII:MC.2/section-dual-presentation-formula",
+        "StableReductionPartII:MC.2/section-dual-multiplication",
+        "mathlib:Module.Dual.eval"
+      ],
+      "proofSteps": [
+        "Set j=ψ(F), so F(incl)=j. Both dF(ε) and dε(j) equal bj; cancel the regular coordinate d to get F(ε)=ε(j).",
+        "Write every h∈D as z₀·incl−z₁·ε using the actual dual presentation. R-linearity and equality on incl and ε give h(j)=F(h), hence extensional equality."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidual_eval_inverse",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-ideal-ordinary-reflexive",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Ordinary reflexivity of the section ideal",
+      "kind": "theorem",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The actual ideal J satisfies Module.IsReflexive R J, with its native bidual evaluation map.",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-bidual-inverse-evaluation",
+        "StableReductionPartII:MC.2/section-bidual-evaluation-inverse",
+        "mathlib:Module.IsReflexive",
+        "mathlib:Module.Dual.instIsReflecive"
+      ],
+      "proofSteps": [
+        "The explicit two-sided inverse makes native evaluation bijective, exactly the field required by Module.IsReflexive."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionIdealReflexive",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_nonreduced",
+          "kind": "degenerate",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For A=Z/4 and γ=δ=s=t=0, the actual ideal J is reflexive over R; no reducedness or unit discriminant is used."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_zeroRing",
+          "kind": "degenerate",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For A=Z/1 and γ=δ=s=t=0, native Module.IsReflexive R J still holds."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_dual",
+          "kind": "compatibility",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The native instance Module.Dual.instIsReflecive also gives Module.IsReflexive R D from the proved reflexivity of J."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-equivalence",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Canonical section bidual equivalence",
+      "kind": "construction",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. Construct E:J≃ₗ[R]Hom_R(D,R) as native Module.evalEquiv R J using the proved ordinary reflexivity.",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-ideal-ordinary-reflexive",
+        "mathlib:Module.evalEquiv",
+        "StableReductionPartII:MC.2/section-dual-generator-values"
+      ],
+      "proofSteps": [
+        "Supply the proved native reflexivity instance and use the library evaluation equivalence."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_apply",
+          "role": "simp",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every j∈J and h∈D, E(j)(h)=h(j)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_inverse",
+          "role": "equivalence",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every F∈Hom_R(D,R), E⁻¹(F)=ψ(F)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_native",
+          "role": "compatibility",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The underlying linear map of E equals Module.Dual.eval R J."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_epsilon_first",
+          "kind": "computation",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. E(⟨c,c∈J⟩)(ε)=−a."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_epsilon_second",
+          "kind": "computation",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. E(⟨d,d∈J⟩)(ε)=b."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_negative_generator",
+          "kind": "non-example",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. E(−⟨d,d∈J⟩)(ε)=−b; the sign agrees with the ordered dual presentation."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_roundtrip",
+          "kind": "characterisation",
+          "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For arbitrary F∈Hom_R(D,R), E(ψ(F))=F."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-equivalence-apply",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Bidual equivalence evaluation",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every j∈J and h∈D, E(j)(h)=h(j).",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-bidual-equivalence",
+        "mathlib:Module.Dual.eval"
+      ],
+      "proofSteps": [
+        "This is the defining native evaluation formula."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_apply",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-equivalence-inverse",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Explicit inverse of the bidual equivalence",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every F∈Hom_R(D,R), E⁻¹(F)=ψ(F).",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-bidual-equivalence",
+        "StableReductionPartII:MC.2/section-bidual-evaluation-inverse"
+      ],
+      "proofSteps": [
+        "Apply injectivity of E; native inverse cancellation and η(ψ(F))=F identify both images."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_inverse",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.2/section-bidual-equivalence-native",
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "title": "Agreement with native bidual evaluation",
+      "kind": "lemma",
+      "statement": "For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The underlying linear map of E equals Module.Dual.eval R J.",
+      "hypotheses": [
+        "No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-bidual-equivalence",
+        "mathlib:Module.Dual.eval"
+      ],
+      "proofSteps": [
+        "Unfold native Module.evalEquiv; its forward linear map is evaluation."
+      ],
+      "acceptance": [
+        "Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier.",
+        "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, multiplication description of J∨ and Proposition 3.1; compare Corollary 3.2 and §4",
+          "match": "The source supplies the polynomial ideal, dual generators and stable-reflexivity motivation. The explicit inverse F↦F(incl) and ordinary reflexivity over every commutative coefficient ring are authored deductions from the existing syzygy and regular-coordinate lemmas; they are not quoted as the printed theorem. Printed noetherianity and invertible discriminant remain attached to the stronger source theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_native",
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/dual-section-ideal",
+          "how": "Supplies the ordinary polynomial bidual calculation required before the relative stable-reflexivity and completed-local comparison."
+        }
+      ]
     }
   ],
   "requests": [
@@ -13812,7 +14466,8 @@
         "The actual coefficient restriction, projection and canonical ε/K naturality, complete dual normal coordinates/residue and corrected ring action have admission-free native checks. Tensor equivalences, arbitrary coefficient-module Hom/Ext exchange and completed-local/family comparisons remain separate obligations.",
         "The specified ideal/dual cokernel identifications, including the negative second generator and transpose complexes, now have admission-free native proof checks; preserve their contracts. Prove the remaining arbitrary coefficient-module Hom/Ext, tensor, completion and family comparisons without assuming them from the dual coordinates.",
         "The actual coefficient projectivity/freeness, section tensor retraction and both matrix-image tensor injections are checked, including torsion M=Z/2 over Z. Complete actual coefficient-module Hom exchange, bidual evaluation and higher Ext comparisons; no flatness of M may be imposed.",
-        "All four alternating polynomial matrix pairs are now checked after tensoring with every A-module M, and both ordered tensor cokernel equivalences are checked. Supply the actual module-valued Hom and bidual maps and cochain/Ext interpretation, then the relative stable-reflexivity, two-base completion and family/sheaf comparisons."
+        "All four alternating polynomial matrix pairs are now checked after tensoring with every A-module M, and both ordered tensor cokernel equivalences are checked. Supply the actual module-valued Hom and bidual maps and cochain/Ext interpretation, then the relative stable-reflexivity, two-base completion and family/sheaf comparisons.",
+        "Ordinary R-linear bidual evaluation of the actual polynomial ideal is now checked with inverse F↦F(incl), and the native instance supplies ordinary reflexivity of its dual. In the earlier remaining entries, the open bidual work is the relative/module-valued Hom comparison and its base-change/completion naturality, followed by higher Ext and family descent."
       ]
     },
     {
@@ -14716,7 +15371,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "The full Mathlib-only sketch is an admitted plan. The separate native archive additionally proves both prescribed actual matrix cokernels, their generator/uniqueness formulas and the alternating complex and its transpose over every commutative coefficient ring. This does not certify arbitrary-module Hom/Ext exchange, tensor transport, completion or moduli geometry.",
+    "reason": "Full Mathlib-only admitted sketch; separate admission-free archive verifies the prior polynomial and tensor calculations plus ordinary bidual evaluation with explicit inverse. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -14823,7 +15478,19 @@
       "StableReductionPartII:MC.2/section-matrix-transpose-left-action",
       "StableReductionPartII:MC.2/section-matrix-transpose-right-action",
       "StableReductionPartII:MC.2/section-complex-transpose-left-exact",
-      "StableReductionPartII:MC.2/section-complex-transpose-right-exact"
+      "StableReductionPartII:MC.2/section-complex-transpose-right-exact",
+      "StableReductionPartII:MC.2/section-dual-generator-module-relation",
+      "StableReductionPartII:MC.2/section-bidual-relation",
+      "StableReductionPartII:MC.2/section-bidual-value-membership",
+      "StableReductionPartII:MC.2/section-bidual-inverse",
+      "StableReductionPartII:MC.2/section-bidual-inverse-value",
+      "StableReductionPartII:MC.2/section-bidual-inverse-evaluation",
+      "StableReductionPartII:MC.2/section-bidual-evaluation-inverse",
+      "StableReductionPartII:MC.2/section-ideal-ordinary-reflexive",
+      "StableReductionPartII:MC.2/section-bidual-equivalence",
+      "StableReductionPartII:MC.2/section-bidual-equivalence-apply",
+      "StableReductionPartII:MC.2/section-bidual-equivalence-inverse",
+      "StableReductionPartII:MC.2/section-bidual-equivalence-native"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -14943,7 +15610,13 @@
       "NodeSectionFactorization.PolynomialModel.idealPresentation_kernel",
       "NodeSectionFactorization.PolynomialModel.dualPresentation_apply",
       "NodeSectionFactorization.PolynomialModel.dualPresentation_surjective",
-      "NodeSectionFactorization.PolynomialModel.dualPresentation_kernel"
+      "NodeSectionFactorization.PolynomialModel.dualPresentation_kernel",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualInverse_value",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualInverse_eval",
+      "NodeSectionFactorization.PolynomialModel.sectionBidual_eval_inverse",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_apply",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_inverse",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_native"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -15056,7 +15729,17 @@
       "NodeSectionFactorization.PolynomialModel.idealPresentationZero",
       "NodeSectionFactorization.PolynomialModel.dualPresentationFirst",
       "NodeSectionFactorization.PolynomialModel.dualPresentationSecond",
-      "NodeSectionFactorization.PolynomialModel.dualPresentationZero"
+      "NodeSectionFactorization.PolynomialModel.dualPresentationZero",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_zero",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_first",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_second",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_nonreduced",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_zeroRing",
+      "NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_dual",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_epsilon_first",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_epsilon_second",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_negative_generator",
+      "NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_roundtrip"
     ],
     "omissions": [
       {
@@ -16319,7 +17002,7 @@
     "adapterBoundary": "The native archive proves the actual polynomial ring, ideal and dual coordinates, coefficient projection/flatness, ε/K, both ordered presentations and their prescribed cokernel equivalences, and all four kernel/image comparisons. Its 1505-line inherited proof prefix is byte-preserved. The submitted canonical bodies remain admitted under PROTOCOL §13; module-valued exchange, completion and moduli geometry are not supplied.",
     "validation": {
       "actualAssembler": true,
-      "declarations": 188,
+      "declarations": 226,
       "planets": 35,
       "ownSkippedLinks": [],
       "stageDAG": {
@@ -16328,16 +17011,16 @@
         "acyclic": true
       },
       "ownDeclarationDAG": {
-        "vertices": 188,
-        "edges": 458,
+        "vertices": 226,
+        "edges": 535,
         "acyclic": true
       },
       "stagesAndReachableDeclarations": {
-        "vertices": 3203,
-        "edges": 9510,
+        "vertices": 3241,
+        "edges": 9625,
         "acyclic": true
       },
-      "reachableDeclarations": 188,
+      "reachableDeclarations": 226,
       "externalDeclarations": [],
       "unresolved": [],
       "requiredStagePairsReachable": 81,
@@ -16345,20 +17028,22 @@
       "ownPendingLinks": [],
       "otherPendingLinksMatchOriginal": true,
       "otherSkipsMatchOriginal": true,
-      "unchangedNodeObjects": 157,
-      "scriptSha256": "1e9842958da29eb1bbff197c4efb58fe01cf261e0e260288252f780a59c5f6c0"
+      "unchangedNodeObjects": 213,
+      "scriptSha256": "854447542f3a61b20d6297578c06cf20d953df278bd321c70da9939bfe18a075"
     },
     "compilation": {
-      "exit": 0,
-      "seconds": 18.11,
-      "sha256": "a418ae9c20eed4bc956d20a3ef506bee558f7377197fc6455cf90e750d98a473",
-      "lines": 2167,
-      "examples": 120,
-      "availableGiB": 52,
-      "peakRSSKiB": 3030032,
-      "expectedAdmissionWarnings": 290,
-      "otherWarnings": 0,
-      "diagnosticsSha256": "c3de4d2f31ca8a1cd6b4412b02eb1cf951e1e8d6b05c61bf40b6699d914c602a"
+      "lines": 2476,
+      "examples": 147,
+      "sha256": "94f645a88c399ce9ac560a3fb1cc8887deb46b7536385e1b39b7544d4645dd1a",
+      "diagnosticsSha256": "afb1245522c28192530d8a1c22c4df4fc04ccadf1a8f3678624376e568fefcd2",
+      "errors": 0,
+      "warnings": 355,
+      "admissionWarnings": 355,
+      "axiomAudits": 0,
+      "seconds": 21.89,
+      "peakRSSKiB": 3100036,
+      "availableGiB": 47,
+      "exit": 0
     },
     "previousCompilation": {
       "exitCode": 0,
@@ -16449,20 +17134,20 @@
       }
     },
     "nativeProofVerification": {
-      "exit": 0,
-      "seconds": 14.21,
-      "sha256": "4d9ee3521709621d23e6d2497febba0e72aa6e462806351440a2a30b1614dddc",
-      "lines": 2084,
-      "audits": 128,
-      "examples": 58,
-      "availableGiB": 52,
-      "peakRSSKiB": 3176164,
+      "lines": 2586,
+      "examples": 85,
+      "sha256": "de4a6b846c7e33b576a7e9119947292ab5bd513e70b67c094b8a4303627904e5",
+      "diagnosticsSha256": "f53e06df11a79fa274d53613788937369741328bb71f87d7a8aec3b97302d609",
+      "errors": 0,
       "warnings": 0,
-      "admissions": 0,
-      "diagnosticsSha256": "db0150adb2d6cdbe86cb7a1d8bfa6792f00f8cfaf405323ff1851434882f31e8",
-      "archiveCommit": "5cf0343f7edeab7223ed8366d75a3a502e7b0181",
-      "marker": "ARCHIVED CHECKED SECTION MATRIX PRESENTATIONS",
-      "predecessorPrefixPreserved": true
+      "admissionWarnings": 0,
+      "axiomAudits": 166,
+      "seconds": 18.81,
+      "peakRSSKiB": 3244408,
+      "availableGiB": 47,
+      "exit": 0,
+      "archiveCommit": "ca039d9d67f5465b9218b5e8d0d171ec85fe6b57",
+      "marker": "ARCHIVED CHECKED SECTION BIDUAL EVALUATION"
     },
     "previousSectionKernelVerification": {
       "status": "partial",
@@ -17006,6 +17691,66 @@
         "scriptSha256": "892326134dc1670e5b1a4f0f19fa7b19827939fa8c5e16a5523186322031a592"
       },
       "preservation": "All125 inherited IDs, kinds, mathematical statements, hypotheses, API/test contracts, acceptance, sources, uses and unchecked statuses retained. All135 requests,14 gaps,35 planets, source/version/consumer/key/restructure/import metadata and old73 baseline entries retained.119 old node objects unchanged; six old objects have dependency/proof/name/API/test additions. Roadmap definition unchanged."
+    },
+    "ordinaryBidualPreviousReason": "The full Mathlib-only sketch is an admitted plan. The separate native archive additionally proves both prescribed actual matrix cokernels, their generator/uniqueness formulas and the alternating complex and its transpose over every commutative coefficient ring. This does not certify arbitrary-module Hom/Ext exchange, tensor transport, completion or moduli geometry.",
+    "ordinaryBidualPreviousValidation": {
+      "actualAssembler": true,
+      "declarations": 188,
+      "planets": 35,
+      "ownSkippedLinks": [],
+      "stageDAG": {
+        "vertices": 3050,
+        "edges": 8750,
+        "acyclic": true
+      },
+      "ownDeclarationDAG": {
+        "vertices": 188,
+        "edges": 458,
+        "acyclic": true
+      },
+      "stagesAndReachableDeclarations": {
+        "vertices": 3203,
+        "edges": 9510,
+        "acyclic": true
+      },
+      "reachableDeclarations": 188,
+      "externalDeclarations": [],
+      "unresolved": [],
+      "requiredStagePairsReachable": 81,
+      "stageEdgesUnchanged": true,
+      "ownPendingLinks": [],
+      "otherPendingLinksMatchOriginal": true,
+      "otherSkipsMatchOriginal": true,
+      "unchangedNodeObjects": 157,
+      "scriptSha256": "1e9842958da29eb1bbff197c4efb58fe01cf261e0e260288252f780a59c5f6c0"
+    },
+    "ordinaryBidualPreviousCompilation": {
+      "exit": 0,
+      "seconds": 18.11,
+      "sha256": "a418ae9c20eed4bc956d20a3ef506bee558f7377197fc6455cf90e750d98a473",
+      "lines": 2167,
+      "examples": 120,
+      "availableGiB": 52,
+      "peakRSSKiB": 3030032,
+      "expectedAdmissionWarnings": 290,
+      "otherWarnings": 0,
+      "diagnosticsSha256": "c3de4d2f31ca8a1cd6b4412b02eb1cf951e1e8d6b05c61bf40b6699d914c602a"
+    },
+    "ordinaryBidualPreviousNativeProofVerification": {
+      "exit": 0,
+      "seconds": 14.21,
+      "sha256": "4d9ee3521709621d23e6d2497febba0e72aa6e462806351440a2a30b1614dddc",
+      "lines": 2084,
+      "audits": 128,
+      "examples": 58,
+      "availableGiB": 52,
+      "peakRSSKiB": 3176164,
+      "warnings": 0,
+      "admissions": 0,
+      "diagnosticsSha256": "db0150adb2d6cdbe86cb7a1d8bfa6792f00f8cfaf405323ff1851434882f31e8",
+      "archiveCommit": "5cf0343f7edeab7223ed8366d75a3a502e7b0181",
+      "marker": "ARCHIVED CHECKED SECTION MATRIX PRESENTATIONS",
+      "predecessorPrefixPreserved": true
     }
   },
   "upstreamImportEncoding": {
@@ -17170,6 +17915,14 @@
       "pdfSha256": "de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36",
       "scope": "Fresh complete §3 setup, Proposition3.1, Corollary3.2 and their proofs, primary HTML and PDF printed pp.11–13. No fresh full paper, Eisenbud/Bourbaki proof audit or visual PDF reading claimed.",
       "use": "Prescribed signs and native polynomial cokernel comparisons. The arbitrary-commutative-ring proof below is an authored coordinate calculation; geometric/relative stable-reflexivity and completion conclusions are separate."
+    },
+    {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-7e92bd",
+      "date": "2026-10-03",
+      "url": "https://arxiv.org/html/1106.1588v2#S3",
+      "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
+      "scope": "Fresh introduction/Main Lemma, complete §3 Key Example, Proposition3.1, Corollary3.2 and §4 proof. No new whole-paper or Appendix/Ile proof audit. Ordinary bidual inverse is an authored deduction."
     }
   ],
   "coefficientChangeContinuation": {
@@ -17713,5 +18466,116 @@
     },
     "publicationBase": "f1a650b90692d9f7d9667f3deb09ba9e0013cb4d",
     "publicationChecks": "Exact incoming owner deliverables, binding instructions, reviewed audit/key/consumer inputs and checker/assembler code are unchanged at the publication base. Foreign main changes were merged only into the own branch; indexed checker, actual intake and scoped actual graph comparator were rerun after the merge. Only the five allowed owner paths differ from publication main."
+  },
+  "ordinaryBidualContinuation": {
+    "agent": "Codex",
+    "session": "codex-7e92bd",
+    "issue": 3342,
+    "claimComment": 5963507827,
+    "claimBot": 5963509180,
+    "mathematicalBase": "1636db22ab77e42624c42da4706ca8e9e8f28ce0",
+    "addedNodes": [
+      "StableReductionPartII:MC.2/section-dual-generator-module-relation",
+      "StableReductionPartII:MC.2/section-bidual-relation",
+      "StableReductionPartII:MC.2/section-bidual-value-membership",
+      "StableReductionPartII:MC.2/section-bidual-inverse",
+      "StableReductionPartII:MC.2/section-bidual-inverse-value",
+      "StableReductionPartII:MC.2/section-bidual-inverse-evaluation",
+      "StableReductionPartII:MC.2/section-bidual-evaluation-inverse",
+      "StableReductionPartII:MC.2/section-ideal-ordinary-reflexive",
+      "StableReductionPartII:MC.2/section-bidual-equivalence",
+      "StableReductionPartII:MC.2/section-bidual-equivalence-apply",
+      "StableReductionPartII:MC.2/section-bidual-equivalence-inverse",
+      "StableReductionPartII:MC.2/section-bidual-equivalence-native"
+    ],
+    "newTests": 10,
+    "newApiEntries": 6,
+    "inheritedContracts": 214,
+    "wholeInheritedNodesUnchanged": 213,
+    "scope": "This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.",
+    "sourceRead": {
+      "sourceId": "knudsen2012",
+      "reader": "Codex — codex-7e92bd",
+      "date": "2026-10-03",
+      "url": "https://arxiv.org/html/1106.1588v2#S3",
+      "sha256": "2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685",
+      "scope": "Fresh introduction/Main Lemma, complete §3 Key Example, Proposition3.1, Corollary3.2 and §4 proof. No new whole-paper or Appendix/Ile proof audit. Ordinary bidual inverse is an authored deduction."
+    },
+    "priorArt": {
+      "openMathlibPrQuery": "gh search prs module reflexive --repo leanprover-community/mathlib4 --state open",
+      "result": "No results in this bounded fresh search.",
+      "zulip": "https://leanprover-community.github.io/archive/stream/113489-new-members/topic/How.20to.20express.20dual.20linear.20maps.3F.html",
+      "reading": "Human May9–11 2025 discussion: native Module.evalEquiv and Module.IsReflexive supply the canonical shape. No external code copied."
+    },
+    "remaining": [
+      "Actual arbitrary coefficient-module Hom comparison and its naturality",
+      "Higher Ext interpretation of the coefficient-universal matrix complexes",
+      "Relative stable-reflexivity Theorem2, two-base Proposition6 and completed-local/family descent",
+      "All inherited source, supplier and MC.0–MC.7 obligations"
+    ],
+    "archiveCommit": "ca039d9d67f5465b9218b5e8d0d171ec85fe6b57",
+    "publicationBase": "b80fdf573cd685fc5723bd55865eb7392a56c9c2",
+    "graph": {
+      "actualAssembler": true,
+      "declarations": 226,
+      "planets": 35,
+      "ownSkippedLinks": [],
+      "stageDAG": {
+        "vertices": 3050,
+        "edges": 8750,
+        "acyclic": true
+      },
+      "ownDeclarationDAG": {
+        "vertices": 226,
+        "edges": 535,
+        "acyclic": true
+      },
+      "stagesAndReachableDeclarations": {
+        "vertices": 3241,
+        "edges": 9625,
+        "acyclic": true
+      },
+      "reachableDeclarations": 226,
+      "externalDeclarations": [],
+      "unresolved": [],
+      "requiredStagePairsReachable": 81,
+      "stageEdgesUnchanged": true,
+      "ownPendingLinks": [],
+      "otherPendingLinksMatchOriginal": true,
+      "otherSkipsMatchOriginal": true,
+      "unchangedNodeObjects": 213,
+      "scriptSha256": "854447542f3a61b20d6297578c06cf20d953df278bd321c70da9939bfe18a075"
+    },
+    "publicationChecks": "Seventeen owner, governing, audit, key, source-route and validator inputs were byte-identical between mathematical and publication bases. Foreign main changes were brought into the own branch before final checks.",
+    "nativeProof": {
+      "lines": 2586,
+      "examples": 85,
+      "sha256": "de4a6b846c7e33b576a7e9119947292ab5bd513e70b67c094b8a4303627904e5",
+      "diagnosticsSha256": "f53e06df11a79fa274d53613788937369741328bb71f87d7a8aec3b97302d609",
+      "errors": 0,
+      "warnings": 0,
+      "admissionWarnings": 0,
+      "axiomAudits": 166,
+      "seconds": 18.81,
+      "peakRSSKiB": 3244408,
+      "availableGiB": 47,
+      "exit": 0
+    },
+    "fullCanonicalProofSketch": {
+      "lines": 2476,
+      "examples": 147,
+      "sha256": "94f645a88c399ce9ac560a3fb1cc8887deb46b7536385e1b39b7544d4645dd1a",
+      "diagnosticsSha256": "afb1245522c28192530d8a1c22c4df4fc04ccadf1a8f3678624376e568fefcd2",
+      "errors": 0,
+      "warnings": 355,
+      "admissionWarnings": 355,
+      "axiomAudits": 0,
+      "seconds": 21.89,
+      "peakRSSKiB": 3100036,
+      "availableGiB": 47,
+      "exit": 0
+    },
+    "checkDate": "2026-10-03",
+    "nativePrefix": "The entire preceding 2434-line proof is preserved exactly after one added pinned import; the 151-line authored continuation proves ordinary biduality and adds ten examples."
   }
 }

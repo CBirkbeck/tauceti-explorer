@@ -1,3 +1,4 @@
+import Mathlib.LinearAlgebra.Dual.Defs
 import Mathlib.Algebra.Ring.Hom.Defs
 import Mathlib.Algebra.Group.Units.Defs
 import Mathlib.Data.Matrix.Basic
@@ -2361,5 +2362,115 @@ example  : Function.Exact
     ((LinearMap.restrictScalars (ZMod 1) (Matrix.mulVecLin (left ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0) (AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0)) (AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) Polynomial.X) ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0)))).lTensor (ZMod 1))
     ((LinearMap.restrictScalars (ZMod 1) (Matrix.mulVecLin (right ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0) (AdjoinRoot.root (polynomial (ZMod 1) 0 0 0 0)) (AdjoinRoot.of (polynomial (ZMod 1) 0 0 0 0) Polynomial.X) ((coefficientHom (ZMod 1) 0 0 0 0) 0) ((coefficientHom (ZMod 1) 0 0 0 0) 0)))).lTensor (ZMod 1)) := by
   sorry
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+/- Actual polynomial section biduality; authored continuation of Knudsen §3. -/
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open Polynomial
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+local notation "F₀" => polynomial A γ δ s t
+local notation "R₀" => Ring A γ δ s t
+local notation "ι₀" => coefficientHom A γ δ s t
+local notation "u₀" => AdjoinRoot.root F₀
+local notation "v₀" => AdjoinRoot.of F₀ (Polynomial.X : Polynomial A)
+local notation "c₀" => u₀ - ι₀ s
+local notation "d₀" => v₀ - ι₀ t
+local notation "b₀" => u₀ + ι₀ s + ι₀ γ * ι₀ t
+local notation "a₀" => ι₀ δ * v₀ + ι₀ δ * ι₀ t + ι₀ γ * u₀
+local notation "J₀" => (Ideal.span {c₀,d₀} : Ideal R₀)
+local notation "D₀" => Module.Dual R₀ J₀
+local notation "ε₀" => dualGenerator A γ δ s t
+local notation "one₀" => dualMultiplication A γ δ s t 1
+
+lemma dualGenerator_module_relation : d₀ • ε₀ = b₀ • one₀ := by
+  sorry
+
+lemma sectionBidual_relation (F : Module.Dual R₀ D₀) :
+    d₀ * F ε₀ = b₀ * F one₀ := by
+  sorry
+
+lemma sectionBidual_value_mem (F : Module.Dual R₀ D₀) : F one₀ ∈ J₀ := by
+  sorry
+
+def sectionBidualInverse : Module.Dual R₀ D₀ →ₗ[R₀] J₀ := by
+  sorry
+
+lemma sectionBidualInverse_value (F : Module.Dual R₀ D₀) :
+    (sectionBidualInverse A γ δ s t F : R₀) = F one₀ := by
+  sorry
+
+lemma sectionBidualInverse_eval (j : J₀) :
+    sectionBidualInverse A γ δ s t (Module.Dual.eval R₀ J₀ j) = j := by
+  sorry
+
+lemma sectionBidual_eval_inverse (F : Module.Dual R₀ D₀) :
+    Module.Dual.eval R₀ J₀ (sectionBidualInverse A γ δ s t F) = F := by
+  sorry
+
+theorem sectionIdealReflexive : Module.IsReflexive R₀ J₀ := by
+  sorry
+
+def sectionBidualEquiv : J₀ ≃ₗ[R₀] Module.Dual R₀ D₀ := by
+  sorry
+
+lemma sectionBidualEquiv_apply (j : J₀) (h : D₀) :
+    sectionBidualEquiv A γ δ s t j h = h j := by
+  sorry
+
+lemma sectionBidualEquiv_inverse (F : Module.Dual R₀ D₀) :
+    (sectionBidualEquiv A γ δ s t).symm F = sectionBidualInverse A γ δ s t F := by
+  sorry
+
+lemma sectionBidualEquiv_native :
+    (sectionBidualEquiv A γ δ s t).toLinearMap = Module.Dual.eval R₀ J₀ := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_zero
+example : sectionBidualInverse A γ δ s t 0 = 0 := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_first
+example : sectionBidualInverse A γ δ s t
+    (Module.Dual.eval R₀ J₀ ⟨c₀,sectionFirst_mem A γ δ s t⟩) =
+      ⟨c₀,sectionFirst_mem A γ δ s t⟩ := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_second
+example : sectionBidualInverse A γ δ s t
+    (Module.Dual.eval R₀ J₀ ⟨d₀,sectionSecond_mem A γ δ s t⟩) =
+      ⟨d₀,sectionSecond_mem A γ δ s t⟩ := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_epsilon_first
+example : sectionBidualEquiv A γ δ s t ⟨c₀,sectionFirst_mem A γ δ s t⟩ ε₀ = -a₀ := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_epsilon_second
+example : sectionBidualEquiv A γ δ s t ⟨d₀,sectionSecond_mem A γ δ s t⟩ ε₀ = b₀ := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_negative_generator
+example : sectionBidualEquiv A γ δ s t (-⟨d₀,sectionSecond_mem A γ δ s t⟩) ε₀ = -b₀ := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_nonreduced
+example : Module.IsReflexive (Ring (ZMod 4) 0 0 0 0) (sectionIdeal (ZMod 4) 0 0 0 0) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_zeroRing
+example : Module.IsReflexive (Ring (ZMod 1) 0 0 0 0) (sectionIdeal (ZMod 1) 0 0 0 0) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_roundtrip
+example (F : Module.Dual R₀ D₀) :
+    sectionBidualEquiv A γ δ s t (sectionBidualInverse A γ δ s t F) = F := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_dual
+example : Module.IsReflexive R₀ D₀ := by
+  sorry
+
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel

@@ -1,3 +1,238 @@
+# Ordinary bidual evaluation of the polynomial section ideal
+
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J.
+
+This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+The inverse ψ sends F to F(incl). The relation d·ε=b·incl implies dF(ε)=bF(incl). The existing dual syzygy expresses F(incl)=dr+ιαc, proving it lies in J. Evaluating η(j) at inclusion proves ψη=id. Conversely d is regular, so the same relation gives F(ε)=ε(ψ(F)). The dual presentation writes every functional as z₀·incl−z₁·ε, proving ηψ=id. This proves native Module.IsReflexive R J and identifies the native evaluation equivalence; ordinary reflexivity of D follows from Mathlib’s existing instance.
+
+These deductions use only the polynomial algebra over any commutative coefficient ring. Knudsen’s printed Proposition3.1 assumes noetherianity and an invertible discriminant and has the stronger stable-reflexivity conclusion. Corollary3.2 and §4 require completion and local-to-family comparison; those obligations remain explicit.
+
+The roadmap builds on the parent’s nodal-curve, stabilization and DVR existence/uniqueness results. Full pointed moduli, coarse spaces, fine level schemes and all six reserved-key consumers keep their existing distinct contracts. The nineteen Yuan and two DGH routed requirements are unchanged.
+
+The definitions use [native Mathlib bidual evaluation](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dual/Defs.lean), following the [human discussion of dual linear maps](https://leanprover-community.github.io/archive/stream/113489-new-members/topic/How.20to.20express.20dual.20linear.20maps.3F.html). A bounded open-PR search for module reflexive returned no matches. The source is [Knudsen, §3](https://arxiv.org/html/1106.1588v2#S3); the explicit inverse proof is an authored deduction.
+
+## Declaration contracts
+
+
+### The dual generator module relation
+
+
+`StableReductionPartII:MC.2/section-dual-generator-module-relation` — `NodeSectionFactorization.PolynomialModel.dualGenerator_module_relation`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. d·ε=b·incl in D.
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-dual-generator-formula`, `StableReductionPartII:MC.2/section-dual-multiplication`.
+
+Proof: Evaluate both linear maps at j∈J and use dε(j)=bj; multiplication by 1 is inclusion.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+### The bidual generator relation
+
+
+`StableReductionPartII:MC.2/section-bidual-relation` — `NodeSectionFactorization.PolynomialModel.sectionBidual_relation`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. Every F∈Hom_R(D,R) satisfies dF(ε)=bF(incl).
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-dual-generator-module-relation`.
+
+Proof: Apply the R-linear functional F to d·ε=b·incl and use R-linearity.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+### Bidual values belong to the section ideal
+
+
+`StableReductionPartII:MC.2/section-bidual-value-membership` — `NodeSectionFactorization.PolynomialModel.sectionBidual_value_mem`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every F∈Hom_R(D,R), F(incl)∈J.
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-bidual-relation`, `StableReductionPartII:MC.2/section-dual-syzygy`, `mathlib:Ideal.mem_span_pair`.
+
+Proof: Apply the earlier dual syzygy to x=F(ε), y=F(incl). It gives y=dr+ιαc, hence ideal membership.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+### Inverse of section bidual evaluation
+
+
+`StableReductionPartII:MC.2/section-bidual-inverse` — `NodeSectionFactorization.PolynomialModel.sectionBidualInverse`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. Construct the R-linear map ψ:Hom_R(D,R)→J with underlying value ψ(F)=F(incl).
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-bidual-value-membership`.
+
+Proof: Use membership to form the actual ideal subtype. Addition and scalar multiplication are inherited from evaluation at incl.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+API `NodeSectionFactorization.PolynomialModel.sectionBidualInverse_value` (projection): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The image of ψ(F) in R is F(incl).
+
+API `NodeSectionFactorization.PolynomialModel.sectionBidualInverse_eval` (relation): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every j∈J, ψ(η(j))=j.
+
+API `NodeSectionFactorization.PolynomialModel.sectionBidual_eval_inverse` (relation): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every F∈Hom_R(D,R), η(ψ(F))=F.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_zero` (degenerate): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. ψ(0)=0.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_first` (computation): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. ψ(η(⟨c,c∈J⟩))=⟨c,c∈J⟩.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionBidualInverse.test_second` (computation): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. ψ(η(⟨d,d∈J⟩))=⟨d,d∈J⟩.
+
+### Underlying value of the bidual inverse
+
+
+`StableReductionPartII:MC.2/section-bidual-inverse-value` — `NodeSectionFactorization.PolynomialModel.sectionBidualInverse_value`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The image of ψ(F) in R is F(incl).
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-bidual-inverse`.
+
+Proof: Unfold the defining subtype map.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+### Evaluation has a left inverse
+
+
+`StableReductionPartII:MC.2/section-bidual-inverse-evaluation` — `NodeSectionFactorization.PolynomialModel.sectionBidualInverse_eval`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every j∈J, ψ(η(j))=j.
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-bidual-inverse`, `mathlib:Module.Dual.eval`.
+
+Proof: Evaluate η(j) at incl; the underlying value is incl(j)=j. Apply subtype extensionality.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+### Evaluation has a right inverse
+
+
+`StableReductionPartII:MC.2/section-bidual-evaluation-inverse` — `NodeSectionFactorization.PolynomialModel.sectionBidual_eval_inverse`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every F∈Hom_R(D,R), η(ψ(F))=F.
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-bidual-inverse-value`, `StableReductionPartII:MC.2/section-bidual-relation`, `StableReductionPartII:MC.2/section-coordinate-regular`, `StableReductionPartII:MC.2/section-dual-generator-formula`, `StableReductionPartII:MC.2/section-dual-presentation-surjective`, `StableReductionPartII:MC.2/section-dual-presentation-formula`, `StableReductionPartII:MC.2/section-dual-multiplication`, `mathlib:Module.Dual.eval`.
+
+Proof: Set j=ψ(F), so F(incl)=j. Both dF(ε) and dε(j) equal bj; cancel the regular coordinate d to get F(ε)=ε(j). Write every h∈D as z₀·incl−z₁·ε using the actual dual presentation. R-linearity and equality on incl and ε give h(j)=F(h), hence extensional equality.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+### Ordinary reflexivity of the section ideal
+
+
+`StableReductionPartII:MC.2/section-ideal-ordinary-reflexive` — `NodeSectionFactorization.PolynomialModel.sectionIdealReflexive`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The actual ideal J satisfies Module.IsReflexive R J, with its native bidual evaluation map.
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-bidual-inverse-evaluation`, `StableReductionPartII:MC.2/section-bidual-evaluation-inverse`, `mathlib:Module.IsReflexive`, `mathlib:Module.Dual.instIsReflecive`.
+
+Proof: The explicit two-sided inverse makes native evaluation bijective, exactly the field required by Module.IsReflexive.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_nonreduced` (degenerate): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For A=Z/4 and γ=δ=s=t=0, the actual ideal J is reflexive over R; no reducedness or unit discriminant is used.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_zeroRing` (degenerate): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For A=Z/1 and γ=δ=s=t=0, native Module.IsReflexive R J still holds.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionIdealReflexive.test_dual` (compatibility): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The native instance Module.Dual.instIsReflecive also gives Module.IsReflexive R D from the proved reflexivity of J.
+
+### Canonical section bidual equivalence
+
+
+`StableReductionPartII:MC.2/section-bidual-equivalence` — `NodeSectionFactorization.PolynomialModel.sectionBidualEquiv`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. Construct E:J≃ₗ[R]Hom_R(D,R) as native Module.evalEquiv R J using the proved ordinary reflexivity.
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-ideal-ordinary-reflexive`, `mathlib:Module.evalEquiv`, `StableReductionPartII:MC.2/section-dual-generator-values`.
+
+Proof: Supply the proved native reflexivity instance and use the library evaluation equivalence.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+API `NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_apply` (simp): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every j∈J and h∈D, E(j)(h)=h(j).
+
+API `NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_inverse` (equivalence): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every F∈Hom_R(D,R), E⁻¹(F)=ψ(F).
+
+API `NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_native` (compatibility): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The underlying linear map of E equals Module.Dual.eval R J.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_epsilon_first` (computation): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. E(⟨c,c∈J⟩)(ε)=−a.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_epsilon_second` (computation): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. E(⟨d,d∈J⟩)(ε)=b.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_negative_generator` (non-example): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. E(−⟨d,d∈J⟩)(ε)=−b; the sign agrees with the ordered dual presentation.
+
+Test `NodeSectionFactorization.PolynomialModel.sectionBidualEquiv.test_roundtrip` (characterisation): For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For arbitrary F∈Hom_R(D,R), E(ψ(F))=F.
+
+### Bidual equivalence evaluation
+
+
+`StableReductionPartII:MC.2/section-bidual-equivalence-apply` — `NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_apply`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every j∈J and h∈D, E(j)(h)=h(j).
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-bidual-equivalence`, `mathlib:Module.Dual.eval`.
+
+Proof: This is the defining native evaluation formula.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+### Explicit inverse of the bidual equivalence
+
+
+`StableReductionPartII:MC.2/section-bidual-equivalence-inverse` — `NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_inverse`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. For every F∈Hom_R(D,R), E⁻¹(F)=ψ(F).
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-bidual-equivalence`, `StableReductionPartII:MC.2/section-bidual-evaluation-inverse`.
+
+Proof: Apply injectivity of E; native inverse cancellation and η(ψ(F))=F identify both images.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+### Agreement with native bidual evaluation
+
+
+`StableReductionPartII:MC.2/section-bidual-equivalence-native` — `NodeSectionFactorization.PolynomialModel.sectionBidualEquiv_native`.
+
+For every commutative ring A and γ,δ,s,t∈A, put q(X,Y)=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), incl:J→R, and ε∈D with dε(j)=bj. Write η=Module.Dual.eval R J. The underlying linear map of E equals Module.Dual.eval R J.
+
+Hypotheses: No noetherianity, invertible discriminant, nonzero coefficient ring or nonzero parameters are assumed. Duals here are R-linear.
+
+Prerequisites: `StableReductionPartII:MC.2/section-bidual-equivalence`, `mathlib:Module.Dual.eval`.
+
+Proof: Unfold native Module.evalEquiv; its forward linear map is evaluation.
+
+Acceptance: Use the actual ideal subtype and native Module.Dual, Module.Dual.eval and Module.IsReflexive; no abstract replacement carrier. This is ordinary R-linear reflexivity of the actual polynomial ideal. It does not establish arbitrary coefficient-module Hom exchange, higher Ext vanishing, relative stable reflexivity, completion or family/sheaf descent.
+
+---
+
+
+The preceding checkpoint specification follows unchanged. The ordinary bidual calculation above resolves only its polynomial evaluation step; its stronger remaining obligations retain their stated scope.
+
 # Stable reduction of curves and stable maps, Part II
 
 ## Scope and execution state
