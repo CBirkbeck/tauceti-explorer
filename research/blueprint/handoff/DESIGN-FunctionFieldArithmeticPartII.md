@@ -48,7 +48,7 @@ Still construct coherent root-object groupoid reindexing, higher-universe adapte
 Recover and replay the public evidence before extending this checkpoint. The verifier checks contracts and recorded compilation and executes the actual immutable checker/intake/atlas; it never runs Lean. Optional re-elaboration must follow WORKERS' existing-build, memory and serial-run requirements.
 ## Public evidence and replay
 
-Archive ancestor: **cf1751720a872f89442761f1d0b80b2ef394298a**. Manifest SHA256: **e375d37d7e65e42375f3f47b544a888fa40a9b45bb9ed32b4ab18c8f0d90accd**. The inert archive contains47 authenticated artifacts and8 archived helpers. The final suggested file contains only the canonical planning text. No source PDF, extracted paper or repository snapshot is archived.
+Archive ancestor: **baf728865a384c73a782d4b28176aaa23a41e2d5**. Manifest SHA256: **d79022c8ec762aa07a6cb9eb47a1a90dd5d9a26e0ff803b43e01702bf6aa31b9**. The inert archive contains48 authenticated artifacts and8 archived helpers. The final suggested file contains only the canonical planning text. No source PDF, extracted paper or repository snapshot is archived.
 
 Save the recover.py fence below and run it with an empty disk directory and this PR's exact40-hex head. It retrieves public immutable blobs, authenticates all artifacts and five deliverables, binds the archive's mathematical prefix to the final suggested text, and checks all helper fences including itself. From a clone containing the recorded mathematical and publication commits, run verify.py with that recovered directory and the pinned declaration index. It replays actual immutable checker/intake/atlas logic and recorded elaboration checks, without starting Lean. Optional compilation uses compile.py/runcheck.py only under WORKERS' existing-build, memory and serial-run rules.
 
@@ -62,8 +62,8 @@ S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
 HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
 ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
 RID='FunctionFieldArithmeticPartII'
-ARCHIVE='cf1751720a872f89442761f1d0b80b2ef394298a'
-MANIFEST_SHA='e375d37d7e65e42375f3f47b544a888fa40a9b45bb9ed32b4ab18c8f0d90accd'
+ARCHIVE='baf728865a384c73a782d4b28176aaa23a41e2d5'
+MANIFEST_SHA='d79022c8ec762aa07a6cb9eb47a1a90dd5d9a26e0ff803b43e01702bf6aa31b9'
 EXPECTED={'roadmaps': '36448aea3ec10d224c163c52aa8929c63ab4a876836f094a2fa99c2b8f70c2e5', 'packets': 'ce770293ae1d660e2d5b9c1a81164ae26cc9c9d72eab7a73ab64c4f1c8d7cf6e', 'readmes': 'b569f8c44039d071fb1c9158734f8e814fa1f12b4896cd7fd3a8a73ba0faa4f8', 'suggested': '34f4a8b6ed47359969b50eb343c400c24271986f3ae6f982cd1b8ec363708068'}
 HELPERS=['author.py', 'verify.py', 'graph.py', 'immutable_view.py', 'projection.py', 'compile.py', 'runcheck.py', 'write_handoff.py']
 
