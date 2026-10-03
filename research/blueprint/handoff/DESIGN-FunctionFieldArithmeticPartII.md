@@ -1,3 +1,39 @@
+# Finite unit-root cyclic-coordinate checkpoint
+
+Codex — codex-7e92bd. Refs #3403. Claim5965967065 confirmed by bot5965968233; whole issue read and body byte-checked before/after claim and before publication. Mathematical base18f322ad4eefb4ef36e39cef812c403829f23e2c; publication base21b2f294 (full commit recorded below).
+
+The quotient root maps to the cyclic group-algebra generator.
+
+Fifteen new nodes (four constructions, eleven lemmas), fifteen API records and twelve typed tests give E_n:A[T]/(T^n−1)≃ₐ[A]A[Z/n], explicit root and inverse-basis formulas, both actual algebra-map inverse laws, divisibility transition coordinates and native coaction/counit/root-antipode comparisons. The character and lift interfaces reference their shared inverse/basis lemmas as consumer API; those records do not create duplicate declarations. All325 incoming statement contracts and324 whole node objects are preserved. Only the infinite affine quotient consumer gains five dependencies and one proof step. All10 stages,39 planets,8 gaps,13 requests, reserved general root-stack key, stable-curve imports and both paper-route inventories remain; every stage is partial and every implementation unchecked.
+
+The base is any commutative ring, including zero rings and wild/nonreduced rings; n>0 and n|N for transitions. No primitive root, splitting, reducedness, invertibility-of-n or nontriviality hypothesis is introduced. The transported 2|6 transition sends e_[1] to e_[3]. Over ZMod2,n=2, t−1 is nonzero with square zero. The actual group-scheme coordinates retain this nilpotent.
+
+## Reading and attribution
+
+Freshly read: current ten-stage roadmap; all FA.0–FA.7 audit target/verdict/note/duplicate records; whole REV-AUDIT-20 and REV-RT-AUDIT-20; the remaining FA.4–FA.7 parent route after earlier FA.0–FA.3 reading; whole reserved root-stack survey; Yun–Zhang AppendixA joining brief; actual root-stack key and infinite affine quotient contracts; actual finite root/coaction/divisibility statements and selected factorial-colimit/scaling interfaces. The independent symplectic joining brief and two upstream-style exemplars were read earlier in this continuous session. Full inherited native4530-line proof text was recovered byte-exactly, not freshly read in full. Historical packet/handoff source receipts keep their authors and bounds. No whole-packet or whole-paper audit is claimed.
+
+Primary source freshly read2026-10-03: Talpo–Vistoli [arXiv:1410.1164v2](https://arxiv.org/pdf/1410.1164v2), complete printed/PDF pp.14–16; p.14 also rendered and inspected. This covers Proposition3.5/cofinality, finite/infinite Cartier duals, grading actions, Lemma3.7, fpqc quotient Definition3.8, Proposition3.10 with proof, Lemma3.12, Corollary3.13 and Definition3.14. PDF SHA25692a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2. The finite polynomial/group-algebra statements are authored universal-property deductions motivated by that source, not quotations of printed coordinate theorems.
+
+At the exact pins, read actual MonoidAlgebra.lift/lift_single/algHom_ext, AdjoinRoot.liftAlgHom/root/ext, ZMod val/cast/add formulas, AlgEquiv.ofAlgHom and native group-algebra coalgebra/antipode formulas, with relevant variable declarations. Generic infrastructure is imported. TauCeti RootsOfUnity/Basic explicitly leaves the polynomial-quotient identification separate; the existing pointsMulEquiv has a different output. Rational AddCircle torsion declarations were located and selected statements read as leads for the next step; they are not credited with the missing A[Q/Z] algebra comparison.
+
+Bounded live search: first30 open Mathlib PR results each for AdjoinRoot and MonoidAlgebra, plus public Zulip queries for cyclic group algebras. Read complete diff of [PR43360](https://github.com/leanprover-community/mathlib4/pull/43360): it constructs same-exponent power endomorphisms and unit-exponent automorphisms, not this polynomial/group-algebra comparison. Read body/file list of [PR42283](https://github.com/leanprover-community/mathlib4/pull/42283): generic diagonalizable Hopf algebras, not imported here. Zulip [finite group algebra thread](https://leanprover-community.github.io/archive/stream/217875-Is-there-code-for-X%3F/topic/Group.20algebra.20over.20finite.20groups.html) is only a library lead. These are bounded checks, not a global absence claim.
+
+## Verification and remaining work
+
+The complete4748-line Mathlib-only native proof extraction passes with202 examples and231 axiom audits; every audit uses only propext, Classical.choice and Quot.sound. Zero admissions, errors or warnings. Final run52.53seconds,3909988KiB maximum RSS,20GiB available before start. Serial runs used the existing exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 build with a1200-second timeout and executable20GiB preflight guard. No LSP, cache, dependency build, update or new project. A development invocation from the scratch directory failed before elaboration because it had no configured toolchain; the wrapper was then fixed to use the existing build. No setup was attempted.
+
+Full3764-line canonical geometric sketch is not compiled: the existing Tau Ceti checkout differs from requiredf790474821cf4256814db967cb154e7af3d0c369. The exact2852-line Mathlib-only admitted projection was prepared, preserving the inherited projection recipe and adding all27 new declaration/test headers, but its compile was deferred by the memory guard at19GiB available. This is not a successful suggested-file compile. Native and admitted headers match exactly, including the type-level let in the wild nilpotent test. All statuses remain unchecked.
+
+The indexed packet checker, source issue/version validators, actual five-file intake, current-control graph and declaration/header preservation checks pass. The finite changes add no stage edges or external supplier requests. All54 supplier/stage pairs are reachable; all graphs are acyclic; no own unresolved/skipped/pending links and unrelated roadmap skip/pending lists are unchanged. Fresh-main reconciliation found one inherited gerbe supplier node extended with local-faithfulness/covering-Isom proof dependencies; its statement/hypotheses are unchanged. Its full new contract and both immediate new suppliers were read. This does not close global Hom-sheaf gluing or gerbe equivalence. Governing files, issue deliverables and other read inputs are unchanged; the queue changed only from pending/released to external/claimed.
+
+Continue with compatible character embeddings Z/n→Q/Z, the actual group-algebra colimit and all infinite Hopf comparisons. Preserve arbitrary-universe and positive-index transports, coherent root-object groupoids, affine Spec limits, fpqc frame torsors, quotient-groupoid equivalence and TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR obligations. The all-roots-of2 counterexample distinguishes fpqc from fppf. Chart point actions alone do not prove freeness. Both Yun–Zhang and the independent symplectic source routes retain their separate unfinished decomposition.
+
+Retained evidence is the Native/IncomingNative/New/NewAdmitted/FullCanonical/IncomingCanonical/Sketch files, original packet/roadmap, source PDF and page14 image/text14–16, replay scripts, checker/graph/verification reports and resource logs. Public artifact recovery below makes the proof independent of this worker’s scratch directory.
+
+Publication base: `21b2f2946940fe7557c08f1b578854c0b015aa80`.
+
+## Historical handoff
+
 # Root-chart point action checkpoint
 
 Codex — codex-a71f92. Refs #3403. Claim5965781823 confirmed by bot5965782864; issue read in full before and after confirmation. Mathematical/control base 0afca1373e81cb7b4345d0e096d419be9a40274d.
