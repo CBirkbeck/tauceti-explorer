@@ -15,7 +15,7 @@
   "FunctionFieldArithmeticPartII:GC.5",
   "FunctionFieldArithmeticPartII:GC.6"
  ],
- "summary": "Partial 340-node checkpoint adding fifteen finite unity-root/cyclic-coordinate nodes (four constructions and eleven lemmas), fifteen API records and twelve native acceptance tests. All325 incoming statement contracts and324 whole node objects are retained; only the infinite affine quotient consumer gains five dependencies and one proof step. Both source routes,39 planets,8 gaps,13 requests, reserved key and stable-curve imports are retained. E_n:A[T]/(T^n−1)≃A[Z/n] has explicit inverse, finite divisibility, coaction/counit/root-antipode formulas over arbitrary commutative rings, including zero and wild/nonreduced rings. Every stage remains partial and every implementation unchecked; A[Q/Z], root-groupoid, Spec-limit, fpqc torsor and quotient comparisons remain open.",
+ "summary": "Partial 340-node checkpoint adding fifteen finite unity-root/cyclic-coordinate nodes (four constructions and eleven lemmas), fifteen API records and twelve native acceptance tests. All325 incoming statement contracts and324 whole node objects are retained; only the infinite affine quotient consumer gains five dependencies and one proof step. Both source routes,39 planets,8 gaps,13 requests, reserved key and stable-curve imports are retained. E_n:A[T]/(T^n−1)≃A[Z/n] has explicit inverse, finite divisibility, coaction/counit/root-antipode formulas over arbitrary commutative rings, including zero and wild/nonreduced rings. Every stage remains partial and every implementation unchecked; A[Q/Z], root-groupoid, Spec-limit, fpqc torsor and quotient comparisons remain open. This continuation specifies normalized rational-circle embeddings and the actual unity-root coordinate equivalence with A[Q/Z], with individual injectivity, surjectivity and Hopf/coefficient squares. Its new signatures are uncompiled; all ten stages remain partial.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1532,6 +1532,84 @@
     "module": "Mathlib/RingTheory/HopfAlgebra/MonoidAlgebra.lean",
     "provides": "The native group-algebra antipode sends single g a to single g⁻¹ (S a).",
     "checked": "Actual declaration and relevant variables personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03; generic infrastructure imported, not replanned."
+   },
+   {
+    "ref": "mathlib:ZMod.lift",
+    "module": "Mathlib/Data/ZMod/Basic.lean",
+    "provides": "The integer homomorphism killing n descends uniquely to an additive homomorphism from ZMod n.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "mathlib:ZMod.lift_coe",
+    "module": "Mathlib/Data/ZMod/Basic.lean",
+    "provides": "The descended map evaluates on integer casts by the original integer homomorphism.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "mathlib:ZMod.lift_injective",
+    "module": "Mathlib/Data/ZMod/Basic.lean",
+    "provides": "Injectivity of the lift is equivalent to its integer kernel reducing to zero in ZMod n.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "mathlib:ZMod.intCast_zmod_eq_zero_iff_dvd",
+    "module": "Mathlib/Data/ZMod/Basic.lean",
+    "provides": "An integer casts to zero in ZMod n exactly when n divides it in the integers.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "mathlib:AddCircle.coe_eq_zero_iff",
+    "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
+    "provides": "A coefficient class vanishes exactly when it is an integer multiple of the period.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "mathlib:AddCircle.coe_period",
+    "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
+    "provides": "The period class vanishes in the actual additive-circle quotient.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "tauceti:AddCircle.exists_mem_torsionBy_rat",
+    "module": "TauCeti/Algebra/AddCircle.lean",
+    "provides": "Every rational circle class belongs to n-torsion for some positive n, under positive period.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "tauceti:AddCircle.exists_zsmul_eq_of_mem_torsionBy",
+    "module": "TauCeti/Algebra/AddCircle.lean",
+    "provides": "A class in positive n-torsion is an integer multiple of the normalized period/n class, over an ordered field with positive period.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.mapDomainAlgHom",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Basic.lean",
+    "provides": "An actual monoid homomorphism induces a domain map on coefficient-algebra monoid algebras.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.mapDomain_single",
+    "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
+    "provides": "The domain map sends a single at m to the single with the same coefficient at f(m).",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.mapDomain_injective",
+    "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
+    "provides": "An injective domain function induces an injective group-algebra domain map without coefficient nontriviality.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.induction_linear",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+    "provides": "A motive on a monoid algebra follows from zero, additivity and all single basis elements.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.mapRingHom_single",
+    "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
+    "provides": "The actual coefficient ring homomorphism on monoid algebras applies the ring homomorphism to each single coefficient.",
+    "checked": "Statement and surrounding hypotheses read at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 source on 2026-10-03. The generic result is imported, not replanned."
    }
   ]
  },
@@ -1719,6 +1797,16 @@
    "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/codex-7e92bd-function-root-loop/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
    "readSections": [
     "The quotient root maps to the cyclic group-algebra generator. Explicit inverse, both inverse laws, comultiplication/counit/root-antipode and divisibility formulas; motivated by freshly read Talpo–Vistoli arXiv1410.1164v2 complete printed/PDF pp.14–16, p.14 also rendered. The native proof and replay are archived in the handoff."
+   ]
+  },
+  {
+   "id": "QZCoordinates-codex-J6LwjP",
+   "title": "Normalized rational characters and infinite unity-root coordinate comparison",
+   "authors": "Codex — codex-J6LwjP",
+   "edition": "Authored mathematical proof routes, 2026-10-03; admitted signatures uncompiled",
+   "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/codex-J6LwjP-functionfield-roots-next/research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+   "readSections": [
+    "Talpo–Vistoli arXiv1410.1164v2 printed/PDF pp.14–16: finite/infinite Cartier dual groups, chart grading, fpqc quotient and Prop.3.10. Fresh PDF SHA256 92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2. All new coordinate statements are authored deductions with exact pinned-library dependencies; this does not certify the unread remainder of the paper."
    ]
   }
  ],
@@ -7253,7 +7341,12 @@
     "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-coaction",
     "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-divisibility",
     "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-counit",
-    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-antipode"
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-antipode",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-comul",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-counit",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-antipode",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-coefficient"
    ],
    "proofSteps": [
     "Use the existing actual factorial algebra C_f and its checked finite-coordinate API. The positive-divisibility comparison identifies it with C_div by mutually inverse native algebra maps, carrying every positive root v_n to u_i^(d_i/n) at any factorial multiple. The diagonalizable grading, Spec-limit transport and coherent fpqc torsor/root-groupoid contracts are separate remaining steps; no geometric conclusion follows merely from this algebra comparison.",
@@ -7267,7 +7360,8 @@
     "Before the separate geometric quotient construction, use the actual coaction, counit and antipode coefficient-naturality identities. They provide compatible ring maps on coefficients and all factorial roots; they do not supply the remaining fpqc frame-torsor or quotient-stack equivalence.",
     "Use the actual convolution point/coherent-root multiplicative equivalence and its antipode inverse and test-algebra naturality. Import the existing Tau Ceti convolution-group instance, whose inverse is p∘S, rather than constructing another generic point group. The A[Q/Z] coordinate Hopf comparison, universe transports, root-object reindexing, affine Spec limits, fpqc frame torsors and geometric quotient equivalence remain distinct obligations.",
     "Use the actual convolution action on chart algebra-valued points, its native action laws, inverse cancellation, naturality and universal tensor recovery. Fixed zero-root points expressly prevent inferring a free action or torsor from these formulas. The A[Q/Z] coordinate comparison, universe/index transports, coherent root-object groupoids, affine Spec limits, fpqc frame torsors and quotient-groupoid equivalence remain independent obligations.",
-    "Use the actual finite unity-root equivalence E_n:B_n(1)≃A[Z/n], whose root and inverse-basis formulas intertwine the existing coaction with native comultiplication, identify counit/root antipode, and carry divisibility transitions to [k]↦[(N/n)k]. Then separately construct compatible Z/n→Q/Z embeddings and identify the colimit as A[Q/Z], including all Hopf maps. No infinite coordinate or geometric quotient conclusion follows from the finite equivalences alone."
+    "Use the actual finite unity-root equivalence E_n:B_n(1)≃A[Z/n], whose root and inverse-basis formulas intertwine the existing coaction with native comultiplication, identify counit/root antipode, and carry divisibility transitions to [k]↦[(N/n)k]. Then separately construct compatible Z/n→Q/Z embeddings and identify the colimit as A[Q/Z], including all Hopf maps. No infinite coordinate or geometric quotient conclusion follows from the finite equivalences alone.",
+    "Use the planned normalized finite character embeddings and actual unity-root colimit equivalence with A[Q/Z], together with its separate comultiplication, counit, antipode and coefficient squares. These provide the canonical fixed-universe coordinate Hopf input. Their new prototypes are uncompiled and every declaration remains unchecked. Still construct index/universe transports, coherent root-object reindexing, affine Spec limits and fpqc frame torsors before the geometric quotient equivalence; no such geometric obligation is discharged by this coordinate plan."
    ],
    "acceptance": [
     "No reducedness, Noetherian or invertibility-of-the-exponent hypothesis is introduced."
@@ -19963,6 +20057,1647 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/qz-character",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Normalized finite root character in Q/Z",
+   "kind": "construction",
+   "declarationName": "TauCeti.RootStack.affineQZCharacter",
+   "statement": "For n>0 define the additive homomorphism c_n:Z/n→Q/Z by c_n([k])=[k/n] for every integer k. This is the unique lift of the integer map k↦[k/n].",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "mathlib:ZMod.lift",
+    "mathlib:AddCircle.coe_eq_zero_iff",
+    "mathlib:AddCircle.coe_period"
+   ],
+   "proofSteps": [
+    "The integer map preserves addition. At n its value is [1]=0; descend it through ZMod.lift. This specifies its orientation, rather than merely choosing an isomorphism with an abstract cyclic subgroup."
+   ],
+   "acceptance": [
+    "For n>0 define the additive homomorphism c_n:Z/n→Q/Z by c_n([k])=[k/n] for every integer k. This is the unique lift of the integer map k↦[k/n]."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast",
+     "how": "For k∈Z, c_n([k])=[k/n], including negative k."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-one",
+     "how": "The chosen character sends [1] to [1/n]."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-injective",
+     "how": "The homomorphism c_n is injective for every n>0."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-divisibility",
+     "how": "If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n]."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-exhaustive",
+     "how": "For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineQZCharacter"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction affineQZCharacter; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.affineQZCharacter.intCast",
+     "role": "simp",
+     "statement": "For k∈Z, c_n([k])=[k/n], including negative k."
+    },
+    {
+     "name": "TauCeti.RootStack.affineQZCharacter.one",
+     "role": "simp",
+     "statement": "The chosen character sends [1] to [1/n]."
+    },
+    {
+     "name": "TauCeti.RootStack.affineQZCharacter.injective",
+     "role": "characterisation",
+     "statement": "The homomorphism c_n is injective for every n>0."
+    },
+    {
+     "name": "TauCeti.RootStack.affineQZCharacter.divisibility",
+     "role": "functoriality",
+     "statement": "If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n]."
+    },
+    {
+     "name": "TauCeti.RootStack.affineQZCharacter.exhaustive",
+     "role": "compatibility",
+     "statement": "For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RootStack.affineQZCharacter.test_one",
+     "kind": "degenerate",
+     "statement": "At n=1 the character of [1] is zero."
+    },
+    {
+     "name": "TauCeti.RootStack.affineQZCharacter.test_orientation",
+     "kind": "non-example",
+     "statement": "At n=3, c_3(1) differs from [2/3]; reversing the chosen generator fails."
+    },
+    {
+     "name": "TauCeti.RootStack.affineQZCharacter.test_two_six",
+     "kind": "computation",
+     "statement": "The 2-to-6 transition sends [1] to [3], whose image is [1/2]."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite character on integer representatives",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineQZCharacter.intCast",
+   "statement": "For k∈Z, c_n([k])=[k/n], including negative k.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/qz-character",
+    "mathlib:ZMod.lift_coe"
+   ],
+   "proofSteps": [
+    "Apply the integer-lift computation. Negative representatives are integers before reduction; do not replace them by unreduced natural values."
+   ],
+   "acceptance": [
+    "For k∈Z, c_n([k])=[k/n], including negative k."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-one",
+     "how": "The chosen character sends [1] to [1/n]."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-injective",
+     "how": "The homomorphism c_n is injective for every n>0."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-divisibility",
+     "how": "If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n]."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/qz-character-exhaustive",
+     "how": "For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-inverse-basis",
+     "how": "For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineQZCharacter.intCast"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction affineQZCharacter.intCast; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/qz-character-one",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite root character orientation",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineQZCharacter.one",
+   "statement": "The chosen character sends [1] to [1/n].",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/qz-character",
+    "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast"
+   ],
+   "proofSteps": [
+    "Specialize the integer representative to one."
+   ],
+   "acceptance": [
+    "The chosen character sends [1] to [1/n]."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root",
+     "how": "F_n(t_n)=e_[1/n]."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineQZCharacter.one"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction affineQZCharacter.one; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/qz-character-injective",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite root characters embed",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineQZCharacter.injective",
+   "statement": "The homomorphism c_n is injective for every n>0.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/qz-character",
+    "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast",
+    "mathlib:ZMod.lift_injective",
+    "mathlib:AddCircle.coe_eq_zero_iff",
+    "mathlib:ZMod.intCast_zmod_eq_zero_iff_dvd"
+   ],
+   "proofSteps": [
+    "The kernel consists of k with k/n integral, exactly the integers divisible by n. Use ZMod.lift_injective and the integer divisibility criterion. This proof concerns the character group and has no coefficient-ring assumption."
+   ],
+   "acceptance": [
+    "The homomorphism c_n is injective for every n>0."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-injective",
+     "how": "j_n is injective over every commutative ring, including the zero ring."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineQZCharacter.injective"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction affineQZCharacter.injective; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/qz-character-divisibility",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Divisibility preserves the normalized character",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineQZCharacter.divisibility",
+   "statement": "If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n].",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/qz-character",
+    "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast",
+    "mathlib:ZMod.natCast_zmod_val"
+   ],
+   "proofSteps": [
+    "Choose the natural representative val(k). The rational identity ((N/n)val(k))/N=val(k)/n uses n>0,N>0 and exact divisibility. Integer-lift computations give equality in Q/Z. This is the scaled transition, not the map [k]↦[k]."
+   ],
+   "acceptance": [
+    "If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n]."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-transition",
+     "how": "For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineQZCharacter.divisibility"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction affineQZCharacter.divisibility; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/qz-character-exhaustive",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Every rational character occurs at a finite level",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.affineQZCharacter.exhaustive",
+   "statement": "For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/qz-character",
+    "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast",
+    "tauceti:AddCircle.exists_mem_torsionBy_rat",
+    "tauceti:AddCircle.exists_zsmul_eq_of_mem_torsionBy"
+   ],
+   "proofSteps": [
+    "Import Tau Ceti rational torsion exhaustion to choose n. Import its normalized torsion generator lemma to write u as an integer multiple of [1/n]. The integer-lift formula supplies k. No new generic finite-subgroup or torsion theorem is planned."
+   ],
+   "acceptance": [
+    "For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective",
+     "how": "F:U_A→A[Q/Z] is surjective for arbitrary A."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.affineQZCharacter.exhaustive"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction affineQZCharacter.exhaustive; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite group-algebra character map",
+   "kind": "construction",
+   "declarationName": "TauCeti.RootStack.finiteQZAlgMap",
+   "statement": "Define j_n:A[Z/n]→A[Q/Z] as the actual mapDomainAlgHom induced by the multiplicative form of c_n.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/qz-character",
+    "mathlib:MonoidAlgebra.mapDomainAlgHom"
+   ],
+   "proofSteps": [
+    "Pass the additive character to Multiplicative and use the existing group-algebra domain map. Import the generic functor rather than defining a new group-algebra carrier."
+   ],
+   "acceptance": [
+    "Define j_n:A[Z/n]→A[Q/Z] as the actual mapDomainAlgHom induced by the multiplicative form of c_n."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single",
+     "how": "For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-injective",
+     "how": "j_n is injective over every commutative ring, including the zero ring."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-transition",
+     "how": "For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.finiteQZAlgMap"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction finiteQZAlgMap; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.finiteQZAlgMap.single",
+     "role": "simp",
+     "statement": "For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}."
+    },
+    {
+     "name": "TauCeti.RootStack.finiteQZAlgMap.injective",
+     "role": "characterisation",
+     "statement": "j_n is injective over every commutative ring, including the zero ring."
+    },
+    {
+     "name": "TauCeti.RootStack.finiteQZAlgMap.transition",
+     "role": "functoriality",
+     "statement": "For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RootStack.finiteQZAlgMap.test_constant",
+     "kind": "compatibility",
+     "statement": "The n=1 basis element [0] with coefficient a maps to the constant a."
+    },
+    {
+     "name": "TauCeti.RootStack.finiteQZAlgMap.test_negative",
+     "kind": "computation",
+     "statement": "At n=3, the basis label −1 maps to [−1/3], retaining integer orientation."
+    },
+    {
+     "name": "TauCeti.RootStack.finiteQZAlgMap.test_wild",
+     "kind": "non-example",
+     "statement": "Over Z/2, the image of e_[1]−1 at n=2 is nonzero with square zero; the character algebra is not replaced by its reduced fibre."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Character map on a group-algebra basis",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.finiteQZAlgMap.single",
+   "statement": "For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map",
+    "mathlib:MonoidAlgebra.mapDomain_single"
+   ],
+   "proofSteps": [
+    "Use the native domain-map single formula. Coefficients are unchanged."
+   ],
+   "acceptance": [
+    "For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-transition",
+     "how": "For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k)."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root",
+     "how": "F_n(t_n)=e_[1/n]."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective",
+     "how": "F:U_A→A[Q/Z] is surjective for arbitrary A."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-inverse-basis",
+     "how": "For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.finiteQZAlgMap.single"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction finiteQZAlgMap.single; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-injective",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite group-algebra character maps are injective",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.finiteQZAlgMap.injective",
+   "statement": "j_n is injective over every commutative ring, including the zero ring.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map",
+    "FunctionFieldArithmeticPartII:RS.2/qz-character-injective",
+    "mathlib:MonoidAlgebra.mapDomain_injective"
+   ],
+   "proofSteps": [
+    "Apply the native domain-map injectivity theorem to c_n. Its coefficient-level proof has no nontriviality hypothesis."
+   ],
+   "acceptance": [
+    "j_n is injective over every commutative ring, including the zero ring."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-injective",
+     "how": "F_n is injective for every n>0 and every A."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.finiteQZAlgMap.injective"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction finiteQZAlgMap.injective; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-transition",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite basis transitions commute with the character map",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.finiteQZAlgMap.transition",
+   "statement": "For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k).",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map",
+    "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single",
+    "FunctionFieldArithmeticPartII:RS.2/qz-character-divisibility"
+   ],
+   "proofSteps": [
+    "Rewrite the two images on singles and apply character divisibility. This is precisely the inherited finite root-transition formula."
+   ],
+   "acceptance": [
+    "For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k)."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition",
+     "how": "For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.finiteQZAlgMap.transition"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction finiteQZAlgMap.transition; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite unity-root chart character map",
+   "kind": "construction",
+   "declarationName": "TauCeti.RootStack.finiteRootQZMap",
+   "statement": "Define F_n:E_n(1)→A[Q/Z] as j_n composed with the inherited equivalence E_n(1)≃A[Z/n].",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence"
+   ],
+   "proofSteps": [
+    "Compose actual A-algebra maps. This is restricted to the unity-parameter chart; arbitrary-f charts still have their inherited coaction."
+   ],
+   "acceptance": [
+    "Define F_n:E_n(1)→A[Q/Z] as j_n composed with the inherited equivalence E_n(1)≃A[Z/n]."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root",
+     "how": "F_n(t_n)=e_[1/n]."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-injective",
+     "how": "F_n is injective for every n>0 and every A."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition",
+     "how": "For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.finiteRootQZMap"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction finiteRootQZMap; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.finiteRootQZMap.root",
+     "role": "simp",
+     "statement": "F_n(t_n)=e_[1/n]."
+    },
+    {
+     "name": "TauCeti.RootStack.finiteRootQZMap.injective",
+     "role": "characterisation",
+     "statement": "F_n is injective for every n>0 and every A."
+    },
+    {
+     "name": "TauCeti.RootStack.finiteRootQZMap.transition",
+     "role": "functoriality",
+     "statement": "For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RootStack.finiteRootQZMap.test_one",
+     "kind": "degenerate",
+     "statement": "The unity root at n=1 maps to 1."
+    },
+    {
+     "name": "TauCeti.RootStack.finiteRootQZMap.test_three",
+     "kind": "computation",
+     "statement": "At n=3 the root maps to the basis label [1/3]."
+    },
+    {
+     "name": "TauCeti.RootStack.finiteRootQZMap.test_zero_ring",
+     "kind": "degenerate",
+     "statement": "The finite root map remains injective over Z/1."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite unity root maps to the normalized rational character",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.finiteRootQZMap.root",
+   "statement": "F_n(t_n)=e_[1/n].",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map",
+    "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single",
+    "FunctionFieldArithmeticPartII:RS.2/qz-character-one",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root"
+   ],
+   "proofSteps": [
+    "Use the inherited root formula, then the group-algebra single formula and character orientation."
+   ],
+   "acceptance": [
+    "F_n(t_n)=e_[1/n]."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-power",
+     "how": "For d_i=(i+1)!, the basis element e_[1/d_i] in A[Q/Z] has d_i-th power 1."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-transition",
+     "how": "If i≤j, then e_[1/d_j] raised to d_j/d_i equals e_[1/d_i]."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg",
+     "how": "For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.finiteRootQZMap.root"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction finiteRootQZMap.root; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-injective",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Finite unity-root charts embed in the rational character algebra",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.finiteRootQZMap.injective",
+   "statement": "F_n is injective for every n>0 and every A.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map",
+    "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-injective",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence"
+   ],
+   "proofSteps": [
+    "Compose finite character-map injectivity with the inherited actual algebra equivalence. No argument by geometric field points is used."
+   ],
+   "acceptance": [
+    "F_n is injective for every n>0 and every A."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-injective",
+     "how": "F:U_A→A[Q/Z] is injective for arbitrary A."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.finiteRootQZMap.injective"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction finiteRootQZMap.injective; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Root chart transitions commute with rational characters",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.finiteRootQZMap.transition",
+   "statement": "For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map",
+    "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-transition",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-divisibility",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse"
+   ],
+   "proofSteps": [
+    "Transport to finite group-algebra coordinates. The inherited divisibility theorem sends e_k to e_{[(N/n)val(k)]}; apply the character-transition lemma on each basis element and linearity. Both inverse laws belong to the inherited finite equivalence."
+   ],
+   "acceptance": [
+    "For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-transition",
+     "how": "If i≤j, then e_[1/d_j] raised to d_j/d_i equals e_[1/d_i]."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg",
+     "how": "For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.finiteRootQZMap.transition"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction finiteRootQZMap.transition; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-power",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Factorial rational characters satisfy the root relation",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialQZRoot_power",
+   "statement": "For d_i=(i+1)!, the basis element e_[1/d_i] in A[Q/Z] has d_i-th power 1.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root",
+    "FunctionFieldArithmeticPartII:RS.0/affine-root-relation"
+   ],
+   "proofSteps": [
+    "Map the finite unity-root relation through F_{d_i}. Equivalently use d_i[1/d_i]=[1]=0 and native basis multiplication."
+   ],
+   "acceptance": [
+    "For d_i=(i+1)!, the basis element e_[1/d_i] in A[Q/Z] has d_i-th power 1."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
+     "how": "Define F:U_A→A[Q/Z] by the inherited factorialAffineRootLift with roots e_[1/d_i], using the preceding power and transition lemmas."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialQZRoot_power"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialQZRoot_power; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-transition",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Factorial rational character roots form a coherent family",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialQZRoot_transition",
+   "statement": "If i≤j, then e_[1/d_j] raised to d_j/d_i equals e_[1/d_i].",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition",
+    "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root",
+    "FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root"
+   ],
+   "proofSteps": [
+    "Evaluate the finite root-transition square on t_{d_i}, using exact factorial divisibility and the inherited root transition."
+   ],
+   "acceptance": [
+    "If i≤j, then e_[1/d_j] raised to d_j/d_i equals e_[1/d_i]."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
+     "how": "Define F:U_A→A[Q/Z] by the inherited factorialAffineRootLift with roots e_[1/d_i], using the preceding power and transition lemmas."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialQZRoot_transition"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialQZRoot_transition; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Infinite unity-root character map",
+   "kind": "construction",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZMap",
+   "statement": "Define F:U_A→A[Q/Z] by the inherited factorialAffineRootLift with roots e_[1/d_i], using the preceding power and transition lemmas.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-power",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-transition",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift"
+   ],
+   "proofSteps": [
+    "Use the existing universal root lift. The target is a native commutative A-algebra in the same coefficient universe; no new abstract colimit or conclusion-valued certificate is introduced."
+   ],
+   "acceptance": [
+    "Define F:U_A→A[Q/Z] by the inherited factorialAffineRootLift with roots e_[1/d_i], using the preceding power and transition lemmas."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root",
+     "how": "F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg",
+     "how": "For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-injective",
+     "how": "F:U_A→A[Q/Z] is injective for arbitrary A."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective",
+     "how": "F:U_A→A[Q/Z] is surjective for arbitrary A."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZMap"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZMap; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZMap.root",
+     "role": "simp",
+     "statement": "F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZMap.leg",
+     "role": "compatibility",
+     "statement": "For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZMap.injective",
+     "role": "characterisation",
+     "statement": "F:U_A→A[Q/Z] is injective for arbitrary A."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZMap.surjective",
+     "role": "characterisation",
+     "statement": "F:U_A→A[Q/Z] is surjective for arbitrary A."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZMap.test_level_zero",
+     "kind": "degenerate",
+     "statement": "At i=0,d_i=1, the included root maps to 1."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZMap.test_level_two",
+     "kind": "computation",
+     "statement": "At i=2,d_i=6, the included root maps to e_[1/6]."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZMap.test_torsion_coefficients",
+     "kind": "compatibility",
+     "statement": "Over Z/4 the coefficient 2 times the level-one root maps to 2 e_[1/2]."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Infinite character map on a factorial root",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZMap.root",
+   "statement": "F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root"
+   ],
+   "proofSteps": [
+    "Apply the inherited lift-root computation."
+   ],
+   "acceptance": [
+    "F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg",
+     "how": "For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root",
+     "how": "E(u_i)=e_[1/d_i]."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZMap.root"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZMap.root; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Every positive finite chart has its specified character leg",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZMap.leg",
+   "statement": "For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root",
+    "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root",
+    "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-choice",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-transition"
+   ],
+   "proofSteps": [
+    "First compare the two A-algebra maps at a factorial level by root extensionality. Extend an arbitrary positive n to its specified factorial multiple and apply the finite transition square. The existing at-level independence removes the choice of multiple."
+   ],
+   "acceptance": [
+    "For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-injective",
+     "how": "F:U_A→A[Q/Z] is injective for arbitrary A."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective",
+     "how": "F:U_A→A[Q/Z] is surjective for arbitrary A."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-inverse-basis",
+     "how": "For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZMap.leg"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZMap.leg; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-injective",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Infinite unity-root character map is injective",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZMap.injective",
+   "statement": "F:U_A→A[Q/Z] is injective for arbitrary A.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg",
+    "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-injective",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-factorial"
+   ],
+   "proofSteps": [
+    "For F(x)=F(y), represent x−y at one factorial level using the inherited exists-level result. Its finite image is zero by the leg theorem. Finite injectivity makes the representative zero, hence x−y=0. This avoids an unproved common-stage assertion for two representatives."
+   ],
+   "acceptance": [
+    "F:U_A→A[Q/Z] is injective for arbitrary A."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
+     "how": "Define the actual A-algebra equivalence E:U_A≃A[Q/Z] by promoting F with its injectivity and surjectivity proofs. Its forward function is F."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZMap.injective"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZMap.injective; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Every group-algebra element is a unity-root colimit image",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZMap.surjective",
+   "statement": "F:U_A→A[Q/Z] is surjective for arbitrary A.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg",
+    "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single",
+    "FunctionFieldArithmeticPartII:RS.2/qz-character-exhaustive",
+    "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse",
+    "mathlib:MonoidAlgebra.induction_linear"
+   ],
+   "proofSteps": [
+    "For a basis element a e_u, choose n,k with c_n(k)=u using imported torsion exhaustion through the normalized character adapter. Pull a e_k back through the finite cyclic equivalence and include that chart by ι_n. The leg and single formulas give the desired preimage. Native group-algebra linear induction extends this to zero and sums; each summand may use its own finite level. No infinite support or geometric-point assertion occurs."
+   ],
+   "acceptance": [
+    "F:U_A→A[Q/Z] is surjective for arbitrary A."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
+     "how": "Define the actual A-algebra equivalence E:U_A≃A[Q/Z] by promoting F with its injectivity and surjectivity proofs. Its forward function is F."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZMap.surjective"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZMap.surjective; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Infinite unity-root coordinates",
+   "kind": "construction",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZEquiv",
+   "statement": "Define the actual A-algebra equivalence E:U_A≃A[Q/Z] by promoting F with its injectivity and surjectivity proofs. Its forward function is F.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-injective",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective",
+    "mathlib:AlgEquiv.ofBijective"
+   ],
+   "proofSteps": [
+    "Apply the native promotion of a bijective A-algebra homomorphism; do not package inverse laws as assumptions of a new comparison record."
+   ],
+   "acceptance": [
+    "Define the actual A-algebra equivalence E:U_A≃A[Q/Z] by promoting F with its injectivity and surjectivity proofs. Its forward function is F."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root",
+     "how": "E(u_i)=e_[1/d_i]."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-inverse-basis",
+     "how": "For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-comul",
+     "how": "For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-counit",
+     "how": "For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-antipode",
+     "how": "For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-coefficient",
+     "how": "For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialCoefficientMap(φ,1). Flatness and injectivity of φ are unnecessary."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZEquiv"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZEquiv; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZEquiv.root",
+     "role": "simp",
+     "statement": "E(u_i)=e_[1/d_i]."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZEquiv.inverse_single_den",
+     "role": "simp",
+     "statement": "For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZEquiv.comul",
+     "role": "compatibility",
+     "statement": "For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZEquiv.counit",
+     "role": "compatibility",
+     "statement": "For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZEquiv.antipode",
+     "role": "compatibility",
+     "statement": "For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZEquiv.coefficient_natural",
+     "role": "functoriality",
+     "statement": "For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialUnitCoefficientMap(φ). Flatness and injectivity of φ are unnecessary."
+    }
+   ],
+   "planet": {
+    "name": "Infinite unity-root coordinates"
+   },
+   "tests": [
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZEquiv.test_inverse_negative",
+     "kind": "computation",
+     "statement": "The inverse of e_[−1/3] is the positive-index n=3 extension of t_3 squared."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZEquiv.test_wild_hopf",
+     "kind": "non-example",
+     "statement": "For v=u_1−1 over Z/2, E(v) is nonzero with square zero and Δ(E(v))=E(v)⊗E(v)+E(v)⊗1+1⊗E(v)."
+    },
+    {
+     "name": "TauCeti.RootStack.factorialUnitQZEquiv.test_nonflat_coefficients",
+     "kind": "compatibility",
+     "statement": "For the nonflat coefficient map Z→Z/2, the native coordinate square commutes on every element."
+    }
+   ]
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Infinite coordinate equivalence on roots",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZEquiv.root",
+   "statement": "E(u_i)=e_[1/d_i].",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root",
+    "mathlib:AlgEquiv.ofBijective_apply"
+   ],
+   "proofSteps": [
+    "The promoted equivalence has forward function F. Apply its root formula."
+   ],
+   "acceptance": [
+    "E(u_i)=e_[1/d_i]."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-comul",
+     "how": "For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-counit",
+     "how": "For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-antipode",
+     "how": "For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}."
+    },
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-coefficient",
+     "how": "For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialCoefficientMap(φ,1). Flatness and injectivity of φ are unnecessary."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZEquiv.root"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZEquiv.root; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-inverse-basis",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Inverse coordinate map on rational representatives",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZEquiv.inverse_single_den",
+   "statement": "For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg",
+    "FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map",
+    "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single",
+    "FunctionFieldArithmeticPartII:RS.2/qz-character-intcast",
+    "FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse"
+   ],
+   "proofSteps": [
+    "Map the displayed preimage forward. The finite leg and single formulas yield [num(q)/den(q)]=[q]. Use the equivalence inverse law to identify the preimage. Different rational representatives of the same circle class give the same inverse because their forward images coincide and F is injective."
+   ],
+   "acceptance": [
+    "For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the explicit native diagonalizable coordinate input before independent coherent groupoid, affine Spec and fpqc torsor comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZEquiv.inverse_single_den"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZEquiv.inverse_single_den; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-comul",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Infinite coordinate equivalence preserves comultiplication",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZEquiv.comul",
+   "statement": "For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext",
+    "mathlib:MonoidAlgebra.comul_single"
+   ],
+   "proofSteps": [
+    "View both sides as A-algebra homomorphisms into the native tensor product. On u_i the inherited coaction is u_i⊗u_i; the mapped tensor is e_[1/d_i]⊗e_[1/d_i], precisely native comultiplication of that basis element. Apply the inherited root-extensionality theorem. This is a coordinate Hopf comparison, not an affine scheme-limit theorem."
+   ],
+   "acceptance": [
+    "For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the explicit native diagonalizable coordinate input before independent coherent groupoid, affine Spec and fpqc torsor comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZEquiv.comul"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZEquiv.comul; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-counit",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Infinite coordinate equivalence preserves the counit",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZEquiv.counit",
+   "statement": "For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext",
+    "mathlib:MonoidAlgebra.counit_single"
+   ],
+   "proofSteps": [
+    "Both A-algebra homomorphisms send every included root to 1. Apply inherited root extensionality. On a general single a e_u the native counit is a; no coefficient augmentation is guessed."
+   ],
+   "acceptance": [
+    "For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the explicit native diagonalizable coordinate input before independent coherent groupoid, affine Spec and fpqc torsor comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZEquiv.counit"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZEquiv.counit; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-antipode",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Infinite coordinate equivalence preserves the antipode",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZEquiv.antipode",
+   "statement": "For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext",
+    "mathlib:MonoidAlgebra.antipode_single",
+    "mathlib:MonoidAlgebra.mapDomainAlgHom",
+    "mathlib:MonoidAlgebra.induction_linear"
+   ],
+   "proofSteps": [
+    "The inherited root inverse formula identifies S_U(u_i) with the inverse of the universal factorial unit. An algebra equivalence preserves inverses of these units, and the native antipode sends e_[1/d_i] to e_[−1/d_i]. Package the antipode on a commutative group algebra as the algebra hom induced by group inversion using the existing mapDomainAlgHom, then use root extensionality. Native single induction identifies that map with the native linear antipode."
+   ],
+   "acceptance": [
+    "For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the explicit native diagonalizable coordinate input before independent coherent groupoid, affine Spec and fpqc torsor comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZEquiv.antipode"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZEquiv.antipode; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-coefficient",
+   "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+   "realises": [
+    "FunctionFieldArithmeticPartII:RS.2"
+   ],
+   "title": "Infinite root coordinates commute with coefficient homomorphisms",
+   "kind": "lemma",
+   "declarationName": "TauCeti.RootStack.factorialUnitQZEquiv.coefficient_natural",
+   "statement": "For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialUnitCoefficientMap(φ). Flatness and injectivity of φ are unnecessary.",
+   "hypotheses": [
+    "A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.",
+    "The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).",
+    "These are planning declarations with admitted prototypes; no new Lean elaboration or implementation is certified by this continuation. The fpqc geometric quotient remains an independent target."
+   ],
+   "prerequisites": [
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant",
+    "FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext",
+    "mathlib:MonoidAlgebra.mapRingHom_single"
+   ],
+   "proofSteps": [
+    "Regard the target as an A-algebra via φ; the two ring maps become A-algebra maps with equal constant images. On every factorial root both give e_[1/d_i] with coefficient φ(1)=1. Apply inherited root extensionality with this restriction of scalars; this is a fixed-universe coefficient square, not a general universe/base-change equivalence. Use the inherited unity-specific factorialUnitCoefficientMap, whose codomain is U_B without an implicit identification of φ(1) with 1; its root and constant APIs and the existing ring-homomorphism extensionality lemma supply the type-correct square."
+   ],
+   "acceptance": [
+    "For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialCoefficientMap(φ,1). Flatness and injectivity of φ are unnecessary."
+   ],
+   "uses": [
+    {
+     "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+     "how": "Supply the explicit native diagonalizable coordinate input before independent coherent groupoid, affine Spec and fpqc torsor comparisons."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+    "namespace": "TauCeti.RootStack",
+    "name": "TauCeti.RootStack.factorialUnitQZEquiv.coefficient_natural"
+   },
+   "sources": [
+    {
+     "sourceId": "QZCoordinates-codex-J6LwjP",
+     "locator": "Authored coordinate deduction factorialUnitQZEquiv.coefficient_natural; exact argument in the matching reader section",
+     "match": "A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -20161,7 +21896,8 @@
     "The universal factorial algebra coaction, native bialgebra/Hopf structures and fixed-universe natural equivalence of algebra-valued points with coherent unit families now have explicit signatures and separate no-admission native evidence. Identify H_A with the canonical diagonalizable coordinate Hopf algebra A[Q/Z] and its convolution group of points; transport the coaction through the full positive-divisibility equivalence; prove coefficient-base-change/coaction compatibility and higher-universe adapters; construct coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient comparison. Preserve TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer, the all-roots-of2 non-fppf counterexample and both Yun–Zhang and symplectic source routes. No stage or implementation closes.",
     "The fixed-universe coefficient maps now have explicit coaction/counit/antipode squares and separate native proof evidence. Still identify H_A with A[Q/Z], compare convolution points, transport positive-divisibility and higher-universe structures, and construct root groupoid reindexing, affine Spec limits, fpqc frame torsors and quotient comparisons. All existing TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR obligations remain.",
     "The fixed-universe convolution-point/coherent-root comparison now has explicit native product, identity, antipode inverse, multiplicative equivalence and test-algebra naturality proofs. Identify H_A with A[Q/Z], transport positive-divisibility and universe structures, reindex root-object groupoids, build affine Spec limits, fpqc frame torsors and the geometric quotient equivalence. All existing TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR obligations remain.",
-    "The actual finite unity-root/cyclic equivalence and its divisibility, coaction, counit and root-antipode comparisons now have explicit signatures and separate native evidence. Next construct compatible Z/n→Q/Z character embeddings, prove that their group-algebra colimit is A[Q/Z], and compare all infinite Hopf maps; retain index/universe transports, root-groupoid reindexing, affine Spec limits, fpqc frame torsors and quotient comparison, TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR and the roots-of2 non-fppf counterexample. No stage or implementation closes."
+    "The actual finite unity-root/cyclic equivalence and its divisibility, coaction, counit and root-antipode comparisons now have explicit signatures and separate native evidence. Next construct compatible Z/n→Q/Z character embeddings, prove that their group-algebra colimit is A[Q/Z], and compare all infinite Hopf maps; retain index/universe transports, root-groupoid reindexing, affine Spec limits, fpqc frame torsors and quotient comparison, TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR and the roots-of2 non-fppf counterexample. No stage or implementation closes.",
+    "The normalized Z/n→Q/Z characters, finite group-algebra/chart maps, actual unity-root colimit equivalence with A[Q/Z] and all three infinite Hopf maps now have separate explicit planning declarations and tests. Elaborate and check the new admitted signatures when the existing exact-pin build and memory threshold permit; no new compilation occurred. Construct higher-universe and full positive-index transports, coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient, retaining TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR, the roots-of2 non-fppf counterexample, all eight gaps/thirteen requests and both complete Yun–Zhang/symplectic routes."
    ]
   },
   {
@@ -23103,6 +24839,13 @@
    "base": "0afca1373e81cb7b4345d0e096d419be9a40274d",
    "strand": "Thirteen actual root-chart point-action declarations; all 312 incoming contracts retained and all ten stages remain partial.",
    "remaining": "Identify the unity-root Hopf algebra with A[Q/Z], transport indices/universes, construct coherent root-object groupoids and affine Spec limits, then verify fpqc frame torsors and the infinite quotient. Retain both complete source routes and all eight existing gaps/thirteen requests."
+  },
+  {
+   "agent": "Codex — codex-J6LwjP",
+   "date": "2026-10-03",
+   "base": "6542c9133014b0dc32397ee3bf3ad5d6009649ca",
+   "strand": "28 explicit rational-character and unity-root coordinate declarations, 5 constructions, 21 promoted API items and 15 discriminating tests. Incoming 340 contracts retained; only the quotient consumer gains five prerequisites and one proof step. No new Lean execution.",
+   "remaining": "The normalized Z/n→Q/Z characters, finite group-algebra/chart maps, actual unity-root colimit equivalence with A[Q/Z] and all three infinite Hopf maps now have separate explicit planning declarations and tests. Elaborate and check the new admitted signatures when the existing exact-pin build and memory threshold permit; no new compilation occurred. Construct higher-universe and full positive-index transports, coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient, retaining TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR, the roots-of2 non-fppf counterexample, all eight gaps/thirteen requests and both complete Yun–Zhang/symplectic routes."
   }
  ]
 }

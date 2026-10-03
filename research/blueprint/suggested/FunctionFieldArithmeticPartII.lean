@@ -1,3 +1,5 @@
+import Mathlib.Topology.Instances.AddCircle.Defs
+import TauCeti.Algebra.AddCircle
 import Mathlib.RingTheory.Bialgebra.Convolution
 import TauCeti.Algebra.AlgebraicGroup.FunctorOfPoints
 import Mathlib.Algebra.Colimit.DirectLimit
@@ -3762,3 +3764,208 @@ example [Subsingleton A] (n : ℕ) [NeZero n] (x : MuHopf A n) :
 
 end TauCeti.RootStack
 /- END FINITE CYCLIC COORDINATES -/
+
+/- BEGIN INFINITE RATIONAL CHARACTERS -/
+noncomputable section
+universe u
+namespace TauCeti.RootStack
+variable {A : Type u} [CommRing A]
+local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
+local instance (q : ℚ) : NeZero q.den := ⟨Nat.ne_of_gt q.den_pos⟩
+open scoped TensorProduct
+
+def affineQZCharacter (n : ℕ) [NeZero n] : ZMod n →+ AddCircle (1 : ℚ) := by
+  sorry
+
+lemma affineQZCharacter.intCast (n : ℕ) [NeZero n] (k : ℤ) :
+    affineQZCharacter n (k : ZMod n) = ((k / (n : ℚ) : ℚ) : AddCircle (1 : ℚ)) := by
+  sorry
+
+lemma affineQZCharacter.one (n : ℕ) [NeZero n] :
+    affineQZCharacter n 1 = ((1 / (n : ℚ) : ℚ) : AddCircle (1 : ℚ)) := by
+  sorry
+
+lemma affineQZCharacter.injective (n : ℕ) [NeZero n] :
+    Function.Injective (affineQZCharacter n) := by
+  sorry
+
+lemma affineQZCharacter.divisibility (n N : ℕ) [NeZero n] [NeZero N]
+    (h : n ∣ N) (k : ZMod n) :
+    affineQZCharacter N ((N / n * k.val : ℕ) : ZMod N) = affineQZCharacter n k := by
+  sorry
+
+lemma affineQZCharacter.exhaustive (u : AddCircle (1 : ℚ)) :
+    ∃ (n : ℕ) (hn : 0 < n),
+      ∃ k : ZMod n, @affineQZCharacter n ⟨Nat.ne_of_gt hn⟩ k = u := by
+  sorry
+
+def finiteQZAlgMap (A : Type u) [CommRing A] (n : ℕ) [NeZero n] :
+    MuHopf A n →ₐ[A] MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
+  sorry
+
+lemma finiteQZAlgMap.single (n : ℕ) [NeZero n] (k : ZMod n) (a : A) :
+    finiteQZAlgMap A n (MonoidAlgebra.single (Multiplicative.ofAdd k) a) =
+      MonoidAlgebra.single (Multiplicative.ofAdd (affineQZCharacter n k)) a := by
+  sorry
+
+lemma finiteQZAlgMap.injective (n : ℕ) [NeZero n] :
+    Function.Injective (finiteQZAlgMap A n) := by
+  sorry
+
+lemma finiteQZAlgMap.transition (n N : ℕ) [NeZero n] [NeZero N]
+    (h : n ∣ N) (k : ZMod n) (a : A) :
+    finiteQZAlgMap A N (MonoidAlgebra.single
+      (Multiplicative.ofAdd ((N / n * k.val : ℕ) : ZMod N)) a) =
+      finiteQZAlgMap A n (MonoidAlgebra.single (Multiplicative.ofAdd k) a) := by
+  sorry
+
+def finiteRootQZMap (A : Type u) [CommRing A] (n : ℕ) [NeZero n] :
+    AffineRing (1 : A) n →ₐ[A] MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
+  sorry
+
+lemma finiteRootQZMap.root (n : ℕ) [NeZero n] :
+    finiteRootQZMap A n (AdjoinRoot.root _) =
+      MonoidAlgebra.single (Multiplicative.ofAdd
+        (((1 / (n : ℚ) : ℚ) : AddCircle (1 : ℚ)))) 1 := by
+  sorry
+
+lemma finiteRootQZMap.injective (n : ℕ) [NeZero n] :
+    Function.Injective (finiteRootQZMap A n) := by
+  sorry
+
+lemma finiteRootQZMap.transition (n N : ℕ) [NeZero n] [NeZero N] (h : n ∣ N) :
+    (finiteRootQZMap A N).comp (affineDivisibility (1 : A) n N h) = finiteRootQZMap A n := by
+  sorry
+
+lemma factorialQZRoot_power (A : Type u) [CommRing A] (i : ℕ) :
+    (MonoidAlgebra.single (Multiplicative.ofAdd
+      (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
+      (1 : A)) ^ Nat.factorial (i+1) = 1 := by
+  sorry
+
+lemma factorialQZRoot_transition (A : Type u) [CommRing A] (i j : ℕ) (h : i ≤ j) :
+    (MonoidAlgebra.single (Multiplicative.ofAdd
+      (((1 / (Nat.factorial (j+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
+      (1 : A)) ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) =
+      MonoidAlgebra.single (Multiplicative.ofAdd
+        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ)))) 1 := by
+  sorry
+
+def factorialUnitQZMap (A : Type u) [CommRing A] :
+    FactorialAffineColimit (1 : A) →ₐ[A]
+      MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
+  sorry
+
+lemma factorialUnitQZMap.root (A : Type u) [CommRing A] (i : ℕ) :
+    factorialUnitQZMap A (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
+      MonoidAlgebra.single (Multiplicative.ofAdd
+        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ)))) 1 := by
+  sorry
+
+lemma factorialUnitQZMap.leg (A : Type u) [CommRing A] (n : RootDivIndex)
+    (x : AffineRing (1 : A) n.exponent) :
+    factorialUnitQZMap A (factorialAffineExtension (1 : A) n x) =
+      finiteRootQZMap A n.exponent x := by
+  sorry
+
+lemma factorialUnitQZMap.injective (A : Type u) [CommRing A] :
+    Function.Injective (factorialUnitQZMap A) := by
+  sorry
+
+lemma factorialUnitQZMap.surjective (A : Type u) [CommRing A] :
+    Function.Surjective (factorialUnitQZMap A) := by
+  sorry
+
+def factorialUnitQZEquiv (A : Type u) [CommRing A] :
+    FactorialAffineColimit (1 : A) ≃ₐ[A]
+      MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
+  sorry
+
+lemma factorialUnitQZEquiv.root (A : Type u) [CommRing A] (i : ℕ) :
+    factorialUnitQZEquiv A (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
+      MonoidAlgebra.single (Multiplicative.ofAdd
+        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ)))) 1 := by
+  sorry
+
+lemma factorialUnitQZEquiv.inverse_single_den (A : Type u) [CommRing A] (q : ℚ) (a : A) :
+    (factorialUnitQZEquiv A).symm
+      (MonoidAlgebra.single (Multiplicative.ofAdd (q : AddCircle (1 : ℚ))) a) =
+      factorialAffineExtension (1 : A) ⟨q.den, q.den_pos⟩
+        ((affineUnitCyclicEquiv (A := A) q.den).symm
+          (MonoidAlgebra.single (Multiplicative.ofAdd (q.num : ZMod q.den)) a)) := by
+  sorry
+
+lemma factorialUnitQZEquiv.comul (A : Type u) [CommRing A]
+    (x : FactorialAffineColimit (1 : A)) :
+    Algebra.TensorProduct.map (factorialUnitQZEquiv A).toAlgHom
+      (factorialUnitQZEquiv A).toAlgHom (factorialCoaction (1 : A) x) =
+      Coalgebra.comul (R := A) (factorialUnitQZEquiv A x) := by
+  sorry
+
+lemma factorialUnitQZEquiv.counit (A : Type u) [CommRing A]
+    (x : FactorialAffineColimit (1 : A)) :
+    Coalgebra.counit (R := A) (factorialUnitQZEquiv A x) = factorialCounit A x := by
+  sorry
+
+lemma factorialUnitQZEquiv.antipode (A : Type u) [CommRing A]
+    (x : FactorialAffineColimit (1 : A)) :
+    HopfAlgebra.antipode A (factorialUnitQZEquiv A x) =
+      factorialUnitQZEquiv A (factorialAntipode A x) := by
+  sorry
+
+lemma factorialUnitQZEquiv.coefficient_natural {B : Type u} [CommRing B]
+    (φ : A →+* B) (x : FactorialAffineColimit (1 : A)) :
+    MonoidAlgebra.mapRingHom (Multiplicative (AddCircle (1 : ℚ))) φ
+      (factorialUnitQZEquiv A x) =
+      factorialUnitQZEquiv B (factorialUnitCoefficientMap φ x) := by
+  sorry
+
+-- TauCeti.RootStack.affineQZCharacter.test_one
+example  : affineQZCharacter 1 1 = 0 := by
+  sorry
+-- TauCeti.RootStack.affineQZCharacter.test_orientation
+example  : affineQZCharacter 3 1 ≠ (((2 / 3 : ℚ) : AddCircle (1 : ℚ))) := by
+  sorry
+-- TauCeti.RootStack.affineQZCharacter.test_two_six
+example  : affineQZCharacter 6 (3 : ZMod 6) = (((1 / 2 : ℚ) : AddCircle (1 : ℚ))) := by
+  sorry
+-- TauCeti.RootStack.finiteQZAlgMap.test_constant
+example (a : A) : finiteQZAlgMap A 1 (MonoidAlgebra.single (Multiplicative.ofAdd (0 : ZMod 1)) a) = algebraMap A _ a := by
+  sorry
+-- TauCeti.RootStack.finiteQZAlgMap.test_negative
+example (a : A) : finiteQZAlgMap A 3 (MonoidAlgebra.single (Multiplicative.ofAdd (-1 : ZMod 3)) a) = MonoidAlgebra.single (Multiplicative.ofAdd (((-1 / 3 : ℚ) : AddCircle (1 : ℚ)))) a := by
+  sorry
+-- TauCeti.RootStack.finiteQZAlgMap.test_wild
+example  : let v := finiteQZAlgMap (ZMod 2) 2 (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) 1 - 1); v ≠ 0 ∧ v ^ 2 = 0 := by
+  sorry
+-- TauCeti.RootStack.finiteRootQZMap.test_one
+example  : finiteRootQZMap A 1 (AdjoinRoot.root _) = 1 := by
+  sorry
+-- TauCeti.RootStack.finiteRootQZMap.test_three
+example  : finiteRootQZMap A 3 (AdjoinRoot.root _) = MonoidAlgebra.single (Multiplicative.ofAdd (((1 / 3 : ℚ) : AddCircle (1 : ℚ)))) 1 := by
+  sorry
+-- TauCeti.RootStack.finiteRootQZMap.test_zero_ring
+example  : Function.Injective (finiteRootQZMap (ZMod 1) 2) := by
+  sorry
+-- TauCeti.RootStack.factorialUnitQZMap.test_level_zero
+example  : factorialUnitQZMap A (factorialAffineInclusion (1 : A) 0 (AdjoinRoot.root _)) = 1 := by
+  sorry
+-- TauCeti.RootStack.factorialUnitQZMap.test_level_two
+example  : factorialUnitQZMap A (factorialAffineInclusion (1 : A) 2 (AdjoinRoot.root _)) = MonoidAlgebra.single (Multiplicative.ofAdd (((1 / 6 : ℚ) : AddCircle (1 : ℚ)))) 1 := by
+  sorry
+-- TauCeti.RootStack.factorialUnitQZMap.test_torsion_coefficients
+example  : factorialUnitQZMap (ZMod 4) (2 * factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _)) = MonoidAlgebra.single (Multiplicative.ofAdd (((1 / 2 : ℚ) : AddCircle (1 : ℚ)))) 2 := by
+  sorry
+-- TauCeti.RootStack.factorialUnitQZEquiv.test_inverse_negative
+example  : (factorialUnitQZEquiv A).symm (MonoidAlgebra.single (Multiplicative.ofAdd (((-1 / 3 : ℚ) : AddCircle (1 : ℚ)))) 1) = factorialAffineExtension (1 : A) ⟨3, by decide⟩ ((AdjoinRoot.root _) ^ 2) := by
+  sorry
+-- TauCeti.RootStack.factorialUnitQZEquiv.test_wild_hopf
+example  : let v := factorialUnitQZEquiv (ZMod 2) (factorialAffineInclusion (1 : ZMod 2) 1 (AdjoinRoot.root _) - 1); v ≠ 0 ∧ v ^ 2 = 0 ∧ Coalgebra.comul (R := ZMod 2) v = v ⊗ₜ[ZMod 2] v + v ⊗ₜ[ZMod 2] (1 : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ)))) + (1 : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 2] v := by
+  sorry
+-- TauCeti.RootStack.factorialUnitQZEquiv.test_nonflat_coefficients
+example (x : FactorialAffineColimit (1 : ℤ)) : MonoidAlgebra.mapRingHom (Multiplicative (AddCircle (1 : ℚ))) (Int.castRingHom (ZMod 2)) (factorialUnitQZEquiv ℤ x) = factorialUnitQZEquiv (ZMod 2) (factorialUnitCoefficientMap (Int.castRingHom (ZMod 2)) x) := by
+  sorry
+
+end TauCeti.RootStack
+end
+/- END INFINITE RATIONAL CHARACTERS -/
