@@ -144,7 +144,7 @@ picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,as
 env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
 job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='DESIGN-'+RID)
 problems=[x for f,v in proposal.items() for x in env['file_problems'](f,v)];refusals=env['auto_refusals'](job,list(proposal),False,{'codex-J6LwjP'},set());assert not problems and not refusals,(problems,refusals)
-print(json.dumps(dict(mathematicalBase=MATH,publicationBase=BASE,preservedContracts=392,preservedWholeNodes=389,changedExisting=changed,newNodes=4,newApi=7,newTests=8,checker=checker,nativeExamples=245,nativeAudits=293,canonicalSha256=sha(canonical),canonicalExecution='UNCOMPILED: no existing full Tau Ceti build at exact pin; Mathlib native and admitted projections checked separately.',compilation=resources,guardsUnchanged=len(GUARDS)+4,reviewedGoverningTransition=transition,intakeProblems=problems,intakeRefusals=refusals),indent=2))
+print(json.dumps(dict(mathematicalBase=MATH,publicationBase=BASE,preservedContracts=392,preservedWholeNodes=389,changedExisting=changed,newNodes=4,newApi=7,newTests=8,checker={k:v for k,v in checker.items() if k!='packet'},nativeExamples=245,nativeAudits=293,canonicalSha256=sha(canonical),canonicalExecution='UNCOMPILED: no existing full Tau Ceti build at exact pin; Mathlib native and admitted projections checked separately.',compilation=resources,guardsUnchanged=len(GUARDS)+4,reviewedGoverningTransition=transition,intakeProblems=problems,intakeRefusals=refusals),indent=2))
 ```
 
 ### immutable_view.py
