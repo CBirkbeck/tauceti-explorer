@@ -32,6 +32,372 @@ Retained evidence is the Native/IncomingNative/New/NewAdmitted/FullCanonical/Inc
 
 Publication base: `21b2f2946940fe7557c08f1b578854c0b015aa80`.
 
+## Public proof recovery and exact receipts
+
+The inert proof archive is [`55316071de533c5fb77601a8c4951943d26092eb`](https://github.com/CBirkbeck/tauceti-explorer/commit/55316071de533c5fb77601a8c4951943d26092eb); the final suggested file contains only the incoming planning sketch and the new admitted signatures. Save the following scripts as `recover.py`, `verify.py`, `graph.py` and `project.py` in a chosen on-disk evidence directory. From a checkout of this PR, run `python3 EVIDENCE/recover.py EVIDENCE`, then `python3 EVIDENCE/verify.py EVIDENCE` and `python3 EVIDENCE/graph.py EVIDENCE`. The recovery checks every SHA256; verification compares all27 headers, preserves the type-level let and uses the repository’s actual intake functions. The graph script compares the candidate with the original packet in the current atlas control. Its counts may grow as other roadmaps progress; unchanged stage edges and no newly skipped links are asserted relative to that control.
+
+```json
+{
+  "artifacts": {
+    "Native.lean": "a345e37f1cb27602a255406f0353f726a5a90b17119aa5878cb79328e14e12a9",
+    "IncomingNative.lean": "325fbf72fce616c471ff4c7b5a3c4e62691e6149fafa9543f8d37a67cbdd2b11",
+    "New.lean": "d2bbf1d50dc79edc8e437d6720ffd347e24909e0f6ee315bba8fdfbe18268212",
+    "NewAdmitted.lean": "23ce6f01e5100845c194a9d812775cf5ba0259ca62b10dc7b2ed8a206594d941",
+    "FullCanonical.lean": "eb77f087c9de8f1d138991c52be8a3f56bddde1939801daa8f7b4d16221049ef",
+    "IncomingCanonical.lean": "175bd240492ae27c2255cee677e020ed3861a267fb75e4406777a2eb0527445e",
+    "Sketch.lean": "def3589f23d3ea0808f504425b12a82d90b39363d8e543622afcf5bbd15e1d9e",
+    "project.py": "29340cf6a3d521ebb51a840515a4e450701a5d88339f3a9475ebe772bce1f0fa"
+  },
+  "graph": {
+    "stageDAG": {
+      "vertices": 3056,
+      "edges": 8723,
+      "acyclic": true
+    },
+    "ownDeclarationDAG": {
+      "vertices": 340,
+      "edges": 778,
+      "acyclic": true
+    },
+    "scopedDAG": {
+      "vertices": 3439,
+      "edges": 10172,
+      "acyclic": true
+    },
+    "reachableDeclarations": 422,
+    "externalDeclarations": [
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/finite-presentation-module-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-faithful",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-equiv-cover",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-isom-injective",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-difference",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-map-preimage",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-isom",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-preimage-map",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-one",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-is-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-presheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-self",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-local-nonempty",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-principal-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-principal-equiv-apply",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-is-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-presheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-presheaf-iso",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-sheaf-iso",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pull-hom-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/relative-gerbe",
+      "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+      "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+      "DiamondsAndVStacks:D0/stackification"
+    ],
+    "baselineLeaves": 262,
+    "requiredPairs": 54,
+    "restructurePairs": 0,
+    "unresolved": [],
+    "ownSkippedLinks": [],
+    "ownPendingLinks": [],
+    "otherSkipsMatch": true,
+    "stageEdgesUnchanged": true
+  },
+  "checker": [
+    {
+      "summary": {
+        "packet": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
+        "roadmap": "FunctionFieldArithmeticPartII",
+        "status": "partial",
+        "nodes": 340,
+        "kinds": {
+          "construction": 60,
+          "definition": 11,
+          "comparison": 11,
+          "lemma": 220,
+          "theorem": 37,
+          "application": 1
+        },
+        "apiItems": 266,
+        "unitTests": 245,
+        "planets": 39,
+        "baselineDeclarations": 208,
+        "prerequisites": {
+          "baseline": 341,
+          "node (this packet)": 778,
+          "stage": 64,
+          "node (blueprint)": 16
+        },
+        "gaps": 8,
+        "requests": 13,
+        "stagesInScope": 10,
+        "stagesClosed": 0
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}
+```
+
+### recover.py
+
+```python
+from pathlib import Path
+import sys,subprocess,hashlib,json
+S=Path(sys.argv[1]);S.mkdir(parents=True,exist_ok=True)
+ARCHIVE='55316071de533c5fb77601a8c4951943d26092eb'
+BASE='18f322ad4eefb4ef36e39cef812c403829f23e2c'
+HASHES={'Native.lean': 'a345e37f1cb27602a255406f0353f726a5a90b17119aa5878cb79328e14e12a9', 'IncomingNative.lean': '325fbf72fce616c471ff4c7b5a3c4e62691e6149fafa9543f8d37a67cbdd2b11', 'New.lean': 'd2bbf1d50dc79edc8e437d6720ffd347e24909e0f6ee315bba8fdfbe18268212', 'NewAdmitted.lean': '23ce6f01e5100845c194a9d812775cf5ba0259ca62b10dc7b2ed8a206594d941', 'FullCanonical.lean': 'eb77f087c9de8f1d138991c52be8a3f56bddde1939801daa8f7b4d16221049ef', 'IncomingCanonical.lean': '175bd240492ae27c2255cee677e020ed3861a267fb75e4406777a2eb0527445e', 'Sketch.lean': 'def3589f23d3ea0808f504425b12a82d90b39363d8e543622afcf5bbd15e1d9e', 'project.py': '29340cf6a3d521ebb51a840515a4e450701a5d88339f3a9475ebe772bce1f0fa'}
+subprocess.run(['git','fetch','origin',ARCHIVE],check=True)
+raw=subprocess.check_output(['git','show',ARCHIVE+':research/blueprint/suggested/FunctionFieldArithmeticPartII.lean'],text=True)
+for name,digest in HASHES.items():
+ start='/- BEGIN ARCHIVED FINITE CYCLIC '+name+'\n';end='END ARCHIVED FINITE CYCLIC '+name+' -/'
+ text=raw.split(start,1)[1].split(end,1)[0]
+ assert hashlib.sha256(text.encode()).hexdigest()==digest,name
+ (S/name).write_text(text)
+(S/'base.txt').write_text(BASE+'\n')
+for folder,name in [('packets','original-packet.json'),('roadmaps','original-roadmap.json')]:
+ data=subprocess.check_output(['git','show',BASE+':research/blueprint/'+folder+'/FunctionFieldArithmeticPartII.json'])
+ (S/name).write_bytes(data)
+print(json.dumps(HASHES,indent=2))
+```
+
+### verify.py
+
+```python
+from pathlib import Path
+import sys,json,re,hashlib,subprocess,ast
+W=Path.cwd();S=Path(sys.argv[1]);RID='FunctionFieldArithmeticPartII';Q='TauCeti.RootStack.'
+files=['research/blueprint/'+f+'/'+('DESIGN-' if f=='handoff' else '')+RID+'.'+ext for f,ext in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+p=json.loads((W/files[1]).read_text());old=json.loads((S/'original-packet.json').read_text());r=json.loads((W/files[0]).read_text());oldr=json.loads((S/'original-roadmap.json').read_text())
+assert len(p['nodes'])==340 and len(old['nodes'])==325
+for a,b in zip(p['nodes'],old['nodes']):
+ if a!=b:
+  assert a['id']==RID+':RS.2/infinite-affine-quotient'
+  assert a['prerequisites'][:-5]==b['prerequisites'] and a['proofSteps'][:-1]==b['proofSteps']
+  assert {k:v for k,v in a.items() if k not in ['prerequisites','proofSteps']}=={k:v for k,v in b.items() if k not in ['prerequisites','proofSteps']}
+for k in old:
+ if k not in ['nodes','summary','baseline','sources','coverage']:assert p[k]==old[k],k
+assert p['baseline']['declarations'][:-7]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+assert p['sources'][:-1]==old['sources']
+for a,b in zip(p['coverage'],old['coverage']):
+ if a!=b:assert a['stageId']==RID+':RS.2' and a['remaining'][:-1]==b['remaining'] and a['status']==b['status']=='partial'
+for k in oldr:
+ if k not in ['summary','stages']:assert r[k]==oldr[k],k
+for a,b in zip(r['stages'],oldr['stages']):
+ if a!=b:assert a['key']=='RS.2' and a['description'].startswith(b['description']) and {k:v for k,v in a.items() if k!='description'}=={k:v for k,v in b.items() if k!='description'}
+assert p['status']=='partial' and all(x['implementationStatus']=='unchecked' for x in p['nodes'])
+base=(S/'base.txt').read_text().strip()
+def blob(f):return subprocess.check_output(['git','show',base+':'+f],text=True)
+assert (W/files[2]).read_text().endswith(blob(files[2]))
+full=(W/files[3]).read_text();incoming=(S/'IncomingNative.lean').read_text();new=(S/'New.lean').read_text();admitted=(S/'NewAdmitted.lean').read_text();native=(S/'Native.lean').read_text()
+assert full==blob(files[3])+'\n/- BEGIN FINITE CYCLIC COORDINATES -/\n'+admitted+'/- END FINITE CYCLIC COORDINATES -/\n'
+assert (S/'FullCanonical.lean').read_text()==full
+assert hashlib.sha256(incoming.encode()).hexdigest()=='325fbf72fce616c471ff4c7b5a3c4e62691e6149fafa9543f8d37a67cbdd2b11'
+audit='\n'.join('#print axioms '+Q+n for n in re.findall(r'^(?:def|lemma) ([\w.]+)',new,re.M))+'\n'
+assert native==incoming+'\n'+new+'\n'+audit and not re.search(r'\bsorry\b|^axiom\b',native,re.M)
+pat=r'^(?:def|lemma|example)\b[\s\S]*?(?=\n(?:def |lemma |-- TauCeti|end TauCeti)|\Z)'
+def headers(x):
+ out=[]
+ for m in re.findall(pat,x,re.M):
+  d=re.search(r' := by\n| :=\n| where\n',m) or re.search(r' :=',m)
+  assert d
+  out.append(m[:d.start()])
+ return out
+assert headers(new)==headers(admitted) and len(headers(new))==27
+assert 'let x := AdjoinRoot.root' in headers(admitted)[-2]
+names=set(re.findall(r'^(?:def|lemma) ([\w.]+)',new,re.M));planned={x['declarationName'].removeprefix(Q) for x in p['nodes'][-15:]}|{a['name'].removeprefix(Q) for x in p['nodes'][-15:] for a in x.get('api',[])}
+assert names==planned and len(names)==15
+plannedtests={t['name'] for n in p['nodes'][-15:] for t in n.get('tests',[])};assert plannedtests==set(re.findall(r'^-- (TauCeti.+)$',admitted,re.M)) and len(plannedtests)==12
+assert len(re.findall(r'^example\b',native,re.M))==202 and len(re.findall(r'^example\b',full,re.M))==222
+assert len(re.findall(r'^#print axioms ',native,re.M))==231
+from project import project
+assert project(full)==(S/'Sketch.lean').read_text()
+hashes={'Native.lean':'a345e37f1cb27602a255406f0353f726a5a90b17119aa5878cb79328e14e12a9','FullCanonical.lean':'eb77f087c9de8f1d138991c52be8a3f56bddde1939801daa8f7b4d16221049ef','Sketch.lean':'def3589f23d3ea0808f504425b12a82d90b39363d8e543622afcf5bbd15e1d9e'}
+for name,digest in hashes.items():assert hashlib.sha256((S/name).read_bytes()).hexdigest()==digest
+if (S/'Native.log').exists():
+ log=(S/'Native.log').read_text();assert not re.search(r'error:|error\(|warning:|sorryAx',log)
+ audits=re.findall(r'depends on axioms: \[([^]]*)\]',log);assert len(audits)==231
+ assert all(set(map(str.strip,a.split(',')))<=set(['propext','Classical.choice','Quot.sound']) for a in audits)
+if (S/'Sketch.log').exists():
+ log=(S/'Sketch.log').read_text();assert not re.search(r'error:|error\(',log)
+ warnings=[z.split('warning:',1)[1].strip() for z in log.splitlines() if 'warning:' in z];assert len(warnings)==477 and set(warnings)=={"declaration uses `sorry`"}
+print(json.dumps({'nodes':340,'preservedWholeNodes':324,'extendedParent':1,'newNodes':15,'rawAPIs':sum(len(x.get('api',[])) for x in p['nodes']),'rawTests':sum(len(x.get('tests',[])) for x in p['nodes']),'newTests':12,'nativeAudits':231,'nativeExamples':202,'canonicalExamples':222,'headersMatch':27,'allStagesPartial':True},indent=2))
+sys.path.insert(0,str(W/'scripts'));import check_errata
+assert not check_errata.versions_checked(p,p['sourceIssues']) and not check_errata.check_issues(p['sourceIssues'],RID)
+tree=ast.parse((W/'research/blueprint/intake.py').read_text());wanted={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in wanted]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads((W/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='DESIGN-'+RID)
+problems=[x for f in files for x in env['file_problems'](f,(W/f).read_text())];refusals=env['auto_refusals'](job,files,False,{'codex-7e92bd'},set());assert not problems and not refusals,(problems,refusals)
+print(json.dumps({'intakeProblems':problems,'intakeRefusals':refusals,'allowedFiles':len(files)}))
+```
+
+### graph.py
+
+```python
+from pathlib import Path
+import os,sys,json,collections,copy
+R=Path.cwd();S=Path(sys.argv[1]);RID='FunctionFieldArithmeticPartII';STEM=RID
+sys.path.insert(0,str(R/'scripts'))
+import check_blueprint
+p=json.loads((R/'research/blueprint/packets'/f'{STEM}.json').read_text())
+old=json.loads((S/'original-packet.json').read_text())
+nodes={n['id']:n for n in p['nodes']}
+import build,blueprints
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=STEM];documents[STEM]='research/blueprint/readmes/'+STEM+'.md'
+own_definition=json.loads((R/'research/blueprint/roadmaps'/f'{RID}.json').read_text())
+old_definition=json.loads((S/'original-roadmap.json').read_text())
+def assemble(candidate,definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,own_definition);b=assemble(old,old_definition)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+roadmap=own_definition
+pairs={(d,RID+':'+s['key']) for s in roadmap['stages'] for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ q=json.loads(file.read_text())
+ if q.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source','').startswith(RID+':') or x.get('target','').startswith(RID+':')}
+assert all(reachable(s,t) for s,t in pairs|rspairs),sorted((s,t) for s,t in pairs|rspairs if not reachable(s,t))
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']==len(nodes)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True}
+print(json.dumps(summary,indent=2))
+```
+
+### project.py
+
+```python
+import hashlib
+def project(can):
+    imports = '\n'.join((l for l in can.splitlines() if l.startswith('import Mathlib')))
+    initial = can[can.index('abbrev AffineRing (f : A)'):can.index('-- TauCeti.RootStack.affineCoaction.nativePoint')]
+    one = can[can.index('-- TauCeti.RootStack.affineCoaction.test_one'):can.index('-- TauCeti.RootStack.affineCoaction.test_sign')]
+    comparison = can[can.index('section AffineTorsorComparison'):can.index('-- Native acceptance computations')]
+    own = can[can.index('/-! Native factorial chart diagram continuation'):]
+    extra = can[can.index('-- Native acceptance computations'):can.index('/-! Native factorial chart diagram continuation')]
+    finite = can.split('/- BEGIN NATIVE FINITE ROOT TRANSITIONS -/\n', 1)[1].split('/- END NATIVE FINITE ROOT TRANSITIONS -/\n', 1)[0]
+    pre = '\nnoncomputable section\nuniverse u\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\nopen scoped TensorProduct\n'
+    sketch = imports + pre + initial + one + comparison + extra + '\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\n' + finite + '\nend TauCeti.RootStack\n' + own
+    sketch = sketch.replace('TauCeti.RootsOfUnityGroup.generator n', 'Multiplicative.ofAdd (1 : ZMod n)')
+    return sketch
+```
+
+Optional Lean replay, only in an existing exact pinned Mathlib build and with at least20GiB available immediately beforehand, one process at a time: `timeout 1200 lake env lean EVIDENCE/Native.lean`, then `timeout 1200 lake env lean EVIDENCE/Sketch.lean`. Recheck available memory before the second command. Never create a build or run a language server for this task. The original job compiled Native only; the admitted projection was memory-gated. The full canonical geometric file additionally requires the exact Tau Ceti build, which this worker did not have.
+
 ## Historical handoff
 
 # Root-chart point action checkpoint
