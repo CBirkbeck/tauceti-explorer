@@ -4585,3 +4585,176 @@ example (e : A ≃+* B) (x : adicGradedRing (⊤ : Ideal A)) :
     x = 0 ∧ adicGradedEquiv e ⊤ x = 0 := by sorry
 
 end TauCeti.HilbertSamuel
+
+/- Actual ordinary-adic coefficients and finite homogeneous decomposition. All packet implementation statuses remain unchecked.
+The existing adicExpansion declaration above realises node DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-map. -/
+noncomputable section AdicCoefficientDecomposition
+namespace TauCeti.HilbertSamuel
+open scoped Polynomial DirectSum
+variable {A : Type*} [CommRing A]
+
+-- Actual coefficient map from the native polynomial subalgebra.
+def adicReesCoefficient (q : Ideal A) (n : ℕ) : reesAlgebra q →ₗ[A] ↥(q ^ n) where
+  toFun p := ⟨(p : A[X]).coeff n, p.property n⟩
+  map_add' p r := by apply Subtype.ext; exact Polynomial.coeff_add _ _ _
+  map_smul' a p := by apply Subtype.ext; exact Polynomial.coeff_smul _ _ _
+
+lemma adicReesCoefficient_apply (q : Ideal A) (n : ℕ) (p : reesAlgebra q) :
+    (adicReesCoefficient q n p : A) = (p : A[X]).coeff n := by sorry
+
+lemma adicReesCoefficient_add (q : Ideal A) (n : ℕ) (p r : reesAlgebra q) :
+    adicReesCoefficient q n (p + r) = adicReesCoefficient q n p + adicReesCoefficient q n r := by sorry
+
+lemma adicReesCoefficient_smul (q : Ideal A) (n : ℕ) (a : A) (p : reesAlgebra q) :
+    adicReesCoefficient q n (a • p) = a • adicReesCoefficient q n p := by sorry
+
+lemma adicPiece_mk_eq_zero_iff (q : Ideal A) (n : ℕ) (a : ↥(q ^ n)) :
+    (Submodule.Quotient.mk a : adicRingPiece q n) = 0 ↔ (a : A) ∈ q ^ (n + 1) := by sorry
+
+-- Descend the actual coefficient map through the existing Rees ideal quotient.
+def adicCoefficient (q : Ideal A) (n : ℕ) : adicGradedRing q →ₗ[A] adicRingPiece q n :=
+  ((reesCoefficientIdeal q).restrictScalars A).liftQ
+    ((q • (⊤ : Submodule A ↥(q ^ n))).mkQ.comp (adicReesCoefficient q n)) (by
+      intro p hp
+      rw [LinearMap.mem_ker]
+      exact (adicPiece_mk_eq_zero_iff q n _).mpr
+        ((mem_reesCoefficientIdeal_iff q p).mp hp n))
+
+lemma adicCoefficient_mk (q : Ideal A) (n : ℕ) (p : reesAlgebra q) :
+    adicCoefficient q n (Ideal.Quotient.mk (reesCoefficientIdeal q) p) =
+      Submodule.Quotient.mk (adicReesCoefficient q n p) := by sorry
+
+lemma adicCoefficient_monomial_same (q : Ideal A) (n : ℕ) (a : ↥(q ^ n)) :
+    adicCoefficient q n (adicMonomial q n a) = Submodule.Quotient.mk a := by sorry
+
+lemma adicCoefficient_monomial_ne (q : Ideal A) (n m : ℕ) (hnm : n ≠ m)
+    (a : ↥(q ^ m)) : adicCoefficient q n (adicMonomial q m a) = 0 := by sorry
+
+lemma adicCoefficient_inclusion_same (q : Ideal A) (n : ℕ) (a : adicRingPiece q n) :
+    adicCoefficient q n (adicPieceInclusion q n a) = a := by sorry
+
+lemma adicCoefficient_inclusion_ne (q : Ideal A) (n m : ℕ) (hnm : n ≠ m)
+    (a : adicRingPiece q m) : adicCoefficient q n (adicPieceInclusion q m a) = 0 := by sorry
+
+lemma adicExpansion_lof (q : Ideal A) (n : ℕ) (a : adicRingPiece q n) :
+    adicExpansion q (DirectSum.lof A ℕ (adicRingPiece q) n a) = adicPieceInclusion q n a := by sorry
+
+lemma adicCoefficient_expansion (q : Ideal A) (n : ℕ)
+    (a : ⨁ m : ℕ, adicRingPiece q m) : adicCoefficient q n (adicExpansion q a) = a n := by sorry
+
+lemma adicExpansion_injective (q : Ideal A) : Function.Injective (adicExpansion q) := by sorry
+
+lemma adicExpansion_surjective (q : Ideal A) : Function.Surjective (adicExpansion q) := by sorry
+
+end TauCeti.HilbertSamuel
+namespace TauCeti.HilbertSamuel
+open scoped DirectSum
+variable {A : Type*} [CommRing A]
+lemma adicRecompose_componentEquiv (q : Ideal A)
+    (x : ⨁ n : ℕ, adicRingPiece q n) :
+    DirectSum.coeLinearMap (adicRingComponents q)
+      (DirectSum.congrLinearEquiv (adicRingComponentEquiv q) x) = adicExpansion q x := by sorry
+
+end TauCeti.HilbertSamuel
+namespace TauCeti.HilbertSamuel
+open scoped DirectSum
+variable {A : Type*} [CommRing A]
+
+lemma adicCoefficient_directSumEquiv_symm (q : Ideal A) (n : ℕ) (x : adicGradedRing q) :
+    (adicDirectSumEquiv q).symm x n = adicCoefficient q n x := by sorry
+
+lemma adicRingProjection_coefficient (q : Ideal A) (n : ℕ) (x : adicGradedRing q) :
+    adicRingProjection q n x = adicPieceInclusion q n (adicCoefficient q n x) := by sorry
+
+variable {B : Type*} [CommRing B]
+lemma adicGradedMap_projection (f : A →+* B) (I : Ideal A) (J : Ideal B)
+    (h : I ≤ J.comap f) (n : ℕ) (x : adicGradedRing I) :
+    adicRingProjection J n (adicGradedMap f I J h x) =
+      adicGradedMap f I J h (adicRingProjection I n x) := by sorry
+
+end TauCeti.HilbertSamuel
+namespace TauCeti.HilbertSamuel
+open scoped Polynomial DirectSum
+variable {A : Type*} [CommRing A]
+
+-- test: AdicReesCoefficient.degree_three
+example :
+    let q : Ideal ℤ := ⊤
+    let p : reesAlgebra q := ⟨Polynomial.monomial 3 7,
+      reesAlgebra.monomial_mem.mpr (by simpa only [q, Ideal.top_pow] using
+        (show (7 : ℤ) ∈ (⊤ : Ideal ℤ) from trivial))⟩
+    (adicReesCoefficient q 3 p : ℤ) = 7 ∧ (adicReesCoefficient q 0 p : ℤ) = 0 := by sorry
+
+-- test: AdicReesCoefficient.zero_ideal_constant
+example :
+    (adicReesCoefficient (⊥ : Ideal ℤ) 0
+      (algebraMap ℤ (reesAlgebra (⊥ : Ideal ℤ)) (-3)) : ℤ) = -3 := by sorry
+
+-- test: AdicReesCoefficient.nilpotent_coefficient
+example :
+    let q : Ideal (ZMod 4) := Ideal.span {2}
+    let p : reesAlgebra q := ⟨Polynomial.monomial 1 2,
+      reesAlgebra.monomial_mem.mpr (by simp [q])⟩
+    (adicReesCoefficient q 1 p : ZMod 4) = 2 ∧
+      (adicReesCoefficient q 1 p : ZMod 4) ≠ 0 := by sorry
+
+-- test: AdicCoefficient.zero_ideal_value
+example :
+    let q : Ideal ℤ := ⊥
+    let a : ↥(q ^ 0) := ⟨-3, by simp⟩
+    adicCoefficient q 0 (adicMonomial q 0 a) = Submodule.Quotient.mk a ∧
+      adicCoefficient q 0 (adicMonomial q 0 a) ≠ 0 := by sorry
+
+-- test: AdicCoefficient.two_degrees
+example :
+    let q : Ideal ℤ := Ideal.span {2}
+    let a : ↥(q ^ 0) := ⟨3, by simp⟩
+    let b : ↥(q ^ 1) := ⟨2, by simp [q]⟩
+    let x := adicMonomial q 0 a + adicMonomial q 1 b
+    adicCoefficient q 1 x = Submodule.Quotient.mk b ∧ adicCoefficient q 2 x = 0 := by sorry
+
+-- test: AdicCoefficient.nilpotent_survives
+example :
+    let q : Ideal (ZMod 4) := Ideal.span {2}
+    let a : ↥(q ^ 1) := ⟨2, by simp [q]⟩
+    adicCoefficient q 1 (adicMonomial q 1 a) ≠ 0 ∧
+      adicMonomial q 1 a * adicMonomial q 1 a = 0 := by sorry
+
+-- test: AdicCoefficient.next_power_killed
+example :
+    let q : Ideal ℤ := Ideal.span {4}
+    let a : ↥(q ^ 1) := ⟨16, by norm_num [q, Ideal.mem_span_singleton]⟩
+    adicCoefficient q 1 (adicMonomial q 1 a) = 0 := by sorry
+
+-- test: AdicExpansion.zero_ideal_recovery
+example :
+    let q : Ideal ℤ := ⊥
+    let a : adicRingPiece q 0 := Submodule.Quotient.mk (⟨-3, by simp⟩ : ↥(q ^ 0))
+    let x := DirectSum.lof ℤ ℕ (adicRingPiece q) 0 a
+    (adicDirectSumEquiv q).symm (adicExpansion q x) = x ∧
+      adicCoefficient q 1 (adicExpansion q x) = 0 := by sorry
+
+-- test: AdicExpansion.nonreduced_two_pieces
+example :
+    let q : Ideal (ZMod 4) := Ideal.span {2}
+    let a : adicRingPiece q 0 := Submodule.Quotient.mk (⟨1, by simp⟩ : ↥(q ^ 0))
+    let b : adicRingPiece q 1 := Submodule.Quotient.mk (⟨2, by simp [q]⟩ : ↥(q ^ 1))
+    let x := DirectSum.lof (ZMod 4) ℕ (adicRingPiece q) 0 a +
+      DirectSum.lof (ZMod 4) ℕ (adicRingPiece q) 1 b
+    adicCoefficient q 0 (adicExpansion q x) = a ∧
+      adicCoefficient q 1 (adicExpansion q x) = b := by sorry
+
+-- test: AdicExpansion.unit_ideal
+example (x : ⨁ n : ℕ, adicRingPiece (⊤ : Ideal A) n) :
+    adicExpansion (⊤ : Ideal A) x = 0 ∧ x = 0 := by sorry
+
+-- test: AdicProjection.nilpotent_degree_control
+example :
+    let q : Ideal (ZMod 4) := Ideal.span {2}
+    let a : ↥(q ^ 1) := ⟨2, by simp [q]⟩
+    adicRingProjection q 1 (adicMonomial q 1 a) = adicMonomial q 1 a ∧
+      adicRingProjection q 0 (adicMonomial q 1 a) = 0 := by sorry
+
+end TauCeti.HilbertSamuel
+
+end AdicCoefficientDecomposition

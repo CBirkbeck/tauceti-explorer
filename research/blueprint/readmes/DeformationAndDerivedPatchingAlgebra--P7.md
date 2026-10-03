@@ -1,3 +1,214 @@
+# Ordinary adic coefficients and finite homogeneous decomposition — continuation
+
+This checkpoint proves the actual finite decomposition of the existing Rees quotient into its existing homogeneous quotient pieces and registers its native grading. It works for every commutative ring and ideal, including zero, top and nilpotent ideals. It does not require a local or Noetherian hypothesis. Every packet implementation status remains unchecked; the complete suggested file retains admitted signature proofs.
+
+The three constructions are the existing finite expansion map, now given its own node, coefficient extraction on the actual Rees subtype, and coefficient extraction descended to the actual quotient. The direct sum is finite support. The coefficient-ideal criterion kills precisely the next ideal power, rather than removing nilpotents or allowing an infinite series.
+
+The inverse comparison has the actual coefficient coordinates. Canonical recomposition agrees with the finite expansion, giving both inverse laws for DirectSum.Decomposition. The quotient unit belongs to degree zero, and the already proved monomial product puts a product in degree n+m. These prove the old GradedAlgebra registration and projection signatures without introducing a conclusion field. Native graded projection is inclusion after coefficient extraction, and the existing coefficient-change map commutes with every native projection.
+
+The source passages are Stacks 10.59.5 and 10.70.1(1). They identify the ordinary carriers. The adapter statements and proofs below are derived here using the pinned APIs; they are not additional named Stacks results. This plan imports the generic DirectSum and GradedAlgebra machinery and leaves the general filtered/derived framework with its existing owner.
+
+## Finite homogeneous expansion
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-map`; `TauCeti.HilbertSamuel.adicExpansion`.
+
+Define the existing A-linear finite-sum map E₀:⊕ₙGₙ→Gr_q(A) by E₀(lofn(a))=ιₙ(a). The carrier is the ordinary Rees quotient and only finitely supported sums are permitted.
+
+Apply the existing DirectSum.toModule to the actual quotient inclusions ιₙ. This names the map already embedded in the bijectivity node, without replacing its carrier or defining it twice.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicExpansion_lof`: E₀(lofn(a))=ιₙ(a) for every a∈Gₙ.
+- `TauCeti.HilbertSamuel.adicCoefficient_expansion`: For every finitely supported a∈⊕ₘGₘ, πₙ(E₀(a))=a(n).
+- `TauCeti.HilbertSamuel.adicExpansion_injective`: E₀:⊕ₙGₙ→Gr_q(A) is injective for every commutative ring and every ideal.
+- `TauCeti.HilbertSamuel.adicExpansion_surjective`: Every x∈Gr_q(A) is E₀(a) for some actual finitely supported a∈⊕ₙGₙ.
+
+Tests:
+
+- `AdicExpansion.zero_ideal_recovery`: For q=0 in ℤ, the finite degree-zero class [−3] is recovered by E⁻¹E₀ and has zero degree-one coefficient.
+- `AdicExpansion.nonreduced_two_pieces`: For q=(2) in ℤ/4, expansion of lof₀([1])+lof₁([2]) has coefficient [1] in degree zero and [2] in degree one.
+- `AdicExpansion.unit_ideal`: For q=A, E₀(x)=0 and every actual finitely supported homogeneous sum x is zero.
+
+## Coefficient extraction on the Rees algebra
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-coefficient`; `TauCeti.HilbertSamuel.adicReesCoefficient`.
+
+For every n, define the A-linear map cₙ:Rees(q)→qⁿ by cₙ(p)=p.coeff n, with membership given by the native Rees subtype.
+
+Use the native coefficient membership proof p.property n. Polynomial.coeff_add and coeff_smul establish the actual linear-map laws; no coefficient is selected by a new abstract field.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicReesCoefficient_apply`: The underlying A-value of cₙ(p) equals the actual polynomial coefficient p.coeff n.
+- `TauCeti.HilbertSamuel.adicReesCoefficient_add`: For all actual Rees polynomials p,r, cₙ(p+r)=cₙ(p)+cₙ(r).
+- `TauCeti.HilbertSamuel.adicReesCoefficient_smul`: For every scalar a∈A and actual Rees polynomial p, cₙ(a·p)=a·cₙ(p).
+
+Tests:
+
+- `AdicReesCoefficient.degree_three`: For q=ℤ and p=7T³, c₃(p)=7 while c₀(p)=0.
+- `AdicReesCoefficient.zero_ideal_constant`: For q=0 in ℤ, c₀ of the actual Rees constant −3 equals −3.
+- `AdicReesCoefficient.nilpotent_coefficient`: For q=(2) in ℤ/4 and p=2T, the degree-one coefficient is 2≠0 despite being nilpotent.
+
+## Underlying value of a Rees coefficient
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-coefficient-value`; `TauCeti.HilbertSamuel.adicReesCoefficient_apply`.
+
+The underlying A-value of cₙ(p) equals the actual polynomial coefficient p.coeff n.
+
+The formula is definitional equality.
+
+## Zero criterion for a homogeneous quotient class
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-zero-criterion`; `TauCeti.HilbertSamuel.adicPiece_mk_eq_zero_iff`.
+
+For a∈qⁿ, its class in Gₙ=qⁿ/(q·qⁿ) is zero if and only if a∈qⁿ⁺¹.
+
+Rewrite quotient-class zero as membership in q·qⁿ. Use the already proved monomial kernel and its exact coefficient-power zero criterion.
+
+## Coefficient projections on the adic graded ring
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient`; `TauCeti.HilbertSamuel.adicCoefficient`.
+
+Define πₙ:Gr_q(A)→ₗ[A]Gₙ by sending the actual class of a Rees polynomial p to [p.coeff n]. This descends the real coefficient map through q Rees(q).
+
+Compose cₙ with the homogeneous quotient map. Every p in q Rees(q) has coefficient in qⁿ⁺¹ by the existing coefficient-ideal criterion. The new zero criterion kills its quotient class, so the pinned liftQ descends the map.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicCoefficient_mk`: πₙ([p])=[cₙ(p)] for every actual p∈Rees(q).
+- `TauCeti.HilbertSamuel.adicCoefficient_monomial_same`: For a∈qⁿ, πₙ(μₙ(a))=[a] in Gₙ.
+- `TauCeti.HilbertSamuel.adicCoefficient_monomial_ne`: For n≠m and a∈qᵐ, πₙ(μₘ(a))=0 in Gₙ.
+- `TauCeti.HilbertSamuel.adicCoefficient_inclusion_same`: For every a∈Gₙ, πₙ(ιₙ(a))=a.
+- `TauCeti.HilbertSamuel.adicCoefficient_inclusion_ne`: For n≠m and a∈Gₘ, πₙ(ιₘ(a))=0.
+- `TauCeti.HilbertSamuel.adicCoefficient_expansion`: For every finitely supported a∈⊕ₘGₘ, πₙ(E₀(a))=a(n).
+- `TauCeti.HilbertSamuel.adicCoefficient_directSumEquiv_symm`: For every x∈Gr_q(A), the n-th coordinate of the existing E⁻¹(x) is πₙ(x).
+- `TauCeti.HilbertSamuel.adicRingProjection_coefficient`: The existing native GradedAlgebra projection Pₙ on Gr_q(A) satisfies Pₙ(x)=ιₙ(πₙ(x)) for every x.
+
+Tests:
+
+- `AdicCoefficient.zero_ideal_value`: For q=0 in ℤ, π₀(μ₀(−3))=[−3]≠0.
+- `AdicCoefficient.two_degrees`: For q=(2) in ℤ and x=μ₀(3)+μ₁(2), π₁(x)=[2] and π₂(x)=0.
+- `AdicCoefficient.nilpotent_survives`: For q=(2) in ℤ/4, π₁(μ₁(2))≠0 even though μ₁(2)²=0.
+- `AdicCoefficient.next_power_killed`: For q=(4) in ℤ, π₁(μ₁(16))=0 because 16∈q².
+
+## Coefficients of a quotient representative
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-representative`; `TauCeti.HilbertSamuel.adicCoefficient_mk`.
+
+πₙ([p])=[cₙ(p)] for every actual p∈Rees(q).
+
+Evaluate the native liftQ on its quotient representative; the formula is definitional.
+
+## Coefficient of a monomial in its own degree
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-monomial-same`; `TauCeti.HilbertSamuel.adicCoefficient_monomial_same`.
+
+For a∈qⁿ, πₙ(μₙ(a))=[a] in Gₙ.
+
+Use the existing native monomial representative and quotient coefficient formula. Apply Polynomial.coeff_monomial_same and subtype extensionality.
+
+## A monomial has no coefficients in other degrees
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-monomial-other`; `TauCeti.HilbertSamuel.adicCoefficient_monomial_ne`.
+
+For n≠m and a∈qᵐ, πₙ(μₘ(a))=0 in Gₙ.
+
+The coefficient of the monomial in the different degree is zero. Zero lies in qⁿ⁺¹, so its homogeneous quotient class vanishes.
+
+## Coefficient projection splits its homogeneous inclusion
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-inclusion-same`; `TauCeti.HilbertSamuel.adicCoefficient_inclusion_same`.
+
+For every a∈Gₙ, πₙ(ιₙ(a))=a.
+
+Choose a representative of the actual homogeneous quotient class. Reduce to the same-degree monomial coefficient formula.
+
+## Coefficient projection kills different homogeneous pieces
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-inclusion-other`; `TauCeti.HilbertSamuel.adicCoefficient_inclusion_ne`.
+
+For n≠m and a∈Gₘ, πₙ(ιₘ(a))=0.
+
+Choose a representative of the actual homogeneous quotient class. Apply the different-degree monomial coefficient formula.
+
+## Finite expansion on a homogeneous generator
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-generator`; `TauCeti.HilbertSamuel.adicExpansion_lof`.
+
+E₀(lofn(a))=ιₙ(a) for every a∈Gₙ.
+
+Use the actual DirectSum.toModule_lof equation.
+
+## Coefficient projections recover finite-sum coordinates
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-coordinates`; `TauCeti.HilbertSamuel.adicCoefficient_expansion`.
+
+For every finitely supported a∈⊕ₘGₘ, πₙ(E₀(a))=a(n).
+
+Compare the two actual linear maps πₙ∘E₀ and native coordinate evaluation. DirectSum.linearMap_ext reduces equality to homogeneous generators. In the same degree use πₙιₙ=id; in other degrees both sides are zero.
+
+## Finite homogeneous expansion is injective
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-injective`; `TauCeti.HilbertSamuel.adicExpansion_injective`.
+
+E₀:⊕ₙGₙ→Gr_q(A) is injective for every commutative ring and every ideal.
+
+Apply πₙ to an equality of expanded sums for each n. The coordinate formula recovers equal coordinates; DFinsupp.ext proves equality of the actual finitely supported sums.
+
+## Every graded class has a finite homogeneous expansion
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-surjective`; `TauCeti.HilbertSamuel.adicExpansion_surjective`.
+
+Every x∈Gr_q(A) is E₀(a) for some actual finitely supported a∈⊕ₙGₙ.
+
+Choose an actual Rees polynomial representing x. Sum lofn([cₙ(p)]) over the finite polynomial support. The monomial formula and Polynomial.as_sum_support show that expansion recovers [p]. No infinite support or power-series representative occurs.
+
+## Canonical recomposition agrees with finite expansion
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-recomposition-comparison`; `TauCeti.HilbertSamuel.adicRecompose_componentEquiv`.
+
+For a∈⊕ₙGₙ, coeLinearMap(⊕ₙeₙ(a))=E₀(a), where eₙ is the existing equivalence with the image of ιₙ.
+
+Compare actual linear maps on the native direct sum by linearMap_ext. On lofn(a), coordinatewise congruence gives lofn(eₙ(a)), and canonical recomposition gives ιₙ(a). This is exactly E₀ on the same generator.
+
+## The inverse comparison has the actual coefficient coordinates
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-inverse-expansion-coordinates`; `TauCeti.HilbertSamuel.adicCoefficient_directSumEquiv_symm`.
+
+For every x∈Gr_q(A), the n-th coordinate of the existing E⁻¹(x) is πₙ(x).
+
+Apply the coefficient-expansion formula to E⁻¹(x). The existing equivalence has underlying map E₀; its inverse law reduces the expansion to x.
+
+## Native graded projection is inclusion after coefficient extraction
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-projection-coefficient`; `TauCeti.HilbertSamuel.adicRingProjection_coefficient`.
+
+The existing native GradedAlgebra projection Pₙ on Gr_q(A) satisfies Pₙ(x)=ιₙ(πₙ(x)) for every x.
+
+Use the pinned internally graded linear-map extensionality theorem to compare Pₙ with ιₙ∘πₙ. Choose a representative in each image submodule. The existing projection formula and the same/different-degree coefficient formulas agree on that homogeneous inclusion.
+
+Tests:
+
+- `AdicProjection.nilpotent_degree_control`: For q=(2) in ℤ/4 and x=μ₁(2), the native graded projections satisfy P₁(x)=x and P₀(x)=0.
+
+## Coefficient change commutes with native graded projections
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-projection`; `TauCeti.HilbertSamuel.adicGradedMap_projection`.
+
+For a ring map f:A→B, ideals I,J and I≤f⁻¹(J), Pᴶₙ(Gr(f)(x))=Gr(f)(Pᴵₙ(x)) for every x∈Gr_I(A). Injectivity of f is neither required nor inferred.
+
+Write x as a finite expansion by actual surjectivity. Induct on the native direct sum. For a generator choose a homogeneous quotient representative and use coefficient-change monomials; projection selects its degree or kills it on both sides. Zero and addition follow the actual bundled map laws.
+
+## Preserved scope and remaining work
+
+This native proof checkpoint establishes the old finite expansion, direct-sum equivalence, ring homogeneous decomposition, GradedAlgebra registration and projection laws on the ordinary Rees quotient, with no admitted native proof. The canonical suggested file remains an unchecked signature plan. Actual graded modules, their decompositions and actions, finite generation, general Hilbert–Serre, support/degree comparison, associativity of multiplicity and the full reserved Hilbert–Samuel target remain open; retain every older remaining item and gap.
+
+All 298 previous mathematical contracts remain intact. Exactly two old node objects gain explicit prerequisite edges: expansion bijectivity cites the new map/injectivity/surjectivity nodes, and grading registration cites canonical recomposition comparison. The other 296 old nodes are identical. All 15 gaps, both supplier requests, all 13 planets, source issues/versions and eight coverage rows are retained; R03.3 gains the checkpoint explanation above. The inherited LocalFieldsRamification layer 0 to R03.4 supplier path remains missing and documented.
+
+The incoming coefficient-change proof archive was recovered over public HTTP from PR #5997 and authenticated. The new native source includes that whole admission-free source and its tests, so its actual coefficient-ideal and monomial proofs are rechecked, not replaced by axioms. The handoff gives hash-authenticated recovery and serial replay in an existing exact mathlib build.
+
+---
+
 # Native coefficient change on ordinary adic graded rings
 
 Checkpoint by Codex codex-7e92bd, 3 October 2026. The full eight-stage part remains partial and every declaration is unchecked.

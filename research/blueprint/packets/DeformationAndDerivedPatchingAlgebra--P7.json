@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation.",
+  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2710,6 +2710,104 @@
         "module": "Mathlib/Algebra/Ring/Equiv.lean",
         "provides": "noncomputable def ofBijective [NonUnitalRingHomClass F R S] (f : F) (hf : Function.Bijective f) :",
         "checked": "Selected declaration statement and surrounding hypotheses read at the exact Mathlib pin; the native coefficient-change prototype elaborates against that pin."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_monomial",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+        "provides": "The degree-m coefficient of monomial n a is a if n=m, and zero otherwise.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_add",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Coeff.lean",
+        "provides": "Polynomial coefficient extraction preserves addition.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_smul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Coeff.lean",
+        "provides": "Polynomial coefficient extraction preserves scalar multiplication under SMulZeroClass.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_monomial_same",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+        "provides": "The coefficient of monomial n c in degree n is c.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:DFinsupp.ext",
+        "kind": "theorem",
+        "module": "Mathlib/Data/DFinsupp/Defs.lean",
+        "provides": "Actual dependent finitely supported functions are equal if all coordinates agree.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:DFinsupp.single_eq_same",
+        "kind": "theorem",
+        "module": "Mathlib/Data/DFinsupp/Defs.lean",
+        "provides": "Evaluation of a dependent single at its own index recovers its value.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:DFinsupp.single_eq_of_ne",
+        "kind": "theorem",
+        "module": "Mathlib/Data/DFinsupp/Defs.lean",
+        "provides": "Evaluation of a dependent single at a different index is zero; the premise is evaluation index ≠ single index.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:DirectSum.decompose_lhom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/DirectSum/Decomposition.lean",
+        "provides": "Two linear maps from an internally graded module agree if they agree on every homogeneous subtype inclusion.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:DirectSum.coeLinearMap_lof",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/DirectSum/Module.lean",
+        "provides": "Canonical recomposition on a native homogeneous lof gives its underlying ambient value.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:DirectSum.induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/DirectSum/Basic.lean",
+        "provides": "Induction on the actual direct sum uses zero, homogeneous inclusions and addition.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:LinearMap.ext",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "Pointwise equality proves equality of semilinear maps.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.apply_symm_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Equiv/Defs.lean",
+        "provides": "A linear equivalence applied to its inverse gives the original element.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.symm_apply_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Equiv/Defs.lean",
+        "provides": "The inverse linear equivalence applied after the forward map gives the original element.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
+      },
+      {
+        "ref": "mathlib:SetLike.mul_mem_graded",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/GradedMonoid.lean",
+        "provides": "The product of elements in internal degrees i,j belongs to degree i+j.",
+        "checked": "Statement and surrounding assumptions read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact native applications are archived and axiom-audited."
       }
     ]
   },
@@ -3797,6 +3895,19 @@
         "10.70.1(1), separate fetch receipt for tag 052P; only definition and early context read"
       ],
       "derivation": "Coefficient-change maps and their kernel theorem are proved here from the native pinned carriers."
+    },
+    {
+      "id": "ADIC-DECOMPOSITION-20261003",
+      "title": "Ordinary adic homogeneous decomposition and coefficient projections",
+      "authors": "The Stacks Project authors; explicit native adapter derivations by Codex codex-5ebb6f",
+      "edition": "Online source read 3 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+      "readSections": [
+        "10.59.5 complete proof and displayed ordinary associated graded ring",
+        "10.70.1(1), ordinary Rees algebra degree placement; separate receipt for tag 052P"
+      ],
+      "derivation": "Coefficient projections, actual finite direct-sum bijectivity and native GradedAlgebra registration are derived explicitly here. No general filtered/derived Rees framework is redesigned."
     }
   ],
   "nodes": [
@@ -7504,7 +7615,10 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal",
         "mathlib:DirectSum.toModule",
         "mathlib:DirectSum.toModule_lof",
-        "mathlib:Polynomial.as_sum_support"
+        "mathlib:Polynomial.as_sum_support",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-map",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-injective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-surjective"
       ],
       "sources": [
         {
@@ -8612,7 +8726,8 @@
         "mathlib:GradedAlgebra.proj",
         "mathlib:GradedAlgebra.proj_apply",
         "mathlib:DirectSum.decompose_coe",
-        "mathlib:DirectSum.linearMap_ext"
+        "mathlib:DirectSum.linearMap_ext",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-recomposition-comparison"
       ],
       "sources": [
         {
@@ -20728,6 +20843,922 @@
       },
       "implementationStatus": "unchecked",
       "declaration": "TauCeti.HilbertSamuel.adicGradedMap_residue"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-map",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finite homogeneous expansion",
+      "kind": "construction",
+      "statement": "Define the existing A-linear finite-sum map E₀:⊕ₙGₙ→Gr_q(A) by E₀(lofn(a))=ιₙ(a). The carrier is the ordinary Rees quotient and only finitely supported sums are permitted.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Apply the existing DirectSum.toModule to the actual quotient inclusions ιₙ. This names the map already embedded in the bijectivity node, without replacing its carrier or defining it twice."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion",
+        "mathlib:DirectSum.toModule"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicExpansion",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicExpansion_lof",
+          "role": "compatibility",
+          "statement": "E₀(lofn(a))=ιₙ(a) for every a∈Gₙ."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicCoefficient_expansion",
+          "role": "compatibility",
+          "statement": "For every finitely supported a∈⊕ₘGₘ, πₙ(E₀(a))=a(n)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicExpansion_injective",
+          "role": "characterisation",
+          "statement": "E₀:⊕ₙGₙ→Gr_q(A) is injective for every commutative ring and every ideal."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicExpansion_surjective",
+          "role": "characterisation",
+          "statement": "Every x∈Gr_q(A) is E₀(a) for some actual finitely supported a∈⊕ₙGₙ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 10.59.5; R03.3 ordinary graded-ring registration and eventual Hilbert–Samuel polynomial",
+          "how": "Supply the actual finite homogeneous decomposition and coefficient coordinates used by the native grading before applying the still-open general graded-module and Hilbert–Serre arguments."
+        },
+        {
+          "where": "R03.3 coefficient-change maps and tangent cones",
+          "how": "Fix coordinate evaluation and degree control on the original quotient, including nilpotents and the unit ideal."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicExpansion.zero_ideal_recovery",
+          "kind": "degenerate",
+          "statement": "For q=0 in ℤ, the finite degree-zero class [−3] is recovered by E⁻¹E₀ and has zero degree-one coefficient."
+        },
+        {
+          "name": "AdicExpansion.nonreduced_two_pieces",
+          "kind": "computation",
+          "statement": "For q=(2) in ℤ/4, expansion of lof₀([1])+lof₁([2]) has coefficient [1] in degree zero and [2] in degree one."
+        },
+        {
+          "name": "AdicExpansion.unit_ideal",
+          "kind": "degenerate",
+          "statement": "For q=A, E₀(x)=0 and every actual finitely supported homogeneous sum x is zero."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-coefficient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient extraction on the Rees algebra",
+      "kind": "construction",
+      "statement": "For every n, define the A-linear map cₙ:Rees(q)→qⁿ by cₙ(p)=p.coeff n, with membership given by the native Rees subtype.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Use the native coefficient membership proof p.property n. Polynomial.coeff_add and coeff_smul establish the actual linear-map laws; no coefficient is selected by a new abstract field."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "mathlib:reesAlgebra",
+        "mathlib:Polynomial.coeff_add",
+        "mathlib:Polynomial.coeff_smul"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicReesCoefficient",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesCoefficient_apply",
+          "role": "compatibility",
+          "statement": "The underlying A-value of cₙ(p) equals the actual polynomial coefficient p.coeff n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesCoefficient_add",
+          "role": "simp",
+          "statement": "For all actual Rees polynomials p,r, cₙ(p+r)=cₙ(p)+cₙ(r)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesCoefficient_smul",
+          "role": "simp",
+          "statement": "For every scalar a∈A and actual Rees polynomial p, cₙ(a·p)=a·cₙ(p)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 10.59.5; R03.3 ordinary graded-ring registration and eventual Hilbert–Samuel polynomial",
+          "how": "Supply the actual finite homogeneous decomposition and coefficient coordinates used by the native grading before applying the still-open general graded-module and Hilbert–Serre arguments."
+        },
+        {
+          "where": "R03.3 coefficient-change maps and tangent cones",
+          "how": "Fix coordinate evaluation and degree control on the original quotient, including nilpotents and the unit ideal."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicReesCoefficient.degree_three",
+          "kind": "computation",
+          "statement": "For q=ℤ and p=7T³, c₃(p)=7 while c₀(p)=0."
+        },
+        {
+          "name": "AdicReesCoefficient.zero_ideal_constant",
+          "kind": "degenerate",
+          "statement": "For q=0 in ℤ, c₀ of the actual Rees constant −3 equals −3."
+        },
+        {
+          "name": "AdicReesCoefficient.nilpotent_coefficient",
+          "kind": "non-example",
+          "statement": "For q=(2) in ℤ/4 and p=2T, the degree-one coefficient is 2≠0 despite being nilpotent."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-coefficient-value",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Underlying value of a Rees coefficient",
+      "kind": "lemma",
+      "statement": "The underlying A-value of cₙ(p) equals the actual polynomial coefficient p.coeff n.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "The formula is definitional equality."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-coefficient"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicReesCoefficient_apply"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-zero-criterion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Zero criterion for a homogeneous quotient class",
+      "kind": "lemma",
+      "statement": "For a∈qⁿ, its class in Gₙ=qⁿ/(q·qⁿ) is zero if and only if a∈qⁿ⁺¹.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Rewrite quotient-class zero as membership in q·qⁿ.",
+        "Use the already proved monomial kernel and its exact coefficient-power zero criterion."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-kernel",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-zero-criterion",
+        "mathlib:Submodule.Quotient.mk_eq_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicPiece_mk_eq_zero_iff"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient projections on the adic graded ring",
+      "kind": "construction",
+      "statement": "Define πₙ:Gr_q(A)→ₗ[A]Gₙ by sending the actual class of a Rees polynomial p to [p.coeff n]. This descends the real coefficient map through q Rees(q).",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Compose cₙ with the homogeneous quotient map.",
+        "Every p in q Rees(q) has coefficient in qⁿ⁺¹ by the existing coefficient-ideal criterion. The new zero criterion kills its quotient class, so the pinned liftQ descends the map."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-coefficient",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-zero-criterion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/rees-coefficient-ideal",
+        "mathlib:Submodule.liftQ"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicCoefficient",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicCoefficient_mk",
+          "role": "compatibility",
+          "statement": "πₙ([p])=[cₙ(p)] for every actual p∈Rees(q)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicCoefficient_monomial_same",
+          "role": "compatibility",
+          "statement": "For a∈qⁿ, πₙ(μₙ(a))=[a] in Gₙ."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicCoefficient_monomial_ne",
+          "role": "compatibility",
+          "statement": "For n≠m and a∈qᵐ, πₙ(μₘ(a))=0 in Gₙ."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicCoefficient_inclusion_same",
+          "role": "compatibility",
+          "statement": "For every a∈Gₙ, πₙ(ιₙ(a))=a."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicCoefficient_inclusion_ne",
+          "role": "compatibility",
+          "statement": "For n≠m and a∈Gₘ, πₙ(ιₘ(a))=0."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicCoefficient_expansion",
+          "role": "compatibility",
+          "statement": "For every finitely supported a∈⊕ₘGₘ, πₙ(E₀(a))=a(n)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicCoefficient_directSumEquiv_symm",
+          "role": "compatibility",
+          "statement": "For every x∈Gr_q(A), the n-th coordinate of the existing E⁻¹(x) is πₙ(x)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicRingProjection_coefficient",
+          "role": "compatibility",
+          "statement": "The existing native GradedAlgebra projection Pₙ on Gr_q(A) satisfies Pₙ(x)=ιₙ(πₙ(x)) for every x."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 10.59.5; R03.3 ordinary graded-ring registration and eventual Hilbert–Samuel polynomial",
+          "how": "Supply the actual finite homogeneous decomposition and coefficient coordinates used by the native grading before applying the still-open general graded-module and Hilbert–Serre arguments."
+        },
+        {
+          "where": "R03.3 coefficient-change maps and tangent cones",
+          "how": "Fix coordinate evaluation and degree control on the original quotient, including nilpotents and the unit ideal."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicCoefficient.zero_ideal_value",
+          "kind": "degenerate",
+          "statement": "For q=0 in ℤ, π₀(μ₀(−3))=[−3]≠0."
+        },
+        {
+          "name": "AdicCoefficient.two_degrees",
+          "kind": "computation",
+          "statement": "For q=(2) in ℤ and x=μ₀(3)+μ₁(2), π₁(x)=[2] and π₂(x)=0."
+        },
+        {
+          "name": "AdicCoefficient.nilpotent_survives",
+          "kind": "non-example",
+          "statement": "For q=(2) in ℤ/4, π₁(μ₁(2))≠0 even though μ₁(2)²=0."
+        },
+        {
+          "name": "AdicCoefficient.next_power_killed",
+          "kind": "computation",
+          "statement": "For q=(4) in ℤ, π₁(μ₁(16))=0 because 16∈q²."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-representative",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficients of a quotient representative",
+      "kind": "lemma",
+      "statement": "πₙ([p])=[cₙ(p)] for every actual p∈Rees(q).",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Evaluate the native liftQ on its quotient representative; the formula is definitional."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicCoefficient_mk"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-monomial-same",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient of a monomial in its own degree",
+      "kind": "lemma",
+      "statement": "For a∈qⁿ, πₙ(μₙ(a))=[a] in Gₙ.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Use the existing native monomial representative and quotient coefficient formula.",
+        "Apply Polynomial.coeff_monomial_same and subtype extensionality."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-coefficient-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map",
+        "mathlib:Polynomial.coeff_monomial_same"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicCoefficient_monomial_same"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-monomial-other",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "A monomial has no coefficients in other degrees",
+      "kind": "lemma",
+      "statement": "For n≠m and a∈qᵐ, πₙ(μₘ(a))=0 in Gₙ.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "The coefficient of the monomial in the different degree is zero.",
+        "Zero lies in qⁿ⁺¹, so its homogeneous quotient class vanishes."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-zero-criterion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map",
+        "mathlib:Polynomial.coeff_monomial"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicCoefficient_monomial_ne"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-inclusion-same",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient projection splits its homogeneous inclusion",
+      "kind": "lemma",
+      "statement": "For every a∈Gₙ, πₙ(ιₙ(a))=a.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Choose a representative of the actual homogeneous quotient class.",
+        "Reduce to the same-degree monomial coefficient formula."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-monomial-same",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion",
+        "mathlib:Submodule.mkQ_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicCoefficient_inclusion_same"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-inclusion-other",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient projection kills different homogeneous pieces",
+      "kind": "lemma",
+      "statement": "For n≠m and a∈Gₘ, πₙ(ιₘ(a))=0.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Choose a representative of the actual homogeneous quotient class.",
+        "Apply the different-degree monomial coefficient formula."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-monomial-other",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion",
+        "mathlib:Submodule.mkQ_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicCoefficient_inclusion_ne"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-generator",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finite expansion on a homogeneous generator",
+      "kind": "lemma",
+      "statement": "E₀(lofn(a))=ιₙ(a) for every a∈Gₙ.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Use the actual DirectSum.toModule_lof equation."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-map",
+        "mathlib:DirectSum.toModule_lof"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicExpansion_lof"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-coordinates",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient projections recover finite-sum coordinates",
+      "kind": "lemma",
+      "statement": "For every finitely supported a∈⊕ₘGₘ, πₙ(E₀(a))=a(n).",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Compare the two actual linear maps πₙ∘E₀ and native coordinate evaluation.",
+        "DirectSum.linearMap_ext reduces equality to homogeneous generators. In the same degree use πₙιₙ=id; in other degrees both sides are zero."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-generator",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-inclusion-same",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-inclusion-other",
+        "mathlib:DirectSum.linearMap_ext",
+        "mathlib:DFinsupp.lapply",
+        "mathlib:DFinsupp.single_eq_same",
+        "mathlib:DFinsupp.single_eq_of_ne"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicCoefficient_expansion"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-injective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finite homogeneous expansion is injective",
+      "kind": "lemma",
+      "statement": "E₀:⊕ₙGₙ→Gr_q(A) is injective for every commutative ring and every ideal.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Apply πₙ to an equality of expanded sums for each n.",
+        "The coordinate formula recovers equal coordinates; DFinsupp.ext proves equality of the actual finitely supported sums."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-coordinates",
+        "mathlib:DFinsupp.ext"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicExpansion_injective"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-surjective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Every graded class has a finite homogeneous expansion",
+      "kind": "lemma",
+      "statement": "Every x∈Gr_q(A) is E₀(a) for some actual finitely supported a∈⊕ₙGₙ.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Choose an actual Rees polynomial representing x.",
+        "Sum lofn([cₙ(p)]) over the finite polynomial support. The monomial formula and Polynomial.as_sum_support show that expansion recovers [p]. No infinite support or power-series representative occurs."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-generator",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-coefficient-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-monomial-map",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:Polynomial.as_sum_support"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicExpansion_surjective"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-recomposition-comparison",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Canonical recomposition agrees with finite expansion",
+      "kind": "lemma",
+      "statement": "For a∈⊕ₙGₙ, coeLinearMap(⊕ₙeₙ(a))=E₀(a), where eₙ is the existing equivalence with the image of ιₙ.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Compare actual linear maps on the native direct sum by linearMap_ext.",
+        "On lofn(a), coordinatewise congruence gives lofn(eₙ(a)), and canonical recomposition gives ιₙ(a). This is exactly E₀ on the same generator."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-generator",
+        "mathlib:DirectSum.linearMap_ext",
+        "mathlib:DirectSum.congrLinearEquiv",
+        "mathlib:DirectSum.lmap_lof",
+        "mathlib:DirectSum.coeLinearMap_lof"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicRecompose_componentEquiv"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-inverse-expansion-coordinates",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The inverse comparison has the actual coefficient coordinates",
+      "kind": "lemma",
+      "statement": "For every x∈Gr_q(A), the n-th coordinate of the existing E⁻¹(x) is πₙ(x).",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Apply the coefficient-expansion formula to E⁻¹(x).",
+        "The existing equivalence has underlying map E₀; its inverse law reduces the expansion to x."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-direct-sum",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-coordinates",
+        "mathlib:LinearEquiv.apply_symm_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicCoefficient_directSumEquiv_symm"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-projection-coefficient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Native graded projection is inclusion after coefficient extraction",
+      "kind": "lemma",
+      "statement": "The existing native GradedAlgebra projection Pₙ on Gr_q(A) satisfies Pₙ(x)=ιₙ(πₙ(x)) for every x.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Use the pinned internally graded linear-map extensionality theorem to compare Pₙ with ιₙ∘πₙ.",
+        "Choose a representative in each image submodule. The existing projection formula and the same/different-degree coefficient formulas agree on that homogeneous inclusion."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-inclusion-same",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-coefficient-inclusion-other",
+        "mathlib:DirectSum.decompose_lhom_ext"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicRingProjection_coefficient",
+      "tests": [
+        {
+          "name": "AdicProjection.nilpotent_degree_control",
+          "kind": "computation",
+          "statement": "For q=(2) in ℤ/4 and x=μ₁(2), the native graded projections satisfy P₁(x)=x and P₀(x)=0."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-projection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Coefficient change commutes with native graded projections",
+      "kind": "lemma",
+      "statement": "For a ring map f:A→B, ideals I,J and I≤f⁻¹(J), Pᴶₙ(Gr(f)(x))=Gr(f)(Pᴵₙ(x)) for every x∈Gr_I(A). Injectivity of f is neither required nor inferred.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings with identity, q,I,J are arbitrary ideals, and n,m are natural degrees. No local, Noetherian, finite-generation, proper-ideal, reducedness or domain assumption.",
+        "For coefficient change, f is a ring homomorphism with the explicitly stated ideal containment."
+      ],
+      "proofSteps": [
+        "Write x as a finite expansion by actual surjectivity.",
+        "Induct on the native direct sum. For a generator choose a homogeneous quotient representative and use coefficient-change monomials; projection selects its degree or kills it on both sides. Zero and addition follow the actual bundled map laws."
+      ],
+      "acceptance": [
+        "Use the native ordinary Rees ideal quotient and its actual homogeneous quotient pieces.",
+        "Retain finite support and correct degree placement; the ℤ/4 examples distinguish surviving nilpotents from zero classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-surjective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-coefficient-change-monomials",
+        "mathlib:DirectSum.induction_on"
+      ],
+      "sources": [
+        {
+          "sourceId": "ADIC-DECOMPOSITION-20261003",
+          "locator": "Stacks 10.59.5, complete proof and displayed ordinary graded ring; 10.70.1(1), degree placement",
+          "excerpt": "graded ring",
+          "match": "Stacks supplies the ordinary carriers. These coefficient projections, finite expansion proofs and grading adapters are derived here from the pinned polynomial, quotient and DirectSum APIs; they are not claimed as named source results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedMap_projection"
     }
   ],
   "baselineCoverage": [
@@ -20866,7 +21897,8 @@
         "The actual equation-jet image is now compared with the native q^n/(q·q^n) carrier in A=R/(f), using the pinned general quotient theorem, with homogeneous representative and principal degreewise kernel adapters. Assemble the generator-compatible multiplication and full graded tangent-cone isomorphism. Curve/support dimension, comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain open. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain required; canonical bodies remain admitted and all nodes unchecked.",
         "The full multiplicative map, surjectivity, homogeneous projection compatibility, finite-sum full principal kernel and generator/component-compatible tangent-cone equivalence now have explicit mathematical proof plans and admitted native Lean prototypes. Their new proof bodies have NOT been certified; historical Rees/ring-grading bodies remain required. This supersedes the missing assembly plan, not its implementation. Curve/support dimension, comparison with the general cumulative polynomial, intrinsic and ambient multiplicities, general Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and all routed-paper obligations remain open. Arbitrary commutative coefficients are allowed for the map; the principal kernel keeps NoZeroDivisors and exact finite order, with separate zero/unit and order-zero-nonunit branches.",
         "Graded annihilator transport and the nonzero primary boundary now have independent native prototypes. General polynomial invariance is conditional on the existing admitted eventual specification, not a new proof of Hilbert–Serre. The M=0 exception in Stacks Remark 43.15.6 is recorded; formulate the remaining module-relative ideal-of-definition extension with this branch separate. All existing graded finiteness, general polynomial existence, support-degree, completion, associativity and routed-source obligations remain required.",
-        "This continuation supplies native proofs for coefficient change, its exact kernel criterion, and the old coefficient-ideal/monomial/piece core. Full graded decomposition, module grading, finite generation, general Hilbert–Serre and support-degree comparison remain unproved here. Preserve every previous coverage obligation and the full reserved Hilbert–Samuel multiplicity target."
+        "This continuation supplies native proofs for coefficient change, its exact kernel criterion, and the old coefficient-ideal/monomial/piece core. Full graded decomposition, module grading, finite generation, general Hilbert–Serre and support-degree comparison remain unproved here. Preserve every previous coverage obligation and the full reserved Hilbert–Samuel multiplicity target.",
+        "This native proof checkpoint establishes the old finite expansion, direct-sum equivalence, ring homogeneous decomposition, GradedAlgebra registration and projection laws on the ordinary Rees quotient, with no admitted native proof. The canonical suggested file remains an unchecked signature plan. Actual graded modules, their decompositions and actions, finite generation, general Hilbert–Serre, support/degree comparison, associativity of multiplicity and the full reserved Hilbert–Samuel target remain open; retain every older remaining item and gap."
       ]
     },
     {
@@ -23116,5 +24148,26 @@
     "oldContractsPreserved": 271,
     "remaining": "This continuation supplies native proofs for coefficient change, its exact kernel criterion, and the old coefficient-ideal/monomial/piece core. Full graded decomposition, module grading, finite generation, general Hilbert–Serre and support-degree comparison remain unproved here. Preserve every previous coverage obligation and the full reserved Hilbert–Samuel multiplicity target.",
     "priorArt": "Current Mathlib commit 302343bb9a029d4edab4f736703f0736896c1b64 has mem_map_algebraMap_reesAlgebra_iff beyond the required pin. Reuse it after a pin update; the existing blueprint theorem is not a new mathematical claim. PR 9819 is an open graded-finiteness/Hilbert–Serre lead, not adopted code. Bounded Zulip search produced no pertinent thread; this is not an absence certificate."
+  },
+  "homogeneousDecompositionContinuation": {
+    "worker": "Codex codex-5ebb6f",
+    "mathematicalBase": "99a13a08145478c56bee6f65460849f58d59a29e",
+    "newDeclarations": 18,
+    "newApiItems": 15,
+    "newTests": 11,
+    "oldContractsPreserved": 298,
+    "oldWholeObjectsPreserved": 296,
+    "refinedDependencies": {
+      "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-bijective": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-map",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-injective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-surjective"
+      ],
+      "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-recomposition-comparison"
+      ]
+    },
+    "remaining": "This native proof checkpoint establishes the old finite expansion, direct-sum equivalence, ring homogeneous decomposition, GradedAlgebra registration and projection laws on the ordinary Rees quotient, with no admitted native proof. The canonical suggested file remains an unchecked signature plan. Actual graded modules, their decompositions and actions, finite generation, general Hilbert–Serre, support/degree comparison, associativity of multiplicity and the full reserved Hilbert–Samuel target remain open; retain every older remaining item and gap.",
+    "priorArt": "Fresh PR metadata for Mathlib #33220 (head 70572cd62395e933e8f6476bcedcee366a5b5e82) and #9819 (head 413e5b872a7c758e0eb91f99cb96d6a61c81f0a2) still shows open, unmerged general graded-module/Hilbert–Serre leads, not adopted code. Pinned TauCeti WordFiltration/AssociatedGraded lines 1–175 were read: their ascending word quotients do not supply this descending ideal-adic Rees-quotient adapter. No global absence certificate is asserted."
   }
 }
