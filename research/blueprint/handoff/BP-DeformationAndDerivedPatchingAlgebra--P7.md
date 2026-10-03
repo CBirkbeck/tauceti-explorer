@@ -18,9 +18,9 @@ The indexed packet checker, actual intake path/ownership checks, whole-object pr
 
 Mathematical base:fb636d0b727444d0078a661b7591b0d79409af63. Publication base:2bc684df36a586e1a305395ddf6f0d0fb82aa63c. Only the four issue-authorized deliverables change.
 
-The checked prototype is archived in the inert suggested-file block at [ARCHIVE_COMMIT](https://github.com/CBirkbeck/tauceti-explorer/commit/ARCHIVE_COMMIT). The final suggested file restores admitted planning bodies. Save the first four Python blocks below as recover.py,verify.py,immutable_view.py,graph.py in disk evidence storage. From the submitted checkout, run python3 EVIDENCE/recover.py SUBMITTED_COMMIT EVIDENCE, then P7_VALIDATE_BASE=2bc684df36a586e1a305395ddf6f0d0fb82aa63c python3 EVIDENCE/verify.py EVIDENCE PINNED_DECLARATIONS_TSV. Recovery fetches immutable public sources and checks their exact hashes. Compiler logs are not distributed; their receipts below record the original executions. Without logs the verifier explicitly reports source/header validation only. For a new execution, check free memory and existing build pins and compile Native.lean and Canonical.lean serially with timeout1200, redirecting to native.log and canonical.log and using the elapsed/peak resource footer checked by verify.py. Do not set up or build libraries.
+The checked prototype is archived in the inert suggested-file block at [a9ae87a27904da425bf9d997e038bfa23fe3a466](https://github.com/CBirkbeck/tauceti-explorer/commit/a9ae87a27904da425bf9d997e038bfa23fe3a466). The final suggested file restores admitted planning bodies. Save the first four Python blocks below as recover.py,verify.py,immutable_view.py,graph.py in disk evidence storage. From the submitted checkout, run python3 EVIDENCE/recover.py SUBMITTED_COMMIT EVIDENCE, then P7_VALIDATE_BASE=2bc684df36a586e1a305395ddf6f0d0fb82aa63c python3 EVIDENCE/verify.py EVIDENCE PINNED_DECLARATIONS_TSV. Recovery fetches immutable public sources and checks their exact hashes. Compiler logs are not distributed; their receipts below record the original executions. Without logs the verifier explicitly reports source/header validation only. For a new execution, check free memory and existing build pins and compile Native.lean and Canonical.lean serially with timeout1200, redirecting to native.log and canonical.log and using the elapsed/peak resource footer checked by verify.py. Do not set up or build libraries.
 
-### recover.py (SHA-256 274eb5d8d69c552a174aad0f9fe2e7faf9cfe3fc2b2fda08523cccf3ccccf010)
+### recover.py (SHA-256 c3275a6c1fe022c42dab1c8dd06fe9839a475de437a2ec280591c745e383e9fb)
 
 ```python
 from pathlib import Path
@@ -28,7 +28,7 @@ from urllib.request import urlopen
 import hashlib,json,re,sys
 STEM='DeformationAndDerivedPatchingAlgebra--P7'
 PATH='research/blueprint/suggested/'+STEM+'.lean'
-ARCHIVE='ARCHIVE_COMMIT'
+ARCHIVE='a9ae87a27904da425bf9d997e038bfa23fe3a466'
 INCOMING='ad60c74c52d6e284558f4c3c87a435897e5eaa4f'
 BASE='fb636d0b727444d0078a661b7591b0d79409af63'
 def read(ref,path):return urlopen('https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path).read().decode()
@@ -60,9 +60,32 @@ if __name__=='__main__':
  fences=re.findall(r'```python\n(.*?)```',handoff,re.S)
  for filename,code in zip(['recover.py','verify.py','immutable_view.py','graph.py'],fences[:4]):(out/filename).write_text(code)
  print('Public source/hash recovery passed; compiler logs are not distributed or recertified.')
+```json\n(.*?)```',handoff,re.S)[0])
+ native=section(read(ARCHIVE,PATH),'/- BEGIN ARCHIVED CHECKED DEGREE QUOTIENT COMPARISON','END ARCHIVED CHECKED DEGREE QUOTIENT COMPARISON -/')
+ incoming=section(read(INCOMING,PATH),'/- BEGIN ARCHIVED CHECKED POLYNOMIAL HOMOGENEOUS COMPARISON','END ARCHIVED CHECKED POLYNOMIAL HOMOGENEOUS COMPARISON -/')
+ assert sha(incoming)=='6af365e82b4f3db615436237ee78b14c214e46509f8af8fcaa5653996c240139'
+ assert native.startswith(incoming+'\n')
+ tail=native[len(incoming)+1:]
+ new,sep,tail=tail.partition('\nnamespace TauCeti.HilbertSamuel.DegreeQuotientTests\n');assert sep
+ tests,sep,audits=('namespace TauCeti.HilbertSamuel.DegreeQuotientTests\n'+tail).partition('\n#print axioms TauCeti.HilbertSamuel.homogeneousLift\n');assert sep
+ audits='#print axioms TauCeti.HilbertSamuel.homogeneousLift\n'+audits
+ full=read(ref,PATH)
+ admitted=section(full,'/- BEGIN DEGREE QUOTIENT COMPARISON -/','/- END DEGREE QUOTIENT COMPARISON -/')
+ objects={'Native':native,'Canonical':full,'New':new,'Tests':tests,'Audits':audits,'NewAdmitted':admitted}
+ for name,text in objects.items():
+  assert sha(text)==metadata['proofHashes'][name],name
+  (out/(name+'.lean')).write_text(text)
+ (out/'incoming').mkdir(exist_ok=True);(out/'incoming/Native.lean').write_text(incoming)
+ for folder,ext in [('packets','.json'),('readmes','.md'),('suggested','.lean'),('handoff','.md')]:
+  path='research/blueprint/'+folder+'/'+('BP-' if folder=='handoff' else '')+STEM+ext
+  (out/('Incoming-'+folder+ext)).write_text(read(BASE,path))
+ (out/'metadata.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
+ fences=re.findall(r'```python\n(.*?)```',handoff,re.S)
+ for filename,code in zip(['recover.py','verify.py','immutable_view.py','graph.py'],fences[:4]):(out/filename).write_text(code)
+ print('Public source/hash recovery passed; compiler logs are not distributed or recertified.')
 ```
 
-### verify.py (SHA-256 5754bb38a74a063a07eac4952f89d63f983d390a83c49ae495c8102875b76dc5)
+### verify.py (SHA-256 1648e9df03c93e9bd1d069df244520ecab57dfa2e454d88e8b6ce894c98cd4e5)
 
 ```python
 from pathlib import Path
@@ -86,6 +109,7 @@ assert native==incoming+'\n'+new+'\n'+tests+'\n'+audits
 assert not re.search(r'\bsorry\b|^axiom\b',native,re.M)
 assert full.startswith((S/'Incoming-suggested.lean').read_text())
 assert reader.endswith((S/'Incoming-readmes.md').read_text())
+assert current[FILES[3]].decode().endswith((S/'Incoming-handoff.md').read_text())
 assert (S/'Canonical.lean').read_text()==full
 assert full.split('/- BEGIN DEGREE QUOTIENT COMPARISON -/\n')[1].split('/- END DEGREE QUOTIENT COMPARISON -/')[0]==admitted
 # Main body delimiters exclude type-level lets. Keep their entire actual binder text.
@@ -147,7 +171,7 @@ report={'checker':summary,'graph':graph,'preservedWholeNodeObjects':173,'newDecl
 print(json.dumps(report,ensure_ascii=False,indent=2))
 ```
 
-### immutable_view.py (SHA-256 90d0abf181dce0ccd9e1724375a4e7ee6bfa7779bf9bd5ba53739c536431541b)
+### immutable_view.py (SHA-256 136d1a1446746baede2ba0e47841633b497544e665335e4314b25bf09c1fdce1)
 
 ```python
 """Read the immutable audit tree without creating a repository snapshot."""
@@ -161,7 +185,7 @@ import sys
 
 import os
 REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
-BASE = os.environ.get('P7_VALIDATE_BASE', 'fb636d0b727444d0078a661b7591b0d79409af63')
+BASE = os.environ.get('P7_VALIDATE_BASE', '2bc684df36a586e1a305395ddf6f0d0fb82aa63c')
 TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
 CACHE = {}
 READS = set()
@@ -478,7 +502,112 @@ print(json.dumps(report,ensure_ascii=False,indent=2),flush=True)
       "resourceFooter": "Elapsed 29.51 seconds; peak 3603804 KiB",
       "execution": "Successful local log verified"
     }
-  }
+  },
+  "validation": {
+    "checker": {
+      "packet": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json",
+      "roadmap": "DeformationAndDerivedPatchingAlgebra",
+      "status": "partial",
+      "nodes": 192,
+      "kinds": {
+        "lemma": 137,
+        "theorem": 16,
+        "definition": 8,
+        "construction": 31
+      },
+      "apiItems": 171,
+      "unitTests": 150,
+      "planets": 13,
+      "baselineDeclarations": 313,
+      "prerequisites": {
+        "baseline": 425,
+        "node (this packet)": 302,
+        "node (integrated)": 1
+      },
+      "gaps": 15,
+      "requests": 2,
+      "stagesInScope": 8,
+      "stagesClosed": 0
+    },
+    "graph": {
+      "stageDAG": {
+        "vertices": 3003,
+        "edges": 8623,
+        "acyclic": true
+      },
+      "ownDAG": {
+        "vertices": 192,
+        "edges": 302,
+        "acyclic": true
+      },
+      "combinedDAG": {
+        "vertices": 3183,
+        "edges": 9118,
+        "acyclic": true
+      },
+      "reachableDeclarations": 193,
+      "externalDeclarations": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+      ],
+      "reachableBaselineReferences": 283,
+      "unresolved": [],
+      "otherPartsRetained": [
+        "DeformationAndDerivedPatchingAlgebra--R03.6"
+      ],
+      "partDeclarations": 192,
+      "partPlanets": 13,
+      "roadmapDeclarations": 245,
+      "requiredStagePairs": 13,
+      "requiredStagePairsReachable": 12,
+      "inheritedMissingStagePairs": [
+        [
+          "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+          "DeformationAndDerivedPatchingAlgebra:R03.4"
+        ]
+      ],
+      "acceptedRestructurePairs": 65,
+      "acceptedRestructurePairsReachable": 65,
+      "stageEdgesUnchanged": true,
+      "otherSkippedPendingUnchanged": true,
+      "ownSkippedPendingEmpty": true
+    },
+    "preservedWholeNodeObjects": 173,
+    "newDeclarations": 19,
+    "newTests": 15,
+    "newApiItems": 17,
+    "totalRawTests": 204,
+    "guardsUnchanged": 12,
+    "intakeProblems": [],
+    "intakeRefusals": [],
+    "proofHashes": {
+      "Native": "031d541cf87c7836c4ca9ec528f1f7f9b0ba25fa63ef14e1b63b548dd4ee885e",
+      "Canonical": "940329864e28497babbe6e37e3a5fcca997ce0484c6f42946b8afdfc34646042",
+      "New": "83859f2a4f76faf83d9a7e1443004033922d98a4569344d374eb5b8f057b333d",
+      "Tests": "42929300bbe6e569829f9e2f752cc9f00eab9290c0d6eb088d896d1b32a49efb",
+      "NewAdmitted": "854feaf8c19e5d6f83456d0fb78722d3b7d40d73bf3c6dc7ece7e5932fdbab67",
+      "Audits": "b4f5ec627dd8d4162d0b845615a7f3dd0e33c57adc6dfa2a4a612fb403982389"
+    },
+    "execution": {
+      "Native": {
+        "audits": 185,
+        "warnings": 0,
+        "logSha256": "0e190b7d78eaa6d920eb0b8f11f330cccc1fdb15a32f79d7e3ae9ba375e81766",
+        "resourceFooter": "Elapsed 15.71 seconds; peak 3591152 KiB",
+        "execution": "Successful local log verified"
+      },
+      "Canonical": {
+        "audits": 0,
+        "warnings": 467,
+        "logSha256": "374949418297994596eeda4874affb11f8a08e104291e3aaba423bb51921089e",
+        "resourceFooter": "Elapsed 29.51 seconds; peak 3603804 KiB",
+        "execution": "Successful local log verified"
+      }
+    },
+    "immutableReadPaths": 845,
+    "immutableReadPathListSha256": "058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681",
+    "verifierSha256": "1648e9df03c93e9bd1d069df244520ecab57dfa2e454d88e8b6ce894c98cd4e5"
+  },
+  "proofArchive": "a9ae87a27904da425bf9d997e038bfa23fe3a466"
 }
 ```
 
