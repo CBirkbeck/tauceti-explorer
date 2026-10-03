@@ -2402,3 +2402,110 @@ example (c : Z1 G U) (d : Z1 G (Twist c)) :
 
 end TwistingContinuation
 end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section CoefficientTwisting
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [IsTopologicalGroup V]
+  [MulDistribMulAction G V] [ContinuousSMul G V]
+  {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+  [MulDistribMulAction G W] [ContinuousSMul G W]
+
+def Twist.map (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    Twist c →* Twist (Z1.map f hf hG c) := by sorry
+
+lemma Twist.map_apply (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (x : Twist c) :
+    Twist.toOriginal (Z1.map f hf hG c) (Twist.map c f hf hG x) =
+      f (Twist.toOriginal c x) := by sorry
+
+lemma Twist.map_continuous (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    Continuous (Twist.map c f hf hG) := by sorry
+
+lemma Twist.map_smul (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (g : G) (x : Twist c) :
+    Twist.map c f hf hG (g • x) = g • Twist.map c f hf hG x := by sorry
+
+lemma Twist.map_id (c : Z1 G U) :
+    Twist.map c (MonoidHom.id U) continuous_id (fun (_ : G) _ => rfl) =
+      MonoidHom.id (Twist c) := by sorry
+
+lemma Twist.map_comp (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (f' : V →* W) (hf' : Continuous f')
+    (hG' : ∀ (g : G) (x : V), f' (g • x) = g • f' x) :
+    Twist.map c (f'.comp f) (hf'.comp hf)
+      (fun g x => by rw [MonoidHom.comp_apply, hG, hG']; rfl) =
+        (Twist.map (Z1.map f hf hG c) f' hf' hG').comp (Twist.map c f hf hG) := by sorry
+
+lemma Z1.twistEquiv_map (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (d : Z1 G (Twist c)) :
+    Z1.twistEquiv (Z1.map f hf hG c)
+      (Z1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+        (Twist.map_smul c f hf hG) d) =
+          Z1.map f hf hG (Z1.twistEquiv c d) := by sorry
+
+lemma Z1.twistEquiv_symm_map (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (e : Z1 G U) :
+    (Z1.twistEquiv (Z1.map f hf hG c)).symm (Z1.map f hf hG e) =
+      Z1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+        (Twist.map_smul c f hf hG) ((Z1.twistEquiv c).symm e) := by sorry
+
+lemma H1.twistEquiv_map (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (a : H1 G (Twist c)) :
+    H1.twistEquiv (Z1.map f hf hG c)
+      (H1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+        (Twist.map_smul c f hf hG) a) =
+          H1.map f hf hG (H1.twistEquiv c a) := by sorry
+
+lemma H1.twistEquiv_symm_map (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (a : H1 G U) :
+    (H1.twistEquiv (Z1.map f hf hG c)).symm (H1.map f hf hG a) =
+      H1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+        (Twist.map_smul c f hf hG) ((H1.twistEquiv c).symm a) := by sorry
+
+lemma H1.twistEquiv_map_one (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    H1.map f hf hG (H1.twistEquiv c 1) = H1.mk (Z1.map f hf hG c) := by sorry
+
+lemma H1.twistEquiv_map_fibre (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (a : H1 G (Twist c)) :
+    H1.map f hf hG (H1.twistEquiv c a) = H1.mk (Z1.map f hf hG c) ↔
+      H1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+        (Twist.map_smul c f hf hG) a = 1 := by sorry
+
+-- test: twistCoefficientTests.value
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (x : Twist c) :
+    Twist.toOriginal (Z1.map f hf hG c) (Twist.map c f hf hG x) =
+      f (Twist.toOriginal c x) := by sorry
+
+-- test: twistCoefficientTests.identity
+example (c : Z1 G U) (x : Twist c) :
+    Twist.map c (MonoidHom.id U) continuous_id (fun (_ : G) _ => rfl) x = x := by sorry
+
+-- test: twistCoefficientTests.constant
+example (c : Z1 G U) (x : Twist c) :
+    Twist.map c (1 : U →* V) continuous_const (fun (_ : G) _ => (smul_one _).symm) x = 1 := by sorry
+
+-- test: twistCoefficientTests.cocycle_square
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (d : Z1 G (Twist c)) :
+    Z1.map f hf hG (Z1.twistEquiv c d) =
+      Z1.twistEquiv (Z1.map f hf hG c)
+        (Z1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+          (Twist.map_smul c f hf hG) d) := by sorry
+
+-- test: twistCoefficientTests.repointed_neutral
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    H1.map f hf hG (H1.twistEquiv c 1) = H1.mk (Z1.map f hf hG c) := by sorry
+
+end CoefficientTwisting
+end TauCeti.NonabelianCohomology
