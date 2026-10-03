@@ -1,3 +1,139 @@
+# Rational-character coefficient square — checkpoint codex-rtOQ9t
+
+This continuation adds ten explicit contracts to the incoming 378-node roadmap. All stages and declarations remain partial/unchecked. The ordinary coefficient tensor map is imported from pinned Mathlib. The new proof prototype is conditional on the incoming admitted Q/Z equivalence and rational coaction; it does not certify their implementations or the complete geometric suggested file.
+
+For any commutative rings A,B and any ring homomorphism φ:A→B, the native target map Q_(φ,f):G_A⊗_A C_A(f)→G_B⊗_B C_B(φ(f)) transports the LEFT rational-character coaction. Tensor induction and the incoming E coefficient square prove compatibility with coordinate transport. Applying this square to ρ_f and its coefficient naturality gives Q_(φ,f)η_f=η_(φ(f))F_(φ,f). The coefficient change retains each q∈Q/Z, including [-1/3] and the wild [1/2] weight; only a∈A is sent through φ. No flatness or unit-section restriction is imposed. Universal coinvariance is preserved in one direction.
+
+The source motivation is [Talpo–Vistoli, arXiv1410.1164v2](https://arxiv.org/pdf/1410.1164v2), §3.1 printed pp.14–16: diagonalizable grading and the local chart description under strict base change. These concrete ring-map identities are authored deductions, not named theorems printed there. Fresh reading covers those three pages only. The complete Yun–Zhang and independent symplectic routes remain below verbatim.
+
+## Rational-character tensor coefficient map
+
+`TauCeti.RootStack.factorialQZTensorCoefficientMap` — Define Q_(φ,f):G_A⊗_A C_A(f)→G_B⊗_B C_B(φ(f)) using the existing heterobasic Algebra.TensorProduct.mapRingHom on native monoid-algebra coefficient mapping and F_(φ,f). Both algebraMap compatibility witnesses are explicit.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe; φ:A→B and ψ:B→C are arbitrary ring homomorphisms. The section parameter f∈A can be zero or a nonunit. No injectivity, flatness, reducedness, nontriviality, Noetherian or invertibility hypothesis is imposed. C_A(f)=FactorialAffineColimit(f), H_A=C_A(1), G_A=MonoidAlgebra A (Multiplicative(AddCircle(1:Q))), d_i=(i+1)!, u_i are the actual included roots, F_(φ,f) is factorialCoefficientMap, U_φ is factorialUnitCoefficientMap, and T_(φ,f) is factorialTensorCoefficientMap. E_A:H_A≃G_A and η_f=(E_A⊗id)ρ_f are the incoming planned declarations. The proof prototype admits their incoming coordinate/coaction contracts. The new proof bodies are conditional deductions, not an admission-free whole implementation or a geometric base-change equivalence.
+
+Proof: The first witness reduces coefficients to single(1,a) and uses mapRingHom_single. The second is the inherited coefficient-map constant formula. Import the heterobasic tensor construction rather than creating a new tensor algebra.
+
+Dependencies: `mathlib:Algebra.TensorProduct.mapRingHom`, `mathlib:MonoidAlgebra.mapRingHom_single`, `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-map`, `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-constant`.
+
+API derived from the coefficient-square and geometric-quotient consumers:
+
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.tmul` (simp): For g∈G_A and x∈C_A(f), Q_(φ,f)(g⊗x)=mapRingHom(φ)(g)⊗F_(φ,f)(x).
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.single` (simp): For every q∈Q/Z, a∈A and x∈C_A(f), Q_(φ,f)(single(q,a)⊗x)=single(q,φ(a))⊗F_(φ,f)(x). The rational character q is unchanged.
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.constant` (simp): For a∈A, Q_(φ,f)(algebraMap_A(a))=algebraMap_B(φ(a)).
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.id` (compatibility): Q_(id_A,f)=id_(G_A⊗_A C_A(f)) as ring homomorphisms.
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.comp` (compatibility): Q_(ψ∘φ,f)=Q_(ψ,φ(f))∘Q_(φ,f), with the intermediate chart parameter φ(f) and each tensor over its own coefficient ring.
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.transport` (compatibility): For every y∈H_A⊗_A C_A(f), Q_(φ,f)((E_A⊗id)(y))=(E_B⊗id)(T_(φ,f)(y)). This is a pointwise square of native ring maps across different coefficient rings.
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.root` (simp): For every i, Q_(φ,f)(e_[1/d_i]⊗u_i^A)=e_[1/d_i]⊗u_i^B in G_B⊗_B C_B(φ(f)).
+
+## Coefficient change on pure character tensors
+
+`TauCeti.RootStack.factorialQZTensorCoefficientMap.tmul` — For g∈G_A and x∈C_A(f), Q_(φ,f)(g⊗x)=mapRingHom(φ)(g)⊗F_(φ,f)(x).
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe; φ:A→B and ψ:B→C are arbitrary ring homomorphisms. The section parameter f∈A can be zero or a nonunit. No injectivity, flatness, reducedness, nontriviality, Noetherian or invertibility hypothesis is imposed. C_A(f)=FactorialAffineColimit(f), H_A=C_A(1), G_A=MonoidAlgebra A (Multiplicative(AddCircle(1:Q))), d_i=(i+1)!, u_i are the actual included roots, F_(φ,f) is factorialCoefficientMap, U_φ is factorialUnitCoefficientMap, and T_(φ,f) is factorialTensorCoefficientMap. E_A:H_A≃G_A and η_f=(E_A⊗id)ρ_f are the incoming planned declarations. The proof prototype admits their incoming coordinate/coaction contracts. The new proof bodies are conditional deductions, not an admission-free whole implementation or a geometric base-change equivalence.
+
+Proof: Specialize the existing heterobasic mapRingHom_tmul theorem with the two explicit coefficient witnesses.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-map`, `mathlib:Algebra.TensorProduct.mapRingHom_tmul`.
+
+## Coefficient change retains each rational character
+
+`TauCeti.RootStack.factorialQZTensorCoefficientMap.single` — For every q∈Q/Z, a∈A and x∈C_A(f), Q_(φ,f)(single(q,a)⊗x)=single(q,φ(a))⊗F_(φ,f)(x). The rational character q is unchanged.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe; φ:A→B and ψ:B→C are arbitrary ring homomorphisms. The section parameter f∈A can be zero or a nonunit. No injectivity, flatness, reducedness, nontriviality, Noetherian or invertibility hypothesis is imposed. C_A(f)=FactorialAffineColimit(f), H_A=C_A(1), G_A=MonoidAlgebra A (Multiplicative(AddCircle(1:Q))), d_i=(i+1)!, u_i are the actual included roots, F_(φ,f) is factorialCoefficientMap, U_φ is factorialUnitCoefficientMap, and T_(φ,f) is factorialTensorCoefficientMap. E_A:H_A≃G_A and η_f=(E_A⊗id)ρ_f are the incoming planned declarations. The proof prototype admits their incoming coordinate/coaction contracts. The new proof bodies are conditional deductions, not an admission-free whole implementation or a geometric base-change equivalence.
+
+Proof: Rewrite the pure-tensor formula and apply the pinned monoid-algebra coefficient formula. No denominator or character is reduced modulo the coefficient characteristic.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-pure`, `mathlib:MonoidAlgebra.mapRingHom_single`.
+
+## Constants in the rational-character tensor square
+
+`TauCeti.RootStack.factorialQZTensorCoefficientMap.constant` — For a∈A, Q_(φ,f)(algebraMap_A(a))=algebraMap_B(φ(a)).
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe; φ:A→B and ψ:B→C are arbitrary ring homomorphisms. The section parameter f∈A can be zero or a nonunit. No injectivity, flatness, reducedness, nontriviality, Noetherian or invertibility hypothesis is imposed. C_A(f)=FactorialAffineColimit(f), H_A=C_A(1), G_A=MonoidAlgebra A (Multiplicative(AddCircle(1:Q))), d_i=(i+1)!, u_i are the actual included roots, F_(φ,f) is factorialCoefficientMap, U_φ is factorialUnitCoefficientMap, and T_(φ,f) is factorialTensorCoefficientMap. E_A:H_A≃G_A and η_f=(E_A⊗id)ρ_f are the incoming planned declarations. The proof prototype admits their incoming coordinate/coaction contracts. The new proof bodies are conditional deductions, not an admission-free whole implementation or a geometric base-change equivalence.
+
+Proof: Write a tensor algebra constant as single(1,a)⊗1, apply the pure-tensor formula and native map_one.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-pure`, `mathlib:MonoidAlgebra.mapRingHom_single`, `mathlib:Algebra.TensorProduct.algebraMap_apply`.
+
+## Identity coefficient change on rational-character tensors
+
+`TauCeti.RootStack.factorialQZTensorCoefficientMap.id` — Q_(id_A,f)=id_(G_A⊗_A C_A(f)) as ring homomorphisms.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe; φ:A→B and ψ:B→C are arbitrary ring homomorphisms. The section parameter f∈A can be zero or a nonunit. No injectivity, flatness, reducedness, nontriviality, Noetherian or invertibility hypothesis is imposed. C_A(f)=FactorialAffineColimit(f), H_A=C_A(1), G_A=MonoidAlgebra A (Multiplicative(AddCircle(1:Q))), d_i=(i+1)!, u_i are the actual included roots, F_(φ,f) is factorialCoefficientMap, U_φ is factorialUnitCoefficientMap, and T_(φ,f) is factorialTensorCoefficientMap. E_A:H_A≃G_A and η_f=(E_A⊗id)ρ_f are the incoming planned declarations. The proof prototype admits their incoming coordinate/coaction contracts. The new proof bodies are conditional deductions, not an admission-free whole implementation or a geometric base-change equivalence.
+
+Proof: Use ring-homomorphism extensionality and tensor induction: map_zero, map_add, and the two coefficient identity laws on pure tensors.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-pure`, `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-identity`, `mathlib:MonoidAlgebra.mapRingHom_id`, `mathlib:TensorProduct.induction_on`.
+
+## Composition through three coefficient rings
+
+`TauCeti.RootStack.factorialQZTensorCoefficientMap.comp` — Q_(ψ∘φ,f)=Q_(ψ,φ(f))∘Q_(φ,f), with the intermediate chart parameter φ(f) and each tensor over its own coefficient ring.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe; φ:A→B and ψ:B→C are arbitrary ring homomorphisms. The section parameter f∈A can be zero or a nonunit. No injectivity, flatness, reducedness, nontriviality, Noetherian or invertibility hypothesis is imposed. C_A(f)=FactorialAffineColimit(f), H_A=C_A(1), G_A=MonoidAlgebra A (Multiplicative(AddCircle(1:Q))), d_i=(i+1)!, u_i are the actual included roots, F_(φ,f) is factorialCoefficientMap, U_φ is factorialUnitCoefficientMap, and T_(φ,f) is factorialTensorCoefficientMap. E_A:H_A≃G_A and η_f=(E_A⊗id)ρ_f are the incoming planned declarations. The proof prototype admits their incoming coordinate/coaction contracts. The new proof bodies are conditional deductions, not an admission-free whole implementation or a geometric base-change equivalence.
+
+Proof: Apply ring-homomorphism extensionality and tensor induction. The pure-tensor case is the native monoid-algebra map composition law together with the inherited chart coefficient-map composition law.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-pure`, `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-composition`, `mathlib:MonoidAlgebra.mapRingHom_comp`, `mathlib:TensorProduct.induction_on`.
+
+## Heterobasic coefficient change commutes with rational coordinates
+
+`TauCeti.RootStack.factorialQZTensorCoefficientMap.transport` — For every y∈H_A⊗_A C_A(f), Q_(φ,f)((E_A⊗id)(y))=(E_B⊗id)(T_(φ,f)(y)). This is a pointwise square of native ring maps across different coefficient rings.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe; φ:A→B and ψ:B→C are arbitrary ring homomorphisms. The section parameter f∈A can be zero or a nonunit. No injectivity, flatness, reducedness, nontriviality, Noetherian or invertibility hypothesis is imposed. C_A(f)=FactorialAffineColimit(f), H_A=C_A(1), G_A=MonoidAlgebra A (Multiplicative(AddCircle(1:Q))), d_i=(i+1)!, u_i are the actual included roots, F_(φ,f) is factorialCoefficientMap, U_φ is factorialUnitCoefficientMap, and T_(φ,f) is factorialTensorCoefficientMap. E_A:H_A≃G_A and η_f=(E_A⊗id)ρ_f are the incoming planned declarations. The proof prototype admits their incoming coordinate/coaction contracts. The new proof bodies are conditional deductions, not an admission-free whole implementation or a geometric base-change equivalence.
+
+Proof: Induct on the actual tensor y. On h⊗x the incoming E_A coefficient square identifies mapRingHom(φ)(E_A(h)) with E_B(U_φ(h)); the second factor is the same F_(φ,f)(x). Additive and zero cases follow from ring-map laws.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-pure`, `FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-tensor-pure`, `FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-coefficient`, `mathlib:Algebra.TensorProduct.map_tmul`, `mathlib:TensorProduct.induction_on`.
+
+## Coefficient change preserves the factorial root weight
+
+`TauCeti.RootStack.factorialQZTensorCoefficientMap.root` — For every i, Q_(φ,f)(e_[1/d_i]⊗u_i^A)=e_[1/d_i]⊗u_i^B in G_B⊗_B C_B(φ(f)).
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe; φ:A→B and ψ:B→C are arbitrary ring homomorphisms. The section parameter f∈A can be zero or a nonunit. No injectivity, flatness, reducedness, nontriviality, Noetherian or invertibility hypothesis is imposed. C_A(f)=FactorialAffineColimit(f), H_A=C_A(1), G_A=MonoidAlgebra A (Multiplicative(AddCircle(1:Q))), d_i=(i+1)!, u_i are the actual included roots, F_(φ,f) is factorialCoefficientMap, U_φ is factorialUnitCoefficientMap, and T_(φ,f) is factorialTensorCoefficientMap. E_A:H_A≃G_A and η_f=(E_A⊗id)ρ_f are the incoming planned declarations. The proof prototype admits their incoming coordinate/coaction contracts. The new proof bodies are conditional deductions, not an admission-free whole implementation or a geometric base-change equivalence.
+
+Proof: Apply the single-character formula with coefficient 1, map_one and the inherited included-root coefficient formula. No root or parameter is cancelled.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-single`, `FunctionFieldArithmeticPartII:RS.2/factorial-chart-coefficient-root`.
+
+## Arbitrary-section rational coaction coefficient square
+
+`TauCeti.RootStack.factorialQZCoaction.coefficient_naturality` — Q_(φ,f)∘η_f=η_(φ(f))∘F_(φ,f) as ring homomorphisms C_A(f)→G_B⊗_B C_B(φ(f)).
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe; φ:A→B and ψ:B→C are arbitrary ring homomorphisms. The section parameter f∈A can be zero or a nonunit. No injectivity, flatness, reducedness, nontriviality, Noetherian or invertibility hypothesis is imposed. C_A(f)=FactorialAffineColimit(f), H_A=C_A(1), G_A=MonoidAlgebra A (Multiplicative(AddCircle(1:Q))), d_i=(i+1)!, u_i are the actual included roots, F_(φ,f) is factorialCoefficientMap, U_φ is factorialUnitCoefficientMap, and T_(φ,f) is factorialTensorCoefficientMap. E_A:H_A≃G_A and η_f=(E_A⊗id)ρ_f are the incoming planned declarations. The proof prototype admits their incoming coordinate/coaction contracts. The new proof bodies are conditional deductions, not an admission-free whole implementation or a geometric base-change equivalence.
+
+Proof: Apply ring-homomorphism extensionality, rewrite both incoming η transport identities, apply the tensor coordinate square to ρ_f(x), and transport the incoming native ρ coefficient-naturality equation through E_B⊗id.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-transport`, `FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-transport`, `FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-coaction-naturality`.
+
+## Coefficient change sends universal coinvariants to coinvariants
+
+`TauCeti.RootStack.factorialQZCoaction.map_coinvariant` — If η_f(x)=1⊗x, then η_(φ(f))(F_(φ,f)(x))=1⊗F_(φ,f)(x). This is preservation only; arbitrary coefficient maps need not reflect coinvariance.
+
+Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe; φ:A→B and ψ:B→C are arbitrary ring homomorphisms. The section parameter f∈A can be zero or a nonunit. No injectivity, flatness, reducedness, nontriviality, Noetherian or invertibility hypothesis is imposed. C_A(f)=FactorialAffineColimit(f), H_A=C_A(1), G_A=MonoidAlgebra A (Multiplicative(AddCircle(1:Q))), d_i=(i+1)!, u_i are the actual included roots, F_(φ,f) is factorialCoefficientMap, U_φ is factorialUnitCoefficientMap, and T_(φ,f) is factorialTensorCoefficientMap. E_A:H_A≃G_A and η_f=(E_A⊗id)ρ_f are the incoming planned declarations. The proof prototype admits their incoming coordinate/coaction contracts. The new proof bodies are conditional deductions, not an admission-free whole implementation or a geometric base-change equivalence.
+
+Proof: Evaluate the ring-map naturality equality at x, substitute the incoming universal coinvariance equation and use the pure-tensor formula with map_one. There is no pointwise invariance or inverse implication.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/qz-coaction-coefficient-naturality`, `FunctionFieldArithmeticPartII:RS.2/qz-coefficient-tensor-pure`.
+
+## Regression examples and limits
+
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.test_negative_weight` (compatibility): For ℤ→F₂ and f=0, a pure tensor with character [-1/3] and coefficient 1 retains exactly [-1/3] in the FIRST tensor factor, while the second factor uses F_(φ,0).
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.test_nonflat_kills_coefficient` (non-example): For ℤ→F₂, f=0, every q∈Q/Z and every x, single(q,2)⊗x maps to zero, and the actual tensor coefficient map is NOT injective. The nonzero source constant2 is separated from zero by the native character counit and chart evaluation at the coherent zero roots.
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.test_wild_zero_section` (computation): For ℤ→F₂, f=0 and i=1, φ(0)=0 and the actual tensor e_[1/2]⊗u_1 maps to e_[1/2]⊗u_1 in C_B(φ(0)). The rational character remains [1/2]; the section equality is explicit rather than hidden in a dependent cast.
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.test_zero_ring` (degenerate): For ℤ→Z/1 and f=0, every element in the actual tensor source maps to zero by the codomain subsingleton, with no nontriviality assumption.
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.test_identity` (invariant): For arbitrary A,f and y, the identity coefficient map fixes the actual element y in G_A⊗_A C_A(f).
+- `TauCeti.RootStack.factorialQZTensorCoefficientMap.test_three_rings` (compatibility): For arbitrary φ:A→B, ψ:B→C, f and y, direct coefficient change equals successive coefficient changes, using the actual intermediate parameter φ(f).
+- `TauCeti.RootStack.factorialQZCoaction.test_nonunit_coefficient_square` (compatibility): For ℤ→F₂ and nonunit section f=2, φ(2)=0 and applying Q_(φ,2) after η_2 equals η_(φ(2)) after F_(φ,2) on EVERY x∈C_ℤ(2), explicitly retaining the wild zero-section equality and dependent target.
+- `TauCeti.RootStack.factorialQZCoaction.test_unity_coefficient_square` (compatibility): At f=1 the coaction square holds with the actual target C_B(φ(1)) and inherited F_(φ,1); no implicit replacement by the separately defined U_φ is used.
+- `TauCeti.RootStack.factorialQZCoaction.test_coinvariant_constants` (computation): For all φ,f,a the image F_(φ,f)(a) satisfies the universal coaction equation 1⊗F_(φ,f)(a), by preservation of the inherited constant coinvariance equation.
+
+The nine examples use native tensors and the inherited colimits. Reduction modulo2 kills coefficient2, so these tests do not assert injectivity or reflection. Exact canonical signatures are stored in the suggested file; recoverable conditional proof bodies, checked signature parity and execution receipts are in the handoff. Implement the admitted incoming coordinate/coaction contracts before treating any conditional body as an implementation certificate. Higher-universe and full positive-index transport, coherent root-object groupoids, Spec limits, fpqc frame torsors and quotient equivalence remain open. No invariant algebra is computed here.
+
+Consumed coaction API `TauCeti.RootStack.factorialQZCoaction.coefficient_naturality`: Q_(φ,f)∘η_f=η_(φ(f))∘F_(φ,f) as ring homomorphisms C_A(f)→G_B⊗_B C_B(φ(f)).
+
+Consumed coaction API `TauCeti.RootStack.factorialQZCoaction.map_coinvariant`: If η_f(x)=1⊗x, then η_(φ(f))(F_(φ,f)(x))=1⊗F_(φ,f)(x). This is preservation only; arbitrary coefficient maps need not reflect coinvariance.
+
 # Rational-character coaction on arbitrary-section charts
 
 Write d_i=(i+1)!, C=C_A(f), H=H_A=C_A(1), G=G_A=A[Q/Z] and E=E_A:H≃G. Here A is any commutative ring and f is any element, including zero and nonunits. The universe is the inherited same-universe colimit's universe. The roots u_i and h_i are the actual AdjoinRoot elements inserted into the existing colimits. The character [q] is the class of q in AddCircle(1:Q), represented multiplicatively in the native MonoidAlgebra. All tensor products are over A. The coaction is LEFT: its target is G⊗C, never C⊗G.
