@@ -5119,3 +5119,198 @@ example :
 
 end SignKernelRegression
 end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section KernelOrbitClassification
+set_option linter.unusedSectionVars false
+set_option linter.style.haveILetI false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+def H1.kernelOrbitImageEquiv (hs : Function.Surjective f) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     MulAction.orbitRel.Quotient (H0 G V) (H1 G K) ≃
+       Set.range (H1.map K.subtype continuous_subtype_val hKG)) := by sorry
+
+lemma H1.kernelOrbitImageEquiv_mk (hs : Function.Surjective f) (a : H1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     (H1.kernelOrbitImageEquiv K f hfG hK hKG hs (Quotient.mk'' a)).val =
+       H1.map K.subtype continuous_subtype_val hKG a) := by sorry
+
+lemma H1.kernelOrbitImageEquiv_symm_mk (hs : Function.Surjective f) (a : H1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     (H1.kernelOrbitImageEquiv K f hfG hK hKG hs).symm
+       ⟨H1.map K.subtype continuous_subtype_val hKG a, a, rfl⟩ = Quotient.mk'' a) := by sorry
+
+lemma H1.kernelOrbitImageEquiv_symm_projection (hs : Function.Surjective f)
+    (a : Set.range (H1.map K.subtype continuous_subtype_val hKG)) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     (H1.kernelOrbitImageEquiv K f hfG hK hKG hs
+       ((H1.kernelOrbitImageEquiv K f hfG hK hKG hs).symm a)).val = a.val) := by sorry
+
+lemma H1.kernelOrbitImageEquiv_choice_independent (hs : Function.Surjective f)
+    (a b : H1 G K)
+    (hab : H1.map K.subtype continuous_subtype_val hKG a =
+      H1.map K.subtype continuous_subtype_val hKG b) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     (Quotient.mk'' a : MulAction.orbitRel.Quotient (H0 G V) (H1 G K)) = Quotient.mk'' b) := by sorry
+
+lemma H1.kernelInvariantAction_injective_iff (hs : Function.Surjective f) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     Function.Injective (H1.map K.subtype continuous_subtype_val hKG) ↔
+       ∀ (v : H0 G V) (a : H1 G K), v • a = a) := by sorry
+
+variable [IsTopologicalGroup V] [ContinuousSMul G V]
+include hfG hK
+
+lemma H1.kernelInclusion_range_iff (hf : Continuous f) (hs : Function.Surjective f)
+    (a : H1 G U) :
+    a ∈ Set.range (H1.map K.subtype continuous_subtype_val hKG) ↔
+      H1.map f hf hfG a = 1 := by sorry
+
+def H1.kernelOrbitNeutralFibreEquiv (hf : Continuous f) (hs : Function.Surjective f) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     MulAction.orbitRel.Quotient (H0 G V) (H1 G K) ≃
+       {a : H1 G U // H1.map f hf hfG a = 1}) := by sorry
+
+lemma H1.kernelOrbitNeutralFibreEquiv_mk (hf : Continuous f) (hs : Function.Surjective f)
+    (a : H1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     (H1.kernelOrbitNeutralFibreEquiv K f hfG hK hKG hf hs (Quotient.mk'' a)).val =
+       H1.map K.subtype continuous_subtype_val hKG a) := by sorry
+
+lemma H1.kernelOrbitNeutralFibreEquiv_symm_mk (hf : Continuous f) (hs : Function.Surjective f)
+    (a : H1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     (H1.kernelOrbitNeutralFibreEquiv K f hfG hK hKG hf hs).symm
+       ⟨H1.map K.subtype continuous_subtype_val hKG a,
+         (H1.kernelInclusion_range_iff K f hfG hK hKG hf hs _).mp ⟨a,rfl⟩⟩ = Quotient.mk'' a) := by sorry
+
+lemma H1.kernelOrbitNeutralFibreEquiv_one (hf : Continuous f) (hs : Function.Surjective f) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     (H1.kernelOrbitNeutralFibreEquiv K f hfG hK hKG hf hs (Quotient.mk'' (1 : H1 G K))).val = 1) := by sorry
+
+lemma H1.kernelOrbitNeutralFibreEquiv_inverse (hf : Continuous f) (hs : Function.Surjective f)
+    (a : {a : H1 G U // H1.map f hf hfG a = 1}) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     H1.kernelOrbitNeutralFibreEquiv K f hfG hK hKG hf hs
+       ((H1.kernelOrbitNeutralFibreEquiv K f hfG hK hKG hf hs).symm a) = a) := by sorry
+
+end KernelOrbitClassification
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section KernelOrbitTests
+set_option linter.unusedSectionVars false
+set_option linter.style.haveILetI false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+-- test: kernel_orbit_image_cocycle_projection
+example (hs : Function.Surjective f) (c : Z1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     (H1.kernelOrbitImageEquiv K f hfG hK hKG hs (Quotient.mk'' (H1.mk c))).val =
+       H1.mk (Z1.map K.subtype continuous_subtype_val hKG c)) := by sorry
+
+-- test: kernel_orbit_image_inverse_witness
+example (hs : Function.Surjective f) (a : H1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     (H1.kernelOrbitImageEquiv K f hfG hK hKG hs).symm
+       ⟨H1.map K.subtype continuous_subtype_val hKG a,a,rfl⟩ = Quotient.mk'' a) := by sorry
+
+-- test: kernel_orbit_image_quotient_roundtrip
+example (hs : Function.Surjective f) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     ∀ q : MulAction.orbitRel.Quotient (H0 G V) (H1 G K),
+       (H1.kernelOrbitImageEquiv K f hfG hK hKG hs).symm
+         (H1.kernelOrbitImageEquiv K f hfG hK hKG hs q) = q) := by sorry
+
+variable [IsTopologicalGroup V] [ContinuousSMul G V]
+-- test: kernel_orbit_neutral_identity
+example (hf : Continuous f) (hs : Function.Surjective f) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     (H1.kernelOrbitNeutralFibreEquiv K f hfG hK hKG hf hs (Quotient.mk'' (1 : H1 G K))).val = 1) := by sorry
+
+-- test: kernel_orbit_neutral_image_witness
+example (hf : Continuous f) (hs : Function.Surjective f) (a : H1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     (H1.kernelOrbitNeutralFibreEquiv K f hfG hK hKG hf hs).symm
+       ⟨H1.map K.subtype continuous_subtype_val hKG a,
+         (H1.kernelInclusion_range_iff K f hfG hK hKG hf hs _).mp ⟨a,rfl⟩⟩ = Quotient.mk'' a) := by sorry
+
+-- test: kernel_orbit_neutral_full_inverse
+example (hf : Continuous f) (hs : Function.Surjective f)
+    (a : {a : H1 G U // H1.map f hf hfG a = 1}) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     H1.kernelOrbitNeutralFibreEquiv K f hfG hK hKG hf hs
+       ((H1.kernelOrbitNeutralFibreEquiv K f hfG hK hKG hf hs).symm a) = a) := by sorry
+
+end KernelOrbitTests
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section SignKernelOrbitRegression
+set_option maxHeartbeats 3000000
+local notation "C3" => Multiplicative (ZMod 3)
+local notation "S3" => Equiv.Perm (Fin 3)
+local notation "Ksign" => MonoidHom.ker (Equiv.Perm.sign : S3 →* ℤˣ)
+local instance : TopologicalSpace C3 := ⊥
+local instance : TopologicalSpace S3 := ⊥
+local instance : TopologicalSpace ℤˣ := ⊥
+local instance : DiscreteTopology C3 := ⟨rfl⟩
+local instance : DiscreteTopology S3 := ⟨rfl⟩
+local instance : DiscreteTopology ℤˣ := ⟨rfl⟩
+local instance : MulDistribMulAction C3 S3 :=
+  { smul := fun _ x => x
+    one_smul := fun _ => rfl
+    mul_smul := fun _ _ _ => rfl
+    smul_one := fun _ => rfl
+    smul_mul := fun _ _ _ => rfl }
+local instance : MulDistribMulAction C3 ℤˣ :=
+  { smul := fun _ x => x
+    one_smul := fun _ => rfl
+    mul_smul := fun _ _ _ => rfl
+    smul_one := fun _ => rfl
+    smul_mul := fun _ _ _ => rfl }
+local instance : MulDistribMulAction C3 Ksign :=
+  { smul := fun _ x => x
+    one_smul := fun _ => rfl
+    mul_smul := fun _ _ _ => rfl
+    smul_one := fun _ => rfl
+    smul_mul := fun _ _ _ => rfl }
+local instance : ContinuousSMul C3 S3 := ⟨continuous_snd⟩
+local instance : ContinuousSMul C3 Ksign := ⟨continuous_snd⟩
+
+-- test: kernel_orbit_sign_distinct_classes_identified
+example :
+    let p : S3 := Equiv.swap 0 1 * Equiv.swap 1 2
+    let i : C3 →* S3 :=
+      { toFun := fun a => if a = 1 then 1 else if a = Multiplicative.ofAdd (1 : ZMod 3) then p else p⁻¹
+        map_one' := by decide
+        map_mul' := by decide }
+    let c : Z1 C3 Ksign := ⟨fun a => ⟨i a,(by decide : ∀ a : C3, Equiv.Perm.sign (i a) = 1) a⟩,
+      continuous_of_discreteTopology, by intro a b; apply Subtype.ext; exact i.map_mul a b⟩
+    let d : Z1 C3 Ksign := ⟨fun a => ⟨i a⁻¹,(by decide : ∀ a : C3, Equiv.Perm.sign (i a) = 1) a⁻¹⟩,
+      continuous_of_discreteTopology, by
+        intro a b
+        apply Subtype.ext
+        exact (by decide : ∀ a b : C3, i ((a*b)⁻¹) = i a⁻¹ * i b⁻¹) a b⟩
+    letI := H1.kernelInvariantAction (G := C3) Ksign Equiv.Perm.sign (fun _ _ => rfl)
+      (fun _ => Iff.rfl) (fun _ _ => rfl) (Equiv.Perm.sign_surjective (Fin 3))
+    H1.mk c ≠ H1.mk d ∧
+      (Quotient.mk'' (H1.mk c) : MulAction.orbitRel.Quotient (H0 C3 ℤˣ) (H1 C3 Ksign)) = Quotient.mk'' (H1.mk d) := by sorry
+
+end SignKernelOrbitRegression
+end TauCeti.NonabelianCohomology
