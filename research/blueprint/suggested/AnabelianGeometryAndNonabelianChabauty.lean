@@ -1865,3 +1865,195 @@ example :
       (H1.finiteQuotientColimitEquiv G U).symm 1 := by sorry
 
 end TauCeti.NonabelianCohomology
+
+/-! Coefficient functoriality continuation, Codex codex-J6LwjP. -/
+namespace TauCeti.NonabelianCohomology
+section CoefficientMaps
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  {U' : Type w} [Group U'] [TopologicalSpace U'] [MulDistribMulAction G U']
+  {U'' : Type*} [Group U''] [TopologicalSpace U''] [MulDistribMulAction G U'']
+
+lemma Z1.map_apply (f : U →* U') (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (c : Z1 G U) (g : G) :
+    Z1.map f hf hG c g = f (c g) := by
+  sorry
+
+lemma Z1.map_trivial (f : U →* U') (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    Z1.map f hf hG (1 : Z1 G U) = 1 := by
+  sorry
+
+lemma Z1.map_id : Z1.map (MonoidHom.id U) continuous_id (fun (_ : G) _ => rfl) = id := by
+  sorry
+
+lemma Z1.map_comp (f : U →* U') (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (f' : U' →* U'') (hf' : Continuous f')
+    (hG' : ∀ (g : G) (x : U'), f' (g • x) = g • f' x) :
+    Z1.map (f'.comp f) (hf'.comp hf) (fun g x => by rw [MonoidHom.comp_apply, hG, hG']; rfl) =
+      Z1.map f' hf' hG' ∘ Z1.map f hf hG := by
+  sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U]
+  [IsTopologicalGroup U'] [ContinuousSMul G U']
+  [IsTopologicalGroup U''] [ContinuousSMul G U'']
+
+lemma Z1.map_smul (f : U →* U') (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (x : U) (c : Z1 G U) :
+    Z1.map f hf hG (x • c) = f x • Z1.map f hf hG c := by
+  sorry
+
+lemma H1.map_comp (f : U →* U') (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (f' : U' →* U'') (hf' : Continuous f')
+    (hG' : ∀ (g : G) (x : U'), f' (g • x) = g • f' x) :
+    H1.map (f'.comp f) (hf'.comp hf) (fun g x => by rw [MonoidHom.comp_apply, hG, hG']; rfl) =
+      H1.map f' hf' hG' ∘ H1.map f hf hG := by
+  sorry
+
+end CoefficientMaps
+section InvariantCoefficientMaps
+variable {G : Type u} [Group G]
+  {U : Type v} [Group U] [MulDistribMulAction G U]
+  {U' : Type w} [Group U'] [MulDistribMulAction G U']
+  {U'' : Type*} [Group U''] [MulDistribMulAction G U'']
+
+lemma H0.map_apply (f : U →* U') (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (x : H0 G U) :
+    (H0.map f hG x).val = f x := by
+  sorry
+
+lemma H0.map_id : H0.map (MonoidHom.id U) (fun (_ : G) _ => rfl) = MonoidHom.id (H0 G U) := by
+  sorry
+
+lemma H0.map_comp (f : U →* U') (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (f' : U' →* U'') (hG' : ∀ (g : G) (x : U'), f' (g • x) = g • f' x) :
+    H0.map (f'.comp f) (fun g x => by rw [MonoidHom.comp_apply, hG, hG']; rfl) =
+      (H0.map f' hG').comp (H0.map f hG) := by
+  sorry
+
+end InvariantCoefficientMaps
+end TauCeti.NonabelianCohomology
+namespace TauCeti.NonabelianCohomology
+section CoefficientTests
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  [IsTopologicalGroup U] [ContinuousSMul G U]
+  {U' : Type w} [Group U'] [TopologicalSpace U'] [MulDistribMulAction G U']
+  [IsTopologicalGroup U'] [ContinuousSMul G U']
+-- test: coefficientCocyclesTests.identity
+example (c : Z1 G U) : Z1.map (MonoidHom.id U) continuous_id (fun (_ : G) _ => rfl) c = c := by
+  sorry
+
+-- test: coefficientCocyclesTests.constant
+example (c : Z1 G U) :
+    Z1.map (1 : U →* U') continuous_const
+      (fun g x => by simp only [MonoidHom.one_apply, smul_one]) c = 1 := by
+  sorry
+
+-- test: coefficientCocyclesTests.value
+example (f : U →* U') (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (c : Z1 G U) (g : G) :
+    Z1.map f hf hG c g = f (c g) := by
+  sorry
+
+-- test: coefficientClassesTests.identity
+example (a : H1 G U) : H1.map (MonoidHom.id U) continuous_id (fun (_ : G) _ => rfl) a = a := by
+  sorry
+
+-- test: coefficientClassesTests.gauge
+example (f : U →* U') (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (c : Z1 G U) (x : U) :
+    H1.map f hf hG (H1.mk (x • c)) = H1.mk (Z1.map f hf hG c) := by
+  sorry
+
+-- test: coefficientClassesTests.one
+example (f : U →* U') (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) : H1.map f hf hG 1 = 1 := by
+  sorry
+
+end CoefficientTests
+section InvariantTests
+variable {G : Type u} [Group G]
+  {U : Type v} [Group U] [MulDistribMulAction G U]
+  {U' : Type w} [Group U'] [MulDistribMulAction G U']
+-- test: invariantCoefficientsTests.identity
+example (x : H0 G U) : H0.map (MonoidHom.id U) (fun (_ : G) _ => rfl) x = x := by
+  sorry
+
+-- test: invariantCoefficientsTests.constant
+example (x : H0 G U) :
+    H0.map (1 : U →* U') (fun g x => by simp only [MonoidHom.one_apply, smul_one]) x = 1 := by
+  sorry
+
+-- test: invariantCoefficientsTests.value
+example (f : U →* U') (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) (x : H0 G U) :
+    (H0.map f hG x).val = f x := by
+  sorry
+
+end InvariantTests
+-- test: coefficientClassesTests.noninjective
+example :
+    let G := Equiv.Perm (Fin 2)
+    let U := Equiv.Perm (Fin 3)
+    letI : TopologicalSpace G := ⊥
+    letI : TopologicalSpace U := ⊥
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : MulDistribMulAction G U := {
+      smul := fun _ x => x
+      one_smul := fun _ => rfl
+      mul_smul := fun _ _ _ => rfl
+      smul_one := fun _ => rfl
+      smul_mul := fun _ _ _ => rfl }
+    letI : ContinuousSMul G U := ⟨continuous_snd⟩
+    let c : Z1 G U := ⟨fun g => if g = 1 then 1 else Equiv.swap 0 1,
+      continuous_of_discreteTopology, by decide⟩
+    H1.mk c ≠ 1 ∧
+      H1.map (1 : U →* U) continuous_const (fun _ _ => rfl) (H1.mk c) = 1 := by
+  sorry
+
+-- test: coefficientCocyclesTests.transposition
+example :
+    let G := Equiv.Perm (Fin 2)
+    let U := Equiv.Perm (Fin 3)
+    letI : TopologicalSpace G := ⊥
+    letI : TopologicalSpace U := ⊥
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : MulDistribMulAction G U := {
+      smul := fun _ x => x
+      one_smul := fun _ => rfl
+      mul_smul := fun _ _ _ => rfl
+      smul_one := fun _ => rfl
+      smul_mul := fun _ _ _ => rfl }
+    letI : ContinuousSMul G U := ⟨continuous_snd⟩
+    let c : Z1 G U := ⟨fun g => if g = 1 then 1 else Equiv.swap 0 1,
+      continuous_of_discreteTopology, by decide⟩
+    Z1.map (MonoidHom.id U) continuous_id (fun (_ : G) _ => rfl) c
+      (Equiv.swap (0 : Fin 2) 1) = Equiv.swap (0 : Fin 3) 1 := by
+  sorry
+
+-- test: invariantCoefficientsTests.transposition
+example :
+    let G := Equiv.Perm (Fin 2)
+    let U := Equiv.Perm (Fin 3)
+    letI : TopologicalSpace G := ⊥
+    letI : TopologicalSpace U := ⊥
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : MulDistribMulAction G U := {
+      smul := fun _ x => x
+      one_smul := fun _ => rfl
+      mul_smul := fun _ _ _ => rfl
+      smul_one := fun _ => rfl
+      smul_mul := fun _ _ _ => rfl }
+    letI : ContinuousSMul G U := ⟨continuous_snd⟩
+    (H0.map (MonoidHom.id U) (fun (_ : G) _ => rfl)
+      ⟨Equiv.swap (0 : Fin 3) 1, fun _ => rfl⟩).val = Equiv.swap (0 : Fin 3) 1 := by
+  sorry
+
+end TauCeti.NonabelianCohomology

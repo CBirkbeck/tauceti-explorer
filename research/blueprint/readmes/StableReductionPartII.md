@@ -4003,3 +4003,432 @@ stable-reflexivity criterion, the pointed completed-local hull, actual sheaf
 comparison and arbitrary-base approximation remain separate obligations.
 All MC.0–MC.7 geometric targets, the reserved key and six consumers, fourteen
 gaps and 135 supplier requests retain their existing ownership and scope.
+
+
+## MC.2: coefficient-universal matrix complexes and tensor cokernels
+
+For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products.
+
+The two actual surjections P_J and P_D have A-flat codomains. Pinned right exactness supplies each tensorized presentation; the flat-cokernel injection theorem supplies injectivity of each tensorized matrix-image inclusion. Factor each matrix through its image to deduce exactness for arbitrary M. This argument treats the nonflat module Z/2 over Z. The displayed symplectic rotation intertwines Ψ with Φᵀ and Φ with Ψᵀ. Its native tensor equivalence transports the two ordinary exact pairs to both transpose pairs.
+
+The two cokernel equivalences are the existing right-exact tensor quotient construction specialized to the actual presentations. Their representative formulas fix every tensor, not only chosen bases. The second basis class maps to −d for J and −ε for D. This local calculation supplies universal acyclicity of the matrix pairs as coefficient modules. The actual module-valued Hom comparisons, bidual maps, Ext interpretation, relative stable-reflexivity interface and completion/sheaf comparisons remain required.
+
+### Tensor inclusion of the left matrix image
+
+NodeSectionFactorization.PolynomialModel.leftImage_lTensor_injective — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. T_M(im(Φ)↪R²) is injective; M need not be flat.
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: The actual surjection P_D has kernel im Φ and A-flat codomain D. Apply the pinned short-exact-sequence tensor-injection theorem with this cokernel.
+
+Dependencies: StableReductionPartII:MC.2/section-dual-coefficient-flat, StableReductionPartII:MC.2/section-dual-presentation-surjective, StableReductionPartII:MC.2/section-dual-presentation-kernel, mathlib:LinearMap.lTensor_injective_of_exact_of_flat.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Tensor inclusion of the right matrix image
+
+NodeSectionFactorization.PolynomialModel.rightImage_lTensor_injective — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. T_M(im(Ψ)↪R²) is injective; M need not be flat.
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: The actual surjection P_J has kernel im Ψ and A-flat codomain J. Apply the pinned short-exact-sequence tensor-injection theorem with this cokernel.
+
+Dependencies: StableReductionPartII:MC.2/section-ideal-coefficient-flat, StableReductionPartII:MC.2/section-ideal-presentation-surjective, StableReductionPartII:MC.2/section-ideal-presentation-kernel, mathlib:LinearMap.lTensor_injective_of_exact_of_flat.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Coefficient universal exactness at Φ
+
+NodeSectionFactorization.PolynomialModel.quotientLeft_lTensor_exact — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. ker T_M(Φ)=im T_M(Ψ).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Factor Φ through its actual image. The restricted corestriction is surjective and its preceding pair is exact. Pinned right exactness preserves that pair for arbitrary M. Postcompose with the proved tensor-image injection and use the native tensor composition law to recover T_M(Φ).
+
+Dependencies: StableReductionPartII:MC.2/section-complex-left-exact, StableReductionPartII:MC.2/section-left-image-tensor-injective, mathlib:lTensor_exact, mathlib:LinearMap.rangeRestrict, mathlib:LinearMap.ker_rangeRestrict, mathlib:LinearMap.surjective_rangeRestrict, mathlib:LinearMap.subtype_comp_rangeRestrict, mathlib:LinearMap.lTensor_comp, mathlib:Function.Injective.comp_exact_iff_exact.
+
+Test NodeSectionFactorization.PolynomialModel.tensorTorsionLeftExact (compatibility): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z, γ=s=1, δ=t=0 and the torsion M=Z/2, the actual left alternating tensor pair is exact.
+
+Test NodeSectionFactorization.PolynomialModel.tensorZeroRingLeftExact (degenerate): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z/1 with zero parameters and M=Z/1, the actual left alternating tensor pair is exact.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Coefficient universal exactness at Ψ
+
+NodeSectionFactorization.PolynomialModel.quotientRight_lTensor_exact — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. ker T_M(Ψ)=im T_M(Φ).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Factor Ψ through its actual image. The restricted corestriction is surjective and its preceding pair is exact. Pinned right exactness preserves that pair for arbitrary M. Postcompose with the proved tensor-image injection and use the native tensor composition law to recover T_M(Ψ).
+
+Dependencies: StableReductionPartII:MC.2/section-complex-right-exact, StableReductionPartII:MC.2/section-right-image-tensor-injective, mathlib:lTensor_exact, mathlib:LinearMap.rangeRestrict, mathlib:LinearMap.ker_rangeRestrict, mathlib:LinearMap.surjective_rangeRestrict, mathlib:LinearMap.subtype_comp_rangeRestrict, mathlib:LinearMap.lTensor_comp, mathlib:Function.Injective.comp_exact_iff_exact.
+
+Test NodeSectionFactorization.PolynomialModel.tensorTorsionRightExact (compatibility): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z, γ=s=1, δ=t=0 and the torsion M=Z/2, the actual right alternating tensor pair is exact.
+
+Test NodeSectionFactorization.PolynomialModel.tensorZeroRingRightExact (degenerate): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z/1 with zero parameters and M=Z/1, the actual right alternating tensor pair is exact.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### The symplectic rotation of section coordinates
+
+NodeSectionFactorization.PolynomialModel.sectionRotation — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. Construct the R-linear equivalence p:R²≃R² with p(z₀,z₁)=(−z₁,z₀) and inverse p⁻¹(z₀,z₁)=(z₁,−z₀).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Define both ordered coordinate functions; verify both inverse laws and R-linearity coordinatewise.
+
+Dependencies: StableReductionPartII:MC.2/polynomial-node-model.
+
+API NodeSectionFactorization.PolynomialModel.sectionRotation_apply (simp): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. p(z₀,z₁)=(−z₁,z₀).
+
+API NodeSectionFactorization.PolynomialModel.sectionRotation_symm_apply (simp): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. p⁻¹(z₀,z₁)=(z₁,−z₀).
+
+API NodeSectionFactorization.PolynomialModel.sectionRotation_square (compatibility): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. p(p(z))=−z.
+
+Test NodeSectionFactorization.PolynomialModel.rotationFirstBasis (computation): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. p(1,0)=(0,1).
+
+Test NodeSectionFactorization.PolynomialModel.rotationNonreducedSquare (computation): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z/4, γ=s=1 and δ=t=0, p(p(z))=−z on the actual node coordinates.
+
+Test NodeSectionFactorization.PolynomialModel.rotationZeroRing (degenerate): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z/1 and zero parameters, the constructed rotation inverse fixes p(z).
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Evaluation of the section rotation
+
+NodeSectionFactorization.PolynomialModel.sectionRotation_apply — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. p(z₀,z₁)=(−z₁,z₀).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Unfold the actual constructed equivalence.
+
+Dependencies: StableReductionPartII:MC.2/section-matrix-rotation.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Inverse of the section rotation
+
+NodeSectionFactorization.PolynomialModel.sectionRotation_symm_apply — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. p⁻¹(z₀,z₁)=(z₁,−z₀).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Unfold the inverse of the actual constructed equivalence.
+
+Dependencies: StableReductionPartII:MC.2/section-matrix-rotation.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Square of the section rotation
+
+NodeSectionFactorization.PolynomialModel.sectionRotation_square — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. p(p(z))=−z.
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Apply the coordinate formula twice and double-negation in each coordinate.
+
+Dependencies: StableReductionPartII:MC.2/section-matrix-rotation-formula.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Rotation intertwines Φ transpose
+
+NodeSectionFactorization.PolynomialModel.transposeLeft_rotation — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. Φᵀ∘p=p∘Ψ.
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Evaluate the existing native matrix action and the actual rotation on each of the two coordinates; retain the minus signs.
+
+Dependencies: StableReductionPartII:MC.2/section-matrix-rotation-formula, StableReductionPartII:MC.2/section-matrix-transpose-left-action, StableReductionPartII:MC.2/section-matrix-right-action.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Rotation intertwines Ψ transpose
+
+NodeSectionFactorization.PolynomialModel.transposeRight_rotation — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. Ψᵀ∘p=p∘Φ.
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Evaluate the existing native matrix action and the actual rotation on each of the two coordinates; retain the minus signs.
+
+Dependencies: StableReductionPartII:MC.2/section-matrix-rotation-formula, StableReductionPartII:MC.2/section-matrix-transpose-right-action, StableReductionPartII:MC.2/section-matrix-left-action.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Tensor rotation intertwines Φ transpose
+
+NodeSectionFactorization.PolynomialModel.transposeLeft_lTensor_rotation — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. T_M(Φᵀ)∘T_M(p)=T_M(p)∘T_M(Ψ), where T_M(p) is the pinned tensor of the coefficient-restricted equivalence.
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Restrict the actual R-linear intertwining identity to A. Tensor its two compositions using the pinned composition law and equivalence coercion formula.
+
+Dependencies: StableReductionPartII:MC.2/section-transpose-left-rotation, mathlib:LinearEquiv.restrictScalars, mathlib:LinearEquiv.lTensor, mathlib:LinearEquiv.coe_lTensor, mathlib:LinearMap.lTensor_comp.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Tensor rotation intertwines Ψ transpose
+
+NodeSectionFactorization.PolynomialModel.transposeRight_lTensor_rotation — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. T_M(Ψᵀ)∘T_M(p)=T_M(p)∘T_M(Φ), where T_M(p) is the pinned tensor of the coefficient-restricted equivalence.
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Restrict the actual R-linear intertwining identity to A. Tensor its two compositions using the pinned composition law and equivalence coercion formula.
+
+Dependencies: StableReductionPartII:MC.2/section-transpose-right-rotation, mathlib:LinearEquiv.restrictScalars, mathlib:LinearEquiv.lTensor, mathlib:LinearEquiv.coe_lTensor, mathlib:LinearMap.lTensor_comp.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Coefficient universal exactness at Φᵀ
+
+NodeSectionFactorization.PolynomialModel.quotientTransposeLeft_lTensor_exact — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. ker T_M(Φᵀ)=im T_M(Ψᵀ).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Use T_M(p) in all three columns of the commuting ladder. The pinned exactness transport along linear equivalences gives this transposed pair from the opposite ordinary pair.
+
+Dependencies: StableReductionPartII:MC.2/section-transpose-left-tensor-rotation, StableReductionPartII:MC.2/section-transpose-right-tensor-rotation, StableReductionPartII:MC.2/section-complex-right-tensor-exact, mathlib:Function.Exact.of_ladder_linearEquiv_of_exact.
+
+Test NodeSectionFactorization.PolynomialModel.tensorTorsionTransposeLeftExact (compatibility): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z, γ=s=1, δ=t=0 and the torsion M=Z/2, the actual transposed left alternating tensor pair is exact.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Coefficient universal exactness at Ψᵀ
+
+NodeSectionFactorization.PolynomialModel.quotientTransposeRight_lTensor_exact — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. ker T_M(Ψᵀ)=im T_M(Φᵀ).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Use T_M(p) in all three columns of the commuting ladder. The pinned exactness transport along linear equivalences gives this transposed pair from the opposite ordinary pair.
+
+Dependencies: StableReductionPartII:MC.2/section-transpose-left-tensor-rotation, StableReductionPartII:MC.2/section-transpose-right-tensor-rotation, StableReductionPartII:MC.2/section-complex-left-tensor-exact, mathlib:Function.Exact.of_ladder_linearEquiv_of_exact.
+
+Test NodeSectionFactorization.PolynomialModel.tensorTorsionTransposeRightExact (compatibility): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z, γ=s=1, δ=t=0 and the torsion M=Z/2, the actual transposed right alternating tensor pair is exact.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Tensor exactness of the ideal presentation
+
+NodeSectionFactorization.PolynomialModel.idealPresentation_lTensor_exact — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. ker T_M(P_J)=im T_M(Ψ).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: The actual native presentation is surjective with the stated matrix kernel. Apply pinned tensor right exactness without assuming M flat.
+
+Dependencies: StableReductionPartII:MC.2/section-ideal-presentation-kernel, StableReductionPartII:MC.2/section-ideal-presentation-surjective, mathlib:LinearMap.exact_iff, mathlib:lTensor_exact.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Tensor exactness of the dual presentation
+
+NodeSectionFactorization.PolynomialModel.dualPresentation_lTensor_exact — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. ker T_M(P_D)=im T_M(Φ).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: The actual native presentation is surjective with the stated matrix kernel. Apply pinned tensor right exactness without assuming M flat.
+
+Dependencies: StableReductionPartII:MC.2/section-dual-presentation-kernel, StableReductionPartII:MC.2/section-dual-presentation-surjective, mathlib:LinearMap.exact_iff, mathlib:lTensor_exact.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### The tensorized ideal cokernel
+
+NodeSectionFactorization.PolynomialModel.tensorCokernelIdeal — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. Construct the A-linear equivalence E_J:coker T_M(Ψ)≃M⊗_A J characterized by E_J([z])=T_M(P_J)(z).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Apply the pinned right-exact tensor quotient equivalence to the actual ordered presentation and its verified kernel. The domain is the actual quotient by the image of the tensorized matrix and the codomain is the actual tensor of J, with their inherited coefficient structures.
+
+Dependencies: StableReductionPartII:MC.2/section-ideal-presentation-kernel, StableReductionPartII:MC.2/section-ideal-presentation-surjective, mathlib:LinearMap.exact_iff, mathlib:lTensor.equiv.
+
+API NodeSectionFactorization.PolynomialModel.tensorCokernelIdeal_mk (simp): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_J([z])=T_M(P_J)(z) for every tensor z, including sums of pure tensors.
+
+API NodeSectionFactorization.PolynomialModel.tensorCokernelIdeal_tmul (simp): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_J([m⊗z])=m⊗P_J(z).
+
+API NodeSectionFactorization.PolynomialModel.tensorCokernelIdeal_inverse (compatibility): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_J⁻¹(T_M(P_J)(z))=[z].
+
+API NodeSectionFactorization.PolynomialModel.tensorCokernelIdeal_unique (extensionality): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. Any A-linear equivalence e:coker T_M(Ψ)≃M⊗_A J with e([z])=T_M(P_J)(z) for every tensor z equals E_J.
+
+Test NodeSectionFactorization.PolynomialModel.tensorIdealZero (degenerate): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For every M, the actual E_J sends zero to zero.
+
+Test NodeSectionFactorization.PolynomialModel.tensorIdealPureTensor (compatibility): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For every M,m,z, E_J([m⊗z])=m⊗P_J(z), with the actual ordered presentation.
+
+Test NodeSectionFactorization.PolynomialModel.tensorIdealRepresentativeRoundTrip (characterisation): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For every M and tensor z, E_J⁻¹(T_M(P_J)(z))=[z].
+
+Test NodeSectionFactorization.PolynomialModel.tensorIdealTorsionNegativeGenerator (computation): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z, γ=s=1, δ=t=0 and M=Z/2, E_J([1⊗(0,1)])=1⊗(-d) in the actual section ideal.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Evaluation on a ideal quotient representative
+
+NodeSectionFactorization.PolynomialModel.tensorCokernelIdeal_mk — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_J([z])=T_M(P_J)(z) for every tensor z, including sums of pure tensors.
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: The pinned tensor-quotient lift evaluates on its actual representative.
+
+Dependencies: StableReductionPartII:MC.2/section-ideal-tensor-cokernel.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Evaluation on a pure ideal tensor
+
+NodeSectionFactorization.PolynomialModel.tensorCokernelIdeal_tmul — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_J([m⊗z])=m⊗P_J(z).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Apply the representative formula and native tensor-map evaluation on pure tensors.
+
+Dependencies: StableReductionPartII:MC.2/section-ideal-tensor-cokernel-representative, mathlib:LinearMap.lTensor_tmul.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Inverse on a ideal presentation image
+
+NodeSectionFactorization.PolynomialModel.tensorCokernelIdeal_inverse — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_J⁻¹(T_M(P_J)(z))=[z].
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Rewrite by the representative formula and use the constructed native equivalence inverse law.
+
+Dependencies: StableReductionPartII:MC.2/section-ideal-tensor-cokernel-representative.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Uniqueness of the ideal tensor comparison
+
+NodeSectionFactorization.PolynomialModel.tensorCokernelIdeal_unique — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. Any A-linear equivalence e:coker T_M(Ψ)≃M⊗_A J with e([z])=T_M(P_J)(z) for every tensor z equals E_J.
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Prove equality on every quotient representative by native quotient induction.
+
+Dependencies: StableReductionPartII:MC.2/section-ideal-tensor-cokernel-representative, mathlib:Submodule.Quotient.induction_on.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### The tensorized dual cokernel
+
+NodeSectionFactorization.PolynomialModel.tensorCokernelDual — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. Construct the A-linear equivalence E_D:coker T_M(Φ)≃M⊗_A D characterized by E_D([z])=T_M(P_D)(z).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Apply the pinned right-exact tensor quotient equivalence to the actual ordered presentation and its verified kernel. The domain is the actual quotient by the image of the tensorized matrix and the codomain is the actual tensor of D, with their inherited coefficient structures.
+
+Dependencies: StableReductionPartII:MC.2/section-dual-presentation-kernel, StableReductionPartII:MC.2/section-dual-presentation-surjective, mathlib:LinearMap.exact_iff, mathlib:lTensor.equiv.
+
+API NodeSectionFactorization.PolynomialModel.tensorCokernelDual_mk (simp): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_D([z])=T_M(P_D)(z) for every tensor z, including sums of pure tensors.
+
+API NodeSectionFactorization.PolynomialModel.tensorCokernelDual_tmul (simp): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_D([m⊗z])=m⊗P_D(z).
+
+API NodeSectionFactorization.PolynomialModel.tensorCokernelDual_inverse (compatibility): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_D⁻¹(T_M(P_D)(z))=[z].
+
+API NodeSectionFactorization.PolynomialModel.tensorCokernelDual_unique (extensionality): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. Any A-linear equivalence e:coker T_M(Φ)≃M⊗_A D with e([z])=T_M(P_D)(z) for every tensor z equals E_D.
+
+Test NodeSectionFactorization.PolynomialModel.tensorDualZero (degenerate): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For every M, the actual E_D sends zero to zero.
+
+Test NodeSectionFactorization.PolynomialModel.tensorDualPureTensor (compatibility): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For every M,m,z, E_D([m⊗z])=m⊗P_D(z), with the actual ordered presentation.
+
+Test NodeSectionFactorization.PolynomialModel.tensorDualRepresentativeRoundTrip (characterisation): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For every M and tensor z, E_D⁻¹(T_M(P_D)(z))=[z].
+
+Test NodeSectionFactorization.PolynomialModel.tensorDualTorsionNegativeGenerator (computation): For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. For A=Z, γ=s=1, δ=t=0 and M=Z/2, E_D([1⊗(0,1)])=1⊗(-ε) in the actual R-linear dual.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Evaluation on a dual quotient representative
+
+NodeSectionFactorization.PolynomialModel.tensorCokernelDual_mk — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_D([z])=T_M(P_D)(z) for every tensor z, including sums of pure tensors.
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: The pinned tensor-quotient lift evaluates on its actual representative.
+
+Dependencies: StableReductionPartII:MC.2/section-dual-tensor-cokernel.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Evaluation on a pure dual tensor
+
+NodeSectionFactorization.PolynomialModel.tensorCokernelDual_tmul — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_D([m⊗z])=m⊗P_D(z).
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Apply the representative formula and native tensor-map evaluation on pure tensors.
+
+Dependencies: StableReductionPartII:MC.2/section-dual-tensor-cokernel-representative, mathlib:LinearMap.lTensor_tmul.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Inverse on a dual presentation image
+
+NodeSectionFactorization.PolynomialModel.tensorCokernelDual_inverse — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. E_D⁻¹(T_M(P_D)(z))=[z].
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Rewrite by the representative formula and use the constructed native equivalence inverse law.
+
+Dependencies: StableReductionPartII:MC.2/section-dual-tensor-cokernel-representative.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
+
+### Uniqueness of the dual tensor comparison
+
+NodeSectionFactorization.PolynomialModel.tensorCokernelDual_unique — For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. Any A-linear equivalence e:coker T_M(Φ)≃M⊗_A D with e([z])=T_M(P_D)(z) for every tensor z equals E_D.
+
+Hypotheses: A and M may be zero or have torsion. No noetherianity, unit discriminant or flatness of M is required. Tensoring is over A, not over R.
+
+Proof route: Prove equality on every quotient representative by native quotient induction.
+
+Dependencies: StableReductionPartII:MC.2/section-dual-tensor-cokernel-representative, mathlib:Submodule.Quotient.induction_on.
+
+Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
+
+Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
