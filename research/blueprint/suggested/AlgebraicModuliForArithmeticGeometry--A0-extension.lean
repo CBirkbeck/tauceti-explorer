@@ -6719,3 +6719,406 @@ example (X : HomCategory b b) (f : V ⟶ U)
   sorry
 
 end TauCeti.AlgebraicGeometry.RestrictionActionTests
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+open Pseudofunctor.LocallyDiscreteOpToCat
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+  [IsGerbe F J] [IsGerbe G J] {A : Sheaf J AddCommGrpCat.{w}}
+  (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+local instance : Category (Pseudofunctor.StrongTrans F G) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := G)
+variable (U : C) (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U)))
+
+def fibreHomSheaf (X : HomCategory bF bG) : Sheaf (J.over U) (Type v') :=
+  G.sheafHom J y ((X.obj.app (.mk (op U))).toFunctor.obj x)
+
+noncomputable def fibreHomSectionIsoEquiv (X : HomCategory bF bG) (T : Over U) :
+    ((fibreHomSheaf bF bG U x y X).obj.obj (op T)) ≃
+      ((G.map T.hom.op.toLoc).toFunctor.obj y ≅
+        (G.map T.hom.op.toLoc).toFunctor.obj
+          ((X.obj.app (.mk (op U))).toFunctor.obj x)) where
+  toFun p := by
+    letI := IsGerbe.isIso_hom (F := G) (J := J) T.left p
+    exact asIso p
+  invFun p := p.hom
+  left_inv p := rfl
+  right_inv p := by apply Iso.ext; rfl
+
+def fibreHomSheafMap {X Y : HomCategory bF bG} (m : X ⟶ Y) :
+    fibreHomSheaf bF bG U x y X ⟶ fibreHomSheaf bF bG U x y Y where
+  hom :=
+    { app := fun T => TypeCat.ofHom (fun p => p ≫
+        (G.map T.unop.hom.op.toLoc).toFunctor.map
+          ((m.hom.as.app (.mk (op U))).toNatTrans.app x))
+      naturality := by
+        intro T₁ T₂ f
+        ext p
+        dsimp [fibreHomSheaf, Pseudofunctor.sheafHom, Pseudofunctor.presheafHom,
+          pullHom]
+        simp only [Functor.map_comp, Category.assoc]
+        rw [G.mapComp'_inv_naturality] }
+
+lemma fibreHomSheafMap_apply {X Y : HomCategory bF bG} (m : X ⟶ Y)
+    (T : Over U) (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomSheafMap bF bG U x y m).hom.app (op T) p =
+      p ≫ (G.map T.hom.op.toLoc).toFunctor.map
+        ((m.hom.as.app (.mk (op U))).toNatTrans.app x) := by
+  sorry
+
+def fibreHomSheafFunctor : HomCategory bF bG ⥤ Sheaf (J.over U) (Type v') where
+  obj X := fibreHomSheaf bF bG U x y X
+  map m := fibreHomSheafMap bF bG U x y m
+  map_id X := by
+    ext T p
+    change p ≫ (G.map T.unop.hom.op.toLoc).toFunctor.map (𝟙 _) = p
+    simp
+  map_comp m n := by
+    ext T p
+    change p ≫ (G.map T.unop.hom.op.toLoc).toFunctor.map (_ ≫ _) =
+      (p ≫ (G.map T.unop.hom.op.toLoc).toFunctor.map _) ≫
+        (G.map T.unop.hom.op.toLoc).toFunctor.map _
+    simp [Category.assoc]
+
+
+lemma fibreHomSectionIsoEquiv_hom (X : HomCategory bF bG) (T : Over U)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomSectionIsoEquiv bF bG U x y X T p).hom = p := by
+  sorry
+
+lemma fibreHomSheafFunctor_obj (X : HomCategory bF bG) :
+    (fibreHomSheafFunctor bF bG U x y).obj X =
+      G.sheafHom J y ((X.obj.app (.mk (op U))).toFunctor.obj x) := by
+  sorry
+
+lemma fibreHomSheafFunctor_map {X Y : HomCategory bF bG} (m : X ⟶ Y) :
+    (fibreHomSheafFunctor bF bG U x y).map m =
+      fibreHomSheafMap bF bG U x y m := by
+  sorry
+
+noncomputable def fibreHomSheafMapIso {X Y : HomCategory bF bG} (m : X ⟶ Y) :
+    fibreHomSheaf bF bG U x y X ≅ fibreHomSheaf bF bG U x y Y :=
+  (fibreHomSheafFunctor bF bG U x y).mapIso (homIso bF bG m)
+
+lemma fibreHomSheafMapIso_hom {X Y : HomCategory bF bG} (m : X ⟶ Y) :
+    (fibreHomSheafMapIso bF bG U x y m).hom =
+      fibreHomSheafMap bF bG U x y m := by
+  sorry
+
+lemma fibreHomSheafMapIso_inv {X Y : HomCategory bF bG} (m : X ⟶ Y) :
+    (fibreHomSheafMapIso bF bG U x y m).inv =
+      fibreHomSheafMap bF bG U x y (homIso bF bG m).inv := by
+  sorry
+
+lemma fibreHomSheaf_locallyNonempty (X : HomCategory bF bG) (T : Over U) :
+    ∃ R : Sieve T.left, R ∈ J T.left ∧
+      ∀ ⦃V : C⦄ (g : V ⟶ T.left), R g →
+        Nonempty ((fibreHomSheaf bF bG U x y X).obj.obj
+          (op (Over.mk (g ≫ T.hom)))) := by
+  sorry
+
+noncomputable def fibreHomSectionAction (X : HomCategory bF bG) (T : Over U) :
+    Action (Type v') (Multiplicative (A.obj.obj (op T.left))) where
+  V := (fibreHomSheaf bF bG U x y X).obj.obj (op T)
+  ρ :=
+    { toFun := fun a => TypeCat.ofHom (fun p => p ≫
+        (bG.autEquiv T.left ((G.map T.hom.op.toLoc).toFunctor.obj
+          ((X.obj.app (.mk (op U))).toFunctor.obj x)) a).hom)
+      map_one' := by
+        change (TypeCat.ofHom _ : ((fibreHomSheaf bF bG U x y X).obj.obj (op T)) ⟶
+          ((fibreHomSheaf bF bG U x y X).obj.obj (op T))) = 𝟙 _
+        ext p
+        change p ≫ (bG.autEquiv T.left _ 1).hom = p
+        rw [map_one]
+        exact Category.comp_id p
+      map_mul' := by
+        intro a c
+        change (TypeCat.ofHom _ : ((fibreHomSheaf bF bG U x y X).obj.obj (op T)) ⟶
+          ((fibreHomSheaf bF bG U x y X).obj.obj (op T))) = _ ≫ _
+        ext p
+        simp [Aut.Aut_mul_def, Category.assoc] }
+
+lemma fibreHomSectionAction_apply (X : HomCategory bF bG) (T : Over U)
+    (a : Multiplicative (A.obj.obj (op T.left)))
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    ((fibreHomSectionAction bF bG U x y X T).ρ a).hom p = p ≫
+      (bG.autEquiv T.left ((G.map T.hom.op.toLoc).toFunctor.obj
+        ((X.obj.app (.mk (op U))).toFunctor.obj x)) a).hom := by
+  sorry
+
+lemma fibreHomSectionAction_freeTransitive (X : HomCategory bF bG) (T : Over U)
+    (p q : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    ∃! a : Multiplicative (A.obj.obj (op T.left)),
+      ((fibreHomSectionAction bF bG U x y X T).ρ a).hom p = q := by
+  sorry
+
+lemma fibreHomSheafMap_equivariant {X Y : HomCategory bF bG} (m : X ⟶ Y)
+    (T : Over U) (a : Multiplicative (A.obj.obj (op T.left)))
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomSheafMap bF bG U x y m).hom.app (op T)
+        (((fibreHomSectionAction bF bG U x y X T).ρ a).hom p) =
+      ((fibreHomSectionAction bF bG U x y Y T).ρ a).hom
+        ((fibreHomSheafMap bF bG U x y m).hom.app (op T) p) := by
+  sorry
+
+lemma fibreHomSectionAction_restriction (X : HomCategory bF bG)
+    {T₁ T₂ : Over U} (f : T₁ ⟶ T₂)
+    (a : Multiplicative (A.obj.obj (op T₂.left)))
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T₂)) :
+    (fibreHomSheaf bF bG U x y X).obj.map f.op
+        (((fibreHomSectionAction bF bG U x y X T₂).ρ a).hom p) =
+      ((fibreHomSectionAction bF bG U x y X T₁).ρ
+        ((A.obj.map f.left.op).hom.toMultiplicative a)).hom
+          ((fibreHomSheaf bF bG U x y X).obj.map f.op p) := by
+  sorry
+
+noncomputable def fibreHomTransportIsoEquiv (X : HomCategory bF bG) (T : Over U) :
+    ((fibreHomSheaf bF bG U x y X).obj.obj (op T)) ≃
+      ((G.map T.hom.op.toLoc).toFunctor.obj y ≅
+        (X.obj.app (.mk (op T.left))).toFunctor.obj
+          ((F.map T.hom.op.toLoc).toFunctor.obj x)) where
+  toFun p := fibreHomSectionIsoEquiv bF bG U x y X T p ≪≫
+    restrictionIso bF bG X T.hom x
+  invFun q := (q ≪≫ (restrictionIso bF bG X T.hom x).symm).hom
+  left_inv p := by simp [fibreHomSectionIsoEquiv]
+  right_inv q := by apply Iso.ext; simp [fibreHomSectionIsoEquiv]
+
+lemma fibreHomTransportIsoEquiv_apply (X : HomCategory bF bG) (T : Over U)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    fibreHomTransportIsoEquiv bF bG U x y X T p =
+      fibreHomSectionIsoEquiv bF bG U x y X T p ≪≫
+        restrictionIso bF bG X T.hom x := by
+  sorry
+
+lemma fibreHomTransportIsoEquiv_modification {X Y : HomCategory bF bG} (m : X ⟶ Y)
+    (T : Over U) (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    fibreHomTransportIsoEquiv bF bG U x y Y T
+        ((fibreHomSheafMap bF bG U x y m).hom.app (op T) p) =
+      fibreHomTransportIsoEquiv bF bG U x y X T p ≪≫
+        componentIso bF bG m T.left ((F.map T.hom.op.toLoc).toFunctor.obj x) := by
+  sorry
+
+lemma fibreHomSheaf_obj (X : HomCategory bF bG) :
+    (fibreHomSheaf bF bG U x y X).obj =
+      G.presheafHom y ((X.obj.app (.mk (op U))).toFunctor.obj x) := by
+  sorry
+
+lemma fibreHomSheaf_isSheaf (X : HomCategory bF bG) :
+    Presheaf.IsSheaf (J.over U) (fibreHomSheaf bF bG U x y X).obj := by
+  sorry
+
+lemma fibreHomSectionIsoEquiv_symm_apply (X : HomCategory bF bG) (T : Over U)
+    (q : (G.map T.hom.op.toLoc).toFunctor.obj y ≅
+      (G.map T.hom.op.toLoc).toFunctor.obj ((X.obj.app (.mk (op U))).toFunctor.obj x)) :
+    (fibreHomSectionIsoEquiv bF bG U x y X T).symm q = q.hom := by
+  sorry
+
+lemma fibreHomSectionIsoEquiv_apply_symm_apply (X : HomCategory bF bG) (T : Over U)
+    (q : (G.map T.hom.op.toLoc).toFunctor.obj y ≅
+      (G.map T.hom.op.toLoc).toFunctor.obj ((X.obj.app (.mk (op U))).toFunctor.obj x)) :
+    fibreHomSectionIsoEquiv bF bG U x y X T
+      ((fibreHomSectionIsoEquiv bF bG U x y X T).symm q) = q := by
+  sorry
+
+lemma fibreHomSheafMap_id (X : HomCategory bF bG) :
+    fibreHomSheafMap bF bG U x y (𝟙 X) = 𝟙 (fibreHomSheaf bF bG U x y X) := by
+  sorry
+
+lemma fibreHomSheafFunctor_map_comp {X Y Z : HomCategory bF bG}
+    (m : X ⟶ Y) (n : Y ⟶ Z) :
+    (fibreHomSheafFunctor bF bG U x y).map (m ≫ n) =
+      (fibreHomSheafFunctor bF bG U x y).map m ≫
+        (fibreHomSheafFunctor bF bG U x y).map n := by
+  sorry
+
+lemma fibreHomSheafMapIso_hom_inv_id {X Y : HomCategory bF bG} (m : X ⟶ Y) :
+    (fibreHomSheafMapIso bF bG U x y m).hom ≫
+      (fibreHomSheafMapIso bF bG U x y m).inv = 𝟙 _ := by
+  sorry
+
+lemma fibreHomTransportIsoEquiv_symm_apply (X : HomCategory bF bG) (T : Over U)
+    (q : (G.map T.hom.op.toLoc).toFunctor.obj y ≅
+      (X.obj.app (.mk (op T.left))).toFunctor.obj
+        ((F.map T.hom.op.toLoc).toFunctor.obj x)) :
+    (fibreHomTransportIsoEquiv bF bG U x y X T).symm q =
+      (q ≪≫ (restrictionIso bF bG X T.hom x).symm).hom := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.SheafAssemblyTests
+open CategoryTheory Opposite Bicategory
+open TauCeti.AlgebraicGeometry.BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+  [IsGerbe F J] [IsGerbe G J] {A : Sheaf J AddCommGrpCat.{w}}
+  (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+local instance : Category (Pseudofunctor.StrongTrans F G) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := G)
+variable (U : C) (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U)))
+-- test: SheafAssemblyTests.actual_hom_sheaf
+example (X : HomCategory bF bG) :
+    (fibreHomSheaf bF bG U x y X).obj =
+      G.presheafHom y ((X.obj.app (.mk (op U))).toFunctor.obj x) := by
+  sorry
+
+-- test: SheafAssemblyTests.local_sections
+example (X : HomCategory bF bG) (T : Over U) :
+    ∃ R : Sieve T.left, R ∈ J T.left ∧
+      ∀ ⦃V : C⦄ (g : V ⟶ T.left), R g →
+        Nonempty ((fibreHomSheaf bF bG U x y X).obj.obj
+          (op (Over.mk (g ≫ T.hom)))) := by
+  sorry
+
+-- test: SheafAssemblyTests.iso_roundtrip
+example (X : HomCategory bF bG) (T : Over U)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomSectionIsoEquiv bF bG U x y X T).symm
+      (fibreHomSectionIsoEquiv bF bG U x y X T p) = p := by
+  sorry
+
+-- test: SheafAssemblyTests.iso_inverse_roundtrip
+example (X : HomCategory bF bG) (T : Over U)
+    (q : (G.map T.hom.op.toLoc).toFunctor.obj y ≅
+      (G.map T.hom.op.toLoc).toFunctor.obj ((X.obj.app (.mk (op U))).toFunctor.obj x)) :
+    fibreHomSectionIsoEquiv bF bG U x y X T
+      ((fibreHomSectionIsoEquiv bF bG U x y X T).symm q) = q := by
+  sorry
+
+-- test: SheafAssemblyTests.actual_modification
+example {X Y : HomCategory bF bG} (m : X ⟶ Y) (T : Over U)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomSheafMap bF bG U x y m).hom.app (op T) p =
+      p ≫ (G.map T.hom.op.toLoc).toFunctor.map
+        ((m.hom.as.app (.mk (op U))).toNatTrans.app x) := by
+  sorry
+
+-- test: SheafAssemblyTests.modification_restriction
+example {X Y : HomCategory bF bG} (m : X ⟶ Y)
+    {T₁ T₂ : (Over U)ᵒᵖ} (f : T₁ ⟶ T₂) :
+    (fibreHomSheaf bF bG U x y X).obj.map f ≫
+      (fibreHomSheafMap bF bG U x y m).hom.app T₂ =
+      (fibreHomSheafMap bF bG U x y m).hom.app T₁ ≫
+        (fibreHomSheaf bF bG U x y Y).obj.map f := by
+  sorry
+
+-- test: SheafAssemblyTests.identity_functor
+example (X : HomCategory bF bG) :
+    (fibreHomSheafFunctor bF bG U x y).map (𝟙 X) = 𝟙 _ := by
+  sorry
+
+-- test: SheafAssemblyTests.composed_modifications
+example {X Y Z : HomCategory bF bG} (m : X ⟶ Y) (n : Y ⟶ Z) :
+    (fibreHomSheafFunctor bF bG U x y).map (m ≫ n) =
+      (fibreHomSheafFunctor bF bG U x y).map m ≫
+        (fibreHomSheafFunctor bF bG U x y).map n := by
+  sorry
+
+-- test: SheafAssemblyTests.functor_carrier
+example (X : HomCategory bF bG) :
+    (fibreHomSheafFunctor bF bG U x y).obj X =
+      G.sheafHom J y ((X.obj.app (.mk (op U))).toFunctor.obj x) := by
+  sorry
+
+-- test: SheafAssemblyTests.inverse_modification
+example {X Y : HomCategory bF bG} (m : X ⟶ Y) :
+    (fibreHomSheafMapIso bF bG U x y m).inv =
+      fibreHomSheafMap bF bG U x y (homIso bF bG m).inv := by
+  sorry
+
+-- test: SheafAssemblyTests.inverse_modification_roundtrip
+example {X Y : HomCategory bF bG} (m : X ⟶ Y) :
+    (fibreHomSheafMapIso bF bG U x y m).hom ≫
+      (fibreHomSheafMapIso bF bG U x y m).inv = 𝟙 _ := by
+  sorry
+
+-- test: SheafAssemblyTests.empty_sections_allowed
+example (X : HomCategory bF bG) (T : Over U)
+    (h : IsEmpty ((fibreHomSheaf bF bG U x y X).obj.obj (op T))) :
+    IsEmpty (fibreHomSectionAction bF bG U x y X T).V := by
+  sorry
+
+-- test: SheafAssemblyTests.unique_band_difference
+example (X : HomCategory bF bG) (T : Over U)
+    (p q : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    ∃! a : Multiplicative (A.obj.obj (op T.left)),
+      ((fibreHomSectionAction bF bG U x y X T).ρ a).hom p = q := by
+  sorry
+
+-- test: SheafAssemblyTests.semilinear_restriction
+example (X : HomCategory bF bG) {T₁ T₂ : Over U} (f : T₁ ⟶ T₂)
+    (a : Multiplicative (A.obj.obj (op T₂.left)))
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T₂)) :
+    (fibreHomSheaf bF bG U x y X).obj.map f.op
+        (((fibreHomSectionAction bF bG U x y X T₂).ρ a).hom p) =
+      ((fibreHomSectionAction bF bG U x y X T₁).ρ
+        ((A.obj.map f.left.op).hom.toMultiplicative a)).hom
+          ((fibreHomSheaf bF bG U x y X).obj.map f.op p) := by
+  sorry
+
+-- test: SheafAssemblyTests.modification_equivariance
+example {X Y : HomCategory bF bG} (m : X ⟶ Y) (T : Over U)
+    (a : Multiplicative (A.obj.obj (op T.left)))
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomSheafMap bF bG U x y m).hom.app (op T)
+        (((fibreHomSectionAction bF bG U x y X T).ρ a).hom p) =
+      ((fibreHomSectionAction bF bG U x y Y T).ρ a).hom
+        ((fibreHomSheafMap bF bG U x y m).hom.app (op T) p) := by
+  sorry
+
+-- test: SheafAssemblyTests.transport_roundtrip
+example (X : HomCategory bF bG) (T : Over U)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomTransportIsoEquiv bF bG U x y X T).symm
+      (fibreHomTransportIsoEquiv bF bG U x y X T p) = p := by
+  sorry
+
+-- test: SheafAssemblyTests.transport_modification
+example {X Y : HomCategory bF bG} (m : X ⟶ Y) (T : Over U)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    fibreHomTransportIsoEquiv bF bG U x y Y T
+        ((fibreHomSheafMap bF bG U x y m).hom.app (op T) p) =
+      fibreHomTransportIsoEquiv bF bG U x y X T p ≪≫
+        componentIso bF bG m T.left ((F.map T.hom.op.toLoc).toFunctor.obj x) := by
+  sorry
+
+-- test: SheafAssemblyTests.actual_sheaf_property
+example (X : HomCategory bF bG) :
+    Presheaf.IsSheaf (J.over U) (fibreHomSheaf bF bG U x y X).obj := by
+  sorry
+
+-- test: SheafAssemblyTests.iso_actual_arrow
+example (X : HomCategory bF bG) (T : Over U)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomSectionIsoEquiv bF bG U x y X T p).hom = p := by
+  sorry
+
+-- test: SheafAssemblyTests.identity_section_map
+example (X : HomCategory bF bG) (T : Over U)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomSheafMap bF bG U x y (𝟙 X)).hom.app (op T) p = p := by
+  sorry
+
+-- test: SheafAssemblyTests.forward_modification
+example {X Y : HomCategory bF bG} (m : X ⟶ Y) :
+    (fibreHomSheafMapIso bF bG U x y m).hom =
+      fibreHomSheafMap bF bG U x y m := by
+  sorry
+
+-- test: SheafAssemblyTests.inverse_transport_formula
+example (X : HomCategory bF bG) (T : Over U)
+    (q : (G.map T.hom.op.toLoc).toFunctor.obj y ≅
+      (X.obj.app (.mk (op T.left))).toFunctor.obj
+        ((F.map T.hom.op.toLoc).toFunctor.obj x)) :
+    (fibreHomTransportIsoEquiv bF bG U x y X T).symm q =
+      (q ≪≫ (restrictionIso bF bG X T.hom x).symm).hom := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.SheafAssemblyTests
