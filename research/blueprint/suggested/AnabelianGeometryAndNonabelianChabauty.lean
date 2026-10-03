@@ -4625,3 +4625,497 @@ example :
 
 end PermutationRegression
 end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U]
+  [MulDistribMulAction G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+def Z1.kernelGauge [IsTopologicalGroup U] [ContinuousSMul G U]
+    (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+    (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+    (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val) (u : U) (hu : f u ∈ H0 G V) (c : Z1 G K) : Z1 G K := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma Z1.kernelGauge_apply (u : U) (hu : f u ∈ H0 G V) (c : Z1 G K) (g : G) :
+    (Z1.kernelGauge K f hfG hK hKG u hu c g).val = u * (c g).val * (g • u)⁻¹ := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma Z1.kernelGauge_one (c : Z1 G K) :
+    Z1.kernelGauge K f hfG hK hKG 1 (by simp) c = c := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma Z1.kernelGauge_mul (u v : U) (hu : f u ∈ H0 G V) (hv : f v ∈ H0 G V)
+    (c : Z1 G K) :
+    Z1.kernelGauge K f hfG hK hKG (u*v) (by simpa using (H0 G V).mul_mem hu hv) c =
+      Z1.kernelGauge K f hfG hK hKG u hu (Z1.kernelGauge K f hfG hK hKG v hv c) := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma Z1.kernelGauge_gauge (u : U) (hu : f u ∈ H0 G V) (a : K) (c : Z1 G K) :
+    Z1.kernelGauge K f hfG hK hKG u hu (a • c) =
+      (⟨u * a.val * u⁻¹, (hK _).mpr (by
+        rw [_root_.map_mul, _root_.map_mul, _root_.map_inv, (hK _).mp a.property]
+        simp)⟩ : K) • Z1.kernelGauge K f hfG hK hKG u hu c := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U]
+  [MulDistribMulAction G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+@[instance_reducible]
+def H1.kernelPreimageAction [IsTopologicalGroup U] [ContinuousSMul G U]
+    (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+    (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+    (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val) : MulAction ((H0 G V).comap f) (H1 G K) := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma H1.kernelPreimageAction_mk (u : (H0 G V).comap f) (c : Z1 G K) :
+    (letI := H1.kernelPreimageAction K f hfG hK hKG
+     u • H1.mk c = H1.mk (Z1.kernelGauge K f hfG hK hKG u.val (show f u.val ∈ H0 G V from u.property) c)) := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma H1.kernelPreimageAction_kernel (u : (H0 G V).comap f) (hu : f u.val = 1)
+    (a : H1 G K) :
+    (letI := H1.kernelPreimageAction K f hfG hK hKG
+     u • a = a) := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+def H0.preimageProjection : (H0 G V).comap f →* H0 G V := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma H0.preimageProjection_apply (u : (H0 G V).comap f) :
+    (H0.preimageProjection (G := G) f u).val = f u.val := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma H0.preimageProjection_mem_ker (u : (H0 G V).comap f) :
+    u ∈ (H0.preimageProjection (G := G) f).ker ↔ f u.val = 1 := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma H0.preimageProjection_surjective (hs : Function.Surjective f) :
+    Function.Surjective (H0.preimageProjection (G := G) f) := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma H1.kernelPreimageAction_perm_kernel :
+    (letI := H1.kernelPreimageAction K f hfG hK hKG
+     (H0.preimageProjection (G := G) f).ker ≤
+       (MulAction.toPermHom ((H0 G V).comap f) (H1 G K)).ker) := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U]
+  [MulDistribMulAction G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+@[instance_reducible]
+def H1.kernelInvariantAction [IsTopologicalGroup U] [ContinuousSMul G U]
+    (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+    (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+    (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val) (hs : Function.Surjective f) :
+    MulAction (H0 G V) (H1 G K) := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma H1.kernelInvariantAction_lift (hs : Function.Surjective f)
+    (u : (H0 G V).comap f) (a : H1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     H0.preimageProjection (G := G) f u • a =
+       letI := H1.kernelPreimageAction K f hfG hK hKG
+       u • a) := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma H1.kernelInvariantAction_mk (hs : Function.Surjective f)
+    (v : H0 G V) (u : U) (hu : f u = v.val) (c : Z1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     v • H1.mk c = H1.mk (Z1.kernelGauge K f hfG hK hKG u
+       (by rw [hu]; exact v.property) c)) := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma H1.kernelInvariantAction_lift_independent (u w : U) (hu : f u ∈ H0 G V)
+    (hw : f w ∈ H0 G V) (he : f u = f w) (c : Z1 G K) :
+    H1.mk (Z1.kernelGauge K f hfG hK hKG u hu c) =
+      H1.mk (Z1.kernelGauge K f hfG hK hKG w hw c) := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma Z1.kernelGauge_inclusion (u : U) (hu : f u ∈ H0 G V) (c : Z1 G K) :
+    Z1.map K.subtype continuous_subtype_val hKG
+      (Z1.kernelGauge K f hfG hK hKG u hu c) =
+      u • Z1.map K.subtype continuous_subtype_val hKG c := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma H1.kernelInvariantAction_inclusion (hs : Function.Surjective f)
+    (v : H0 G V) (a : H1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     H1.map K.subtype continuous_subtype_val hKG (v • a) =
+       H1.map K.subtype continuous_subtype_val hKG a) := by sorry
+
+end
+
+section
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [topU : IsTopologicalGroup U]
+  [MulDistribMulAction G U] [contU : ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+lemma H1.kernelInvariantAction_fibre_iff (hs : Function.Surjective f) (a b : H1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     H1.map K.subtype continuous_subtype_val hKG a =
+       H1.map K.subtype continuous_subtype_val hKG b ↔ ∃ v : H0 G V, v • a = b) := by sorry
+
+end
+
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section KernelInvariantActionTests
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V]
+  [MulDistribMulAction G V]
+  (K : Subgroup U) [MulDistribMulAction G K] [ContinuousSMul G K]
+  (f : U →* V) (hfG : ∀ (g : G) (u : U), f (g • u) = g • f u)
+  (hK : ∀ u : U, u ∈ K ↔ f u = 1)
+  (hKG : ∀ (g : G) (k : K), (g • k).val = g • k.val)
+
+-- test: kernel_gauge_identity
+example (c : Z1 G K) : Z1.kernelGauge K f hfG hK hKG 1 (by simp) c = c := by sorry
+
+-- test: kernel_gauge_native_inclusion
+example (u : U) (hu : f u ∈ H0 G V) (c : Z1 G K) :
+    Z1.map K.subtype continuous_subtype_val hKG (Z1.kernelGauge K f hfG hK hKG u hu c) =
+      u • Z1.map K.subtype continuous_subtype_val hKG c := by sorry
+
+-- test: kernel_gauge_trivial_value
+example (u : U) (hu : f u ∈ H0 G V) (g : G) :
+    (Z1.kernelGauge K f hfG hK hKG u hu (1 : Z1 G K) g).val = u * (g • u)⁻¹ := by sorry
+
+-- test: preimage_action_representative
+example (u : (H0 G V).comap f) (c : Z1 G K) :
+    (letI := H1.kernelPreimageAction K f hfG hK hKG
+     u • H1.mk c = H1.mk (Z1.kernelGauge K f hfG hK hKG u.val
+       (show f u.val ∈ H0 G V from u.property) c)) := by sorry
+
+-- test: preimage_kernel_acts_trivially
+example (u : (H0 G V).comap f) (hu : f u.val = 1) (a : H1 G K) :
+    (letI := H1.kernelPreimageAction K f hfG hK hKG; u • a = a) := by sorry
+
+-- test: preimage_inverse_roundtrip
+example (u : (H0 G V).comap f) (a : H1 G K) :
+    (letI := H1.kernelPreimageAction K f hfG hK hKG; u⁻¹ • (u • a) = a) := by sorry
+
+-- test: invariant_projection_identity
+example : H0.preimageProjection (G := G) f 1 = 1 := by sorry
+
+-- test: invariant_projection_exact_kernel
+example (u : (H0 G V).comap f) :
+    u ∈ (H0.preimageProjection (G := G) f).ker ↔ u.val ∈ K := by sorry
+
+-- test: invariant_projection_lifts
+example (hs : Function.Surjective f) (v : H0 G V) :
+    ∃ u : (H0 G V).comap f, H0.preimageProjection (G := G) f u = v := by sorry
+
+-- test: invariant_action_identity
+example (hs : Function.Surjective f) (a : H1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs; (1 : H0 G V) • a = a) := by sorry
+
+-- test: invariant_action_ambient_constant
+example (hs : Function.Surjective f) (v : H0 G V) (a : H1 G K) :
+    (letI := H1.kernelInvariantAction K f hfG hK hKG hs
+     H1.map K.subtype continuous_subtype_val hKG (v • a) =
+       H1.map K.subtype continuous_subtype_val hKG a) := by sorry
+
+end KernelInvariantActionTests
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section SignKernelRegression
+set_option maxHeartbeats 3000000
+local notation "C3" => Multiplicative (ZMod 3)
+local notation "S3" => Equiv.Perm (Fin 3)
+local notation "Ksign" => MonoidHom.ker (Equiv.Perm.sign : S3 →* ℤˣ)
+local instance : TopologicalSpace C3 := ⊥
+local instance : TopologicalSpace S3 := ⊥
+local instance : TopologicalSpace ℤˣ := ⊥
+local instance : DiscreteTopology C3 := ⟨rfl⟩
+local instance : DiscreteTopology S3 := ⟨rfl⟩
+local instance : DiscreteTopology ℤˣ := ⟨rfl⟩
+local instance : MulDistribMulAction C3 S3 :=
+  { smul := fun _ x => x
+    one_smul := fun _ => rfl
+    mul_smul := fun _ _ _ => rfl
+    smul_one := fun _ => rfl
+    smul_mul := fun _ _ _ => rfl }
+local instance : MulDistribMulAction C3 ℤˣ :=
+  { smul := fun _ x => x
+    one_smul := fun _ => rfl
+    mul_smul := fun _ _ _ => rfl
+    smul_one := fun _ => rfl
+    smul_mul := fun _ _ _ => rfl }
+local instance : MulDistribMulAction C3 Ksign :=
+  { smul := fun _ x => x
+    one_smul := fun _ => rfl
+    mul_smul := fun _ _ _ => rfl
+    smul_one := fun _ => rfl
+    smul_mul := fun _ _ _ => rfl }
+local instance : ContinuousSMul C3 S3 := ⟨continuous_snd⟩
+local instance : ContinuousSMul C3 Ksign := ⟨continuous_snd⟩
+
+-- test: odd_invariant_exchanges_distinct_kernel_classes
+example :
+    let p : S3 := Equiv.swap 0 1 * Equiv.swap 1 2
+    let i : C3 →* S3 :=
+      { toFun := fun a => if a = 1 then 1 else if a = Multiplicative.ofAdd (1 : ZMod 3) then p else p⁻¹
+        map_one' := by decide
+        map_mul' := by decide }
+    let c : Z1 C3 Ksign := ⟨fun a => ⟨i a,(by decide : ∀ a : C3, Equiv.Perm.sign (i a) = 1) a⟩,
+      continuous_of_discreteTopology, by intro a b; apply Subtype.ext; exact i.map_mul a b⟩
+    let d : Z1 C3 Ksign := ⟨fun a => ⟨i a⁻¹,(by decide : ∀ a : C3, Equiv.Perm.sign (i a) = 1) a⁻¹⟩,
+      continuous_of_discreteTopology, by
+        intro a b
+        apply Subtype.ext
+        exact (by decide : ∀ a b : C3, i ((a*b)⁻¹) = i a⁻¹ * i b⁻¹) a b⟩
+    letI := H1.kernelInvariantAction (G := C3) Ksign Equiv.Perm.sign (fun _ _ => rfl)
+      (fun _ => Iff.rfl) (fun _ _ => rfl) (Equiv.Perm.sign_surjective (Fin 3))
+    H1.mk c ≠ H1.mk d ∧ (⟨-1,fun _ => rfl⟩ : H0 C3 ℤˣ) • H1.mk c = H1.mk d := by sorry
+
+end SignKernelRegression
+end TauCeti.NonabelianCohomology
