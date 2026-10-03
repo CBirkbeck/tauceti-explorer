@@ -1,3 +1,189 @@
+# Infinite affine coinvariants and their coefficient algebra
+
+## Scope and conventions
+
+The root-stack owner and every incoming contract are retained. This section develops the affine algebra underlying the infinite root chart. It does not identify a geometric quotient stack, a coarse moduli space, an fpqc frame torsor or a root-object groupoid. Those constructions use their separately owned inputs.
+
+Fix any commutative ring A and any f∈A, in the fixed universe of the native factorial colimit. No domain, reducedness, nontriviality, Noetherianity or invertibility assumption is present. Write d_i=(i+1)! and B_i=A[t_i]/(t_i^d_i−f). The inherited divisibility maps send t_i to t_j^(d_j/d_i). Their actual direct limit is C_A(f), with injective finite-stage maps ι_i and included roots u_i. Every element has a finite-level representative. The monic power basis of B_i has precisely the vectors t_i^j, 0≤j<d_i; this basis is used over a nontrivial base, with the zero ring handled separately.
+
+Write Q/Z as the native rational AddCircle of period one, G_A=A[Q/Z] for its multiplicative group algebra, and e_q for its character basis. The normalized character is χ_n(j)=[j/n]. The inherited coaction is LEFT: η_f:C_A(f)→G_A⊗_A C_A(f). It sends u_i^j to e_(χ_d_i(j))⊗u_i^j and coefficients a to 1⊗a. Coinvariance means equality of these native universal tensors. Checking only base-field points cannot detect the infinitesimal wild stabilizers and is not the condition used here.
+
+## Construction and proof interior
+
+The coefficient functional first extracts the character coefficient in G_A and then applies the tensor left unitor. Thus it lands in C_A(f), rather than in A or a renamed invariant predicate. Linearity handles every finite sum without flatness. For a root expansion at level i, different j∈Fin(d_i) have different normalized characters: equality in Q/Z gives equality in Z/d_i, whose natural representatives below d_i are equal. Applying the k-character functional to the coaction leaves just ι_i(c_k t_i^k).
+
+If the expansion is coinvariant and k≠0, that character is nonzero, while its coefficient in 1⊗x vanishes. Therefore ι_i(c_k t_i^k)=0. The genuine injectivity of the finite-level inclusion returns this equality to B_i. The k-th monic basis coordinate then gives c_k=0. This step does not cancel t_i, which can be nilpotent, and does not assume the coefficient c_k is regular. Conversely, vanishing of all nonzero-index coefficients leaves just c_0, which is coinvariant by the actual coefficient formula.
+
+Choose a finite representative of any x∈C_A(f) and apply this criterion to its monic expansion. The finite affine invariant theorem identifies that same representative with a coefficient. Passing it through ι_i gives the same coefficient in the colimit. This proves existence. Coefficient inclusion is injective because it factors through the positive-degree monic quotient at exponent one and the already injective level-zero colimit inclusion. Thus the coefficient is unique.
+
+The inherited native tensor equivalence between the original unity-root coaction ρ_f and η_f reflects universal tensor equality. It transfers the same invariant criterion to ρ_f without a pointwise shortcut. Finally, restrict the actual coefficient algebra homomorphism to the native equalizer of η_f and the right inclusion. Existence and injectivity make this map bijective, giving the native A-algebra equivalence. The inverse recovers the coefficient of that same invariant element.
+
+No theorem asserting that invariants commute with arbitrary filtered colimits is imported. The proof uses the specific finite-level representatives, distinct rational weights and injective transition maps of this tower. Arbitrary coefficient homomorphisms still need their stated naturality comparisons; one-way preservation of coinvariance is not reflection under a noninjective homomorphism.
+
+## Declaration contracts, APIs and tests
+
+### Rational-character tensor coefficient
+
+TauCeti.RootStack.qzTensorCoefficient — FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient
+
+For q∈Q/Z define the native A-linear map P_q:G⊗_A C→C by composing the existing group-algebra coefficient equivalence, evaluation at q, the tensor map with id_C and the native left unitor. Thus P_q(e_r a⊗x)=a·x if r=q, and 0 otherwise.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant, mathlib:MonoidAlgebra.coeffLinearEquiv, mathlib:Finsupp.lapply, mathlib:TensorProduct.map, mathlib:TensorProduct.lid.
+
+Proof route: Use the native coefficient linear equivalence and native Finsupp evaluation; compose their linear maps. Tensor the coefficient functional with id_C, then compose with the existing native A⊗_A C≃C. This is a coefficient map, not an algebra homomorphism. Evaluate a character basis tensor using the native tensor-map and unitor formulas; linearity supplies sums and scalar multiples.
+
+Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+API TauCeti.RootStack.qzTensorCoefficient.single (simp): P_q(e_r a⊗x) is a·x when r=q and zero otherwise.
+
+API TauCeti.RootStack.qzTensorCoefficient.constant (simp): P_q(1⊗x)=x for q=0 and zero for q≠0.
+
+API TauCeti.RootStack.qzTensorCoefficient.coaction_constant (compatibility): P_q(η_f(a)) is the actual coefficient image of a for q=0, and zero for q≠0.
+
+Test TauCeti.RootStack.qzTensorCoefficient.test_matching (computation): For every q,a,x, P_q(e_q a⊗x)=a·x.
+
+Test TauCeti.RootStack.qzTensorCoefficient.test_nonzero_character (non-example): For q≠0, P_q(1⊗x)=0; this excludes evaluation on the second tensor factor.
+
+Test TauCeti.RootStack.qzTensorCoefficient.test_zero_character (compatibility): P_0(1⊗x)=x, agreeing with the native tensor left unitor.
+
+Test TauCeti.RootStack.qzTensorCoefficient.test_zero_ring (degenerate): For A=Z/1 and f=0 every character coefficient of 1⊗x is zero.
+
+### Distinct finite rational characters
+
+TauCeti.RootStack.affineQZCharacter.fin_injective — FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective
+
+For n≥1, the map Fin(n)→Q/Z sending j to χ_n(j) is injective.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-character-injective, mathlib:ZMod.val_natCast_of_lt.
+
+Proof route: Apply the inherited injectivity of χ_n on Z/n to an equality of characters. Apply the native residue-value map to the resulting equality in Z/n; values of natural residues below n equal their original integers, so Fin extensionality proves equality.
+
+Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+### Character coefficient of a finite root expansion
+
+TauCeti.RootStack.factorialQZCoaction.coefficient_sum — FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-coefficient
+
+For i≥0, c:Fin(d_i)→A and k∈Fin(d_i), P_(χ_d_i(k))(η_f(ι_i(Σ_j c_j t_i^j)))=ι_i(c_k t_i^k).
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient, FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-power, FunctionFieldArithmeticPartII:RS.2/qz-character-natcast, FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion.
+
+Proof route: Use the inherited power formula η_f(u_i^j)=e_(χ_d_i(j))⊗u_i^j and native A-linearity. Apply P_(χ_d_i(k)) term by term; distinctness of the finite characters kills every j≠k. The remaining term is c_k u_i^k=ι_i(c_k t_i^k); neither the scalar nor the root is cancelled.
+
+Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+### Finite-level criterion for infinite coinvariance
+
+TauCeti.RootStack.factorialQZCoaction.invariants_sum_iff — FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-invariant-criterion
+
+For i≥0 and c:Fin(d_i)→A, η_f(ι_i(Σ_j c_j t_i^j))=1⊗ι_i(Σ_j c_j t_i^j) if and only if c_j=0 for every j≠0.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-coefficient, FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient, FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective, FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-injective, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant, mathlib:AdjoinRoot.powerBasis', mathlib:Polynomial.monic_X_pow_sub_C, mathlib:Polynomial.natDegree_X_pow_sub_C, mathlib:Module.Basis.reindex, mathlib:Module.Basis.reindex_apply, mathlib:Module.Basis.equivFun_self.
+
+Proof route: For k≠0 its rational character is nonzero by finite-character injectivity. Apply P_(χ_d_i(k)) to universal coinvariance: the right-hand coefficient is zero, and the left-hand coefficient is ι_i(c_k t_i^k). Use actual finite-stage injectivity to get c_k t_i^k=0 in B_i. Over a nontrivial A, apply the k-th coordinate of the reindexed monic power basis to conclude c_k=0. For a subsingleton A the same conclusion is immediate. No regularity of t_i is used. Conversely, sum reduction leaves only c_0; the algebra-map coefficient formula and constant coaction give 1⊗c_0.
+
+Acceptance: At d_1=2 over F_2 the criterion is precisely c_1=0, not invariance under μ_2(F_2). At f=0 over Z/4 the expansion with c_1=2 and c_0=0 is not coinvariant, although its nonconstant coefficient is nilpotent.
+
+Test TauCeti.RootStack.factorialQZCoaction.test_wild_coefficient_criterion (characterisation): At level one, A=F₂ and f=0, universal coinvariance of the two-coefficient expansion is equivalent to c_1=0.
+
+Test TauCeti.RootStack.factorialQZCoaction.test_nonzero_nilpotent_rejected (non-example): At level one over Z/4 with f=0, the expansion c_0=0,c_1=2 is not coinvariant, although c_1 is a nonzero nilpotent.
+
+### Infinite affine coinvariants
+
+TauCeti.RootStack.factorialQZCoaction.invariants — FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants
+
+For every x∈C_A(f), η_f(x)=1⊗x if and only if x=algebraMap(a) for some a∈A.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-invariant-criterion, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements, FunctionFieldArithmeticPartII:RS.1/affine-invariants, FunctionFieldArithmeticPartII:RS.1/affine-invariant-coefficient-criterion, mathlib:AdjoinRoot.powerBasis', mathlib:Polynomial.monic_X_pow_sub_C, mathlib:Polynomial.natDegree_X_pow_sub_C, mathlib:Module.Basis.sum_equivFun, mathlib:Module.Basis.reindex, mathlib:Module.Basis.reindex_apply, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant.
+
+Proof route: Represent x at an actual finite level by the direct-limit element theorem. Handle the zero ring directly. Use the monic power basis to expand this representative, apply the finite-level criterion to force its nonzero-weight coefficients to vanish. Invoke the inherited finite invariant criterion and finite invariant theorem on that same representative. Its coefficient image passes to the same coefficient in the colimit. Constants satisfy coinvariance by the inherited constant formula. This does not commute invariants with an arbitrary filtered colimit or arbitrary base change without proof.
+
+Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+### Faithful coefficient inclusion in the root colimit
+
+TauCeti.RootStack.factorialAffineColimit.coefficient_injective — FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective
+
+For every f∈A the actual coefficient map A→C_A(f) is injective.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-injective, mathlib:AdjoinRoot.of.injective_of_monic_of_degree_pos, mathlib:Polynomial.monic_X_pow_sub_C, mathlib:Polynomial.degree_X_pow_sub_C.
+
+Proof route: Factor the coefficient map through level i=0, whose exponent is one. The positive-degree monic quotient coefficient map is injective; then use the actual injective finite-level inclusion into C_A(f). The subsingleton coefficient ring satisfies injectivity directly.
+
+Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+### Unique invariant coefficient
+
+TauCeti.RootStack.factorialQZCoaction.invariants_unique — FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants-unique
+
+If η_f(x)=1⊗x, there exists a unique a∈A with x=algebraMap(a).
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective.
+
+Proof route: Take a coefficient supplied by the invariant theorem. Any two coefficients with that image agree by coefficient-map injectivity.
+
+Acceptance: For A=Z/1 every x has the unique coefficient 0. For every A,f,a the image of a has exactly coefficient a.
+
+Test TauCeti.RootStack.factorialQZCoaction.test_unique_constants (characterisation): For every A,f,a, the actual coefficient image of a has the unique coefficient a.
+
+Test TauCeti.RootStack.factorialQZCoaction.test_coefficient_unique_zero_ring (degenerate): For A=Z/1 and f=0 every colimit element has the unique coefficient zero.
+
+### Coinvariants in unity-root coordinates
+
+TauCeti.RootStack.factorialCoaction.invariants — FunctionFieldArithmeticPartII:RS.2/factorial-coaction-invariants
+
+For every x∈C_A(f), ρ_f(x)=1⊗x in C_A(1)⊗_A C_A(f) if and only if x=algebraMap(a) for some a∈A.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants, FunctionFieldArithmeticPartII:RS.2/qz-chart-coinvariance.
+
+Proof route: Use the inherited native tensor-algebra equivalence to reflect universal coinvariance between ρ_f and η_f. Apply the proved rational-coordinate invariant theorem to the same x. This is equality of universal coactions, not a comparison using scalar points.
+
+Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+### Infinite invariant algebra
+
+TauCeti.RootStack.factorialInvariantEquiv — FunctionFieldArithmeticPartII:RS.2/factorial-invariant-algebra-equivalence
+
+Let I_f be the native AlgHom.equalizer of η_f:C_A(f)→A[Q/Z]⊗_A C_A(f) and the right inclusion x↦1⊗x. Construct the A-algebra equivalence A≃I_f induced by the actual coefficient map.
+
+Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective, mathlib:AlgHom.equalizer, mathlib:AlgHom.mem_equalizer, mathlib:AlgHom.codRestrict, mathlib:Algebra.ofId, mathlib:AlgEquiv.ofBijective.
+
+Proof route: Restrict the coefficient A-algebra homomorphism to the native equalizer; constant coinvariance proves membership. Its underlying map is injective by coefficient inclusion and surjective by the invariant theorem. Apply the existing native bijective algebra-hom equivalence constructor. The forward map is coefficient inclusion, and the inverse is the coefficient of that same invariant element. Do not construct a separate opaque invariant carrier or infer geometric coarse universality.
+
+Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+API TauCeti.RootStack.factorialInvariantEquiv.apply_coe (simp): The underlying chart element of factorialInvariantEquiv(f)(a) is the coefficient image of a.
+
+API TauCeti.RootStack.factorialInvariantEquiv.inverse_coe (compatibility): Including the inverse coefficient of x∈I_f back into C_A(f) gives x itself.
+
+API TauCeti.RootStack.factorialInvariantEquiv.eq_iff (characterisation): For x∈I_f and a∈A, the inverse coefficient of x is a if and only if x itself is the actual coefficient image of a.
+
+Test TauCeti.RootStack.factorialInvariantEquiv.test_coefficient_two (computation): For A=Z/4 and f=2, the forward image of coefficient 2 is its actual chart inclusion.
+
+Test TauCeti.RootStack.factorialInvariantEquiv.test_zero_ring (degenerate): For A=Z/1 and f=0 the forward image of the sole coefficient is zero.
+
+Test TauCeti.RootStack.factorialInvariantEquiv.test_unity (compatibility): For f=1 every forward image is universally coinvariant for the original unity-root coaction ρ_1.
+
+Test TauCeti.RootStack.factorialInvariantEquiv.test_inverse (characterisation): For every x in the native equalizer, applying the forward map to its inverse coefficient recovers exactly x.
+
+## Additional theorem acceptance examples
+
+TauCeti.RootStack.factorialQZCoaction.test_unique_constants asserts that the image of any a∈A has exactly the same coefficient a.
+
+TauCeti.RootStack.factorialQZCoaction.test_wild_coefficient_criterion specializes level one to d_1=2, f=0 and A=F₂. Universal coinvariance is exactly vanishing of c_1. This distinguishes the universal μ₂ action from its trivial group of field-valued points.
+
+TauCeti.RootStack.factorialQZCoaction.test_nonzero_nilpotent_rejected takes A=Z/4, f=0, d_1=2, c_0=0 and c_1=2. This nonzero nilpotent coefficient produces a noncoinvariant chart element. Vanishing of higher powers is not enough for coinvariance.
+
+TauCeti.RootStack.factorialQZCoaction.test_coefficient_unique_zero_ring asserts that every x over Z/1 has the unique coefficient zero. The theorem includes this degenerate case rather than imposing nontriviality globally.
+
+## Source and ownership boundary
+
+The motivating primary text is Talpo–Vistoli, arXiv1410.1164v2, printed/PDF pages14–16: the Cartier-dual grading, Lemma3.7 degree-zero calculation, Definition3.8, the complete Proposition3.10/Lemma3.12 proof route and Corollary3.13. The nine named native adapters are authored deductions from the specific factorial colimit and the pinned Mathlib statements, not names or full theorems printed in that paper. This is a selected source audit, not a whole-paper or errata certification.
+
+The native tensor maps, coefficient equivalence, finite quotient bases, equalizer and bijective algebra-equivalence constructor are imported. No generic group, Hopf, tensor, stack or coarse-moduli theory is rebuilt. The geometric root-stack reserved node remains unchanged, as do the Yun–Zhang and Abdurrahman–Venkatesh routes, all source findings, eight gaps, thirteen requests and all ten partial stages. Full exact-pin Tau Ceti canonical-file typing, positive-index and higher-universe transport, root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons remain required. This invariant-algebra theorem is one input to those goals, not their completion.
+
+---
+
 ## Universal invariants on finite affine root charts
 
 Let A be any commutative ring, f any element and n a positive integer. Use the native quotient B=A[t]/(t^n−f), the native character Hopf algebra A[Z/n] and the actual left coaction δ(t)=e₁⊗t. Invariance means δ(b)=1⊗b as an equality of universal tensors. It does not mean invariance under the set of A-valued roots of unity. No division by n, averaging, nonzerodivisor condition on f, reducedness or Noetherianity is imposed.
