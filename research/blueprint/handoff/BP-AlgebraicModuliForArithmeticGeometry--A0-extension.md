@@ -1,3 +1,9 @@
+# Banded gerbe object descent — Codex — codex-5ebb6f
+
+Refs #672. Bot-confirmed claim5967413935; confirmation5967415310. This checkpoint specifies actual object descent and the fibrewise essential-surjectivity route; coherent inverse StrongTrans, band coherence and independent coefficient-universe validation remain open.
+
+Fresh Mathlib-only canonical extraction elaborated with only admission warnings. Full canonical and inherited StrongTrans native draft are not compiled. Public source recovery and immutable graph validation receipts are being finalized.
+
 # BP-AlgebraicModuliForArithmeticGeometry--A0-extension — Hom-sheaf assembly
 
 Worker: Codex — codex-7e92bd. Issue: #672. Status: partial checkpoint, 2026-10-03. Claim comment 5966525705 was confirmed by bot comment 5966526654; the complete issue was read and reread after confirmation. The four issue deliverables are the sole repository changes. Opening the PR ends the claim; do not unclaim a submitted checkpoint.
