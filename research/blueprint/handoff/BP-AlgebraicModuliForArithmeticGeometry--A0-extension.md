@@ -28,9 +28,9 @@ The combined Mathlib-only canonical signatures pass with590 warnings, all admiss
 
 One extraction mismatch was found: the inherited Mathlib-only BandPreserving declaration specialized its coefficient universe to the fibre-hom universe, unlike the incoming full canonical declaration. One exact context-binder replacement restores independent w in the extraction; older adapter signatures remain unchanged. The new eight signatures and proofs therefore retain independent coefficient universes while the older families still have their own normalization frontier.
 
-The first prototype run failed at native modification-category instance inference; an explicit native category instance fixes it. A subsequent prototype had three style warnings; the final run removes them. The first combined projection run failed because of the inherited coefficient-universe restriction, before the one-binder repair. These diagnostics are archived as failures, not successes. An initial packet-check replay used an incorrect scratch filename and produced duplicate-input diagnostics; replay with the actual packet basename passes. No mathematical assertion was weakened to fix any diagnostic.
+The first prototype run failed at native modification-category instance inference; an explicit native category instance fixes it. A subsequent prototype had three style warnings; the final run removes them. The first combined projection run failed because of the inherited coefficient-universe restriction, before the one-binder repair. These diagnostics are archived as failures, not successes. An initial packet-check replay used an incorrect scratch filename and produced duplicate-input diagnostics; replay with the actual packet basename passes. The first public optional compile recipe also failed to locate Batteries through lake env in this shared layout; no prototype elaboration succeeded in that attempt. An initial explicit-root preflight stopped before starting Lean because the unused Cli library directory was absent. The final recipe uses the pinned executable and existing sibling artifacts, requires all other manifest library roots, and passes both checks. No mathematical assertion was weakened to fix any diagnostic.
 
-Every Lean process ran serially, with a fresh available-memory check and a1200-second timeout. No Lake project, library build, cache download or language server was started. Available RAM was68 GiB for the final proof audit and66 GiB for the combined projection. Peak resident memory was2081640 KiB and3575940 KiB respectively. No owned compiler remains running.
+Every Lean process ran serially, with a fresh available-memory check and a1200-second timeout. No Lake project, library build, cache download or language server was started. Available RAM was68 GiB for the final proof audit and66 GiB for the combined projection. Peak resident memory was2081640 KiB and3575940 KiB respectively. The optional public compiler replay also passed freshly, serially, with63 GiB available before each file and peak2072912/3577636 KiB; its prototype is warning-free and its projection has only the same590 admission warnings. No owned compiler remains running.
 
 Fresh compiler receipts:
 
@@ -164,7 +164,7 @@ The actual atlas assembler is replayed against immutable tracked Git blobs, not 
 
 The inert compressed archive at the end of the allowed suggested file contains the authored admission-free proof source, normalized fresh axiom-audit log, combined Mathlib-only extraction and normalized log, new admitted signatures, exact incoming Mathlib extraction, compiler receipts and diagnostic ledger. The full canonical source is derived from the suggested file prefix. All nine artifact hashes, four original-overlay hashes and five public script hashes are verified by the recovery helper.
 
-Save the first Python block as recover.py. From one existing clone, invoke it with an owned on-disk scratch directory outside the shared checkout and the numeric publication commit. It reads tracked objects, fetching only a missing exact commit with no checkout; all file creation uses apply_patch. It starts no compiler. The second block verifies source contracts, exact pinned-index packet checks, actual intake checks, historical compiler/audit receipts and publication paths. The third independently replays the actual atlas/control assembly. The fourth is their immutable read-only adapter. The fifth optionally reruns both Lean files serially in an already-built exact pinned Mathlib checkout, with the20 GiB guard and1200-second timeout. It performs no library setup or build.
+Save the first Python block as recover.py. From one existing clone, invoke it with an owned on-disk scratch directory outside the shared checkout and the numeric publication commit. It reads tracked objects, fetching only a missing exact commit with no checkout; all file creation uses apply_patch. It starts no compiler. The second block verifies source contracts, exact pinned-index packet checks, actual intake checks, historical compiler/audit receipts and publication paths. The third independently replays the actual atlas/control assembly. The fourth is their immutable read-only adapter. The fifth optionally reruns both Lean files serially in an already-built exact pinned Mathlib checkout, with the20 GiB guard and1200-second timeout. Supply its already-installed exact Lean executable as the third argument. The recipe uses the existing sibling dependency artifacts directly; an absent Cli library is not needed by these two checked import cones. It performs no library setup or build.
 
 Recovery of a historical log is not a fresh compiler run. Public recovery and both verification scripts must pass before the pull request opens; the precise publication commit is recorded in the pull request. Scratch is then removed recoverably, with no proof/log retained only in local storage. Only the four issue deliverables are changed.
 
@@ -180,7 +180,7 @@ Recovery of a historical log is not a fresh compiler run. Public recovery and bo
     "NewAdmitted.lean": "ba8bd1f3704f273aa0348ffb6fc13c41c0e2ffcd74e23bc0c847710bc3e15488",
     "IncomingMathlibCanonical.lean": "9a9522ee22742f31711fdc2a2f45b12e51f7ce2771b005a4ee7d259fe18d12e5",
     "CompileReceipts.json": "f5038559260c13b11a6ca7064662da455a6028bfc58a0e6a8feb2db717cc69cc",
-    "DiagnosticFailures.json": "bed417a70c9f24fdddd1c75020e4504dcdae11b85c390e807fe85ca03a7139c1",
+    "DiagnosticFailures.json": "4f3614989bbbb5f5fb39bfeaf51618405fe21c6c1e416f2ea35769e264f53379",
     "FullCanonical.lean": "8e505e48febb6a12057e86e1bcb1b5aad4b755d2b89e451f012f7cd57b197148"
   },
   "incomingHashes": {
@@ -201,7 +201,7 @@ Recovery of a historical log is not a fresh compiler run. Public recovery and bo
     "verify.py": "9ce8362627fdf8dae1090d02c5cd4549a1e31eee615cb07a32918f82209ea28f",
     "graph.py": "5e9676a709752c2864d57541b88c4e0bb59df1567a6ff013c037acb07f6a15d7",
     "immutable_view.py": "3f54d96cb030713615be9fc7662ff206f56638fd02ec7f2bd067886d9941d7e3",
-    "compile.py": "1539a912d125b4bae476b1a36d4b4b84c4d3b57de9928f2e5e9c036ce559cae5"
+    "compile.py": "129f8c897c4fdb64939c28674866880bec71ec05b579b6155e7242ea683100ba"
   }
 }
 END INVERSE BAND METADATA N20 -->
@@ -563,11 +563,22 @@ def install():
 
 ```python
 from pathlib import Path
-import datetime, hashlib, json, re, subprocess, sys
-S=Path(sys.argv[1]).resolve();build=Path(sys.argv[2]).resolve()
+import datetime, hashlib, json, os, re, subprocess, sys
+S=Path(sys.argv[1]).resolve();build=Path(sys.argv[2]).resolve();lean=Path(sys.argv[3]).resolve()
+assert lean.is_file(),'Supply an already-installed pinned Lean executable.'
 pin='082e2d37e8b0463410cdb532e111cd43d5a66174'
 assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=build,text=True).strip()==pin
 assert (build/'.lake/build/lib/lean/Mathlib/CategoryTheory/Sites/Descent/IsStack.olean').is_file()
+toolchain=(build/'lean-toolchain').read_text().strip().rsplit(':',1)[-1].removeprefix('v')
+assert 'version '+toolchain in subprocess.check_output([str(lean),'--version'],cwd=build,text=True)
+manifest=json.loads((build/'lake-manifest.json').read_text())
+dependency_roots={p['name']:build.parent/p['name']/'.lake/build/lib/lean' for p in manifest['packages']}
+assert all(root.is_dir() for name,root in dependency_roots.items() if name!='Cli'),'Use the existing built Mathlib package and its built sibling dependencies.'
+# The existing Cli library root is absent; these two checked import cones do not require it.
+roots=[build/'.lake/build/lib/lean']+[root for root in dependency_roots.values() if root.is_dir()]
+print('Existing sibling libraries:',', '.join(name for name,root in dependency_roots.items() if root.is_dir()),flush=True)
+print('Unbuilt optional library roots omitted:',', '.join(name for name,root in dependency_roots.items() if not root.is_dir()),flush=True)
+env=dict(os.environ);env['LEAN_PATH']=os.pathsep.join(map(str,roots))
 reports={}
 for name in ['InverseProofs.lean','MathlibCanonical.lean']:
     file=S/name;assert not any(line.startswith('import TauCeti') for line in file.read_text().splitlines())
@@ -575,7 +586,7 @@ for name in ['InverseProofs.lean','MathlibCanonical.lean']:
     print(name,'availableGiB',available,flush=True)
     if available<20:
         print('WORKERS: fewer than20 GiB available; no further compiler started.',flush=True);sys.exit(75)
-    result=subprocess.run(['/usr/bin/time','-v','timeout','1200','lake','env','lean',str(file)],cwd=build,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)
+    result=subprocess.run(['/usr/bin/time','-v','timeout','1200',str(lean),str(file)],cwd=build,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)
     log=result.stdout
     diagnostics=[line for line in log.splitlines() if 'warning:' in line]
     okay=result.returncode==0 and ('sorryAx' not in log if name=='InverseProofs.lean' else True)
