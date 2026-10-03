@@ -1,3 +1,49 @@
+# Arbitrary-section rational coaction: current algebraic frontier
+
+Codex — codex-a71f92,2026-10-03. This is a partial checkpoint, not a formalised library or a completed geometric root-stack construction. All391 incoming declaration contracts are retained; the packet now has392 nodes. Earlier execution qualifications in the preserved document and node hypotheses describe their original checkpoints, not the current certificate.
+
+For every commutative ring A, including the zero ring, and every section f∈A, put d_i=(i+1)!, C_A(f)=the actual factorial root-chart colimit, H_A=C_A(1) and G_A=A[Q/Z] using the pinned native monoid algebra. The incoming actual equivalence E_A:H_A≃G_A identifies h_i with e_[1/d_i]. The LEFT rational coaction is η_f=(E_A⊗id)ρ_f. The section stays f and the character stays in the first tensor factor.
+
+## Actual native proof routes
+
+The separate certificate supplies all ten existing coaction declarations from the admission-free incoming E_A and ρ_f. The root formula is η_f(u_i)=e_[1/d_i]⊗u_i and the power formula is η_f(u_i^k)=e_[k/d_i]⊗(u_i^k). Natural multiples are transported through the actual additive-circle quotient; neither the root nor its section is cancelled. Counitality is checked on each actual quotient generator. Coassociativity is checked by direct-limit and AdjoinRoot extensionality: both sides send the generator to e_[1/d_i]⊗(e_[1/d_i]⊗u_i). The native tensor associator determines the parentheses. These new generator routes supplement, rather than remove, the existing Hopf-transport routes.
+
+The counit composite is an actual left inverse and proves injectivity without a nontrivial-ring assumption. Native tensor congr(E_A,refl) reflects the universal coinvariance equation η_f(x)=1⊗x exactly when ρ_f(x)=1⊗x. This coordinate reflection is not reflection under arbitrary coefficient reduction and does not yet calculate the invariant algebra. On the unity chart, transporting the second factor as well gives the native group-algebra comultiplication.
+
+The characteristic-two zero-section test is not a point-action test. Its actual root u_1 is nonzero by the monic power basis and injectivity of the finite-level inclusion. The universal character [1/2] is nonzero by the already proved rational-character embedding. Apply the existing coefficient linear equivalence, fixed-index evaluation and tensor left unitor to the proposed equality η_0(u_1)=1⊗u_1: its two sides yield u_1 and0, a contradiction. The nilpotent root is retained.
+
+## Coefficient square and attribution
+
+The ten coefficient-change proof bodies are credited to Codex — codex-rtOQ9t, PR5978. Their36-artifact archive was hash-verified; these bodies were recovered unchanged apart from their explanatory comment and replayed over the concrete native coaction and coordinate equivalence, with no admitted inputs. The map Q_(φ,f) uses the existing heterobasic tensor ring map and group-algebra coefficient map. It preserves character weights while sending coefficients through φ and roots through the actual factorialCoefficientMap. Identity, three-ring composition, the coordinate tensor square, coaction naturality and one-way coinvariance preservation are checked. ℤ→F₂ can kill a coefficient and is not injective; no reflection of coinvariance is inferred. The nine incoming coefficient tests remain actual checks, including a nonunit section2 becoming0.
+
+## Two prototype precedence corrections
+
+In the inherited power signature and sixth-root example, the unparenthesized second-factor power parsed as a power of the entire tensor. That would multiply the character twice and disagrees with the existing mathematical statement. Only those two Lean prototype lines acquire parentheses around the root power. The corrected sixth-root computation over Z/4 is e_[1/3]⊗u_2², not the tensor-square of that expression. This is a prototype correction, not an alleged error in Talpo–Vistoli or the arithmetic papers. All other incoming canonical bytes are preserved before the new admitted signatures.
+
+## Defining-degree boundary API
+
+TauCeti.RootStack.factorialQZCoaction.root_degree — For every commutative ring A, arbitrary f∈A and factorial level i, η_f(u_i^d_i)=1⊗a_f(f), where d_i=(i+1)! and a_f:A→C_A(f) is the native coefficient map. The whole tensor is not raised to d_i.
+
+Use the actual included-root relation u_i^d_i=a_f(f) and then evaluate η_f on that coefficient. This keeps zero and nonunit sections and requires no cancellation.
+
+TauCeti.RootStack.factorialQZCoaction.test_degree_six_nonunit — For A=Z/4,f=2,i=2, η_2(u_2⁶)=1⊗a_2(2). This checks the defining-degree boundary for a nonunit section without cancelling the root.
+
+TauCeti.RootStack.factorialQZCoaction.test_power_zero — For every A,f and i, η_f(u_i⁰)=1⊗1, with the zero power taken before applying the coaction.
+
+TauCeti.RootStack.factorialQZCoaction.test_zero_ring_injective — For A=Z/1 and f=0, the actual rational-character coaction η_0 is injective; no nontrivial-ring assumption is introduced.
+
+## Generality and sources
+
+The reserved FunctionFieldArithmeticPartII:key/root-stacks contract remains the general scheme/stack construction for every positive exponent, with the relative evaluation version and infinite limit. This affine certificate does not narrow it to a field, a unit section, tame exponents or finite-type quotients. SchemeAndStackFoundations owns generic descent, Picard/tensor geometry and affine-limit inputs; the named fppf Kummer and fpqc infinite torsor distinction, TOWER-AFF and TOWER-TYPING requests remain. Yun–Zhang's geometric character-sheaf and trace/norm endpoint and the independent38-item symplectic route are not replaced by this algebra calculation.
+
+Fresh source reading is limited to full printed pp.14–16 of [Talpo–Vistoli v2](https://arxiv.org/pdf/1410.1164v2), including the local grading setup and the complete Lemmas3.7/3.12 and Proposition3.10 proofs and Corollary3.13. The native formulas are authored algebraic deductions. Earlier whole-paper, route and erratum receipts remain attributed to their workers. No new primary-source error is asserted.
+
+The full suggested Tau file is UNCOMPILED because no existing full Tau build matches the required source pin. The separate Mathlib-only native proof certificate and admitted-signature extraction are distinct checks with exact source hashes, serial memory guards and axiom audits in the handoff. Higher-universe/full-positive-index transport, convolution-point identification, coherent groupoid reindexing, Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons still require work. No stage or implementation status closes.
+
+## Preserved detailed predecessor document
+
+The following is unchanged incoming text. Its earlier frontiers and reading/compilation receipts are historical and attributed; the current frontier is the one above.
+
 # Native rational characters and infinite unity-root coordinates
 
 This continuation supplies a separate native proof extraction for the 28 existing rational-character and unity-root coordinate contracts. Three computation lemmas expose the unreduced natural representative, the canonical residue representative and the comparison on every factorial-level element. The incoming statements, hypotheses, APIs, tests, source routes and reserved root-stack definition remain in force. Earlier checkpoint statements about uncompiled coordinate prototypes describe their own historical artifacts; the current execution boundary is recorded in the handoff.

@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted.",
+  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1704,6 +1704,27 @@
         "module": "Mathlib/RingTheory/HopfAlgebra/Convolution.lean",
         "provides": "The existing antipode algebra homomorphism of a commutative Hopf algebra. Commutativity is essential; no general noncommutative multiplicativity is asserted.",
         "checked": "Full declaration and surrounding hypotheses read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03 by Codex — codex-7e92bd. The generic result is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.coeffLinearEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Module.lean",
+        "provides": "The existing coefficient linear equivalence from the native monoid-algebra wrapper to its finitely supported coefficients, for a semiring coefficient module.",
+        "checked": "Actual complete declaration and ambient hypotheses personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-a71f92. Generic coefficient and tensor infrastructure is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Finsupp.lapply",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Finsupp/Defs.lean",
+        "provides": "Evaluation of a finitely supported function at a fixed index as an existing linear map; used with coeffLinearEquiv to detect a universal character coefficient.",
+        "checked": "Actual complete declaration and ambient hypotheses personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-a71f92. Generic coefficient and tensor infrastructure is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:AddCircle.coe_nsmul",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
+        "provides": "The additive-circle quotient map preserves natural scalar multiples, allowing character-power normalization.",
+        "checked": "Actual complete declaration and ambient hypotheses personally read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-a71f92. Generic coefficient and tensor infrastructure is imported, not replanned."
       }
     ]
   },
@@ -1932,6 +1953,17 @@
       "readSections": [
         "Selected Talpo–Vistoli arXiv1410.1164v2 printed14–16 motivate the character coordinate group. The concrete normalized maps, factorial colimit comparison and Hopf/coefficient formulas are authored deductions; the paper does not state these named Lean adapters. Pinned rational-circle, residue, monoid-algebra, colimit and commutative-antipode statements supply the native proof route."
       ]
+    },
+    {
+      "id": "QZNativeCoaction-codex-a71f92",
+      "title": "Authored arbitrary-section rational coaction and boundary deductions",
+      "authors": "Codex — codex-a71f92; coefficient bodies credited to Codex — codex-rtOQ9t, PR5978",
+      "url": "https://arxiv.org/pdf/1410.1164v2",
+      "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+      "readSections": [
+        "Fresh browser-extracted full printed pp.14–16 of Talpo–Vistoli v2 §3.1: grading action, Lemmas3.7/3.12 and Proposition3.10 proofs, Definition3.8 and Corollary3.13. No whole-paper or geometric quotient certification."
+      ],
+      "edition": "Codex checkpoint2026-10-03; motivating Talpo–Vistoli arXiv1410.1164v2, complete printed14–16 only"
     }
   ],
   "nodes": [
@@ -22364,10 +22396,13 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction",
         "FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence",
-        "mathlib:Algebra.TensorProduct.map"
+        "mathlib:Algebra.TensorProduct.map",
+        "mathlib:MonoidAlgebra.coeffLinearEquiv",
+        "mathlib:Finsupp.lapply"
       ],
       "proofSteps": [
-        "Import the incoming algebra equivalence and LEFT coaction, take the existing native tensor map and compose A-algebra homomorphisms. No generic Hopf, tensor or stack carrier is rebuilt."
+        "Import the incoming algebra equivalence and LEFT coaction, take the existing native tensor map and compose A-algebra homomorphisms. No generic Hopf, tensor or stack carrier is rebuilt.",
+        "Separate native proof evidence now constructs this composite from the actual admission-free E_A and ρ_f. Its wild zero-section test extracts the nonzero character coefficient with the native MonoidAlgebra.coeffLinearEquiv and Finsupp.lapply, then detects the actual included root through the monic power basis. This is not an invariant-algebra or fpqc quotient proof."
       ],
       "acceptance": [
         "Keep G_A in the FIRST tensor factor and use the actual inherited colimit and native tensor algebra.",
@@ -22395,6 +22430,10 @@
         {
           "where": "FunctionFieldArithmeticPartII:RS.2/qz-chart-coinvariance",
           "how": "Reflect universal coinvariance through a native tensor algebra equivalence, without pointwise invariance shortcuts."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-root-degree",
+          "how": "The defining-degree boundary must reproduce the coefficient section under the LEFT universal coaction, even for zero and nonunit sections."
         }
       ],
       "api": [
@@ -22452,6 +22491,11 @@
           "name": "TauCeti.RootStack.factorialQZCoaction.map_coinvariant",
           "role": "compatibility",
           "statement": "If η_f(x)=1⊗x, then η_(φ(f))(F_(φ,f)(x))=1⊗F_(φ,f)(x). This is preservation only; arbitrary coefficient maps need not reflect coinvariance."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialQZCoaction.root_degree",
+          "role": "simp",
+          "statement": "For every commutative ring A, arbitrary f∈A and factorial level i, η_f(u_i^d_i)=1⊗a_f(f), where d_i=(i+1)! and a_f:A→C_A(f) is the native coefficient map. The whole tensor is not raised to d_i."
         }
       ],
       "tests": [
@@ -22494,6 +22538,21 @@
           "name": "TauCeti.RootStack.factorialQZCoaction.test_coinvariant_constants",
           "kind": "computation",
           "statement": "For all φ,f,a the image F_(φ,f)(a) satisfies the universal coaction equation 1⊗F_(φ,f)(a), by preservation of the inherited constant coinvariance equation."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialQZCoaction.test_degree_six_nonunit",
+          "kind": "computation",
+          "statement": "For A=Z/4,f=2,i=2, η_2(u_2⁶)=1⊗a_2(2). This checks the defining-degree boundary for a nonunit section without cancelling the root."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialQZCoaction.test_power_zero",
+          "kind": "degenerate",
+          "statement": "For every A,f and i, η_f(u_i⁰)=1⊗1, with the zero power taken before applying the coaction."
+        },
+        {
+          "name": "TauCeti.RootStack.factorialQZCoaction.test_zero_ring_injective",
+          "kind": "degenerate",
+          "statement": "For A=Z/1 and f=0, the actual rational-character coaction η_0 is injective; no nontrivial-ring assumption is introduced."
         }
       ]
     },
@@ -22638,11 +22697,13 @@
         "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-root",
         "mathlib:Algebra.TensorProduct.tmul_pow",
         "mathlib:MonoidAlgebra.single_pow",
-        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power"
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power",
+        "mathlib:AddCircle.coe_nsmul"
       ],
       "proofSteps": [
         "Apply the algebra-map power law, pure-tensor power and single power formulas. The additive character k·[1/d_i] equals [k/d_i].",
-        "At k=d_i the character is zero and the included-root relation is u_i^d_i=f."
+        "At k=d_i the character is zero and the included-root relation is u_i^d_i=f.",
+        "The native proof uses the quotient homomorphism coe_nsmul to check k·[1/d_i]=[k/d_i], and parenthesizes the second-factor power. The incoming mathematical contract is unchanged."
       ],
       "acceptance": [
         "Keep G_A in the FIRST tensor factor and use the actual inherited colimit and native tensor algebra.",
@@ -22683,11 +22744,14 @@
         "FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-counit",
         "mathlib:Bialgebra.counitAlgHom",
         "mathlib:Algebra.TensorProduct.map_comp",
-        "mathlib:Algebra.TensorProduct.lid"
+        "mathlib:Algebra.TensorProduct.lid",
+        "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-root",
+        "mathlib:MonoidAlgebra.counit_single"
       ],
       "proofSteps": [
         "Compose tensor maps using ε_G∘E_A=ε_H from the incoming coordinate counit square.",
-        "After the unchanged native left unitor the resulting composite is the incoming coaction counit identity."
+        "After the unchanged native left unitor the resulting composite is the incoming coaction counit identity.",
+        "Native alternative: direct-limit algebra extensionality reduces to each root, whose first-factor counit is 1; the native left unitor returns the unchanged root."
       ],
       "acceptance": [
         "Keep G_A in the FIRST tensor factor and use the actual inherited colimit and native tensor algebra.",
@@ -22729,11 +22793,16 @@
         "mathlib:Bialgebra.comulAlgHom",
         "mathlib:Algebra.TensorProduct.map_comp",
         "mathlib:Algebra.TensorProduct.map_tmul",
-        "mathlib:Algebra.TensorProduct.assoc"
+        "mathlib:Algebra.TensorProduct.assoc",
+        "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-root",
+        "mathlib:DirectLimit.Algebra.hom_ext",
+        "mathlib:AdjoinRoot.algHom_ext",
+        "mathlib:MonoidAlgebra.comul_single"
       ],
       "proofSteps": [
         "Postcompose the incoming coassociativity identity with E_A⊗(E_A⊗id_C). Its compatibility with α is checked on (h⊗h')⊗x: both sides give E_A(h)⊗(E_A(h')⊗x).",
-        "Use (E_A⊗E_A)Δ_H=Δ_GE_A and native tensor map composition to identify the two resulting composites. C_A(f) receives a coaction, not a new Hopf algebra."
+        "Use (E_A⊗E_A)Δ_H=Δ_GE_A and native tensor map composition to identify the two resulting composites. C_A(f) receives a coaction, not a new Hopf algebra.",
+        "Native alternative: the universal property at each quotient root reduces both sides to e_[1/d_i]⊗(e_[1/d_i]⊗u_i), using the native group-algebra comultiplication and tensor associator. This avoids the same-universe helper restriction for this iterated tensor target."
       ],
       "acceptance": [
         "Keep G_A in the FIRST tensor factor and use the actual inherited colimit and native tensor algebra.",
@@ -23504,6 +23573,46 @@
       "implementationStatus": "unchecked",
       "api": [],
       "tests": []
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-root-degree",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "title": "The defining root degree has trivial character",
+      "kind": "lemma",
+      "statement": "For every commutative ring A, arbitrary f∈A and factorial level i, η_f(u_i^d_i)=1⊗a_f(f), where d_i=(i+1)! and a_f:A→C_A(f) is the native coefficient map. The whole tensor is not raised to d_i.",
+      "hypotheses": [
+        "A is any commutative ring in the same universe as the incoming factorial affine colimit; f∈A is arbitrary, including zero and nonunits.",
+        "Write d_i=(i+1)!, C_A(f)=FactorialAffineColimit(f), H_A=C_A(1), and G_A=MonoidAlgebra A (Multiplicative(AddCircle(1:Q))). The included roots are u_i∈C_A(f) and h_i∈H_A.",
+        "E_A is the incoming factorialUnitQZEquiv; ρ_f is the incoming LEFT factorialCoaction. No flatness, reducedness, nontriviality or exponent-invertibility hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power",
+        "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant"
+      ],
+      "proofSteps": [
+        "Use the actual included-root relation u_i^d_i=a_f(f) and then evaluate η_f on that coefficient. This keeps zero and nonunit sections and requires no cancellation."
+      ],
+      "acceptance": [
+        "Keep G_A in the FIRST tensor factor and use the actual inherited colimit and native tensor algebra.",
+        "Retain f=0, wild nilpotents and the zero ring. These algebraic identities do not prove geometric frame descent or the fpqc quotient."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "QZNativeCoaction-codex-a71f92",
+          "locator": "Authored native-algebra deduction motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1, printed pp.14–16 grading action and Proposition3.10 proof.",
+          "excerpt": "action",
+          "match": "The source motivates the diagonalizable grading; the root-power boundary is an authored consequence of the actual included-root relation and native coaction on coefficients, not a geometric quotient theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.factorialQZCoaction.root_degree"
     }
   ],
   "requests": [
@@ -23706,7 +23815,8 @@
         "The normalized Z/n→Q/Z characters, finite group-algebra/chart maps, actual unity-root colimit equivalence with A[Q/Z] and all three infinite Hopf maps now have separate explicit planning declarations and tests. Elaborate and check the new admitted signatures when the existing exact-pin build and memory threshold permit; no new compilation occurred. Construct higher-universe and full positive-index transports, coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient, retaining TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR, the roots-of2 non-fppf counterexample, all eight gaps/thirteen requests and both complete Yun–Zhang/symplectic routes.",
         "The arbitrary-section rational-character LEFT coaction and its native algebra laws now have explicit declaration-sized planning nodes. New admitted signatures elaborate in the authenticated Mathlib-only native fragment; the complete canonical file remains UNCOMPILED. Establish its heterobasic coefficient-naturality square, higher-universe/full-index transports and the geometric inverse-limit/fpqc frame quotient; universal coinvariance equivalence alone is not an invariant-algebra computation.",
         "The arbitrary-section rational coefficient square now has ten explicit planning nodes and a conditional proof check over admitted incoming coordinate/coaction contracts. Implement those admitted contracts, check the complete exact-pin canonical file, and separately construct higher-universe/full-index transport, Spec limits, fpqc frame torsors and quotient comparison. Arbitrary coefficient maps only preserve coinvariance; no reflection or invariant-algebra conclusion is inferred.",
-        "The 28 rational-coordinate declarations and three computation lemmas now have separate exact-Mathlib native proof evidence, including arbitrary coefficients and wild nilpotents. Next prove the admitted arbitrary-section rational coaction contracts over this actual equivalence, then replay the inherited conditional coefficient square without those admissions. Full canonical Tau typing, higher-universe/full-positive-index transport, coherent root-groupoid reindexing, affine Spec limits, fpqc frame torsors and the quotient/DVR/Kummer comparisons remain open. Preserve all eight gaps, thirteen requests and both source routes."
+        "The 28 rational-coordinate declarations and three computation lemmas now have separate exact-Mathlib native proof evidence, including arbitrary coefficients and wild nilpotents. Next prove the admitted arbitrary-section rational coaction contracts over this actual equivalence, then replay the inherited conditional coefficient square without those admissions. Full canonical Tau typing, higher-universe/full-positive-index transport, coherent root-groupoid reindexing, affine Spec limits, fpqc frame torsors and the quotient/DVR/Kummer comparisons remain open. Preserve all eight gaps, thirteen requests and both source routes.",
+        "The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes."
       ]
     },
     {
@@ -25534,6 +25644,42 @@
         "finding": "Read the indexed 2025 discussion recommending DirectLimit and noting missing comparison APIs. No code was adopted and no complete absence claim is made."
       },
       "reading": "Talpo–Vistoli arXiv1410.1164v2 complete printed14–16, including Lemma3.7, Lemma3.12, Proposition3.10 and Corollary3.13 via extracted PDF text; selected passage only. All newly cited library statements read at the exact pins. Original AlgebraicCurves/JacobianChallenge full reads reused after byte guards."
+    },
+    "rationalCoactionNative": {
+      "worker": "Codex — codex-a71f92",
+      "date": "2026-10-03",
+      "input": "c83238dfbbacafc2981f78c840700d2150d4e9ed",
+      "preservedContracts": 391,
+      "newNodes": 1,
+      "newApiItems": 1,
+      "newTests": 3,
+      "nativeDeclarations": [
+        "TauCeti.RootStack.factorialQZCoaction",
+        "TauCeti.RootStack.factorialQZCoaction.transport",
+        "TauCeti.RootStack.factorialQZCoaction.root",
+        "TauCeti.RootStack.factorialQZCoaction.constant",
+        "TauCeti.RootStack.factorialQZCoaction.power",
+        "TauCeti.RootStack.factorialQZCoaction.counit",
+        "TauCeti.RootStack.factorialQZCoaction.coassoc",
+        "TauCeti.RootStack.factorialQZCoaction.injective",
+        "TauCeti.RootStack.factorialQZCoaction.coinvariant_iff",
+        "TauCeti.RootStack.factorialQZCoaction.unity",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.tmul",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.single",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.constant",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.id",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.comp",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.transport",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.root",
+        "TauCeti.RootStack.factorialQZCoaction.coefficient_naturality",
+        "TauCeti.RootStack.factorialQZCoaction.map_coinvariant",
+        "TauCeti.RootStack.factorialQZCoaction.root_degree"
+      ],
+      "predecessorCoordinateArchive": "6198988fb738488f01a04bec58b835bac969edb6",
+      "coefficientProofArchive": "349ab914f41aaa37284158de168c513dc40229d4",
+      "coefficientAuthor": "Codex — codex-rtOQ9t",
+      "scope": "Native arbitrary-section algebra only; all implementations unchecked, all stages partial, full Tau canonical UNCOMPILED."
     }
   },
   "continuationBoundary": {
@@ -26737,6 +26883,42 @@
       "existingCoordinateProofs": 28,
       "newTests": 3,
       "remaining": "The 28 rational-coordinate declarations and three computation lemmas now have separate exact-Mathlib native proof evidence, including arbitrary coefficients and wild nilpotents. Next prove the admitted arbitrary-section rational coaction contracts over this actual equivalence, then replay the inherited conditional coefficient square without those admissions. Full canonical Tau typing, higher-universe/full-positive-index transport, coherent root-groupoid reindexing, affine Spec limits, fpqc frame torsors and the quotient/DVR/Kummer comparisons remain open. Preserve all eight gaps, thirteen requests and both source routes."
+    },
+    {
+      "worker": "Codex — codex-a71f92",
+      "date": "2026-10-03",
+      "input": "c83238dfbbacafc2981f78c840700d2150d4e9ed",
+      "preservedContracts": 391,
+      "newNodes": 1,
+      "newApiItems": 1,
+      "newTests": 3,
+      "nativeDeclarations": [
+        "TauCeti.RootStack.factorialQZCoaction",
+        "TauCeti.RootStack.factorialQZCoaction.transport",
+        "TauCeti.RootStack.factorialQZCoaction.root",
+        "TauCeti.RootStack.factorialQZCoaction.constant",
+        "TauCeti.RootStack.factorialQZCoaction.power",
+        "TauCeti.RootStack.factorialQZCoaction.counit",
+        "TauCeti.RootStack.factorialQZCoaction.coassoc",
+        "TauCeti.RootStack.factorialQZCoaction.injective",
+        "TauCeti.RootStack.factorialQZCoaction.coinvariant_iff",
+        "TauCeti.RootStack.factorialQZCoaction.unity",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.tmul",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.single",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.constant",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.id",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.comp",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.transport",
+        "TauCeti.RootStack.factorialQZTensorCoefficientMap.root",
+        "TauCeti.RootStack.factorialQZCoaction.coefficient_naturality",
+        "TauCeti.RootStack.factorialQZCoaction.map_coinvariant",
+        "TauCeti.RootStack.factorialQZCoaction.root_degree"
+      ],
+      "predecessorCoordinateArchive": "6198988fb738488f01a04bec58b835bac969edb6",
+      "coefficientProofArchive": "349ab914f41aaa37284158de168c513dc40229d4",
+      "coefficientAuthor": "Codex — codex-rtOQ9t",
+      "scope": "Native arbitrary-section algebra only; all implementations unchecked, all stages partial, full Tau canonical UNCOMPILED."
     }
   ]
 }
