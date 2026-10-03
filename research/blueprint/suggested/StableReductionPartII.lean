@@ -1,3 +1,6 @@
+import Mathlib.Algebra.Homology.ShortComplex.ModuleCat
+import Mathlib.LinearAlgebra.LeftExact
+import Mathlib.Algebra.Homology.ShortComplex.HomologicalComplex
 import Mathlib.LinearAlgebra.Dual.Defs
 import Mathlib.Algebra.Ring.Hom.Defs
 import Mathlib.Algebra.Group.Units.Defs
@@ -2804,6 +2807,122 @@ example : Function.Bijective (sectionDualTensorHom (ZMod 4) 0 0 0 0 (ZMod 4)) :=
 example : Function.Bijective (sectionIdealTensorHom (ZMod 1) 0 0 0 0 (ZMod 1)) := by
   sorry
 
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+universe u_cochain v_cochain
+open CategoryTheory TensorProduct
+variable (A : Type u_cochain) [CommRing A] (γ δ s t : A)
+local notation "R₀" => Ring A γ δ s t
+local notation "ι₀" => coefficientHom A γ δ s t
+local notation "u₀" => AdjoinRoot.root (polynomial A γ δ s t)
+local notation "v₀" => AdjoinRoot.of (polynomial A γ δ s t) (Polynomial.X : Polynomial A)
+local notation "Φ₀" => left (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+local notation "Ψ₀" => right (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
+variable (M : Type v_cochain) [AddCommGroup M] [Module A M]
+local notation "N₀" => R₀ ⊗[A] M
+local notation "H₀" => ((Fin 2 → R₀) →ₗ[R₀] N₀)
+
+def sectionHomDifferential (dual : Bool) (n : ℕ) : H₀ →ₗ[R₀] H₀ := by sorry
+
+lemma sectionHomLeftRight_exact :
+    Function.Exact (LinearMap.lcomp R₀ N₀ (Φ₀).mulVecLin)
+      (LinearMap.lcomp R₀ N₀ (Ψ₀).mulVecLin) := by sorry
+
+lemma sectionHomRightLeft_exact :
+    Function.Exact (LinearMap.lcomp R₀ N₀ (Ψ₀).mulVecLin)
+      (LinearMap.lcomp R₀ N₀ (Φ₀).mulVecLin) := by sorry
+
+lemma sectionHomDifferential_exact (dual : Bool) (n : ℕ) :
+    Function.Exact (sectionHomDifferential A γ δ s t M dual n)
+      (sectionHomDifferential A γ δ s t M dual (n+1)) := by sorry
+
+lemma sectionHomDifferential_sq (dual : Bool) (n : ℕ) :
+    (sectionHomDifferential A γ δ s t M dual (n+1)).comp
+      (sectionHomDifferential A γ δ s t M dual n) = 0 := by sorry
+
+def sectionHomCochain (coeff : Type v_cochain) [AddCommGroup coeff] [Module A coeff] (dual : Bool) : CochainComplex (ModuleCat.{max u_cochain v_cochain} R₀) ℕ := by sorry
+
+lemma sectionHomCochain_d (dual : Bool) (n : ℕ) :
+    HEq ((sectionHomCochain A γ δ s t M dual).d n (n+1))
+      (ModuleCat.ofHom (R := R₀) (X := H₀) (Y := H₀) (sectionHomDifferential A γ δ s t M dual n)) := by sorry
+
+lemma sectionHomCochain_exactAt (dual : Bool) (n : ℕ) :
+    (sectionHomCochain A γ δ s t M dual).ExactAt (n+1) := by sorry
+
+lemma sectionHomCochain_isZero_homology (dual : Bool) (n : ℕ) :
+    CategoryTheory.Limits.IsZero ((sectionHomCochain A γ δ s t M dual).homology (n+1)) := by sorry
+
+lemma sectionHomDifferential_ideal_zero :
+    sectionHomDifferential A γ δ s t M false 0 =
+      LinearMap.lcomp R₀ N₀ (Ψ₀).mulVecLin := by sorry
+
+lemma sectionHomDifferential_dual_zero :
+    sectionHomDifferential A γ δ s t M true 0 =
+      LinearMap.lcomp R₀ N₀ (Φ₀).mulVecLin := by sorry
+
+lemma sectionHomDifferential_periodic (dual : Bool) (n : ℕ) :
+    sectionHomDifferential A γ δ s t M dual (n+2) =
+      sectionHomDifferential A γ δ s t M dual n := by sorry
+
+lemma sectionHomCochain_X (dual : Bool) (n : ℕ) :
+    (sectionHomCochain A γ δ s t M dual).X n = ModuleCat.of R₀ H₀ := by sorry
+
+lemma sectionHomCochain_shape (dual : Bool) (i j : ℕ) (h : i+1 ≠ j) :
+    (sectionHomCochain A γ δ s t M dual).d i j = 0 := by sorry
+
+lemma sectionHomIdeal_augmentation_exact :
+    Function.Exact (LinearMap.lcomp R₀ N₀ (idealPresentation A γ δ s t))
+      (sectionHomDifferential A γ δ s t M false 0) := by sorry
+
+lemma sectionHomDual_augmentation_exact :
+    Function.Exact (LinearMap.lcomp R₀ N₀ (dualPresentation A γ δ s t))
+      (sectionHomDifferential A γ δ s t M true 0) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionHomDifferential.test_ideal_signed_column
+example (m : M) :
+    sectionHomDifferential A 0 0 0 0 M false 0
+      (sectionFreeTensorHom A 0 0 0 0 M (![0,1] ⊗ₜ[A] m)) (![1,0]) =
+      AdjoinRoot.root (polynomial A 0 0 0 0) ⊗ₜ[A] m := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionHomDifferential.test_dual_negative_column
+example (m : M) :
+    sectionHomDifferential A 0 0 0 0 M true 0
+      (sectionFreeTensorHom A 0 0 0 0 M (![0,1] ⊗ₜ[A] m)) (![1,0]) =
+      (-AdjoinRoot.root (polynomial A 0 0 0 0)) ⊗ₜ[A] m := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionHomDifferential.test_two_period
+example (dual : Bool) (n : ℕ) :
+    sectionHomDifferential A γ δ s t M dual (n+2) =
+      sectionHomDifferential A γ δ s t M dual n := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_torsion_coefficient
+example : CategoryTheory.Limits.IsZero
+    ((sectionHomCochain ℤ 1 0 1 0 (ZMod 2) false).homology 3) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_nonreduced_base
+example : CategoryTheory.Limits.IsZero
+    ((sectionHomCochain (ZMod 4) 0 0 1 0 (ZMod 4) true).homology 2) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_zero_ring
+example : CategoryTheory.Limits.IsZero
+    ((sectionHomCochain (ZMod 1) 0 0 0 0 (ZMod 1) false).homology 1) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_actual_differential
+example (n : ℕ) :
+    HEq ((sectionHomCochain A γ δ s t M false).d n (n+1))
+      (ModuleCat.ofHom (R := R₀) (X := H₀) (Y := H₀) (sectionHomDifferential A γ δ s t M false n)) := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_degree_zero_ideal
+example (h : H₀) : sectionHomDifferential A γ δ s t M false 0 h = 0 ↔
+    ∃ f : (Ideal.span {u₀ - ι₀ s, v₀ - ι₀ t} : Ideal R₀) →ₗ[R₀] N₀, f.comp (idealPresentation A γ δ s t) = h := by sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.sectionHomCochain.test_degree_zero_dual
+example (h : H₀) : sectionHomDifferential A γ δ s t M true 0 h = 0 ↔
+    ∃ f : Module.Dual R₀ (Ideal.span {u₀ - ι₀ s, v₀ - ι₀ t} : Ideal R₀) →ₗ[R₀] N₀, f.comp (dualPresentation A γ δ s t) = h := by sorry
 
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
