@@ -2566,3 +2566,120 @@ example :
   · exact Ideal.pow_mem_pow (Ideal.subset_span (Set.mem_range_self (1 : Fin 2))) 2
 
 end TauCeti.HilbertSamuel
+
+/-! Checked coefficient-coordinate continuation, Codex — codex-7e92bd.
+The public proof archive contains actual proofs; these canonical signatures
+remain admitted. Existing total-jet definitions retain their native carriers. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section JetCoordinates
+variable {σ k : Type*} [Finite σ] [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+lemma jet_mk_eq_iff (r : ℕ) (f g : R) :
+    Ideal.Quotient.mk (v ^ r) f = Ideal.Quotient.mk (v ^ r) g ↔
+      ∀ α : σ →₀ ℕ, α.degree < r → f.coeff α = g.coeff α := by sorry
+
+lemma truncTotalAlgHom_surjective (r : ℕ) :
+    Function.Surjective (MvPowerSeries.truncTotalAlgHom σ k r) := by sorry
+
+def totalJetCoefficients (r : ℕ) :
+    (R ⧸ v ^ r) →ₗ[k] ({α : σ →₀ ℕ // α.degree < r} → k) := by sorry
+
+lemma totalJetCoefficients_mk (r : ℕ) (g : R) (α : {α : σ →₀ ℕ // α.degree < r}) :
+    totalJetCoefficients r (Ideal.Quotient.mk (v ^ r) g) α = g.coeff α.val := by sorry
+
+lemma totalJetCoefficients_bijective (r : ℕ) :
+    Function.Bijective (totalJetCoefficients (σ := σ) (k := k) r) := by sorry
+
+def totalJetCoordinates (r : ℕ) :
+    (R ⧸ v ^ r) ≃ₗ[k] ({α : σ →₀ ℕ // α.degree < r} → k) := by sorry
+
+lemma totalJetCoordinates_mk (r : ℕ) (g : R) (α : {α : σ →₀ ℕ // α.degree < r}) :
+    totalJetCoordinates r (Ideal.Quotient.mk (v ^ r) g) α = g.coeff α.val := by sorry
+
+lemma totalJetCoordinates_symm_apply (r : ℕ)
+    (c : {α : σ →₀ ℕ // α.degree < r} → k)
+    (α : {α : σ →₀ ℕ // α.degree < r}) :
+    totalJetCoordinates r ((totalJetCoordinates (σ := σ) (k := k) r).symm c) α = c α := by sorry
+
+omit [Finite σ] [CommRing k] in
+lemma planeJetIndex_card (r : ℕ) :
+    Nat.card {α : Fin 2 →₀ ℕ // α.degree < r} = Nat.choose (r + 1) 2 := by sorry
+
+open scoped Classical in
+lemma totalJetCoefficients_monomial (r : ℕ) (β : σ →₀ ℕ) (a : k)
+    (α : {α : σ →₀ ℕ // α.degree < r}) :
+    totalJetCoefficients r (Ideal.Quotient.mk (v ^ r) (MvPowerSeries.monomial β a)) α =
+      if α.val = β then a else 0 := by sorry
+
+lemma totalJetCoefficients_eq_zero_iff (r : ℕ) (x : R ⧸ v ^ r) :
+    totalJetCoefficients (σ := σ) (k := k) r x = 0 ↔ x = 0 := by sorry
+
+lemma totalJetCoordinates_symm_coeff (r : ℕ) (g : R) :
+    (totalJetCoordinates (σ := σ) (k := k) r).symm
+      (fun α => g.coeff α.val) = Ideal.Quotient.mk (v ^ r) g := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.coefficients_zero_cutoff
+example (g : R) : totalJetCoefficients 0 (Ideal.Quotient.mk (v ^ 0) g) = 0 := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.coefficients_constant_nilpotent
+example : totalJetCoefficients (σ := Fin 2) (k := ZMod 4) 1
+    (Ideal.Quotient.mk (Ideal.span (Set.range MvPowerSeries.X) ^ 1) (MvPowerSeries.C 2))
+      ⟨0, by simp⟩ = 2 := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.coefficients_exact_cutoff
+example : totalJetCoefficients (σ := Fin 2) (k := ZMod 4) 2
+    (Ideal.Quotient.mk (Ideal.span (Set.range MvPowerSeries.X) ^ 2)
+      (MvPowerSeries.monomial (Finsupp.single 0 2) 1)) = 0 := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.representative_independence
+example (r : ℕ) (f g : R) (hg : g ∈ v ^ r) :
+    totalJetCoefficients r (Ideal.Quotient.mk (v ^ r) (f + g)) =
+      totalJetCoefficients r (Ideal.Quotient.mk (v ^ r) f) := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.coordinates_reconstruction
+example (r : ℕ) (g : R) :
+    (totalJetCoordinates r).symm (fun α => g.coeff α.val) = Ideal.Quotient.mk (v ^ r) g := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.coordinates_empty_variables
+example (a : ZMod 4) :
+    totalJetCoordinates (σ := PEmpty) 1
+      (Ideal.Quotient.mk (Ideal.span (Set.range MvPowerSeries.X) ^ 1) (MvPowerSeries.C a))
+      ⟨0, by simp⟩ = a := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.coordinates_zero_ring
+example (r : ℕ) (g : MvPowerSeries (Fin 2) (ZMod 1)) :
+    totalJetCoordinates r (Ideal.Quotient.mk (Ideal.span (Set.range MvPowerSeries.X) ^ r) g) = 0 := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.basis_zero_cutoff
+example (g : R ⧸ v ^ 0) : (totalJetBasis (σ := σ) (k := k) 0).repr g = 0 := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.basis_mixed_monomial
+example :
+    let q : Ideal (MvPowerSeries (Fin 2) (ZMod 2)) := Ideal.span (Set.range MvPowerSeries.X)
+    Ideal.Quotient.mk (q ^ 3)
+      (MvPowerSeries.monomial (Finsupp.single 0 1 + Finsupp.single 1 1) 1) ≠ 0 ∧
+      Ideal.Quotient.mk (q ^ 3) (MvPowerSeries.monomial (Finsupp.single 0 3) 1) = 0 := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.polynomial_inverse
+example (r : ℕ) (p : MvPolynomial σ k) :
+    (totalJetEquiv (σ := σ) (k := k) r).symm
+      (Ideal.Quotient.mk (MvPolynomial.idealOfVars σ k ^ r) p) =
+      Ideal.Quotient.mk (v ^ r) (p : R) := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.count_zero
+example : Nat.card {α : Fin 2 →₀ ℕ // α.degree < 0} = 0 := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.count_one
+example : Nat.card {α : Fin 2 →₀ ℕ // α.degree < 1} = 1 := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.count_three
+example : Nat.card {α : Fin 2 →₀ ℕ // α.degree < 3} = 6 := by sorry
+
+-- test: HilbertSamuelJetCoordinatesTest.field_length_six
+example :
+    let q : Ideal (MvPowerSeries (Fin 2) (ZMod 2)) := Ideal.span (Set.range MvPowerSeries.X)
+    Module.length (ZMod 2) (MvPowerSeries (Fin 2) (ZMod 2) ⧸ q ^ 3) = 6 := by sorry
+
+end JetCoordinates
+end TauCeti.HilbertSamuel
