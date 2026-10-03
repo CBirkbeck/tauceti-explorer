@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked. Codex — codex-7e92bd refines the total-jet kernel/equivalence/basis/count proof chains through six declaration-sized coefficient and cardinality adapters, with an admission-free native prototype covering the actual polynomial equivalence, coefficient coordinates, monomial basis and all-cutoff two-variable count. All inherited general multiplicity and patching obligations remain open. The exact-order variable-ideal preimage now has a separate lemma, and admission-free native prototypes connect the actual shifted multiplication/projection to the preceding principal-quotient proofs. The canonical suggested bodies and all stage coverage remain unchecked/partial. Native finite-plane-curve graded lengths and exact rational postulation now distinguish the two sharp thresholds, including characteristic-two and zero/unit boundaries. Native continuation supplies explicit rational curve and surface polynomials, their evaluation, degree and leading-coefficient API, actual sharp curve tails and unique eventual polynomial existence for both finite-order and zero equations. Polynomial factorial normalization is checked separately from the still-open general multiplicity and curve-dimension comparison. Native degree-wise initial relations now have ten additional exact declarations (one actual projection construction and nine lemmas), six distinguishing typed tests and an admission-free combined prototype; full tangent-cone assembly and dimension remain open. Polynomial representatives now reuse native truncation and homogeneous components, with coefficient, inclusion, unique-representative, order and product comparisons and the actual equation-jet kernel in polynomial form; no full graded or dimension comparison is claimed.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries. This finite-variable continuation separates algebraic monomial-power membership, the order lower bound and a finite degree-r factorization; their admission-free native prototypes assemble the existing ideal-power/order equivalence without a domain assumption. The canonical plan remains partial and unchecked. Codex — codex-7e92bd refines the total-jet kernel/equivalence/basis/count proof chains through six declaration-sized coefficient and cardinality adapters, with an admission-free native prototype covering the actual polynomial equivalence, coefficient coordinates, monomial basis and all-cutoff two-variable count. All inherited general multiplicity and patching obligations remain open. The exact-order variable-ideal preimage now has a separate lemma, and admission-free native prototypes connect the actual shifted multiplication/projection to the preceding principal-quotient proofs. The canonical suggested bodies and all stage coverage remain unchecked/partial. Native finite-plane-curve graded lengths and exact rational postulation now distinguish the two sharp thresholds, including characteristic-two and zero/unit boundaries. Native continuation supplies explicit rational curve and surface polynomials, their evaluation, degree and leading-coefficient API, actual sharp curve tails and unique eventual polynomial existence for both finite-order and zero equations. Polynomial factorial normalization is checked separately from the still-open general multiplicity and curve-dimension comparison. Native degree-wise initial relations now have ten additional exact declarations (one actual projection construction and nine lemmas), six distinguishing typed tests and an admission-free combined prototype; full tangent-cone assembly and dimension remain open. Polynomial representatives now reuse native truncation and homogeneous components, with coefficient, inclusion, unique-representative, order and product comparisons and the actual equation-jet kernel in polynomial form; no full graded or dimension comparison is claimed. Native degreewise continuation adds the actual ambient quotient-to-homogeneous equivalence and the homogeneous quotient-to-equation-jet-image equivalence, retaining all existing scope and remaining algebraic obligations.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2171,6 +2171,69 @@
         "module": "Mathlib/RingTheory/MvPowerSeries/Trunc.lean",
         "provides": "Native coefficient-linear polynomial-valued total truncation in finitely many variables over a commutative semiring.",
         "checked": "Actual statement, ambient assumptions and displayed proof/construction read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; HS-POLYNOMIAL-COMPONENT-PIN-7e92bd records source digests. Native helper is reused, not replanned."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.homogeneousSubmodule",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "Native submodule of polynomials homogeneous of degree n over a commutative semiring.",
+        "checked": "Exact statement, ambient assumptions and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Submodule.quotEquivOfEq",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Equal submodules give a linear equivalence between their native quotient modules.",
+        "checked": "Exact statement, ambient assumptions and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Submodule.quotEquivOfEq_mk",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Quotient transport by equality preserves each representative.",
+        "checked": "Exact statement, ambient assumptions and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:LinearMap.quotKerEquivOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Isomorphisms.lean",
+        "provides": "A proved surjective linear map induces a linear equivalence from the quotient by its kernel.",
+        "checked": "Exact statement, ambient assumptions and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:LinearMap.quotKerEquivOfSurjective_apply_mk",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Isomorphisms.lean",
+        "provides": "The surjective first-isomorphism equivalence sends a representative class to its image.",
+        "checked": "Exact statement, ambient assumptions and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:LinearMap.quotKerEquivRange",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Isomorphisms.lean",
+        "provides": "Native first isomorphism theorem: quotient by the kernel is linearly equivalent to the image.",
+        "checked": "Exact statement, ambient assumptions and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:LinearMap.quotKerEquivRange_apply_mk",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Isomorphisms.lean",
+        "provides": "The image first-isomorphism equivalence sends a representative to its actual image.",
+        "checked": "Exact statement, ambient assumptions and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.ofEq",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+        "provides": "Equal submodules are linearly equivalent, preserving the underlying element.",
+        "checked": "Exact statement, ambient assumptions and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.coe_ofEq_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+        "provides": "Equal-submodule transport preserves the underlying element.",
+        "checked": "Exact statement, ambient assumptions and construction read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
       }
     ]
   },
@@ -3042,6 +3105,41 @@
         "Mathlib/RingTheory/MvPowerSeries/Trunc.lean": "413e3cb0130b634de540bf20a6cab33ae9561f6795ceed473bc5f51372799a2e",
         "Mathlib/RingTheory/MvPowerSeries/Order.lean": "cda7e4c6c23c83c61b97a8b365d95faaf43cec5996a3c4aada0401ebe9ecdd34"
       }
+    },
+    {
+      "id": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+      "title": "Native homogeneous polynomial and ideal-power quotient comparison",
+      "authors": "Mathlib contributors; adapter deductions by Codex — codex-J6LwjP",
+      "edition": "Pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; 2026-10-03 authored degreewise comparison",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "accessDate": "2026-10-03",
+      "readSections": [
+        "Polynomial Homogeneous.lean 89–117 and 145–180; generic first isomorphism constructions 25–68; quotient-equality construction 244–268; equal-submodule equivalence 20–51; ideal smul identity 58–70 and subtype smul membership 95–116.",
+        "Existing credited DDPA-JET-HANDOFF §§2–5 reread for the actual quotient conventions, equation (9) and the remaining full-graded boundary; Stacks 00K4 mathematical §10.59 read for graded versus cumulative functions.",
+        "Fresh Mathlib PR9819 metadata/body/changed-file list, OPEN at 413e5b872a7c758e0eb91f99cb96d6a61c81f0a2: general Hilbert–Serre work is distinct, unpinned and not consumed. A bounded indexed Zulip search for homogeneousSubmodule power-series quotient returned no pertinent source."
+      ],
+      "pinnedFiles": [
+        {
+          "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+          "sha256": "ce8909ba1bfc5e1fa0fbf6ddcecbb0233a4ae175622578772b290814a9a7fcc8"
+        },
+        {
+          "module": "Mathlib/LinearAlgebra/Isomorphisms.lean",
+          "sha256": "9b09cba140051ca8b9aa93f6cf22a85c3d9fd4d1c108939c6a6e0b44a0192d73"
+        },
+        {
+          "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+          "sha256": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3"
+        },
+        {
+          "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+          "sha256": "4859dadb42353660e6827c0c070962279d8fabdc8eea013eeed783b5cab59c22"
+        },
+        {
+          "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+          "sha256": "cc14ab54a1e88b37d838b98f7371540b9df545bdf071d8cb92740ddbea654335"
+        }
+      ]
     }
   ],
   "nodes": [
@@ -13073,6 +13171,1063 @@
       "acceptance": [
         "For f=0 and every n and g∈v^n, the actual image φ_0,n(g) vanishes if and only if H_n(g)=0. The zero equation retains its infinite order."
       ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Homogeneous polynomials in ideal powers",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousLift",
+      "statement": "The k-linear map L_n:P_n→v^n sends a native degree-n homogeneous polynomial to its native series inclusion; its ideal membership is part of the data.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Use native polynomial inclusion and its additive and scalar compatibility.",
+        "The existing homogeneity comparison and ideal-power membership supply the subtype witness."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-series-homogeneity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-variable-ideal-membership",
+        "mathlib:MvPolynomial.homogeneousSubmodule"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter homogeneousLift",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The k-linear map L_n:P_n→v^n sends a native degree-n homogeneous polynomial to its native series inclusion; its ideal membership is part of the data."
+      ],
+      "tests": [
+        {
+          "name": "DegreeQuotientTests.lift_zero",
+          "kind": "characterisation",
+          "statement": "For every n, L_n sends the zero homogeneous polynomial to the zero element of v^n."
+        },
+        {
+          "name": "DegreeQuotientTests.lift_variable",
+          "kind": "characterisation",
+          "statement": "The lift of the native degree-one polynomial X_i has underlying series exactly X_i."
+        },
+        {
+          "name": "DegreeQuotientTests.lift_torsion",
+          "kind": "computation",
+          "statement": "Over ℤ/4ℤ in two variables, the lift of the degree-one polynomial 2X has underlying series 2X; nilpotent coefficients are retained."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5, degreewise surjectivity and principal kernel",
+          "how": "Expose actual representatives and images before assembling the graded map; no dimension inference from Hilbert counts."
+        },
+        {
+          "where": "Stacks 10.59.5 and the general Hilbert–Samuel consumer",
+          "how": "Compare the actual ideal-power quotients with homogeneous polynomials while keeping graded and cumulative functions distinct."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousLift_apply",
+          "role": "simp",
+          "statement": "For every p∈P_n, the underlying series of L_n(p) is exactly the native inclusion of p."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.degreePolynomial_lift",
+          "role": "simp",
+          "statement": "For every p∈P_n, D_n(L_n(p))=p."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.degreePolynomial_surjective",
+          "role": "simp",
+          "statement": "D_n is surjective for every n. No field or flatness hypothesis is required."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift-value",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Value of the homogeneous lift",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousLift_apply",
+      "statement": "For every p∈P_n, the underlying series of L_n(p) is exactly the native inclusion of p.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Unfold the constructed map and take its underlying series."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter homogeneousLift_apply",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every p∈P_n, the underlying series of L_n(p) is exactly the native inclusion of p."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-projection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Polynomial projection of an ideal power",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.degreePolynomial",
+      "statement": "The k-linear map D_n:v^n→P_n sends g to H_n(g), with its native degree-n homogeneity witness.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Restrict the existing polynomial component to v^n and bundle its native homogeneity witness.",
+        "Reuse additivity and scalar linearity of H_n."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-component",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-degree",
+        "mathlib:MvPolynomial.homogeneousSubmodule"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter degreePolynomial",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The k-linear map D_n:v^n→P_n sends g to H_n(g), with its native degree-n homogeneity witness."
+      ],
+      "tests": [
+        {
+          "name": "DegreeQuotientTests.degree_lift",
+          "kind": "characterisation",
+          "statement": "For every commutative k, finite variable set and p∈P_n, D_n(L_n(p))=p."
+        },
+        {
+          "name": "DegreeQuotientTests.degree_constant",
+          "kind": "characterisation",
+          "statement": "With no variables, degree zero recovers every constant polynomial over any commutative k."
+        },
+        {
+          "name": "DegreeQuotientTests.degree_next",
+          "kind": "characterisation",
+          "statement": "Every element of v^n whose underlying series lies in v^(n+1) has zero degree-n projection."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5, degreewise surjectivity and principal kernel",
+          "how": "Expose actual representatives and images before assembling the graded map; no dimension inference from Hilbert counts."
+        },
+        {
+          "where": "Stacks 10.59.5 and the general Hilbert–Samuel consumer",
+          "how": "Compare the actual ideal-power quotients with homogeneous polynomials while keeping graded and cumulative functions distinct."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.degreePolynomial_apply",
+          "role": "simp",
+          "statement": "For every g∈v^n, the polynomial underlying D_n(g) is H_n(g)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.degreePolynomial_eq_zero_iff",
+          "role": "simp",
+          "statement": "For g∈v^n, D_n(g)=0 if and only if the underlying series lies in v^(n+1)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.degreePolynomial_ker",
+          "role": "characterisation",
+          "statement": "As k-submodules of v^n, ker(D_n) is the restriction of v·v^n, written v•top on the native ideal-power subtype."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-projection-value",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Value of the polynomial projection",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.degreePolynomial_apply",
+      "statement": "For every g∈v^n, the polynomial underlying D_n(g) is H_n(g).",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Evaluate the bundled map."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-projection"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter degreePolynomial_apply",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every g∈v^n, the polynomial underlying D_n(g) is H_n(g)."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-projection-section",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Polynomial inclusion is a section",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.degreePolynomial_lift",
+      "statement": "For every p∈P_n, D_n(L_n(p))=p.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Use the existing component identity on an included homogeneous polynomial and subtype extensionality."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-projection-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-retraction"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter degreePolynomial_lift",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every p∈P_n, D_n(L_n(p))=p."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-surjectivity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Every homogeneous polynomial is represented",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.degreePolynomial_surjective",
+      "statement": "D_n is surjective for every n. No field or flatness hypothesis is required.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Choose L_n(p) as the representative and use the section identity."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-projection-section"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter degreePolynomial_surjective",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "D_n is surjective for every n. No field or flatness hypothesis is required."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-vanishing",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The next ideal power is the kernel",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.degreePolynomial_eq_zero_iff",
+      "statement": "For g∈v^n, D_n(g)=0 if and only if the underlying series lies in v^(n+1).",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Subtype vanishing is equivalent to underlying polynomial vanishing.",
+        "Use the polynomial/series vanishing equivalence followed by the existing next-power criterion."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-projection-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-vanishing",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter degreePolynomial_eq_zero_iff",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For g∈v^n, D_n(g)=0 if and only if the underlying series lies in v^(n+1)."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-kernel-submodule",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The actual quotient denominator",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.degreePolynomial_ker",
+      "statement": "As k-submodules of v^n, ker(D_n) is the restriction of v·v^n, written v•top on the native ideal-power subtype.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Apply the pointwise kernel criterion.",
+        "The native subtype-smul membership lemma converts v•top to v·v^n in R; ideal scalar multiplication and the power identity give v^(n+1)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-vanishing",
+        "mathlib:Submodule.mem_smul_top_iff",
+        "mathlib:Ideal.smul_eq_mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter degreePolynomial_ker",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "As k-submodules of v^n, ker(D_n) is the restriction of v·v^n, written v•top on the native ideal-power subtype."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/ambient-degree-quotient-equivalence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Homogeneous graded pieces",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.ambientDegreeEquiv",
+      "statement": "For every n, define the k-linear equivalence (v^n/(v•top))≃P_n, using the native ideal-power subtype and restricting its R-submodule denominator to k. This is the actual degree quotient, not a new definition of the associated graded ring.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Transport the actual denominator to ker(D_n) using equality of submodules.",
+        "Apply the existing first isomorphism theorem to the proved surjective D_n."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-kernel-submodule",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-surjectivity",
+        "mathlib:Submodule.quotEquivOfEq",
+        "mathlib:LinearMap.quotKerEquivOfSurjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter ambientDegreeEquiv",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every n, define the k-linear equivalence (v^n/(v•top))≃P_n, using the native ideal-power subtype and restricting its R-submodule denominator to k. This is the actual degree quotient, not a new definition of the associated graded ring."
+      ],
+      "tests": [
+        {
+          "name": "DegreeQuotientTests.ambient_roundtrip",
+          "kind": "characterisation",
+          "statement": "For every g∈v^n, the inverse ambient comparison of D_n(g) equals the actual quotient class of g."
+        },
+        {
+          "name": "DegreeQuotientTests.ambient_inverse",
+          "kind": "characterisation",
+          "statement": "For every homogeneous p, applying the ambient equivalence to the quotient class of its native lift returns p."
+        },
+        {
+          "name": "DegreeQuotientTests.ambient_torsion",
+          "kind": "computation",
+          "statement": "Over ℤ/4ℤ, the inverse ambient image of 2X in degree one is nonzero, despite the coefficient 2 being nilpotent."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5, degreewise surjectivity and principal kernel",
+          "how": "Expose actual representatives and images before assembling the graded map; no dimension inference from Hilbert counts."
+        },
+        {
+          "where": "Stacks 10.59.5 and the general Hilbert–Samuel consumer",
+          "how": "Compare the actual ideal-power quotients with homogeneous polynomials while keeping graded and cumulative functions distinct."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.ambientDegreeEquiv_mk",
+          "role": "simp",
+          "statement": "The ambient equivalence sends the class of g∈v^n to D_n(g)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.ambientDegreeEquiv_symm",
+          "role": "simp",
+          "statement": "The inverse ambient equivalence sends p∈P_n to the actual quotient class of L_n(p)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.degreePolynomial_lift",
+          "role": "simp",
+          "statement": "For every p∈P_n, D_n(L_n(p))=p."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/ambient-degree-quotient-representative",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The ambient comparison on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.ambientDegreeEquiv_mk",
+      "statement": "The ambient equivalence sends the class of g∈v^n to D_n(g).",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Use the native representative formulas for quotient transport and the first isomorphism equivalence."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ambient-degree-quotient-equivalence",
+        "mathlib:Submodule.quotEquivOfEq_mk",
+        "mathlib:LinearMap.quotKerEquivOfSurjective_apply_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter ambientDegreeEquiv_mk",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The ambient equivalence sends the class of g∈v^n to D_n(g)."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/ambient-degree-quotient-inverse",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The inverse ambient comparison",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.ambientDegreeEquiv_symm",
+      "statement": "The inverse ambient equivalence sends p∈P_n to the actual quotient class of L_n(p).",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Apply injectivity of the forward equivalence and use its representative formula followed by the section identity."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ambient-degree-quotient-representative",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-projection-section"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter ambientDegreeEquiv_symm",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The inverse ambient equivalence sends p∈P_n to the actual quotient class of L_n(p)."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Homogeneous equation-jet projection",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousCurveProjection",
+      "statement": "For every equation f∈R and n, define ψ_f,n:P_n→R/((f)+v^(n+1)) as the composite of L_n with the existing actual curve-degree projection φ_f,n.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Compose the two established k-linear maps.",
+        "The target is the actual equation-jet quotient; do not replace it by a polynomial presentation."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter homogeneousCurveProjection",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every equation f∈R and n, define ψ_f,n:P_n→R/((f)+v^(n+1)) as the composite of L_n with the existing actual curve-degree projection φ_f,n."
+      ],
+      "tests": [
+        {
+          "name": "DegreeQuotientTests.curve_unit",
+          "kind": "characterisation",
+          "statement": "For the unit equation f=1, every homogeneous polynomial has zero equation-jet image."
+        },
+        {
+          "name": "DegreeQuotientTests.curve_zero",
+          "kind": "characterisation",
+          "statement": "For the zero equation over any commutative coefficient ring, the homogeneous equation-jet map has zero image exactly on the zero polynomial."
+        },
+        {
+          "name": "DegreeQuotientTests.characteristic_two_killed",
+          "kind": "computation",
+          "statement": "Over 𝔽₂, the degree-two polynomial X² maps to zero for the repeated equation f=x²."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5, degreewise surjectivity and principal kernel",
+          "how": "Expose actual representatives and images before assembling the graded map; no dimension inference from Hilbert counts."
+        },
+        {
+          "where": "Stacks 10.59.5 and the general Hilbert–Samuel consumer",
+          "how": "Compare the actual ideal-power quotients with homogeneous polynomials while keeping graded and cumulative functions distinct."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousCurveProjection_apply",
+          "role": "simp",
+          "statement": "For p∈P_n, ψ_f,n(p) is the actual equation-jet class of the native series inclusion of p."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.curveDegreeProjection_factor",
+          "role": "compatibility",
+          "statement": "For every f,n and g∈v^n, ψ_f,n(D_n(g))=φ_f,n(g)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousCurveProjection_range",
+          "role": "compatibility",
+          "statement": "The k-submodule image of ψ_f,n equals the k-submodule image of φ_f,n, inside the same native equation-jet quotient."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousCurveProjection_kernel",
+          "role": "characterisation",
+          "statement": "Assume k has no zero divisors, order(f)=d is finite and d≤n. For p∈P_n, ψ_f,n(p)=0 if and only if p=H_d(f)w for a native polynomial w homogeneous of degree n−d."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousCurveProjection_below_order",
+          "role": "characterisation",
+          "statement": "If order(f)≥d and n<d, ψ_f,n(p)=0 if and only if p=0, for every p∈P_n. This lower-degree result holds over arbitrary commutative k."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection-value",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The equation-jet class of a polynomial",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousCurveProjection_apply",
+      "statement": "For p∈P_n, ψ_f,n(p) is the actual equation-jet class of the native series inclusion of p.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Evaluate the composite and the existing quotient projection."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-projection-apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter homogeneousCurveProjection_apply",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For p∈P_n, ψ_f,n(p) is the actual equation-jet class of the native series inclusion of p."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-polynomial-factorization",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Keeping the leading component preserves the class",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.curveDegreeProjection_factor",
+      "statement": "For every f,n and g∈v^n, ψ_f,n(D_n(g))=φ_f,n(g).",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "The degree-n homogeneous component lies in v^n and is fixed by the same component map.",
+        "Thus g minus its degree-n component has zero degree-n component and lies in v^(n+1).",
+        "Its negative gives equality of the two actual quotient classes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-polynomial-projection-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-series",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-variable-ideal-membership",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/degree-component-next-power",
+        "mathlib:MvPowerSeries.isHomogeneous_homogeneousComponent",
+        "mathlib:MvPowerSeries.isHomogeneous_iff_eq_homogeneousComponent"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter curveDegreeProjection_factor",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every f,n and g∈v^n, ψ_f,n(D_n(g))=φ_f,n(g)."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection-image",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Equality of the actual degree images",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousCurveProjection_range",
+      "statement": "The k-submodule image of ψ_f,n equals the k-submodule image of φ_f,n, inside the same native equation-jet quotient.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Every polynomial image is the image of its lift under φ.",
+        "Every series image is the image of D_n(g) under ψ by the factorization identity."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-degree-polynomial-factorization"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter homogeneousCurveProjection_range",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The k-submodule image of ψ_f,n equals the k-submodule image of φ_f,n, inside the same native equation-jet quotient."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-principal-kernel",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Principal equation kernel on homogeneous polynomials",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousCurveProjection_kernel",
+      "statement": "Assume k has no zero divisors, order(f)=d is finite and d≤n. For p∈P_n, ψ_f,n(p)=0 if and only if p=H_d(f)w for a native polynomial w homogeneous of degree n−d.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Apply the existing degreewise polynomial kernel theorem to L_n(p).",
+        "Its polynomial component is p by the homogeneous-inclusion identity. Retain all order and no-zero-divisors hypotheses."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-retraction",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-kernel"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter homogeneousCurveProjection_kernel",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Assume k has no zero divisors, order(f)=d is finite and d≤n. For p∈P_n, ψ_f,n(p)=0 if and only if p=H_d(f)w for a native polynomial w homogeneous of degree n−d."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-low-degree-injectivity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "No relations below the equation order",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousCurveProjection_below_order",
+      "statement": "If order(f)≥d and n<d, ψ_f,n(p)=0 if and only if p=0, for every p∈P_n. This lower-degree result holds over arbitrary commutative k.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Use the existing strict-below-order polynomial kernel criterion on L_n(p).",
+        "Identify its polynomial component with p and use subtype extensionality."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-polynomial-lift-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/polynomial-homogeneous-retraction",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/curve-polynomial-degree-below"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter homogeneousCurveProjection_below_order",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "If order(f)≥d and n<d, ψ_f,n(p)=0 if and only if p=0, for every p∈P_n. This lower-degree result holds over arbitrary commutative k."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-quotient-image-equivalence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Degreewise tangent-cone comparison",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousCurveQuotientEquiv",
+      "statement": "For every f,n, define (P_n/ker(ψ_f,n))≃ image(φ_f,n) as a k-linear equivalence. The target is the actual image in the equation-jet quotient, without a domain or finite-equation-order hypothesis.",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Use the native first isomorphism theorem for ψ.",
+        "Transport its image to the actual image of φ by the proved equality, without defining a new target ring."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-projection-image",
+        "mathlib:LinearMap.quotKerEquivRange",
+        "mathlib:LinearEquiv.ofEq"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter homogeneousCurveQuotientEquiv",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every f,n, define (P_n/ker(ψ_f,n))≃ image(φ_f,n) as a k-linear equivalence. The target is the actual image in the equation-jet quotient, without a domain or finite-equation-order hypothesis."
+      ],
+      "tests": [
+        {
+          "name": "DegreeQuotientTests.quotient_value",
+          "kind": "characterisation",
+          "statement": "The homogeneous quotient-image equivalence sends each representative to its actual equation-jet class."
+        },
+        {
+          "name": "DegreeQuotientTests.quotient_inverse",
+          "kind": "characterisation",
+          "statement": "The inverse homogeneous quotient-image equivalence returns the same quotient class on each representative image."
+        },
+        {
+          "name": "DegreeQuotientTests.quotient_zero_equation",
+          "kind": "characterisation",
+          "statement": "For f=0, the quotient-image equivalence of the class of p is zero if and only if p=0, over arbitrary commutative coefficients."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §5, degreewise surjectivity and principal kernel",
+          "how": "Expose actual representatives and images before assembling the graded map; no dimension inference from Hilbert counts."
+        },
+        {
+          "where": "Stacks 10.59.5 and the general Hilbert–Samuel consumer",
+          "how": "Compare the actual ideal-power quotients with homogeneous polynomials while keeping graded and cumulative functions distinct."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousCurveQuotientEquiv_mk",
+          "role": "simp",
+          "statement": "After coercion into the actual equation-jet quotient, the quotient-image equivalence sends the class of p to ψ_f,n(p)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousCurveProjection_range",
+          "role": "compatibility",
+          "statement": "The k-submodule image of ψ_f,n equals the k-submodule image of φ_f,n, inside the same native equation-jet quotient."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.homogeneousCurveProjection_kernel",
+          "role": "characterisation",
+          "statement": "Assume k has no zero divisors, order(f)=d is finite and d≤n. For p∈P_n, ψ_f,n(p)=0 if and only if p=H_d(f)w for a native polynomial w homogeneous of degree n−d."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-quotient-representative",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "The tangent-cone comparison on representatives",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.homogeneousCurveQuotientEquiv_mk",
+      "statement": "After coercion into the actual equation-jet quotient, the quotient-image equivalence sends the class of p to ψ_f,n(p).",
+      "hypotheses": [
+        "σ is a finite type and k is an arbitrary commutative ring. R is the native multivariate power-series ring, v its variable ideal, P the native polynomial ring, and P_n its native homogeneousSubmodule in degree n.",
+        "Only the principal kernel statement imposes no zero divisors and exact finite equation order; the strict-below-order statement uses only its stated order lower bound."
+      ],
+      "proofSteps": [
+        "Evaluate the native first-isomorphism equivalence and the equal-submodule transport."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/homogeneous-curve-quotient-image-equivalence",
+        "mathlib:LinearMap.quotKerEquivRange_apply_mk",
+        "mathlib:LinearEquiv.coe_ofEq_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§5, degreewise surjectivity and equation (9); §3, actual ideal-power quotient conventions",
+          "match": "Authored finite-variable, arbitrary-commutative-coefficient refinement of the credited degreewise argument. The full graded algebra and quotient-ring comparison are not asserted."
+        },
+        {
+          "sourceId": "HS-DEGREE-QUOTIENT-PIN-J6LwjP",
+          "locator": "Native quotient and homogeneous-submodule interfaces; checked adapter homogeneousCurveQuotientEquiv_mk",
+          "match": "Reuse the generic isomorphism theorems and native carriers; the proposed node is only their formal-series and equation-jet application."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "After coercion into the actual equation-jet quotient, the quotient-image equivalence sends the class of p to ψ_f,n(p)."
+      ]
     }
   ],
   "baselineCoverage": [
@@ -13399,7 +14554,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function"
       ],
       "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open. Current codex-rtOQ9t continuation: The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open. The current finite-variable continuation provides an admission-free native prototype for the algebraic ideal-power/order equivalence via three new proof lemmas, over arbitrary commutative coefficients. This resolves the predecessor's prototype omission for that one adapter, not canonical library implementation or any shifted-sequence/jet-basis/curve-multiplicity obligation; all node statuses and stage coverage remain unchecked/partial. The codex-7e92bd coefficient-coordinate continuation now supplies admission-free native prototypes for total truncation kernel/surjectivity, the actual polynomial equivalence, low-coefficient linear equivalence, monomial basis, finite generation and all-cutoff two-variable rank/cardinality. This supersedes the preceding prototype omissions for those adapters only. Canonical bodies and all implementation statuses stay unchecked. Shifted series exact-order injectivity/exactness, all-index curve lengths, tangent cone and curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, Artin–Rees, degree/dimension, completion, associativity, all eight stage targets and all routed-paper obligations remain open. The combined native proof now establishes finite equation jets over arbitrary commutative coefficients, the field length/dimension adapter, ambient R-length, shifted length balance, all-index equation and actual cumulative curve lengths, and the separate zero equation. It includes the complete preceding jet/shifted, residue and quotient-comparison proof bodies. This supersedes their historical prototype omissions only; canonical bodies and all implementation statuses remain admitted/unchecked. The graded-function proof, postulation defect and sharp threshold, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre induction, degree/dimension, Artin–Rees, associativity, completion and all eight stage/routed-paper obligations remain open.",
-      "polynomialComponentContinuation": "The polynomial/series homogeneous comparison and actual polynomial equation-jet kernel now have checked native prototypes. Construct the actual image identification with q^n/q^(n+1), then assemble the generator-compatible and multiplicative full graded tangent-cone isomorphism. Curve/support dimension and comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain required. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain open; canonical bodies and implementation statuses remain admitted/unchecked."
+      "polynomialComponentContinuation": "The polynomial/series homogeneous comparison and actual polynomial equation-jet kernel now have checked native prototypes. Construct the actual image identification with q^n/q^(n+1), then assemble the generator-compatible and multiplicative full graded tangent-cone isomorphism. Curve/support dimension and comparison with the general cumulative polynomial and intrinsic/ambient multiplicity remain required. General Hilbert–Serre, Artin–Rees, completion, localization, associativity, all eight stage targets and every routed-paper obligation remain open; canonical bodies and implementation statuses remain admitted/unchecked.",
+      "degreeQuotientContinuation": "The actual ambient degree quotient is compared with the native homogeneous polynomial submodule, and homogeneous polynomials modulo the principal degreewise kernel are compared with the existing equation-jet image. The actual image-to-q^n/q^(n+1) map for q in R/(f), multiplication on these quotient identifications, generator-compatible graded assembly and full principal ideal kernel still require separate declarations. Curve/support dimension and intrinsic/ambient multiplicity comparison remain open."
     }
   ],
   "sourceIssues": [],
