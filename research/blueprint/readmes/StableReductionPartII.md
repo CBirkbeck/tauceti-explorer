@@ -4007,7 +4007,7 @@ gaps and 135 supplier requests retain their existing ownership and scope.
 
 ## MC.2: coefficient-universal matrix complexes and tensor cokernels
 
-For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products. 
+For any commutative ring A and γ,δ,s,t∈A, put q(x,y)=x²+γxy+δy², R=A[Y][X]/(q(X,Y)−q(s,t)), ι:A→R, u=[X], v=[Y], c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), Φ=((a,b),(−c,d)), Ψ=((d,−b),(c,a)), P_J(z)=cz₀−dz₁, P_D(z)=z₀·incl−z₁·ε, where dε(j)=bj. Restrict these maps to A. For every A-module M write T_M(f)=id_M⊗_A f, on the actual native tensor products.
 
 The two actual surjections P_J and P_D have A-flat codomains. Pinned right exactness supplies each tensorized presentation; the flat-cokernel injection theorem supplies injectivity of each tensorized matrix-image inclusion. Factor each matrix through its image to deduce exactness for arbitrary M. This argument treats the nonflat module Z/2 over Z. The displayed symplectic rotation intertwines Ψ with Φᵀ and Φ with Ψᵀ. Its native tensor equivalence transports the two ordinary exact pairs to both transpose pairs.
 
@@ -4432,4 +4432,3 @@ Dependencies: StableReductionPartII:MC.2/section-dual-tensor-cokernel-representa
 Acceptance: Use the actual node ring, section ideal, R-linear dual and ordered native matrix maps. All coefficient restrictions and quotient carriers are specified. These local tensor statements do not assert arbitrary coefficient-module Hom exchange, biduality, higher Ext vanishing, completed-local comparison or the geometric stable-reflexivity theorem.
 
 Source: Knudsen, arXiv:1106.1588v2 §3, printed pp.11–12; the rotation identities are printed, and the universal tensor conclusions are the authored deduction described above.
-
