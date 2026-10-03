@@ -3273,3 +3273,193 @@ example :
 end
 end TauCeti.HilbertSamuel.HomogeneousPolynomialTests
 /- END POLYNOMIAL HOMOGENEOUS COMPARISON -/
+
+/- BEGIN DEGREE QUOTIENT COMPARISON -/
+namespace TauCeti.HilbertSamuel
+noncomputable section DegreeQuotients
+set_option backward.isDefEq.respectTransparency false
+set_option maxHeartbeats 800000
+variable {σ k : Type*} [Finite σ] [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "P" => MvPolynomial σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+local notation "H" => MvPolynomial.homogeneousSubmodule σ k
+
+def homogeneousLift (n : ℕ) : ↥(H n) →ₗ[k] ↥(v ^ n) := by
+  sorry
+
+lemma homogeneousLift_apply (n : ℕ) (p : ↥(H n)) :
+    (homogeneousLift n p : R) = (p.val : R) := by
+  sorry
+
+def degreePolynomial (n : ℕ) : ↥(v ^ n) →ₗ[k] ↥(H n) := by
+  sorry
+
+lemma degreePolynomial_apply (n : ℕ) (g : ↥(v ^ n)) :
+    (degreePolynomial n g : P) = homogeneousPolynomial n (g : R) := by
+  sorry
+
+lemma degreePolynomial_lift (n : ℕ) (p : ↥(H n)) :
+    degreePolynomial n (homogeneousLift n p) = p := by
+  sorry
+
+lemma degreePolynomial_surjective (n : ℕ) : Function.Surjective (degreePolynomial (σ := σ) (k := k) n) := by
+  sorry
+
+lemma degreePolynomial_eq_zero_iff (n : ℕ) (g : ↥(v ^ n)) :
+    degreePolynomial n g = 0 ↔ (g : R) ∈ v ^ (n + 1) := by
+  sorry
+
+lemma degreePolynomial_ker (n : ℕ) :
+    LinearMap.ker (degreePolynomial (σ := σ) (k := k) n) =
+      (v • (⊤ : Submodule R ↥(v ^ n))).restrictScalars k := by
+  sorry
+
+def ambientDegreeEquiv (n : ℕ) :
+    (↥(v ^ n) ⧸ (v • (⊤ : Submodule R ↥(v ^ n))).restrictScalars k) ≃ₗ[k] ↥(H n) := by
+  sorry
+
+lemma ambientDegreeEquiv_mk (n : ℕ) (g : ↥(v ^ n)) :
+    ambientDegreeEquiv n (Submodule.Quotient.mk g) = degreePolynomial n g := by
+  sorry
+
+lemma ambientDegreeEquiv_symm (n : ℕ) (p : ↥(H n)) :
+    (ambientDegreeEquiv n).symm p = Submodule.Quotient.mk (homogeneousLift n p) := by
+  sorry
+
+def homogeneousCurveProjection (f : R) (n : ℕ) :
+    ↥(H n) →ₗ[k] (R ⧸ (Ideal.span {f} ⊔ v ^ (n + 1))) := by
+  sorry
+
+lemma homogeneousCurveProjection_apply (f : R) (n : ℕ) (p : ↥(H n)) :
+    homogeneousCurveProjection f n p =
+      Submodule.mkQ (Ideal.span {f} ⊔ v ^ (n + 1)) (p.val : R) := by
+  sorry
+
+lemma curveDegreeProjection_factor (f : R) (n : ℕ) (g : ↥(v ^ n)) :
+    homogeneousCurveProjection f n (degreePolynomial n g) = curveDegreeProjection f n g := by
+  sorry
+
+lemma homogeneousCurveProjection_range (f : R) (n : ℕ) :
+    LinearMap.range (homogeneousCurveProjection f n) = LinearMap.range (curveDegreeProjection f n) := by
+  sorry
+
+lemma homogeneousCurveProjection_kernel [NoZeroDivisors k] (f : R) (d n : ℕ)
+    (hd : f.order = (d : ℕ∞)) (hdn : d ≤ n) (p : ↥(H n)) :
+    homogeneousCurveProjection f n p = 0 ↔
+      ∃ w : P, w.IsHomogeneous (n - d) ∧ p.val = homogeneousPolynomial d f * w := by
+  sorry
+
+lemma homogeneousCurveProjection_below_order (f : R) (d n : ℕ)
+    (hd : (d : ℕ∞) ≤ f.order) (hnd : n < d) (p : ↥(H n)) :
+    homogeneousCurveProjection f n p = 0 ↔ p = 0 := by
+  sorry
+
+def homogeneousCurveQuotientEquiv (f : R) (n : ℕ) :
+    (↥(H n) ⧸ LinearMap.ker (homogeneousCurveProjection f n)) ≃ₗ[k]
+      LinearMap.range (curveDegreeProjection f n) := by
+  sorry
+
+lemma homogeneousCurveQuotientEquiv_mk (f : R) (n : ℕ) (p : ↥(H n)) :
+    (homogeneousCurveQuotientEquiv f n (Submodule.Quotient.mk p) :
+      R ⧸ (Ideal.span {f} ⊔ v ^ (n + 1))) = homogeneousCurveProjection f n p := by
+  sorry
+
+end DegreeQuotients
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel.DegreeQuotientTests
+noncomputable section
+variable {σ k : Type*} [Finite σ] [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "P" => MvPolynomial σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+local notation "H" => MvPolynomial.homogeneousSubmodule σ k
+
+-- test: DegreeQuotientTests.lift_zero
+lemma lift_zero (n : ℕ) : homogeneousLift (σ := σ) (k := k) n 0 = 0 := by
+  sorry
+
+-- test: DegreeQuotientTests.lift_variable
+lemma lift_variable (i : σ) :
+    (homogeneousLift 1 ⟨MvPolynomial.X i, MvPolynomial.isHomogeneous_X k i⟩ : R) = MvPowerSeries.X i := by
+  sorry
+
+-- test: DegreeQuotientTests.lift_torsion
+lemma lift_torsion :
+    let p : ↥(MvPolynomial.homogeneousSubmodule (Fin 2) (ZMod 4) 1) :=
+      ⟨MvPolynomial.C 2 * MvPolynomial.X 0, (MvPolynomial.isHomogeneous_X (ZMod 4) (0 : Fin 2)).C_mul 2⟩
+    (homogeneousLift 1 p : MvPowerSeries (Fin 2) (ZMod 4)) =
+      MvPowerSeries.C 2 * MvPowerSeries.X 0 := by
+  sorry
+
+-- test: DegreeQuotientTests.degree_lift
+lemma degree_lift (n : ℕ) (p : ↥(H n)) : degreePolynomial n (homogeneousLift n p) = p := by
+  sorry
+
+-- test: DegreeQuotientTests.degree_constant
+lemma degree_constant (a : k) :
+    degreePolynomial 0 (homogeneousLift 0
+      ⟨(MvPolynomial.C a : MvPolynomial Empty k), MvPolynomial.isHomogeneous_C (σ := Empty) a⟩) =
+      ⟨MvPolynomial.C a, MvPolynomial.isHomogeneous_C (σ := Empty) a⟩ := by
+  sorry
+
+-- test: DegreeQuotientTests.degree_next
+lemma degree_next (n : ℕ) (g : ↥(v ^ n)) (hg : (g : R) ∈ v ^ (n + 1)) :
+    degreePolynomial n g = 0 := by
+  sorry
+
+-- test: DegreeQuotientTests.ambient_roundtrip
+lemma ambient_roundtrip (n : ℕ) (g : ↥(v ^ n)) :
+    (ambientDegreeEquiv n).symm (degreePolynomial n g) = Submodule.Quotient.mk g := by
+  sorry
+
+-- test: DegreeQuotientTests.ambient_inverse
+lemma ambient_inverse (n : ℕ) (p : ↥(H n)) :
+    ambientDegreeEquiv n (Submodule.Quotient.mk (homogeneousLift n p)) = p := by
+  sorry
+
+-- test: DegreeQuotientTests.ambient_torsion
+lemma ambient_torsion :
+    let p : ↥(MvPolynomial.homogeneousSubmodule (Fin 2) (ZMod 4) 1) :=
+      ⟨MvPolynomial.C 2 * MvPolynomial.X 0, (MvPolynomial.isHomogeneous_X (ZMod 4) (0 : Fin 2)).C_mul 2⟩
+    (ambientDegreeEquiv 1).symm p ≠ 0 := by
+  sorry
+
+-- test: DegreeQuotientTests.curve_unit
+lemma curve_unit (n : ℕ) (p : ↥(H n)) : homogeneousCurveProjection (1 : R) n p = 0 := by
+  sorry
+
+-- test: DegreeQuotientTests.curve_zero
+lemma curve_zero (n : ℕ) (p : ↥(H n)) :
+    homogeneousCurveProjection (0 : R) n p = 0 ↔ p = 0 := by
+  sorry
+
+-- test: DegreeQuotientTests.characteristic_two_killed
+lemma characteristic_two_killed :
+    let f := (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 2)) ^ 2
+    let p : ↥(MvPolynomial.homogeneousSubmodule (Fin 2) (ZMod 2) 2) :=
+      ⟨MvPolynomial.X 0 ^ 2, by simpa using (MvPolynomial.isHomogeneous_X (ZMod 2) (0 : Fin 2)).pow 2⟩
+    homogeneousCurveProjection f 2 p = 0 := by
+  sorry
+
+-- test: DegreeQuotientTests.quotient_value
+lemma quotient_value (f : R) (n : ℕ) (p : ↥(H n)) :
+    (homogeneousCurveQuotientEquiv f n (Submodule.Quotient.mk p) :
+      R ⧸ (Ideal.span {f} ⊔ v ^ (n + 1))) = homogeneousCurveProjection f n p := by
+  sorry
+
+-- test: DegreeQuotientTests.quotient_inverse
+lemma quotient_inverse (f : R) (n : ℕ) (p : ↥(H n)) :
+    (homogeneousCurveQuotientEquiv f n).symm
+      (homogeneousCurveQuotientEquiv f n (Submodule.Quotient.mk p)) = Submodule.Quotient.mk p := by
+  sorry
+
+-- test: DegreeQuotientTests.quotient_zero_equation
+lemma quotient_zero_equation (n : ℕ) (p : ↥(H n)) :
+    homogeneousCurveQuotientEquiv (0 : R) n (Submodule.Quotient.mk p) = 0 ↔ p = 0 := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel.DegreeQuotientTests
+/- END DEGREE QUOTIENT COMPARISON -/
