@@ -1,3 +1,471 @@
+# Finite-free ordinary completion checkpoint — Codex codex-a71f92
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis.
+
+For finite free completed coefficients N=Fin(r)→Â, the ordinary tensor R̂⊗_Â N is the native limit of G, with explicit finite projections and a proved universal property. If p is finitely generated, the inherited original-base tensor limit, with its transported Â-action, is also identified with this ordinary tensor. No arbitrary-N tensor/limit interchange, injectivity of R̂⊗_A N→R̂⊗_Â N, completion Hom/Ext theorem, Knudsen Proposition6/7, faithful reflection, pointed hull, sheaf descent or arbitrary-base approximation follows. All eight geometric stages remain partial.
+
+All426 incoming declarations and the reserved moduli-curves key are unchanged. The35 atlas planets, all135 requests,15 gaps,11 source issues, key-definition and consumer coverage, source versions and earlier attributed receipts remain. The nodes below are non-planet supporting declarations in MC.2.
+
+## NodeSectionFactorization.PolynomialModel.completionChartEval
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. Construct eₙ:R̂→ₐ[Â]Qₙ whose underlying ring map is the native completion evaluation at n.
+
+Proof: Use the actual completed coefficient algebra and the inherited completionCoefficientHom_eval square to prove that evaluation preserves Â coefficients.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/completion-coefficient-hom-evaluation, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionChartEval_apply: For every u∈R̂, eₙ(u)=AdicCompletion.evalₐ(m,n,u).
+- NodeSectionFactorization.PolynomialModel.completionChartEval_transition: For i≤j and u∈R̂, τᵢⱼ(eⱼ(u))=eᵢ(u).
+- NodeSectionFactorization.PolynomialModel.completionChartEval_of: On the native completion image of r∈R, evaluation gives its actual class modulo mⁿ.
+
+TESTS:
+
+- NodeSectionFactorization.PolynomialModel.completionChartEval.test_of: On the native completion image of r∈R, evaluation gives its actual class modulo mⁿ.
+- NodeSectionFactorization.PolynomialModel.completionChartEval.test_zero: Each actual completed-chart evaluation sends zero to zero.
+- NodeSectionFactorization.PolynomialModel.completionChartEval.test_completed_scalar: Evaluation sends b·u to b times evaluation of u for every b∈Â.
+
+## NodeSectionFactorization.PolynomialModel.completionChartEval_apply
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For every u∈R̂, eₙ(u)=AdicCompletion.evalₐ(m,n,u).
+
+Proof: Read the actual underlying ring homomorphism of eₙ.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-evaluation, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionChartEval_transition
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For i≤j and u∈R̂, τᵢⱼ(eⱼ(u))=eᵢ(u).
+
+Proof: Reuse the incoming native quotient evaluation coherence on R and m, with the actual finite Â-linear transition.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-evaluation, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/completion-source-transition, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:Ideal.Quotient.factorPow, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionChartAssemble
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For every family fₙ∈Qₙ satisfying τᵢⱼ(fⱼ)=fᵢ for i≤j, construct u∈R̂ from this actual family, without choosing representatives as mathematical data.
+
+Proof: Convert Qₙ to the native submodule quotient R/(mⁿ·R); prove its coherence by the supplied quotient equations and quotient representatives. The native subtype is reused, not redefined.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:Ideal.Quotient.factor, mathlib:Ideal.Quotient.factorPow, mathlib:Ideal.Quotient.mk_surjective, mathlib:TensorProduct.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionChartAssemble_eval: For every coherent family f and every n, evalₙ(assemble(f))=fₙ.
+- NodeSectionFactorization.PolynomialModel.completionChartAssemble_zero: Assembling the identically zero compatible family produces zero in the actual completion.
+- NodeSectionFactorization.PolynomialModel.completionChartAssemble_recover: Assembling all quotients of an existing element of R̂ recovers that element.
+
+TESTS:
+
+- NodeSectionFactorization.PolynomialModel.completionChartAssemble.test_projection: Every quotient of an assembled compatible family is the supplied family member.
+- NodeSectionFactorization.PolynomialModel.completionChartAssemble.test_zero: Assembling the identically zero compatible family produces zero in the actual completion.
+- NodeSectionFactorization.PolynomialModel.completionChartAssemble.test_existing_completion: Assembling all quotients of an existing element of R̂ recovers that element.
+
+## NodeSectionFactorization.PolynomialModel.completionChartAssemble_eval
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For every coherent family f and every n, evalₙ(assemble(f))=fₙ.
+
+Proof: Cancel the two quotient casts using their actual factor maps on quotient representatives.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-coherent-family, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:AlgHom, mathlib:Ideal.Quotient.factor, mathlib:Ideal.Quotient.factorPow, mathlib:Ideal.Quotient.factor_mk, mathlib:Ideal.Quotient.mk_surjective, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeCoordinates
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. Construct cₙ:Qₙ⊗_Â N≃ₗ[Â](Fin(r)→Qₙ), exactly the pinned TensorProduct.piScalarRight equivalence.
+
+Proof: Specialize the existing finite-index tensor equivalence to the actual quotient coefficient action; do not plan a generic tensor distribution theorem.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct, mathlib:TensorProduct.piScalarRight.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeCoordinates_map: For i≤j, x∈G(j) and k∈Fin(r), cᵢ(G(j→i)x)(k)=τᵢⱼ(cⱼ(x)(k)).
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeCoordinates_tmul: The coordinate vector of q⊗z is k↦z(k)·q with the actual quotient Â-action.
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeCoordinates_single: The inverse coordinate map sends the k-th single vector q to q⊗the k-th single vector 1.
+
+TESTS:
+
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeCoordinates.test_tmul: The coordinate vector of q⊗z is k↦z(k)·q with the actual quotient Â-action.
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeCoordinates.test_rank_zero: For r=0, every tensor has the unique empty coordinate vector, equal to zero.
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeCoordinates.test_single: The inverse coordinate map sends the k-th single vector q to q⊗the k-th single vector 1.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeCoordinates_map
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For i≤j, x∈G(j) and k∈Fin(r), cᵢ(G(j→i)x)(k)=τᵢⱼ(cⱼ(x)(k)).
+
+Proof: Use the pinned pure-tensor coordinate formula and the actual transition's Â-linearity, then extend by native tensor induction.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-tensor-coordinates, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:LinearMap.rTensor_tmul, mathlib:TensorProduct, mathlib:TensorProduct.induction_on, mathlib:TensorProduct.piScalarRight, mathlib:TensorProduct.piScalarRightHom_tmul.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. Construct ρₙ:R̂⊗_Â N→ₗ[Â]G(n) as eₙ⊗id_N.
+
+Proof: Right-tensor the actual completed-coefficient-linear evaluation; use precisely the incoming G object, not a bespoke quotient tensor.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-evaluation, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection_tmul: For u∈R̂ and z∈N, ρₙ(u⊗z)=evalₙ(u)⊗z over Â.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection_coordinates: For x∈R̂⊗_Â N and k∈Fin(r), cₙ(ρₙx)(k)=eₙ(ĉ(x)(k)), where ĉ is the pinned piScalarRight equivalence for R̂.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection_ext: For x,y∈R̂⊗_Â N, if ρₙ(x)=ρₙ(y) for every n, then x=y.
+
+TESTS:
+
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection.test_tmul: Each ordinary finite projection sends u⊗z to evalₙ(u)⊗z over Â.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection.test_zero: Each ordinary finite tensor projection sends zero to zero.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection.test_coordinate: Each finite projected coordinate is the actual evaluation of the completed coordinate.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection_tmul
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For u∈R̂ and z∈N, ρₙ(u⊗z)=evalₙ(u)⊗z over Â.
+
+Proof: Use the native right-tensor evaluation rule.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-projection, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection_coordinates
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For x∈R̂⊗_Â N and k∈Fin(r), cₙ(ρₙx)(k)=eₙ(ĉ(x)(k)), where ĉ is the pinned piScalarRight equivalence for R̂.
+
+Proof: Prove the coordinate equation on pure tensors by eₙ's Â-linearity and extend by native tensor induction.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-evaluation, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-tensor-coordinates, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-projection, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct, mathlib:TensorProduct.induction_on, mathlib:TensorProduct.piScalarRight.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorCone
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. Construct an actual Cone(G) with point ModuleCat(Â,R̂⊗_Â N) and projections ρₙ.
+
+Proof: Prove its naturality from the actual quotient evaluation coherence on pure tensors and native tensor induction.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-evaluation, StableReductionPartII:MC.2/completed-chart-evaluation-transition, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-projection, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:DFunLike.ext, mathlib:ModuleCat.hom_injective, mathlib:ModuleCat.of, mathlib:ModuleCat.ofHom, mathlib:TensorProduct, mathlib:TensorProduct.induction_on.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection_tmul: For u∈R̂ and z∈N, ρₙ(u⊗z)=evalₙ(u)⊗z over Â.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection_coordinates: For x∈R̂⊗_Â N and k∈Fin(r), cₙ(ρₙx)(k)=eₙ(ĉ(x)(k)), where ĉ is the pinned piScalarRight equivalence for R̂.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorCone_projection: The n-th native cone morphism is exactly ModuleCat.ofHom(ρₙ), with the actual ordinary tensor point.
+
+TESTS:
+
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorCone.test_tmul: The actual cone projection on a pure tensor is evalₙ(u)⊗z.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorCone.test_zero: Every actual cone projection sends zero to zero.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorCone.test_completed_scalar: Every actual cone projection is Â-linear, including completed coefficients not supplied as elements of A.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeLiftCoordinate
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For any actual cone C over G, x∈C.pt and k∈Fin(r), assemble the quotient family n↦cₙ(C.πₙ(x))(k) into an element of R̂.
+
+Proof: Derive quotient coherence from C's native naturality and cₙ's transition equation, then apply the actual chart family assembly.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-coherent-family, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-tensor-coordinates, StableReductionPartII:MC.2/finite-free-tensor-coordinates-transition, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLiftCoordinate_eval: For every C,x,k,n, evalₙ(liftCoordinate(C,x,k))=cₙ(C.πₙ(x))(k).
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLiftCoordinate_zero: The coordinate lift sends the zero cone element to zero in R̂.
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLiftCoordinate_tmul: For the ordinary cone itself, the lift coordinate of u⊗z is exactly z(k)·u.
+
+TESTS:
+
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLiftCoordinate.test_projection: Every lifted coordinate has precisely the quotients prescribed by the native cone.
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLiftCoordinate.test_zero: The coordinate lift sends the zero cone element to zero in R̂.
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLiftCoordinate.test_pure_tensor: For the ordinary cone itself, the lift coordinate of u⊗z is exactly z(k)·u.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeLiftCoordinate_eval
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For every C,x,k,n, evalₙ(liftCoordinate(C,x,k))=cₙ(C.πₙ(x))(k).
+
+Proof: Use the coherent-family evaluation law with coherence obtained from native cone naturality.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-coherent-family-eval, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-cone-lift-coordinate, StableReductionPartII:MC.2/finite-free-tensor-coordinates, StableReductionPartII:MC.2/finite-free-tensor-coordinates-transition, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeLift
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For every Cone C over G, construct an actual Â-linear lift C.pt→R̂⊗_Â N by assembling all r coordinates and applying ĉ⁻¹.
+
+Proof: Prove additivity and Â-linearity by native completion evaluation extensionality, the coordinate evaluation law, and actual cone projection linearity.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-evaluation, StableReductionPartII:MC.2/completed-chart-evaluation-apply, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-cone-lift-coordinate, StableReductionPartII:MC.2/finite-free-cone-lift-coordinate-eval, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:AdicCompletion.ext_evalₐ, mathlib:RingHom, mathlib:TensorProduct, mathlib:TensorProduct.piScalarRight.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLift_projection: For every C,x,n, ρₙ(lift(C)(x))=C.πₙ(x).
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLift_zero: The actual finite-free lift sends zero to zero.
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLift_smul: The actual finite-free lift respects every completed coefficient scalar.
+
+TESTS:
+
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLift.test_projection: The constructed linear lift factors every actual cone projection.
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLift.test_zero: The actual finite-free lift sends zero to zero.
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLift.test_completed_scalar: The actual finite-free lift respects every completed coefficient scalar.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeLift_projection
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For every C,x,n, ρₙ(lift(C)(x))=C.πₙ(x).
+
+Proof: Apply the injective native quotient coordinate equivalence, evaluate every coordinate, and cancel ĉ∘ĉ⁻¹.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-evaluation, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-cone-lift-coordinate, StableReductionPartII:MC.2/finite-free-cone-lift-coordinate-eval, StableReductionPartII:MC.2/finite-free-ordinary-cone-lift, StableReductionPartII:MC.2/finite-free-tensor-coordinates, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-projection, StableReductionPartII:MC.2/ordinary-completed-tensor-projection-coordinates, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct, mathlib:TensorProduct.piScalarRight.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection_ext
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For x,y∈R̂⊗_Â N, if ρₙ(x)=ρₙ(y) for every n, then x=y.
+
+Proof: Use ĉ's injectivity and native completion evaluation extensionality coordinate by coordinate. This uses finite freeness, not arbitrary tensor/limit commutation.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-evaluation, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-projection, StableReductionPartII:MC.2/ordinary-completed-tensor-projection-coordinates, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:AdicCompletion.ext_evalₐ, mathlib:TensorProduct, mathlib:TensorProduct.piScalarRight.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorIsLimit
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. Supply native IsLimit for the actual ordinary completed tensor cone: every Cone C has a unique Â-linear map C.pt→R̂⊗_Â N factoring all projections.
+
+Proof: Use the constructed lift and factorization law; prove uniqueness from joint faithfulness of the actual finite tensor projections.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-ordinary-cone-lift, StableReductionPartII:MC.2/finite-free-ordinary-cone-lift-projection, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-cone, StableReductionPartII:MC.2/ordinary-completed-tensor-projection, StableReductionPartII:MC.2/ordinary-completed-tensor-projection-ext, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:CategoryTheory.Limits.IsLimit, mathlib:DFunLike.ext, mathlib:ModuleCat.hom_injective, mathlib:ModuleCat.ofHom, mathlib:TensorProduct.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionFiniteFreeLift_projection: For every C,x,n, ρₙ(lift(C)(x))=C.πₙ(x).
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorProjection_ext: For x,y∈R̂⊗_Â N, if ρₙ(x)=ρₙ(y) for every n, then x=y.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorIsLimit_self_lift: The IsLimit lift of the ordinary cone itself is the identity, excluding a nonfaithful limiting construction.
+
+TESTS:
+
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorIsLimit.test_fac: The IsLimit lift satisfies the native categorical factorization equation for every cone and level.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorIsLimit.test_unique: Any actual cone-point morphism factoring all levels equals the specified IsLimit lift.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorIsLimit.test_self_lift: The IsLimit lift of the ordinary cone itself is the identity, excluding a nonfaithful limiting construction.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitIso
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. Construct an actual ModuleCat(Â) isomorphism R̂⊗_Â N≅lim G from the two native limiting cones.
+
+Proof: Reuse pinned IsLimit.conePointUniqueUpToIso with the proved ordinary cone and limit.isLimit(G).
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-is-limit, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso, mathlib:CategoryTheory.Limits.limit.isLimit, mathlib:ModuleCat.of, mathlib:TensorProduct.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_projection: For every x and n, πₙ(E(x))=ρₙ(x).
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_symm_projection: For every y∈lim G and n, ρₙ(E⁻¹(y))=πₙ(y).
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitIso_left: The forward morphism followed by the inverse is the actual identity morphism.
+
+TESTS:
+
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitIso.test_forward_projection: The module-category isomorphism's forward morphism commutes with every actual projection.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitIso.test_inverse_projection: The module-category isomorphism's inverse morphism commutes with every actual projection.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitIso.test_inverse: The forward morphism followed by the inverse is the actual identity morphism.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. Construct E:R̂⊗_Â N≃ₗ[Â]lim G from the actual module-category isomorphism.
+
+Proof: Use ModuleCat.Iso.toLinearEquiv; no alternate limit carrier or transported ad hoc scalar action is introduced.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-limit-iso, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:CategoryTheory.Iso.toLinearEquiv, mathlib:TensorProduct.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_projection: For every x and n, πₙ(E(x))=ρₙ(x).
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_symm_projection: For every y∈lim G and n, ρₙ(E⁻¹(y))=πₙ(y).
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_tmul: For u∈R̂,z∈N and every n, πₙ(E(u⊗z))=evalₙ(u)⊗z over Â.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_left: For every x∈R̂⊗_Â N, E⁻¹(E(x))=x.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_right: For every y∈lim G, E(E⁻¹(y))=y.
+
+TESTS:
+
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv.test_left: The equivalence's inverse after forward map is the identity on every ordinary completed tensor.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv.test_right: The equivalence's forward after inverse map is the identity on every native limit element.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv.test_tmul: Every native limit projection of E(u⊗z) is evalₙ(u)⊗z over Â.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv.test_rank_zero: For rank zero, inverse after forward sends every tensor to zero, agreeing with the unique empty-coordinate tensor.
+- NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv.test_rank_one: For rank one and its basis vector 1, the sole coordinate of each projected E(u⊗1) is exactly evalₙ(u).
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_projection
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For every x and n, πₙ(E(x))=ρₙ(x).
+
+Proof: Evaluate the pinned forward projection equation for unique limiting-cone isomorphisms.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-is-limit, StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence, StableReductionPartII:MC.2/ordinary-completed-tensor-projection, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_hom_comp, mathlib:ModuleCat.of, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_symm_projection
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For every y∈lim G and n, ρₙ(E⁻¹(y))=πₙ(y).
+
+Proof: Evaluate the pinned inverse projection equation for unique limiting-cone isomorphisms.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-is-limit, StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence, StableReductionPartII:MC.2/ordinary-completed-tensor-projection, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_inv_comp, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_tmul
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For u∈R̂,z∈N and every n, πₙ(E(u⊗z))=evalₙ(u)⊗z over Â.
+
+Proof: Combine the actual forward projection equation with the native pure tensor projection rule.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence, StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence-projection, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_left
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For every x∈R̂⊗_Â N, E⁻¹(E(x))=x.
+
+Proof: Use the left inverse of the actual native linear equivalence.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitEquiv_right
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For every y∈lim G, E(E⁻¹(y))=y.
+
+Proof: Use the right inverse of the actual native linear equivalence.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionOriginalTensorOrdinaryEquiv
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. Assume additionally p.FG. For the actual original-base diagram Fᴬ:n↦Qₙ⊗_A N, with the incoming transported Â-action on Lᴬ=lim Fᴬ, construct Lᴬ≃ₗ[Â]R̂⊗_Â N as E⁻¹ composed with the inherited completed-linear limit comparison.
+
+Proof: Compose the inherited completed-linear equivalence with the finite-free ordinary equivalence's inverse. Retain the finite-generation condition required by the original finite-level comparison.
+
+Dependencies: StableReductionPartII:MC.2/completed-tensor-limit-linear-equivalence, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-tensor-diagram-a, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence, StableReductionPartII:MC.2/original-tensor-limit-completed-module, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+API:
+
+- NodeSectionFactorization.PolynomialModel.completionOriginalTensorOrdinaryEquiv_projection: For p.FG, x∈Lᴬ and every n, ρₙ(E_original(x))=πₙ(E_inherited(x)), where E_inherited:Lᴬ≃ₗ[Â]lim G is the incoming completed-linear comparison.
+- NodeSectionFactorization.PolynomialModel.completionOriginalTensorOrdinaryEquiv_left: With p.FG and the incoming completed action, inverse after forward is the identity on the actual original tensor limit.
+- NodeSectionFactorization.PolynomialModel.completionOriginalTensorOrdinaryEquiv_right: With p.FG, forward after inverse is the identity on the ordinary completed tensor.
+
+TESTS:
+
+- NodeSectionFactorization.PolynomialModel.completionOriginalTensorOrdinaryEquiv.test_left: With p.FG and the incoming completed action, inverse after forward is the identity on the actual original tensor limit.
+- NodeSectionFactorization.PolynomialModel.completionOriginalTensorOrdinaryEquiv.test_right: With p.FG, forward after inverse is the identity on the ordinary completed tensor.
+- NodeSectionFactorization.PolynomialModel.completionOriginalTensorOrdinaryEquiv.test_projection: The original-limit equivalence's finite projections equal the inherited completed-native limit projections.
+
+## NodeSectionFactorization.PolynomialModel.completionOriginalTensorOrdinaryEquiv_projection
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For p.FG, x∈Lᴬ and every n, ρₙ(E_original(x))=πₙ(E_inherited(x)), where E_inherited:Lᴬ≃ₗ[Â]lim G is the incoming completed-linear comparison.
+
+Proof: Apply the actual inverse ordinary-limit projection to the inherited forward comparison.
+
+Dependencies: StableReductionPartII:MC.2/completed-tensor-limit-linear-equivalence, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-tensor-diagram-a, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-limit-equivalence-inverse-projection, StableReductionPartII:MC.2/ordinary-completed-tensor-projection, StableReductionPartII:MC.2/original-tensor-limit-completed-module, StableReductionPartII:MC.2/original-tensor-ordinary-completed-equivalence, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorCone_projection
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. The n-th native cone morphism is exactly ModuleCat.ofHom(ρₙ), with the actual ordinary tensor point.
+
+Proof: Read the actual cone projection data.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-cone, StableReductionPartII:MC.2/ordinary-completed-tensor-projection, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:ModuleCat.ofHom, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionChartEval_of
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. On the native completion image of r∈R, evaluation gives its actual class modulo mⁿ.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-evaluation, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionChartAssemble_zero
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. Assembling the identically zero compatible family produces zero in the actual completion.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-coherent-family, StableReductionPartII:MC.2/completed-chart-coherent-family-eval, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:AdicCompletion.ext_evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionChartAssemble_recover
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. Assembling all quotients of an existing element of R̂ recovers that element.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-coherent-family, StableReductionPartII:MC.2/completed-chart-coherent-family-eval, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/completion-source-transition, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:AdicCompletion.ext_evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeCoordinates_tmul
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. The coordinate vector of q⊗z is k↦z(k)·q with the actual quotient Â-action.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-tensor-coordinates, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeCoordinates_single
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. The inverse coordinate map sends the k-th single vector q to q⊗the k-th single vector 1.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-tensor-coordinates, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeLiftCoordinate_zero
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. The coordinate lift sends the zero cone element to zero in R̂.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-cone-lift-coordinate, StableReductionPartII:MC.2/finite-free-cone-lift-coordinate-eval, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:AdicCompletion.ext_evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeLiftCoordinate_tmul
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. For the ordinary cone itself, the lift coordinate of u⊗z is exactly z(k)·u.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completed-chart-evaluation, StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-cone-lift-coordinate, StableReductionPartII:MC.2/finite-free-cone-lift-coordinate-eval, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-cone, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:AdicCompletion.ext_evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeLift_zero
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. The actual finite-free lift sends zero to zero.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-ordinary-cone-lift, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionFiniteFreeLift_smul
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. The actual finite-free lift respects every completed coefficient scalar.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-free-ordinary-cone-lift, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorIsLimit_self_lift
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. The IsLimit lift of the ordinary cone itself is the identity, excluding a nonfaithful limiting construction.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-cone, StableReductionPartII:MC.2/ordinary-completed-tensor-is-limit, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionOrdinaryTensorLimitIso_left
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. The forward morphism followed by the inverse is the actual identity morphism.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/ordinary-completed-tensor-limit-iso, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionOriginalTensorOrdinaryEquiv_left
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. With p.FG and the incoming completed action, inverse after forward is the identity on the actual original tensor limit.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-tensor-diagram-a, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/original-tensor-limit-completed-module, StableReductionPartII:MC.2/original-tensor-ordinary-completed-equivalence, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+## NodeSectionFactorization.PolynomialModel.completionOriginalTensorOrdinaryEquiv_right
+
+Let A be a commutative ring, γ,δ,s,t∈A, R=A[Y][X]/(X²+γXY+δY²−(s²+γst+δt²)), ι:A→R its actual coefficient map, p⊆A and m⊆R ideals with p⊆ι⁻¹(m), Â=AdicCompletion(p,A), R̂=AdicCompletion(m,R), Qₙ=R/mⁿ with the inherited Â-actions, r∈ℕ, N=Fin(r)→Â, and G the incoming native Â-linear diagram n↦Qₙ⊗_Â N. The proof of p⊆ι⁻¹(m) is packaged as Fact in the prototype; it is not an extra hypothesis. With p.FG, forward after inverse is the identity on the ordinary completed tensor.
+
+Proof: Use the specified native data/projection or inverse law; retain the actual coefficient action and carrier.
+
+Dependencies: StableReductionPartII:MC.2/completion-coefficient-algebra, StableReductionPartII:MC.2/finite-transition-algebra, StableReductionPartII:MC.2/native-completed-tensor-diagram, StableReductionPartII:MC.2/original-tensor-limit-completed-module, StableReductionPartII:MC.2/original-tensor-ordinary-completed-equivalence, mathlib:AdicCompletion, mathlib:AdicCompletion.evalₐ, mathlib:TensorProduct.
+
+Source boundary: the fresh published Knudsen read is limited to printed194–195; the exact finite-free deduction is authored using the pinned APIs. All earlier broad-source obligations remain attributed to their previous readers.
+
+---
+
 # Completed coefficient action on finite tensor inverse limits
 
 The two finite tensor limits retain their actual quotient coefficient actions. The native completed diagram G takes values in modules over Â. Restriction of scalars identifies it with the incoming A-linear completed-tensor diagram, and preservation of this limit identifies its limit with the restriction of the native Â-module limit. Composing with the incoming finite tensor comparison gives E from the original A-linear limit to that restriction.
