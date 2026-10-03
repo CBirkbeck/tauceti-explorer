@@ -1,3 +1,540 @@
+# Native fibre action functors and choice-independent transport — Codex codex-rtOQ9t
+
+Refs #672. Winning claim5969153867, exact bot confirmation5969154987. The whole issue was read before claiming and reread after confirmation. Only the four issue deliverables change.
+
+## Result and exact frontier
+
+This checkpoint adds27 nodes: six constructions and21 lemmas, with22 API entries and18 typed tests. It bundles the existing actual Isom action in native Action, evaluates native modifications as fibre isomorphisms, and constructs the functor from the fixed-band HomCategory to those actions. In the self case, actual local-object isomorphisms induce native action isomorphisms natural in every modification. Band preservation and conjugation prove independence of the connecting arrow, with identity and composition laws. No alternative action, modification or torsor carrier is introduced.
+
+There are464 nodes,203 baseline records,435 raw API entries and444 raw tests. All437 incoming contracts are preserved:434 whole node objects are identical; self-equivalence-isom-transport and the neutral/all-self-equivalence parents each receive exactly one prerequisite and one proof step, with every other field unchanged. All10 planets, ten gaps,22 requests, eight source issues, reserved keys and eight partial stages remain. No source issue or stage is closed.
+
+The functors are pointwise at U. A section Isom set may be empty; native Action supports this, while the native set-valued Torsor requires Nonempty. Do not infer a chosen global isomorphism from local gerbe sections. Coefficient universe w remains independent of fibre hom universe v′. Resume by proving arbitrary site-restriction coherence, constructing the actual torsor-sheaf functor on objects and modifications, then its full faithfulness and coherent inverse/unit/counit. The generic inverse StrongTrans remains the precise D0 request. Local-object transport here does not discharge restriction coherence in the existing self-equivalence-isom-transport target. The SF1 descended-band comparison, nonneutral O(1) root example, derivedH² classification, compatible-object fpqc limits, all R09.3/A0 and source obligations remain required. Coherent duality remains the external reserved SchemeAndStackFoundations key.
+
+## Source and library evidence
+
+Fresh bounded readings cover the latest incoming recovery/frontier, the relevant reviewed R09.4/A0 audit rows and full REV-AUDIT01, accepted RS27 kept-layer/supplier/owner contracts and relevant links, the gerbe survey with all eight sample API statements, the current scoped stage and campaign targets, and issue-required ownership/red-team material. Prior complete AdicSpaces/ModularCurves exemplar and audit readings remain authenticated by unchanged input bytes; no new full-paper or all-historical-proof reading is claimed. The publication guard contains20 exact inputs. WORKERS changed only by swapping sources/redteam priority; the complete new text was read before publication. All mathematical inputs and all four incoming deliverables are unchanged between mathematical and publication bases.
+
+The exact Olsson–Geraschenko PDF was freshly downloaded:1,616,523bytes, SHA716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a. Complete printed122–123 were read, including Definition31.1, Remark31.2, the full Lemma31.3 proof, Lemma31.4 and Remark31.5; printed123 was rendered and inspected. Only the visible beginning/warning of31.6 is used. The exact Stacks06NZ definition was rechecked; HTML SHA b60742528d35ea2612a54bc8d95096fb2e97a39e4cba59034918834e5f414535. The inherited self-reference and incomplete-classification source issues remain. Exact new formulas are authored deductions from the specified band fields and native modification/naturality equations.
+
+Both pinned source commits were freshly verified. Exact native Action/Hom/category, End/Aut multiplication, band conjugation, mapAut/mapIso, StrongTrans modification identity/composition, TypeCat.ofHom and NatIso.ofComponents fields were read. Six exact baseline records are added, with pinned module hashes. A bounded open Mathlib PR search for gerbe returned zero; the indexed Formalizing stacks discussion was inspected. No unpinned implementation is consumed, and these bounded searches are not exhaustive absence claims.
+
+## Lean validation and diagnostic failures
+
+The final Native.lean has887 lines,28 new declarations,38 examples and57 kernel axiom audits. It has no admissions, errors or warnings; every audited dependency cone contains only propext, Classical.choice and Quot.sound. It includes the authenticated incoming native carrier/inverse proofs and uses no admitted global gerbe equivalence or object-descent theorem. The independent coefficient universe is retained throughout.
+
+The whole Mathlib canonical projection passes with666 warnings, all admissions, and zero errors or other warnings. There are53 new sorry occurrences in45 warning-producing declarations. Computed action carriers, coefficient functions, functor objects/maps and transport functions remain concrete; only their proof fields and the new lemma/test bodies are admitted. componentIso retains the actual native asIso construction. The exact admitted projection is reproducible from the native source, and all data fields/signatures/tests agree. The full Tau Ceti suggested file remains uncompiled: its required pinned LongExactSequence olean is unavailable. The older distinct native draft is not certified by this native check.
+
+Six archived failed native versions show coercion/extensionality issues, a missing native StrongTrans category instance and NatTrans.ext function equality, corrected in the final source. The failed canonical version dropped closing braces while admitting proof fields; the final exact projection retains them. Failed sources/logs/receipts are diagnostics, not proof certificates. Final receipts supersede them.
+
+Every compiler ran serially with an immediate free -g check and1200-second timeout. No Lake setup/update/cache/build, language server or background compiler was started; none remains running. Recovery and verification do not run Lean. A replay compiler is explicit and optional; archived success is not a fresh replay.
+
+```json
+{
+  "native": {
+    "source": "Native.lean",
+    "exit": 0,
+    "elapsedSeconds": 3.004183769226074,
+    "availableGiB": 43,
+    "serial": true,
+    "timeoutSeconds": 1200,
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "sourceSha256": "a43b85e79ff533f029e7e4a4155d59d50600f4258db7a50478a7e86fac6fb381",
+    "logSha256": "7fd9c497f1ff04a2d0cd2560e2cb867acd7b9478dabac843b1e627185f80b7e3"
+  },
+  "mathlibCanonical": {
+    "source": "MathlibCanonical.lean",
+    "exit": 0,
+    "elapsedSeconds": 12.708699464797974,
+    "availableGiB": 42,
+    "serial": true,
+    "timeoutSeconds": 1200,
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "sourceSha256": "281da15b4e021412c5bb9e74f36cc984c5e1c842190d46a9067a414956325285",
+    "logSha256": "959cdad136eabd2a0890d336fb626b0179ceca08857d5e532c9415003e50858a"
+  }
+}
+```
+
+## Actual checker, intake and atlas assembly
+
+The pinned-index checker and actual intake file/refusal functions pass. Immutable candidate/control assembly uses the actual build.assemble with every other promoted part retained. All24 supplier paths and40 accepted restructure paths are reachable. Stage, own-declaration and scoped graphs are acyclic; foreign roadmap/stage objects, stage edges and other skip/pending links match the control. Own skipped/pending links and unresolved prerequisites are empty. Mathematical and publication graph summaries match.
+
+```json
+{
+  "stageDAG": {
+    "vertices": 3017,
+    "edges": 8655,
+    "acyclic": true
+  },
+  "ownDeclarationDAG": {
+    "vertices": 464,
+    "edges": 982,
+    "acyclic": true
+  },
+  "scopedDAG": {
+    "vertices": 3474,
+    "edges": 10169,
+    "acyclic": true
+  },
+  "reachableDeclarations": 467,
+  "externalDeclarations": [
+    "DiamondsAndVStacks:D0/cech-to-derived-comparison",
+    "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+    "DiamondsAndVStacks:D0/stackification"
+  ],
+  "baselineLeaves": 202,
+  "requiredPairs": 24,
+  "restructurePairs": 40,
+  "unresolved": [],
+  "ownSkippedLinks": [],
+  "ownPendingLinks": [],
+  "otherSkipsMatch": true,
+  "fullForeignRoadmapsMatch": true,
+  "fullForeignStagesMatch": true,
+  "otherParts": {},
+  "stageEdgesUnchanged": true,
+  "immutableInputPathsRead": 844,
+  "immutableReadPathsSha256": "7a5bc33a56515cfcab14167e3482f671db14c0313804a9dbcc53159bb2d0c9ea"
+}
+```
+
+## Public text recovery and replay
+
+The suggested-file inert text archive is self-contained. It includes the actual incoming deliverables, native/canonical sources, exact new projection, logs/receipts, guard and graph evidence. No PDF, repository snapshot, compiled object or absolute machine path is published. From an existing checkout, extract the first five Python blocks below in the named order. Run recover.py with a scratch destination and the exact public head, then verify.py with that destination and the pinned declaration index; graph.py replays actual immutable assembly. run_lean.py takes an existing pinned Mathlib build and Native.lean or MathlibCanonical.lean explicitly. No ancestor commit is needed to authenticate proof artifacts.
+
+FIBRE ACTION METADATA
+```json
+{
+  "mathematicalBase": "76bd884350b8fc34d05af42ea72daab7402d6541",
+  "publicationBase": "f657d46ef5fc38701e8d557af899fe173038a6d7",
+  "claimComment": 5969153867,
+  "claimConfirmation": 5969154987,
+  "artifacts": {
+    "Native.lean": "a43b85e79ff533f029e7e4a4155d59d50600f4258db7a50478a7e86fac6fb381",
+    "MathlibCanonical.lean": "281da15b4e021412c5bb9e74f36cc984c5e1c842190d46a9067a414956325285",
+    "NewProofs.lean": "2548d2b4836c9b201f22d09e074b181c38dc051fd58aa3e1c71eddc26cc7de49",
+    "NewTests.lean": "4556bb06c12c788b51eca51a4e83d80d2e8b0e9cbb2af6266bed55a747368fbd",
+    "NewAdmitted.lean": "b1599d0b1f625d26f9cf6a287ce68ad907b7f742008064b6facfba1e5b63aaf8",
+    "IncomingNative.lean": "f8e4ad3c7d5265a15a4d632ee8cc24c6a0304ab9ccd6ab3efd2528b29af2d288",
+    "IncomingMathlibCanonical.lean": "1268f4598a72de7d4c3034a4f6ad8a929c2757400ca66e0f899b8d5c8abf01e8",
+    "OriginalPacket.json": "c6e5447eb338562b4c8b7c14fb3b55894f3171dec24306a0ec62c7f210228ca7",
+    "OriginalReader.md": "40998538d7e7cd5468ec7a02d7c5c4cfd623599ce76f966c2b77da22e0f7dd00",
+    "OriginalSuggested.lean": "0eba58c929529502b63465245acc82a7ee5dc75639501650ebd1cd9fcd9d57df",
+    "OriginalHandoff.md": "d86f114729780213d02906891480761477e310bed882dbe8942c86cd7959dd93",
+    "Replay-Native.lean.log": "7fd9c497f1ff04a2d0cd2560e2cb867acd7b9478dabac843b1e627185f80b7e3",
+    "Replay-Native.lean.json": "aa19ac9da91427996669ecb068e0163ae02ffe4e102bfe6184cafb1b3fe2a970",
+    "Replay-MathlibCanonical.lean.log": "959cdad136eabd2a0890d336fb626b0179ceca08857d5e532c9415003e50858a",
+    "Replay-MathlibCanonical.lean.json": "f4750dfc719a5c209fa5a29f9718bdc780500b74d92dd59cbbd66ce9d9299ecd",
+    "GraphMath.json": "73c09a85f83eb5909c8ae080be4ce9e46237a086164a916ec795479c8b827c10",
+    "GraphPublication.json": "73c09a85f83eb5909c8ae080be4ce9e46237a086164a916ec795479c8b827c10",
+    "InputGuard.json": "819c290c5ec00749640e0a8701495aebc6ade9711ae818ca8bf5a5ed5f2fd10b",
+    "Worklist.md": "53aad7594a71aff2cb04958ae1b1fd4a6bec6adbfe193323b6d31c79e436e313",
+    "projection.py": "ab8bcc0e7ecea1174bdd40ae02ca9e177245086cadd6309df93ab110740e55ff",
+    "math-base.txt": "1c93709e8b4995f3921f6a0923d46e829c61f714a3a9de31da3f594fc3865282",
+    "publication-base.txt": "c6b04593974becbe37d43b9ccba8ede0ddd0ba6a1ce5dabebc17216326b1f3b4",
+    "Failed-1-Native.lean": "4136155741c9118ca499524211a2eb6eeed6293e9525e9cfe5349844018cea58",
+    "Failed-1-Replay-Native.lean.json": "3f1b60e18a627bd763315d9eb0d321f821d6e8fa57ba9ca1ea482ec2797fed5c",
+    "Failed-1-Replay-Native.lean.log": "5a2ef3c63bcc2144bc9c718134beb7219ce26ff4e73f5022de519cd6b931953c",
+    "Failed-2-Native.lean": "1d329ce3b4aa3931b47532b8d80f3448a9e57618a2fda4544eeec7b241c880cb",
+    "Failed-2-Replay-Native.lean.json": "82227a3e48bedeca6f0c3b1640a88b48999f6cbd14786b2b6917e16a7d0ad9fd",
+    "Failed-2-Replay-Native.lean.log": "983ad21844974642c6f3b8228944f8d277348665bdde86595467d04452d7ebe2",
+    "Failed-3-Native.lean": "ef7e92cba3745c343742136cc2be9c2a7e5015418c64f6643f6d36c86ca32ff9",
+    "Failed-3-Replay-Native.lean.json": "c7a42931c4e15a183bbd71ca3d0d5b3c9f7352f2e85d97ef955306f66c282b1a",
+    "Failed-3-Replay-Native.lean.log": "5347bbf073616febc5da3c7d50483893ff44eff033a785c89708841524407e16",
+    "Failed-4-Native.lean": "844e3cee8dd1cdaacf3d930970d1b270728f7f2c6bdf7132dfb042ba875b7051",
+    "Failed-4-Replay-Native.lean.json": "4ea63247e4409a15b4d6a476b2a77703d1169cde3a0ef95f9f987326603c80e8",
+    "Failed-4-Replay-Native.lean.log": "89cbe6b0cacd5d6015d93afdfe463bc80e22aa22fc6871288b50e8305765047a",
+    "Failed-5-Native.lean": "f3ed4dfdb12bd676a3cf529192e7a5fb55b247ff8cb9edbdfb26d674b32e3468",
+    "Failed-5-Replay-Native.lean.json": "9a3437f84d4a84487d48a2fb97b9525a160326c6c6a97cd47f1670236e2dcb8d",
+    "Failed-5-Replay-Native.lean.log": "919f4896057315cc520f35b37220d8387f3148eafac5a19ee7078bafcab79d75",
+    "Failed-6-Native.lean": "99ea8aff0522546b6a08f284289935c8d0b61bec8bd9b0f407e7e898246b8f83",
+    "Failed-6-Replay-Native.lean.json": "f5ab4494f8703f86d720bcca7e706079e170f776274a047ad05ac9bfd6499b2c",
+    "Failed-6-Replay-Native.lean.log": "6e25904f3ed689fc5b9ce45ddd0adb6455312a64facd6d2a37a558f715fda13b",
+    "Failed-canonical-1-MathlibCanonical.lean": "ead32e6bf3b2c2aee3b50096439ae60a1d3011931c273324c43c16dc83b9857a",
+    "Failed-canonical-1-Replay-MathlibCanonical.lean.json": "ec46caee511330f51edb8dc6a679b2e5c3a0eb3c2fc9738dff348fa728929f3e",
+    "Failed-canonical-1-Replay-MathlibCanonical.lean.log": "4cab5fbf821fa24ba853b29bb4092ee5bb5c9056b73c500c4d27156578f2d4a7"
+  },
+  "helpers": {
+    "recover.py": "8e0a53864f51067bdb242e9c7819facbc0a62cc9c6ab79f662321d8ce83c2100",
+    "verify.py": "46b9b361947f47ec903c3bd701c8bf2fdbaa3adc466cc90667c2df3c2b01987e",
+    "immutable_view.py": "3f54d96cb030713615be9fc7662ff206f56638fd02ec7f2bd067886d9941d7e3",
+    "graph.py": "5e9676a709752c2864d57541b88c4e0bb59df1567a6ff013c037acb07f6a15d7",
+    "run_lean.py": "5a5cac5bbde41ef1fb251bb98d61a1ccebd54e506cac2aac113d16bcb2fe435c"
+  },
+  "fullTauCetiSuggestedCompiled": false,
+  "LeanExecutedByRecovery": false
+}
+```
+
+### recover.py
+
+```python
+from pathlib import Path
+import base64,hashlib,json,re,subprocess,sys,urllib.request,zlib
+S=Path(sys.argv[1]).resolve();ref=sys.argv[2]
+repo='CBirkbeck/tauceti-explorer';stem='AlgebraicModuliForArithmeticGeometry--A0-extension'
+paths=['research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+stem+'.'+ext for folder,ext in [('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+names=['Candidate.json','Reader.md','Suggested.lean','Handoff.md']
+S.mkdir(parents=True,exist_ok=True)
+for p,n in zip(paths,names):
+    url='https://raw.githubusercontent.com/'+repo+'/'+ref+'/'+p
+    (S/n).write_bytes(urllib.request.urlopen(url).read())
+handoff=(S/'Handoff.md').read_text()
+meta=json.loads(handoff.split('FIBRE ACTION METADATA\n```json\n',1)[1].split('\n```',1)[0])
+blocks=re.findall(r'```python\n(.*?)\n```',handoff,re.S)
+for (name,h),body in zip(meta['helpers'].items(),blocks):
+    data=(body+'\n').encode();assert hashlib.sha256(data).hexdigest()==h,name
+    (S/name).write_bytes(data)
+assert len(meta['helpers'])==5
+payload=json.loads((S/'Suggested.lean').read_text().split('\n/- FIBRE ACTION ARCHIVE RT27\n',1)[1].split('\nEND FIBRE ACTION ARCHIVE RT27 -/',1)[0])
+for name,item in payload.items():
+    assert Path(name).name==name and '..'not in name
+    data=zlib.decompress(base64.b64decode(item['zlibBase64']))
+    assert hashlib.sha256(data).hexdigest()==item['sha256']==meta['artifacts'][name],name
+    (S/name).write_bytes(data)
+assert set(payload)==set(meta['artifacts'])
+assert (S/'publication-base.txt').read_text().strip()==meta['publicationBase']
+assert (S/'math-base.txt').read_text().strip()==meta['mathematicalBase']
+(S/'publication-head.txt').write_text(ref+'\n')
+print(json.dumps(dict(artifactsVerified=len(payload),helpersVerified=5,publicHead=ref,LeanExecutedByRecovery=False)))
+```
+
+### verify.py
+
+```python
+from pathlib import Path
+import ast,hashlib,json,os,re,subprocess,sys
+R=Path.cwd().resolve();S=Path(sys.argv[1]).resolve()
+STEM='AlgebraicModuliForArithmeticGeometry--A0-extension';RID='AlgebraicModuliForArithmeticGeometry'
+files=['research/blueprint/'+folder+'/'+('BP-' if folder=='handoff' else '')+STEM+'.'+ext for folder,ext in [('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+names=['Candidate.json','Reader.md','Suggested.lean','Handoff.md']
+texts={p:(S/n).read_text() for p,n in zip(files,names)}
+p=json.loads(texts[files[0]]);old=json.loads((S/'OriginalPacket.json').read_text())
+assert len(old['nodes'])==437 and len(p['nodes'])==464
+parents={RID+':R09.4/'+n for n in ['self-equivalence-isom-transport','neutral-self-equivalences','all-self-equivalences']}
+preserved=0
+for before,after in zip(old['nodes'],p['nodes']):
+    if before['id'] in parents:
+        assert {k:v for k,v in before.items() if k not in ['prerequisites','proofSteps']}=={k:v for k,v in after.items() if k not in ['prerequisites','proofSteps']}
+        assert after['prerequisites'][:-1]==before['prerequisites'] and after['proofSteps'][:-1]==before['proofSteps']
+        assert after['prerequisites'][-1]==RID+':R09.4/fibre-action/self-transport-nat-iso-independent'
+    else:assert before==after;preserved+=1
+assert preserved==434
+for k in old:
+    if k not in ['summary','nodes','sources','baseline','coverage']:assert p[k]==old[k],k
+assert p['sources'][:-1]==old['sources']
+assert len(p['baseline']['declarations'])==203 and p['baseline']['declarations'][:197]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+for a,b in zip(p['coverage'],old['coverage']):
+    if a['stageId'].endswith(':R09.4'):
+        assert a['remaining'][:-1]==b['remaining'] and {k:v for k,v in a.items() if k!='remaining'}=={k:v for k,v in b.items() if k!='remaining'}
+    else:assert a==b
+assert p['status']=='partial' and all(n['implementationStatus']=='unchecked' for n in p['nodes'])
+sys.path.insert(0,str(S));from projection import project
+proofs=(S/'NewProofs.lean').read_text();tests=(S/'NewTests.lean').read_text();new=(S/'NewAdmitted.lean').read_text()
+assert new==project(proofs,tests),'exact data fields and admitted leaf projection differ'
+assert len(re.findall(r'\bsorry\b',new))==53
+assert len(re.findall(r'^example\b',tests,re.M))==18
+aud=[]
+for l in proofs.splitlines():
+    if l.startswith('namespace TauCeti.AlgebraicGeometry.'):ns=l.split('.')[-1]
+    m=re.match(r'^(?:noncomputable )?(?:def|lemma) (\w+)',l)
+    if m:aud.append('#print axioms TauCeti.AlgebraicGeometry.'+ns+'.'+m[1])
+assert len(aud)==28
+native='import Mathlib.CategoryTheory.Action.Basic\n'+(S/'IncomingNative.lean').read_text()+'\n'+proofs+'\n'+tests+'\n'+'\n'.join(aud)+'\n'
+assert (S/'Native.lean').read_text()==native and not re.search(r'\b(?:sorry|axiom|admit)\b',native)
+full='import Mathlib.CategoryTheory.Action.Basic\n'+(S/'OriginalSuggested.lean').read_text()+'\n'+new
+assert texts[files[2]].partition('\n/- FIBRE ACTION ARCHIVE RT27\n')[0]==full
+assert (S/'MathlibCanonical.lean').read_text()=='import Mathlib.CategoryTheory.Action.Basic\n'+(S/'IncomingMathlibCanonical.lean').read_text()+'\n'+new
+assert texts[files[1]].endswith((S/'OriginalReader.md').read_text())
+assert texts[files[3]].endswith((S/'OriginalHandoff.md').read_text())
+testnames=[]
+for n in p['nodes'][437:]:
+    assert n['declarationName'] in texts[files[1]] and n['statement'] in texts[files[1]]
+    assert re.search(r'^(?:noncomputable )?(?:def|lemma) '+re.escape(n['declarationName'].rsplit('.',1)[1])+r'\b',new,re.M)
+    for a in n.get('api',[]):
+        assert a['name'] in texts[files[1]] and a['statement'] in texts[files[1]]
+        assert re.search(r'^(?:noncomputable )?(?:def|lemma) '+re.escape(a['name'].rsplit('.',1)[1])+r'\b',new,re.M)
+    for t in n.get('tests',[]):
+        assert t['statement'] in texts[files[1]] and '-- test: '+t['name'].removeprefix('TauCeti.AlgebraicGeometry.') in new
+        testnames.append(t['name'])
+assert len(testnames)==len(set(testnames))==18
+rawapi=sum(len(n.get('api',[]))for n in p['nodes']);rawtests=sum(len(n.get('tests',[]))for n in p['nodes'])
+assert (rawapi,rawtests)==(435,444)
+for source in ['Native.lean','MathlibCanonical.lean']:
+    receipt=json.loads((S/('Replay-'+source+'.json')).read_text());log=(S/('Replay-'+source+'.log')).read_text()
+    assert receipt['exit']==0 and receipt['availableGiB']>=20 and receipt['timeoutSeconds']==1200 and receipt['serial']
+    assert receipt['mathlib']=='082e2d37e8b0463410cdb532e111cd43d5a66174'
+    assert receipt['sourceSha256']==hashlib.sha256((S/source).read_bytes()).hexdigest()
+    assert receipt['logSha256']==hashlib.sha256((S/('Replay-'+source+'.log')).read_bytes()).hexdigest()
+    assert 'error:' not in log
+    warnings=[line for line in log.splitlines() if 'warning:' in line]
+    if source=='Native.lean':
+        assert not warnings and 'sorryAx' not in log
+        axioms=re.findall(r"depends on axioms: \[([^\]]*)\]",log);assert len(axioms)==57
+        assert all({x.strip() for x in a.split(',')}<={'propext','Classical.choice','Quot.sound'}for a in axioms)
+    else:assert len(warnings)==666 and all('declaration uses `sorry`' in w for w in warnings)
+base=(S/'publication-base.txt').read_text().strip()
+for x in json.loads((S/'InputGuard.json').read_text()):
+    data=subprocess.check_output(['git','show',base+':'+x['path']],cwd=R)
+    assert hashlib.sha256(data).hexdigest()==x['sha256'],x['path']
+os.environ['MODULI_VALIDATE_BASE']=base
+import immutable_view;immutable_view.install()
+sys.path.insert(0,str(R/'scripts'));import check_blueprint
+candidate=S/'candidate'/(STEM+'.json');candidate.parent.mkdir(exist_ok=True);candidate.write_text(texts[files[0]])
+errors,warnings,summary=check_blueprint.check(candidate,check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world())
+assert not errors and not warnings,(errors,warnings);summary['packet']=files[0]
+tree=ast.parse((R/'research/blueprint/intake.py').read_text());wanted={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'}for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in wanted]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='BP-'+STEM)
+problems=[x for path in files for x in env['file_problems'](path,texts[path])]
+refusals=env['auto_refusals'](job,files,False,{'codex-rtOQ9t'},set())
+assert not problems and not refusals,(problems,refusals)
+for path in files:
+    assert not re.search(r'[ \t]+$',texts[path],re.M),path
+    assert not re.search(r'/(?:home|Users)/[^/\s]+/',texts[path]),path
+headfile=S/'publication-head.txt';changed=None
+if headfile.exists():
+    changed=set(subprocess.check_output(['git','diff','--name-only',base,headfile.read_text().strip()],text=True).splitlines())
+    assert changed==set(files),changed
+print(json.dumps(dict(preservedWholeNodes=434,parentContractsPreserved=3,parentAddedPrerequisites=3,parentAddedProofSteps=3,newNodes=27,newAPI=22,newTests=18,newNativeDeclarations=28,nativeAxiomAudits=57,nativeExamples=38,nativeErrors=0,nativeWarnings=0,mathlibProjectionAdmissionWarnings=666,fullTauCetiCanonicalCompiled=False,checker=summary,rawAPI=rawapi,rawTests=rawtests,gapsPreserved=10,requestsPreserved=22,sourceIssuesPreserved=len(p['sourceIssues']),intakeProblems=problems,intakeRefusals=refusals,publicationPaths=sorted(changed)if changed else 'local overlays',validationBase=base,LeanExecutedByVerifier=False),indent=2))
+```
+
+### immutable_view.py
+
+```python
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('MODULI_VALIDATE_BASE', 'a29a5de40a8f9ea98f544153013ca05c7aca8649')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.resolve().relative_to(REPO.resolve()))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode(encoding or 'utf-8', errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode(encoding or 'utf-8', errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+```
+
+### graph.py
+
+```python
+from pathlib import Path
+import os,sys,json,collections,copy,hashlib
+R=Path.cwd();S=Path(sys.argv[1]);RID='AlgebraicModuliForArithmeticGeometry';STEM=RID+'--A0-extension'
+os.environ['MODULI_VALIDATE_BASE']=(S/'publication-base.txt').read_text().strip()
+sys.path.insert(0,str(S));import immutable_view;immutable_view.install()
+sys.path.insert(0,str(R/'scripts'))
+import check_blueprint
+p=json.loads((S/'Candidate.json').read_text())
+old=json.loads((S/'OriginalPacket.json').read_text())
+nodes={n['id']:n for n in p['nodes']}
+import build,blueprints
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=STEM];documents[STEM]='research/blueprint/readmes/'+STEM+'.md'
+def assemble(candidate):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy(definitions))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p);b=assemble(old)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+roadmap=json.loads((R/('research/blueprint/atlas/roadmaps/'+RID+'.json')).read_text())
+pairs={(d,RID+':'+s['key']) for s in roadmap['stages'] for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ rs=json.loads(file.read_text())
+ if rs.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in rs.get('links',[]) if x['source'].startswith(RID+':') or x['target'].startswith(RID+':')}
+assert all(reachable(s,t) for s,t in pairs|rspairs),sorted((s,t) for s,t in pairs|rspairs if not reachable(s,t))
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']-br[RID]['blueprint']['declarations']==len(nodes)-len(old['nodes'])
+otherparts=[x for x in keep if x[0].startswith(RID+'--')]
+assert ar[RID]['blueprint']['declarations']==len(nodes)+sum(len(q['nodes']) for _,q in otherparts)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
+assert all(ar[x]==br[x] for x in br if x!=RID),'foreign roadmap changed'
+foreign_a={q['id']:q for q in a['stages'] if q.get('owner')!=RID}
+foreign_b={q['id']:q for q in b['stages'] if q.get('owner')!=RID}
+assert foreign_a==foreign_b,'foreign stage changed'
+assert not ar[RID]['blueprint']['skippedLinks']
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'fullForeignRoadmapsMatch':True,'fullForeignStagesMatch':True,'otherParts':{stem:len(q['nodes']) for stem,q in otherparts},'stageEdgesUnchanged':True}
+summary['immutableInputPathsRead']=len(immutable_view.READS);summary['immutableReadPathsSha256']=hashlib.sha256(json.dumps(sorted(immutable_view.READS)).encode()).hexdigest()
+print(json.dumps(summary,indent=2))
+```
+
+### run_lean.py
+
+```python
+from pathlib import Path
+import hashlib, json, re, subprocess, sys, time
+S=Path(__file__).resolve().parent;B=Path(sys.argv[1]).resolve()
+pin='082e2d37e8b0463410cdb532e111cd43d5a66174'
+assert subprocess.check_output(['git','-C',str(B/'.lake/packages/mathlib'),'rev-parse','HEAD'],text=True).strip()==pin
+version=subprocess.check_output(['lake','env','lean','--version'],cwd=B,text=True)
+assert '4.34.0-rc2' in version and '6a10ac8c22beadecabdbb0919c2b50214762f91d' in version
+for name in [sys.argv[2]]:
+    ram=subprocess.check_output(['free','-g'],text=True)
+    available=int(next(l for l in ram.splitlines() if l.startswith('Mem:')).split()[-1]);assert available>=20,'less than20 GiB available: no Lean started'
+    target=S/('Replay-'+name+'.log');start=time.time()
+    with (S/name).open('rb') as source,target.open('wb') as log:
+        result=subprocess.run(['timeout','1200','lake','env','lean','--stdin'],cwd=B,stdin=source,stdout=log,stderr=subprocess.STDOUT)
+    receipt=dict(source=name,exit=result.returncode,elapsedSeconds=time.time()-start,availableGiB=available,serial=True,timeoutSeconds=1200,mathlib=pin,sourceSha256=hashlib.sha256((S/name).read_bytes()).hexdigest(),logSha256=hashlib.sha256(target.read_bytes()).hexdigest())
+    (S/('Replay-'+name+'.json')).write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt),flush=True)
+    assert result.returncode==0
+    text=target.read_text();assert 'error:' not in text
+    warnings=[l for l in text.splitlines() if 'warning:' in l]
+    if name=='Native.lean':
+        assert not warnings and 'sorryAx' not in text
+        audits=re.findall(r'depends on axioms: \[([^\]]*)\]',text);assert len(audits)==57
+        assert all({x.strip() for x in a.split(',')}<={'propext','Classical.choice','Quot.sound'} for a in audits)
+    else:assert len(warnings)==666 and all('declaration uses '+chr(96)+'sorry'+chr(96) in l for l in warnings)
+```
+
+## Incoming checkpoint, retained with its original provenance
+
 # Native fixed-band morphism groupoids — Codex — codex-J6LwjP
 
 Refs #672. Claim5968685992; exact bot confirmation5968687077. Incoming merged PR #5980 at99d7502593310937e358fc0d8ae2e08d3cc4473b was recovered publicly and its nine artifact/five helper hashes authenticated. Mathematical input: 60fe3041aee5282e374052ef0069406d31196ef7. Publication input: c0744a0677387a68dac6cbb7636ba607f7fb6737. Only the four issue deliverables change.
