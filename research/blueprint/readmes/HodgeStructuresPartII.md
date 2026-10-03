@@ -3529,7 +3529,7 @@ Prerequisites: `HodgeStructuresPartII:H.0/affine-chart-field-transition`, `Hodge
 
 `TwistedHiggsBundle.affineChartField.test_chart_roundtrip` (compatibility): At every n≥0, reversing the two charts reverses both module transitions and gives the reverse ordered-iterate square, with no bound change.
 
-`TwistedHiggsBundle.affineChartField.test_empty_word_transition` (degenerate): For every input x, the degree-zero iterate in the second chart sends a(x) to a(x)⊗1 in F₂⊗_S P₂^⊗0. It is independent of the first coefficient chart and is not the zero iterate.
+`TwistedHiggsBundle.affineChartField.test_empty_word_transition` (degenerate): For every input x, the degree-zero iterate in the second chart sends a(x) to a(x)⊗1 in F₂⊗_S P₂^⊗0. It is independent of the first coefficient chart; the value remains the tensor unit rather than an imposed zero value.
 
 `TwistedHiggsBundle.affineChartField.test_sign_overlap` (computation): With identity E-charts, first coefficient chart identity and second coefficient chart negation, I_n(θ₂)=(id⊗neg^⊗n)∘I_n(θ_S) for every n, including zero.
 

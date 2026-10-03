@@ -8939,7 +8939,7 @@
         {
           "name": "TwistedHiggsBundle.affineChartField.test_empty_word_transition",
           "kind": "degenerate",
-          "statement": "For every input x, the degree-zero iterate in the second chart sends a(x) to a(x)⊗1 in F₂⊗_S P₂^⊗0. It is independent of the first coefficient chart and is not the zero iterate."
+          "statement": "For every input x, the degree-zero iterate in the second chart sends a(x) to a(x)⊗1 in F₂⊗_S P₂^⊗0. It is independent of the first coefficient chart; the value remains the tensor unit rather than an imposed zero value."
         },
         {
           "name": "TwistedHiggsBundle.affineChartField.test_sign_overlap",
@@ -11142,7 +11142,95 @@
     "agent": "Codex — codex-J6LwjP",
     "issue": 3371,
     "status": "partial",
-    "scope": "Three affine chart-overlap declarations; no whole-source, global sheaf or stage closure."
+    "scope": "Three affine chart-overlap declarations; no whole-source, global sheaf or stage closure.",
+    "compiledSketch": true,
+    "indexedCheckerErrors": 0,
+    "indexedCheckerWarnings": 0,
+    "intakeProblems": 0,
+    "projection": {
+      "stage": {
+        "vertices": 3022,
+        "edges": 8663,
+        "acyclic": true
+      },
+      "own": {
+        "vertices": 131,
+        "edges": 244,
+        "acyclic": true
+      },
+      "combinedPrerequisites": {
+        "vertices": 3148,
+        "edges": 8945,
+        "acyclic": true
+      },
+      "virtualSupplierEndpoints": 51,
+      "reachableDeclarations": 132,
+      "unresolvedReferences": 0,
+      "actualBlueprint": {
+        "declarations": 131,
+        "planets": 6,
+        "kinds": {
+          "comparison": 5,
+          "construction": 27,
+          "definition": 12,
+          "lemma": 69,
+          "theorem": 18
+        },
+        "skippedLinks": []
+      },
+      "stageEdgesUnchanged": true,
+      "otherRoadmapSkippedPendingLinksUnchanged": true,
+      "requiredSupplierStagePairs": {
+        "count": 7,
+        "allPathsPresent": true,
+        "directPairs": 5,
+        "transitivePaths": {
+          "ShimuraData:D3 -> HodgeStructuresPartII:H.3": [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.2",
+            "HodgeStructuresPartII:H.3"
+          ],
+          "ShimuraData:D3 -> HodgeStructuresPartII:H.8": [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.2",
+            "HodgeStructuresPartII:H.3",
+            "HodgeStructuresPartII:H.8"
+          ]
+        },
+        "pairs": [
+          [
+            "ColemanPowerSeries:L1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "CrystallineCohomology:CR.1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "DerivedDeRhamCohomology:DD.1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "EnhancedDerivedSheaves:E1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.2"
+          ],
+          [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.3"
+          ],
+          [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.8"
+          ]
+        ]
+      },
+      "virtualSupplierEndpointsAreStagePlansNotLibraryDeclarations": true
+    },
+    "proofArchive": "e84f8d9fcb72ff17623a9a792e242f1184e75c60"
   },
   "coefficientMapContinuation": {
     "agent": "Codex — codex-J6LwjP",
@@ -11691,6 +11779,152 @@
         "Complete Definition 4.1 and Remark 4.2, pp.297–298"
       ],
       "readingExtent": "Selected passages freshly read; not whole-paper reading. Affine chart uniqueness and overlap equations below are authored deductions from the actual tensor-valued field and native equivalences. This is not Heuer’s toric-chart Simpson equivalence or a proof of exterior integrability."
+    },
+    "publicationBase": "bfef64afffd06e4c8a18b53a76c331a147dd7eb7",
+    "proofPrototype": {
+      "sourceSha256": "958852a30f514ed1b00432a409216ed3bf5dfbda2edf8a8ce8428e8596a8eaa2",
+      "normalizedLogSha256": "4260f18ea4d4626b50e6d31c32c1d3b3cffa189a1cbffe41274574b2d9a20b83",
+      "lines": 1273,
+      "examples": 38,
+      "axiomAudits": 44,
+      "errors": 0,
+      "admissionWarnings": 0,
+      "otherWarnings": 0,
+      "elapsedSeconds": 8.4,
+      "maxRSSKiB": 2553200,
+      "availableGiBBefore": 45,
+      "exitCode": 0,
+      "archiveCommit": "e84f8d9fcb72ff17623a9a792e242f1184e75c60",
+      "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
+      "beginMarker": "BEGIN ARCHIVED CHECKED HIGGS CHART OVERLAPS",
+      "endMarker": "END ARCHIVED CHECKED HIGGS CHART OVERLAPS",
+      "publicExtractionVerified": true,
+      "predecessorSourceSha256": "4734fdb8fb74b691e3080e8a3a074c64d9c20bf742f23b16b52946629ca569fa",
+      "predecessorBytesUnchanged": 56918,
+      "newAxiomAudits": 3,
+      "allowedAxioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "submittedSketch": {
+      "sourceSha256": "d529e6143ac01e5db83190c1f3f66ec315eea630b8c804ac549d8b86997ef72b",
+      "normalizedLogSha256": "c3ebda64d52a98de5e3a4d82fd38653451f74379358a08e3959796541f732f4e",
+      "lines": 2001,
+      "examples": 122,
+      "axiomAudits": 0,
+      "errors": 0,
+      "admissionWarnings": 287,
+      "otherWarnings": 0,
+      "elapsedSeconds": 7.0,
+      "maxRSSKiB": 3011636,
+      "availableGiBBefore": 46,
+      "exitCode": 0,
+      "compiled": true,
+      "scope": "Complete exact Mathlib-only planning file. All three new lemma and six example bodies admitted under protocol §13; no omitted global signatures or Tau Ceti compiled import set are certified.",
+      "incomingSketchByteBlockUnchanged": true,
+      "newDeclarationHeadersMatched": 3,
+      "newExampleHeadersMatched": 6,
+      "publicExtractionVerified": true
+    },
+    "projection": {
+      "stage": {
+        "vertices": 3022,
+        "edges": 8663,
+        "acyclic": true
+      },
+      "own": {
+        "vertices": 131,
+        "edges": 244,
+        "acyclic": true
+      },
+      "combinedPrerequisites": {
+        "vertices": 3148,
+        "edges": 8945,
+        "acyclic": true
+      },
+      "virtualSupplierEndpoints": 51,
+      "reachableDeclarations": 132,
+      "unresolvedReferences": 0,
+      "actualBlueprint": {
+        "declarations": 131,
+        "planets": 6,
+        "kinds": {
+          "comparison": 5,
+          "construction": 27,
+          "definition": 12,
+          "lemma": 69,
+          "theorem": 18
+        },
+        "skippedLinks": []
+      },
+      "stageEdgesUnchanged": true,
+      "otherRoadmapSkippedPendingLinksUnchanged": true,
+      "requiredSupplierStagePairs": {
+        "count": 7,
+        "allPathsPresent": true,
+        "directPairs": 5,
+        "transitivePaths": {
+          "ShimuraData:D3 -> HodgeStructuresPartII:H.3": [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.2",
+            "HodgeStructuresPartII:H.3"
+          ],
+          "ShimuraData:D3 -> HodgeStructuresPartII:H.8": [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.2",
+            "HodgeStructuresPartII:H.3",
+            "HodgeStructuresPartII:H.8"
+          ]
+        },
+        "pairs": [
+          [
+            "ColemanPowerSeries:L1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "CrystallineCohomology:CR.1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "DerivedDeRhamCohomology:DD.1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "EnhancedDerivedSheaves:E1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.2"
+          ],
+          [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.3"
+          ],
+          [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.8"
+          ]
+        ]
+      },
+      "virtualSupplierEndpointsAreStagePlansNotLibraryDeclarations": true
+    },
+    "preservation": {
+      "incomingWholeNodesUnchanged": 127,
+      "incomingMathematicalContractsUnchanged": 128,
+      "existingChartAPIAndTestsRetained": true,
+      "baselinePrefixUnchanged": 143,
+      "reservedKeyUnchanged": true,
+      "sourceRoutesRequestsGapsUnchanged": true,
+      "allNineStagesUnchanged": true,
+      "planetsUnchanged": 6,
+      "globalOmissionsUnchanged": 35
+    },
+    "scriptSha256": {
+      "recover.py": "2b168122cf2327cb0c08076e4b4a673e6400a73544e77e82b9c320c5edb4f1d1",
+      "verify.py": "8a4fee370f19320fc6adc10b9f559510bae8147b2ada958017df09927b3822f8"
     }
   }
 }
