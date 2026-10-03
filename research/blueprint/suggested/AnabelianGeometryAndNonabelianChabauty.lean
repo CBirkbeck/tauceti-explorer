@@ -3565,3 +3565,273 @@ example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
 end TwistedQuotientTests
 end TauCeti.NonabelianCohomology
 -- END NATIVE TWISTED QUOTIENT ACTION AND COHOMOLOGY
+
+namespace TauCeti.NonabelianCohomology
+section KernelImageConverse
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [IsTopologicalGroup V]
+  [MulDistribMulAction G V] [ContinuousSMul G V]
+
+lemma Z1.map_gauge_normalizes (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (d : Z1 G U) (x : U)
+    (hd : ∀ g, f (d g) = f x * (g • f x)⁻¹) :
+    Z1.map f hf hG (x⁻¹ • d) = 1 := by
+  sorry
+
+
+def Z1.twistedKernelLift (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (d : Z1 G (Twist c)) (hd : ∀ g, Twist.map c f hf hG (d g) = 1) :
+    (letI := Twist.kernelAction c f hf hG
+     Z1 G (Twist.map c f hf hG).ker) := by
+  sorry
+
+
+lemma Z1.twistedKernelLift_apply (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (d : Z1 G (Twist c)) (hd : ∀ g, Twist.map c f hf hG (d g) = 1) (g : G) :
+    (letI := Twist.kernelAction c f hf hG
+     (Z1.twistedKernelLift c f hf hG d hd g).val = d g) := by
+  sorry
+
+
+lemma Z1.twistedKernelLift_inclusion (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (d : Z1 G (Twist c)) (hd : ∀ g, Twist.map c f hf hG (d g) = 1) :
+    (letI := Twist.kernelAction c f hf hG
+     Z1.map (Twist.map c f hf hG).ker.subtype continuous_subtype_val
+       (fun g x => Twist.kernelAction_value c f hf hG g x)
+       (Z1.twistedKernelLift c f hf hG d hd) = d) := by
+  sorry
+
+
+lemma Z1.twistedKernelLift_one (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.kernelAction c f hf hG
+     Z1.twistedKernelLift c f hf hG 1 (fun _ => (Twist.map c f hf hG).map_one) = 1) := by
+  sorry
+
+
+lemma Z1.twistedKernelLift_gauge (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (d : Z1 G (Twist c)) (hd : ∀ g, Twist.map c f hf hG (d g) = 1) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ (x : (Twist.map c f hf hG).ker)
+       (he : ∀ g, Twist.map c f hf hG ((x.val • d) g) = 1),
+     Z1.twistedKernelLift c f hf hG (x.val • d) he =
+       x • Z1.twistedKernelLift c f hf hG d hd) := by
+  sorry
+
+
+lemma Z1.twistedKernelLift_injective (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (d e : Z1 G (Twist c))
+    (hd : ∀ g, Twist.map c f hf hG (d g) = 1)
+    (he : ∀ g, Twist.map c f hf hG (e g) = 1) :
+    (letI := Twist.kernelAction c f hf hG
+     Z1.twistedKernelLift c f hf hG d hd = Z1.twistedKernelLift c f hf hG e he ↔ d = e) := by
+  sorry
+
+
+lemma H1.exists_twistedKernelInclusion_of_quotient_eq_one
+    (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist c), H1.twistedQuotient c f hf hG a = 1 →
+       ∃ b : H1 G (Twist.map c f hf hG).ker,
+         H1.twistedKernelInclusion c f hf hG b = a) := by
+  sorry
+
+
+lemma H1.twistedQuotient_range_iff (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     letI := Twist.quotientAction c f hf hG
+     letI := Twist.quotientContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist c),
+     a ∈ Set.range (H1.twistedKernelInclusion c f hf hG) ↔
+       H1.twistedQuotient c f hf hG a = 1) := by
+  sorry
+
+
+lemma H1.exists_twistedKernelInclusion_of_map_eq_one
+    (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist c),
+     H1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+       (Twist.map_smul c f hf hG) a = 1 →
+     ∃ b : H1 G (Twist.map c f hf hG).ker,
+       H1.twistedKernelInclusion c f hf hG b = a) := by
+  sorry
+
+
+lemma H1.twistedKernelInclusion_range_iff (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist c),
+     a ∈ Set.range (H1.twistedKernelInclusion c f hf hG) ↔
+       H1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+         (Twist.map_smul c f hf hG) a = 1) := by
+  sorry
+
+
+lemma H1.twistedKernelInclusion_fibre_range_iff
+    (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ a : H1 G U,
+     a ∈ Set.range (fun b => H1.twistEquiv c (H1.twistedKernelInclusion c f hf hG b)) ↔
+       H1.map f hf hG a = H1.mk (Z1.map f hf hG c)) := by
+  sorry
+
+end KernelImageConverse
+end TauCeti.NonabelianCohomology
+
+namespace TauCeti.NonabelianCohomology
+section KernelImageTests
+set_option linter.unusedSectionVars false
+variable {G : Type*} [Group G] [TopologicalSpace G]
+  {U : Type*} [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+  {V : Type*} [Group V] [TopologicalSpace V] [IsTopologicalGroup V]
+  [MulDistribMulAction G V] [ContinuousSMul G V]
+
+-- test: Z1.twistedKernelLift.test_value
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (d : Z1 G (Twist c)) (hd : ∀ g, Twist.map c f hf hG (d g) = 1) (g : G) :
+    (letI := Twist.kernelAction c f hf hG
+     (Z1.twistedKernelLift c f hf hG d hd g).val = d g) := by
+  sorry
+
+-- test: Z1.twistedKernelLift.test_inclusion
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (d : Z1 G (Twist c)) (hd : ∀ g, Twist.map c f hf hG (d g) = 1) :
+    (letI := Twist.kernelAction c f hf hG
+     Z1.map (Twist.map c f hf hG).ker.subtype continuous_subtype_val
+       (fun g x => Twist.kernelAction_value c f hf hG g x)
+       (Z1.twistedKernelLift c f hf hG d hd) = d) := by
+  sorry
+
+-- test: Z1.twistedKernelLift.test_neutral
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.kernelAction c f hf hG
+     Z1.twistedKernelLift c f hf hG 1 (fun _ => (Twist.map c f hf hG).map_one) = 1) := by
+  sorry
+
+-- test: Z1.twistedKernelLift.test_detection
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (d e : Z1 G (Twist c))
+    (hd : ∀ g, Twist.map c f hf hG (d g) = 1)
+    (he : ∀ g, Twist.map c f hf hG (e g) = 1) :
+    (letI := Twist.kernelAction c f hf hG
+     Z1.twistedKernelLift c f hf hG d hd = Z1.twistedKernelLift c f hf hG e he ↔ d = e) := by
+  sorry
+
+-- test: Z1.twistedKernelLift.test_gauge
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (d : Z1 G (Twist c)) (hd : ∀ g, Twist.map c f hf hG (d g) = 1) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ (x : (Twist.map c f hf hG).ker)
+       (he : ∀ g, Twist.map c f hf hG ((x.val • d) g) = 1),
+     Z1.twistedKernelLift c f hf hG (x.val • d) he =
+       x • Z1.twistedKernelLift c f hf hG d hd) := by
+  sorry
+
+-- test: Z1.twistedKernelLift.test_non_kernel_rejected
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (d : Z1 G (Twist c)) (g : G) (hbad : Twist.map c f hf hG (d g) ≠ 1) :
+    (letI := Twist.kernelAction c f hf hG
+     ¬ ∃ k : Z1 G (Twist.map c f hf hG).ker, ∀ h, (k h).val = d h) := by
+  sorry
+
+-- test: H1.kernelImage.test_quotient_neutral
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     (1 : H1 G (Twist c)) ∈ Set.range (H1.twistedKernelInclusion c f hf hG)) := by
+  sorry
+
+-- test: H1.kernelImage.test_no_quotient_map
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hsur : Function.Surjective f) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     ∀ a : H1 G (Twist c),
+     H1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+       (Twist.map_smul c f hf hG) a = 1 →
+     ∃ b : H1 G (Twist.map c f hf hG).ker,
+       H1.twistedKernelInclusion c f hf hG b = a) := by
+  sorry
+
+-- test: H1.kernelImage.test_non_neutral_rejected
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (a : H1 G (Twist c))
+    (ha : H1.map (Twist.map c f hf hG) (Twist.map_continuous c f hf hG)
+      (Twist.map_smul c f hf hG) a ≠ 1) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     a ∉ Set.range (H1.twistedKernelInclusion c f hf hG)) := by
+  sorry
+
+-- test: H1.kernelImage.test_shifted_basepoint
+example (c : Z1 G U) (f : U →* V) (hf : Continuous f)
+    (hG : ∀ (g : G) (x : U), f (g • x) = g • f x)
+    (hfc : H1.mk (Z1.map f hf hG c) ≠ 1) :
+    (letI := Twist.kernelAction c f hf hG
+     letI := Twist.kernelContinuousSMul c f hf hG
+     (1 : H1 G U) ∉ Set.range
+       (fun b => H1.twistEquiv c (H1.twistedKernelInclusion c f hf hG b))) := by
+  sorry
+
+-- test: H1.kernelImage.test_constant_map
+example (c : Z1 G U) (a : H1 G (Twist c)) :
+    (let f : U →* V := 1
+     let hG : ∀ (g : G) (x : U), f (g • x) = g • f x := fun g _ => (smul_one g).symm
+     letI := Twist.kernelAction c f continuous_const hG
+     letI := Twist.kernelContinuousSMul c f continuous_const hG
+     a ∈ Set.range (H1.twistedKernelInclusion c f continuous_const hG)) := by
+  sorry
+
+-- test: Z1.kernelImage.test_inverse_gauge_order
+example :
+    let U := Equiv.Perm (Fin 3)
+    let G := ConjAct U
+    letI : TopologicalSpace U := ⊥
+    letI : TopologicalSpace G := ⊥
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : ContinuousSMul G U := ⟨continuous_of_discreteTopology⟩
+    let x : U := Equiv.swap (0 : Fin 3) 1 * Equiv.swap (1 : Fin 3) 2
+    let d : Z1 G U := Z1.coboundary x
+    x⁻¹ • d = 1 ∧ x • d ≠ 1 := by
+  sorry
+
+end KernelImageTests
+end TauCeti.NonabelianCohomology
