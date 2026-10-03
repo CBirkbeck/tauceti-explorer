@@ -1,3 +1,496 @@
+# Native twisted-kernel quotient action and cohomology
+
+Checkpoint by Codex, session codex-a71f92, for BP-AnabelianGeometryAndNonabelianChabauty (#1020).
+This continuation specifies 26 declaration-sized interfaces, 20 API items and 16 typed test forms. The packet has 246 nodes. The final new Lean forms and proof prototypes are uncompiled; they are plans, not implemented mathematics. The seven inherited stage statuses, nine gaps, sixteen requests, reserved étale K(π,1) contract and eleven planets remain. This section supersedes older statements that the kernel-of-map quotient action or its pointed H¹ comparison has not yet been specified, but it does not close any stage or supplier obligation.
+
+## Scope and conventions
+
+G has a group structure and an arbitrary topology. U and V are topological groups with jointly continuous G-actions by group automorphisms. No topological-group hypothesis on G, compactness, discreteness, finiteness, commutativity or closed-kernel assumption is added.
+
+c∈Z¹(G,U) is an actual continuous cocycle. f:U→*V is continuous and G-equivariant. F_c is exactly Twist.map c f, K_c is its native MonoidHom.ker, Q_c=Twist(c)/K_c is Mathlib’s actual quotient group with its quotient topology, and π_c is the native quotient homomorphism.
+
+The quotient action and projection maps need neither surjectivity nor a quotient-map assumption on f. Forward/inverse algebraic equivariance require surjectivity. The continuous cocycle/H¹ equivalences and translation/fibre comparisons additionally require Topology.IsQuotientMap f; they do not assert that continuous surjectivity alone gives inverse continuity.
+
+All cohomology here is the existing continuous gauge-orbit H¹ carrier; no geometric torsor equivalence, representability, local conditions, kernel-inclusion injectivity or converse kernel-image assertion is introduced. The original target is repointed at [f∘c] only after its existing twist translation.
+
+Write j_c for the original underlying group identification, F_c for the twisted coefficient homomorphism, K_c for its actual kernel, Q_c for its native quotient group with the quotient topology, and π_c for the native quotient homomorphism. The inner action is g⋆_c x=c(g)g(j_c(x))c(g)⁻¹. The ordered gauge formula is (x·d)(g)=x d(g)(g⋆x)⁻¹. Cohomology is the existing orbit pointed set: multiplication of H¹ classes is never assumed. The action instance and its continuity are installed explicitly in each dependent signature; they are not extra hypotheses on an unrelated action.
+
+The inherited fundamental twist construction supplies joint continuity of this inner action from continuity of c and the original action, and the topological group structure on U. The quotient-action leaf descends this actual action by kernel stability. Since π_c is an open quotient map, id_G×π_c is an open quotient map; after precomposition the action is (g,x)↦π_c(g⋆_c x), which is continuous. This proves the joint-continuity interface without making f surjective, open, or a quotient map and without assuming its kernel closed.
+
+The native group equivalence e_c:Q_c≃Twist(f∘c) requires surjectivity of f. Its two equivariance formulas are algebraic. The inverse is continuous precisely when f is a quotient map, by the preceding kernel/topology continuation. The new two-way cocycle and H¹ comparisons therefore retain both explicit parameters. The forward direction is coefficient composition by e_c; the inverse is coefficient composition by e_c⁻¹, not a chosen pointwise lift.
+
+## Discriminating cases and hypothesis boundaries
+
+For f=id, the kernel is trivial and the quotient action retains the genuine inner action. For the discrete group S₃ with trivial C₂-action, let a generator of C₂ have cocycle value (01). Its inner action sends x=(12) to (02), hence moves the quotient class. The typed test is the general conditional assertion g⋆_c x≠x implies movement of [x] for f=id. The S₃ computation explains the condition; it is not a newly compiled concrete fixture. A construction using the trivial original action fails this case.
+
+For the constant-one coefficient homomorphism, K_c is the whole twist and every projected cocycle is the trivial cocycle. This is a typed degenerate test requiring neither surjectivity onto a nontrivial V nor a quotient-map assumption. A construction that merely copies the original cocycle fails it.
+
+Continuous surjectivity is insufficient for the inverse: take U=(ℝ,+) with the discrete topology, V=(ℝ,+) with its usual topology, and f the identity homomorphism. It is continuous and surjective, but not a quotient map. With G the usual additive real group, trivial coefficient actions and neutral c, the native quotient by the zero kernel is discrete. The continuous cocycle g↦g in V cannot be transported by the inverse to a continuous cocycle into that quotient. These are mathematical boundary computations, not fresh Lean fixtures or new source-error claims.
+
+The quotient H¹ map is pointed. The equivalence with H¹ of the mapped twist is also pointed before translation. After translating back to H¹(G,V), its neutral class becomes [f∘c], which need not be 1. The fibre interface says π_{c,*}(a)=1 exactly when f_*(T_c(a))=[f∘c]. It does not identify this fibre with the kernel-inclusion image. The separately specified kernel calculation proves only that this image maps to 1. Lifting a whole continuous cocycle, a continuous section, or a converse exactness argument remains real work.
+
+## Source and library reconciliation
+
+Kim’s exact arXiv:math/0409456v1 PDF was read in the complete §1 continuous cochain/cocycle/gauge and Proposition 1 passage, coefficient/lower-central paragraphs, and complete Proposition 2 statement and proof (printed pp.5–9). Its SHA-256 is 00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941. The new abstract interfaces are authored deductions from those conventions. They are not named printed Kim theorems, geometric torsor classification, representability, Kim 2009, or source coverage of Chen and BDMTV.
+
+The exact pinned Mathlib quotient/action/topology statements and ambient variables were read. Native QuotientAction, quotient MulAction, quotient projection, representative surjectivity, group structure, topology and open-quotient/product continuity criteria are imported, not replanned. The two added baseline receipts are QuotientGroup.mk' and QuotientGroup.mk_surjective; MulAction.quotient was already cited. The reviewed NC audit and existing Tau Ceti continuous additive APIs remain the boundary: a genuine additive cocycle comparison is not supplied by these multiplicative formulas. Scoped source/index and PR/discussion searches produced no exact new native nonabelian quotient comparison; that limited screen is not an atlas-wide or library-wide absence proof.
+
+The two fresh complete upstream documents read for density and conventions were JacobianChallenge and HodgeStructures. The initial ProfiniteCohomology passage was read only partially, so no complete-read claim is made for that document. No other owner’s foundations are reconstructed. Geometry, local conditions, unipotent-point topology and Selmer representability remain imports or gaps.
+
+## Declaration contracts
+
+All declarations below belong to NC.3 and have implementation status unchecked. The scope above applies to every contract; equivalence/translation/fibre signatures additionally show explicit surjectivity and quotient-map parameters. Each API needed by another declaration has its own leaf.
+
+### Continuous automorphism action on the actual twisted quotient
+
+Declaration: TauCeti.NonabelianCohomology.Twist.quotientAction. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-action. Kind: construction.
+
+Construct the native quotient Q_c=Twist(c)/ker(F_c) with G-action g⋆[x]=[g⋆_c x], extending Mathlib’s native coset action to MulDistribMulAction. The quotient group and quotient topology are unchanged.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-stability, mathlib:MulAction.QuotientAction, mathlib:MulAction.quotient, mathlib:QuotientGroup.Quotient.group.
+
+Proof outline:
+
+1. Use the native QuotientAction criterion: for x⁻¹y∈ker(F_c), the ordered difference (g⋆x)⁻¹(g⋆y)=g⋆(x⁻¹y) also belongs to the kernel, by twisted kernel stability.
+2. Adopt the existing quotient MulAction, prove preservation of the identity and multiplication by native quotient representatives; no new quotient carrier or inferred raw untwisted action is introduced.
+
+API:
+
+- TauCeti.NonabelianCohomology.Twist.quotientAction_mk (projection): With the descended action installed, g⋆π_c(x)=π_c(g⋆_c x) for every g and x, where π_c is the native quotient projection.
+- TauCeti.NonabelianCohomology.Twist.quotientContinuousSMul (structure): The actual descended action G×Q_c→Q_c is jointly continuous for the product and native quotient topologies. This requires no surjectivity or quotient-map assumption on f.
+- TauCeti.NonabelianCohomology.Twist.quotientEquiv_smul (compatibility): If f is surjective, the native group equivalence e_c:Q_c≃*Twist(f∘c) is G-equivariant for the descended action: e_c(g⋆q)=g⋆_{f∘c}e_c(q).
+
+Unit tests:
+
+- Twist.quotientAction.test_unit (degenerate): Every g fixes the identity of the actual quotient, for every f, without surjectivity or a quotient-map hypothesis.
+- Twist.quotientAction.test_projection (compatibility): The native quotient projection is G-equivariant for the actual inner action: g⋆[x]=[c(g)(g•j_c(x))c(g)⁻¹].
+- Twist.quotientAction.test_joint_continuity (compatibility): The descended action G×Q_c→Q_c is jointly continuous for the actual native quotient topology, even when f is not a quotient map.
+- Twist.quotientAction.test_nontrivial_twist (non-example): For f=id and any genuine inner-twist value g⋆_c x≠x, the induced quotient action moves [x]. Replacing the twist by a trivial raw action fails this test; the hypothesis is not asserted for all twists.
+
+Source match: MathlibNativeTwistedQuotients-082e2d3, GroupTheory/GroupAction/Quotient.lean: QuotientAction, quotient and smul_mk, exact pin 082e2d3; Kim continuous coefficient conventions motivate the use. Authored specialization of the existing coset action to the actual stable kernel inside an inner twist. The group quotient is Mathlib's carrier, not a new general action or a geometric torsor theorem.
+
+### Equivariance of the native twisted quotient projection
+
+Declaration: TauCeti.NonabelianCohomology.Twist.quotientAction_mk. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-projection-action. Kind: lemma.
+
+With the descended action installed, g⋆π_c(x)=π_c(g⋆_c x) for every g and x, where π_c is the native quotient projection.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-action, mathlib:MulAction.Quotient.smul_mk.
+
+Proof outline:
+
+1. Use the native coset-action evaluation on representatives, with exactly the action constructed above.
+
+Source match: MathlibNativeTwistedQuotients-082e2d3, GroupTheory/GroupAction/Quotient.lean: QuotientAction, quotient and smul_mk, exact pin 082e2d3; Kim continuous coefficient conventions motivate the use. Authored specialization of the existing coset action to the actual stable kernel inside an inner twist. The group quotient is Mathlib's carrier, not a new general action or a geometric torsor theorem.
+
+### Joint continuity of the descended inner action
+
+Declaration: TauCeti.NonabelianCohomology.Twist.quotientContinuousSMul. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-action-continuity. Kind: lemma.
+
+The actual descended action G×Q_c→Q_c is jointly continuous for the product and native quotient topologies. This requires no surjectivity or quotient-map assumption on f.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisting, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-projection-action, mathlib:QuotientGroup.isOpenQuotientMap_mk, mathlib:IsOpenQuotientMap.id, mathlib:IsOpenQuotientMap.prodMap, mathlib:IsOpenQuotientMap.continuous_comp_iff, mathlib:QuotientGroup.continuous_mk.
+
+Proof outline:
+
+1. The native quotient projection from Twist(c) is open, continuous and surjective because Twist(c) is a topological group; closedness of its kernel is unnecessary.
+2. Its product with the identity on G is an open quotient map. The action after this precomposition is π_c(g⋆_c x), continuous by the actual joint twisted action.
+3. Apply the open-quotient continuity criterion on this product; the original f need not be a quotient map.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Equivariance of the native quotient comparison
+
+Declaration: TauCeti.NonabelianCohomology.Twist.quotientEquiv_smul. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-comparison-equivariance. Kind: lemma.
+
+If f is surjective, the native group equivalence e_c:Q_c≃*Twist(f∘c) is G-equivariant for the descended action: e_c(g⋆q)=g⋆_{f∘c}e_c(q).
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-projection-action, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-value, AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-equivariance, mathlib:QuotientGroup.mk_surjective.
+
+Proof outline:
+
+1. Choose a native quotient representative x for q; evaluate both e_c and the quotient action on its class, then use the existing equivariance of F_c. No continuity of the inverse is used.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Equivariance of the inverse quotient comparison
+
+Declaration: TauCeti.NonabelianCohomology.Twist.quotientEquiv_symm_smul. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-inverse-equivariance. Kind: lemma.
+
+For surjective f, e_c⁻¹(g⋆_{f∘c}y)=g⋆e_c⁻¹(y). This is algebraic equivariance and does not assert inverse continuity.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-comparison-equivariance, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-equivalence.
+
+Proof outline:
+
+1. Apply the injective native equivalence e_c to both sides, then use its forward equivariance and inverse identities.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Projection of actual continuous twisted cocycles
+
+Declaration: TauCeti.NonabelianCohomology.Z1.twistedQuotient. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-map. Kind: construction.
+
+Construct Z¹(G,Twist(c))→Z¹(G,Q_c), d↦π_c∘d, as the existing Z1.map of Mathlib’s native quotient homomorphism. Surjectivity of f is not needed.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-projection-action, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map, mathlib:QuotientGroup.mk', mathlib:QuotientGroup.continuous_mk.
+
+Proof outline:
+
+1. Use the existing coefficient-cocycle map for the continuous native quotient homomorphism and its proved action compatibility; the cocycle identity is transported, not assumed.
+
+API:
+
+- TauCeti.NonabelianCohomology.Z1.twistedQuotient_apply (projection): At every g∈G, the projected cocycle has value [d(g)] in the actual quotient Q_c.
+- TauCeti.NonabelianCohomology.Z1.twistedQuotient_one (simp): The twisted quotient cocycle projection sends the trivial cocycle to the trivial cocycle.
+- TauCeti.NonabelianCohomology.Z1.twistedQuotient_gauge (functoriality): For x∈Twist(c) and d∈Z¹(G,Twist(c)), projection(x·d)=[x]·projection(d), with the actual ordered gauge actions and actual quotient class [x].
+
+Unit tests:
+
+- Z1.twistedQuotient.test_value (compatibility): The projected cocycle at g is the actual native quotient class [d(g)], not a lift or an arbitrary representative.
+- Z1.twistedQuotient.test_constant_map (degenerate): For the constant coefficient homomorphism f=1, its actual kernel is all of Twist(c), and every projected cocycle is the trivial cocycle on the quotient.
+- Z1.twistedQuotient.test_gauge (characterisation): Ordered gauge change descends exactly by the quotient class of its gauge element; no commutativity of U is assumed.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Value of twisted cocycle projection
+
+Declaration: TauCeti.NonabelianCohomology.Z1.twistedQuotient_apply. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-value. Kind: lemma.
+
+At every g∈G, the projected cocycle has value [d(g)] in the actual quotient Q_c.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-map.
+
+Proof outline:
+
+1. Evaluate the existing coefficient-cocycle composition and native quotient homomorphism.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Neutral cocycle under quotient projection
+
+Declaration: TauCeti.NonabelianCohomology.Z1.twistedQuotient_one. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-neutral. Kind: lemma.
+
+The twisted quotient cocycle projection sends the trivial cocycle to the trivial cocycle.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-map, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map.
+
+Proof outline:
+
+1. Apply the existing neutral-cocycle law for coefficient maps.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Ordered gauge compatibility of quotient cocycles
+
+Declaration: TauCeti.NonabelianCohomology.Z1.twistedQuotient_gauge. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-gauge. Kind: lemma.
+
+For x∈Twist(c) and d∈Z¹(G,Twist(c)), projection(x·d)=[x]·projection(d), with the actual ordered gauge actions and actual quotient class [x].
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-map, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-action-continuity, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-gauge.
+
+Proof outline:
+
+1. Apply the existing coefficient-map gauge identity to the native quotient homomorphism, whose equivariance and continuity were proved; retain multiplication order.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Native quotient map on twisted H¹ orbit sets
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotient. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-map. Kind: construction.
+
+Construct H¹(G,Twist(c))→H¹(G,Q_c) as the existing H1.map of π_c, for the actual continuous gauge-orbit quotients and the jointly continuous descended action.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-action-continuity, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-gauge, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map, mathlib:QuotientGroup.mk', mathlib:QuotientGroup.continuous_mk.
+
+Proof outline:
+
+1. Use the existing quotient lift of coefficient maps; the projected gauge identity makes it independent of representatives.
+2. No surjectivity on H¹, injectivity on H¹ or converse kernel-image theorem follows merely from the native group projection.
+
+API:
+
+- TauCeti.NonabelianCohomology.H1.twistedQuotient_mk (projection): For every d∈Z¹(G,Twist(c)), the quotient H¹ map sends [d] to [π_c∘d].
+- TauCeti.NonabelianCohomology.H1.twistedQuotient_one (simp): The native twisted quotient H¹ map sends the neutral class to the neutral class, without surjectivity of f.
+- TauCeti.NonabelianCohomology.H1.twistedQuotient_kernel (compatibility): Every class in H¹(G,K_c) maps under the existing restricted kernel inclusion and the new native quotient H¹ map to 1. This is one image inclusion, not its converse or injectivity.
+
+Unit tests:
+
+- H1.twistedQuotient.test_neutral (degenerate): The actual orbit-quotient map preserves the neutral class without any surjectivity assumption on f.
+- H1.twistedQuotient.test_representative (compatibility): The quotient H¹ map on a cocycle class is the class of the actual projected cocycle, so the construction agrees with the existing H1.map.
+- H1.twistedQuotient.test_kernel (characterisation): Every class from the actual restricted twisted kernel is killed by the native quotient H¹ map; no converse or injectivity of the kernel inclusion is presumed.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Quotient H¹ on actual representatives
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotient_mk. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-representative. Kind: lemma.
+
+For every d∈Z¹(G,Twist(c)), the quotient H¹ map sends [d] to [π_c∘d].
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-map, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-map.
+
+Proof outline:
+
+1. Evaluate the existing native orbit quotient lift at a cocycle representative.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Pointedness of the twisted quotient H¹ map
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotient_one. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-neutral. Kind: lemma.
+
+The native twisted quotient H¹ map sends the neutral class to the neutral class, without surjectivity of f.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-map, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-one.
+
+Proof outline:
+
+1. Use the existing coefficient H¹ map’s neutral-class law.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Continuous cocycle equivalence for quotient twists
+
+Declaration: TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence. Kind: construction.
+
+If f is surjective and a quotient map, construct Z¹(G,Q_c)≃Z¹(G,Twist(f∘c)) by composing with the actual e_c, with inverse composition by e_c⁻¹. Both use native continuous cocycles.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-comparison-equivariance, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-inverse-equivariance, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-continuous, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-inverse-continuous, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map.
+
+Proof outline:
+
+1. Forward and inverse equivariance preserve the two cocycle identities; forward continuity and the separately proved inverse-continuity theorem preserve continuous cochains.
+2. Construct the two maps using Z1.map of the native group equivalences. Their inverse laws follow pointwise from e_c and e_c⁻¹; arbitrary set-theoretic lifts are not substituted.
+
+API:
+
+- TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_apply (projection): The cocycle comparison sends d to the cocycle g↦e_c(d(g)).
+- TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_symm_apply (projection): Its inverse sends d′ to the continuous cocycle g↦e_c⁻¹(d′(g)).
+- TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_one (simp): The equivalence between cocycles on Q_c and Twist(f∘c) fixes the trivial cocycle.
+- TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_gauge (functoriality): For x∈Q_c, the cocycle equivalence sends x·d to e_c(x)·e_c(d). Neither group is assumed abelian.
+- TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_projection (compatibility): For every d∈Z¹(G,Twist(c)), comparing π_c∘d with the target twist equals the existing coefficient cocycle map F_c∘d.
+
+Unit tests:
+
+- Z1.twistedQuotientEquiv.test_round_trip (characterisation): Forward quotient-cocycle comparison followed by its inverse recovers every actual continuous quotient cocycle.
+- Z1.twistedQuotientEquiv.test_projection_triangle (compatibility): Comparing the projected cocycle with the target twist equals direct composition with the actual twisted coefficient homomorphism.
+- Z1.twistedQuotientEquiv.test_neutral (degenerate): The quotient-cocycle comparison fixes the trivial cocycle; the later twist translation, not this comparison, sends it to f∘c.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Forward cocycle comparison value
+
+Declaration: TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_apply. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence-value. Kind: lemma.
+
+The cocycle comparison sends d to the cocycle g↦e_c(d(g)).
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence.
+
+Proof outline:
+
+1. Evaluate the native coefficient-cocycle map defining the forward equivalence.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Inverse cocycle comparison value
+
+Declaration: TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_symm_apply. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence-inverse-value. Kind: lemma.
+
+Its inverse sends d′ to the continuous cocycle g↦e_c⁻¹(d′(g)).
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence.
+
+Proof outline:
+
+1. Evaluate the inverse coefficient-cocycle map; its continuity uses the explicitly retained quotient-map hypothesis.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Pointedness of the quotient-cocycle equivalence
+
+Declaration: TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_one. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence-neutral. Kind: lemma.
+
+The equivalence between cocycles on Q_c and Twist(f∘c) fixes the trivial cocycle.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map.
+
+Proof outline:
+
+1. Apply neutral preservation for the actual coefficient-map definition.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Gauge compatibility of the quotient comparison
+
+Declaration: TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_gauge. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence-gauge. Kind: lemma.
+
+For x∈Q_c, the cocycle equivalence sends x·d to e_c(x)·e_c(d). Neither group is assumed abelian.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-action-continuity, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-gauge.
+
+Proof outline:
+
+1. Use the existing gauge identity for the actual equivariant e_c and its continuous coefficient map.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Twisted quotient cocycle factorization
+
+Declaration: TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_projection. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-projection-triangle. Kind: lemma.
+
+For every d∈Z¹(G,Twist(c)), comparing π_c∘d with the target twist equals the existing coefficient cocycle map F_c∘d.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence-value, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-value, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-value.
+
+Proof outline:
+
+1. Evaluate at each g: e_c([d(g)])=F_c(d(g)) by the native quotient comparison. Apply actual cocycle extensionality.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Pointed equivalence of actual quotient-twist H¹
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence. Kind: construction.
+
+If f is surjective and a quotient map, construct the pointed bijection H¹(G,Q_c)≃H¹(G,Twist(f∘c)) induced by the actual e_c. Its inverse is H1.map of e_c⁻¹ with its proved continuity and equivariance.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-action-continuity, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence-gauge, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-quotient-inverse-continuous.
+
+Proof outline:
+
+1. Use the two existing H1.map constructions for e_c and e_c⁻¹ on actual native orbit quotients.
+2. Choose cocycle representatives only to prove the two inverse equalities, using the pointwise cocycle inverse laws. No unverified general equivalence of geometric torsors is asserted.
+
+API:
+
+- TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_mk (projection): The forward H¹ equivalence sends [d] to the class of the actual forward cocycle comparison.
+- TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_symm_mk (projection): The inverse H¹ equivalence sends [d′] to the class of the actual inverse continuous cocycle comparison.
+- TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_one (simp): The quotient-twist H¹ equivalence sends 1 to 1. This is a pointed map between twisted coefficient groups, before any repointing translation.
+- TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_projection (compatibility): For every a∈H¹(G,Twist(c)), the quotient H¹ map followed by the quotient-twist equivalence is exactly H1.map F_c applied to a.
+- TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_translation (compatibility): For a∈H¹(G,Twist(c)), translating the quotient-comparison image to H¹(G,V) equals H1.map f of the original twist translation T_c(a).
+- TauCeti.NonabelianCohomology.H1.twistedQuotient_fibre (compatibility): For a∈H¹(G,Twist(c)), its native quotient H¹ image is 1 exactly when H1.map f(T_c(a))=[f∘c]. Surjectivity and quotient-map assumptions on f are retained for this comparison; [f∘c] need not be neutral in H¹(G,V).
+
+Unit tests:
+
+- H1.twistedQuotientEquiv.test_round_trip (characterisation): The actual H¹ comparison is a bijection on gauge-orbit classes, with inverse returning every quotient class.
+- H1.twistedQuotientEquiv.test_neutral (degenerate): The H¹ equivalence is genuinely pointed between the two twisted coefficient groups; it does not map neutral to the un-repointed class [f∘c].
+- H1.twistedQuotientEquiv.test_repointed_fibre (compatibility): The native quotient neutral fibre is exactly the original coefficient-map fibre over [f∘c] after the existing twist translation; the base point cannot be replaced by 1 in the un-repointed target.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Forward H¹ comparison on representatives
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_mk. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence-representative. Kind: lemma.
+
+The forward H¹ equivalence sends [d] to the class of the actual forward cocycle comparison.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence.
+
+Proof outline:
+
+1. Evaluate the existing orbit quotient lift on a representative.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Inverse H¹ comparison on representatives
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_symm_mk. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence-inverse-representative. Kind: lemma.
+
+The inverse H¹ equivalence sends [d′] to the class of the actual inverse continuous cocycle comparison.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-equivalence-inverse-value.
+
+Proof outline:
+
+1. Evaluate the actual inverse orbit map; proof irrelevance does not replace the inverse continuity requirement.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Neutral class under quotient-twist comparison
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_one. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence-neutral. Kind: lemma.
+
+The quotient-twist H¹ equivalence sends 1 to 1. This is a pointed map between twisted coefficient groups, before any repointing translation.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence, AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-one.
+
+Proof outline:
+
+1. Use the neutral-class law of the actual H1.map e_c.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Actual H¹ factorization through the quotient twist
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_projection. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-projection-triangle. Kind: lemma.
+
+For every a∈H¹(G,Twist(c)), the quotient H¹ map followed by the quotient-twist equivalence is exactly H1.map F_c applied to a.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-representative, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence-representative, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-map-triangle.
+
+Proof outline:
+
+1. Choose one actual cocycle representative for a, apply the representative formulas and the exact cocycle factorization, and descend to classes.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Kernel inclusion is killed by the actual quotient
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotient_kernel. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-kernel-image. Kind: lemma.
+
+Every class in H¹(G,K_c) maps under the existing restricted kernel inclusion and the new native quotient H¹ map to 1. This is one image inclusion, not its converse or injectivity.
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-representative, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-representative, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-value, mathlib:QuotientGroup.eq_one_iff.
+
+Proof outline:
+
+1. Choose a kernel-valued cocycle representative. Each native quotient class of its value is 1 by kernel membership and eq_one_iff.
+2. The projected cocycle is thus the actual trivial cocycle; its native orbit class is neutral. No whole-function lift is required.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Quotient comparison and original twisting translation
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_translation. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-translation-square. Kind: lemma.
+
+For a∈H¹(G,Twist(c)), translating the quotient-comparison image to H¹(G,V) equals H1.map f of the original twist translation T_c(a).
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-projection-triangle, AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-h1-square.
+
+Proof outline:
+
+1. Replace the quotient projection/comparison composite by the actual H1.map F_c, then apply the existing coefficient-naturality square for twist translations.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+### Quotient neutral fibre and the original image cocycle
+
+Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotient_fibre. Node: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-repointed-fibre. Kind: lemma.
+
+For a∈H¹(G,Twist(c)), its native quotient H¹ image is 1 exactly when H1.map f(T_c(a))=[f∘c]. Surjectivity and quotient-map assumptions on f are retained for this comparison; [f∘c] need not be neutral in H¹(G,V).
+
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-projection-triangle, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence-neutral, AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-fibre.
+
+Proof outline:
+
+1. The actual quotient H¹ equivalence is injective and pointed, so the quotient image is neutral iff H1.map F_c(a)=1 by the projection triangle.
+2. Apply the existing repointed-fibre characterization. This does not identify that fibre with the image of the kernel inclusion or assert geometric local-condition compatibility.
+
+Source match: KimTwistedQuotients-codex-a71f92, arXiv:math/0409456v1 §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp.5–7; motivation in Proposition 2 central extension, printed pp.8–9. Authored deduction from the inherited actual continuous inner twists, ordered gauge actions and native coefficient-map conventions, using pinned Mathlib quotient/action/topology APIs. Not asserted to be a printed Kim geometric/representability theorem.
+
+## Status and resume boundary
+
+The 220 inherited mathematical contracts remain; only functoriality and central-extension gain prerequisite/proof-outline receipts. The foundational twisting node is unchanged, avoiding a dependency cycle between its construction and downstream quotient applications. All open inherited source issues and version records, supplier requests and reserved identifiers survive.
+
+The final native proof prototype, bounded Mathlib-only admitted file, and full canonical suggested file were not compiled. Repeated memory checks returned 16–18 GiB, below the worker minimum of 20 GiB. One early development run of the first twelve declarations was mistakenly started with 18 GiB before its memory result was inspected; it exited successfully with style warnings and left no process running. It is a resource-policy exception and is not a compliant validation receipt. The final 26 declarations, 16 tests and 26 added axiom-audit commands have no execution receipt. Their proposed proofs are preserved separately for a guarded follow-up.
+
+Next work must validate these exact native and admitted forms serially only when at least 20 GiB is available and with a twenty-minute timeout. Full canonical checking additionally requires an existing exact-pinned Tau Ceti build; the available build does not establish that prerequisite. No Lake project, library build or cache download was created. Following validation, continue the precise open NC.3 granularity/additive/local-condition work or the NC.0/source-routed obligations; none is optional or complete.
+
+---
+
+## Earlier checkpoint record (preserved)
+
 # Actual twisted kernels and native quotient topology
 
 Codex — codex-5ebb6f; issue #1020. This is a partial declaration-level continuation. Every incoming mathematical contract, reserved all-coefficient/all-degree étale K(π,1) statement, source qualification, planet, supplier request and stage status is preserved.
