@@ -1,3 +1,85 @@
+## Universal invariants on finite affine root charts
+
+Let A be any commutative ring, f any element and n a positive integer. Use the native quotient B=A[t]/(t^n−f), the native character Hopf algebra A[Z/n] and the actual left coaction δ(t)=e₁⊗t. Invariance means δ(b)=1⊗b as an equality of universal tensors. It does not mean invariance under the set of A-valued roots of unity. No division by n, averaging, nonzerodivisor condition on f, reducedness or Noetherianity is imposed.
+
+The existing monic quotient basis writes b uniquely as Σ c_i t^i, with 0≤i<n, on a nontrivial base. In the existing character tensor coordinates, δ(b) puts c_i at (i,i), while 1⊗b puts it at (0,i). Thus the positive coefficients vanish exactly when b is universally invariant. The zero-ring branch is handled directly before invoking the degree theorem. Existing generic monic coefficient injectivity gives the unique constant representative; it receives no new blueprint node.
+
+Use Mathlib's AlgHom.equalizer of δ and the native right inclusion as the actual invariant subalgebra. The coefficient algebra map lands there, is injective by the generic positive-degree monic quotient theorem and surjective by the finite invariant criterion. The native bijective algebra-hom constructor gives A≃I, with forward and inverse coefficient formulas. This identifies the algebraic input to the finite coarse-space theorem. The geometric quotient, its coarse universal property and arbitrary-base-change comparison still use ROOT-COARSE from AlgebraicModuliForArithmeticGeometry:R09.5; the finite algebra calculation does not establish those geometric statements or the infinite invariant algebra.
+
+### Diagonal character coordinates of the coaction
+
+TauCeti.RootStack.affineCoaction.coordinates_diagonal: Let b=Σ_{i∈Fin n} c_i t^i and use the existing native target-coordinate equivalence C on A[Z/n]⊗_A A[t]/(t^n−f). For q=(r,s), C(δ(b))_q equals c_s if r=s and zero otherwise.
+
+Use the existing weight formula δ(t^i)=e_i⊗t^i and linearity over A. The existing target-coordinate monomial formula places each c_i at (i,i). Evaluate the finite sum at (r,s); only i=s can survive, and it survives exactly when r=s.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-basis-coordinate, mathlib:TensorProduct.tmul_smul.
+
+### Zero character row of the invariant comparison
+
+TauCeti.RootStack.affineCoaction.coordinates_constant_row: With b and C as above, C(1⊗b)_(r,s) equals c_s if r=0 and zero otherwise.
+
+Write 1=e_0 in the native character algebra. Move each scalar through the actual tensor product and apply the existing coordinate monomial formula at (0,i). Evaluate the finite sum; only i=s contributes, and its character index must be zero.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-basis-coordinate, mathlib:TensorProduct.tmul_smul, mathlib:TensorProduct.tmul_sum, mathlib:MonoidAlgebra.one_def.
+
+### Vanishing of the positive-degree invariant coefficients
+
+TauCeti.RootStack.affineCoaction.invariants_sum_iff: For b=Σ_{i∈Fin n} c_i t^i, δ(b)=1⊗b if and only if c_i=0 for every i≠0.
+
+If the tensors agree, compare their native coordinates at (i,i) for every nonzero i: the diagonal coefficient is c_i while the zero character row is zero. Conversely all positive coefficients vanish; the diagonal and zero-row formulas agree at every coordinate, and injectivity of the existing coordinate equivalence identifies the tensors.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/affine-coaction-diagonal-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-coaction-constant-row-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence.
+
+### Coefficient equivalence with the affine invariant algebra
+
+TauCeti.RootStack.affineInvariantEquiv: Let I be the native AlgHom.equalizer of δ:A[t]/(t^n−f)→A[Z/n]⊗_A A[t]/(t^n−f) and the right inclusion b↦1⊗b. Construct the A-algebra equivalence A≃I induced by the actual coefficient map.
+
+Use the native algebra-map equalizer and codomain restriction; coefficient coinvariance proves membership. This imports generic equalizer theory rather than constructing a second invariant predicate. The existing affine-invariants theorem supplies surjectivity. The existing positive-degree monic AdjoinRoot coefficient-injectivity theorem supplies injectivity, with the zero-ring branch handled directly. Apply the native bijective algebra-hom equivalence constructor. Its forward value is the coefficient inclusion and its inverse is the unique coefficient of the same invariant element.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.1/affine-invariants, mathlib:AlgHom.equalizer, mathlib:AlgHom.mem_equalizer, mathlib:AlgHom.codRestrict, mathlib:AlgEquiv.ofBijective, mathlib:AdjoinRoot.of.injective_of_monic_of_degree_pos, mathlib:Polynomial.degree_X_pow_sub_C, mathlib:Algebra.ofId.
+
+TauCeti.RootStack.affineInvariantEquiv.apply_coe: For a∈A, the underlying root-chart element of affineInvariantEquiv(a) is the actual coefficient image of a.
+
+TauCeti.RootStack.affineInvariantEquiv.inverse_coe: For x in the native invariant subalgebra I, including its inverse coefficient back into the root chart gives the underlying element x.
+
+TauCeti.RootStack.affineInvariantEquiv.eq_iff: For x∈I and a∈A, the inverse coefficient of x equals a if and only if the underlying root-chart element of x equals the coefficient image of a.
+
+Use in FunctionFieldArithmeticPartII:RS.1/coarse-space: Identify the actual affine invariant algebra with the coefficient base before applying the separately owned geometric coarse-space universal property.
+
+Use in FunctionFieldArithmeticPartII:RS.1/affine-chart and the reserved root-stack key: Give the finite quotient chart its coefficient invariant-algebra identification, including wild exponents and nonreduced sections.
+
+Use in Talpo–Vistoli Lemma 3.7 degree-zero calculation and Corollary 3.13 finite chart: Express the finite P=N degree-zero calculation as an actual native algebra equivalence rather than an assertion about invariance under field points.
+
+### Coaction API and acceptance examples
+
+TauCeti.RootStack.affineCoaction.coordinates_diagonal: Let b=Σ_{i∈Fin n} c_i t^i and use the existing native target-coordinate equivalence C on A[Z/n]⊗_A A[t]/(t^n−f). For q=(r,s), C(δ(b))_q equals c_s if r=s and zero otherwise.
+
+TauCeti.RootStack.affineCoaction.coordinates_constant_row: With b and C as above, C(1⊗b)_(r,s) equals c_s if r=0 and zero otherwise.
+
+TauCeti.RootStack.affineCoaction.invariants_sum_iff: For b=Σ_{i∈Fin n} c_i t^i, δ(b)=1⊗b if and only if c_i=0 for every i≠0.
+
+TauCeti.RootStack.affineCoaction.invariants_unique: Every universally coinvariant b∈A[t]/(t^n−f) has a unique coefficient a∈A with b=algebraMap(a), over every commutative base and positive exponent.
+
+AffineInvariantTests.wild_root: Over A=F₂, f=0 and n=2, the actual nilpotent root is not universally coinvariant; the nonzero character coordinate survives although n=0 in A.
+
+AffineInvariantTests.nilpotent_weight: Over A=Z/4, f=0 and n=2, the nonzero coefficient 2 times the actual root is not coinvariant. Coefficient torsion and nilpotence do not erase the universal character weight.
+
+AffineInvariantTests.unique_nilpotent_constant: Over A=Z/4, f=0 and n=2, the coefficient image of 2 has exactly one coefficient representative in A.
+
+AffineInvariantTests.zero_ring: For a subsingleton coefficient ring A and any positive n, every root-chart element is coinvariant and has exactly one coefficient representative.
+
+AffineInvariantTests.exponent_one: For every A and f, each element of A[t]/(t−f) has exactly one coefficient representative.
+
+AffineInvariantTests.equivalence_linear_root: For A=Z/11, n=1 and f=7, the inverse invariant-algebra equivalence sends the actual root to 7.
+
+AffineInvariantTests.equivalence_nilpotent: For A=Z/4, n=2 and f=0, the inverse equivalence recovers coefficient 2, and its image remains square-zero in the root chart.
+
+AffineInvariantTests.equivalence_zero_ring: For a subsingleton coefficient ring, the inverse invariant-algebra equivalence sends every invariant element to 0 for every positive exponent.
+
+The F₂ example retains the nonzero universal weight of a nilpotent root. The Z/4 example retains the nonzero nilpotent coefficient 2 in degree one while distinguishing it from the constant coefficient 2, whose invariant image remains square-zero. At exponent one the actual linear root has its specified coefficient value; over the zero ring every carrier is subsingleton. These tests guard against replacing scheme invariants with point invariants or discarding coefficient torsion.
+
+Sources: Talpo–Vistoli printed pp. 14–16, the finite character grading, degree-zero argument of Lemma 3.7 and Corollary 3.13. The root-specific formulas above are derived from that grading using the existing native bases. All ten stages, the general scheme/stack root key, arbitrary exponents, relative evaluation roots, infinite roots, all eight gaps, thirteen requests and both Yun–Zhang and symplectic routes retain their full required scope.
+
 # Arbitrary-section rational coaction: current algebraic frontier
 
 Codex — codex-a71f92,2026-10-03. This is a partial checkpoint, not a formalised library or a completed geometric root-stack construction. All391 incoming declaration contracts are retained; the packet now has392 nodes. Earlier execution qualifications in the preserved document and node hypotheses describe their original checkpoints, not the current certificate.
