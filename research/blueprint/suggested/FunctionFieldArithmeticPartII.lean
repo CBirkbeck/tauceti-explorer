@@ -4088,3 +4088,159 @@ example (x : FactorialAffineColimit (1 : A)) :
 
 end TauCeti.RootStack
 end
+
+/-! Arbitrary-section rational-character coefficient change.
+The Q/Z equivalence and incoming rational coaction are admitted inputs in the
+typing harness. The following bodies are authored conditional deductions. -/
+noncomputable section
+universe uQZCoeff
+namespace TauCeti.RootStack
+variable {A B C : Type uQZCoeff} [CommRing A] [CommRing B] [CommRing C]
+open scoped TensorProduct
+
+def factorialQZTensorCoefficientMap (φ : A →+* B) (f : A) :
+    (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
+      FactorialAffineColimit f) →+*
+    (MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
+      FactorialAffineColimit (φ f)) := by
+  sorry
+
+lemma factorialQZTensorCoefficientMap.tmul (φ : A →+* B) (f : A)
+    (g : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))))
+    (x : FactorialAffineColimit f) :
+    factorialQZTensorCoefficientMap φ f (g ⊗ₜ[A] x) =
+      MonoidAlgebra.mapRingHom (Multiplicative (AddCircle (1 : ℚ))) φ g ⊗ₜ[B]
+        factorialCoefficientMap φ f x := by
+  sorry
+
+lemma factorialQZTensorCoefficientMap.single (φ : A →+* B) (f a : A)
+    (q : AddCircle (1 : ℚ)) (x : FactorialAffineColimit f) :
+    factorialQZTensorCoefficientMap φ f
+      (MonoidAlgebra.single (Multiplicative.ofAdd q) a ⊗ₜ[A] x) =
+      MonoidAlgebra.single (Multiplicative.ofAdd q) (φ a) ⊗ₜ[B]
+        factorialCoefficientMap φ f x := by
+  sorry
+
+lemma factorialQZTensorCoefficientMap.constant (φ : A →+* B) (f a : A) :
+    factorialQZTensorCoefficientMap φ f (algebraMap A _ a) =
+      algebraMap B _ (φ a) := by
+  sorry
+
+lemma factorialQZTensorCoefficientMap.id (f : A) :
+    factorialQZTensorCoefficientMap (RingHom.id A) f = RingHom.id _ := by
+  sorry
+
+lemma factorialQZTensorCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
+    factorialQZTensorCoefficientMap (ψ.comp φ) f =
+      (factorialQZTensorCoefficientMap ψ (φ f)).comp
+        (factorialQZTensorCoefficientMap φ f) := by
+  sorry
+
+lemma factorialQZTensorCoefficientMap.transport (φ : A →+* B) (f : A)
+    (y : FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) :
+    factorialQZTensorCoefficientMap φ f
+      (Algebra.TensorProduct.map (factorialUnitQZEquiv A).toAlgHom
+        (AlgHom.id A (FactorialAffineColimit f)) y) =
+      Algebra.TensorProduct.map (factorialUnitQZEquiv B).toAlgHom
+        (AlgHom.id B (FactorialAffineColimit (φ f)))
+          (factorialTensorCoefficientMap φ f y) := by
+  sorry
+
+lemma factorialQZTensorCoefficientMap.root (φ : A →+* B) (f : A) (i : ℕ) :
+    factorialQZTensorCoefficientMap φ f
+      (MonoidAlgebra.single (Multiplicative.ofAdd
+        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
+        (1 : A) ⊗ₜ[A] factorialAffineInclusion f i (AdjoinRoot.root _)) =
+      MonoidAlgebra.single (Multiplicative.ofAdd
+        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
+        (1 : B) ⊗ₜ[B] factorialAffineInclusion (φ f) i (AdjoinRoot.root _) := by
+  sorry
+
+lemma factorialQZCoaction.coefficient_naturality (φ : A →+* B) (f : A) :
+    (factorialQZTensorCoefficientMap φ f).comp (factorialQZCoaction f).toRingHom =
+      (factorialQZCoaction (φ f)).toRingHom.comp (factorialCoefficientMap φ f) := by
+  sorry
+
+lemma factorialQZCoaction.map_coinvariant (φ : A →+* B) (f : A)
+    (x : FactorialAffineColimit f)
+    (hx : factorialQZCoaction f x =
+      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x) :
+    factorialQZCoaction (φ f) (factorialCoefficientMap φ f x) =
+      (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
+        factorialCoefficientMap φ f x := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_negative_weight
+example (x : FactorialAffineColimit (0 : ℤ)) :
+    factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
+      (MonoidAlgebra.single (Multiplicative.ofAdd
+        (((-1 / 3 : ℚ) : AddCircle (1 : ℚ)))) (1 : ℤ) ⊗ₜ[ℤ] x) =
+      MonoidAlgebra.single (Multiplicative.ofAdd
+        (((-1 / 3 : ℚ) : AddCircle (1 : ℚ)))) (1 : ZMod 2) ⊗ₜ[ZMod 2]
+        factorialCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ) x := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_nonflat_kills_coefficient
+example (q : AddCircle (1 : ℚ)) (x : FactorialAffineColimit (0 : ℤ)) :
+    factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
+      (MonoidAlgebra.single (Multiplicative.ofAdd q) (2 : ℤ) ⊗ₜ[ℤ] x) = 0 ∧
+    ¬ Function.Injective (factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)) := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_wild_zero_section
+example :
+    (Int.castRingHom (ZMod 2)) (0 : ℤ) = 0 ∧
+    factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
+      (MonoidAlgebra.single (Multiplicative.ofAdd
+        (((1 / 2 : ℚ) : AddCircle (1 : ℚ)))) (1 : ℤ) ⊗ₜ[ℤ]
+          factorialAffineInclusion (0 : ℤ) 1 (AdjoinRoot.root _)) =
+      MonoidAlgebra.single (Multiplicative.ofAdd
+        (((1 / 2 : ℚ) : AddCircle (1 : ℚ)))) (1 : ZMod 2) ⊗ₜ[ZMod 2]
+          factorialAffineInclusion ((Int.castRingHom (ZMod 2)) (0 : ℤ)) 1
+            (AdjoinRoot.root _) := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_zero_ring
+example (y : MonoidAlgebra ℤ (Multiplicative (AddCircle (1 : ℚ))) ⊗[ℤ]
+    FactorialAffineColimit (0 : ℤ)) :
+    factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 1)) (0 : ℤ) y = 0 := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_identity
+example (f : A) (y : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
+    FactorialAffineColimit f) :
+    factorialQZTensorCoefficientMap (RingHom.id A) f y = y := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_three_rings
+example (φ : A →+* B) (ψ : B →+* C) (f : A)
+    (y : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
+      FactorialAffineColimit f) :
+    factorialQZTensorCoefficientMap (ψ.comp φ) f y =
+      factorialQZTensorCoefficientMap ψ (φ f) (factorialQZTensorCoefficientMap φ f y) := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZCoaction.test_nonunit_coefficient_square
+example (x : FactorialAffineColimit (2 : ℤ)) :
+    (Int.castRingHom (ZMod 2)) (2 : ℤ) = 0 ∧
+    factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 2)) (2 : ℤ)
+      (factorialQZCoaction (2 : ℤ) x) =
+      factorialQZCoaction ((Int.castRingHom (ZMod 2)) (2 : ℤ))
+        (factorialCoefficientMap (Int.castRingHom (ZMod 2)) (2 : ℤ) x) := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZCoaction.test_unity_coefficient_square
+example (φ : A →+* B) (x : FactorialAffineColimit (1 : A)) :
+    factorialQZTensorCoefficientMap φ (1 : A) (factorialQZCoaction (1 : A) x) =
+      factorialQZCoaction (φ 1) (factorialCoefficientMap φ (1 : A) x) := by
+  sorry
+
+-- test: TauCeti.RootStack.factorialQZCoaction.test_coinvariant_constants
+example (φ : A →+* B) (f a : A) :
+    factorialQZCoaction (φ f) (factorialCoefficientMap φ f (algebraMap A _ a)) =
+      (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
+        factorialCoefficientMap φ f (algebraMap A _ a) := by
+  sorry
+
+end TauCeti.RootStack
+end
