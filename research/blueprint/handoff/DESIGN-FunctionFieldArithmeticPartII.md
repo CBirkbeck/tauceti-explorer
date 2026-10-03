@@ -208,7 +208,7 @@ Actual indexed checker and five-file intake pass with zero findings/refusals. Ac
     "Canonical": {
       "sha256": "175bd240492ae27c2255cee677e020ed3861a267fb75e4406777a2eb0527445e",
       "lines": 3616,
-      "examples": 197,
+      "examples": 210,
       "compiled": false,
       "reason": "Exact-pin native Tau Ceti geometric imports are unavailable; only exact whole Mathlib-only extraction compiled."
     }
