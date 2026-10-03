@@ -6730,3 +6730,495 @@ Additional finite-basis tests:
 - TauCeti.RootStack.affineTransitionBasis.test_finite_free (compatibility): For arbitrary A,f and positive n,m, the specified finite basis gives both native Module.Free and Module.Finite structures on B_(nm) over B_n.
 
 All ten stages remain partial, with the same eight gaps and thirteen supplier requests. Suggested bodies remain admitted and implementation statuses remain unchecked. Separate native proofs are archived and reproducible in the handoff; the complete geometric file is not compiled because its exact-pin Tau Ceti imports are unavailable.
+
+## Universal factorial coaction and the unity-root Hopf algebra
+
+This continuation is a rank-one algebraic construction on the actual inherited colimit, not an assertion of the geometric quotient theorem. Compatible roots determine the algebra maps.
+
+The notation is d_i=(i+1)!, C_A(f) for the actual factorial chart colimit, u_i its roots, H_A=C_A(1), and h_i its unity roots. The inherited subgroup S(B) consists of coherent unit-valued families. All coefficient rings may be zero or nonreduced; test A-algebras share the chosen universe. The tensor products and algebra maps are native pinned library objects. The bialgebra and Hopf structures are local specializations of Mathlib's existing factories, never a second generic theory.
+
+The map ρ_f is obtained from the compatible pairs h_i⊗u_i. The d_i-th powers are 1⊗f, and the transition powers agree in the actual tensor algebra. Its two iterates become h_i⊗(h_i⊗u_i) after the native associator. The augmentation evaluates every h_i at1; the antipode evaluates at the inverse universal unit family. Unit cancellation proves involutivity. Evaluating these universal coordinates in B gives an actual equivalence of algebra points with S(B), natural for every A-algebra map B→C in the fixed universe. Specializing the coaction at σ∈S(A) recovers the already constructed scaling map.
+
+Talpo–Vistoli, §3.1 pp.14–16 motivates the Cartier-dual grading action; these exact rank-one formulas and native constructions are authored deductions. The fresh reading and byte hash are separate from inherited full-paper receipts. The canonical diagonalizable Hopf-algebra identification, convolution group comparison, geometric Spec construction and fpqc quotient are not consequences claimed here.
+
+### Universal coaction on the actual factorial chart
+
+Construct the A-algebra map ρ_f:C_A(f)→H_A⊗_A C_A(f), with H_A=C_A(1), sending u_i to h_i⊗u_i and a to 1⊗a.
+
+Declaration: `TauCeti.RootStack.factorialCoaction`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-power`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-root`, `mathlib:Algebra.TensorProduct.tmul_pow`, `mathlib:Algebra.TensorProduct.includeRight`.
+
+Proof outline: The pair h_i⊗u_i has d_i-th power 1⊗f; tensor balancing identifies this with the coefficient image in the tensor algebra. The inherited transition powers identify the pairs at i≤j. Apply the actual compatible-root lift.
+
+API:
+
+- `TauCeti.RootStack.factorialCoaction.root` (simp): For every i, ρ_f(u_i)=h_i⊗u_i.
+- `TauCeti.RootStack.factorialCoaction.constant` (simp): For every a∈A, ρ_f(a)=1⊗a, with coefficients mapped into the actual chart ring.
+- `TauCeti.RootStack.factorialCoaction.counit` (compatibility): After the native left unitor, (ε_A⊗id)∘ρ_f is the identity A-algebra endomorphism of C_A(f).
+- `TauCeti.RootStack.factorialCoaction.coassoc` (compatibility): Writing Δ_A=ρ_1, the equality α∘(Δ_A⊗id)∘ρ_f=(id⊗ρ_f)∘ρ_f holds as A-algebra maps into H_A⊗_A(H_A⊗_A C_A(f)).
+- `TauCeti.RootStack.factorialCoaction.specialization` (compatibility): For every σ∈S(A), multiplication after (coefficient-inclusion∘E_σ)⊗id, composed with ρ_f, equals the actual inherited scaling map s_σ:C_A(f)→C_A(f).
+- `TauCeti.RootStack.factorialCoaction.injective` (compatibility): ρ_f is injective for every f∈A, without reducedness or nontriviality assumptions.
+
+Tests:
+
+- `factorialCoactionTests.degree_two` (computation): Over Z/4Z with f=2, the degree-two root maps to the degree-two unity root tensored with the chart root.
+- `factorialCoactionTests.coefficient_two` (computation): Over Z/4Z with f=0, coefficient2 maps to 1 tensored with coefficient2.
+- `factorialCoactionTests.zero_ring` (degenerate): Over Z/1Z with f=0, the coaction sends0 to0.
+- `factorialCoactionTests.wild_nonzero` (computation): Over Z/2Z with f=0, the coaction image of the degree-two root is nonzero; the counit left inverse and monic-quotient basis discriminate against a collapsed action.
+- `factorialCoactionTests.wild_square_zero` (computation): That characteristic-two coaction image has square0, retaining its nilpotent rather than replacing it by a field-valued point.
+
+### Root-coordinate formula for the universal coaction
+
+For every i, ρ_f(u_i)=h_i⊗u_i.
+
+Declaration: `TauCeti.RootStack.factorialCoaction.root`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root`.
+
+Proof outline: Evaluate the inherited compatible-root lift on its distinguished root.
+
+### Coefficient formula for the universal coaction
+
+For every a∈A, ρ_f(a)=1⊗a, with coefficients mapped into the actual chart ring.
+
+Declaration: `TauCeti.RootStack.factorialCoaction.constant`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-constant`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction`, `mathlib:Algebra.TensorProduct.includeRight`.
+
+Proof outline: Use the algebra-map coefficient law and the actual right-factor inclusion coefficient law.
+
+### Augmentation of the factorial unity-root algebra
+
+Construct ε_A:H_A→A as an A-algebra map sending every h_i to 1.
+
+Declaration: `TauCeti.RootStack.factorialCounit`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift`.
+
+Proof outline: The constant family 1 satisfies all finite orders and transition powers. Apply the actual compatible-root lift at f=1.
+
+API:
+
+- `TauCeti.RootStack.factorialCounit.root` (simp): For every i, ε_A(h_i)=1.
+- `TauCeti.RootStack.factorialCounit.constant` (simp): For every a∈A, ε_A(algebraMap_A(a))=a.
+- `TauCeti.RootStack.factorialCounit.surjective` (compatibility): The ring map ε_A:H_A→A is surjective, including for the zero ring.
+
+Tests:
+
+- `factorialCounitTests.degree_two` (computation): Over Z/4Z the degree-two unity root has counit1.
+- `factorialCounitTests.coefficient_two` (computation): Over Z/4Z the counit fixes coefficient2.
+- `factorialCounitTests.zero_ring` (degenerate): Over Z/1Z the counit sends0 to0.
+
+### Counit on every factorial root
+
+For every i, ε_A(h_i)=1.
+
+Declaration: `TauCeti.RootStack.factorialCounit.root`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root`.
+
+Proof outline: Evaluate the compatible-root lift on its distinguished root.
+
+### Counit fixes coefficients
+
+For every a∈A, ε_A(algebraMap_A(a))=a.
+
+Declaration: `TauCeti.RootStack.factorialCounit.constant`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-constant`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit`.
+
+Proof outline: Use the native algebra-homomorphism coefficient law.
+
+### Surjectivity of the actual augmentation
+
+The ring map ε_A:H_A→A is surjective, including for the zero ring.
+
+Declaration: `TauCeti.RootStack.factorialCounit.surjective`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-surjective`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-constant`.
+
+Proof outline: A coefficient a is the image of its actual coefficient insertion.
+
+### Counitality of the chart coaction
+
+After the native left unitor, (ε_A⊗id)∘ρ_f is the identity A-algebra endomorphism of C_A(f).
+
+Declaration: `TauCeti.RootStack.factorialCoaction.counit`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-counit`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root`, `mathlib:Algebra.TensorProduct.map`, `mathlib:Algebra.TensorProduct.lid`.
+
+Proof outline: Use actual colimit hom extensionality. On u_i the composite is the left-unitor image of 1⊗u_i, namely u_i.
+
+### Coassociativity with the native tensor associator
+
+Writing Δ_A=ρ_1, the equality α∘(Δ_A⊗id)∘ρ_f=(id⊗ρ_f)∘ρ_f holds as A-algebra maps into H_A⊗_A(H_A⊗_A C_A(f)).
+
+Declaration: `TauCeti.RootStack.factorialCoaction.coassoc`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-coassoc`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `mathlib:DirectLimit.Algebra.hom_ext`, `mathlib:AdjoinRoot.algHom_ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `mathlib:Algebra.TensorProduct.map`, `mathlib:Algebra.TensorProduct.assoc`.
+
+Proof outline: Use native direct-limit algebra extensionality followed by finite AdjoinRoot algebra extensionality. Both root images become h_i⊗(h_i⊗u_i), using the actual tensor map and associator formulas. This avoids assuming a different module-instance path is definitionally identical.
+
+### Right counit of the unity-root comultiplication
+
+After the native right unitor, (id⊗ε_A)∘Δ_A is the identity A-algebra endomorphism of H_A.
+
+Declaration: `TauCeti.RootStack.factorialCoaction.right_counit`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-right-counit`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root`, `mathlib:Algebra.TensorProduct.map`, `mathlib:Algebra.TensorProduct.rid`.
+
+Proof outline: Apply actual colimit root extensionality. The root image is the right-unitor image of h_i⊗1.
+
+### Cocommutativity of the unity-root comultiplication
+
+The native tensor symmetry carries Δ_A to Δ_A.
+
+Declaration: `TauCeti.RootStack.factorialCoaction.cocomm`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-cocommutativity`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `mathlib:Algebra.TensorProduct.comm`.
+
+Proof outline: Apply actual colimit root extensionality. Tensor symmetry fixes h_i⊗h_i.
+
+### Inversion of the unity-root algebra
+
+Construct S_A:H_A→H_A as an A-algebra map sending h_i to the underlying ring value of the inverse of the i-th universal coherent unit.
+
+Declaration: `TauCeti.RootStack.factorialAntipode`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-power`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-transition`.
+
+Proof outline: Invert the actual universal coherent scalar family in its native subgroup; its finite-order and transition identities satisfy the compatible-root lift at f=1.
+
+API:
+
+- `TauCeti.RootStack.factorialAntipode.root` (simp): For every i, S_A(h_i) is the ring value of (σ_i^univ)⁻¹.
+- `TauCeti.RootStack.factorialAntipode.left_inverse` (compatibility): Multiplication after (S_A⊗id)∘Δ_A equals the coefficient inclusion composed with ε_A, as native A-algebra maps H_A→H_A.
+- `TauCeti.RootStack.factorialAntipode.right_inverse` (compatibility): Multiplication after (id⊗S_A)∘Δ_A equals the coefficient inclusion composed with ε_A, as native A-algebra maps H_A→H_A.
+- `TauCeti.RootStack.factorialAntipode.involutive` (compatibility): S_A∘S_A=id_H_A as A-algebra maps.
+
+Tests:
+
+- `factorialAntipodeTests.inverse_root` (computation): For every A, the antipode image of the degree-two unity root multiplied by that root is1.
+- `factorialAntipodeTests.involutive` (compatibility): For every element of H_A, applying the actual antipode twice returns that element.
+- `factorialAntipodeTests.zero_ring` (degenerate): Over Z/1Z the antipode sends0 to0.
+
+### Inverse root-coordinate formula
+
+For every i, S_A(h_i) is the ring value of (σ_i^univ)⁻¹.
+
+Declaration: `TauCeti.RootStack.factorialAntipode.root`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-root`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root`.
+
+Proof outline: Evaluate the compatible-root lift.
+
+### Left convolution inverse law
+
+Multiplication after (S_A⊗id)∘Δ_A equals the coefficient inclusion composed with ε_A, as native A-algebra maps H_A→H_A.
+
+Declaration: `TauCeti.RootStack.factorialAntipode.left_inverse`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-left-inverse`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars-value`, `mathlib:Algebra.TensorProduct.lift`, `mathlib:Units.inv_mul`.
+
+Proof outline: Apply actual colimit root extensionality and the tensor-lift pure-tensor formula. The root product is (σ_i^univ)⁻¹σ_i^univ=1, by the native unit law.
+
+### Right convolution inverse law
+
+Multiplication after (id⊗S_A)∘Δ_A equals the coefficient inclusion composed with ε_A, as native A-algebra maps H_A→H_A.
+
+Declaration: `TauCeti.RootStack.factorialAntipode.right_inverse`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-right-inverse`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars-value`, `mathlib:Algebra.TensorProduct.lift`, `mathlib:Units.mul_inv`.
+
+Proof outline: Apply actual colimit root extensionality and the tensor-lift formula. The root product is σ_i^univ(σ_i^univ)⁻¹=1.
+
+### Involutivity of the actual antipode
+
+S_A∘S_A=id_H_A as A-algebra maps.
+
+Declaration: `TauCeti.RootStack.factorialAntipode.involutive`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-involutive`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-right-inverse`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars`, `mathlib:Algebra.TensorProduct.lift`, `mathlib:IsUnit.map`, `mathlib:IsUnit.mul_left_cancel`.
+
+Proof outline: Evaluate the right convolution inverse identity at h_i and apply S_A to the product-one identity. The universal root is a unit, and its image under S_A is a unit by IsUnit.map. Cancel this image using the native unit cancellation lemma and commutativity; then apply colimit root extensionality.
+
+### Evaluation at a coherent family over a test algebra
+
+For every commutative A-algebra B in the fixed universe and σ∈S(B), construct E_σ:H_A→B as an A-algebra map sending h_i to the underlying ring value of σ_i.
+
+Declaration: `TauCeti.RootStack.factorialScalarEvaluation`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-power`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scalars-transition`.
+
+Proof outline: The finite-order equations and coherent powers of σ supply the actual compatible-root lift at f=1. The coefficient image of 1 is 1.
+
+API:
+
+- `TauCeti.RootStack.factorialScalarEvaluation.root` (simp): For every i, E_σ(h_i)=σ_i in B.
+- `TauCeti.RootStack.factorialScalarEvaluation.constant` (simp): For every a∈A, E_σ(algebraMap_A(a))=algebraMap_A,B(a).
+- `TauCeti.RootStack.factorialScalarEvaluation.universal` (compatibility): For B=H_A and σ=σ^univ, E_σ=id_H_A as A-algebra maps.
+
+Tests:
+
+- `factorialScalarEvaluationTests.universal` (computation): Evaluating the degree-two unity root at the actual universal scalar family returns that root.
+- `factorialScalarEvaluationTests.identity_scalar` (degenerate): Evaluating that root at the identity coherent scalar family over A gives1.
+- `factorialScalarEvaluationTests.coefficient_two` (computation): Over Z/4Z evaluation at the identity family sends coefficient2 to2.
+
+### Evaluation of a universal root
+
+For every i, E_σ(h_i)=σ_i in B.
+
+Declaration: `TauCeti.RootStack.factorialScalarEvaluation.root`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation-root`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root`.
+
+Proof outline: Evaluate the inherited root lift.
+
+### Evaluation of coefficients in a test algebra
+
+For every a∈A, E_σ(algebraMap_A(a))=algebraMap_A,B(a).
+
+Declaration: `TauCeti.RootStack.factorialScalarEvaluation.constant`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation-constant`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation`.
+
+Proof outline: Apply the actual algebra-homomorphism coefficient law.
+
+### Evaluation at the actual universal family
+
+For B=H_A and σ=σ^univ, E_σ=id_H_A as A-algebra maps.
+
+Declaration: `TauCeti.RootStack.factorialScalarEvaluation.universal`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation-universal`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars-value`.
+
+Proof outline: Apply actual colimit root extensionality and the universal scalar root-value formula.
+
+### Representation of coherent factorial unit families
+
+Construct an equivalence Hom_A-alg(H_A,B)≃S(B) for each commutative A-algebra B in the fixed universe; the forward map evaluates the universal coherent unit family and the inverse is E_σ.
+
+Declaration: `TauCeti.RootStack.factorialScalarPoints`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-map`, `FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-value`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars-value`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`, `mathlib:Units.val_injective`.
+
+Proof outline: Map the actual universal unit family by the underlying ring homomorphism p. Evaluation followed by reconstruction agrees on every actual root, hence agrees by colimit root extensionality. Reconstruction followed by evaluation agrees on the ring value of each unit, hence agrees by Units.val_injective and function/subtype extensionality.
+
+API:
+
+- `TauCeti.RootStack.factorialScalarPoints.value` (compatibility): The underlying ring value of the i-th unit of the represented family of p is p(h_i).
+- `TauCeti.RootStack.factorialScalarPoints.naturality` (functoriality): For every A-algebra map k:B→C, the family represented by k∘p equals S(k)(the family represented by p).
+- `TauCeti.RootStack.factorialScalarPoints.left_inverse` (compatibility): For every p:H_A→B, evaluating at its represented coherent family reconstructs p exactly.
+- `TauCeti.RootStack.factorialScalarPoints.right_inverse` (compatibility): For every σ∈S(B), the family represented by E_σ is σ.
+
+Tests:
+
+- `factorialScalarPointsTests.left_inverse` (compatibility): Every A-algebra point H_A→A is exactly reconstructed by evaluation at its represented family.
+- `factorialScalarPointsTests.right_inverse` (degenerate): Over the zero test ring Z/1Z, evaluation and representation recover each coherent unit family.
+- `factorialScalarPointsTests.universal` (computation): The identity algebra map on H_A represents the actual universal coherent unit family.
+
+### Coordinate of a represented test-algebra point
+
+The underlying ring value of the i-th unit of the represented family of p is p(h_i).
+
+Declaration: `TauCeti.RootStack.factorialScalarPoints.value`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-value`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points`, `FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-value`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalars-value`.
+
+Proof outline: Unfold the equivalence forward map and use the mapped-unit and universal root-value formulas.
+
+### Naturality in every test-algebra homomorphism
+
+For every A-algebra map k:B→C, the family represented by k∘p equals S(k)(the family represented by p).
+
+Declaration: `TauCeti.RootStack.factorialScalarPoints.naturality`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-naturality`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-value`, `FunctionFieldArithmeticPartII:RS.2/factorial-scalar-coefficient-value`, `mathlib:Units.val_injective`.
+
+Proof outline: Compare underlying values of the actual units using Units.val_injective, the point-coordinate formula and mapped-unit formula. Both give k(p(h_i)); function and subtype extensionality finish.
+
+### Reconstruction of an algebra point
+
+For every p:H_A→B, evaluating at its represented coherent family reconstructs p exactly.
+
+Declaration: `TauCeti.RootStack.factorialScalarPoints.left_inverse`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-left-inverse`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points`.
+
+Proof outline: Apply the inverse identity of the constructed native equivalence.
+
+### Recovery of a coherent unit family
+
+For every σ∈S(B), the family represented by E_σ is σ.
+
+Declaration: `TauCeti.RootStack.factorialScalarPoints.right_inverse`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points-right-inverse`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-points`.
+
+Proof outline: Apply the other inverse identity of the constructed native equivalence.
+
+### Recovery of the existing coherent scaling map
+
+For every σ∈S(A), multiplication after (coefficient-inclusion∘E_σ)⊗id, composed with ρ_f, equals the actual inherited scaling map s_σ:C_A(f)→C_A(f).
+
+Declaration: `TauCeti.RootStack.factorialCoaction.specialization`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-specialization`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root`, `mathlib:Algebra.TensorProduct.lift`.
+
+Proof outline: Apply actual colimit root extensionality. Both maps send u_i to algebraMap_A(σ_i)·u_i, by the coaction, tensor-lift, evaluation and inherited scaling root formulas.
+
+### Injectivity of the chart coaction
+
+ρ_f is injective for every f∈A, without reducedness or nontriviality assumptions.
+
+Declaration: `TauCeti.RootStack.factorialCoaction.injective`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-injective`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-counit`.
+
+Proof outline: The left-unitor/counit composite is an actual left inverse. Apply it to an equality of coaction images and use the proved counit identity on both elements.
+
+### Native bialgebra on the factorial unity-root algebra
+
+Construct a native Bialgebra A H_A whose comultiplication is Δ_A and whose counit is ε_A, retaining the existing coefficient algebra structure.
+
+Declaration: `TauCeti.RootStack.factorialBialgebra`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-coassoc`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`, `mathlib:Bialgebra.ofAlgHom`, `mathlib:Algebra.TensorProduct.lid`, `mathlib:Algebra.TensorProduct.rid`.
+
+Proof outline: Use the existing Bialgebra.ofAlgHom factory with the proved coassociativity law. For its two pre-unitor counit equalities use actual colimit root extensionality: the images are 1⊗h_i and h_i⊗1 respectively. Native inverse-unitor formulas are exactly these pure tensors. This is a specialization of the existing bialgebra interface, not a new generic bialgebra theory.
+
+API:
+
+- `TauCeti.RootStack.factorialBialgebra.comul` (compatibility): With the constructed local bialgebra instance, its native comulAlgHom is exactly Δ_A.
+- `TauCeti.RootStack.factorialBialgebra.counit` (compatibility): With the constructed local bialgebra instance, its native counitAlgHom is exactly ε_A.
+- `TauCeti.RootStack.factorialCoaction.cocomm` (compatibility): The native tensor symmetry carries Δ_A to Δ_A.
+
+Tests:
+
+- `factorialBialgebraTests.comul_root` (computation): The native constructed bialgebra over Z/4Z sends the degree-two root under comultiplication to its self tensor.
+- `factorialBialgebraTests.counit_root` (computation): The native constructed bialgebra over Z/2Z sends the degree-two root under its counit to1.
+- `factorialBialgebraTests.zero_ring` (degenerate): The native constructed bialgebra over Z/1Z sends0 under comultiplication to0.
+
+### Comultiplication of the constructed native bialgebra
+
+With the constructed local bialgebra instance, its native comulAlgHom is exactly Δ_A.
+
+Declaration: `TauCeti.RootStack.factorialBialgebra.comul`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra-comul`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra`, `mathlib:Bialgebra.comulAlgHom`.
+
+Proof outline: Unfold the existing factory's comultiplication projection; equality is definitional.
+
+### Counit of the constructed native bialgebra
+
+With the constructed local bialgebra instance, its native counitAlgHom is exactly ε_A.
+
+Declaration: `TauCeti.RootStack.factorialBialgebra.counit`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra-counit`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra`, `mathlib:Bialgebra.counitAlgHom`.
+
+Proof outline: Unfold the existing factory's counit projection; equality is definitional.
+
+### Native Hopf algebra on the factorial unity-root algebra
+
+Under the constructed native bialgebra instance, construct HopfAlgebra A H_A with antipode S_A.
+
+Declaration: `TauCeti.RootStack.factorialHopfAlgebra`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-hopf-algebra`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra-comul`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-bialgebra-counit`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-left-inverse`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-right-inverse`, `mathlib:HopfAlgebra.ofAlgHom`.
+
+Proof outline: Use the existing HopfAlgebra.ofAlgHom factory. The actual bialgebra projections identify the required convolution-inverse identities with the already proved left and right antipode identities. No generic Hopf algebra or group-scheme infrastructure is redefined.
+
+API:
+
+- `TauCeti.RootStack.factorialHopfAlgebra.antipode` (compatibility): With the constructed local bialgebra and Hopf algebra instances, its native antipode linear map is the underlying A-linear map of S_A.
+- `TauCeti.RootStack.factorialAntipode.left_inverse` (compatibility): Multiplication after (S_A⊗id)∘Δ_A equals the coefficient inclusion composed with ε_A, as native A-algebra maps H_A→H_A.
+- `TauCeti.RootStack.factorialAntipode.right_inverse` (compatibility): Multiplication after (id⊗S_A)∘Δ_A equals the coefficient inclusion composed with ε_A, as native A-algebra maps H_A→H_A.
+- `TauCeti.RootStack.factorialAntipode.involutive` (compatibility): S_A∘S_A=id_H_A as A-algebra maps.
+
+Tests:
+
+- `factorialHopfAlgebraTests.inverse_root` (computation): The actual native Hopf antipode of the degree-two unity root multiplies with that root to1.
+- `factorialHopfAlgebraTests.involutive` (compatibility): The actual native Hopf antipode applied twice fixes every element of H_A.
+- `factorialHopfAlgebraTests.zero_ring` (degenerate): The actual native Hopf antipode over Z/1Z sends0 to0.
+
+### Antipode of the constructed native Hopf algebra
+
+With the constructed local bialgebra and Hopf algebra instances, its native antipode linear map is the underlying A-linear map of S_A.
+
+Declaration: `TauCeti.RootStack.factorialHopfAlgebra.antipode`. Node: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-hopf-algebra-antipode`.
+
+A is an arbitrary commutative ring, f∈A, and B,C are arbitrary commutative A-algebras in the same fixed universe; k:B→C is an A-algebra homomorphism when used. Zero rings, torsion coefficients and nonreduced fibres are retained. No domain, characteristic-zero, invertibility-of-orders, reducedness or Noetherian assumption is made. Use the actual inherited factorial chart colimit C_A(f), with d_i=(i+1)!, roots u_i and u_i^(d_i)=f. Put H_A=C_A(1) with roots h_i and actual universal coherent unit family σ^univ. S(B) is the inherited native subgroup of coherent B-unit families. Tensor products, unitors, associator, tensor symmetry and algebra homomorphisms are the pinned native interfaces. The native bialgebra and Hopf algebra structures are installed only locally. Representation here is an equivalence of algebra-valued points in the fixed universe; its convolution-group comparison, identification with the diagonalizable group algebra A[Q/Z], higher-universe transport, geometric Spec construction and fpqc quotient remain separate obligations.
+
+Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-hopf-algebra`.
+
+Proof outline: Unfold the existing Hopf algebra factory's antipode projection; equality is definitional.
+
+### Remaining boundary
+
+The universal factorial algebra coaction, native bialgebra/Hopf structures and fixed-universe natural equivalence of algebra-valued points with coherent unit families now have explicit signatures and separate no-admission native evidence. Identify H_A with the canonical diagonalizable coordinate Hopf algebra A[Q/Z] and its convolution group of points; transport the coaction through the full positive-divisibility equivalence; prove coefficient-base-change/coaction compatibility and higher-universe adapters; construct coherent root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and the infinite quotient comparison. Preserve TOWER-AFF, KUMMER-FINITE, TOWER-TYPING, DVR/Kummer, the all-roots-of2 non-fppf counterexample and both Yun–Zhang and symplectic source routes. No stage or implementation closes.
+
+All incoming node contracts, reserved key, both source routes, planets, requests, gaps and historical source/error receipts remain. The only existing node extension is the downstream infinite-quotient input/proof continuation. Every implementation status stays unchecked; all ten stages remain partial.
