@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.Finiteness.Projective
 import Mathlib.Data.Fintype.BigOperators
 import Mathlib.Data.Fin.Tuple.Basic
 import Mathlib.Data.List.OfFn
@@ -3057,14 +3058,199 @@ example :
   sorry
 
 -- test: TwistedHiggsBundle.affineTensorField.test_mixed_nonflat_baseChange
-example {I : Type*} [Fintype I]
-    [Module ℤ E] [Module ℤ F] [Module ℤ Q] (b : Module.Basis I ℤ Q)
-    (θ : E →ₗ[ℤ] E ⊗[ℤ] Q) (ψ : F →ₗ[ℤ] F ⊗[ℤ] Q)
-    (hθ : affineOrderedIterate θ 2 = 0) (hψ : affineOrderedIterate ψ 2 = 0) :
-    affineOrderedIterate (affineTensorField (affineBaseChange (ZMod 2) θ)
-      (affineBaseChange (ZMod 2) ψ)) 3 = 0 := by
+example {E₀ F₀ Q₀ I : Type*} [AddCommGroup E₀] [AddCommGroup F₀]
+    [AddCommGroup Q₀] [Fintype I] (b : Module.Basis I ℤ Q₀)
+    (θ : E₀ →ₗ[ℤ] E₀ ⊗[ℤ] Q₀) (ψ : F₀ →ₗ[ℤ] F₀ ⊗[ℤ] Q₀)
+    (hθ : affineOrderedIterate (R := ℤ) θ 2 = 0)
+    (hψ : affineOrderedIterate (R := ℤ) ψ 2 = 0) :
+    affineOrderedIterate (affineTensorField
+      (affineBaseChange (R := ℤ) (ZMod 2) θ)
+      (affineBaseChange (R := ℤ) (ZMod 2) ψ)) 3 = 0 := by
   sorry
 
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
 /- END AFFINE MIXED TENSOR WORDS -/
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E F Q P : Type*} [CommRing R]
+  [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+  [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+
+lemma affineCoefficientMap_retract (θ : E →ₗ[R] E ⊗[R] Q)
+    (u : Q →ₗ[R] P) (v : P →ₗ[R] Q) (hvu : v.comp u = LinearMap.id) :
+    affineCoefficientMap (affineCoefficientMap θ u) v = θ := by
+  sorry
+
+lemma affineTensorField_ordered_bound_of_split_basis {I : Type*} [Fintype I]
+    (b : Module.Basis I R P) (u : Q →ₗ[R] P) (v : P →ₗ[R] Q)
+    (hvu : v.comp u = LinearMap.id)
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) (N + M - 1) = 0 := by
+  sorry
+
+lemma affineTensorField_ordered_bound_of_projective [Module.Finite R Q] [Module.Projective R Q]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) (N + M - 1) = 0 := by
+  sorry
+
+lemma affineTensorField_ordered_larger_bound_of_projective [Module.Finite R Q]
+    [Module.Projective R Q]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M k : ℕ) (hN : 0 < N) (hM : 0 < M) (hk : N + M ≤ k + 1)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) k = 0 := by
+  sorry
+
+lemma affineTensorField_ordered_nilpotent_of_projective [Module.Finite R Q]
+    [Module.Projective R Q]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (hθ : ∃ N, 0 < N ∧ affineOrderedIterate θ N = 0)
+    (hψ : ∃ M, 0 < M ∧ affineOrderedIterate ψ M = 0) :
+    ∃ K, 0 < K ∧ affineOrderedIterate (affineTensorField θ ψ) K = 0 := by
+  sorry
+
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+lemma affineTensorField_ordered_baseChange_of_projective [Module.Finite R Q]
+    [Module.Projective R Q]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate
+      (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) (N + M - 1) = 0 := by
+  sorry
+
+lemma affineTensorField_ordered_chart_of_projective [Module.Finite R Q]
+    [Module.Projective R Q] {G T : Type*} [AddCommGroup G] [Module S G]
+    [AddCommGroup T] [Module S T]
+    (e : S ⊗[R] (E ⊗[R] F) ≃ₗ[S] G) (q : S ⊗[R] Q ≃ₗ[S] T)
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
+    (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
+    affineOrderedIterate (affineChartField S (affineTensorField θ ψ) e q) (N + M - 1) = 0 := by
+  sorry
+
+lemma affineTensorField_ordered_principalCover_of_projective
+    (s : Set R) (hs : Ideal.span s = ⊤)
+    (A : s → Type*) [∀ r, CommRing (A r)] [∀ r, Algebra R (A r)]
+    [∀ r : s, IsLocalization.Away r.val (A r)]
+    [∀ r : s, Module.Finite (A r) ((A r) ⊗[R] Q)]
+    [∀ r : s, Module.Projective (A r) ((A r) ⊗[R] Q)]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
+    (hθ : ∀ r : s, affineOrderedIterate (affineBaseChange (A r) θ) N = 0)
+    (hψ : ∀ r : s, affineOrderedIterate (affineBaseChange (A r) ψ) M = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) (N + M - 1) = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+variable {R E F Q P : Type*} [CommRing R]
+  [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
+  [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
+
+-- test: TwistedHiggsBundle.affineCoefficientMap.test_split_projective_retract
+example (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineCoefficientMap (affineCoefficientMap θ (LinearMap.inl R Q P))
+      (LinearMap.fst R Q P) = θ := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_split_basis_bound
+example {I : Type*} [Fintype I] (b : Module.Basis I R P)
+    (u : Q →ₗ[R] P) (v : P →ₗ[R] Q) (hvu : v.comp u = LinearMap.id)
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (hθ : affineOrderedIterate θ 2 = 0) (hψ : affineOrderedIterate ψ 2 = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) 3 = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_projective_bound
+example [Module.Finite R Q] [Module.Projective R Q]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (hθ : affineOrderedIterate θ 2 = 0) (hψ : affineOrderedIterate ψ 2 = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) 3 = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_projective_zero_fields
+example [Module.Finite R Q] [Module.Projective R Q] :
+    affineOrderedIterate (affineTensorField (0 : E →ₗ[R] E ⊗[R] Q)
+      (0 : F →ₗ[R] F ⊗[R] Q)) 1 = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_projective_larger_bound
+example [Module.Finite R Q] [Module.Projective R Q]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (hθ : affineOrderedIterate θ 2 = 0) (hψ : affineOrderedIterate ψ 2 = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) 5 = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_projective_positive_nilpotence
+example [Module.Finite R Q] [Module.Projective R Q]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (hθ : ∃ N, 0 < N ∧ affineOrderedIterate θ N = 0)
+    (hψ : ∃ M, 0 < M ∧ affineOrderedIterate ψ M = 0) :
+    ∃ K, 0 < K ∧ affineOrderedIterate (affineTensorField θ ψ) K = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_projective_nonflat_baseChange
+example {E₀ F₀ Q₀ : Type*} [AddCommGroup E₀] [AddCommGroup F₀]
+    [AddCommGroup Q₀] [Module.Finite ℤ Q₀] [Module.Projective ℤ Q₀]
+    (θ : E₀ →ₗ[ℤ] E₀ ⊗[ℤ] Q₀) (ψ : F₀ →ₗ[ℤ] F₀ ⊗[ℤ] Q₀)
+    (hθ : affineOrderedIterate (R := ℤ) θ 2 = 0)
+    (hψ : affineOrderedIterate (R := ℤ) ψ 2 = 0) :
+    affineOrderedIterate (affineTensorField
+      (affineBaseChange (R := ℤ) (ZMod 2) θ)
+      (affineBaseChange (R := ℤ) (ZMod 2) ψ)) 3 = 0 := by
+  sorry
+
+variable (S : Type*) [CommRing S] [Algebra R S]
+-- test: TwistedHiggsBundle.affineTensorField.test_projective_chart_bound
+example [Module.Finite R Q] [Module.Projective R Q] {G T : Type*}
+    [AddCommGroup G] [Module S G] [AddCommGroup T] [Module S T]
+    (e : S ⊗[R] (E ⊗[R] F) ≃ₗ[S] G) (q : S ⊗[R] Q ≃ₗ[S] T)
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (hθ : affineOrderedIterate θ 2 = 0) (hψ : affineOrderedIterate ψ 2 = 0) :
+    affineOrderedIterate (affineChartField S (affineTensorField θ ψ) e q) 3 = 0 := by
+  sorry
+
+-- test: TwistedHiggsBundle.affineTensorField.test_projective_principal_cover
+example (s : Set R) (hs : Ideal.span s = ⊤)
+    (A : s → Type*) [∀ r, CommRing (A r)] [∀ r, Algebra R (A r)]
+    [∀ r : s, IsLocalization.Away r.val (A r)]
+    [∀ r : s, Module.Finite (A r) ((A r) ⊗[R] Q)]
+    [∀ r : s, Module.Projective (A r) ((A r) ⊗[R] Q)]
+    (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+    (hθ : ∀ r : s, affineOrderedIterate (affineBaseChange (A r) θ) 2 = 0)
+    (hψ : ∀ r : s, affineOrderedIterate (affineBaseChange (A r) ψ) 2 = 0) :
+    affineOrderedIterate (affineTensorField θ ψ) 3 = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+open scoped TensorProduct
+-- test: TwistedHiggsBundle.affineTensorField.test_projective_nonfree_corner
+example :
+    let R₀ := ℚ × ℚ
+    letI : Algebra R₀ ℚ := (RingHom.fst ℚ ℚ).toAlgebra
+    Module.Projective R₀ ℚ ∧ Module.Finite R₀ ℚ ∧
+      ((0,1) : R₀) • (1 : ℚ) = 0 ∧ ((0,1) : R₀) ≠ 0 ∧
+      ∀ θ ψ : ℚ →ₗ[R₀] ℚ ⊗[R₀] ℚ,
+        affineOrderedIterate θ 2 = 0 → affineOrderedIterate ψ 2 = 0 →
+        affineOrderedIterate (affineTensorField θ ψ) 3 = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
