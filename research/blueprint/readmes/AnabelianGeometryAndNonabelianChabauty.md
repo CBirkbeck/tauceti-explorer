@@ -427,7 +427,7 @@ Declaration: TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_projection. No
 
 For every a∈H¹(G,Twist(c)), the quotient H¹ map followed by the quotient-twist equivalence is exactly H1.map F_c applied to a.
 
-Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-representative, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence-representative, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-map-triangle.
+Prerequisites: AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-representative, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence-representative, AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-projection-triangle.
 
 Proof outline:
 

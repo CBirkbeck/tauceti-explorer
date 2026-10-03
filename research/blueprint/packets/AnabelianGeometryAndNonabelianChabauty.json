@@ -14974,7 +14974,7 @@
       "prerequisites": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-representative",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-h1-equivalence-representative",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-map-triangle"
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-quotient-cocycle-projection-triangle"
       ],
       "proofSteps": [
         "Choose one actual cocycle representative for a, apply the representative formulas and the exact cocycle factorization, and descend to classes."
