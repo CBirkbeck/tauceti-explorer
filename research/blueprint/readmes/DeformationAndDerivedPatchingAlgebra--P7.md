@@ -1,3 +1,107 @@
+## Finite length and stabilization of the local Hilbert functions
+
+The extended functions use the same actual module quotients throughout. Put F_n=q^n M, H(q;M,n)=length_A(M/q^(n+1)M), and G(q;M,n)=length_A(F_n/(q times the top submodule of F_n)). Their coefficients are extended natural numbers until finiteness has been proved. Finite generation means generation as an A-module; it does not mean a finite underlying set. The field ℚ therefore supplies an acceptance example with an infinite residue field and finite lengths.
+
+For Noetherian local A, radical(q)=m implies that A/q is Artinian by the existing zero-dimensional Noetherian quotient theory. On a finite module killed by q, the existing quotient action makes the same module an A/q-module. Transport Artinianity back through the identity semilinear map for A→A/q; combine it with Noetherianity over A. Apply this argument to q^(n+1) and M/q^(n+1)M to obtain finite cumulative lengths. The native injective graded-to-cumulative quotient map then gives finite graded lengths. Neither argument requires Hilbert–Serre, a chosen polynomial, completeness, freeness, a finite residue field, or a nonzero module.
+
+Over any commutative local ring, a finite-length module is both Noetherian and Artinian. The descending maximal-ideal powers stabilize. Their stable term is finitely generated as a submodule of this Noetherian module, and Nakayama makes it zero. This proves maximal-ideal nilpotence without assuming the ring itself Noetherian. Conversely, over a Noetherian local ring, a finite module killed by a maximal-ideal power has finite length; the exponent-zero branch is exactly the zero module. An infinite direct sum of the residue field shows why finite generation cannot be removed from this converse.
+
+For an arbitrary ideal and arbitrary module, q^r M=0 forces the cumulative length to equal length_A(M) as soon as r≤n+1 and forces the graded length to be zero as soon as r≤n. These statements preserve extended infinite lengths and distinguish the two cutoffs. For finite-length modules over a local ring, every q⊆m has an annihilating power, so both functions stabilize with those respective values. The unit ideal fails this containment premise: its cumulative function is zero even on a nonzero module of length one.
+
+The following declarations refine R03.3 and the existing reserved multiplicity owner. Their dependencies are native baseline facts or preceding declarations here. The existing generic Hilbert–Samuel polynomial, its dimension theorem and both factorial normalizations retain their full hypotheses; these finite-length results do not identify the degree for positive-dimensional modules. All P7/P8/P9 and R03.1–R03.5 targets, the R03.6 supplier, completed tensor products, derived algebra and every routed-paper obligation remain required.
+
+### Finite length under primary ideal annihilation
+
+TauCeti.HilbertSamuel.finiteLength_of_primary_annihilation: If A is Noetherian local, M is finite, radical(q)=m and qM=0, then M has finite length over A.
+
+Every minimal prime p over q contains radical(q)=m and hence equals m. The existing quotient-dimension criterion and Noetherian quotient instance make A/q Artinian; this is a baseline reduction, not a new Artinian-ring theory. Use Module.IsTorsionBySet.module for the induced action of A/q on the same M. Finiteness transfers to A/q, and the existing Artinian-ring finite-module theorem gives Artinianity. The actual identity semilinear map over the surjective quotient homomorphism transports Artinianity back to A. Combine it with Noetherianity of finite A-modules.
+
+Prerequisites: mathlib:Ideal.krullDimLE_zero_quotient_iff_forall_minimalPrimes_isMaximal, mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero, mathlib:Ideal.Quotient.isNoetherianRing, mathlib:Ideal.IsRadical.radical_le_iff, mathlib:Ideal.IsPrime.isRadical, mathlib:Ideal.IsMaximal.eq_of_le, mathlib:Module.isTorsionBySet_iff_subset_annihilator, mathlib:Module.IsTorsionBySet.module, mathlib:Module.IsTorsionBySet.semilinearMap, mathlib:Module.IsTorsionBySet.isScalarTower, mathlib:Module.Finite.of_restrictScalars_finite, mathlib:LinearMap.isArtinian_iff_of_bijective, mathlib:isFiniteLength_iff_isNoetherian_isArtinian, mathlib:IsArtinianRing.tfae, mathlib:isNoetherian_of_isNoetherianRing_of_finite, mathlib:Module.length_ne_top_iff, mathlib:Submodule.annihilator_top, mathlib:Submodule.le_annihilator_iff, mathlib:IsLocalRing.maximalIdeal.isMaximal, mathlib:Ideal.le_radical.
+
+### Maximal-ideal nilpotence of a finite-length module
+
+TauCeti.HilbertSamuel.exists_maximal_power_eq_bot: For every commutative local ring A and finite-length A-module M, there is r≥0 with m^r M=0. No Noetherian-ring hypothesis is needed.
+
+Finite length supplies both Noetherianity and Artinianity of M, even when A is not Noetherian. Stabilize the actual descending submodules m^n M by IsArtinian.monotone_stabilizes. At a stable index N=m^r M is finitely generated by Noetherianity of M and satisfies N=mN. Apply the existing Nakayama lemma using jacobson(0)=m to conclude N=0. The zero module permits r=0.
+
+Prerequisites: mathlib:isFiniteLength_iff_isNoetherian_isArtinian, mathlib:IsArtinian.monotone_stabilizes, mathlib:Ideal.pow_le_pow_right, mathlib:Submodule.smul_mono_left, mathlib:IsNoetherian, mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot, mathlib:IsLocalRing.jacobson_eq_maximalIdeal, mathlib:Submodule.mul_smul.
+
+### Finite length and maximal-ideal nilpotence
+
+TauCeti.HilbertSamuel.finiteLength_iff_maximal_power: For Noetherian local A and finite M, M has finite length if and only if m^r M=0 for some r≥0.
+
+Apply finite-length-maximal-power-nilpotence in the forward direction. Apply the existing finite-length-of-maximal-power-annihilation and Module.length_ne_top_iff in the reverse direction.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-maximal-power-nilpotence, DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-maximal-power-annihilation, mathlib:Module.length_ne_top_iff.
+
+### Cumulative length after ideal-power annihilation
+
+TauCeti.HilbertSamuel.function_eq_length_of_power_annihilation: For any A, M and q, if q^r M=0 and r≤n+1, then H(q;M,n)=length_A(M) in extended naturals.
+
+Decreasing ideal powers and monotone ideal action show q^(n+1)M=0. Use the native linear equivalence from the quotient by the zero submodule to M and preservation of extended length. No finite-length-toNat conversion is used.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function, mathlib:Ideal.pow_le_pow_right, mathlib:Submodule.smul_mono_left, mathlib:Submodule.quotEquivOfEqBot, mathlib:LinearEquiv.length_eq.
+
+### Vanishing of graded lengths after annihilation
+
+TauCeti.HilbertSamuel.gradedFunction_eq_zero_of_power_annihilation: For any A, M and q, if q^r M=0 and r≤n, then G(q;M,n)=0.
+
+Decreasing ideal powers give q^n M=0. The actual numerator subtype is therefore subsingleton. Its quotient by q times the top submodule is subsingleton, so Module.length_eq_zero gives zero. Preserve the subtype carrier rather than rewrite dependent scalar instances.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function, mathlib:Ideal.pow_le_pow_right, mathlib:Submodule.smul_mono_left, mathlib:Module.length_eq_zero.
+
+### Nilpotence of a proper local ideal on a finite-length module
+
+TauCeti.HilbertSamuel.exists_power_eq_bot_of_finiteLength: For any commutative local A, finite-length M and ideal q⊆m, some q^r M is zero.
+
+Use maximal-ideal nilpotence of the same M. Power monotonicity q^r⊆m^r and monotone ideal action transport that vanishing.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-maximal-power-nilpotence, mathlib:Ideal.pow_right_mono, mathlib:Submodule.smul_mono_left.
+
+### Cumulative stabilization for finite-length modules
+
+TauCeti.HilbertSamuel.function_eventually_eq_length: For any commutative local A, finite-length M and q⊆m, there is N≥0 such that H(q;M,n)=length_A(M) for every n≥N.
+
+Choose an annihilating q power using finite-length-ideal-power-nilpotence. Use hilbert-function-of-power-annihilation at every n≥r, where r≤n+1.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-ideal-power-nilpotence, DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-function-of-power-annihilation.
+
+### Graded stabilization for finite-length modules
+
+TauCeti.HilbertSamuel.gradedFunction_eventually_zero: For any commutative local A, finite-length M and q⊆m, there is N≥0 such that G(q;M,n)=0 for every n≥N.
+
+Choose an annihilating q power using finite-length-ideal-power-nilpotence. Use graded-function-of-power-annihilation at every n≥r.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-ideal-power-nilpotence, DeformationAndDerivedPatchingAlgebra:R03.3/graded-function-of-power-annihilation.
+
+### API and acceptance examples
+
+TauCeti.HilbertSamuel.function_eq_length_of_power_annihilation: For any A, M and q, if q^r M=0 and r≤n+1, then H(q;M,n)=length_A(M) in extended naturals.
+
+TauCeti.HilbertSamuel.function_eventually_eq_length: For any commutative local A, finite-length M and q⊆m, there is N≥0 such that H(q;M,n)=length_A(M) for every n≥N.
+
+TauCeti.HilbertSamuel.gradedFunction_eq_zero_of_power_annihilation: For any A, M and q, if q^r M=0 and r≤n, then G(q;M,n)=0.
+
+TauCeti.HilbertSamuel.gradedFunction_eventually_zero: For any commutative local A, finite-length M and q⊆m, there is N≥0 such that G(q;M,n)=0 for every n≥N.
+
+FiniteLengthTests.infinite_residue_field: For A=ℚ, q=0 and M=ℚ³, H(q;M,n) is finite for every n although the residue field is infinite.
+
+FiniteLengthTests.zeroth_power_zero_module: The zero ℚ-module ℚ⁰ has finite length, and the maximal-power annihilation test allows r=0.
+
+FiniteLengthTests.field_nilpotence: For the native finite-length ℚ-module ℚ and q=0, there is an annihilating ideal power.
+
+FiniteLengthTests.cumulative_boundary: For A=ℚ, q=0 and M=ℚ³, H(q;M,0)=3.
+
+FiniteLengthTests.graded_cutoff: For A=ℚ, q=0 and M=ℚ, G(q;M,1)=0.
+
+FiniteLengthTests.graded_degree_zero_survives: For A=ℚ, q=0 and M=ℚ, G(q;M,0)≠0, so replacing the graded cutoff n≥r by n+1≥r is false.
+
+FiniteLengthTests.infinite_sum_finiteness_required: The infinite direct sum of ℚ indexed by ℕ has infinite ℚ-length although the maximal ideal 0 annihilates it; finite generation is required in the reverse criterion.
+
+FiniteLengthTests.unit_ideal_stabilization_rejected: For A=M=ℚ, q=A and n=0, H(A;ℚ,0)=0 differs from length_ℚ(ℚ)=1; the proper-ideal premise in stabilization is necessary.
+
+Sources: Stacks 10.52.4 and 10.52.8 give the finite-length implications, 10.52.5 gives the surjective scalar comparison, and 10.59 supplies the cumulative and graded definitions. The quotient-Artinian route reuses pinned Mathlib dimension, finite-module and semilinear transport theorems. Regularity under completion and the other ModularCurves 4D outputs retain their existing supplier. No new planet is required for these supporting lemmas.
+
 # Graded annihilator comparison and the primary boundary
 
 The nth graded piece is the actual quotient of the submodule q^nM by q acting on that submodule. Adjoining Ann_A(M) identifies both numerator and denominator, so the comparison preserves underlying representatives and extended lengths even for nonfaithful and zero modules. No finite-length assumption is used in this transport.

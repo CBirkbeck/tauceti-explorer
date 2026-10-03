@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation.",
+  "summary": "Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2514,6 +2514,118 @@
         "module": "Mathlib/RingTheory/Ideal/Operations.lean",
         "provides": "Radical is monotone under ideal inclusion.",
         "checked": "Complete declaration statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03."
+      },
+      {
+        "ref": "mathlib:Ideal.krullDimLE_zero_quotient_iff_forall_minimalPrimes_isMaximal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/KrullDimension/Zero.lean",
+        "provides": "An ideal quotient is zero-dimensional iff its minimal primes are maximal.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/HopkinsLevitzki.lean",
+        "provides": "A Noetherian commutative ring of dimension at most zero is Artinian.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:Ideal.IsMaximal.eq_of_le",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maximal.lean",
+        "provides": "A proper ideal above a maximal ideal equals it.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:Module.isTorsionBySet_iff_subset_annihilator",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
+        "provides": "Ideal annihilation is the native torsion-by-set condition.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:Module.IsTorsionBySet.semilinearMap",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
+        "provides": "Identity on elements is semilinear for the quotient homomorphism.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:Module.Finite.of_restrictScalars_finite",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "provides": "Finiteness over the smaller ring implies finiteness over the compatible larger ring.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:LinearMap.isArtinian_iff_of_bijective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Artinian/Module.lean",
+        "provides": "A bijective semilinear map over a surjective ring map transports Artinianity.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:IsArtinianRing.tfae",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/HopkinsLevitzki.lean",
+        "provides": "Finite modules over an Artinian ring have finite length.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:isNoetherian_of_isNoetherianRing_of_finite",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
+        "provides": "A finite module over a Noetherian ring is Noetherian.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:IsArtinian.monotone_stabilizes",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Artinian/Module.lean",
+        "provides": "A decreasing sequence of submodules of an Artinian module stabilizes.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:IsNoetherian",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/Noetherian/Defs.lean",
+        "provides": "The native class asserts that every submodule is finitely generated through its noetherian field; the field is confirmed by the source and native elaboration.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Nakayama.lean",
+        "provides": "A finitely generated submodule satisfying the Jacobson-radical Nakayama inclusion is zero.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.jacobson_eq_maximalIdeal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+        "provides": "The Jacobson radical of a proper ideal in a local ring is the maximal ideal.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:Ideal.pow_right_mono",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "Ideal powers preserve containment for a fixed exponent.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:Submodule.smul_mono_left",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Operations.lean",
+        "provides": "Ideal action is monotone in the acting ideal.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
+      },
+      {
+        "ref": "mathlib:Submodule.quotEquivOfEqBot",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "The actual quotient by the zero submodule is linearly equivalent to the module.",
+        "checked": "Actual statement and surrounding hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; native use elaborates in the exact-pin build."
       }
     ]
   },
@@ -3549,6 +3661,45 @@
         "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
         "read": "2026-10-03"
       }
+    },
+    {
+      "id": "HS-FINITE-LOCAL-20261003",
+      "title": "The Stacks Project, finite length over local rings",
+      "authors": "The Stacks Project authors",
+      "edition": "Online version accessed 3 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/00IU",
+      "sha256": "418363ef436c9d4fad059bf24be2cd832947c9dcaa8623db885f93f126804232",
+      "readSections": [
+        "10.52.4",
+        "10.52.5",
+        "10.52.8"
+      ]
+    },
+    {
+      "id": "HS-FINITE-LOCAL-PIN",
+      "title": "Pinned native finite-length, quotient and Nakayama APIs",
+      "authors": "Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "readSections": [
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/KrullDimension/Zero.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/HopkinsLevitzki.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/Ideal/Quotient/Noetherian.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/Ideal/Operations.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/Ideal/Maximal.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/Algebra/Module/Torsion/Basic.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/Finiteness/Basic.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/Artinian/Module.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/FiniteLength.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/Noetherian/Basic.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/Length.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/Noetherian/Defs.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/Nakayama.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/Algebra/Algebra/Operations.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "Selected declaration statements and surrounding hypotheses in Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean"
+      ]
     }
   ],
   "nodes": [
@@ -4184,6 +4335,16 @@
           "name": "TauCeti.HilbertSamuel.function_ringQuotient_antitone",
           "role": "functoriality",
           "statement": "If I⊆I′, then H(image(J),A/I′,n)≤H(image(J),A/I,n), with each ideal image formed in its own actual quotient ring. This is an inequality in extended naturals and may be strict."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.function_eq_length_of_power_annihilation",
+          "role": "characterisation",
+          "statement": "For any A, M and q, if q^r M=0 and r≤n+1, then H(q;M,n)=length_A(M) in extended naturals."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.function_eventually_eq_length",
+          "role": "characterisation",
+          "statement": "For any commutative local A, finite-length M and q⊆m, there is N≥0 such that H(q;M,n)=length_A(M) for every n≥N."
         }
       ],
       "tests": [
@@ -4236,6 +4397,31 @@
           "name": "HilbertSamuelQuotientTest.nonsurjective_coefficients",
           "kind": "non-example",
           "statement": "For the native coefficient inclusion ℝ→ℂ, length_ℝ(ℂ)=2 while length_ℂ(ℂ)=1. Dropping the surjectivity premise from scalar-length equality is false."
+        },
+        {
+          "name": "FiniteLengthTests.infinite_residue_field",
+          "kind": "compatibility",
+          "statement": "For A=ℚ, q=0 and M=ℚ³, H(q;M,n) is finite for every n although the residue field is infinite."
+        },
+        {
+          "name": "FiniteLengthTests.zeroth_power_zero_module",
+          "kind": "degenerate",
+          "statement": "The zero ℚ-module ℚ⁰ has finite length, and the maximal-power annihilation test allows r=0."
+        },
+        {
+          "name": "FiniteLengthTests.cumulative_boundary",
+          "kind": "computation",
+          "statement": "For A=ℚ, q=0 and M=ℚ³, H(q;M,0)=3."
+        },
+        {
+          "name": "FiniteLengthTests.infinite_sum_finiteness_required",
+          "kind": "non-example",
+          "statement": "The infinite direct sum of ℚ indexed by ℕ has infinite ℚ-length although the maximal ideal 0 annihilates it; finite generation is required in the reverse criterion."
+        },
+        {
+          "name": "FiniteLengthTests.unit_ideal_stabilization_rejected",
+          "kind": "non-example",
+          "statement": "For A=M=ℚ, q=A and n=0, H(A;ℚ,0)=0 differs from length_ℚ(ℚ)=1; the proper-ideal premise in stabilization is necessary."
         }
       ],
       "uses": [
@@ -4262,6 +4448,10 @@
         {
           "where": "DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function-antitone",
           "how": "Compare extra equations by the existing surjective map of ambient jets; the inequality direction and strict boundary test detect a reversed quotient map."
+        },
+        {
+          "where": "Stacks 10.52.4, 10.52.8 and 10.59; finite-length modules in R03.3",
+          "how": "Establish finite values on genuine quotients, separate the cumulative and graded annihilation cutoffs, and identify their stable values before any polynomial or multiplicity argument."
         }
       ],
       "planet": {
@@ -4283,18 +4473,20 @@
         "There is r:ℕ such that m^r·top_N=bottom."
       ],
       "proofSteps": [
-        "Filter N by m^iN for 0≤i≤r. Each subquotient is finite, because A is Noetherian, and is annihilated by m.",
-        "Use the induced A/m scalar action on each subquotient. Module.length_eq_of_surjective compares its A-length with its residue-field length, and Module.length_eq_finrank makes the latter a finite natural number.",
-        "Induct along the finite filtration using Module.length_eq_add_of_exact on the actual inclusion/projection exact sequences; do not assume they split. For r=0 the annihilation hypothesis already makes N zero."
+        "At r=0 the hypothesis gives top_M=bottom, so M is zero and its length is zero.",
+        "For positive r use radical(m^r)=m and finite-length-of-primary-annihilation with q=m^r. Convert native finite length to extended length not equal to infinity."
       ],
       "acceptance": [
         "The module k[ε]/(ε²) has length 2 over itself although the filtration need not split.",
         "Without finite generation an infinite direct sum of k has mN=0 but infinite length."
       ],
       "prerequisites": [
-        "mathlib:Module.length_eq_of_surjective",
-        "mathlib:Module.length_eq_finrank",
-        "mathlib:Module.length_eq_add_of_exact"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-primary-annihilation",
+        "mathlib:Ideal.radical_pow",
+        "mathlib:IsLocalRing.maximalIdeal.isMaximal",
+        "mathlib:Ideal.IsPrime.isRadical",
+        "mathlib:Module.length_ne_top_iff",
+        "mathlib:Module.length_eq_zero"
       ],
       "sources": [
         {
@@ -4325,9 +4517,9 @@
         "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
       ],
       "proofSteps": [
-        "Use Ideal.exists_radical_pow_le_of_fg and Noetherianity to choose r with m^r⊆q. If needed increase r to a positive integer; ideal powers decrease.",
-        "The quotient N=M/q^(n+1)M is finite and is annihilated by m^(r(n+1)), since m^(r(n+1))⊆q^(n+1). Apply finite-length-of-maximal-power-annihilation.",
-        "This supplies the necessary finiteness witness before H.toNat is interpreted as the genuine length."
+        "The actual quotient M/q^(n+1)M is finite and annihilated by q^(n+1), using the native quotient ideal-action torsion theorem.",
+        "Since n+1 is positive, radical(q^(n+1))=m. Apply finite-length-of-primary-annihilation to this same quotient module and Module.length_ne_top_iff.",
+        "This supplies finiteness before H.toNat is interpreted as genuine length; no residue-field cardinality assumption is used."
       ],
       "acceptance": [
         "For a field and q=0 the lengths of finite-dimensional modules are finite.",
@@ -4335,9 +4527,13 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-maximal-power-annihilation",
-        "mathlib:Ideal.exists_radical_pow_le_of_fg",
-        "mathlib:ENat.toNat"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-primary-annihilation",
+        "mathlib:Ideal.radical_pow",
+        "mathlib:Module.isTorsionBySet_quotient_ideal_smul",
+        "mathlib:Module.isTorsionBySet_iff_subset_annihilator",
+        "mathlib:Submodule.annihilator_top",
+        "mathlib:Submodule.le_annihilator_iff",
+        "mathlib:Module.length_ne_top_iff"
       ],
       "sources": [
         {
@@ -6302,6 +6498,16 @@
           "name": "TauCeti.HilbertSamuel.gradedFunction_top",
           "role": "simp",
           "statement": "For q=A the raw graded function is identically zero."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.gradedFunction_eq_zero_of_power_annihilation",
+          "role": "characterisation",
+          "statement": "For any A, M and q, if q^r M=0 and r≤n, then G(q;M,n)=0."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.gradedFunction_eventually_zero",
+          "role": "characterisation",
+          "statement": "For any commutative local A, finite-length M and q⊆m, there is N≥0 such that G(q;M,n)=0 for every n≥N."
         }
       ],
       "tests": [
@@ -6324,6 +6530,16 @@
           "name": "HilbertSamuelGradedTest.infinite",
           "kind": "non-example",
           "statement": "For A=ℤ, M=ℤ and q=0, φ(q,M,0)=∞ and φ(q,M,n+1)=0. Its cumulative extended length is still ∞; applying toNat before finiteness would destroy that information."
+        },
+        {
+          "name": "FiniteLengthTests.graded_cutoff",
+          "kind": "computation",
+          "statement": "For A=ℚ, q=0 and M=ℚ, G(q;M,1)=0."
+        },
+        {
+          "name": "FiniteLengthTests.graded_degree_zero_survives",
+          "kind": "non-example",
+          "statement": "For A=ℚ, q=0 and M=ℚ, G(q;M,0)≠0, so replacing the graded cutoff n≥r by n+1≥r is false."
         }
       ],
       "uses": [
@@ -6334,6 +6550,10 @@
         {
           "where": "R03.3/eventual-hilbert-samuel-polynomial",
           "how": "State the precise remaining graded polynomiality contract on actual quotient modules."
+        },
+        {
+          "where": "Stacks 10.52.4, 10.52.8 and 10.59; finite-length modules in R03.3",
+          "how": "Establish finite values on genuine quotients, separate the cumulative and graded annihilation cutoffs, and identify their stable values before any polynomial or multiplicity argument."
         }
       ],
       "planet": {
@@ -18713,6 +18933,437 @@
         "namespace": "TauCeti.HilbertSamuel"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-primary-annihilation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finite length under primary ideal annihilation",
+      "kind": "lemma",
+      "statement": "If A is Noetherian local, M is finite, radical(q)=m and qM=0, then M has finite length over A.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m, and M is a finite A-module.",
+        "radical(q)=m and q times the whole module is zero."
+      ],
+      "proofSteps": [
+        "Every minimal prime p over q contains radical(q)=m and hence equals m. The existing quotient-dimension criterion and Noetherian quotient instance make A/q Artinian; this is a baseline reduction, not a new Artinian-ring theory.",
+        "Use Module.IsTorsionBySet.module for the induced action of A/q on the same M. Finiteness transfers to A/q, and the existing Artinian-ring finite-module theorem gives Artinianity.",
+        "The actual identity semilinear map over the surjective quotient homomorphism transports Artinianity back to A. Combine it with Noetherianity of finite A-modules."
+      ],
+      "acceptance": [
+        "Allow the zero module; no finite residue-field hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.krullDimLE_zero_quotient_iff_forall_minimalPrimes_isMaximal",
+        "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
+        "mathlib:Ideal.Quotient.isNoetherianRing",
+        "mathlib:Ideal.IsRadical.radical_le_iff",
+        "mathlib:Ideal.IsPrime.isRadical",
+        "mathlib:Ideal.IsMaximal.eq_of_le",
+        "mathlib:Module.isTorsionBySet_iff_subset_annihilator",
+        "mathlib:Module.IsTorsionBySet.module",
+        "mathlib:Module.IsTorsionBySet.semilinearMap",
+        "mathlib:Module.IsTorsionBySet.isScalarTower",
+        "mathlib:Module.Finite.of_restrictScalars_finite",
+        "mathlib:LinearMap.isArtinian_iff_of_bijective",
+        "mathlib:isFiniteLength_iff_isNoetherian_isArtinian",
+        "mathlib:IsArtinianRing.tfae",
+        "mathlib:isNoetherian_of_isNoetherianRing_of_finite",
+        "mathlib:Module.length_ne_top_iff",
+        "mathlib:Submodule.annihilator_top",
+        "mathlib:Submodule.le_annihilator_iff",
+        "mathlib:IsLocalRing.maximalIdeal.isMaximal",
+        "mathlib:Ideal.le_radical"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-FINITE-LOCAL-20261003",
+          "locator": "10.52.4; 10.52.8 and 10.52.5 for finite annihilated modules",
+          "excerpt": "finite length",
+          "match": "Source finite-length implications; the stated carrier-level corollary follows by the displayed native quotient and power comparisons."
+        },
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "10.59 opening cumulative/graded formulas and paragraph after Definition 10.59.1",
+          "excerpt": "ideal of definition",
+          "match": "These are the actual cumulative and graded module quotients. The finite-length specialization and the two annihilation cutoffs are derived here, not attributed to a general polynomial theorem."
+        },
+        {
+          "sourceId": "HS-FINITE-LOCAL-PIN",
+          "locator": "Exact baseline declarations named in prerequisites",
+          "excerpt": "Noetherian",
+          "match": "Use existing module, quotient-ring and Nakayama carriers; do not construct a second finite-length predicate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.finiteLength_of_primary_annihilation"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-maximal-power-nilpotence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Maximal-ideal nilpotence of a finite-length module",
+      "kind": "lemma",
+      "statement": "For every commutative local ring A and finite-length A-module M, there is r≥0 with m^r M=0. No Noetherian-ring hypothesis is needed.",
+      "hypotheses": [
+        "A is a commutative local ring with maximal ideal m and M is an A-module.",
+        "M has native finite length."
+      ],
+      "proofSteps": [
+        "Finite length supplies both Noetherianity and Artinianity of M, even when A is not Noetherian.",
+        "Stabilize the actual descending submodules m^n M by IsArtinian.monotone_stabilizes. At a stable index N=m^r M is finitely generated by Noetherianity of M and satisfies N=mN.",
+        "Apply the existing Nakayama lemma using jacobson(0)=m to conclude N=0. The zero module permits r=0."
+      ],
+      "acceptance": [
+        "Allow the zero module; no finite residue-field hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "mathlib:isFiniteLength_iff_isNoetherian_isArtinian",
+        "mathlib:IsArtinian.monotone_stabilizes",
+        "mathlib:Ideal.pow_le_pow_right",
+        "mathlib:Submodule.smul_mono_left",
+        "mathlib:IsNoetherian",
+        "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot",
+        "mathlib:IsLocalRing.jacobson_eq_maximalIdeal",
+        "mathlib:Submodule.mul_smul"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-FINITE-LOCAL-20261003",
+          "locator": "10.52.4 statement and proof",
+          "excerpt": "finite length",
+          "match": "Source finite-length implications; the stated carrier-level corollary follows by the displayed native quotient and power comparisons."
+        },
+        {
+          "sourceId": "HS-FINITE-LOCAL-PIN",
+          "locator": "Exact baseline declarations named in prerequisites",
+          "excerpt": "Noetherian",
+          "match": "Use existing module, quotient-ring and Nakayama carriers; do not construct a second finite-length predicate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.exists_maximal_power_eq_bot",
+      "tests": [
+        {
+          "name": "FiniteLengthTests.field_nilpotence",
+          "kind": "compatibility",
+          "statement": "For the native finite-length ℚ-module ℚ and q=0, there is an annihilating ideal power."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-maximal-power-criterion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finite length and maximal-ideal nilpotence",
+      "kind": "lemma",
+      "statement": "For Noetherian local A and finite M, M has finite length if and only if m^r M=0 for some r≥0.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m, and M is a finite A-module."
+      ],
+      "proofSteps": [
+        "Apply finite-length-maximal-power-nilpotence in the forward direction.",
+        "Apply the existing finite-length-of-maximal-power-annihilation and Module.length_ne_top_iff in the reverse direction."
+      ],
+      "acceptance": [
+        "Allow the zero module; no finite residue-field hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-maximal-power-nilpotence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-maximal-power-annihilation",
+        "mathlib:Module.length_ne_top_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-FINITE-LOCAL-20261003",
+          "locator": "10.52.4 and 10.52.8",
+          "excerpt": "finite length",
+          "match": "Source finite-length implications; the stated carrier-level corollary follows by the displayed native quotient and power comparisons."
+        },
+        {
+          "sourceId": "HS-FINITE-LOCAL-PIN",
+          "locator": "Exact baseline declarations named in prerequisites",
+          "excerpt": "Noetherian",
+          "match": "Use existing module, quotient-ring and Nakayama carriers; do not construct a second finite-length predicate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.finiteLength_iff_maximal_power"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-function-of-power-annihilation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Cumulative length after ideal-power annihilation",
+      "kind": "lemma",
+      "statement": "For any A, M and q, if q^r M=0 and r≤n+1, then H(q;M,n)=length_A(M) in extended naturals.",
+      "hypotheses": [
+        "A is any commutative ring, M any A-module and q any ideal.",
+        "r,n≥0, q^r M=0 and r≤n+1."
+      ],
+      "proofSteps": [
+        "Decreasing ideal powers and monotone ideal action show q^(n+1)M=0.",
+        "Use the native linear equivalence from the quotient by the zero submodule to M and preservation of extended length. No finite-length-toNat conversion is used."
+      ],
+      "acceptance": [
+        "The cutoff is n+1; a field module with q=0 stabilizes already at n=0.",
+        "Extended infinite length is retained when finite generation is absent."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
+        "mathlib:Ideal.pow_le_pow_right",
+        "mathlib:Submodule.smul_mono_left",
+        "mathlib:Submodule.quotEquivOfEqBot",
+        "mathlib:LinearEquiv.length_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-FINITE-LOCAL-20261003",
+          "locator": "10.52.4; 10.52.8 and 10.52.5 for finite annihilated modules",
+          "excerpt": "finite length",
+          "match": "Source finite-length implications; the stated carrier-level corollary follows by the displayed native quotient and power comparisons."
+        },
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "10.59 opening cumulative/graded formulas and paragraph after Definition 10.59.1",
+          "excerpt": "ideal of definition",
+          "match": "These are the actual cumulative and graded module quotients. The finite-length specialization and the two annihilation cutoffs are derived here, not attributed to a general polynomial theorem."
+        },
+        {
+          "sourceId": "HS-FINITE-LOCAL-PIN",
+          "locator": "Exact baseline declarations named in prerequisites",
+          "excerpt": "Noetherian",
+          "match": "Use existing module, quotient-ring and Nakayama carriers; do not construct a second finite-length predicate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.function_eq_length_of_power_annihilation"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/graded-function-of-power-annihilation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Vanishing of graded lengths after annihilation",
+      "kind": "lemma",
+      "statement": "For any A, M and q, if q^r M=0 and r≤n, then G(q;M,n)=0.",
+      "hypotheses": [
+        "A is any commutative ring, M any A-module and q any ideal.",
+        "r,n≥0, q^r M=0 and r≤n."
+      ],
+      "proofSteps": [
+        "Decreasing ideal powers give q^n M=0. The actual numerator subtype is therefore subsingleton.",
+        "Its quotient by q times the top submodule is subsingleton, so Module.length_eq_zero gives zero. Preserve the subtype carrier rather than rewrite dependent scalar instances."
+      ],
+      "acceptance": [
+        "The cutoff is n, unlike the cumulative n+1 cutoff.",
+        "For a nonzero field module with q=0, degree zero survives and every positive graded length vanishes."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/graded-hilbert-function",
+        "mathlib:Ideal.pow_le_pow_right",
+        "mathlib:Submodule.smul_mono_left",
+        "mathlib:Module.length_eq_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-FINITE-LOCAL-20261003",
+          "locator": "10.52.4; 10.52.8 and 10.52.5 for finite annihilated modules",
+          "excerpt": "finite length",
+          "match": "Source finite-length implications; the stated carrier-level corollary follows by the displayed native quotient and power comparisons."
+        },
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "10.59 opening cumulative/graded formulas and paragraph after Definition 10.59.1",
+          "excerpt": "ideal of definition",
+          "match": "These are the actual cumulative and graded module quotients. The finite-length specialization and the two annihilation cutoffs are derived here, not attributed to a general polynomial theorem."
+        },
+        {
+          "sourceId": "HS-FINITE-LOCAL-PIN",
+          "locator": "Exact baseline declarations named in prerequisites",
+          "excerpt": "Noetherian",
+          "match": "Use existing module, quotient-ring and Nakayama carriers; do not construct a second finite-length predicate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.gradedFunction_eq_zero_of_power_annihilation"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-ideal-power-nilpotence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Nilpotence of a proper local ideal on a finite-length module",
+      "kind": "lemma",
+      "statement": "For any commutative local A, finite-length M and ideal q⊆m, some q^r M is zero.",
+      "hypotheses": [
+        "A is a commutative local ring with maximal ideal m and M is an A-module.",
+        "M has finite length and q⊆m."
+      ],
+      "proofSteps": [
+        "Use maximal-ideal nilpotence of the same M.",
+        "Power monotonicity q^r⊆m^r and monotone ideal action transport that vanishing."
+      ],
+      "acceptance": [
+        "Allow the zero module; no finite residue-field hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-maximal-power-nilpotence",
+        "mathlib:Ideal.pow_right_mono",
+        "mathlib:Submodule.smul_mono_left"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-FINITE-LOCAL-20261003",
+          "locator": "10.52.4 and the contained-ideal corollary",
+          "excerpt": "finite length",
+          "match": "Source finite-length implications; the stated carrier-level corollary follows by the displayed native quotient and power comparisons."
+        },
+        {
+          "sourceId": "HS-FINITE-LOCAL-PIN",
+          "locator": "Exact baseline declarations named in prerequisites",
+          "excerpt": "Noetherian",
+          "match": "Use existing module, quotient-ring and Nakayama carriers; do not construct a second finite-length predicate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.exists_power_eq_bot_of_finiteLength"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-hilbert-function-stabilization",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Cumulative stabilization for finite-length modules",
+      "kind": "lemma",
+      "statement": "For any commutative local A, finite-length M and q⊆m, there is N≥0 such that H(q;M,n)=length_A(M) for every n≥N.",
+      "hypotheses": [
+        "A is a commutative local ring with maximal ideal m and M is an A-module.",
+        "M has finite length and q⊆m."
+      ],
+      "proofSteps": [
+        "Choose an annihilating q power using finite-length-ideal-power-nilpotence.",
+        "Use hilbert-function-of-power-annihilation at every n≥r, where r≤n+1."
+      ],
+      "acceptance": [
+        "The unit ideal fails the containment premise and has H=0 on any nonzero module."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-ideal-power-nilpotence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-function-of-power-annihilation"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-FINITE-LOCAL-20261003",
+          "locator": "10.52.4; 10.52.8 and 10.52.5 for finite annihilated modules",
+          "excerpt": "finite length",
+          "match": "Source finite-length implications; the stated carrier-level corollary follows by the displayed native quotient and power comparisons."
+        },
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "10.59 opening cumulative/graded formulas and paragraph after Definition 10.59.1",
+          "excerpt": "ideal of definition",
+          "match": "These are the actual cumulative and graded module quotients. The finite-length specialization and the two annihilation cutoffs are derived here, not attributed to a general polynomial theorem."
+        },
+        {
+          "sourceId": "HS-FINITE-LOCAL-PIN",
+          "locator": "Exact baseline declarations named in prerequisites",
+          "excerpt": "Noetherian",
+          "match": "Use existing module, quotient-ring and Nakayama carriers; do not construct a second finite-length predicate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.function_eventually_eq_length"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-graded-function-stabilization",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Graded stabilization for finite-length modules",
+      "kind": "lemma",
+      "statement": "For any commutative local A, finite-length M and q⊆m, there is N≥0 such that G(q;M,n)=0 for every n≥N.",
+      "hypotheses": [
+        "A is a commutative local ring with maximal ideal m and M is an A-module.",
+        "M has finite length and q⊆m."
+      ],
+      "proofSteps": [
+        "Choose an annihilating q power using finite-length-ideal-power-nilpotence.",
+        "Use graded-function-of-power-annihilation at every n≥r."
+      ],
+      "acceptance": [
+        "Allow the zero module; no finite residue-field hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-ideal-power-nilpotence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/graded-function-of-power-annihilation"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-FINITE-LOCAL-20261003",
+          "locator": "10.52.4; 10.52.8 and 10.52.5 for finite annihilated modules",
+          "excerpt": "finite length",
+          "match": "Source finite-length implications; the stated carrier-level corollary follows by the displayed native quotient and power comparisons."
+        },
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "10.59 opening cumulative/graded formulas and paragraph after Definition 10.59.1",
+          "excerpt": "ideal of definition",
+          "match": "These are the actual cumulative and graded module quotients. The finite-length specialization and the two annihilation cutoffs are derived here, not attributed to a general polynomial theorem."
+        },
+        {
+          "sourceId": "HS-FINITE-LOCAL-PIN",
+          "locator": "Exact baseline declarations named in prerequisites",
+          "excerpt": "Noetherian",
+          "match": "Use existing module, quotient-ring and Nakayama carriers; do not construct a second finite-length predicate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.gradedFunction_eventually_zero"
     }
   ],
   "baselineCoverage": [
@@ -21056,5 +21707,26 @@
     "independentNewDeclarations": 7,
     "conditionalNewDeclarations": 3,
     "boundary": "Graded annihilator transport and the nonzero primary boundary now have independent native prototypes. General polynomial invariance is conditional on the existing admitted eventual specification, not a new proof of Hilbert–Serre. The M=0 exception in Stacks Remark 43.15.6 is recorded; formulate the remaining module-relative ideal-of-definition extension with this branch separate. All existing graded finiteness, general polynomial existence, support-degree, completion, associativity and routed-source obligations remain required."
+  },
+  "finiteLengthContinuation": {
+    "worker": "Codex — codex-J6LwjP",
+    "mathematicalBase": "bc09ee60ffaaf17ea3a32ae1dce51b92a58430ad",
+    "incomingPublicHead": "85801aa67000e250569f0aae5e4edf9505f388fa",
+    "newNodes": [
+      "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-primary-annihilation",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-maximal-power-nilpotence",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-maximal-power-criterion",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-function-of-power-annihilation",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/graded-function-of-power-annihilation",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-ideal-power-nilpotence",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-hilbert-function-stabilization",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-graded-function-stabilization"
+    ],
+    "changedProofRoutes": [
+      "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-maximal-power-annihilation",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length"
+    ],
+    "nativeBoundary": "Thirteen independently checked native proofs, including three existing declarations and two routine baseline reductions; no general polynomial specification is imported. Canonical signatures remain admitted, implementation statuses unchecked.",
+    "remaining": "General Hilbert–Serre, support degree/dimension, completion, Artin–Rees, localization, associativity and all eight source/stage targets remain required. Preserve every existing routed-paper obligation, key convention, planet, request, gap and sibling part."
   }
 }
