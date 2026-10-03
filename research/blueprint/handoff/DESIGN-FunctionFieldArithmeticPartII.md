@@ -1,3 +1,551 @@
+# Root-chart point action checkpoint
+
+Codex — codex-a71f92. Refs #3403. Claim5965781823 confirmed by bot5965782864; issue read in full before and after confirmation. Mathematical/control base 0afca1373e81cb7b4345d0e096d419be9a40274d.
+
+Thirteen new nodes, two constructions and eleven lemmas, specify the actual action on chart algebra-valued points through the inherited tensor coaction, a local native MulAction, root/coefficient formulas, identity/composition, test-algebra naturality, recovery of inherited scaling and universal coaction, both antipode cancellations, and fixed zero-root points. Nine API records and seven typed tests are added. All312 incoming contracts and311 whole node objects remain; only the infinite affine quotient consumer gains seven prerequisites and one proof step. General reserved root-stack and stable-curve import contracts, both source routes, all stages/edges,39 planets,8 gaps and13 requests remain. Every stage remains partial; implementation unchecked. Roadmap is byte-identical; reader/suggested retain exact incoming prefixes.
+
+The carrier is actual AlgHom_A(C_A(f),B), for arbitrary same-universe commutative rings and A-algebras, not scalar-extended comodule vectors. Generic native tensor lift, convolution monoid, MulAction and Tau Ceti's existing module point representation are imported/credited, not replanned. Zero rings, nonunit f, torsion and wild/nonreduced fibres remain. Zero-root points are fixed, so action laws do not certify a free action or fpqc torsor. No A[Q/Z], arbitrary-universe, Spec-limit or quotient equivalence is asserted.
+
+## Reading
+
+Freshly read current ten-stage roadmap, the reviewed FA.0–FA.7 target/verdict/duplicate records, applicable REV-AUDIT-20 and whole REV-RT-AUDIT-20 report, complete reserved root-stack survey and current main key/affine quotient contracts, and both full joining briefs. Governing instructions and two upstream-style exemplars were personally read earlier in this continuous session; blob guards are checked before publication. No fresh whole-packet or whole-paper audit is claimed; inherited historical source receipts retain their authors.
+
+Fresh public primary reading2026-10-03: Talpo–Vistoli [arXiv:1410.1164v2](https://arxiv.org/pdf/1410.1164v2), complete printed/PDF pp.14–16, cofinal limit, Cartier-dual grading and fpqc quotient definitions, Lemma3.7 and Proposition3.10 with proofs, Lemma3.12, Corollary3.13 and Definition3.14. These formulas are authored deductions motivated by that passage. Freshly read actual inherited root extensionality, root lifts, coaction/root/scaling, bialgebra and point APIs; recovered full4346-line predecessor byte-exactly, not freshly read it all. Read native tensor lift/pure-tensor formulas, complete Mathlib algebra-hom convolution file, native MulAction carrier and actual Tau Ceti pointsRepresentation carrier/nearby generic module action formulas. Bounded full-tree concept searches found generic module/Hopf infrastructure; no general library-absence claim is made.
+
+## Checks and continuation
+
+Exact existing Mathlib source/build082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti sourcef790474821cf4256814db967cb154e7af3d0c369. Existing Tau Ceti build checkout differs from that source pin; full geometric canonical imports remain unavailable. No setup, update, cache, dependency build or LSP. Native proof and exact whole Mathlib-only sketch extraction checked serially with20GiB memory guard and1200-second timeout. Full canonical not compiled; its new headers and test types match native.
+
+Actual indexed checker and five-file intake pass with zero findings/refusals. Actual atlas assembly/control checks pass; all54 required supplier/stage pairs resolve, all graphs are acyclic and unrelated skips/pending links and stage edges are unchanged. All18 governing guards and five incoming files are unchanged from mathematical to publication base e8900fee9630d5937acb359fc7db190573c379f5. All36 bounded link maps were read; none mentions these PartII stages. Complete geometric suggested compilation remains open, not represented as successful by the Mathlib extraction. Continue with A[Q/Z] Hopf coordinates, index/universe transport, coherent root-object groupoids, affine Spec limits, fpqc frame torsors and infinite quotient comparison; preserve TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR obligations and the all-roots-of2 non-fppf counterexample. Source decomposition for Yun–Zhang and the independent symplectic route remains. No stage is closed.
+
+
+## Exact verification evidence
+
+```json
+{
+  "graph": {
+    "stageDAG": {
+      "vertices": 3056,
+      "edges": 8723,
+      "acyclic": true
+    },
+    "ownDeclarationDAG": {
+      "vertices": 325,
+      "edges": 745,
+      "acyclic": true
+    },
+    "scopedDAG": {
+      "vertices": 3412,
+      "edges": 10079,
+      "acyclic": true
+    },
+    "reachableDeclarations": 395,
+    "externalDeclarations": [
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/affine-pullback-tensor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/canonical-overlap-functor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-cocycle",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-inverses",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coaction-transition-maps",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/coalgebra-to-overlap",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/finite-presentation-module-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-effective",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-faithful",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/fpqc-quasicoherent-descent-full",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coaction-roundtrips",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-coalgebra-morphisms",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-comparison-canonical",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-diagonal",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-coalgebra",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pseudofunctor",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/quasicoherent-pullback",
+      "AlgebraicModuliForArithmeticGeometry:R09.3/tensor-comonad-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-essential-surjective",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-full-faithful",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/band-preserving-morphism",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-act-difference",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-is-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-presheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-action-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-difference-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-local-nonempty",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-principal-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-hom-principal-equiv-apply",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-is-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-presheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pair-sheaf",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-equiv",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-presheaf-iso",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-principal-sheaf-iso",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-band-pull-hom-act",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
+      "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
+      "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+      "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+      "DiamondsAndVStacks:D0/stackification"
+    ],
+    "baselineLeaves": 253,
+    "requiredPairs": 54,
+    "restructurePairs": 0,
+    "unresolved": [],
+    "ownSkippedLinks": [],
+    "ownPendingLinks": [],
+    "otherSkipsMatch": true,
+    "stageEdgesUnchanged": true
+  },
+  "checker": {
+    "roadmap": "FunctionFieldArithmeticPartII",
+    "status": "partial",
+    "nodes": 325,
+    "kinds": {
+      "construction": 56,
+      "definition": 11,
+      "comparison": 11,
+      "lemma": 209,
+      "theorem": 37,
+      "application": 1
+    },
+    "apiItems": 251,
+    "unitTests": 233,
+    "planets": 39,
+    "baselineDeclarations": 201,
+    "prerequisites": {
+      "baseline": 323,
+      "node (this packet)": 745,
+      "stage": 64,
+      "node (blueprint)": 16
+    },
+    "gaps": 8,
+    "requests": 13,
+    "stagesInScope": 10,
+    "stagesClosed": 0
+  },
+  "preservedNodeObjects": 311,
+  "preservedContracts": 312,
+  "newNodes": 13,
+  "newHeaders": 13,
+  "newTests": 7,
+  "rawApiItems": 256,
+  "rawTests": 265,
+  "resources": {
+    "Native": {
+      "warnings": 0,
+      "audits": 216,
+      "mode": "original local compiler invocation",
+      "lines": 4530,
+      "examples": 190,
+      "sourceSha256": "325fbf72fce616c471ff4c7b5a3c4e62691e6149fafa9543f8d37a67cbdd2b11",
+      "normalizedDiagnosticSha256": "97c10b55fc878cb390fada79a5e76f29a1cd3e337b71d252cd7e24e438528b3d"
+    },
+    "Sketch": {
+      "warnings": 450,
+      "audits": 0,
+      "mode": "original local compiler invocation",
+      "lines": 2704,
+      "examples": 190,
+      "sourceSha256": "edc51db50969ae3453114c2f26794f2c8da4875c669b72b820c626b6048f584f",
+      "normalizedDiagnosticSha256": "3793455938c4ee3dbee08cc1b1bc1f73c84ec99eaa63f7f5b5419c781dd33854"
+    }
+  },
+  "intakeProblems": [],
+  "intakeRefusals": [],
+  "guardsUnchanged": 18,
+  "immutableReadPaths": 845,
+  "immutableReadPathListSha256": "058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681",
+  "verifierSha256": "3ef49cd820fdf7fee50c61b147a431a5ee02fab421691c619ae3f8e5e12e2feb",
+  "compiles": {
+    "Native": {
+      "sha256": "325fbf72fce616c471ff4c7b5a3c4e62691e6149fafa9543f8d37a67cbdd2b11",
+      "lines": 4530,
+      "warnings": 0,
+      "admissions": 0,
+      "axiomAudits": 216,
+      "examples": 190,
+      "seconds": 50.43,
+      "peakRSSKiB": 3974560,
+      "availableGiBBefore": 28,
+      "exit": 0
+    },
+    "Sketch": {
+      "sha256": "edc51db50969ae3453114c2f26794f2c8da4875c669b72b820c626b6048f584f",
+      "lines": 2704,
+      "warnings": 450,
+      "admissionWarnings": 450,
+      "examples": 190,
+      "seconds": 18.01,
+      "peakRSSKiB": 3504432,
+      "availableGiBBefore": 27,
+      "exit": 0
+    },
+    "Canonical": {
+      "sha256": "175bd240492ae27c2255cee677e020ed3861a267fb75e4406777a2eb0527445e",
+      "lines": 3616,
+      "examples": 197,
+      "compiled": false,
+      "reason": "Exact-pin native Tau Ceti geometric imports are unavailable; only exact whole Mathlib-only extraction compiled."
+    }
+  },
+  "sourceHashes": {
+    "Native.lean": {
+      "sha256": "325fbf72fce616c471ff4c7b5a3c4e62691e6149fafa9543f8d37a67cbdd2b11",
+      "lines": 4530
+    },
+    "Canonical.lean": {
+      "sha256": "175bd240492ae27c2255cee677e020ed3861a267fb75e4406777a2eb0527445e",
+      "lines": 3616
+    },
+    "Sketch.lean": {
+      "sha256": "edc51db50969ae3453114c2f26794f2c8da4875c669b72b820c626b6048f584f",
+      "lines": 2704
+    },
+    "New.lean": {
+      "sha256": "30e433fad3e7b09b2c98156294399e94d25f5508e1109e9b8172004c06f4394d",
+      "lines": 170
+    },
+    "verify.py": {
+      "sha256": "3ef49cd820fdf7fee50c61b147a431a5ee02fab421691c619ae3f8e5e12e2feb",
+      "lines": 163
+    },
+    "immutable_view.py": {
+      "sha256": "a2c4f361316a37c38516b1e0f8e226d0971fd0b2fdf0f5b433779b7a74de6e8f",
+      "lines": 103
+    },
+    "project.py": {
+      "sha256": "29340cf6a3d521ebb51a840515a4e450701a5d88339f3a9475ebe772bce1f0fa",
+      "lines": 13
+    },
+    "Native-incoming.lean": {
+      "sha256": "5e507d145427f6a31043926445dbb69d87f7d40b3725fad9e26ea699c38229a3",
+      "lines": 4346
+    }
+  }
+}
+```
+
+### verify.py
+
+```python
+"""Check an isolated five-file root-action overlay using immutable repository validators."""
+from pathlib import Path
+import ast,collections,copy,hashlib,json,os,re,subprocess,sys
+R=Path(os.environ.get('TAUCETI_REPO',str(Path.cwd()))).resolve();S=Path(sys.argv[1]).resolve();RID='FunctionFieldArithmeticPartII';STEM=RID
+MATH='0afca1373e81cb7b4345d0e096d419be9a40274d'
+BASE=os.environ.get('ROOT_ACTION_VALIDATE_BASE',MATH)
+FILES=['research/blueprint/'+d+'/'+('DESIGN-' if d=='handoff' else '')+RID+'.'+e for d,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+def readref(ref,path):return subprocess.check_output(['git','show',ref+':'+path],cwd=R,text=True)
+proposal={f:(S/'proposal'/f).read_text() for f in FILES};p=json.loads(proposal[FILES[1]]);roadmap=json.loads(proposal[FILES[0]]);old=json.loads(readref(MATH,FILES[1]));nodes={n['id']:n for n in p['nodes']}
+oldroad=json.loads(readref(MATH,FILES[0]));special=RID+':RS.2/infinite-affine-quotient'
+assert len(old['nodes'])==312 and len(nodes)==325
+for n in old['nodes']:
+ if n['id']==special:
+  for k,v in n.items():
+   if k in ('prerequisites','proofSteps'):assert nodes[n['id']][k][:len(v)]==v
+   else:assert nodes[n['id']][k]==v,(n['id'],k)
+ else:assert nodes[n['id']]==n,n['id']
+assert len(nodes[special]['prerequisites'])==len(next(n for n in old['nodes'] if n['id']==special)['prerequisites'])+7
+assert len(nodes[special]['proofSteps'])==len(next(n for n in old['nodes'] if n['id']==special)['proofSteps'])+1
+for k in old:
+ if k not in ('nodes','summary','sources','baseline','continuationHistory'):assert p[k]==old[k],k
+assert p['sources'][:-1]==old['sources'] and p['baseline']['declarations'][:-1]==old['baseline']['declarations']
+assert {k:v for k,v in p['baseline'].items() if k!='declarations'}=={k:v for k,v in old['baseline'].items() if k!='declarations'}
+assert p['continuationHistory'][:-1]==old['continuationHistory']
+assert all(n['implementationStatus']=='unchecked' for n in p['nodes']) and p['status']=='partial'
+assert proposal[FILES[0]]==readref(MATH,FILES[0])
+assert proposal[FILES[3]].startswith(readref(MATH,FILES[3]))
+assert proposal[FILES[2]].startswith(readref(MATH,FILES[2]))
+assert proposal[FILES[4]].endswith(readref(MATH,FILES[4]))
+for f in FILES:assert readref(MATH,f)==readref(BASE,f),('own input changed',f)
+native=(S/'Native.lean').read_text();canonical=(S/'Canonical.lean').read_text();extra=(S/'New.lean').read_text()
+assert canonical==proposal[FILES[3]]
+assert native.startswith((S/'Native-incoming.lean').read_text())
+assert hashlib.sha256((S/'Native-incoming.lean').read_bytes()).hexdigest()=='5e507d145427f6a31043926445dbb69d87f7d40b3725fad9e26ea699c38229a3'
+assert not re.search(r'\bsorry\b|sorryAx|^axiom\b',native,re.M)
+admitted=canonical[len(readref(MATH,FILES[3])):]
+def headers(text):
+ out={}
+ for m in re.finditer(r'^(def|lemma|example)\b(?: ([A-Za-z0-9_.]+))?',text,re.M):
+  depth=0
+  for i in range(m.start(),len(text)):
+   c=text[i]
+   if c in '([{':depth+=1
+   if c in ')]}':depth-=1
+   if depth==0 and (text.startswith(':=',i) or text.startswith('where\n',i)):
+    line=text[text.rfind('\n',0,i)+1:i].strip()
+    if re.fullmatch(r'(?:let|letI)',line):continue
+    key=m[2] if m[1]!='example' else text[:m.start()].splitlines()[-1].removeprefix('-- ').strip()
+    out[(m[1],key)]=' '.join(text[m.start():i].split());break
+  else:raise AssertionError('body missing')
+ return out
+assert headers(extra)==headers(admitted)
+hh=headers(extra);assert len([k for k in hh if k[0]!='example'])==13
+tests={k[1] for k in hh if k[0]=='example'};assert len(tests)==7
+for n in p['nodes'][312:]:
+ assert n['statement'] in proposal[FILES[2]] and n['declarationName'] in proposal[FILES[2]]
+ assert n['declarationName'].removeprefix('TauCeti.RootStack.') in {k[1] for k in hh if k[0]!='example'}
+ for a in n.get('api',[]):assert a['name'] in proposal[FILES[2]] and a['statement'] in proposal[FILES[2]]
+ for t in n.get('tests',[]):assert t['name'] in tests and t['statement'] in proposal[FILES[2]]
+assert {t['name'] for n in p['nodes'][312:] for t in n.get('tests',[])}==tests
+resources={}
+for name in ['Native','Sketch']:
+ source=(S/(name+'.lean')).read_text();logpath=S/(name.lower()+'.log');diag=S/(name+'.diag')
+ if logpath.exists():
+  raw=logpath.read_text();assert '\tExit status: 0' in raw and 'Command exited' not in raw
+  normalized=raw.split('\tCommand being timed:',1)[0].replace(str(S/(name+'.lean')),name+'.lean')
+  mode='original local compiler invocation'
+ else:normalized=diag.read_text();mode='authenticated archived diagnostics; no new Lean invocation'
+ assert not re.search(r'error:|sorryAx|timed out',normalized)
+ warnings=normalized.count('warning:');admissions=normalized.count('warning: declaration uses')
+ assert warnings==admissions and (name!='Native' or warnings==0)
+ audits=normalized.count('depends on axioms:')+normalized.count('does not depend on any axioms')
+ assert audits==(216 if name=='Native' else 0),audits
+ for ax in re.findall(r'depends on axioms:\s*\[([^]]*)\]',normalized):assert set(x.strip() for x in ax.replace('\n',' ').split(',') if x.strip())<={'propext','Classical.choice','Quot.sound'}
+ resources[name]={'warnings':warnings,'audits':audits,'mode':mode,'lines':len(source.splitlines()),'examples':len(re.findall(r'^example\b',source,re.M)),'sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'normalizedDiagnosticSha256':hashlib.sha256(normalized.encode()).hexdigest()}
+GUARDS=["research/blueprint/WORKERS.md","research/blueprint/PROTOCOL.md","research/expansion/PROTOCOL.md","research/blueprint/UPSTREAM_GUIDE.md","data/library-coverage.json","research/blueprint/reviews/REV-AUDIT-20.md","research/blueprint/reviews/REV-RT-AUDIT-20.md","data/keydefs/KEYDEF-algebraicgeometry.json","research/blueprint/reserved-ids.json","research/blueprint/papers/PAPER-YUN-ZHANG-19.result.json","research/blueprint/papers/PAPER-ABDURRAHMAN-VENKATESH-25.result.json","content/tau-ceti/JacobianChallenge/README.md","content/tau-ceti/StableReduction/README.md","scripts/check_blueprint.py","scripts/source_issues.py","scripts/build.py","scripts/blueprints.py","research/blueprint/intake.py"]
+for f in GUARDS:assert readref(MATH,f)==readref(BASE,f),('governing input changed',f)
+for f,v in proposal.items():
+ assert not re.search(r'/(?:home|tmp|Users)/|file'+'://',v),f
+import immutable_view as gv
+gv.install();sys.path.insert(0,str(R/'scripts'))
+import check_blueprint,build,blueprints
+errors,warnings,checker=check_blueprint.check(S/'proposal'/FILES[1],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world());assert not errors and not warnings,(errors,warnings)
+tree=ast.parse((R/'research/blueprint/intake.py').read_text());names={'file_problems','auto_refusals','own_files','independent_of'}
+picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in names]
+env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake', 'exec'),env)
+job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='DESIGN-'+RID)
+problems=[x for path,text in proposal.items() for x in env['file_problems'](path,text)];refusals=env['auto_refusals'](job,FILES,False,{'codex-a71f92'},set());assert not problems and not refusals,(problems,refusals)
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=STEM];documents[STEM]='research/blueprint/readmes/'+STEM+'.md'
+own_definition=roadmap
+old_definition=oldroad
+def assemble(candidate,definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(STEM,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,own_definition);b=assemble(old,old_definition)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+roadmap=own_definition
+pairs={(d,RID+':'+s['key']) for s in roadmap['stages'] for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ q=json.loads(file.read_text())
+ if q.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source','').startswith(RID+':') or x.get('target','').startswith(RID+':')}
+assert all(reachable(s,t) for s,t in pairs|rspairs),sorted((s,t) for s,t in pairs|rspairs if not reachable(s,t))
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']==len(nodes)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True}
+
+print(json.dumps({'graph':summary,'checker':{k:v for k,v in checker.items() if k!='packet'},'preservedNodeObjects':311,'preservedContracts':312,'newNodes':13,'newHeaders':13,'newTests':7,'rawApiItems':256,'rawTests':265,'resources':resources,'intakeProblems':problems,'intakeRefusals':refusals,'guardsUnchanged':len(GUARDS),'immutableReadPaths':len(gv.READS),'immutableReadPathListSha256':hashlib.sha256(json.dumps(sorted(gv.READS)).encode()).hexdigest(),'verifierSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2),flush=True)
+```
+
+### immutable_view.py
+
+```python
+"""Read the immutable audit tree without creating a repository snapshot."""
+import fnmatch
+import importlib.abc
+import importlib.util
+import io
+from pathlib import Path
+import subprocess
+import sys
+
+import os
+REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
+BASE = os.environ.get('ROOT_ACTION_VALIDATE_BASE', '0afca1373e81cb7b4345d0e096d419be9a40274d')
+TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
+CACHE = {}
+READS = set()
+ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+
+def relative(path):
+    try:
+        return str(path.resolve().relative_to(REPO.resolve()))
+    except ValueError:
+        return None
+
+def blob(key):
+    if key not in TRACKED:
+        raise FileNotFoundError(key)
+    READS.add(key)
+    if key not in CACHE:
+        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
+    return CACHE[key]
+
+def read_text(path, encoding=None, errors=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
+    return blob(key).decode(encoding or 'utf-8', errors or 'strict')
+
+def read_bytes(path):
+    key = relative(path)
+    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
+
+def is_file(path):
+    key = relative(path)
+    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
+
+def is_dir(path):
+    key = relative(path)
+    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
+
+def exists(path):
+    key = relative(path)
+    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
+
+def glob(path, pattern, recursive=False):
+    key = relative(path)
+    if key is None:
+        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
+        return
+    prefix = '' if key == '.' else key.rstrip('/') + '/'
+    for candidate in sorted(TRACKED):
+        if not candidate.startswith(prefix):
+            continue
+        tail = candidate[len(prefix):]
+        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
+            yield REPO / candidate
+
+def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
+    key = relative(path)
+    if key is None:
+        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
+    if mode not in ('r', 'rb'):
+        raise PermissionError('audit tree is read-only')
+    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode(encoding or 'utf-8', errors or 'strict'))
+
+def write_text(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_text'](path, *args, **kwargs)
+
+def write_bytes(path, *args, **kwargs):
+    if relative(path) is not None:
+        raise PermissionError('audit tree is read-only')
+    return ORIGINAL['write_bytes'](path, *args, **kwargs)
+
+class Loader(importlib.abc.Loader):
+    def __init__(self, key):
+        self.key = key
+    def create_module(self, spec):
+        return None
+    def exec_module(self, module):
+        module.__file__ = str(REPO / self.key)
+        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
+
+class Finder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        key = 'scripts/' + fullname + '.py'
+        if '.' not in fullname and key in TRACKED:
+            return importlib.util.spec_from_loader(fullname, Loader(key))
+
+def install():
+    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
+        setattr(Path, name, function)
+    sys.meta_path.insert(0, Finder())
+```
+
+### project.py
+
+```python
+import hashlib
+def project(can):
+    imports = '\n'.join((l for l in can.splitlines() if l.startswith('import Mathlib')))
+    initial = can[can.index('abbrev AffineRing (f : A)'):can.index('-- TauCeti.RootStack.affineCoaction.nativePoint')]
+    one = can[can.index('-- TauCeti.RootStack.affineCoaction.test_one'):can.index('-- TauCeti.RootStack.affineCoaction.test_sign')]
+    comparison = can[can.index('section AffineTorsorComparison'):can.index('-- Native acceptance computations')]
+    own = can[can.index('/-! Native factorial chart diagram continuation'):]
+    extra = can[can.index('-- Native acceptance computations'):can.index('/-! Native factorial chart diagram continuation')]
+    finite = can.split('/- BEGIN NATIVE FINITE ROOT TRANSITIONS -/\n', 1)[1].split('/- END NATIVE FINITE ROOT TRANSITIONS -/\n', 1)[0]
+    pre = '\nnoncomputable section\nuniverse u\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\nopen scoped TensorProduct\n'
+    sketch = imports + pre + initial + one + comparison + extra + '\nnamespace TauCeti.RootStack\nvariable {A : Type u} [CommRing A]\n' + finite + '\nend TauCeti.RootStack\n' + own
+    sketch = sketch.replace('TauCeti.RootsOfUnityGroup.generator n', 'Multiplicative.ofAdd (1 : ZMod n)')
+    return sketch
+```
+
+## Retained incoming checkpoint and historical receipts
+
 # Convolution points of the factorial unity-root Hopf algebra
 
 Codex — codex-5ebb6f. Refs #3403. Claim5965533506 was confirmed by
