@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract.",
+  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract. Native adic-module generation continuation:20 declaration-sized nodes,14 API items and14 typed tests, with native proofs of the exact existing monomial and degree-zero/finite-generation contracts.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2864,6 +2864,69 @@
         "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
         "provides": "Dependent induction through generator,zero,addition and scalar cases of submodule span.",
         "checked": "Full statement and ambient typeclass/universe assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-03 by Codex — codex-7e92bd. Imported generic theorem, not replanned."
+      },
+      {
+        "ref": "mathlib:LinearMap.domRestrict",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/LinearMap.lean",
+        "provides": "def domRestrict (f : M →ₛₗ[σ₁₂] M₂) (p : Submodule R M) : p →ₛₗ[σ₁₂] M₂ :=",
+        "checked": "Exact statement, proof where used, and ambient scalar/module hypotheses personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on3October2026 by Codex — codex-rtOQ9t; exact declaration-index name verified. Native source-reading receipt records bounded passages. Imported generic API, not replanned."
+      },
+      {
+        "ref": "mathlib:Submodule.map_injective_of_injective",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
+        "provides": "theorem map_injective_of_injective : Function.Injective (map f) :=",
+        "checked": "Exact statement, proof where used, and ambient scalar/module hypotheses personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on3October2026 by Codex — codex-rtOQ9t; exact declaration-index name verified. Native source-reading receipt records bounded passages. Imported generic API, not replanned."
+      },
+      {
+        "ref": "mathlib:Submodule.map_span",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Basic.lean",
+        "provides": "theorem map_span [RingHomSurjective σ₁₂] (f : M →ₛₗ[σ₁₂] M₂) (s : Set M) :",
+        "checked": "Exact statement, proof where used, and ambient scalar/module hypotheses personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on3October2026 by Codex — codex-rtOQ9t; exact declaration-index name verified. Native source-reading receipt records bounded passages. Imported generic API, not replanned."
+      },
+      {
+        "ref": "mathlib:Submodule.map_subtype_top",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+        "provides": "theorem map_subtype_top : map p.subtype (⊤ : Submodule R p) = p := by simp",
+        "checked": "Exact statement, proof where used, and ambient scalar/module hypotheses personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on3October2026 by Codex — codex-rtOQ9t; exact declaration-index name verified. Native source-reading receipt records bounded passages. Imported generic API, not replanned."
+      },
+      {
+        "ref": "mathlib:Submodule.span_span_of_tower",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Basic.lean",
+        "provides": "theorem span_span_of_tower :",
+        "checked": "Exact statement, proof where used, and ambient scalar/module hypotheses personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on3October2026 by Codex — codex-rtOQ9t; exact declaration-index name verified. Native source-reading receipt records bounded passages. Imported generic API, not replanned."
+      },
+      {
+        "ref": "mathlib:Submodule.fg_span",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "provides": "theorem fg_span {s : Set M} (hs : s.Finite) : FG (span R s) :=",
+        "checked": "Exact statement, proof where used, and ambient scalar/module hypotheses personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on3October2026 by Codex — codex-rtOQ9t; exact declaration-index name verified. Native source-reading receipt records bounded passages. Imported generic API, not replanned."
+      },
+      {
+        "ref": "mathlib:Module.finite_def",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "provides": "theorem finite_def {R M} [Semiring R] [AddCommMonoid M] [Module R M] :",
+        "checked": "Exact statement, proof where used, and ambient scalar/module hypotheses personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on3October2026 by Codex — codex-rtOQ9t; exact declaration-index name verified. Native source-reading receipt records bounded passages. Imported generic API, not replanned."
+      },
+      {
+        "ref": "mathlib:LinearMap.coe_range",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+        "provides": "theorem coe_range [RingHomSurjective τ₁₂] (f : M →ₛₗ[τ₁₂] M₂) : (range f : Set M₂) = Set.range f :=",
+        "checked": "Exact statement, proof where used, and ambient scalar/module hypotheses personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on3October2026 by Codex — codex-rtOQ9t; exact declaration-index name verified. Native source-reading receipt records bounded passages. Imported generic API, not replanned."
+      },
+      {
+        "ref": "mathlib:Set.range_comp",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Set/Image.lean",
+        "provides": "theorem range_comp (g : α → β) (f : ι → α) : range (g ∘ f) = g '' range f := by aesop",
+        "checked": "Exact statement, proof where used, and ambient scalar/module hypotheses personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on3October2026 by Codex — codex-rtOQ9t; exact declaration-index name verified. Native source-reading receipt records bounded passages. Imported generic API, not replanned."
       }
     ]
   },
@@ -3978,6 +4041,18 @@
         "Complete10.58.7 statement and proof; separate00K1 receipt. Only its generator prerequisite is discharged here."
       ],
       "derivation": "The actual quotient generation, chosen-family evaluation and finite-type adapters are authored deductions. No generic associated-graded framework or Hilbert–Serre theorem is reconstructed."
+    },
+    {
+      "id": "ADIC-MODULE-GENERATION-rtOQ9t",
+      "title": "Ordinary associated-graded module generation on native Rees quotients",
+      "authors": "The Stacks Project authors; explicit adapter deductions by Codex — codex-rtOQ9t",
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "edition": "Full online section read3October2026",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+      "readSections": [
+        "Complete Section10.59, including the displayed ordinary associated-graded ring/module in Proposition10.59.5 and its proof."
+      ],
+      "derivation": "The arbitrary-ideal constant-generation and finite-generation adapters are authored deductions from pinned generic filtration, span, quotient and finite-module theorems. No source attribution as a verbatim theorem and no Hilbert–Serre proof is claimed."
     }
   ],
   "nodes": [
@@ -21994,6 +22069,953 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Native Rees module monomial",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.adicReesMonomial",
+      "statement": "Construct the A-linear single-degree map q^nM → Rq(M) on the native stable-filtration subtype; its only nonzero coefficient is the given element in degree n.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Restrict the native single linear map to q^nM and codomain-restrict to the existing native Rees submodule. The coefficient condition follows by separating degree n from every other degree."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module",
+        "mathlib:PolynomialModule.lsingle",
+        "mathlib:LinearMap.domRestrict",
+        "mathlib:LinearMap.codRestrict"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesMonomial_coe",
+          "role": "characterisation",
+          "statement": "The underlying polynomial module of adicReesMonomial(n,m) is exactly single_n(m)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesMonomial_add",
+          "role": "characterisation",
+          "statement": "The actual Rees monomial map preserves addition in its native q^nM source."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesMonomial_smul",
+          "role": "characterisation",
+          "statement": "For every a in A, the actual Rees monomial map sends a·m to a times the native Rees monomial of m."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map",
+          "how": "Supplies the actual native module constants and semilinear generation route before the separate decomposition and Hilbert–Serre induction; no eventual polynomial is assumed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicReesMonomial.degree_separation",
+          "kind": "characterisation",
+          "statement": "The actual Rees monomial has coefficient m in its specified degree and zero in a distinct degree."
+        },
+        {
+          "name": "AdicReesMonomial.zero_ideal_positive_degree",
+          "kind": "degenerate",
+          "statement": "For q=0, every native positive-degree-one monomial source is zero and its actual Rees monomial vanishes."
+        },
+        {
+          "name": "AdicReesMonomial.unit_ideal_positive_degree",
+          "kind": "computation",
+          "statement": "For A=M=ℤ and q=top, the actual Rees monomial single_2(1) is nonzero."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial-value",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Rees monomial evaluation",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesMonomial_coe",
+      "statement": "The underlying polynomial module of adicReesMonomial(n,m) is exactly single_n(m).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Evaluate the native domain and codomain restrictions; equality is definitional."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial-add",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Rees monomial additivity",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesMonomial_add",
+      "statement": "The actual Rees monomial map preserves addition in its native q^nM source.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Use the native linear-map addition law."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial-scalar",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Rees monomial scalar law",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesMonomial_smul",
+      "statement": "For every a in A, the actual Rees monomial map sends a·m to a times the native Rees monomial of m.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Use the native A-linear-map scalar law."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Constant inclusion in the Rees module",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.adicReesConstant",
+      "statement": "Construct an actual A-linear map c:M → Rq(M), sending m to single_0(m), for every ideal q.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Codomain-restrict the degree-zero single map. Its coefficient at zero belongs to q^0M=M and every other coefficient is zero."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module",
+        "mathlib:PolynomialModule.lsingle",
+        "mathlib:LinearMap.codRestrict"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesConstant_coe",
+          "role": "characterisation",
+          "statement": "The underlying polynomial module of c(m) is exactly single_0(m)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesConstant_injective",
+          "role": "characterisation",
+          "statement": "The actual constant inclusion c:M → Rq(M) is injective, including for the unit ideal."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesConstant_span",
+          "role": "characterisation",
+          "statement": "The Rees(q)-span of the range of c is the entire native Rees module, with no finiteness premise."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesConstant_span_family",
+          "role": "characterisation",
+          "statement": "For an arbitrary family v:ι→M with A-span(range v)=M, the Rees(q)-span of the constants c(v_i) is top. The index type need not be finite."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-degree-zero-generation",
+          "how": "Supplies the actual native module constants and semilinear generation route before the separate decomposition and Hilbert–Serre induction; no eventual polynomial is assumed."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-finite",
+          "how": "Supplies the actual native module constants and semilinear generation route before the separate decomposition and Hilbert–Serre induction; no eventual polynomial is assumed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicReesConstant.unit_ideal_survives",
+          "kind": "degenerate",
+          "statement": "For A=M=ℤ and q=top, the native Rees constant 1 is nonzero."
+        },
+        {
+          "name": "AdicReesConstant.zero_ideal_nonfree_input",
+          "kind": "counterexample",
+          "statement": "For M=ℤ/4 over ℤ and q=0, the actual Rees constant1 is nonzero. This tests the Rees carrier, not the unresolved graded-constant injectivity comparison."
+        },
+        {
+          "name": "AdicReesConstant.zero_module",
+          "kind": "degenerate",
+          "statement": "The actual Rees module of Fin0→A is a subsingleton for every ideal."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-value",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Rees constant evaluation",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesConstant_coe",
+      "statement": "The underlying polynomial module of c(m) is exactly single_0(m).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Evaluate the codomain restriction."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-injective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Rees constants are injective",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesConstant_injective",
+      "statement": "The actual constant inclusion c:M → Rq(M) is injective, including for the unit ideal.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Apply the actual polynomial-module coefficient at degree zero to an equality of constants."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-value"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-generation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Generation of the Rees module by constants",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesConstant_span",
+      "statement": "The Rees(q)-span of the range of c is the entire native Rees module, with no finiteness premise.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Apply the pinned filtration span theorem at degree zero. Its condition is q·q^nM=q^(n+1)M, proved by pow_succ and the native ideal-module product action. Compare subtype spans via the injective subtype map; no Noetherian filtration finiteness criterion is used."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-value",
+        "mathlib:Ideal.Filtration.submodule_eq_span_le_iff_stable_ge",
+        "mathlib:Submodule.map_injective_of_injective",
+        "mathlib:Submodule.map_span",
+        "mathlib:Submodule.map_subtype_top"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Actual semilinear projection of the Rees module",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.adicReesToGradedModule",
+      "statement": "Construct the surjective quotient projection Rq(M) → Gr_q(M) as a semilinear map for the actual ring quotient Rees(q) → Gr_q(A). Surjectivity is a separate API theorem.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Use the existing submodule quotient map and existing quotient-ideal scalar descent. The scalar identity is the native quotient action; no new quotient or generic scalar descent is reconstructed."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module",
+        "mathlib:Module.Quotient.mk_smul_mk"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesToGradedModule_surjective",
+          "role": "characterisation",
+          "statement": "Every element of Gr_q(M) is the image of an element of its native Rees module under the actual semilinear projection."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesToGradedModule_eq_iff",
+          "role": "characterisation",
+          "statement": "Two actual Rees-module elements have equal images in Gr_q(M) if and only if they satisfy the native quotient relation of the existing coefficient-ideal denominator; the pinned quotientRel_def identifies this with difference membership."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicReesToGradedModule_smul",
+          "role": "characterisation",
+          "statement": "The actual module projection sends r·f to the class of r times the projected class of f, for the specified scalar quotient Rees(q)→Gr_q(A)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-degree-zero-generation",
+          "how": "Supplies the actual native module constants and semilinear generation route before the separate decomposition and Hilbert–Serre induction; no eventual polynomial is assumed."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-finite",
+          "how": "Supplies the actual native module constants and semilinear generation route before the separate decomposition and Hilbert–Serre induction; no eventual polynomial is assumed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicReesToGradedModule.actual_scalar_descent",
+          "kind": "compatibility",
+          "statement": "The actual semilinear quotient projection commutes with Rees scalar multiplication through the specified scalar quotient."
+        },
+        {
+          "name": "AdicReesToGradedModule.unit_ideal_loses_constants",
+          "kind": "counterexample",
+          "statement": "For A=M=ℤ and q=top, the actual quotient projection sends the nonzero Rees constant1 and zero to the same class."
+        },
+        {
+          "name": "AdicReesToGradedModule.zero_module",
+          "kind": "degenerate",
+          "statement": "Every element of the actual graded module of Fin0→A is the actual projection of the zero Rees element."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection-surjective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Surjectivity of the actual module projection",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesToGradedModule_surjective",
+      "statement": "Every element of Gr_q(M) is the image of an element of its native Rees module under the actual semilinear projection.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Induct on the actual quotient carrier and take its representative."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-equality",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Equality in the actual graded-module quotient",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesToGradedModule_eq_iff",
+      "statement": "Two actual Rees-module elements have equal images in Gr_q(M) if and only if they satisfy the native quotient relation of the existing coefficient-ideal denominator; the pinned quotientRel_def identifies this with difference membership.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Apply Quotient.exact and Quotient.sound to the actual native quotient relation. The pinned quotientRel_def identifies that relation with difference membership; this does not yet identify the denominator by its coefficients."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection",
+        "mathlib:Submodule.Quotient.eq"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-scalar",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Semilinear quotient scalar law",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesToGradedModule_smul",
+      "statement": "The actual module projection sends r·f to the class of r times the projected class of f, for the specified scalar quotient Rees(q)→Gr_q(A).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Apply the actual semilinear-map scalar law, using the native quotient-ideal action."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Degree-zero classes of module elements",
+      "kind": "construction",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedConstant",
+      "statement": "Construct an A-linear map cbar:M → Gr_q(M) by applying the existing degree-zero monomial map to the canonical q^0M=M identification.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Compose the existing degree-zero monomial linear map with the canonical linear map M→q^0M. This is the existing Rees quotient, not a new associated-graded carrier."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedConstant_eq",
+          "role": "characterisation",
+          "statement": "For every m in M, cbar(m) is exactly the old adicModuleMonomial(q,M,0)(m), with its q^0M membership proof."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedConstant_projection",
+          "role": "characterisation",
+          "statement": "For every m in M, cbar(m)=projection(c(m)) in the actual native graded module."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedConstant_span",
+          "role": "characterisation",
+          "statement": "The Gr_q(A)-span of the range of cbar is top, for every A-module M and every ideal q."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicGradedConstant_span_family",
+          "role": "characterisation",
+          "statement": "For any family v:ι→M generating M over A, its degree-zero classes cbar(v_i) generate Gr_q(M) over Gr_q(A), with no finiteness premise on ι."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-degree-zero-generation",
+          "how": "Supplies the actual native module constants and semilinear generation route before the separate decomposition and Hilbert–Serre induction; no eventual polynomial is assumed."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-finite",
+          "how": "Supplies the actual native module constants and semilinear generation route before the separate decomposition and Hilbert–Serre induction; no eventual polynomial is assumed."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial",
+          "how": "Supplies the actual native module constants and semilinear generation route before the separate decomposition and Hilbert–Serre induction; no eventual polynomial is assumed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicGradedConstant.unit_ideal_vanishes",
+          "kind": "degenerate",
+          "statement": "For every module and the unit ideal, every actual graded constant is zero. The preceding Rees constant need not be zero."
+        },
+        {
+          "name": "AdicGradedConstant.nonfree_integer_module",
+          "kind": "counterexample",
+          "statement": "The actual input M=ℤ/4 is proved nonfree as a ℤ-module, and four times its actual zero-ideal graded constant1 is zero. This test does not assert that this graded class is nonzero."
+        },
+        {
+          "name": "AdicGradedConstant.empty_family_zero_module",
+          "kind": "degenerate",
+          "statement": "For the zero module Fin0→A, the empty family of actual graded constants spans the entire graded module."
+        },
+        {
+          "name": "AdicGradedModule.finite_nonfree",
+          "kind": "counterexample",
+          "statement": "The actual graded module of ℤ/4 as a ℤ-module is finite for both the zero ideal and q=(2). No module basis is assumed."
+        },
+        {
+          "name": "AdicGradedModule.regular_module_arbitrary_ideal",
+          "kind": "characterisation",
+          "statement": "For every ideal of an arbitrary commutative ring, the actual graded module for M=A is finite over the associated graded ring."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant-value",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Degree-zero monomial agreement",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedConstant_eq",
+      "statement": "For every m in M, cbar(m) is exactly the old adicModuleMonomial(q,M,0)(m), with its q^0M membership proof.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Evaluate the composition; all source subtypes remain native."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant-projection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Rees projection of constants",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedConstant_projection",
+      "statement": "For every m in M, cbar(m)=projection(c(m)) in the actual native graded module.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Both sides are the quotient class of single_0(m); subtype membership proofs agree by proof irrelevance."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-value",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant-generation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Graded module generation by actual constants",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedConstant_span",
+      "statement": "The Gr_q(A)-span of the range of cbar is top, for every A-module M and every ideal q.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient."
+      ],
+      "proofSteps": [
+        "Map the proved Rees spanning equality through the actual semilinear quotient. The scalar quotient is surjective, so native map_span identifies the image span; projection surjectivity makes its range top."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-generation",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection-surjective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant-projection",
+        "mathlib:Submodule.map_span"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-chosen-constant-generation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Rees generation by chosen module generators",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesConstant_span_family",
+      "statement": "For an arbitrary family v:ι→M with A-span(range v)=M, the Rees(q)-span of the constants c(v_i) is top. The index type need not be finite.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.",
+        "The family v:ι→M may have an independent universe and arbitrary index type; explicitly assume Submodule.span A (Set.range v)=top."
+      ],
+      "proofSteps": [
+        "Map the A-spanning equality through the actual A-linear constant inclusion, then take Rees(q)-span. The pinned span-of-span theorem for the native scalar tower identifies this span with the chosen constant span."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-generation",
+        "mathlib:Submodule.map_span",
+        "mathlib:Submodule.span_span_of_tower",
+        "mathlib:LinearMap.coe_range"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-finite",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finite generation of the actual Rees module",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicReesModule_finite",
+      "statement": "If M is finite over A, its actual stable-adic Rees module is finite over Rees(q), for every ideal q.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.",
+        "Explicitly assume Module.Finite A M. No finiteness of q or of the individual q^nM is needed."
+      ],
+      "proofSteps": [
+        "Choose the native finite generating family for M. The preceding family span equality and finiteness of its range prove that top is finitely generated over Rees(q). This does not require that each q^nM be finite over A."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-chosen-constant-generation",
+        "mathlib:Module.Finite.exists_fin",
+        "mathlib:Module.finite_def",
+        "mathlib:Submodule.fg_span"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-chosen-constant-generation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Graded generation by chosen module generators",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedConstant_span_family",
+      "statement": "For any family v:ι→M generating M over A, its degree-zero classes cbar(v_i) generate Gr_q(M) over Gr_q(A), with no finiteness premise on ι.",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.",
+        "The family v:ι→M may have an independent universe and arbitrary index type; explicitly assume Submodule.span A (Set.range v)=top."
+      ],
+      "proofSteps": [
+        "Project the chosen Rees constant spanning equality through the actual semilinear quotient and use the native map_span and surjectivity formulas."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-chosen-constant-generation",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection-surjective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant-projection",
+        "mathlib:Submodule.map_span"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-finite-chosen-generators",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finite graded module from a chosen finite family",
+      "kind": "lemma",
+      "declaration": "TauCeti.HilbertSamuel.adicGradedModule_finite_of_generators",
+      "statement": "If a family v:ι→M spans M over A and ι is finite, then Gr_q(M) is finite over Gr_q(A).",
+      "hypotheses": [
+        "A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.",
+        "Explicitly assume Finite ι and A-span(range v)=top."
+      ],
+      "proofSteps": [
+        "The actual graded constant images form a finite range whose native submodule span is top. Apply the pinned finite-top criterion."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-chosen-constant-generation",
+        "mathlib:Module.finite_def",
+        "mathlib:Submodule.fg_span"
+      ],
+      "acceptance": [
+        "Retain zero and unit ideals, zero modules, nilpotents, and finite modules that are not free.",
+        "Generation and finite generation alone do not establish component decomposition, eventual polynomial existence, or support-degree comparison."
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "ADIC-MODULE-GENERATION-rtOQ9t",
+          "locator": "Stacks Proposition10.59.5, full displayed associated-graded module and proof; authored native deductions from the pinned Filtration span theorem",
+          "match": "The source motivates the ordinary associated-graded module prerequisite. The precise Rees constant maps and arbitrary-ideal finite-generation proofs are authored adapters on the pinned native carriers; this checkpoint does not prove Hilbert–Serre or a graded decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -22134,7 +23156,8 @@
         "Graded annihilator transport and the nonzero primary boundary now have independent native prototypes. General polynomial invariance is conditional on the existing admitted eventual specification, not a new proof of Hilbert–Serre. The M=0 exception in Stacks Remark 43.15.6 is recorded; formulate the remaining module-relative ideal-of-definition extension with this branch separate. All existing graded finiteness, general polynomial existence, support-degree, completion, associativity and routed-source obligations remain required.",
         "This continuation supplies native proofs for coefficient change, its exact kernel criterion, and the old coefficient-ideal/monomial/piece core. Full graded decomposition, module grading, finite generation, general Hilbert–Serre and support-degree comparison remain unproved here. Preserve every previous coverage obligation and the full reserved Hilbert–Samuel multiplicity target.",
         "This native proof checkpoint establishes the old finite expansion, direct-sum equivalence, ring homogeneous decomposition, GradedAlgebra registration and projection laws on the ordinary Rees quotient, with no admitted native proof. The canonical suggested file remains an unchecked signature plan. Actual graded modules, their decompositions and actions, finite generation, general Hilbert–Serre, support/degree comparison, associativity of multiplicity and the full reserved Hilbert–Samuel target remain open; retain every older remaining item and gap.",
-        "The old ordinary degree-one generation theorem now has an admission-free native proof using the pinned Rees generation theorem and actual quotient. The new degree-one linear map detects q² exactly and respects coefficient change. Every chosen ideal-generating family gives a surjective native polynomial algebra map; a finite family, or q.FG, implies finite type over A/q. Algebra maps from the quotient are determined on these degree-one classes. Still prove the actual graded-module decomposition/action and finite generation, then native homogeneous kernel/quotient gradings and the general Hilbert–Serre induction. Finite type of this ring does not establish finite generation of the graded module, its eventual polynomial, support-degree, intrinsic/ambient multiplicity, tangent-cone kernel, completion or any remaining routed-paper target."
+        "The old ordinary degree-one generation theorem now has an admission-free native proof using the pinned Rees generation theorem and actual quotient. The new degree-one linear map detects q² exactly and respects coefficient change. Every chosen ideal-generating family gives a surjective native polynomial algebra map; a finite family, or q.FG, implies finite type over A/q. Algebra maps from the quotient are determined on these degree-one classes. Still prove the actual graded-module decomposition/action and finite generation, then native homogeneous kernel/quotient gradings and the general Hilbert–Serre induction. Finite type of this ring does not establish finite generation of the graded module, its eventual polynomial, support-degree, intrinsic/ambient multiplicity, tangent-cone kernel, completion or any remaining routed-paper target.",
+        "The actual native module monomial map, quotient scalar compatibility, degree-zero generation and finite generation now have admission-free native proof prototypes. The proof works over every commutative ring for arbitrary q; finite graded generation requires only Module.Finite A M, without q.FG or Noetherianity. Chosen module-generating families give explicit actual degree-zero generating families before and after the semilinear quotient. The unit ideal kills graded constants while Rees constants remain injective; the ℤ/4 input is explicitly nonfree over ℤ, and its zero-ideal graded constants satisfy the native four-torsion identity. Still prove the module denominator coefficient comparison, monomial kernel, homogeneous actions and full decomposition; then native homogeneous kernel/range/quotient gradings, smaller-ring finite generation, length exactness and general Hilbert–Serre. Every inherited support-degree, intrinsic/ambient multiplicity, completion, associativity, stage and routed-paper obligation remains open. Canonical proof bodies and all node/stage statuses stay unchecked/partial."
       ]
     },
     {

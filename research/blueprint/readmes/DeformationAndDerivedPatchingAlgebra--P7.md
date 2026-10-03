@@ -1,3 +1,271 @@
+# Native degree-zero generation of the adic graded module
+
+This continuation proves the exact existing degree-zero generation and finite-generation contracts on the existing Rees quotient Gr_q(M), over an arbitrary commutative ring A and arbitrary ideal q. The module-generation theorem has no finiteness premise. For finite generation, only M must be finite over A: neither Noetherianity nor q.FG is needed.
+
+The pinned filtration span theorem at n0=0 gives generation of the native Rees module by constants because q·q^nM=q^(n+1)M in every degree. Its degree-zero module is all of M. The actual A-linear constant inclusion is injective by coefficient evaluation. For any A-generating family of M, native map_span and the span-of-span theorem show that its Rees constants generate over Rees(q).
+
+The actual quotient projection is semilinear for Rees(q)→Gr_q(A). The native quotient scalar action gives its scalar identity. Projecting the proved spanning equality gives generation of Gr_q(M) by its actual degree-zero classes. A finite A-generating family therefore gives a finite graded generating family. The native finite-module surjection theorem provides an independent route through the finite Rees module. These proofs avoid the stronger general filtration criterion requiring every q^nM to be finite over A.
+
+The existing monomial map is also implemented through the native polynomial-module single and quotient maps, with its exact original pointwise formula. The existing residue action and scalar towers have independent native proofs on the same quotient. The canonical suggested file preserves its complete incoming prefix and remains an unchecked signature plan. All331 incoming node objects and all earlier source, request, gap and ownership boundaries are preserved.
+
+The boundary examples use actual carriers. For the unit ideal over ℤ, a Rees constant remains nonzero but its graded class vanishes. For M=ℤ/4 as a ℤ-module, the test proves that the input module is not free and that four times its zero-ideal graded constant1 is zero. It does not prove that the graded class survives; that comparison remains open with the monomial kernel. The empty family generates the actual zero module. Finite generation is also checked for q=(2) on that nonfree module and for M=A with arbitrary q.
+
+The full Stacks10.59 section was freshly read, including the displayed ordinary associated-graded module and its role in Proposition10.59.5. The precise arbitrary-ideal maps and proofs here are authored deductions from pinned generic APIs. The unmerged Mathlib associated-graded PRs remain source leads; no API from them is adopted.
+
+The actual native module monomial map, quotient scalar compatibility, degree-zero generation and finite generation now have admission-free native proof prototypes. The proof works over every commutative ring for arbitrary q; finite graded generation requires only Module.Finite A M, without q.FG or Noetherianity. Chosen module-generating families give explicit actual degree-zero generating families before and after the semilinear quotient. The unit ideal kills graded constants while Rees constants remain injective; the ℤ/4 input is explicitly nonfree over ℤ, and its zero-ideal graded constants satisfy the native four-torsion identity. Still prove the module denominator coefficient comparison, monomial kernel, homogeneous actions and full decomposition; then native homogeneous kernel/range/quotient gradings, smaller-ring finite generation, length exactness and general Hilbert–Serre. Every inherited support-degree, intrinsic/ambient multiplicity, completion, associativity, stage and routed-paper obligation remains open. Canonical proof bodies and all node/stage statuses stay unchecked/partial.
+
+## Native Rees module monomial
+
+**TauCeti.HilbertSamuel.adicReesMonomial** — Construct the A-linear single-degree map q^nM → Rq(M) on the native stable-filtration subtype; its only nonzero coefficient is the given element in degree n.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module, mathlib:PolynomialModule.lsingle, mathlib:LinearMap.domRestrict, mathlib:LinearMap.codRestrict.
+
+Proof: Restrict the native single linear map to q^nM and codomain-restrict to the existing native Rees submodule. The coefficient condition follows by separating degree n from every other degree.
+
+API:
+
+- **TauCeti.HilbertSamuel.adicReesMonomial_coe**: The underlying polynomial module of adicReesMonomial(n,m) is exactly single_n(m).
+- **TauCeti.HilbertSamuel.adicReesMonomial_add**: The actual Rees monomial map preserves addition in its native q^nM source.
+- **TauCeti.HilbertSamuel.adicReesMonomial_smul**: For every a in A, the actual Rees monomial map sends a·m to a times the native Rees monomial of m.
+
+TESTS:
+
+- **AdicReesMonomial.degree_separation**: The actual Rees monomial has coefficient m in its specified degree and zero in a distinct degree.
+- **AdicReesMonomial.zero_ideal_positive_degree**: For q=0, every native positive-degree-one monomial source is zero and its actual Rees monomial vanishes.
+- **AdicReesMonomial.unit_ideal_positive_degree**: For A=M=ℤ and q=top, the actual Rees monomial single_2(1) is nonzero.
+
+## Rees monomial evaluation
+
+**TauCeti.HilbertSamuel.adicReesMonomial_coe** — The underlying polynomial module of adicReesMonomial(n,m) is exactly single_n(m).
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial.
+
+Proof: Evaluate the native domain and codomain restrictions; equality is definitional.
+
+## Rees monomial additivity
+
+**TauCeti.HilbertSamuel.adicReesMonomial_add** — The actual Rees monomial map preserves addition in its native q^nM source.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial.
+
+Proof: Use the native linear-map addition law.
+
+## Rees monomial scalar law
+
+**TauCeti.HilbertSamuel.adicReesMonomial_smul** — For every a in A, the actual Rees monomial map sends a·m to a times the native Rees monomial of m.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-monomial.
+
+Proof: Use the native A-linear-map scalar law.
+
+## Constant inclusion in the Rees module
+
+**TauCeti.HilbertSamuel.adicReesConstant** — Construct an actual A-linear map c:M → Rq(M), sending m to single_0(m), for every ideal q.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module, mathlib:PolynomialModule.lsingle, mathlib:LinearMap.codRestrict.
+
+Proof: Codomain-restrict the degree-zero single map. Its coefficient at zero belongs to q^0M=M and every other coefficient is zero.
+
+API:
+
+- **TauCeti.HilbertSamuel.adicReesConstant_coe**: The underlying polynomial module of c(m) is exactly single_0(m).
+- **TauCeti.HilbertSamuel.adicReesConstant_injective**: The actual constant inclusion c:M → Rq(M) is injective, including for the unit ideal.
+- **TauCeti.HilbertSamuel.adicReesConstant_span**: The Rees(q)-span of the range of c is the entire native Rees module, with no finiteness premise.
+- **TauCeti.HilbertSamuel.adicReesConstant_span_family**: For an arbitrary family v:ι→M with A-span(range v)=M, the Rees(q)-span of the constants c(v_i) is top. The index type need not be finite.
+
+TESTS:
+
+- **AdicReesConstant.unit_ideal_survives**: For A=M=ℤ and q=top, the native Rees constant 1 is nonzero.
+- **AdicReesConstant.zero_ideal_nonfree_input**: For M=ℤ/4 over ℤ and q=0, the actual Rees constant1 is nonzero. This tests the Rees carrier, not the unresolved graded-constant injectivity comparison.
+- **AdicReesConstant.zero_module**: The actual Rees module of Fin0→A is a subsingleton for every ideal.
+
+## Rees constant evaluation
+
+**TauCeti.HilbertSamuel.adicReesConstant_coe** — The underlying polynomial module of c(m) is exactly single_0(m).
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant.
+
+Proof: Evaluate the codomain restriction.
+
+## Rees constants are injective
+
+**TauCeti.HilbertSamuel.adicReesConstant_injective** — The actual constant inclusion c:M → Rq(M) is injective, including for the unit ideal.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-value.
+
+Proof: Apply the actual polynomial-module coefficient at degree zero to an equality of constants.
+
+## Generation of the Rees module by constants
+
+**TauCeti.HilbertSamuel.adicReesConstant_span** — The Rees(q)-span of the range of c is the entire native Rees module, with no finiteness premise.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-value, mathlib:Ideal.Filtration.submodule_eq_span_le_iff_stable_ge, mathlib:Submodule.map_injective_of_injective, mathlib:Submodule.map_span, mathlib:Submodule.map_subtype_top.
+
+Proof: Apply the pinned filtration span theorem at degree zero. Its condition is q·q^nM=q^(n+1)M, proved by pow_succ and the native ideal-module product action. Compare subtype spans via the injective subtype map; no Noetherian filtration finiteness criterion is used.
+
+## Actual semilinear projection of the Rees module
+
+**TauCeti.HilbertSamuel.adicReesToGradedModule** — Construct the surjective quotient projection Rq(M) → Gr_q(M) as a semilinear map for the actual ring quotient Rees(q) → Gr_q(A). Surjectivity is a separate API theorem.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module, mathlib:Module.Quotient.mk_smul_mk.
+
+Proof: Use the existing submodule quotient map and existing quotient-ideal scalar descent. The scalar identity is the native quotient action; no new quotient or generic scalar descent is reconstructed.
+
+API:
+
+- **TauCeti.HilbertSamuel.adicReesToGradedModule_surjective**: Every element of Gr_q(M) is the image of an element of its native Rees module under the actual semilinear projection.
+- **TauCeti.HilbertSamuel.adicReesToGradedModule_eq_iff**: Two actual Rees-module elements have equal images in Gr_q(M) if and only if they satisfy the native quotient relation of the existing coefficient-ideal denominator; the pinned quotientRel_def identifies this with difference membership.
+- **TauCeti.HilbertSamuel.adicReesToGradedModule_smul**: The actual module projection sends r·f to the class of r times the projected class of f, for the specified scalar quotient Rees(q)→Gr_q(A).
+
+TESTS:
+
+- **AdicReesToGradedModule.actual_scalar_descent**: The actual semilinear quotient projection commutes with Rees scalar multiplication through the specified scalar quotient.
+- **AdicReesToGradedModule.unit_ideal_loses_constants**: For A=M=ℤ and q=top, the actual quotient projection sends the nonzero Rees constant1 and zero to the same class.
+- **AdicReesToGradedModule.zero_module**: Every element of the actual graded module of Fin0→A is the actual projection of the zero Rees element.
+
+## Surjectivity of the actual module projection
+
+**TauCeti.HilbertSamuel.adicReesToGradedModule_surjective** — Every element of Gr_q(M) is the image of an element of its native Rees module under the actual semilinear projection.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection.
+
+Proof: Induct on the actual quotient carrier and take its representative.
+
+## Equality in the actual graded-module quotient
+
+**TauCeti.HilbertSamuel.adicReesToGradedModule_eq_iff** — Two actual Rees-module elements have equal images in Gr_q(M) if and only if they satisfy the native quotient relation of the existing coefficient-ideal denominator; the pinned quotientRel_def identifies this with difference membership.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection, mathlib:Submodule.Quotient.eq.
+
+Proof: Apply Quotient.exact and Quotient.sound to the actual native quotient relation. The pinned quotientRel_def identifies that relation with difference membership; this does not yet identify the denominator by its coefficients.
+
+## Semilinear quotient scalar law
+
+**TauCeti.HilbertSamuel.adicReesToGradedModule_smul** — The actual module projection sends r·f to the class of r times the projected class of f, for the specified scalar quotient Rees(q)→Gr_q(A).
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection.
+
+Proof: Apply the actual semilinear-map scalar law, using the native quotient-ideal action.
+
+## Degree-zero classes of module elements
+
+**TauCeti.HilbertSamuel.adicGradedConstant** — Construct an A-linear map cbar:M → Gr_q(M) by applying the existing degree-zero monomial map to the canonical q^0M=M identification.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map.
+
+Proof: Compose the existing degree-zero monomial linear map with the canonical linear map M→q^0M. This is the existing Rees quotient, not a new associated-graded carrier.
+
+API:
+
+- **TauCeti.HilbertSamuel.adicGradedConstant_eq**: For every m in M, cbar(m) is exactly the old adicModuleMonomial(q,M,0)(m), with its q^0M membership proof.
+- **TauCeti.HilbertSamuel.adicGradedConstant_projection**: For every m in M, cbar(m)=projection(c(m)) in the actual native graded module.
+- **TauCeti.HilbertSamuel.adicGradedConstant_span**: The Gr_q(A)-span of the range of cbar is top, for every A-module M and every ideal q.
+- **TauCeti.HilbertSamuel.adicGradedConstant_span_family**: For any family v:ι→M generating M over A, its degree-zero classes cbar(v_i) generate Gr_q(M) over Gr_q(A), with no finiteness premise on ι.
+
+TESTS:
+
+- **AdicGradedConstant.unit_ideal_vanishes**: For every module and the unit ideal, every actual graded constant is zero. The preceding Rees constant need not be zero.
+- **AdicGradedConstant.nonfree_integer_module**: The actual input M=ℤ/4 is proved nonfree as a ℤ-module, and four times its actual zero-ideal graded constant1 is zero. This test does not assert that this graded class is nonzero.
+- **AdicGradedConstant.empty_family_zero_module**: For the zero module Fin0→A, the empty family of actual graded constants spans the entire graded module.
+- **AdicGradedModule.finite_nonfree**: The actual graded module of ℤ/4 as a ℤ-module is finite for both the zero ideal and q=(2). No module basis is assumed.
+- **AdicGradedModule.regular_module_arbitrary_ideal**: For every ideal of an arbitrary commutative ring, the actual graded module for M=A is finite over the associated graded ring.
+
+## Degree-zero monomial agreement
+
+**TauCeti.HilbertSamuel.adicGradedConstant_eq** — For every m in M, cbar(m) is exactly the old adicModuleMonomial(q,M,0)(m), with its q^0M membership proof.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant.
+
+Proof: Evaluate the composition; all source subtypes remain native.
+
+## Rees projection of constants
+
+**TauCeti.HilbertSamuel.adicGradedConstant_projection** — For every m in M, cbar(m)=projection(c(m)) in the actual native graded module.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant-value, DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-value, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection.
+
+Proof: Both sides are the quotient class of single_0(m); subtype membership proofs agree by proof irrelevance.
+
+## Graded module generation by actual constants
+
+**TauCeti.HilbertSamuel.adicGradedConstant_span** — The Gr_q(A)-span of the range of cbar is top, for every A-module M and every ideal q.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-generation, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection-surjective, DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant-projection, mathlib:Submodule.map_span.
+
+Proof: Map the proved Rees spanning equality through the actual semilinear quotient. The scalar quotient is surjective, so native map_span identifies the image span; projection surjectivity makes its range top.
+
+## Rees generation by chosen module generators
+
+**TauCeti.HilbertSamuel.adicReesConstant_span_family** — For an arbitrary family v:ι→M with A-span(range v)=M, the Rees(q)-span of the constants c(v_i) is top. The index type need not be finite.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient. The family v:ι→M may have an independent universe and arbitrary index type; explicitly assume Submodule.span A (Set.range v)=top.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-constant-generation, mathlib:Submodule.map_span, mathlib:Submodule.span_span_of_tower, mathlib:LinearMap.coe_range.
+
+Proof: Map the A-spanning equality through the actual A-linear constant inclusion, then take Rees(q)-span. The pinned span-of-span theorem for the native scalar tower identifies this span with the chosen constant span.
+
+## Finite generation of the actual Rees module
+
+**TauCeti.HilbertSamuel.adicReesModule_finite** — If M is finite over A, its actual stable-adic Rees module is finite over Rees(q), for every ideal q.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient. Explicitly assume Module.Finite A M. No finiteness of q or of the individual q^nM is needed.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-chosen-constant-generation, mathlib:Module.Finite.exists_fin, mathlib:Module.finite_def, mathlib:Submodule.fg_span.
+
+Proof: Choose the native finite generating family for M. The preceding family span equality and finiteness of its range prove that top is finitely generated over Rees(q). This does not require that each q^nM be finite over A.
+
+## Graded generation by chosen module generators
+
+**TauCeti.HilbertSamuel.adicGradedConstant_span_family** — For any family v:ι→M generating M over A, its degree-zero classes cbar(v_i) generate Gr_q(M) over Gr_q(A), with no finiteness premise on ι.
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient. The family v:ι→M may have an independent universe and arbitrary index type; explicitly assume Submodule.span A (Set.range v)=top.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-rees-module-chosen-constant-generation, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-semi-linear-projection-surjective, DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-constant-projection, mathlib:Submodule.map_span.
+
+Proof: Project the chosen Rees constant spanning equality through the actual semilinear quotient and use the native map_span and surjectivity formulas.
+
+## Finite graded module from a chosen finite family
+
+**TauCeti.HilbertSamuel.adicGradedModule_finite_of_generators** — If a family v:ι→M spans M over A and ι is finite, then Gr_q(M) is finite over Gr_q(A).
+
+Hypotheses: A is an arbitrary commutative ring with identity, q an arbitrary ideal, and M an additive commutative group with its specified A-module structure. Use the existing native stable-filtration Rees subtype and existing coefficient-ideal quotient. Explicitly assume Finite ι and A-span(range v)=top.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module-chosen-constant-generation, mathlib:Module.finite_def, mathlib:Submodule.fg_span.
+
+Proof: The actual graded constant images form a finite range whose native submodule span is top. Apply the pinned finite-top criterion.
+
 # Degree-one generation and polynomial presentations of the adic graded ring
 
 For any commutative ring A and ideal q, this continuation proves the existing contract that the actual Rees quotient Gr_q(A) is generated over A/q by its degree-one classes. Pull the target generated subalgebra back along the quotient homomorphism, restrict scalars to A and map it into the native polynomial ring. It contains every q-valued degree-one monomial, so the pinned Rees generation theorem makes it contain the entire Rees algebra. Quotient surjectivity then gives the claimed generation on the actual quotient.
