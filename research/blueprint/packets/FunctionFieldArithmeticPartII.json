@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts.",
+  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2081,6 +2081,18 @@
       "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/codex-a71f92-n24-3403-infinite-coinvariants/research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
       "readSections": [
         "All nine declaration statements, their proof interiors and all twelve explicit acceptance examples in the matching reader. The no-admission native proof is recoverable from the suggested-file evidence archive."
+      ]
+    },
+    {
+      "id": "DivisibilityCoaction-7e92bd",
+      "title": "Positive-divisibility coaction and invariant algebra; authored deductions from Talpo–Vistoli grading",
+      "authors": "Codex — codex-7e92bd; motivating paper by Mattia Talpo and Angelo Vistoli",
+      "edition": "arXiv1410.1164v2, 12 December 2017",
+      "url": "https://arxiv.org/pdf/1410.1164v2",
+      "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+      "accessed": "2026-10-03",
+      "readSections": [
+        "Fresh complete browser-extracted printed pp.14–16, including cofinality Remark3.6, grading, full Lemma3.7, Definition3.8, Proposition3.10 and Lemma3.12 proofs, Corollary3.13. No rendered-page inspection, whole-paper audit or new version collation."
       ]
     }
   ],
@@ -24553,6 +24565,1126 @@
           "locator": "Authored deduction factorialInvariantEquiv in the matching reader section, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, Lemma3.7 degree-zero proof and Corollary3.13",
           "excerpt": "Extract one rational character coefficient before applying finite-level injectivity.",
           "match": "This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Tensor comparison for positive divisibilities",
+      "declarationName": "TauCeti.RootStack.divisibilityQZTensorEquiv",
+      "statement": "Construct T:G⊗_A D_f ≃ₐ[A] G⊗_A C_f as the native tensor congruence of id_G with the existing cofinality equivalence E.",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence",
+        "mathlib:Algebra.TensorProduct.congr"
+      ],
+      "proofSteps": [
+        "Apply the existing tensor congruence to the actual algebra equivalences. No flatness premise is needed."
+      ],
+      "acceptance": [
+        "Construct T:G⊗_A D_f ≃ₐ[A] G⊗_A C_f as the native tensor congruence of id_G with the existing cofinality equivalence E.",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorEquiv.tmul",
+          "role": "characterisation",
+          "statement": "T(g⊗x)=g⊗E(x) for every g∈G and x∈D_f."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorEquiv.symm_tmul",
+          "role": "characterisation",
+          "statement": "T⁻¹(g⊗y)=g⊗E⁻¹(y) for every g∈G and y∈C_f."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.transport",
+          "role": "compatibility",
+          "statement": "For every x∈D_f, T(δ_D(x))=δ_C(E(x))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorEquiv.test_pure",
+          "kind": "computation",
+          "statement": "Evaluate T on an arbitrary pure tensor."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorEquiv.test_inverse",
+          "kind": "compatibility",
+          "statement": "The inverse recovers every arbitrary tensor, not just pure tensors."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZTensorEquiv.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For A=Z/1 and f=0 the target tensor is zero, retaining the zero-ring case."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-pure",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Tensor comparison on pure tensors",
+      "declarationName": "TauCeti.RootStack.divisibilityQZTensorEquiv.tmul",
+      "statement": "T(g⊗x)=g⊗E(x) for every g∈G and x∈D_f.",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-equivalence"
+      ],
+      "proofSteps": [
+        "Evaluate native tensor congruence."
+      ],
+      "acceptance": [
+        "T(g⊗x)=g⊗E(x) for every g∈G and x∈D_f.",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-inverse",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Inverse tensor comparison",
+      "declarationName": "TauCeti.RootStack.divisibilityQZTensorEquiv.symm_tmul",
+      "statement": "T⁻¹(g⊗y)=g⊗E⁻¹(y) for every g∈G and y∈C_f.",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-equivalence"
+      ],
+      "proofSteps": [
+        "Evaluate the inverse native tensor congruence."
+      ],
+      "acceptance": [
+        "T⁻¹(g⊗y)=g⊗E⁻¹(y) for every g∈G and y∈C_f.",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Universal coaction over positive divisibilities",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction",
+      "statement": "Construct δ_D:D_f→ₐ[A]G⊗_A D_f by δ_D=T⁻¹∘δ_C∘E, using the inherited factorial rational-character coaction.",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction"
+      ],
+      "proofSteps": [
+        "Compose the actual algebra homomorphisms. Subsequent lemmas prove the counit and coassociativity equations on the native colimit."
+      ],
+      "acceptance": [
+        "Construct δ_D:D_f→ₐ[A]G⊗_A D_f by δ_D=T⁻¹∘δ_C∘E, using the inherited factorial rational-character coaction.",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.root",
+          "role": "characterisation",
+          "statement": "For every positive n, δ_D(v_n)=e_[1/n]⊗v_n."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.level",
+          "role": "compatibility",
+          "statement": "For every positive n, δ_D∘j_n=(finiteQZAlgMap_n⊗j_n)∘affineCoaction_n as A-algebra homomorphisms."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.constant",
+          "role": "characterisation",
+          "statement": "For every a∈A, δ_D(algebraMap(a))=1⊗algebraMap(a)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.counit",
+          "role": "compatibility",
+          "statement": "The composite D_f→G⊗D_f→A⊗D_f→D_f of δ_D, ε_G⊗id and the native left unitor is id_D."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.coassoc",
+          "role": "compatibility",
+          "statement": "After the native associator, (Δ_G⊗id)∘δ_D=(id_G⊗δ_D)∘δ_D as maps to G⊗(G⊗D_f)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.coinvariant_iff",
+          "role": "characterisation",
+          "statement": "δ_D(x)=1⊗x if and only if δ_C(E(x))=1⊗E(x)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.invariants",
+          "role": "characterisation",
+          "statement": "For every x∈D_f, δ_D(x)=1⊗x if and only if there exists a∈A with x=algebraMap(a)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.invariants_unique",
+          "role": "characterisation",
+          "statement": "Every universally coinvariant x∈D_f has a unique a∈A satisfying x=algebraMap(a)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.test_third_root",
+          "kind": "computation",
+          "statement": "Over Z/4 with nonunit f=2, the nonfactorial positive index 3 root has character [1/3]."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.test_one",
+          "kind": "degenerate",
+          "statement": "At positive index 1 the root equals the coefficient f and has trivial character."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.test_divisibility",
+          "kind": "compatibility",
+          "statement": "Under 3∣6, δ(v_3)=δ(v_6)^2 using the actual transition, not a new representative."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.test_native_transport",
+          "kind": "compatibility",
+          "statement": "The actual tensor comparison intertwines the two universal coactions for every element."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.test_wild_nilpotent",
+          "kind": "counterexample",
+          "statement": "Over Z/2 with f=0, v_2 is nonzero and square-zero but is not universally coinvariant. The finite power basis and injective inclusion prove nonzero; invariant coefficients would force a^2=0 in the field Z/2 and hence a=0."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityQZCoaction.test_finite_level",
+          "kind": "compatibility",
+          "statement": "At n=3, the whole finite coaction commutes with inclusion for every finite chart element."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction-transport",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Cofinality intertwines the coactions",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction.transport",
+      "statement": "For every x∈D_f, T(δ_D(x))=δ_C(E(x)).",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction"
+      ],
+      "proofSteps": [
+        "Cancel T with its inverse in the definition. This compares universal coactions, not scalar-point actions."
+      ],
+      "acceptance": [
+        "For every x∈D_f, T(δ_D(x))=δ_C(E(x)).",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/factorial-qz-extension-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Character of an arbitrary positive root",
+      "declarationName": "TauCeti.RootStack.factorialQZCoaction.extension_root",
+      "statement": "For every positive n, δ_C(ε_n(t_n))=e_[1/n]⊗ε_n(t_n), where ε_n is the existing cofinal extension of A[t_n]/(t_n^n−f).",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension",
+        "FunctionFieldArithmeticPartII:RS.2/root-factorial-cofinal",
+        "FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-power",
+        "mathlib:Nat.cast_div"
+      ],
+      "proofSteps": [
+        "Represent ε_n(t_n) by the ((n+1)!/n)-th power of the factorial-level root. Apply the inherited power formula and use n∣(n+1)! and n≠0 to identify the rational character ((n+1)!/n)/(n+1)!=1/n."
+      ],
+      "acceptance": [
+        "For every positive n, δ_C(ε_n(t_n))=e_[1/n]⊗ε_n(t_n), where ε_n is the existing cofinal extension of A[t_n]/(t_n^n−f).",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Positive-level root character",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction.root",
+      "statement": "For every positive n, δ_D(v_n)=e_[1/n]⊗v_n.",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction-transport",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-pure",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-qz-extension-root",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-inclusion"
+      ],
+      "proofSteps": [
+        "Apply the injective T. Cofinality identifies E(v_n) with ε_n(t_n), whose character is the previous lemma."
+      ],
+      "acceptance": [
+        "For every positive n, δ_D(v_n)=e_[1/n]⊗v_n.",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-level",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Compatibility with every finite coaction",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction.level",
+      "statement": "For every positive n, δ_D∘j_n=(finiteQZAlgMap_n⊗j_n)∘affineCoaction_n as A-algebra homomorphisms.",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-root",
+        "FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map",
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "Two algebra maps from the actual AdjoinRoot algebra agree when they agree at its root. Evaluate both sides, using the finite character map at 1 to obtain [1/n]."
+      ],
+      "acceptance": [
+        "For every positive n, δ_D∘j_n=(finiteQZAlgMap_n⊗j_n)∘affineCoaction_n as A-algebra homomorphisms.",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-constant",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Coefficient coinvariance",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction.constant",
+      "statement": "For every a∈A, δ_D(algebraMap(a))=1⊗algebraMap(a).",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction"
+      ],
+      "proofSteps": [
+        "Both δ_D and the native right inclusion commute with the A-algebra maps."
+      ],
+      "acceptance": [
+        "For every a∈A, δ_D(algebraMap(a))=1⊗algebraMap(a).",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-counit",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Counit on the positive-divisibility colimit",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction.counit",
+      "statement": "The composite D_f→G⊗D_f→A⊗D_f→D_f of δ_D, ε_G⊗id and the native left unitor is id_D.",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-root",
+        "mathlib:DirectLimit.Algebra.hom_ext",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "Use native direct-limit homomorphism extensionality, then root extensionality on each finite component. The group-algebra counit sends e_[1/n] to 1, so the root is recovered."
+      ],
+      "acceptance": [
+        "The composite D_f→G⊗D_f→A⊗D_f→D_f of δ_D, ε_G⊗id and the native left unitor is id_D.",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coassociativity",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Coassociativity over positive divisibilities",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction.coassoc",
+      "statement": "After the native associator, (Δ_G⊗id)∘δ_D=(id_G⊗δ_D)∘δ_D as maps to G⊗(G⊗D_f).",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-root",
+        "mathlib:DirectLimit.Algebra.hom_ext",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "Reduce equality of algebra maps to every finite root. Its group-like character has Δ(e_q)=e_q⊗e_q; both sides are e_[1/n]⊗(e_[1/n]⊗v_n)."
+      ],
+      "acceptance": [
+        "After the native associator, (Δ_G⊗id)∘δ_D=(id_G⊗δ_D)∘δ_D as maps to G⊗(G⊗D_f).",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coinvariant-transport",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Cofinality reflects universal coinvariance",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction.coinvariant_iff",
+      "statement": "δ_D(x)=1⊗x if and only if δ_C(E(x))=1⊗E(x).",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction-transport",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-pure"
+      ],
+      "proofSteps": [
+        "Apply injectivity of the native tensor algebra equivalence T and the transport identity."
+      ],
+      "acceptance": [
+        "δ_D(x)=1⊗x if and only if δ_C(E(x))=1⊗E(x).",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-injective",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Injective positive-divisibility coefficient map",
+      "declarationName": "TauCeti.RootStack.divisibilityAffineColimit.coefficient_injective",
+      "statement": "The actual coefficient homomorphism A→D_f is injective, including for the zero ring.",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective"
+      ],
+      "proofSteps": [
+        "Apply E to equality of coefficient images. Its A-algebra compatibility reduces the assertion to the inherited factorial coefficient injectivity."
+      ],
+      "acceptance": [
+        "The actual coefficient homomorphism A→D_f is injective, including for the zero ring.",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-invariants",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "theorem",
+      "title": "Invariant algebra over positive divisibilities",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction.invariants",
+      "statement": "For every x∈D_f, δ_D(x)=1⊗x if and only if there exists a∈A with x=algebraMap(a).",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coinvariant-transport",
+        "FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants"
+      ],
+      "proofSteps": [
+        "Transport coinvariance to C_f and apply its previously proved coefficient-extraction theorem. E commutes with coefficient maps and is injective, so the same a represents x in D_f. Conversely every coefficient is invariant."
+      ],
+      "acceptance": [
+        "For every x∈D_f, δ_D(x)=1⊗x if and only if there exists a∈A with x=algebraMap(a).",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-unique-coefficient",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Unique invariant coefficient",
+      "declarationName": "TauCeti.RootStack.divisibilityQZCoaction.invariants_unique",
+      "statement": "Every universally coinvariant x∈D_f has a unique a∈A satisfying x=algebraMap(a).",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-invariants",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-injective"
+      ],
+      "proofSteps": [
+        "Existence is the invariant theorem. Injectivity of the coefficient homomorphism proves uniqueness."
+      ],
+      "acceptance": [
+        "Every universally coinvariant x∈D_f has a unique a∈A satisfying x=algebraMap(a).",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Native invariant algebra equivalence",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantEquiv",
+      "statement": "Construct A≃ₐ[A]I_D, where I_D is the actual AlgHom.equalizer of δ_D and the right tensor inclusion D_f→G⊗D_f.",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-invariants",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-constant",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-injective",
+        "mathlib:AlgHom.equalizer",
+        "mathlib:AlgHom.codRestrict",
+        "mathlib:Algebra.ofId",
+        "mathlib:AlgEquiv.ofBijective"
+      ],
+      "proofSteps": [
+        "Restrict the coefficient algebra homomorphism to the native equalizer using coefficient coinvariance. Injectivity is coefficient injectivity; surjectivity follows from the invariant theorem. Use the native equivalence constructor for this actual bijection."
+      ],
+      "acceptance": [
+        "Construct A≃ₐ[A]I_D, where I_D is the actual AlgHom.equalizer of δ_D and the right tensor inclusion D_f→G⊗D_f.",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantEquiv.apply_coe",
+          "role": "characterisation",
+          "statement": "The underlying D_f element of divisibilityInvariantEquiv(f)(a) is algebraMap(a)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantEquiv.inverse_coe",
+          "role": "characterisation",
+          "statement": "For x∈I_D, the coefficient image of divisibilityInvariantEquiv(f)⁻¹(x) equals x.val."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantEquiv.eq_iff",
+          "role": "characterisation",
+          "statement": "For x∈I_D and a∈A, divisibilityInvariantEquiv(f)⁻¹(x)=a if and only if x.val=algebraMap(a)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantEquiv.factorial",
+          "role": "compatibility",
+          "statement": "For every a∈A, E((divisibilityInvariantEquiv(f)(a)).val)=(factorialInvariantEquiv(f)(a)).val."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantEquiv.test_coefficient_two",
+          "kind": "computation",
+          "statement": "Over Z/4 with f=2 the invariant image of coefficient 2 is its actual coefficient inclusion."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantEquiv.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For A=Z/1,f=0 the unique coefficient has invariant image zero."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantEquiv.test_inverse",
+          "kind": "characterisation",
+          "statement": "The equivalence applied to its inverse recovers each arbitrary equalizer element."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantEquiv.test_factorial",
+          "kind": "compatibility",
+          "statement": "Every coefficient has the same invariant coordinates after the actual cofinality comparison."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityInvariantEquiv.test_unique",
+          "kind": "characterisation",
+          "statement": "Equality of the underlying invariant elements forces equality of their coefficients."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-forward",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Invariant equivalence forward map",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantEquiv.apply_coe",
+      "statement": "The underlying D_f element of divisibilityInvariantEquiv(f)(a) is algebraMap(a).",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence"
+      ],
+      "proofSteps": [
+        "Evaluate the restricted coefficient homomorphism."
+      ],
+      "acceptance": [
+        "The underlying D_f element of divisibilityInvariantEquiv(f)(a) is algebraMap(a).",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-inverse",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Invariant equivalence inverse map",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantEquiv.inverse_coe",
+      "statement": "For x∈I_D, the coefficient image of divisibilityInvariantEquiv(f)⁻¹(x) equals x.val.",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-forward"
+      ],
+      "proofSteps": [
+        "Apply the forward-inverse law of the actual algebra equivalence and take its underlying element."
+      ],
+      "acceptance": [
+        "For x∈I_D, the coefficient image of divisibilityInvariantEquiv(f)⁻¹(x) equals x.val.",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-coefficient-criterion",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Characterization of the invariant coefficient",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantEquiv.eq_iff",
+      "statement": "For x∈I_D and a∈A, divisibilityInvariantEquiv(f)⁻¹(x)=a if and only if x.val=algebraMap(a).",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-inverse",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-injective"
+      ],
+      "proofSteps": [
+        "Use the inverse coefficient equation in the forward direction; reflect equality by coefficient injectivity in the reverse direction."
+      ],
+      "acceptance": [
+        "For x∈I_D and a∈A, divisibilityInvariantEquiv(f)⁻¹(x)=a if and only if x.val=algebraMap(a).",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-factorial",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Invariant coordinates agree under cofinality",
+      "declarationName": "TauCeti.RootStack.divisibilityInvariantEquiv.factorial",
+      "statement": "For every a∈A, E((divisibilityInvariantEquiv(f)(a)).val)=(factorialInvariantEquiv(f)(a)).val.",
+      "hypotheses": [
+        "A is any commutative ring in a fixed arbitrary universe, and f∈A is arbitrary. Zero rings, nilpotents, nonunits and wild characteristic are included. No reducedness, exponent-invertibility or flatness hypothesis is added.",
+        "D_f is the existing native direct limit of B_n=A[t_n]/(t_n^n−f) over positive integers ordered by divisibility. Its actual inclusions are j_n and v_n=j_n(t_n). C_f is the inherited factorial colimit with d_i=(i+1)!, and E=divisibilityFactorialEquiv(f):D_f≃ₐ[A]C_f.",
+        "G is the existing native MonoidAlgebra A (Multiplicative (AddCircle (1:ℚ))), written A[ℚ/ℤ]. e_q denotes its basis character. δ_C is the inherited LEFT rational-character coaction. All tensor products, equalizers, associators and unitors are native. Higher-universe target transport and coefficient-change naturality of this new comparison are not asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-forward",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-factorial-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/factorial-invariant-algebra-equivalence"
+      ],
+      "proofSteps": [
+        "Both invariant equivalences have forward map equal to coefficient inclusion, and E is an A-algebra equivalence."
+      ],
+      "acceptance": [
+        "For every a∈A, E((divisibilityInvariantEquiv(f)(a)).val)=(factorialInvariantEquiv(f)(a)).val.",
+        "Use universal coaction equality on the actual colimit and native equalizer; a scalar-point fixedness test is insufficient. The geometric quotient and descent obligations remain open."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Provides the positive-divisibility affine coaction and invariant algebra for the later geometric comparison; coherent root-object groupoids, Spec limits and fpqc frame torsors remain separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "DivisibilityCoaction-7e92bd",
+          "locator": "Authored deductions below, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 printed pp.14–16, cofinality remark, grading and Lemma3.7",
+          "excerpt": "grading",
+          "match": "The paper supplies the grading/cofinality motivation. These explicit positive-divisibility algebra homomorphisms and their Lean proofs are authored deductions from the existing native constructions, not literal named results of the paper."
         }
       ],
       "implementationStatus": "unchecked"
