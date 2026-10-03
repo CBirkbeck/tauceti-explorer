@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Partial 179-node chosen-band inverse checkpoint: six consumed native leaves construct local coefficient families, prove their exact recovery and matching, glue through the prescribed coefficient sheaf even with an empty global fibre, and construct the actual coefficient group equivalence with inverse restriction laws. All 173 inherited statement/hypothesis/source/acceptance contracts and all source routes, reserved keys, nine gaps and 21 requests survive. All eight stages remain partial or not_read with unchecked implementations. The actual SF1 descended-slice comparison, specified geometric fixtures and all broader source/supplier obligations remain open. Full TauCeti file uncompiled; the admission-free native proof and admitted Mathlib extraction are checked separately.",
+  "summary": "Partial 179-node chosen-band inverse checkpoint: six consumed native leaves construct local coefficient families, prove their exact recovery and matching, glue through the prescribed coefficient sheaf even with an empty global fibre, and construct the actual coefficient group equivalence with inverse restriction laws. All 173 inherited statement/hypothesis/source/acceptance contracts and all source routes, reserved keys, nine gaps and 21 requests survive. All eight stages remain partial or not_read with unchecked implementations. The actual SF1 descended-slice comparison, specified geometric fixtures and all broader source/supplier obligations remain open. Full TauCeti file uncompiled; the admission-free native proof and admitted Mathlib extraction are checked separately. Codex codex-a71f92 adds the actual fixed-band presheaf and sheaf isomorphisms and their all-arrow evaluation uniqueness, retaining the central-section carrier, reserved gerbe contract and all open geometric supplier obligations.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -749,6 +749,60 @@
         "module": "Mathlib/Algebra/Group/Equiv/Defs.lean",
         "provides": "A bijective multiplication-preserving map yields the native multiplicative equivalence with that exact forward map.",
         "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 499, on 2026-10-02 by Codex codex-J6LwjP; exact indexed name confirmed."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.fullyFaithfulSheafToPresheaf",
+        "kind": "abbrev",
+        "module": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
+        "provides": "The existing sheaf inclusion is fully faithful; lift the precise chosen-band presheaf isomorphism without defining a second sheaf category.",
+        "checked": "Exact statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02.",
+        "sourceLine": 340,
+        "sourceSha256": "e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Presheaf.isSheaf_of_iso_iff",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
+        "provides": "The categorical sheaf predicate is invariant under an actual natural isomorphism; supplies a native fixed-band target sheaf witness from A.",
+        "checked": "Exact statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02.",
+        "sourceLine": 283,
+        "sourceSha256": "e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Sheaf.hom_ext",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
+        "provides": "Equality of the underlying natural transformations detects equality of actual sheaf morphisms.",
+        "checked": "Exact statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02.",
+        "sourceLine": 321,
+        "sourceSha256": "e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.eqToIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/EqToHom.lean",
+        "provides": "Transports the precise presheaf target along an equality, with both inverse morphisms given by equality transport.",
+        "checked": "Exact statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02.",
+        "sourceLine": 213,
+        "sourceSha256": "2626e21deb49f8106302bd9396a3c5d08fc65318e9f13575d479eb4162544a3b"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.eqToHom",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/EqToHom.lean",
+        "provides": "Equality-to-morphism carrier transport, with its native identity and composition laws.",
+        "checked": "Exact statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02.",
+        "sourceLine": 43,
+        "sourceSha256": "2626e21deb49f8106302bd9396a3c5d08fc65318e9f13575d479eb4162544a3b"
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.FullyFaithful",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+        "provides": "The existing fully faithful structure includes map_preimage and preimage_map equations. Its map_preimage field identifies the actual underlying hom and inverse of an isomorphism lifted through the sheaf inclusion; the field itself is not separately indexed.",
+        "checked": "Exact statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02.",
+        "sourceLine": 130,
+        "sourceSha256": "94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e"
       }
     ]
   },
@@ -1311,6 +1365,30 @@
         "0CJY": "41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e",
         "026F": "0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0"
       }
+    },
+    {
+      "id": "SP0CJY-a71f92-sheaf-comparison",
+      "title": "The Stacks Project, fixed-band comparison derived from Gerbes Lemma 8.11.8",
+      "authors": "The Stacks Project Authors",
+      "edition": "Live HTML accessed 2026-10-02; authored native comparison deduction distinguished from the printed proof",
+      "url": "https://stacks.math.columbia.edu/tag/0CJY",
+      "sha256": "41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "The entire printed Lemma 8.11.8 statement and proof, including its empty-fibre argument and final omitted varying-base compatibility."
+      ]
+    },
+    {
+      "id": "SP026F-a71f92-sheaf-comparison",
+      "title": "The Stacks Project, Definition 8.4.1",
+      "authors": "The Stacks Project Authors",
+      "edition": "Live HTML accessed 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/026F",
+      "sha256": "0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Entire printed Definition 8.4.1; native stack/prestack carrier remains imported."
+      ]
     }
   ],
   "nodes": [
@@ -8339,14 +8417,17 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext",
         "AlgebraicModuliForArithmeticGeometry:R09.4/abelian-aut-commute",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-injective",
-        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-equivalence"
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-sheaf-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-sheaf-iso-unique"
       ],
       "proofSteps": [
         "Locally choose an object of the gerbe. There c_b is an isomorphism because both coefficient sheaves identify with the same automorphism sheaf by evaluation.",
         "Use existing sheaf-locality of isomorphisms from SF1, or glue its locally defined inverse using Hom descent for sheaves. The sheaf condition retains the local inverse on every section.",
         "The characterization fixes every central component; band-center-ext proves uniqueness of the comparison, including its inverse.",
         "Changing b by a nonidentity automorphism of A changes c_b by that automorphism.",
-        "The new native chosen-band coefficient equivalence constructs the local-to-global sectionwise inverse and proves its restriction and arbitrary-local-object recovery laws. Combine with the existing central-section sheaf and componentwise natural-isomorphism packaging; the separately required SF1 descended-slice comparison is not supplied by this coefficient calculation."
+        "The new native chosen-band coefficient equivalence constructs the local-to-global sectionwise inverse and proves its restriction and arbitrary-local-object recovery laws. Combine with the existing central-section sheaf and componentwise natural-isomorphism packaging; the separately required SF1 descended-slice comparison is not supplied by this coefficient calculation.",
+        "The present fixed-band comparison supplies the full native sheaf isomorphism. Its forward map is exactly the coefficient transformation, and the all-arrow evaluation characterization determines it uniquely. Apply these leaves to the existing central-section sheaf with its reflexive underlying-presheaf equality; the actual SF1 descended-slice comparison remains separate."
       ],
       "acceptance": [
         "Do not prove bijectivity by assuming an object over every U; use local nonemptiness and sheaf descent."
@@ -11582,6 +11663,382 @@
           "statement": "A nonidentity central section has a nonidentity inverse coefficient; a constant-unit inverse fails."
         }
       ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-presheaf-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The fixed band identifies the full central-section presheaf",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingPresheafIso",
+      "statement": "The actual coefficient transformation c_b extends to a natural isomorphism from the coefficient presheaf A to U↦Additive(ZF(U)). Its inverse component at U is the additive form of the proved inverse of c_b(U), and commutes with every restriction map. The band b is retained as data, not quotiented by coefficient automorphisms.",
+      "hypotheses": [
+        "C is a category in object universe u and morphism universe v, with Grothendieck topology J; F is the existing Cat-valued pseudofunctor with fibre universes u′ and v′.",
+        "F is a gerbe for J. A is the prescribed abelian-group sheaf in universe max(u,v,u′,v′), and b is its actual banding with pullback and conjugation compatibility.",
+        "For sheaf-level statements S is an existing sheaf whose underlying presheaf is exactly the compatible-centre presheaf; this is a carrier identification, not a new descent assumption or the missing SF1 comparison. No terminal object, global gerbe object, neutrality or fibre products are assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-presheaf",
+        "mathlib:CategoryTheory.NatIso.ofComponents"
+      ],
+      "proofSteps": [
+        "For every U, retain the existing additive coefficient homomorphism as the forward component. Turn the existing sectionwise inverse group equivalence into an additive homomorphism.",
+        "Both componentwise inverse identities are exactly the inherited coefficient/section round trips, with the native type tags removed.",
+        "Apply the pinned componentwise natural-isomorphism constructor. Forward naturality is the existing coefficient transformation law; the inverse is the actual chosen-band inverse and has the inherited arbitrary-arrow restriction equation."
+      ],
+      "acceptance": [
+        "Every map is in the native abelian-group-valued presheaf category.",
+        "Neither a global object over U nor the unfinished SF1 slice-sheaf comparison is used."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-a71f92-sheaf-comparison",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; authored fixed-band comparison deduction",
+          "match": "The presheaf/sheaf comparison is derived from the inherited compatible-centre model and the chosen-band inverse, not claimed as a separate proof printed in the source. All generic natural-isomorphism and full-subcategory operations are imported from pinned Mathlib."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingPresheafIso",
+          "role": "constructor",
+          "statement": "The actual coefficient transformation c_b extends to a natural isomorphism from the coefficient presheaf A to U↦Additive(ZF(U)). Its inverse component at U is the additive form of the proved inverse of c_b(U), and commutes with every restriction map. The band b is retained as data, not quotiented by coefficient automorphisms."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingPresheafIso_hom",
+          "role": "compatibility",
+          "statement": "The forward natural transformation is exactly the existing fromBandingPresheaf."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingPresheafIso_hom_app",
+          "role": "simp",
+          "statement": "At U the forward component sends a to the additive form of c_b(U)(a)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingPresheafIso_inv_app",
+          "role": "simp",
+          "statement": "At U the inverse component sends z to the additive form of the inverse of the existing fromBandingEquiv."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingPresheafIso_inv_naturality",
+          "role": "functoriality",
+          "statement": "Restricting the inverse coefficient of z along every f:V→U equals the inverse coefficient of the reindexed central section."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BandPresheafIsoTests.zero",
+          "kind": "degenerate",
+          "statement": "The forward component at every U sends the zero coefficient to the zero central section."
+        },
+        {
+          "name": "BandPresheafIsoTests.coefficientRoundTrip",
+          "kind": "characterisation",
+          "statement": "The inverse component applied to the forward image of any coefficient a returns exactly a."
+        },
+        {
+          "name": "BandPresheafIsoTests.sectionRoundTrip",
+          "kind": "characterisation",
+          "statement": "The forward component applied to the inverse of any central section z returns exactly z."
+        },
+        {
+          "name": "BandPresheafIsoTests.restriction",
+          "kind": "compatibility",
+          "statement": "The inverse commutes with every actual coefficient restriction, including nonidentity arrows."
+        },
+        {
+          "name": "BandPresheafIsoTests.nonzero",
+          "kind": "non-example",
+          "statement": "Every nonzero coefficient has nonzero forward image; the constant-zero transformation cannot be this isomorphism."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-band-unique",
+          "how": "Replaces the open componentwise-to-global packaging step by an actual invertible natural transformation."
+        },
+        {
+          "where": "Stacks Lemma 8.11.8, compatibility over varying base objects",
+          "how": "Retains all restrictions at once; equality is not only an objectwise family of abstract group equivalences."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-presheaf-iso-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The presheaf isomorphism retains the coefficient map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingPresheafIso_hom",
+      "statement": "The forward natural transformation is exactly the existing fromBandingPresheaf.",
+      "hypotheses": [
+        "C is a category in object universe u and morphism universe v, with Grothendieck topology J; F is the existing Cat-valued pseudofunctor with fibre universes u′ and v′.",
+        "F is a gerbe for J. A is the prescribed abelian-group sheaf in universe max(u,v,u′,v′), and b is its actual banding with pullback and conjugation compatibility.",
+        "For sheaf-level statements S is an existing sheaf whose underlying presheaf is exactly the compatible-centre presheaf; this is a carrier identification, not a new descent assumption or the missing SF1 comparison. No terminal object, global gerbe object, neutrality or fibre products are assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-presheaf-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-presheaf"
+      ],
+      "proofSteps": [
+        "Unfold the native componentwise natural-isomorphism construction. Its forward components were chosen to be the existing coefficient transformation, so the equality is definitional."
+      ],
+      "acceptance": [
+        "No new arbitrary automorphism of A may be inserted in the forward map."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-a71f92-sheaf-comparison",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; authored fixed-band comparison deduction",
+          "match": "The presheaf/sheaf comparison is derived from the inherited compatible-centre model and the chosen-band inverse, not claimed as a separate proof printed in the source. All generic natural-isomorphism and full-subcategory operations are imported from pinned Mathlib."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-sheaf-iso",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The fixed band identifies the central-section sheaf",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingSheafIso",
+      "statement": "For any existing sheaf S whose underlying presheaf is precisely U↦Additive(ZF(U)), lift the actual chosen-band presheaf isomorphism uniquely through the fully faithful sheaf inclusion to an isomorphism A≅S. In particular take the previously constructed intrinsic central-section sheaf. The equality identifying S with the precise presheaf is used only to transport carriers, never to assume the SF1 descended-slice comparison.",
+      "hypotheses": [
+        "C is a category in object universe u and morphism universe v, with Grothendieck topology J; F is the existing Cat-valued pseudofunctor with fibre universes u′ and v′.",
+        "F is a gerbe for J. A is the prescribed abelian-group sheaf in universe max(u,v,u′,v′), and b is its actual banding with pullback and conjugation compatibility.",
+        "For sheaf-level statements S is an existing sheaf whose underlying presheaf is exactly the compatible-centre presheaf; this is a carrier identification, not a new descent assumption or the missing SF1 comparison. No terminal object, global gerbe object, neutrality or fibre products are assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-presheaf-iso",
+        "mathlib:CategoryTheory.fullyFaithfulSheafToPresheaf",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso",
+        "mathlib:CategoryTheory.eqToIso",
+        "mathlib:CategoryTheory.Presheaf.isSheaf_of_iso_iff"
+      ],
+      "proofSteps": [
+        "Transport the target of the actual presheaf isomorphism along the displayed underlying-presheaf equality.",
+        "Apply the existing fully faithful sheaf inclusion’s isomorphism preimage; its hom and inverse identities are supplied by Mathlib.",
+        "For existence without the general prestack proof, the same natural isomorphism transports A’s actual sheaf property to the precise target presheaf using the pinned isomorphism-invariance theorem. This is a special fixed-band witness, not a replacement for the inherited stronger prestack theorem."
+      ],
+      "acceptance": [
+        "The construction quantifies over actual native sheaf objects, with no custom or opaque gluing carrier.",
+        "The displayed equality is reflexive for the inherited central-section sheaf; its independently required comparison with the SF1 descended slice sheaf is not assumed."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-a71f92-sheaf-comparison",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; authored fixed-band comparison deduction",
+          "match": "The presheaf/sheaf comparison is derived from the inherited compatible-centre model and the chosen-band inverse, not claimed as a separate proof printed in the source. All generic natural-isomorphism and full-subcategory operations are imported from pinned Mathlib."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingSheafIso",
+          "role": "constructor",
+          "statement": "For any existing sheaf S whose underlying presheaf is precisely U↦Additive(ZF(U)), lift the actual chosen-band presheaf isomorphism uniquely through the fully faithful sheaf inclusion to an isomorphism A≅S. In particular take the previously constructed intrinsic central-section sheaf. The equality identifying S with the precise presheaf is used only to transport carriers, never to assume the SF1 descended-slice comparison."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingSheafIso_hom",
+          "role": "projection",
+          "statement": "After forgetting sheaf structure, the forward map is the actual presheaf isomorphism’s forward map followed by the target-carrier identification."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingSheafIso_inv",
+          "role": "projection",
+          "statement": "After forgetting sheaf structure, the inverse is the target-carrier identification followed by the actual inverse presheaf map."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingSheafIso_hom_transport",
+          "role": "compatibility",
+          "statement": "Transporting the forward sheaf map back to the precise central-section presheaf recovers exactly fromBandingPresheaf."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingSheafIso_inv_transport",
+          "role": "compatibility",
+          "statement": "Transporting the inverse sheaf map to the precise central-section presheaf recovers exactly the inverse of fromBandingPresheafIso."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BandSheafIsoTests.forward",
+          "kind": "compatibility",
+          "statement": "Transporting the forward sheaf map back to the precise central-section presheaf recovers exactly fromBandingPresheaf."
+        },
+        {
+          "name": "BandSheafIsoTests.backward",
+          "kind": "compatibility",
+          "statement": "Transporting the inverse sheaf map to the precise central-section presheaf recovers exactly the inverse of fromBandingPresheafIso."
+        },
+        {
+          "name": "BandSheafIsoTests.coefficientRoundTrip",
+          "kind": "characterisation",
+          "statement": "The forward sheaf map followed by its inverse is the identity on A."
+        },
+        {
+          "name": "BandSheafIsoTests.sectionRoundTrip",
+          "kind": "characterisation",
+          "statement": "The inverse sheaf map followed by its forward map is the identity on S."
+        },
+        {
+          "name": "BandSheafIsoTests.bandDeterminesComparison",
+          "kind": "non-example",
+          "statement": "Any sheaf isomorphism with the prescribed evaluations at every base arrow and fibre object equals this fixed-band comparison; a different abstract coefficient isomorphism is not silently identified with it."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-band-unique",
+          "how": "Supplies the actual sheaf isomorphism required by the inherited existence-and-uniqueness statement."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-glued-comparison",
+          "how": "Identifies any supplied packaging of the same precise presheaf, but does not replace the separately required geometric descended-slice carrier identification."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-sheaf-iso-hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The lifted sheaf comparison has its actual presheaf map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingSheafIso_hom",
+      "statement": "After forgetting sheaf structure, the forward map is the actual presheaf isomorphism’s forward map followed by the target-carrier identification.",
+      "hypotheses": [
+        "C is a category in object universe u and morphism universe v, with Grothendieck topology J; F is the existing Cat-valued pseudofunctor with fibre universes u′ and v′.",
+        "F is a gerbe for J. A is the prescribed abelian-group sheaf in universe max(u,v,u′,v′), and b is its actual banding with pullback and conjugation compatibility.",
+        "For sheaf-level statements S is an existing sheaf whose underlying presheaf is exactly the compatible-centre presheaf; this is a carrier identification, not a new descent assumption or the missing SF1 comparison. No terminal object, global gerbe object, neutrality or fibre products are assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-sheaf-iso",
+        "mathlib:CategoryTheory.Functor.FullyFaithful"
+      ],
+      "proofSteps": [
+        "Use the pinned full-faithfulness map-preimage equation on the isomorphism’s hom. The sheaf inclusion is the existing full-subcategory inclusion, so its image is the actual underlying natural transformation."
+      ],
+      "acceptance": [
+        "The equality retains the target transport and the exact fixed-band forward map."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-a71f92-sheaf-comparison",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; authored fixed-band comparison deduction",
+          "match": "The presheaf/sheaf comparison is derived from the inherited compatible-centre model and the chosen-band inverse, not claimed as a separate proof printed in the source. All generic natural-isomorphism and full-subcategory operations are imported from pinned Mathlib."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-sheaf-iso-hom-transport",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Carrier transport recovers the prescribed band map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingSheafIso_hom_transport",
+      "statement": "Transporting the forward sheaf map back to the precise central-section presheaf recovers exactly fromBandingPresheaf.",
+      "hypotheses": [
+        "C is a category in object universe u and morphism universe v, with Grothendieck topology J; F is the existing Cat-valued pseudofunctor with fibre universes u′ and v′.",
+        "F is a gerbe for J. A is the prescribed abelian-group sheaf in universe max(u,v,u′,v′), and b is its actual banding with pullback and conjugation compatibility.",
+        "For sheaf-level statements S is an existing sheaf whose underlying presheaf is exactly the compatible-centre presheaf; this is a carrier identification, not a new descent assumption or the missing SF1 comparison. No terminal object, global gerbe object, neutrality or fibre products are assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-sheaf-iso-hom",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-presheaf-iso-hom",
+        "mathlib:CategoryTheory.eqToHom"
+      ],
+      "proofSteps": [
+        "Apply the preceding underlying-map identity.",
+        "Compose with the inverse target identification. The two equality transports cancel by the native equality-to-morphism composition and identity laws.",
+        "Use the actual presheaf forward-map identity to obtain the coefficient transformation, not merely an unspecified isomorphic map."
+      ],
+      "acceptance": [
+        "This is equality of natural transformations, not equality only at one object."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-a71f92-sheaf-comparison",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; authored fixed-band comparison deduction",
+          "match": "The presheaf/sheaf comparison is derived from the inherited compatible-centre model and the chosen-band inverse, not claimed as a separate proof printed in the source. All generic natural-isomorphism and full-subcategory operations are imported from pinned Mathlib."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-sheaf-iso-unique",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "All band evaluations determine the sheaf comparison",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.IntrinsicBandSections.fromBandingSheafIso_unique",
+      "statement": "A sheaf isomorphism e:A≅S is the fixed-band comparison if, after transporting its target to the precise central-section presheaf, its value at a∈A(U) evaluates at every f:V→U and every object x over V as b(V,x)(a restricted along f). These equations determine the actual sheaf isomorphism, including its inverse.",
+      "hypotheses": [
+        "C is a category in object universe u and morphism universe v, with Grothendieck topology J; F is the existing Cat-valued pseudofunctor with fibre universes u′ and v′.",
+        "F is a gerbe for J. A is the prescribed abelian-group sheaf in universe max(u,v,u′,v′), and b is its actual banding with pullback and conjugation compatibility.",
+        "For sheaf-level statements S is an existing sheaf whose underlying presheaf is exactly the compatible-centre presheaf; this is a carrier identification, not a new descent assumption or the missing SF1 comparison. No terminal object, global gerbe object, neutrality or fibre products are assumed."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-sheaf-iso-hom-transport",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-evaluation",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext",
+        "mathlib:CategoryTheory.Sheaf.hom_ext",
+        "mathlib:CategoryTheory.eqToHom"
+      ],
+      "proofSteps": [
+        "Compare the homs of the two native sheaf isomorphisms; the existing sheaf inclusion is faithful.",
+        "Cancel the target-carrier identification and apply natural-transformation and additive-homomorphism extensionality.",
+        "For every U and coefficient a apply compatible central-section extensionality at all V,f,x. The prescribed evaluation equation and the existing coefficient comparison’s evaluation formula give equality of every centre component.",
+        "The hom determines a categorical isomorphism and hence its inverse. No chosen local or global object is used in this uniqueness proof."
+      ],
+      "acceptance": [
+        "Objects may be absent over U: all smaller slice indices are retained.",
+        "The uniqueness is relative to the displayed band b, never uniqueness modulo abstract automorphisms of A."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.IntrinsicBandSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SP0CJY-a71f92-sheaf-comparison",
+          "locator": "Lemma 8.11.8, full proof and final varying-base omission; authored fixed-band comparison deduction",
+          "match": "The presheaf/sheaf comparison is derived from the inherited compatible-centre model and the chosen-band inverse, not claimed as a separate proof printed in the source. All generic natural-isomorphism and full-subcategory operations are imported from pinned Mathlib."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -11786,7 +12243,7 @@
         "The gerbe, banding, neutralization, derived-H2 route, compatible profinite limits, torsor twisting and prime-to-p inertia branches are partial; resolve each recorded proof gap and request before closure.",
         "Import ordinary stacks from D0 and spaces/sites/diagonals from SF1. Algebraic/Deligne–Mumford properties, algebraicity of quotient stacks and coherent-sheaf moduli stacks, and exact Artin moduli criteria remain undecomposed.",
         "Finite-field rational-point atlases, stack differentials/degree/local-character adapters and groupoid mass remain pending at their paper locators. Import stable pointed-curve moduli from StableReductionPartII:key/moduli-curves and elliptic comparisons from ModularCurves1E/4A.",
-        "The compatible-centre model retains its native arbitrary-base gluing/sheaf/evaluation receipts. The prescribed-band coefficient inverse now has admission-free local matching/gluing, both sectionwise round trips and arbitrary restriction laws, without a global object. Package the full sheaf isomorphism and establish the actual SF1 descended-slice comparison; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbes before intrinsic-band closure."
+        "The prescribed-band coefficient comparison now has an actual native natural isomorphism and a full sheaf isomorphism into any existing packaging of the precise compatible-centre presheaf. Its transported forward map is exactly c_b and its inverse is the established compatible sectionwise inverse. All base-arrow/fibre-object evaluation equations determine the sheaf isomorphism uniquely. No global gerbe object, terminal object or neutrality is assumed. This discharges the fixed-band full-sheaf-comparison sub-obligation only. Establish the comparison with the actual SF1 descended slice sheaf and instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe before intrinsic-band closure. The stronger general prestack-sheaf receipt is historical and is not rerun here; no stage or reserved-key closure is claimed."
       ]
     },
     {
@@ -11818,13 +12275,14 @@
   "gaps": [
     {
       "title": "Compatibility of the intrinsic band over varying slice objects",
-      "detail": "The compatible-centre construction retains its previous native cover/gluing/sheaf/evaluation receipts. The fixed-band coefficient comparison now has a native local-to-global inverse: actual local gerbe objects produce matching coefficients, the prescribed sheaf A glues them, and joint covering separatedness proves the section round trip. Both inverse laws, restriction compatibility and independence of chosen local object families are checked without a global object. This resolves the chosen-band sectionwise-inverse sub-obligation only. Package the full compatible sheaf isomorphism and compare with the actual SF1 descended slice sheaf; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe. No complete intrinsic-band, reserved-key or stage closure is claimed.",
+      "detail": "The prescribed-band coefficient comparison now has an actual native natural isomorphism and a full sheaf isomorphism into any existing packaging of the precise compatible-centre presheaf. Its transported forward map is exactly c_b and its inverse is the established compatible sectionwise inverse. All base-arrow/fibre-object evaluation equations determine the sheaf isomorphism uniquely. No global gerbe object, terminal object or neutrality is assumed. This discharges the fixed-band full-sheaf-comparison sub-obligation only. Establish the comparison with the actual SF1 descended slice sheaf and instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe before intrinsic-band closure. The stronger general prestack-sheaf receipt is historical and is not rerun here; no stage or reserved-key closure is claimed.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/intrinsic-abelian-band",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf",
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-glued-comparison"
       ],
-      "previousDetail": "Stacks8.11.8 explicitly omits this final verification. Check independence under refinements and the composition law for all restriction maps before claiming the construction source-closed. This continuation supplies15 explicit compatible-center-section leaves with cover/refinement, mapId/mapComp and restriction identity/composition proof outlines. The mathematical varying-base route is now decomposed; implement the new native signatures, verify sectionwise sheaf descent and the SF1 slice-glued carrier comparison, and elaborate before claiming this gap closed. The chosen-band coefficient-to-center and comparison/reindexing branch now has native proofs; the general Hom-gluing and evaluation-locality obligations, a locally glued inverse, and the actual SF1 descended-slice comparison remain open. Codex codex-a71f92 supplies native evaluation-locality, covering-sieve separatedness, gerbe evaluation injectivity and fixed-band coefficient injectivity; these proofs do not depend on the admitted central-section sheaf theorem. General Hom-gluing, abelian-inertia surjectivity, the locally glued inverse and the actual SF1 descended-slice comparison are still open. This continuation checks the specialized matching-central-family transition, native descent isomorphism and fully faithful descended automorphism, retaining the inverse. The current continuation proves fibre-morphism naturality and constructs the actual fibre-centre unit, with inverse and uniqueness. Compatibility under arbitrary base restriction on pulled-back covers and assembly into a global central section remain unfinished; neither the sheaf theorem nor evaluation surjectivity follows from the fibre-centre receipt."
+      "previousDetail": "Stacks8.11.8 explicitly omits this final verification. Check independence under refinements and the composition law for all restriction maps before claiming the construction source-closed. This continuation supplies15 explicit compatible-center-section leaves with cover/refinement, mapId/mapComp and restriction identity/composition proof outlines. The mathematical varying-base route is now decomposed; implement the new native signatures, verify sectionwise sheaf descent and the SF1 slice-glued carrier comparison, and elaborate before claiming this gap closed. The chosen-band coefficient-to-center and comparison/reindexing branch now has native proofs; the general Hom-gluing and evaluation-locality obligations, a locally glued inverse, and the actual SF1 descended-slice comparison remain open. Codex codex-a71f92 supplies native evaluation-locality, covering-sieve separatedness, gerbe evaluation injectivity and fixed-band coefficient injectivity; these proofs do not depend on the admitted central-section sheaf theorem. General Hom-gluing, abelian-inertia surjectivity, the locally glued inverse and the actual SF1 descended-slice comparison are still open. This continuation checks the specialized matching-central-family transition, native descent isomorphism and fully faithful descended automorphism, retaining the inverse. The current continuation proves fibre-morphism naturality and constructs the actual fibre-centre unit, with inverse and uniqueness. Compatibility under arbitrary base restriction on pulled-back covers and assembly into a global central section remain unfinished; neither the sheaf theorem nor evaluation surjectivity follows from the fibre-centre receipt.",
+      "previousChosenBandDetail": "The compatible-centre construction retains its previous native cover/gluing/sheaf/evaluation receipts. The fixed-band coefficient comparison now has a native local-to-global inverse: actual local gerbe objects produce matching coefficients, the prescribed sheaf A glues them, and joint covering separatedness proves the section round trip. Both inverse laws, restriction compatibility and independence of chosen local object families are checked without a global object. This resolves the chosen-band sectionwise-inverse sub-obligation only. Package the full compatible sheaf isomorphism and compare with the actual SF1 descended slice sheaf; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe. No complete intrinsic-band, reserved-key or stage closure is claimed."
     },
     {
       "title": "Contracted-product composition and universal property for change of band",
@@ -13490,7 +13948,7 @@
         "warnings": 0,
         "sha256": "9af35ace261858f92b9980584627d8803adf5c06281a64948e3ed7b52e1227ac",
         "outputSha256": "9ee57dbbc75193069c8a87aaeb1e01d8b55b52769aa0cd3f5325d19eb5f1cca3",
-        "elapsedSeconds": 2.0,
+        "elapsedSeconds": 2,
         "maximumRSSKiB": 2051672,
         "availableMemoryGiB": 63,
         "admissionDependencies": false,
