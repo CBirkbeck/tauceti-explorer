@@ -19054,7 +19054,7 @@
       "kind": "error",
       "locator": "Online version read 2026-10-03, Remark 43.15.6, conditions (1) and (5), compared with Definition 10.59.1 (00K4)",
       "printed": "The following are equivalent",
-      "correction": "Require M≠0 in this equivalence of all five conditions, or state the M=0 branch separately. Conditions (3)–(5) hold for M=0, while I+Ann_A(0)=A is not an ideal of definition under Definition 10.59.1. The adic quotient and graded-piece identities themselves remain valid for M=0.",
+      "correction": "For the equivalence of all five conditions require M≠0 and I proper, or equivalently require M/IM≠0 under the finite local hypotheses. State the M=0 branch separately; if unit ideals are permitted, I=A also requires a separate zero-quotient branch. Conditions (3)–(5) hold for M=0, while I+Ann_A(0)=A is not an ideal of definition under Definition 10.59.1. The adic quotient and graded-piece identities themselves remain valid for M=0.",
       "reason": "Take A=ℚ, I=0, M=ℚ^(Fin 0)=0. The actual quotient M/IM has length 0, so condition (5) holds. Ann_A(M)=A, whose radical is A rather than the proper maximal ideal 0, so condition (1) fails. Two admission-free native examples check these exact conclusions. This affects the printed five-condition equivalence only, not the general module-primary Hilbert–Samuel constructor.",
       "affects": "a stated result",
       "known": "new",
