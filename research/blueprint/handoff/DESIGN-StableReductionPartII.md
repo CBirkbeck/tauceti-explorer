@@ -1,3 +1,410 @@
+# Current continuation: coefficient-universal section tensor complexes — Codex codex-rtOQ9t
+
+Refs #3342. Winning claim 5963215462 was confirmed by bot 5963216822.
+Mathematical base: 8e8a791bf7a37204ff27814aaa38580e85df58d1.
+Publication base: f1a650b90692d9f7d9667f3deb09ba9e0013cb4d. The incoming five owner deliverables,
+binding instructions, reviewed audit/key/consumer inputs and check/assembler
+code were byte-unchanged. Foreign main changes were merged into the own
+branch; indexed/intake/graph checks were rerun after that merge.
+This receipt supersedes historical numerical/frontier reports below; earlier
+readings, native calculations and authorship retain their recorded scope.
+
+There are 214 nodes: eight definitions, 45 constructions, 98 lemmas,
+62 theorems and one application. There are 198 distinct API names,
+200 total API entries (199 definition/construction entries),
+189 definition/construction tests and 199 tests overall, 35 planets,
+118 baseline references, fourteen gaps and 135 requests. All eight stages
+remain partial; zero stages are closed; every implementation status remains
+unchecked. All 188 inherited mathematical statement, hypothesis, acceptance,
+source, library and ownership contracts are preserved. All inherited API,
+tests, uses and proof/prerequisite prefixes survive. 187 whole node objects
+are unchanged; only the consuming dual-section-ideal proof route gains six
+polynomial tensor inputs and an explicit remaining-comparison step.
+The checkpoint adds 26 declaration-sized nodes, eleven API entries and
+seventeen test contracts. Reserved key, six consumer inventories,
+source/version/erratum findings, gaps and requests are unchanged.
+
+## Mathematical calculation and limit
+
+Use the actual native node ring R, ideal J and R-linear dual D, and the
+ordered matrix maps and presentations already constructed in the preceding
+checkpoint. P_J:R²→J has kernel im Ψ and P_D:R²→D has kernel im Φ.
+J and D are flat over the coefficient ring A. The pinned flat-cokernel theorem
+therefore makes the inclusions of both matrix images injective after tensoring
+with every A-module M. Factor each matrix through its actual image.
+Pinned right exactness proves exactness of each corestricted pair after
+tensoring; postcompose with that tensor-image injection. This proves both
+ordinary alternating tensor pairs exact without assuming M flat.
+
+Construct p(z₀,z₁)=(−z₁,z₀), with inverse (z₁,−z₀), on the actual R².
+The existing matrix action formulas give Φᵀp=pΨ and Ψᵀp=pΦ.
+Restriction to A and the pinned tensor-composition law give both commuting
+tensor ladders. The actual tensor equivalence id_M⊗p transports ordinary
+exactness to both transpose pairs. This is exactness for every A-module M,
+not a flat coefficient-change special case.
+
+The two actual quotient equivalences are
+coker(id_M⊗Ψ)≃M⊗_A J and coker(id_M⊗Φ)≃M⊗_A D.
+They are characterized on every tensor representative by id_M⊗P_J and
+id_M⊗P_D. Pure-tensor, inverse and uniqueness APIs fix the prescribed maps,
+including the negative second generators −d and −ε. The generic right-exact
+quotient construction, flat-cokernel theorem and tensor equivalence transport
+remain pinned library inputs rather than new general theories in this owner.
+
+Seventeen added examples check the actual rotation over Z/4 and the zero
+ring, both quotient maps on zero/pure tensors/arbitrary representative inverse
+images, the negative second generator with M=Z/2 over Z, all four exact pairs
+with that torsion coefficient module, and the two ordinary pairs over Z/1.
+These are actual carriers and constructions, not parameters assuming the
+conclusions. The full preceding native proof source is retained byte for byte
+after one additional import, with its original authorship receipts below.
+
+The local coefficient-module matrix pairs are universally acyclic in the
+stated sense. This does not yet construct the module-valued Hom comparison,
+bidual evaluation, cochain/Ext interpretation or naturality for J and D.
+Do not infer the complete relative stable-reflexivity Theorem2 or its
+Proposition6 two-base completion comparison without those exact interfaces.
+Pointed completed-local hulls, actual sheaf globalization, arbitrary-family
+approximation, collision charts and every other MC.0–MC.7 obligation remain.
+
+## Read scope and verification
+
+The entire issue was read before claiming and again after the explicit
+winning bot reply. The current predecessor receipt and its complete native
+recovery/assembler recipes, full new predecessor matrix proofs and relevant
+complete kernel, flatness and global dual-section-ideal contracts were read.
+All eight stage descriptions and requirements, full reserved moduli-key
+record and its six consumers, reviewed AUDIT-02 parent layers1 and3 and
+complete accepted REV-AUDIT-02 were read. There is no Part II audit row.
+Binding instructions, reviewed audit, reserved-key survey and both consumer
+extractions are byte-identical to the earlier continuation's reading context
+4a1f4b6f4dc475b67e029001f90053ff85163a04. Full upstream StableReduction and
+nearby documents were read earlier in this continuous worker session.
+No fresh whole 188-node packet or whole historical handoff reading is claimed;
+exact preservation of all inherited mathematical contracts is verified.
+
+Fresh primary source scope is the complete Knudsen
+[arXiv:1106.1588v2 §3](https://arxiv.org/html/1106.1588v2#S3), including
+Proposition3.1 and Corollary3.2 and their complete proofs. Retrieved HTML
+SHA-256: 2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685,
+accessed 2026-10-02. The rotation identities are printed there. The arbitrary
+coefficient-module tensor conclusions are authored deductions from the
+preceding polynomial algebra and pinned infrastructure. Printed noetherianity
+and unit-discriminant hypotheses remain for the cited geometric proposition.
+No fresh whole-paper, visual PDF, Appendix/Bourbaki or consumer-source audit
+is claimed. Earlier source/version/erratum receipts retain their scope.
+
+Fourteen added exact pinned Mathlib declarations were read with ambient
+scalar/module hypotheses: actual range corestriction and its surjectivity,
+kernel and factorization laws; exactness as kernel/image and transport through
+an injection or commuting equivalence ladder; scalar restriction and native
+tensor equivalences; right exactness and its actual quotient equivalence;
+and tensor-inclusion injectivity when the actual cokernel is flat.
+Every one resolves in the pinned index. A bounded specialized-name search in
+pinned Tau Ceti AlgebraicGeometry and the Mathlib geometry/AdjoinRoot area
+found no matching local universal-section tensor API. No exhaustive library
+absence claim is made. Both pinned source revisions were confirmed.
+
+Indexed packet checker: zero errors and warnings. Actual intake allowed-path
+and private-path checks pass. Full canonical sketch: 2365 lines,
+137 examples, exit0, 333 expected admission warnings,
+zero errors or other warnings; seconds 20.11 peak_kib 3081836.
+Complete separate native proof: 2434 lines, 75 examples
+(58 inherited and seventeen added), 154 named axiom audits
+(128 inherited and 26 added), exit0, zero errors, admissions or warnings;
+seconds 18.11 peak_kib 3226884. All axiom lists contain only propext, Classical.choice and
+Quot.sound. All 43 new named/example headers match the canonical signatures
+exactly after whitespace normalization and the outer body delimiter.
+Both elaborations used the existing exact pinned Mathlib build and
+Lean4.34.0-rc2, with49GiB available before each final check on 2026-10-03.
+The suggested file imports Mathlib only. Tau Ceti remains a pinned source
+input. No setup, library build, dependency/cache download, update or language
+server was used. Final suggested bodies are admitted plans under PROTOCOL §13.
+
+Read-only actual assembler overlay: stage DAG3050/8750; owner declaration
+DAG214/508; scoped stage/declaration/request DAG3229/9586. All are acyclic.
+All81 required stage pairs are reachable, all214 owner declarations are
+reached, no external declaration nodes or unresolved references occur,
+and own skipped/pending links are empty. Stage edges and unrelated skips
+and pending links match the original control. These scoped checks do not
+establish supplier proofs or global moduli geometry.
+
+## Durable proof reconstruction
+
+Complete actual proof source is archived inside the allowed suggested file at
+immutable [revision 5a92fd0ae83ddc0a3671cc21fdd236394e9d9519](https://github.com/CBirkbeck/tauceti-explorer/blob/5a92fd0ae83ddc0a3671cc21fdd236394e9d9519/research/blueprint/suggested/StableReductionPartII.lean).
+The final sketch removes the archive comment and restores admitted outer
+bodies. The archive remains an ancestor of this submission. Native and
+canonical SHA-256 values and normalized diagnostic hashes are recorded below.
+Scratch files and logs are dispensable after public archive verification.
+
+Native SHA-256: 45515bd3ff293c14fdbe562a99cf9091b8a180d0ce0a74f547cedd5c9e00f7cf.
+Native normalized diagnostics SHA-256: e88a269371aaefda9e586c7e626ae03953b7d70c147270f8aff7a4c8d0287ee3.
+Canonical SHA-256: b5d121814d0312c0930d4881cf1d6dca6b13dc011a35374ecb3df54302c96bd8.
+Canonical normalized diagnostics SHA-256: 69f092f23bb5323c5664ee418ff0076404f9ae8b9f86388e0805dd9795f94479.
+Diagnostic hashes omit the timing-wrapper line, normalize the source pathname
+to Checked.lean or StableReductionPartII.lean, strip surrounding whitespace
+and retain one final newline.
+
+Save this extraction in your own disk scratch. It preserves the final newline.
+Run one lake env lean process from an existing exact pinned build against the
+absolute scratch filename, with at least20GiB available. Stop after twenty
+minutes. Never create or build a Lake environment or start a language server.
+
+```python
+from pathlib import Path
+import urllib.request, hashlib
+archive = "5a92fd0ae83ddc0a3671cc21fdd236394e9d9519"
+path = "research/blueprint/suggested/StableReductionPartII.lean"
+url = "https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/" + archive + "/" + path
+blob = urllib.request.urlopen(url).read().decode()
+source = blob.split("BEGIN ARCHIVED CHECKED UNIVERSAL SECTION TENSOR COMPLEXES\n", 1)[1]
+source = source.split("END ARCHIVED CHECKED UNIVERSAL SECTION TENSOR COMPLEXES\n", 1)[0]
+assert hashlib.sha256(source.encode()).hexdigest() == "45515bd3ff293c14fdbe562a99cf9091b8a180d0ce0a74f547cedd5c9e00f7cf"
+Path(__file__).with_name("Checked.lean").write_text(source)
+```
+
+The complete validator below runs from the repository root with
+TAUCETI_BASELINE set to an existing pinned declaration-index directory.
+Save in your own disk scratch and set PYTHONDONTWRITEBYTECODE=1.
+It recovers the immutable actual proof, verifies the full predecessor prefix,
+all inherited contracts and current exact headers, and runs the actual indexed
+packet checker and intake file validation. It writes its receipt beside itself.
+Read-only archive/control commits may need fetching as Git objects.
+
+```python
+from pathlib import Path
+import ast,hashlib,json,re,subprocess,sys
+root=Path.cwd();s=Path(__file__).parent;rid='StableReductionPartII'
+base='f1a650b90692d9f7d9667f3deb09ba9e0013cb4d';archive='5a92fd0ae83ddc0a3671cc21fdd236394e9d9519'
+paths=['research/blueprint/roadmaps/'+rid+'.json','research/blueprint/packets/'+rid+'.json','research/blueprint/readmes/'+rid+'.md','research/blueprint/suggested/'+rid+'.lean','research/blueprint/handoff/DESIGN-'+rid+'.md']
+blob=subprocess.check_output(['git','show',archive+':'+paths[3]],text=True)
+native=blob.split('BEGIN ARCHIVED CHECKED UNIVERSAL SECTION TENSOR COMPLEXES\n',1)[1].split('END ARCHIVED CHECKED UNIVERSAL SECTION TENSOR COMPLEXES\n',1)[0]
+assert hashlib.sha256(native.encode()).hexdigest()=='45515bd3ff293c14fdbe562a99cf9091b8a180d0ce0a74f547cedd5c9e00f7cf'
+oldarchive=subprocess.check_output(['git','show','5cf0343f7edeab7223ed8366d75a3a502e7b0181:'+paths[3]],text=True)
+oldnative=oldarchive.split('BEGIN ARCHIVED CHECKED SECTION MATRIX PRESENTATIONS\n',1)[1].split('END ARCHIVED CHECKED SECTION MATRIX PRESENTATIONS\n',1)[0]
+assert hashlib.sha256(oldnative.encode()).hexdigest()=='4d9ee3521709621d23e6d2497febba0e72aa6e462806351440a2a30b1614dddc'
+assert native.startswith('import Mathlib.RingTheory.Flat.Equalizer\n'+oldnative)
+can=(root/paths[3]).read_text();reader=(root/paths[2]).read_text();p=json.loads((root/paths[1]).read_text())
+old=json.loads(subprocess.check_output(['git','show',base+':'+paths[1]],text=True))
+on={n['id']:n for n in old['nodes']};nn={n['id']:n for n in p['nodes']}
+assert len(on)==188 and len(nn)==214 and set(on)<=set(nn)
+for id,n in on.items():
+ for key in ['id','kind','parentStageId','realises','statement','hypotheses','acceptance','sources','implementationStatus','library','declarationName','planet']:
+  assert nn[id].get(key)==n.get(key),(id,key)
+ for key in ['api','tests','uses','prerequisites','proofSteps']:
+  assert nn[id].get(key,[])[:len(n.get(key,[]))]==n.get(key,[]),(id,key)
+assert sum(nn[id]==n for id,n in on.items())==187
+for key in ['requests','gaps','sources','sourceIssues','sourceVersions','consumerCoverage','keyDefinitionCoverage','restructure','upstreamImportEncoding']:
+ assert p[key]==old[key],key
+assert p['baseline']['declarations'][:104]==old['baseline']['declarations']
+assert p['status']=='partial' and all(n['implementationStatus']=='unchecked' for n in nn.values())
+assert all(c['status']=='partial' for c in p['coverage'])
+oldcan=subprocess.check_output(['git','show',base+':'+paths[3]],text=True)
+assert can.startswith(oldcan.replace('import Mathlib.RingTheory.Flat.Basic\n','import Mathlib.RingTheory.Flat.Basic\nimport Mathlib.RingTheory.Flat.Equalizer\n',1))
+assert reader.startswith(subprocess.check_output(['git','show',base+':'+paths[2]],text=True))
+assert not re.search(r'\bsorry\b',json.dumps(p)+reader)
+oldroad=json.loads(subprocess.check_output(['git','show',base+':'+paths[0]],text=True));road=json.loads((root/paths[0]).read_text())
+for k in oldroad:
+ if k!='stages':assert road[k]==oldroad[k],k
+for st,ost in zip(road['stages'],oldroad['stages']):
+ if st['key']=='MC.2':
+  assert st['description'].startswith(ost['description'])
+  assert {k:v for k,v in st.items() if k!='description'}=={k:v for k,v in ost.items() if k!='description'}
+ else:assert st==ost
+start='/- Coefficient-universal matrix exactness; authored continuation of Knudsen §3. -/'
+newnative=native.split(start,1)[1];newcan=can.split(start,1)[1]
+def headers(text):
+ result={};current=None
+ for m in re.finditer(r'^(?:lemma|def|example)\b',text,re.M):
+  tail=text[m.start():];hdr=re.split(r'\s(?:where|:=)\s',tail,maxsplit=1)[0]
+  if hdr.startswith('example'):
+   before=text[:m.start()];match=re.search(r'-- (NodeSectionFactorization\.PolynomialModel\.\w+)\n\s*$',before);assert match
+   name=match[1]
+  else:name=hdr.split()[1]
+  assert name not in result;result[name]=' '.join(hdr.split())
+ return result
+nh,ch=headers(newnative),headers(newcan);assert nh==ch and len(nh)==43
+assert len(re.findall(r'^example\b',native,re.M))==75
+assert len(re.findall(r'^#print axioms ',native,re.M))==154
+assert not re.search(r'\bsorry\b|^axiom\b|^opaque\b',native,re.M)
+assert len(re.findall(r'^example\b',can,re.M))==137
+assert 'BEGIN ARCHIVED CHECKED' not in can
+for n in p['nodes']:
+ for t in n.get('tests',[]):assert t['name'] in can,t['name']
+ for a in n.get('api',[]):assert a['name'].split('.')[-1] in can,a['name']
+for id in set(nn)-set(on):
+ n=nn[id];assert n['statement'] in reader and n['declarationName'] in reader
+ assert n['declarationName'].split('.')[-1] in ch
+ for t in n.get('tests',[]):assert t['statement'] in reader and t['name'] in nh
+ for a in n.get('api',[]):assert a['statement'] in reader and a['name'] in reader
+sys.path.insert(0,str(root/'scripts'));import check_blueprint
+indexpath=Path(__import__('os').environ['TAUCETI_BASELINE'])/'declarations.tsv'
+errors,warnings,check=check_blueprint.check(root/paths[1],check_blueprint.load_index(indexpath),check_blueprint.world())
+assert not errors and not warnings,(errors,warnings)
+tree=ast.parse((root/'research/blueprint/intake.py').read_text())
+selected=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name=='file_problems']
+env={'json':json,'re':re};exec(compile(ast.Module(body=selected,type_ignores=[]),'actual-intake','exec'),env)
+problems=[v for path in paths for v in env['file_problems'](path,(root/path).read_text())];assert not problems,problems
+changed=set(subprocess.check_output(['git','diff','--name-only',base],text=True).splitlines());assert changed<=set(paths),changed
+for path in paths:
+ text=(root/path).read_text();assert not re.search(r'/(?:home|tmp|Users)/|file'+':/'+ '/',text),path
+result={'inheritedContracts':188,'wholeInheritedNodesUnchanged':187,'exactNewHeaderParity':43,'recoveredNativeLines':len(native.splitlines()),'recoveredNativeExamples':75,'recoveredNamedAuditCommands':154,'indexedChecker':{k:v for k,v in check.items() if k!='packet'},'intakeProblems':problems,'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+Path(__file__).with_suffix('.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
+```
+
+Validator SHA-256: 64156f6e3ec05f710a3ab153f090d5f8e2d3663ce5a2ba4d610d85b93f8ae474.
+
+The following complete actual assembler comparator also runs from the repository
+root, saved in your own disk scratch. It overlays candidate/original owner
+packets before decomposition trimming, leaves all foreign inputs unchanged
+and writes only its receipt beside itself.
+
+```python
+import json,sys,subprocess,hashlib,re
+from pathlib import Path
+from collections import defaultdict,deque
+root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
+rid="StableReductionPartII"
+packetpath="research/blueprint/packets/"+rid+".json"
+roadmappath="research/blueprint/roadmaps/"+rid+".json"
+base="f1a650b90692d9f7d9667f3deb09ba9e0013cb4d"
+p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
+old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
+oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
+load=build.load_promoted
+def assemble(packet,definition):
+ def overlay(*a,**k):
+  ps,ds,defs=load(*a,**k)
+  return ([(n,v) for n,v in ps if v.get("roadmapId")!=rid]+[(rid,packet)],
+   {**ds,rid:"research/blueprint/readmes/"+rid+".md"},
+   [x for x in defs if x.get("id")!=rid]+[definition])
+ build.load_promoted=overlay
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,r);control=assemble(old,oldr)
+def dag(vertices,edges):
+ vertices=set(vertices)|{x for e in edges for x in e};following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
+ for s,t in set(edges):
+  following[s].add(t);indegree[t]+=1
+ q=deque(v for v in vertices if not indegree[v]);seen=[]
+ while q:
+  v=q.popleft();seen.append(v)
+  for w in following[v]:
+   indegree[w]-=1
+   if not indegree[w]:q.append(w)
+ assert len(seen)==len(vertices),("cycle",sorted(v for v in vertices if indegree[v])[:10])
+ return {"vertices":len(vertices),"edges":len(set(edges)),"acyclic":True}
+se={(e["source"],e["target"]) for e in a["stageEdges"]}
+ce={(e["source"],e["target"]) for e in control["stageEdges"]}
+assert se==ce
+stageids={s["id"] for s in a["stages"]}
+own={n["id"]:n for n in p["nodes"]}
+oe={(dep,n["id"]) for n in own.values() for dep in n.get("prerequisites",[]) if dep in own}
+stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
+allnodes=dict(own)
+for folder in ("data/decompositions","data/blueprints","research/blueprint/packets"):
+ for path in sorted((root/folder).glob("*.json")):
+  for n in json.loads(path.read_text()).get("nodes",[]):allnodes.setdefault(n["id"],n)
+used=set(own);todo=list(own)
+while todo:
+ v=todo.pop()
+ for d in allnodes[v].get("prerequisites",[]):
+  if d in allnodes and d not in used:used.add(d);todo.append(d)
+unresolved=[]
+for v in used:
+ for d in allnodes[v].get("prerequisites",[]):
+  if d not in used and d not in stageids and not d.startswith("mathlib:") and not (d.startswith("tauceti:") and "TauCetiRoadmap/" not in d):unresolved.append((v,d))
+assert not unresolved,unresolved
+edges=set(se)
+for v in used:
+ n=allnodes[v]
+ parent=n.get("parentStageId")
+ if parent:edges.add((parent,v))
+ for d in n.get("prerequisites",[]):
+  if d in stageids or d in used:edges.add((d,v))
+for request in p["requests"]:
+ for v in request["neededBy"]:edges.add((request["supplier"],v))
+combined=dag(stageids|used,edges)
+following=defaultdict(set)
+for s,t in se:following[s].add(t)
+def reachable(s,t):
+ todo=[s];seen=set()
+ while todo:
+  x=todo.pop()
+  if x==t:return True
+  if x not in seen:seen.add(x);todo+=list(following[x])
+ return False
+pairs=set()
+for stage in r['stages']:
+ for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
+def stage_of(v):
+ seen=set()
+ while v in allnodes and v not in seen:
+  seen.add(v);v=allnodes[v].get('parentStageId')
+ return v
+for n in own.values():
+ for d in n.get("prerequisites",[]):
+  if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
+for req in p["requests"]:
+ for v in req["neededBy"]:
+  target=stage_of(v)
+  if req["supplier"]!=target:pairs.add((req["supplier"],target))
+missing=[(s,t) for s,t in pairs if not reachable(s,t)]
+assert not missing,missing
+ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
+assert ar[rid]["blueprint"]["declarations"]==len(own)
+assert ar[rid]["blueprint"]["planets"]==35
+assert not ar[rid]["blueprint"]["skippedLinks"]
+assert not ar[rid].get("pendingLinks"), ar[rid].get("pendingLinks")
+assert all(ar[x].get("pendingLinks")==cr[x].get("pendingLinks") for x in cr)
+assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
+for key in ("requests","gaps","sources","sourceIssues","sourceVersions","consumerCoverage","keyDefinitionCoverage","restructure","upstreamImportEncoding"):
+ assert p[key]==old[key],key
+on={n["id"]:n for n in old["nodes"]}
+for id,n in on.items():
+ for key in ("id","kind","statement","hypotheses","acceptance","sources","implementationStatus"):
+  assert own[id].get(key)==n.get(key),(id,key)
+ assert all(u in own[id].get("uses",[]) for u in n.get("uses",[]))
+ assert all(t in own[id].get("tests",[]) for t in n.get("tests",[]))
+ assert all(t in own[id].get("api",[]) for t in n.get("api",[]))
+assert p["baseline"]["declarations"][:len(old["baseline"]["declarations"])]==old["baseline"]["declarations"]
+unchanged=sum(own[id]==n for id,n in on.items())
+lean=(root/"research/blueprint/suggested/StableReductionPartII.lean").read_text()
+for node in p["nodes"]:
+ for test in node.get("tests",[]):assert test["name"] in lean,test["name"]
+for node in p["nodes"]:
+ for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
+allowed={packetpath,roadmappath,"research/blueprint/readmes/"+rid+".md","research/blueprint/suggested/"+rid+".lean","research/blueprint/handoff/DESIGN-"+rid+".md"}
+changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
+assert changed<=allowed,changed
+for path in changed:
+ assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
+result={"actualAssembler":True,"declarations":len(own),"planets":35,"ownSkippedLinks":[],
+ "stageDAG":stageDAG,"ownDeclarationDAG":ownDAG,"stagesAndReachableDeclarations":combined,
+ "reachableDeclarations":len(used),"externalDeclarations":sorted(used-set(own)),"unresolved":unresolved,
+ "requiredStagePairsReachable":len(pairs),"stageEdgesUnchanged":True,
+ "ownPendingLinks":[],"otherPendingLinksMatchOriginal":True,"otherSkipsMatchOriginal":True,"unchangedNodeObjects":unchanged,
+ "scriptSha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
+print(json.dumps(result,indent=2))
+```
+
+Assembler validator SHA-256: 5f06565c3ce147223b1597a0f23e94f7800aa0ee74ae7c3f5e6a4f5fcc4ef081.
+
+## Exact next work
+
+Construct the actual arbitrary-coefficient-module Hom comparison and bidual
+evaluation for J and D, with their naturality. Interpret the universally
+acyclic native matrix pairs as the prescribed finite-free resolutions and
+dual cochain complexes to prove the required higher Ext vanishing. Reconcile
+those inputs with the exact Appendix/Ile relative stable-reflexivity and
+two-base completion interfaces before actual family/sheaf descent. The
+reserved moduli key, fourteen gaps, 135 supplier requests and all other
+geometric, positivity, level, determinant, Torelli and Picard obligations
+remain open. This is a substantive partial checkpoint, not completion of #3342.
+
+---
+
 # Current continuation: native section matrix presentations — Codex codex-5ebb6f
 
 Refs #3342. Winning claim 5962692534 was confirmed by bot 5962693822.
