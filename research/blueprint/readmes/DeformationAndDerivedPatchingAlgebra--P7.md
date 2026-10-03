@@ -3793,3 +3793,84 @@ HilbertPolynomial file was read, not its 1010-line theorem proof), while
 proves regularity of finite-variable series over regular local rings (its
 70-line file was read). The exact heads and read boundaries are recorded
 in jetCoordinatesContinuation. Neither is a pinned baseline proof used here.
+
+
+## Actual graded plane-curve lengths and sharp postulation — codex-rtOQ9t
+
+The incoming 125 mathematical contracts and reserved general multiplicity definition remain. Five new arithmetic/curve lemmas complete the exact finite-jet proof frontier without replacing any quotient, function, polynomial or length carrier. The two existing graded/defect nodes gain only a separately named arithmetic prerequisite and proof step. Their exact native signatures, the generic quotient transition and both cumulative/graded formulas have now been checked with admission-free proofs. All implementations remain unchecked.
+
+For R=k[[x,y]], A=R/(f), q=image(x,y), write H_N for the actual cumulative function and G_N for the actual successive-quotient length. When order(f)=d is finite, H_N=choose(N+2,2)−choose(N+2−d,2) and G_N=min(N+1,d). The first equality is a natural difference before the extended-natural cast. The native exact sequence gives H_N=G_N+H_(N−1) at positive indices; its N=0 right quotient is A/top with length zero. Finiteness is proved from the sum before converting G_N to a natural value. The rational defect is choose(d−N−1,2), so cumulative agreement starts at max(0,d−2), while G_N=d starts at max(0,d−1). For f=x⁴ over F₂ these are indices two and three. Units d=0 have zero lengths without a local-ring instance on their zero quotient. For f=0, native order is infinity and G_N=N+1.
+
+### Rational defect of the plane-jet count
+
+`TauCeti.HilbertSamuel.planeJetCount_defect` (`DeformationAndDerivedPatchingAlgebra:R03.3/plane-jet-binomial-defect`). For all natural d,N, cast [choose(N+2,2)−choose(N+2−d,2)] to ℚ and subtract d(N+1)−d(d−1)/2 in ℚ. The result is choose(d−N−1,2), cast to ℚ. Every subtraction inside a binomial argument and the first count difference is natural; subtraction in the polynomial and defect is rational.
+
+Hypotheses: d,N are arbitrary natural numbers; all rational arithmetic takes place in ℚ independently of any coefficient characteristic.
+
+Proof: Use monotonicity to justify casting the natural count difference to a rational difference. When d≤N+2 the opposite defect binomial vanishes. Expand the two native binomials with the rational cast formula and substitute the exact natural-subtraction cast; the polynomial identity follows. When N+2<d, the second source binomial vanishes. Cast d−N−1 using the proved subtraction bounds and expand the remaining two binomials. Rational arithmetic proves the identity without a condition on the coefficient field characteristic.
+
+Dependencies: `mathlib:Nat.cast_choose_two`, `mathlib:Nat.choose_le_choose`, `mathlib:Nat.choose_eq_zero_of_lt`.
+
+`CurvePostulationTests.negative_polynomial` (non-example): For the same actual characteristic-two quartic, H(0).toNat−(−2)=3 in ℚ. Rational polynomial values and rational subtraction are not truncated at zero.
+
+`CurvePostulationTests.unit_defect` (degenerate): For d=0 and every N, the native natural plane-jet count difference is zero before its rational cast.
+
+`CurvePostulationTests.small_cutoff_defect` (non-example): For d=100,N=2, the small ambient jet count 6 minus the rational polynomial value equals choose(97,2); the low-cutoff defect is retained.
+
+### Successive plane-jet count difference
+
+`TauCeti.HilbertSamuel.planeJetCount_step` (`DeformationAndDerivedPatchingAlgebra:R03.3/plane-jet-count-step`). For all natural d,N, choose(N+2,2)−choose(N+2−d,2) = min(N+1,d) + [choose(N+1,2)−choose(N+1−d,2)] in ℕ. All subtractions are natural, including the small cutoffs and d=0.
+
+Hypotheses: d,N are arbitrary natural numbers; all rational arithmetic takes place in ℚ independently of any coefficient characteristic.
+
+Proof: Apply the existing Pascal recurrence to the ambient triangular number. For d≤N+1, the second triangular argument is also a successor. Monotonicity bounds the subtracted binomial, and the two recurrences give the required equality with min=d. For N+1<d, both subtracted binomials vanish and min=N+1. This separately retains d=0, N=0 and the low-index branch.
+
+Dependencies: `mathlib:Nat.choose_succ_succ`, `mathlib:Nat.choose_le_choose`, `mathlib:Nat.choose_eq_zero_of_lt`.
+
+### Sharp graded stabilization of a formal plane curve
+
+`TauCeti.HilbertSamuel.planeCurve_graded_stable_iff` (`DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-graded-stable`). If native order(f)=d, then the actual successive-quotient length G_N of A=k[[x,y]]/(f) at the image q of (x,y) equals d in ℕ∞ if and only if d≤N+1. Hence its first stable index is max(0,d−1), distinct from the cumulative agreement index max(0,d−2).
+
+Hypotheses: k is an arbitrary field. All rings, ideals, submodules, quotients, scalar actions, functions and lengths are the actual native carriers in the inherited definitions. No reducedness, irreducibility, algebraic closure, perfection or characteristic-zero assumption is imposed. For a finite-order statement, f∈MvPowerSeries (Fin 2) k and native order(f)=(d:ℕ∞); this excludes f=0 and includes units d=0. The predecessor-defect theorem additionally requires 3≤d. The zero-equation theorem has f=0 and no finite d.
+
+Proof: Apply the proved native graded-function formula G_N=min(N+1,d), without replacing its actual quotient module. The minimum equals the right term exactly when d≤N+1; natural casts preserve and reflect this inequality. Units d=0 remain included without asserting a local-ring instance on their zero quotient.
+
+Dependencies: `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-graded-function`.
+
+`CurvePostulationTests.char_two_thresholds` (non-example): For actual A=F₂[[x,y]]/(x⁴), H(2).toNat=6 while G(2)≠4 and G(3)=4. Cumulative agreement at index two does not imply graded stabilization there.
+
+`CurvePostulationTests.graded_threshold` (characterisation): For the actual characteristic-two quartic and every N, G(N)=4 if and only if 3≤N.
+
+`CurvePostulationTests.unit_graded` (degenerate): For actual A=F₂[[x,y]]/(1) and every N, G(N)=0. No nontrivial local-ring instance on this zero ring is assumed.
+
+`CurvePostulationTests.smooth_graded` (computation): For actual A=F₂[[x,y]]/(x) and every N, G(N)=1.
+
+### Unit postulation defect before sharp agreement
+
+`TauCeti.HilbertSamuel.planeCurve_postulation_predecessor` (`DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-predecessor`). If native order(f)=d and 3≤d, then the actual cumulative function at N=d−3, converted to a natural number only after the finite-jet theorem, has rational defect exactly 1 from d(N+1)−d(d−1)/2. Thus agreement cannot begin one index before max(0,d−2).
+
+Hypotheses: k is an arbitrary field. All rings, ideals, submodules, quotients, scalar actions, functions and lengths are the actual native carriers in the inherited definitions. No reducedness, irreducibility, algebraic closure, perfection or characteristic-zero assumption is imposed. For a finite-order statement, f∈MvPowerSeries (Fin 2) k and native order(f)=(d:ℕ∞); this excludes f=0 and includes units d=0. The predecessor-defect theorem additionally requires 3≤d. The zero-equation theorem has f=0 and no finite d.
+
+Proof: Specialize the exact rational postulation-defect formula to N=d−3. The assumption 3≤d gives d−(d−3)−1=2 in natural arithmetic; the native binomial choose(2,2)=1 proves sharpness. The argument uses actual cumulative lengths, not a prescribed numerical function.
+
+Dependencies: `DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-postulation-defect`.
+
+`CurvePostulationTests.sharp_predecessor` (computation): For the actual characteristic-two quartic at N=1, H(1).toNat−2=1, exactly the last nonzero cumulative defect.
+
+`CurvePostulationTests.cumulative_threshold` (characterisation): For the actual characteristic-two quartic and every N, H(N).toNat=4(N+1)−6 in ℚ if and only if 2≤N.
+
+### Successive-quotient lengths for the zero equation
+
+`TauCeti.HilbertSamuel.planeZeroEquation_gradedFunction` (`DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-graded`). For every N and the actual A=k[[x,y]]/(0), q=image(x,y), the native gradedFunction q N equals N+1 cast to ℕ∞. The zero equation has infinite native order and belongs to this separate regular-surface branch, rather than the finite-order unit branch.
+
+Hypotheses: k is an arbitrary field. All rings, ideals, submodules, quotients, scalar actions, functions and lengths are the actual native carriers in the inherited definitions. No reducedness, irreducibility, algebraic closure, perfection or characteristic-zero assumption is imposed. For a finite-order statement, f∈MvPowerSeries (Fin 2) k and native order(f)=(d:ℕ∞); this excludes f=0 and includes units d=0. The predecessor-defect theorem additionally requires 3≤d. The zero-equation theorem has f=0 and no finite d.
+
+Proof: Use the actual native quotient-transition exact sequence over A, with cumulative zero-equation lengths choose(N+2,2). At N=0 the right quotient is A/top and has length zero. At a successor the graded summand is finite because the cumulative sum is a finite natural cast; establish this before using toNat. Take the natural values of the extended-natural sum, apply Pascal recurrence to the two triangular counts, and recover the graded extended-natural value N+1.
+
+Dependencies: `DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-length-step`, `mathlib:Nat.choose_succ_succ`, `mathlib:ENat.toNat_add`, `mathlib:ENat.natCast_toNat_eq_self`, `mathlib:ENat.natCast_ne_top`.
+
+`CurvePostulationTests.zero_equation_growth` (non-example): For actual A=F₂[[x,y]]/(0), native order(0)=∞ and G(N)=N+1 for every N. The zero equation cannot be assigned the finite order zero of a unit.
+
+The source calculations are credited to DDPA-CURVE-POSTULATION §§1–3, freshly read on 2026-10-03; the native exact sequence and numerical identities are now separately checked. Stacks 00K4 fixes the cumulative/graded convention. None of this asserts general graded Hilbert–Serre existence, the degree/dimension theorem, curve dimension, tangent-cone comparison or the full intrinsic/ambient multiplicity key.
+
+The actual native graded function, general quotient-transition length proof, exact rational postulation defect, sharp cumulative threshold, sharp graded threshold, unit defect just before agreement, and separate zero-equation graded branch now have admission-free proof prototypes. All ten new named tests use actual characteristic-two quotient modules or the exact native integer/rational count expressions. Canonical bodies remain admitted and all nodes unchecked. Still prove the full tangent-cone kernel and dimension of the actual curve ring, compare with the existing cumulative polynomial/intrinsic and ambient multiplicities without assuming generic existence, and discharge general Hilbert–Serre induction, support/degree, Artin–Rees, localization lengths, completion, associativity, all eight stage targets and every inherited routed-paper obligation. The graded and cumulative sharp thresholds are distinct; the zero equation has no finite order.
