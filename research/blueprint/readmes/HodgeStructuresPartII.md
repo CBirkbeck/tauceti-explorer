@@ -1,3 +1,179 @@
+# Common-parameter additive tensor checkpoint
+
+Two actual constructions and nine promoted lemmas extend the existing intrinsic preconnection on native module tensors. The definitions carry actual additive maps and defining equations; integrability remains separate. All235 declaration nodes remain unchecked, H.0 stays partial and H.1–H.8 stay not_read.
+
+Let k→R be a commutative algebra, and let Ω be the existing truncated native TwoForms input. The underlying preconnections on E,F share λ∈R. Their values lie in E⊗_R W and F⊗_R W. Their sum is biadditive; its scalar correction is exactly λ(e⊗f)⊗d₀a. This algebra needs no flatness, local freeness, basis, characteristic restriction or d₀λ=0 assumption. The latter condition belongs to curvature and flatness, which this checkpoint does not close.
+
+The two raw summands need not be R-linear individually. Expanding D(ae) on the left and C(af) on the right gives the same derivative correction and proves balancing of their sum. Mathlib’s actual balanced-additive tensor universal property gives the additive lift. Additive tensor induction proves its parameter Leibniz rule on every tensor. One does not add the two λ coefficients. The zero fiber agrees with the existing R-linear Higgs tensor by its evaluated formula and native tensor extensionality. Horizontal morphisms and symmetry follow by tensor induction on the source tensor and each coefficient tensor.
+
+The raw unequal-parameter unit(1)/unit(0) formula fails balancing whenever d₀a≠0: after the native unit identifications its values at (a,1) and (1,a) are d₀a and zero. The common-parameter unit(2) tensor instead evaluates on a⊗1 to 2d₀a. This is a universal symbolic example with an explicit nonzero-derivative premise, not a newly certified polynomial calculus.
+
+The ring-level same-λ additive tensor now has an actual balanced lift, its one-λ Leibniz rule, zero-Higgs compatibility, horizontal tensor maps and native symmetry, with admission-free proofs of the eleven new declarations in a standalone native context. The affine associator/unitors and general-λ tensor curvature remain open, as do arbitrary-Q tensor-valued shuffle, cross-ring exterior transport, finite-projective sheaf restriction/tensor coherence, E1 equality detection and gluing, determinant/Tate/period adapters, the reserved global ringed-site key, all149 source obligations and H.1–H.8. No tensor of global sections is identified with sections of the sheaf tensor. Earlier frontier text is retained as checkpoint history.
+
+Fresh source reading is limited to the author manuscript §4.2 opening and Lemma4.9, and the displayed Stacks07J5 connection convention/proof. The author PDF hash is recorded in the packet. The published PDF returned403. The new arbitrary-module identities are authored deductions. Eight route manifests, all149 routed source obligations,35 global typed omissions, six planets, eleven gaps and five supplier requests are preserved. No whole-paper or whole-incoming-packet mathematical audit is newly claimed.
+
+The mathematical contract of every new declaration, API item and test follows.
+
+## Preconnection.affineTensorPair
+
+For D∈Preconnection(Ω,λ,E), C∈Preconnection(Ω,λ,F), construct the actual biadditive B:E→(F→(E⊗_R F)⊗_R W), B(e,f)=ρ(D(e)⊗f)+α⁻¹(e⊗C(f)), where ρ:(E⊗W)⊗F≃(E⊗F)⊗W is the native right commutor and α:(E⊗F)⊗W≃E⊗(F⊗W) is the native associator.
+
+Hypotheses. k and R are commutative rings and R is a k-algebra; Ω is the existing intrinsic degree-zero/one/two calculus TwoForms, with actual derivation d₀:R→W, additive d₁:W→Z and alternating R-bilinear wedge satisfying its defining equations. E,F,W,Z are genuine R-modules with additive commutative groups; W also has its specified k-module structure. λ is the same element of R on both preconnections. No basis, finite generation, projectivity, flatness, smoothness, characteristic or field hypothesis is used. D:E→E⊗_R W and C:F→F⊗_R W are the actual additive section maps with λ-Leibniz equations. d₀λ=0 and integrability are not needed for the raw preconnection tensor; they remain requirements for later curvature and flat-bundle results.
+
+Proof. Use the two actual additive maps and native tensor maps to define the displayed sum. Prove additivity in e and f using add_tmul/tmul_add, additivity of D,C and linearity of the native rearrangements. The separate summands are not R-bilinear.
+
+Dependencies: HodgeStructuresPartII:H.0/intrinsic-preconnection, mathlib:TensorProduct.rightComm, mathlib:TensorProduct.assoc.
+
+API Preconnection.affineTensorPair_apply (projection). For every e∈E,f∈F, affineTensorPair(D,C)(e,f)=ρ(D(e)⊗f)+α⁻¹(e⊗C(f)).
+
+API Preconnection.affineTensorPair_leibniz (compatibility). For a∈R,e∈E,f∈F, B(ae,f)=aB(e,f)+λ((e⊗f)⊗d₀a).
+
+API Preconnection.affineTensorPair_balanced (universal-property). For a∈R,e∈E,f∈F, B(ae,f)=B(e,af). Both sides have exactly the same λ((e⊗f)⊗d₀a) correction.
+
+Test Preconnection.affineTensorPair.test_zero_left (degenerate). For every D,C,f the actual biadditive map B(0,f) is zero.
+
+Test Preconnection.affineTensorPair.test_balanced_same_parameter (compatibility). For arbitrary a,e,f and common λ, B(ae,f)=B(e,af).
+
+Test Preconnection.affineTensorPair.test_parameter_two (computation). At λ=2 the scalar correction in B(ae,f) is 2((e⊗f)⊗d₀a).
+
+Test Preconnection.affineTensorPair.test_distinct_parameters_nonexample (non-example). Assume d₀a≠0. For the raw two-summand formula from unit(1) on R and unit(0) on R, evaluate at (a,1) and (1,a), and normalize via ((R⊗R)⊗W)→W using the two native left unitors. The results are d₀a and zero, hence unequal. The unequal-parameter raw formula is not balanced.
+
+Use HodgeStructuresPartII:H.0/affine-parameter-tensor-pair-leibniz. Evaluate B and prove its single-correction scalar rule.
+
+Use HodgeStructuresPartII:H.0/affine-parameter-tensor-pair-balanced. Prove balancing of the sum from the two matching Leibniz equations.
+
+Use HodgeStructuresPartII:H.0/affine-parameter-tensor. Supply the actual additive tensor lift, with balancing separately proved.
+
+## Preconnection.affineTensorPair_apply
+
+For every e∈E,f∈F, affineTensorPair(D,C)(e,f)=ρ(D(e)⊗f)+α⁻¹(e⊗C(f)).
+
+Hypotheses. k and R are commutative rings and R is a k-algebra; Ω is the existing intrinsic degree-zero/one/two calculus TwoForms, with actual derivation d₀:R→W, additive d₁:W→Z and alternating R-bilinear wedge satisfying its defining equations. E,F,W,Z are genuine R-modules with additive commutative groups; W also has its specified k-module structure. λ is the same element of R on both preconnections. No basis, finite generation, projectivity, flatness, smoothness, characteristic or field hypothesis is used. D:E→E⊗_R W and C:F→F⊗_R W are the actual additive section maps with λ-Leibniz equations. d₀λ=0 and integrability are not needed for the raw preconnection tensor; they remain requirements for later curvature and flat-bundle results.
+
+Proof. Evaluate the actual biadditive map on the displayed arguments.
+
+Dependencies: HodgeStructuresPartII:H.0/affine-parameter-tensor-pair.
+
+## Preconnection.affineTensorPair_leibniz
+
+For a∈R,e∈E,f∈F, B(ae,f)=aB(e,f)+λ((e⊗f)⊗d₀a).
+
+Hypotheses. k and R are commutative rings and R is a k-algebra; Ω is the existing intrinsic degree-zero/one/two calculus TwoForms, with actual derivation d₀:R→W, additive d₁:W→Z and alternating R-bilinear wedge satisfying its defining equations. E,F,W,Z are genuine R-modules with additive commutative groups; W also has its specified k-module structure. λ is the same element of R on both preconnections. No basis, finite generation, projectivity, flatness, smoothness, characteristic or field hypothesis is used. D:E→E⊗_R W and C:F→F⊗_R W are the actual additive section maps with λ-Leibniz equations. d₀λ=0 and integrability are not needed for the raw preconnection tensor; they remain requirements for later curvature and flat-bundle results.
+
+Proof. Expand D(ae) with its λ-Leibniz equation. Move scalars through the actual tensors and right commutor. The derivative term occurs only in D(ae); commute the additive terms to recover aB(e,f).
+
+Dependencies: HodgeStructuresPartII:H.0/affine-parameter-tensor-pair-apply, mathlib:TensorProduct.rightComm_tmul, mathlib:TensorProduct.smul_tmul'.
+
+## Preconnection.affineTensorPair_balanced
+
+For a∈R,e∈E,f∈F, B(ae,f)=B(e,af). Both sides have exactly the same λ((e⊗f)⊗d₀a) correction.
+
+Hypotheses. k and R are commutative rings and R is a k-algebra; Ω is the existing intrinsic degree-zero/one/two calculus TwoForms, with actual derivation d₀:R→W, additive d₁:W→Z and alternating R-bilinear wedge satisfying its defining equations. E,F,W,Z are genuine R-modules with additive commutative groups; W also has its specified k-module structure. λ is the same element of R on both preconnections. No basis, finite generation, projectivity, flatness, smoothness, characteristic or field hypothesis is used. D:E→E⊗_R W and C:F→F⊗_R W are the actual additive section maps with λ-Leibniz equations. d₀λ=0 and integrability are not needed for the raw preconnection tensor; they remain requirements for later curvature and flat-bundle results.
+
+Proof. Use the first scalar rule, then expand C(af) on the right. Native scalar balancing and associator evaluation identify the common derivative term; additive rearrangement proves equality. Differing parameters are not substituted.
+
+Dependencies: HodgeStructuresPartII:H.0/affine-parameter-tensor-pair-leibniz, HodgeStructuresPartII:H.0/affine-parameter-tensor-pair-apply, mathlib:TensorProduct.tmul_smul, mathlib:TensorProduct.assoc_symm_tmul.
+
+## Preconnection.affineTensor
+
+Construct affineTensor(D,C)∈Preconnection(Ω,λ,E⊗_R F). Its actual additive section map is TensorProduct.liftAddHom(B, balanced). On e⊗f it is ρ(D(e)⊗f)+α⁻¹(e⊗C(f)); for every x it satisfies T(ax)=aT(x)+λ(x⊗d₀a).
+
+Hypotheses. k and R are commutative rings and R is a k-algebra; Ω is the existing intrinsic degree-zero/one/two calculus TwoForms, with actual derivation d₀:R→W, additive d₁:W→Z and alternating R-bilinear wedge satisfying its defining equations. E,F,W,Z are genuine R-modules with additive commutative groups; W also has its specified k-module structure. λ is the same element of R on both preconnections. No basis, finite generation, projectivity, flatness, smoothness, characteristic or field hypothesis is used. D:E→E⊗_R W and C:F→F⊗_R W are the actual additive section maps with λ-Leibniz equations. d₀λ=0 and integrability are not needed for the raw preconnection tensor; they remain requirements for later curvature and flat-bundle results.
+
+Proof. Apply the pinned balanced-additive universal property to B and the proved balancing equation. This produces an additive map, not an R-linear map for arbitrary λ. Verify its λ-Leibniz equation by native tensor induction: zero by additivity, pure tensors by the first scalar rule and liftAddHom_tmul, sums by distributivity.
+
+Dependencies: HodgeStructuresPartII:H.0/affine-parameter-tensor-pair, HodgeStructuresPartII:H.0/affine-parameter-tensor-pair-balanced, HodgeStructuresPartII:H.0/affine-parameter-tensor-pair-leibniz, mathlib:TensorProduct.liftAddHom, mathlib:TensorProduct.liftAddHom_tmul, mathlib:TensorProduct.induction_on.
+
+API Preconnection.affineTensor_toAddHom (projection). The underlying additive map of affineTensor(D,C) equals the native TensorProduct.liftAddHom of affineTensorPair(D,C) with its actual balanced proof.
+
+API Preconnection.affineTensor_tmul (simp). For every e∈E,f∈F, affineTensor(D,C)(e⊗f)=ρ(D(e)⊗f)+α⁻¹(e⊗C(f)).
+
+API Preconnection.affineTensor_leibniz (compatibility). For every a∈R,x∈E⊗_R F, affineTensor(D,C)(ax)=a affineTensor(D,C)(x)+λ(x⊗d₀a). The tensor has the common λ, rather than the sum of two parameters.
+
+API Preconnection.affineTensor_ofLinear (compatibility). For actual R-linear θ:E→E⊗_R W and ψ:F→F⊗_R W, the R-linear zero-parameter map underlying affineTensor(ofLinear θ,ofLinear ψ) equals the existing TwistedHiggsBundle.affineTensorField(θ,ψ).
+
+API Preconnection.affineTensor_horizontal (functoriality). For actual R-linear u:E→E′,v:F→F′ and common-λ preconnections D,C,D′,C′ with D′u=(u⊗id_W)D and C′v=(v⊗id_W)C, their native tensor map is horizontal: affineTensor(D′,C′)((u⊗v)x)=((u⊗v)⊗id_W)affineTensor(D,C)(x), for every x∈E⊗_R F.
+
+API Preconnection.affineTensor_comm (compatibility). For the actual native symmetry τ:E⊗_R F≃F⊗_R E, affineTensor(C,D)(τx)=(τ⊗id_W)affineTensor(D,C)(x) for every x∈E⊗_R F.
+
+Test Preconnection.affineTensor.test_higgs_compatibility (compatibility). For actual R-linear θ:E→E⊗_R W and ψ:F→F⊗_R W, the R-linear zero-parameter map underlying affineTensor(ofLinear θ,ofLinear ψ) equals the existing TwistedHiggsBundle.affineTensorField(θ,ψ).
+
+Test Preconnection.affineTensor.test_additive_zero (degenerate). The actual tensor preconnection sends zero to zero.
+
+Test Preconnection.affineTensor.test_parameter_one (compatibility). At λ=1, T(ax)=aT(x)+x⊗d₀a for every tensor x.
+
+Test Preconnection.affineTensor.test_unit_parameter_two (computation). Tensor the actual unit(2) preconnection on R with itself. On a⊗1, normalize the result via ((R⊗R)⊗W)→W using the two native left unitors. Its value is 2d₀a; the parameter has not doubled.
+
+Use HodgeStructuresPartII:H.0/affine-parameter-tensor-of-linear. Recover the actual R-linear Higgs tensor at zero parameter.
+
+Use HodgeStructuresPartII:H.0/affine-parameter-tensor-horizontal. Construct the horizontal tensor of the actual linear horizontal maps.
+
+Use HodgeStructuresPartII:H.0/affine-parameter-tensor-comm. Prove native tensor symmetry horizontal.
+
+Use HodgeStructuresPartII:H.0/intrinsic-tensor. Supply the genuine ring-level common-λ component; actual sheaf tensor restriction and gluing remain required.
+
+## Preconnection.affineTensor_toAddHom
+
+The underlying additive map of affineTensor(D,C) equals the native TensorProduct.liftAddHom of affineTensorPair(D,C) with its actual balanced proof.
+
+Hypotheses. k and R are commutative rings and R is a k-algebra; Ω is the existing intrinsic degree-zero/one/two calculus TwoForms, with actual derivation d₀:R→W, additive d₁:W→Z and alternating R-bilinear wedge satisfying its defining equations. E,F,W,Z are genuine R-modules with additive commutative groups; W also has its specified k-module structure. λ is the same element of R on both preconnections. No basis, finite generation, projectivity, flatness, smoothness, characteristic or field hypothesis is used. D:E→E⊗_R W and C:F→F⊗_R W are the actual additive section maps with λ-Leibniz equations. d₀λ=0 and integrability are not needed for the raw preconnection tensor; they remain requirements for later curvature and flat-bundle results.
+
+Proof. Evaluate the actual projection of the preconnection constructor.
+
+Dependencies: HodgeStructuresPartII:H.0/affine-parameter-tensor, HodgeStructuresPartII:H.0/affine-parameter-tensor-pair-balanced, mathlib:TensorProduct.liftAddHom.
+
+## Preconnection.affineTensor_tmul
+
+For every e∈E,f∈F, affineTensor(D,C)(e⊗f)=ρ(D(e)⊗f)+α⁻¹(e⊗C(f)).
+
+Hypotheses. k and R are commutative rings and R is a k-algebra; Ω is the existing intrinsic degree-zero/one/two calculus TwoForms, with actual derivation d₀:R→W, additive d₁:W→Z and alternating R-bilinear wedge satisfying its defining equations. E,F,W,Z are genuine R-modules with additive commutative groups; W also has its specified k-module structure. λ is the same element of R on both preconnections. No basis, finite generation, projectivity, flatness, smoothness, characteristic or field hypothesis is used. D:E→E⊗_R W and C:F→F⊗_R W are the actual additive section maps with λ-Leibniz equations. d₀λ=0 and integrability are not needed for the raw preconnection tensor; they remain requirements for later curvature and flat-bundle results.
+
+Proof. Use liftAddHom_tmul and the evaluated biadditive formula.
+
+Dependencies: HodgeStructuresPartII:H.0/affine-parameter-tensor, HodgeStructuresPartII:H.0/affine-parameter-tensor-pair-apply, mathlib:TensorProduct.liftAddHom_tmul.
+
+## Preconnection.affineTensor_leibniz
+
+For every a∈R,x∈E⊗_R F, affineTensor(D,C)(ax)=a affineTensor(D,C)(x)+λ(x⊗d₀a). The tensor has the common λ, rather than the sum of two parameters.
+
+Hypotheses. k and R are commutative rings and R is a k-algebra; Ω is the existing intrinsic degree-zero/one/two calculus TwoForms, with actual derivation d₀:R→W, additive d₁:W→Z and alternating R-bilinear wedge satisfying its defining equations. E,F,W,Z are genuine R-modules with additive commutative groups; W also has its specified k-module structure. λ is the same element of R on both preconnections. No basis, finite generation, projectivity, flatness, smoothness, characteristic or field hypothesis is used. D:E→E⊗_R W and C:F→F⊗_R W are the actual additive section maps with λ-Leibniz equations. d₀λ=0 and integrability are not needed for the raw preconnection tensor; they remain requirements for later curvature and flat-bundle results.
+
+Proof. Project the proved λ-Leibniz field of the actual tensor preconnection.
+
+Dependencies: HodgeStructuresPartII:H.0/affine-parameter-tensor.
+
+## Preconnection.affineTensor_ofLinear
+
+For actual R-linear θ:E→E⊗_R W and ψ:F→F⊗_R W, the R-linear zero-parameter map underlying affineTensor(ofLinear θ,ofLinear ψ) equals the existing TwistedHiggsBundle.affineTensorField(θ,ψ).
+
+Hypotheses. k and R are commutative rings and R is a k-algebra; Ω is the existing intrinsic degree-zero/one/two calculus TwoForms, with actual derivation d₀:R→W, additive d₁:W→Z and alternating R-bilinear wedge satisfying its defining equations. E,F,W,Z are genuine R-modules with additive commutative groups; W also has its specified k-module structure. λ is the same element of R on both preconnections. No basis, finite generation, projectivity, flatness, smoothness, characteristic or field hypothesis is used. D:E→E⊗_R W and C:F→F⊗_R W are the actual additive section maps with λ-Leibniz equations. d₀λ=0 and integrability are not needed for the raw preconnection tensor; they remain requirements for later curvature and flat-bundle results. For the zero-Higgs compatibility, use the existing IsScalarTower k R W input required by the inherited ofLinear/toLinear API. This is not used in raw common-λ balancing.
+
+Proof. Apply native linear tensor extensionality on pure tensors. Use the existing toLinear_apply and ofLinear_apply equations; do not rely on reducibility of admitted prototypes. The actual elementary tensor formula matches the existing Higgs tensor evaluation exactly.
+
+Dependencies: HodgeStructuresPartII:H.0/affine-parameter-tensor-tmul, HodgeStructuresPartII:H.0/intrinsic-preconnection, HodgeStructuresPartII:H.0/affine-tensor-tmul, mathlib:TensorProduct.ext'.
+
+## Preconnection.affineTensor_horizontal
+
+For actual R-linear u:E→E′,v:F→F′ and common-λ preconnections D,C,D′,C′ with D′u=(u⊗id_W)D and C′v=(v⊗id_W)C, their native tensor map is horizontal: affineTensor(D′,C′)((u⊗v)x)=((u⊗v)⊗id_W)affineTensor(D,C)(x), for every x∈E⊗_R F.
+
+Hypotheses. k and R are commutative rings and R is a k-algebra; Ω is the existing intrinsic degree-zero/one/two calculus TwoForms, with actual derivation d₀:R→W, additive d₁:W→Z and alternating R-bilinear wedge satisfying its defining equations. E,F,W,Z are genuine R-modules with additive commutative groups; W also has its specified k-module structure. λ is the same element of R on both preconnections. No basis, finite generation, projectivity, flatness, smoothness, characteristic or field hypothesis is used. D:E→E⊗_R W and C:F→F⊗_R W are the actual additive section maps with λ-Leibniz equations. d₀λ=0 and integrability are not needed for the raw preconnection tensor; they remain requirements for later curvature and flat-bundle results.
+
+Proof. Induct on x by the actual additive tensor eliminator. On e⊗f insert the two given horizontality equations. Induct separately on D(e) and C(f) as tensors. Their pure coefficient tensors give the native map/rearrangement identity; sums and zero follow by additivity.
+
+Dependencies: HodgeStructuresPartII:H.0/affine-parameter-tensor-tmul, mathlib:TensorProduct.map, mathlib:TensorProduct.map_tmul, mathlib:TensorProduct.induction_on, mathlib:TensorProduct.rightComm_tmul, mathlib:TensorProduct.assoc_symm_tmul.
+
+## Preconnection.affineTensor_comm
+
+For the actual native symmetry τ:E⊗_R F≃F⊗_R E, affineTensor(C,D)(τx)=(τ⊗id_W)affineTensor(D,C)(x) for every x∈E⊗_R F.
+
+Hypotheses. k and R are commutative rings and R is a k-algebra; Ω is the existing intrinsic degree-zero/one/two calculus TwoForms, with actual derivation d₀:R→W, additive d₁:W→Z and alternating R-bilinear wedge satisfying its defining equations. E,F,W,Z are genuine R-modules with additive commutative groups; W also has its specified k-module structure. λ is the same element of R on both preconnections. No basis, finite generation, projectivity, flatness, smoothness, characteristic or field hypothesis is used. D:E→E⊗_R W and C:F→F⊗_R W are the actual additive section maps with λ-Leibniz equations. d₀λ=0 and integrability are not needed for the raw preconnection tensor; they remain requirements for later curvature and flat-bundle results.
+
+Proof. Induct on x; exchange the two summands on elementary tensors. Induct on each genuine coefficient tensor D(e),C(f); the native commutor/associator evaluations agree on pure tensors. Handle sums by additivity.
+
+Dependencies: HodgeStructuresPartII:H.0/affine-parameter-tensor-tmul, mathlib:TensorProduct.comm, mathlib:TensorProduct.comm_tmul, mathlib:TensorProduct.map_tmul, mathlib:TensorProduct.induction_on, mathlib:TensorProduct.rightComm_tmul, mathlib:TensorProduct.assoc_symm_tmul.
+
+The following reader is the unchanged incoming checkpoint history. Its narrower remaining-work statements are historical; the current frontier is above.
+
 ## Finite-projective coefficients retain the exact ordered tensor bound
 
 Let R be any commutative ring and E,F,Q be R-modules. The fields θ:E→E⊗_R Q and ψ:F→F⊗_R Q are actual linear maps; their prescribed tensor field is T=θ⊗1+1⊗ψ. Ordered iterates I_n keep their coefficient factors in the given tensor-power order. For positive N,M, the hypotheses I_N(θ)=0 and I_M(ψ)=0 concern those actual tensor-valued maps, not only repeated powers of contractions by one dual vector.
