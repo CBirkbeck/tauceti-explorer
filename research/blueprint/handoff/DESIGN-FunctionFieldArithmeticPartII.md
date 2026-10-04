@@ -24,10 +24,10 @@ The entire canonical Tau Ceti file is UNCOMPILED. The available Tau build is at 
 
 The actual indexed checker, source/version checks and actual intake report0 errors/warnings/problems/refusals. The immutable atlas stage graph has3057 vertices/8726 edges; owned declaration graph717/1556; scoped graph3879/11523; all acyclic. All89 required supplier paths reach, all foreign roadmap and stage objects and inherited stage-edge objects are unchanged, and this roadmap has no skipped or pending links. The45 unrelated preexisting unreachable restructure pairs remain unchanged. The verifier reads843 immutable atlas/checker inputs at base `2c175a30fabe58e901fcdd386506ee6e2ac6280f` without a repository snapshot.
 
-Proof archive: `a8193c6345370dee2b43439afc7f6b2e6a60d70f`
-Artifact manifest SHA256: `e111ce75e75498fd5f3a6d74d30c89a3a29a5f29876364d825a475a33cfc4a6f`
-Artifact payload SHA256: `0f7de4cdde56eb333ff60877857bf41324b3df502ed6befcc9a61b6a3f592cfa`
-Recovery helper SHA256: `136a9161ef0b7bbabe45cf1753cc5404d51c315ba4009dd5f44430546e754f87`
+Proof archive: `1ccda6f471454953c7ec9f7c4e10526284dc53cb`
+Artifact manifest SHA256: `9b7daf5c1085dd9f0c8c515547816a21398eab0ee858d62b7a2aae683f7a9cf3`
+Artifact payload SHA256: `c12fd85dc0252bff9878307d95d44eabdc9658db6c0b481c8304830c774fb35b`
+Recovery helper SHA256: `b17b04311cc818f8f7fc84720cf707b9e39292032190f0b45efcf65f3a6b77d0`
 
 The ancestor contains the complete selected proof sources, logs, receipts, incoming recovery artifacts and all helper bodies in an inert comment in the issue’s suggested Lean file. The final suggested file retains the original canonical prefix and appends the actual construction bodies and admitted lemma/test signatures. No Lean code is placed in the packet or reader. Recovery requires an output directory and the final public head SHA. Run recover.py OUTPUT HEAD, then from an existing repository checkout run python3 OUTPUT/verify.py OUTPUT DECLARATION_INDEX. This replays actual immutable checker/intake/atlas and all source/header/receipt/preservation checks without Lean. Serial compilation can be replayed with compile.py/runcheck.py using an existing exact-pin Mathlib build and Lean binary only.
 
@@ -58,6 +58,7 @@ for name,encoded in artifacts.items():
  data=base64.b64decode(encoded);m=manifest[name];assert len(data)==m['bytes'] and sha(data)==m['sha256'] and len(data.splitlines())==m['lines'],name
  target=out/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
 (out/'artifact-manifest.json').write_bytes(manifest_bytes)
+(out/(RID+'.json')).write_bytes((out/'Candidate.json').read_bytes())
 fence=chr(96)*3;helpers=0
 for name in ['recover.py','verify.py','immutable_view.py','graph.py','projection.py','assemble.py','compile.py','runcheck.py','author.py','package.py']:
  code=text.split('## Script: '+name+'\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
