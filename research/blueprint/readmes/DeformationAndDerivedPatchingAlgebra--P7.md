@@ -1,3 +1,91 @@
+# Completed planning pass: review and follow-up boundary
+
+This pass ends under the programme’s updated 300-node budget. It inherited 478 declaration nodes and adds none. Packet status `complete` means the planning pass is ready for independent review; it does not mean that the mathematics is closed or implemented. All 478 node objects, their APIs/tests, 460 baseline references, 13 planets, two requests and source issue E1 are retained verbatim. All implementation statuses remain `unchecked`.
+
+The current coverage is three partial stages (P7, R03.3, R03.4) and five not-read stages (P8, P9, R03.1, R03.2, R03.5). The stage-by-stage worklist below supersedes historical continuation frontiers later in this document. It records unfinished target planning as well as proof refinements, rather than relabelling those stages as planned. Once independent review accepts the pass, the programme creates follow-up jobs for its open stages.
+
+The general reserved Hilbert–Samuel multiplicity definition remains for every finite module over a Noetherian local ring and every ideal of definition. It has not been replaced by a curve invariant. In particular, general polynomial existence, support-degree comparison, completion and associativity remain open. The inherited finite homogeneous-generator/zero-variable proofs do not establish the positive-variable recursive Hilbert–Serre theorem.
+
+The full suggested file retains its exact mathematical body, with only a new explanatory comment. Its Tau imports have not been compiled at the pin: the available Tau build is at a different commit and lacks the required direct-sum and graded-quotient compiled modules. No new Lean run was made for this documentation pass. Publicly recovered PR #6086 evidence authenticates the 4,682-line native source replay (107 examples, 294 clean axiom audits) and 6,934-line isolated admitted projection (368 examples, 899 admitted-proof warnings). These are inherited receipts, not certification of the full Tau-importing file or of general mathematical closure.
+
+The inherited LocalFieldsRamification layer 0 to R03.4 stage path is still absent. Both explicit supplier requests remain; no supplier, sibling packet or link map is changed. Source issue E1 retains its precise version and correction boundary. No new primary-source reading or library statement is claimed here.
+
+## Current follow-up work by stage
+
+### P7 — partial
+
+Minimal finite-free representatives, uniqueness, residual ranks, three-term split exactness and pseudo-coherent residual perfectness/Nakayama now have separate source-based nodes and concrete prototypes. Complete their actual Lean implementation and the derived-base-change comparison below; this is not a closed stage.
+
+Construct and compare derived tensor/RHom and duality on the actual derived categories, establish K-flatness of bounded above projective module complexes and independence of the chosen representative. Add Tor-amplitude as a predicate on derived objects with the all-module quantifier; compare it with minimal support. Do not equate Tor-amplitude with ordinary cohomological bounds.
+
+Retain all triangle and summand closure of perfectness/pseudo-coherence, affine/local comparison with SchemeKTheoryOperations, derived-completion comparison with DerivedDeRhamCohomology, the convergent Tor spectral sequence, and R02.1 Milnor/ML applications. Chain-level actions and inverse-system compatibility remain actual work.
+
+Read and source-decompose every added paper route in issue #551. In particular Pilloni 2020 infinite completed-free minimal complexes require the completed direct-sum basis from PadicMeasuresIwasawaAlgebras:L0; they are not covered by termwise finite-free cancellation.
+
+The affine uniformly lower-bounded Hom/filtered-colimit input of Boxer–Pilloni E26 now has four proof nodes. Its scheme globalization and solid/discrete comparison remain with the existing six-functor owner; require the actual proper-map bound there. CG Lemmas 7.5–7.6 and BCGP coefficient interfaces still require primary-source reads.
+
+### P8 — not_read
+
+Read and decompose the finite-level complex patching and ultrapatching proofs for systems (R_N,S_N,C_N), with bounded group-generator rank, unbounded p-power exponent, uniform finite-projective presentation bounds and the fixed ultrafilter. Prove compactness, cofinality and independence only under supplied compatible comparison data; assert no general ultrafilter independence.
+
+Construct the patched power-series ring, local deformation base and continuous derived action; prove derived augmentation with framing variables explicit, perfectness, finite generation and finite-level Hecke-action comparison. Obtain auxiliary-level group-algebra freeness from ArithmeticLocallySymmetricSpaces, not from covering cardinality.
+
+### P9 — not_read
+
+Read and decompose the regular-local codimension/projective-dimension/Tor-amplitude inequalities and balanced-dimension conclusions, retaining non-Cohen–Macaulay and torsion cases. The one-degree theorem must be a specialization, and characteristic-zero concentration does not eliminate integral torsion.
+
+Plan support transport under finite flat coefficient changes, removal of framing variables, local-condition specialization and comparison of patched systems. State the precise nearly faithful, radical-annihilator or component-union conclusion and the algebraic derived Ihara-avoidance hypotheses; import arithmetic verification from PotentialAutomorphyInfrastructure.
+
+Read and decompose ACC+ §6.3.4 for an excellent local base, a nonzerodivisor in its maximal ideal and a finite algebra acting in the bounded derived category. Construct idempotent localization of the actual derived action, finite lengths, additivity and the dimension-zero/one Euler-characteristic formulas with irreducibility and special-fibre hypotheses; do not assume an unprovided strict chain model.
+
+### R03.1 — not_read
+
+Read and refine the integrated complete-local coefficient-category nodes, inverse-limit presentations by Artinian quotients, continuous power-series maps, residue-field extension, and finite-generation ascent/descent. Reuse pinned adic-completion and power-series interfaces; give completed tensor products the exact Noetherian and local hypotheses.
+
+Plan nilpotent ideals, small and square-zero extensions with the maps and tests required by deformation functors. Supply the separately requested complete-local presentation/formal-smooth lifting data for R03.4; ordinary algebraic smoothness does not supply a compatible Artinian tower and its continuous limit.
+
+### R03.2 — not_read
+
+Read the source proofs before refining Schlessinger’s criterion, framed representability, finite tangent spaces, Artinian fibre products, hulls, uniqueness and relation bounds from obstruction spaces. Distinguish a hull from a prorepresenting object when automorphisms obstruct representability; import Galois-specific tangent and obstruction calculations from their owners.
+
+### R03.3 — partial
+
+Read and source-decompose the remaining stage targets: regular sequences, depth, Cohen–Macaulay rings/modules, projective dimension, Auslander–Buchsbaum, complete-intersection criteria and formulas under the actual local maps. State catenarity/excellence hypotheses in equidimensionality, associated-prime and support arguments. The lengthy Hilbert–Samuel strand does not close this stage.
+
+Retain the actual ordinary adic Rees-quotient carriers, coefficient changes, native ring/module decompositions, homogeneous projections, generator comparisons and finite generation. Their inherited native prototypes now include the degree-one kernel/range/cokernel gradings, smaller-ring scalar descent, actual component finiteness and signed length recurrence with kernel correction. Canonical implementations remain unchecked; compare any future generic associated-graded interface by adapters, without a second carrier.
+
+For a general finite internally graded polynomial module, construct the last-variable kernel and cokernel with their actual remaining-variable polynomial action, internal gradings, finite generation and finite component lengths. The inherited 12-lemma continuation supplies finite homogeneous generators, bounds, degree-one action and the zero-variable eventual-zero case only. A positive-variable recursive Hilbert–Serre step is still missing.
+
+Use the degreewise recurrence to induct on the finite variable set: D(T)=P_Q(T)−P_K(T−1), N=max(1,N_Q,N_K+1), with the antidifference constant fixed at N−1. Guard finite ENat-toNat conversion before integer subtraction. Prove existence of the polynomial and threshold without assuming their conclusion; the bound r−1 is separate from support dimension.
+
+Read and decompose degree = support dimension, finite-colength leading-coefficient invariance, Artin–Rees shifted comparisons and the prime-filtration support maximum. Supply finite top-dimensional support, finite localized lengths and exact localization for associativity; infinite length must not become zero by conversion.
+
+Complete the general reserved multiplicity API: positivity/integrality, powers of ideals, dimension-normalized additivity, associativity, completion invariance and the intrinsic/ambient distinction. The zero module has multiplicity zero without being assigned dimension zero.
+
+Retain native finite-jet and all-index plane-curve cumulative/graded length, postulation and polynomial prototypes. The full multiplicative tangent-cone comparison is an admitted plan. Prove its full principal kernel and generator compatibility with exact finite-order/no-zero-divisors hypotheses, then curve dimension and the comparison with general intrinsic multiplicity. Keep zero/unit equations, positive characteristic, nonreduced equations and arbitrary-coefficient boundaries.
+
+Decompose regular-local associated-graded polynomial structure and domain/multiplicity-one consequences; prove the Nagata converse under formal unmixedness, and the parameter-ideal bound with its Cohen–Macaulay equality criterion. Preserve smooth/node/cusp/triple-point tests as applications of the general key, not substitutes for it.
+
+Account for every issue #551 routed source within its accepted ownership boundary. Preserve source issue E1 and its read-version scope; no fresh primary-paper reading or source closure is claimed by this budget completion.
+
+### R03.4 — partial
+
+The five characteristic-zero-point signatures have historical exact-pin admitted-projection elaboration evidence. Their mathematical implementation, quotient/intermediate-field scalar towers and full source coverage remain unchecked; a nonzero finite algebra may be the residue field, so non-torsion/dimension hypotheses are essential.
+
+Obtain the actual LocalFieldsRamification integer-ring/integral-closure isomorphism and topology transport, and prove complete-local framed lifting with compatible Artinian lifts and their limit. Retain residue-field extension where required. The inherited missing LocalFieldsRamification layer 0 to R03.4 stage path remains recorded for the supplier/link owner.
+
+Read and decompose the finite-over-subring criteria and completed variants in KW II §10, finite-image deformation-ring arguments and arithmetic dimension inputs at their owners. Separate a finite unframed ring from its framed power-series enlargement.
+
+### R03.5 — not_read
+
+Read and decompose inverse-limit module patching from actual finite-level rings, modules, presentations and transition data. Prove the compactness/diagonal-subsequence argument, uniform bounds, existence, finite generation, continuous power-series action, specialization and depth comparison.
+
+Expose the numerical hypotheses and exact faithfulness/support conclusion of the module theorem. Keep integral conclusions separate from those after inverting the uniformizer; the module result is not an assumed special case of an unproved complex theorem.
+
+## Inherited mathematical development
+
+The following text preserves the mathematical specifications and historical evidence from the incoming pass. Current status and unresolved frontiers are given above and in the packet’s coverage/gaps.
+
 # Generic graded-module induction inputs
 
 A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.

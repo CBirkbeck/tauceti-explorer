@@ -1,3 +1,11 @@
+/-
+Planning-pass completion, 2026-10-04: the inherited packet has 478 nodes and adds
+none under the updated 300-node budget. All mathematical declarations below are
+unchanged; every packet implementation status remains unchecked. Three stages
+are partial and five not_read, with current follow-up tasks in the reader/packet.
+The full Tau-importing file is uncompiled. PR #6086 authenticates inherited native
+source replay and an isolated admitted projection; this pass runs no new Lean.
+-/
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import TauCeti.RingTheory.GradedAlgebra.Homogeneous.Quotient
 import Mathlib.RingTheory.GradedAlgebra.Homogeneous.Ideal
