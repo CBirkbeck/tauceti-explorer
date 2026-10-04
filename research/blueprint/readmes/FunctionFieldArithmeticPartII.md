@@ -1,3 +1,272 @@
+# Cartesian normalization covers under arbitrary test-algebra change
+
+Let p=(u,y) be a framed root of f over the test A-algebra B, with u a bundled unit and u*y^n=image(f). Write Dp=B[T]/(T^n-u). For an arbitrary A-algebra homomorphism phi:B to C, use the existing framedRootChange to form phi p=(phi(u),phi(y)). The actual normalizationChange A-algebra homomorphism Dp to D(phi p) sends coefficients through phi and T to T. It preserves identity and composition and commutes with every actual framed-arrow normalizationRingMap, including its inverse unit label.
+
+The actual coefficient square B,C,Dp,D(phi p) is a ring pushout. To test its universal property against a cocone to E, send the target root to the given image of T from Dp. The cocone equation identifies its nth power with the image of phi(u); native AdjoinRoot.lift gives the map. Coefficient and root computations give both factorizations and uniqueness. Applying Spec gives a Cartesian scheme square. The resulting native isomorphism from Spec D(phi p) to Spec C times over Spec B with Spec Dp has both specified forward projections and both inverse projections. This holds even at exponent zero.
+
+For positive exponent, the spectrum maps form an actual natural transformation comparing the existing normalization cover functors on B and C. Composing with the chart natural transformation over B gives precisely its whiskered counterpart over C. Each component gives the Cartesian square of the existing singleton fppf covers. No flatness, injectivity, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. A nonzero nilpotent normalized section may be killed under change of algebra; the quotient Z/4 to Z/2 supplies an explicit checked example.
+
+Nine typed examples check generators, identity/composition, arrow and whole chart naturality, Cartesian singleton covers, all four isomorphism projections and both roundtrips, the killed nonzero square-zero section, wild exponent3 in characteristic3, exponent1, exponent0 and the zero ring. The three constructions have15 API references and14 references to these9 examples. All634 incoming nodes and319 baseline records are unchanged; this adds21 nodes and6 baseline declarations. All40 planets remain: these maps and comparison laws refine the existing root-stack and normalization landmarks. Ten stages remain partial, with eight gaps, thirteen requests and eleven unchanged source findings, all routes, omissions and version receipts preserved. Every implementation remains unchecked.
+
+Normalization covers now commute with arbitrary changes of the test A-algebra. For phi:B to C and p=(u,y), the actual A-algebra map Dp to D(phi p) sends T to T and coefficients through phi, preserves identity and composition, and commutes with every actual framed-arrow normalization map. Its coefficient square is a native ring pushout, hence its spectrum square is Cartesian. The native isomorphism with the chosen scheme pullback has both forward and inverse projection formulas, for every natural exponent. For positive exponent these components form a native natural transformation between the underlying normalization cover functors; the whole chart natural transformation factors through it exactly, and each component gives the Cartesian square of the existing singleton fppf covers. No flatness or injectivity of phi is assumed: over Z/4 to Z/2 a nonzero square-zero normalized section is killed. Wild exponents and zero rings remain allowed. Native sheaf RootObject comparison, local frame existence, stackification, effective fpqc descent, coherent iterated scheme comparisons, infinite genuine 2-limits and higher-universe adapters remain open, as do all inherited source, supplier and geometric obligations.
+
+## Normalization along an arbitrary test-algebra map
+
+**TauCeti.RootStack.FramedRoot.normalizationChange** — For an A-algebra homomorphism phi:B to C and framed root p=(u,y) over B, construct the actual A-algebra homomorphism Dp to D(phi p), where Dp=B[T]/(T^n-u). It applies phi to coefficients and sends the adjoined root to the adjoined root. The target is exactly the normalization algebra of framedRootChange(phi)(p).
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-change, mathlib:AdjoinRoot.mapAlgHom.
+
+Proof: Apply the native polynomial-quotient mapAlgHom to phi. The target polynomial equals the image of the source polynomial since the changed coefficient is phi(u).
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationChange_root**: The normalizationChange map sends the source adjoined root to the target adjoined root.
+- **TauCeti.RootStack.FramedRoot.normalizationChange_coefficients**: For each b in B, normalizationChange sends the image of b in Dp to the image of phi(b) in D(phi p).
+- **TauCeti.RootStack.FramedRoot.normalizationChange_identity**: For every p, normalizationChange along the identity A-algebra homomorphism B to B is the identity A-algebra homomorphism of Dp.
+- **TauCeti.RootStack.FramedRoot.normalizationChange_composition**: For phi:B to C and psi:C to E as A-algebra homomorphisms, normalizationChange(psi,phi p) composed with normalizationChange(phi,p) equals normalizationChange(psi composed with phi,p), as actual A-algebra homomorphisms.
+- **TauCeti.RootStack.FramedRoot.normalizationChange_arrow**: For an actual arrow h:p to q, the changed-arrow normalizationRingMap, restricted to A, composed with normalizationChange(phi,q), equals normalizationChange(phi,p) composed with normalizationRingMap(h), restricted to A. Both are actual maps from Dq to D(phi p).
+- **TauCeti.RootStack.FramedRoot.normalizationChange_point**: For positive exponent, normalizationChange(phi,p) composed with p.normalizationPoint equals the actual normalizationPoint of framedRootChange(phi)(p), as A-algebra homomorphisms from A[Z]/(Z^n-f).
+- **TauCeti.RootStack.FramedRoot.normalizationChange_isPushout**: The actual commutative-ring square with vertices B,C,Dp,D(phi p), sides phi and both coefficient inclusions, and normalizationChange(phi,p), satisfies native IsPushout. This holds for arbitrary phi and every natural exponent.
+
+Typed examples:
+
+- **TauCeti.RootStack.normalizationChangeTests.generators**: For arbitrary phi and every natural exponent, the actual normalization map sends the root to the root and each b coefficient to the phi(b) coefficient.
+- **TauCeti.RootStack.normalizationChangeTests.identity_composition**: For arbitrary composable A-algebra maps and every natural exponent, the actual normalization maps preserve identity and composition.
+- **TauCeti.RootStack.normalizationChangeTests.arrow_chart_cover**: For every actual framed arrow and positive exponent, the whole ring-map naturality equality and the whole chart natural-transformation factorization hold; the actual component gives a Cartesian square and the changed normalization map is singleton fppf covering.
+- **TauCeti.RootStack.normalizationChangeTests.killed_nilpotent**: For the actual quotient map Z/4 to Z/2 as Z-algebras, p=(1,2) at f=0,n=2 has a nonzero square-zero normalized chart root z. The actual normalization map kills z and is not injective, while its component square is Cartesian.
+- **TauCeti.RootStack.normalizationChangeTests.exponent_zero**: For any framed root of f=1 at exponent0, the normalization map still preserves the root and its actual scheme base-change isomorphism has the prescribed first projection and inverse roundtrip. No fppf or positive-exponent chart claim is made.
+
+## Change of algebra preserves the normalization root
+
+**TauCeti.RootStack.FramedRoot.normalizationChange_root** — The normalizationChange map sends the source adjoined root to the target adjoined root.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-map, mathlib:AdjoinRoot.map_root.
+
+Proof: Compute the native adjoined-root map on its root.
+
+## Change of algebra has the exact coefficient map
+
+**TauCeti.RootStack.FramedRoot.normalizationChange_coefficients** — For each b in B, normalizationChange sends the image of b in Dp to the image of phi(b) in D(phi p).
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-map, mathlib:AdjoinRoot.map_of.
+
+Proof: Compute the native adjoined-root map on its coefficient inclusion.
+
+## The identity change gives the identity homomorphism
+
+**TauCeti.RootStack.FramedRoot.normalizationChange_identity** — For every p, normalizationChange along the identity A-algebra homomorphism B to B is the identity A-algebra homomorphism of Dp.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-root, FunctionFieldArithmeticPartII:RS.0/normalization-change-coefficients, mathlib:AdjoinRoot.ringHom_ext.
+
+Proof: Compare coefficients and adjoined roots with native ring-homomorphism extensionality.
+
+## Successive changes agree with their composite
+
+**TauCeti.RootStack.FramedRoot.normalizationChange_composition** — For phi:B to C and psi:C to E as A-algebra homomorphisms, normalizationChange(psi,phi p) composed with normalizationChange(phi,p) equals normalizationChange(psi composed with phi,p), as actual A-algebra homomorphisms.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-root, FunctionFieldArithmeticPartII:RS.0/normalization-change-coefficients, mathlib:AdjoinRoot.ringHom_ext.
+
+Proof: The successive and direct changed coefficients agree definitionally. Compare the two maps on every coefficient and on the adjoined root.
+
+## Changes of algebra commute with actual framed arrows
+
+**TauCeti.RootStack.FramedRoot.normalizationChange_arrow** — For an actual arrow h:p to q, the changed-arrow normalizationRingMap, restricted to A, composed with normalizationChange(phi,q), equals normalizationChange(phi,p) composed with normalizationRingMap(h), restricted to A. Both are actual maps from Dq to D(phi p).
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-root, FunctionFieldArithmeticPartII:RS.0/normalization-change-coefficients, FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-root, FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-coefficients, FunctionFieldArithmeticPartII:RS.0/framed-normalization-change-arrow, mathlib:AdjoinRoot.ringHom_ext.
+
+Proof: Compare coefficients, then roots. The inverse of the changed unit label is the image of its inverse. The two root images are T times the coefficient image of this inverse; no section is cancelled.
+
+## Normalization changes form the actual base triangle
+
+**TauCeti.RootStack.FramedRoot.normalizationChange_overBase** — Spec(normalizationChange(phi,p)) followed by the source normalizationSpecMap equals the changed normalizationSpecMap followed by Spec(phi), as scheme morphisms to Spec B.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-coefficients, FunctionFieldArithmeticPartII:RS.0/framed-fppf-map, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Apply spectrum contravariance and the exact coefficient computation.
+
+## The normalization coefficient square is an actual ring pushout
+
+**TauCeti.RootStack.FramedRoot.normalizationChange_isPushout** — The actual commutative-ring square with vertices B,C,Dp,D(phi p), sides phi and both coefficient inclusions, and normalizationChange(phi,p), satisfies native IsPushout. This holds for arbitrary phi and every natural exponent.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-root, FunctionFieldArithmeticPartII:RS.0/normalization-change-coefficients, FunctionFieldArithmeticPartII:RS.0/affine-root-relation, mathlib:AdjoinRoot.lift, mathlib:AdjoinRoot.lift_of, mathlib:AdjoinRoot.lift_root, mathlib:AdjoinRoot.lift_comp_of, mathlib:AdjoinRoot.ringHom_ext, mathlib:CategoryTheory.Limits.PushoutCocone.IsColimit.mk, mathlib:CategoryTheory.IsPushout.of_isColimit.
+
+Proof: For a cocone C to E and Dp to E agreeing on B, use the native AdjoinRoot.lift with root the image of T in E. Its nth power is the image of u, which equals the image of phi(u) by the cocone equation. Compute both factorizations on coefficients and roots; root-quotient extensionality proves uniqueness. Apply the native pushout cocone colimit constructor.
+
+## The normalization square is Cartesian over the changed test scheme
+
+**TauCeti.RootStack.FramedRoot.normalizationChange_isPullback** — The square with top-left Spec D(phi p), projections the changed normalizationSpecMap to Spec C and Spec(normalizationChange) to Spec Dp, and bottom arrows Spec(phi) and p.normalizationSpecMap, satisfies native IsPullback.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-pushout, FunctionFieldArithmeticPartII:RS.0/framed-fppf-map, mathlib:AlgebraicGeometry.isPullback_SpecMap_of_isPushout.
+
+Proof: Use the pinned theorem that spectrum turns this actual ring pushout into a scheme pullback.
+
+## The actual normalization base-change isomorphism
+
+**TauCeti.RootStack.FramedRoot.normalizationBaseChangeIso** — Construct the native scheme isomorphism from Spec D(phi p) to the chosen pullback of Spec(phi):Spec C to Spec B and p.normalizationSpecMap:Spec Dp to Spec B.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-pullback, mathlib:CategoryTheory.IsPullback.isoPullback.
+
+Proof: Use the native isomorphism from an actual pullback square to the chosen categorical pullback.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationBaseChangeIso_hom_fst**: normalizationBaseChangeIso.hom followed by the first pullback projection is exactly the changed framed root normalizationSpecMap to Spec C.
+- **TauCeti.RootStack.FramedRoot.normalizationBaseChangeIso_hom_snd**: normalizationBaseChangeIso.hom followed by the second pullback projection is exactly Spec(normalizationChange(phi,p)) to Spec Dp.
+- **TauCeti.RootStack.FramedRoot.normalizationBaseChangeIso_inv_fst**: normalizationBaseChangeIso.inv followed by the changed normalizationSpecMap equals the first pullback projection.
+- **TauCeti.RootStack.FramedRoot.normalizationBaseChangeIso_inv_snd**: normalizationBaseChangeIso.inv followed by Spec(normalizationChange(phi,p)) equals the second pullback projection.
+
+Typed examples:
+
+- **TauCeti.RootStack.normalizationChangeTests.both_projections**: For arbitrary phi and every natural exponent, the actual normalization base-change isomorphism has both specified forward projections, both inverse projections and both inverse roundtrips.
+- **TauCeti.RootStack.normalizationChangeTests.killed_nilpotent**: For the actual quotient map Z/4 to Z/2 as Z-algebras, p=(1,2) at f=0,n=2 has a nonzero square-zero normalized chart root z. The actual normalization map kills z and is not injective, while its component square is Cartesian.
+- **TauCeti.RootStack.normalizationChangeTests.exponent_one**: At exponent1, the changed normalized chart root equals the image of f; the pullback isomorphism second projection followed by the original chart map equals the changed chart map.
+- **TauCeti.RootStack.normalizationChangeTests.exponent_zero**: For any framed root of f=1 at exponent0, the normalization map still preserves the root and its actual scheme base-change isomorphism has the prescribed first projection and inverse roundtrip. No fppf or positive-exponent chart claim is made.
+- **TauCeti.RootStack.normalizationChangeTests.zero_ring**: For Z to the zero ring Z/1 at exponent3 and p=(1,0), the actual changed normalization root is zero, the pullback isomorphism has the correct first projection and the changed normalization map is singleton fppf covering without assuming a spectrum point.
+
+## The forward isomorphism has the changed coefficient projection
+
+**TauCeti.RootStack.FramedRoot.normalizationBaseChangeIso_hom_fst** — normalizationBaseChangeIso.hom followed by the first pullback projection is exactly the changed framed root normalizationSpecMap to Spec C.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-iso, mathlib:CategoryTheory.IsPullback.isoPullback_hom_fst.
+
+Proof: Use the first forward projection law of the native pullback isomorphism.
+
+## The forward isomorphism has the actual normalization-change projection
+
+**TauCeti.RootStack.FramedRoot.normalizationBaseChangeIso_hom_snd** — normalizationBaseChangeIso.hom followed by the second pullback projection is exactly Spec(normalizationChange(phi,p)) to Spec Dp.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-iso, mathlib:CategoryTheory.IsPullback.isoPullback_hom_snd.
+
+Proof: Use the second forward projection law of the native pullback isomorphism.
+
+## The inverse isomorphism recovers the first projection
+
+**TauCeti.RootStack.FramedRoot.normalizationBaseChangeIso_inv_fst** — normalizationBaseChangeIso.inv followed by the changed normalizationSpecMap equals the first pullback projection.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-iso, mathlib:CategoryTheory.IsPullback.isoPullback_inv_fst.
+
+Proof: Use the first inverse projection law of the native pullback isomorphism.
+
+## The inverse isomorphism recovers the second projection
+
+**TauCeti.RootStack.FramedRoot.normalizationBaseChangeIso_inv_snd** — normalizationBaseChangeIso.inv followed by Spec(normalizationChange(phi,p)) equals the second pullback projection.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. Every natural exponent n, including zero, is allowed. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-iso, mathlib:CategoryTheory.IsPullback.isoPullback_inv_snd.
+
+Proof: Use the second inverse projection law of the native pullback isomorphism.
+
+## Change of algebra preserves the actual normalized chart point
+
+**TauCeti.RootStack.FramedRoot.normalizationChange_point** — For positive exponent, normalizationChange(phi,p) composed with p.normalizationPoint equals the actual normalizationPoint of framedRootChange(phi)(p), as A-algebra homomorphisms from A[Z]/(Z^n-f).
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. The natural exponent n is positive. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-root, FunctionFieldArithmeticPartII:RS.0/normalization-change-coefficients, FunctionFieldArithmeticPartII:RS.0/framed-normalization-point-root, FunctionFieldArithmeticPartII:RS.0/framed-normalization-change-root, mathlib:AdjoinRoot.algHom_ext.
+
+Proof: Compare the chart root images T times y. Change of coefficients and the changed framed root formula give T times phi(y).
+
+## The changed normalization chart triangle commutes
+
+**TauCeti.RootStack.FramedRoot.normalizationChange_chart** — For positive exponent, Spec(normalizationChange(phi,p)) followed by p.normalizationChartMap is the changed framed root normalizationChartMap to Spec(A[Z]/(Z^n-f)).
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. The natural exponent n is positive. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-point, FunctionFieldArithmeticPartII:RS.0/framed-fppf-chart, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Apply spectrum contravariance to the whole normalization-point homomorphism equality.
+
+## The natural transformation comparing changed normalization covers
+
+**TauCeti.RootStack.normalizationChangeNatTrans** — For positive exponent and arbitrary phi:B to C, construct the native natural transformation from framedRootChange(phi) followed by normalizationFunctor over C and Over.forget, to normalizationFunctor over B followed by Over.forget. Its component at p is Spec(normalizationChange(phi,p)).
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. The natural exponent n is positive. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-arrow, FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor, FunctionFieldArithmeticPartII:RS.0/framed-normalization-change, mathlib:CategoryTheory.NatTrans, mathlib:CategoryTheory.Over.forget, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Use the actual spectrum map as component. Spectrum contravariance applied to the whole arrow compatibility equation supplies naturality for every actual framed arrow.
+
+Consumed API:
+
+- **TauCeti.RootStack.normalizationChangeNatTrans_app**: The component of normalizationChangeNatTrans at p equals Spec(normalizationChange(phi,p)).
+- **TauCeti.RootStack.normalizationChangeNatTrans_base**: The component at p followed by p.normalizationSpecMap equals the changed normalizationSpecMap followed by Spec(phi).
+- **TauCeti.RootStack.normalizationChangeNatTrans_chart**: normalizationChangeNatTrans(phi) followed by normalizationChartNatTrans over B equals the left whiskering of normalizationChartNatTrans over C by framedRootChange(phi), as native natural transformations.
+- **TauCeti.RootStack.normalizationChangeNatTrans_isPullback**: For positive exponent, the square formed by the component of normalizationChangeNatTrans, the changed and original normalizationSpecMaps, and Spec(phi), satisfies native IsPullback. Thus the existing fppf normalization cover over C is exactly the pullback of the cover over B.
+
+Typed examples:
+
+- **TauCeti.RootStack.normalizationChangeTests.arrow_chart_cover**: For every actual framed arrow and positive exponent, the whole ring-map naturality equality and the whole chart natural-transformation factorization hold; the actual component gives a Cartesian square and the changed normalization map is singleton fppf covering.
+- **TauCeti.RootStack.normalizationChangeTests.killed_nilpotent**: For the actual quotient map Z/4 to Z/2 as Z-algebras, p=(1,2) at f=0,n=2 has a nonzero square-zero normalized chart root z. The actual normalization map kills z and is not injective, while its component square is Cartesian.
+- **TauCeti.RootStack.normalizationChangeTests.wild_exponent**: Over Z/3 at exponent3 and f=0, every actual change of test Z-algebra gives a Cartesian component square and an actual singleton fppf cover even though the exponent vanishes in the base.
+- **TauCeti.RootStack.normalizationChangeTests.zero_ring**: For Z to the zero ring Z/1 at exponent3 and p=(1,0), the actual changed normalization root is zero, the pullback isomorphism has the correct first projection and the changed normalization map is singleton fppf covering without assuming a spectrum point.
+
+## The natural transformation has the actual change-of-algebra component
+
+**TauCeti.RootStack.normalizationChangeNatTrans_app** — The component of normalizationChangeNatTrans at p equals Spec(normalizationChange(phi,p)).
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. The natural exponent n is positive. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-transformation.
+
+Proof: Reduce the component field of the actual natural transformation.
+
+## The natural transformation components lie over the changed test base
+
+**TauCeti.RootStack.normalizationChangeNatTrans_base** — The component at p followed by p.normalizationSpecMap equals the changed normalizationSpecMap followed by Spec(phi).
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. The natural exponent n is positive. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-component, FunctionFieldArithmeticPartII:RS.0/normalization-change-base.
+
+Proof: Reuse the coefficient triangle for the actual component.
+
+## The whole chart transformation commutes with test-algebra change
+
+**TauCeti.RootStack.normalizationChangeNatTrans_chart** — normalizationChangeNatTrans(phi) followed by normalizationChartNatTrans over B equals the left whiskering of normalizationChartNatTrans over C by framedRootChange(phi), as native natural transformations.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. The natural exponent n is positive. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-component, FunctionFieldArithmeticPartII:RS.0/normalization-arrows-chart-transformation, FunctionFieldArithmeticPartII:RS.0/normalization-change-chart, mathlib:CategoryTheory.Functor.whiskerLeft.
+
+Proof: Apply native natural-transformation extensionality and use the actual chart triangle at every framed root.
+
+## Each natural-transformation component gives the actual Cartesian cover square
+
+**TauCeti.RootStack.normalizationChangeNatTrans_isPullback** — For positive exponent, the square formed by the component of normalizationChangeNatTrans, the changed and original normalizationSpecMaps, and Spec(phi), satisfies native IsPullback. Thus the existing fppf normalization cover over C is exactly the pullback of the cover over B.
+
+Hypotheses: Commutative rings A,B,C in a common universe, A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and an actual framed root p=(u,y) satisfying u*y^n=image(f), with u a bundled unit. Composition additionally uses a commutative A-algebra E and psi:C to E; arrow statements additionally use actual framed arrows. The natural exponent n is positive. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity assumption. No section is cancelled. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-component, FunctionFieldArithmeticPartII:RS.0/normalization-change-pullback, FunctionFieldArithmeticPartII:RS.0/framed-fppf-cover-membership.
+
+Proof: Identify the component with the actual normalization spectrum map and reuse the proved Cartesian square. Positivity separately supplies the existing covering membership; the square itself needed no positivity.
+
 # Faithful normalization arrows and natural chart maps
 
 For an actual chosen-frame root p=(u,y), use the existing normalization algebra Dp=B[Tp]/(Tp^n-u). An actual arrow h:p to q with unit label zeta induces the actual B-algebra map Dq to Dp sending Tq to Tp times the image of zeta inverse. This map fixes coefficients, preserves identity, reverses composition and transports the actual normalized chart point. These are equations of actual homomorphisms.
