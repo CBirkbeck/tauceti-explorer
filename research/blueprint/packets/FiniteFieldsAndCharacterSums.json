@@ -10,8 +10,8 @@
   "FiniteFieldsAndCharacterSums:FF.4",
   "FiniteFieldsAndCharacterSums:FF.5"
  ],
- "status": "partial",
- "summary": "Finite fields, character sums, finite rings and coding interfaces, first pass under the accepted restructuring RS-03, with the accepted source routes of Bary-Soroker–Koukoulopoulos–Kozma and Browning–Sawin covered. FF.0 plans what the libraries lack on top of Mathlib's finite-field theory: Rabin's irreducibility criterion with a checkable certificate, certified presentations with their inverse isomorphisms, tensor products of finite fields and Frobenius normal bases. FF.1 is the single owner of the character normalisations: the canonical trace character, the comparison of Mathlib's zero conventions with the classical ones requested by ClassicalArithmeticCompletion CA.1, transport of Gauss sums along value-ring embeddings, the Hasse–Davenport lifting relation, the Teichmüller character, Stickelberger's congruence and theorem, and the residue character of F_q((1/T)) with the Fourier-analytic inputs of Bary-Soroker–Koukoulopoulos–Kozma. FF.2 plans the Weil bounds for additive, multiplicative and Kloosterman sums through the L-functions of the Artin–Schreier and Kummer curves with the elementary Stepanov route, the degenerate cases, the Artin–Schreier sheaf, Deligne's bound for trace functions with its top-cohomology main term, Lang–Weil, and the Browning–Sawin inputs, importing cohomology from WeilConjectures and DeligneWeightsAndPurity. FF.3 plans Gauss's product formula and the prime polynomial theorem, square-free, distinct-degree and equal-degree factorisation (Cantor–Zassenhaus) and Berlekamp's algorithm with reconstruction, termination and separate cost statements, certified factorisations, Hensel lifting of coprime factorisations, and certified point counting up to Schoof's algorithm. FF.4 plans Galois rings, linearised and permutation polynomials, linear recurring sequences and m-sequences, Reed–Solomon, BCH and algebraic-geometry codes against Tau Ceti's coding theory, and the finite upper half-plane. FF.5 plans the application handoffs that RS-03 keeps: the Weil bound instantiated for integer polynomials modulo p, local densities at good primes, correlation of decimated m-sequences and Shamir secret sharing, with correctness kept apart from hardness. Remaining work is listed per layer, with six gaps and thirty-one requests to other owners.",
+ "status": "complete",
+ "summary": "Complete budget-limited planning pass under PROTOCOL section 0 and accepted RS-03; mathematical closure is not claimed. Preserve the inherited 354 declaration-sized nodes (already above the 300-node planning budget), 562 API items, 374 tests, 32 planets, 457 baseline declarations, 32 sources, 34 source issues, six gaps, 31 supplier requests and five structural proposals. FF.0 retains source decomposition and FF.5 remains target-planned; FF.1, FF.2, FF.3 and FF.4 have explicit remaining work. FF.3 is reopened for the routed Bergstrom–Faber–Payne square-free counting target, which its square-free decomposition algorithm does not supply. FF.1 also lacks that paper's two-point character-sum interpolation target. Existing character conventions, degenerate Weil-bound cases, factorization and point-count certificates, complexity contracts and finite-ring/code interfaces are retained. Source-version records identify the predecessor's actual texts without treating preprints or author drafts as published-version checks. Independent review must assess the inherited mathematics and the recorded frontier before stage follow-ups and assembly.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -26591,7 +26591,8 @@
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.0",
    "status": "source_decomposed",
-   "note": "Every FF.0 target that RS-03 keeps is planned from Shoup (Chapters 19–20, §18.6) and Conrad's handouts: the Frobenius power residue, Rabin's criterion and its certificate (ids fixed by the coordinator), certified presentations with explicit inverse, root-certificate embeddings and change-of-presentation isomorphisms, factorisation over an extension, the tensor-product decomposition, and normal elements with the Frobenius normal basis. The built targets (classification, cardinality, Frobenius with explicit exponents, subfields and embedding counts, trace and norm formulas and surjectivity, the normal basis theorem) are baseline citations. DELIGNE contributes nothing to FF.0."
+   "note": "Every FF.0 target that RS-03 keeps is planned from Shoup (Chapters 19–20, §18.6) and Conrad's handouts: the Frobenius power residue, Rabin's criterion and its certificate (ids fixed by the coordinator), certified presentations with explicit inverse, root-certificate embeddings and change-of-presentation isomorphisms, factorisation over an extension, the tensor-product decomposition, and normal elements with the Frobenius normal basis. The built targets (classification, cardinality, Frobenius with explicit exponents, subfields and embedding counts, trace and norm formulas and surjectivity, the normal basis theorem) are baseline citations. DELIGNE contributes nothing to FF.0. This pass retains the eleven complete node objects and their baseline citations; it does not independently re-read all inherited library declarations or certify their review.",
+   "remaining": []
   },
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.1",
@@ -26599,13 +26600,14 @@
    "note": "FF.1 is planned from Kowalski's elementary notes, Conrad's three texts on Gauss and Jacobi sums, Katre's article and the BKK paper (route 3, items 8, 13, 14, 15, 20, 21, 25). Built identities (row orthogonality, the Gauss norm identity, quadratic Gauss sums, Jacobi–Gauss relations, trivial-character values) are baseline citations; the column relation is Tau Ceti's. New: the canonical trace character and its comparison with Mathlib's primitiveChar, the parametrisation of additive characters, norm and trace lifts, the trivial-character and sign conventions (the CA.1 request), transport and Galois conjugation of Gauss sums, absolute values, MulChar column orthogonality and the d-th power count, the Fourier expansion of χ (with AC.0), Frobenius invariance, the duplication formula, the Hasse–Davenport lifting relation for Gauss and Jacobi sums (fully decomposed after Conrad), Stickelberger's congruence and the prime factorisation of Gauss and Jacobi sums (Conrad 1995, Katre), and the harmonic analysis on F_q((1/T)) that BKK route 3 assigns here.",
    "remaining": [
     "Decompose the proof of the Hasse–Davenport product relation (Conrad, Gauss and Jacobi sums, (A.6)) from a public source: in particular the congruence modulo 𝔓 identifying the root of unity (the multiplication formula for Π a_i! modulo p); see the gap.",
-    "Close the open request to AdditiveCombinatorics:AC.0 (normalised finite-abelian Fourier transform and its comparison with ZMod.dft) once its blueprint exists, and replace the stage prerequisite of FF.1/fourier-expansion-of-multiplicative-character by AC.0's node id."
+    "The AdditiveCombinatorics packet now contains AC.0/fourier-transform and AC.0/fourier-parseval: the former is dual-indexed and normalized by 1/|G|, with a ZMod.dft comparison. Check the precise finite-field carrier and dual transport needed by FF.1/fourier-expansion-of-multiplicative-character, then replace the stage prerequisite and narrow or discharge the existing AC.0 request. The presence of these nodes alone is not a completed cross-roadmap proof.",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/char-sum-interpolation (Lemma 5.2 proof, arXiv v2 pp. 8–9) has no target node here: for odd q, d ≥ 2 and distinct x,y in P¹(F_q), the sum over polynomials of degree at most d of χ(f(x))χ(f(y)) is zero, with evaluation at infinity the degree-d coefficient. Supply the two-evaluation surjectivity and character-orthogonality prerequisites through existing owners, retaining this field-specific target in FF.1."
    ]
   },
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.2",
    "status": "partial",
-   "note": "FF.2 is decomposed along three routes to the one-variable Weil bounds — elementary (Kowalski: L-functions of monic L-series, Stepanov–Bombieri point counts, power-sum converse), curves (Artin–Schreier and Kummer function fields, zeta factorisation, WC.3) and ℓ-adic (character sheaves, trace formula, weights, with the elementary L-function degree replacing the Euler–Poincaré formula) — plus Deligne's framework for general trace functions with the H²_c main term, the degenerate cases, Deligne's n-variable bounds, the Browning–Sawin route-2 items (Artin–Schreier sheaf, cancellation by translation, Fourier–Deligne transform with inversion and the Fourier input, Lang–Weil and dimension from point counts) and the red-team additions (uniform Lang–Weil, geometric Chebotarev). The interface ids weil-bound-additive, weil-bound-multiplicative, kloosterman-bound and artin-schreier-sheaf are nodes. The additive Weil bound is unconditional from Mathlib plus two requests (WC.5:power-sum-converse); the multiplicative bound in full generality, the mixed and Kloosterman bounds rest on DWP.7 and SF.2.",
+   "note": "FF.2 is decomposed along three routes to the one-variable Weil bounds — elementary (Kowalski: L-functions of monic L-series, Stepanov–Bombieri point counts, power-sum converse), curves (Artin–Schreier and Kummer function fields, zeta factorisation, WC.3) and ℓ-adic (character sheaves, trace formula, weights, with the elementary L-function degree replacing the Euler–Poincaré formula) — plus Deligne's framework for general trace functions with the H²_c main term, the degenerate cases, Deligne's n-variable bounds, the Browning–Sawin route-2 items (Artin–Schreier sheaf, cancellation by translation, Fourier–Deligne transform with inversion and the Fourier input, Lang–Weil and dimension from point counts) and the red-team additions (uniform Lang–Weil, geometric Chebotarev). The interface ids weil-bound-additive, weil-bound-multiplicative, kloosterman-bound and artin-schreier-sheaf are nodes. The additive Weil-bound route imports its recorded WC.5 power-sum input; the multiplicative bound in full generality, the mixed and Kloosterman bounds rest on DWP.7 and SF.2.",
    "remaining": [
     "Grothendieck–Ogg–Shafarevich formula: no atlas owner (gap and restructure proposal); FF.2/h1c-conductor-bound, FF.2/artin-schreier-sum-on-curve-bound and FF.2/deligne-cohomology-of-polynomial-sheaf rest on the EDC.2 request for it. The classical one-variable bounds (additive, multiplicative, mixed, Kloosterman) do not.",
     "Weil I Lemma 8.5: the relative compactification by Zariski's procedure and the local constancy of R^i f_! over the space of polynomials with smooth leading form (Weil I 8.6-8.10) have no supplier (gap); decompose them, or find and decompose an alternative proof of 8.5(i)-(ii), before FF.2/deligne-n-variable-bound can close.",
@@ -26613,13 +26615,23 @@
     "Geometric Chebotarev (FF.2/geometric-chebotarev): Ekedahl's Lemma 1.2 (1990, not public) was not read; add the variant for Y₀ geometrically connected only over a constant extension, where Frobenius classes lie in a coset of the geometric monodromy group (FA.5's constant-field convention), as RT-AREA-etale/7 asks.",
     "Sommes trig. sections 4-7 were not read in this pass. Section 7 (hyper-Kloosterman sums Kl_n: the Kloosterman sheaf of rank n on G_m, pure of weight n − 1, tame at 0 with Swan conductor 1 at ∞, and Deligne's bound |Kl_n(a; q)| ≤ n q^{(n−1)/2}; FKMS Theorem 4.4) is a Deligne bound in this stage's scope and is not yet planned. Section 4 (Gauss sums over étale algebras, the sign e(k), Hasse–Davenport as a twisted form) is FF.1's except for its cohomological realisation, of which FF.2/gauss-sum-frobenius-eigenvalue is the first node.",
     "FKMS section 5 (quasi-orthogonality: correlation sums (1/q) Σ K_F K̄_G via F ⊗ D(G)) and the automorphism-group correlations of section 7 are not planned; they are direct corollaries of FF.2/deligne-bound-for-trace-functions and should be added here (with ExponentialSumsAndCircleMethod:ES.0 as consumer) or requested by ES.0.",
-    "The Lean prototype states the ℓ-adic objects on open subsets of the line through their Galois characters (FKMS Definition 3.1); the cohomological statements (H^i_c, Frobenius eigenvalues, Fourier–Deligne at sheaf level) are omitted there because the carriers are supplied by SchemeAndStackFoundations:SF.2 and EtaleDualityAndPerverseSheaves:EDC.0 and are absent from Mathlib."
+    "The Lean prototype states the ℓ-adic objects on open subsets of the line through their Galois characters (FKMS Definition 3.1); the cohomological statements (H^i_c, Frobenius eigenvalues, Fourier–Deligne at sheaf level) are omitted there because the carriers are supplied by SchemeAndStackFoundations:SF.2 and EtaleDualityAndPerverseSheaves:EDC.0 and are absent from Mathlib.",
+    "PAPER-DELIGNE-80, Weil II §§3.7.2–3.7.3: the universal polynomial family with smooth leading form and the required lissity statement do not yet have distinct target nodes. Compare the routed family construction with FF.2/deligne-cohomology-of-polynomial-sheaf and the existing Weil I 8.5 gap; distinguish target coverage from the deeper compactification and local-constancy proof leaves.",
+    "Reconcile all twenty PAPER-DELIGNE-74 route items with the existing polynomial-sheaf concentration, duality and n-variable bound nodes. Weil I 8.4 is represented by the duality node; 8.5 is represented by the concentration node but its non-routine relative compactification, Zariski resolution and local-constancy inputs remain gaps, rather than newly established nodes.",
+    "RT-AREA-etale/14: compare FF.2/artin-schreier-sheaf and the global Fourier–Deligne transform/inversion against the exact EtaleDualityAndPerverseSheaves global/local Fourier targets and Kloosterman consumers. Record one canonical owner and genuine comparison maps; this pass does not authorize edits to foreign packets or treat the local transform as the same construction.",
+    "The Browning–Sawin route has named Artin–Schreier, translation cancellation, global Fourier–Deligne and Lang–Weil targets, but supplying actual cohomological carriers and the uniform family hypotheses is still required; do not infer full route closure from target names."
    ]
   },
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.3",
-   "status": "source_decomposed",
-   "note": "RS-03 narrowing followed: certified finite-field factorization (square-free decomposition, distinct-degree factorization, Algorithm IPT, Cantor–Zassenhaus with the equal-degree splitting probability analysis, Berlekamp's subalgebra, matrix and splitting algorithm, Algorithm RIP), certificates (Rabin certificate generation, factorization certificates; the Rabin criterion and certificate format are FF.0's), Hensel lifting of coprime factorizations modulo I^k, over I-adically complete rings and modulo p^k, with uniqueness and the linear lifting algorithm (Milne, Theorem 7.33), the count of irreducible polynomials (Gauss, Möbius, the bounds of Shoup and Bary-Soroker–Koukoulopoulos–Kozma items 73 and 130), and certified point counting (enumeration, the character-sum formula, point-count certificates, the Hasse and Weil error bounds, and Schoof's algorithm through division-polynomial representatives). Correctness, termination/failure probability and cost are separate nodes; costs are stated in ComputationalNumberTheory CN.0's model (requested). The elliptic trace convention, the Hasse bound and the Frobenius relation are imported from Tau Ceti EllipticCurves layer 3, the structure of E[ℓ] from layer 2. Every definition and key theorem of Shoup §§19.1-19.2 and Chapter 20 used on the way is a node or a baseline citation; root finding (Sutherland, Lecture 3 §3.10) is the case k = 1 of equal-degree factorization; the Exercises of §20.6 (deterministic factorization for small characteristic) and the fast-arithmetic refinements of Exercises 20.1, 20.8-20.9, 20.13 are variants of the planned algorithms with other cost bounds and are not separate targets of the narrowed stage; §20.2 (minimal polynomials in F[X]/(f) from the conjugates) and Exercises 20.5 and 20.10 (trace values, normal bases) are Frobenius, trace and normal-basis constructions, which RS-03 keeps in FF.0."
+   "status": "partial",
+   "note": "RS-03 narrowing followed: certified finite-field factorization (square-free decomposition, distinct-degree factorization, Algorithm IPT, Cantor–Zassenhaus with the equal-degree splitting probability analysis, Berlekamp's subalgebra, matrix and splitting algorithm, Algorithm RIP), certificates (Rabin certificate generation, factorization certificates; the Rabin criterion and certificate format are FF.0's), Hensel lifting of coprime factorizations modulo I^k, over I-adically complete rings and modulo p^k, with uniqueness and the linear lifting algorithm (Milne, Theorem 7.33), the count of irreducible polynomials (Gauss, Möbius, the bounds of Shoup and Bary-Soroker–Koukoulopoulos–Kozma items 73 and 130), and certified point counting (enumeration, the character-sum formula, point-count certificates, the Hasse and Weil error bounds, and Schoof's algorithm through division-polynomial representatives). Correctness, termination/failure probability and cost are separate nodes; costs are stated in ComputationalNumberTheory CN.0's model (requested). The elliptic trace convention, the Hasse bound and the Frobenius relation are imported from Tau Ceti EllipticCurves layer 3, the structure of E[ℓ] from layer 2. Every definition and key theorem of Shoup §§19.1-19.2 and Chapter 20 used on the way is a node or a baseline citation; root finding (Sutherland, Lecture 3 §3.10) is the case k = 1 of equal-degree factorization; the Exercises of §20.6 (deterministic factorization for small characteristic) and the fast-arithmetic refinements of Exercises 20.1, 20.8-20.9, 20.13 are variants of the planned algorithms with other cost bounds and are not separate targets of the narrowed stage; §20.2 (minimal polynomials in F[X]/(f) from the conjugates) and Exercises 20.5 and 20.10 (trace values, normal bases) are Frobenius, trace and normal-basis constructions, which RS-03 keeps in FF.0. The algorithm targets are inherited unchanged, but the subsequently routed square-free counting theorem is absent, so source decomposition no longer describes the whole current route frontier.",
+   "remaining": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24/squarefree-count (§5, arXiv v2 p. 8): monic square-free counts s₀=1, s₁=q and sₙ=qⁿ−qⁿ⁻¹ for n≥2, and #P₀=q²(q−1), #P_g=(q−1)(q^(2g+2)−q^(2g)) for g≥1. Specify P_g as the square-free polynomials of degree 2g+1 or 2g+2 with nonzero leading coefficient. The unique f=h·m² decomposition and generating-function recurrence need an exact prerequisite route. Reuse FF.3 square-free factorization and provide this counting result once for the statistics consumer.",
+    "Reconcile the routed Bary-Soroker–Koukoulopoulos–Kozma prime-polynomial counts with FF.3's existing exact and asymptotic nodes, preserving degree-one cases and all field-size hypotheses. This pass retains rather than independently re-proves the predecessor's route coverage.",
+    "Retain the two CN.0 cost/randomness and executable-presentation requests and the CN.5 certificate request; compare actual supplier nodes before replacing stage references. Do not equate a checked product with irreducibility certificates, or correctness with a cost bound.",
+    "RT-AREA-finitefields/1, /11 and /12: reconcile the raw atlas stage chain with FF.0/CA.3 factorization inputs, FF.2's hyperelliptic error bound and the imported elliptic Hasse contract. Factorization remains FF.3's service for CN.1 and FA.7; foreign duplication and stage-edge edits require the appropriate ownership/restructuring job. A general-curve point-count contract would need the precise WC.5 input; the existing hyperelliptic affine count is not that contract."
+   ]
   },
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.4",
@@ -26630,13 +26642,18 @@
     "Decompose or import Katz's Soto-Andrade estimate behind terras-graph-ramanujan (gap 2), through FF.2's Weil/Deligne handoff.",
     "Wu–Liu §§3, 5–6 (composition-algebra isomorphism, trace representations of linearized polynomials, the subalgebras L_n(F_{q^m})) are read but not decomposed into nodes.",
     "Goresky–Klapper §13.3–13.4 (interleaved structure, Fourier transforms and bent sequences) and §14.1–14.7 (Gold, Kasami, geometric, GMW and d-form families) are not decomposed; only the decimation identity and the Legendre/Dirichlet sequences are planned.",
-    "ECT Exercise 5.23 (the Hermitian-curve AG code over F_{p²}) is not planned as an explicit example node."
+    "ECT Exercise 5.23 (the Hermitian-curve AG code over F_{p²}) is not planned as an explicit example node.",
+    "Resolve the finite-field polynomial-composition versus DM.0 Ore-ring ownership comparison using the retained structural proposal, not a second carrier. Correct any remaining raw FF.3→FF.4 blanket prerequisite only through evidence-backed stage restructuring; family-specific code and character-sum dependencies remain distinct.",
+    "Collate the Goresky–Klapper author draft's quoted stated-result findings with the 2012 version of record, and the Shallue and other preprint findings with any published versions. The sourceVersions entries below record historical draft readings, not completed publication collation."
    ]
   },
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.5",
-   "status": "source_decomposed",
-   "note": "FF.5 is kept by RS-03 as the specialised application and normalisation handoffs. Planned: the integer-polynomial and Kloosterman normalisations of the Weil bounds with exact constants (Kowalski), the point count of y² = g(x) and its Weil error term, the Hensel lift count and local densities at good primes (the local-density handoff to ExponentialSumsAndCircleMethod:ES.3), the Weil bound for decimated m-sequences (sequence example), Shamir's scheme with reconstruction and perfect privacy (coding/cryptographic example, an unconditional theorem), and the discrete-logarithm/Diffie–Hellman correctness with the Pohlig–Hellman reduction and the explicit F_65537 example that separates correctness from hardness (Shoup). Generic certificate schemas are CN.5's; the Weil/Deligne estimates are FF.2's."
+   "status": "planned",
+   "note": "FF.5 is kept by RS-03 as the specialised application and normalisation handoffs. Planned: the integer-polynomial and Kloosterman normalisations of the Weil bounds with exact constants (Kowalski), the point count of y² = g(x) and its Weil error term, the Hensel lift count and local densities at good primes (the local-density handoff to ExponentialSumsAndCircleMethod:ES.3), the Weil bound for decimated m-sequences (sequence example), Shamir's scheme with reconstruction and perfect privacy (coding/cryptographic example, an unconditional theorem), and the discrete-logarithm/Diffie–Hellman correctness with the Pohlig–Hellman reduction and the explicit F_65537 example that separates correctness from hardness (Shoup). Generic certificate schemas are CN.5's; the Weil/Deligne estimates are FF.2's.",
+   "remaining": [
+    "Reconcile the raw FF.4→FF.5 stage-chain edge with each application's actual FF.1/FF.2, coding and CN.5 inputs. The target statements themselves remain planned; their imported estimate and certificate services are not thereby closed. Retain exact constants, the good-prime hypotheses and the separation of discrete-log correctness from computational hardness."
+   ]
   }
  ],
  "gaps": [
@@ -27276,5 +27293,181 @@
    "detail": "FF.4 has 91 declaration-level nodes in five independent topics; the atlas would show it more legibly as sub-layers (parent nodes of the same roadmap), without changing the stage id or its edges.",
    "proposal": "Sub-layers of FF.4: (a) Galois rings: finite-local-ring-is-henselian … trace-of-galois-ring (16 nodes); (b) linearized and permutation polynomials: linearized-polynomial … dickson-permutation-criterion (22 nodes); (c) linear recurring sequences and correlation: least-period-of-sequence … decimation-cross-correlation-character-sum (17 nodes); (d) evaluation, BCH and algebraic geometry codes: singleton-bound … residue-code-parameters (23 nodes); (e) the finite upper half-plane and Hecke operators: finite-upper-half-plane … terras-graph-ramanujan (13 nodes)."
   }
- ]
+ ],
+ "sourceVersions": [
+  {
+   "sourceId": "SHOUP.V2",
+   "kind": "author copy",
+   "url": "https://shoup.net/ntb/ntb-v2.pdf",
+   "citation": "A Computational Introduction to Number Theory and Algebra (Version 2); Version 2, the author's freely distributable PDF (598 pages); printed page = PDF page − 18; read 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "8e1abc54f4510c3f274dfbed07ea602a6a439ee24b2c916e61abe829b402ec06",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "kowalski-expsums-elementary",
+   "kind": "author copy",
+   "url": "https://people.math.ethz.ch/~kowalski/exponential-sums-elementary.pdf",
+   "citation": "Exponential sums over finite fields: elementary methods; Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2; read 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "ff30b82d143cedcaf76f1ef2f15a49856c0eabc2c95ba7ac0da2e3e43da9a866",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "conrad-lfunctions-gauss-jacobi",
+   "kind": "author copy",
+   "url": "https://kconrad.math.uconn.edu/blurbs/gradnumthy/LfunctionGaussJacobi.pdf",
+   "citation": "L-functions for Gauss and Jacobi sums; Expository handout, the author's PDF (5 pages), read 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "0d076d8026bd0dddb1076aa955221a0f0e9d6542d71c6b7299ddaa32f404ac46",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2007.14567v3",
+   "citation": "Irreducibility of random polynomials: general measures; Invent. Math. 233 (2023), 1041–1120; read as arXiv:2007.14567v3 (marked final version; printed page = PDF page); the SHA-256 matches the paper extraction's record; read 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "adb1359df46f92d608009b32f45939672e08b1e3fe052587b035431e70d5d3e1",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "DELIGNE-SGA45-SOMMES-TRIG",
+   "kind": "published",
+   "url": "https://publications.ias.edu/sites/default/files/Number32.pdf",
+   "citation": "Cohomologie etale (SGA 4 1/2), expose 'Application de la formule des traces aux sommes trigonometriques' [Sommes trig.]; Lecture Notes in Mathematics 569, Springer 1977, pp. 168-232; scan served by the Institute for Advanced Study (publications.ias.edu, file Number32.pdf, 351 pages); accessed 2026-09-25. This is the roadmap's source DELIGNE.",
+   "read": "2026-09-25",
+   "sha256": "fb2939521f4c0ea0cdd55a90bec2e618e32fb433c78b194e705c6d989f4e42a6",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "FKMS-APPLIED-L-ADIC",
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1712.03173v3",
+   "citation": "Lectures on Applied l-adic Cohomology; arXiv:1712.03173v3 (16 April 2019), 68 pages; published in Contemporary Mathematics 740 (2019); arXiv version read; accessed 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "d56e25dab4475ca192b511f5fade06ebf219db2f8d9d59fa19d1e9f8023212aa",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "BROWNING-SAWIN-20",
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1711.10451v3",
+   "citation": "A geometric version of the circle method; arXiv:1711.10451v3 (19 February 2020; published Ann. of Math. 191 (2020), 893-948); arXiv v3 read, published locators taken from the reviewed extraction PAPER-BROWNING-SAWIN-20; accessed 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "4518f88842e2bc19d2b2e0634f1df54c96d36164331e88fc30ef892f3c879072",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "MILNE-ANT",
+   "kind": "author copy",
+   "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf",
+   "citation": "Algebraic Number Theory (course notes); Version 3.08, 19 July 2020, read 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "24b83c789a89f25aebffb3cbe4ae5ca29edd0075acc072de093d140770630847",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "SUTHERLAND-18783",
+   "kind": "author copy",
+   "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes8.pdf",
+   "citation": "18.783 Elliptic Curves, lecture notes; MIT, Fall 2023: Lecture 3 (14 Sept 2023), Lecture 7 (3 Oct 2023), Lecture 8 (5 Oct 2023), read 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "383d286fa4986763422321ed8370ed802d217ebe10fc23fb9d6cb59797e38c4c",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "cr-ag-codes",
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/2009.01281",
+   "citation": "Algebraic geometry codes and some applications; arXiv:2009.01281v1 (2 September 2020); read 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "1a3865759fdf955020879669537eef69361ec2647f7e3daf2ac0781a99fbabf5",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "gk-asrs",
+   "kind": "author copy",
+   "url": "https://www.cs.uky.edu/~klapper/pdf/algebraic.pdf",
+   "citation": "Algebraic Shift Register Sequences; Public draft of October 14, 2009 (the book appeared with Cambridge University Press, 2012); read 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "95da92a94ea7f39ab3c743437bd72e7013eaf5508be42541073b4151fa7db3ce",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "kuang-finite-plane",
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/math/9411217",
+   "citation": "Eigenfunctions on the Finite Poincaré Plane; arXiv:math/9411217v1 (29 November 1994); read 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "71d4aa35c771bb951bd5ac45b4d63dbebb28626bcf094d33c7a184c312526e3a",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "shallue-pp",
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1211.6044",
+   "citation": "Permutation polynomials of finite fields; arXiv:1211.6044v1 (23 November 2012); read 2026-09-25",
+   "read": "2026-09-25",
+   "sha256": "a33397bbebb6192cf895734004089057793a3607880f0610f8af87cc65858058",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Inherited source receipt from the predecessor packet and handoff, not a fresh source-file reading by codex-5ebb6f. Findings apply to this recorded text; published collation is not asserted."
+  },
+  {
+   "sourceId": "SUTHERLAND-18783",
+   "kind": "author copy",
+   "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes7.pdf",
+   "citation": "MIT 18.783, Fall 2023, Lecture 7",
+   "read": "2026-09-25",
+   "sha256": "14ca4694392d506c5a93b19b7c472f24a915c7298956189096a2607c4016bf7d",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Separate historical file receipt explicitly recorded in SUTHERLAND-18783.readSections; not re-downloaded or re-read in this pass."
+  },
+  {
+   "sourceId": "SUTHERLAND-18783",
+   "kind": "author copy",
+   "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes3.pdf",
+   "citation": "MIT 18.783, Fall 2023, Lecture 3",
+   "read": "2026-09-25",
+   "sha256": "01c7e5e56be07aab4d17f3cfd7f08b5dfb160f4fcba469e41fdc5302e94351cd",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Separate historical file receipt explicitly recorded in SUTHERLAND-18783.readSections; not re-downloaded or re-read in this pass."
+  },
+  {
+   "sourceId": "SUTHERLAND-18783",
+   "kind": "author copy",
+   "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes5.pdf",
+   "citation": "MIT 18.783, Fall 2023, Lecture 5",
+   "read": "2026-09-25",
+   "sha256": "567497146c999cd05e46e8783bb707a40955cfb6c298215d1b3e0b8f41a62029",
+   "readBy": "Claude Code — cc-2aeb03",
+   "provenance": "Separate historical file receipt explicitly recorded in SUTHERLAND-18783.readSections; not re-downloaded or re-read in this pass."
+  }
+ ],
+ "planningPass": {
+  "by": "Codex — codex-5ebb6f",
+  "date": "2026-10-04",
+  "protocolSection": "0",
+  "status": "complete",
+  "reason": "Incoming packet has 354 nodes, exceeding the 300-node planning budget. No nodes are added; current routed targets and unresolved inputs are recorded for independent review and stage follow-ups.",
+  "nodeBudget": 300,
+  "incomingNodes": 354,
+  "newNodes": 0,
+  "mathematicalClosure": false,
+  "baselineRevalidation": "Inherited baseline records retained unchanged; no claim of a new full baseline audit.",
+  "sourceReading": "Predecessor source receipts retained and attributed explicitly; this pass reads routed extraction targets and current ownership/coverage evidence, not all 32 source files.",
+  "suggestedFileCheck": "Full Mathlib-only suggested file freshly elaborated at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Lean v4.34.0-rc2; exit 0, 1025 admission warnings only. This is signature elaboration, not formalization."
+ }
 }
