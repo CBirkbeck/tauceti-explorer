@@ -1,3 +1,204 @@
+Planning pass complete under [the current blueprint protocol,section0](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/PROTOCOL.md): the incoming552nodes already exceed the300-node budget. This pass finishes at569nodes for independent review and stage follow-ups. H.0 remains partial,H.1–H.8 not_read,and every stage retains its explicit remaining work. No stage,global key or source obligation is closed. Earlier partial-checkpoint introductions below are history.
+
+# Three-step affine dual coherence
+
+The existing finite-projective affine dual comparison now has actual three-step coherence. Direct comparison K through native two-step cancellation equals all three successive η comparisons J followed by native dual congruence along the corresponding module cancellation, as whole linear equivalences; the alternate cancellation parenthesization and every inverse agree. Four-scalar direct and six-scalar iterated evaluation formulas retain every factor and algebra map. The actual threefold pullback of dual(D) has one image parameter σ_RU(λ), and both parenthesizations are horizontal for dual of direct pullback. Full transported-preconnection equality, inverse horizontality, extended differential, curvature and equivalent flatness of the two target U-operators are proved for arbitrary λ, with no basis or flatness premise. Polynomial new-scalar derivative, dλ≠0, nonreduced Z/4 and zero-module fixtures are explicit. Generic cancellation associativity, dual maps and scalar-extension maps are reused. Categorical coevaluation/rigidity, universal exterior-power comparison and genuine E1 sheaf tensor/restriction identification, equality detection and effective gluing remain required. The reserved global finite locally free integrable key retains dλ=0. All149 routes,35 omissions,five requests,eleven gaps,two source issues,six planets and determinant/Tate/period/arbitrary-Q shuffle obligations remain; H.0 stays partial and H.1–H.8 not_read. Earlier frontier prose is checkpoint history. Every implementation remains unchecked.
+
+Write η_AB for the existing finite-projective affine dual comparison. Let C_E be C_STU on S⊗_R E followed by C_RSU on E; its inverse sends v⊗e to v⊗1⊗1⊗e. The direct K is the corresponding cancellation on E∨ followed by η_RU. The iterated J is η_RS twice base-changed,η_ST once base-changed,then η_TU. The full equation K=J followed by dualCongr(C_E) includes the actual contravariant module identification. Generic cancellation associativity was already planned and is reused.
+
+B keeps the actual three successive additive pullbacks of dual(D), rewriting only the tower parameter. Compose the inherited actual operator equations to obtain horizontality, then derive the inverse, full transported structure, extension, curvature and target flatness equations. Arbitrary λ includes dλ≠0 in these raw affine identities; the global integrable key retains dλ=0. Explicit module fixtures are free or zero; no projective-but-not-free fixture is claimed.
+
+## Declarations, API and tests
+
+### Direct three-step affine dual comparison
+
+`affineDualPullbackTripleEquiv` — Construct K:U⊗_T(T⊗_S(S⊗_R E∨))≃_U(U⊗_R E)∨ by the actual native cancellation C_STU on S⊗_R E∨, then C_RSU on E∨, then the existing finite-projective affine comparison η_RU. This is a specified composite, with its actual inverse; no new tensor or dual carrier is introduced.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers.
+
+Proof plan: Compose the two specified native module equivalences and η_RU. Native scalar-extension and dual instances retain finite projectivity without choosing a basis.
+
+API
+
+- `affineDualPullbackTripleEquiv_assoc`: As whole U-linear equivalences, K equals baseChange_U(C_RST on E∨), then C_RTU on E∨, then η_RU. Both parenthesizations act on the same actual threefold scalar-extended dual module.
+- `affineDualPullbackTripleEquiv_eval`: For arbitrary u,v∈U,t∈T,s∈S,φ∈E∨ and e∈E, K(u⊗(t⊗(s⊗φ)))(v⊗e)=u·σ_TU(t)·σ_SU(s)·v·σ_RU(φ(e)). None of the four independent scalar factors is omitted.
+- `affineDualPullbackTripleEquiv_coherence`: Let C_E=C_STU on S⊗_R E followed by C_RSU on E. Then K=J followed by Module.Dual.congr(C_E), as whole U-linear equivalences. The contravariant action on the dual uses the actual inverse of C_E.
+- `affineDualPullbackTripleEquiv_inverse_coherence`: The actual inverse of K equals the actual inverse of the composite J followed by Module.Dual.congr(C_E). Consequently both inverse paths agree on every covector in (U⊗_R E)∨, including covectors that were not scalar-extended from R.
+- `affineDualPullbackTripleEquiv_unit`: For every φ∈E∨, K(1_U⊗(1_T⊗(1_S⊗φ)))=φ.baseChange U as actual U-linear functionals on the whole U⊗_R E.
+
+TESTS
+
+- `AffineDualTripleTests.four_scalars`: K(u⊗(t⊗(s⊗φ)))(v⊗e)=uσ_TU(t)σ_SU(s)vσ_RU(φ(e)) for all four independent scalar factors.
+- `AffineDualTripleTests.nonflat_nonreduced`: For Z→Z/4→Z/4→Z/4 and E=Z, K(1⊗(1⊗(2⊗id)))(1⊗1)=2 with2 nonzero and2²=0. No flatness premise is imposed.
+- `AffineDualTripleTests.zero_module`: For E=Fin0→R and every target covector f, K inverse(f)=0 in the actual threefold extended dual module.
+- `AffineDualTripleTests.associated_inverse_roundtrip`: Apply the alternate whole comparison baseChange(C_RST),C_RTU,η_RU and then K inverse. Every triple-extended covector class is recovered.
+
+### Three successive affine dual comparisons
+
+`affineDualPullbackIteratedEquiv` — Construct J:U⊗_T(T⊗_S(S⊗_R E∨))≃_U(U⊗_T(T⊗_S(S⊗_R E)))∨ by twice scalar-extending η_RS, then scalar-extending η_ST for S⊗_R E, then η_TU for T⊗_S(S⊗_R E). All three factors are the existing actual finite-projective comparison.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers.
+
+Proof plan: Compose the three specified equivalences. Native baseChange acts on actual equivalences and preserves their actual inverses; scalar extensions remain finite projective.
+
+API
+
+- `affineDualPullbackIteratedEquiv_eval`: For arbitrary u,v∈U,t,a∈T,s,b∈S,φ∈E∨ and e∈E, J(u⊗(t⊗(s⊗φ)))(v⊗(a⊗(b⊗e)))=uv·σ_TU(ta)·σ_SU(sb)·σ_RU(φ(e)). All six independent scalar factors and the specified algebra maps are retained.
+- `affineDualPullbackTripleEquiv_coherence`: Let C_E=C_STU on S⊗_R E followed by C_RSU on E. Then K=J followed by Module.Dual.congr(C_E), as whole U-linear equivalences. The contravariant action on the dual uses the actual inverse of C_E.
+- `affineDualPullbackTripleEquiv_inverse_coherence`: The actual inverse of K equals the actual inverse of the composite J followed by Module.Dual.congr(C_E). Consequently both inverse paths agree on every covector in (U⊗_R E)∨, including covectors that were not scalar-extended from R.
+
+TESTS
+
+- `AffineDualTripleTests.six_scalars`: J(u⊗(t⊗(s⊗φ)))(v⊗(a⊗(b⊗e)))=uvσ_TU(ta)σ_SU(sb)σ_RU(φ(e)); all six independent scalar factors are explicit.
+- `AffineDualTripleTests.iterated_forward_roundtrip`: Compose the whole iterated comparison J with dualCongr(C_E), then K inverse; every triple-extended covector class x is recovered.
+- `AffineDualTripleTests.inverse_path_all_covectors`: For every target covector f, J(K inverse(f))=dualCongr(C_E) inverse(f), including covectors not extended from R.
+
+### Six-scalar iterated dual evaluation
+
+`affineDualPullbackIteratedEquiv_eval` — For arbitrary u,v∈U,t,a∈T,s,b∈S,φ∈E∨ and e∈E, J(u⊗(t⊗(s⊗φ)))(v⊗(a⊗(b⊗e)))=uv·σ_TU(ta)·σ_SU(sb)·σ_RU(φ(e)). All six independent scalar factors and the specified algebra maps are retained.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers.
+
+Proof plan: Use native baseChange on pure tensors and the three inherited η evaluation formulas. The algebra tower identities compose the actual scalar maps, and commutative multiplication gives the displayed product.
+
+### Parenthesization independence of the dual comparison
+
+`affineDualPullbackTripleEquiv_assoc` — As whole U-linear equivalences, K equals baseChange_U(C_RST on E∨), then C_RTU on E∨, then η_RU. Both parenthesizations act on the same actual threefold scalar-extended dual module.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers.
+
+Proof plan: The already-planned cancellation associativity is an equality of actual linear maps. Evaluate it on every class and then apply η_RU; LinearEquiv extensionality upgrades the result to whole-equivalence equality. The generic cancellation theorem is reused, not planned again.
+
+### Four-scalar direct dual evaluation
+
+`affineDualPullbackTripleEquiv_eval` — For arbitrary u,v∈U,t∈T,s∈S,φ∈E∨ and e∈E, K(u⊗(t⊗(s⊗φ)))(v⊗e)=u·σ_TU(t)·σ_SU(s)·v·σ_RU(φ(e)). None of the four independent scalar factors is omitted.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers.
+
+Proof plan: Evaluate both native cancellation maps and then η_RU; commute the scalar factors to the specified product.
+
+### Whole direct and iterated dual comparison coherence
+
+`affineDualPullbackTripleEquiv_coherence` — Let C_E=C_STU on S⊗_R E followed by C_RSU on E. Then K=J followed by Module.Dual.congr(C_E), as whole U-linear equivalences. The contravariant action on the dual uses the actual inverse of C_E.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers.
+
+Proof plan: Apply whole equivalence and covector extensionality, then induction on each of the three source tensor layers and the final target tensor. On u⊗t⊗s⊗φ and v⊗e, the inverse of C_E is v⊗1⊗1⊗e. The actual η formulas and algebra tower laws prove equality; zero and addition use linearity.
+
+### Whole inverse dual comparison coherence
+
+`affineDualPullbackTripleEquiv_inverse_coherence` — The actual inverse of K equals the actual inverse of the composite J followed by Module.Dual.congr(C_E). Consequently both inverse paths agree on every covector in (U⊗_R E)∨, including covectors that were not scalar-extended from R.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers.
+
+Proof plan: Apply congruence under LinearEquiv.symm to the proved whole-equivalence equality.
+
+### Native covector along three scalar extensions
+
+`affineDualPullbackTripleEquiv_unit` — For every φ∈E∨, K(1_U⊗(1_T⊗(1_S⊗φ)))=φ.baseChange U as actual U-linear functionals on the whole U⊗_R E.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers.
+
+Proof plan: Both native cancellation maps cancel unit tensors. Apply the inherited equality of η_RU on unit covectors with the already-native covector baseChange map.
+
+### Actual threefold pullback of the dual operator
+
+`Preconnection.affineDualPullbackTriple` — For actual calculus morphisms m:Ω→Γ,n:Γ→Δ,p:Δ→Ξ, construct B on U⊗_T(T⊗_S(S⊗_R E∨)) with precisely the additive operator obtained by dualizing D and successively pulling back along m,n,p. Rewrite only σ_TU(σ_ST(σ_RS(λ)))=σ_RU(λ) in its Leibniz proof. The correction has one σ_RU(λ).
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers. The existing actual degree-zero/one/two calculi over k,R,S,T,U have independent form-module universes and actual semilinear calculus morphisms m,n,p. D is the existing additive λ-preconnection with arbitrary λ, including d_Rλ≠0. Degree-one scalar towers k R W,k S V,k T P,k U L are kept where the inherited horizontal/transport/extension/curvature interfaces require them; the defining additive-map formula needs none of these extra degree-one towers. The reserved global finite locally free integrable key still requires dλ=0.
+
+Proof plan: Keep the actual triple-pullback additive map and its existing Leibniz proof. Apply the two native scalar-tower identities to rewrite the parameter. No chosen connection or horizontality witness is stored.
+
+API
+
+- `Preconnection.affineDualPullbackTriple_apply`: On every class x of the threefold extended dual module, B(x)=(((dual(D).affinePullback m).affinePullback n).affinePullback p)(x). The additive operator is exactly the successive one.
+- `Preconnection.affineDualPullback_triple_horizontal`: For every x, dual(D.affinePullback((p.towerComp n).towerComp m))(K(x))=(K⊗id_L)(B(x)). This compares the actual dual of direct pullback with the actual three successive pullbacks of the dual.
+- `Preconnection.affineDualPullback_triple_horizontal_assoc`: Replace K by baseChange_U(C_RST on E∨), then C_RTU, then η_RU, and the direct calculus map by p.towerComp(n.towerComp m). The horizontal equation holds on every x with the same actual B and the same parameter σ_RU(λ).
+- `Preconnection.affineDualPullback_triple_inverse`: For every f∈(U⊗_R E)∨, B(K inverse(f))=(K inverse⊗id_L)(dual(D.affinePullback((p.towerComp n).towerComp m))(f)). This uses the actual inverse comparison on all target covectors.
+- `Preconnection.affineDualPullback_triple_eq`: Transport the complete preconnection B along K. It equals dual(D.affinePullback((p.towerComp n).towerComp m)) as a preconnection with parameter σ_RU(λ), including its actual additive operator.
+- `Preconnection.affineDualPullback_triple_extend`: For every x in the degree-one tensor module of B, the actual degree-one extension of dual of direct pullback on (K⊗id_L)(x) equals (K⊗id_N)(B.extend(x)).
+- `Preconnection.affineDualPullback_triple_curvature`: For every x in the threefold extended dual module, κ_dual(direct D)(K(x))=(K⊗id_N)(κ_B(x)). Arbitrary λ and every parameter derivative term are retained.
+- `Preconnection.affineDualPullback_triple_flat_iff`: B is flat if and only if dual(D.affinePullback((p.towerComp n).towerComp m)) is flat. These are two U-preconnections related by an actual equivalence; no unconditional reflection of the R-source curvature is asserted.
+
+TESTS
+
+- `AffineDualTripleTests.actual_operator`: On every class B has exactly the additive map obtained by three successive pullbacks of dual(D).
+- `AffineDualTripleTests.single_parameter`: B(ux)=uB(x)+σ_RU(λ)(x⊗d_Ξu), with one parameter correction after all three scalar extensions.
+- `AffineDualTripleTests.full_transport`: The complete transported B equals dual of direct pullback along the alternate calculus parenthesization p.towerComp(n.towerComp m), for arbitrary λ.
+- `AffineDualTripleTests.curvature_all_classes`: The actual curvature comparison through K holds on every triple-extended covector class, retaining the target degree-two tensor map.
+- `AffineDualTripleTests.new_polynomial_scalar`: For Z→Z[x]→Z[x]→Z[x], zero source calculus, ordinary target derivative, zero initial form map and D=unit(1), D vanishes on every integer but the target dual derivative at K(1⊗(1⊗(x⊗id))), evaluated on1⊗1, is1.
+- `AffineDualTripleTests.variable_parameter`: On the three-step identity tower over Z[x] with ordinary derivative, λ=x has dλ=1 and the target dual derivative at K(1⊗(1⊗(1⊗(x·id)))), evaluated on1⊗1, is x.
+
+### Actual threefold dual operator formula
+
+`Preconnection.affineDualPullbackTriple_apply` — On every class x of the threefold extended dual module, B(x)=(((dual(D).affinePullback m).affinePullback n).affinePullback p)(x). The additive operator is exactly the successive one.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers. The existing actual degree-zero/one/two calculi over k,R,S,T,U have independent form-module universes and actual semilinear calculus morphisms m,n,p. D is the existing additive λ-preconnection with arbitrary λ, including d_Rλ≠0. Degree-one scalar towers k R W,k S V,k T P,k U L are kept where the inherited horizontal/transport/extension/curvature interfaces require them; the defining additive-map formula needs none of these extra degree-one towers. The reserved global finite locally free integrable key still requires dλ=0.
+
+Proof plan: The formula is the defining additive map, hence reflexive.
+
+### Horizontal direct three-step dual comparison
+
+`Preconnection.affineDualPullback_triple_horizontal` — For every x, dual(D.affinePullback((p.towerComp n).towerComp m))(K(x))=(K⊗id_L)(B(x)). This compares the actual dual of direct pullback with the actual three successive pullbacks of the dual.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers. The existing actual degree-zero/one/two calculi over k,R,S,T,U have independent form-module universes and actual semilinear calculus morphisms m,n,p. D is the existing additive λ-preconnection with arbitrary λ, including d_Rλ≠0. Degree-one scalar towers k R W,k S V,k T P,k U L are kept where the inherited horizontal/transport/extension/curvature interfaces require them; the defining additive-map formula needs none of these extra degree-one towers. The reserved global finite locally free integrable key still requires dλ=0.
+
+Proof plan: Compose the inherited actual triple-pullback horizontality for dual(D) with the inherited direct dual-pullback horizontality. Native tensor-map composition gives K⊗id_L.
+
+### Horizontal alternate parenthesization
+
+`Preconnection.affineDualPullback_triple_horizontal_assoc` — Replace K by baseChange_U(C_RST on E∨), then C_RTU, then η_RU, and the direct calculus map by p.towerComp(n.towerComp m). The horizontal equation holds on every x with the same actual B and the same parameter σ_RU(λ).
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers. The existing actual degree-zero/one/two calculi over k,R,S,T,U have independent form-module universes and actual semilinear calculus morphisms m,n,p. D is the existing additive λ-preconnection with arbitrary λ, including d_Rλ≠0. Degree-one scalar towers k R W,k S V,k T P,k U L are kept where the inherited horizontal/transport/extension/curvature interfaces require them; the defining additive-map formula needs none of these extra degree-one towers. The reserved global finite locally free integrable key still requires dλ=0.
+
+Proof plan: Rewrite the proved equation by the existing whole calculus-composition associativity and the proved whole dual-comparison associativity.
+
+### Horizontal inverse three-step dual comparison
+
+`Preconnection.affineDualPullback_triple_inverse` — For every f∈(U⊗_R E)∨, B(K inverse(f))=(K inverse⊗id_L)(dual(D.affinePullback((p.towerComp n).towerComp m))(f)). This uses the actual inverse comparison on all target covectors.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers. The existing actual degree-zero/one/two calculi over k,R,S,T,U have independent form-module universes and actual semilinear calculus morphisms m,n,p. D is the existing additive λ-preconnection with arbitrary λ, including d_Rλ≠0. Degree-one scalar towers k R W,k S V,k T P,k U L are kept where the inherited horizontal/transport/extension/curvature interfaces require them; the defining additive-map formula needs none of these extra degree-one towers. The reserved global finite locally free integrable key still requires dλ=0.
+
+Proof plan: Apply the existing horizontal-inverse theorem to K and its proved horizontal equation.
+
+### Full transported three-step dual preconnection
+
+`Preconnection.affineDualPullback_triple_eq` — Transport the complete preconnection B along K. It equals dual(D.affinePullback((p.towerComp n).towerComp m)) as a preconnection with parameter σ_RU(λ), including its actual additive operator.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers. The existing actual degree-zero/one/two calculi over k,R,S,T,U have independent form-module universes and actual semilinear calculus morphisms m,n,p. D is the existing additive λ-preconnection with arbitrary λ, including d_Rλ≠0. Degree-one scalar towers k R W,k S V,k T P,k U L are kept where the inherited horizontal/transport/extension/curvature interfaces require them; the defining additive-map formula needs none of these extra degree-one towers. The reserved global finite locally free integrable key still requires dλ=0.
+
+Proof plan: Evaluate transport at K inverse(f), use horizontality and cancel K. Equality of additive operators then supplies the inherited dual evaluation characterization, which identifies complete preconnections.
+
+### Three-step dual extended differential compatibility
+
+`Preconnection.affineDualPullback_triple_extend` — For every x in the degree-one tensor module of B, the actual degree-one extension of dual of direct pullback on (K⊗id_L)(x) equals (K⊗id_N)(B.extend(x)).
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers. The existing actual degree-zero/one/two calculi over k,R,S,T,U have independent form-module universes and actual semilinear calculus morphisms m,n,p. D is the existing additive λ-preconnection with arbitrary λ, including d_Rλ≠0. Degree-one scalar towers k R W,k S V,k T P,k U L are kept where the inherited horizontal/transport/extension/curvature interfaces require them; the defining additive-map formula needs none of these extra degree-one towers. The reserved global finite locally free integrable key still requires dλ=0.
+
+Proof plan: Apply the existing extension-horizontal theorem to the actual K and its horizontal equation.
+
+### Three-step dual curvature compatibility
+
+`Preconnection.affineDualPullback_triple_curvature` — For every x in the threefold extended dual module, κ_dual(direct D)(K(x))=(K⊗id_N)(κ_B(x)). Arbitrary λ and every parameter derivative term are retained.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers. The existing actual degree-zero/one/two calculi over k,R,S,T,U have independent form-module universes and actual semilinear calculus morphisms m,n,p. D is the existing additive λ-preconnection with arbitrary λ, including d_Rλ≠0. Degree-one scalar towers k R W,k S V,k T P,k U L are kept where the inherited horizontal/transport/extension/curvature interfaces require them; the defining additive-map formula needs none of these extra degree-one towers. The reserved global finite locally free integrable key still requires dλ=0.
+
+Proof plan: Apply the existing actual curvature-horizontal theorem to K. No correction is discarded and no source-curvature reflection is inferred.
+
+### Equivalent target flatness along three steps
+
+`Preconnection.affineDualPullback_triple_flat_iff` — B is flat if and only if dual(D.affinePullback((p.towerComp n).towerComp m)) is flat. These are two U-preconnections related by an actual equivalence; no unconditional reflection of the R-source curvature is asserted.
+
+Hypotheses: R,S,T,U are commutative rings in a common ring universe with specified compatible algebra maps for R→S→T→U and all composites. E is finite projective over R in an independent module universe. Native instances give finite projectivity of its duals and scalar extensions. No global basis, field, characteristic, reducedness, nontriviality or flatness of any algebra map is assumed. The direct formula, iterated formula, coherence, unit and inverse coherence only need the algebra structures R→S,S→T,T→U,S→U,R→U and the S,T,U and R,S,U scalar towers; cancellation associativity and its horizontal alternate retain R→T and the remaining compatible towers. The existing actual degree-zero/one/two calculi over k,R,S,T,U have independent form-module universes and actual semilinear calculus morphisms m,n,p. D is the existing additive λ-preconnection with arbitrary λ, including d_Rλ≠0. Degree-one scalar towers k R W,k S V,k T P,k U L are kept where the inherited horizontal/transport/extension/curvature interfaces require them; the defining additive-map formula needs none of these extra degree-one towers. The reserved global finite locally free integrable key still requires dλ=0.
+
+Proof plan: Rewrite by complete transported-preconnection equality and use the existing transport-flatness equivalence.
+
+## Sources and ownership
+
+The current [ordinary connection section](https://stacks.math.columbia.edu/tag/07J5) supplies the differential convention; the [finite-projective evaluation lemma](https://stacks.math.columbia.edu/tag/0FNJ) supplies duality context. The exact λ-dependent three-step identities are authored deductions using existing actual operators and pinned native maps. Both incoming source findings remain unchanged. Generic sheaf tensor,dual,pullback and descent stay with E1; this supplies connection-specific affine coherence. Categorical coevaluation/rigidity and all global/source obligations remain required. No recursive categorical proof audit or full-paper/version closure is claimed.
+
+## Earlier checkpoint reader (preserved verbatim)
+
 # Affine dual identity and tower coherence
 
 The existing finite-projective affine dual comparison now satisfies whole linear-equivalence identity and two-step tower coherence through the native module unitors, cancelBaseChange and dual congruence. The native covector tower theorem is reused, then tensor generation proves the equality on all classes. The actual dual connection operator respects the identity comparison and the tower comparison in both horizontal directions; full transported-preconnection equality, extended differential and curvature compatibility and equivalent flatness of the two target T-operators are proved. Arbitrary λ, including dλ≠0, needs no flatness of either algebra map or global basis. Three-scalar, inverse-path, zero-module, nonreduced Z/4, polynomial new-scalar derivative and variable-parameter fixtures are explicit. No new generic carrier is introduced. Three-step dual coherence and categorical coevaluation/rigidity, universal exterior-power comparison and actual E1 sheaf tensor/restriction/equality detection/effective gluing remain required. The reserved global finite locally free integrable key retains dλ=0. All149 routes,35 omissions,five requests,eleven gaps,two source issues,six planets and determinant/Tate/period/arbitrary-Q shuffle obligations remain; H.0 stays partial and H.1–H.8 not_read. Earlier frontier prose is checkpoint history. Every implementation remains unchecked.

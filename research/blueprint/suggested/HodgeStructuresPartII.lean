@@ -6,6 +6,7 @@
 
 -- Identity and tower coherence reuse the inherited exact Mathlib imports.
 
+
 import Mathlib.LinearAlgebra.Dual.BaseChange
 import Mathlib.RingTheory.TensorProduct.Basic
 
@@ -8017,6 +8018,347 @@ example : ∃ Ω : TwoForms ℤ (Polynomial ℤ) (Polynomial ℤ) (Fin 0 → Pol
           ((1 : Polynomial ℤ) ⊗ₜ[Polynomial ℤ] ((Polynomial.X : Polynomial ℤ) • LinearMap.id)))
       dualTensorHom (Polynomial ℤ) ((Polynomial ℤ) ⊗[Polynomial ℤ] (Polynomial ℤ)) (Polynomial ℤ)
         ((D.affinePullback ((TwoForms.Morphism.refl Ω).towerComp (TwoForms.Morphism.refl Ω))).affineDual.toAddHom f)
+        (1 ⊗ₜ[Polynomial ℤ] (1 : Polynomial ℤ)) = Polynomial.X := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open scoped TensorProduct
+universe tripleRing tripleModule
+variable {R S T U : Type tripleRing} [CommRing R] [CommRing S] [CommRing T] [CommRing U]
+  [Algebra R S] [Algebra S T] [Algebra R T] [IsScalarTower R S T]
+  [Algebra T U] [Algebra S U] [Algebra R U]
+  [IsScalarTower S T U] [IsScalarTower R S U] [IsScalarTower R T U]
+variable {E : Type tripleModule} [AddCommGroup E] [Module R E]
+  [Module.Finite R E] [Module.Projective R E]
+set_option maxHeartbeats 800000
+
+def affineDualPullbackTripleEquiv :
+    U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E)) ≃ₗ[U] Module.Dual U (U ⊗[R] E) :=
+  ((TensorProduct.AlgebraTensorModule.cancelBaseChange S T U U (S ⊗[R] Module.Dual R E)).trans
+    (TensorProduct.AlgebraTensorModule.cancelBaseChange R S U U (Module.Dual R E))).trans
+      (affineDualPullbackEquiv (R := R) (S := U) (E := E))
+
+def affineDualPullbackIteratedEquiv :
+    U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E)) ≃ₗ[U]
+      Module.Dual U (U ⊗[T] (T ⊗[S] (S ⊗[R] E))) :=
+  (((((affineDualPullbackEquiv (R := R) (S := S) (E := E)).baseChange S T).baseChange T U).trans
+    ((affineDualPullbackEquiv (R := S) (S := T) (E := S ⊗[R] E)).baseChange T U)).trans
+      (affineDualPullbackEquiv (R := T) (S := U) (E := T ⊗[S] (S ⊗[R] E))))
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
+lemma affineDualPullbackIteratedEquiv_eval (u v : U) (t a : T) (s b : S)
+    (f : Module.Dual R E) (e : E) :
+    affineDualPullbackIteratedEquiv (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] f)))
+      (v ⊗ₜ[T] (a ⊗ₜ[S] (b ⊗ₜ[R] e))) =
+      u * v * algebraMap T U (t * a) * algebraMap S U (s * b) * algebraMap R U (f e) := by
+  sorry
+
+lemma affineDualPullbackTripleEquiv_assoc :
+    affineDualPullbackTripleEquiv (R := R) (S := S) (T := T) (U := U) (E := E) =
+      (((TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T (Module.Dual R E)).baseChange T U).trans
+        (TensorProduct.AlgebraTensorModule.cancelBaseChange R T U U (Module.Dual R E))).trans
+          (affineDualPullbackEquiv (R := R) (S := U) (E := E)) := by
+  sorry
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
+lemma affineDualPullbackTripleEquiv_eval (u v : U) (t : T) (s : S)
+    (f : Module.Dual R E) (e : E) :
+    affineDualPullbackTripleEquiv (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] f))) (v ⊗ₜ[R] e) =
+      u * algebraMap T U t * algebraMap S U s * v * algebraMap R U (f e) := by
+  sorry
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
+lemma affineDualPullbackTripleEquiv_coherence :
+    affineDualPullbackTripleEquiv (R := R) (S := S) (T := T) (U := U) (E := E) =
+      (affineDualPullbackIteratedEquiv (R := R) (S := S) (T := T) (U := U) (E := E)).trans
+        (Module.Dual.congr
+          ((TensorProduct.AlgebraTensorModule.cancelBaseChange S T U U (S ⊗[R] E)).trans
+            (TensorProduct.AlgebraTensorModule.cancelBaseChange R S U U E))) := by
+  sorry
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
+lemma affineDualPullbackTripleEquiv_inverse_coherence :
+    (affineDualPullbackTripleEquiv (R := R) (S := S) (T := T) (U := U) (E := E)).symm =
+      ((affineDualPullbackIteratedEquiv (R := R) (S := S) (T := T) (U := U) (E := E)).trans
+        (Module.Dual.congr
+          ((TensorProduct.AlgebraTensorModule.cancelBaseChange S T U U (S ⊗[R] E)).trans
+            (TensorProduct.AlgebraTensorModule.cancelBaseChange R S U U E)))).symm := by
+  sorry
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
+lemma affineDualPullbackTripleEquiv_unit (f : Module.Dual R E) :
+    affineDualPullbackTripleEquiv
+      ((1 : U) ⊗ₜ[T] ((1 : T) ⊗ₜ[S] ((1 : S) ⊗ₜ[R] f))) = f.baseChange U := by
+  sorry
+
+universe tripleOne tripleTwo tripleThree tripleFour tripleFive tripleSix tripleSeven tripleEight
+variable {k : Type tripleRing} [CommRing k]
+  [Algebra k R] [Algebra k S] [Algebra k T] [Algebra k U]
+variable {W : Type tripleOne} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type tripleTwo} [AddCommGroup Z] [Module R Z]
+variable {V : Type tripleThree} [AddCommGroup V] [Module S V] [Module k V]
+variable {Y : Type tripleFour} [AddCommGroup Y] [Module S Y]
+variable {P : Type tripleFive} [AddCommGroup P] [Module T P] [Module k P]
+variable {Q : Type tripleSix} [AddCommGroup Q] [Module T Q]
+variable {L : Type tripleSeven} [AddCommGroup L] [Module U L] [Module k L]
+variable {N : Type tripleEight} [AddCommGroup N] [Module U N]
+variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Y}
+  {Δ : TwoForms k T P Q} {Ξ : TwoForms k U L N}
+variable [IsScalarTower k R W] [IsScalarTower k S V]
+  [IsScalarTower k T P] [IsScalarTower k U L]
+variable {lam : R}
+
+def Preconnection.affineDualPullbackTriple
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
+    Preconnection Ξ (algebraMap R U lam) (U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E))) where
+  toAddHom := (((D.affineDual.affinePullback m).affinePullback n).affinePullback p).toAddHom
+  leibniz := by
+    intro u x
+    rw [IsScalarTower.algebraMap_apply R S U, IsScalarTower.algebraMap_apply S T U]
+    exact (((D.affineDual.affinePullback m).affinePullback n).affinePullback p).leibniz u x
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U]
+  [IsScalarTower k R W] [IsScalarTower k S V] [IsScalarTower k T P] [IsScalarTower k U L] in
+lemma Preconnection.affineDualPullbackTriple_apply
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (x : U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E))) :
+    (D.affineDualPullbackTriple p n m).toAddHom x =
+      (((D.affineDual.affinePullback m).affinePullback n).affinePullback p).toAddHom x := by
+  sorry
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
+lemma Preconnection.affineDualPullback_triple_horizontal
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (x : U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E))) :
+    (D.affinePullback ((p.towerComp n).towerComp m)).affineDual.toAddHom
+      (affineDualPullbackTripleEquiv x) =
+      TensorProduct.map (affineDualPullbackTripleEquiv (E := E)).toLinearMap
+        LinearMap.id ((D.affineDualPullbackTriple p n m).toAddHom x) := by
+  sorry
+
+lemma Preconnection.affineDualPullback_triple_horizontal_assoc
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (x : U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E))) :
+    (D.affinePullback (p.towerComp (n.towerComp m))).affineDual.toAddHom
+      (affineDualPullbackEquiv
+        (TensorProduct.AlgebraTensorModule.cancelBaseChange R T U U (Module.Dual R E)
+          ((TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T (Module.Dual R E)).toLinearMap.baseChange U x))) =
+      TensorProduct.map
+        ((((TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T (Module.Dual R E)).baseChange T U).trans
+          (TensorProduct.AlgebraTensorModule.cancelBaseChange R T U U (Module.Dual R E))).trans
+            (affineDualPullbackEquiv (R := R) (S := U) (E := E))).toLinearMap
+        LinearMap.id ((D.affineDualPullbackTriple p n m).toAddHom x) := by
+  sorry
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
+lemma Preconnection.affineDualPullback_triple_inverse
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (f : Module.Dual U (U ⊗[R] E)) :
+    (D.affineDualPullbackTriple p n m).toAddHom (affineDualPullbackTripleEquiv.symm f) =
+      TensorProduct.map (affineDualPullbackTripleEquiv (R := R) (S := S) (T := T) (E := E)).symm.toLinearMap
+        LinearMap.id ((D.affinePullback ((p.towerComp n).towerComp m)).affineDual.toAddHom f) := by
+  sorry
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
+lemma Preconnection.affineDualPullback_triple_eq
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
+    (D.affineDualPullbackTriple p n m).transport (affineDualPullbackTripleEquiv (E := E)) =
+      (D.affinePullback ((p.towerComp n).towerComp m)).affineDual := by
+  sorry
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
+lemma Preconnection.affineDualPullback_triple_extend
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (x : (U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E))) ⊗[U] L) :
+    (D.affinePullback ((p.towerComp n).towerComp m)).affineDual.extend
+      (TensorProduct.map (affineDualPullbackTripleEquiv (E := E)).toLinearMap LinearMap.id x) =
+      TensorProduct.map (affineDualPullbackTripleEquiv (E := E)).toLinearMap LinearMap.id
+        ((D.affineDualPullbackTriple p n m).extend x) := by
+  sorry
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
+lemma Preconnection.affineDualPullback_triple_curvature
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (x : U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E))) :
+    (D.affinePullback ((p.towerComp n).towerComp m)).affineDual.curvature
+      (affineDualPullbackTripleEquiv x) =
+      TensorProduct.map (affineDualPullbackTripleEquiv (E := E)).toLinearMap LinearMap.id
+        ((D.affineDualPullbackTriple p n m).curvature x) := by
+  sorry
+
+omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
+lemma Preconnection.affineDualPullback_triple_flat_iff
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
+    (∀ x, (D.affineDualPullbackTriple p n m).curvature x = 0) ↔
+      ∀ f, (D.affinePullback ((p.towerComp n).towerComp m)).affineDual.curvature f = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open scoped TensorProduct
+universe tripleTestRing tripleTestModule tripleTestOne tripleTestTwo tripleTestThree tripleTestFour
+  tripleTestFive tripleTestSix tripleTestSeven tripleTestEight
+variable {R S T U : Type tripleTestRing} [CommRing R] [CommRing S] [CommRing T] [CommRing U]
+  [Algebra R S] [Algebra S T] [Algebra R T] [IsScalarTower R S T]
+  [Algebra T U] [Algebra S U] [Algebra R U]
+  [IsScalarTower S T U] [IsScalarTower R S U] [IsScalarTower R T U]
+variable {E : Type tripleTestModule} [AddCommGroup E] [Module R E]
+  [Module.Finite R E] [Module.Projective R E]
+
+-- test: AffineDualTripleTests.four_scalars
+example (u v : U) (t : T) (s : S) (f : Module.Dual R E) (e : E) :
+    affineDualPullbackTripleEquiv (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] f))) (v ⊗ₜ[R] e) =
+      u * algebraMap T U t * algebraMap S U s * v * algebraMap R U (f e) := by
+  sorry
+
+-- test: AffineDualTripleTests.six_scalars
+example (u v : U) (t a : T) (s b : S) (f : Module.Dual R E) (e : E) :
+    affineDualPullbackIteratedEquiv (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] f)))
+      (v ⊗ₜ[T] (a ⊗ₜ[S] (b ⊗ₜ[R] e))) =
+      u * v * algebraMap T U (t * a) * algebraMap S U (s * b) * algebraMap R U (f e) := by
+  sorry
+
+-- test: AffineDualTripleTests.iterated_forward_roundtrip
+example (x : U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E))) :
+    (affineDualPullbackTripleEquiv (E := E)).symm
+      ((affineDualPullbackIteratedEquiv (E := E)).trans
+        (Module.Dual.congr
+          ((TensorProduct.AlgebraTensorModule.cancelBaseChange S T U U (S ⊗[R] E)).trans
+            (TensorProduct.AlgebraTensorModule.cancelBaseChange R S U U E))) x) = x := by
+  sorry
+
+-- test: AffineDualTripleTests.inverse_path_all_covectors
+example (f : Module.Dual U (U ⊗[R] E)) :
+    (affineDualPullbackIteratedEquiv (E := E))
+      ((affineDualPullbackTripleEquiv (R := R) (S := S) (T := T) (E := E)).symm f) =
+      (Module.Dual.congr
+        ((TensorProduct.AlgebraTensorModule.cancelBaseChange S T U U (S ⊗[R] E)).trans
+          (TensorProduct.AlgebraTensorModule.cancelBaseChange R S U U E))).symm f := by
+  sorry
+
+-- test: AffineDualTripleTests.nonflat_nonreduced
+example : affineDualPullbackTripleEquiv (R := ℤ) (S := ZMod 4) (T := ZMod 4) (U := ZMod 4)
+    ((1 : ZMod 4) ⊗ₜ[ZMod 4] ((1 : ZMod 4) ⊗ₜ[ZMod 4] ((2 : ZMod 4) ⊗ₜ[ℤ] LinearMap.id)))
+    ((1 : ZMod 4) ⊗ₜ[ℤ] (1 : ℤ)) = 2 ∧ (2 : ZMod 4) ≠ 0 ∧ (2 : ZMod 4)^2 = 0 := by
+  sorry
+
+-- test: AffineDualTripleTests.zero_module
+example (f : Module.Dual U (U ⊗[R] (Fin 0 → R))) :
+    (affineDualPullbackTripleEquiv (R := R) (S := S) (T := T) (E := Fin 0 → R)).symm f = 0 := by
+  sorry
+
+-- test: AffineDualTripleTests.associated_inverse_roundtrip
+example (x : U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E))) :
+    (affineDualPullbackTripleEquiv (E := E)).symm
+      (((((TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T (Module.Dual R E)).baseChange T U).trans
+        (TensorProduct.AlgebraTensorModule.cancelBaseChange R T U U (Module.Dual R E))).trans
+          (affineDualPullbackEquiv (R := R) (S := U) (E := E))) x) = x := by
+  sorry
+
+variable {k : Type tripleTestRing} [CommRing k]
+  [Algebra k R] [Algebra k S] [Algebra k T] [Algebra k U]
+variable {W : Type tripleTestOne} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type tripleTestTwo} [AddCommGroup Z] [Module R Z]
+variable {V : Type tripleTestThree} [AddCommGroup V] [Module S V] [Module k V]
+variable {Y : Type tripleTestFour} [AddCommGroup Y] [Module S Y]
+variable {P : Type tripleTestFive} [AddCommGroup P] [Module T P] [Module k P]
+variable {Q : Type tripleTestSix} [AddCommGroup Q] [Module T Q]
+variable {L : Type tripleTestSeven} [AddCommGroup L] [Module U L] [Module k L]
+variable {N : Type tripleTestEight} [AddCommGroup N] [Module U N]
+variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Y} {Δ : TwoForms k T P Q} {Ξ : TwoForms k U L N}
+variable [IsScalarTower k R W] [IsScalarTower k S V] [IsScalarTower k T P] [IsScalarTower k U L]
+variable {lam : R}
+
+-- test: AffineDualTripleTests.actual_operator
+example (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (x : U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E))) :
+    (D.affineDualPullbackTriple p n m).toAddHom x =
+      (((D.affineDual.affinePullback m).affinePullback n).affinePullback p).toAddHom x := by
+  sorry
+
+-- test: AffineDualTripleTests.single_parameter
+example (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (u : U) (x : U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E))) :
+    (D.affineDualPullbackTriple p n m).toAddHom (u • x) =
+      u • (D.affineDualPullbackTriple p n m).toAddHom x + (algebraMap R U lam) • (x ⊗ₜ[U] Ξ.d0 u) := by
+  sorry
+
+-- test: AffineDualTripleTests.full_transport
+example (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
+    (D.affineDualPullbackTriple p n m).transport (affineDualPullbackTripleEquiv (E := E)) =
+      (D.affinePullback (p.towerComp (n.towerComp m))).affineDual := by
+  sorry
+
+-- test: AffineDualTripleTests.curvature_all_classes
+example (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
+    (x : U ⊗[T] (T ⊗[S] (S ⊗[R] Module.Dual R E))) :
+    (D.affinePullback ((p.towerComp n).towerComp m)).affineDual.curvature
+      (affineDualPullbackTripleEquiv x) =
+      TensorProduct.map (affineDualPullbackTripleEquiv (E := E)).toLinearMap LinearMap.id
+        ((D.affineDualPullbackTriple p n m).curvature x) := by
+  sorry
+
+-- test: AffineDualTripleTests.new_polynomial_scalar
+example : ∃ Ω : TwoForms ℤ ℤ ℤ (Fin 0 → ℤ),
+    ∃ Γ : TwoForms ℤ (Polynomial ℤ) (Polynomial ℤ) (Fin 0 → Polynomial ℤ),
+    ∃ m : TwoForms.Morphism (algebraMap ℤ (Polynomial ℤ)) Ω Γ,
+      let D := Preconnection.unit Ω 1
+      let f := affineDualPullbackTripleEquiv (R := ℤ) (S := Polynomial ℤ)
+        (T := Polynomial ℤ) (U := Polynomial ℤ) (E := ℤ)
+        ((1 : Polynomial ℤ) ⊗ₜ[Polynomial ℤ] ((1 : Polynomial ℤ) ⊗ₜ[Polynomial ℤ]
+          (Polynomial.X ⊗ₜ[ℤ] (LinearMap.id : Module.Dual ℤ ℤ))))
+      (∀ a, D.toAddHom a = 0) ∧
+      dualTensorHom (Polynomial ℤ) ((Polynomial ℤ) ⊗[ℤ] ℤ) (Polynomial ℤ)
+        ((D.affinePullback (((TwoForms.Morphism.refl Γ).towerComp
+          (TwoForms.Morphism.refl Γ)).towerComp m)).affineDual.toAddHom f)
+        (1 ⊗ₜ[ℤ] (1 : ℤ)) = 1 := by
+  sorry
+
+-- test: AffineDualTripleTests.variable_parameter
+example : ∃ Ω : TwoForms ℤ (Polynomial ℤ) (Polynomial ℤ) (Fin 0 → Polynomial ℤ),
+    Ω.d0 Polynomial.X = 1 ∧
+      let D := Preconnection.unit Ω Polynomial.X
+      let f := affineDualPullbackTripleEquiv (R := Polynomial ℤ) (S := Polynomial ℤ)
+        (T := Polynomial ℤ) (U := Polynomial ℤ) (E := Polynomial ℤ)
+        ((1 : Polynomial ℤ) ⊗ₜ[Polynomial ℤ] ((1 : Polynomial ℤ) ⊗ₜ[Polynomial ℤ]
+          ((1 : Polynomial ℤ) ⊗ₜ[Polynomial ℤ]
+            ((Polynomial.X : Polynomial ℤ) • (LinearMap.id : Module.Dual (Polynomial ℤ) (Polynomial ℤ))))))
+      dualTensorHom (Polynomial ℤ) ((Polynomial ℤ) ⊗[Polynomial ℤ] (Polynomial ℤ)) (Polynomial ℤ)
+        ((D.affinePullback (((TwoForms.Morphism.refl Ω).towerComp
+          (TwoForms.Morphism.refl Ω)).towerComp (TwoForms.Morphism.refl Ω))).affineDual.toAddHom f)
         (1 ⊗ₜ[Polynomial ℤ] (1 : Polynomial ℤ)) = Polynomial.X := by
   sorry
 
