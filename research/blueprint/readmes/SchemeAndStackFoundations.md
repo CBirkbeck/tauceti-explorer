@@ -1,3 +1,1578 @@
+# Scheme and stack foundations: budget-finished breadth pass
+
+This definitive document preserves the incoming mathematical plan and adds the four previously missing key contracts. Packet status `complete` means the 303-node budget pass is finished under PROTOCOL §0, not that any stage is closed or any mathematical key is formalised. All 232 inherited node objects are preserved whole, not re-audited here. The historical document below retains its attribution; this current coverage and the final packet supersede historical pass-status sentences.
+
+## Current coverage
+
+### SchemeAndStackFoundations:SF.0 — partial
+
+- Finish the inherited henselization strand: actual scalar towers/coequalizer, lifted residue-selector quotient/localization, recursively cited etale-section criterion, universal property and the remaining sample API. Respect the unresolved PerfectoidSpaces owner consolidation.
+- The existing actual image-ideal quotient has whole three-morphism and right-identity coherence. Left identity, longer tower/pentagon and conductor-specific identification/coherence remain. Preserve the existing consumer-side request objects (this supplier packet has no requests); no arbitrary nonaffine image-ideal equality or global section surjectivity follows.
+- Excellence now has nine concrete predicates/constructions and22 named APIs. Complete source proof leaves, CM/(S_n) variants, pathological examples, normalization/completion consequences and the full reserved brief; import R03.3/catenary.
+- Plan relative Spec, general relative Proj/canonical comparisons and the remaining SF.0 targets. Import finite-generated relative Proj from SR2 and the native scheme/morphism/QCoh/local-algebra baseline; do not add unrestricted O(1) or properness claims.
+- Preserve every SF.0 sourceWorklist route and the accepted Weil-restriction MC0F→RG2.0a→R09.3 import. Finish the breadth-first target pass across all seven stages before further quotient refinement.
+
+### SchemeAndStackFoundations:SF.1 — partial
+
+- Algebraic spaces now have concrete native representable-diagonal, etale-atlas and algebraic-space predicates, with twelve named interfaces and ten typed tests. Finish the actual category, relative comparison, quotient/presentation/atlas-independence proof and concrete nonscheme examples.
+- Read and plan the small etale ringed site and chart fibre products requested by R09.3; retain its QCoh and relative Picard constructions as consumers, not duplicate local definitions.
+- Plan the remaining Artin/Deligne-Mumford stack, stabilizer, coarse/fine moduli and effective object-class descent targets, importing MC0E/SR2 and DiamondsAndVStacks:D0 exactly. Generic quotient stacks remain owned by D0.
+- The galois-gerbs key and 15 supporting nodes now specify topological extensions, algebraic semilinearity, effective local descent, morphisms/conjugacy and projective systems. Only the two topological prefix carriers and their five named lemmas are typed. Finish algebraic kernels, effective descent, transporter representability, projective-limit and field-extension proofs; all other routed quotient/root-stack and perfect-site groupoid targets remain.
+
+### SchemeAndStackFoundations:SF.2 — partial
+
+- The scheme-brauer, coherent-duality and equivariant-sheaf-cohomology keys now have 55 nodes with mathematical specifications, APIs and tests. Finish noncommutative sheaf-algebra/Azumaya descent and the native H² units bridge; derived QCoh/RHom, compactification and coherent adjunction; semilinear equivariant categories, enough injectives and derived-composite acyclicity. The three keys are not typed or proof-closed.
+- Split early site/coefficients from later comparisons: import EDC/CPC and EtaleDualityAbsolutePurityPartII. Preserve coherent-curve SR2 and general coherent-duality distinction; do not create a second six-operations or absolute-purity theory.
+- Retain all site/localization/support/compact support/base-change/Cousin/pro-etale/Nisnevich routes with coefficient distinctions. Henselian points require the still-open affine strand and additional site geometry.
+
+### SchemeAndStackFoundations:SF.3 — not_read
+
+- Import upstream AlgebraicCurves/JacobianChallenge function-field divisors, genus and RR; prove scheme/Picard/line-bundle/coherent-duality comparisons. Do not infer arbitrary-vector-bundle duality from function-field RR.
+- Keep NS/Picard-number theory with A2; retain rational-divisor versus rational-class/Brauer-obstruction and family/Jacobian routes.
+
+### SchemeAndStackFoundations:SF.4 — not_read
+
+- Formal geometry, deformation/lifting, algebraization, non-Noetherian modifications, strict transforms and source-qualified alterations remain unread at their primary locators.
+- Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9. Resolve the conflicting confirmed alteration-owner recommendations before adding any alteration dependency.
+
+### SchemeAndStackFoundations:SF.5 — not_read
+
+- Import the existing AlgebraicCycle carrier and weighted pushforward. Construct rational equivalence/Chow and its descended proper pushforward, flat/lci pullback, refined Gysin, intersection/Chern/RR in their actual domains; do not re-plan native cycle pushforward.
+- Import arithmetic-surface intersections from StableReductionLayer4. Retain SF.3/R09.1/coherent-duality inputs, isolated-intersection Bezout inequalities, DM-stack and positivity/Keel routes without requiring unrelated reduction theorems.
+
+### SchemeAndStackFoundations:SF.6 — not_read
+
+- This is a consumer handoff/process layer according to AUDIT-01: do not invent mathematical nodes for integration itself.
+- Record typed imports and coefficient/comparison contracts from the actual suppliers, including ComplexComparison C5, once the mathematical nodes exist. All arithmetic handoffs in sourceWorklist remain unfinished.
+
+## Typed evidence boundary
+
+Two new topological prefix carriers and five named node lemmas, plus a continuous-projection API, are typed with native proofs. Their actual code uses the existing `GroupExtension`, `IsEmbedding`, `IsQuotientMap` and `Homeomorph` carriers. The 64 other new nodes and their APIs/tests cannot yet be honestly typed against the pinned libraries: their noncommutative sheaf, derived, semilinear or algebraic-gerb infrastructure is recorded as a gap. Their exact omitted statements are listed below and in the public `TypedOmissions.json`; comments in the suggested file do not count as signatures. Three supplemental native examples check projection, the local-section unit and matrix Azumaya, not the promised full concrete carrier tests. The inherited suggested file is preserved as a mathematical baseline and is not claimed to prove its admitted declarations. No full Tau Ceti compile is claimed.
+
+## New source and library boundaries
+
+- [Azumaya algebras](https://stacks.math.columbia.edu/tag/0A2J): Online tag 0A2J, read 2026-10-04. 59.62 definitions, Lemmas 59.62.1–2 and displayed proofs; final comparison discussion Recursive cited proof leaves not claimed read.
+- [Properties of coherent upper shriek](https://stacks.math.columbia.edu/tag/0AU3): Online tag 0AU3, read 2026-10-04. 48.19 properties (1)–(9) and displayed proof/comment discussion Recursive cited proof leaves not claimed read.
+- [Dualizing complexes over rings](https://stacks.math.columbia.edu/tag/0A7B): Online tag 0A7B, read 2026-10-04. Definition 47.15.1 Recursive cited proof leaves not claimed read.
+- [Dualizing complexes on schemes](https://stacks.math.columbia.edu/tag/0A87): Online tag 0A87, read 2026-10-04. Definition 48.2.2 Recursive cited proof leaves not claimed read.
+- [Affine recognition of dualizing complexes](https://stacks.math.columbia.edu/tag/0A86): Online tag 0A86, read 2026-10-04. Lemma 48.2.1, complete displayed proof and comments Recursive cited proof leaves not claimed read.
+- [Normalized dualizing complexes under finite local maps](https://stacks.math.columbia.edu/tag/0AX1): Online tag 0AX1, read 2026-10-04. Lemma 47.16.1, complete displayed proof Recursive cited proof leaves not claimed read.
+- [Upper shriek and dualizing complexes](https://stacks.math.columbia.edu/tag/0AA3): Online tag 0AA3, read 2026-10-04. Lemma 48.17.7, complete displayed proof Recursive cited proof leaves not claimed read.
+- [Duality for proper schemes over fields](https://stacks.math.columbia.edu/tag/0FVV): Online tag 0FVV, read 2026-10-04. Lemma 48.27.1, all seven properties and displayed proof/comments Recursive cited proof leaves not claimed read.
+- [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf): Author 99-page PDF; selected §3.1.1–3.1.2, printed pp.34–36, read 2026-10-04. Whole §3.1.1 gerb/morphism/conjugacy/pro-system definitions and Lemma 3.1.2 statement/proof. Remaining paper not claimed read.
+- [Eisenstein–Kronecker classes, integrality of critical values of Hecke L-functions and p-adic interpolation](https://arxiv.org/pdf/1912.03657): arXiv:1912.03657 v4, 14 September 2024, 85-page preprint (not the 109-page Annals version). Whole Appendix A.1–A.2, printed pp.79–81: Definitions A.1–A.3, equation (A.1.1), support sequence and Borel discussion. New nodes use A.1; Borel equivalence is not planned in this pass.
+- [On the Kottwitz conjecture for local Shimura varieties](https://arxiv.org/pdf/1709.06651): arXiv:1709.06651 v4, 96-page PDF; selected §2.3, printed pp.10–12. Gerb-to-B(G) consumer setup and subsequent §2.3 construction/independence passage read. Kottwitz/Kaletha proofs and the rational-character protorus construction not claimed read.
+
+Recursive cited leaves are not treated as read. Kisin direct local download returned HTTP 403; browser selected PDF text was available. Kings–Sprang is the arXiv v4 preprint, not its Annals version. Its Appendix A.1 sheaf-letter misprint is recorded against the preprint only. The HKW rational-character protorus remains a required consumer test rather than an established theorem here. No new consumer request is invented before auditing its exact supplier contract.
+
+The non-Cohen–Macaulay ring test is an authored deduction: over k[x,y] the quotient by (x²,xy) has resolution 0→R→R²→R with maps (-y,x) and (x²,xy). Derived Hom into R and shift [2], localized at (x,y), give nonzero H^-1 (from Ext¹) and H^0 (from Ext²). This explains why a single shifted module is not the normalized dualizing carrier; it is not quoted as a computation on the linked Stacks page.
+
+## New mathematical declarations
+
+### Quasi-coherent sheaf of algebras
+
+`SchemeAndStackFoundations:SF.2/sheaf-algebra` — definition
+
+For a native scheme X, an associative unital O_X-algebra is a sheaf of rings A with a central structure map O_X→A. Require its underlying O_X-module to be quasi-coherent. Morphisms are unital sheaf-ring maps preserving the central structure map. The carrier is not a sheaf of commutative algebras: matrix algebras must be allowed.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `mathlib:AlgebraicGeometry.Scheme.Modules`.
+
+Proof outline:
+
+1. Use native sheaves and O_X-modules. Specify multiplication, unit and their sheaf compatibility, with the scalar image central.
+2. The noncommutative algebra-object/tensor and pullback implementation is a recorded carrier gap; do not substitute commutative algebras or a proposition-valued witness.
+
+API:
+
+- `TauCeti.SchemeFoundations.Brauer.SheafAlgebra.sections` (data): On every affine U, A(U) is an algebra over O_X(U), possibly noncommutative.
+- `TauCeti.SchemeFoundations.Brauer.SheafAlgebra.hom_ext` (extensionality): Algebra-sheaf maps agreeing on all affine opens are equal.
+- `TauCeti.SchemeFoundations.Brauer.SheafAlgebra.pullback` (functoriality): For f:Y→X, f* A is a quasi-coherent O_Y-algebra with the canonical central unit.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Brauer.SheafAlgebra.test_matrix2` (computation): Mat_2(O_X) is such an algebra; for X=Spec(k), its affine sections are Mat_2(k).
+- `TauCeti.SchemeFoundations.Brauer.SheafAlgebra.test_scalar` (degenerate): O_X itself is the rank-one algebra object.
+- `TauCeti.SchemeFoundations.Brauer.SheafAlgebra.test_noncommutative` (non-example): For X=Spec(Q), Mat_2(Q) is admitted although E_12E_21≠E_21E_12.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Azumaya algebra on a scheme
+
+`SchemeAndStackFoundations:SF.2/azumaya` — definition
+
+A quasi-coherent O_X-algebra A is Azumaya when there is a surjective étale covering U_i→X and O_{U_i}-algebra isomorphisms f_i* A≅Mat_{d_i}(O_{U_i}), with d_i≥1. This implies finite locally free and faithful underlying module. Degree is locally constant; no single global degree is required.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/sheaf-algebra`, `mathlib:IsAzumaya`.
+
+Proof outline:
+
+1. Use étale-local matrix splittings on the native scheme étale site.
+2. Relate the finite-projective, faithful and enveloping-endomorphism criterion to this definition on affine opens; that comparison is an explicit lemma, not definitional equality.
+
+API:
+
+- `TauCeti.SchemeFoundations.Brauer.Azumaya.local_matrix` (characterisation): A is Azumaya exactly when it has a positive-degree étale-local matrix splitting.
+- `TauCeti.SchemeFoundations.Brauer.Azumaya.degree` (data): On a connected base the degree d is constant and the module rank is d².
+- `TauCeti.SchemeFoundations.Brauer.Azumaya.pullback` (functoriality): Any scheme pullback preserves Azumaya algebras.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Brauer.Azumaya.test_matrix` (computation): Mat_n(O_X) is Azumaya for every n≥1.
+- `TauCeti.SchemeFoundations.Brauer.Azumaya.test_scalar` (degenerate): O_X is degree-one Azumaya.
+- `TauCeti.SchemeFoundations.Brauer.Azumaya.test_dual_numbers` (non-example): Over a field k, k[ε]/(ε²), though finite free, is not an Azumaya k-algebra.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Stabilized equivalence of Azumaya algebras
+
+`SchemeAndStackFoundations:SF.2/stabilized-equivalence` — definition
+
+On X, A≈B means there exist finite locally free O_X-modules F,G of positive rank at every point and an O_X-algebra isomorphism A⊗End(F)≅B⊗End(G). Use this stabilization relation on Azumaya algebras; it is not merely isomorphism of underlying modules.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/azumaya`, `SchemeAndStackFoundations:SF.2/sheaf-algebra`.
+
+Proof outline:
+
+1. Form sheaf tensor products and internal endomorphism algebras.
+2. Prove reflexivity, symmetry and transitivity before constructing its setoid; each proof is a separate named lemma.
+
+API:
+
+- `TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.refl` (relation): Every Azumaya algebra is equivalent to itself using F=G=O_X.
+- `TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.symm` (relation): A≈B implies B≈A.
+- `TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.trans` (relation): A≈B and B≈C imply A≈C.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.test_matrix` (computation): Mat_n(O_X)≈O_X for every n≥1.
+- `TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.test_field` (compatibility): Over Spec(k), this is the usual stabilization relation for finite-dimensional central simple k-algebras.
+- `TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.test_zero_rank` (non-example): Zero-rank F or G is excluded: allowing both would collapse every pair via a zero algebra.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Scheme Brauer group
+
+`SchemeAndStackFoundations:key/scheme-brauer` — construction
+
+Br_Az(X) is the quotient of Azumaya O_X-algebras by stabilized equivalence. Multiplication is tensor product, identity is O_X and inverse is the opposite algebra. Give it the resulting commutative-group structure. Keep this group distinct from all of H²_et(X,G_m), and from its torsion subgroup Br′(X).
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/stabilized-equivalence`, `SchemeAndStackFoundations:SF.2/equivalence-refl`, `SchemeAndStackFoundations:SF.2/equivalence-symm`, `SchemeAndStackFoundations:SF.2/equivalence-trans`, `SchemeAndStackFoundations:SF.2/tensor`, `SchemeAndStackFoundations:SF.2/opposite`, `SchemeAndStackFoundations:SF.2/operation-well-defined`, `SchemeAndStackFoundations:SF.2/unit`, `SchemeAndStackFoundations:SF.2/inverse`.
+
+Proof outline:
+
+1. Construct the quotient using the proven setoid; descend tensor product with the well-definedness lemma.
+2. Use the enveloping endomorphism comparison for the inverse, and sheaf tensor associativity/symmetry for the group laws.
+3. Quotient universe/smallness, positive-rank descent and these coherence proofs are recorded leaves; no equivalence with Br′ is assumed.
+
+API:
+
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.mk` (constructor): The class [A] of an Azumaya O_X-algebra.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.mul_mk` (simp): [A][B]=[A⊗B].
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.inv_mk` (simp): [A]⁻¹=[A^op].
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.end_zero` (characterisation): End(F) has identity class for positive-rank finite locally free F.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback` (functoriality): Scheme maps act contravariantly on Br_Az by pullback.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta` (compatibility): The canonical étale cohomology class is a natural injective homomorphism into H²_et(X,G_m), without unconditional surjectivity.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.test_matrix` (computation): [Mat_2(O_X)] is the identity.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.test_real` (computation): Br_Az(Spec(R)) has the real quaternion class of order two; its pullback to Spec(C) is the identity.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.test_field` (compatibility): Br_Az(Spec(k)) identifies with the existing field Brauer group through the central-simple-algebra dictionary.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.test_dual_numbers` (non-example): A non-Azumaya finite free algebra such as k[ε]/(ε²) has no Azumaya-class constructor.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.test_not_h2` (non-example): The construction is not defined to be all of H²_et(X,G_m), nor is Br_Az=Br′ asserted for arbitrary X.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Cohomological Brauer group
+
+`SchemeAndStackFoundations:SF.2/cohomological-brauer` — definition
+
+Br′(X) is the subgroup of H² on the native small étale site with coefficients in the units sheaf G_m consisting of elements killed by some positive integer. Do not redefine the cohomology carrier. The Azumaya-to-cohomology map lands here under the stated quasi-compact or connected hypotheses.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `mathlib:CategoryTheory.Sheaf.H`.
+
+Proof outline:
+
+1. Build the units coefficient sheaf and import native abelian sheaf cohomology.
+2. Take the torsion subgroup; the native units sheaf and its additive transport are still a carrier gap.
+
+API:
+
+- `TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.inclusion` (coercion): The inclusion Br′(X)→H²_et(X,G_m) is injective.
+- `TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.mem_iff` (characterisation): A class belongs exactly when some positive integer kills it.
+- `TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.pullback` (functoriality): Pullback on cohomology preserves torsion classes.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.test_complex` (computation): Br′(Spec(C))=0.
+- `TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.test_real` (computation): Br′(Spec(R))≅Z/2 and the quaternion class maps to its nonzero element.
+- `TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.test_nontorsion` (non-example): A nontorsion H² class, if present on X, is excluded by the subgroup membership condition.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Affine Azumaya comparison
+
+`SchemeAndStackFoundations:SF.2/affine-comparison` — lemma
+
+For A a quasi-coherent algebra on Spec(R), the étale-local matrix condition is equivalent to the native IsAzumaya R Γ(A,Spec(R)) predicate.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/azumaya`, `mathlib:IsAzumaya`.
+
+Proof outline:
+
+1. Use the affine quasi-coherent dictionary and finite-projective faithful descent; the étale splitting/enveloping-map equivalence is a source proof leaf.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Tensor product of Azumaya algebras
+
+`SchemeAndStackFoundations:SF.2/tensor` — lemma
+
+Azumaya A,B on X have Azumaya tensor product; on a common étale splitting cover, Mat_d⊗Mat_e≅Mat_de.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/azumaya`.
+
+Proof outline:
+
+1. Refine both étale covers and use the matrix tensor isomorphism, then descend.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Opposite Azumaya algebra
+
+`SchemeAndStackFoundations:SF.2/opposite` — lemma
+
+The opposite A^op of an Azumaya algebra is Azumaya, with matrix transposition identifying its local splitting.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/azumaya`.
+
+Proof outline:
+
+1. Transpose matrices on a splitting cover and use étale locality.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Reflexivity of stabilization
+
+`SchemeAndStackFoundations:SF.2/equivalence-refl` — lemma
+
+A≈A with F=G=O_X of positive rank one.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/stabilized-equivalence`.
+
+Proof outline:
+
+1. Use the sheaf tensor unit and End(O_X)≅O_X.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Symmetry of stabilization
+
+`SchemeAndStackFoundations:SF.2/equivalence-symm` — lemma
+
+If A≈B then B≈A.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/stabilized-equivalence`.
+
+Proof outline:
+
+1. Invert the witnessing algebra isomorphism and exchange F,G.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Transitivity of stabilization
+
+`SchemeAndStackFoundations:SF.2/equivalence-trans` — lemma
+
+If A≈B and B≈C then A≈C, using tensor products of the witnessing positive-rank bundles.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/stabilized-equivalence`.
+
+Proof outline:
+
+1. Tensor the two witnesses; use End(F⊗F′)≅End(F)⊗End(F′) and reorder factors. The sheaf endomorphism comparison is an explicit gap.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Tensor product descends to classes
+
+`SchemeAndStackFoundations:SF.2/operation-well-defined` — lemma
+
+If A≈A′ and B≈B′ then A⊗B≈A′⊗B′.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/stabilized-equivalence`, `SchemeAndStackFoundations:SF.2/tensor`.
+
+Proof outline:
+
+1. Tensor stabilization witnesses and use the finite-locally-free endomorphism tensor comparison.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Scalar algebra is the tensor unit
+
+`SchemeAndStackFoundations:SF.2/unit` — lemma
+
+The tensor class of O_X is an identity, since A⊗O_X≅A as O_X-algebras.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/stabilized-equivalence`, `SchemeAndStackFoundations:SF.2/azumaya`.
+
+Proof outline:
+
+1. Use the scalar unit isomorphism, which preserves the sheaf algebra structure.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Opposite algebra gives the inverse
+
+`SchemeAndStackFoundations:SF.2/inverse` — lemma
+
+For Azumaya A, A⊗A^op≅End_O_X(A), with A positive-rank finite locally free; hence its stabilization class is the identity.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/azumaya`, `SchemeAndStackFoundations:SF.2/opposite`, `SchemeAndStackFoundations:SF.2/stabilized-equivalence`, `SchemeAndStackFoundations:SF.2/affine-comparison`.
+
+Proof outline:
+
+1. Apply the affine native enveloping-map criterion and glue; the sheaf algebra isomorphism and affine comparison are source leaves.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Identity pullback on Brauer classes
+
+`SchemeAndStackFoundations:SF.2/pullback-id` — lemma
+
+For X, pullback along id_X is the identity homomorphism of Br_Az(X).
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/pullback`.
+
+Proof outline:
+
+1. Descend the canonical identity pullback isomorphism on algebra sheaves.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Composition of Brauer pullbacks
+
+`SchemeAndStackFoundations:SF.2/pullback-comp` — lemma
+
+For Z→Y→X, pullback on Br_Az is the composite of the two pullback homomorphisms.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/pullback`.
+
+Proof outline:
+
+1. Use the canonical composite-pullback algebra isomorphism; equality is in the quotient, not equality of chosen charts.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Endomorphism algebras are neutral
+
+`SchemeAndStackFoundations:SF.2/end-zero` — lemma
+
+For finite locally free F of positive rank at every point, [End(F)] is the identity in Br_Az(X).
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:key/scheme-brauer`.
+
+Proof outline:
+
+1. The defining stabilization witness uses F on the scalar-algebra side and O_X on the End(F) side.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Agreement with field Brauer groups
+
+`SchemeAndStackFoundations:SF.2/field-comparison` — lemma
+
+For a field k, Br_Az(Spec(k)) is canonically isomorphic to the existing BrauerGroup k using finite-dimensional central simple algebras.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:key/scheme-brauer`, `SchemeAndStackFoundations:SF.2/affine-comparison`, `mathlib:BrauerGroup`.
+
+Proof outline:
+
+1. Check the central-simple/Azumaya equivalence and the stabilization relation, then compare tensor and opposites. This bridge is not in the cited field carrier alone.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Injectivity of the Azumaya class map
+
+`SchemeAndStackFoundations:SF.2/delta-injective` — lemma
+
+The homomorphism δ:Br_Az(X)→H²_et(X,G_m) is injective; this does not say its image is the whole cohomology group or all torsion classes.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/delta`.
+
+Proof outline:
+
+1. An equal cohomology class gives a neutral difference splitting gerbe, whose global object is a positive-rank module and stabilization witness; gerbe/descent proof leaves remain explicit.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Degree annihilates an Azumaya class
+
+`SchemeAndStackFoundations:SF.2/degree-annihilation` — lemma
+
+If A has constant module rank d² with d≥1, then [A]^d is the identity in Br_Az(X).
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:key/scheme-brauer`.
+
+Proof outline:
+
+1. Follow 59.62.2: glue the antisymmetrizer section, form the image bundle and identify A^⊗d with its endomorphism algebra. No inversion of d! is assumed.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Torsion image under scope conditions
+
+`SchemeAndStackFoundations:SF.2/torsion-image` — lemma
+
+If X is quasi-compact or connected, every Azumaya class is torsion and δ factors through Br′(X).
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/delta`, `SchemeAndStackFoundations:SF.2/degree-annihilation`, `SchemeAndStackFoundations:SF.2/cohomological-brauer`.
+
+Proof outline:
+
+1. Use constant degree on connected X or finitely many ranks and their least common multiple on quasi-compact X. No arbitrary disconnected infinite-rank uniform bound is assumed.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Pullback homomorphism of Brauer groups
+
+`SchemeAndStackFoundations:SF.2/pullback` — construction
+
+For a scheme morphism f:Y→X, define f*:Br_Az(X)→Br_Az(Y) by pulling back Azumaya algebra sheaves and their stabilization witnesses. This is a group homomorphism and requires no flatness of f.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:key/scheme-brauer`, `SchemeAndStackFoundations:SF.2/tensor`.
+
+Proof outline:
+
+1. Pull back the étale matrix cover and the positive-rank bundles; descend to the quotient.
+
+API:
+
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_mk` (simp): f*([A])=[f*A].
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_one` (simp): f*(1)=1.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_mul` (structure): f*([A][B])=f*([A])f*([B]).
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_test_id` (degenerate): Identity pullback fixes every class.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_test_matrix` (computation): Every pulled-back matrix algebra has identity class.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_test_quaternion` (computation): R→C kills the Hamilton quaternion class.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Projective-frame torsor of an Azumaya algebra
+
+`SchemeAndStackFoundations:SF.2/splitting-torsor` — construction
+
+For an Azumaya A of constant degree d, the sheaf Isom_O-alg(Mat_d(O_X),A) is an étale PGL_d-torsor. It is the splitting-torsor construction, not the already-owned general definition of a torsor.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/azumaya`.
+
+Proof outline:
+
+1. Étale-local matrix splittings give local sections; conjugation by PGL_d is simply transitive on algebra frames.
+2. The PGL and sheaf internal-Isom comparison and generic torsor supplier are a recorded gap rather than duplicate general carriers.
+
+API:
+
+- `TauCeti.SchemeFoundations.Brauer.SplittingTorsor.points` (data): Its sections over an étale U are algebra isomorphisms Mat_d(O_U)≅A|_U.
+- `TauCeti.SchemeFoundations.Brauer.SplittingTorsor.action` (structure): PGL_d acts by precomposition and makes it a torsor.
+- `TauCeti.SchemeFoundations.Brauer.SplittingTorsor.naturality` (functoriality): Pullback of the frame torsor identifies with the frame torsor of f*A.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Brauer.SplittingTorsor.test_matrix` (computation): For A=Mat_d(O_X), the identity frame is a global section.
+- `TauCeti.SchemeFoundations.Brauer.SplittingTorsor.test_degree1` (degenerate): Degree one gives the trivial PGL_1-torsor.
+- `TauCeti.SchemeFoundations.Brauer.SplittingTorsor.test_quaternion` (non-example): Hamilton quaternions over R have no R-frame but have a frame after R→C.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Azumaya class in étale cohomology
+
+`SchemeAndStackFoundations:SF.2/delta` — construction
+
+Construct δ_X:Br_Az(X)→H²_et(X,G_m) from the obstruction to lifting projective frames to linear frames. On constant degree d it is the boundary of 1→G_m→GL_d→PGL_d→1 applied to the splitting torsor. For variable degree glue the same scalar-banded splitting gerbe.
+
+Hypotheses: X is a scheme; algebra sheaves are associative unital with central O_X scalars. Matrix degrees and stabilizing bundle ranks are positive; impose connectedness or quasi-compactness only where stated.
+
+Prerequisites: `SchemeAndStackFoundations:key/scheme-brauer`, `SchemeAndStackFoundations:SF.2/splitting-torsor`, `mathlib:CategoryTheory.Sheaf.H`.
+
+Proof outline:
+
+1. Use the nonabelian boundary and scalar-banded gerbe class in the existing H² carrier; no second H² definition.
+2. Prove tensor compatibility and degree-independent gluing; these missing gerbe, units-sheaf and boundary leaves are recorded gaps.
+
+API:
+
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_mk` (compatibility): δ([A]) is the scalar splitting-gerbe class of A.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_mul` (structure): δ is a homomorphism.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_pullback` (functoriality): δ_Y(f*α)=f*(δ_X(α)).
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_test_matrix` (computation): δ([Mat_d(O_X)])=0.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_test_real` (computation): The real quaternion class maps to the nonzero order-two class.
+- `TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_test_no_surjectivity` (non-example): No axiom declaring δ surjective is included; arbitrary X need not have Br_Az=Br′.
+
+Sources: STACKS-N29-0A2J — 59.62, definitions and Lemmas 59.62.1–2; final comparison discussion.
+
+### Dualizing complex over a Noetherian ring
+
+`SchemeAndStackFoundations:SF.2/affine-dualizing` — definition
+
+For a Noetherian commutative ring A, a dualizing complex ω in D(A) has finite injective dimension, finite A-module cohomology in every degree, and the canonical homothety A→RHom_A(ω,ω) is a quasi-isomorphism. Finite injective dimension includes boundedness; this is not the predicate that ω is a single module.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `mathlib:DerivedCategory`.
+
+Proof outline:
+
+1. Use the native derived category of ModuleCat A. Build the derived internal Hom and homothety, then impose the three actual conditions.
+2. The complex-level finite-injective-dimension and internal-RHom/homothety typing are recorded gaps, not replaced by opaque propositions.
+
+API:
+
+- `TauCeti.SchemeFoundations.Coherent.DualizingComplex.homothety` (characterisation): The canonical homothety is an isomorphism in D(A).
+- `TauCeti.SchemeFoundations.Coherent.DualizingComplex.cohomology_finite` (projection): Every H^i(ω) is finite over A.
+- `TauCeti.SchemeFoundations.Coherent.DualizingComplex.biduality` (universal-property): For K in D^b_fg(A), the evaluation K→RHom(RHom(K,ω),ω) is an isomorphism.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Coherent.DualizingComplex.test_field` (computation): For a field k, k[0] is dualizing.
+- `TauCeti.SchemeFoundations.Coherent.DualizingComplex.test_regular_shift` (compatibility): For a d-dimensional regular local ring, A[d] is the normalized dualizing complex.
+- `TauCeti.SchemeFoundations.Coherent.DualizingComplex.test_non_cm` (non-example): For A=k[x,y]/(x²,xy) localized at (x,y), the normalized dualizing complex has nonzero H^-1 and H^0, so a single shifted module is insufficient.
+
+Sources: STACKS-N29-0A7B — Definition 47.15.1.
+
+### Dualizing complex on a locally Noetherian scheme
+
+`SchemeAndStackFoundations:SF.2/scheme-dualizing` — definition
+
+For a locally Noetherian X, a dualizing complex K in D(O_X) is affine-locally the sheafification of a ring dualizing complex: for every affine U=Spec(A), K|_U≅~ω_A with ω_A dualizing. A cover criterion is equivalent, but is proved separately.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/affine-dualizing`, `mathlib:AlgebraicGeometry.Scheme.Modules`, `mathlib:DerivedCategory`.
+
+Proof outline:
+
+1. Use the native scheme module derived category, restricted to affine opens, and the derived affine quasi-coherent dictionary.
+2. Do not require a globally fixed shift on disconnected schemes; affine-cover equivalence has an explicit proof leaf.
+
+API:
+
+- `TauCeti.SchemeFoundations.Coherent.SchemeDualizing.affine` (projection): Restriction to every affine open comes from a ring dualizing complex.
+- `TauCeti.SchemeFoundations.Coherent.SchemeDualizing.cover_iff` (characterisation): Checking this on an affine open cover suffices.
+- `TauCeti.SchemeFoundations.Coherent.SchemeDualizing.restrict` (functoriality): Restriction to an open subscheme preserves the dualizing property.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Coherent.SchemeDualizing.test_field` (computation): On Spec(k), ~k[0] is dualizing.
+- `TauCeti.SchemeFoundations.Coherent.SchemeDualizing.test_disjoint` (degenerate): Dualizing complexes on a disjoint union are chosen componentwise; unequal shifts are allowed.
+- `TauCeti.SchemeFoundations.Coherent.SchemeDualizing.test_projective_line` (computation): On P¹_k, O(-2)[1] is dualizing.
+
+Sources: STACKS-N29-0A87 — Definition 48.2.2.
+
+### Normalized local dualizing complex
+
+`SchemeAndStackFoundations:SF.2/normalized-dualizing` — definition
+
+For a Noetherian local ring (A,m,κ), a dualizing ω is normalized when RHom_A(κ,ω)≅κ[0]; equivalently Ext^i_A(κ,ω) vanishes for i≠0 and Ext^0 is one-dimensional over κ. Shifts are cohomological: H^i(K[r])=H^{i+r}(K).
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/affine-dualizing`.
+
+Proof outline:
+
+1. Fix the integer shift convention and use the derived residue-field test. Normalization is separate from the unnormalized dualizing predicate.
+
+API:
+
+- `TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.residue` (characterisation): RHom_A(κ,ω)≅κ[0].
+- `TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.finite_local` (compatibility): For finite local A→B, RHom_A(B,ω_A) is normalized over B.
+- `TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.shift_unique` (extensionality): Among shifts of one local dualizing complex, exactly one is normalized.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.test_field` (computation): κ[0] is normalized over κ.
+- `TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.test_dvr` (computation): A[1] is normalized for a regular DVR A.
+- `TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.test_wrong_shift` (non-example): For a regular DVR, A[0] is dualizing but not normalized.
+
+Sources: STACKS-N29-0AX1 — Lemma 47.16.1, finite local normalized-dualizing comparison.
+
+### Coherent Grothendieck duality
+
+`SchemeAndStackFoundations:key/coherent-duality` — construction
+
+For separated finite-type morphisms f:X→Y of Noetherian schemes over a fixed Noetherian base S, construct f!:D^+_qc(O_Y)→D^+_qc(O_X), coherently contravariant under composition. On proper f it is the restriction of the right adjoint of Rf*:D_qc(O_X)→D_qc(O_Y). This is coherent O-module duality, not étale-coefficient Verdier duality.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `mathlib:DerivedCategory`, `mathlib:AlgebraicGeometry.Scheme.Modules`.
+
+Proof outline:
+
+1. Construct the proper right adjoint and the open-immersion restriction, glue via compactifications and prove independence and pseudofunctor coherence.
+2. Nagata compactification, derived QCoh functoriality, existence of the adjoint and compactification independence remain explicit leaves. Do not create a reverse coarse dependency on an étale six-operations suffix.
+
+API:
+
+- `TauCeti.SchemeFoundations.Coherent.CoherentDuality.comp` (functoriality): (g∘f)!≅f!g! with unit and associativity coherence.
+- `TauCeti.SchemeFoundations.Coherent.CoherentDuality.proper_adjunction` (universal-property): For proper f, Hom(Rf*K,M)≅Hom(K,f!M) in the stated derived categories.
+- `TauCeti.SchemeFoundations.Coherent.CoherentDuality.finite` (compatibility): For finite f, f*f!M≅RHom_Y(f*O_X,M).
+- `TauCeti.SchemeFoundations.Coherent.CoherentDuality.regular_immersion` (compatibility): For a Koszul-regular immersion of codimension c, f!M≅Lf*M⊗det(N_f)[-c].
+- `TauCeti.SchemeFoundations.Coherent.CoherentDuality.smooth_proper` (compatibility): For smooth proper f of relative dimension d, f!M≅Lf*M⊗Ω^d_{X/Y}[d].
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Coherent.CoherentDuality.test_projective_line` (computation): For f:P¹_k→Spec(k), f!k≅O(-2)[1].
+- `TauCeti.SchemeFoundations.Coherent.CoherentDuality.test_closed_prime` (computation): For Spec(F_p)→Spec(Z), f!Z≅F_p[-1], with H^1=F_p.
+- `TauCeti.SchemeFoundations.Coherent.CoherentDuality.test_underived_hom` (non-example): Hom_Z(F_p,Z)=0 does not compute the preceding derived shriek complex.
+- `TauCeti.SchemeFoundations.Coherent.CoherentDuality.test_finite_flat` (compatibility): For finite flat A→B, f!A=Hom_A(B,A) in degree zero.
+- `TauCeti.SchemeFoundations.Coherent.CoherentDuality.test_dual_numbers_trace` (non-example): For char(k)=0 and B=k[ε]/ε², the algebra trace pairing is degenerate; the finite-duality module is not made isomorphic to B by that pairing.
+
+Sources: STACKS-N29-0AU3 — 48.19 properties (1)–(9) and cited proof leaves.
+
+### Affine-cover recognition of dualizing complexes
+
+`SchemeAndStackFoundations:SF.2/affine-cover` — lemma
+
+The every-affine definition of a dualizing complex is equivalent to checking one affine open cover.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/scheme-dualizing`.
+
+Proof outline:
+
+1. Refine an affine open by a finite standard-open cover, identify localized derived complexes and apply local recognition for ring dualizing complexes. Cited 36.3.5 and 47.15.6–7 are explicit leaves.
+
+Sources: STACKS-N29-0A86 — Lemma 48.2.1, complete displayed statement/proof and comments.
+
+### Coherent biduality
+
+`SchemeAndStackFoundations:SF.2/biduality` — lemma
+
+If X is Noetherian with dualizing ω, RHom_X(-,ω) is an involution of D_Coh(X), interchanges D^+_Coh and D^-_Coh, and preserves D^b_Coh.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/scheme-dualizing`.
+
+Proof outline:
+
+1. Use affine ring biduality and descent of the evaluation morphism; do not deduce this from field dimensions alone.
+
+Sources: STACKS-N29-0AU3 — 48.19 properties (1)–(9) and cited proof leaves.
+
+### Composition of coherent upper shriek
+
+`SchemeAndStackFoundations:SF.2/composition` — lemma
+
+For composable morphisms in FTS_S, (g∘f)!≅f!g!, with the pseudofunctor associativity and unit constraints.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:key/coherent-duality`.
+
+Proof outline:
+
+1. Use compactification independence and the proper/open comparison; the composition coherence proof is a named gap.
+
+Sources: STACKS-N29-0AU3 — 48.19 properties (1)–(9) and cited proof leaves.
+
+### Proper coherent adjunction
+
+`SchemeAndStackFoundations:SF.2/proper-adjunction` — lemma
+
+For proper f in FTS_S, f! on D^+_qc is the restricted right adjoint of Rf* on D_qc.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:key/coherent-duality`.
+
+Proof outline:
+
+1. Restrict the constructed proper adjoint; preserve the bounded-below domain and the unbounded pushforward distinction.
+
+Sources: STACKS-N29-0AU3 — 48.19 properties (1)–(9) and cited proof leaves.
+
+### Trace is transitive for proper morphisms
+
+`SchemeAndStackFoundations:SF.2/trace-comp` — lemma
+
+For proper X→Y→Z, the counit for the composite agrees with Rg* applied to the f-counit followed by the g-counit, under canonical composition identifications.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/trace`, `SchemeAndStackFoundations:SF.2/composition`.
+
+Proof outline:
+
+1. Apply uniqueness of the counit under composite adjunction, not a dimension count.
+
+Sources: STACKS-N29-0AU3 — 48.19 properties (1)–(9) and cited proof leaves.
+
+### Finite coherent duality formula
+
+`SchemeAndStackFoundations:SF.2/finite-formula` — lemma
+
+For finite f:X→Y in FTS_S, f*f!M≅RHom_O_Y(f*O_X,M), for M in D^+_qc(Y).
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:key/coherent-duality`.
+
+Proof outline:
+
+1. Reduce affine-locally to the finite ring derived Hom adjunction and glue.
+
+Sources: STACKS-N29-0AU3 — 48.19 properties (1)–(9) and cited proof leaves.
+
+### Closed-immersion shriek formula
+
+`SchemeAndStackFoundations:SF.2/closed-formula` — lemma
+
+For a closed immersion f:X→Y in FTS_S, f!M is RHom_O_Y(O_X,M) with its O_X-module structure.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:key/coherent-duality`, `SchemeAndStackFoundations:SF.2/finite-formula`.
+
+Proof outline:
+
+1. Identify the finite pushforward module action and recover the complex on X.
+
+Sources: STACKS-N29-0AU3 — 48.19 properties (1)–(9) and cited proof leaves.
+
+### Effective Cartier divisor shriek formula
+
+`SchemeAndStackFoundations:SF.2/cartier-formula` — lemma
+
+For an effective Cartier divisor f:X→Y, f!M≅Lf*M⊗f*O_Y(X)[-1].
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:key/coherent-duality`, `SchemeAndStackFoundations:SF.2/closed-formula`.
+
+Proof outline:
+
+1. Use the length-one local resolution and identify the normal line; retain its restriction to X and the negative shift.
+
+Sources: STACKS-N29-0AU3 — 48.19 properties (1)–(9) and cited proof leaves.
+
+### Koszul-regular immersion shriek formula
+
+`SchemeAndStackFoundations:SF.2/regular-immersion` — lemma
+
+For a Koszul-regular immersion f of codimension c in FTS_S, f!M≅Lf*M⊗∧^c N_f[-c].
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:key/coherent-duality`, `SchemeAndStackFoundations:SF.2/closed-formula`.
+
+Proof outline:
+
+1. Use the finite Koszul resolution and glue the determinant comparison. Full Koszul infrastructure is an external owner/carrier gap, not duplicated here.
+
+Sources: STACKS-N29-0AU3 — 48.19 properties (1)–(9) and cited proof leaves.
+
+### Smooth proper shriek formula
+
+`SchemeAndStackFoundations:SF.2/smooth-proper` — lemma
+
+For smooth proper f of constant relative dimension d in FTS_S, f!M≅Lf*M⊗Ω^d_{X/Y}[d].
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:key/coherent-duality`.
+
+Proof outline:
+
+1. Combine the relative dualizing comparison with the proper adjunction; the differential determinant and projection-formula leaves remain open.
+
+Sources: STACKS-N29-0AU3 — 48.19 properties (1)–(9) and cited proof leaves.
+
+### Upper shriek preserves dualizing complexes
+
+`SchemeAndStackFoundations:SF.2/preserves-dualizing` — lemma
+
+If f is in FTS_S and ω_Y is dualizing, then f!ω_Y is dualizing on X.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:key/coherent-duality`, `SchemeAndStackFoundations:SF.2/scheme-dualizing`.
+
+Proof outline:
+
+1. Locally factor through an affine-space projection and a closed immersion; apply the respective ring dualizing comparison leaves.
+
+Sources: STACKS-N29-0AA3 — Lemma 48.17.7, complete displayed statement/proof.
+
+### Proper coherent Serre duality
+
+`SchemeAndStackFoundations:SF.2/serre-proper` — theorem
+
+For proper X/k, put ω_X=f!k. For K in D_qc(X), Ext^i_X(K,ω_X)≅Hom_k(H^-i(X,K),k), naturally and compatibly with shifts and distinguished triangles.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:key/coherent-duality`, `SchemeAndStackFoundations:SF.2/proper-adjunction`.
+
+Proof outline:
+
+1. Use RΓ⊣f! and the derived category of k-vector spaces; existence/identification of ω and the derived global-sections comparison are explicit leaves.
+
+Sources: STACKS-N29-0FVV — Lemma 48.27.1, especially (2), (5), (7), and displayed proof.
+
+### Canonical module support and S2 property
+
+`SchemeAndStackFoundations:SF.2/canonical-module` — lemma
+
+For proper X/k of dimension d and ω_X=f!k, H^-d(ω_X) is coherent, satisfies S2, and its support is the union of the dimension-d irreducible components.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/serre-proper`.
+
+Proof outline:
+
+1. Import the dualizing cohomology depth/support theorem 48.22.4 as a leaf. Do not assume X Cohen–Macaulay or collapse all cohomology to this module.
+
+Sources: STACKS-N29-0FVV — Lemma 48.27.1, especially (2), (5), (7), and displayed proof.
+
+### Proper coherent trace
+
+`SchemeAndStackFoundations:SF.2/trace` — construction
+
+For proper f in FTS_S and M in D^+_qc(Y), the coherent trace is the counit Rf*f!M→M of the proper adjunction. It is not the ordinary algebra trace, nor an asserted isomorphism for every lci fundamental class.
+
+Hypotheses: Use native derived O-module categories and cohomological shifts H^i(K[r])=H^{i+r}(K). Rings are Noetherian; scheme and morphism hypotheses and boundedness are those in the individual statement.
+
+Prerequisites: `SchemeAndStackFoundations:key/coherent-duality`, `SchemeAndStackFoundations:SF.2/proper-adjunction`.
+
+Proof outline:
+
+1. Take the actual counit of the proper adjunction and prove its naturality and composite compatibility.
+
+API:
+
+- `TauCeti.SchemeFoundations.Coherent.CoherentTrace.natural` (functoriality): Trace commutes with morphisms M→N.
+- `TauCeti.SchemeFoundations.Coherent.CoherentTrace.comp` (compatibility): Proper composite traces agree through the shriek/pushforward composition isomorphisms.
+- `TauCeti.SchemeFoundations.Coherent.CoherentTrace.finite` (simp): For finite affine A→B, the counit is derived evaluation at 1∈B.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Coherent.CoherentTrace.test_identity` (degenerate): The identity-map trace is the identity.
+- `TauCeti.SchemeFoundations.Coherent.CoherentTrace.test_finite_flat` (computation): For finite flat A→B, Hom_A(B,A)→A sends λ to λ(1).
+- `TauCeti.SchemeFoundations.Coherent.CoherentTrace.test_dual_numbers` (non-example): For B=k[ε]/ε² in characteristic zero, duality uses evaluation on Hom_k(B,k); it is not an invertible ordinary algebra-trace pairing.
+
+Sources: STACKS-N29-0AU3 — 48.19 properties (1)–(9) and cited proof leaves.
+
+### Semilinear equivariant sheaf
+
+`SchemeAndStackFoundations:SF.2/linearized-sheaf` — definition
+
+For a ringed space X with a left action of a discrete group Γ by ringed-space automorphisms, a Γ-equivariant O_X-module F is an O_X-module together with a lift Γ→Aut(X,F) over the given action. Equivalently give pullback-linearization isomorphisms satisfying the unit and composition cocycle, including the canonical pullback coherences. Γ may move X; ordinary Action(X.Modules,Γ) supplies only the fixed-base special case.
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `mathlib:AlgebraicGeometry.Scheme.Modules`, `mathlib:Action`.
+
+Proof outline:
+
+1. Construct the category of ringed-space/module pairs and its forgetful functor; take actions lifting the fixed base action.
+2. For schemes restrict this general carrier to the existing scheme O_X-modules. The semilinear pullback pseudofunctor and equivariant-category implementation are gaps.
+
+API:
+
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.forget` (coercion): Forget to the underlying O_X-module.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.transport` (data): A group element transports sections across its induced open-set automorphism, semilinearly over the transported scalar sections.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.hom_ext` (extensionality): Equivariant maps equal on underlying module-sheaf maps are equal.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.test_trivial_group` (degenerate): For Γ=1, the category is the ordinary O_X-module sheaf category.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.test_point` (compatibility): On a one-point ringed space with ring R and trivial ring action, objects are R-linear representations of Γ.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.test_moving_base` (non-example): Z acting on R by translations transports an open interval to a different interval; a fixed-base automorphism of one sheaf alone does not specify this action.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Enough injectives for equivariant sheaves
+
+`SchemeAndStackFoundations:SF.2/enough-injectives` — theorem
+
+The category of semilinear Γ-equivariant O_X-modules is abelian and has enough injectives for an arbitrary discrete Γ. The forgetful and coinduction adjunctions must be constructed, including sheafification and products; a finite-group hypothesis is not imposed.
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/linearized-sheaf`.
+
+Proof outline:
+
+1. Build kernels/cokernels with their induced semilinear action and coinduct injective ordinary sheaves using the product over Γ.
+2. Grothendieck Tohoku Proposition 5.1.1, cited by Appendix A, is an unread proof leaf; the theorem is not claimed established from the appendix assertion alone.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Invariant global-section functor
+
+`SchemeAndStackFoundations:SF.2/invariant-sections` — construction
+
+The left-exact functor Γ(X,-)^Γ from semilinear equivariant O_X-modules to abelian groups takes the invariant subgroup of ordinary global sections under their induced Γ-action. For moving bases the total open X is still invariant.
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/linearized-sheaf`.
+
+Proof outline:
+
+1. Use the lifted action to act on global sections and take fixed points; morphisms commute with that action.
+
+API:
+
+- `TauCeti.SchemeFoundations.Equivariant.InvariantSections.inclusion` (coercion): Include invariant sections into ordinary global sections.
+- `TauCeti.SchemeFoundations.Equivariant.InvariantSections.mem_iff` (characterisation): A section is invariant exactly when every γ fixes it under semilinear global transport.
+- `TauCeti.SchemeFoundations.Equivariant.InvariantSections.map` (functoriality): An equivariant sheaf map induces a map of invariant sections.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Equivariant.InvariantSections.test_trivial` (degenerate): For Γ=1, these are all global sections.
+- `TauCeti.SchemeFoundations.Equivariant.InvariantSections.test_sign` (computation): For C2 acting on Z by sign on a point, the invariant group is zero.
+- `TauCeti.SchemeFoundations.Equivariant.InvariantSections.test_trivial_action` (computation): For C2 acting trivially on Z on a point, the invariant group is Z.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Equivariant sheaf cohomology
+
+`SchemeAndStackFoundations:key/equivariant-sheaf-cohomology` — construction
+
+For a discrete group Γ acting on a ringed space X and semilinear equivariant sheaf F, H^n(X,Γ;F) is the n-th right derived functor of F↦Γ(X,F)^Γ in the equivariant abelian sheaf category. Derive the composite; do not define it as H^n(X,F)^Γ.
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/linearized-sheaf`, `SchemeAndStackFoundations:SF.2/invariant-sections`, `SchemeAndStackFoundations:SF.2/enough-injectives`.
+
+Proof outline:
+
+1. Resolve F by equivariant injectives and apply invariant global sections.
+2. Comparison with ordinary cohomology and group cohomology requires the forgetful/coinduction acyclicity and spectral-sequence leaves; no assumed spectral sequence is included as data.
+
+API:
+
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.h0` (compatibility): H^0(X,Γ;F)≅Γ(X,F)^Γ.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.trivial_group` (equivalence): For Γ=1, H^n agrees with ordinary O_X-module sheaf cohomology.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.point` (equivalence): On a point, it is group cohomology of the module of sections.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.map` (functoriality): Equivariant sheaf maps induce cohomology maps.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.spectral` (compatibility): H^p(Γ,H^q(X,F)) converges to H^{p+q}(X,Γ;F) once the named composite-functor acyclicity is proved.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.test_c2` (computation): For X a point and C2 acting trivially on Z, H^1=0 and H^2≅Z/2.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.test_trivial` (degenerate): For Γ=1 it recovers ordinary sheaf cohomology.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.test_wrong_invariants` (non-example): On a point ordinary H^2(point,Z)^C2=0, while equivariant H^2(point,C2;Z)≅Z/2.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.test_inverted_order` (compatibility): For finite Γ and Q-vector-space coefficients, invariants are exact and H^n(X,Γ;F)≅H^n(X,F)^Γ.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.test_translation` (computation): For constant Z on R with Z acting by translations, equivariant H^1≅Z whereas ordinary H^1(R,Z)=0.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Equivariant Ext groups
+
+`SchemeAndStackFoundations:SF.2/ext` — construction
+
+For semilinear Γ-equivariant O_X-modules F,G, Ext^n_{Γ,O_X}(F,G) derives G↦Hom_{Γ,O_X}(F,G) in the second variable of the equivariant abelian category.
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/linearized-sheaf`, `SchemeAndStackFoundations:SF.2/enough-injectives`.
+
+Proof outline:
+
+1. Use the equivariant category and its injective resolutions, retaining the O_X-module structure.
+
+API:
+
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantExt.h0` (compatibility): Ext^0 is equivariant Hom.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantExt.map_first` (functoriality): Ext is contravariant in F.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantExt.map_second` (functoriality): Ext is covariant in G.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantExt.test_trivial` (degenerate): Γ=1 gives ordinary O_X-module Ext.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantExt.test_point` (compatibility): On a point with ring Z it is Ext in the Z[Γ]-module category.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantExt.test_c2` (computation): For C2 acting trivially on Z, Ext^2_{C2,Z}(Z,Z)≅Z/2.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Equivariant cohomology with support
+
+`SchemeAndStackFoundations:SF.2/support` — construction
+
+For a Γ-stable closed subset D⊂X, H^n_D(X,Γ;F) derives the invariant sections supported in D. The support functor is the kernel of global restriction Γ(X,F)→Γ(X minus D,F); derive that left-exact functor, rather than taking invariants of ordinary supported cohomology.
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/linearized-sheaf`, `SchemeAndStackFoundations:SF.2/enough-injectives`, `SchemeAndStackFoundations:SF.2/invariant-sections`.
+
+Proof outline:
+
+1. Construct the kernel with its induced Γ-action, then derive its invariants using equivariant injectives.
+2. This is the equivariant refinement of the ordinary supported-cohomology supplier EDC.0, not a second étale six-operations construction. The precise ordinary support and open restriction comparison remains a recorded gap.
+
+API:
+
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.h0` (characterisation): H^0_D is the invariant subgroup of sections vanishing on the complement of D.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.closed_all` (simp): For D=X, supported cohomology equals equivariant global cohomology.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.closed_empty` (simp): For D=∅, it is zero in every degree.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.test_all_point` (computation): For X=D a point and C2 acting trivially on Z, H^2_D≅Z/2.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.test_empty` (degenerate): Empty support has zero cohomology.
+- `TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.test_unstable` (non-example): For Z translating R, the singleton {0} is not stable and is not accepted as equivariant support.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Equivariant maps are invariant maps
+
+`SchemeAndStackFoundations:SF.2/hom-invariants` — lemma
+
+Hom_{Γ,O_X}(F,G) is the invariant subgroup of Hom_{O_X}(F,G) under conjugation of linearizations.
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/linearized-sheaf`.
+
+Proof outline:
+
+1. Unfold equivariance and the induced conjugation action; preserve semilinear pullback identifications.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Degree-zero equivariant cohomology
+
+`SchemeAndStackFoundations:SF.2/degree-zero` — lemma
+
+H^0(X,Γ;F)≅Γ(X,F)^Γ naturally.
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:key/equivariant-sheaf-cohomology`, `SchemeAndStackFoundations:SF.2/invariant-sections`.
+
+Proof outline:
+
+1. Use the left-exact zeroth-derived comparison.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Trivial-group cohomology comparison
+
+`SchemeAndStackFoundations:SF.2/ordinary-comparison` — lemma
+
+For Γ=1, H^n(X,1;F) is naturally isomorphic to ordinary sheaf cohomology.
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:key/equivariant-sheaf-cohomology`.
+
+Proof outline:
+
+1. Identify the equivariant category with ordinary sheaves and transport the derived functor; the categorical comparison is a gap.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Point cohomology comparison
+
+`SchemeAndStackFoundations:SF.2/point-comparison` — lemma
+
+For a one-point space, equivariant cohomology agrees with group cohomology of its section module.
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:key/equivariant-sheaf-cohomology`.
+
+Proof outline:
+
+1. Identify sheaves on a point with modules and compare derived invariants with native group cohomology; the native resolution comparison is a gap.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Acyclicity for the composite section functor
+
+`SchemeAndStackFoundations:SF.2/invariants-acyclic` — lemma
+
+For an injective equivariant sheaf I, its global-section Γ-module is acyclic for invariants; verify this through the exact adjoint to the section functor.
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:SF.2/enough-injectives`, `SchemeAndStackFoundations:SF.2/invariant-sections`.
+
+Proof outline:
+
+1. Construct the constant/free equivariant sheaf left adjoint and prove exactness, then show sections preserve injectives. This Tohoku/composite-functor proof leaf is explicitly open.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Equivariant sheaf cohomology spectral sequence
+
+`SchemeAndStackFoundations:SF.2/spectral-sequence` — theorem
+
+For arbitrary discrete Γ, there is a natural first-quadrant spectral sequence H^p(Γ,H^q(X,F))⇒H^{p+q}(X,Γ;F).
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:key/equivariant-sheaf-cohomology`, `SchemeAndStackFoundations:SF.2/invariants-acyclic`.
+
+Proof outline:
+
+1. Apply the composite-functor spectral sequence after the acyclicity lemma; identify the ordinary derived sections and Γ-action. Convergence and the forgetful/coinduction identification are explicit leaves.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Equivariant localization sequence
+
+`SchemeAndStackFoundations:SF.2/localization` — lemma
+
+For a Γ-stable closed D and invariant complement U, the natural supported, global and restricted equivariant cohomology maps give a long exact sequence, with boundary H^n(U,Γ;F|_U)→H^{n+1}_D(X,Γ;F).
+
+Hypotheses: Γ is a discrete, possibly infinite group acting by ringed-space automorphisms. Sheaves are O_X-modules with semilinear action over that base action; support subsets are Γ-stable.
+
+Prerequisites: `SchemeAndStackFoundations:key/equivariant-sheaf-cohomology`, `SchemeAndStackFoundations:SF.2/support`.
+
+Proof outline:
+
+1. Use equivariant injectives, restriction/extension-by-zero adjunction and the short exact supported-section complex. These ordinary support exactness and equivariant acyclicity leaves are recorded.
+
+Sources: KINGS-SPRANG-N29-A — arXiv v4, Appendix A.1, Definitions A.1–A.3 and equation (A.1.1), pp.79–80.
+
+### Topological extension with a discrete kernel
+
+`SchemeAndStackFoundations:SF.1/topological-extension` — definition
+
+For discrete group N and topological groups E,Γ, refine the native GroupExtension N E Γ by requiring the kernel inclusion to be a topological embedding and the quotient map to be continuous and a quotient map. Algebraic-kernel and Galois conditions are separate. The kernel topology is the discrete topology, not the analytic or Zariski topology.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `mathlib:GroupExtension`, `mathlib:Topology.IsEmbedding`, `mathlib:Topology.IsQuotientMap`.
+
+Proof outline:
+
+1. Retain the native injective inclusion, kernel-range equality and surjective quotient. Add only the stated topological conditions.
+
+API:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.TopologicalExtension.kernel_iff` (characterisation): q(e)=1 iff e=i(n) for some n.
+- `TauCeti.SchemeFoundations.GaloisGerbs.TopologicalExtension.inl_project` (simp): q(i(n))=1.
+- `TauCeti.SchemeFoundations.GaloisGerbs.TopologicalExtension.continuous_projection` (projection): q is continuous and has the quotient topology.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.TopologicalExtension.test_kernel` (characterisation): For the neutral extension N⋊Γ, an element lies in the kernel precisely when its Γ-coordinate is one.
+- `TauCeti.SchemeFoundations.GaloisGerbs.TopologicalExtension.test_unit` (degenerate): The trivial-kernel identity extension Γ→Γ has the given quotient topology.
+- `TauCeti.SchemeFoundations.GaloisGerbs.TopologicalExtension.test_wrong_topology` (non-example): Giving the embedded kernel a strictly coarser topology than its discrete subspace topology fails the embedding requirement.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Open-subgroup splitting chart
+
+`SchemeAndStackFoundations:SF.1/local-splitting-chart` — definition
+
+For a topological extension T, a local splitting chart records an open subgroup U⊂Γ, a continuous homomorphism s:U→E with q∘s the inclusion U→Γ, and a homeomorphism N×U≅q⁻¹(U) sending (n,u) to i(n)s(u). With the conjugation action transported along s, this is the semidirect-product group chart. A global splitting is not required.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.1/topological-extension`, `mathlib:Homeomorph`.
+
+Proof outline:
+
+1. The homeomorphism is actual chart data with an evaluation formula, not a proposition asserting a chart exists.
+2. Derive compatibility with the semidirect multiplication from the group-homomorphic section and native kernel conjugation.
+
+API:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.section_one` (simp): s(1)=1.
+- `TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.section_mul` (structure): s(uv)=s(u)s(v).
+- `TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.chart_value` (simp): The chart evaluates (n,u) to i(n)s(u).
+
+Tests:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.test_neutral` (computation): The neutral extension has U=Γ and s(γ)=(1,γ), with its product chart.
+- `TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.test_c4` (non-example): For C4→C2, the trivial open subgroup has a chart even though no homomorphic section exists on all C2.
+- `TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.test_unit_coordinate` (computation): The chart sends (1,1) to 1, and (n,1) to i(n).
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Kernel recognition in a topological extension
+
+`SchemeAndStackFoundations:SF.1/kernel-iff` — lemma
+
+For T and e, q(e)=1 iff there exists n∈N with i(n)=e.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.1/topological-extension`.
+
+Proof outline:
+
+1. Use the exact native range/kernel equality; this is the API of the refined carrier, not a second group-extension construction.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Projection of a kernel point
+
+`SchemeAndStackFoundations:SF.1/inl-project` — lemma
+
+For T and n∈N, q(i(n))=1.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.1/topological-extension`, `mathlib:GroupExtension.rightHom_inl`.
+
+Proof outline:
+
+1. Apply the native group-extension projection-of-inclusion lemma.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Unit of a local section
+
+`SchemeAndStackFoundations:SF.1/section-one` — lemma
+
+For a local splitting chart C, s(1)=1.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.1/local-splitting-chart`.
+
+Proof outline:
+
+1. Use the homomorphism field of the witnessed local section.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Multiplication of a local section
+
+`SchemeAndStackFoundations:SF.1/section-mul` — lemma
+
+For a local splitting chart C and u,v∈U, s(uv)=s(u)s(v).
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.1/local-splitting-chart`.
+
+Proof outline:
+
+1. Use the homomorphism field of the witnessed local section.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Evaluate the witnessed splitting chart
+
+`SchemeAndStackFoundations:SF.1/chart-value` — lemma
+
+For C and (n,u)∈N×U, the underlying E-point of C.chart(n,u) is i(n)s(u).
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.1/local-splitting-chart`.
+
+Proof outline:
+
+1. Project the defining chart formula; its group compatibility is a separate algebraic calculation.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Galois gerbs
+
+`SchemeAndStackFoundations:key/galois-gerbs` — definition
+
+Fix a characteristic-zero field k, a Galois extension k′/k inside an algebraic closure, and Γ=Gal(k′/k) with its Krull topology. A gerb consists of a linear algebraic group H/k′ and a topological extension 1→H(k′)→E→Γ→1 with discrete kernel. Every lift of σ acts on the kernel through an algebraic σ-semilinear automorphism of H. Over Gal(k′/K) for some finite K/k inside k′, there is a local splitting chart whose algebraic conjugation action is effective descent to K. None of these conditions forces a global splitting.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.1/topological-extension`, `SchemeAndStackFoundations:SF.1/local-splitting-chart`.
+
+Proof outline:
+
+1. Use the native group extension for kernel points and the existing scheme group objects for H.
+2. Supply algebraic semilinear isomorphisms and their agreement with conjugation on points; local effective descent is actual algebraic descent data, not a continuity-only substitute.
+3. Linear algebraic kernel, Krull-topology, semilinear base change and effective-descent implementation gaps are retained.
+
+API:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.kernel` (data): The kernel is H/k′ with its discrete point group.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.local_chart` (projection): A finite K/k and a continuous splitting over Gal(k′/K) with effective algebraic K-descent and a topological chart are part of the data.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.conjugation` (compatibility): Conjugation by a lift of σ agrees on points with an algebraic σ-semilinear automorphism.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.neutral` (constructor): A k-defined H has the neutral semidirect-product gerb.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.base_extension` (functoriality): Enlarging k′ uses Galois pullback and algebraic-kernel point pushout.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.test_neutral` (computation): For H/k the neutral gerb is H(k′)⋊Gal(k′/k) with its original algebraic descent.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.test_c4` (non-example): The C4 extension of Gal(C/R)=C2 by μ2(C) satisfies local splitting over C but has no global splitting.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.test_alg_closed` (degenerate): For k′=k algebraically closed the Galois quotient is trivial.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.test_topology` (non-example): The discrete H(k′) topology is not replaced by the analytic point topology, even for C-points.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Morphisms of Galois gerbs
+
+`SchemeAndStackFoundations:SF.1/morphism` — definition
+
+A morphism E→E′ of k′/k-gerbs is a continuous group homomorphism over id_Γ together with an algebraic k′-group homomorphism H→H′ whose point map agrees with the extension map on the kernel. Continuity alone on the discrete point kernels is not algebraicity.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:key/galois-gerbs`.
+
+Proof outline:
+
+1. Record the two actual maps and their kernel/quotient commuting squares; composition uses their ordinary and algebraic compositions.
+
+API:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.identity` (constructor): Identity extension and algebraic maps define the identity morphism.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.comp` (functoriality): Compose both maps; the two compatibility squares and continuity are preserved.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.kernel_points` (compatibility): The restriction to H(k′) is the point map of the recorded algebraic homomorphism.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.test_power` (computation): Over algebraically closed k, G_m kernel endomorphisms z↦z^n for n∈Z are algebraic morphisms.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.test_identity` (degenerate): The identity morphism has identity kernel and quotient maps.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.test_conjugation` (non-example): For the neutral G_m gerb over C/R, complex conjugation on the discrete C× kernel is continuous but is not a C-algebraic kernel map.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Kernel conjugacy of gerb morphisms
+
+`SchemeAndStackFoundations:SF.1/conjugacy` — definition
+
+For morphisms f1,f2:E→E′, kernel conjugacy means there is h∈H′(k′) with Int(i′(h))∘f1=f2. Retain the conjugators as data/sets when needed; do not identify conjugate morphisms before the application asks for a quotient.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.1/morphism`.
+
+Proof outline:
+
+1. Use conjugation in the actual target extension, restricted to the algebraic kernel.
+
+API:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.refl` (relation): The identity kernel point conjugates a morphism to itself.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.symm` (relation): An inverse kernel point reverses a conjugacy.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.trans` (relation): The product of two conjugators yields the composite conjugacy.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.test_identity` (degenerate): Every morphism is conjugate to itself by 1.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.test_trivial_kernel` (computation): With trivial target kernel, conjugacy is equality of morphisms.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.test_not_any_lift` (non-example): A target element projecting nontrivially to Γ is not admitted as a kernel conjugator.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Neutral Galois gerb
+
+`SchemeAndStackFoundations:SF.1/neutral` — construction
+
+For a linear algebraic group H defined over k, construct the k′/k-gerb H(k′)⋊Gal(k′/k), using the algebraic Galois action and the discrete point-kernel/product topology. The local splitting is global in this special example, but not required for general gerbs.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:key/galois-gerbs`, `mathlib:SemidirectProduct.toGroupExtension`.
+
+Proof outline:
+
+1. Import the native semidirect group-extension carrier and give it the product topology.
+2. Prove continuity of the Galois action on each discrete point by descent to a finite field of definition; then identify the algebraic k-descent.
+
+API:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.inclusion` (constructor): h↦(h,1) is the kernel inclusion.
+- `TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.projection` (projection): (h,σ)↦σ is the quotient.
+- `TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.section` (constructor): σ↦(1,σ) is the continuous global section.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.test_trivial` (degenerate): For H=1, the extension is Γ itself.
+- `TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.test_gm` (computation): For H=G_m over R and k′=C, the action is complex conjugation on C×.
+- `TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.test_point_stabilizers` (characterisation): Every algebraic kernel point is fixed by an open Galois subgroup, which makes the action on the discrete kernel continuous.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Conjugator scheme of gerb morphisms
+
+`SchemeAndStackFoundations:SF.1/conjugator-scheme` — construction
+
+For f1,f2:E→E′, construct the k-scheme Isom(f1,f2) whose R-points are h∈H′(k′⊗_k R) satisfying Int(h)f1_R=f2_R after the specified kernel-point pushouts. For f1=f2 it is the descended automorphism k-group I_f. Scheme representability and descent are proof obligations, not an arbitrary point-set quotient.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.1/morphism`, `SchemeAndStackFoundations:SF.1/conjugacy`.
+
+Proof outline:
+
+1. Over k′ construct the algebraic centralizer/transporter constraints, then use semilinear conjugation to descend.
+2. Kernel pushout, transporter representability and effective descent are named gaps; the point formula alone is not called a represented scheme.
+
+API:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.points` (characterisation): R-points are exactly the algebraic-kernel conjugators satisfying the full extension equation.
+- `TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.automorphisms` (structure): Isom(f,f) is the descended automorphism group I_f.
+- `TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.neutral_basechange` (compatibility): For a neutral target, base change I_f to k′ is the centralizer of the algebraic kernel image.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.test_trivial` (degenerate): If the target kernel is trivial and f1=f2, the conjugator scheme is the trivial group.
+- `TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.test_gm` (computation): For the identity map of the neutral G_m gerb, I_f=G_m over k.
+- `TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.test_kernel` (non-example): A conjugator is a kernel-algebra point; arbitrary target-extension elements are not its R-points.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Projective systems of Galois gerbs
+
+`SchemeAndStackFoundations:SF.1/pro-gerb` — definition
+
+A pro-gerb is a compatible projective system of finite-stage k′/k-gerbs with continuous extension transitions and algebraic kernel transitions. Pro-morphisms are compatible finite-stage maps. Stagewise conjugacy means each stage admits a conjugator; it does not assert compatible conjugators or one element in an inverse-limit kernel without an extra existence theorem.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:key/galois-gerbs`, `SchemeAndStackFoundations:SF.1/morphism`, `SchemeAndStackFoundations:SF.1/conjugacy`.
+
+Proof outline:
+
+1. Use diagrams and their projective limits of topological groups, keeping the finite-stage algebraic kernel data.
+2. Record the system-level topology and algebraic pro-kernel point comparison as gaps; do not replace a rational-character protorus by a finite-type torus.
+
+API:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.stage` (projection): Every finite stage is a gerb with the same Galois quotient and its own algebraic kernel.
+- `TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.transition` (functoriality): Transition maps are gerb morphisms satisfying the projective-system coherence.
+- `TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.stagewise_conjugate` (characterisation): Conjugacy of pro-morphisms is the source’s stagewise relation, with no unproved global-conjugator upgrade.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.test_constant` (degenerate): A constant system recovers the original gerb and its morphisms.
+- `TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.test_kottwitz` (compatibility): The Kottwitz protorus has rational character group Q through finite stages (1/n)Z; this is a required HKW22 consumer test, not a freshly read theorem here.
+- `TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.test_wrong_global_conjugacy` (non-example): Stagewise nonempty conjugator sets alone do not supply a compatible inverse-limit conjugator.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Neutral-target automorphism group comparison
+
+`SchemeAndStackFoundations:SF.1/centralizer` — lemma
+
+For f:E′→G_G into the neutral gerb of G/k, the base change of I_f to k′ is the algebraic centralizer of f_alg(H′) in G_{k′}. The descended k-form is defined by conjugation through lifts of Γ.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.1/conjugator-scheme`, `SchemeAndStackFoundations:SF.1/neutral`.
+
+Proof outline:
+
+1. Follow Kisin 3.1.2(1): two lifts differ by a source kernel point, whose image centralizes the algebraic centralizer; this makes the semilinear descent action independent of the lift.
+2. Centralizer representability and effective descent remain explicit leaves; the selected proof itself was read.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Fixed-kernel morphisms and continuous cocycles
+
+`SchemeAndStackFoundations:SF.1/cocycle` — lemma
+
+Fix f:E′→G_G with neutral target. Morphisms f′ with the same algebraic kernel map correspond to continuous 1-cocycles of Gal(k′/k) in I_f(k′), and are conjugate to f exactly when the associated H¹ class is trivial.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.1/morphism`, `SchemeAndStackFoundations:SF.1/neutral`, `SchemeAndStackFoundations:SF.1/centralizer`, `SchemeAndStackFoundations:SF.1/conjugacy`.
+
+Proof outline:
+
+1. Follow Kisin 3.1.2(2): f′(lift σ)=c_σ f(lift σ), use equality on kernel points to show c_σ centralizes the image, and compute the cocycle and coboundary formulas.
+2. Continuity, section independence and algebraic descent of the centralizer are retained proof leaves, not replaced by generic group-extension splitting conjugacy.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+### Enlarging a Galois splitting field
+
+`SchemeAndStackFoundations:SF.1/splitting-field-extension` — construction
+
+For k′⊂k″ over k, transport a k′/k-gerb by pullback along Gal(k″/k)→Gal(k′/k) and pushout H(k′)→H(k″), preserving the algebraic kernel maps, semilinear conjugation and local effective-descent chart. This changes both quotient and kernel, not just one.
+
+Hypotheses: For the topological prefix use groups with the stated topologies and a discrete kernel. Algebraic gerbs additionally use a characteristic-zero field and a Galois extension with its Krull topology, linear algebraic kernels and effective algebraic local descent.
+
+Prerequisites: `SchemeAndStackFoundations:key/galois-gerbs`, `SchemeAndStackFoundations:SF.1/morphism`.
+
+Proof outline:
+
+1. Perform Galois pullback first, then the algebraic-kernel point pushout and its topology; check local charts after field extension.
+2. The topological nonabelian pushout and algebraic/point comparison are explicit construction gaps.
+
+API:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.kernel` (data): The transported algebraic kernel is H_{k″}.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.projection` (projection): The quotient is Gal(k″/k).
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.neutral` (compatibility): Neutral gerbs transport to the neutral gerb of the same k-defined algebraic group.
+
+Tests:
+
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.test_identity` (degenerate): For k″=k′ it recovers the original gerb up to its canonical isomorphism.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.test_neutral` (compatibility): A globally split neutral gerb remains neutral.
+- `TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.test_kernel_changes` (non-example): For G_m and R⊂C, a transport that leaves kernel points equal to R× does not produce the C× kernel of the transported gerb.
+
+Sources: KISIN-N29-31 — author 99-page PDF, §3.1.1–3.1.2, pp.34–36.
+
+## Inherited definitive plan and provenance
+
+The following incoming document is preserved verbatim. Its status statements describe earlier passes.
+
 Current scope: this partial plan retains the incoming affine henselization and quotient work and adds the concrete excellence and algebraic-space predicates below. SF.0 and SF.1 are partial; SF.2–SF.6 are not yet planned. All implementation statuses are unchecked. The remaining-work section below supersedes older remaining-work summaries.
 
 # Image-ideal quotient tower coherence

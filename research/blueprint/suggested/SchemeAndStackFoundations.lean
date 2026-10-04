@@ -13,7 +13,6 @@ import Mathlib.CategoryTheory.Sites.Sheaf
 import Mathlib.Topology.Sheaves.LocallySurjective
 import Mathlib.CategoryTheory.Sites.LeftExact
 import Mathlib.Algebra.Category.Ring.FilteredColimits
-
 import Mathlib.AlgebraicGeometry.IdealSheaf.Functorial
 import Mathlib.LinearAlgebra.TensorProduct.Quotient
 import Mathlib.RingTheory.Ideal.Colon
@@ -21,15 +20,7 @@ import Mathlib.RingTheory.Flat.Equalizer
 import Mathlib.LinearAlgebra.TensorProduct.Pi
 import Mathlib.RingTheory.Ideal.Maps
 import Mathlib.RingTheory.Finiteness.Basic
-/-
-This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
-These statements suggest Lean forms so contributors and reviewers converge on names and
-signatures. This is a partial checkpoint; every implementation is unchecked.
-The current elaboration receipt is in the handoff. Open source-proof and baseline adapters
-are listed in the packet; admitted signatures certify no implementation.
--/
 import Mathlib.Algebra.Category.CommAlgCat.FiniteType
-import Mathlib.Algebra.Category.Ring.FilteredColimits
 import Mathlib.CategoryTheory.Limits.ConcreteCategory.Basic
 import Mathlib.CategoryTheory.Limits.Constructions.Over.Connected
 import Mathlib.CategoryTheory.Filtered.Connected
@@ -46,6 +37,18 @@ import Mathlib.RingTheory.LocalRing.Basic
 import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.RingTheory.TensorProduct.Quotient
 import Mathlib.Data.ZMod.Basic
+import Mathlib.GroupTheory.GroupExtension.Basic
+import Mathlib.Topology.Algebra.Group.Basic
+import Mathlib.Topology.Homeomorph.Defs
+import Mathlib.Algebra.Azumaya.Matrix
+
+/-
+This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
+These statements suggest Lean forms so contributors and reviewers converge on names and
+signatures. This is a partial checkpoint; every implementation is unchecked.
+The current elaboration receipt is in the handoff. Open source-proof and baseline adapters
+are listed in the packet; admitted signatures certify no implementation.
+-/
 
 open CategoryTheory CategoryTheory.Limits
 open scoped TensorProduct
@@ -2845,3 +2848,306 @@ example (k : Type u) [Field k] :
 example (X : Scheme.{u}) : IsAlgebraicSpace (yoneda.obj X) := by sorry
 
 end TauCeti.SchemeFoundations.Spaces
+
+open Topology
+universe gerbU gerbV gerbW
+namespace TauCeti.SchemeFoundations.GaloisGerbs
+variable (N : Type gerbU) (E : Type gerbV) (G : Type gerbW)
+variable [Group N] [Group E] [Group G]
+variable [TopologicalSpace N] [TopologicalSpace E] [TopologicalSpace G]
+variable [IsTopologicalGroup E] [IsTopologicalGroup G] [DiscreteTopology N]
+/-- Topological extension prefix only: the algebraic kernel and Galois quotient are
+specified separately in the definitive roadmap. -/
+structure TopologicalExtension [IsTopologicalGroup E] [IsTopologicalGroup G]
+    [DiscreteTopology N] extends GroupExtension N E G where
+  inl_embedding : Topology.IsEmbedding toGroupExtension.inl
+  rightHom_continuous : Continuous toGroupExtension.rightHom
+  rightHom_quotient : Topology.IsQuotientMap toGroupExtension.rightHom
+variable {N E G}
+namespace TopologicalExtension
+theorem kernel_iff (T : TopologicalExtension N E G) (e : E) :
+    T.rightHom e = 1 ↔ ∃ n : N, T.inl n = e := by
+  rw [← MonoidHom.mem_ker, ← T.range_inl_eq_ker_rightHom]
+  rfl
+theorem inl_project (T : TopologicalExtension N E G) (n : N) :
+    T.rightHom (T.inl n) = 1 := T.toGroupExtension.rightHom_inl n
+theorem continuous_projection (T : TopologicalExtension N E G) :
+    Continuous T.rightHom ∧ Topology.IsQuotientMap T.rightHom :=
+  ⟨T.rightHom_continuous, T.rightHom_quotient⟩
+end TopologicalExtension
+/-- A witnessed topological chart, not a claim that the whole extension splits. -/
+structure LocalSplitChart (T : TopologicalExtension N E G) where
+  subgroup : Subgroup G
+  subgroup_open : IsOpen (subgroup : Set G)
+  sectionHom : subgroup →* E
+  section_continuous : Continuous sectionHom
+  project_section : ∀ g : subgroup, T.rightHom (sectionHom g) = (g : G)
+  chart : (N × subgroup) ≃ₜ {e : E // T.rightHom e ∈ subgroup}
+  chart_formula : ∀ n g, (chart (n,g)).val = T.inl n * sectionHom g
+namespace LocalSplitChart
+theorem section_one (T : TopologicalExtension N E G) (C : LocalSplitChart T) :
+    C.sectionHom 1 = 1 := C.sectionHom.map_one
+theorem section_mul (T : TopologicalExtension N E G) (C : LocalSplitChart T)
+    (g h : C.subgroup) : C.sectionHom (g*h) = C.sectionHom g * C.sectionHom h :=
+  C.sectionHom.map_mul g h
+theorem chart_value (T : TopologicalExtension N E G) (C : LocalSplitChart T)
+    (n : N) (g : C.subgroup) : (C.chart (n,g)).val = T.inl n * C.sectionHom g :=
+  C.chart_formula n g
+end LocalSplitChart
+example (T : TopologicalExtension N E G) (n : N) :
+    T.rightHom (T.inl n) = 1 := TopologicalExtension.inl_project T n
+example (T : TopologicalExtension N E G) (C : LocalSplitChart T) :
+    C.sectionHom 1 = 1 := LocalSplitChart.section_one T C
+example (R : Type*) [CommRing R] : IsAzumaya R (Matrix (Fin 2) (Fin 2) R) :=
+  IsAzumaya.matrix R (Fin 2)
+#print axioms TopologicalExtension.kernel_iff
+#print axioms TopologicalExtension.inl_project
+#print axioms TopologicalExtension.continuous_projection
+#print axioms TopologicalExtension
+#print axioms LocalSplitChart
+#print axioms LocalSplitChart.section_one
+#print axioms LocalSplitChart.section_mul
+#print axioms LocalSplitChart.chart_value
+end TauCeti.SchemeFoundations.GaloisGerbs
+
+/- N29 typed omission ledger: these are MATHEMATICAL COMMENTS, not Lean signatures.
+The definitive reader and TypedOmissions.json specify all omitted carriers, APIs and tests.
+Node SchemeAndStackFoundations:SF.2/sheaf-algebra: For a native scheme X, an associative unital O_X-algebra is a sheaf of rings A with a central structure map O_X→A. Require its underlying O_X-module to be quasi-coherent. Morphisms are unital sheaf-ring maps preserving the central structure map. The carrier is not a sheaf of commutative algebras: matrix algebras must be allowed.
+TauCeti.SchemeFoundations.Brauer.SheafAlgebra.sections: On every affine U, A(U) is an algebra over O_X(U), possibly noncommutative.
+TauCeti.SchemeFoundations.Brauer.SheafAlgebra.hom_ext: Algebra-sheaf maps agreeing on all affine opens are equal.
+TauCeti.SchemeFoundations.Brauer.SheafAlgebra.pullback: For f:Y→X, f* A is a quasi-coherent O_Y-algebra with the canonical central unit.
+TauCeti.SchemeFoundations.Brauer.SheafAlgebra.test_matrix2: Mat_2(O_X) is such an algebra; for X=Spec(k), its affine sections are Mat_2(k).
+TauCeti.SchemeFoundations.Brauer.SheafAlgebra.test_scalar: O_X itself is the rank-one algebra object.
+TauCeti.SchemeFoundations.Brauer.SheafAlgebra.test_noncommutative: For X=Spec(Q), Mat_2(Q) is admitted although E_12E_21≠E_21E_12.
+Node SchemeAndStackFoundations:SF.2/azumaya: A quasi-coherent O_X-algebra A is Azumaya when there is a surjective étale covering U_i→X and O_{U_i}-algebra isomorphisms f_i* A≅Mat_{d_i}(O_{U_i}), with d_i≥1. This implies finite locally free and faithful underlying module. Degree is locally constant; no single global degree is required.
+TauCeti.SchemeFoundations.Brauer.Azumaya.local_matrix: A is Azumaya exactly when it has a positive-degree étale-local matrix splitting.
+TauCeti.SchemeFoundations.Brauer.Azumaya.degree: On a connected base the degree d is constant and the module rank is d².
+TauCeti.SchemeFoundations.Brauer.Azumaya.pullback: Any scheme pullback preserves Azumaya algebras.
+TauCeti.SchemeFoundations.Brauer.Azumaya.test_matrix: Mat_n(O_X) is Azumaya for every n≥1.
+TauCeti.SchemeFoundations.Brauer.Azumaya.test_scalar: O_X is degree-one Azumaya.
+TauCeti.SchemeFoundations.Brauer.Azumaya.test_dual_numbers: Over a field k, k[ε]/(ε²), though finite free, is not an Azumaya k-algebra.
+Node SchemeAndStackFoundations:SF.2/stabilized-equivalence: On X, A≈B means there exist finite locally free O_X-modules F,G of positive rank at every point and an O_X-algebra isomorphism A⊗End(F)≅B⊗End(G). Use this stabilization relation on Azumaya algebras; it is not merely isomorphism of underlying modules.
+TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.refl: Every Azumaya algebra is equivalent to itself using F=G=O_X.
+TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.symm: A≈B implies B≈A.
+TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.trans: A≈B and B≈C imply A≈C.
+TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.test_matrix: Mat_n(O_X)≈O_X for every n≥1.
+TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.test_field: Over Spec(k), this is the usual stabilization relation for finite-dimensional central simple k-algebras.
+TauCeti.SchemeFoundations.Brauer.StabilizedEquivalence.test_zero_rank: Zero-rank F or G is excluded: allowing both would collapse every pair via a zero algebra.
+Node SchemeAndStackFoundations:key/scheme-brauer: Br_Az(X) is the quotient of Azumaya O_X-algebras by stabilized equivalence. Multiplication is tensor product, identity is O_X and inverse is the opposite algebra. Give it the resulting commutative-group structure. Keep this group distinct from all of H²_et(X,G_m), and from its torsion subgroup Br′(X).
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.mk: The class [A] of an Azumaya O_X-algebra.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.mul_mk: [A][B]=[A⊗B].
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.inv_mk: [A]⁻¹=[A^op].
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.end_zero: End(F) has identity class for positive-rank finite locally free F.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback: Scheme maps act contravariantly on Br_Az by pullback.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta: The canonical étale cohomology class is a natural injective homomorphism into H²_et(X,G_m), without unconditional surjectivity.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.test_matrix: [Mat_2(O_X)] is the identity.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.test_real: Br_Az(Spec(R)) has the real quaternion class of order two; its pullback to Spec(C) is the identity.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.test_field: Br_Az(Spec(k)) identifies with the existing field Brauer group through the central-simple-algebra dictionary.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.test_dual_numbers: A non-Azumaya finite free algebra such as k[ε]/(ε²) has no Azumaya-class constructor.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.test_not_h2: The construction is not defined to be all of H²_et(X,G_m), nor is Br_Az=Br′ asserted for arbitrary X.
+Node SchemeAndStackFoundations:SF.2/cohomological-brauer: Br′(X) is the subgroup of H² on the native small étale site with coefficients in the units sheaf G_m consisting of elements killed by some positive integer. Do not redefine the cohomology carrier. The Azumaya-to-cohomology map lands here under the stated quasi-compact or connected hypotheses.
+TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.inclusion: The inclusion Br′(X)→H²_et(X,G_m) is injective.
+TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.mem_iff: A class belongs exactly when some positive integer kills it.
+TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.pullback: Pullback on cohomology preserves torsion classes.
+TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.test_complex: Br′(Spec(C))=0.
+TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.test_real: Br′(Spec(R))≅Z/2 and the quaternion class maps to its nonzero element.
+TauCeti.SchemeFoundations.Brauer.CohomologicalBrauer.test_nontorsion: A nontorsion H² class, if present on X, is excluded by the subgroup membership condition.
+Node SchemeAndStackFoundations:SF.2/affine-comparison: For A a quasi-coherent algebra on Spec(R), the étale-local matrix condition is equivalent to the native IsAzumaya R Γ(A,Spec(R)) predicate.
+Node SchemeAndStackFoundations:SF.2/tensor: Azumaya A,B on X have Azumaya tensor product; on a common étale splitting cover, Mat_d⊗Mat_e≅Mat_de.
+Node SchemeAndStackFoundations:SF.2/opposite: The opposite A^op of an Azumaya algebra is Azumaya, with matrix transposition identifying its local splitting.
+Node SchemeAndStackFoundations:SF.2/equivalence-refl: A≈A with F=G=O_X of positive rank one.
+Node SchemeAndStackFoundations:SF.2/equivalence-symm: If A≈B then B≈A.
+Node SchemeAndStackFoundations:SF.2/equivalence-trans: If A≈B and B≈C then A≈C, using tensor products of the witnessing positive-rank bundles.
+Node SchemeAndStackFoundations:SF.2/operation-well-defined: If A≈A′ and B≈B′ then A⊗B≈A′⊗B′.
+Node SchemeAndStackFoundations:SF.2/unit: The tensor class of O_X is an identity, since A⊗O_X≅A as O_X-algebras.
+Node SchemeAndStackFoundations:SF.2/inverse: For Azumaya A, A⊗A^op≅End_O_X(A), with A positive-rank finite locally free; hence its stabilization class is the identity.
+Node SchemeAndStackFoundations:SF.2/pullback-id: For X, pullback along id_X is the identity homomorphism of Br_Az(X).
+Node SchemeAndStackFoundations:SF.2/pullback-comp: For Z→Y→X, pullback on Br_Az is the composite of the two pullback homomorphisms.
+Node SchemeAndStackFoundations:SF.2/end-zero: For finite locally free F of positive rank at every point, [End(F)] is the identity in Br_Az(X).
+Node SchemeAndStackFoundations:SF.2/field-comparison: For a field k, Br_Az(Spec(k)) is canonically isomorphic to the existing BrauerGroup k using finite-dimensional central simple algebras.
+Node SchemeAndStackFoundations:SF.2/delta-injective: The homomorphism δ:Br_Az(X)→H²_et(X,G_m) is injective; this does not say its image is the whole cohomology group or all torsion classes.
+Node SchemeAndStackFoundations:SF.2/degree-annihilation: If A has constant module rank d² with d≥1, then [A]^d is the identity in Br_Az(X).
+Node SchemeAndStackFoundations:SF.2/torsion-image: If X is quasi-compact or connected, every Azumaya class is torsion and δ factors through Br′(X).
+Node SchemeAndStackFoundations:SF.2/pullback: For a scheme morphism f:Y→X, define f*:Br_Az(X)→Br_Az(Y) by pulling back Azumaya algebra sheaves and their stabilization witnesses. This is a group homomorphism and requires no flatness of f.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_mk: f*([A])=[f*A].
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_one: f*(1)=1.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_mul: f*([A][B])=f*([A])f*([B]).
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_test_id: Identity pullback fixes every class.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_test_matrix: Every pulled-back matrix algebra has identity class.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.pullback_test_quaternion: R→C kills the Hamilton quaternion class.
+Node SchemeAndStackFoundations:SF.2/splitting-torsor: For an Azumaya A of constant degree d, the sheaf Isom_O-alg(Mat_d(O_X),A) is an étale PGL_d-torsor. It is the splitting-torsor construction, not the already-owned general definition of a torsor.
+TauCeti.SchemeFoundations.Brauer.SplittingTorsor.points: Its sections over an étale U are algebra isomorphisms Mat_d(O_U)≅A|_U.
+TauCeti.SchemeFoundations.Brauer.SplittingTorsor.action: PGL_d acts by precomposition and makes it a torsor.
+TauCeti.SchemeFoundations.Brauer.SplittingTorsor.naturality: Pullback of the frame torsor identifies with the frame torsor of f*A.
+TauCeti.SchemeFoundations.Brauer.SplittingTorsor.test_matrix: For A=Mat_d(O_X), the identity frame is a global section.
+TauCeti.SchemeFoundations.Brauer.SplittingTorsor.test_degree1: Degree one gives the trivial PGL_1-torsor.
+TauCeti.SchemeFoundations.Brauer.SplittingTorsor.test_quaternion: Hamilton quaternions over R have no R-frame but have a frame after R→C.
+Node SchemeAndStackFoundations:SF.2/delta: Construct δ_X:Br_Az(X)→H²_et(X,G_m) from the obstruction to lifting projective frames to linear frames. On constant degree d it is the boundary of 1→G_m→GL_d→PGL_d→1 applied to the splitting torsor. For variable degree glue the same scalar-banded splitting gerbe.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_mk: δ([A]) is the scalar splitting-gerbe class of A.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_mul: δ is a homomorphism.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_pullback: δ_Y(f*α)=f*(δ_X(α)).
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_test_matrix: δ([Mat_d(O_X)])=0.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_test_real: The real quaternion class maps to the nonzero order-two class.
+TauCeti.SchemeFoundations.Brauer.SchemeBrauer.delta_test_no_surjectivity: No axiom declaring δ surjective is included; arbitrary X need not have Br_Az=Br′.
+Node SchemeAndStackFoundations:SF.2/affine-dualizing: For a Noetherian commutative ring A, a dualizing complex ω in D(A) has finite injective dimension, finite A-module cohomology in every degree, and the canonical homothety A→RHom_A(ω,ω) is a quasi-isomorphism. Finite injective dimension includes boundedness; this is not the predicate that ω is a single module.
+TauCeti.SchemeFoundations.Coherent.DualizingComplex.homothety: The canonical homothety is an isomorphism in D(A).
+TauCeti.SchemeFoundations.Coherent.DualizingComplex.cohomology_finite: Every H^i(ω) is finite over A.
+TauCeti.SchemeFoundations.Coherent.DualizingComplex.biduality: For K in D^b_fg(A), the evaluation K→RHom(RHom(K,ω),ω) is an isomorphism.
+TauCeti.SchemeFoundations.Coherent.DualizingComplex.test_field: For a field k, k[0] is dualizing.
+TauCeti.SchemeFoundations.Coherent.DualizingComplex.test_regular_shift: For a d-dimensional regular local ring, A[d] is the normalized dualizing complex.
+TauCeti.SchemeFoundations.Coherent.DualizingComplex.test_non_cm: For A=k[x,y]/(x²,xy) localized at (x,y), the normalized dualizing complex has nonzero H^-1 and H^0, so a single shifted module is insufficient.
+Node SchemeAndStackFoundations:SF.2/scheme-dualizing: For a locally Noetherian X, a dualizing complex K in D(O_X) is affine-locally the sheafification of a ring dualizing complex: for every affine U=Spec(A), K|_U≅~ω_A with ω_A dualizing. A cover criterion is equivalent, but is proved separately.
+TauCeti.SchemeFoundations.Coherent.SchemeDualizing.affine: Restriction to every affine open comes from a ring dualizing complex.
+TauCeti.SchemeFoundations.Coherent.SchemeDualizing.cover_iff: Checking this on an affine open cover suffices.
+TauCeti.SchemeFoundations.Coherent.SchemeDualizing.restrict: Restriction to an open subscheme preserves the dualizing property.
+TauCeti.SchemeFoundations.Coherent.SchemeDualizing.test_field: On Spec(k), ~k[0] is dualizing.
+TauCeti.SchemeFoundations.Coherent.SchemeDualizing.test_disjoint: Dualizing complexes on a disjoint union are chosen componentwise; unequal shifts are allowed.
+TauCeti.SchemeFoundations.Coherent.SchemeDualizing.test_projective_line: On P¹_k, O(-2)[1] is dualizing.
+Node SchemeAndStackFoundations:SF.2/normalized-dualizing: For a Noetherian local ring (A,m,κ), a dualizing ω is normalized when RHom_A(κ,ω)≅κ[0]; equivalently Ext^i_A(κ,ω) vanishes for i≠0 and Ext^0 is one-dimensional over κ. Shifts are cohomological: H^i(K[r])=H^{i+r}(K).
+TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.residue: RHom_A(κ,ω)≅κ[0].
+TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.finite_local: For finite local A→B, RHom_A(B,ω_A) is normalized over B.
+TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.shift_unique: Among shifts of one local dualizing complex, exactly one is normalized.
+TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.test_field: κ[0] is normalized over κ.
+TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.test_dvr: A[1] is normalized for a regular DVR A.
+TauCeti.SchemeFoundations.Coherent.NormalizedDualizing.test_wrong_shift: For a regular DVR, A[0] is dualizing but not normalized.
+Node SchemeAndStackFoundations:key/coherent-duality: For separated finite-type morphisms f:X→Y of Noetherian schemes over a fixed Noetherian base S, construct f!:D^+_qc(O_Y)→D^+_qc(O_X), coherently contravariant under composition. On proper f it is the restriction of the right adjoint of Rf*:D_qc(O_X)→D_qc(O_Y). This is coherent O-module duality, not étale-coefficient Verdier duality.
+TauCeti.SchemeFoundations.Coherent.CoherentDuality.comp: (g∘f)!≅f!g! with unit and associativity coherence.
+TauCeti.SchemeFoundations.Coherent.CoherentDuality.proper_adjunction: For proper f, Hom(Rf*K,M)≅Hom(K,f!M) in the stated derived categories.
+TauCeti.SchemeFoundations.Coherent.CoherentDuality.finite: For finite f, f*f!M≅RHom_Y(f*O_X,M).
+TauCeti.SchemeFoundations.Coherent.CoherentDuality.regular_immersion: For a Koszul-regular immersion of codimension c, f!M≅Lf*M⊗det(N_f)[-c].
+TauCeti.SchemeFoundations.Coherent.CoherentDuality.smooth_proper: For smooth proper f of relative dimension d, f!M≅Lf*M⊗Ω^d_{X/Y}[d].
+TauCeti.SchemeFoundations.Coherent.CoherentDuality.test_projective_line: For f:P¹_k→Spec(k), f!k≅O(-2)[1].
+TauCeti.SchemeFoundations.Coherent.CoherentDuality.test_closed_prime: For Spec(F_p)→Spec(Z), f!Z≅F_p[-1], with H^1=F_p.
+TauCeti.SchemeFoundations.Coherent.CoherentDuality.test_underived_hom: Hom_Z(F_p,Z)=0 does not compute the preceding derived shriek complex.
+TauCeti.SchemeFoundations.Coherent.CoherentDuality.test_finite_flat: For finite flat A→B, f!A=Hom_A(B,A) in degree zero.
+TauCeti.SchemeFoundations.Coherent.CoherentDuality.test_dual_numbers_trace: For char(k)=0 and B=k[ε]/ε², the algebra trace pairing is degenerate; the finite-duality module is not made isomorphic to B by that pairing.
+Node SchemeAndStackFoundations:SF.2/affine-cover: The every-affine definition of a dualizing complex is equivalent to checking one affine open cover.
+Node SchemeAndStackFoundations:SF.2/biduality: If X is Noetherian with dualizing ω, RHom_X(-,ω) is an involution of D_Coh(X), interchanges D^+_Coh and D^-_Coh, and preserves D^b_Coh.
+Node SchemeAndStackFoundations:SF.2/composition: For composable morphisms in FTS_S, (g∘f)!≅f!g!, with the pseudofunctor associativity and unit constraints.
+Node SchemeAndStackFoundations:SF.2/proper-adjunction: For proper f in FTS_S, f! on D^+_qc is the restricted right adjoint of Rf* on D_qc.
+Node SchemeAndStackFoundations:SF.2/trace-comp: For proper X→Y→Z, the counit for the composite agrees with Rg* applied to the f-counit followed by the g-counit, under canonical composition identifications.
+Node SchemeAndStackFoundations:SF.2/finite-formula: For finite f:X→Y in FTS_S, f*f!M≅RHom_O_Y(f*O_X,M), for M in D^+_qc(Y).
+Node SchemeAndStackFoundations:SF.2/closed-formula: For a closed immersion f:X→Y in FTS_S, f!M is RHom_O_Y(O_X,M) with its O_X-module structure.
+Node SchemeAndStackFoundations:SF.2/cartier-formula: For an effective Cartier divisor f:X→Y, f!M≅Lf*M⊗f*O_Y(X)[-1].
+Node SchemeAndStackFoundations:SF.2/regular-immersion: For a Koszul-regular immersion f of codimension c in FTS_S, f!M≅Lf*M⊗∧^c N_f[-c].
+Node SchemeAndStackFoundations:SF.2/smooth-proper: For smooth proper f of constant relative dimension d in FTS_S, f!M≅Lf*M⊗Ω^d_{X/Y}[d].
+Node SchemeAndStackFoundations:SF.2/preserves-dualizing: If f is in FTS_S and ω_Y is dualizing, then f!ω_Y is dualizing on X.
+Node SchemeAndStackFoundations:SF.2/serre-proper: For proper X/k, put ω_X=f!k. For K in D_qc(X), Ext^i_X(K,ω_X)≅Hom_k(H^-i(X,K),k), naturally and compatibly with shifts and distinguished triangles.
+Node SchemeAndStackFoundations:SF.2/canonical-module: For proper X/k of dimension d and ω_X=f!k, H^-d(ω_X) is coherent, satisfies S2, and its support is the union of the dimension-d irreducible components.
+Node SchemeAndStackFoundations:SF.2/trace: For proper f in FTS_S and M in D^+_qc(Y), the coherent trace is the counit Rf*f!M→M of the proper adjunction. It is not the ordinary algebra trace, nor an asserted isomorphism for every lci fundamental class.
+TauCeti.SchemeFoundations.Coherent.CoherentTrace.natural: Trace commutes with morphisms M→N.
+TauCeti.SchemeFoundations.Coherent.CoherentTrace.comp: Proper composite traces agree through the shriek/pushforward composition isomorphisms.
+TauCeti.SchemeFoundations.Coherent.CoherentTrace.finite: For finite affine A→B, the counit is derived evaluation at 1∈B.
+TauCeti.SchemeFoundations.Coherent.CoherentTrace.test_identity: The identity-map trace is the identity.
+TauCeti.SchemeFoundations.Coherent.CoherentTrace.test_finite_flat: For finite flat A→B, Hom_A(B,A)→A sends λ to λ(1).
+TauCeti.SchemeFoundations.Coherent.CoherentTrace.test_dual_numbers: For B=k[ε]/ε² in characteristic zero, duality uses evaluation on Hom_k(B,k); it is not an invertible ordinary algebra-trace pairing.
+Node SchemeAndStackFoundations:SF.2/linearized-sheaf: For a ringed space X with a left action of a discrete group Γ by ringed-space automorphisms, a Γ-equivariant O_X-module F is an O_X-module together with a lift Γ→Aut(X,F) over the given action. Equivalently give pullback-linearization isomorphisms satisfying the unit and composition cocycle, including the canonical pullback coherences. Γ may move X; ordinary Action(X.Modules,Γ) supplies only the fixed-base special case.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.forget: Forget to the underlying O_X-module.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.transport: A group element transports sections across its induced open-set automorphism, semilinearly over the transported scalar sections.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.hom_ext: Equivariant maps equal on underlying module-sheaf maps are equal.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.test_trivial_group: For Γ=1, the category is the ordinary O_X-module sheaf category.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.test_point: On a one-point ringed space with ring R and trivial ring action, objects are R-linear representations of Γ.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSheaf.test_moving_base: Z acting on R by translations transports an open interval to a different interval; a fixed-base automorphism of one sheaf alone does not specify this action.
+Node SchemeAndStackFoundations:SF.2/enough-injectives: The category of semilinear Γ-equivariant O_X-modules is abelian and has enough injectives for an arbitrary discrete Γ. The forgetful and coinduction adjunctions must be constructed, including sheafification and products; a finite-group hypothesis is not imposed.
+Node SchemeAndStackFoundations:SF.2/invariant-sections: The left-exact functor Γ(X,-)^Γ from semilinear equivariant O_X-modules to abelian groups takes the invariant subgroup of ordinary global sections under their induced Γ-action. For moving bases the total open X is still invariant.
+TauCeti.SchemeFoundations.Equivariant.InvariantSections.inclusion: Include invariant sections into ordinary global sections.
+TauCeti.SchemeFoundations.Equivariant.InvariantSections.mem_iff: A section is invariant exactly when every γ fixes it under semilinear global transport.
+TauCeti.SchemeFoundations.Equivariant.InvariantSections.map: An equivariant sheaf map induces a map of invariant sections.
+TauCeti.SchemeFoundations.Equivariant.InvariantSections.test_trivial: For Γ=1, these are all global sections.
+TauCeti.SchemeFoundations.Equivariant.InvariantSections.test_sign: For C2 acting on Z by sign on a point, the invariant group is zero.
+TauCeti.SchemeFoundations.Equivariant.InvariantSections.test_trivial_action: For C2 acting trivially on Z on a point, the invariant group is Z.
+Node SchemeAndStackFoundations:key/equivariant-sheaf-cohomology: For a discrete group Γ acting on a ringed space X and semilinear equivariant sheaf F, H^n(X,Γ;F) is the n-th right derived functor of F↦Γ(X,F)^Γ in the equivariant abelian sheaf category. Derive the composite; do not define it as H^n(X,F)^Γ.
+TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.h0: H^0(X,Γ;F)≅Γ(X,F)^Γ.
+TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.trivial_group: For Γ=1, H^n agrees with ordinary O_X-module sheaf cohomology.
+TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.point: On a point, it is group cohomology of the module of sections.
+TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.map: Equivariant sheaf maps induce cohomology maps.
+TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.spectral: H^p(Γ,H^q(X,F)) converges to H^{p+q}(X,Γ;F) once the named composite-functor acyclicity is proved.
+TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.test_c2: For X a point and C2 acting trivially on Z, H^1=0 and H^2≅Z/2.
+TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.test_trivial: For Γ=1 it recovers ordinary sheaf cohomology.
+TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.test_wrong_invariants: On a point ordinary H^2(point,Z)^C2=0, while equivariant H^2(point,C2;Z)≅Z/2.
+TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.test_inverted_order: For finite Γ and Q-vector-space coefficients, invariants are exact and H^n(X,Γ;F)≅H^n(X,F)^Γ.
+TauCeti.SchemeFoundations.Equivariant.EquivariantCohomology.test_translation: For constant Z on R with Z acting by translations, equivariant H^1≅Z whereas ordinary H^1(R,Z)=0.
+Node SchemeAndStackFoundations:SF.2/ext: For semilinear Γ-equivariant O_X-modules F,G, Ext^n_{Γ,O_X}(F,G) derives G↦Hom_{Γ,O_X}(F,G) in the second variable of the equivariant abelian category.
+TauCeti.SchemeFoundations.Equivariant.EquivariantExt.h0: Ext^0 is equivariant Hom.
+TauCeti.SchemeFoundations.Equivariant.EquivariantExt.map_first: Ext is contravariant in F.
+TauCeti.SchemeFoundations.Equivariant.EquivariantExt.map_second: Ext is covariant in G.
+TauCeti.SchemeFoundations.Equivariant.EquivariantExt.test_trivial: Γ=1 gives ordinary O_X-module Ext.
+TauCeti.SchemeFoundations.Equivariant.EquivariantExt.test_point: On a point with ring Z it is Ext in the Z[Γ]-module category.
+TauCeti.SchemeFoundations.Equivariant.EquivariantExt.test_c2: For C2 acting trivially on Z, Ext^2_{C2,Z}(Z,Z)≅Z/2.
+Node SchemeAndStackFoundations:SF.2/support: For a Γ-stable closed subset D⊂X, H^n_D(X,Γ;F) derives the invariant sections supported in D. The support functor is the kernel of global restriction Γ(X,F)→Γ(X minus D,F); derive that left-exact functor, rather than taking invariants of ordinary supported cohomology.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.h0: H^0_D is the invariant subgroup of sections vanishing on the complement of D.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.closed_all: For D=X, supported cohomology equals equivariant global cohomology.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.closed_empty: For D=∅, it is zero in every degree.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.test_all_point: For X=D a point and C2 acting trivially on Z, H^2_D≅Z/2.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.test_empty: Empty support has zero cohomology.
+TauCeti.SchemeFoundations.Equivariant.EquivariantSupport.test_unstable: For Z translating R, the singleton {0} is not stable and is not accepted as equivariant support.
+Node SchemeAndStackFoundations:SF.2/hom-invariants: Hom_{Γ,O_X}(F,G) is the invariant subgroup of Hom_{O_X}(F,G) under conjugation of linearizations.
+Node SchemeAndStackFoundations:SF.2/degree-zero: H^0(X,Γ;F)≅Γ(X,F)^Γ naturally.
+Node SchemeAndStackFoundations:SF.2/ordinary-comparison: For Γ=1, H^n(X,1;F) is naturally isomorphic to ordinary sheaf cohomology.
+Node SchemeAndStackFoundations:SF.2/point-comparison: For a one-point space, equivariant cohomology agrees with group cohomology of its section module.
+Node SchemeAndStackFoundations:SF.2/invariants-acyclic: For an injective equivariant sheaf I, its global-section Γ-module is acyclic for invariants; verify this through the exact adjoint to the section functor.
+Node SchemeAndStackFoundations:SF.2/spectral-sequence: For arbitrary discrete Γ, there is a natural first-quadrant spectral sequence H^p(Γ,H^q(X,F))⇒H^{p+q}(X,Γ;F).
+Node SchemeAndStackFoundations:SF.2/localization: For a Γ-stable closed D and invariant complement U, the natural supported, global and restricted equivariant cohomology maps give a long exact sequence, with boundary H^n(U,Γ;F|_U)→H^{n+1}_D(X,Γ;F).
+Node SchemeAndStackFoundations:key/galois-gerbs: Fix a characteristic-zero field k, a Galois extension k′/k inside an algebraic closure, and Γ=Gal(k′/k) with its Krull topology. A gerb consists of a linear algebraic group H/k′ and a topological extension 1→H(k′)→E→Γ→1 with discrete kernel. Every lift of σ acts on the kernel through an algebraic σ-semilinear automorphism of H. Over Gal(k′/K) for some finite K/k inside k′, there is a local splitting chart whose algebraic conjugation action is effective descent to K. None of these conditions forces a global splitting.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.kernel: The kernel is H/k′ with its discrete point group.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.local_chart: A finite K/k and a continuous splitting over Gal(k′/K) with effective algebraic K-descent and a topological chart are part of the data.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.conjugation: Conjugation by a lift of σ agrees on points with an algebraic σ-semilinear automorphism.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.neutral: A k-defined H has the neutral semidirect-product gerb.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.base_extension: Enlarging k′ uses Galois pullback and algebraic-kernel point pushout.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.test_neutral: For H/k the neutral gerb is H(k′)⋊Gal(k′/k) with its original algebraic descent.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.test_c4: The C4 extension of Gal(C/R)=C2 by μ2(C) satisfies local splitting over C but has no global splitting.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.test_alg_closed: For k′=k algebraically closed the Galois quotient is trivial.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerb.test_topology: The discrete H(k′) topology is not replaced by the analytic point topology, even for C-points.
+Node SchemeAndStackFoundations:SF.1/morphism: A morphism E→E′ of k′/k-gerbs is a continuous group homomorphism over id_Γ together with an algebraic k′-group homomorphism H→H′ whose point map agrees with the extension map on the kernel. Continuity alone on the discrete point kernels is not algebraicity.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.identity: Identity extension and algebraic maps define the identity morphism.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.comp: Compose both maps; the two compatibility squares and continuity are preserved.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.kernel_points: The restriction to H(k′) is the point map of the recorded algebraic homomorphism.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.test_power: Over algebraically closed k, G_m kernel endomorphisms z↦z^n for n∈Z are algebraic morphisms.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.test_identity: The identity morphism has identity kernel and quotient maps.
+TauCeti.SchemeFoundations.GaloisGerbs.GaloisGerbMorphism.test_conjugation: For the neutral G_m gerb over C/R, complex conjugation on the discrete C× kernel is continuous but is not a C-algebraic kernel map.
+Node SchemeAndStackFoundations:SF.1/conjugacy: For morphisms f1,f2:E→E′, kernel conjugacy means there is h∈H′(k′) with Int(i′(h))∘f1=f2. Retain the conjugators as data/sets when needed; do not identify conjugate morphisms before the application asks for a quotient.
+TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.refl: The identity kernel point conjugates a morphism to itself.
+TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.symm: An inverse kernel point reverses a conjugacy.
+TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.trans: The product of two conjugators yields the composite conjugacy.
+TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.test_identity: Every morphism is conjugate to itself by 1.
+TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.test_trivial_kernel: With trivial target kernel, conjugacy is equality of morphisms.
+TauCeti.SchemeFoundations.GaloisGerbs.GerbConjugacy.test_not_any_lift: A target element projecting nontrivially to Γ is not admitted as a kernel conjugator.
+Node SchemeAndStackFoundations:SF.1/neutral: For a linear algebraic group H defined over k, construct the k′/k-gerb H(k′)⋊Gal(k′/k), using the algebraic Galois action and the discrete point-kernel/product topology. The local splitting is global in this special example, but not required for general gerbs.
+TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.inclusion: h↦(h,1) is the kernel inclusion.
+TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.projection: (h,σ)↦σ is the quotient.
+TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.section: σ↦(1,σ) is the continuous global section.
+TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.test_trivial: For H=1, the extension is Γ itself.
+TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.test_gm: For H=G_m over R and k′=C, the action is complex conjugation on C×.
+TauCeti.SchemeFoundations.GaloisGerbs.NeutralGerb.test_point_stabilizers: Every algebraic kernel point is fixed by an open Galois subgroup, which makes the action on the discrete kernel continuous.
+Node SchemeAndStackFoundations:SF.1/conjugator-scheme: For f1,f2:E→E′, construct the k-scheme Isom(f1,f2) whose R-points are h∈H′(k′⊗_k R) satisfying Int(h)f1_R=f2_R after the specified kernel-point pushouts. For f1=f2 it is the descended automorphism k-group I_f. Scheme representability and descent are proof obligations, not an arbitrary point-set quotient.
+TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.points: R-points are exactly the algebraic-kernel conjugators satisfying the full extension equation.
+TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.automorphisms: Isom(f,f) is the descended automorphism group I_f.
+TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.neutral_basechange: For a neutral target, base change I_f to k′ is the centralizer of the algebraic kernel image.
+TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.test_trivial: If the target kernel is trivial and f1=f2, the conjugator scheme is the trivial group.
+TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.test_gm: For the identity map of the neutral G_m gerb, I_f=G_m over k.
+TauCeti.SchemeFoundations.GaloisGerbs.ConjugatorScheme.test_kernel: A conjugator is a kernel-algebra point; arbitrary target-extension elements are not its R-points.
+Node SchemeAndStackFoundations:SF.1/pro-gerb: A pro-gerb is a compatible projective system of finite-stage k′/k-gerbs with continuous extension transitions and algebraic kernel transitions. Pro-morphisms are compatible finite-stage maps. Stagewise conjugacy means each stage admits a conjugator; it does not assert compatible conjugators or one element in an inverse-limit kernel without an extra existence theorem.
+TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.stage: Every finite stage is a gerb with the same Galois quotient and its own algebraic kernel.
+TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.transition: Transition maps are gerb morphisms satisfying the projective-system coherence.
+TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.stagewise_conjugate: Conjugacy of pro-morphisms is the source’s stagewise relation, with no unproved global-conjugator upgrade.
+TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.test_constant: A constant system recovers the original gerb and its morphisms.
+TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.test_kottwitz: The Kottwitz protorus has rational character group Q through finite stages (1/n)Z; this is a required HKW22 consumer test, not a freshly read theorem here.
+TauCeti.SchemeFoundations.GaloisGerbs.ProGerb.test_wrong_global_conjugacy: Stagewise nonempty conjugator sets alone do not supply a compatible inverse-limit conjugator.
+Node SchemeAndStackFoundations:SF.1/centralizer: For f:E′→G_G into the neutral gerb of G/k, the base change of I_f to k′ is the algebraic centralizer of f_alg(H′) in G_{k′}. The descended k-form is defined by conjugation through lifts of Γ.
+Node SchemeAndStackFoundations:SF.1/cocycle: Fix f:E′→G_G with neutral target. Morphisms f′ with the same algebraic kernel map correspond to continuous 1-cocycles of Gal(k′/k) in I_f(k′), and are conjugate to f exactly when the associated H¹ class is trivial.
+Node SchemeAndStackFoundations:SF.1/splitting-field-extension: For k′⊂k″ over k, transport a k′/k-gerb by pullback along Gal(k″/k)→Gal(k′/k) and pushout H(k′)→H(k″), preserving the algebraic kernel maps, semilinear conjugation and local effective-descent chart. This changes both quotient and kernel, not just one.
+TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.kernel: The transported algebraic kernel is H_{k″}.
+TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.projection: The quotient is Gal(k″/k).
+TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.neutral: Neutral gerbs transport to the neutral gerb of the same k-defined algebraic group.
+TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.test_identity: For k″=k′ it recovers the original gerb up to its canonical isomorphism.
+TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.test_neutral: A globally split neutral gerb remains neutral.
+TauCeti.SchemeFoundations.GaloisGerbs.GerbFieldExtension.test_kernel_changes: For G_m and R⊂C, a transport that leaves kernel points equal to R× does not produce the C× kernel of the transported gerb.
+Untyped concrete tests for SchemeAndStackFoundations:SF.1/topological-extension
+TauCeti.SchemeFoundations.GaloisGerbs.TopologicalExtension.test_kernel: For the neutral extension N⋊Γ, an element lies in the kernel precisely when its Γ-coordinate is one.
+TauCeti.SchemeFoundations.GaloisGerbs.TopologicalExtension.test_unit: The trivial-kernel identity extension Γ→Γ has the given quotient topology.
+TauCeti.SchemeFoundations.GaloisGerbs.TopologicalExtension.test_wrong_topology: Giving the embedded kernel a strictly coarser topology than its discrete subspace topology fails the embedding requirement.
+Untyped concrete tests for SchemeAndStackFoundations:SF.1/local-splitting-chart
+TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.test_neutral: The neutral extension has U=Γ and s(γ)=(1,γ), with its product chart.
+TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.test_c4: For C4→C2, the trivial open subgroup has a chart even though no homomorphic section exists on all C2.
+TauCeti.SchemeFoundations.GaloisGerbs.LocalSplitChart.test_unit_coordinate: The chart sends (1,1) to 1, and (n,1) to i(n).
+-/
