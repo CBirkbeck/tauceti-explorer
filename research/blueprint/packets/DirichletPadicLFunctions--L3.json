@@ -5,8 +5,8 @@
   "scope": [
     "DirichletPadicLFunctions:L3"
   ],
-  "status": "partial",
-  "summary": "Layer L3 (Branches, logarithms and poles) of the Dirichlet p-adic L-functions blueprint: 1663 nodes, split on 2026-10-02 from the whole-roadmap packet of BP-DirichletPadicLFunctions (issue #713). What remains open is listed in this layer's coverage record and gaps.",
+  "status": "complete",
+  "summary": "Completed the over-budget L3 planning pass with all 1,663 inherited node objects unchanged and no new nodes. The packet is ready for independent review under the 300-node rule; L3 remains partial. The new layer reader records every inherited contract/API/test and the split suggested file extracts its exact signatures. Branch construction, value-at-one and pole closure, exact Dwork supplier inputs, Ferrero–Greenberg decomposition, analytic supplier interfaces and the Kubert universal-distribution comparison remain open. All implementation statuses are unchecked, and the split Lean file is uncompiled.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -104802,8 +104802,14 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual corrected integer image has the proved admissible distinguished generators. Products of the original prime-kernel sums now have coefficient one exactly on units with every outside primary coordinate equal to one, via an actual multiplicative equivalence and unique primary-tuple decomposition. Next identify this condition with the original reduction kernel for admissible M dividing N and the raw distinguished 1/M value, then prove source 4.13 equality with the product of the original local integer lattices and source 4.11 rational spanning. Universal-distribution identification, source quotient injectivity and freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.",
-        "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+        "Complete target coverage before refining the inherited Kubert strand. Construct the actual odd-prime and integral dyadic branches from the PMIA L0a character components and LAD L3 analytic Mellin coordinates, including the corrected inverse-Teichmüller twist in source issue E14. The existing tame-character integral/analytic transfer assumes a supplied continuous-test-space-valued family and does not construct the principal-unit family.",
+        "Complete the source-specific complex cyclotomic logarithmic value and Leopoldt p-adic value-at-one comparisons with primitive character, chosen Gauss sum and compatible root conventions, for pure p-power as well as nontrivial tame conductor. Import the common normalized logarithm and compatible finite-extension/branch-change laws from their existing owners; do not introduce a second logarithm or use the subsequent Coleman positive-value theorem as the earlier value-at-one proof.",
+        "Decompose the trivial-component pole theorem: actual numerator value, convergence, nonvanishing of the auxiliary logarithm, division by the simple zero, residue 1−p⁻¹ in the specified RJW s-coordinate, and its coordinate-change law. Keep the nontrivial components separate and do not replace the arithmetic residue calculation by a formal quotient rule.",
+        "RT-AREA-iwasawa-2/1 is only partly discharged. Preserve the existing Morita continuous unit-valued Gamma construction, uniqueness and both functional equations. The existing Robert Gross–Koblitz comparison retains the exact RD.6 coefficient-bound and splitting-value hypotheses. Obtain those owned interfaces and prove the chosen-root compatibility π^(p−1)=−p and ζπ≡1+π mod π², source-negative Gauss normalization and exponent endpoint conventions, including the required dyadic comparison.",
+        "RT-AREA-iwasawa-2/2 remains undecomposed: read the exact Ferrero–Greenberg derivative formula, plan its declarations and source-qualified hypotheses, keep χ(p)=1 explicit, and prove the nonvanishing consequence separately. The presence of Gamma, its logarithmic models and conditional Gross–Koblitz comparisons is not the derivative formula.",
+        "Retain the thirteen precise supplier requests. The Coleman disc-function/LAD coefficient comparison, inherited overconvergent geometry and distribution inputs, bounded-measure rotation/primitive interfaces, larger-radius derivative/Taylor bounds and actual p-adic exp/log inverse all remain required. Conditional consumer proofs do not discharge these typed supplier obligations.",
+        "For the inherited corrected integer image, identify the outside-primary-coordinate condition with the original admissible reduction kernel and distinguished 1/M value. Then prove Kubert Proposition 4.13 equality with the product of original local integer lattices and Proposition 4.11 rational spanning; complete universal-distribution identification, quotient injectivity/freeness, lower rank and internal-to-global injection. General-degree primitive coordinates and local-field comparisons remain open.",
+        "Integrate the extracted L3 signatures with the separately owned L1/L2 prototype modules when available, and check the complete module against the exact pinned dependency closure. The new split file is uncompiled. Preserve all 2,880 named tests and the 26 inherited short-API advisories for review; its exact declaration bodies and defining instances are inherited, not new implementation claims."
       ]
     }
   ],
@@ -104811,7 +104817,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual corrected integer image has the proved admissible distinguished generators. Products of the original prime-kernel sums now have coefficient one exactly on units with every outside primary coordinate equal to one, via an actual multiplicative equivalence and unique primary-tuple decomposition. Next identify this condition with the original reduction kernel for admissible M dividing N and the raw distinguished 1/M value, then prove source 4.13 equality with the product of the original local integer lattices and source 4.11 rational spanning. Universal-distribution identification, source quotient injectivity and freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "This pass is complete because it inherited 1,663 nodes, already above the 300-node limit; it adds no nodes. L3 remains partial. Current coverage records all target-level unfinished work, including branches, value-at-one and pole theorems, explicit RT-AREA-iwasawa-2 obligations, analytic suppliers and the retained Kubert frontier. The two-item historical coverage did not certify the other L3 targets. Independent review must retain these gaps and create follow-up work before deeper refinement."
     },
     {
       "title": "Inherited Coleman disc-function and LAD power-series comparison",
@@ -104890,6 +104896,27 @@
       "neededBy": [
         "DirichletPadicLFunctions:L3/morita-gamma-shifted-exp-log"
       ]
+    },
+    {
+      "title": "L3 branch, Leopoldt and pole target closure",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "detail": "The current stage and accepted RS-14 require the actual odd/dyadic branch construction, the complex and p-adic value-at-one comparisons for pure p-power and tame conductors, and the trivial-component residue 1−p⁻¹ with coordinate change. The inherited specialized integrals, trace calculations and conditional analytic interfaces do not certify that complete target chain. Follow the current coverage worklist, import the common logarithm and character-space owners, and preserve primitive-character, Gauss/root and convergence hypotheses."
+    },
+    {
+      "title": "Ferrero–Greenberg derivative formula remains undecomposed",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "detail": "Confirmed finding RT-AREA-iwasawa-2/2 remains open: the inherited Morita Gamma node explicitly lists the routed formula as an open use. There is no finished derivative-formula decomposition in this packet. The follow-up must read the exact source, state χ(p)=1 and the full character/conductor/branch conventions, decompose the derivative formula at s=0 and keep its nonvanishing consequence separate. The budget-completion status does not resolve the finding."
+    },
+    {
+      "title": "Split L3 signature integration and complete compilation",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "detail": "All 1,892 distinct inherited L3 declaration/API names and all 2,880 named tests are extracted with their exact command bodies and contexts. The file imports sibling L0/L1/L2 arithmetic prototypes instead of redefining their objects; L1/L2 prototype files are not yet present. The PMIA prototype and inherited native imports remain explicit dependencies. This split projection has not compiled, and historical native or partial-signature receipts for the combined file do not validate it. Complete the owned imports and verify the exact pinned full module; build no missing libraries in this worker pass."
     }
   ],
   "sourceIssues": [
