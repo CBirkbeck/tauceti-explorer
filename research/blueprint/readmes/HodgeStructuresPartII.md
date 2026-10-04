@@ -1,3 +1,376 @@
+# The affine symmetric monoidal category
+
+The existing affine category now tensors actual native modules with the existing balanced additive same-parameter connection. Tensoring horizontal arrows uses the native tensor map and its established horizontal equation. The unit carries λd₀, and the native associator, both unitors and swap are made into horizontal categorical isomorphisms by the existing inverse-horizontal constructor.
+
+Forgetting to native ModuleCat preserves these data with identity tensor and unit comparisons. Native faithful induction gives the actual monoidal laws, including naturality, pentagon and triangle; native faithful braiding induction gives both hexagons and symmetry. The selected forgetful functor is strong monoidal and braided. These constructions use the same actual connection operators throughout. The ambient category permits arbitrary λ including d₀λ≠0, so its unit need not be flat. No generic tensor-module or monoidal framework is introduced.
+
+Strong monoidal scalar-extension pullback and categorical tower comparisons remain open. The global reserved finite locally free integrable ringed-site key still requires relatively constant λ and actual sheaf restriction/tensor/gluing. All149 source routes,35 omissions,five supplier requests,eleven whole gaps,six planets and later stages are preserved. This is a partial planning checkpoint with every implementation unchecked; earlier frontier prose is history.
+
+## Declarations and tests in this continuation
+
+### Affine tensor of categorical objects
+
+`AffineCategory.tensorObj` — For X=(M,D) and Y=(N,C) at the same arbitrary λ, construct X⊗Y=(ModuleCat.of R (M⊗_R N),D.affineTensor C). Use the existing balanced additive operator, with parameter λ retained once.
+
+Proof plan: Use the existing dependent pair carrier and the balanced affine tensor operator.
+
+API:
+
+- `AffineCategory.tensor_connection`: For every affine X,Y, (X⊗Y).connection equals exactly X.connection.affineTensor Y.connection.
+- `AffineCategory.tensorMap_tmul`: For actual horizontal h,j and x,y, (h⊗ₘj).val(x⊗y)=h.val(x)⊗j.val(y).
+- `AffineCategory.tensor_id`: For X,Y, id_X⊗ₘid_Y=id_(X⊗Y) in the actual affine category.
+
+TESTS:
+
+- `AffineMonoidalTests.tensor_zero_map`: Construct an actual horizontal zero arrow h and tensor it with arbitrary horizontal j; the resulting arrow sends every elementary tensor to zero.
+- `AffineMonoidalTests.nonconstant_parameter_unit`: Over Z[x] with λ=x and d₀x=1, the actual categorical unit tensor and left-unitor transport of its operator at x⊗1 has coordinate x. The category permits d₀λ≠0.
+- `AffineMonoidalTests.parameter_not_doubled`: Over Z[x] with λ=2 and formal derivative, the actual categorical unit tensor and left-unitor transport at x⊗1 has coordinate2, unequal to4. Tensor retains the same parameter once.
+
+### Tensor of horizontal categorical arrows
+
+`AffineCategory.tensorMap` — For horizontal h:X→X′ and j:Y→Y′, construct the horizontal arrow X⊗Y→X′⊗Y′ whose native linear map is TensorProduct.map h.val j.val.
+
+Proof plan: Apply the existing tensor-horizontal theorem to the two subtype witnesses.
+
+API:
+
+- `AffineCategory.tensorMap_tmul`: For actual horizontal h,j and x,y, (h⊗ₘj).val(x⊗y)=h.val(x)⊗j.val(y).
+- `AffineCategory.tensor_id`: For X,Y, id_X⊗ₘid_Y=id_(X⊗Y) in the actual affine category.
+- `AffineCategory.tensor_comp`: For h:X→X′,h′:X′→X″,j:Y→Y′,j′:Y′→Y″, (h⊗j)≫(h′⊗j′)=(h≫h′)⊗(j≫j′) in categorical order.
+
+TESTS:
+
+- `AffineMonoidalTests.tensor_zero_map`: Construct an actual horizontal zero arrow h and tensor it with arbitrary horizontal j; the resulting arrow sends every elementary tensor to zero.
+- `AffineMonoidalTests.coherence_generators`: Evaluate both actual horizontal pentagon composites on ((a⊗b)⊗c)⊗d; both give a⊗(b⊗(c⊗d)), fixing the native direction and whiskering.
+- `AffineMonoidalTests.braiding_generator`: The actual categorical braiding sends x⊗y to y⊗x and its second swap returns x⊗y.
+
+### The actual affine tensor unit
+
+`AffineCategory.tensorUnit` — At the same arbitrary λ, construct the affine object (R,Uλ), where Uλ(a)=λ(1⊗d₀a) is the existing unit preconnection. No zero-curvature or d₀λ=0 premise is inserted in this ambient category.
+
+Proof plan: Reuse the inherited actual unit operator on ModuleCat.of R R. Its curvature may be nonzero for nonconstant λ.
+
+API:
+
+- `AffineCategory.unit_connection`: The affine monoidal unit has exactly the inherited additive operator Preconnection.unit Ω λ on R.
+- `AffineCategory.leftUnitor_linear`: For X, the linear map of (λ_X).hom is native TensorProduct.lid R X.1.
+- `AffineCategory.rightUnitor_linear`: For X, the linear map of (ρ_X).hom is native TensorProduct.rid R X.1.
+
+TESTS:
+
+- `AffineMonoidalTests.unit_derivative`: Apply the actual tensor connection and each categorical unitor to r⊗x and x⊗r. Both give rD(x)+λ(x⊗d₀r), retaining the derivative term.
+- `AffineMonoidalTests.nonconstant_parameter_unit`: Over Z[x] with λ=x and d₀x=1, the actual categorical unit tensor and left-unitor transport of its operator at x⊗1 has coordinate x. The category permits d₀λ≠0.
+- `AffineMonoidalTests.parameter_not_doubled`: Over Z[x] with λ=2 and formal derivative, the actual categorical unit tensor and left-unitor transport at x⊗1 has coordinate2, unequal to4. Tensor retains the same parameter once.
+
+### Horizontal native tensor associator
+
+`AffineCategory.associator` — Construct (X⊗Y)⊗T≅X⊗(Y⊗T) from native TensorProduct.assoc and the existing same-λ horizontal equation. The inverse is its native inverse and is horizontal by isoMk.
+
+Proof plan: Use isoMk with the actual associator-horizontal proof; do not choose an abstract existence witness.
+
+API:
+
+- `AffineCategory.associator_linear`: For X,Y,T, the linear map of (α_X,Y,T).hom is exactly native TensorProduct.assoc R X.1 Y.1 T.1.
+- `AffineCategory.pentagon`: For A,B,C,D, (αABC▷D)≫αA,(B⊗C),D≫(A◁αBCD)=α(A⊗B),C,D≫αA,B,(C⊗D) as actual horizontal arrows.
+- `AffineCategory.triangle`: For X,Y, αX,Uλ,Y≫(X◁λY)=ρX▷Y as actual horizontal arrows from (X⊗Uλ)⊗Y to X⊗Y.
+
+TESTS:
+
+- `AffineMonoidalTests.coherence_generators`: Evaluate both actual horizontal pentagon composites on ((a⊗b)⊗c)⊗d; both give a⊗(b⊗(c⊗d)), fixing the native direction and whiskering.
+- `AffineMonoidalTests.forget_native_data`: Forgetting the actual associator, both unitors and braiding yields exactly the four corresponding native ModuleCat morphisms.
+- `AffineMonoidalTests.nonconstant_parameter_unit`: Over Z[x] with λ=x and d₀x=1, the actual categorical unit tensor and left-unitor transport of its operator at x⊗1 has coordinate x. The category permits d₀λ≠0.
+
+### Horizontal native left unitor
+
+`AffineCategory.leftUnitor` — Construct Uλ⊗X≅X from native TensorProduct.lid and the existing same-λ horizontal identity. In particular the derivative of the scalar in r⊗x is retained.
+
+Proof plan: Use isoMk on the native left unitor and the actual affine left-unit horizontality proof.
+
+API:
+
+- `AffineCategory.leftUnitor_linear`: For X, the linear map of (λ_X).hom is native TensorProduct.lid R X.1.
+- `AffineCategory.triangle`: For X,Y, αX,Uλ,Y≫(X◁λY)=ρX▷Y as actual horizontal arrows from (X⊗Uλ)⊗Y to X⊗Y.
+- `AffineCategory.unit_connection`: The affine monoidal unit has exactly the inherited additive operator Preconnection.unit Ω λ on R.
+
+TESTS:
+
+- `AffineMonoidalTests.unit_derivative`: Apply the actual tensor connection and each categorical unitor to r⊗x and x⊗r. Both give rD(x)+λ(x⊗d₀r), retaining the derivative term.
+- `AffineMonoidalTests.forget_native_data`: Forgetting the actual associator, both unitors and braiding yields exactly the four corresponding native ModuleCat morphisms.
+- `AffineMonoidalTests.parameter_not_doubled`: Over Z[x] with λ=2 and formal derivative, the actual categorical unit tensor and left-unitor transport at x⊗1 has coordinate2, unequal to4. Tensor retains the same parameter once.
+
+### Horizontal native right unitor
+
+`AffineCategory.rightUnitor` — Construct X⊗Uλ≅X from native TensorProduct.rid and the existing same-λ horizontal identity, including its derived horizontal inverse.
+
+Proof plan: Use isoMk on the native right unitor and the actual right-unit equation.
+
+API:
+
+- `AffineCategory.rightUnitor_linear`: For X, the linear map of (ρ_X).hom is native TensorProduct.rid R X.1.
+- `AffineCategory.triangle`: For X,Y, αX,Uλ,Y≫(X◁λY)=ρX▷Y as actual horizontal arrows from (X⊗Uλ)⊗Y to X⊗Y.
+- `AffineCategory.unit_connection`: The affine monoidal unit has exactly the inherited additive operator Preconnection.unit Ω λ on R.
+
+TESTS:
+
+- `AffineMonoidalTests.unit_derivative`: Apply the actual tensor connection and each categorical unitor to r⊗x and x⊗r. Both give rD(x)+λ(x⊗d₀r), retaining the derivative term.
+- `AffineMonoidalTests.forget_native_data`: Forgetting the actual associator, both unitors and braiding yields exactly the four corresponding native ModuleCat morphisms.
+- `AffineMonoidalTests.nonconstant_parameter_unit`: Over Z[x] with λ=x and d₀x=1, the actual categorical unit tensor and left-unitor transport of its operator at x⊗1 has coordinate x. The category permits d₀λ≠0.
+
+### Affine monoidal data on the existing category
+
+`AffineCategory.monoidalStruct` — Supply native MonoidalCategoryStruct on AffineCategory Ω λ with the actual tensor object/map/unit/associator/unitors just constructed. Left and right whiskering are tensorMap with the categorical identity.
+
+Proof plan: Populate the existing data class with these specialized horizontal maps; no new generic monoidal framework.
+
+API:
+
+- `AffineCategory.tensor_connection`: For every affine X,Y, (X⊗Y).connection equals exactly X.connection.affineTensor Y.connection.
+- `AffineCategory.tensorMap_tmul`: For actual horizontal h,j and x,y, (h⊗ₘj).val(x⊗y)=h.val(x)⊗j.val(y).
+- `AffineCategory.unit_connection`: The affine monoidal unit has exactly the inherited additive operator Preconnection.unit Ω λ on R.
+
+TESTS:
+
+- `AffineMonoidalTests.coherence_generators`: Evaluate both actual horizontal pentagon composites on ((a⊗b)⊗c)⊗d; both give a⊗(b⊗(c⊗d)), fixing the native direction and whiskering.
+- `AffineMonoidalTests.unit_derivative`: Apply the actual tensor connection and each categorical unitor to r⊗x and x⊗r. Both give rD(x)+λ(x⊗d₀r), retaining the derivative term.
+- `AffineMonoidalTests.forget_native_data`: Forgetting the actual associator, both unitors and braiding yields exactly the four corresponding native ModuleCat morphisms.
+
+### Forgetful preservation of actual monoidal data
+
+`AffineCategory.inducingData` — Supply native Monoidal.InducingFunctorData for the existing forgetful functor. Both tensor and unit comparisons are identity isomorphisms on the identical native ModuleCat objects. Verify the six preservation equations for whiskering, tensor maps, associator and both unitors.
+
+Proof plan: Identity comparisons remove no connection data; prove the associator and unitor equations by native tensor extensionality.
+
+API:
+
+- `AffineCategory.forget_tensor_map`: For actual h,j, forget.map(h⊗ₘj)=forget.map(h)⊗ₘforget.map(j) as native ModuleCat arrows.
+- `AffineCategory.forget_tensor_comparison`: For X,Y, native Functor.LaxMonoidal.μ forget X Y is exactly the identity on their native tensor module, for the chosen forgetMonoidal structure.
+- `AffineCategory.forget_unit_comparison`: Native Functor.LaxMonoidal.ε forget is exactly the identity on R, for the chosen forgetMonoidal structure.
+
+TESTS:
+
+- `AffineMonoidalTests.coherence_generators`: Evaluate both actual horizontal pentagon composites on ((a⊗b)⊗c)⊗d; both give a⊗(b⊗(c⊗d)), fixing the native direction and whiskering.
+- `AffineMonoidalTests.forget_native_data`: Forgetting the actual associator, both unitors and braiding yields exactly the four corresponding native ModuleCat morphisms.
+- `AffineMonoidalTests.braiding_generator`: The actual categorical braiding sends x⊗y to y⊗x and its second swap returns x⊗y.
+
+### Lawful affine monoidal category
+
+`AffineCategory.monoidal` — Equip the actual AffineCategory Ω λ with native MonoidalCategory using its actual data and faithful forgetful functor. All tensor functor laws, naturality, pentagon and triangle are inherited via native Monoidal.induced.
+
+Proof plan: Apply the existing faithful induction theorem after its specialized preservation equations are established.
+
+API:
+
+- `AffineCategory.tensor_id`: For X,Y, id_X⊗ₘid_Y=id_(X⊗Y) in the actual affine category.
+- `AffineCategory.tensor_comp`: For h:X→X′,h′:X′→X″,j:Y→Y′,j′:Y′→Y″, (h⊗j)≫(h′⊗j′)=(h≫h′)⊗(j≫j′) in categorical order.
+- `AffineCategory.pentagon`: For A,B,C,D, (αABC▷D)≫αA,(B⊗C),D≫(A◁αBCD)=α(A⊗B),C,D≫αA,B,(C⊗D) as actual horizontal arrows.
+- `AffineCategory.triangle`: For X,Y, αX,Uλ,Y≫(X◁λY)=ρX▷Y as actual horizontal arrows from (X⊗Uλ)⊗Y to X⊗Y.
+
+TESTS:
+
+- `AffineMonoidalTests.coherence_generators`: Evaluate both actual horizontal pentagon composites on ((a⊗b)⊗c)⊗d; both give a⊗(b⊗(c⊗d)), fixing the native direction and whiskering.
+- `AffineMonoidalTests.unit_derivative`: Apply the actual tensor connection and each categorical unitor to r⊗x and x⊗r. Both give rD(x)+λ(x⊗d₀r), retaining the derivative term.
+- `AffineMonoidalTests.parameter_not_doubled`: Over Z[x] with λ=2 and formal derivative, the actual categorical unit tensor and left-unitor transport at x⊗1 has coordinate2, unequal to4. Tensor retains the same parameter once.
+
+### Core monoidal data for affine forgetting
+
+`AffineCategory.forgetCoreMonoidal` — Supply the native CoreMonoidal structure on AffineCategory.forget using fromInducedCoreMonoidal. Its tensor and unit isomorphisms are the actual identity comparisons, with the required naturality and coherence equations.
+
+Proof plan: Reuse the core monoidal data from the same inducingData, avoiding any second tensorator.
+
+API:
+
+- `AffineCategory.forget_tensor_map`: For actual h,j, forget.map(h⊗ₘj)=forget.map(h)⊗ₘforget.map(j) as native ModuleCat arrows.
+- `AffineCategory.forget_tensor_comparison`: For X,Y, native Functor.LaxMonoidal.μ forget X Y is exactly the identity on their native tensor module, for the chosen forgetMonoidal structure.
+- `AffineCategory.forget_unit_comparison`: Native Functor.LaxMonoidal.ε forget is exactly the identity on R, for the chosen forgetMonoidal structure.
+
+TESTS:
+
+- `AffineMonoidalTests.forget_native_data`: Forgetting the actual associator, both unitors and braiding yields exactly the four corresponding native ModuleCat morphisms.
+- `AffineMonoidalTests.coherence_generators`: Evaluate both actual horizontal pentagon composites on ((a⊗b)⊗c)⊗d; both give a⊗(b⊗(c⊗d)), fixing the native direction and whiskering.
+- `AffineMonoidalTests.unit_derivative`: Apply the actual tensor connection and each categorical unitor to r⊗x and x⊗r. Both give rD(x)+λ(x⊗d₀r), retaining the derivative term.
+
+### Strong monoidal affine forgetful functor
+
+`AffineCategory.forgetMonoidal` — Equip the existing faithful forgetful functor with native Functor.Monoidal by CoreMonoidal.toMonoidal. The forward and inverse tensor/unit comparisons are identities on native modules. This is affine forgetting, not scalar-extension pullback.
+
+Proof plan: Use the existing core-to-monoidal constructor and register this chosen structure.
+
+API:
+
+- `AffineCategory.forget_tensor_map`: For actual h,j, forget.map(h⊗ₘj)=forget.map(h)⊗ₘforget.map(j) as native ModuleCat arrows.
+- `AffineCategory.forget_tensor_comparison`: For X,Y, native Functor.LaxMonoidal.μ forget X Y is exactly the identity on their native tensor module, for the chosen forgetMonoidal structure.
+- `AffineCategory.forget_unit_comparison`: Native Functor.LaxMonoidal.ε forget is exactly the identity on R, for the chosen forgetMonoidal structure.
+
+TESTS:
+
+- `AffineMonoidalTests.forget_native_data`: Forgetting the actual associator, both unitors and braiding yields exactly the four corresponding native ModuleCat morphisms.
+- `AffineMonoidalTests.coherence_generators`: Evaluate both actual horizontal pentagon composites on ((a⊗b)⊗c)⊗d; both give a⊗(b⊗(c⊗d)), fixing the native direction and whiskering.
+- `AffineMonoidalTests.nonconstant_parameter_unit`: Over Z[x] with λ=x and d₀x=1, the actual categorical unit tensor and left-unitor transport of its operator at x⊗1 has coordinate x. The category permits d₀λ≠0.
+
+### The actual horizontal tensor symmetry
+
+`AffineCategory.braiding` — Construct X⊗Y≅Y⊗X from native TensorProduct.comm and the existing same-λ affine tensor horizontal identity; both forward and inverse maps are the native swaps.
+
+Proof plan: Use isoMk on comm with the existing affine comm-horizontal proof.
+
+API:
+
+- `AffineCategory.braiding_linear`: For X,Y, the linear map of (β_X,Y).hom is native TensorProduct.comm R X.1 Y.1.
+- `AffineCategory.symmetry`: For X,Y, βXY≫βYX=id_(X⊗Y) as actual arrows in the affine category.
+- `AffineCategory.tensor_connection`: For every affine X,Y, (X⊗Y).connection equals exactly X.connection.affineTensor Y.connection.
+
+TESTS:
+
+- `AffineMonoidalTests.braiding_generator`: The actual categorical braiding sends x⊗y to y⊗x and its second swap returns x⊗y.
+- `AffineMonoidalTests.forget_native_data`: Forgetting the actual associator, both unitors and braiding yields exactly the four corresponding native ModuleCat morphisms.
+- `AffineMonoidalTests.nonreduced_braiding`: For the scalar Higgs operator1 over Z/4, the actual braiding sends2⊗1 to1⊗2 with coordinate2≠0, square zero, and swapping twice returns the actual tensor.
+
+### Affine braiding with native hexagon coherence
+
+`AffineCategory.braided` — Equip the existing affine monoidal category with native BraidedCategory, using the actual horizontal comm isomorphism. Its image under forget satisfies the native ModuleCat braiding equation with the chosen identity tensorator. Native ofFaithful supplies naturality and both hexagons.
+
+Proof plan: Check the forgetful braiding square by tensor extensionality on elementary tensors; reuse the native faithful constructor.
+
+API:
+
+- `AffineCategory.braiding_linear`: For X,Y, the linear map of (β_X,Y).hom is native TensorProduct.comm R X.1 Y.1.
+- `AffineCategory.symmetry`: For X,Y, βXY≫βYX=id_(X⊗Y) as actual arrows in the affine category.
+- `AffineCategory.forget_tensor_map`: For actual h,j, forget.map(h⊗ₘj)=forget.map(h)⊗ₘforget.map(j) as native ModuleCat arrows.
+
+TESTS:
+
+- `AffineMonoidalTests.braiding_generator`: The actual categorical braiding sends x⊗y to y⊗x and its second swap returns x⊗y.
+- `AffineMonoidalTests.forget_native_data`: Forgetting the actual associator, both unitors and braiding yields exactly the four corresponding native ModuleCat morphisms.
+- `AffineMonoidalTests.nonreduced_braiding`: For the scalar Higgs operator1 over Z/4, the actual braiding sends2⊗1 to1⊗2 with coordinate2≠0, square zero, and swapping twice returns the actual tensor.
+
+### Braided compatibility of affine forgetting
+
+`AffineCategory.forgetBraided` — Equip the chosen affine forgetful monoidal functor with native Functor.Braided by proving μ(X,Y)≫forget(βXY)=β(forget X,forget Y)≫μ(Y,X), for the actual swap and identity comparisons.
+
+Proof plan: Prove the specialized native preservation square on pure tensors; retain the chosen monoidal structure.
+
+API:
+
+- `AffineCategory.braiding_linear`: For X,Y, the linear map of (β_X,Y).hom is native TensorProduct.comm R X.1 Y.1.
+- `AffineCategory.forget_tensor_comparison`: For X,Y, native Functor.LaxMonoidal.μ forget X Y is exactly the identity on their native tensor module, for the chosen forgetMonoidal structure.
+- `AffineCategory.forget_tensor_map`: For actual h,j, forget.map(h⊗ₘj)=forget.map(h)⊗ₘforget.map(j) as native ModuleCat arrows.
+
+TESTS:
+
+- `AffineMonoidalTests.braiding_generator`: The actual categorical braiding sends x⊗y to y⊗x and its second swap returns x⊗y.
+- `AffineMonoidalTests.forget_native_data`: Forgetting the actual associator, both unitors and braiding yields exactly the four corresponding native ModuleCat morphisms.
+- `AffineMonoidalTests.nonreduced_braiding`: For the scalar Higgs operator1 over Z/4, the actual braiding sends2⊗1 to1⊗2 with coordinate2≠0, square zero, and swapping twice returns the actual tensor.
+
+### Affine symmetric monoidal category
+
+`AffineCategory.symmetric` — Equip AffineCategory Ω λ with native SymmetricCategory through its faithful braided forgetful functor to native symmetric ModuleCat. Thus βXY≫βYX is the identity as an actual horizontal arrow.
+
+Proof plan: Apply native SymmetricCategory.ofFaithful; no field, reducedness, integrability or constant-parameter hypothesis.
+
+API:
+
+- `AffineCategory.braiding_linear`: For X,Y, the linear map of (β_X,Y).hom is native TensorProduct.comm R X.1 Y.1.
+- `AffineCategory.symmetry`: For X,Y, βXY≫βYX=id_(X⊗Y) as actual arrows in the affine category.
+- `AffineCategory.pentagon`: For A,B,C,D, (αABC▷D)≫αA,(B⊗C),D≫(A◁αBCD)=α(A⊗B),C,D≫αA,B,(C⊗D) as actual horizontal arrows.
+
+TESTS:
+
+- `AffineMonoidalTests.braiding_generator`: The actual categorical braiding sends x⊗y to y⊗x and its second swap returns x⊗y.
+- `AffineMonoidalTests.nonreduced_braiding`: For the scalar Higgs operator1 over Z/4, the actual braiding sends2⊗1 to1⊗2 with coordinate2≠0, square zero, and swapping twice returns the actual tensor.
+- `AffineMonoidalTests.coherence_generators`: Evaluate both actual horizontal pentagon composites on ((a⊗b)⊗c)⊗d; both give a⊗(b⊗(c⊗d)), fixing the native direction and whiskering.
+
+### Actual operator in the categorical tensor
+
+`AffineCategory.tensor_connection` — For every affine X,Y, (X⊗Y).connection equals exactly X.connection.affineTensor Y.connection.
+
+Proof plan: Definitional reduction of the selected native monoidal data.
+
+### Tensor arrow on elementary tensors
+
+`AffineCategory.tensorMap_tmul` — For actual horizontal h,j and x,y, (h⊗ₘj).val(x⊗y)=h.val(x)⊗j.val(y).
+
+Proof plan: Reduce the chosen tensorMap to native TensorProduct.map.
+
+### Actual operator in the monoidal unit
+
+`AffineCategory.unit_connection` — The affine monoidal unit has exactly the inherited additive operator Preconnection.unit Ω λ on R.
+
+Proof plan: Definitional reduction; do not replace λd₀ with the zero operator.
+
+### Linear map of the affine associator
+
+`AffineCategory.associator_linear` — For X,Y,T, the linear map of (α_X,Y,T).hom is exactly native TensorProduct.assoc R X.1 Y.1 T.1.
+
+Proof plan: Reduce the selected associator and isoMk.
+
+### Linear map of the affine left unitor
+
+`AffineCategory.leftUnitor_linear` — For X, the linear map of (λ_X).hom is native TensorProduct.lid R X.1.
+
+Proof plan: Reduce the selected unitor and isoMk.
+
+### Linear map of the affine right unitor
+
+`AffineCategory.rightUnitor_linear` — For X, the linear map of (ρ_X).hom is native TensorProduct.rid R X.1.
+
+Proof plan: Reduce the selected unitor and isoMk.
+
+### Linear map of the affine braiding
+
+`AffineCategory.braiding_linear` — For X,Y, the linear map of (β_X,Y).hom is native TensorProduct.comm R X.1 Y.1.
+
+Proof plan: Reduce the chosen braiding and isoMk.
+
+### Forgetting the categorical tensor of arrows
+
+`AffineCategory.forget_tensor_map` — For actual h,j, forget.map(h⊗ₘj)=forget.map(h)⊗ₘforget.map(j) as native ModuleCat arrows.
+
+Proof plan: Definitional equality of the selected tensor maps.
+
+### The actual forgetful tensorator
+
+`AffineCategory.forget_tensor_comparison` — For X,Y, native Functor.LaxMonoidal.μ forget X Y is exactly the identity on their native tensor module, for the chosen forgetMonoidal structure.
+
+Proof plan: Reduce the chosen inducingData and core monoidal constructor.
+
+### The actual forgetful unit comparison
+
+`AffineCategory.forget_unit_comparison` — Native Functor.LaxMonoidal.ε forget is exactly the identity on R, for the chosen forgetMonoidal structure.
+
+Proof plan: Reduce the chosen inducingData and core monoidal constructor.
+
+### Tensor identities as horizontal arrows
+
+`AffineCategory.tensor_id` — For X,Y, id_X⊗ₘid_Y=id_(X⊗Y) in the actual affine category.
+
+Proof plan: Use the id_tensorHom_id law of the induced native structure.
+
+### Tensor composition as horizontal arrows
+
+`AffineCategory.tensor_comp` — For h:X→X′,h′:X′→X″,j:Y→Y′,j′:Y′→Y″, (h⊗j)≫(h′⊗j′)=(h≫h′)⊗(j≫j′) in categorical order.
+
+Proof plan: Use the native tensorHom_comp_tensorHom law of the induced structure.
+
+### The affine horizontal pentagon
+
+`AffineCategory.pentagon` — For A,B,C,D, (αABC▷D)≫αA,(B⊗C),D≫(A◁αBCD)=α(A⊗B),C,D≫αA,B,(C⊗D) as actual horizontal arrows.
+
+Proof plan: Project the native pentagon law inherited through the faithful functor.
+
+### The affine horizontal triangle
+
+`AffineCategory.triangle` — For X,Y, αX,Uλ,Y≫(X◁λY)=ρX▷Y as actual horizontal arrows from (X⊗Uλ)⊗Y to X⊗Y.
+
+Proof plan: Project the native triangle law inherited through the faithful functor.
+
+### Involutivity as actual horizontal arrows
+
+`AffineCategory.symmetry` — For X,Y, βXY≫βYX=id_(X⊗Y) as actual arrows in the affine category.
+
+Proof plan: Project the symmetry law of the native faithful symmetric structure.
+
+## Earlier checkpoint reader (preserved verbatim)
+
 # The affine category and the pullback functor
 
 Objects are native R-modules equipped with the existing actual additive λ-preconnection. Arrows are R-linear maps satisfying the existing horizontal equation. Identity and composition are the native linear maps, with their horizontal proofs. The faithful forgetful functor lands in native ModuleCat. A horizontal linear equivalence supplies a categorical isomorphism, including its inverse-horizontal proof and preservation/reflection of actual zero curvature.
