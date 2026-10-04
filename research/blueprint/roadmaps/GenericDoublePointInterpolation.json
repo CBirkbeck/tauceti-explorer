@@ -77,7 +77,7 @@
       "edition": "arXiv:math/0701409v2, 10 September 2007",
       "url": "https://arxiv.org/pdf/math/0701409v2",
       "readSections": [
-        "Sections1–6, pp1–19, including all cubic and quartic inputs and the differential Horace proof; Section7 is outside this route"
+        "Sections1–6, printed pp1–19, independently read in full; additionally the opening univariate paragraph of §7.1 p19 only. Other historical/Waring material is outside this route."
       ],
       "accessed": "2026-10-04",
       "sha256": "7d3dd9e6268431f4be53740bbf57ebf46d9a76b13c3472d6911d7f6deb530aa7"
@@ -95,5 +95,11 @@
       "sha256": "8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104"
     }
   ],
-  "status": "draft"
+  "status": "draft",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-GenericDoublePointInterpolation",
+    "date": "2026-10-04",
+    "notes": "Six layers ordered correctly; local interpolation specializations do not duplicate the four general supplier stages. Acceptance is of the complete target-level planning pass, not proof closure or formalization. See the packet review and independent report for precise open interfaces."
+  }
 }
