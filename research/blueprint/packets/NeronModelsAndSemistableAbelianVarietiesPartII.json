@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3594,6 +3594,134 @@
         "line": 234,
         "provides": "def evaluation : C ⥤ (C ⥤ D) ⥤ D where Existing native sheaf, limit or basis interface; no general carrier is replanned.",
         "checked": "Codex — codex-7e92bd freshly read the full statement, ambient hypotheses and relevant proof at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.sheafCompose",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/Whiskering.lean",
+        "line": 51,
+        "provides": "def sheafCompose : Sheaf J A ⥤ Sheaf J B := Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.sheafIsAbelian",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/Sites/Abelian.lean",
+        "line": 40,
+        "provides": "instance sheafIsAbelian : Abelian (Sheaf J D) := Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.of_map_of_faithful",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Basic.lean",
+        "line": 832,
+        "provides": "theorem IsPullback.of_map_of_faithful [ReflectsLimit (cospan h i) F] [F.Faithful] Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.whiskeringRight",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Whiskering.lean",
+        "line": 95,
+        "provides": "def whiskeringRight : (D ⥤ E) ⥤ (C ⥤ D) ⥤ C ⥤ E where Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:RingCat.forget₂AddCommGroup_preservesLimits",
+        "kind": "instance",
+        "module": "Mathlib/Algebra/Category/Ring/Limits.lean",
+        "line": 389,
+        "provides": "instance forget₂AddCommGroup_preservesLimits : Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.CommSq.shortComplex'",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/CommSq.lean",
+        "line": 135,
+        "provides": "noncomputable def CommSq.shortComplex' (sq : CommSq fst snd f g) : ShortComplex C where Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.mono_shortComplex'_f",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/CommSq.lean",
+        "line": 195,
+        "provides": "lemma IsPullback.mono_shortComplex'_f (h : IsPullback fst snd f g) : Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.exact_shortComplex'",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Abelian/CommSq.lean",
+        "line": 119,
+        "provides": "lemma exact_shortComplex' (h : IsPullback t l r b) : h.shortComplex'.Exact := Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ShortComplex.ShortExact.mk'",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/ShortComplex/ShortExact.lean",
+        "line": 42,
+        "provides": "lemma ShortExact.mk' (h : S.Exact) (_ : Mono S.f) (_ : Epi S.g) : S.ShortExact where Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:TopCat.Presheaf.isLocallySurjective_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Sheaves/LocallySurjective.lean",
+        "line": 64,
+        "provides": "theorem isLocallySurjective_iff (T : ℱ ⟶ 𝒢) : Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:TopCat.Sheaf.isLocallySurjective_iff_epi",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Sheaves/LocallySurjective.lean",
+        "line": 125,
+        "provides": "theorem TopCat.Sheaf.isLocallySurjective_iff_epi {X : TopCat.{v}} {C : Type u} [Category.{v} C] Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:TopologicalSpace.IsTopologicalBasis.exists_subset_of_mem_open",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Bases.lean",
+        "line": 175,
+        "provides": "theorem IsTopologicalBasis.exists_subset_of_mem_open {b : Set (Set α)} (hb : IsTopologicalBasis b) Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CommRingCat.forget₂Ring_preservesLimits",
+        "kind": "instance",
+        "module": "Mathlib/Algebra/Category/Ring/Limits.lean",
+        "line": 499,
+        "provides": "instance forget₂Ring_preservesLimits : PreservesLimits (forget₂ CommRingCat RingCat.{u}) := Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.Fork.IsLimit.existsUnique",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Equalizers.lean",
+        "line": 503,
+        "provides": "theorem Fork.IsLimit.existsUnique {s : Fork f g} (hs : IsLimit s) {W : C} (k : W ⟶ X) Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.whiskeringRightPreservesLimits",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/Limits/Preserves/FunctorCategory.lean",
+        "line": 206,
+        "provides": "instance whiskeringRightPreservesLimits {C : Type*} [Category* C] {D : Type*} [Category* D] Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Sheaf.createsLimits",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/Sites/Limits.lean",
+        "line": 164,
+        "provides": "instance createsLimits [HasLimitsOfSize.{u₁, u₂} D] : Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
+        "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
       }
     ]
   },
@@ -4228,6 +4356,18 @@
       "accessed": "2026-10-04T01:21:38.398566+00:00",
       "readSections": [
         "Complete displayed Lemma37.14.1 statement and proof, lines22–37 of the public page, including the ringed-space and local-ring arguments; no recursive citation closure. The existing pushforward-domain misprint was re-observed. No new source finding; preserve both preceding findings and the matrix-image proof gap unchanged."
+      ]
+    },
+    {
+      "id": "conductor-additive-rtOQ9t-0ET0",
+      "title": "Conductor additive sheaf sequence, context in Stacks37.14.1",
+      "authors": "The Stacks Project authors; additive finite-conductor deduction by Codex — codex-rtOQ9t",
+      "edition": "Online version read4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/0ET0",
+      "sha256": "bbbfdcd78318dc3aef0acc1615cef57eb793f430e96986a119ab7808daf558d9",
+      "accessed": "2026-10-04T03:01:54.118605+00:00",
+      "readSections": [
+        "Complete displayed statement and proof of Stacks37.14.1 freshly read in web viewer; actual additive sheaf short-exact result is an authored consequence of the existing finite schematically dominant conductor sheaf pullback, affine closed-inclusion surjectivity and native categorical APIs. No recursive source closure or fresh exhaustive erratum search. HTML text is not archived."
       ]
     }
   ],
@@ -37145,6 +37285,698 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-sheaf-pullback",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The conductor square after forgetting multiplication",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductor_additive_isPullback",
+      "statement": "For every finite schematically dominant f:Y→P, apply the existing sheaf-composition functor for CommRingCat→RingCat→AddCommGrpCat to the actual conductor structure-sheaf square. The resulting square of native additive sheaves on P is a pullback, with the two specified structure maps and the actual conductor inclusion and chart maps.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-pullback",
+        "mathlib:CategoryTheory.sheafCompose",
+        "mathlib:CategoryTheory.Functor.whiskeringRight",
+        "mathlib:CategoryTheory.whiskeringRightPreservesLimits",
+        "mathlib:CategoryTheory.Sheaf.createsLimits",
+        "mathlib:CategoryTheory.sheafToPresheaf",
+        "mathlib:CommRingCat.forget₂Ring_preservesLimits",
+        "mathlib:RingCat.forget₂AddCommGroup_preservesLimits",
+        "mathlib:CategoryTheory.IsPullback.of_map_of_faithful",
+        "mathlib:CategoryTheory.Functor.map_isPullback"
+      ],
+      "proofSteps": [
+        "Inclusion into presheaves preserves and reflects limits. Whiskering with the existing two-step forgetful functor preserves limits. Map the ring-sheaf pullback into additive presheaves and reflect it through the additive sheaf inclusion. No new generic sheaf or forgetful carrier is introduced."
+      ],
+      "acceptance": [
+        "For every finite schematically dominant f:Y→P, apply the existing sheaf-composition functor for CommRingCat→RingCat→AddCommGrpCat to the actual conductor structure-sheaf square. The resulting square of native additive sheaves on P is a pullback, with the two specified structure maps and the actual conductor inclusion and chart maps.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "The actual conductor additive sheaf short complex",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex",
+      "statement": "Construct the native ShortComplex in additive sheaves on P with objects O_P,+, f_*O_Y,+ ⊞ I.ι_*O_I,+, and f_*J.ι_*O_J,+, where I is the actual conductor ideal datum and J=I.comap f. Its first map is the biproduct lift of the actual structure maps; its second map is the biproduct desc of the actual source inclusion and the negative of the actual chart map. The native zero-composite equation uses the actual conductor square.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-sheaf-pullback",
+        "mathlib:CategoryTheory.CommSq.shortComplex'",
+        "mathlib:CategoryTheory.sheafIsAbelian"
+      ],
+      "proofSteps": [
+        "Specialize the existing native CommSq.shortComplex′ to the proved additive conductor pullback. All three objects and both arrows are determined by the actual sheaves and maps; do not add an ad hoc complex with assumed exactness."
+      ],
+      "acceptance": [
+        "Construct the native ShortComplex in additive sheaves on P with objects O_P,+, f_*O_Y,+ ⊞ I.ι_*O_I,+, and f_*J.ι_*O_J,+, where I is the actual conductor ideal datum and J=I.comap f. Its first map is the biproduct lift of the actual structure maps; its second map is the biproduct desc of the actual source inclusion and the negative of the actual chart map. The native zero-composite equation uses the actual conductor square.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_f_fst",
+          "role": "compatibility",
+          "statement": "The first map of conductorAdditiveShortComplex followed by the first native biproduct projection is exactly f.c after forgetting multiplication."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_f_snd",
+          "role": "compatibility",
+          "statement": "The first map followed by the second native biproduct projection is exactly I.ι.c after forgetting multiplication."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inl_g",
+          "role": "compatibility",
+          "statement": "The first native biproduct injection followed by the last map equals the actual conductorSheafInclusion after forgetting multiplication."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inr_g",
+          "role": "compatibility",
+          "statement": "The second native biproduct injection followed by the last map equals the negative of the actual conductorSheafChart after forgetting multiplication."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inl_g_app",
+          "role": "compatibility",
+          "statement": "On every open U⊂P and every b∈Γ(Y,f⁻¹U), applying the actual last sheaf map to the first injected section gives J.ι.app(f⁻¹U)(b)."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inr_g_app",
+          "role": "compatibility",
+          "statement": "On every open U⊂P and every c∈Γ(I,I.ι⁻¹U), applying the actual last sheaf map to the second injected section gives −conductorChartMap(f,U)(c)."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_pair_app",
+          "role": "compatibility",
+          "statement": "On every open U, the last sheaf map sends inl(b)+inr(c) to the preceding actual conductorSectionDifference(f,U)(b,c). Both rings, restrictions and the subtraction sign are unchanged."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_mono",
+          "role": "compatibility",
+          "statement": "The first morphism of the actual conductorAdditiveShortComplex is a monomorphism in native additive sheaves on P."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_exact",
+          "role": "compatibility",
+          "statement": "The actual conductorAdditiveShortComplex is Exact in the native abelian category of additive sheaves on P. The actual structure map is the kernel of the specified signed difference."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_affine_surjective",
+          "role": "compatibility",
+          "statement": "For every affine open U⊂P, the component on U of the last actual sheaf map is surjective as an additive group homomorphism. A target section lifts along the actual closed inclusion J.ι on the affine inverse image f⁻¹U, and the first native biproduct injection supplies its middle-term lift."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_locally_surjective",
+          "role": "compatibility",
+          "statement": "The actual last map is locally surjective: for every target section on any open U and each x∈U, choose an affine open V⊆U containing x; the restricted section has an actual middle-term lift on V."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_epi",
+          "role": "compatibility",
+          "statement": "The last morphism of conductorAdditiveShortComplex is an epimorphism in additive sheaves on P. This is sheaf epimorphy obtained from local lifts, not surjectivity on sections of every nonaffine open."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_shortExact",
+          "role": "compatibility",
+          "statement": "For every finite schematically dominant f:Y→P, the specified native conductorAdditiveShortComplex is ShortExact: 0→O_P,+→f_*O_Y,+⊞I.ι_*O_I,+→f_*J.ι_*O_J,+→0. No reducedness, Noetherianity, birationality or global affineness is required."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorAdditiveChecked.signed_units",
+          "kind": "computation",
+          "statement": "For every open, the actual last map sends the injected pair (1,0) to 1 and (0,1) to −1 in the actual source-conductor section ring."
+        },
+        {
+          "name": "ConductorAdditiveChecked.empty_open",
+          "kind": "degenerate",
+          "statement": "On the empty target open the actual last map sends every native middle-term section to zero; the native zero section ring is retained."
+        },
+        {
+          "name": "ConductorAdditiveChecked.actual_section_pair",
+          "kind": "compatibility",
+          "statement": "For every open and every section a of O_P, the actual last map kills inl(f.app(a))+inr(I.ι.app(a))."
+        },
+        {
+          "name": "ConductorAdditiveChecked.affine_lift",
+          "kind": "compatibility",
+          "statement": "For every affine open and actual target section, a section of the native sheaf biproduct maps to it under the actual last morphism."
+        },
+        {
+          "name": "ConductorAdditiveChecked.kernel_universal_property",
+          "kind": "characterisation",
+          "statement": "For any native additive sheaf F on P and any morphism F→the native middle sheaf killed by the actual last map, there is a unique morphism F→O_P,+ whose composite with the actual first map is the given morphism."
+        },
+        {
+          "name": "ConductorAdditiveChecked.nonreduced_identity",
+          "kind": "non-example",
+          "statement": "For the identity of Spec(Z/4), the global section corresponding to 2 is nonzero and square-zero, and its image under the actual first additive sheaf map remains nonzero. Reducing the structure ring loses this test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric",
+          "how": "Record the additive kernel and local epimorphism attached to the actual conductor sheaf comparison while the separate quotient-topology and Scheme universal-property arguments remain."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+          "how": "Supply the genuine native short exact sheaf sequence for the separately required coherent H0/H1 and genus comparison; the cohomology interfaces remain at their owners."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-first-projection",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "First coordinate of the additive structure map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_f_fst",
+      "statement": "The first map of conductorAdditiveShortComplex followed by the first native biproduct projection is exactly f.c after forgetting multiplication.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex"
+      ],
+      "proofSteps": [
+        "Use the native biproduct lift first-projection identity."
+      ],
+      "acceptance": [
+        "The first map of conductorAdditiveShortComplex followed by the first native biproduct projection is exactly f.c after forgetting multiplication.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-second-projection",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Second coordinate of the additive structure map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_f_snd",
+      "statement": "The first map followed by the second native biproduct projection is exactly I.ι.c after forgetting multiplication.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex"
+      ],
+      "proofSteps": [
+        "Use the native biproduct lift second-projection identity."
+      ],
+      "acceptance": [
+        "The first map followed by the second native biproduct projection is exactly I.ι.c after forgetting multiplication.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-first-injection",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The source summand maps by the actual inclusion",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inl_g",
+      "statement": "The first native biproduct injection followed by the last map equals the actual conductorSheafInclusion after forgetting multiplication.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex"
+      ],
+      "proofSteps": [
+        "Use the native first-injection/desc identity."
+      ],
+      "acceptance": [
+        "The first native biproduct injection followed by the last map equals the actual conductorSheafInclusion after forgetting multiplication.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-second-injection",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The chart summand has the negative sign",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inr_g",
+      "statement": "The second native biproduct injection followed by the last map equals the negative of the actual conductorSheafChart after forgetting multiplication.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex"
+      ],
+      "proofSteps": [
+        "Use the native second-injection/desc identity, retaining its negative chart map."
+      ],
+      "acceptance": [
+        "The second native biproduct injection followed by the last map equals the negative of the actual conductorSheafChart after forgetting multiplication.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-first-injection-sections",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Evaluate the inclusion on actual sections",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inl_g_app",
+      "statement": "On every open U⊂P and every b∈Γ(Y,f⁻¹U), applying the actual last sheaf map to the first injected section gives J.ι.app(f⁻¹U)(b).",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-first-injection",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-inclusion-component"
+      ],
+      "proofSteps": [
+        "Evaluate the sheaf-morphism identity at U and then at b."
+      ],
+      "acceptance": [
+        "On every open U⊂P and every b∈Γ(Y,f⁻¹U), applying the actual last sheaf map to the first injected section gives J.ι.app(f⁻¹U)(b).",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-second-injection-sections",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Evaluate the negative chart component",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inr_g_app",
+      "statement": "On every open U⊂P and every c∈Γ(I,I.ι⁻¹U), applying the actual last sheaf map to the second injected section gives −conductorChartMap(f,U)(c).",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-second-injection",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-chart-component"
+      ],
+      "proofSteps": [
+        "Evaluate the sheaf-morphism identity and the native additive negation at U and c."
+      ],
+      "acceptance": [
+        "On every open U⊂P and every c∈Γ(I,I.ι⁻¹U), applying the actual last sheaf map to the second injected section gives −conductorChartMap(f,U)(c).",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-pair-sections",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The actual sheaf differential is the signed section difference",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_pair_app",
+      "statement": "On every open U, the last sheaf map sends inl(b)+inr(c) to the preceding actual conductorSectionDifference(f,U)(b,c). Both rings, restrictions and the subtraction sign are unchanged.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-first-injection-sections",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-second-injection-sections",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-section-difference-evaluation"
+      ],
+      "proofSteps": [
+        "Add the two evaluated component identities, then use the existing signed section-difference formula."
+      ],
+      "acceptance": [
+        "On every open U, the last sheaf map sends inl(b)+inr(c) to the preceding actual conductorSectionDifference(f,U)(b,c). Both rings, restrictions and the subtraction sign are unchanged.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-monomorphism",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The first additive sheaf map is monic",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_mono",
+      "statement": "The first morphism of the actual conductorAdditiveShortComplex is a monomorphism in native additive sheaves on P.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-sheaf-pullback",
+        "mathlib:CategoryTheory.IsPullback.mono_shortComplex'_f"
+      ],
+      "proofSteps": [
+        "Apply the existing native pullback-kernel monomorphism theorem to the actual additive square."
+      ],
+      "acceptance": [
+        "The first morphism of the actual conductorAdditiveShortComplex is a monomorphism in native additive sheaves on P.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-middle-exact",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Exactness in the native abelian sheaf category",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_exact",
+      "statement": "The actual conductorAdditiveShortComplex is Exact in the native abelian category of additive sheaves on P. The actual structure map is the kernel of the specified signed difference.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-sheaf-pullback",
+        "mathlib:CategoryTheory.IsPullback.exact_shortComplex'"
+      ],
+      "proofSteps": [
+        "Apply the existing native exactness theorem for the short complex of a pullback, through its genuine limiting kernel fork."
+      ],
+      "acceptance": [
+        "The actual conductorAdditiveShortComplex is Exact in the native abelian category of additive sheaves on P. The actual structure map is the kernel of the specified signed difference.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-affine-surjective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Lift actual conductor sections on affine opens",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_affine_surjective",
+      "statement": "For every affine open U⊂P, the component on U of the last actual sheaf map is surjective as an additive group homomorphism. A target section lifts along the actual closed inclusion J.ι on the affine inverse image f⁻¹U, and the first native biproduct injection supplies its middle-term lift.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-first-injection-sections",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app_surjective",
+        "mathlib:AlgebraicGeometry.IsAffineOpen.preimage"
+      ],
+      "proofSteps": [
+        "Finite f is affine, so f⁻¹U is affine. Use the existing closed-subscheme restriction surjectivity there and the proved actual inclusion-component equation. No last-map surjectivity on arbitrary opens is inferred."
+      ],
+      "acceptance": [
+        "For every affine open U⊂P, the component on U of the last actual sheaf map is surjective as an additive group homomorphism. A target section lifts along the actual closed inclusion J.ι on the affine inverse image f⁻¹U, and the first native biproduct injection supplies its middle-term lift.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-local-surjective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The signed conductor sheaf map is locally surjective",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_locally_surjective",
+      "statement": "The actual last map is locally surjective: for every target section on any open U and each x∈U, choose an affine open V⊆U containing x; the restricted section has an actual middle-term lift on V.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-affine-surjective",
+        "mathlib:AlgebraicGeometry.Scheme.isBasis_affineOpens",
+        "mathlib:TopologicalSpace.IsTopologicalBasis.exists_subset_of_mem_open",
+        "mathlib:TopCat.Presheaf.isLocallySurjective_iff"
+      ],
+      "proofSteps": [
+        "Use the affine-open basis to choose V around x inside U, then apply actual affine component surjectivity to the restricted section. Apply the native local-surjectivity criterion with the prescribed restriction."
+      ],
+      "acceptance": [
+        "The actual last map is locally surjective: for every target section on any open U and each x∈U, choose an affine open V⊆U containing x; the restricted section has an actual middle-term lift on V.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-epimorphism",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The signed conductor differential is an epimorphism of sheaves",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_epi",
+      "statement": "The last morphism of conductorAdditiveShortComplex is an epimorphism in additive sheaves on P. This is sheaf epimorphy obtained from local lifts, not surjectivity on sections of every nonaffine open.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-local-surjective",
+        "mathlib:TopCat.Sheaf.isLocallySurjective_iff_epi"
+      ],
+      "proofSteps": [
+        "Use the existing equivalence between local surjectivity and epimorphy in the native additive sheaf category, with its existing sheafification and abelian structure."
+      ],
+      "acceptance": [
+        "The last morphism of conductorAdditiveShortComplex is an epimorphism in additive sheaves on P. This is sheaf epimorphy obtained from local lifts, not surjectivity on sections of every nonaffine open.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-exact",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The conductor additive sheaf sequence is short exact",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_shortExact",
+      "statement": "For every finite schematically dominant f:Y→P, the specified native conductorAdditiveShortComplex is ShortExact: 0→O_P,+→f_*O_Y,+⊞I.ι_*O_I,+→f_*J.ι_*O_J,+→0. No reducedness, Noetherianity, birationality or global affineness is required.",
+      "hypotheses": [
+        "Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-monomorphism",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-middle-exact",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-epimorphism",
+        "mathlib:CategoryTheory.ShortComplex.ShortExact.mk'"
+      ],
+      "proofSteps": [
+        "Package the independently established native mono, Exact and epi facts using ShortComplex.ShortExact.mk′. This does not prove quotient topology, the Scheme pushout universal property, or coherent cohomology."
+      ],
+      "acceptance": [
+        "For every finite schematically dominant f:Y→P, the specified native conductorAdditiveShortComplex is ShortExact: 0→O_P,+→f_*O_Y,+⊞I.ι_*O_I,+→f_*J.ι_*O_J,+→0. No reducedness, Noetherianity, birationality or global affineness is required.",
+        "No generic sheaf or short-complex carrier is replanned. Last-map component surjectivity is only asserted on affine opens; all arbitrary opens have local lifts and the inherited middle exactness."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-additive-rtOQ9t-0ET0",
+          "locator": "Stacks37.14.1 complete displayed statement and proof; authored additive finite-conductor deduction",
+          "excerpt": "sheaves of rings",
+          "match": "Context for the actual structure-sheaf pullback. This short-exact additive sequence is an authored consequence of the preceding general finite-conductor pullback, actual closed-inclusion surjectivity on affine opens, and pinned native abelian/sheaf APIs. No source claim of arbitrary-open section surjectivity is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -37506,7 +38338,8 @@
         "The actual conductorMap now has checked native square, cartesian and finite APIs, comparison with subschemeMap and uniqueness. Its actual section map is defined on every target open and commutes with native restrictions. On affine opens, the two actual subschemeObjIso identifications conjugate this section map to the native induced quotient-ring map A/I→B/J, where J is the actual pulled-back ideal datum. The nonreduced diagonal Z/4 example retains a nonzero square-zero class on both sides and shows the induced map need not be an isomorphism. The exact equality J(V)=c(im(f.app U),B) still requires the affine tensor-quotient/pullback ideal comparison; no geometric pushout or all-open structure-sheaf exactness is inferred. All inherited properness/projectivity, P¹/Proj, cohomology, flat-recomputed conductor, I2 and classification obligations remain required. All seven stages remain partial and every implementation unchecked; the full Tau-importing suggested file remains uncompiled.",
         "The full ideal equality (I_f.comap f)(f⁻¹U)=c(im(f.app U),Γ(Y,f⁻¹U)) is now supplied for every affine U and finite schematically dominant f, using native ideal-sheaf adjunction and open restriction. The exact existing conductor_affine_quotients header has a native proof. The canonical source section chart is B/K for this full conductor K, and both its closed inclusion and the actual conductor map have the specified quotient-map coordinates. The nonreduced diagonal Z/4 example retains a nonzero square-zero coordinate. This resolves the previously recorded source-ideal comparison; no generic tensor-quotient theorem is replanned. The all-open structure-sheaf exact sequence, geometric/categorical pushout, flat-recomputed conductor, P¹/Proj, properness/projectivity, cohomology, I2 and later classification obligations remain required. All seven stages remain partial, all implementation statuses unchecked, and the full Tau-importing canonical file uncompiled.",
         "The actual affine conductor section square is a native CommRingCat pullback and target sections are reconstructed by the specified isomorphism with its native fiber product. The signed additive difference is defined on every open and respects every open restriction; the preceding section-pair map is injective on every open. On affine opens the difference is surjective and the sequence is exact. No surjectivity on arbitrary-open sections or global sheaf exactness is asserted. Global sheaf comparison, quotient topology, geometric/categorical pushout, recomputed flat conductor integration, P¹/Proj, projectivity/properness, coherent H0/H1, separate I₂ and later model/classification work remain required. Two bounded source findings record a pushforward-domain misprint and an overbroad matrix-dimension justification; the latter adds an explicit source-proof gap without disproving the curve lemma. All seven stages remain partial, all implementations unchecked, and the full Tau-importing canonical suggested file remains UNCOMPILED.",
-        "The actual finite schematically dominant conductor square is now a native pullback of CommRingCat-valued structure sheaves. The comparison uses the native affine-basis isomorphism criterion and the preceding actual affine section pullback. Evaluation gives the actual ring pullback on every open, hence middle exactness of the signed additive sequence and unique reconstruction of every compatible section pair. The explicit all-open reconstruction agrees with the preceding affine isomorphism. No last-map surjectivity on nonaffine opens is claimed. Packaging the additive short exact sequence as a native sheaf short complex and its epimorphism, quotient topology, geometric/categorical Scheme pushout, recomputed flat-conductor integration, P¹/Proj, projectivity/properness, coherent H0/H1, separate I₂ and later model/classification work remain required. All18 gaps,23 requests,23 source findings and seven partial stages remain; every implementation is unchecked and the full Tau-importing canonical suggested file remains UNCOMPILED."
+        "The actual finite schematically dominant conductor square is now a native pullback of CommRingCat-valued structure sheaves. The comparison uses the native affine-basis isomorphism criterion and the preceding actual affine section pullback. Evaluation gives the actual ring pullback on every open, hence middle exactness of the signed additive sequence and unique reconstruction of every compatible section pair. The explicit all-open reconstruction agrees with the preceding affine isomorphism. No last-map surjectivity on nonaffine opens is claimed. Packaging the additive short exact sequence as a native sheaf short complex and its epimorphism, quotient topology, geometric/categorical Scheme pushout, recomputed flat-conductor integration, P¹/Proj, projectivity/properness, coherent H0/H1, separate I₂ and later model/classification work remain required. All18 gaps,23 requests,23 source findings and seven partial stages remain; every implementation is unchecked and the full Tau-importing canonical suggested file remains UNCOMPILED.",
+        "The actual general finite schematically dominant conductor square now supplies a native additive sheaf ShortComplex and ShortExact theorem. The first arrow is the actual structure-map biproduct lift; the second is the actual inclusion minus chart map. Projection, signed injection and section-pair identities are retained. Native pullback/kernel APIs prove mono and middle exactness; affine closed-inclusion lifts and the affine-open basis prove local surjectivity and native sheaf epimorphy. No last-map section surjectivity on nonaffine opens is claimed. Quotient topology, geometric/categorical Scheme pushout, recomputed flat-conductor integration, P¹/Proj, properness/projectivity, coherent H0/H1 and genus, separate I₂ and later model/classification work remain required. All18 gaps,23 requests,23 source findings and seven partial stages remain; every implementation is unchecked and the full Tau-importing suggested file remains UNCOMPILED."
       ]
     },
     {

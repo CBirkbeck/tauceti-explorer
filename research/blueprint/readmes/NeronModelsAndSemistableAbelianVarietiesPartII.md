@@ -1,3 +1,196 @@
+# The actual conductor additive sheaf sequence
+
+Let f:Y→P be finite and schematically dominant, I its actual conductor ideal datum and J=I.comap f. The preceding actual pullback of structure sheaves becomes a pullback of additive sheaves by the existing CommRingCat→RingCat→AddCommGrpCat forgetful functors. Inclusion of sheaves into presheaves creates limits, and whiskering with the existing forgetful functors preserves them. The additive pullback is therefore reflected from presheaves. No general forgetful functor, sheaf carrier or complex is newly planned.
+
+Specialize Mathlib's native short complex of a pullback square. Its first map into the actual sheaf biproduct has the two native structure maps as coordinates. Its second map is the actual conductor inclusion minus the actual chart map. The signed section formula agrees with the preceding conductorSectionDifference on every open. Native pullback/kernel results provide monomorphy and Exactness in the actual abelian category of additive sheaves.
+
+For an affine target open U, finiteness makes f⁻¹U affine. The native closed-conductor inclusion is surjective on sections there, so the first biproduct injection lifts every actual target section. For a section on an arbitrary open and a point of that open, choose a smaller affine neighborhood and lift its restriction. Mathlib's native criterion turns these local lifts into an epimorphism of sheaves. Thus the actual short complex is ShortExact. This is a statement about sheaves; surjectivity of sections on every nonaffine open does not follow and is not claimed.
+
+Six typed tests check both unit signs, the empty target open, annihilation of an actual structure-section pair, lifting on affine opens, the kernel universal property against any additive sheaf, and the nonzero square-zero section2 of Spec(Z/4) surviving the actual first additive map. These test the prescribed carriers and maps, rather than an independently assumed exact sequence. No concrete nonaffine failure of section surjectivity is supplied.
+
+The complete current Stacks37.14.1 statement and proof were freshly read as context for the structure-sheaf pullback. The general finite-conductor additive sequence is an authored deduction using the preceding native proof and the pinned categorical interfaces. All642 incoming node objects,29 planets,78 routes,18 gaps,23 requests and23 source findings remain whole. Their historical source attribution is inherited; no new finding or fresh exhaustive source audit is claimed. The independent F₂ matrix-image counterexample remains reproducible in the verifier.
+
+The reserved ferrand-pushouts node and supplier boundaries remain whole. In particular quotient topology and the Scheme universal property remain separate, algebraic spaces still require the small étale structure sheaf, and coherent H0/H1 must use the existing supplier interfaces. Earlier frontiers below are historical; this opening section records the new short-exact sheaf result.
+
+The actual general finite schematically dominant conductor square now supplies a native additive sheaf ShortComplex and ShortExact theorem. The first arrow is the actual structure-map biproduct lift; the second is the actual inclusion minus chart map. Projection, signed injection and section-pair identities are retained. Native pullback/kernel APIs prove mono and middle exactness; affine closed-inclusion lifts and the affine-open basis prove local surjectivity and native sheaf epimorphy. No last-map section surjectivity on nonaffine opens is claimed. Quotient topology, geometric/categorical Scheme pushout, recomputed flat-conductor integration, P¹/Proj, properness/projectivity, coherent H0/H1 and genus, separate I₂ and later model/classification work remain required. All18 gaps,23 requests,23 source findings and seven partial stages remain; every implementation is unchecked and the full Tau-importing suggested file remains UNCOMPILED.
+
+## The conductor square after forgetting multiplication
+
+**TauCeti.GenusOne.FerrandPushout.conductor_additive_isPullback** — For every finite schematically dominant f:Y→P, apply the existing sheaf-composition functor for CommRingCat→RingCat→AddCommGrpCat to the actual conductor structure-sheaf square. The resulting square of native additive sheaves on P is a pullback, with the two specified structure maps and the actual conductor inclusion and chart maps.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-pullback, mathlib:CategoryTheory.sheafCompose, mathlib:CategoryTheory.Functor.whiskeringRight, mathlib:CategoryTheory.whiskeringRightPreservesLimits, mathlib:CategoryTheory.Sheaf.createsLimits, mathlib:CategoryTheory.sheafToPresheaf, mathlib:CommRingCat.forget₂Ring_preservesLimits, mathlib:RingCat.forget₂AddCommGroup_preservesLimits, mathlib:CategoryTheory.IsPullback.of_map_of_faithful, mathlib:CategoryTheory.Functor.map_isPullback.
+
+Proof: Inclusion into presheaves preserves and reflects limits. Whiskering with the existing two-step forgetful functor preserves limits. Map the ring-sheaf pullback into additive presheaves and reflect it through the additive sheaf inclusion. No new generic sheaf or forgetful carrier is introduced.
+
+## The actual conductor additive sheaf short complex
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex** — Construct the native ShortComplex in additive sheaves on P with objects O_P,+, f_*O_Y,+ ⊞ I.ι_*O_I,+, and f_*J.ι_*O_J,+, where I is the actual conductor ideal datum and J=I.comap f. Its first map is the biproduct lift of the actual structure maps; its second map is the biproduct desc of the actual source inclusion and the negative of the actual chart map. The native zero-composite equation uses the actual conductor square.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-sheaf-pullback, mathlib:CategoryTheory.CommSq.shortComplex', mathlib:CategoryTheory.sheafIsAbelian.
+
+Proof: Specialize the existing native CommSq.shortComplex′ to the proved additive conductor pullback. All three objects and both arrows are determined by the actual sheaves and maps; do not add an ad hoc complex with assumed exactness.
+
+## First coordinate of the additive structure map
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_f_fst** — The first map of conductorAdditiveShortComplex followed by the first native biproduct projection is exactly f.c after forgetting multiplication.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex.
+
+Proof: Use the native biproduct lift first-projection identity.
+
+## Second coordinate of the additive structure map
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_f_snd** — The first map followed by the second native biproduct projection is exactly I.ι.c after forgetting multiplication.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex.
+
+Proof: Use the native biproduct lift second-projection identity.
+
+## The source summand maps by the actual inclusion
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inl_g** — The first native biproduct injection followed by the last map equals the actual conductorSheafInclusion after forgetting multiplication.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex.
+
+Proof: Use the native first-injection/desc identity.
+
+## The chart summand has the negative sign
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inr_g** — The second native biproduct injection followed by the last map equals the negative of the actual conductorSheafChart after forgetting multiplication.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex.
+
+Proof: Use the native second-injection/desc identity, retaining its negative chart map.
+
+## Evaluate the inclusion on actual sections
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inl_g_app** — On every open U⊂P and every b∈Γ(Y,f⁻¹U), applying the actual last sheaf map to the first injected section gives J.ι.app(f⁻¹U)(b).
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-first-injection, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-inclusion-component.
+
+Proof: Evaluate the sheaf-morphism identity at U and then at b.
+
+## Evaluate the negative chart component
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inr_g_app** — On every open U⊂P and every c∈Γ(I,I.ι⁻¹U), applying the actual last sheaf map to the second injected section gives −conductorChartMap(f,U)(c).
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-second-injection, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-chart-component.
+
+Proof: Evaluate the sheaf-morphism identity and the native additive negation at U and c.
+
+## The actual sheaf differential is the signed section difference
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_pair_app** — On every open U, the last sheaf map sends inl(b)+inr(c) to the preceding actual conductorSectionDifference(f,U)(b,c). Both rings, restrictions and the subtraction sign are unchanged.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-first-injection-sections, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-second-injection-sections, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-section-difference-evaluation.
+
+Proof: Add the two evaluated component identities, then use the existing signed section-difference formula.
+
+## The first additive sheaf map is monic
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_mono** — The first morphism of the actual conductorAdditiveShortComplex is a monomorphism in native additive sheaves on P.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-sheaf-pullback, mathlib:CategoryTheory.IsPullback.mono_shortComplex'_f.
+
+Proof: Apply the existing native pullback-kernel monomorphism theorem to the actual additive square.
+
+## Exactness in the native abelian sheaf category
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_exact** — The actual conductorAdditiveShortComplex is Exact in the native abelian category of additive sheaves on P. The actual structure map is the kernel of the specified signed difference.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-short-complex, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-sheaf-pullback, mathlib:CategoryTheory.IsPullback.exact_shortComplex'.
+
+Proof: Apply the existing native exactness theorem for the short complex of a pullback, through its genuine limiting kernel fork.
+
+## Lift actual conductor sections on affine opens
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_affine_surjective** — For every affine open U⊂P, the component on U of the last actual sheaf map is surjective as an additive group homomorphism. A target section lifts along the actual closed inclusion J.ι on the affine inverse image f⁻¹U, and the first native biproduct injection supplies its middle-term lift.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-first-injection-sections, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app_surjective, mathlib:AlgebraicGeometry.IsAffineOpen.preimage.
+
+Proof: Finite f is affine, so f⁻¹U is affine. Use the existing closed-subscheme restriction surjectivity there and the proved actual inclusion-component equation. No last-map surjectivity on arbitrary opens is inferred.
+
+## The signed conductor sheaf map is locally surjective
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_locally_surjective** — The actual last map is locally surjective: for every target section on any open U and each x∈U, choose an affine open V⊆U containing x; the restricted section has an actual middle-term lift on V.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-affine-surjective, mathlib:AlgebraicGeometry.Scheme.isBasis_affineOpens, mathlib:TopologicalSpace.IsTopologicalBasis.exists_subset_of_mem_open, mathlib:TopCat.Presheaf.isLocallySurjective_iff.
+
+Proof: Use the affine-open basis to choose V around x inside U, then apply actual affine component surjectivity to the restricted section. Apply the native local-surjectivity criterion with the prescribed restriction.
+
+## The signed conductor differential is an epimorphism of sheaves
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_epi** — The last morphism of conductorAdditiveShortComplex is an epimorphism in additive sheaves on P. This is sheaf epimorphy obtained from local lifts, not surjectivity on sections of every nonaffine open.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-local-surjective, mathlib:TopCat.Sheaf.isLocallySurjective_iff_epi.
+
+Proof: Use the existing equivalence between local surjectivity and epimorphy in the native additive sheaf category, with its existing sheafification and abelian structure.
+
+## The conductor additive sheaf sequence is short exact
+
+**TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_shortExact** — For every finite schematically dominant f:Y→P, the specified native conductorAdditiveShortComplex is ShortExact: 0→O_P,+→f_*O_Y,+⊞I.ι_*O_I,+→f_*J.ι_*O_J,+→0. No reducedness, Noetherianity, birationality or global affineness is required.
+
+Hypotheses: Finite and schematically dominant f:Y→P; I=conductorIdealSheaf f and J=I.comap f. Opens arbitrary except where explicitly affine. Actual native sheaves, maps and biproduct throughout.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-monomorphism, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-middle-exact, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-additive-epimorphism, mathlib:CategoryTheory.ShortComplex.ShortExact.mk'.
+
+Proof: Package the independently established native mono, Exact and epi facts using ShortComplex.ShortExact.mk′. This does not prove quotient topology, the Scheme pushout universal property, or coherent cohomology.
+
+## API and typed boundary examples
+
+API:
+
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_f_fst**: The first map of conductorAdditiveShortComplex followed by the first native biproduct projection is exactly f.c after forgetting multiplication.
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_f_snd**: The first map followed by the second native biproduct projection is exactly I.ι.c after forgetting multiplication.
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inl_g**: The first native biproduct injection followed by the last map equals the actual conductorSheafInclusion after forgetting multiplication.
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inr_g**: The second native biproduct injection followed by the last map equals the negative of the actual conductorSheafChart after forgetting multiplication.
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inl_g_app**: On every open U⊂P and every b∈Γ(Y,f⁻¹U), applying the actual last sheaf map to the first injected section gives J.ι.app(f⁻¹U)(b).
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_inr_g_app**: On every open U⊂P and every c∈Γ(I,I.ι⁻¹U), applying the actual last sheaf map to the second injected section gives −conductorChartMap(f,U)(c).
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_pair_app**: On every open U, the last sheaf map sends inl(b)+inr(c) to the preceding actual conductorSectionDifference(f,U)(b,c). Both rings, restrictions and the subtraction sign are unchanged.
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_mono**: The first morphism of the actual conductorAdditiveShortComplex is a monomorphism in native additive sheaves on P.
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_exact**: The actual conductorAdditiveShortComplex is Exact in the native abelian category of additive sheaves on P. The actual structure map is the kernel of the specified signed difference.
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_affine_surjective**: For every affine open U⊂P, the component on U of the last actual sheaf map is surjective as an additive group homomorphism. A target section lifts along the actual closed inclusion J.ι on the affine inverse image f⁻¹U, and the first native biproduct injection supplies its middle-term lift.
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_locally_surjective**: The actual last map is locally surjective: for every target section on any open U and each x∈U, choose an affine open V⊆U containing x; the restricted section has an actual middle-term lift on V.
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_epi**: The last morphism of conductorAdditiveShortComplex is an epimorphism in additive sheaves on P. This is sheaf epimorphy obtained from local lifts, not surjectivity on sections of every nonaffine open.
+- **TauCeti.GenusOne.FerrandPushout.conductorAdditiveShortComplex_shortExact**: For every finite schematically dominant f:Y→P, the specified native conductorAdditiveShortComplex is ShortExact: 0→O_P,+→f_*O_Y,+⊞I.ι_*O_I,+→f_*J.ι_*O_J,+→0. No reducedness, Noetherianity, birationality or global affineness is required.
+
+Tests:
+
+- **ConductorAdditiveChecked.signed_units**: For every open, the actual last map sends the injected pair (1,0) to 1 and (0,1) to −1 in the actual source-conductor section ring.
+- **ConductorAdditiveChecked.empty_open**: On the empty target open the actual last map sends every native middle-term section to zero; the native zero section ring is retained.
+- **ConductorAdditiveChecked.actual_section_pair**: For every open and every section a of O_P, the actual last map kills inl(f.app(a))+inr(I.ι.app(a)).
+- **ConductorAdditiveChecked.affine_lift**: For every affine open and actual target section, a section of the native sheaf biproduct maps to it under the actual last morphism.
+- **ConductorAdditiveChecked.kernel_universal_property**: For any native additive sheaf F on P and any morphism F→the native middle sheaf killed by the actual last map, there is a unique morphism F→O_P,+ whose composite with the actual first map is the given morphism.
+- **ConductorAdditiveChecked.nonreduced_identity**: For the identity of Spec(Z/4), the global section corresponding to 2 is nonzero and square-zero, and its image under the actual first additive sheaf map remains nonzero. Reducing the structure ring loses this test.
+
 # The conductor square as an actual pullback of structure sheaves
 
 Let f:Y→P be finite and schematically dominant, I its conductor ideal datum and J=I.comap f. Work in the native category of sheaves of commutative rings on P. The maps f_*O_Y→f_*J.ι_*O_J and I.ι_*O_I→f_*J.ι_*O_J are built from the actual closed inclusion and the preceding restriction-compatible conductorChartMap. Their comparison from O_P has exactly the two native structure maps as its projections.
