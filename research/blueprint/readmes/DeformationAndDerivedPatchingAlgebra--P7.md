@@ -1,3 +1,179 @@
+# Generic graded-module induction inputs
+
+A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.
+
+M is a module over A[X_j | j∈J]. Each X_j sends G_n into G_(n+1). J may be infinite or empty. No decomposition or module finiteness is needed for the degree-action lemmas. The existing Tau finite homogeneous-support results and internal-grading objects are reused as baseline context; no second grading package is planned. The explicit bound criterion and polynomial induction base below retain their distinct scalar rings.
+
+## Finite homogeneous module generators
+
+TauCeti.HilbertSamuel.gradedModule_exists_homogeneous_generators
+
+If M is finite over S and G is an internal A-linear grading of M, there is a finite subset t of M spanning M over S such that every x in t belongs to some G_n. No graded structure on S or compatibility between the two scalar actions is needed for this splitting statement.
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. Native DirectSum.Decomposition G and Module.Finite S M.
+
+Proof: Choose a finite S-spanning set. Replace each generator by all of its finitely many native homogeneous coordinates. The resulting finite union spans: each original generator is the finite sum of its coordinates. Each selected coordinate belongs to its actual component.
+
+Prerequisites: mathlib:Module.Finite, mathlib:DirectSum.Decomposition, mathlib:DirectSum.sum_support_decompose, mathlib:Submodule.span_induction.
+
+## Bound on homogeneous generator degrees
+
+TauCeti.HilbertSamuel.gradedModule_exists_bounded_generators
+
+Under the same hypotheses, choose t and a natural B with span_S(t)=M and for each x in t some n<B with x in G_n. B may be positive even for the empty generating family.
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. Native DirectSum.Decomposition G and Module.Finite S M.
+
+Proof: Choose one degree for each homogeneous generator and take one plus the finite supremum of those degrees.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-exists-homogeneous-generators.
+
+## Vanishing above coefficient-generator degrees
+
+TauCeti.HilbertSamuel.gradedModule_component_eq_bot_of_bounded_generators
+
+Given a finite A-spanning set t and B with every generator in some G_k for k<B, prove G_n=0 for every n≥B. This requires coefficient-ring spanning, not merely spanning over a positive-variable polynomial ring.
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. span_A(t)=M and ∀x∈t, ∃k<B, x∈G_k. Native DirectSum.Decomposition G.
+
+Proof: The degree-n coordinate kills every generator because its selected degree is strictly below B≤n. A-linear span induction shows that coordinate kills every element of M. On G_n the same coordinate is the identity, so every element there is zero.
+
+Prerequisites: mathlib:DirectSum.Decomposition, mathlib:DirectSum.decompose_of_mem_same, mathlib:DirectSum.decompose_of_mem_ne, mathlib:DirectSum.decompose_smul, mathlib:Submodule.span_induction.
+
+## Eventual zero coefficient-module components
+
+TauCeti.HilbertSamuel.gradedModule_eventually_eq_bot
+
+If M is finite over A and G is an internal A-linear natural-number grading, then there exists B with G_n=0 for all n≥B.
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. Native DirectSum.Decomposition G and Module.Finite A M.
+
+Proof: Apply the homogeneous degree bound with S=A, then the explicit bounded-generator vanishing criterion. This is a natural-index specialization of finite homogeneous support, not a replacement for the existing generic Tau finite-support theorem.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-exists-bounded-generators, DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-component-eq-bot-of-bounded-generators.
+
+## Eventual zero component lengths
+
+TauCeti.HilbertSamuel.gradedModule_eventually_length_zero
+
+Under the same coefficient-module finiteness hypotheses, there is B such that Module.length A G_n=0 for every n≥B, as an equality of native extended natural lengths.
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. Native DirectSum.Decomposition G and Module.Finite A M.
+
+Proof: Above the component-vanishing threshold the component is the zero submodule, which has length zero. No unguarded conversion of an infinite length is used.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-eventually-eq-bot, mathlib:Module.length_eq_zero.
+
+## Variable powers add degrees
+
+TauCeti.HilbertSamuel.gradedPolynomial_X_pow_smul_mem
+
+For j∈J, k,n≥0 and x∈G_n, the actual action X_j^k·x belongs to G_(k+n).
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. M is a module over A[X_j | j∈J]. Each X_j sends G_n into G_(n+1). J may be infinite or empty. No decomposition or module finiteness is needed for the degree-action lemmas.
+
+Proof: Induct on k, using the actual module multiplication action and the assumed one-step variable shift. The exponent-zero case is the identity action.
+
+Prerequisites: mathlib:SetLike.GradedSMul.
+
+## Monomial actions add total degree
+
+TauCeti.HilbertSamuel.gradedPolynomial_monomial_smul_mem
+
+For a finitely supported exponent vector d:J→ℕ, a∈A and x∈G_n, monomial(d,a)·x belongs to G_(|d|+n), with |d| the native Finsupp.degree. This includes zero or nilpotent coefficients.
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. M is a module over A[X_j | j∈J]. Each X_j sends G_n into G_(n+1). J may be infinite or empty. No decomposition or module finiteness is needed for the degree-action lemmas. The existing A action and polynomial action satisfy IsScalarTower A (MvPolynomial J A) M.
+
+Proof: Induct on the exponent vector by adjoining one nonzero coordinate. The native monomial factorization reduces the step to the variable-power lemma. For zero exponent, the scalar tower identifies C(a)·x with a·x, and G_n is an A-submodule.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-X-pow-smul-mem, mathlib:MvPolynomial.monomial_single_add.
+
+## Homogeneous polynomial actions add degrees
+
+TauCeti.HilbertSamuel.gradedPolynomial_homogeneous_smul_mem
+
+For any native homogeneous polynomial p of degree k and x∈G_n, the actual p action sends x into G_(k+n). The zero polynomial is allowed in every degree; an inhomogeneous polynomial is not covered.
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. M is a module over A[X_j | j∈J]. Each X_j sends G_n into G_(n+1). J may be infinite or empty. No decomposition or module finiteness is needed for the degree-action lemmas. The existing coefficient and polynomial actions satisfy the native scalar-tower law.
+
+Proof: Use the existing homogeneous-polynomial induction into zero, addition and monomials of the prescribed degree. The monomial degree is the native total exponent degree. Use module add_smul and A-submodule closure under sums, retaining the actual action.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-monomial-smul-mem, mathlib:MvPolynomial.IsWeightedHomogeneous.induction_on, mathlib:MvPolynomial.homogeneousSubmodule.
+
+## Native graded polynomial module action
+
+TauCeti.HilbertSamuel.gradedPolynomial_gradedSMul
+
+The existing families of homogeneous polynomial submodules and G satisfy native SetLike.GradedSMul for the actual polynomial action.
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. M is a module over A[X_j | j∈J]. Each X_j sends G_n into G_(n+1). J may be infinite or empty. No decomposition or module finiteness is needed for the degree-action lemmas. The coefficient and polynomial actions satisfy IsScalarTower.
+
+Proof: Package the preceding membership theorem in the existing graded-action class; introduce no new carrier or action.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-homogeneous-smul-mem, mathlib:SetLike.GradedSMul, mathlib:MvPolynomial.homogeneousSubmodule.
+
+## Empty-variable induction base
+
+TauCeti.HilbertSamuel.gradedPolynomial_empty_eventually_eq_bot
+
+For an empty variable type J, if M is finite over A[X_j] and G is any internal A-linear natural-number grading, then some B satisfies G_n=0 for all n≥B. No variable-shift hypothesis is needed when J is empty.
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. IsEmpty J, Module.Finite (MvPolynomial J A) M, native IsScalarTower A (MvPolynomial J A) M and DirectSum.Decomposition G.
+
+Proof: The native empty-variable algebra equivalence makes A[X_j] a finite A-module. The actual scalar tower and finite-module transitivity make M finite over A; apply the coefficient-module vanishing theorem.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-eventually-eq-bot, mathlib:MvPolynomial.isEmptyAlgEquiv, mathlib:Module.Finite.equiv, mathlib:Module.Finite.trans.
+
+## Empty-variable length base
+
+TauCeti.HilbertSamuel.gradedPolynomial_empty_eventually_length_zero
+
+Under the empty-variable hypotheses, some B satisfies length_A(G_n)=0 for every n≥B.
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. The same empty-variable finiteness, scalar-tower and internal-grading hypotheses.
+
+Proof: Rewrite the actual component as the zero submodule and use native length_zero.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-empty-eventually-eq-bot, mathlib:Module.length_eq_zero.
+
+## Zero polynomial in the induction base
+
+TauCeti.HilbertSamuel.gradedPolynomial_empty_zero_polynomial
+
+Under the empty-variable hypotheses, there exists B such that for n≥B the native length of G_n is finite and eval(0,n)=toNat(length_A G_n), as rational numbers. This supplies a genuine zero-polynomial base case with a threshold, without assuming eventual polynomial behavior.
+
+Hypotheses: A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit. The same empty-variable finiteness, scalar-tower and internal-grading hypotheses.
+
+Proof: The proved length-zero equality gives both length≠infinity and the valid natural/rational conversion. Evaluate the actual zero rational polynomial.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-empty-eventually-length-zero.
+
+## Boundary tests
+
+GradedInductionTests.polynomial_finite_generators (compatibility): The polynomial ring (Z/4)[X] as a finite module over itself has a finite homogeneous spanning family. This uses polynomial-ring finiteness without asserting finiteness over Z/4.
+
+GradedInductionTests.delayed_tail (non-example): For Z/4 concentrated in degree7, that degree is nonzero and the bounded-generator theorem kills every component n≥8. Replacing the threshold by zero is false.
+
+GradedInductionTests.empty_variables (degenerate): For any finite module over (Z/4)[X_j | j∈PEmpty] with an internal coefficient grading, the zero rational polynomial equals the eventually finite component length.
+
+GradedInductionTests.nilpotent_monomial_action (computation): In (Z/4)[X], p=2X^3 is nonzero and square-zero, and p acting on X belongs to degree4. Neither domain assumptions nor killing nilpotent coefficients are valid.
+
+GradedInductionTests.zero_polynomial_any_degree (degenerate): For arbitrary k,n, the zero polynomial viewed as homogeneous of degree k sends an actual x∈G_n into G_(k+n).
+
+GradedInductionTests.inhomogeneous_polynomial (non-example): The actual polynomial 1+X over Z/4 is not homogeneous of degree1.
+
+GradedInductionTests.power_zero (degenerate): The zero power of a variable acts within G_n for every actual x∈G_n, with no scalar-tower hypothesis needed for this variable-only assertion.
+
+GradedInductionTests.zero_module_empty_generators (degenerate): For a zero module with any internal grading, the empty A-spanning set and B=0 prove every component zero, including degree0.
+
+## Required continuation
+
+Twelve generic lemma nodes now supply finite homogeneous S-generators for any internally A-graded finite S-module, a bound on their degrees, explicit component vanishing from a bounded A-spanning set, actual homogeneous polynomial degree actions from degree-one variable shifts, and the empty-variable induction base with eventually zero native finite lengths and an actual zero rational polynomial. All use existing carriers. This resolves only these generic input/base-case omissions; it does not derive coefficient-module finiteness from polynomial-module finiteness when variables remain. Next construct generic graded kernels/cokernels of the last-variable action, their remaining-polynomial module structures and finite homogeneous pieces, with a recursive induction hypothesis that applies to both; then assemble the guarded signed finite-length recurrence into an explicit rational polynomial, threshold and initial constant. Preserve the nonzero kernel correction. Positive-variable polynomial existence, support/dimension degree equality, completion, localization, associativity, both intrinsic and ambient multiplicity conventions, all eight stages and every routed obligation remain open. All nodes unchecked.
+
+All466 incoming whole nodes, thirteen planets, fifteen gaps, two requests, source/version/E1 records and all earlier obligations are retained unchanged. The original reader follows. Full Tau-importing Suggested remains uncompiled; separate isolated native and admitted files are checked against the existing exact Mathlib build, retaining authenticated exact Tau source blocks.
+
+---
+
 # Quotient graded actions and the remaining generators
 
 Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
