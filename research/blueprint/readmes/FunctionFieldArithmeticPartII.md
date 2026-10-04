@@ -1,3 +1,316 @@
+# Actual affine root-point action groupoids
+
+For every positive exponent n, the objects are actual A-algebra maps A[t]/(t^n−f)→B. An arrow p→q carries a unit ζ with ζ^n=1 and q(t)=ζp(t). Identity, composition and inverse make these points a native Groupoid. This retains the full chart algebra and all stabilizer labels, over arbitrary commutative rings and arbitrary parameters.
+
+For each positive n|N, precomposition with the existing chart transition gives a power functor. It sends root images and arrow labels to their N/n powers. The equal-index and two-step laws hold on both actual object maps and labels. For any A-algebra map φ:B→C, postcomposition and native restrictRootsOfUnity give a change-of-test-algebra functor; it commutes with powers on objects and labels. No exponent-invertibility or flatness condition is needed.
+
+Fourteen typed tests include the nonzero square-zero root2 over Z/4, absence of an arrow from root0 to root2, nontrivial stabilizer label3 at both points, and the 4→2 functor killing that label. The nonflat quotient Z/4→Z/2 collapses the root2 point to root0. The universal6→2 root image is t_6 cubed, the12→6→2 object composite agrees with12→2, and zero-ring and exponent1 cases retain their actual algebra-map carriers. These tests distinguish the construction from reduced points, orbit sets and trivial stabilizers.
+
+All515 incoming nodes remain whole and unchanged, including the general reserved root-stack key with scheme/stack bases, arbitrary invertible line bundles with section, every positive exponent and fppf scope. All40 planets, ten partial stages, eight gaps, thirteen requests, source routes/versions/issues and the omission ledger remain. Every implementation stays unchecked. The new work adds23 nodes,5 constructions,20 API references and14 distinct typed tests (17 test references across constructions).
+
+The finite chart action groupoid remains a prerequisite for the general line-bundle root-object comparison. It does not establish that comparison, frame-torsor existence, stackification or effective fpqc descent. General root-object coherence and infinite compatible groupoid reindexing remain open even though the displayed finite chart object and label laws are proved. Full Tau-dependent canonical execution remains UNCOMPILED because no existing complete build at its exact pin is available.
+
+Fresh primary reading covers the complete displayed Stacks Section39.10, its definitions, action/equivariance diagrams, Lemma39.10.3 and proof, and all five comments. The specialized root-point groupoid deductions are authored from the actual native APIs. This is no fresh whole-paper or erratum survey. Earlier own source/audit/protocol scopes are reused only at their unchanged hashes and original extent. The actual peer input is PR6043 at head720503fa02df017fc7b8d1e69ba197926171b260; its recovered actual verifier reproduced its archived report. The peer's historical “PR6038” root-input caption points to a descendant head carrying the unchanged root files from our original PR6036; our own reading provenance is authenticated separately at the original PR6036 head0fa34bf1a1bb472b4928629647b7a770fa61eb07. Historical receipts remain attributed and unchanged.
+
+The finite affine charts now have actual algebra-valued point action groupoids retaining every roots-of-unity arrow label, native power functors for all positive n|N, and change-of-test-algebra functors. Root images and labels satisfy identity/composition power laws and commute with test-algebra change. This discharges a finite chart point-and-arrow prerequisite only: no general line-bundle root-object equivalence, coherent infinite groupoid reindexing, frame-torsor existence, fppf stackification or fpqc quotient/descent is inferred. Higher-universe adapters and every existing TOWER-TYPING/TOWER-AFF geometric obligation remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes and the complete omission ledger retain their scope.
+
+## Actual algebra-valued finite root points
+
+**TauCeti.RootStack.affineRootPointGroupoid** — For arbitrary commutative A and A-algebra B, f∈A and positive n, use the actual carrier Hom_A-alg(A[t]/(t^n−f),B). The carrier retains the full native AdjoinRoot algebra, including nilpotents. It is the object carrier of the chart action groupoid, not a replacement for general line-bundle roots.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/affine-root-relation.
+
+Proof: Use a reducible type alias for actual algebra homomorphisms out of the existing chart algebra.
+
+Consumed API:
+
+- **TauCeti.RootStack.affineRootPointGroupoid.point_ext**: Two actual chart points with the same root image are equal as A-algebra homomorphisms.
+- **TauCeti.RootStack.affineRootPointGroupoid.root_equation**: Every actual point p satisfies p(t)^n=algebraMap_A,B(f), including over wild or nonreduced rings.
+- **TauCeti.RootStack.affineRootPoint.root**: The actual point p_b sends the distinguished chart root t to b.
+
+Typed examples:
+
+- **TauCeti.RootStack.rootPointTests.exponent_one**: At exponent1, every actual chart point equals the point with root image algebraMap(f).
+- **TauCeti.RootStack.rootPointTests.nilpotent_point**: Over Z/4, at f=0 and n=2, the actual point with root image2 has a nonzero square-zero root image.
+- **TauCeti.RootStack.rootPointTests.distinct_orbits**: Over Z/4 at f=0,n=2, there is no arrow from the point with root0 to the point with root2, although both roots square to zero.
+- **TauCeti.RootStack.rootPointTests.zero_test_ring**: All actual second-root points at f=0 over the zero test ring Z/1 are equal.
+
+## The root-point action groupoid
+
+**TauCeti.RootStack.affineRootPointGroupoid.groupoid** — On the actual root-point carrier, an arrow p→q is a labelled ζ∈μ_n(B) with q(t)=ζp(t). Construct a native Groupoid: identity label1, composition of h:p→q and j:q→r has label jh, and inverse has label ζ⁻¹. All category and inverse laws are proved. Preserve all stabilizer labels even when the root is zero or nilpotent.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-carrier, mathlib:CategoryTheory.Groupoid.
+
+Proof: Multiply the two section equations. Invert the scalar equation using that ζ is a unit. Prove every groupoid law by subtype extensionality and the native group laws.
+
+Consumed API:
+
+- **TauCeti.RootStack.affineRootPointGroupoid.hom_ext**: Arrows with the same roots-of-unity label are equal. Distinct stabilizer labels are retained, even for equal source and target points.
+- **TauCeti.RootStack.affineRootPointGroupoid.id_label**: The identity arrow of an actual root point has roots-of-unity label1.
+- **TauCeti.RootStack.affineRootPointGroupoid.comp_label**: For h:p→q and j:q→r, the label of h≫j is j.label*h.label, with the stated arrow direction.
+- **TauCeti.RootStack.affineRootPointGroupoid.inv_label**: The inverse arrow has label h.label⁻¹ and the reversed section equation.
+
+Typed examples:
+
+- **TauCeti.RootStack.rootPointTests.wild_stabilizer_zero**: Over Z/4 at f=0,n=2, the point with root0 has a nonidentity automorphism labelled3. An orbit set or a groupoid with trivial stabilizers fails this test.
+- **TauCeti.RootStack.rootPointTests.wild_stabilizer_two**: Over Z/4 at f=0,n=2, label3 is also an automorphism of the nonzero nilpotent root2, since 3*2=2.
+- **TauCeti.RootStack.rootPointTests.inverse_label**: For an arbitrary actual labelled arrow, both inverse composites have label1.
+
+## An actual chart point from a root
+
+**TauCeti.RootStack.affineRootPoint** — For b∈B satisfying b^n=algebraMap_A,B(f), construct the actual A-algebra point p_b of the chart, with p_b(t)=b. It is uniquely determined by this root image.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-carrier, mathlib:AdjoinRoot.liftAlgHom.
+
+Proof: Apply the native polynomial-quotient algebra lift to T^n−f and the given root equation.
+
+Consumed API:
+
+- **TauCeti.RootStack.affineRootPoint.root**: The actual point p_b sends the distinguished chart root t to b.
+- **TauCeti.RootStack.affineRootPoint.unique**: If an actual A-algebra point p has p(t)=b, then p=p_b. No reducedness or injectivity is assumed.
+- **TauCeti.RootStack.affineRootPointGroupoid.root_equation**: Every actual point p satisfies p(t)^n=algebraMap_A,B(f), including over wild or nonreduced rings.
+
+Typed examples:
+
+- **TauCeti.RootStack.rootPointTests.exponent_one**: At exponent1, every actual chart point equals the point with root image algebraMap(f).
+- **TauCeti.RootStack.rootPointTests.nilpotent_point**: Over Z/4, at f=0 and n=2, the actual point with root image2 has a nonzero square-zero root image.
+- **TauCeti.RootStack.rootPointTests.distinct_orbits**: Over Z/4 at f=0,n=2, there is no arrow from the point with root0 to the point with root2, although both roots square to zero.
+
+## The constructed point has the specified root
+
+**TauCeti.RootStack.affineRootPoint.root** — The actual point p_b sends the distinguished chart root t to b.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-lift.
+
+Proof: Apply native liftAlgHom_root.
+
+## The root determines the constructed point
+
+**TauCeti.RootStack.affineRootPoint.unique** — If an actual A-algebra point p has p(t)=b, then p=p_b. No reducedness or injectivity is assumed.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-lift-root, mathlib:AdjoinRoot.algHom_ext.
+
+Proof: Use native AdjoinRoot algebra-homomorphism extensionality on the generator.
+
+## Extensionality of chart points
+
+**TauCeti.RootStack.affineRootPointGroupoid.point_ext** — Two actual chart points with the same root image are equal as A-algebra homomorphisms.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-carrier, mathlib:AdjoinRoot.algHom_ext.
+
+Proof: Reuse native algebra-map extensionality; A coefficients are fixed by the algebra structure.
+
+## Extensionality of labelled arrows
+
+**TauCeti.RootStack.affineRootPointGroupoid.hom_ext** — Arrows with the same roots-of-unity label are equal. Distinct stabilizer labels are retained, even for equal source and target points.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-groupoid.
+
+Proof: Use subtype extensionality; the section condition is a proposition.
+
+## The identity label
+
+**TauCeti.RootStack.affineRootPointGroupoid.id_label** — The identity arrow of an actual root point has roots-of-unity label1.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-groupoid.
+
+Proof: Definitional reduction of the native groupoid identity.
+
+## The composite label
+
+**TauCeti.RootStack.affineRootPointGroupoid.comp_label** — For h:p→q and j:q→r, the label of h≫j is j.label*h.label, with the stated arrow direction.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-groupoid.
+
+Proof: Definitional reduction of the constructed composition.
+
+## The inverse label
+
+**TauCeti.RootStack.affineRootPointGroupoid.inv_label** — The inverse arrow has label h.label⁻¹ and the reversed section equation.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-groupoid.
+
+Proof: Definitional reduction of the constructed inverse.
+
+## The point satisfies the chart root equation
+
+**TauCeti.RootStack.affineRootPointGroupoid.root_equation** — Every actual point p satisfies p(t)^n=algebraMap_A,B(f), including over wild or nonreduced rings.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-carrier, FunctionFieldArithmeticPartII:RS.0/affine-root-relation.
+
+Proof: Apply p to the existing polynomial quotient root equation and use algebra-map coefficient compatibility.
+
+## Power functors for every positive divisibility pair
+
+**TauCeti.RootStack.affineRootPointPower** — For every positive n|N, construct a native functor from the N-root chart action groupoid to the n-root chart action groupoid. Objects are precomposed with the actual B_n→B_N transition; arrow label ζ maps to ζ^(N/n)∈μ_n(B). Prove map_id and map_comp on the actual labelled arrows.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-groupoid, FunctionFieldArithmeticPartII:RS.2/affine-divisibility, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root, mathlib:mem_rootsOfUnity.
+
+Proof: The divisibility identity (N/n)n=N proves the new label lies in μ_n. Raise the arrow section equation to N/n, and use multiplicativity of powers for functor laws.
+
+Consumed API:
+
+- **TauCeti.RootStack.affineRootPointPower.obj_root**: The n-root image of the functor applied to p is exactly p(t_N)^(N/n).
+- **TauCeti.RootStack.affineRootPointPower.map_label**: On units, the actual functor sends the label ζ exactly to ζ^(N/n).
+- **TauCeti.RootStack.affineRootPointPower.identity_obj**: At n|n the power functor fixes every actual chart point.
+- **TauCeti.RootStack.affineRootPointPower.identity_label**: At n|n the arrow label is exactly the original unit ζ. This is a label identity; the general root-object pseudofunctor coherence is not inferred.
+- **TauCeti.RootStack.affineRootPointPower.composition_obj**: For positive n|N|K, applying the K→N and N→n functors to p gives the same actual chart point as K→n. No factorial restriction is imposed.
+- **TauCeti.RootStack.affineRootPointPower.composition_label**: For positive n|N|K, the unit label of the two-step arrow image equals that of the direct arrow image: (ζ^(K/N))^(N/n)=ζ^(K/n). This compares labels on the displayed object carriers.
+
+Typed examples:
+
+- **TauCeti.RootStack.rootPointTests.universal_six_to_two**: The universal actual sixth-root point maps under 2|6 to the second-root point whose root image is t_6 cubed.
+- **TauCeti.RootStack.rootPointTests.power_kills_sign**: Over Z/4 at f=0, the 4→2 power functor sends the nontrivial stabilizer label3 of the zero point to label1. Arrow-label injectivity is not asserted.
+- **TauCeti.RootStack.rootPointTests.identity_nonreduced**: The equal-index 2→2 functor fixes the actual point with nonzero nilpotent root2 over Z/4.
+- **TauCeti.RootStack.rootPointTests.nonfactorial_composition**: The actual 12→6→2 object composite equals 12→2, testing nonfactorial divisibility indices.
+
+## The power functor on root images
+
+**TauCeti.RootStack.affineRootPointPower.obj_root** — The n-root image of the functor applied to p is exactly p(t_N)^(N/n).
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-power, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root.
+
+Proof: Evaluate the actual precomposition at t_n and use map_pow.
+
+## The power functor on arrow labels
+
+**TauCeti.RootStack.affineRootPointPower.map_label** — On units, the actual functor sends the label ζ exactly to ζ^(N/n).
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-power.
+
+Proof: Definitional reduction; no stabilizer quotient is taken.
+
+## Equal-index power functors fix objects
+
+**TauCeti.RootStack.affineRootPointPower.identity_obj** — At n|n the power functor fixes every actual chart point.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-power, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-identity.
+
+Proof: Use the actual equal-index chart transition and native algebra-homomorphism identity.
+
+## Equal-index power functors fix labels
+
+**TauCeti.RootStack.affineRootPointPower.identity_label** — At n|n the arrow label is exactly the original unit ζ. This is a label identity; the general root-object pseudofunctor coherence is not inferred.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-power-label.
+
+Proof: Since n>0, n/n=1; apply pow_one.
+
+## Object composition through arbitrary positive indices
+
+**TauCeti.RootStack.affineRootPointPower.composition_obj** — For positive n|N|K, applying the K→N and N→n functors to p gives the same actual chart point as K→n. No factorial restriction is imposed.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-power, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-composition.
+
+Proof: Reassociate actual AlgHom precomposition and apply the existing chart transition composition.
+
+## Label composition through arbitrary positive indices
+
+**TauCeti.RootStack.affineRootPointPower.composition_label** — For positive n|N|K, the unit label of the two-step arrow image equals that of the direct arrow image: (ζ^(K/N))^(N/n)=ζ^(K/n). This compares labels on the displayed object carriers.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-power-label, mathlib:Nat.div_mul_div.
+
+Proof: Use pow_mul and the exact native divisibility ratio identity.
+
+## Change of the test algebra
+
+**TauCeti.RootStack.affineRootPointChange** — For an arbitrary A-algebra map φ:B→C, construct a native functor between the actual n-root chart action groupoids. Objects are postcomposed with φ and arrow labels use native restrictRootsOfUnity φ n. Prove identity and composition of arrows; no flatness or reflection of distinct roots is asserted.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-groupoid, mathlib:restrictRootsOfUnity.
+
+Proof: Apply φ to the actual arrow equation and use φ.map_mul. The native roots-of-unity homomorphism gives the arrow-label functor laws.
+
+Consumed API:
+
+- **TauCeti.RootStack.affineRootPointChange.obj_root**: After changing the test algebra by φ, the distinguished root image is φ(p(t)).
+- **TauCeti.RootStack.affineRootPointChange.map_label**: The changed arrow label is exactly the native restrictRootsOfUnity φ n of the original label.
+- **TauCeti.RootStack.affineRootPointChange.power_obj**: For positive n|N, postcomposition by φ commutes with the power functor on actual chart points, as equality of A-algebra homomorphisms.
+- **TauCeti.RootStack.affineRootPointChange.power_label**: The label obtained by changing φ after taking the N/n power equals that obtained by taking the power after changing φ, as actual units in C.
+
+Typed examples:
+
+- **TauCeti.RootStack.rootPointTests.nonflat_change_collapses_point**: For the actual Z-algebra quotient Z/4→Z/2, the nonzero nilpotent root2 at f=0,n=2 becomes the point with root0. The source point is not silently replaced by its reduction.
+- **TauCeti.RootStack.rootPointTests.change_power_square**: For arbitrary A-algebra φ:B→C, the actual object square of φ and the 6→2 power functor commutes.
+- **TauCeti.RootStack.rootPointTests.change_keeps_labels**: At positive exponent3, the change-of-test-algebra functor sends an actual identity arrow to label1.
+
+## Change of the root image
+
+**TauCeti.RootStack.affineRootPointChange.obj_root** — After changing the test algebra by φ, the distinguished root image is φ(p(t)).
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-change.
+
+Proof: Definitional reduction of native algebra-homomorphism postcomposition.
+
+## Change of an arrow label
+
+**TauCeti.RootStack.affineRootPointChange.map_label** — The changed arrow label is exactly the native restrictRootsOfUnity φ n of the original label.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-change.
+
+Proof: Definitional reduction of the actual functor map.
+
+## Test-algebra change commutes with powers on objects
+
+**TauCeti.RootStack.affineRootPointChange.power_obj** — For positive n|N, postcomposition by φ commutes with the power functor on actual chart points, as equality of A-algebra homomorphisms.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-change, FunctionFieldArithmeticPartII:RS.2/root-point-power.
+
+Proof: Native algebra-map composition is definitionally associative.
+
+## Test-algebra change commutes with powers on labels
+
+**TauCeti.RootStack.affineRootPointChange.power_label** — The label obtained by changing φ after taking the N/n power equals that obtained by taking the power after changing φ, as actual units in C.
+
+Hypotheses: A,B,C are arbitrary commutative rings in a common universe, B and C are A-algebras, f∈A is arbitrary, and every root index is positive. The exponent need not be invertible. No reducedness, nontriviality, regularity, unit-section, Noetherian, injectivity or flatness hypothesis is imposed. This is the finite affine chart action groupoid of actual algebra-valued points. The general scheme/stack-base line-bundle root groupoids, frame torsors, fppf stackification and infinite fpqc quotient/descent remain separate recorded obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-change-label, FunctionFieldArithmeticPartII:RS.2/root-point-power-label.
+
+Proof: Use unit extensionality and the algebra homomorphism power law.
+
 # Finite root projections under coefficient change
 
 For every positive root exponent n, coefficient change is the existing native AdjoinRoot.map, sending coefficients through φ and the root to the root. These maps commute with every n|N transition, including nonfactorial indices. They therefore form a natural transformation of the actual finite ring diagrams. Native opposite and Spec give the contravariant natural transformation of the finite scheme diagrams, with identity and composition coherence.

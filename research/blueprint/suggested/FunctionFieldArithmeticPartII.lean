@@ -1,3 +1,5 @@
+import Mathlib.CategoryTheory.Groupoid
+
 import Mathlib.AlgebraicGeometry.Pullbacks
 import Mathlib.Algebra.Category.Ring.Constructions
 import Mathlib.AlgebraicGeometry.GammaSpecAdjunction
@@ -5996,6 +5998,275 @@ example :
         (divisibilitySpecCoefficientNatTrans (Int.castRingHom (ZMod 2)) (0 : ℤ)).app
           (op ⟨2, by decide⟩) =
       pullback.snd _ _ ≫ (divisibilitySpecCone (0 : ℤ)).π.app (op ⟨2, by decide⟩) := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+set_option maxHeartbeats 800000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe uPoint
+namespace TauCeti.RootStack
+open CategoryTheory
+variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
+variable [Algebra A B] [Algebra A C]
+
+-- The actual algebra-valued points of the existing finite affine chart.
+-- This is the chart action groupoid; general line-bundle roots and descent remain separate.
+@[reducible]
+def affineRootPointGroupoid (f : A) (n : ℕ) [NeZero n] (B : Type uPoint)
+    [CommRing B] [Algebra A B] := AffineRing f n →ₐ[A] B
+
+@[instance_reducible]
+def affineRootPointGroupoid.groupoid (f : A) (n : ℕ) [NeZero n] :
+    Groupoid (affineRootPointGroupoid f n B) where
+  Hom p q := {ζ : rootsOfUnity n B //
+    q (AdjoinRoot.root _) = ((ζ : Bˣ) : B) * p (AdjoinRoot.root _)}
+  id p := ⟨1, by simp⟩
+  comp h j := ⟨j.1 * h.1, by
+    simpa only [Subgroup.coe_mul, Units.val_mul, mul_assoc] using
+      j.2.trans (congrArg (fun b : B => ((j.1 : Bˣ) : B) * b) h.2)⟩
+  id_comp := by intros; apply Subtype.ext; exact mul_one _
+  comp_id := by intros; apply Subtype.ext; exact one_mul _
+  assoc := by intros; apply Subtype.ext; exact (mul_assoc _ _ _).symm
+  inv h := ⟨h.1⁻¹, by
+    simpa only [Subgroup.coe_inv, ← mul_assoc, Units.inv_mul, one_mul] using
+      (congrArg (fun b : B => (((h.1 : Bˣ)⁻¹ : Bˣ) : B) * b) h.2).symm⟩
+  inv_comp := by intros; apply Subtype.ext; exact mul_inv_cancel _
+  comp_inv := by intros; apply Subtype.ext; exact inv_mul_cancel _
+
+attribute [instance] affineRootPointGroupoid.groupoid
+
+def affineRootPoint (f : A) (n : ℕ) [NeZero n] (b : B)
+    (hb : b ^ n = algebraMap A B f) : affineRootPointGroupoid f n B :=
+  AdjoinRoot.liftAlgHom _ (Algebra.ofId A B) b (by
+    simp only [Polynomial.eval₂_sub, Polynomial.eval₂_pow, Polynomial.eval₂_X,
+      Polynomial.eval₂_C, sub_eq_zero]
+    exact hb)
+
+lemma affineRootPoint.root (f : A) (n : ℕ) [NeZero n] (b : B)
+    (hb : b ^ n = algebraMap A B f) :
+    affineRootPoint f n b hb (AdjoinRoot.root _) = b := by
+  sorry
+
+lemma affineRootPoint.unique (f : A) (n : ℕ) [NeZero n] (b : B)
+    (hb : b ^ n = algebraMap A B f) (p : affineRootPointGroupoid f n B)
+    (hp : p (AdjoinRoot.root _) = b) : p = affineRootPoint f n b hb := by
+  sorry
+
+lemma affineRootPointGroupoid.point_ext {f : A} {n : ℕ} [NeZero n]
+    {p q : affineRootPointGroupoid f n B}
+    (h : p (AdjoinRoot.root _) = q (AdjoinRoot.root _)) : p = q := by
+  sorry
+
+lemma affineRootPointGroupoid.hom_ext {f : A} {n : ℕ} [NeZero n]
+    {p q : affineRootPointGroupoid f n B} (h j : p ⟶ q) (he : h.1 = j.1) : h = j := by
+  sorry
+
+lemma affineRootPointGroupoid.id_label {f : A} {n : ℕ} [NeZero n]
+    (p : affineRootPointGroupoid f n B) : (𝟙 p : p ⟶ p).1 = 1 := by
+  sorry
+
+lemma affineRootPointGroupoid.comp_label {f : A} {n : ℕ} [NeZero n]
+    {p q r : affineRootPointGroupoid f n B} (h : p ⟶ q) (j : q ⟶ r) :
+    (h ≫ j).1 = j.1 * h.1 := by
+  sorry
+
+lemma affineRootPointGroupoid.inv_label {f : A} {n : ℕ} [NeZero n]
+    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
+    (Groupoid.inv h).1 = h.1⁻¹ := by
+  sorry
+
+lemma affineRootPointGroupoid.root_equation {f : A} {n : ℕ} [NeZero n]
+    (p : affineRootPointGroupoid f n B) :
+    p (AdjoinRoot.root _) ^ n = algebraMap A B f := by
+  sorry
+
+def affineRootPointPower (f : A) (n N : ℕ) [NeZero n] [NeZero N] (hn : n ∣ N) :
+    affineRootPointGroupoid f N B ⥤ affineRootPointGroupoid f n B where
+  obj p := p.comp (affineDivisibility f n N hn)
+  map {p q} h := ⟨⟨(h.1 : Bˣ) ^ (N / n), by
+      rw [mem_rootsOfUnity, ← pow_mul, Nat.div_mul_cancel hn]
+      exact h.1.2⟩, by
+    change q (affineDivisibility f n N hn (AdjoinRoot.root _)) =
+      (((h.1 : Bˣ) ^ (N / n) : Bˣ) : B) *
+        p (affineDivisibility f n N hn (AdjoinRoot.root _))
+    rw [affineDivisibility.root, map_pow, map_pow]
+    simpa only [mul_pow, Units.val_pow_eq_pow_val] using
+      congrArg (fun b : B => b ^ (N / n)) h.2⟩
+  map_id p := by
+    apply Subtype.ext
+    apply Subtype.ext
+    exact one_pow _
+  map_comp h j := by
+    apply Subtype.ext
+    apply Subtype.ext
+    exact mul_pow _ _ _
+
+lemma affineRootPointPower.obj_root (f : A) (n N : ℕ) [NeZero n] [NeZero N] (hn : n ∣ N)
+    (p : affineRootPointGroupoid f N B) :
+    ((affineRootPointPower f n N hn).obj p) (AdjoinRoot.root _) =
+      p (AdjoinRoot.root _) ^ (N / n) := by
+  sorry
+
+lemma affineRootPointPower.map_label (f : A) (n N : ℕ) [NeZero n] [NeZero N] (hn : n ∣ N)
+    {p q : affineRootPointGroupoid f N B} (h : p ⟶ q) :
+    (((affineRootPointPower f n N hn).map h).1 : Bˣ) = (h.1 : Bˣ) ^ (N / n) := by
+  sorry
+
+lemma affineRootPointPower.identity_obj (f : A) (n : ℕ) [NeZero n]
+    (p : affineRootPointGroupoid f n B) :
+    (affineRootPointPower f n n (dvd_refl n)).obj p = p := by
+  sorry
+
+lemma affineRootPointPower.identity_label (f : A) (n : ℕ) [NeZero n]
+    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
+    (((affineRootPointPower f n n (dvd_refl n)).map h).1 : Bˣ) = (h.1 : Bˣ) := by
+  sorry
+
+lemma affineRootPointPower.composition_obj (f : A) (n N K : ℕ)
+    [NeZero n] [NeZero N] [NeZero K] (h : n ∣ N) (j : N ∣ K)
+    (p : affineRootPointGroupoid f K B) :
+    (affineRootPointPower f n N h).obj ((affineRootPointPower f N K j).obj p) =
+      (affineRootPointPower f n K (dvd_trans h j)).obj p := by
+  sorry
+
+lemma affineRootPointPower.composition_label (f : A) (n N K : ℕ)
+    [NeZero n] [NeZero N] [NeZero K] (h : n ∣ N) (j : N ∣ K)
+    {p q : affineRootPointGroupoid f K B} (a : p ⟶ q) :
+    (((affineRootPointPower f n N h).map ((affineRootPointPower f N K j).map a)).1 : Bˣ) =
+      (((affineRootPointPower f n K (dvd_trans h j)).map a).1 : Bˣ) := by
+  sorry
+
+def affineRootPointChange (f : A) (n : ℕ) [NeZero n] (φ : B →ₐ[A] C) :
+    affineRootPointGroupoid f n B ⥤ affineRootPointGroupoid f n C where
+  obj p := φ.comp p
+  map {p q} h := ⟨restrictRootsOfUnity φ n h.1, by
+    change φ (q (AdjoinRoot.root _)) =
+      φ (((h.1 : Bˣ) : B)) * φ (p (AdjoinRoot.root _))
+    exact (congrArg φ h.2).trans (map_mul φ _ _)⟩
+  map_id p := by apply Subtype.ext; exact (restrictRootsOfUnity φ n).map_one
+  map_comp h j := by apply Subtype.ext; exact (restrictRootsOfUnity φ n).map_mul _ _
+
+lemma affineRootPointChange.obj_root (f : A) (n : ℕ) [NeZero n] (φ : B →ₐ[A] C)
+    (p : affineRootPointGroupoid f n B) :
+    ((affineRootPointChange f n φ).obj p) (AdjoinRoot.root _) =
+      φ (p (AdjoinRoot.root _)) := by
+  sorry
+
+lemma affineRootPointChange.map_label (f : A) (n : ℕ) [NeZero n] (φ : B →ₐ[A] C)
+    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
+    ((affineRootPointChange f n φ).map h).1 = restrictRootsOfUnity φ n h.1 := by
+  sorry
+
+lemma affineRootPointChange.power_obj (f : A) (n N : ℕ) [NeZero n] [NeZero N]
+    (hn : n ∣ N) (φ : B →ₐ[A] C) (p : affineRootPointGroupoid f N B) :
+    (affineRootPointChange f n φ).obj ((affineRootPointPower f n N hn).obj p) =
+      (affineRootPointPower f n N hn).obj ((affineRootPointChange f N φ).obj p) := by
+  sorry
+
+lemma affineRootPointChange.power_label (f : A) (n N : ℕ) [NeZero n] [NeZero N]
+    (hn : n ∣ N) (φ : B →ₐ[A] C) {p q : affineRootPointGroupoid f N B} (h : p ⟶ q) :
+    (((affineRootPointChange f n φ).map ((affineRootPointPower f n N hn).map h)).1 : Cˣ) =
+      (((affineRootPointPower f n N hn).map ((affineRootPointChange f N φ).map h)).1 : Cˣ) := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory
+variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
+variable [Algebra A B] [Algebra A C]
+
+-- test: rootPointTests.exponent_one
+example (f : A) (p : affineRootPointGroupoid f 1 B) :
+    p = affineRootPoint f 1 (algebraMap A B f) (by simp) := by
+  sorry
+
+-- test: rootPointTests.nilpotent_point
+example :
+    let p := affineRootPoint (0 : ZMod 4) 2 (2 : ZMod 4) (by exact (by decide : (2 : ZMod 4) ^ 2 = 0))
+    p (AdjoinRoot.root _) ≠ 0 ∧ p (AdjoinRoot.root _) ^ 2 = 0 := by
+  sorry
+
+-- test: rootPointTests.distinct_orbits
+example :
+    let p := affineRootPoint (0 : ZMod 4) 2 (0 : ZMod 4) (by decide)
+    let q := affineRootPoint (0 : ZMod 4) 2 (2 : ZMod 4) (by exact (by decide : (2 : ZMod 4) ^ 2 = 0))
+    ¬Nonempty (p ⟶ q) := by
+  sorry
+
+-- test: rootPointTests.wild_stabilizer_zero
+example :
+    let p := affineRootPoint (0 : ZMod 4) 2 (0 : ZMod 4) (by decide)
+    ∃ h : p ⟶ p, ((h.1 : (ZMod 4)ˣ) : ZMod 4) = 3 ∧ h ≠ 𝟙 p := by
+  sorry
+
+-- test: rootPointTests.wild_stabilizer_two
+example :
+    let p := affineRootPoint (0 : ZMod 4) 2 (2 : ZMod 4) (by exact (by decide : (2 : ZMod 4) ^ 2 = 0))
+    ∃ h : p ⟶ p, ((h.1 : (ZMod 4)ˣ) : ZMod 4) = 3 := by
+  sorry
+
+-- test: rootPointTests.inverse_label
+example (f : A) (n : ℕ) [NeZero n] {p q : affineRootPointGroupoid f n B}
+    (h : p ⟶ q) : (h ≫ Groupoid.inv h).1 = 1 ∧ (Groupoid.inv h ≫ h).1 = 1 := by
+  sorry
+
+-- test: rootPointTests.universal_six_to_two
+example (f : A) :
+    ((affineRootPointPower f 2 6 (by decide)).obj
+      (AlgHom.id A (AffineRing f 6))) (AdjoinRoot.root _) =
+        AdjoinRoot.root (Polynomial.X ^ 6 - Polynomial.C f) ^ 3 := by
+  sorry
+
+-- test: rootPointTests.power_kills_sign
+example :
+    let p := affineRootPoint (0 : ZMod 4) 4 (0 : ZMod 4) (by decide)
+    ∃ h : p ⟶ p, ((h.1 : (ZMod 4)ˣ) : ZMod 4) = 3 ∧
+      (((affineRootPointPower (0 : ZMod 4) 2 4 (by decide)).map h).1 : (ZMod 4)ˣ) = 1 := by
+  sorry
+
+-- test: rootPointTests.identity_nonreduced
+example :
+    let p := affineRootPoint (0 : ZMod 4) 2 (2 : ZMod 4) (by exact (by decide : (2 : ZMod 4) ^ 2 = 0))
+    (affineRootPointPower (0 : ZMod 4) 2 2 (dvd_refl 2)).obj p = p := by
+  sorry
+
+-- test: rootPointTests.nonfactorial_composition
+example (f : A) (p : affineRootPointGroupoid f 12 B) :
+    (affineRootPointPower f 2 6 (by decide)).obj
+        ((affineRootPointPower f 6 12 (by decide)).obj p) =
+      (affineRootPointPower f 2 12 (by decide)).obj p := by
+  sorry
+
+-- test: rootPointTests.nonflat_change_collapses_point
+example :
+    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 :=
+      { __ := ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2), commutes' z := by simp }
+    let p := affineRootPoint (0 : ℤ) 2 (2 : ZMod 4) (by decide)
+    p (AdjoinRoot.root _) ≠ 0 ∧
+      (affineRootPointChange (0 : ℤ) 2 φ).obj p =
+        affineRootPoint (0 : ℤ) 2 (0 : ZMod 2) (by decide) := by
+  sorry
+
+-- test: rootPointTests.change_power_square
+example (f : A) (φ : B →ₐ[A] C) (p : affineRootPointGroupoid f 6 B) :
+    (affineRootPointChange f 2 φ).obj ((affineRootPointPower f 2 6 (by decide)).obj p) =
+      (affineRootPointPower f 2 6 (by decide)).obj ((affineRootPointChange f 6 φ).obj p) := by
+  sorry
+
+-- test: rootPointTests.change_keeps_labels
+example (f : A) (φ : B →ₐ[A] C) (p : affineRootPointGroupoid f 3 B) :
+    ((affineRootPointChange f 3 φ).map (𝟙 p)).1 = 1 := by
+  sorry
+
+-- test: rootPointTests.zero_test_ring
+example (p q : affineRootPointGroupoid (0 : ℤ) 2 (ZMod 1)) : p = q := by
   sorry
 
 end TauCeti.RootStack
