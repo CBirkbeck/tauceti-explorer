@@ -1,77 +1,78 @@
-# Function Field Arithmetic Part II — arbitrary affine root-chart base change
+# Function Field Arithmetic Part II — tensor action and invariant base change
 
-Codex — codex-7e92bd · 3 October 2026 · Refs #3403 · **partial checkpoint**.
+Codex — codex-rtOQ9t · 4 October 2026 · Refs #3403 · **partial checkpoint**.
 
-The actual infinite affine root chart now has a native Cartesian base-change comparison for every unital coefficient ring map φ:A→B. Let D_A(f) be the inherited direct limit of A[t_n]/(t_n^n−f) over all positive exponents ordered by divisibility. A compatible pair of ring maps from D_A(f) and B to C induces finite maps from each B-root algebra, since the root equation is preserved. Their divisibility compatibility gives a ring map D_B(φ(f))→C. Evaluation on coefficients and roots gives both factorizations and uniqueness, yielding the actual CommRingCat pushout.
+For any commutative ring A, section f∈A and actual A-algebra B, extend the existing positive-divisibility rational-character LEFT coaction along the native tensor adjunction. This constructs a B-algebra map β:B⊗_A D_A(f)→B[Q/Z]⊗_B D_B(φ(f)). It is an action comparison with the target chart identified through the existing tensor equivalence E, not an independently introduced geometric stack carrier. Its pure-tensor formula and inherited coefficient naturality prove β=δ_B∘E as actual algebra maps.
 
-Comparing this pushout with the native tensor-product pushout produces a B-algebra equivalence B⊗_A D_A(f)≃D_B(φ(f)), with formulas on pure tensors and inverse roots. The existing native Spec theorem turns the ring pushout into a scheme pullback. Its canonical isomorphism with the categorical fibre product identifies both projections and the inverse second projection. These are actual ring, algebra and scheme maps, including structure-sheaf data. The scheme universal property applies to arbitrary test schemes in the common coefficient universe.
+The actual native equalizer of β and includeRight∘E inside B⊗_A D_A(f) is B through the coefficient inclusion. Every universally invariant tensor has a unique coefficient. The native algebra equivalence has explicit forward/inverse coefficient formulas and agrees under E with the inherited chart-invariant coordinates. No flatness, injectivity, reducedness, nontriviality, unit-section or exponent-invertibility assumption is imposed.
 
-The21 additions are4 constructions,2 theorems and15 lemmas, with14 API entries and14 typed tests. No flatness, reducedness, nontriviality, Noetherianity, unit-section or exponent-invertibility hypothesis is imposed. Tests include transition2|6, nonfactorial index3, nilpotent coefficient2 over Z/4, the nonflat quotient Z→Z/4 killing the original nonzero coefficient4 in the tensor product, and a nonzero square-zero root over Z/2 transported to the tensor product. Zero rings and the actual scheme projections are also tested.
+The11 additions are2 constructions and9 lemmas, with9 API entries and8 typed tests. The tests include the nonflat quotient Z→Z/4, index3, zero rings, actual tensor formulas and inverse coordinates. The invariant coefficient2 over Z/4 stays nonzero and square-zero. Over Z/2 at f=0, the second root transported to the actual tensor product remains nonzero and square-zero and fails universal coinvariance. Equality under the Hopf coaction cannot be replaced by scalar-point fixedness.
 
-All469 incoming mathematical contracts are retained;468 whole node objects are byte-equivalent as JSON objects. Only the infinite-base-change parent receives three appended prerequisites and a proof step consuming this affine calculation before the separately required groupoid and descent comparison. All40 planets,10 partial stages,8 gaps and13 supplier requests remain. The general root-stack reservation still includes scheme and stack bases, every positive exponent and all characteristics in the fppf setting. Both Yun–Zhang and Abdurrahman–Venkatesh routes, source issues/versions, omission ledger and ownership remain. RS.2 and TOWER-TYPING receive current-frontier appends; historical frontiers retain their original wording. Every implementationStatus is unchecked.
+All490 incoming mathematical contracts remain;489 whole node objects are unchanged. Only the infinite-base-change parent receives two appended prerequisites and one proof step consuming the affine action/invariant comparison. All40 planets,10 partial stages,8 gaps,13 requests, source routes, source issues/versions and the full omission ledger remain. The exact reserved root-stack node is untouched. The general packet retains stack bases, every positive exponent, arbitrary characteristic, relative roots and the infinite system. Every implementationStatus stays unchecked. No stage closes.
 
 ## Reading and authenticated input
 
-Read the complete19646-character issue; its body remained unchanged when bot5974005296 confirmed claim5974003995. The current five deliverables match own [PR6022](https://github.com/CBirkbeck/tauceti-explorer/pull/6022), head3c50760e4e6b1dc1b3fd51372e97549a08dcbbac, archivebaf728865a384c73a782d4b28176aaa23a41e2d5. The recovered actual verifier was executed again, and IncomingVerification.json is byte-equal to the predecessor's publication result. This verification replay did not run Lean.
+Read the whole19646-character issue before claiming and again after bot5974808160 confirmed exact claim5974807160 for this session. Read the complete current handoff and all public helper fences. Public [PR6031](https://github.com/CBirkbeck/tauceti-explorer/pull/6031), immutable headf176b43d0cd79c3059ab730ac655cace67bac744, archivecb7aed0251a41bed32755530d2b8058406fd0bde, supplies55 authenticated artifacts and10 helpers. Its public recovery script was executed unchanged. Its actual recovered verifier was executed and reproduced the archived publication report byte for byte; it did not run Lean. The five current owned inputs match that public checkpoint exactly.
 
-All18 own PR6022 guarded inputs are unchanged. Their complete protocol, reviewed FA.0–FA.7 audit/REV-AUDIT20, parent FunctionFieldArithmetic and upstream AlgebraicCurves/JacobianChallenge readings are reused from this continuous session with the scopes recorded there. Current handoff/recovery instructions, current gaps and supplier requests, and the consumed native root/direct-limit/inclusion/coefficient proof blocks were read. The whole7367-line native prefix is authenticated and recompiled; no fresh manual audit of every inherited proof is claimed. PriorOwnReading.json, PreviousReading.json and Reading.json distinguish fresh work from reuse.
+Fresh readings include the complete root-stack reservation and API/tests, all ten complete stage descriptions, the infinite-base-change parent, all8 gap and13 request objects, and the consumed actual coaction, coefficient-map, tensor-equivalence, invariant-equivalence and wild-nilpotent proof passages. No fresh manual audit of all490 incoming contracts or all7758 inherited proof lines is claimed. The whole prefix is authenticated and recompiled. Reading.json distinguishes these scopes and records the truncated broad searches that were used as leads only.
 
-Fresh primary-source reading covered the complete displayed [Stacks §26.17](https://stacks.math.columbia.edu/tag/01JO), including the proof of the affine fibre-product Lemma26.17.2, and the complete displayed [Lemma32.2.1](https://stacks.math.columbia.edu/tag/01YW) on inverse limits of affine schemes. SourceReading.json records successful HTTP hashes and byte counts without archiving source text. Own PR6022's complete extracted Talpo–Vistoli arXiv1410.1164v2 printed pp.14–16 reading is reused. The root-specific universal maps and formulas are authored deductions. No fresh whole-paper/version audit or root-stack descent certification is claimed.
+WORKERS and the entire blueprint, expansion and upstream protocols were freshly reread. Complete reviewed FA.0–FA.7 audit/REV-AUDIT20, parent FunctionFieldArithmetic and complete AlgebraicCurves/JacobianChallenge upstream readings are reused from this same continuous session's own [PR6016](https://github.com/CBirkbeck/tauceti-explorer/pull/6016). All18 own guarded input files have the same hashes. Own6016-reading-receipt.json and Own6016-InputGuard.json authenticate the exact scopes; another worker's reading is not claimed as this worker's fresh reading.
 
-All12 new baseline references were matched to the pinned declaration index and their complete statements and applicable ambient assumptions read. Generic ring pushout construction/comparison, tensor pushouts, conversion of ring isomorphisms, Spec pullbacks and their projection laws are imported. Existing AdjoinRoot.tensorAlgEquiv already supplies generic finite algebra base change and is not replanned. Exact new-name searches in the pinned Mathlib/Tau sources and existing packets found no matches. Bounded root/base-change packet leads were inspected in the owner and related foundation/function-field suppliers; no exhaustive all-packet proof or PR/Zulip search is claimed.
+Fresh primary-source reading covers the entire displayed [Stacks §39.10](https://stacks.math.columbia.edu/tag/022Y): both definitions, the action/equivariance diagrams, Lemma39.10.3 and proof, and all five comments. SourceReading.json records date, successful HTTP byte count and SHA256 without archiving source text. These root-specific tensor/equalizer statements are authored deductions. Own PR6016's complete extracted Talpo–Vistoli arXiv1410.1164v2 printed pp.14–16 reading is reused with its exact source hash. No fresh whole-paper/version/erratum survey or full root-stack descent certification is claimed.
 
-## Validation and limits
+Both new baseline imports, AlgHom.liftEquiv and AlgHom.liftEquiv_tmul, were matched to the pinned index and their whole statements/proofs/ambient assumptions read. IsScalarTower.algebraMap_apply, the actual tensor extensionality and equalizer statements were also read; they are inherited baseline citations. Generic tensor adjunctions, equalizers and algebra equivalence constructors are imported rather than replanned. Exact new-name scans of pinned Mathlib/Tau sources and current packets found no matches. No current link-map entry mentions this roadmap. No exhaustive PR/Zulip or all-packet absence survey is claimed.
 
-Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 remain the pins. **The full canonical Tau Ceti suggested file is UNCOMPILED:** the available Tau checkout differs from the pin and lacks the four imported Tau oleans at its standard build path. The whole incoming canonical text is preserved after two added Mathlib imports. All35 new declaration/example headers match the native proof experiment and planning projection. The separately checked bounded Mathlib projection does not certify the full Tau-dependent geometric prefix.
+## Compilation and verification
 
-The native proof program and bounded typing projection were compiled serially in the existing clean exact-pin Mathlib build with Lean4.34.0-rc2, at least20GiB available immediately before each run, one thread,8GiB managed-memory limit and1200-second timeout. No project, dependency/cache/library build or Lean server was started. Both compilation processes finished before submission.
+Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 remain the pins. **The full Tau-dependent canonical suggested file is UNCOMPILED:** no existing complete Tau build at that exact pin supplies its imports. Its entire incoming text is retained byte for byte, followed by matched new planning signatures. The bounded Mathlib typing projection certifies only its stated import cone.
 
-- Native.lean: 7758 lines,318 examples,exit0,0 warnings (0 admissions),393 axiom audits; available41GiB,elapsed296.61s,peak RSS4183940KiB. Source SHA256 `fdf73f32fa7d9020b9ee15bd50d5365c0b2c2e3fab6db807b52b1799c6fbe1b9`; log SHA256 `7976f7e36052b7f88f4fde7654df8c1729bbbc4e1879eb28b9432655d50e08f3`.
-- Sketch.lean: 6615 lines,318 examples,exit0,258 warnings (258 admissions),231 axiom audits; available41GiB,elapsed141.73s,peak RSS3937300KiB. Source SHA256 `4e4f363df5a9451e200254a4b689972841551c8f55934d7691dccaddfa10dd39`; log SHA256 `a6bd95261fcd0318b556bb6ded8e3a5323594506f90fe85b23ddd817e0357be4`.
+Compile runs used the existing clean exact-pin Mathlib build and Lean4.34.0-rc2, serially, with free-g checked immediately before each run, at least20GiB available, one thread,8GiB managed-memory cap and1200-second timeout. No project, dependency/cache/library build or Lean server was started. All processes finished before publication. Initial elaborator errors were corrected in the proof experiment before the successful runs below; warnings were not suppressed.
 
-Native.lean has no admissions or warnings. All393 audited axiom closures contain only propext, Classical.choice and Quot.sound. Sketch.lean has258 admission warnings only and retains231 clean inherited axiom audits. Exact incoming native and typing prefixes are bound to the authenticated predecessor manifest. Projection retains concrete data/carriers and admits mathematical lemma/test bodies only. The projection/header parser preserves the complete inline-let nilpotent test statement.
+- Native.lean: 8045 lines,326 examples,exit0,0 warnings (0 admissions),404 axiom audits; available41GiB,elapsed324.92s,peak RSS4185556KiB. Source SHA256 `6c46b4ab391712c616a708d41f0e8498943e6cce682b0fa76d45140152e81547`; log SHA256 `d4f1d2fc48da0838983aff76dabfa4ec3ccbc36440e418d70ba73b0e8e4e5eb5`.
+- Sketch.lean: 6814 lines,326 examples,exit0,275 warnings (275 admissions),231 axiom audits; available40GiB,elapsed153.13s,peak RSS3956436KiB. Source SHA256 `5d569598025ec032b792aae601fdeb6f51f194a21d8394df631c072e90cf583b`; log SHA256 `762b1e9911523cee6a9db3d29f0ca0ee12e61c2404176db3d06cba1dc1ce6606`.
 
-The actual indexed packet checker, source-issue/version checks and extracted actual intake functions pass without errors, warnings or refusals. The packet has490 nodes:13 definitions,85 constructions,44 theorems,336 lemmas,11 comparisons and1 application;392 checker API items,357 checker definition tests,276 baseline references and40 planets. No stage closes.
+The whole native proof experiment has no admissions, errors or warnings. All404 native audited axiom closures contain only propext, Classical.choice and Quot.sound. Sketch.lean has275 admission warnings only and231 clean inherited axiom audits. All19 new declaration/example headers match the planning projection exactly, including the complete inline-let wild test. The projection keeps concrete maps/carriers and admits mathematical lemma/test bodies; it never inserts a vacuous predicate carrier.
 
-Raw counts are397 API entries and393 test objects. Actual immutable atlas assembly is acyclic: stage3057/8724, own declaration490/1143, scoped3652/10881 vertices/edges. All87 owned supplier paths hold, with0 touching accepted restructuring pairs. There are no owned unresolved endpoints, skipped or pending links. Every stage edge and every foreign roadmap/stage object agrees with the incoming control. The45 unrelated preexisting unreachable restructuring pairs retain hash `4101be60e5c05999c4e96d9a60d93f717851d100e0bf02c6b4bac42a630c4aa6`.
+The actual indexed packet checker, source-issue/version validation and actual extracted intake functions pass without errors, warnings or refusals. The packet has501 nodes:13 definitions,87 constructions,44 theorems,345 lemmas,11 comparisons and1 application;401 checker API items,365 checker definition tests,278 baseline citations and40 planets. Raw counts are406 API entries and401 test objects.
 
-Mathematical input `73ac58557bf52b2fd4f4e7b86cd2a06603318404`; publication input `c360744b90a3a6a0f6fe7bbf4b145ca134ce126a`. All18 guarded inputs, the job contract and all5 incoming owned blobs agree at both inputs. Declaration-index SHA256 `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`. Verification-math.json and Verification.json record actual results.
+Actual immutable atlas assembly is acyclic: stage3057/8726, owned declarations501/1174, combined3663/10925 vertices/edges. All89 owned supplier paths hold, with0 touching accepted restructuring pairs. All inherited stage-edge objects and foreign roadmap/stage objects remain unchanged. The added proof dependency exposes exactly two new internal links between already existing owned planets: affine-transition-faithfully-flat→dvr-infinite-gerbe and factorial-unit-qz-equivalence→dvr-infinite-gerbe. No owned unresolved, skipped or pending link remains. The45 unrelated preexisting unreachable restructuring pairs retain hash `4101be60e5c05999c4e96d9a60d93f717851d100e0bf02c6b4bac42a630c4aa6`.
+
+Mathematical input `8da7bfc6382725e4efa40e1435bee348f848f97c`; publication input `85108252c9959af452c894e880416aaa8c318ec3`. All18 guarded inputs, the job contract and all5 incoming owned blobs agree at both inputs. Declaration-index SHA256 `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`. Verification-math.json and Verification.json record actual results.
 
 ## Resume
 
-Consume divisibilityBaseChangeDesc and its uniqueness for arbitrary compatible ring maps, divisibilityTensorEquiv for the actual tensor comparison, and divisibilitySpecCoefficientMap.isPullback/divisibilitySpecBaseChangeIso for the Cartesian affine-chart square. Neither flatness nor a restriction to affine test schemes is needed in their stated universes.
+Consume divisibilityBaseChangeCoaction.compare for the actual tensor/action compatibility and divisibilityTensorInvariantEquiv for the native invariant algebra, with its coefficient, inverse and chart formulas. These statements include arbitrary nonflat coefficient maps and wild nilpotents.
 
-Still construct higher-universe adapters, coherent root-object groupoid reindexing, finite-projection coherence for the general infinite root-stack base-change equivalence, the supplier TOWER-AFF fpqc frame-torsor limit, and the actual infinite quotient/descent comparison on objects and arrows. The general stack-base root reservation, finite Kummer and DVR bridges, and the all-roots-of2 non-fppf counterexample remain separate. Preserve the omission ledger, all8 gaps and13 requests and both source routes until exact geometric carriers and source-qualified proofs are supplied. An affine ring pushout alone does not establish the fpqc root-stack quotient.
+Still construct higher-universe adapters, coherent root-object groupoid reindexing, finite-projection coherence for general infinite root-stack base change, the supplier TOWER-AFF fpqc frame-torsor limit, and actual infinite quotient/descent on objects and arrows. The general stack-base reservation, finite Kummer and DVR bridges, root-section tensor-power supplier, geometric sheaf signatures and all-roots-of2 non-fppf counterexample retain their recorded obligations. Preserve both paper routes, the omission ledger, all8 gaps and13 requests. An affine tensor action/equalizer calculation does not prove a coarse-stack universal property or the fpqc quotient comparison.
 
-Recover and replay the public evidence before extending this checkpoint. The verifier checks preserved contracts, matched headers and recorded elaboration, then runs the actual immutable checker/intake/atlas; it never runs Lean. Optional re-elaboration must obey WORKERS' existing-build, memory and serial-run requirements.
+Recover and replay the public evidence before extending this checkpoint. The verifier checks exact contracts, matched headers and recorded compilation, then executes actual immutable checker/intake/atlas functions. It never starts Lean. Any re-elaboration must follow WORKERS' existing-build, memory and serial-run guards.
 
-## Public evidence recovery
+## Public evidence
 
-Archive ancestor: **cb7aed0251a41bed32755530d2b8058406fd0bde**. Manifest SHA256: **696d26be64e2772faa9fc5d69bbffa4514a78c9bdcac1e6ae207ccb203467c4e**. The inert archive contains55 authenticated artifacts and10 archived helpers. The final suggested file contains only the canonical planning text. No source paper text, PDF or repository snapshot is archived.
+Immutable archive `6b96efd42b0aacf63cd415cc1636015af6ae228f` contains 56 artifacts and nine authenticated helpers. Manifest SHA256 `3b0f2172b16c089d9053a7215213f9862eb099b68457f19ab291245456de286d`. The compressed payload lives only in the ancestor suggested-file comment; the final suggested file is the plain canonical planning file.
 
-Save the recover.py fence below and run it with an empty disk directory and this PR's exact40-hex head. It authenticates public immutable artifacts, all five deliverables and every helper fence, and binds the archive's canonical prefix to the final suggested text. From a clone containing the recorded mathematical and publication inputs, run verify.py with the recovered directory and pinned declaration index. It executes the actual immutable packet/source/intake/atlas checks and verifies recorded compilation; it never starts Lean. Optional compilation must follow WORKERS' existing-build, memory and serial-run rules.
+Fetch this handoff at the exact public pull-request head, extract recover.py unchanged, and run it with a fresh scratch destination and that head. Then run verify.py from an existing repository checkout with the pinned declaration index, once using the saved mathematical base and once using the saved publication base. Recovery authenticates artifact bytes, the four planned deliverables and every helper fence; verification runs the actual immutable checker, intake and atlas. Neither replay starts Lean.
 
 ## Script: recover.py
 
 ```python
-"""Recover immutable native root-chart base-change evidence; never runs Lean."""
+"""Recover immutable tensor-root-action evidence; never runs Lean."""
 from pathlib import Path
 import base64,hashlib,json,re,sys,urllib.request,zlib
 S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
 HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
 ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
 RID='FunctionFieldArithmeticPartII'
-ARCHIVE='cb7aed0251a41bed32755530d2b8058406fd0bde'
-MANIFEST_SHA='696d26be64e2772faa9fc5d69bbffa4514a78c9bdcac1e6ae207ccb203467c4e'
-EXPECTED={'roadmaps': 'e76cedd637c25fe3de79589508acc48223b7532a013dc532982185716c0c99bc', 'packets': '2e063f8405b152bf8d641ae91f966e5b466cd9977d67649679fee4f3b1b3db6b', 'readmes': '15035e0c58774e7bcd378f2f18f8ecafc497f6e56cfaf7b1254032a7f9647ef4', 'suggested': 'd79a273adc6bb5d7563a68a9b47ef5b92c9ab8a32c47afd18520cf63289d9127'}
-HELPERS=['author.py', 'specs.py', 'assemble.py', 'verify.py', 'graph.py', 'immutable_view.py', 'projection.py', 'compile.py', 'runcheck.py', 'write_handoff.py']
-
+ARCHIVE='6b96efd42b0aacf63cd415cc1636015af6ae228f'
+MANIFEST_SHA='3b0f2172b16c089d9053a7215213f9862eb099b68457f19ab291245456de286d'
+EXPECTED={'roadmaps': 'a4b1f2236aa63a0f6baec43f291f09c012f297afe308f4bcf1f4fcbc29b6c9c0', 'packets': '669b68e41d2de421bb86508c14935684b47b6c9646de21f507a331a72e7fefea', 'readmes': 'd31149c0dcb308cf90023daea117956301f6dff66e63260bbe00f7bae0e8b3ac', 'suggested': 'd707349f1a9cce5b0fb5411b3749f042f27f398e4e3774a6ce2c9b2bd6325dea'}
+HELPERS=['author.py','assemble.py','verify.py','graph.py','immutable_view.py','projection.py','compile.py','runcheck.py','write_handoff.py']
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch(ref,path):
  with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=25)as r:return r.read()
 raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
-prefix,rest=raw.split('/- BEGIN ARCHIVED ROOT BASE CHANGE PAYLOAD\n',1)
-payload=json.loads(rest.split('\nEND ARCHIVED ROOT BASE CHANGE PAYLOAD -/',1)[0])
+prefix,rest=raw.split('/- BEGIN ARCHIVED TENSOR ROOT ACTION PAYLOAD\n',1)
+payload=json.loads(rest.split('\nEND ARCHIVED TENSOR ROOT ACTION PAYLOAD -/',1)[0])
 def unpack(name):
  b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
  return b
@@ -104,219 +105,158 @@ receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpe
 ## Script: author.py
 
 ```python
-"""Add a bounded affine base-change continuation, preserving all incoming contracts."""
+"""Specify the actual tensor action comparison and its native equalizer."""
 from pathlib import Path
-import copy,json,re,sys
-S=Path(sys.argv[1]);sys.path.insert(0,str(S))
-from specs import specs,apis,test_specs
-RID='FunctionFieldArithmeticPartII';NS='TauCeti.RootStack.'
-def read(n):return json.loads((S/n).read_text())
-def save(n,v):(S/n).write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
-p=read('Incoming-packet.json');road=read('Incoming-roadmap.json')
-ids={n.get('declarationName',n.get('declaration','')).removeprefix(NS):n['id']for n in p['nodes']}
-ids.update({name:RID+':RS.2/native-'+slug for slug,name,*_ in specs})
-def dep(n):return n if n.startswith(('mathlib:','tauceti:'))else ids[n]
+import copy,json,sys
+S=Path(sys.argv[1]);RID='FunctionFieldArithmeticPartII';NS='TauCeti.RootStack.'
+def data(n):return json.loads((S/n).read_text())
+def save(n,v):
+    t=S/(n+'.new');t.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
+    json.loads(t.read_text());t.replace(S/n)
+p=data('Incoming-packet.json');road=data('Incoming-roadmap.json')
+ids={n.get('declarationName','').removeprefix(NS):n['id']for n in p['nodes']}
+specs=[
+('coaction','divisibilityBaseChangeCoaction','construction','Tensor extension of the root coaction',
+ 'Construct the B-algebra map β:B⊗_A D_A(f)→B[Q/Z]⊗_B D_B(φ(f)) by extending F_target∘δ_A along the native tensor adjunction. The target retains the actual base-changed chart, and β is an action comparison map, not a new geometric stack carrier.',
+ ['divisibilityQZCoaction','divisibilityQZTensorCoefficientMap','divisibilityQZTensorCoefficientMap.constant','mathlib:AlgHom.liftEquiv','mathlib:IsScalarTower.algebraMap_apply'],
+ 'Give the target the A-algebra structure through A→B. The coaction and coefficient-map coefficient formulas prove that F_target∘δ_A is an A-algebra map. Extend it by the pinned AlgHom.liftEquiv, which directly yields a B-algebra map.'),
+('coaction-tensor','divisibilityBaseChangeCoaction.tmul','lemma','Pure-tensor action formula',
+ 'For every b∈B and x∈D_A(f), β(b⊗x)=b·F_target(δ_A(x)).',
+ ['divisibilityBaseChangeCoaction','mathlib:AlgHom.liftEquiv_tmul'],
+ 'Evaluate the actual tensor-adjunction map on a pure tensor; this is the native liftEquiv_tmul law.'),
+('coaction-comparison','divisibilityBaseChangeCoaction.compare','lemma','Equivariance of the tensor base-change comparison',
+ 'As actual B-algebra maps, β=δ_B∘E, where E:B⊗_A D_A(f)≃ₐ[B]D_B(φ(f)) is the inherited arbitrary-base-change equivalence.',
+ ['divisibilityBaseChangeCoaction.tmul','divisibilityTensorEquiv.tmul','divisibilityQZCoaction.coefficient_naturality',"mathlib:Algebra.TensorProduct.ext'"],
+ 'Use native pure-tensor extensionality. The new formula gives b·F_target(δ_A(x)); inherited coefficient naturality gives F_target(δ_A(x))=δ_B(F_φ(x)); B-linearity and the actual E pure-tensor formula identify the other side. No cancellation or flatness is used.'),
+('coaction-root','divisibilityBaseChangeCoaction.root','lemma','Base-changed rational root weight',
+ 'For every positive n, β(1⊗κ_n(t_n))=e_[1/n]⊗κ_n(t_n), with the right root over B and the normalized rational character in B[Q/Z].',
+ ['divisibilityBaseChangeCoaction.compare','divisibilityTensorEquiv.right','divisibilityCoefficientMap.root','divisibilityQZCoaction.root'],
+ 'Evaluate the comparison identity on the original n-th root and apply the inherited coefficient and root-coaction formulas. This includes nonfactorial positive indices.'),
+('coaction-coefficient','divisibilityBaseChangeCoaction.coefficient','lemma','Base-changed coefficient coinvariance',
+ 'For b∈B included into B⊗_A D_A(f), β(b)=1⊗b under the actual coefficient inclusion into D_B(φ(f)).',
+ ['divisibilityBaseChangeCoaction.compare','divisibilityTensorEquiv','divisibilityQZCoaction.constant'],
+ 'Use the B-algebra compatibility of E and the inherited δ_B coefficient equation.'),
+('tensor-coinvariants','divisibilityBaseChangeCoaction.coinvariant_iff','lemma','Tensor coinvariants are exactly new coefficients',
+ 'For z∈B⊗_A D_A(f), β(z)=1⊗E(z) if and only if z is the coefficient image of some b∈B. The equation is universal coaction equality in B[Q/Z]⊗_B D_B(φ(f)).',
+ ['divisibilityBaseChangeCoaction.compare','divisibilityQZCoaction.invariants','divisibilityTensorEquiv'],
+ 'Rewrite β as δ_B∘E and use the inherited arbitrary-ring invariant theorem. Transport coefficient equality through the actual B-algebra equivalence E, using its injectivity and coefficient compatibility in both directions.'),
+('tensor-invariant-equivalence','divisibilityTensorInvariantEquiv','construction','Tensor invariant algebra',
+ 'Construct B≃ₐ[B]I_tensor, where I_tensor is the actual AlgHom.equalizer of β and includeRight∘E inside B⊗_A D_A(f). Its forward map is the actual B-coefficient inclusion.',
+ ['divisibilityBaseChangeCoaction.coefficient','divisibilityBaseChangeCoaction.coinvariant_iff','divisibilityTensorEquiv','divisibilityAffineColimit.coefficient_injective','mathlib:AlgHom.equalizer','mathlib:AlgHom.codRestrict','mathlib:AlgEquiv.ofBijective'],
+ 'Restrict the native coefficient algebra map to the native equalizer. Prove injectivity by applying E and coefficient injectivity in D_B; prove surjectivity using the tensor coinvariant characterization. Apply the native algebra-equivalence constructor to this actual bijection.'),
+('tensor-invariant-coefficient','divisibilityTensorInvariantEquiv.apply_coe','lemma','Invariant coefficient in the tensor algebra',
+ 'The underlying tensor element of divisibilityTensorInvariantEquiv(f)(b) is algebraMap_B(b).',
+ ['divisibilityTensorInvariantEquiv'],
+ 'Unfold the forward codomain restriction of the actual coefficient map.'),
+('tensor-invariant-chart','divisibilityTensorInvariantEquiv.chart','lemma','Agreement of tensor and chart invariant coordinates',
+ 'For b∈B, E((divisibilityTensorInvariantEquiv(f)(b)).val)=(divisibilityInvariantEquiv(φ(f))(b)).val.',
+ ['divisibilityTensorInvariantEquiv.apply_coe','divisibilityTensorEquiv','divisibilityInvariantEquiv.apply_coe'],
+ 'Both sides are the coefficient image b in D_B(φ(f)), by B-algebra compatibility of E and the inherited chart-invariant coefficient formula.'),
+('tensor-invariant-inverse','divisibilityTensorInvariantEquiv.inverse_coe','lemma','Inverse tensor invariant coefficient',
+ 'For z in the native tensor equalizer, the coefficient image of divisibilityTensorInvariantEquiv(f)⁻¹(z) equals z.val in the actual tensor algebra.',
+ ['divisibilityTensorInvariantEquiv.apply_coe'],
+ 'Apply the forward coefficient formula to the inverse image and then the inverse law of the native algebra equivalence.'),
+('tensor-invariant-unique','divisibilityBaseChangeCoaction.invariants_unique','lemma','Uniqueness of base-changed invariant coefficients',
+ 'Every z satisfying β(z)=1⊗E(z) is the image of a unique b∈B.',
+ ['divisibilityBaseChangeCoaction.coinvariant_iff','divisibilityTensorEquiv','divisibilityAffineColimit.coefficient_injective'],
+ 'Existence is the tensor coinvariant characterization. For uniqueness, apply E to equality of coefficient images and use actual coefficient injectivity in D_B. The coefficient map A→B need not itself be injective.')]
+for slug,name,*_ in specs:ids[name]=RID+':RS.2/tensor-action-'+slug
+def dep(n):return n if n.startswith('mathlib:')else ids[n]
 hyps=[
- 'A,B,C are arbitrary commutative rings in a common arbitrary universe; f∈A and φ:A→B is a unital ring map. No flatness, nontriviality, reducedness, Noetherianity, unit-section or invertibility-of-exponent assumption is made.',
- 'D_A(f) is the existing direct limit of actual AdjoinRoot algebras A[t_n]/(t_n^n−f) indexed by all positive exponents under divisibility. κ_n denotes its actual finite inclusion; F_φ is the inherited coefficient map. Tensor statements use the actual A-algebra structure on B and φ=algebraMap A B.',
- 'The finite/universal lift constructions assume actual ring maps α:D_A(f)→C and β:B→C satisfying α(algebraMap A D_A(f) a)=β(φ(a)) for all a. Scheme pullback statements apply to arbitrary test schemes in this universe. Higher-universe transport, coherent root-object groupoids and fpqc stack descent remain separate obligations.']
-sid='RootChartBaseChange-codex-7e92bd'
-src=[dict(sourceId=sid,locator='Stacks Project §26.17, Lemma26.17.2 (tag01JO), affine fibre products and the tensor-product universal property; authored rank-one root-colimit deduction.',excerpt='Fibre products of schemes',match='The cited complete proof supplies the native geometric interpretation of ring pushouts. The root-specific universal map is deduced from the existing finite root equations and their divisibility compatibility. No fpqc root-stack comparison is inferred.'),dict(sourceId='TV17',locator='§3.1 printed p.14 inverse-limit description; Proposition3.10 pp.15–16 delimits the separate quotient-stack use.',excerpt='projective limit',match='Uses the inherited all-positive-index affine chart. The tensor and native scheme comparison laws here are authored deductions, not a claim that these exact Lean API statements occur in the paper.')]
+ 'A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.',
+ 'D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.',
+ 'Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.']
+src=[dict(sourceId='TensorRootAction-rtOQ9t',locator='Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.',excerpt='Actions of group schemes',match='The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent.'),dict(sourceId='TV17',locator='§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.',excerpt='grading',match='The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation.')]
 nodes=[]
 for slug,name,kind,title,statement,deps,proof in specs:
- nodes.append(dict(id=ids[name],parentStageId=RID+':RS.2',realises=[RID+':RS.2'],kind=kind,title=title,declarationName=NS+name,statement=statement,hypotheses=hyps,prerequisites=[dep(d)for d in deps],proofSteps=[proof],acceptance=[statement,'Retain actual ring maps, tensor products and native scheme morphisms, including structure-sheaf data, nonflat coefficients and nilpotents.'],api=[],tests=[],uses=[dict(where=RID+':RS.2/infinite-base-change',how='Supplies the rank-one affine-chart Cartesian base-change calculation. Coherent root-object comparisons and their finite-stage and fpqc descent laws are independently required for the infinite root-stack statement.'),dict(where=RID+':RS.2/infinite-affine-quotient',how='Makes the affine root chart compatible with arbitrary change of coefficient ring before the separately required frame-torsor and quotient-groupoid comparisons.')],library=dict(module='TauCeti/AlgebraicGeometry/RootStacks/RS2',namespace='TauCeti.RootStack'),sources=src,implementationStatus='unchecked'))
+ nodes.append(dict(id=ids[name],parentStageId=RID+':RS.2',realises=[RID+':RS.2'],kind=kind,title=title,declarationName=NS+name,statement=statement,hypotheses=hyps,prerequisites=[dep(d)for d in deps],proofSteps=[proof],acceptance=[statement,'Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents.'],api=[],tests=[],uses=[dict(where=RID+':RS.2/infinite-base-change',how='Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison.'),dict(where=RID+':RS.2/infinite-affine-quotient',how='Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred.')],library=dict(module='TauCeti/AlgebraicGeometry/RootStacks/RS2',namespace='TauCeti.RootStack'),sources=src,implementationStatus='unchecked'))
+for count in range(3,len(nodes),3):
+ save('Candidate.json',{**p,'nodes':p['nodes']+nodes[:count]})
 nd={n['declarationName'].removeprefix(NS):n for n in nodes}
-for name,items in apis.items():nd[name]['api']=[dict(name=NS+a,role='universal-property'if a.endswith('.unique')else'compatibility',statement=nd[a]['statement'])for a in items]
-tests=[dict(name=NS+n+'.test_'+t,kind=k,statement=v)for n,t,k,v in test_specs]
-for name in apis:nd[name]['tests']=[t for t in tests if t['name'].startswith(NS+name+'.test_')]
-index={x.split('\t')[1]:x.split('\t')for x in Path(sys.argv[2]).read_text().splitlines()if x.startswith('mathlib\t')}
-newrefs=[];oldrefs={b['ref']for b in p['baseline']['declarations']}
+apis={'divisibilityBaseChangeCoaction':['tmul','compare','root','coefficient','coinvariant_iff','invariants_unique'],'divisibilityTensorInvariantEquiv':['apply_coe','chart','inverse_coe']}
+for name,items in apis.items():nd[name]['api']=[dict(name=NS+name+'.'+a,role='characterisation'if 'invariant'in a else'compatibility',statement=nd[name+'.'+a]['statement'])for a in items]
+tests=[
+('divisibilityBaseChangeCoaction','nonflat_third_root','computation','For Z→Z/4, f=2 and positive index3, the tensor root has actual rational character [1/3] and maps to the third root over Z/4.'),
+('divisibilityBaseChangeCoaction','tensor_formula','compatibility','For arbitrary f,b,x, the actual tensor action comparison on b⊗x agrees with δ_B evaluated after the native tensor equivalence E.'),
+('divisibilityBaseChangeCoaction','zero_ring','degenerate','For Z→Z/1 and f=2, every actual tensor element satisfies the universal coinvariance equation.'),
+('divisibilityBaseChangeCoaction','wild_not_coinvariant','non-example','For Z→Z/2 and f=0, the inverse E-image of the actual second root is nonzero and square-zero and fails universal coinvariance. Wild nilpotents survive the actual tensor and action comparison.'),
+('divisibilityTensorInvariantEquiv','nilpotent_coefficient','computation','For Z→Z/4 and f=2, the invariant tensor coefficient2 is nonzero and has square zero.'),
+('divisibilityTensorInvariantEquiv','inverse','characterisation','For arbitrary A,B,f and b∈B, the actual tensor-invariant equivalence followed by its inverse recovers b.'),
+('divisibilityTensorInvariantEquiv','chart','compatibility','For the nonflat quotient Z→Z/4 at f=2, every invariant tensor coefficient agrees under E with the native chart-invariant coefficient.'),
+('divisibilityTensorInvariantEquiv','zero_ring','degenerate','For Z→Z/1 and f=2, the invariant image of the unique coefficient is zero in the actual tensor algebra.')]
+testobjs=[]
+for name,label,kind,statement in tests:
+ t=dict(name=NS+name+'.test_'+label,kind=kind,statement=statement);nd[name]['tests'].append(t);testobjs.append(t)
+index={v.split('\t')[1]:v.split('\t')for v in Path(sys.argv[2]).read_text().splitlines()if v.startswith('mathlib\t')};oldrefs={b['ref']for b in p['baseline']['declarations']};newrefs=[]
 for ref in dict.fromkeys(d for n in nodes for d in n['prerequisites']if d.startswith('mathlib:')):
  if ref in oldrefs:continue
- n=ref.removeprefix('mathlib:');row=index[n];newrefs.append(ref)
- p['baseline']['declarations'].append(dict(ref=ref,kind=row[2],module=row[3],provides='Native '+n+' used for the root-specific ring pushout, tensor comparison or scheme pullback.',checked='Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line'+row[4]+'.'))
-frontier='The arbitrary coefficient base-change square of the actual positive-divisibility affine root chart now has a native ring pushout and scheme pullback witness. Its concrete B-algebra tensor equivalence B⊗_A D_A(f)≃D_B(φ(f)) identifies pure tensors and inverse roots; its actual categorical scheme isomorphism identifies both projections. Flatness is not assumed and nilpotents are retained. Coherent root-object groupoid reindexing, higher-universe transport, finite-projection coherence for the general stack comparison, fpqc frame torsors and the infinite quotient/DVR/Kummer routes remain open. All ten stages, eight gaps and thirteen supplier requests remain partial or open.'
-p['nodes']+=nodes
-parent=next(n for n in p['nodes']if n['id']==RID+':RS.2/infinite-base-change')
-parent['prerequisites'] += [ids[x]for x in ['divisibilityTensorEquiv','divisibilitySpecBaseChangeIso.fst','divisibilitySpecBaseChangeIso.snd']]
-parent['proofSteps'].append('For the rank-one affine chart, use the actual arbitrary-ring-map pushout and the native scheme base-change isomorphism, with both projections and the tensor root/coefficient formulas. Then separately construct coherent componentwise root-object equivalences, finite-projection coherence and fpqc descent to obtain the stated root-stack comparison on general bases.')
-p['summary']+=' Native affine base-change continuation:21 declarations,14 API entries and14 typed tests specify the actual ring pushout, tensor equivalence and Cartesian scheme comparison.'
+ row=index[ref.removeprefix('mathlib:')];newrefs.append(ref)
+ p['baseline']['declarations'].append(dict(ref=ref,kind=row[2],module=row[3],provides='Native '+row[1]+' used in the root-specific tensor action extension and pure-tensor formula.',checked='Complete statement, proof and applicable ambient assumptions freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, indexed line'+row[4]+'.'))
+frontier='For any coefficient A-algebra B, extend the actual positive-divisibility root coaction through the native tensor adjunction and prove its equality with δ_B after the tensor base-change equivalence. Its universal tensor coinvariants are precisely the new coefficient ring B, through the actual native equalizer equivalence, with unique coefficients and agreement with chart invariant coordinates. Nonflat maps, zero rings and wild nonzero nilpotents are retained. This is an affine algebra/action comparison only; higher-universe adapters, coherent root-object groupoids, finite-projection coherence for general stack base change, TOWER-AFF fpqc frame torsors, infinite quotient/descent and DVR/Kummer comparisons remain open.'
+p['nodes']+=nodes;parent=next(n for n in p['nodes']if n['id']==RID+':RS.2/infinite-base-change')
+parent['prerequisites'] += [ids['divisibilityBaseChangeCoaction.compare'],ids['divisibilityTensorInvariantEquiv.chart']]
+parent['proofSteps'].append('For the rank-one affine chart, the native tensor-adjunction action comparison equals δ_B∘E, and its actual equalizer is the coefficient ring B, with unique coefficients and agreement with the inherited chart coordinates. Use this affine equivariance and invariant calculation before the separately required root-object groupoid and fpqc stack descent comparisons.')
+p['summary']+=' Tensor-action continuation:11 declaration contracts,9 API entries and8 typed tests describe the actual coaction comparison and native tensor invariant algebra under arbitrary affine base change.'
 for c in p['coverage']:
- if c['stageId']==RID+':RS.2':c['remaining'].append('Current continuation frontier, superseding historical affine Cartesian base-change omissions above: '+frontier)
+ if c['stageId']==RID+':RS.2':c['remaining'].append('Current affine tensor-action frontier: '+frontier)
 for g in p['gaps']:
- if g['id']=='TOWER-TYPING':g['detail']+=' The arbitrary affine-chart coefficient square now has an explicit native ring pushout, tensor equivalence and categorical scheme pullback with both projections. This discharges the affine Cartesian comparison only; higher-universe, coherent root-groupoid and TOWER-AFF fpqc obligations remain open.'
-for stage in road['stages']:
- if stage['key']=='RS.2':stage['description']+=' '+frontier
-source=read('SourceReading.json')[1]
-p['sources'].append(dict(id=sid,title='Affine fibre products and root-colimit base change; authored deduction from Stacks §26.17',authors='The Stacks Project Authors; root-specific deductions by Codex — codex-7e92bd',edition='Displayed online text, accessed3 October2026',url=source['url'],sha256=source['sha256'],accessed='2026-10-03',readSections=['Complete displayed §26.17 and proofs freshly read, including Lemma26.17.2 on affine fibre products. Stacks Lemma32.2.1 tag01YW was also read in full as inverse-limit context; source and HTTP receipts are separate.']))
-save('Candidate.json',p);save(RID+'.json',p);save('Candidate-roadmap.json',road);save('new-nodes.json',nodes);save('new-tests.json',tests)
-save('Plan.json',dict(newNodes=[n['id']for n in nodes],newNames=[n['declarationName']for n in nodes],newBaselineRefs=newrefs,newApi=sum(len(n['api'])for n in nodes),newTests=len(tests),frontier=frontier,parentAmended=parent['id']))
-intro='''# Arbitrary base change of infinite affine root charts
+ if g['id']=='TOWER-TYPING':g['detail']+=' The actual affine tensor base-change comparison now intertwines the universal rational-character coaction and identifies its tensor equalizer with B. The coherent root-groupoid and TOWER-AFF fpqc comparisons remain open.'
+for st in road['stages']:
+ if st['key']=='RS.2':st['description']+=' '+frontier
+reading=data('SourceReading.json')
+p['sources'].append(dict(id='TensorRootAction-rtOQ9t',title='Actions of group schemes and equivariance; authored root-chart tensor deductions',authors='The Stacks Project Authors; root-specific deductions by Codex — codex-rtOQ9t',edition='Displayed online Section39.10, read4 October2026',url=reading['url'],sha256=reading['sha256'],accessed='2026-10-04',readSections=[reading['scope']]))
+save('Candidate.json',p);save(RID+'.json',p);save('Candidate-roadmap.json',road);save('new-nodes.json',nodes);save('new-tests.json',testobjs)
+save('Plan.json',dict(newNodes=[n['id']for n in nodes],newNames=[n['declarationName']for n in nodes],newBaselineRefs=newrefs,newApi=9,newTests=8,frontier=frontier,parentAmended=parent['id']))
+intro='''# Tensor base change and the universal root action
 
-Fix any commutative ring A, f∈A and a unital ring map φ:A→B. Write D_A(f) for the inherited direct limit of A[t_n]/(t_n^n−f) over all positive exponents, ordered by divisibility. The existing coefficient map F_φ sends every coefficient and every compatible root to its counterpart over B.
+Let A be any commutative ring, f∈A and B an arbitrary A-algebra, with coefficient map φ:A→B. Let D_A(f) be the direct limit of A[t_n]/(t_n^n−f) over all positive exponents ordered by divisibility. Write δ_A for the existing LEFT rational-character coaction, F_φ for its coefficient map and F_target for the corresponding map of coaction targets. The native tensor comparison is E:B⊗_A D_A(f)≃ₐ[B]D_B(φ(f)).
 
-The coefficient square is now proved to be a pushout of actual commutative rings. For a compatible pair α:D_A(f)→C and β:B→C, the finite root equation constructs a map from every B-root algebra to C. Compatibility with divisibility transitions produces a map δ:D_B(φ(f))→C. Its coefficient and root formulas give both factorizations, and ring-map extensionality gives uniqueness. No flatness assumption is used.
+Extend F_target∘δ_A using the native tensor adjunction to a B-algebra map β:B⊗_A D_A(f)→B[Q/Z]⊗_B D_B(φ(f)). Its pure-tensor formula is β(b⊗x)=b·F_target(δ_A(x)). Inherited coefficient naturality and pure-tensor extensionality prove β=δ_B∘E. This proves the algebraic equivariance equation for the actual comparison; the target identifies the chart through E. A separate intrinsic action on a tensor carrier or a general stack carrier is not introduced.
 
-Comparing this pushout with Mathlib's tensor-product pushout gives the actual B-algebra equivalence B⊗_A D_A(f)≃D_B(φ(f)), sending b⊗x to b·F_φ(x). Its inverse sends each positive-index root to1⊗ the corresponding original root. The native Spec pushout theorem gives a pullback of schemes, and the canonical comparison is a scheme isomorphism with the categorical fibre product. Both projections are identified as actual scheme morphisms. This universal property includes nonaffine test schemes in the fixed coefficient universe.
+The native equalizer of β and includeRight∘E is precisely the actual B-coefficient image. It is a B-algebra isomorphic to B. Every invariant tensor has a unique coefficient, the inverse equivalence recovers it, and E identifies these coefficients with the existing chart invariant coordinates. These statements hold without flatness, injectivity, reducedness, nontriviality or invertibility of exponents.
 
-Fourteen tests cover nonfactorial index3, transition2|6, a nilpotent coefficient in Z/4, wild characteristic2, and zero rings. Under Z→Z/4, the nonzero original coefficient4 becomes zero in the tensor product. Conversely, the square-zero root over Z/2 remains nonzero in the tensor product under the comparison. These tests distinguish arbitrary base change from injectivity or reduction.
+Eight typed tests cover nonfactorial index3 over the nonflat quotient Z→Z/4, actual tensor comparison, zero rings and invariant inverse coordinates. The coefficient2 over Z/4 remains nonzero and square-zero. Over Z/2 at f=0, the actual second root transported into the tensor product is nonzero and square-zero but fails universal coinvariance; scalar-point fixedness cannot replace the Hopf coaction equation.
 
-Stacks §26.17, including the entire affine fibre-product proof, was freshly read. Stacks Lemma32.2.1 was also read in full for inverse-limit context. The root-specific universal maps are authored deductions from the inherited root equations. Own PR6022's Talpo–Vistoli printed pp.14–16 reading is reused unchanged; no fresh whole-paper audit is claimed.
+The equivariance convention is Stacks §39.10 Definition39.10.1. The root-specific tensor/equalizer formulas are deductions from the pinned tensor adjunction and the existing rational-character root action. Talpo–Vistoli §3.1 motivates the action. General root-object groupoids, higher-universe adapters, finite-projection coherence for stack base change, fpqc frame torsors and quotient/descent remain explicit obligations.
 
-All469 incoming mathematical contracts remain;468 whole node objects are identical. Only the infinite-base-change parent receives appended prerequisites and a proof step. The root-stack theorem for general bases still requires its own coherent groupoid and fpqc descent comparisons. Historical frontier sections below remain as their authors recorded them; this opening states the current affine-chart frontier.
-
-'''+frontier+'\n\n'
+'''
 parts=[intro]
 for n in nodes:
  parts+=['## '+n['title']+'\n\n','**'+n['declarationName']+'** — '+n['statement']+'\n\n','Hypotheses: '+' '.join(n['hypotheses'])+'\n\n','Prerequisites: '+', '.join(n['prerequisites'])+'.\n\n','Proof: '+' '.join(n['proofSteps'])+'\n\n']
  for k in ['api','tests']:
   if n[k]:parts+=[k.upper()+':\n\n']+['- **'+v['name']+'**: '+v['statement']+'\n'for v in n[k]]+['\n']
 (S/'ReaderAddition.md').write_text(''.join(parts));(S/'Reader.md').write_text(''.join(parts)+(S/'Incoming-reader.md').read_text())
-print(json.dumps(dict(nodes=len(p['nodes']),newNodes=len(nodes),newApi=sum(len(n['api'])for n in nodes),newTests=len(tests),baseline=len(p['baseline']['declarations']))))
-```
-
-## Script: specs.py
-
-```python
-"""Root-specific affine base-change contracts, rather than generic pushout foundations."""
-specs=[
-('ring-hom-ext','divisibilityAffineColimit.ringHom_ext','lemma','Root-colimit ring-map extensionality',
- 'For ring maps g,h:D_A(f)→C, equality on every coefficient a∈A and every positive-index root κ_n(t_n) implies g=h. C need not carry a specified A-algebra structure.',
- ['DivisibilityAffineColimit','divisibilityAffineInclusion','mathlib:DirectLimit.Ring.hom_ext','mathlib:AdjoinRoot.ringHom_ext'],
- 'Apply native direct-limit ring-map extensionality. At each finite chart, AdjoinRoot ring-map extensionality reduces equality to the coefficient and root hypotheses; the actual inclusions preserve coefficients.'),
-('base-change-level','divisibilityBaseChangeLevel','construction','Finite root map from compatible coefficient data',
- 'For α:D_A(f)→C and β:B→C with α(a)=β(φ(a)) for every a∈A, construct L_n:B[t_n]/(t_n^n−φ(f))→C with t_n↦α(κ_n(t_n)) and coefficient map β, at every positive n.',
- ['divisibilityAffineInclusion.pow','mathlib:AdjoinRoot.lift'],
- 'Use the native AdjoinRoot lift. The image of the root polynomial vanishes because κ_n(t_n)^n=f, α preserves powers, and the compatibility hypothesis identifies α(f) with β(φ(f)).'),
-('base-change-level-root','divisibilityBaseChangeLevel.root','lemma','Finite base-change root formula',
- 'L_n(t_n)=α(κ_n(t_n)) for every positive n.',
- ['divisibilityBaseChangeLevel'],
- 'Evaluate the actual AdjoinRoot lift on its distinguished root using the native lift-root law.'),
-('base-change-level-constant','divisibilityBaseChangeLevel.constant','lemma','Finite base-change coefficient formula',
- 'L_n(b)=β(b) for every b∈B and every positive n, where b is included through the actual coefficient algebra map.',
- ['divisibilityBaseChangeLevel'],
- 'Identify the native AdjoinRoot algebra map with its coefficient ring map and apply the lift-on-coefficients law.'),
-('base-change-level-transition','divisibilityBaseChangeLevel.transition','lemma','Compatibility with positive divisibility',
- 'If n divides N, L_N composed with the actual root transition B(n)→B(N), t_n↦t_N^(N/n), equals L_n as a ring map.',
- ['divisibilityBaseChangeLevel.root','divisibilityBaseChangeLevel.constant','affineDivisibility.root','divisibilityAffineInclusion.root','mathlib:AdjoinRoot.ringHom_ext'],
- 'Compare the ring maps on coefficients and the root. Coefficients give β on both sides. On the root, preservation of powers and the inherited inclusion transition identify α(κ_N(t_N)^(N/n)) with α(κ_n(t_n)).'),
-('base-change-desc','divisibilityBaseChangeDesc','construction','Universal map from the base-changed root colimit',
- 'For compatible α:D_A(f)→C and β:B→C, construct δ:D_B(φ(f))→C from the finite maps L_n, for arbitrary commutative C in the coefficient universe.',
- ['divisibilityBaseChangeLevel.transition','mathlib:DirectLimit.Ring.lift'],
- 'Apply the native direct-limit ring lift to the concrete family L_n. The preceding equality of ring maps supplies elementwise compatibility for every divisibility arrow.'),
-('base-change-desc-level','divisibilityBaseChangeDesc.level','lemma','Universal map at every finite chart',
- 'For x in the actual n-th root algebra over B, δ(κ_n(x))=L_n(x).',
- ['divisibilityBaseChangeDesc','divisibilityAffineInclusion'],
- 'Evaluate the actual direct-limit ring lift on a finite inclusion. The displayed formula is definitional for the inherited direct-limit carrier.'),
-('base-change-desc-constant','divisibilityBaseChangeDesc.constant','lemma','Universal map on coefficients',
- 'For every b∈B, δ(b)=β(b) under the actual coefficient inclusion B→D_B(φ(f)).',
- ['divisibilityBaseChangeDesc.level','divisibilityBaseChangeLevel.constant'],
- 'Express the coefficient through the positive index1 inclusion using its algebra-map law, evaluate δ at that finite level, and use the finite coefficient formula.'),
-('base-change-desc-root','divisibilityBaseChangeDesc.root','lemma','Universal map on all positive roots',
- 'For every positive n, δ(κ_n(t_n))=α(κ_n(t_n)), with the left root over B and the right root over A.',
- ['divisibilityBaseChangeDesc.level','divisibilityBaseChangeLevel.root'],
- 'Specialize evaluation at a finite chart to its distinguished root and use the finite root formula.'),
-('base-change-desc-coefficient','divisibilityBaseChangeDesc.coefficient','lemma','Factorization of the inherited coefficient map',
- 'δ composed with F_φ:D_A(f)→D_B(φ(f)), the existing coefficient ring map, equals α.',
- ['divisibilityBaseChangeDesc.constant','divisibilityBaseChangeDesc.root','divisibilityCoefficientMap.constant','divisibilityCoefficientMap.root','divisibilityAffineColimit.ringHom_ext'],
- 'Use root-colimit ring-map extensionality. On A-coefficients, use the given compatibility of α and β; on every root, combine the existing coefficient-root formula with the new universal-root formula.'),
-('base-change-desc-unique','divisibilityBaseChangeDesc.unique','lemma','Uniqueness of the base-change universal map',
- 'A ring map g:D_B(φ(f))→C with g(b)=β(b) for every b∈B and g∘F_φ=α equals δ.',
- ['divisibilityBaseChangeDesc.constant','divisibilityBaseChangeDesc.root','divisibilityCoefficientMap.root','divisibilityAffineColimit.ringHom_ext'],
- 'Compare g and δ on B-coefficients and every positive root. Apply the factorization equality g∘F_φ=α to each original root and use the inherited coefficient-root formula.'),
-('base-change-pushout','divisibilityBaseChangeIsPushout','theorem','Arbitrary base change as a ring pushout',
- 'The actual square A→B, A→D_A(f), B→D_B(φ(f)), D_A(f)→D_B(φ(f)) is a pushout in native CommRingCat for every unital φ:A→B.',
- ['divisibilityCoefficientMap.constant','divisibilityBaseChangeDesc','divisibilityBaseChangeDesc.constant','divisibilityBaseChangeDesc.coefficient','divisibilityBaseChangeDesc.unique','mathlib:CategoryTheory.Limits.PushoutCocone.IsColimit.mk','mathlib:CategoryTheory.IsPushout.of_isColimit'],
- 'The inherited coefficient formula proves the square commutes. For an arbitrary native pushout cocone, take α and β to be its right and left ring maps. Its cocone equation supplies compatibility, δ supplies descent, the two factorization laws give both legs, and uniqueness gives the native IsColimit witness.'),
-('base-change-pullback','divisibilitySpecCoefficientMap.isPullback','theorem','Cartesian base-change square of infinite affine charts',
- 'The square Spec D_B(φ(f))→Spec B, Spec D_B(φ(f))→Spec D_A(f), Spec B→Spec A, Spec D_A(f)→Spec A is a pullback in the native category Scheme, for every φ.',
- ['divisibilityBaseChangeIsPushout','divisibilitySpecCoefficientMap','mathlib:AlgebraicGeometry.isPullback_SpecMap_of_isPushout'],
- 'Apply the pinned native theorem sending commutative-ring pushouts to scheme pullbacks to the actual root-specific ring square. Its universal property ranges over arbitrary test schemes, not just affine schemes or their points.'),
-('base-change-tensor-equivalence','divisibilityTensorEquiv','construction','Tensor description of the base-changed root algebra',
- 'Given an A-algebra B, construct the native B-algebra equivalence E:B⊗_A D_A(f)≃D_B(φ(f)), where φ is the actual algebra map A→B.',
- ['divisibilityBaseChangeIsPushout','mathlib:CommRingCat.isPushout_tensorProduct','mathlib:CategoryTheory.IsPushout.isoIsPushout','mathlib:CategoryTheory.IsPushout.inl_isoIsPushout_hom','mathlib:CategoryTheory.Iso.commRingCatIsoToRingEquiv'],
- 'Compare the native tensor-product ring pushout with the proved root-colimit pushout using uniqueness of colimits. Convert the resulting native ring isomorphism to a ring equivalence; its left-leg formula proves B-algebra compatibility.'),
-('base-change-tensor-right','divisibilityTensorEquiv.right','lemma','Tensor comparison on the original root algebra',
- 'For every x∈D_A(f), E(1⊗x)=F_φ(x).',
- ['divisibilityTensorEquiv','mathlib:CategoryTheory.IsPushout.inr_isoIsPushout_hom'],
- 'Evaluate the native right-leg identity of the pushout comparison at x. The tensor right leg is the actual map x↦1⊗x.'),
-('base-change-tensor-pure','divisibilityTensorEquiv.tmul','lemma','Tensor comparison on pure tensors',
- 'For every b∈B and x∈D_A(f), E(b⊗x)=b·F_φ(x), where the coefficient b is included in D_B(φ(f)).',
- ['divisibilityTensorEquiv.right','mathlib:Algebra.TensorProduct.algebraMap_apply'],
- 'Write b⊗x as the B-coefficient b times 1⊗x inside the actual tensor algebra. Apply multiplicativity, B-algebra compatibility and the right-leg formula.'),
-('base-change-tensor-inverse-root','divisibilityTensorEquiv.inverse_root','lemma','Inverse tensor comparison on roots',
- 'For every positive n, E⁻¹(κ_n(t_n))=1⊗κ_n(t_n), with the left root over B and the right root over A.',
- ['divisibilityTensorEquiv.right','divisibilityCoefficientMap.root'],
- 'Apply injectivity of E. Its inverse law simplifies the left side; the right-leg and coefficient-root formulas identify the right side with the same root.'),
-('base-change-scheme-iso','divisibilitySpecBaseChangeIso','construction','Infinite affine chart as the actual categorical base change',
- 'For arbitrary φ:A→B, construct a native scheme isomorphism Spec D_B(φ(f))≅Spec B×_(Spec A)Spec D_A(f), with the right side the actual categorical pullback.',
- ['divisibilitySpecCoefficientMap.isPullback','mathlib:CategoryTheory.IsPullback.isoPullback'],
- 'Use the canonical native isomorphism from the proved root-specific pullback cone to the selected categorical pullback. The ring maps and resulting structure-sheaf maps are retained.'),
-('base-change-scheme-first','divisibilitySpecBaseChangeIso.fst','lemma','First projection of the affine base-change comparison',
- 'The scheme comparison followed by the pullback first projection equals the actual structural morphism Spec D_B(φ(f))→Spec B.',
- ['divisibilitySpecBaseChangeIso','mathlib:CategoryTheory.IsPullback.isoPullback_hom_fst'],
- 'Apply the first-leg identity of the native pullback comparison to the proved root-chart pullback square.'),
-('base-change-scheme-second','divisibilitySpecBaseChangeIso.snd','lemma','Second projection of the affine base-change comparison',
- 'The scheme comparison followed by the pullback second projection equals the existing coefficient morphism Spec D_B(φ(f))→Spec D_A(f).',
- ['divisibilitySpecBaseChangeIso','mathlib:CategoryTheory.IsPullback.isoPullback_hom_snd'],
- 'Apply the second-leg identity of the native pullback comparison; the leg is the actual inherited Spec map of F_φ.'),
-('base-change-scheme-inverse-second','divisibilitySpecBaseChangeIso.inverse_snd','lemma','Inverse comparison and the original chart projection',
- 'The inverse scheme comparison followed by the coefficient morphism equals the pullback second projection to Spec D_A(f).',
- ['divisibilitySpecBaseChangeIso','mathlib:CategoryTheory.IsPullback.isoPullback_inv_snd'],
- 'Use the native inverse second-leg identity, equivalently cancel the actual scheme isomorphism in the forward second-projection equation.')]
-
-apis={
- 'divisibilityBaseChangeLevel':['divisibilityBaseChangeLevel.root','divisibilityBaseChangeLevel.constant','divisibilityBaseChangeLevel.transition'],
- 'divisibilityBaseChangeDesc':['divisibilityBaseChangeDesc.level','divisibilityBaseChangeDesc.constant','divisibilityBaseChangeDesc.root','divisibilityBaseChangeDesc.coefficient','divisibilityBaseChangeDesc.unique'],
- 'divisibilityTensorEquiv':['divisibilityTensorEquiv.right','divisibilityTensorEquiv.tmul','divisibilityTensorEquiv.inverse_root'],
- 'divisibilitySpecBaseChangeIso':['divisibilitySpecBaseChangeIso.fst','divisibilitySpecBaseChangeIso.snd','divisibilitySpecBaseChangeIso.inverse_snd']}
-
-test_specs=[
- ('divisibilityBaseChangeLevel','nilpotent_constant','computation','Over Z/4 at f=2 and nonfactorial index3, the finite universal map preserves the actual nilpotent coefficient2.'),
- ('divisibilityBaseChangeLevel','wild_root','degenerate','Over Z/2 at f=0 and n=2, the image of the actual root under the finite universal map has square zero.'),
- ('divisibilityBaseChangeLevel','two_six','compatibility','For arbitrary compatible α and β, the level6 image of t_6³ equals the level2 image of t_2.'),
- ('divisibilityBaseChangeDesc','nonflat_identity','compatibility','For Z→Z/4 at f=2, descent from the actual coefficient map and B-inclusion is the identity on every element of D_B(2).'),
- ('divisibilityBaseChangeDesc','polynomial','computation','For arbitrary compatible α and β, descent sends the actual third root plus coefficient b to α of the third root plus β(b).'),
- ('divisibilityBaseChangeDesc','zero_target','degenerate','For a compatible cocone with target Z/1, the actual descent map sends every colimit element to zero.'),
- ('divisibilityTensorEquiv','nonflat_killed_constant','non-example','The coefficient4 is nonzero in D_Z(2), while its pure tensor1⊗4 over Z/4 is zero. Tensor base-change equivalence does not assert injectivity of the original coefficient map.'),
- ('divisibilityTensorEquiv','nonzero_nilpotent','degenerate','Over Z/2 at f=0, the inverse tensor image of the degree2 root is nonzero and has square zero; the wild nilpotent is retained in the actual tensor algebra.'),
- ('divisibilityTensorEquiv','third_root','computation','For Z→Z/4 at f=2 and index3, the inverse comparison carries the actual B-root to1⊗ the actual Z-root.'),
- ('divisibilityTensorEquiv','zero_ring','degenerate','With B=Z/1 and A=Z, every tensor maps to zero in the actual base-changed root colimit.'),
- ('divisibilitySpecBaseChangeIso','nonflat_pullback','compatibility','For the nonflat quotient Z→Z/4 and f=2, the four actual structural/coefficient scheme maps form a native IsPullback square.'),
- ('divisibilitySpecBaseChangeIso','first_projection','computation','For Z→Z/4 and f=2, the first categorical projection after the scheme comparison is the actual structural map to Spec Z/4.'),
- ('divisibilitySpecBaseChangeIso','wild_projection','compatibility','For Z→Z/2 and f=0, the second categorical projection after the scheme comparison is the actual coefficient scheme morphism.'),
- ('divisibilitySpecBaseChangeIso','zero_ring_inverse','degenerate','For Z→Z/1 and f=0, the actual scheme comparison followed by its inverse is the identity, including the empty-chart case.')]
+print(json.dumps(dict(nodes=len(p['nodes']),newNodes=len(nodes),newApi=9,newTests=8,newBaselineRefs=newrefs)))
 ```
 
 ## Script: assemble.py
 
 ```python
-"""Preserve authenticated incoming texts and append matched native/planning tails."""
+"""Append one matched proof/planning continuation to authenticated incoming text."""
 from pathlib import Path
 import re
 from projection import project
 S=Path(__file__).resolve().parent
 def txt(n):return (S/n).read_text()
-proofs=txt('NewProofs.lean')+'\n'+txt('Comparisons.lean')
-admitted=project(proofs,txt('NewTests.lean'))
-(S/'NewAdmitted.lean').write_text(admitted)
+proofs=txt('NewProofs.lean');tests=txt('NewTests.lean')
+admitted=project(proofs,tests);(S/'NewAdmitted.lean').write_text(admitted)
 for out,prefix in [('Canonical.lean','Incoming-suggested.lean'),('Sketch.lean','IncomingSketch.lean')]:
- (S/out).write_text(txt('NewImports.lean')+txt(prefix)+'\n'+admitted)
+ (S/out).write_text(txt(prefix)+'\n'+admitted)
 (S/'Suggested.lean').write_bytes((S/'Canonical.lean').read_bytes())
-audits=''.join('#print axioms TauCeti.RootStack.'+n+'\n' for n in re.findall(r'^(?:def|lemma|theorem) ([\w.]+)',proofs,re.M))
+audits=''.join('#print axioms TauCeti.RootStack.'+n+'\n'for n in re.findall(r'^(?:def|lemma|theorem) ([\w.]+)',proofs,re.M))
 assert txt('NewAudits.lean')==audits
-native=txt('NewImports.lean')+txt('IncomingNative.lean')+'\n'+proofs+'\n'+txt('NewTests.lean')+'\n'+audits
-assert txt('Native.lean')==native
-print('Assembled full canonical text and bounded Mathlib typing projection.')
+assert txt('Native.lean')==txt('IncomingNative.lean')+'\n'+proofs+'\n'+tests+'\n'+audits
+print('Whole canonical prefix retained; appended matched bounded planning signatures.')
 ```
 
 ## Script: verify.py
 
 ```python
-"""Replay contracts, recorded elaboration, and actual immutable checker/intake/atlas; no Lean."""
+"""Replay exact contracts, source receipts and actual immutable checker/intake/atlas; no Lean."""
 from pathlib import Path
 import ast,hashlib,json,os,re,subprocess,sys
-S=Path(sys.argv[1]).resolve();R=Path.cwd().resolve();sys.path.insert(0,str(S));RID='FunctionFieldArithmeticPartII';NS='TauCeti.RootStack.'
+S=Path(sys.argv[1]).resolve();R=Path.cwd().resolve();sys.path.insert(0,str(S))
+RID='FunctionFieldArithmeticPartII';NS='TauCeti.RootStack.'
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def txt(n):return (S/n).read_text()
 def data(n):return json.loads(txt(n))
@@ -327,21 +267,21 @@ names=['Candidate-roadmap.json','Candidate.json','Reader.md','Suggested.lean','H
 for p,n in zip(paths,['Incoming-roadmap.json','Incoming-packet.json','Incoming-reader.md','Incoming-suggested.lean','Incoming-handoff.md']):
  assert blob(MATH,p)==(S/n).read_bytes()==blob(BASE,p),p
 p=data('Candidate.json');old=data('Incoming-packet.json');road=data('Candidate-roadmap.json');oldroad=data('Incoming-roadmap.json');plan=data('Plan.json')
-assert len(old['nodes'])==469 and len(p['nodes'])==490 and p['nodes'][469:]==data('new-nodes.json')
+assert len(old['nodes'])==490 and len(p['nodes'])==501 and p['nodes'][490:]==data('new-nodes.json')
 unchanged=0
 for a,b in zip(old['nodes'],p['nodes']):
  if a['id']==plan['parentAmended']:
   assert all(a[k]==b[k]for k in a if k not in ['prerequisites','proofSteps'])
-  assert b['prerequisites'][:len(a['prerequisites'])]==a['prerequisites']and len(b['prerequisites'])==len(a['prerequisites'])+3
+  assert b['prerequisites'][:len(a['prerequisites'])]==a['prerequisites']and len(b['prerequisites'])==len(a['prerequisites'])+2
   assert b['proofSteps'][:-1]==a['proofSteps']
  else:assert a==b;unchanged+=1
-assert unchanged==468 and set(p)==set(old)
+assert unchanged==489 and set(p)==set(old)
 for k in old:
  if k not in ['nodes','summary','sources','baseline','coverage','gaps']:assert p[k]==old[k],k
-assert p['sources'][:-1]==old['sources'] and p['summary'].startswith(old['summary'])
+assert p['sources'][:-1]==old['sources']and p['summary'].startswith(old['summary'])
 assert {k:v for k,v in p['baseline'].items()if k!='declarations'}=={k:v for k,v in old['baseline'].items()if k!='declarations'}
-assert p['baseline']['declarations'][:264]==old['baseline']['declarations']
-assert [d['ref']for d in p['baseline']['declarations'][264:]]==plan['newBaselineRefs']and len(plan['newBaselineRefs'])==12
+assert p['baseline']['declarations'][:276]==old['baseline']['declarations']
+assert [d['ref']for d in p['baseline']['declarations'][276:]]==plan['newBaselineRefs']and len(plan['newBaselineRefs'])==2
 assert p['status']=='partial'and all(n['implementationStatus']=='unchecked'for n in p['nodes'])
 assert len(p['requests'])==13 and len(p['gaps'])==8 and len(p['coverage'])==10
 for a,b in zip(old['coverage'],p['coverage']):
@@ -356,16 +296,16 @@ for a,b in zip(oldroad['stages'],road['stages']):
  else:assert a==b
 assert txt('Reader.md')==txt('ReaderAddition.md')+txt('Incoming-reader.md')
 from projection import project
-assert txt('NewAdmitted.lean')==project(txt('NewProofs.lean')+'\n'+txt('Comparisons.lean'),txt('NewTests.lean'))
-assert txt('Canonical.lean')==txt('NewImports.lean')+txt('Incoming-suggested.lean')+'\n'+txt('NewAdmitted.lean')==txt('Suggested.lean')
-assert txt('Sketch.lean')==txt('NewImports.lean')+txt('IncomingSketch.lean')+'\n'+txt('NewAdmitted.lean')
+assert txt('NewAdmitted.lean')==project(txt('NewProofs.lean'),txt('NewTests.lean'))
+assert txt('Canonical.lean')==txt('Incoming-suggested.lean')+'\n'+txt('NewAdmitted.lean')==txt('Suggested.lean')
+assert txt('Sketch.lean')==txt('IncomingSketch.lean')+'\n'+txt('NewAdmitted.lean')
 for target,source in [('IncomingNative.lean','Native.lean'),('Incoming-suggested.lean','Canonical.lean'),('IncomingSketch.lean','Sketch.lean')]:
  assert sha((S/target).read_bytes())==data('PreviousManifest.json')[source]['sha256']
-assert sha((S/'PreviousManifest.json').read_bytes())=='d79022c8ec762aa07a6cb9eb47a1a90dd5d9a26e0ff803b43e01702bf6aa31b9'
+assert sha((S/'PreviousManifest.json').read_bytes())=='696d26be64e2772faa9fc5d69bbffa4514a78c9bdcac1e6ae207ccb203467c4e'
 assert txt('IncomingVerification.json')==txt('PreviousVerification.json')
 assert sha((S/'IncomingVerification.json').read_bytes())==data('PreviousManifest.json')['Verification.json']['sha256']
 assert sha(Path(sys.argv[2]).read_bytes())=='86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1'
-assert txt('Native.lean')==txt('NewImports.lean')+txt('IncomingNative.lean')+'\n'+txt('NewProofs.lean')+'\n'+txt('Comparisons.lean')+'\n'+txt('NewTests.lean')+'\n'+txt('NewAudits.lean')
+assert txt('Native.lean')==txt('IncomingNative.lean')+'\n'+txt('NewProofs.lean')+'\n'+txt('NewTests.lean')+'\n'+txt('NewAudits.lean')
 assert not re.search(r'\b(?:sorry|admit|axiom)\b',txt('Native.lean'))
 def headers(text):
  found={}
@@ -376,30 +316,30 @@ def headers(text):
    if c in '([{⟨':depth+=1
    elif c in ')]}⟩':depth-=1
    line=text[m.start():i].rsplit('\n',1)[-1]
-   let_assignment=re.match(r'\s*(?:example\s*:\s*)?let\b',line) and ':=' not in line
+   let_assignment=re.match(r'\s*(?:example\s*:\s*)?let\b',line)and ':='not in line
    if depth==0 and text.startswith(':=',i)and not let_assignment:end=i;break
    if depth==0 and m.group(1)=='def'and text.startswith('where',i)and text[i-1].isspace()and text[i+5].isspace():end=i;break
   assert end is not None
   label=m.group(2)if m.group(1)!='example'else'example#'+str(sum(x.startswith('example#')for x in found))
   assert label not in found;found[label]=' '.join(text[m.start():end].split())
  return found
-nh=headers(txt('NewProofs.lean')+'\n'+txt('Comparisons.lean'));nt=headers(txt('NewTests.lean'));ch=headers(txt('NewAdmitted.lean'));assert {**nh,**nt}==ch
-assert all(':= by' not in h for h in ch.values()),'A proof body was incorrectly included in a new declaration header.'
-assert len(nh)==21 and len(nt)==14
-assert set(plan['newNames'])=={NS+n for n in nh}=={n['declarationName']for n in p['nodes'][469:]}
+nh=headers(txt('NewProofs.lean'));nt=headers(txt('NewTests.lean'));ch=headers(txt('NewAdmitted.lean'));assert {**nh,**nt}==ch
+assert all(':= by'not in h for h in ch.values())
+assert len(nh)==11 and len(nt)==8
+assert set(plan['newNames'])=={NS+n for n in nh}=={n['declarationName']for n in p['nodes'][490:]}
 assert {t['name']for t in data('new-tests.json')}=={NS+n for n in re.findall(r'^-- test: (.+)$',txt('NewTests.lean'),re.M)}
-for n in p['nodes'][469:]:
+for n in p['nodes'][490:]:
  assert n['declarationName']in txt('Reader.md')and n['statement']in txt('Reader.md')
- for x in n.get('api',[])+n.get('tests',[]):assert x['name']in txt('Reader.md')and x['statement']in txt('Reader.md')
-assert sum(len(n['api'])for n in p['nodes'][469:])==14 and sum(len(n['tests'])for n in p['nodes'][469:])==14
+ for x in n['api']+n['tests']:assert x['name']in txt('Reader.md')and x['statement']in txt('Reader.md')
+assert sum(len(n['api'])for n in p['nodes'][490:])==9 and sum(len(n['tests'])for n in p['nodes'][490:])==8
 compilation={}
-for name,want,ex,audits in [('Native',0,318,393),('Sketch',258,318,231)]:
+for name,want,audits in [('Native',0,404),('Sketch',275,231)]:
  rec=data(name+'.receipt.json');log=txt(name+'.log')
  assert rec['exitStatus']==0 and rec['availableGiBBefore']>=20
  assert rec['sourceSha256']==sha((S/(name+'.lean')).read_bytes())and rec['logSha256']==sha(log.encode())
  assert ': error'not in log and log.count('warning:')==log.count('warning: declaration uses `sorry`')==want,(name,log.count('warning:'))
- assert len(re.findall(r'^example\b',txt(name+'.lean'),re.M))==ex
- a=re.findall(r'depends on axioms:\s*\[([^]]*)\]',log);assert len(a)==audits
+ ex=len(re.findall(r'^example\b',txt(name+'.lean'),re.M));assert ex==326,(name,ex)
+ a=re.findall(r'depends on axioms:\s*\[([^]]*)\]',log);assert len(a)==audits,(name,len(a))
  assert 'sorryAx'not in log and all(set(v.strip()for v in x.replace('\n',' ').split(','))<={'propext','Classical.choice','Quot.sound'}for x in a)
  compilation[name]={**rec,'lines':len(txt(name+'.lean').splitlines()),'examples':ex}
 assert set(plan['newNames'])<={n for n in re.findall(r"'([^']+)' depends on axioms:",txt('Native.log'))}
@@ -428,10 +368,9 @@ tree=ast.parse((R/'research/blueprint/intake.py').read_text());wanted={'file_pro
 picked=[n for n in tree.body if isinstance(n,ast.Assign)and any(isinstance(t,ast.Name)and t.id in {'ALLOWED','PRIVATE'}for t in n.targets)or isinstance(n,ast.FunctionDef)and n.name in wanted]
 env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
 job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs']if j['id']=='DESIGN-'+RID)
-problems=[x for f in paths for x in env['file_problems'](f,contents[f])];refusals=env['auto_refusals'](job,paths,False,{'codex-7e92bd'},set());assert not problems and not refusals,(problems,refusals)
-graph=json.loads(subprocess.check_output([sys.executable,str(S/'graph.py'),str(S)],cwd=R,text=True,env={**os.environ,'ROOTS_VALIDATE_BASE':BASE}))
-assert graph['worldCommit']==BASE
-print(json.dumps(dict(checker=summary,sourceIssueErrors=issues,intakeProblems=problems,intakeRefusals=refusals,wholeIncomingNodesUnchanged=468,incomingMathematicalContractsPreserved=469,newNodes=21,newAPIItems=14,newTests=14,matchedNewHeaders=len(ch),rawAPIItems=sum(len(n.get('api',[]))for n in p['nodes']),rawTests=sum(len(n.get('tests',[]))for n in p['nodes']),compilation=compilation,canonicalExecution='UNCOMPILED: no existing full Tau Ceti build at the exact pin; exact canonical prefix preserved after two imports.',inputGuards=len(data('InputGuard.json')),indexSha256=sha(Path(sys.argv[2]).read_bytes()),immutableBase=BASE,graph=graph,LeanExecuted=False),indent=2))
+problems=[x for f in paths for x in env['file_problems'](f,contents[f])];refusals=env['auto_refusals'](job,paths,False,{'codex-rtOQ9t'},set());assert not problems and not refusals,(problems,refusals)
+graph=json.loads(subprocess.check_output([sys.executable,str(S/'graph.py'),str(S)],cwd=R,text=True,env={**os.environ,'ROOTS_VALIDATE_BASE':BASE}));assert graph['worldCommit']==BASE
+print(json.dumps(dict(checker=summary,sourceIssueErrors=issues,intakeProblems=problems,intakeRefusals=refusals,wholeIncomingNodesUnchanged=489,incomingMathematicalContractsPreserved=490,newNodes=11,newAPIItems=9,newTests=8,matchedNewHeaders=len(ch),rawAPIItems=sum(len(n.get('api',[]))for n in p['nodes']),rawTests=sum(len(n.get('tests',[]))for n in p['nodes']),compilation=compilation,canonicalExecution='UNCOMPILED: no existing full Tau Ceti build at the exact pin; entire canonical prefix retained.',inputGuards=len(data('InputGuard.json')),indexSha256=sha(Path(sys.argv[2]).read_bytes()),immutableBase=BASE,graph=graph,LeanExecuted=False),indent=2))
 ```
 
 ## Script: graph.py
@@ -457,7 +396,13 @@ world.update(nodes)
 listedstageids={x['id'] for x in a['stages']}
 stageids=listedstageids|set(check_blueprint.world()[1])
 se={(e['source'],e['target']) for e in a['stageEdges']}
-assert se=={(e['source'],e['target']) for e in b['stageEdges']}
+before_edges={(e['source'],e['target'])for e in b['stageEdges']}
+added=se-before_edges
+expected={(RID+':RS.2/affine-transition-faithfully-flat',RID+':RS.2/dvr-infinite-gerbe'),(RID+':RS.2/factorial-unit-qz-equivalence',RID+':RS.2/dvr-infinite-gerbe')}
+assert added==expected and not(before_edges-se),{'added':sorted(added),'removed':sorted(before_edges-se)}
+assert all(s in nodes and t in nodes and nodes[s].get('planet')and nodes[t].get('planet')for s,t in added)
+assert all(e['kind']=='blueprint'for e in a['stageEdges']if(e['source'],e['target'])in added)
+assert [e for e in a['stageEdges']if(e['source'],e['target'])not in added]==b['stageEdges']
 def dag(vertices,edges):
  vertices=set(vertices)|{v for e in edges for v in e}
  following=collections.defaultdict(set);indeg={v:0 for v in vertices}
@@ -509,7 +454,7 @@ for file in (R/'research/blueprint/restructure').glob('*.result.json'):
 assert all(reachable(s,t) for s,t in pairs),sorted((s,t) for s,t in pairs if not reachable(s,t))
 missing_restructures=sorted((s,t) for s,t in rspairs if not reachable(s,t))
 assert not any(s.startswith(RID+':') or t.startswith(RID+':') for s,t in missing_restructures),missing_restructures
-# Stage edges are identical to the incoming control, so these unrelated preexisting paths are unchanged.
+# All inherited edges remain identical; added edges join existing owned planets only.
 ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
 assert ar[RID]['blueprint']['declarations']==len(nodes)
 assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
@@ -517,7 +462,7 @@ def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingL
 assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
 assert {k:v for k,v in ar.items() if k!=RID}=={k:v for k,v in br.items() if k!=RID}
 assert {x['id']:x for x in a['stages'] if not x['id'].startswith(RID+':')}=={x['id']:x for x in b['stages'] if not x['id'].startswith(RID+':')}
-summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'ownRestructurePairs':sum(s.startswith(RID+':') or t.startswith(RID+':') for s,t in rspairs),'otherPreexistingUnreachableRestructurePairs':len(missing_restructures),'otherUnreachableRestructurePairListSha256':hashlib.sha256(json.dumps(missing_restructures).encode()).hexdigest(),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True}
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'ownRestructurePairs':sum(s.startswith(RID+':') or t.startswith(RID+':') for s,t in rspairs),'otherPreexistingUnreachableRestructurePairs':len(missing_restructures),'otherUnreachableRestructurePairListSha256':hashlib.sha256(json.dumps(missing_restructures).encode()).hexdigest(),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':False,'inheritedStageEdgeObjectsUnchanged':True,'newInternalPlanetEdges':sorted(added)}
 
 summary['worldCommit']=immutable_view.BASE
 summary['foreignRoadmapsAndStagesUnchanged']=True
@@ -728,58 +673,61 @@ sys.exit(r.returncode)
 ## Script: write_handoff.py
 
 ```python
-"""Write an evidence-bounded handoff after the actual verification succeeds."""
+"""Write the exact bounded frontier and measured verification evidence."""
 from pathlib import Path
 import json
 S=Path(__file__).resolve().parent
-v=json.loads((S/'Verification.json').read_text());g=v['graph'];c=v['checker']
-h='''# Function Field Arithmetic Part II — arbitrary affine root-chart base change
+def data(n):return json.loads((S/n).read_text())
+h='''# Function Field Arithmetic Part II — tensor action and invariant base change
 
-Codex — codex-7e92bd · 3 October 2026 · Refs #3403 · **partial checkpoint**.
+Codex — codex-rtOQ9t · 4 October 2026 · Refs #3403 · **partial checkpoint**.
 
-The actual infinite affine root chart now has a native Cartesian base-change comparison for every unital coefficient ring map φ:A→B. Let D_A(f) be the inherited direct limit of A[t_n]/(t_n^n−f) over all positive exponents ordered by divisibility. A compatible pair of ring maps from D_A(f) and B to C induces finite maps from each B-root algebra, since the root equation is preserved. Their divisibility compatibility gives a ring map D_B(φ(f))→C. Evaluation on coefficients and roots gives both factorizations and uniqueness, yielding the actual CommRingCat pushout.
+For any commutative ring A, section f∈A and actual A-algebra B, extend the existing positive-divisibility rational-character LEFT coaction along the native tensor adjunction. This constructs a B-algebra map β:B⊗_A D_A(f)→B[Q/Z]⊗_B D_B(φ(f)). It is an action comparison with the target chart identified through the existing tensor equivalence E, not an independently introduced geometric stack carrier. Its pure-tensor formula and inherited coefficient naturality prove β=δ_B∘E as actual algebra maps.
 
-Comparing this pushout with the native tensor-product pushout produces a B-algebra equivalence B⊗_A D_A(f)≃D_B(φ(f)), with formulas on pure tensors and inverse roots. The existing native Spec theorem turns the ring pushout into a scheme pullback. Its canonical isomorphism with the categorical fibre product identifies both projections and the inverse second projection. These are actual ring, algebra and scheme maps, including structure-sheaf data. The scheme universal property applies to arbitrary test schemes in the common coefficient universe.
+The actual native equalizer of β and includeRight∘E inside B⊗_A D_A(f) is B through the coefficient inclusion. Every universally invariant tensor has a unique coefficient. The native algebra equivalence has explicit forward/inverse coefficient formulas and agrees under E with the inherited chart-invariant coordinates. No flatness, injectivity, reducedness, nontriviality, unit-section or exponent-invertibility assumption is imposed.
 
-The21 additions are4 constructions,2 theorems and15 lemmas, with14 API entries and14 typed tests. No flatness, reducedness, nontriviality, Noetherianity, unit-section or exponent-invertibility hypothesis is imposed. Tests include transition2|6, nonfactorial index3, nilpotent coefficient2 over Z/4, the nonflat quotient Z→Z/4 killing the original nonzero coefficient4 in the tensor product, and a nonzero square-zero root over Z/2 transported to the tensor product. Zero rings and the actual scheme projections are also tested.
+The11 additions are2 constructions and9 lemmas, with9 API entries and8 typed tests. The tests include the nonflat quotient Z→Z/4, index3, zero rings, actual tensor formulas and inverse coordinates. The invariant coefficient2 over Z/4 stays nonzero and square-zero. Over Z/2 at f=0, the second root transported to the actual tensor product remains nonzero and square-zero and fails universal coinvariance. Equality under the Hopf coaction cannot be replaced by scalar-point fixedness.
 
-All469 incoming mathematical contracts are retained;468 whole node objects are byte-equivalent as JSON objects. Only the infinite-base-change parent receives three appended prerequisites and a proof step consuming this affine calculation before the separately required groupoid and descent comparison. All40 planets,10 partial stages,8 gaps and13 supplier requests remain. The general root-stack reservation still includes scheme and stack bases, every positive exponent and all characteristics in the fppf setting. Both Yun–Zhang and Abdurrahman–Venkatesh routes, source issues/versions, omission ledger and ownership remain. RS.2 and TOWER-TYPING receive current-frontier appends; historical frontiers retain their original wording. Every implementationStatus is unchecked.
+All490 incoming mathematical contracts remain;489 whole node objects are unchanged. Only the infinite-base-change parent receives two appended prerequisites and one proof step consuming the affine action/invariant comparison. All40 planets,10 partial stages,8 gaps,13 requests, source routes, source issues/versions and the full omission ledger remain. The exact reserved root-stack node is untouched. The general packet retains stack bases, every positive exponent, arbitrary characteristic, relative roots and the infinite system. Every implementationStatus stays unchecked. No stage closes.
 
 ## Reading and authenticated input
 
-Read the complete19646-character issue; its body remained unchanged when bot5974005296 confirmed claim5974003995. The current five deliverables match own [PR6022](https://github.com/CBirkbeck/tauceti-explorer/pull/6022), head3c50760e4e6b1dc1b3fd51372e97549a08dcbbac, archivebaf728865a384c73a782d4b28176aaa23a41e2d5. The recovered actual verifier was executed again, and IncomingVerification.json is byte-equal to the predecessor's publication result. This verification replay did not run Lean.
+Read the whole19646-character issue before claiming and again after bot5974808160 confirmed exact claim5974807160 for this session. Read the complete current handoff and all public helper fences. Public [PR6031](https://github.com/CBirkbeck/tauceti-explorer/pull/6031), immutable headf176b43d0cd79c3059ab730ac655cace67bac744, archivecb7aed0251a41bed32755530d2b8058406fd0bde, supplies55 authenticated artifacts and10 helpers. Its public recovery script was executed unchanged. Its actual recovered verifier was executed and reproduced the archived publication report byte for byte; it did not run Lean. The five current owned inputs match that public checkpoint exactly.
 
-All18 own PR6022 guarded inputs are unchanged. Their complete protocol, reviewed FA.0–FA.7 audit/REV-AUDIT20, parent FunctionFieldArithmetic and upstream AlgebraicCurves/JacobianChallenge readings are reused from this continuous session with the scopes recorded there. Current handoff/recovery instructions, current gaps and supplier requests, and the consumed native root/direct-limit/inclusion/coefficient proof blocks were read. The whole7367-line native prefix is authenticated and recompiled; no fresh manual audit of every inherited proof is claimed. PriorOwnReading.json, PreviousReading.json and Reading.json distinguish fresh work from reuse.
+Fresh readings include the complete root-stack reservation and API/tests, all ten complete stage descriptions, the infinite-base-change parent, all8 gap and13 request objects, and the consumed actual coaction, coefficient-map, tensor-equivalence, invariant-equivalence and wild-nilpotent proof passages. No fresh manual audit of all490 incoming contracts or all7758 inherited proof lines is claimed. The whole prefix is authenticated and recompiled. Reading.json distinguishes these scopes and records the truncated broad searches that were used as leads only.
 
-Fresh primary-source reading covered the complete displayed [Stacks §26.17](https://stacks.math.columbia.edu/tag/01JO), including the proof of the affine fibre-product Lemma26.17.2, and the complete displayed [Lemma32.2.1](https://stacks.math.columbia.edu/tag/01YW) on inverse limits of affine schemes. SourceReading.json records successful HTTP hashes and byte counts without archiving source text. Own PR6022's complete extracted Talpo–Vistoli arXiv1410.1164v2 printed pp.14–16 reading is reused. The root-specific universal maps and formulas are authored deductions. No fresh whole-paper/version audit or root-stack descent certification is claimed.
+WORKERS and the entire blueprint, expansion and upstream protocols were freshly reread. Complete reviewed FA.0–FA.7 audit/REV-AUDIT20, parent FunctionFieldArithmetic and complete AlgebraicCurves/JacobianChallenge upstream readings are reused from this same continuous session's own [PR6016](https://github.com/CBirkbeck/tauceti-explorer/pull/6016). All18 own guarded input files have the same hashes. Own6016-reading-receipt.json and Own6016-InputGuard.json authenticate the exact scopes; another worker's reading is not claimed as this worker's fresh reading.
 
-All12 new baseline references were matched to the pinned declaration index and their complete statements and applicable ambient assumptions read. Generic ring pushout construction/comparison, tensor pushouts, conversion of ring isomorphisms, Spec pullbacks and their projection laws are imported. Existing AdjoinRoot.tensorAlgEquiv already supplies generic finite algebra base change and is not replanned. Exact new-name searches in the pinned Mathlib/Tau sources and existing packets found no matches. Bounded root/base-change packet leads were inspected in the owner and related foundation/function-field suppliers; no exhaustive all-packet proof or PR/Zulip search is claimed.
+Fresh primary-source reading covers the entire displayed [Stacks §39.10](https://stacks.math.columbia.edu/tag/022Y): both definitions, the action/equivariance diagrams, Lemma39.10.3 and proof, and all five comments. SourceReading.json records date, successful HTTP byte count and SHA256 without archiving source text. These root-specific tensor/equalizer statements are authored deductions. Own PR6016's complete extracted Talpo–Vistoli arXiv1410.1164v2 printed pp.14–16 reading is reused with its exact source hash. No fresh whole-paper/version/erratum survey or full root-stack descent certification is claimed.
 
-## Validation and limits
+Both new baseline imports, AlgHom.liftEquiv and AlgHom.liftEquiv_tmul, were matched to the pinned index and their whole statements/proofs/ambient assumptions read. IsScalarTower.algebraMap_apply, the actual tensor extensionality and equalizer statements were also read; they are inherited baseline citations. Generic tensor adjunctions, equalizers and algebra equivalence constructors are imported rather than replanned. Exact new-name scans of pinned Mathlib/Tau sources and current packets found no matches. No current link-map entry mentions this roadmap. No exhaustive PR/Zulip or all-packet absence survey is claimed.
 
-Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 remain the pins. **The full canonical Tau Ceti suggested file is UNCOMPILED:** the available Tau checkout differs from the pin and lacks the four imported Tau oleans at its standard build path. The whole incoming canonical text is preserved after two added Mathlib imports. All35 new declaration/example headers match the native proof experiment and planning projection. The separately checked bounded Mathlib projection does not certify the full Tau-dependent geometric prefix.
+## Compilation and verification
 
-The native proof program and bounded typing projection were compiled serially in the existing clean exact-pin Mathlib build with Lean4.34.0-rc2, at least20GiB available immediately before each run, one thread,8GiB managed-memory limit and1200-second timeout. No project, dependency/cache/library build or Lean server was started. Both compilation processes finished before submission.
+Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 remain the pins. **The full Tau-dependent canonical suggested file is UNCOMPILED:** no existing complete Tau build at that exact pin supplies its imports. Its entire incoming text is retained byte for byte, followed by matched new planning signatures. The bounded Mathlib typing projection certifies only its stated import cone.
+
+Compile runs used the existing clean exact-pin Mathlib build and Lean4.34.0-rc2, serially, with free-g checked immediately before each run, at least20GiB available, one thread,8GiB managed-memory cap and1200-second timeout. No project, dependency/cache/library build or Lean server was started. All processes finished before publication. Initial elaborator errors were corrected in the proof experiment before the successful runs below; warnings were not suppressed.
 
 '''
 for name in ['Native','Sketch']:
- r=v['compilation'][name]
- h+=f"- {name}.lean: {r['lines']} lines,{r['examples']} examples,exit{r['exitStatus']},{r['warnings']} warnings ({r['admissionWarnings']} admissions),{r['axiomAudits']} axiom audits; available{r['availableGiBBefore']}GiB,elapsed{r['elapsedSeconds']}s,peak RSS{r['maxRssKiB']}KiB. Source SHA256 `{r['sourceSha256']}`; log SHA256 `{r['logSha256']}`.\n"
+ r=data(name+'.receipt.json');text=(S/(name+'.lean')).read_text();examples=sum(l.startswith('example')for l in text.splitlines())
+ h+=f"- {name}.lean: {len(text.splitlines())} lines,{examples} examples,exit{r['exitStatus']},{r['warnings']} warnings ({r['admissionWarnings']} admissions),{r['axiomAudits']} axiom audits; available{r['availableGiBBefore']}GiB,elapsed{r['elapsedSeconds']}s,peak RSS{r['maxRssKiB']}KiB. Source SHA256 `{r['sourceSha256']}`; log SHA256 `{r['logSha256']}`.\n"
 h+='''
-Native.lean has no admissions or warnings. All393 audited axiom closures contain only propext, Classical.choice and Quot.sound. Sketch.lean has258 admission warnings only and retains231 clean inherited axiom audits. Exact incoming native and typing prefixes are bound to the authenticated predecessor manifest. Projection retains concrete data/carriers and admits mathematical lemma/test bodies only. The projection/header parser preserves the complete inline-let nilpotent test statement.
-
-The actual indexed packet checker, source-issue/version checks and extracted actual intake functions pass without errors, warnings or refusals. The packet has490 nodes:13 definitions,85 constructions,44 theorems,336 lemmas,11 comparisons and1 application;392 checker API items,357 checker definition tests,276 baseline references and40 planets. No stage closes.
+The whole native proof experiment has no admissions, errors or warnings. All404 native audited axiom closures contain only propext, Classical.choice and Quot.sound. Sketch.lean has275 admission warnings only and231 clean inherited axiom audits. All19 new declaration/example headers match the planning projection exactly, including the complete inline-let wild test. The projection keeps concrete maps/carriers and admits mathematical lemma/test bodies; it never inserts a vacuous predicate carrier.
 
 '''
-h+=f"Raw counts are{v['rawAPIItems']} API entries and{v['rawTests']} test objects. Actual immutable atlas assembly is acyclic: stage{g['stageDAG']['vertices']}/{g['stageDAG']['edges']}, own declaration{g['ownDeclarationDAG']['vertices']}/{g['ownDeclarationDAG']['edges']}, scoped{g['scopedDAG']['vertices']}/{g['scopedDAG']['edges']} vertices/edges. All{g['requiredPairs']} owned supplier paths hold, with{g['ownRestructurePairs']} touching accepted restructuring pairs. There are no owned unresolved endpoints, skipped or pending links. Every stage edge and every foreign roadmap/stage object agrees with the incoming control. The{g['otherPreexistingUnreachableRestructurePairs']} unrelated preexisting unreachable restructuring pairs retain hash `{g['otherUnreachableRestructurePairListSha256']}`.\n\n"
-h+=f"Mathematical input `{(S/'base.txt').read_text().strip()}`; publication input `{(S/'publication-base.txt').read_text().strip()}`. All18 guarded inputs, the job contract and all5 incoming owned blobs agree at both inputs. Declaration-index SHA256 `{v['indexSha256']}`. Verification-math.json and Verification.json record actual results.\n\n"
+if (S/'Verification.json').exists():
+ v=data('Verification.json');g=v['graph'];c=v['checker']
+ h+=f"The actual indexed packet checker, source-issue/version validation and actual extracted intake functions pass without errors, warnings or refusals. The packet has{c['nodes']} nodes:13 definitions,87 constructions,44 theorems,345 lemmas,11 comparisons and1 application;{c['apiItems']} checker API items,{c['unitTests']} checker definition tests,{c['baselineDeclarations']} baseline citations and40 planets. Raw counts are{v['rawAPIItems']} API entries and{v['rawTests']} test objects.\n\n"
+ h+=f"Actual immutable atlas assembly is acyclic: stage{g['stageDAG']['vertices']}/{g['stageDAG']['edges']}, owned declarations{g['ownDeclarationDAG']['vertices']}/{g['ownDeclarationDAG']['edges']}, combined{g['scopedDAG']['vertices']}/{g['scopedDAG']['edges']} vertices/edges. All{g['requiredPairs']} owned supplier paths hold, with0 touching accepted restructuring pairs. All inherited stage-edge objects and foreign roadmap/stage objects remain unchanged. The added proof dependency exposes exactly two new internal links between already existing owned planets: affine-transition-faithfully-flat→dvr-infinite-gerbe and factorial-unit-qz-equivalence→dvr-infinite-gerbe. No owned unresolved, skipped or pending link remains. The{g['otherPreexistingUnreachableRestructurePairs']} unrelated preexisting unreachable restructuring pairs retain hash `{g['otherUnreachableRestructurePairListSha256']}`.\n\n"
+ h+=f"Mathematical input `{(S/'base.txt').read_text().strip()}`; publication input `{(S/'publication-base.txt').read_text().strip()}`. All18 guarded inputs, the job contract and all5 incoming owned blobs agree at both inputs. Declaration-index SHA256 `{v['indexSha256']}`. Verification-math.json and Verification.json record actual results.\n\n"
 h+='''## Resume
 
-Consume divisibilityBaseChangeDesc and its uniqueness for arbitrary compatible ring maps, divisibilityTensorEquiv for the actual tensor comparison, and divisibilitySpecCoefficientMap.isPullback/divisibilitySpecBaseChangeIso for the Cartesian affine-chart square. Neither flatness nor a restriction to affine test schemes is needed in their stated universes.
+Consume divisibilityBaseChangeCoaction.compare for the actual tensor/action compatibility and divisibilityTensorInvariantEquiv for the native invariant algebra, with its coefficient, inverse and chart formulas. These statements include arbitrary nonflat coefficient maps and wild nilpotents.
 
-Still construct higher-universe adapters, coherent root-object groupoid reindexing, finite-projection coherence for the general infinite root-stack base-change equivalence, the supplier TOWER-AFF fpqc frame-torsor limit, and the actual infinite quotient/descent comparison on objects and arrows. The general stack-base root reservation, finite Kummer and DVR bridges, and the all-roots-of2 non-fppf counterexample remain separate. Preserve the omission ledger, all8 gaps and13 requests and both source routes until exact geometric carriers and source-qualified proofs are supplied. An affine ring pushout alone does not establish the fpqc root-stack quotient.
+Still construct higher-universe adapters, coherent root-object groupoid reindexing, finite-projection coherence for general infinite root-stack base change, the supplier TOWER-AFF fpqc frame-torsor limit, and actual infinite quotient/descent on objects and arrows. The general stack-base reservation, finite Kummer and DVR bridges, root-section tensor-power supplier, geometric sheaf signatures and all-roots-of2 non-fppf counterexample retain their recorded obligations. Preserve both paper routes, the omission ledger, all8 gaps and13 requests. An affine tensor action/equalizer calculation does not prove a coarse-stack universal property or the fpqc quotient comparison.
 
-Recover and replay the public evidence before extending this checkpoint. The verifier checks preserved contracts, matched headers and recorded elaboration, then runs the actual immutable checker/intake/atlas; it never runs Lean. Optional re-elaboration must obey WORKERS' existing-build, memory and serial-run requirements.
+Recover and replay the public evidence before extending this checkpoint. The verifier checks exact contracts, matched headers and recorded compilation, then executes actual immutable checker/intake/atlas functions. It never starts Lean. Any re-elaboration must follow WORKERS' existing-build, memory and serial-run guards.
 '''
 (S/'HandoffBase.md').write_text(h);(S/'Handoff.md').write_text(h)
 ```

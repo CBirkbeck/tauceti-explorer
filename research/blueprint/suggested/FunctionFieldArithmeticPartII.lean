@@ -5624,3 +5624,202 @@ example : (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 1)) (0 : ℤ)).h
 
 end TauCeti.RootStack
 end
+
+noncomputable section
+set_option maxHeartbeats 800000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe uCoactionBase
+namespace TauCeti.RootStack
+open scoped TensorProduct
+variable {A B : Type uCoactionBase} [CommRing A] [CommRing B] [Algebra A B]
+attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
+
+/-- Extend the actual coefficient-changed LEFT coaction by the tensor adjunction. -/
+def divisibilityBaseChangeCoaction (f : A) :
+    B ⊗[A] DivisibilityAffineColimit f →ₐ[B]
+      MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
+        DivisibilityAffineColimit (algebraMap A B f) := by
+  let T := MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
+    DivisibilityAffineColimit (algebraMap A B f)
+  let g : DivisibilityAffineColimit f →ₐ[A] T :=
+    { (divisibilityQZTensorCoefficientMap (algebraMap A B) f).comp
+        (divisibilityQZCoaction f).toRingHom with
+      commutes' a := by
+        change divisibilityQZTensorCoefficientMap (algebraMap A B) f
+          (divisibilityQZCoaction f (algebraMap A _ a)) = _
+        rw [(divisibilityQZCoaction f).commutes,
+          divisibilityQZTensorCoefficientMap.constant]
+        exact (IsScalarTower.algebraMap_apply A B T a).symm }
+  exact AlgHom.liftEquiv A B (DivisibilityAffineColimit f) T g
+
+lemma divisibilityBaseChangeCoaction.tmul (f : A) (b : B)
+    (x : DivisibilityAffineColimit f) :
+    divisibilityBaseChangeCoaction (B := B) f (b ⊗ₜ[A] x) =
+      b • divisibilityQZTensorCoefficientMap (algebraMap A B) f
+        (divisibilityQZCoaction f x) := by
+  sorry
+
+lemma divisibilityBaseChangeCoaction.compare (f : A) :
+    divisibilityBaseChangeCoaction (B := B) f =
+      (divisibilityQZCoaction (algebraMap A B f)).comp
+        (divisibilityTensorEquiv (B := B) f).toAlgHom := by
+  sorry
+
+lemma divisibilityBaseChangeCoaction.root (f : A) (n : RootDivIndex) :
+    divisibilityBaseChangeCoaction (B := B) f
+      (1 ⊗ₜ[A] divisibilityAffineInclusion f n (AdjoinRoot.root _)) =
+        MonoidAlgebra.single (Multiplicative.ofAdd
+          (((1 / (n.exponent : ℚ) : ℚ) : AddCircle (1 : ℚ)))) (1 : B) ⊗ₜ[B]
+          divisibilityAffineInclusion (algebraMap A B f) n (AdjoinRoot.root _) := by
+  sorry
+
+lemma divisibilityBaseChangeCoaction.coefficient (f : A) (b : B) :
+    divisibilityBaseChangeCoaction (B := B) f
+      (algebraMap B (B ⊗[A] DivisibilityAffineColimit f) b) =
+        (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
+          algebraMap B (DivisibilityAffineColimit (algebraMap A B f)) b := by
+  sorry
+
+/-- Tensor coinvariance is universal coaction equality, not fixedness at scalar points. -/
+lemma divisibilityBaseChangeCoaction.coinvariant_iff (f : A)
+    (z : B ⊗[A] DivisibilityAffineColimit f) :
+    divisibilityBaseChangeCoaction (B := B) f z =
+      (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
+        divisibilityTensorEquiv (B := B) f z ↔
+      ∃ b : B, z = algebraMap B (B ⊗[A] DivisibilityAffineColimit f) b := by
+  sorry
+
+def divisibilityTensorInvariantEquiv (f : A) :
+    B ≃ₐ[B] ↥(AlgHom.equalizer (divisibilityBaseChangeCoaction (B := B) f)
+      ((Algebra.TensorProduct.includeRight :
+        DivisibilityAffineColimit (algebraMap A B f) →ₐ[B]
+          MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
+            DivisibilityAffineColimit (algebraMap A B f)).comp
+              (divisibilityTensorEquiv (B := B) f).toAlgHom)) := by
+  let I := AlgHom.equalizer (divisibilityBaseChangeCoaction (B := B) f)
+    ((Algebra.TensorProduct.includeRight :
+      DivisibilityAffineColimit (algebraMap A B f) →ₐ[B]
+        MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
+          DivisibilityAffineColimit (algebraMap A B f)).comp
+            (divisibilityTensorEquiv (B := B) f).toAlgHom)
+  let g := (Algebra.ofId B (B ⊗[A] DivisibilityAffineColimit f)).codRestrict I
+    (fun b => by
+      change divisibilityBaseChangeCoaction (B := B) f (algebraMap B _ b) = _
+      rw [divisibilityBaseChangeCoaction.coefficient]
+      change (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
+        algebraMap B (DivisibilityAffineColimit (algebraMap A B f)) b =
+          1 ⊗ₜ[B] divisibilityTensorEquiv (B := B) f (algebraMap B _ b)
+      rw [AlgEquiv.commutes])
+  apply AlgEquiv.ofBijective g
+  constructor
+  · intro b c h
+    apply divisibilityAffineColimit.coefficient_injective (algebraMap A B f)
+    have hv : divisibilityTensorEquiv (B := B) f (algebraMap B _ b) =
+        divisibilityTensorEquiv (B := B) f (algebraMap B _ c) :=
+      congrArg (fun z => divisibilityTensorEquiv (B := B) f z.val) h
+    simpa only [AlgEquiv.commutes] using hv
+  · intro z
+    obtain ⟨b,hb⟩ := (divisibilityBaseChangeCoaction.coinvariant_iff f z.val).mp z.property
+    exact ⟨b, Subtype.ext hb.symm⟩
+
+lemma divisibilityTensorInvariantEquiv.apply_coe (f : A) (b : B) :
+    (divisibilityTensorInvariantEquiv (B := B) f b).val =
+      algebraMap B (B ⊗[A] DivisibilityAffineColimit f) b := by
+  sorry
+
+lemma divisibilityTensorInvariantEquiv.chart (f : A) (b : B) :
+    divisibilityTensorEquiv (B := B) f
+      (divisibilityTensorInvariantEquiv (B := B) f b).val =
+        (divisibilityInvariantEquiv (algebraMap A B f) b).val := by
+  sorry
+
+lemma divisibilityTensorInvariantEquiv.inverse_coe (f : A)
+    (z : ↥(AlgHom.equalizer (divisibilityBaseChangeCoaction (B := B) f)
+      ((Algebra.TensorProduct.includeRight :
+        DivisibilityAffineColimit (algebraMap A B f) →ₐ[B]
+          MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
+            DivisibilityAffineColimit (algebraMap A B f)).comp
+              (divisibilityTensorEquiv (B := B) f).toAlgHom))) :
+    algebraMap B (B ⊗[A] DivisibilityAffineColimit f)
+      ((divisibilityTensorInvariantEquiv (B := B) f).symm z) = z.val := by
+  sorry
+
+lemma divisibilityBaseChangeCoaction.invariants_unique (f : A)
+    (z : B ⊗[A] DivisibilityAffineColimit f)
+    (hz : divisibilityBaseChangeCoaction (B := B) f z =
+      (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
+        divisibilityTensorEquiv (B := B) f z) :
+    ∃! b : B, z = algebraMap B (B ⊗[A] DivisibilityAffineColimit f) b := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe uCoactionTest
+namespace TauCeti.RootStack
+open scoped TensorProduct
+variable {A B : Type uCoactionTest} [CommRing A] [CommRing B] [Algebra A B]
+
+-- test: divisibilityBaseChangeCoaction.test_nonflat_third_root
+example : divisibilityBaseChangeCoaction (B := ZMod 4) (2 : ℤ)
+    ((1 : ZMod 4) ⊗ₜ[ℤ] divisibilityAffineInclusion (2 : ℤ) ⟨3, by decide⟩
+      (AdjoinRoot.root _)) =
+    MonoidAlgebra.single (Multiplicative.ofAdd
+      (((1 / (3 : ℚ) : ℚ) : AddCircle (1 : ℚ)))) (1 : ZMod 4) ⊗ₜ[ZMod 4]
+      divisibilityAffineInclusion (algebraMap ℤ (ZMod 4) 2) ⟨3, by decide⟩
+        (AdjoinRoot.root _) := by
+  sorry
+
+-- test: divisibilityBaseChangeCoaction.test_tensor_formula
+example (f : A) (b : B) (x : DivisibilityAffineColimit f) :
+    divisibilityBaseChangeCoaction (B := B) f (b ⊗ₜ[A] x) =
+      (divisibilityQZCoaction (algebraMap A B f))
+        (divisibilityTensorEquiv (B := B) f (b ⊗ₜ[A] x)) := by
+  sorry
+
+-- test: divisibilityBaseChangeCoaction.test_zero_ring
+example (z : (ZMod 1) ⊗[ℤ] DivisibilityAffineColimit (2 : ℤ)) :
+    divisibilityBaseChangeCoaction (B := ZMod 1) (2 : ℤ) z =
+      (1 : MonoidAlgebra (ZMod 1) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 1]
+        divisibilityTensorEquiv (B := ZMod 1) (2 : ℤ) z := by
+  sorry
+
+-- test: divisibilityBaseChangeCoaction.test_wild_not_coinvariant
+example :
+    let u := divisibilityAffineInclusion (algebraMap ℤ (ZMod 2) (0 : ℤ))
+      ⟨2, by decide⟩ (AdjoinRoot.root _)
+    let z := (divisibilityTensorEquiv (B := ZMod 2) (0 : ℤ)).symm u
+    z ≠ 0 ∧ z ^ 2 = 0 ∧
+      divisibilityBaseChangeCoaction (B := ZMod 2) (0 : ℤ) z ≠
+        (1 : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 2]
+          divisibilityTensorEquiv (B := ZMod 2) (0 : ℤ) z := by
+  sorry
+
+-- test: divisibilityTensorInvariantEquiv.test_nilpotent_coefficient
+example :
+    (divisibilityTensorInvariantEquiv (B := ZMod 4) (2 : ℤ) 2).val ≠ 0 ∧
+      (divisibilityTensorInvariantEquiv (B := ZMod 4) (2 : ℤ) 2).val ^ 2 = 0 := by
+  sorry
+
+-- test: divisibilityTensorInvariantEquiv.test_inverse
+example (f : A) (b : B) :
+    (divisibilityTensorInvariantEquiv (B := B) f).symm
+      (divisibilityTensorInvariantEquiv (B := B) f b) = b := by
+  sorry
+
+-- test: divisibilityTensorInvariantEquiv.test_chart
+example (b : ZMod 4) : divisibilityTensorEquiv (B := ZMod 4) (2 : ℤ)
+    (divisibilityTensorInvariantEquiv (B := ZMod 4) (2 : ℤ) b).val =
+      (divisibilityInvariantEquiv (algebraMap ℤ (ZMod 4) 2) b).val := by
+  sorry
+
+-- test: divisibilityTensorInvariantEquiv.test_zero_ring
+example : (divisibilityTensorInvariantEquiv (B := ZMod 1) (2 : ℤ) 0).val = 0 := by
+  sorry
+
+end TauCeti.RootStack
+end

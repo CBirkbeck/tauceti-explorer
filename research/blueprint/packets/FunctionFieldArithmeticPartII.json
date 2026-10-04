@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim. Positive-divisibility coefficient continuation:23 explicit declarations,18 API items and12 typed tests establish coefficient functoriality of the universal coaction and actual invariant algebra. Native scheme-limit continuation:21 declarations,23 API entries and21 typed tests specify the actual affine inverse-limit and its coefficient/factorial dictionary. Native affine base-change continuation:21 declarations,14 API entries and14 typed tests specify the actual ring pushout, tensor equivalence and Cartesian scheme comparison.",
+  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim. Positive-divisibility coefficient continuation:23 explicit declarations,18 API items and12 typed tests establish coefficient functoriality of the universal coaction and actual invariant algebra. Native scheme-limit continuation:21 declarations,23 API entries and21 typed tests specify the actual affine inverse-limit and its coefficient/factorial dictionary. Native affine base-change continuation:21 declarations,14 API entries and14 typed tests specify the actual ring pushout, tensor equivalence and Cartesian scheme comparison. Tensor-action continuation:11 declaration contracts,9 API entries and8 typed tests describe the actual coaction comparison and native tensor invariant algebra under arbitrary affine base change.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1984,6 +1984,20 @@
         "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
         "provides": "Native CategoryTheory.IsPullback.isoPullback_inv_snd used for the root-specific ring pushout, tensor comparison or scheme pullback.",
         "checked": "Complete statement and applicable ambient assumptions read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; indexed declaration at line216."
+      },
+      {
+        "ref": "mathlib:AlgHom.liftEquiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "Native AlgHom.liftEquiv used in the root-specific tensor action extension and pure-tensor formula.",
+        "checked": "Complete statement, proof and applicable ambient assumptions freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, indexed line775."
+      },
+      {
+        "ref": "mathlib:AlgHom.liftEquiv_tmul",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "Native AlgHom.liftEquiv_tmul used in the root-specific tensor action extension and pure-tensor formula.",
+        "checked": "Complete statement, proof and applicable ambient assumptions freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, indexed line787."
       }
     ]
   },
@@ -2304,6 +2318,18 @@
       "accessed": "2026-10-03",
       "readSections": [
         "Complete displayed §26.17 and proofs freshly read, including Lemma26.17.2 on affine fibre products. Stacks Lemma32.2.1 tag01YW was also read in full as inverse-limit context; source and HTTP receipts are separate."
+      ]
+    },
+    {
+      "id": "TensorRootAction-rtOQ9t",
+      "title": "Actions of group schemes and equivariance; authored root-chart tensor deductions",
+      "authors": "The Stacks Project Authors; root-specific deductions by Codex — codex-rtOQ9t",
+      "edition": "Displayed online Section39.10, read4 October2026",
+      "url": "https://stacks.math.columbia.edu/tag/022Y",
+      "sha256": "b7ff14fcd83648a871b4861d3ddc6ac6ba40cd4d3facdc55b8dd963e87dbe569",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "Whole displayed Section39.10, definitions39.10.1–2, Lemma39.10.3 and proof, both action/equivariance diagrams and all five comments. The root-specific tensor/equalizer deduction is authored, not a literal theorem of this section. No whole-paper or erratum survey claimed."
       ]
     }
   ],
@@ -3186,13 +3212,16 @@
         "FunctionFieldArithmeticPartII:RS.1/base-change",
         "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence",
         "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-first",
-        "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-second"
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-second",
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-comparison",
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-chart"
       ],
       "proofSteps": [
         "Apply finite base change at every exponent.",
         "The comparisons preserve all transition isomorphisms and cocycles.",
         "Construct inverse functors componentwise on compatible systems.",
-        "For the rank-one affine chart, use the actual arbitrary-ring-map pushout and the native scheme base-change isomorphism, with both projections and the tensor root/coefficient formulas. Then separately construct coherent componentwise root-object equivalences, finite-projection coherence and fpqc descent to obtain the stated root-stack comparison on general bases."
+        "For the rank-one affine chart, use the actual arbitrary-ring-map pushout and the native scheme base-change isomorphism, with both projections and the tensor root/coefficient formulas. Then separately construct coherent componentwise root-object equivalences, finite-projection coherence and fpqc descent to obtain the stated root-stack comparison on general bases.",
+        "For the rank-one affine chart, the native tensor-adjunction action comparison equals δ_B∘E, and its actual equalizer is the coefficient ring B, with unique coefficients and agreement with the inherited chart coordinates. Use this affine equivariance and invariant calculation before the separately required root-object groupoid and fpqc stack descent comparisons."
       ],
       "acceptance": [
         "This includes the closed fibre of a mixed-characteristic DVR."
@@ -29229,6 +29258,725 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Tensor extension of the root coaction",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeCoaction",
+      "statement": "Construct the B-algebra map β:B⊗_A D_A(f)→B[Q/Z]⊗_B D_B(φ(f)) by extending F_target∘δ_A along the native tensor adjunction. The target retains the actual base-changed chart, and β is an action comparison map, not a new geometric stack carrier.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.",
+        "D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.",
+        "Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-map",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-constant",
+        "mathlib:AlgHom.liftEquiv",
+        "mathlib:IsScalarTower.algebraMap_apply"
+      ],
+      "proofSteps": [
+        "Give the target the A-algebra structure through A→B. The coaction and coefficient-map coefficient formulas prove that F_target∘δ_A is an A-algebra map. Extend it by the pinned AlgHom.liftEquiv, which directly yields a B-algebra map."
+      ],
+      "acceptance": [
+        "Construct the B-algebra map β:B⊗_A D_A(f)→B[Q/Z]⊗_B D_B(φ(f)) by extending F_target∘δ_A along the native tensor adjunction. The target retains the actual base-changed chart, and β is an action comparison map, not a new geometric stack carrier.",
+        "Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeCoaction.tmul",
+          "role": "compatibility",
+          "statement": "For every b∈B and x∈D_A(f), β(b⊗x)=b·F_target(δ_A(x))."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeCoaction.compare",
+          "role": "compatibility",
+          "statement": "As actual B-algebra maps, β=δ_B∘E, where E:B⊗_A D_A(f)≃ₐ[B]D_B(φ(f)) is the inherited arbitrary-base-change equivalence."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeCoaction.root",
+          "role": "compatibility",
+          "statement": "For every positive n, β(1⊗κ_n(t_n))=e_[1/n]⊗κ_n(t_n), with the right root over B and the normalized rational character in B[Q/Z]."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeCoaction.coefficient",
+          "role": "compatibility",
+          "statement": "For b∈B included into B⊗_A D_A(f), β(b)=1⊗b under the actual coefficient inclusion into D_B(φ(f))."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeCoaction.coinvariant_iff",
+          "role": "characterisation",
+          "statement": "For z∈B⊗_A D_A(f), β(z)=1⊗E(z) if and only if z is the coefficient image of some b∈B. The equation is universal coaction equality in B[Q/Z]⊗_B D_B(φ(f))."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeCoaction.invariants_unique",
+          "role": "characterisation",
+          "statement": "Every z satisfying β(z)=1⊗E(z) is the image of a unique b∈B."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeCoaction.test_nonflat_third_root",
+          "kind": "computation",
+          "statement": "For Z→Z/4, f=2 and positive index3, the tensor root has actual rational character [1/3] and maps to the third root over Z/4."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeCoaction.test_tensor_formula",
+          "kind": "compatibility",
+          "statement": "For arbitrary f,b,x, the actual tensor action comparison on b⊗x agrees with δ_B evaluated after the native tensor equivalence E."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeCoaction.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For Z→Z/1 and f=2, every actual tensor element satisfies the universal coinvariance equation."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityBaseChangeCoaction.test_wild_not_coinvariant",
+          "kind": "non-example",
+          "statement": "For Z→Z/2 and f=0, the inverse E-image of the actual second root is nonzero and square-zero and fails universal coinvariance. Wild nilpotents survive the actual tensor and action comparison."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TensorRootAction-rtOQ9t",
+          "locator": "Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.",
+          "match": "The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.",
+          "match": "The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-tensor",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Pure-tensor action formula",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeCoaction.tmul",
+      "statement": "For every b∈B and x∈D_A(f), β(b⊗x)=b·F_target(δ_A(x)).",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.",
+        "D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.",
+        "Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction",
+        "mathlib:AlgHom.liftEquiv_tmul"
+      ],
+      "proofSteps": [
+        "Evaluate the actual tensor-adjunction map on a pure tensor; this is the native liftEquiv_tmul law."
+      ],
+      "acceptance": [
+        "For every b∈B and x∈D_A(f), β(b⊗x)=b·F_target(δ_A(x)).",
+        "Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TensorRootAction-rtOQ9t",
+          "locator": "Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.",
+          "match": "The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.",
+          "match": "The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-comparison",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Equivariance of the tensor base-change comparison",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeCoaction.compare",
+      "statement": "As actual B-algebra maps, β=δ_B∘E, where E:B⊗_A D_A(f)≃ₐ[B]D_B(φ(f)) is the inherited arbitrary-base-change equivalence.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.",
+        "D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.",
+        "Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-tensor",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-pure",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coefficient-naturality",
+        "mathlib:Algebra.TensorProduct.ext'"
+      ],
+      "proofSteps": [
+        "Use native pure-tensor extensionality. The new formula gives b·F_target(δ_A(x)); inherited coefficient naturality gives F_target(δ_A(x))=δ_B(F_φ(x)); B-linearity and the actual E pure-tensor formula identify the other side. No cancellation or flatness is used."
+      ],
+      "acceptance": [
+        "As actual B-algebra maps, β=δ_B∘E, where E:B⊗_A D_A(f)≃ₐ[B]D_B(φ(f)) is the inherited arbitrary-base-change equivalence.",
+        "Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TensorRootAction-rtOQ9t",
+          "locator": "Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.",
+          "match": "The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.",
+          "match": "The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Base-changed rational root weight",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeCoaction.root",
+      "statement": "For every positive n, β(1⊗κ_n(t_n))=e_[1/n]⊗κ_n(t_n), with the right root over B and the normalized rational character in B[Q/Z].",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.",
+        "D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.",
+        "Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-comparison",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-right",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-root",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-root"
+      ],
+      "proofSteps": [
+        "Evaluate the comparison identity on the original n-th root and apply the inherited coefficient and root-coaction formulas. This includes nonfactorial positive indices."
+      ],
+      "acceptance": [
+        "For every positive n, β(1⊗κ_n(t_n))=e_[1/n]⊗κ_n(t_n), with the right root over B and the normalized rational character in B[Q/Z].",
+        "Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TensorRootAction-rtOQ9t",
+          "locator": "Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.",
+          "match": "The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.",
+          "match": "The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-coefficient",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Base-changed coefficient coinvariance",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeCoaction.coefficient",
+      "statement": "For b∈B included into B⊗_A D_A(f), β(b)=1⊗b under the actual coefficient inclusion into D_B(φ(f)).",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.",
+        "D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.",
+        "Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-comparison",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-constant"
+      ],
+      "proofSteps": [
+        "Use the B-algebra compatibility of E and the inherited δ_B coefficient equation."
+      ],
+      "acceptance": [
+        "For b∈B included into B⊗_A D_A(f), β(b)=1⊗b under the actual coefficient inclusion into D_B(φ(f)).",
+        "Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TensorRootAction-rtOQ9t",
+          "locator": "Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.",
+          "match": "The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.",
+          "match": "The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-coinvariants",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Tensor coinvariants are exactly new coefficients",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeCoaction.coinvariant_iff",
+      "statement": "For z∈B⊗_A D_A(f), β(z)=1⊗E(z) if and only if z is the coefficient image of some b∈B. The equation is universal coaction equality in B[Q/Z]⊗_B D_B(φ(f)).",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.",
+        "D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.",
+        "Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-comparison",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-qz-invariants",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence"
+      ],
+      "proofSteps": [
+        "Rewrite β as δ_B∘E and use the inherited arbitrary-ring invariant theorem. Transport coefficient equality through the actual B-algebra equivalence E, using its injectivity and coefficient compatibility in both directions."
+      ],
+      "acceptance": [
+        "For z∈B⊗_A D_A(f), β(z)=1⊗E(z) if and only if z is the coefficient image of some b∈B. The equation is universal coaction equality in B[Q/Z]⊗_B D_B(φ(f)).",
+        "Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TensorRootAction-rtOQ9t",
+          "locator": "Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.",
+          "match": "The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.",
+          "match": "The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "construction",
+      "title": "Tensor invariant algebra",
+      "declarationName": "TauCeti.RootStack.divisibilityTensorInvariantEquiv",
+      "statement": "Construct B≃ₐ[B]I_tensor, where I_tensor is the actual AlgHom.equalizer of β and includeRight∘E inside B⊗_A D_A(f). Its forward map is the actual B-coefficient inclusion.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.",
+        "D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.",
+        "Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-coefficient",
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-coinvariants",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-injective",
+        "mathlib:AlgHom.equalizer",
+        "mathlib:AlgHom.codRestrict",
+        "mathlib:AlgEquiv.ofBijective"
+      ],
+      "proofSteps": [
+        "Restrict the native coefficient algebra map to the native equalizer. Prove injectivity by applying E and coefficient injectivity in D_B; prove surjectivity using the tensor coinvariant characterization. Apply the native algebra-equivalence constructor to this actual bijection."
+      ],
+      "acceptance": [
+        "Construct B≃ₐ[B]I_tensor, where I_tensor is the actual AlgHom.equalizer of β and includeRight∘E inside B⊗_A D_A(f). Its forward map is the actual B-coefficient inclusion.",
+        "Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents."
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorInvariantEquiv.apply_coe",
+          "role": "compatibility",
+          "statement": "The underlying tensor element of divisibilityTensorInvariantEquiv(f)(b) is algebraMap_B(b)."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorInvariantEquiv.chart",
+          "role": "compatibility",
+          "statement": "For b∈B, E((divisibilityTensorInvariantEquiv(f)(b)).val)=(divisibilityInvariantEquiv(φ(f))(b)).val."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorInvariantEquiv.inverse_coe",
+          "role": "compatibility",
+          "statement": "For z in the native tensor equalizer, the coefficient image of divisibilityTensorInvariantEquiv(f)⁻¹(z) equals z.val in the actual tensor algebra."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorInvariantEquiv.test_nilpotent_coefficient",
+          "kind": "computation",
+          "statement": "For Z→Z/4 and f=2, the invariant tensor coefficient2 is nonzero and has square zero."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorInvariantEquiv.test_inverse",
+          "kind": "characterisation",
+          "statement": "For arbitrary A,B,f and b∈B, the actual tensor-invariant equivalence followed by its inverse recovers b."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorInvariantEquiv.test_chart",
+          "kind": "compatibility",
+          "statement": "For the nonflat quotient Z→Z/4 at f=2, every invariant tensor coefficient agrees under E with the native chart-invariant coefficient."
+        },
+        {
+          "name": "TauCeti.RootStack.divisibilityTensorInvariantEquiv.test_zero_ring",
+          "kind": "degenerate",
+          "statement": "For Z→Z/1 and f=2, the invariant image of the unique coefficient is zero in the actual tensor algebra."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TensorRootAction-rtOQ9t",
+          "locator": "Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.",
+          "match": "The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.",
+          "match": "The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-coefficient",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Invariant coefficient in the tensor algebra",
+      "declarationName": "TauCeti.RootStack.divisibilityTensorInvariantEquiv.apply_coe",
+      "statement": "The underlying tensor element of divisibilityTensorInvariantEquiv(f)(b) is algebraMap_B(b).",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.",
+        "D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.",
+        "Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-equivalence"
+      ],
+      "proofSteps": [
+        "Unfold the forward codomain restriction of the actual coefficient map."
+      ],
+      "acceptance": [
+        "The underlying tensor element of divisibilityTensorInvariantEquiv(f)(b) is algebraMap_B(b).",
+        "Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TensorRootAction-rtOQ9t",
+          "locator": "Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.",
+          "match": "The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.",
+          "match": "The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-chart",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Agreement of tensor and chart invariant coordinates",
+      "declarationName": "TauCeti.RootStack.divisibilityTensorInvariantEquiv.chart",
+      "statement": "For b∈B, E((divisibilityTensorInvariantEquiv(f)(b)).val)=(divisibilityInvariantEquiv(φ(f))(b)).val.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.",
+        "D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.",
+        "Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-coefficient",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-forward"
+      ],
+      "proofSteps": [
+        "Both sides are the coefficient image b in D_B(φ(f)), by B-algebra compatibility of E and the inherited chart-invariant coefficient formula."
+      ],
+      "acceptance": [
+        "For b∈B, E((divisibilityTensorInvariantEquiv(f)(b)).val)=(divisibilityInvariantEquiv(φ(f))(b)).val.",
+        "Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TensorRootAction-rtOQ9t",
+          "locator": "Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.",
+          "match": "The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.",
+          "match": "The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-inverse",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Inverse tensor invariant coefficient",
+      "declarationName": "TauCeti.RootStack.divisibilityTensorInvariantEquiv.inverse_coe",
+      "statement": "For z in the native tensor equalizer, the coefficient image of divisibilityTensorInvariantEquiv(f)⁻¹(z) equals z.val in the actual tensor algebra.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.",
+        "D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.",
+        "Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-coefficient"
+      ],
+      "proofSteps": [
+        "Apply the forward coefficient formula to the inverse image and then the inverse law of the native algebra equivalence."
+      ],
+      "acceptance": [
+        "For z in the native tensor equalizer, the coefficient image of divisibilityTensorInvariantEquiv(f)⁻¹(z) equals z.val in the actual tensor algebra.",
+        "Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TensorRootAction-rtOQ9t",
+          "locator": "Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.",
+          "match": "The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.",
+          "match": "The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-unique",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.2"
+      ],
+      "kind": "lemma",
+      "title": "Uniqueness of base-changed invariant coefficients",
+      "declarationName": "TauCeti.RootStack.divisibilityBaseChangeCoaction.invariants_unique",
+      "statement": "Every z satisfying β(z)=1⊗E(z) is the image of a unique b∈B.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included.",
+        "D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence.",
+        "Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-coinvariants",
+        "FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence",
+        "FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-injective"
+      ],
+      "proofSteps": [
+        "Existence is the tensor coinvariant characterization. For uniqueness, apply E to equality of coefficient images and use actual coefficient injectivity in D_B. The coefficient map A→B need not itself be injective."
+      ],
+      "acceptance": [
+        "Every z satisfying β(z)=1⊗E(z) is the image of a unique b∈B.",
+        "Keep actual tensors, ring maps and native equalizers; do not assume flatness or remove nilpotents."
+      ],
+      "api": [],
+      "tests": [],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-base-change",
+          "how": "Checks the arbitrary affine-chart tensor comparison against the universal root coaction and its invariant coefficient algebra before the separate groupoid/stack descent comparison."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
+          "how": "Supplies the root-specific action and invariant calculation needed for arbitrary affine base change; no quotient-stack universal property is inferred."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS2",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TensorRootAction-rtOQ9t",
+          "locator": "Stacks Project §39.10 Definition39.10.1 and the displayed equivariance diagram; authored affine root-chart deductions from native tensor and coefficient-coaction laws.",
+          "match": "The source fixes the equivariance equation. These tensor extension and native equalizer formulas are authored root-specific deductions, not named results of this section or a certification of geometric stack descent."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 printed pp.14–16, grading, Lemma3.7 and Proposition3.10; own PR6016 reading reused with exact unchanged receipt.",
+          "match": "The rational-character root-chart action motivates the comparison. The inherited full quotient-stack construction remains separate from this bounded tensor/equalizer calculation."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -29434,7 +30182,8 @@
         "The 28 rational-coordinate declarations and three computation lemmas now have separate exact-Mathlib native proof evidence, including arbitrary coefficients and wild nilpotents. Next prove the admitted arbitrary-section rational coaction contracts over this actual equivalence, then replay the inherited conditional coefficient square without those admissions. Full canonical Tau typing, higher-universe/full-positive-index transport, coherent root-groupoid reindexing, affine Spec limits, fpqc frame torsors and the quotient/DVR/Kummer comparisons remain open. Preserve all eight gaps, thirteen requests and both source routes.",
         "The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes.",
         "Current continuation frontier, superseding historical affine Spec-limit omissions above: The actual positive-divisibility affine chart is now specified as a native scheme inverse limit, with unique maps from arbitrary test schemes, finite projection/extensionality and precomposition laws. Native Spec carries the existing factorial algebra equivalence to a scheme isomorphism and reverses arbitrary coefficient maps, with structural-base and factorial-comparison squares. These are affine-chart results in a common arbitrary universe. Coherent root-object groupoid reindexing, higher-universe transport, Cartesian tensor base-change, fpqc frame torsors and the infinite quotient/DVR/Kummer routes remain open; all ten stages, eight gaps and thirteen supplier requests remain partial or open.",
-        "Current continuation frontier, superseding historical affine Cartesian base-change omissions above: The arbitrary coefficient base-change square of the actual positive-divisibility affine root chart now has a native ring pushout and scheme pullback witness. Its concrete B-algebra tensor equivalence B⊗_A D_A(f)≃D_B(φ(f)) identifies pure tensors and inverse roots; its actual categorical scheme isomorphism identifies both projections. Flatness is not assumed and nilpotents are retained. Coherent root-object groupoid reindexing, higher-universe transport, finite-projection coherence for the general stack comparison, fpqc frame torsors and the infinite quotient/DVR/Kummer routes remain open. All ten stages, eight gaps and thirteen supplier requests remain partial or open."
+        "Current continuation frontier, superseding historical affine Cartesian base-change omissions above: The arbitrary coefficient base-change square of the actual positive-divisibility affine root chart now has a native ring pushout and scheme pullback witness. Its concrete B-algebra tensor equivalence B⊗_A D_A(f)≃D_B(φ(f)) identifies pure tensors and inverse roots; its actual categorical scheme isomorphism identifies both projections. Flatness is not assumed and nilpotents are retained. Coherent root-object groupoid reindexing, higher-universe transport, finite-projection coherence for the general stack comparison, fpqc frame torsors and the infinite quotient/DVR/Kummer routes remain open. All ten stages, eight gaps and thirteen supplier requests remain partial or open.",
+        "Current affine tensor-action frontier: For any coefficient A-algebra B, extend the actual positive-divisibility root coaction through the native tensor adjunction and prove its equality with δ_B after the tensor base-change equivalence. Its universal tensor coinvariants are precisely the new coefficient ring B, through the actual native equalizer equivalence, with unique coefficients and agreement with chart invariant coordinates. Nonflat maps, zero rings and wild nonzero nilpotents are retained. This is an affine algebra/action comparison only; higher-universe adapters, coherent root-object groupoids, finite-projection coherence for general stack base change, TOWER-AFF fpqc frame torsors, infinite quotient/descent and DVR/Kummer comparisons remain open."
       ]
     },
     {
@@ -29667,7 +30416,7 @@
     {
       "id": "TOWER-TYPING",
       "title": "Typed infinite fpqc comparison and root-limit coherence",
-      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison. The native affine-chart IsLimit, universal maps and factorial/coefficient scheme comparisons now have explicit contracts and separate proof evidence; the remaining TOWER-AFF and coherent root-groupoid obligations are unchanged. The arbitrary affine-chart coefficient square now has an explicit native ring pushout, tensor equivalence and categorical scheme pullback with both projections. This discharges the affine Cartesian comparison only; higher-universe, coherent root-groupoid and TOWER-AFF fpqc obligations remain open.",
+      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison. The native affine-chart IsLimit, universal maps and factorial/coefficient scheme comparisons now have explicit contracts and separate proof evidence; the remaining TOWER-AFF and coherent root-groupoid obligations are unchanged. The arbitrary affine-chart coefficient square now has an explicit native ring pushout, tensor equivalence and categorical scheme pullback with both projections. This discharges the affine Cartesian comparison only; higher-universe, coherent root-groupoid and TOWER-AFF fpqc obligations remain open. The actual affine tensor base-change comparison now intertwines the universal rational-character coaction and identifies its tensor equalizer with B. The coherent root-groupoid and TOWER-AFF fpqc comparisons remain open.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
         "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
