@@ -2,7 +2,7 @@
   "roadmapId": "ClassicalArithmeticCompletion",
   "protocol": "blueprint-v1",
   "part": null,
-  "status": "partial",
+  "status": "complete",
   "scope": [
     "ClassicalArithmeticCompletion:CA.0",
     "ClassicalArithmeticCompletion:CA.1",
@@ -13,7 +13,7 @@
     "ClassicalArithmeticCompletion:CA.6",
     "ClassicalArithmeticCompletion:CA.7"
   ],
-  "summary": "Classical arithmetic, sequences, polynomials and reciprocity, continued from the first pass (#2837) under the accepted restructuring RS-03, with the maintainer-added sources Bennett–Siksek (items 72, 152, 81) and Martin (items 1–13) covered. The 316-node predecessor is extended to 329 nodes by Cobham’s theorem for multiplicatively independent automatic bases. The bounded-carry and all-word reversal lemmas supply the normalization step; close powers and integer-window gluing give one tail period. The equality case of Perron’s criterion remains covered by Prasolov’s proof. The boundary-exclusion lemma, symmetric Rouché root count, and shared integral-factor argument isolate its hypotheses. CA.0 stays closed: the pinned libraries contain the layer, and its one node, the existence half of the Chinese remainder theorem at non-coprime integer moduli, is the only missing statement. CA.1 plans the primitive quadratic character of a rational square class with its conductor and the bound v_2(N) ≤ 3, the Hilbert symbol of ℚ at every place read in Mathlib's residue symbols, the n-th power residue symbol at primes and ideals with its Frobenius comparison, the degree-n Hilbert symbol and product formula, and the power, cubic and Eisenstein reciprocity laws, importing the local and global Artin maps from Tau Ceti's ClassFieldTheory. CA.2 plans companion matrices in every rank, Evertse's closed form of complex linear recurrences (DT.2's request), Lucas sequences with strong divisibility, Euler numbers, the formal-to-analytic transfer, p-adic and real digit expansions, automatic sequences with Christol's theorem, and Farey sequences with the Stern–Brocot tree. CA.3 plans the Smith and Hermite normal forms as terminating algorithms with certificates, the rational canonical form, integer-valued polynomials with Pólya's theorem, and the irreducibility criteria of Capelli, Perron, Cohn and Eisenstein–Dumas. CA.4 plans the quartic descent T⁴ + V⁴ = 2U², the Markoff equation with its Vieta moves and tree, Legendre's three-square theorem, Jacobi's two- and four-square counts, the negative and generalised Pell equations with the continued-fraction decision procedure, Ramanujan–Nagell, Levi ben Gershon's theorem, numerical semigroups and Egyptian fractions. CA.5, which RS-03 keeps as a comparison layer, plans the certificates relating class-group relation matrices, regulator bounds, Hermite matrices of ideals, discriminants of sublattices and monogenic presentations to the intrinsic invariants. CA.6 plans Pisot and Salem numbers with their classification, Lehmer's number, and the lower bounds of Smyth, Dobrowolski and Schinzel–Zassenhaus (Dimitrov), citing DT.0 for heights and Mahler measure. CA.7 plans the ring of integers as a Galois module, normal integral bases, Noether's and the Hilbert–Speiser theorems, locally free class groups and Taylor's theorem. Remaining work is listed per layer; eight gaps and nineteen requests name what other owners must supply. The Ghosh–Sarnak fix adds three declaration-sized comparisons/results and explicit source requests; CA.4 remains partial for the general level-k theory.",
+  "summary": "Budgeted planning pass complete with 333 inherited unchecked nodes and zero new nodes above the 300-node budget. CA.0 retains its inherited closed planning coverage; CA.1–CA.7 remain partial with precise source, supplier and signature frontiers. All 71 issue-referenced source records are reconciled, separating existing plans, partial adapters, missing exact contracts and an incidental item owned elsewhere. Four previously missing CA.5 unit-comparison API signatures and four examples now elaborate. Two pinned class-group results are added as baseline inputs. Earlier review verdicts remain historical evidence; this continuation awaits independent review.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -4133,6 +4133,20 @@
         "module": "Mathlib/Data/Set/Finite/Lattice.lean",
         "provides": "A union indexed by a finite type of finite sets is finite.",
         "checked": "Statement read at the pinned commit; Mathlib/Data/Set/Finite/Lattice.lean, line 139; Git blob checked."
+      },
+      {
+        "ref": "tauceti:NumberField.card_ker_toClassGroup_le_two",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/NarrowClassGroup.lean",
+        "provides": "For every number field K of rational degree two, the kernel of the narrow-to-ordinary class-group map has cardinality at most two. This is the built kernel-size input to the pending 2-primary comparison; it is not itself the integral negative-Pell equivalence.",
+        "checked": "Statement, ambient variables and proof read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 172."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/NarrowClassGroup.lean",
+        "provides": "For an integral generator theta with minimal polynomial X²−d, generating K over Q, and d>0, the narrow-to-ordinary class-group map is injective iff a ring-of-integers unit has rational field norm −1. The real-field hypothesis and quadratic presentation are explicit; conversion to the integer norm and to Z[sqrt(d)] remains the CA.5 comparison.",
+        "checked": "Statement, ambient variables and proof read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 215."
       }
     ]
   },
@@ -26165,7 +26179,8 @@
     {
       "stageId": "ClassicalArithmeticCompletion:CA.0",
       "status": "closed",
-      "note": "The reviewed audit records CA.0 as built, and RS-03 keeps it in place. Everything it names is a pinned baseline citation: gcd, Bézout and the extended Euclidean algorithm, unique factorisation, congruences and residue rings, the Chinese remainder theorem for coprime moduli, valuations with Legendre's formula, arithmetic functions with Dirichlet convolution, and Möbius inversion instantiated at divisor sums. The one unstated statement, the existence half of the Chinese remainder theorem at non-coprime moduli over the integers, is the single node; its uniqueness half is Int.modEq_and_modEq_iff_modEq_lcm. The layer is closed."
+      "note": "The reviewed audit records CA.0 as built, and RS-03 keeps it in place. Everything it names is a pinned baseline citation: gcd, Bézout and the extended Euclidean algorithm, unique factorisation, congruences and residue rings, the Chinese remainder theorem for coprime moduli, valuations with Legendre's formula, arithmetic functions with Dirichlet convolution, and Möbius inversion instantiated at divisor sums. The one unstated statement, the existence half of the Chinese remainder theorem at non-coprime moduli over the integers, is the single node; its uniqueness half is Int.modEq_and_modEq_iff_modEq_lcm. The layer is closed. This pass preserves the inherited closed planning assessment; it is not a fresh proof audit of every arithmetic citation.",
+      "remaining": []
     },
     {
       "stageId": "ClassicalArithmeticCompletion:CA.1",
@@ -26174,7 +26189,9 @@
       "remaining": [
         "Biquadratic (quartic) reciprocity in ℤ[i] with its supplements. The one public statement read (Relyea, Theorem 4.4) is misstated and leaves primary undefined (source issues E203, E204), and gives no proof; Ireland–Rosen chapter 9, Lemmermeyer and Cassels–Fröhlich are not public. A continuation job should obtain a public source that defines primary Gaussian integers (α ≡ 1 mod (1 + i)^3), the quartic character at composite primary elements, and proves the law by Jacobi sums as for cubic reciprocity, and plan it on the power residue symbol with n = 4 in ℚ(i).",
         "The two inputs of Eisenstein reciprocity besides Stickelberger's relation (now FiniteFieldsAndCharacterSums:FF.1/stickelberger-relation), recorded as a gap: once an owner is fixed, decompose Adhikari §4 (Φ(P) and Proposition 4.2, Proposition 4.4, Propositions 4.5–4.6 and the relation (25)) into lemma nodes under the Eisenstein reciprocity node; Katre's article in the same proceedings is the public source to read.",
-        "The explicit reciprocity laws at the places above n (the Hilbert symbol (a, b)_v for v | n, n > 2), which the power reciprocity law leaves as a product of local symbols: Artin–Hasse and Iwasawa formulas, for which no public source was read. The power reciprocity law is planned with those factors kept as Hilbert symbols, so no statement depends on them."
+        "The explicit reciprocity laws at the places above n (the Hilbert symbol (a, b)_v for v | n, n > 2), which the power reciprocity law leaves as a product of local symbols: Artin–Hasse and Iwasawa formulas, for which no public source was read. The power reciprocity law is planned with those factors kept as Hilbert symbols, so no statement depends on them.",
+        "Koymans–Milovic items 3–4 need the number-field quadratic law with explicit dyadic and infinite factors, dependence on the denominator modulo 8 times the numerator, and norm compatibility in a Galois extension. The existing power-reciprocity-law supplies the coprime odd case with unevaluated local symbols; power-residue-symbol-galois-equivariance is not the relative-norm formula. Read FIMR at its full hypotheses before decomposition. Import Hilbert reciprocity and the local symbols from their existing Tau Ceti owners; do not reconstruct them here.",
+        "Calegari–Geraghty ext-zeros-binary-quadratic-form-mod-p remains an exact missing adapter: for odd p and a nonzero binary quadratic form, the number of projective zeros is 1 plus the Legendre symbol of r²−4mn. Separate the chart with m nonzero, the point at infinity when m=0, the repeated-root case and the excluded zero form. The discriminant is not the determinant of the symmetric coefficient matrix."
       ]
     },
     {
@@ -26182,7 +26199,9 @@
       "status": "partial",
       "note": "Built in the pinned libraries and cited as baseline declarations: the solution space of a linear recurrence with its characteristic polynomial, geometric solutions and state shift (LinearRecurrence), Fibonacci strong divisibility and Binet, divisibility of normalised EDS (Tau Ceti), Bernoulli numbers in both conventions with their formal generating functions, Faulhaber, von Staudt–Clausen, ζ(2k) and ζ(−k), Bernoulli polynomials, the binomial theorem and the identities of Vandermonde, Lucas and Kummer, the Catalan, Stirling, Bell, partition and derangement families, (1 − X)^{−d}, base-b digits of naturals with uniqueness, base-b expansions of reals (existence), acceptor DFAs, and the p-adic truncations appr. Planned here (61 nodes, from public sources): the minimal polynomial of a linearly generated sequence and the rationality predicate (kept, corrected); Evertse's closed form of complex recurrences with uniqueness and converse (the DT.2 request) and Stanley's three-way equivalence (kept, reorganised through it); companion matrices in every rank with charpoly = p, the state-vector theorem and eigenvalues without extending scalars; Lucas sequences Uₙ, Vₙ with divisibility and strong divisibility; the Euler zigzag numbers with André's theorem and the formal identity sec + tan; the Taylor-series transfer from formal to analytic identities with the convergent Bernoulli (|z| < 2π) and sec + tan (|z| < π/2) generating functions; the p-adic digit equivalence ℤ_p ≃ (ℕ → Fin p) and uniqueness of real base-b expansions; DFAOs, automatic sequences, kernels (Eilenberg), reading direction, base powers, uniform morphisms (Cobham), Thue–Morse; Cartier operators, Ore relations and Christol's theorem over 𝔽_q; mediants, Farey sequences with the neighbour and mediant properties, and the Stern–Brocot tree. Cobham’s theorem for multiplicatively independent bases is decomposed from Krebs’s complete three-page proof through bounded carries, all-word reversal, finite prefix colours, close powers and overlapping local periods. Its converse promotes the existing eventual-periodicity API; the EDS strong-divisibility source remains missing.",
       "remaining": [
-        "Strong divisibility of integral elliptic divisibility sequences: Ward's theorem that a nondegenerate integral EDS (W₀ = 0, W₁ = 1, W₂W₃ ≠ 0, W₂ ∣ W₄) with gcd(W₃, W₄) = 1 satisfies gcd(W_m, Wₙ) = |W_{gcd(m,n)}|, extending Tau Ceti's isDvdSequence_normEDS. The coprimality hypothesis is needed (W = 0, 1, 1, −6, −6, 210, … has gcd(W₃, W₄) = 6 ≠ |W₁|; checked numerically: over b ≤ 5, |c|, |d| ≤ 6 every failure of strong divisibility has gcd(W₃, W₄) ≠ 1). Ward's memoir (Amer. J. Math. 70 (1948)) is not public and no public source with a proof was obtained (K. Stange's arXiv:0710.1316 does not treat it; J. Silverman's 2007 ICMS lecture slides state strong divisibility without the coprimality hypothesis). A continuation needs a public proof (for instance through denominators of multiples of a point and the formal group, with the reduction layers of the Tau Ceti EllipticCurves roadmap) before planning nodes."
+        "Strong divisibility of integral elliptic divisibility sequences: Ward's theorem that a nondegenerate integral EDS (W₀ = 0, W₁ = 1, W₂W₃ ≠ 0, W₂ ∣ W₄) with gcd(W₃, W₄) = 1 satisfies gcd(W_m, Wₙ) = |W_{gcd(m,n)}|, extending Tau Ceti's isDvdSequence_normEDS. The coprimality hypothesis is needed (W = 0, 1, 1, −6, −6, 210, … has gcd(W₃, W₄) = 6 ≠ |W₁|; checked numerically: over b ≤ 5, |c|, |d| ≤ 6 every failure of strong divisibility has gcd(W₃, W₄) ≠ 1). Ward's memoir (Amer. J. Math. 70 (1948)) is not public and no public source with a proof was obtained (K. Stange's arXiv:0710.1316 does not treat it; J. Silverman's 2007 ICMS lecture slides state strong divisibility without the coprimality hypothesis). A continuation needs a public proof (for instance through denominators of multiples of a point and the formal group, with the reduction layers of the Tau Ceti EllipticCurves roadmap) before planning nodes.",
+        "Lawrence–Sawin 66–67: define the Eulerian descent counts once, with factorial sum, symmetry, recurrence and Appendix C.1–C.5 bounds, including their n,q,r ranges. These are not the existing Euler zigzag numbers or graph Eulerian circuits. State the zero-degree convention separately: the extracted range convention for n≥1 cannot silently force the empty-permutation count to vanish. The Hodge interpretation remains with the hypersurface owner.",
+        "Yu 103–105 and 179: generalized integer binomial divisibility including negative upper entries, the finite product f_p(N) for N≥0, its factorial split and p-adic unit property, and the Luo–Zhu block congruence. Preserve the exclusion p=2, alpha=1 and its separate sign formula. The negative-upper-entry factorization has the sign (−1)^(m(p−1)). Existing binomial arithmetic is a prerequisite, not these four exact statements."
       ]
     },
     {
@@ -26190,18 +26209,31 @@
       "status": "partial",
       "note": "RS-03 narrows CA.3 to the general Smith, Hermite and rational canonical normal forms with reconstruction, divisibility and termination certificates, plus the integer-valued-polynomial and irreducibility refinements the audit records as missing; existing resultant, discriminant and special-case normal-form results are imported. Planned here: the Smith certificate and a terminating Smith algorithm for rectangular and singular integer matrices with uniqueness, the Smith form over a PID, the cokernel reading, the invariant-factor structure theorem over a PID with uniqueness; the Hermite normal form (predicate, certificate, terminating algorithm, uniqueness, the Hermite basis of a sublattice, the index as the product of pivots); invariant factors of an endomorphism, the rational canonical form and the similarity classification; the ring Int(D), Pólya's theorem, the consecutive-values criterion, non-Noetherianity of Int(ℤ), irreducibility of the binomial polynomials, the characteristic ideals and the regular-basis criterion; Capelli's theorem in all characteristics, Perron's criterion, Cohn's criterion in every base, and Newton polygons with Dumas's theorem, the root-valuation theorem and the Eisenstein–Dumas criterion. Perron's weak/equality variant is decomposed through unit-circle exclusion, the existing symmetric Rouché theorem, and an integral-factor adapter shared with the strict variant.",
       "remaining": [
-        "Int(𝓞_K) beyond the definition and the regular-basis criterion: the local formula for the characteristic ideals, Proposition 31 of Cahen–Chabert (Int(𝓞_K) has a regular basis iff every factorial ideal n!_{𝓞_K} is principal) and the Pólya group. Cahen–Chabert state these without proof, citing their book (Chapter II), which is not freely available; no public source with proofs was obtained."
+        "Int(𝓞_K) beyond the definition and the regular-basis criterion: the local formula for the characteristic ideals, Proposition 31 of Cahen–Chabert (Int(𝓞_K) has a regular basis iff every factorial ideal n!_{𝓞_K} is principal) and the Pólya group. Cahen–Chabert state these without proof, citing their book (Chapter II), which is not freely available; no public source with proofs was obtained.",
+        "Bary-Soroker–Koukoulopoulos–Kozma 51 and 58 require the stronger Mignotte Euclidean coefficient-norm bound with sqrt(m) in the exponent and its integer-evaluation consequence. Acquire Mignotte 1988 Theorem 1-prime and the subsequent remarks at their full hypotheses. The basic binomial-times-Mahler coefficient estimate does not imply this stronger bound; retain the correction norm(A)≤H sqrt(n+1).",
+        "Smith 17 (Lemma 2.10): a nonnegative integral combination, after removing the common polynomial gcd, is squarefree of the expected degree with coefficients at most 2(n−deg G). No exact node exists here. Import the existing resultant/discriminant and finite-grid nonvanishing machinery rather than creating a separate interpolation theory."
       ]
     },
     {
       "stageId": "ClassicalArithmeticCompletion:CA.4",
       "status": "partial",
-      "note": "Built in the pinned libraries and cited as baseline: the Pell equation with fundamental solution and classification (Mathlib Pell), Fermat's two-square theorem and the characterisation of sums of two squares, Lagrange's four-square theorem, x⁴ + y⁴ = z² with FLT for n = 3, 4, the classification of Pythagorean triples, solvability of ax + by = n, and the Frobenius number of two coprime generators. Planned here, from public sources read in full: integer linear systems (Stein); the quartic descent T⁴ + V⁴ = 2U² of Bennett–Siksek through Fermat's right-triangle theorem (Conrad); the Markoff surface, Vieta moves, positive tree, reduction modulo p and the definition of strong approximation (Martin items 1–13, with Bourgain–Gamburd–Sarnak and Zhang for the proofs); Legendre's three-square theorem (Ankeny, with the outlined case supplied); Jacobi's two-square (Wuthrich) and four-square (Hirschhorn) theorems; the negative and generalised Pell equations with Chebyshev's bound and the continued-fraction decision procedure (Conrad); Ramanujan–Nagell (Banwait) and Levi ben Gershon's 2ᵃ − 3ᵇ = ±1; numerical semigroups with genus, Apéry sets, Selmer's and Sylvester's formulas and symmetry (Assi–García-Sánchez); Egyptian fractions with the greedy algorithm, existence for every positive rational and Sylvester's identity; and the routing interface (primitive zeros, rational projective points, local solubility, a Weierstrass comparison). Catalan–Mihăilescu is not elementary and has no owner; it is recorded as a gap. Ghosh–Sarnak is not source-decomposed: the existing Markoff nodes cover the coefficient-three theory, while 25 explicit requests enumerate its general level-k work. Three comparison/lemma/theorem nodes now give integral k=0 reuse, root-orbit injection and the corrected exceptional class-number inequality. Their outstanding source inputs are explicit gaps. Gauss-sum normalization imports FF.1; general commutative-ring Fricke coalesces with the pending NonabelianLevelStructures proposal. These gaps block unconditional downstream use of the level-k theory."
+      "note": "Built in the pinned libraries and cited as baseline: the Pell equation with fundamental solution and classification (Mathlib Pell), Fermat's two-square theorem and the characterisation of sums of two squares, Lagrange's four-square theorem, x⁴ + y⁴ = z² with FLT for n = 3, 4, the classification of Pythagorean triples, solvability of ax + by = n, and the Frobenius number of two coprime generators. Planned here, from public sources read in full: integer linear systems (Stein); the quartic descent T⁴ + V⁴ = 2U² of Bennett–Siksek through Fermat's right-triangle theorem (Conrad); the Markoff surface, Vieta moves, positive tree, reduction modulo p and the definition of strong approximation (Martin items 1–13, with Bourgain–Gamburd–Sarnak and Zhang for the proofs); Legendre's three-square theorem (Ankeny, with the outlined case supplied); Jacobi's two-square (Wuthrich) and four-square (Hirschhorn) theorems; the negative and generalised Pell equations with Chebyshev's bound and the continued-fraction decision procedure (Conrad); Ramanujan–Nagell (Banwait) and Levi ben Gershon's 2ᵃ − 3ᵇ = ±1; numerical semigroups with genus, Apéry sets, Selmer's and Sylvester's formulas and symmetry (Assi–García-Sánchez); Egyptian fractions with the greedy algorithm, existence for every positive rational and Sylvester's identity; and the routing interface (primitive zeros, rational projective points, local solubility, a Weierstrass comparison). Catalan–Mihăilescu is not elementary and has no owner; it is recorded as a gap. Ghosh–Sarnak is not source-decomposed: the existing Markoff nodes cover the coefficient-three theory, while 25 explicit requests enumerate its general level-k work. Three comparison/lemma/theorem nodes now give integral k=0 reuse, root-orbit injection and the corrected exceptional class-number inequality. Their outstanding source inputs are explicit gaps. Gauss-sum normalization imports FF.1; general commutative-ring Fricke coalesces with the pending NonabelianLevelStructures proposal. These gaps block unconditional downstream use of the level-k theory.",
+      "remaining": [
+        "Chen 9,10,90: markoff-coefficient-one-zero-orbits already proves the integral scaling and equivariance comparison using the coefficient-three root-generation node. The ring-valued coefficient-one carrier, localization isomorphism over Z[1/3], positive-orbit adapter at (3,3,3), and their typed API still need decomposition. Multiplication by 3 is not an isomorphism over Z or in characteristic 3. Coalesce the general carrier with GMR and Ghosh–Sarnak.",
+        "Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set.",
+        "All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.",
+        "Koymans–Pagano 2–4: the existing generalized-Pell norm fibre and local obstruction are reusable inputs. Package the squarefree negative-Pell set and truncation, the exact rational-solubility criterion and the prime 1 mod 4 integral-solubility theorem. A congruence obstruction is not a sufficient integral criterion: d=34 has the rational solution (5/3,1/3) but no integral solution. Treat d=1 separately from quadratic-field comparisons; class-group and full-ring-of-integers comparisons belong in CA.5.",
+        "Typed signatures for markoff-coefficient-one-zero-orbits, markoff-positive-root-orbits and markoff-exceptional-class-number-lower-bound are absent from the inherited suggested file. The general level-k carrier and finite quotient must be provided before their dependent signatures can be checked without fake assumptions."
+      ]
     },
     {
       "stageId": "ClassicalArithmeticCompletion:CA.5",
-      "status": "source_decomposed",
-      "note": "RS-03 narrows CA.5 to the comparisons between quadratic and cyclotomic presentations, intrinsic integral bases, units, ideals and class groups, and the interpretation of certified matrix and algorithm outputs in those invariants; intrinsic existence and structure stay upstream (Mathlib, Tau Ceti, and the Tau Ceti roadmaps NumberFieldArithmetic and GlobalNumberFields), and ComputationalNumberTheory:CN.2 owns the certified algorithms and their completeness. Planned here: generation of the class group by the primes below the Minkowski bound, the class-group presentation by a family of ideals with its relation lattice, the class group of a complete relation matrix through its Smith form, the divisibility of |det| by h_K for found relations, the regulator-bound certificate for units and the joint class-number–regulator certificate; the Hermite matrix of an ideal in an integral basis with the norm as the product of pivots and the criterion for a Hermite matrix to be an ideal; the discriminant of a sublattice basis (integral-basis certificate), the index of ℤ[√d], Dedekind–Kummer at every prime for a monogenic presentation; Mathlib's ℤ√d inside 𝓞_K, Pell solutions as the norm-one units and the negative Pell equation as units of norm −1, for d ≢ 1 (mod 4) and, through the units of 𝓞_K in ℤ[√d] (d ≡ 1 mod 8) and their cubes (d ≡ 5 mod 8), for d ≡ 1 (mod 4) (added by FIX-RT-PAPER-KOYMANS-PAGANO for RT-PAPER-KOYMANS-PAGANO/5); the worked class groups of ℚ(√−14) and ℚ(√−30); and the interpretation of CN.2's certified outputs, requested from that layer."
+      "status": "partial",
+      "note": "RS-03 narrows CA.5 to the comparisons between quadratic and cyclotomic presentations, intrinsic integral bases, units, ideals and class groups, and the interpretation of certified matrix and algorithm outputs in those invariants; intrinsic existence and structure stay upstream (Mathlib, Tau Ceti, and the Tau Ceti roadmaps NumberFieldArithmetic and GlobalNumberFields), and ComputationalNumberTheory:CN.2 owns the certified algorithms and their completeness. Planned here: generation of the class group by the primes below the Minkowski bound, the class-group presentation by a family of ideals with its relation lattice, the class group of a complete relation matrix through its Smith form, the divisibility of |det| by h_K for found relations, the regulator-bound certificate for units and the joint class-number–regulator certificate; the Hermite matrix of an ideal in an integral basis with the norm as the product of pivots and the criterion for a Hermite matrix to be an ideal; the discriminant of a sublattice basis (integral-basis certificate), the index of ℤ[√d], Dedekind–Kummer at every prime for a monogenic presentation; Mathlib's ℤ√d inside 𝓞_K, Pell solutions as the norm-one units and the negative Pell equation as units of norm −1, for d ≢ 1 (mod 4) and, through the units of 𝓞_K in ℤ[√d] (d ≡ 1 mod 8) and their cubes (d ≡ 5 mod 8), for d ≡ 1 (mod 4) (added by FIX-RT-PAPER-KOYMANS-PAGANO for RT-PAPER-KOYMANS-PAGANO/5); the worked class groups of ℚ(√−14) and ℚ(√−30); and the interpretation of CN.2's certified outputs, requested from that layer. Current coverage is partial: the unit bridge has signatures, but the source-route comparison and certification contracts below remain.",
+      "remaining": [
+        "Preserve the CN.2 request for certified basis/ideal/relation/unit outputs, with completeness and error certificates. CA.5 interprets them; it supplies no reverse CA.5→CN.2 algorithm prerequisite. A terminated relation search proves neither a complete class group nor a fundamental unit system.",
+        "The reviewed order-to-unit comparison for d=1 mod 4 now has all four missing API signatures and its four stated acceptance examples in the suggested file. This is typed planning with admitted proofs. Koymans–Pagano route 7 names items 5,9,12, but its positional route verdict is still absent; record that queue boundary rather than inventing acceptance. Their final 2-primary class-group, narrow-principal-class and unit Galois-module comparisons are still to be connected explicitly to the existing order bridge and pinned unit/class-group results. The degree-one d=1 case is excluded by d>1."
+      ]
     },
     {
       "stageId": "ClassicalArithmeticCompletion:CA.6",
@@ -26209,7 +26241,10 @@
       "note": "RS-03 narrows CA.6 to Pisot/Salem numbers, the selected lower bounds (Smyth, Dobrowolski, Schinzel-Zassenhaus by Dimitrov) and the dynamical-height comparison, with the Mahler measure, house, absolute height, Kronecker and Northcott imported. The layer is planned from Smyth's Mahler-measure survey (now obtained, arXiv:math/0701397), Smyth's Salem survey, Dimitrov's paper and Berrevoets's thesis (complete proofs of Dobrowolski's house bound and of Dobrowolski's theorem with constant 1/11700): 45 nodes. The Mahler measure of an algebraic number, the house, the primitive minimal polynomial and the comparison log M(α) = deg α · h(α) are DiophantineApproximationAndTranscendence:DT.0 nodes and are cited, not re-planned; Mathlib supplies M of polynomials, Kronecker and Northcott. Two analytic inputs have no source or no owner (the gaps), and three inputs are requested (DT.0, AN.2, DY.1). Lehmer's problem is a conjecture and is recorded in the document only.",
       "remaining": [
         "Decompose the analytic step of Smyth's theorem (Schur's coefficient conditions for functions bounded by 1 on the disc, applied to F = f/g) once Smyth 1971 or another public proof is obtained; until then CA.6/smyth-nonreciprocal-lower-bound and CA.6/plastic-number-least-pisot rest on the gap 'The analytic core of Smyth's nonreciprocal bound has no public source'.",
-        "Give the potential-theoretic inputs of Dimitrov's theorem (transfinite diameter, Dubinin's hedgehog theorem, Bertrandias's rationality theorem) an owner (restructure proposal) and replace the gap by its node ids in CA.6/schinzel-zassenhaus-dimitrov."
+        "Give the potential-theoretic inputs of Dimitrov's theorem (transfinite diameter, Dubinin's hedgehog theorem, Bertrandias's rationality theorem) an owner (restructure proposal) and replace the gap by its node ids in CA.6/schinzel-zassenhaus-dimitrov.",
+        "Smith 1–3: the totally positive integer trace ratio, the finite-exception threshold lambda_SSS and the resultant-based auxiliary-polynomial bound remain to be planned. The assertion lambda_SSS=2 is the historical trace problem, contradicted by Smith’s theorem in its separate owner; do not introduce it as a theorem or as an open conjecture the source still endorses. Keep the classical lower bounds source-scoped and preserve the coprimality of the minimal polynomial with every auxiliary polynomial.",
+        "BKK 69 requires a stronger asymptotic Dobrowolski constant and a uniform bounded-degree completion than CA.6/dobrowolski-lower-bound, whose recorded constant is 1/11700. That node does not imply the requested exponential lower bound with L(m)=2(log m/loglog m)^3. BKK 70 bounds the number of primes causing a degree drop for a nonzero algebraic number; CA.6/degree-drop-mahler-measure only constructs a smaller-degree algebraic integer with controlled Mahler measure. Neither nearby theorem closes the requested contract.",
+        "The current Smith route proposes LogarithmicPotentialTheoryAndAlgebraicIntegers as the common complex capacity/equilibrium foundation and explicitly exposes it to the Dimitrov consumer. No roadmap definition or packet of that name exists at this base. The inherited assertion that there is no proposed owner is superseded, but there are still no supplier nodes to import. Dubinin’s specialized hedgehog bound and Bertrandias’s arithmetic rationality input remain distinct obligations; generic potential foundations must precede CA.6, while the classical trace constant feeds later Smith arithmetic stages, avoiding a cycle."
       ]
     },
     {
@@ -26219,7 +26254,8 @@
       "remaining": [
         "The proofs of Fröhlich's kernel-group theorem and Taylor's Theorem 1 (see the gap on the Fröhlich–Taylor theorems): Fröhlich's Hom-description of Cl(ℤΓ), the root number class t(W), Galois Gauss sums and the group logarithm.",
         "Jacobinski's cancellation theorem under the Eichler condition, needed for the freeness corollary of Taylor's theorem.",
-        "Reiner's Theorem 27.4 for orders in semisimple algebras (every locally free class is represented by a locally free ideal), public only for simple algebras (Voight Proposition 20.7.4)."
+        "Reiner's Theorem 27.4 for orders in semisimple algebras (every locally free class is represented by a locally free ideal), public only for simple algebras (Voight Proposition 20.7.4).",
+        "Keep rational normal bases separate from integral normal bases and local freeness separate from global freeness. The inherited Fröhlich–Taylor, cancellation and semisimple rank-one class gaps remain. KTheoryLowDegrees is a supplier of K0 infrastructure, not a reason to reconstruct it in CA.7. The existing split proposals are proposals only; accepted RS-03 keeps this stage and its forwarded CN.2 input in place."
       ]
     }
   ],
@@ -26251,11 +26287,11 @@
       "detail": "Smyth's theorem (M(α) ≥ θ₀ for a nonzero nonreciprocal algebraic integer) is stated in Smyth's survey (15), printed p. 328, with an outline: the integer power series F = P(0)P/P* (CA.6/smyth-integer-power-series), its factorisation F = f/g into functions bounded by 1 on the unit disc with f(0) = g(0) = M(P)⁻¹, and Schur's characterisation of the coefficients of such functions. The step turning these into the constant θ₀ is in Smyth, On the product of the conjugates outside the unit circle of an algebraic integer, Bull. London Math. Soc. 3 (1971), 169-175, which is not served publicly (the publisher's pages answer automated requests with a challenge page and the author's paper list does not include it); no other public source reproducing the argument was found (searched: arXiv, the author's page, the expositions of Borwein-Hare-Mossinghoff and Saunders, which reach only (1 + √17)/4). Schur's coefficient theorem for bounded analytic functions is also absent from Mathlib and planned by no roadmap. The node carries the outline and the gap; Siegel's theorem on the smallest Pisot number inherits it."
     },
     {
-      "title": "Transfinite diameter, Dubinin's hedgehog theorem and Bertrandias's rationality theorem are planned by no roadmap",
+      "title": "Potential-theory supplier proposal exists; specialized inputs remain open",
       "neededBy": [
         "ClassicalArithmeticCompletion:CA.6/schinzel-zassenhaus-dimitrov"
       ],
-      "detail": "Dimitrov's proof of the Schinzel-Zassenhaus conjecture (arXiv:1912.12545v1, pp. 12-16) uses three inputs from potential theory: the transfinite diameter (logarithmic capacity) of a compact subset of ℂ; Dubinin's theorem (Theorem 3) that the hedgehog K(a₁, …, a_n), the union of the segments [0, a_i], has transfinite diameter at most (max|a_i|^n/4)^{1/n}; and Bertrandias's rationality theorem (Theorem 4, Corollary 5), that a power series in ℤ[[1/X]] continuing analytically to the complement of a compact set of transfinite diameter < 1 is a rational function. Mathlib has none of these, the atlas has no roadmap for logarithmic capacity or for Pólya-Carlson-Bertrandias rationality criteria (DT.5 plans G-functions but not this criterion), and the source cites Dubinin's book and Amice's 'Les nombres p-adiques' (not public) for the proofs, giving only an outline of Bertrandias's argument (Hankel determinants bounded through Chebyshev polynomials of the compact set). The arithmetic half of the proof is planned here (CA.6/root-power-polynomial-congruence, CA.6/integral-square-root-power-series, CA.6/root-power-polynomial-square-cyclotomic); the analytic half needs an owner, which the restructure list proposes."
+      "detail": "Dimitrov's proof of the Schinzel-Zassenhaus conjecture (arXiv:1912.12545v1, pp. 12-16) uses three inputs from potential theory: the transfinite diameter (logarithmic capacity) of a compact subset of ℂ; Dubinin's theorem (Theorem 3) that the hedgehog K(a₁, …, a_n), the union of the segments [0, a_i], has transfinite diameter at most (max|a_i|^n/4)^{1/n}; and Bertrandias's rationality theorem (Theorem 4, Corollary 5), that a power series in ℤ[[1/X]] continuing analytically to the complement of a compact set of transfinite diameter < 1 is a rational function. Mathlib has none of these, the atlas has no roadmap for logarithmic capacity or for Pólya-Carlson-Bertrandias rationality criteria (DT.5 plans G-functions but not this criterion), and the source cites Dubinin's book and Amice's 'Les nombres p-adiques' (not public) for the proofs, giving only an outline of Bertrandias's argument (Hankel determinants bounded through Chebyshev polynomials of the compact set). The arithmetic half of the proof is planned here (CA.6/root-power-polynomial-congruence, CA.6/integral-square-root-power-series, CA.6/root-power-polynomial-square-cyclotomic); the analytic half needs an owner, which the restructure list proposes. Current continuation: The current Smith route proposes LogarithmicPotentialTheoryAndAlgebraicIntegers as the common complex capacity/equilibrium foundation and explicitly exposes it to the Dimitrov consumer. No roadmap definition or packet of that name exists at this base. The inherited assertion that there is no proposed owner is superseded, but there are still no supplier nodes to import. Dubinin’s specialized hedgehog bound and Bertrandias’s arithmetic rationality input remain distinct obligations; generic potential foundations must precede CA.6, while the classical trace constant feeds later Smith arithmetic stages, avoiding a cycle."
     },
     {
       "title": "The Fröhlich–Taylor theorems are stated, not decomposed",
@@ -26287,6 +26323,84 @@
         "ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound"
       ],
       "detail": "The existing Martin/BGS coefficient-three nodes do not supply V_k, the signed Γ quotient, Δ, F±, class numbers/finiteness, generic/exceptional predicates, the local-solubility theorem or the Hasse-failure results. The 25 explicit CA.4 requests enumerate the still-missing extraction items; root-orbit and class-number nodes depend on that contract. Coalesce the carrier and descent with GMR/1,5. ArithmeticDynamics Part II imports are conditional until this work is decomposed. The pending NonabelianLevelStructures early trace prefix supplies the ring-valued Fricke identity; the explicit Corollary 6.3 point alternatively uses direct algebra. No fictional stage or closed source coverage is asserted. The descent contract for item 7 must account explicitly for the coordinate-two exceptional branch; it does not assert that S⁺ plus points with a coordinate 0 or 1 exhausts every exceptional orbit. The corrected inequality uses only the independently checked absolute-coordinate-at-least-3 component."
+    },
+    {
+      "title": "Number-field reciprocity adapters",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.1"
+      ],
+      "detail": "Koymans–Milovic items 3–4 need the number-field quadratic law with explicit dyadic and infinite factors, dependence on the denominator modulo 8 times the numerator, and norm compatibility in a Galois extension. The existing power-reciprocity-law supplies the coprime odd case with unevaluated local symbols; power-residue-symbol-galois-equivariance is not the relative-norm formula. Read FIMR at its full hypotheses before decomposition. Import Hilbert reciprocity and the local symbols from their existing Tau Ceti owners; do not reconstruct them here."
+    },
+    {
+      "title": "Projective binary-quadratic zero count",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.1"
+      ],
+      "detail": "Calegari–Geraghty ext-zeros-binary-quadratic-form-mod-p remains an exact missing adapter: for odd p and a nonzero binary quadratic form, the number of projective zeros is 1 plus the Legendre symbol of r²−4mn. Separate the chart with m nonzero, the point at infinity when m=0, the repeated-root case and the excluded zero form. The discriminant is not the determinant of the symmetric coefficient matrix."
+    },
+    {
+      "title": "Eulerian counts and exact binomial congruences",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.2"
+      ],
+      "detail": "Lawrence–Sawin 66–67: define the Eulerian descent counts once, with factorial sum, symmetry, recurrence and Appendix C.1–C.5 bounds, including their n,q,r ranges. These are not the existing Euler zigzag numbers or graph Eulerian circuits. State the zero-degree convention separately: the extracted range convention for n≥1 cannot silently force the empty-permutation count to vanish. The Hodge interpretation remains with the hypersurface owner. Yu 103–105 and 179: generalized integer binomial divisibility including negative upper entries, the finite product f_p(N) for N≥0, its factorial split and p-adic unit property, and the Luo–Zhu block congruence. Preserve the exclusion p=2, alpha=1 and its separate sign formula. The negative-upper-entry factorization has the sign (−1)^(m(p−1)). Existing binomial arithmetic is a prerequisite, not these four exact statements."
+    },
+    {
+      "title": "Sharper polynomial factor bounds and squarefree combinations",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.3"
+      ],
+      "detail": "Bary-Soroker–Koukoulopoulos–Kozma 51 and 58 require the stronger Mignotte Euclidean coefficient-norm bound with sqrt(m) in the exponent and its integer-evaluation consequence. Acquire Mignotte 1988 Theorem 1-prime and the subsequent remarks at their full hypotheses. The basic binomial-times-Mahler coefficient estimate does not imply this stronger bound; retain the correction norm(A)≤H sqrt(n+1). Smith 17 (Lemma 2.10): a nonnegative integral combination, after removing the common polynomial gcd, is squarefree of the expected degree with coefficients at most 2(n−deg G). No exact node exists here. Import the existing resultant/discriminant and finite-grid nonvanishing machinery rather than creating a separate interpolation theory."
+    },
+    {
+      "title": "Markoff normalization and higher-variable continuation",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "detail": "Chen 9,10,90: markoff-coefficient-one-zero-orbits already proves the integral scaling and equivariance comparison using the coefficient-three root-generation node. The ring-valued coefficient-one carrier, localization isomorphism over Z[1/3], positive-orbit adapter at (3,3,3), and their typed API still need decomposition. Multiplication by 3 is not an isomorphism over Z or in characteristic 3. Coalesce the general carrier with GMR and Ghosh–Sarnak. Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set."
+    },
+    {
+      "title": "Negative Pell source adapters",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "detail": "Koymans–Pagano 2–4: the existing generalized-Pell norm fibre and local obstruction are reusable inputs. Package the squarefree negative-Pell set and truncation, the exact rational-solubility criterion and the prime 1 mod 4 integral-solubility theorem. A congruence obstruction is not a sufficient integral criterion: d=34 has the rational solution (5/3,1/3) but no integral solution. Treat d=1 separately from quadratic-field comparisons; class-group and full-ring-of-integers comparisons belong in CA.5."
+    },
+    {
+      "title": "Post-fix Markoff signature coverage",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "detail": "Typed signatures for markoff-coefficient-one-zero-orbits, markoff-positive-root-orbits and markoff-exceptional-class-number-lower-bound are absent from the inherited suggested file. The general level-k carrier and finite quotient must be provided before their dependent signatures can be checked without fake assumptions."
+    },
+    {
+      "title": "Narrow-class and unit-module comparisons",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.5"
+      ],
+      "detail": "The reviewed order-to-unit comparison for d=1 mod 4 now has all four missing API signatures and its four stated acceptance examples in the suggested file. This is typed planning with admitted proofs. Koymans–Pagano route 7 names items 5,9,12, but its positional route verdict is still absent; record that queue boundary rather than inventing acceptance. Their final 2-primary class-group, narrow-principal-class and unit Galois-module comparisons are still to be connected explicitly to the existing order bridge and pinned unit/class-group results. The degree-one d=1 case is excluded by d>1."
+    },
+    {
+      "title": "Classical trace constants and auxiliary-polynomial method",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "detail": "Smith 1–3: the totally positive integer trace ratio, the finite-exception threshold lambda_SSS and the resultant-based auxiliary-polynomial bound remain to be planned. The assertion lambda_SSS=2 is the historical trace problem, contradicted by Smith’s theorem in its separate owner; do not introduce it as a theorem or as an open conjecture the source still endorses. Keep the classical lower bounds source-scoped and preserve the coprimality of the minimal polynomial with every auxiliary polynomial."
+    },
+    {
+      "title": "Stronger Dobrowolski and prime degree-drop contracts",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "detail": "BKK 69 requires a stronger asymptotic Dobrowolski constant and a uniform bounded-degree completion than CA.6/dobrowolski-lower-bound, whose recorded constant is 1/11700. That node does not imply the requested exponential lower bound with L(m)=2(log m/loglog m)^3. BKK 70 bounds the number of primes causing a degree drop for a nonzero algebraic number; CA.6/degree-drop-mahler-measure only constructs a smaller-degree algebraic integer with controlled Mahler measure. Neither nearby theorem closes the requested contract."
+    },
+    {
+      "title": "Six inherited supplier requests lack a drawn stage path",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.1",
+        "ClassicalArithmeticCompletion:CA.7"
+      ],
+      "detail": "The actual atlas comparison preserves every accepted restructuring path, but six inherited requests have no drawn supplier-to-consumer path: ClassFieldTheory layers 6 and 14, GlobalQuadraticForms layer 4 and QuadraticFormInvariants 6C to CA.1; ClassFieldTheory layer 13 and CharacterTheory layer 7 to CA.7. Their exact mathematical contracts remain in requests, and the scoped dependency audit includes those requested inputs. This pass does not claim that the stage atlas already draws them or edit upstream roadmaps/link maps. Reconcile the existing requests and node prerequisites in the corresponding follow-ups."
     }
   ],
   "requests": [
@@ -26791,8 +26905,8 @@
         "ClassicalArithmeticCompletion",
         "DiophantineApproximationAndTranscendence"
       ],
-      "detail": "Dimitrov's proof of the Schinzel-Zassenhaus conjecture (CA.6/schinzel-zassenhaus-dimitrov) needs the transfinite diameter (logarithmic capacity) of compact subsets of ℂ, Dubinin's bound for hedgehogs and the Pólya-Carlson-Bertrandias rationality theorem for integer power series. No roadmap of the atlas plans potential theory in the plane or arithmetic rationality criteria; DT.5 (E/G-functions) is the nearest, and André's G-function theory contains the same rationality criteria (the source notes that André's theorem VIII 1.6 can replace Bertrandias's).",
-      "proposal": "Add to DiophantineApproximationAndTranscendence:DT.5 the targets 'transfinite diameter of a compact subset of ℂ with its monotonicity and the value for segments and rotationally symmetric hedgehogs; Dubinin's hedgehog bound; the Pólya-Carlson-Bertrandias rationality theorem for power series in 𝓞_{F,S}[[1/X]]', consumed by ClassicalArithmeticCompletion:CA.6; or create a small roadmap 'Arithmetic algebraization and capacity' with these three targets, with DT.5 and CA.6 as consumers."
+      "detail": "Dimitrov's proof of the Schinzel-Zassenhaus conjecture (CA.6/schinzel-zassenhaus-dimitrov) needs the transfinite diameter (logarithmic capacity) of compact subsets of ℂ, Dubinin's bound for hedgehogs and the Pólya-Carlson-Bertrandias rationality theorem for integer power series. No roadmap of the atlas plans potential theory in the plane or arithmetic rationality criteria; DT.5 (E/G-functions) is the nearest, and André's G-function theory contains the same rationality criteria (the source notes that André's theorem VIII 1.6 can replace Bertrandias's). Current continuation: The current Smith route proposes LogarithmicPotentialTheoryAndAlgebraicIntegers as the common complex capacity/equilibrium foundation and explicitly exposes it to the Dimitrov consumer. No roadmap definition or packet of that name exists at this base. The inherited assertion that there is no proposed owner is superseded, but there are still no supplier nodes to import. Dubinin’s specialized hedgehog bound and Bertrandias’s arithmetic rationality input remain distinct obligations; generic potential foundations must precede CA.6, while the classical trace constant feeds later Smith arithmetic stages, avoiding a cycle.",
+      "proposal": "Coordinate the inherited request with the current Smith proposal LogarithmicPotentialTheoryAndAlgebraicIntegers for general complex capacity, and the CDT ArithmeticAlgebraizationAndHolonomyBounds direction for specialized arithmetic rationality. Confirm the exact Dubinin and Bertrandias ownership before adding supplier nodes. No rescope or new atlas layer is applied by this pass."
     },
     {
       "action": "rescope",
@@ -27915,5 +28029,814 @@
       "date": "2026-09-30",
       "notes": "Codex — codex-J6LwjP independently reviewed Claude Code cc-f805bf’s fix for confirmed medium findings /1-/5, following REV-RT-PAPER-KOYMANS-PAGANO. No prior top-level review object. Checked /5’s mod-8 order/unit bridge against the pinned declarations and fresh Conrad sources; added its named API, uses and unit tests, and excluded the degree-one d=1 case from the direct supplier’s norm/bijectivity clauses. Other extraction changes were checked read-only, including qualified library/planned status, Jutila/Smith attribution and route-7 separation. The extraction’s historical route-review verdicts remain untouched. Low findings /6-/13 were not part of the fix. Acceptance is for these scoped fixes and clear corrections, not proof closure of the partial packet. The report records source hashes, finite checks and all limitations; no Lean file was assigned or compiled."
     }
-  ]
+  ],
+  "sourceRouting": [
+    {
+      "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/51",
+      "name": "Evaluation bound for an irreducible integral factor",
+      "locator": "arXiv v3, Lemma 3.4, pp. 20–21",
+      "sourceRecord": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.3",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Bary-Soroker–Koukoulopoulos–Kozma 51 and 58 require the stronger Mignotte Euclidean coefficient-norm bound with sqrt(m) in the exponent and its integer-evaluation consequence. Acquire Mignotte 1988 Theorem 1-prime and the subsequent remarks at their full hypotheses. The basic binomial-times-Mahler coefficient estimate does not imply this stronger bound; retain the correction norm(A)≤H sqrt(n+1)."
+    },
+    {
+      "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/58",
+      "name": "Stronger Mignotte input for factor l2 norms",
+      "locator": "arXiv v3, Lemma 3.4 proof p. 20",
+      "sourceRecord": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.3",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Bary-Soroker–Koukoulopoulos–Kozma 51 and 58 require the stronger Mignotte Euclidean coefficient-norm bound with sqrt(m) in the exponent and its integer-evaluation consequence. Acquire Mignotte 1988 Theorem 1-prime and the subsequent remarks at their full hypotheses. The basic binomial-times-Mahler coefficient estimate does not imply this stronger bound; retain the correction norm(A)≤H sqrt(n+1)."
+    },
+    {
+      "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/69",
+      "name": "Dobrowolski lower-bound input",
+      "locator": "§7, p. 37, citing Dobrowolski [8]; E21",
+      "sourceRecord": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.6",
+      "status": "open",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.6/dobrowolski-lower-bound"
+      ],
+      "note": "BKK 69 requires a stronger asymptotic Dobrowolski constant and a uniform bounded-degree completion than CA.6/dobrowolski-lower-bound, whose recorded constant is 1/11700. That node does not imply the requested exponential lower bound with L(m)=2(log m/loglog m)^3. BKK 70 bounds the number of primes causing a degree drop for a nonzero algebraic number; CA.6/degree-drop-mahler-measure only constructs a smaller-degree algebraic integer with controlled Mahler measure. Neither nearby theorem closes the requested contract."
+    },
+    {
+      "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/70",
+      "name": "Few primes drop algebraic degree",
+      "locator": "arXiv v3, §7 p. 37; Dobrowolski[8], Lemma 3",
+      "sourceRecord": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.6",
+      "status": "open",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.6/degree-drop-mahler-measure"
+      ],
+      "note": "BKK 69 requires a stronger asymptotic Dobrowolski constant and a uniform bounded-degree completion than CA.6/dobrowolski-lower-bound, whose recorded constant is 1/11700. That node does not imply the requested exponential lower bound with L(m)=2(log m/loglog m)^3. BKK 70 bounds the number of primes causing a degree drop for a nonzero algebraic number; CA.6/degree-drop-mahler-measure only constructs a smaller-degree algebraic integer with controlled Mahler measure. Neither nearby theorem closes the requested contract."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/72",
+      "name": "Primitive character of a rational squareclass",
+      "locator": "§6, Lemma 6.2 and Proposition 6.1; §7 Lemma 7.3",
+      "sourceRecord": "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.1",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.1/quadratic-character-of-a-squareclass"
+      ],
+      "note": "Use the full inherited hypotheses and convention; no duplicate definition or weaker Fermat substitute."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/81",
+      "name": "Quartic descent input",
+      "locator": "§6, Case II, p. 372",
+      "sourceRecord": "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/quartic-descent-t4-plus-v4-equals-2u2"
+      ],
+      "note": "Use the full inherited hypotheses and convention; no duplicate definition or weaker Fermat substitute."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/152",
+      "name": "Quadratic primitive conductors are at most eight times their odd part",
+      "locator": "§§6–8, pp. 366, 375 (used with N=2^kappa*N_1, kappa in {0,1,2} as printed in the proof of Lemma 7.3; split from item 86 by the reviewer)",
+      "sourceRecord": "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.1",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.1/two-adic-conductor-bound"
+      ],
+      "note": "Use the full inherited hypotheses and convention; no duplicate definition or weaker Fermat substitute."
+    },
+    {
+      "id": "PAPER-CALEGARI-GERAGHTY-20/ext-zeros-binary-quadratic-form-mod-p",
+      "name": "Zeros of a binary quadratic form over F_p",
+      "locator": "§8.7, proof of Lemma 8.21, p. 873",
+      "sourceRecord": "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.1",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Calegari–Geraghty ext-zeros-binary-quadratic-form-mod-p remains an exact missing adapter: for odd p and a nonzero binary quadratic form, the number of projective zeros is 1 plus the Legendre symbol of r²−4mn. Separate the chart with m nonzero, the point at infinity when m=0, the repeated-root case and the excluded zero form. The discriminant is not the determinant of the symmetric coefficient matrix."
+    },
+    {
+      "id": "PAPER-CHEN-24/5",
+      "name": "Exterior epimorphisms, Nielsen equivalence classes and T-systems",
+      "locator": "arXiv:2011.12940v2 (19 June 2021), §1, p. 3, (1); §1.1, p. 5 (Nielsen equivalence, T_r-systems, d(G)); §1.6, p. 12",
+      "sourceRecord": "research/blueprint/papers/PAPER-CHEN-24.result.json",
+      "stage": "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
+      "status": "elsewhere",
+      "nearbyNodes": [],
+      "note": "This incidental issue reference is routed to InverseGaloisAndArithmeticFundamentalGroups (route 3), not to CA.4."
+    },
+    {
+      "id": "PAPER-CHEN-24/9",
+      "name": "The Markoff surface in trace coordinates and its nonzero points",
+      "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2.1, p. 6, and (3); also §5.5, p. 80",
+      "sourceRecord": "research/blueprint/papers/PAPER-CHEN-24.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "partial_interface",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-coefficient-one-zero-orbits",
+        "ClassicalArithmeticCompletion:CA.4/markoff-root-generation"
+      ],
+      "note": "Chen 9,10,90: markoff-coefficient-one-zero-orbits already proves the integral scaling and equivariance comparison using the coefficient-three root-generation node. The ring-valued coefficient-one carrier, localization isomorphism over Z[1/3], positive-orbit adapter at (3,3,3), and their typed API still need decomposition. Multiplication by 3 is not an isomorphism over Z or in characteristic 3. Coalesce the general carrier with GMR and Ghosh–Sarnak."
+    },
+    {
+      "id": "PAPER-CHEN-24/10",
+      "name": "Markoff's theorem on positive integral solutions (Theorem 1.2.1)",
+      "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2.1, p. 6, Theorem 1.2.1, quoting [Mar79, Mar80]",
+      "sourceRecord": "research/blueprint/papers/PAPER-CHEN-24.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "partial_interface",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-coefficient-one-zero-orbits",
+        "ClassicalArithmeticCompletion:CA.4/markoff-root-generation"
+      ],
+      "note": "Chen 9,10,90: markoff-coefficient-one-zero-orbits already proves the integral scaling and equivariance comparison using the coefficient-three root-generation node. The ring-valued coefficient-one carrier, localization isomorphism over Z[1/3], positive-orbit adapter at (3,3,3), and their typed API still need decomposition. Multiplication by 3 is not an isomorphism over Z or in characteristic 3. Coalesce the general carrier with GMR and Ghosh–Sarnak."
+    },
+    {
+      "id": "PAPER-CHEN-24/90",
+      "name": "The Markoff surface, its twist and the induced Γ-action (§5.5)",
+      "locator": "arXiv:2011.12940v2 (19 June 2021), §5.5, pp. 80–81",
+      "sourceRecord": "research/blueprint/papers/PAPER-CHEN-24.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "partial_interface",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-coefficient-one-zero-orbits",
+        "ClassicalArithmeticCompletion:CA.4/markoff-root-generation"
+      ],
+      "note": "Chen 9,10,90: markoff-coefficient-one-zero-orbits already proves the integral scaling and equivariance comparison using the coefficient-three root-generation node. The ring-valued coefficient-one carrier, localization isomorphism over Z[1/3], positive-orbit adapter at (3,3,3), and their typed API still need decomposition. Multiplication by 3 is not an isomorphism over Z or in characteristic 3. Coalesce the general carrier with GMR and Ghosh–Sarnak."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/1",
+      "name": "The Markoff–Hurwitz equation, its tuples and moves",
+      "locator": "§1, (1.1), pp.2, 4, arXiv:1603.06267v3; Annals (2019): §1, (1.1), pp.752,755.",
+      "sourceRecord": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/positive-markoff-triples",
+        "ClassicalArithmeticCompletion:CA.4/markoff-vieta-involution",
+        "ClassicalArithmeticCompletion:CA.4/markoff-descent-inequality",
+        "ClassicalArithmeticCompletion:CA.4/markoff-root-generation"
+      ],
+      "note": "Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/2",
+      "name": "Exceptional solutions (Definition 15, Remark 4)",
+      "locator": "Definition 15, Remark 4, pp.3, 11–12, arXiv:1603.06267v3; Annals (2019): Definition 15, pp.765–766; Remark 4, p.754.",
+      "sourceRecord": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/3",
+      "name": "Passage from V(ℤ) to V(ℤ₊) (§2.1)",
+      "locator": "§2.1, pp.12–13, arXiv:1603.06267v3; Annals (2019): §2.1, pp.766–767.",
+      "sourceRecord": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/4",
+      "name": "Proposition 16 (behaviour of the moves outside a compact set)",
+      "locator": "Proposition 16 and proof, pp.13–15, adapting Cassels [Cas57, p.27], arXiv:1603.06267v3 (error E3 in the scope of part 3); Annals (2019): Proposition 18, pp.767–770.",
+      "sourceRecord": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/5",
+      "name": "Corollary 17 (infinite descent)",
+      "locator": "Corollary 17, p.15, citing [Mar80], [Hur07], [Bar94b], arXiv:1603.06267v3; Annals (2019): Corollary 19, p.770.",
+      "sourceRecord": "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/positive-markoff-triples",
+        "ClassicalArithmeticCompletion:CA.4/markoff-vieta-involution",
+        "ClassicalArithmeticCompletion:CA.4/markoff-descent-inequality",
+        "ClassicalArithmeticCompletion:CA.4/markoff-root-generation"
+      ],
+      "note": "Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/3",
+      "name": "The Markoff cubic M and its level surfaces V_k",
+      "locator": "§1, (1.4), p.3; §2, (2.1), p.9; (9.6), p.27, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/3 — The Markoff cubic M and its level surfaces V_k. M(x) = x₁² + x₂² + x₃² − x₁x₂x₃ and V_k = V_{k,M} : M(x) = k for k ∈ ℤ (1.4), (2.1). Changing the sign of one coordinate identifies V_k with x₁² + x₂² + x₃² + x₁x₂x₃ = k (9.6). V₀(ℤ) is {(0,0,0)} together with the triples 3·(Markoff triples); V₄ is the singular Cayley cubic. Source: §1, (1.4), p.3; §2, (2.1), p.9; (9.6), p.27, arXiv:1706.06712v3 (final version). The coefficient-one normalisation. PAPER-MARTIN-25 uses the coefficient-three equation x²+y²+z² = 3xyz; the two are related by x ↦ 3x at k = 0 only. Routed to ClassicalArithmeticCompletion CA.4 as a source. Shared CA.4 source contract: PAPER-GAMBURD-MAGEE-RONAN-19/1 has V_{n,a,k} and the Vieta moves; n=3,a=1 gives this cubic and these moves. Coalesce the carrier and descent machinery with GMR/5, retaining the level/sign-specific hypotheses and Γ’s permutation/double-sign extension. The coefficient-three integral theory is related by x=3y only at k=0; no reduction-mod-3 equivalence is claimed. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/4",
+      "name": "The Markoff group Γ and narrow equivalence",
+      "locator": "§1, p.3; §2, p.9; §4.1, p.13, arXiv:1706.06712v3 (final version) (misprint E4 in the formula for V₂)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/4 — The Markoff group Γ and narrow equivalence. Γ is the group of polynomial affine transformations of 𝔸³ generated by the Vieta involutions V₁(x) = (x₂x₃ − x₁, x₂, x₃), V₂(x) = (x₁, x₁x₃ − x₂, x₃), V₃(x) = (x₁, x₂, x₁x₂ − x₃), the permutations of the coordinates and the changes of sign of two coordinates. Γ preserves M, hence each V_k(ℤ). Narrow equivalence uses only permutations and double sign changes. Source: §1, p.3; §2, p.9; §4.1, p.13, arXiv:1706.06712v3 (final version) (misprint E4 in the formula for V₂). Routed to ClassicalArithmeticCompletion CA.4 as a source. Shared CA.4 source contract: PAPER-GAMBURD-MAGEE-RONAN-19/1 has V_{n,a,k} and the Vieta moves; n=3,a=1 gives this cubic and these moves. Coalesce the carrier and descent machinery with GMR/5, retaining the level/sign-specific hypotheses and Γ’s permutation/double-sign extension. The coefficient-three integral theory is related by x=3y only at k=0; no reduction-mod-3 equivalence is claimed. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/5",
+      "name": "Class numbers h_M(k) and h^±_M(k)",
+      "locator": "§1, pp.3–5, (d), arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound"
+      ],
+      "note": "PAPER-GHOSH-SARNAK-22/5 — Class numbers h_M(k) and h^±_M(k). For k ≠ 4, h_M(k) is the finite number of Γ-orbits in V_k(ℤ), and is zero for an empty integral locus. For k ≥ 5 put h⁺_M(k) = |F⁺_k(ℤ)|; for k < 0 put h⁻_M(k) = |F⁻_k(ℤ)|. For generic k these agree with h_M(k). For exceptional k ≥ 5 the corrected inequality is h_M(k) ≥ h⁺_M(k) + 1: each F⁺ root gives a distinct orbit with all absolute coordinates at least 3, and a small-coordinate exceptional point supplies a disjoint orbit. Source: §1, pp.3–5, (d), arXiv:1706.06712v3 (final version). The printed reversed inequality is source issue E21. At k = 5, (0,1,2) is a solution but F⁺ is empty (its defining polynomial is at least 54). The mean-value quantities in §7 count F± directly and do not use this incorrect comparison. CA.4 supplies the definitions; the corrected comparison is explicitly planned in markoff-exceptional-class-number-lower-bound. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/6",
+      "name": "Admissible, exceptional and generic k for M; Hasse failures",
+      "locator": "§1, p.3; §4.1, pp.12–13, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/6 — Admissible, exceptional and generic k for M; Hasse failures. k is admissible for M iff k ≢ 3 (mod 4) and k ≢ ±3 (mod 9) (Proposition 6.1); there are 7K/12 + O(1) admissible 0 < k ≤ K. k is exceptional if V_k(ℤ) has a point with some |x_j| ∈ {0, 1, 2}; equivalently k = u² + v², 4(k − 1) = u² + 3v², or k − 4 = u² with u, v ∈ ℤ. The remaining admissible k are generic; every admissible k < 0 is generic. A Hasse failure is an admissible k with h_M(k) = 0; exceptional k are never Hasse failures. Source: §1, p.3; §4.1, pp.12–13, arXiv:1706.06712v3 (final version). The count of exceptional k is the Landau-type bound in the AN.5 item. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/7",
+      "name": "Lemma 2.1 (descent for k > 4) and the cases 1 ≤ k ≤ 3",
+      "locator": "§2, pp.9–10, Lemma 2.1, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/7 — Level-k descent for k>4, with small-coordinate cases explicit, and the cases 1≤k≤3. For a sorted positive point 3≤x₁≤x₂≤x₃, V₃ replaces x₃ by x₁x₂−x₃<x₃; iteration either reaches a negative representative, a small-coordinate point, or the next smaller positive triple. Negative representatives with all absolute coordinates ≥3 give S⁺(k), defined by 3≤u₁≤u₂≤u₃ and u₁²+u₂²+u₃²+u₁u₂u₃=k. The general exceptional descent must separately treat coordinates 0,±1,±2 before asserting a finite orbit-representative set; S⁺ together with points of coordinate 0 or 1 is not asserted to exhaust all exceptional orbits. For example, k=29 has the small negative root (−2,2,3), outside S⁺, and its orbit remains in the absolute-coordinate-at-least-2 locus by the same strict-Δ/unique-parent argument. Keep V₃(ℤ)=∅, the infinite V₂(ℤ) orbit of (0,1,1), and the finite V₁(ℤ) orbit of (0,0,1). Source: §2, Lemma 2.1 and its preceding descent, pp.9–10; §4.1 (4.1), pp.13–14, arXiv:1706.06712v3. Coalesce the carrier and descent with PAPER-GAMBURD-MAGEE-RONAN-19/1,5 at n=3,a=1, retaining Γ’s permutation/double-sign action. This is an outstanding source-completion contract, not a completed general fundamental-domain theorem. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/8",
+      "name": "Lemma 2.2 (descent for k < 0)",
+      "locator": "§2, p.10, Lemma 2.2, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/8 — Lemma 2.2 (descent for k < 0). For k < 0 every x ∈ V_k(ℤ) is Γ-equivalent to a point of S⁻(k) = {3 ≤ x₁ ≤ x₂ ≤ x₃ ≤ x₁x₂/2} ∩ V_k(ℤ) ⊆ U(k) = {3 ≤ x₁ ≤ x₂ ≤ √(|k| + 9), 3 ≤ x₃ ≤ 3(|k| + 9)/2}; points of V_k(ℤ) never have a coordinate in {0, ±1, ±2}; and for |k| large x₁ ≪ |k|^{1/3}, x₂ ≪ (|k|/x₁)^{1/2}, x₃ ≪ (|k|x₁)^{1/2}. Source: §2, p.10, Lemma 2.2, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. Shared CA.4 source contract: PAPER-GAMBURD-MAGEE-RONAN-19/1 has V_{n,a,k} and the Vieta moves; n=3,a=1 gives this cubic and these moves. Coalesce the carrier and descent machinery with GMR/5, retaining the level/sign-specific hypotheses and Γ’s permutation/double-sign extension. The coefficient-three integral theory is related by x=3y only at k=0; no reduction-mod-3 equivalence is claimed. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/9",
+      "name": "The Δ-function from Bhargava cubes",
+      "locator": "§3, (3.1) and (a)–(d), pp.11–12, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/9 — The Δ-function from Bhargava cubes. For x ∈ ℤ³ the three Bhargava slicings of the cube with entries 1, x₁, x₂, x₃ ([Bha04]) give binary quadratic forms Q_i(u, v) = (x_jx_k − x_i)u² + (1 + x_i² − x_j² − x_k²)uv + (x_jx_k − x_i)v² with common discriminant Δ(x) = (1 + x₂² − x₁² − x₃²)² − 4(x₁x₃ − x₂)² = (1 + x₁ + x₂ + x₃)(1 + x₂ − x₁ − x₃)(1 + x₃ − x₁ − x₂)(1 + x₁ − x₂ − x₃) (3.1). Δ ≡ 0 or 1 (mod 4) as x₁² + x₂² + x₃² is odd or even; Δ is invariant under permutations and double sign changes; if 2 ≤ x₁ ≤ x₂ ≤ x₃ then Δ < 0 iff x₂ ≤ x₃ ≤ x₁ + x₂ − 2. Source: §3, (3.1) and (a)–(d), pp.11–12, arXiv:1706.06712v3 (final version). Only the polynomial Δ is used later; the cube is motivation. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/10",
+      "name": "The case k = 0: the Δ minimum (3.2)",
+      "locator": "§3.1, (3.2), p.12, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/10 — The case k = 0: the Δ minimum (3.2). On V₀(ℤ), Δ(0,0,0) = 1 and Δ(3,3,3) = −80. One has Δ(x) < 0 exactly for the narrow-equivalence class of (3,3,3). Thus Δ has a unique minimizing narrow-equivalence class on each Γ-orbit. The two-orbit statement is separately item 64. Source: §3.1, (3.2), p.12, arXiv:1706.06712v3 (final version). The Δ polynomial and its minimum remain missing in CA.4. Item 64 reuses the coefficient-three Markoff root-generation theorem through integer rescaling, rather than re-proving it. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/11",
+      "name": "The Δ-differences (4.1) and the orbit tree",
+      "locator": "§4.1, (4.1) and Figure 6, pp.13–14; §4.2, p.14, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/11 — The Δ-differences (4.1) and the orbit tree. On V_k, with Δ_i = Δ ∘ V_i: Δ₁(x) − Δ(x) = x₂x₃(x₂x₃ − 2x₁)[2(k − 5) + (x₂² − 4)(x₃² − 4)], and cyclically for Δ₂, Δ₃ (4.1). The brackets are positive for generic k ≥ 5 and for all k < 0 (using (x₁² − 4)(x₂² − 4) = (2x₃ − x₁x₂)² − 4(k − 4)). Hence in the Vieta graph modulo narrow equivalence a positive node (x₁, x₂, x₃), 3 ≤ x₁ ≤ x₂ ≤ x₃, has two neighbours with larger Δ and one with smaller Δ, and a negative node (−x₁, x₂, x₃) has three neighbours with larger Δ. For k < 0 a point has no Δ-smaller neighbour iff it lies in S⁻(k). Source: §4.1, (4.1) and Figure 6, pp.13–14; §4.2, p.14, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/12",
+      "name": "Theorem 1.1 (fundamental sets)",
+      "locator": "Theorem 1.1, pp.3–4; proof §4.1–4.2, pp.12–14, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/12 — Theorem 1.1 (fundamental sets). (i) Let k ≥ 5 be generic and F⁺_k = {u ∈ ℝ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃, u₁² + u₂² + u₃² + u₁u₂u₃ = k}. The points of F⁺_k(ℤ) are pairwise Γ-inequivalent, and every x ∈ V_k(ℤ) is Γ-equivalent to a unique u′ = (−u₁, u₂, u₃) with u ∈ F⁺_k(ℤ). (ii) Let k < 0 be admissible and F⁻_k = {u ∈ ℝ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃ ≤ u₁u₂/2, u₁² + u₂² + u₃² − u₁u₂u₃ = k}. The points of F⁻_k(ℤ) are pairwise Γ-inequivalent, and every x ∈ V_k(ℤ) is Γ-equivalent to a unique u ∈ F⁻_k(ℤ). In particular h_M(k) = |F^±_k(ℤ)| is finite and computable. Source: Theorem 1.1, pp.3–4; proof §4.1–4.2, pp.12–14, arXiv:1706.06712v3 (final version). Existence by Lemmas 2.1–2.2; uniqueness because Δ has a unique minimum on each component of the Vieta tree. Examples: h(3685) = 6, h(−3691) = 9 (re-computed in this extraction). Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/13",
+      "name": "Proposition 4.1 (the Cayley cubic k = 4)",
+      "locator": "§4.3, Proposition 4.1, pp.14–15, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/13 — Proposition 4.1 (the Cayley cubic k = 4). V₄(ℤ) has infinitely many Γ-orbits, each containing exactly one point of the form (2, a, a) with a ≥ 0 (up to permutation and double sign change). The orbit of (2, 0, 0) ∼ (−2, 0, 0) has one element and that of (2, 1, 1) two, and Δ attains a unique minimum on each orbit (Δ(−2,0,0) = 9, Δ(−1,1,1) = −16, Δ(2,a,a) = 9 − 4a²). Source: §4.3, Proposition 4.1, pp.14–15, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/14",
+      "name": "Remark 4.2 (Δ-descent and the asymptotics of Δ)",
+      "locator": "Remark 4.2, p.15, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/14 — Remark 4.2 (Δ-descent and the asymptotics of Δ). Δ-descent alone gives finiteness of the number of orbits: a positive node either descends to a negative node or starts an infinite strictly Δ-decreasing chain of positive nodes, impossible since Δ ≥ 0 on positive nodes; the at most finitely many negative nodes in S⁺(k) are pairwise inequivalent. As k → ∞, Lagrange multipliers give (without proof in the paper) min_{S⁺(k)} Δ ≥ k² + 18k^{3/2} + 88k + (621/4)k^{1/2} + O(1), max_{S⁻(k)} Δ ≤ k² − 18k^{3/2} + 88k − (45/4)k^{1/2} + O(1), min_{S⁻(k)} Δ ≥ −3k^{4/3} + O(k), so the first h(k) minima of Δ on V_k(ℤ) occur at the roots. Source: Remark 4.2, p.15, arXiv:1706.06712v3 (final version). The three asymptotic bounds are asserted without proof. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/15",
+      "name": "Consequences (a)–(c) of Theorem 1.1",
+      "locator": "§1, (a)–(c), p.4; §8, p.22 (k = 46), arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound"
+      ],
+      "note": "PAPER-GHOSH-SARNAK-22/15 — Consequences (a)–(c) of Theorem 1.1. (a) h_M(46) = 0, and 46 is the smallest positive Hasse failure. (b) h_M(−2) = 1, all solutions being equivalent to (3, 3, 4), and −4 is the largest negative Hasse failure. (c) h_M(k) ≪_ε |k|^{1/3+ε} as k → ±∞, because for fixed x₁ the fundamental set bounds the number of units acting on the indefinite binary quadratic form in (x₂, x₃). Source: §1, (a)–(c), p.4; §8, p.22 (k = 46), arXiv:1706.06712v3 (final version). (a) and (b) were re-verified in this extraction. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/16",
+      "name": "Lemma 5.1 (reduction of polynomial parametric solutions)",
+      "locator": "§5.1, Lemma 5.1 and proof, p.16, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/16 — Lemma 5.1 (reduction of polynomial parametric solutions). For M*(x) = Σ α_jx_j + (β₁x₂x₃ + β₂x₁x₃ + β₃x₁x₂) + x₁² + x₂² + εx₃² − x₁x₂x₃ with ε = ±1 and α_j, β_j ∈ ℤ (5.1): if P_j ∈ ℤ[t] of positive degree satisfy M*(P₁, P₂, P₃) = k identically, then there are q ∈ ℤ and Q₁, Q₂ ∈ ℤ[t] of positive degree with M*(q, Q₁, Q₂) = k identically. Parametric solutions with two constant coordinates do not exist. Source: §5.1, Lemma 5.1 and proof, p.16, arXiv:1706.06712v3 (final version). Proof: degree descent by Vieta moves. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/17",
+      "name": "Parametric solutions on V_k and on x₁² + x₂² − x₃² − x₁x₂x₃ = k",
+      "locator": "§5.1 (1)–(2) and Remark 5.2, pp.16–17, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/17 — Parametric solutions on V_k and on x₁² + x₂² − x₃² − x₁x₂x₃ = k. (1) V_k contains a polynomial parametric integral family iff k − 4 = w² is a square, in which case (2, t, t + w) is one (so a line); in particular there is none for generic k. (2) The surface x₁² + x₂² − x₃² − x₁x₂x₃ = k has parametric families (of the type (Q₁, Q₂, q)) iff k + 4 = w², e.g. (t + w, t, 2), or k = 0, e.g. (Q, 0, ±Q). By Remark 5.2 this surface has no local obstructions, has the points (0, 2^α(k′ + 1)/2, 2^α(k′ − 1)/2) for k = 4^αk′ with k′ odd, infinitely many integral points when k′ ≠ 1 or α ≥ 3, and infinitely many Hasse failures (for example k = 94), by an argument like Proposition 8.1. Source: §5.1 (1)–(2) and Remark 5.2, pp.16–17, arXiv:1706.06712v3 (final version). The Hasse failures in Remark 5.2(iv) are asserted without proof. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/24",
+      "name": "Lemma 6.2 and Corollary 6.3 (explicit solutions modulo p^n, p ≥ 5)",
+      "locator": "Lemma 6.2, Corollary 6.3, p.19, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/24 — Lemma 6.2 and Corollary 6.3 (explicit solutions modulo p^n, p ≥ 5). For every prime p ≥ 5, n ≥ 1 and t ∈ ℤ there are A, B ∈ SL₂(ℤ/p^nℤ) with tr(A)² + tr(B)² + tr(AB)² − tr(A)tr(B)tr(AB) ≡ t + 2: take B = diag(e, f) with ef ≡ 1 and (e − f, p) = 1, c with c(e − f)² ≡ 1, a = 1, b = 2 − t, d = 1 + bc. Hence M(x) ≡ k (mod p^n) has the solution x₁ ≡ 2 − (k − 4)c, x₂ ≡ e + f, x₃ ≡ e − f + fx₁. Source: Lemma 6.2, Corollary 6.3, p.19, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. Direct algebra alternative: choose e ∈ (ℤ/pⁿℤ)× with e−e⁻¹ a unit, put f=e⁻¹, c=(e−f)⁻², and (x₁,x₂,x₃)=(2−(k−4)c,e+f,e−f+fx₁). Substitution gives M(x)=k; e=2 works for p≥5. Checked for p=5,7,11,13, n=1,2,3, k=0,…,59 (720 cases). All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/25",
+      "name": "Lemma 6.4 (points of x₁² + x₂² + x₃² − αx₁x₂x₃ = β modulo p)",
+      "locator": "Lemma 6.4 and proof, pp.19–20, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/25 — Lemma 6.4 (points of x₁² + x₂² + x₃² − αx₁x₂x₃ = β modulo p). For p ≥ 3 the number N_p of solutions modulo p is p² + p(−β/p) if p | α, and p² + 1 + p((α²β − 4)/p)(3 + (β/p)) otherwise. In particular N_p ≥ (p − 2)² − 3 > 0 for p ≥ 5, and N_p > 0 for p = 3 by inspection. Source: Lemma 6.4 and proof, pp.19–20, arXiv:1706.06712v3 (final version). CA.4 owns this point-count theorem. Import finite-field character conventions and comparison with S_p(1) from FiniteFieldsAndCharacterSums:FF.1; use the existing mathlib:gaussSum_sq, not a new CA.1 Gauss-sum theory. Prime-power and 2-adic sums in Appendix B still require ES.3 specializations, with FF.1 supplying the finite-field normalization. Earlier extraction checked all α,β modulo p≤13. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/26",
+      "name": "Proposition 6.1 (local solubility of the Markoff equation)",
+      "locator": "Proposition 6.1; proof §6.1–6.3, pp.18–21, arXiv:1706.06712v3 (final version) (errors E2, E3 in the proof)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/26 — Proposition 6.1 (local solubility of the Markoff equation). M(x) ≡ k (mod p^n) is soluble for all primes p and all n ≥ 1 unless k ≡ 3 (mod 4) or k ≡ ±3 (mod 9). Thus V_k(ℤ_p) ≠ ∅ for all p iff k ≢ 3 (mod 4) and k ≢ ±3 (mod 9). Source: Proposition 6.1; proof §6.1–6.3, pp.18–21, arXiv:1706.06712v3 (final version) (errors E2, E3 in the proof). For p ≥ 5 via Corollary 6.3 or Hensel lifting of a non-singular point. For p = 3 and p = 2 the proof needs the lifts supplied in E2. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/35",
+      "name": "(8.1): failure of strong approximation modulo 4d",
+      "locator": "§8, (8.1)–(8.2), pp.22–23, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/35 — (8.1): failure of strong approximation modulo 4d. Let k = 4 + d, suppose n ↦ (4d/n) is a primitive Dirichlet character mod 4d, and let S_d = {n : (4d/n) ∈ {0, 1}} ⊂ ℤ/4dℤ. Then every x ∈ V_k(ℤ) satisfies x_j² − 4 ∈ S_d (mod 4d) for j = 1, 2, 3, because w² − 4d = (x₁² − 4)(x₂² − 4) with w = 2x₃ − x₁x₂ (8.2) forces (4d/q) ∈ {0, 1} for every prime q | x_j² − 4. By quadratic reciprocity these are congruence conditions on the x_j not implied by local solubility, so strong approximation fails for V_k(ℤ) modulo 4d. Source: §8, (8.1)–(8.2), pp.22–23, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/36",
+      "name": "Proposition 8.1 (families of Hasse failures)",
+      "locator": "Proposition 8.1 and proof, pp.23–24, arXiv:1706.06712v3 (final version) (misprint E7 in the proof)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/36 — Proposition 8.1 (families of Hasse failures). V_k(ℤ) = ∅ but V_k(ℤ_p) ≠ ∅ for all p in each case: (i) k = 4 − 2ν² < 0 with ν odd and all prime factors of ν ≡ 1 or 3 (mod 8); (ii) k = 4 + 2ν² > 4 with all prime factors of ν ≡ ±1 (mod 8) and ν ≡ 0, ±3, ±4 (mod 9); (iii) k = 4 + 2ℓ² with ℓ ≥ 13 prime, ℓ ≡ ±4 (mod 9) (smallest k = 342). Proof: some x_j is odd, so x_j² − 4 ≡ 5 (mod 8) has a prime factor q ≡ 5, 7 (resp. ±3) (mod 8), and (8.4) makes −2 (resp. 2) a square mod q. In case (iii) the fundamental set of Theorem 1.1 bounds an odd coordinate by √(k/3), which excludes q = ℓ; the non-exceptionality of k is checked separately. Source: Proposition 8.1 and proof, pp.23–24, arXiv:1706.06712v3 (final version) (misprint E7 in the proof). k = −14, −238, 342 were re-verified. [LM20] and [CTWX20] show that (i) and (ii) are explained by the integral Brauer–Manin obstruction but (iii) is not. Routed to ClassicalArithmeticCompletion CA.4 as a source. In case (ii), prime factors ≡ ±1 mod 8 exclude 3, hence the displayed ν residues 0,±3 mod 9 are redundant and ν ≡ ±4 mod 9 is equivalent under the other hypotheses. This is not a false theorem. For 1≤ν<50 the possible values are 23,31,41,49; the first k=1062 is admissible, generic and has empty F⁺. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/37",
+      "name": "Proposition 8.2 (Hasse failures k = 4 + 12ν²)",
+      "locator": "Proposition 8.2 and proof, pp.24–25, arXiv:1706.06712v3 (final version) (misprint E8: the paper gives ν = 37, k = 16432)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/37 — Proposition 8.2 (Hasse failures k = 4 + 12ν²). If ν² ≡ 25 (mod 32) and every prime factor of ν is ≡ ±1 (mod 12), then k = 4 + 12ν² is admissible and V_k(ℤ) = ∅. The smallest such ν is 11, with k = 1456. Source: Proposition 8.2 and proof, pp.24–25, arXiv:1706.06712v3 (final version) (misprint E8: the paper gives ν = 37, k = 16432). Proof: reciprocity for the prime factors of x_j² − 4 via (8.6) when the x_j are odd, a Vieta move when exactly one is even, and congruences modulo 8 and 16 when all are even. k = 1456 and 16432 were re-verified as Hasse failures. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/38",
+      "name": "Proposition 8.3 (Hasse failures k = 4 + 20ν²)",
+      "locator": "Proposition 8.3 and proof, p.25, arXiv:1706.06712v3 (final version) (gap E9, misprint E10 in the proof)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/38 — Proposition 8.3 (Hasse failures k = 4 + 20ν²). If ν ≡ ±4 (mod 9) and every prime factor of ν is ≡ ±1 (mod 20), then k = 4 + 20ν² is admissible and V_k(ℤ) = ∅; the smallest such ν is 41, with k = 33624. Source: Proposition 8.3 and proof, p.25, arXiv:1706.06712v3 (final version) (gap E9, misprint E10 in the proof). Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/39",
+      "name": "Theorem 1.2(i) (infinitely many Hasse failures)",
+      "locator": "Theorem 1.2(i), p.5; proof §8, pp.22–25, arXiv:1706.06712v3 (final version) (gap E11: the paper writes \"at least √K(log K)^{−1/2}\")",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/39 — Theorem 1.2(i) (infinitely many Hasse failures). The number of Hasse failures with 0 < k ≤ K, and the number with −K ≤ k < 0, are each ≫ K^{1/2}(log K)^{−1/2}. So M is not perfect. Source: Theorem 1.2(i), p.5; proof §8, pp.22–25, arXiv:1706.06712v3 (final version) (gap E11: the paper writes \"at least √K(log K)^{−1/2}\"). From Proposition 8.1 and the count of integers whose prime factors lie in a set of primes of density 1/2. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/61",
+      "name": "Enumeration of class numbers and Hasse failures (§10)",
+      "locator": "§10, (10.1), Tables 1–6, Figures 7–15, pp.34–44, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/61 — Enumeration of class numbers and Hasse failures (§10). Theorem 1.1 turns h_M(k) into a finite lattice-point search over F^±_k(ℤ), after an exceptionality test. The authors computed all Hasse failures 5 ≤ k ≤ 564,062,446 (23,298,277 of them), their distribution in residue classes modulo 3, 4 and 9 (Table 1), A_HF(K) at multiples of 100,800 (Tables 3–4), sample fundamental sets (Table 5) and the distribution of h(k) for generic k ≤ 10^7 (Table 6). The data fit log A_HF(K)/log 𝒜(K) ≈ f(K) = 0.887516 − 8.06653L^{−2} − 21.8923L^{−3} + 2.38097L^{−4} + 3.35656L^{−5}, L = log K (10.1), with 𝒜(K) = 7K/12. Source: §10, (10.1), Tables 1–6, Figures 7–15, pp.34–44, arXiv:1706.06712v3 (final version). A_HF(100,800) = 7,630 and A_HF(6,552,000) = 388,485 were reproduced in this extraction, as were the Table 5 rows for k = 329, 460, 494, 9260, 9304, 9380, 9454 and 9500. Routed to ClassicalArithmeticCompletion CA.4 as a source. Fresh fix regression at K=100800: 7105 exceptional k≥5 have F⁺_k empty (largest 100792); exclude them before counting the 7630 generic Hasse failures among 58800 admissible positive k. This is the Table 3 count; E22–E23 correct §10’s cross-references. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/62",
+      "name": "Conjecture 10.1 (size of the class numbers)",
+      "locator": "Conjecture 10.1, p.41, arXiv:1706.06712v3 (final version)",
+      "sourceRecord": "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "conjectural",
+      "nearbyNodes": [],
+      "note": "PAPER-GHOSH-SARNAK-22/62 — Conjecture 10.1 (size of the class numbers). Conjecture (not proved): For every ε > 0, h_M(k) ≪_ε |k|^ε. Source: Conjecture 10.1, p.41, arXiv:1706.06712v3 (final version). A conjecture; the best known bound is (c) of Theorem 1.1. Routed to ClassicalArithmeticCompletion CA.4 as a source. Kind changed from definition to theorem: the item is a conjectural statement, not a definition; the statement is marked as a conjecture. [review REV-PAPER-GHOSH-SARNAK-22] All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/3",
+      "name": "Lemma 2.1 (quadratic reciprocity in a number field)",
+      "locator": "Lemma 2.1, p.4, citing [FIMR], arXiv:1809.09597v1",
+      "sourceRecord": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.1",
+      "status": "open",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.1/power-reciprocity-law"
+      ],
+      "note": "Koymans–Milovic items 3–4 need the number-field quadratic law with explicit dyadic and infinite factors, dependence on the denominator modulo 8 times the numerator, and norm compatibility in a Galois extension. The existing power-reciprocity-law supplies the coprime odd case with unevaluated local symbols; power-residue-symbol-galois-equivariance is not the relative-norm formula. Read FIMR at its full hypotheses before decomposition. Import Hilbert reciprocity and the local symbols from their existing Tau Ceti owners; do not reconstruct them here."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/4",
+      "name": "Norm compatibility of quadratic residue symbols",
+      "locator": "§5, p.22 (in the computation of ∏_{σ∈S}spin(σ, w)), arXiv:1809.09597v1",
+      "sourceRecord": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.1",
+      "status": "open",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal"
+      ],
+      "note": "Koymans–Milovic items 3–4 need the number-field quadratic law with explicit dyadic and infinite factors, dependence on the denominator modulo 8 times the numerator, and norm compatibility in a Galois extension. The existing power-reciprocity-law supplies the coprime odd case with unevaluated local symbols; power-residue-symbol-galois-equivariance is not the relative-norm formula. Read FIMR at its full hypotheses before decomposition. Import Hilbert reciprocity and the local symbols from their existing Tau Ceti owners; do not reconstruct them here."
+    },
+    {
+      "id": "PAPER-KOYMANS-PAGANO/2",
+      "name": "The negative-Pell set 𝒟⁻ and its truncation 𝒟⁻(X)",
+      "locator": "§1, (1.1) and running text, pp. 1–2 (arXiv v1)",
+      "sourceRecord": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/generalised-pell-solution-set",
+        "ClassicalArithmeticCompletion:CA.4/negative-pell-local-obstruction"
+      ],
+      "note": "Koymans–Pagano 2–4: the existing generalized-Pell norm fibre and local obstruction are reusable inputs. Package the squarefree negative-Pell set and truncation, the exact rational-solubility criterion and the prime 1 mod 4 integral-solubility theorem. A congruence obstruction is not a sufficient integral criterion: d=34 has the rational solution (5/3,1/3) but no integral solution. Treat d=1 separately from quadratic-field comparisons; class-group and full-ring-of-integers comparisons belong in CA.5."
+    },
+    {
+      "id": "PAPER-KOYMANS-PAGANO/3",
+      "name": "Rational solubility of the negative Pell equation (Hasse–Minkowski)",
+      "locator": "§1, running text after (1.1), p. 1 (arXiv v1)",
+      "sourceRecord": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/generalised-pell-solution-set",
+        "ClassicalArithmeticCompletion:CA.4/negative-pell-local-obstruction"
+      ],
+      "note": "Koymans–Pagano 2–4: the existing generalized-Pell norm fibre and local obstruction are reusable inputs. Package the squarefree negative-Pell set and truncation, the exact rational-solubility criterion and the prime 1 mod 4 integral-solubility theorem. A congruence obstruction is not a sufficient integral criterion: d=34 has the rational solution (5/3,1/3) but no integral solution. Treat d=1 separately from quadratic-field comparisons; class-group and full-ring-of-integers comparisons belong in CA.5."
+    },
+    {
+      "id": "PAPER-KOYMANS-PAGANO/4",
+      "name": "Dirichlet: primes p ≡ 1 mod 4 lie in 𝒟⁻",
+      "locator": "§1, running text, p. 2, citing [14] (Dirichlet) (arXiv v1)",
+      "sourceRecord": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "open",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/generalised-pell-solution-set",
+        "ClassicalArithmeticCompletion:CA.4/negative-pell-local-obstruction"
+      ],
+      "note": "Koymans–Pagano 2–4: the existing generalized-Pell norm fibre and local obstruction are reusable inputs. Package the squarefree negative-Pell set and truncation, the exact rational-solubility criterion and the prime 1 mod 4 integral-solubility theorem. A congruence obstruction is not a sufficient integral criterion: d=34 has the rational solution (5/3,1/3) but no integral solution. Treat d=1 separately from quadratic-field comparisons; class-group and full-ring-of-integers comparisons belong in CA.5."
+    },
+    {
+      "id": "PAPER-KOYMANS-PAGANO/5",
+      "name": "Negative Pell and the 2-parts of the narrow and ordinary class groups ([FK1, Lemma 1])",
+      "locator": "§1, running text, p. 2, citing [18, Lemma 1] (arXiv v1)",
+      "sourceRecord": "research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.5",
+      "status": "partial_interface_pending_route",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one",
+        "ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four"
+      ],
+      "note": "The reviewed order-to-unit comparison for d=1 mod 4 now has all four missing API signatures and its four stated acceptance examples in the suggested file. This is typed planning with admitted proofs. Koymans–Pagano route 7 names items 5,9,12, but its positional route verdict is still absent; record that queue boundary rather than inventing acceptance. Their final 2-primary class-group, narrow-principal-class and unit Galois-module comparisons are still to be connected explicitly to the existing order bridge and pinned unit/class-group results. The degree-one d=1 case is excluded by d>1."
+    },
+    {
+      "id": "PAPER-LAWRENCE-SAWIN-25/66",
+      "name": "Inequalities for Eulerian numbers (Lemmas C.1–C.5)",
+      "locator": "arXiv:2004.09046v5 (16 October 2025), Appendix C, pp. 116–118, Lemmas C.1, C.2, C.3, C.4 and C.5",
+      "sourceRecord": "research/blueprint/papers/PAPER-LAWRENCE-SAWIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.2",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Lawrence–Sawin 66–67: define the Eulerian descent counts once, with factorial sum, symmetry, recurrence and Appendix C.1–C.5 bounds, including their n,q,r ranges. These are not the existing Euler zigzag numbers or graph Eulerian circuits. State the zero-degree convention separately: the extracted range convention for n≥1 cannot silently force the empty-permutation count to vanish. The Hodge interpretation remains with the hypersurface owner."
+    },
+    {
+      "id": "PAPER-LAWRENCE-SAWIN-25/67",
+      "name": "Eulerian numbers",
+      "locator": "arXiv:2004.09046v5 (16 October 2025), §3, p. 21, in Lemma 3.4, and throughout Appendices B and C",
+      "sourceRecord": "research/blueprint/papers/PAPER-LAWRENCE-SAWIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.2",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Lawrence–Sawin 66–67: define the Eulerian descent counts once, with factorial sum, symmetry, recurrence and Appendix C.1–C.5 bounds, including their n,q,r ranges. These are not the existing Euler zigzag numbers or graph Eulerian circuits. State the zero-degree convention separately: the extracted range convention for n≥1 cannot silently force the empty-permutation count to vanish. The Hodge interpretation remains with the hypersurface owner."
+    },
+    {
+      "id": "PAPER-MARTIN-25/1",
+      "name": "Markoff equation",
+      "locator": "Published article, §1, p.623, (1.1)",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-triples"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/2",
+      "name": "Nonzero Markoff triples",
+      "locator": "Published article, §1, p.623, graph definition",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-triples"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/3",
+      "name": "Positive integer Markoff triples",
+      "locator": "Published article, §1, p.623, opening paragraph",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/positive-markoff-triples"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/4",
+      "name": "Vieta coordinate involutions",
+      "locator": "Published article, §1, p.623, (1.2) and its analogues",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-vieta-involution"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/5",
+      "name": "Vieta involutivity",
+      "locator": "Published article, §1, p.623, Vieta involutions",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-vieta-involutive"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/6",
+      "name": "Vieta preservation of the Markoff equation",
+      "locator": "Published article, §1, p.623, paragraph after (1.2)",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-vieta-preserves-equation"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/7",
+      "name": "Vieta preservation of the nonzero locus",
+      "locator": "Published article, §1, p.623, graph construction",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-vieta-permutes-nonzero-locus"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/8",
+      "name": "Positivity of the other quadratic root",
+      "locator": "Published article, §1, p.623, positive-integer graph",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-vieta-preserves-positivity"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/9",
+      "name": "Strict descent for positive Markoff triples",
+      "locator": "Published article, §1, p.623, Markoff tree claim [8], elementary proof expansion",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-descent-inequality"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/10",
+      "name": "Positive Markoff tree",
+      "locator": "Published article, §1, p.623, Markoff [8]",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-tree"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/11",
+      "name": "Coordinate permutations normalize Vieta moves",
+      "locator": "Published article, §1, p.623; BGS [2], §1, p.1",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-permutation-equivariance"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/12",
+      "name": "Reduction of positive Markoff triples",
+      "locator": "Published article, §1, pp.623–624, lifting interpretation",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-reduction-mod-p"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-MARTIN-25/13",
+      "name": "Prime strong approximation for positive triples",
+      "locator": "Published article, §1, p.623, lifting interpretation; abstract",
+      "sourceRecord": "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.4",
+      "status": "existing_plan",
+      "nearbyNodes": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-strong-approximation"
+      ],
+      "note": "The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed."
+    },
+    {
+      "id": "PAPER-SMITH-24/1",
+      "name": "Totally positive algebraic integers, the trace ratio and the constant λ_SSS",
+      "locator": "arXiv:2111.12660v2 (16 March 2024), §1, pp. 1–2",
+      "sourceRecord": "research/blueprint/papers/PAPER-SMITH-24.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.6",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Smith 1–3: the totally positive integer trace ratio, the finite-exception threshold lambda_SSS and the resultant-based auxiliary-polynomial bound remain to be planned. The assertion lambda_SSS=2 is the historical trace problem, contradicted by Smith’s theorem in its separate owner; do not introduce it as a theorem or as an open conjecture the source still endorses. Keep the classical lower bounds source-scoped and preserve the coprimality of the minimal polynomial with every auxiliary polynomial."
+    },
+    {
+      "id": "PAPER-SMITH-24/2",
+      "name": "The Schur–Siegel–Smyth trace problem",
+      "locator": "arXiv:2111.12660v2 (16 March 2024), §1, p. 2, following Borwein",
+      "sourceRecord": "research/blueprint/papers/PAPER-SMITH-24.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.6",
+      "status": "historical_problem",
+      "nearbyNodes": [],
+      "note": "Smith 1–3: the totally positive integer trace ratio, the finite-exception threshold lambda_SSS and the resultant-based auxiliary-polynomial bound remain to be planned. The assertion lambda_SSS=2 is the historical trace problem, contradicted by Smith’s theorem in its separate owner; do not introduce it as a theorem or as an open conjecture the source still endorses. Keep the classical lower bounds source-scoped and preserve the coprimality of the minimal polynomial with every auxiliary polynomial."
+    },
+    {
+      "id": "PAPER-SMITH-24/3",
+      "name": "Smyth's auxiliary-polynomial method and the resultant argument",
+      "locator": "arXiv:2111.12660v2 (16 March 2024), §1, pp. 2–3, equation (1.2)",
+      "sourceRecord": "research/blueprint/papers/PAPER-SMITH-24.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.6",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Smith 1–3: the totally positive integer trace ratio, the finite-exception threshold lambda_SSS and the resultant-based auxiliary-polynomial bound remain to be planned. The assertion lambda_SSS=2 is the historical trace problem, contradicted by Smith’s theorem in its separate owner; do not introduce it as a theorem or as an open conjecture the source still endorses. Keep the classical lower bounds source-scoped and preserve the coprimality of the minimal polynomial with every auxiliary polynomial."
+    },
+    {
+      "id": "PAPER-SMITH-24/17",
+      "name": "A squarefree integral combination of integer polynomials",
+      "locator": "arXiv:2111.12660v2 (16 March 2024), Lemma 2.10, p. 9",
+      "sourceRecord": "research/blueprint/papers/PAPER-SMITH-24.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.3",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Smith 17 (Lemma 2.10): a nonnegative integral combination, after removing the common polynomial gcd, is squarefree of the expected degree with coefficients at most 2(n−deg G). No exact node exists here. Import the existing resultant/discriminant and finite-grid nonvanishing machinery rather than creating a separate interpolation theory."
+    },
+    {
+      "id": "PAPER-YU-23/103",
+      "name": "Divisibility of generalized binomial coefficients",
+      "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Lemma7.2.2 p67",
+      "sourceRecord": "research/blueprint/papers/PAPER-YU-23.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.2",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Yu 103–105 and 179: generalized integer binomial divisibility including negative upper entries, the finite product f_p(N) for N≥0, its factorial split and p-adic unit property, and the Luo–Zhu block congruence. Preserve the exclusion p=2, alpha=1 and its separate sign formula. The negative-upper-entry factorization has the sign (−1)^(m(p−1)). Existing binomial arithmetic is a prerequisite, not these four exact statements."
+    },
+    {
+      "id": "PAPER-YU-23/104",
+      "name": "p-free factorial",
+      "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §7.2.2 p71; LZ19 equation10",
+      "sourceRecord": "research/blueprint/papers/PAPER-YU-23.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.2",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Yu 103–105 and 179: generalized integer binomial divisibility including negative upper entries, the finite product f_p(N) for N≥0, its factorial split and p-adic unit property, and the Luo–Zhu block congruence. Preserve the exclusion p=2, alpha=1 and its separate sign formula. The negative-upper-entry factorization has the sign (−1)^(m(p−1)). Existing binomial arithmetic is a prerequisite, not these four exact statements."
+    },
+    {
+      "id": "PAPER-YU-23/105",
+      "name": "Luo–Zhu p-free factorial congruence",
+      "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §7.2.2 p71; Luo–Zhu2019 Lemma3.1, proof read",
+      "sourceRecord": "research/blueprint/papers/PAPER-YU-23.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.2",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Yu 103–105 and 179: generalized integer binomial divisibility including negative upper entries, the finite product f_p(N) for N≥0, its factorial split and p-adic unit property, and the Luo–Zhu block congruence. Preserve the exclusion p=2, alpha=1 and its separate sign formula. The negative-upper-entry factorization has the sign (−1)^(m(p−1)). Existing binomial arithmetic is a prerequisite, not these four exact statements."
+    },
+    {
+      "id": "PAPER-YU-23/179",
+      "name": "p-free factorial factorisation of binomial coefficients",
+      "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §7.2.2, p. 71 (displayed identities before the two cases)",
+      "sourceRecord": "research/blueprint/papers/PAPER-YU-23.result.json",
+      "stage": "ClassicalArithmeticCompletion:CA.2",
+      "status": "open",
+      "nearbyNodes": [],
+      "note": "Yu 103–105 and 179: generalized integer binomial divisibility including negative upper entries, the finite product f_p(N) for N≥0, its factorial split and p-adic unit property, and the Luo–Zhu block congruence. Preserve the exclusion p=2, alpha=1 and its separate sign formula. The negative-upper-entry factorization has the sign (−1)^(m(p−1)). Existing binomial arithmetic is a prerequisite, not these four exact statements."
+    }
+  ],
+  "checks": {
+    "agent": "Codex — codex-7e92bd",
+    "date": "2026-10-04",
+    "newNodes": 0,
+    "preservedNodes": 333,
+    "newBaselineDeclarations": 2,
+    "addedSignatures": 4,
+    "addedExamples": 4,
+    "compile": "The complete suggested file elaborates at the pinned Mathlib/compiler: zero errors, 966 admission warnings and no other warnings. Existing dependency pins and all 3870 imported Mathlib source files match. No Tau Ceti module is imported or built.",
+    "signatureBoundary": "All 505 distinct API names have a named command, 236 under a unique alternate enclosing namespace. This is a name index, not a proof of statement equivalence. The file has 764 named commands and 314 examples. All 333 nodes lack explicit declaration metadata; three post-fix CA.4 comparisons lack signatures and remain a gap.",
+    "arithmetic": "200 exact unit-coordinate cases, including 84 half-integral cases and 50 cases with d=1 modulo 8; the four stated examples and all nine residue pairs excluding negative Pell for d=21 modulo 3 pass. Finite diagnostics are not proofs."
+  },
+  "provenance": {
+    "agent": "Codex — codex-7e92bd",
+    "issue": 1025,
+    "claim": 5984615727,
+    "confirmation": 5984616949,
+    "freshReading": "All eight reviewed AUDIT-18 stages; the current campaign target document and complete atlas stage/edge extract; accepted RS-03 classical scope and ownership; all 68 touching link entries (37 distinct bodies); all 71 issue-referenced extraction records, 13 owned route records and their positional review entries, two supplemental pending-route records and the current potential-theory proposal; incoming handoff, coverage, gaps, requests and selected exact node contracts; pinned narrow-class-group source lines 1–225 and the quadratic-norm source lines 1–126.",
+    "priorReading": "LocalFieldsRamification and Multiquadratic reuse this same worker’s earlier complete readings, authenticated by unchanged file hashes through PR #6109 and the original PR #3268. Historical source readings, 51 source findings, nine source versions and earlier reviews remain attributed to their authors. No fresh full-paper or all-node proof audit is claimed.",
+    "preservation": "Every inherited node object is unchanged. All original API/tests/planets, 45 requests, 79 sources, 51 source findings, nine source versions, continuationAudit, review and reviewHistory are preserved. The accepted review is for the earlier scoped fixes, not for this pass. PROTOCOL section 8 and the actual promotion guard require a new accepted review before these changes go live.",
+    "evidence": "The handoff binds the snapshots, source reads, source-route ledger, exact finite diagnostics, signature index, full compilation and immutable checker/intake/atlas reports to a recoverable public archive."
+  }
 }

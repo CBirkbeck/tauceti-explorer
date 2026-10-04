@@ -1,3 +1,589 @@
+# Classical arithmetic: completed budget pass
+
+Budgeted planning pass complete with 333 inherited unchecked nodes and zero new nodes above the 300-node budget. CA.0 retains its inherited closed planning coverage; CA.1–CA.7 remain partial with precise source, supplier and signature frontiers. All 71 issue-referenced source records are reconciled, separating existing plans, partial adapters, missing exact contracts and an incidental item owned elsewhere. Four previously missing CA.5 unit-comparison API signatures and four examples now elaborate. Two pinned class-group results are added as baseline inputs. Earlier review verdicts remain historical evidence; this continuation awaits independent review.
+
+The current frontier below supersedes older completion and no-owner language in the preserved reader. Existing mathematical nodes remain unchecked plans. Historical accepted fixes do not constitute an independent review of this continuation.
+
+## Coverage and exact follow-up work
+
+### ClassicalArithmeticCompletion:CA.0 — closed
+
+The reviewed audit records CA.0 as built, and RS-03 keeps it in place. Everything it names is a pinned baseline citation: gcd, Bézout and the extended Euclidean algorithm, unique factorisation, congruences and residue rings, the Chinese remainder theorem for coprime moduli, valuations with Legendre's formula, arithmetic functions with Dirichlet convolution, and Möbius inversion instantiated at divisor sums. The one unstated statement, the existence half of the Chinese remainder theorem at non-coprime moduli over the integers, is the single node; its uniqueness half is Int.modEq_and_modEq_iff_modEq_lcm. The layer is closed. This pass preserves the inherited closed planning assessment; it is not a fresh proof audit of every arithmetic citation.
+
+
+### ClassicalArithmeticCompletion:CA.1 — partial
+
+RS-03 narrows CA.1 to higher reciprocity and power-residue and Hilbert-symbol extensions, including the place 2, the infinite places and ramification conventions, with quadratic reciprocity and the Gauss/Jacobi specialisations retained by import and explicit comparison, and FiniteFieldsAndCharacterSums:FF.1 as the owner of finite-field character normalisations. Built and cited: quadratic reciprocity with both supplements, Euler's criterion, the Legendre and Jacobi symbols, χ₄, χ₈, χ₈', Gauss and Jacobi sums with their product identities, the cyclicity criterion for (ℤ/n)ˣ and ZMod.orderOf_five, Dirichlet characters with conductor and primitivity, fundamental discriminants, and Tau Ceti's prime-discriminant and genus characters. Imported from Tau Ceti roadmaps: the quadratic Hilbert symbol at finite places with its closed formulas (Quadratic Form Invariants 6C), its archimedean value and the localized product formula (Global Quadratic Forms 4.4, Class Field Theory 14), local and global Artin reciprocity (Class Field Theory 6 and 11), and from K2SymbolsBrauer T.7 the degree-n norm-residue symbol. Planned here: the units modulo a power of two and the power residue criteria (kept from the first pass, corrected); the primitive quadratic character of a rational square class with its conductor, including the 2-adic bound, from Bennett–Siksek; the Hilbert symbol of ℚ at every place read in Mathlib's residue symbols, with the dyadic comparison through χ₄ and χ₈; the n-th power residue symbol at primes and at ideals prime to n, with Euler's criterion, Galois equivariance and the Frobenius comparison; the tame formula for the degree-n Hilbert symbol, its product formula and the general power reciprocity law; cubic reciprocity with its supplement at 1 - ω; and the Eisenstein reciprocity law, whose Stickelberger input is FiniteFieldsAndCharacterSums FF.1's Stickelberger relation and whose two further inputs are a recorded gap. Artin reciprocity itself is Class Field Theory's (Layers 11 and 12, including rayClassArtinMap) and is not re-planned; its application to power residue symbols is the Frobenius comparison node together with the degree-n product formula.
+
+- Biquadratic (quartic) reciprocity in ℤ[i] with its supplements. The one public statement read (Relyea, Theorem 4.4) is misstated and leaves primary undefined (source issues E203, E204), and gives no proof; Ireland–Rosen chapter 9, Lemmermeyer and Cassels–Fröhlich are not public. A continuation job should obtain a public source that defines primary Gaussian integers (α ≡ 1 mod (1 + i)^3), the quartic character at composite primary elements, and proves the law by Jacobi sums as for cubic reciprocity, and plan it on the power residue symbol with n = 4 in ℚ(i).
+- The two inputs of Eisenstein reciprocity besides Stickelberger's relation (now FiniteFieldsAndCharacterSums:FF.1/stickelberger-relation), recorded as a gap: once an owner is fixed, decompose Adhikari §4 (Φ(P) and Proposition 4.2, Proposition 4.4, Propositions 4.5–4.6 and the relation (25)) into lemma nodes under the Eisenstein reciprocity node; Katre's article in the same proceedings is the public source to read.
+- The explicit reciprocity laws at the places above n (the Hilbert symbol (a, b)_v for v | n, n > 2), which the power reciprocity law leaves as a product of local symbols: Artin–Hasse and Iwasawa formulas, for which no public source was read. The power reciprocity law is planned with those factors kept as Hilbert symbols, so no statement depends on them.
+- Koymans–Milovic items 3–4 need the number-field quadratic law with explicit dyadic and infinite factors, dependence on the denominator modulo 8 times the numerator, and norm compatibility in a Galois extension. The existing power-reciprocity-law supplies the coprime odd case with unevaluated local symbols; power-residue-symbol-galois-equivariance is not the relative-norm formula. Read FIMR at its full hypotheses before decomposition. Import Hilbert reciprocity and the local symbols from their existing Tau Ceti owners; do not reconstruct them here.
+- Calegari–Geraghty ext-zeros-binary-quadratic-form-mod-p remains an exact missing adapter: for odd p and a nonzero binary quadratic form, the number of projective zeros is 1 plus the Legendre symbol of r²−4mn. Separate the chart with m nonzero, the point at infinity when m=0, the repeated-root case and the excluded zero form. The discriminant is not the determinant of the symmetric coefficient matrix.
+
+### ClassicalArithmeticCompletion:CA.2 — partial
+
+Built in the pinned libraries and cited as baseline declarations: the solution space of a linear recurrence with its characteristic polynomial, geometric solutions and state shift (LinearRecurrence), Fibonacci strong divisibility and Binet, divisibility of normalised EDS (Tau Ceti), Bernoulli numbers in both conventions with their formal generating functions, Faulhaber, von Staudt–Clausen, ζ(2k) and ζ(−k), Bernoulli polynomials, the binomial theorem and the identities of Vandermonde, Lucas and Kummer, the Catalan, Stirling, Bell, partition and derangement families, (1 − X)^{−d}, base-b digits of naturals with uniqueness, base-b expansions of reals (existence), acceptor DFAs, and the p-adic truncations appr. Planned here (61 nodes, from public sources): the minimal polynomial of a linearly generated sequence and the rationality predicate (kept, corrected); Evertse's closed form of complex recurrences with uniqueness and converse (the DT.2 request) and Stanley's three-way equivalence (kept, reorganised through it); companion matrices in every rank with charpoly = p, the state-vector theorem and eigenvalues without extending scalars; Lucas sequences Uₙ, Vₙ with divisibility and strong divisibility; the Euler zigzag numbers with André's theorem and the formal identity sec + tan; the Taylor-series transfer from formal to analytic identities with the convergent Bernoulli (|z| < 2π) and sec + tan (|z| < π/2) generating functions; the p-adic digit equivalence ℤ_p ≃ (ℕ → Fin p) and uniqueness of real base-b expansions; DFAOs, automatic sequences, kernels (Eilenberg), reading direction, base powers, uniform morphisms (Cobham), Thue–Morse; Cartier operators, Ore relations and Christol's theorem over 𝔽_q; mediants, Farey sequences with the neighbour and mediant properties, and the Stern–Brocot tree. Cobham’s theorem for multiplicatively independent bases is decomposed from Krebs’s complete three-page proof through bounded carries, all-word reversal, finite prefix colours, close powers and overlapping local periods. Its converse promotes the existing eventual-periodicity API; the EDS strong-divisibility source remains missing.
+
+- Strong divisibility of integral elliptic divisibility sequences: Ward's theorem that a nondegenerate integral EDS (W₀ = 0, W₁ = 1, W₂W₃ ≠ 0, W₂ ∣ W₄) with gcd(W₃, W₄) = 1 satisfies gcd(W_m, Wₙ) = |W_{gcd(m,n)}|, extending Tau Ceti's isDvdSequence_normEDS. The coprimality hypothesis is needed (W = 0, 1, 1, −6, −6, 210, … has gcd(W₃, W₄) = 6 ≠ |W₁|; checked numerically: over b ≤ 5, |c|, |d| ≤ 6 every failure of strong divisibility has gcd(W₃, W₄) ≠ 1). Ward's memoir (Amer. J. Math. 70 (1948)) is not public and no public source with a proof was obtained (K. Stange's arXiv:0710.1316 does not treat it; J. Silverman's 2007 ICMS lecture slides state strong divisibility without the coprimality hypothesis). A continuation needs a public proof (for instance through denominators of multiples of a point and the formal group, with the reduction layers of the Tau Ceti EllipticCurves roadmap) before planning nodes.
+- Lawrence–Sawin 66–67: define the Eulerian descent counts once, with factorial sum, symmetry, recurrence and Appendix C.1–C.5 bounds, including their n,q,r ranges. These are not the existing Euler zigzag numbers or graph Eulerian circuits. State the zero-degree convention separately: the extracted range convention for n≥1 cannot silently force the empty-permutation count to vanish. The Hodge interpretation remains with the hypersurface owner.
+- Yu 103–105 and 179: generalized integer binomial divisibility including negative upper entries, the finite product f_p(N) for N≥0, its factorial split and p-adic unit property, and the Luo–Zhu block congruence. Preserve the exclusion p=2, alpha=1 and its separate sign formula. The negative-upper-entry factorization has the sign (−1)^(m(p−1)). Existing binomial arithmetic is a prerequisite, not these four exact statements.
+
+### ClassicalArithmeticCompletion:CA.3 — partial
+
+RS-03 narrows CA.3 to the general Smith, Hermite and rational canonical normal forms with reconstruction, divisibility and termination certificates, plus the integer-valued-polynomial and irreducibility refinements the audit records as missing; existing resultant, discriminant and special-case normal-form results are imported. Planned here: the Smith certificate and a terminating Smith algorithm for rectangular and singular integer matrices with uniqueness, the Smith form over a PID, the cokernel reading, the invariant-factor structure theorem over a PID with uniqueness; the Hermite normal form (predicate, certificate, terminating algorithm, uniqueness, the Hermite basis of a sublattice, the index as the product of pivots); invariant factors of an endomorphism, the rational canonical form and the similarity classification; the ring Int(D), Pólya's theorem, the consecutive-values criterion, non-Noetherianity of Int(ℤ), irreducibility of the binomial polynomials, the characteristic ideals and the regular-basis criterion; Capelli's theorem in all characteristics, Perron's criterion, Cohn's criterion in every base, and Newton polygons with Dumas's theorem, the root-valuation theorem and the Eisenstein–Dumas criterion. Perron's weak/equality variant is decomposed through unit-circle exclusion, the existing symmetric Rouché theorem, and an integral-factor adapter shared with the strict variant.
+
+- Int(𝓞_K) beyond the definition and the regular-basis criterion: the local formula for the characteristic ideals, Proposition 31 of Cahen–Chabert (Int(𝓞_K) has a regular basis iff every factorial ideal n!_{𝓞_K} is principal) and the Pólya group. Cahen–Chabert state these without proof, citing their book (Chapter II), which is not freely available; no public source with proofs was obtained.
+- Bary-Soroker–Koukoulopoulos–Kozma 51 and 58 require the stronger Mignotte Euclidean coefficient-norm bound with sqrt(m) in the exponent and its integer-evaluation consequence. Acquire Mignotte 1988 Theorem 1-prime and the subsequent remarks at their full hypotheses. The basic binomial-times-Mahler coefficient estimate does not imply this stronger bound; retain the correction norm(A)≤H sqrt(n+1).
+- Smith 17 (Lemma 2.10): a nonnegative integral combination, after removing the common polynomial gcd, is squarefree of the expected degree with coefficients at most 2(n−deg G). No exact node exists here. Import the existing resultant/discriminant and finite-grid nonvanishing machinery rather than creating a separate interpolation theory.
+
+### ClassicalArithmeticCompletion:CA.4 — partial
+
+Built in the pinned libraries and cited as baseline: the Pell equation with fundamental solution and classification (Mathlib Pell), Fermat's two-square theorem and the characterisation of sums of two squares, Lagrange's four-square theorem, x⁴ + y⁴ = z² with FLT for n = 3, 4, the classification of Pythagorean triples, solvability of ax + by = n, and the Frobenius number of two coprime generators. Planned here, from public sources read in full: integer linear systems (Stein); the quartic descent T⁴ + V⁴ = 2U² of Bennett–Siksek through Fermat's right-triangle theorem (Conrad); the Markoff surface, Vieta moves, positive tree, reduction modulo p and the definition of strong approximation (Martin items 1–13, with Bourgain–Gamburd–Sarnak and Zhang for the proofs); Legendre's three-square theorem (Ankeny, with the outlined case supplied); Jacobi's two-square (Wuthrich) and four-square (Hirschhorn) theorems; the negative and generalised Pell equations with Chebyshev's bound and the continued-fraction decision procedure (Conrad); Ramanujan–Nagell (Banwait) and Levi ben Gershon's 2ᵃ − 3ᵇ = ±1; numerical semigroups with genus, Apéry sets, Selmer's and Sylvester's formulas and symmetry (Assi–García-Sánchez); Egyptian fractions with the greedy algorithm, existence for every positive rational and Sylvester's identity; and the routing interface (primitive zeros, rational projective points, local solubility, a Weierstrass comparison). Catalan–Mihăilescu is not elementary and has no owner; it is recorded as a gap. Ghosh–Sarnak is not source-decomposed: the existing Markoff nodes cover the coefficient-three theory, while 25 explicit requests enumerate its general level-k work. Three comparison/lemma/theorem nodes now give integral k=0 reuse, root-orbit injection and the corrected exceptional class-number inequality. Their outstanding source inputs are explicit gaps. Gauss-sum normalization imports FF.1; general commutative-ring Fricke coalesces with the pending NonabelianLevelStructures proposal. These gaps block unconditional downstream use of the level-k theory.
+
+- Chen 9,10,90: markoff-coefficient-one-zero-orbits already proves the integral scaling and equivariance comparison using the coefficient-three root-generation node. The ring-valued coefficient-one carrier, localization isomorphism over Z[1/3], positive-orbit adapter at (3,3,3), and their typed API still need decomposition. Multiplication by 3 is not an isomorphism over Z or in characteristic 3. Coalesce the general carrier with GMR and Ghosh–Sarnak.
+- Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set.
+- All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+- Koymans–Pagano 2–4: the existing generalized-Pell norm fibre and local obstruction are reusable inputs. Package the squarefree negative-Pell set and truncation, the exact rational-solubility criterion and the prime 1 mod 4 integral-solubility theorem. A congruence obstruction is not a sufficient integral criterion: d=34 has the rational solution (5/3,1/3) but no integral solution. Treat d=1 separately from quadratic-field comparisons; class-group and full-ring-of-integers comparisons belong in CA.5.
+- Typed signatures for markoff-coefficient-one-zero-orbits, markoff-positive-root-orbits and markoff-exceptional-class-number-lower-bound are absent from the inherited suggested file. The general level-k carrier and finite quotient must be provided before their dependent signatures can be checked without fake assumptions.
+
+### ClassicalArithmeticCompletion:CA.5 — partial
+
+RS-03 narrows CA.5 to the comparisons between quadratic and cyclotomic presentations, intrinsic integral bases, units, ideals and class groups, and the interpretation of certified matrix and algorithm outputs in those invariants; intrinsic existence and structure stay upstream (Mathlib, Tau Ceti, and the Tau Ceti roadmaps NumberFieldArithmetic and GlobalNumberFields), and ComputationalNumberTheory:CN.2 owns the certified algorithms and their completeness. Planned here: generation of the class group by the primes below the Minkowski bound, the class-group presentation by a family of ideals with its relation lattice, the class group of a complete relation matrix through its Smith form, the divisibility of |det| by h_K for found relations, the regulator-bound certificate for units and the joint class-number–regulator certificate; the Hermite matrix of an ideal in an integral basis with the norm as the product of pivots and the criterion for a Hermite matrix to be an ideal; the discriminant of a sublattice basis (integral-basis certificate), the index of ℤ[√d], Dedekind–Kummer at every prime for a monogenic presentation; Mathlib's ℤ√d inside 𝓞_K, Pell solutions as the norm-one units and the negative Pell equation as units of norm −1, for d ≢ 1 (mod 4) and, through the units of 𝓞_K in ℤ[√d] (d ≡ 1 mod 8) and their cubes (d ≡ 5 mod 8), for d ≡ 1 (mod 4) (added by FIX-RT-PAPER-KOYMANS-PAGANO for RT-PAPER-KOYMANS-PAGANO/5); the worked class groups of ℚ(√−14) and ℚ(√−30); and the interpretation of CN.2's certified outputs, requested from that layer. Current coverage is partial: the unit bridge has signatures, but the source-route comparison and certification contracts below remain.
+
+- Preserve the CN.2 request for certified basis/ideal/relation/unit outputs, with completeness and error certificates. CA.5 interprets them; it supplies no reverse CA.5→CN.2 algorithm prerequisite. A terminated relation search proves neither a complete class group nor a fundamental unit system.
+- The reviewed order-to-unit comparison for d=1 mod 4 now has all four missing API signatures and its four stated acceptance examples in the suggested file. This is typed planning with admitted proofs. Koymans–Pagano route 7 names items 5,9,12, but its positional route verdict is still absent; record that queue boundary rather than inventing acceptance. Their final 2-primary class-group, narrow-principal-class and unit Galois-module comparisons are still to be connected explicitly to the existing order bridge and pinned unit/class-group results. The degree-one d=1 case is excluded by d>1.
+
+### ClassicalArithmeticCompletion:CA.6 — partial
+
+RS-03 narrows CA.6 to Pisot/Salem numbers, the selected lower bounds (Smyth, Dobrowolski, Schinzel-Zassenhaus by Dimitrov) and the dynamical-height comparison, with the Mahler measure, house, absolute height, Kronecker and Northcott imported. The layer is planned from Smyth's Mahler-measure survey (now obtained, arXiv:math/0701397), Smyth's Salem survey, Dimitrov's paper and Berrevoets's thesis (complete proofs of Dobrowolski's house bound and of Dobrowolski's theorem with constant 1/11700): 45 nodes. The Mahler measure of an algebraic number, the house, the primitive minimal polynomial and the comparison log M(α) = deg α · h(α) are DiophantineApproximationAndTranscendence:DT.0 nodes and are cited, not re-planned; Mathlib supplies M of polynomials, Kronecker and Northcott. Two analytic inputs have no source or no owner (the gaps), and three inputs are requested (DT.0, AN.2, DY.1). Lehmer's problem is a conjecture and is recorded in the document only.
+
+- Decompose the analytic step of Smyth's theorem (Schur's coefficient conditions for functions bounded by 1 on the disc, applied to F = f/g) once Smyth 1971 or another public proof is obtained; until then CA.6/smyth-nonreciprocal-lower-bound and CA.6/plastic-number-least-pisot rest on the gap 'The analytic core of Smyth's nonreciprocal bound has no public source'.
+- Give the potential-theoretic inputs of Dimitrov's theorem (transfinite diameter, Dubinin's hedgehog theorem, Bertrandias's rationality theorem) an owner (restructure proposal) and replace the gap by its node ids in CA.6/schinzel-zassenhaus-dimitrov.
+- Smith 1–3: the totally positive integer trace ratio, the finite-exception threshold lambda_SSS and the resultant-based auxiliary-polynomial bound remain to be planned. The assertion lambda_SSS=2 is the historical trace problem, contradicted by Smith’s theorem in its separate owner; do not introduce it as a theorem or as an open conjecture the source still endorses. Keep the classical lower bounds source-scoped and preserve the coprimality of the minimal polynomial with every auxiliary polynomial.
+- BKK 69 requires a stronger asymptotic Dobrowolski constant and a uniform bounded-degree completion than CA.6/dobrowolski-lower-bound, whose recorded constant is 1/11700. That node does not imply the requested exponential lower bound with L(m)=2(log m/loglog m)^3. BKK 70 bounds the number of primes causing a degree drop for a nonzero algebraic number; CA.6/degree-drop-mahler-measure only constructs a smaller-degree algebraic integer with controlled Mahler measure. Neither nearby theorem closes the requested contract.
+- The current Smith route proposes LogarithmicPotentialTheoryAndAlgebraicIntegers as the common complex capacity/equilibrium foundation and explicitly exposes it to the Dimitrov consumer. No roadmap definition or packet of that name exists at this base. The inherited assertion that there is no proposed owner is superseded, but there are still no supplier nodes to import. Dubinin’s specialized hedgehog bound and Bertrandias’s arithmetic rationality input remain distinct obligations; generic potential foundations must precede CA.6, while the classical trace constant feeds later Smith arithmetic stages, avoiding a cycle.
+
+### ClassicalArithmeticCompletion:CA.7 — partial
+
+Integral Galois module structure, planned from Johnston's Notes on Galois Modules (read in full), Ullom 1969, Taylor 1981 (statements), Voight's Quaternion Algebras (orders and locally free lattices), Conrad's two expository articles, Ferri–Greither and Acciaro. The layer's targets are all realised by nodes: group-ring modules for rings of integers, the rational normal basis map, normal integral bases, tame ramification and the trace, local and global Noether theorems, the Hilbert–Speiser theorem with Gauss periods, orders, maximal orders and the associated order, resolvents and the resolvent–discriminant relation, locally free lattices and class groups, the Galois module class, and the Fröhlich–Taylor theorems stated source-scoped. The two acceptance gates are nodes: ℚ(i)/ℚ (a rational normal basis that is not integral, wild) and a nonprincipal ideal (local freeness without freeness). Three recorded gaps keep the layer partial.
+
+- The proofs of Fröhlich's kernel-group theorem and Taylor's Theorem 1 (see the gap on the Fröhlich–Taylor theorems): Fröhlich's Hom-description of Cl(ℤΓ), the root number class t(W), Galois Gauss sums and the group logarithm.
+- Jacobinski's cancellation theorem under the Eichler condition, needed for the freeness corollary of Taylor's theorem.
+- Reiner's Theorem 27.4 for orders in semisimple algebras (every locally free class is represented by a locally free ideal), public only for simple algebras (Voight Proposition 20.7.4).
+- Keep rational normal bases separate from integral normal bases and local freeness separate from global freeness. The inherited Fröhlich–Taylor, cancellation and semisimple rank-one class gaps remain. KTheoryLowDegrees is a supplier of K0 infrastructure, not a reason to reconstruct it in CA.7. The existing split proposals are proposals only; accepted RS-03 keeps this stage and its forwarded CN.2 input in place.
+
+## Requested supplier paths
+
+The actual atlas comparison preserves every accepted restructuring path, but six inherited requests have no drawn supplier-to-consumer path: ClassFieldTheory layers 6 and 14, GlobalQuadraticForms layer 4 and QuadraticFormInvariants 6C to CA.1; ClassFieldTheory layer 13 and CharacterTheory layer 7 to CA.7. Their exact mathematical contracts remain in requests, and the scoped dependency audit includes those requested inputs. This pass does not claim that the stage atlas already draws them or edit upstream roadmaps/link maps. Reconcile the existing requests and node prerequisites in the corresponding follow-ups.
+
+## Source-route ledger
+
+All 71 issue-referenced records were read. There are twelve accepted positional source-route entries and one appended Koymans–Pagano route without a positional verdict. Current corrected packet contracts take precedence over stale extraction wording. The two additional route-7 records (9 and 12) were read as ownership context. Full source papers were not reread for this budget pass.
+
+### PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/51
+
+Evaluation bound for an irreducible integral factor — open. Owner: ClassicalArithmeticCompletion:CA.3. Locator: arXiv v3, Lemma 3.4, pp. 20–21.
+
+Bary-Soroker–Koukoulopoulos–Kozma 51 and 58 require the stronger Mignotte Euclidean coefficient-norm bound with sqrt(m) in the exponent and its integer-evaluation consequence. Acquire Mignotte 1988 Theorem 1-prime and the subsequent remarks at their full hypotheses. The basic binomial-times-Mahler coefficient estimate does not imply this stronger bound; retain the correction norm(A)≤H sqrt(n+1).
+
+### PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/58
+
+Stronger Mignotte input for factor l2 norms — open. Owner: ClassicalArithmeticCompletion:CA.3. Locator: arXiv v3, Lemma 3.4 proof p. 20.
+
+Bary-Soroker–Koukoulopoulos–Kozma 51 and 58 require the stronger Mignotte Euclidean coefficient-norm bound with sqrt(m) in the exponent and its integer-evaluation consequence. Acquire Mignotte 1988 Theorem 1-prime and the subsequent remarks at their full hypotheses. The basic binomial-times-Mahler coefficient estimate does not imply this stronger bound; retain the correction norm(A)≤H sqrt(n+1).
+
+### PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/69
+
+Dobrowolski lower-bound input — open. Owner: ClassicalArithmeticCompletion:CA.6. Locator: §7, p. 37, citing Dobrowolski [8]; E21.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.6/dobrowolski-lower-bound.
+
+BKK 69 requires a stronger asymptotic Dobrowolski constant and a uniform bounded-degree completion than CA.6/dobrowolski-lower-bound, whose recorded constant is 1/11700. That node does not imply the requested exponential lower bound with L(m)=2(log m/loglog m)^3. BKK 70 bounds the number of primes causing a degree drop for a nonzero algebraic number; CA.6/degree-drop-mahler-measure only constructs a smaller-degree algebraic integer with controlled Mahler measure. Neither nearby theorem closes the requested contract.
+
+### PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/70
+
+Few primes drop algebraic degree — open. Owner: ClassicalArithmeticCompletion:CA.6. Locator: arXiv v3, §7 p. 37; Dobrowolski[8], Lemma 3.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.6/degree-drop-mahler-measure.
+
+BKK 69 requires a stronger asymptotic Dobrowolski constant and a uniform bounded-degree completion than CA.6/dobrowolski-lower-bound, whose recorded constant is 1/11700. That node does not imply the requested exponential lower bound with L(m)=2(log m/loglog m)^3. BKK 70 bounds the number of primes causing a degree drop for a nonzero algebraic number; CA.6/degree-drop-mahler-measure only constructs a smaller-degree algebraic integer with controlled Mahler measure. Neither nearby theorem closes the requested contract.
+
+### PAPER-BENNETT-SIKSEK-20/72
+
+Primitive character of a rational squareclass — existing_plan. Owner: ClassicalArithmeticCompletion:CA.1. Locator: §6, Lemma 6.2 and Proposition 6.1; §7 Lemma 7.3.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.1/quadratic-character-of-a-squareclass.
+
+Use the full inherited hypotheses and convention; no duplicate definition or weaker Fermat substitute.
+
+### PAPER-BENNETT-SIKSEK-20/81
+
+Quartic descent input — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §6, Case II, p. 372.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/quartic-descent-t4-plus-v4-equals-2u2.
+
+Use the full inherited hypotheses and convention; no duplicate definition or weaker Fermat substitute.
+
+### PAPER-BENNETT-SIKSEK-20/152
+
+Quadratic primitive conductors are at most eight times their odd part — existing_plan. Owner: ClassicalArithmeticCompletion:CA.1. Locator: §§6–8, pp. 366, 375 (used with N=2^kappa*N_1, kappa in {0,1,2} as printed in the proof of Lemma 7.3; split from item 86 by the reviewer).
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.1/two-adic-conductor-bound.
+
+Use the full inherited hypotheses and convention; no duplicate definition or weaker Fermat substitute.
+
+### PAPER-CALEGARI-GERAGHTY-20/ext-zeros-binary-quadratic-form-mod-p
+
+Zeros of a binary quadratic form over F_p — open. Owner: ClassicalArithmeticCompletion:CA.1. Locator: §8.7, proof of Lemma 8.21, p. 873.
+
+Calegari–Geraghty ext-zeros-binary-quadratic-form-mod-p remains an exact missing adapter: for odd p and a nonzero binary quadratic form, the number of projective zeros is 1 plus the Legendre symbol of r²−4mn. Separate the chart with m nonzero, the point at infinity when m=0, the repeated-root case and the excluded zero form. The discriminant is not the determinant of the symmetric coefficient matrix.
+
+### PAPER-CHEN-24/5
+
+Exterior epimorphisms, Nielsen equivalence classes and T-systems — elsewhere. Owner: InverseGaloisAndArithmeticFundamentalGroups:IG.5. Locator: arXiv:2011.12940v2 (19 June 2021), §1, p. 3, (1); §1.1, p. 5 (Nielsen equivalence, T_r-systems, d(G)); §1.6, p. 12.
+
+This incidental issue reference is routed to InverseGaloisAndArithmeticFundamentalGroups (route 3), not to CA.4.
+
+### PAPER-CHEN-24/9
+
+The Markoff surface in trace coordinates and its nonzero points — partial_interface. Owner: ClassicalArithmeticCompletion:CA.4. Locator: arXiv:2011.12940v2 (19 June 2021), §1.2.1, p. 6, and (3); also §5.5, p. 80.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-coefficient-one-zero-orbits, ClassicalArithmeticCompletion:CA.4/markoff-root-generation.
+
+Chen 9,10,90: markoff-coefficient-one-zero-orbits already proves the integral scaling and equivariance comparison using the coefficient-three root-generation node. The ring-valued coefficient-one carrier, localization isomorphism over Z[1/3], positive-orbit adapter at (3,3,3), and their typed API still need decomposition. Multiplication by 3 is not an isomorphism over Z or in characteristic 3. Coalesce the general carrier with GMR and Ghosh–Sarnak.
+
+### PAPER-CHEN-24/10
+
+Markoff's theorem on positive integral solutions (Theorem 1.2.1) — partial_interface. Owner: ClassicalArithmeticCompletion:CA.4. Locator: arXiv:2011.12940v2 (19 June 2021), §1.2.1, p. 6, Theorem 1.2.1, quoting [Mar79, Mar80].
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-coefficient-one-zero-orbits, ClassicalArithmeticCompletion:CA.4/markoff-root-generation.
+
+Chen 9,10,90: markoff-coefficient-one-zero-orbits already proves the integral scaling and equivariance comparison using the coefficient-three root-generation node. The ring-valued coefficient-one carrier, localization isomorphism over Z[1/3], positive-orbit adapter at (3,3,3), and their typed API still need decomposition. Multiplication by 3 is not an isomorphism over Z or in characteristic 3. Coalesce the general carrier with GMR and Ghosh–Sarnak.
+
+### PAPER-CHEN-24/90
+
+The Markoff surface, its twist and the induced Γ-action (§5.5) — partial_interface. Owner: ClassicalArithmeticCompletion:CA.4. Locator: arXiv:2011.12940v2 (19 June 2021), §5.5, pp. 80–81.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-coefficient-one-zero-orbits, ClassicalArithmeticCompletion:CA.4/markoff-root-generation.
+
+Chen 9,10,90: markoff-coefficient-one-zero-orbits already proves the integral scaling and equivariance comparison using the coefficient-three root-generation node. The ring-valued coefficient-one carrier, localization isomorphism over Z[1/3], positive-orbit adapter at (3,3,3), and their typed API still need decomposition. Multiplication by 3 is not an isomorphism over Z or in characteristic 3. Coalesce the general carrier with GMR and Ghosh–Sarnak.
+
+### PAPER-GAMBURD-MAGEE-RONAN-19/1
+
+The Markoff–Hurwitz equation, its tuples and moves — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §1, (1.1), pp.2, 4, arXiv:1603.06267v3; Annals (2019): §1, (1.1), pp.752,755..
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/positive-markoff-triples, ClassicalArithmeticCompletion:CA.4/markoff-vieta-involution, ClassicalArithmeticCompletion:CA.4/markoff-descent-inequality, ClassicalArithmeticCompletion:CA.4/markoff-root-generation.
+
+Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set.
+
+### PAPER-GAMBURD-MAGEE-RONAN-19/2
+
+Exceptional solutions (Definition 15, Remark 4) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Definition 15, Remark 4, pp.3, 11–12, arXiv:1603.06267v3; Annals (2019): Definition 15, pp.765–766; Remark 4, p.754..
+
+Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set.
+
+### PAPER-GAMBURD-MAGEE-RONAN-19/3
+
+Passage from V(ℤ) to V(ℤ₊) (§2.1) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §2.1, pp.12–13, arXiv:1603.06267v3; Annals (2019): §2.1, pp.766–767..
+
+Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set.
+
+### PAPER-GAMBURD-MAGEE-RONAN-19/4
+
+Proposition 16 (behaviour of the moves outside a compact set) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Proposition 16 and proof, pp.13–15, adapting Cassels [Cas57, p.27], arXiv:1603.06267v3 (error E3 in the scope of part 3); Annals (2019): Proposition 18, pp.767–770..
+
+Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set.
+
+### PAPER-GAMBURD-MAGEE-RONAN-19/5
+
+Corollary 17 (infinite descent) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Corollary 17, p.15, citing [Mar80], [Hur07], [Bar94b], arXiv:1603.06267v3; Annals (2019): Corollary 19, p.770..
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/positive-markoff-triples, ClassicalArithmeticCompletion:CA.4/markoff-vieta-involution, ClassicalArithmeticCompletion:CA.4/markoff-descent-inequality, ClassicalArithmeticCompletion:CA.4/markoff-root-generation.
+
+Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set.
+
+### PAPER-GHOSH-SARNAK-22/3
+
+The Markoff cubic M and its level surfaces V_k — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §1, (1.4), p.3; §2, (2.1), p.9; (9.6), p.27, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/3 — The Markoff cubic M and its level surfaces V_k. M(x) = x₁² + x₂² + x₃² − x₁x₂x₃ and V_k = V_{k,M} : M(x) = k for k ∈ ℤ (1.4), (2.1). Changing the sign of one coordinate identifies V_k with x₁² + x₂² + x₃² + x₁x₂x₃ = k (9.6). V₀(ℤ) is {(0,0,0)} together with the triples 3·(Markoff triples); V₄ is the singular Cayley cubic. Source: §1, (1.4), p.3; §2, (2.1), p.9; (9.6), p.27, arXiv:1706.06712v3 (final version). The coefficient-one normalisation. PAPER-MARTIN-25 uses the coefficient-three equation x²+y²+z² = 3xyz; the two are related by x ↦ 3x at k = 0 only. Routed to ClassicalArithmeticCompletion CA.4 as a source. Shared CA.4 source contract: PAPER-GAMBURD-MAGEE-RONAN-19/1 has V_{n,a,k} and the Vieta moves; n=3,a=1 gives this cubic and these moves. Coalesce the carrier and descent machinery with GMR/5, retaining the level/sign-specific hypotheses and Γ’s permutation/double-sign extension. The coefficient-three integral theory is related by x=3y only at k=0; no reduction-mod-3 equivalence is claimed. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/4
+
+The Markoff group Γ and narrow equivalence — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §1, p.3; §2, p.9; §4.1, p.13, arXiv:1706.06712v3 (final version) (misprint E4 in the formula for V₂).
+
+PAPER-GHOSH-SARNAK-22/4 — The Markoff group Γ and narrow equivalence. Γ is the group of polynomial affine transformations of 𝔸³ generated by the Vieta involutions V₁(x) = (x₂x₃ − x₁, x₂, x₃), V₂(x) = (x₁, x₁x₃ − x₂, x₃), V₃(x) = (x₁, x₂, x₁x₂ − x₃), the permutations of the coordinates and the changes of sign of two coordinates. Γ preserves M, hence each V_k(ℤ). Narrow equivalence uses only permutations and double sign changes. Source: §1, p.3; §2, p.9; §4.1, p.13, arXiv:1706.06712v3 (final version) (misprint E4 in the formula for V₂). Routed to ClassicalArithmeticCompletion CA.4 as a source. Shared CA.4 source contract: PAPER-GAMBURD-MAGEE-RONAN-19/1 has V_{n,a,k} and the Vieta moves; n=3,a=1 gives this cubic and these moves. Coalesce the carrier and descent machinery with GMR/5, retaining the level/sign-specific hypotheses and Γ’s permutation/double-sign extension. The coefficient-three integral theory is related by x=3y only at k=0; no reduction-mod-3 equivalence is claimed. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/5
+
+Class numbers h_M(k) and h^±_M(k) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §1, pp.3–5, (d), arXiv:1706.06712v3 (final version).
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound.
+
+PAPER-GHOSH-SARNAK-22/5 — Class numbers h_M(k) and h^±_M(k). For k ≠ 4, h_M(k) is the finite number of Γ-orbits in V_k(ℤ), and is zero for an empty integral locus. For k ≥ 5 put h⁺_M(k) = |F⁺_k(ℤ)|; for k < 0 put h⁻_M(k) = |F⁻_k(ℤ)|. For generic k these agree with h_M(k). For exceptional k ≥ 5 the corrected inequality is h_M(k) ≥ h⁺_M(k) + 1: each F⁺ root gives a distinct orbit with all absolute coordinates at least 3, and a small-coordinate exceptional point supplies a disjoint orbit. Source: §1, pp.3–5, (d), arXiv:1706.06712v3 (final version). The printed reversed inequality is source issue E21. At k = 5, (0,1,2) is a solution but F⁺ is empty (its defining polynomial is at least 54). The mean-value quantities in §7 count F± directly and do not use this incorrect comparison. CA.4 supplies the definitions; the corrected comparison is explicitly planned in markoff-exceptional-class-number-lower-bound. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/6
+
+Admissible, exceptional and generic k for M; Hasse failures — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §1, p.3; §4.1, pp.12–13, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/6 — Admissible, exceptional and generic k for M; Hasse failures. k is admissible for M iff k ≢ 3 (mod 4) and k ≢ ±3 (mod 9) (Proposition 6.1); there are 7K/12 + O(1) admissible 0 < k ≤ K. k is exceptional if V_k(ℤ) has a point with some |x_j| ∈ {0, 1, 2}; equivalently k = u² + v², 4(k − 1) = u² + 3v², or k − 4 = u² with u, v ∈ ℤ. The remaining admissible k are generic; every admissible k < 0 is generic. A Hasse failure is an admissible k with h_M(k) = 0; exceptional k are never Hasse failures. Source: §1, p.3; §4.1, pp.12–13, arXiv:1706.06712v3 (final version). The count of exceptional k is the Landau-type bound in the AN.5 item. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/7
+
+Lemma 2.1 (descent for k > 4) and the cases 1 ≤ k ≤ 3 — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §2, pp.9–10, Lemma 2.1, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/7 — Level-k descent for k>4, with small-coordinate cases explicit, and the cases 1≤k≤3. For a sorted positive point 3≤x₁≤x₂≤x₃, V₃ replaces x₃ by x₁x₂−x₃<x₃; iteration either reaches a negative representative, a small-coordinate point, or the next smaller positive triple. Negative representatives with all absolute coordinates ≥3 give S⁺(k), defined by 3≤u₁≤u₂≤u₃ and u₁²+u₂²+u₃²+u₁u₂u₃=k. The general exceptional descent must separately treat coordinates 0,±1,±2 before asserting a finite orbit-representative set; S⁺ together with points of coordinate 0 or 1 is not asserted to exhaust all exceptional orbits. For example, k=29 has the small negative root (−2,2,3), outside S⁺, and its orbit remains in the absolute-coordinate-at-least-2 locus by the same strict-Δ/unique-parent argument. Keep V₃(ℤ)=∅, the infinite V₂(ℤ) orbit of (0,1,1), and the finite V₁(ℤ) orbit of (0,0,1). Source: §2, Lemma 2.1 and its preceding descent, pp.9–10; §4.1 (4.1), pp.13–14, arXiv:1706.06712v3. Coalesce the carrier and descent with PAPER-GAMBURD-MAGEE-RONAN-19/1,5 at n=3,a=1, retaining Γ’s permutation/double-sign action. This is an outstanding source-completion contract, not a completed general fundamental-domain theorem. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/8
+
+Lemma 2.2 (descent for k < 0) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §2, p.10, Lemma 2.2, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/8 — Lemma 2.2 (descent for k < 0). For k < 0 every x ∈ V_k(ℤ) is Γ-equivalent to a point of S⁻(k) = {3 ≤ x₁ ≤ x₂ ≤ x₃ ≤ x₁x₂/2} ∩ V_k(ℤ) ⊆ U(k) = {3 ≤ x₁ ≤ x₂ ≤ √(|k| + 9), 3 ≤ x₃ ≤ 3(|k| + 9)/2}; points of V_k(ℤ) never have a coordinate in {0, ±1, ±2}; and for |k| large x₁ ≪ |k|^{1/3}, x₂ ≪ (|k|/x₁)^{1/2}, x₃ ≪ (|k|x₁)^{1/2}. Source: §2, p.10, Lemma 2.2, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. Shared CA.4 source contract: PAPER-GAMBURD-MAGEE-RONAN-19/1 has V_{n,a,k} and the Vieta moves; n=3,a=1 gives this cubic and these moves. Coalesce the carrier and descent machinery with GMR/5, retaining the level/sign-specific hypotheses and Γ’s permutation/double-sign extension. The coefficient-three integral theory is related by x=3y only at k=0; no reduction-mod-3 equivalence is claimed. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/9
+
+The Δ-function from Bhargava cubes — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §3, (3.1) and (a)–(d), pp.11–12, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/9 — The Δ-function from Bhargava cubes. For x ∈ ℤ³ the three Bhargava slicings of the cube with entries 1, x₁, x₂, x₃ ([Bha04]) give binary quadratic forms Q_i(u, v) = (x_jx_k − x_i)u² + (1 + x_i² − x_j² − x_k²)uv + (x_jx_k − x_i)v² with common discriminant Δ(x) = (1 + x₂² − x₁² − x₃²)² − 4(x₁x₃ − x₂)² = (1 + x₁ + x₂ + x₃)(1 + x₂ − x₁ − x₃)(1 + x₃ − x₁ − x₂)(1 + x₁ − x₂ − x₃) (3.1). Δ ≡ 0 or 1 (mod 4) as x₁² + x₂² + x₃² is odd or even; Δ is invariant under permutations and double sign changes; if 2 ≤ x₁ ≤ x₂ ≤ x₃ then Δ < 0 iff x₂ ≤ x₃ ≤ x₁ + x₂ − 2. Source: §3, (3.1) and (a)–(d), pp.11–12, arXiv:1706.06712v3 (final version). Only the polynomial Δ is used later; the cube is motivation. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/10
+
+The case k = 0: the Δ minimum (3.2) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §3.1, (3.2), p.12, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/10 — The case k = 0: the Δ minimum (3.2). On V₀(ℤ), Δ(0,0,0) = 1 and Δ(3,3,3) = −80. One has Δ(x) < 0 exactly for the narrow-equivalence class of (3,3,3). Thus Δ has a unique minimizing narrow-equivalence class on each Γ-orbit. The two-orbit statement is separately item 64. Source: §3.1, (3.2), p.12, arXiv:1706.06712v3 (final version). The Δ polynomial and its minimum remain missing in CA.4. Item 64 reuses the coefficient-three Markoff root-generation theorem through integer rescaling, rather than re-proving it. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/11
+
+The Δ-differences (4.1) and the orbit tree — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §4.1, (4.1) and Figure 6, pp.13–14; §4.2, p.14, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/11 — The Δ-differences (4.1) and the orbit tree. On V_k, with Δ_i = Δ ∘ V_i: Δ₁(x) − Δ(x) = x₂x₃(x₂x₃ − 2x₁)[2(k − 5) + (x₂² − 4)(x₃² − 4)], and cyclically for Δ₂, Δ₃ (4.1). The brackets are positive for generic k ≥ 5 and for all k < 0 (using (x₁² − 4)(x₂² − 4) = (2x₃ − x₁x₂)² − 4(k − 4)). Hence in the Vieta graph modulo narrow equivalence a positive node (x₁, x₂, x₃), 3 ≤ x₁ ≤ x₂ ≤ x₃, has two neighbours with larger Δ and one with smaller Δ, and a negative node (−x₁, x₂, x₃) has three neighbours with larger Δ. For k < 0 a point has no Δ-smaller neighbour iff it lies in S⁻(k). Source: §4.1, (4.1) and Figure 6, pp.13–14; §4.2, p.14, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/12
+
+Theorem 1.1 (fundamental sets) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Theorem 1.1, pp.3–4; proof §4.1–4.2, pp.12–14, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/12 — Theorem 1.1 (fundamental sets). (i) Let k ≥ 5 be generic and F⁺_k = {u ∈ ℝ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃, u₁² + u₂² + u₃² + u₁u₂u₃ = k}. The points of F⁺_k(ℤ) are pairwise Γ-inequivalent, and every x ∈ V_k(ℤ) is Γ-equivalent to a unique u′ = (−u₁, u₂, u₃) with u ∈ F⁺_k(ℤ). (ii) Let k < 0 be admissible and F⁻_k = {u ∈ ℝ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃ ≤ u₁u₂/2, u₁² + u₂² + u₃² − u₁u₂u₃ = k}. The points of F⁻_k(ℤ) are pairwise Γ-inequivalent, and every x ∈ V_k(ℤ) is Γ-equivalent to a unique u ∈ F⁻_k(ℤ). In particular h_M(k) = |F^±_k(ℤ)| is finite and computable. Source: Theorem 1.1, pp.3–4; proof §4.1–4.2, pp.12–14, arXiv:1706.06712v3 (final version). Existence by Lemmas 2.1–2.2; uniqueness because Δ has a unique minimum on each component of the Vieta tree. Examples: h(3685) = 6, h(−3691) = 9 (re-computed in this extraction). Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/13
+
+Proposition 4.1 (the Cayley cubic k = 4) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §4.3, Proposition 4.1, pp.14–15, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/13 — Proposition 4.1 (the Cayley cubic k = 4). V₄(ℤ) has infinitely many Γ-orbits, each containing exactly one point of the form (2, a, a) with a ≥ 0 (up to permutation and double sign change). The orbit of (2, 0, 0) ∼ (−2, 0, 0) has one element and that of (2, 1, 1) two, and Δ attains a unique minimum on each orbit (Δ(−2,0,0) = 9, Δ(−1,1,1) = −16, Δ(2,a,a) = 9 − 4a²). Source: §4.3, Proposition 4.1, pp.14–15, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/14
+
+Remark 4.2 (Δ-descent and the asymptotics of Δ) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Remark 4.2, p.15, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/14 — Remark 4.2 (Δ-descent and the asymptotics of Δ). Δ-descent alone gives finiteness of the number of orbits: a positive node either descends to a negative node or starts an infinite strictly Δ-decreasing chain of positive nodes, impossible since Δ ≥ 0 on positive nodes; the at most finitely many negative nodes in S⁺(k) are pairwise inequivalent. As k → ∞, Lagrange multipliers give (without proof in the paper) min_{S⁺(k)} Δ ≥ k² + 18k^{3/2} + 88k + (621/4)k^{1/2} + O(1), max_{S⁻(k)} Δ ≤ k² − 18k^{3/2} + 88k − (45/4)k^{1/2} + O(1), min_{S⁻(k)} Δ ≥ −3k^{4/3} + O(k), so the first h(k) minima of Δ on V_k(ℤ) occur at the roots. Source: Remark 4.2, p.15, arXiv:1706.06712v3 (final version). The three asymptotic bounds are asserted without proof. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/15
+
+Consequences (a)–(c) of Theorem 1.1 — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §1, (a)–(c), p.4; §8, p.22 (k = 46), arXiv:1706.06712v3 (final version).
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound.
+
+PAPER-GHOSH-SARNAK-22/15 — Consequences (a)–(c) of Theorem 1.1. (a) h_M(46) = 0, and 46 is the smallest positive Hasse failure. (b) h_M(−2) = 1, all solutions being equivalent to (3, 3, 4), and −4 is the largest negative Hasse failure. (c) h_M(k) ≪_ε |k|^{1/3+ε} as k → ±∞, because for fixed x₁ the fundamental set bounds the number of units acting on the indefinite binary quadratic form in (x₂, x₃). Source: §1, (a)–(c), p.4; §8, p.22 (k = 46), arXiv:1706.06712v3 (final version). (a) and (b) were re-verified in this extraction. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/16
+
+Lemma 5.1 (reduction of polynomial parametric solutions) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §5.1, Lemma 5.1 and proof, p.16, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/16 — Lemma 5.1 (reduction of polynomial parametric solutions). For M*(x) = Σ α_jx_j + (β₁x₂x₃ + β₂x₁x₃ + β₃x₁x₂) + x₁² + x₂² + εx₃² − x₁x₂x₃ with ε = ±1 and α_j, β_j ∈ ℤ (5.1): if P_j ∈ ℤ[t] of positive degree satisfy M*(P₁, P₂, P₃) = k identically, then there are q ∈ ℤ and Q₁, Q₂ ∈ ℤ[t] of positive degree with M*(q, Q₁, Q₂) = k identically. Parametric solutions with two constant coordinates do not exist. Source: §5.1, Lemma 5.1 and proof, p.16, arXiv:1706.06712v3 (final version). Proof: degree descent by Vieta moves. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/17
+
+Parametric solutions on V_k and on x₁² + x₂² − x₃² − x₁x₂x₃ = k — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §5.1 (1)–(2) and Remark 5.2, pp.16–17, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/17 — Parametric solutions on V_k and on x₁² + x₂² − x₃² − x₁x₂x₃ = k. (1) V_k contains a polynomial parametric integral family iff k − 4 = w² is a square, in which case (2, t, t + w) is one (so a line); in particular there is none for generic k. (2) The surface x₁² + x₂² − x₃² − x₁x₂x₃ = k has parametric families (of the type (Q₁, Q₂, q)) iff k + 4 = w², e.g. (t + w, t, 2), or k = 0, e.g. (Q, 0, ±Q). By Remark 5.2 this surface has no local obstructions, has the points (0, 2^α(k′ + 1)/2, 2^α(k′ − 1)/2) for k = 4^αk′ with k′ odd, infinitely many integral points when k′ ≠ 1 or α ≥ 3, and infinitely many Hasse failures (for example k = 94), by an argument like Proposition 8.1. Source: §5.1 (1)–(2) and Remark 5.2, pp.16–17, arXiv:1706.06712v3 (final version). The Hasse failures in Remark 5.2(iv) are asserted without proof. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/24
+
+Lemma 6.2 and Corollary 6.3 (explicit solutions modulo p^n, p ≥ 5) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Lemma 6.2, Corollary 6.3, p.19, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/24 — Lemma 6.2 and Corollary 6.3 (explicit solutions modulo p^n, p ≥ 5). For every prime p ≥ 5, n ≥ 1 and t ∈ ℤ there are A, B ∈ SL₂(ℤ/p^nℤ) with tr(A)² + tr(B)² + tr(AB)² − tr(A)tr(B)tr(AB) ≡ t + 2: take B = diag(e, f) with ef ≡ 1 and (e − f, p) = 1, c with c(e − f)² ≡ 1, a = 1, b = 2 − t, d = 1 + bc. Hence M(x) ≡ k (mod p^n) has the solution x₁ ≡ 2 − (k − 4)c, x₂ ≡ e + f, x₃ ≡ e − f + fx₁. Source: Lemma 6.2, Corollary 6.3, p.19, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. Direct algebra alternative: choose e ∈ (ℤ/pⁿℤ)× with e−e⁻¹ a unit, put f=e⁻¹, c=(e−f)⁻², and (x₁,x₂,x₃)=(2−(k−4)c,e+f,e−f+fx₁). Substitution gives M(x)=k; e=2 works for p≥5. Checked for p=5,7,11,13, n=1,2,3, k=0,…,59 (720 cases). All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/25
+
+Lemma 6.4 (points of x₁² + x₂² + x₃² − αx₁x₂x₃ = β modulo p) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Lemma 6.4 and proof, pp.19–20, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/25 — Lemma 6.4 (points of x₁² + x₂² + x₃² − αx₁x₂x₃ = β modulo p). For p ≥ 3 the number N_p of solutions modulo p is p² + p(−β/p) if p | α, and p² + 1 + p((α²β − 4)/p)(3 + (β/p)) otherwise. In particular N_p ≥ (p − 2)² − 3 > 0 for p ≥ 5, and N_p > 0 for p = 3 by inspection. Source: Lemma 6.4 and proof, pp.19–20, arXiv:1706.06712v3 (final version). CA.4 owns this point-count theorem. Import finite-field character conventions and comparison with S_p(1) from FiniteFieldsAndCharacterSums:FF.1; use the existing mathlib:gaussSum_sq, not a new CA.1 Gauss-sum theory. Prime-power and 2-adic sums in Appendix B still require ES.3 specializations, with FF.1 supplying the finite-field normalization. Earlier extraction checked all α,β modulo p≤13. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/26
+
+Proposition 6.1 (local solubility of the Markoff equation) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Proposition 6.1; proof §6.1–6.3, pp.18–21, arXiv:1706.06712v3 (final version) (errors E2, E3 in the proof).
+
+PAPER-GHOSH-SARNAK-22/26 — Proposition 6.1 (local solubility of the Markoff equation). M(x) ≡ k (mod p^n) is soluble for all primes p and all n ≥ 1 unless k ≡ 3 (mod 4) or k ≡ ±3 (mod 9). Thus V_k(ℤ_p) ≠ ∅ for all p iff k ≢ 3 (mod 4) and k ≢ ±3 (mod 9). Source: Proposition 6.1; proof §6.1–6.3, pp.18–21, arXiv:1706.06712v3 (final version) (errors E2, E3 in the proof). For p ≥ 5 via Corollary 6.3 or Hensel lifting of a non-singular point. For p = 3 and p = 2 the proof needs the lifts supplied in E2. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/35
+
+(8.1): failure of strong approximation modulo 4d — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §8, (8.1)–(8.2), pp.22–23, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/35 — (8.1): failure of strong approximation modulo 4d. Let k = 4 + d, suppose n ↦ (4d/n) is a primitive Dirichlet character mod 4d, and let S_d = {n : (4d/n) ∈ {0, 1}} ⊂ ℤ/4dℤ. Then every x ∈ V_k(ℤ) satisfies x_j² − 4 ∈ S_d (mod 4d) for j = 1, 2, 3, because w² − 4d = (x₁² − 4)(x₂² − 4) with w = 2x₃ − x₁x₂ (8.2) forces (4d/q) ∈ {0, 1} for every prime q | x_j² − 4. By quadratic reciprocity these are congruence conditions on the x_j not implied by local solubility, so strong approximation fails for V_k(ℤ) modulo 4d. Source: §8, (8.1)–(8.2), pp.22–23, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/36
+
+Proposition 8.1 (families of Hasse failures) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Proposition 8.1 and proof, pp.23–24, arXiv:1706.06712v3 (final version) (misprint E7 in the proof).
+
+PAPER-GHOSH-SARNAK-22/36 — Proposition 8.1 (families of Hasse failures). V_k(ℤ) = ∅ but V_k(ℤ_p) ≠ ∅ for all p in each case: (i) k = 4 − 2ν² < 0 with ν odd and all prime factors of ν ≡ 1 or 3 (mod 8); (ii) k = 4 + 2ν² > 4 with all prime factors of ν ≡ ±1 (mod 8) and ν ≡ 0, ±3, ±4 (mod 9); (iii) k = 4 + 2ℓ² with ℓ ≥ 13 prime, ℓ ≡ ±4 (mod 9) (smallest k = 342). Proof: some x_j is odd, so x_j² − 4 ≡ 5 (mod 8) has a prime factor q ≡ 5, 7 (resp. ±3) (mod 8), and (8.4) makes −2 (resp. 2) a square mod q. In case (iii) the fundamental set of Theorem 1.1 bounds an odd coordinate by √(k/3), which excludes q = ℓ; the non-exceptionality of k is checked separately. Source: Proposition 8.1 and proof, pp.23–24, arXiv:1706.06712v3 (final version) (misprint E7 in the proof). k = −14, −238, 342 were re-verified. [LM20] and [CTWX20] show that (i) and (ii) are explained by the integral Brauer–Manin obstruction but (iii) is not. Routed to ClassicalArithmeticCompletion CA.4 as a source. In case (ii), prime factors ≡ ±1 mod 8 exclude 3, hence the displayed ν residues 0,±3 mod 9 are redundant and ν ≡ ±4 mod 9 is equivalent under the other hypotheses. This is not a false theorem. For 1≤ν<50 the possible values are 23,31,41,49; the first k=1062 is admissible, generic and has empty F⁺. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/37
+
+Proposition 8.2 (Hasse failures k = 4 + 12ν²) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Proposition 8.2 and proof, pp.24–25, arXiv:1706.06712v3 (final version) (misprint E8: the paper gives ν = 37, k = 16432).
+
+PAPER-GHOSH-SARNAK-22/37 — Proposition 8.2 (Hasse failures k = 4 + 12ν²). If ν² ≡ 25 (mod 32) and every prime factor of ν is ≡ ±1 (mod 12), then k = 4 + 12ν² is admissible and V_k(ℤ) = ∅. The smallest such ν is 11, with k = 1456. Source: Proposition 8.2 and proof, pp.24–25, arXiv:1706.06712v3 (final version) (misprint E8: the paper gives ν = 37, k = 16432). Proof: reciprocity for the prime factors of x_j² − 4 via (8.6) when the x_j are odd, a Vieta move when exactly one is even, and congruences modulo 8 and 16 when all are even. k = 1456 and 16432 were re-verified as Hasse failures. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/38
+
+Proposition 8.3 (Hasse failures k = 4 + 20ν²) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Proposition 8.3 and proof, p.25, arXiv:1706.06712v3 (final version) (gap E9, misprint E10 in the proof).
+
+PAPER-GHOSH-SARNAK-22/38 — Proposition 8.3 (Hasse failures k = 4 + 20ν²). If ν ≡ ±4 (mod 9) and every prime factor of ν is ≡ ±1 (mod 20), then k = 4 + 20ν² is admissible and V_k(ℤ) = ∅; the smallest such ν is 41, with k = 33624. Source: Proposition 8.3 and proof, p.25, arXiv:1706.06712v3 (final version) (gap E9, misprint E10 in the proof). Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/39
+
+Theorem 1.2(i) (infinitely many Hasse failures) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Theorem 1.2(i), p.5; proof §8, pp.22–25, arXiv:1706.06712v3 (final version) (gap E11: the paper writes "at least √K(log K)^{−1/2}").
+
+PAPER-GHOSH-SARNAK-22/39 — Theorem 1.2(i) (infinitely many Hasse failures). The number of Hasse failures with 0 < k ≤ K, and the number with −K ≤ k < 0, are each ≫ K^{1/2}(log K)^{−1/2}. So M is not perfect. Source: Theorem 1.2(i), p.5; proof §8, pp.22–25, arXiv:1706.06712v3 (final version) (gap E11: the paper writes "at least √K(log K)^{−1/2}"). From Proposition 8.1 and the count of integers whose prime factors lie in a set of primes of density 1/2. Routed to ClassicalArithmeticCompletion CA.4 as a source. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/61
+
+Enumeration of class numbers and Hasse failures (§10) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §10, (10.1), Tables 1–6, Figures 7–15, pp.34–44, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/61 — Enumeration of class numbers and Hasse failures (§10). Theorem 1.1 turns h_M(k) into a finite lattice-point search over F^±_k(ℤ), after an exceptionality test. The authors computed all Hasse failures 5 ≤ k ≤ 564,062,446 (23,298,277 of them), their distribution in residue classes modulo 3, 4 and 9 (Table 1), A_HF(K) at multiples of 100,800 (Tables 3–4), sample fundamental sets (Table 5) and the distribution of h(k) for generic k ≤ 10^7 (Table 6). The data fit log A_HF(K)/log 𝒜(K) ≈ f(K) = 0.887516 − 8.06653L^{−2} − 21.8923L^{−3} + 2.38097L^{−4} + 3.35656L^{−5}, L = log K (10.1), with 𝒜(K) = 7K/12. Source: §10, (10.1), Tables 1–6, Figures 7–15, pp.34–44, arXiv:1706.06712v3 (final version). A_HF(100,800) = 7,630 and A_HF(6,552,000) = 388,485 were reproduced in this extraction, as were the Table 5 rows for k = 329, 460, 494, 9260, 9304, 9380, 9454 and 9500. Routed to ClassicalArithmeticCompletion CA.4 as a source. Fresh fix regression at K=100800: 7105 exceptional k≥5 have F⁺_k empty (largest 100792); exclude them before counting the 7630 generic Hasse failures among 58800 admissible positive k. This is the Table 3 count; E22–E23 correct §10’s cross-references. All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-GHOSH-SARNAK-22/62
+
+Conjecture 10.1 (size of the class numbers) — conjectural. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Conjecture 10.1, p.41, arXiv:1706.06712v3 (final version).
+
+PAPER-GHOSH-SARNAK-22/62 — Conjecture 10.1 (size of the class numbers). Conjecture (not proved): For every ε > 0, h_M(k) ≪_ε |k|^ε. Source: Conjecture 10.1, p.41, arXiv:1706.06712v3 (final version). A conjecture; the best known bound is (c) of Theorem 1.1. Routed to ClassicalArithmeticCompletion CA.4 as a source. Kind changed from definition to theorem: the item is a conjectural statement, not a definition; the statement is marked as a conjecture. [review REV-PAPER-GHOSH-SARNAK-22] All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. FF.1 supplies finite-field Gauss normalization; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.
+
+### PAPER-KOYMANS-MILOVIC-21/3
+
+Lemma 2.1 (quadratic reciprocity in a number field) — open. Owner: ClassicalArithmeticCompletion:CA.1. Locator: Lemma 2.1, p.4, citing [FIMR], arXiv:1809.09597v1.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.1/power-reciprocity-law.
+
+Koymans–Milovic items 3–4 need the number-field quadratic law with explicit dyadic and infinite factors, dependence on the denominator modulo 8 times the numerator, and norm compatibility in a Galois extension. The existing power-reciprocity-law supplies the coprime odd case with unevaluated local symbols; power-residue-symbol-galois-equivariance is not the relative-norm formula. Read FIMR at its full hypotheses before decomposition. Import Hilbert reciprocity and the local symbols from their existing Tau Ceti owners; do not reconstruct them here.
+
+### PAPER-KOYMANS-MILOVIC-21/4
+
+Norm compatibility of quadratic residue symbols — open. Owner: ClassicalArithmeticCompletion:CA.1. Locator: §5, p.22 (in the computation of ∏_{σ∈S}spin(σ, w)), arXiv:1809.09597v1.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal.
+
+Koymans–Milovic items 3–4 need the number-field quadratic law with explicit dyadic and infinite factors, dependence on the denominator modulo 8 times the numerator, and norm compatibility in a Galois extension. The existing power-reciprocity-law supplies the coprime odd case with unevaluated local symbols; power-residue-symbol-galois-equivariance is not the relative-norm formula. Read FIMR at its full hypotheses before decomposition. Import Hilbert reciprocity and the local symbols from their existing Tau Ceti owners; do not reconstruct them here.
+
+### PAPER-KOYMANS-PAGANO/2
+
+The negative-Pell set 𝒟⁻ and its truncation 𝒟⁻(X) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §1, (1.1) and running text, pp. 1–2 (arXiv v1).
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/generalised-pell-solution-set, ClassicalArithmeticCompletion:CA.4/negative-pell-local-obstruction.
+
+Koymans–Pagano 2–4: the existing generalized-Pell norm fibre and local obstruction are reusable inputs. Package the squarefree negative-Pell set and truncation, the exact rational-solubility criterion and the prime 1 mod 4 integral-solubility theorem. A congruence obstruction is not a sufficient integral criterion: d=34 has the rational solution (5/3,1/3) but no integral solution. Treat d=1 separately from quadratic-field comparisons; class-group and full-ring-of-integers comparisons belong in CA.5.
+
+### PAPER-KOYMANS-PAGANO/3
+
+Rational solubility of the negative Pell equation (Hasse–Minkowski) — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §1, running text after (1.1), p. 1 (arXiv v1).
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/generalised-pell-solution-set, ClassicalArithmeticCompletion:CA.4/negative-pell-local-obstruction.
+
+Koymans–Pagano 2–4: the existing generalized-Pell norm fibre and local obstruction are reusable inputs. Package the squarefree negative-Pell set and truncation, the exact rational-solubility criterion and the prime 1 mod 4 integral-solubility theorem. A congruence obstruction is not a sufficient integral criterion: d=34 has the rational solution (5/3,1/3) but no integral solution. Treat d=1 separately from quadratic-field comparisons; class-group and full-ring-of-integers comparisons belong in CA.5.
+
+### PAPER-KOYMANS-PAGANO/4
+
+Dirichlet: primes p ≡ 1 mod 4 lie in 𝒟⁻ — open. Owner: ClassicalArithmeticCompletion:CA.4. Locator: §1, running text, p. 2, citing [14] (Dirichlet) (arXiv v1).
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/generalised-pell-solution-set, ClassicalArithmeticCompletion:CA.4/negative-pell-local-obstruction.
+
+Koymans–Pagano 2–4: the existing generalized-Pell norm fibre and local obstruction are reusable inputs. Package the squarefree negative-Pell set and truncation, the exact rational-solubility criterion and the prime 1 mod 4 integral-solubility theorem. A congruence obstruction is not a sufficient integral criterion: d=34 has the rational solution (5/3,1/3) but no integral solution. Treat d=1 separately from quadratic-field comparisons; class-group and full-ring-of-integers comparisons belong in CA.5.
+
+### PAPER-KOYMANS-PAGANO/5
+
+Negative Pell and the 2-parts of the narrow and ordinary class groups ([FK1, Lemma 1]) — partial_interface_pending_route. Owner: ClassicalArithmeticCompletion:CA.5. Locator: §1, running text, p. 2, citing [18, Lemma 1] (arXiv v1).
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one, ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four.
+
+The reviewed order-to-unit comparison for d=1 mod 4 now has all four missing API signatures and its four stated acceptance examples in the suggested file. This is typed planning with admitted proofs. Koymans–Pagano route 7 names items 5,9,12, but its positional route verdict is still absent; record that queue boundary rather than inventing acceptance. Their final 2-primary class-group, narrow-principal-class and unit Galois-module comparisons are still to be connected explicitly to the existing order bridge and pinned unit/class-group results. The degree-one d=1 case is excluded by d>1.
+
+### PAPER-LAWRENCE-SAWIN-25/66
+
+Inequalities for Eulerian numbers (Lemmas C.1–C.5) — open. Owner: ClassicalArithmeticCompletion:CA.2. Locator: arXiv:2004.09046v5 (16 October 2025), Appendix C, pp. 116–118, Lemmas C.1, C.2, C.3, C.4 and C.5.
+
+Lawrence–Sawin 66–67: define the Eulerian descent counts once, with factorial sum, symmetry, recurrence and Appendix C.1–C.5 bounds, including their n,q,r ranges. These are not the existing Euler zigzag numbers or graph Eulerian circuits. State the zero-degree convention separately: the extracted range convention for n≥1 cannot silently force the empty-permutation count to vanish. The Hodge interpretation remains with the hypersurface owner.
+
+### PAPER-LAWRENCE-SAWIN-25/67
+
+Eulerian numbers — open. Owner: ClassicalArithmeticCompletion:CA.2. Locator: arXiv:2004.09046v5 (16 October 2025), §3, p. 21, in Lemma 3.4, and throughout Appendices B and C.
+
+Lawrence–Sawin 66–67: define the Eulerian descent counts once, with factorial sum, symmetry, recurrence and Appendix C.1–C.5 bounds, including their n,q,r ranges. These are not the existing Euler zigzag numbers or graph Eulerian circuits. State the zero-degree convention separately: the extracted range convention for n≥1 cannot silently force the empty-permutation count to vanish. The Hodge interpretation remains with the hypersurface owner.
+
+### PAPER-MARTIN-25/1
+
+Markoff equation — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623, (1.1).
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-triples.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/2
+
+Nonzero Markoff triples — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623, graph definition.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-triples.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/3
+
+Positive integer Markoff triples — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623, opening paragraph.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/positive-markoff-triples.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/4
+
+Vieta coordinate involutions — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623, (1.2) and its analogues.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-vieta-involution.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/5
+
+Vieta involutivity — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623, Vieta involutions.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-vieta-involutive.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/6
+
+Vieta preservation of the Markoff equation — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623, paragraph after (1.2).
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-vieta-preserves-equation.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/7
+
+Vieta preservation of the nonzero locus — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623, graph construction.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-vieta-permutes-nonzero-locus.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/8
+
+Positivity of the other quadratic root — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623, positive-integer graph.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-vieta-preserves-positivity.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/9
+
+Strict descent for positive Markoff triples — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623, Markoff tree claim [8], elementary proof expansion.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-descent-inequality.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/10
+
+Positive Markoff tree — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623, Markoff [8].
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-tree.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/11
+
+Coordinate permutations normalize Vieta moves — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623; BGS [2], §1, p.1.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-permutation-equivariance.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/12
+
+Reduction of positive Markoff triples — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, pp.623–624, lifting interpretation.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-reduction-mod-p.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-MARTIN-25/13
+
+Prime strong approximation for positive triples — existing_plan. Owner: ClassicalArithmeticCompletion:CA.4. Locator: Published article, §1, p.623, lifting interpretation; abstract.
+
+Nearby existing nodes: ClassicalArithmeticCompletion:CA.4/markoff-strong-approximation.
+
+The exact coefficient-three contract is inherited; no fresh complete source-proof review is claimed.
+
+### PAPER-SMITH-24/1
+
+Totally positive algebraic integers, the trace ratio and the constant λ_SSS — open. Owner: ClassicalArithmeticCompletion:CA.6. Locator: arXiv:2111.12660v2 (16 March 2024), §1, pp. 1–2.
+
+Smith 1–3: the totally positive integer trace ratio, the finite-exception threshold lambda_SSS and the resultant-based auxiliary-polynomial bound remain to be planned. The assertion lambda_SSS=2 is the historical trace problem, contradicted by Smith’s theorem in its separate owner; do not introduce it as a theorem or as an open conjecture the source still endorses. Keep the classical lower bounds source-scoped and preserve the coprimality of the minimal polynomial with every auxiliary polynomial.
+
+### PAPER-SMITH-24/2
+
+The Schur–Siegel–Smyth trace problem — historical_problem. Owner: ClassicalArithmeticCompletion:CA.6. Locator: arXiv:2111.12660v2 (16 March 2024), §1, p. 2, following Borwein.
+
+Smith 1–3: the totally positive integer trace ratio, the finite-exception threshold lambda_SSS and the resultant-based auxiliary-polynomial bound remain to be planned. The assertion lambda_SSS=2 is the historical trace problem, contradicted by Smith’s theorem in its separate owner; do not introduce it as a theorem or as an open conjecture the source still endorses. Keep the classical lower bounds source-scoped and preserve the coprimality of the minimal polynomial with every auxiliary polynomial.
+
+### PAPER-SMITH-24/3
+
+Smyth's auxiliary-polynomial method and the resultant argument — open. Owner: ClassicalArithmeticCompletion:CA.6. Locator: arXiv:2111.12660v2 (16 March 2024), §1, pp. 2–3, equation (1.2).
+
+Smith 1–3: the totally positive integer trace ratio, the finite-exception threshold lambda_SSS and the resultant-based auxiliary-polynomial bound remain to be planned. The assertion lambda_SSS=2 is the historical trace problem, contradicted by Smith’s theorem in its separate owner; do not introduce it as a theorem or as an open conjecture the source still endorses. Keep the classical lower bounds source-scoped and preserve the coprimality of the minimal polynomial with every auxiliary polynomial.
+
+### PAPER-SMITH-24/17
+
+A squarefree integral combination of integer polynomials — open. Owner: ClassicalArithmeticCompletion:CA.3. Locator: arXiv:2111.12660v2 (16 March 2024), Lemma 2.10, p. 9.
+
+Smith 17 (Lemma 2.10): a nonnegative integral combination, after removing the common polynomial gcd, is squarefree of the expected degree with coefficients at most 2(n−deg G). No exact node exists here. Import the existing resultant/discriminant and finite-grid nonvanishing machinery rather than creating a separate interpolation theory.
+
+### PAPER-YU-23/103
+
+Divisibility of generalized binomial coefficients — open. Owner: ClassicalArithmeticCompletion:CA.2. Locator: Yu arXiv:1807.04659v5 (18 July 2022), Lemma7.2.2 p67.
+
+Yu 103–105 and 179: generalized integer binomial divisibility including negative upper entries, the finite product f_p(N) for N≥0, its factorial split and p-adic unit property, and the Luo–Zhu block congruence. Preserve the exclusion p=2, alpha=1 and its separate sign formula. The negative-upper-entry factorization has the sign (−1)^(m(p−1)). Existing binomial arithmetic is a prerequisite, not these four exact statements.
+
+### PAPER-YU-23/104
+
+p-free factorial — open. Owner: ClassicalArithmeticCompletion:CA.2. Locator: Yu arXiv:1807.04659v5 (18 July 2022), §7.2.2 p71; LZ19 equation10.
+
+Yu 103–105 and 179: generalized integer binomial divisibility including negative upper entries, the finite product f_p(N) for N≥0, its factorial split and p-adic unit property, and the Luo–Zhu block congruence. Preserve the exclusion p=2, alpha=1 and its separate sign formula. The negative-upper-entry factorization has the sign (−1)^(m(p−1)). Existing binomial arithmetic is a prerequisite, not these four exact statements.
+
+### PAPER-YU-23/105
+
+Luo–Zhu p-free factorial congruence — open. Owner: ClassicalArithmeticCompletion:CA.2. Locator: Yu arXiv:1807.04659v5 (18 July 2022), §7.2.2 p71; Luo–Zhu2019 Lemma3.1, proof read.
+
+Yu 103–105 and 179: generalized integer binomial divisibility including negative upper entries, the finite product f_p(N) for N≥0, its factorial split and p-adic unit property, and the Luo–Zhu block congruence. Preserve the exclusion p=2, alpha=1 and its separate sign formula. The negative-upper-entry factorization has the sign (−1)^(m(p−1)). Existing binomial arithmetic is a prerequisite, not these four exact statements.
+
+### PAPER-YU-23/179
+
+p-free factorial factorisation of binomial coefficients — open. Owner: ClassicalArithmeticCompletion:CA.2. Locator: Yu arXiv:1807.04659v5 (18 July 2022), §7.2.2, p. 71 (displayed identities before the two cases).
+
+Yu 103–105 and 179: generalized integer binomial divisibility including negative upper entries, the finite product f_p(N) for N≥0, its factorial split and p-adic unit property, and the Luo–Zhu block congruence. Preserve the exclusion p=2, alpha=1 and its separate sign formula. The negative-upper-entry factorization has the sign (−1)^(m(p−1)). Existing binomial arithmetic is a prerequisite, not these four exact statements.
+
+## New pinned baseline citations
+
+- **tauceti:NumberField.card_ker_toClassGroup_le_two**: For every number field K of rational degree two, the kernel of the narrow-to-ordinary class-group map has cardinality at most two. This is the built kernel-size input to the pending 2-primary comparison; it is not itself the integral negative-Pell equivalence.
+- **tauceti:NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one**: For an integral generator theta with minimal polynomial X²−d, generating K over Q, and d>0, the narrow-to-ordinary class-group map is injective iff a ring-of-integers unit has rational field norm −1. The real-field hypothesis and quadratic presentation are explicit; conversion to the integer norm and to Z[sqrt(d)] remains the CA.5 comparison.
+
+## Suggested-file validation
+
+The complete suggested file elaborates at the pinned Mathlib/compiler: zero errors, 966 admission warnings and no other warnings. Existing dependency pins and all 3870 imported Mathlib source files match. No Tau Ceti module is imported or built. All 505 distinct API names have a named command, 236 under a unique alternate enclosing namespace. This is a name index, not a proof of statement equivalence. The file has 764 named commands and 314 examples. All 333 nodes lack explicit declaration metadata; three post-fix CA.4 comparisons lack signatures and remain a gap. 200 exact unit-coordinate cases, including 84 half-integral cases and 50 cases with d=1 modulo 8; the four stated examples and all nine residue pairs excluding negative Pell for d=21 modulo 3 pass. Finite diagnostics are not proofs.
+
+The four appended API signatures retain the quadratic presentation, squarefreeness and d>1. Cubing a half-integral norm-minus-one unit preserves its norm and lands in the order for d=5 modulo 8. The d=21 example prevents substituting the existence of an arbitrary unit for the norm-minus-one condition.
+
+## Inherited reader, preserved verbatim
+
+The following text records earlier source work. Current coverage, source routing and validation limits are above.
+
 # Classical arithmetic, sequences, polynomials and reciprocity
 
 Blueprint for the roadmap `ClassicalArithmeticCompletion`, job `BP-ClassicalArithmeticCompletion` (issue #1025).
@@ -10733,3 +11319,1625 @@ Corrected form of the earlier proposal to move CA.7 out. Its first reason, that 
 Zero errors and zero warnings. The suggested Lean file elaborates against Mathlib `082e2d3` with
 `lake env lean`; its only messages are `declaration uses 'sorry'` warnings. Every API item and unit test of
 the packet occurs in it under its packet name.
+
+## Exact inherited contract supplement
+
+The following packet wording was absent or paraphrased in the older reader. It remains unchecked; the supplement supplies statement/API/test parity, not a new proof review.
+
+### ClassicalArithmeticCompletion:CA.3/perron-criterion-of-le
+
+Statement: Let f=Xⁿ+a_{n−1}X^{n−1}+⋯+a_0 ∈ ℤ[X] be monic, n≥2, a_0≠0, with |a_{n−1}| ≥ 1+Σ_{i=0}^{n−2}|a_i| and f(1)≠0≠f(−1). Then f is irreducible in ℤ[X], equivalently its image in ℚ[X] is irreducible.
+
+### ClassicalArithmeticCompletion:CA.0/crt-at-non-coprime-moduli-over-the-integers
+
+Statement: For all integers m, n, a and b, the two congruences x ≡ a (mod m) and x ≡ b (mod n) have a common integer solution x if and only if a ≡ b (mod gcd(m, n)), where gcd(m, n) is the nonnegative greatest common divisor of |m| and |n| and congruence modulo 0 means equality. When a solution x exists, an integer y is a solution exactly when y ≡ x (mod lcm(m, n)); that uniqueness half is the pinned Mathlib theorem Int.modEq_and_modEq_iff_modEq_lcm and is not a new declaration.
+
+### ClassicalArithmeticCompletion:CA.1/unit-group-of-a-power-of-two
+
+Statement: For every natural number e, write 5_e for the class of 5 in the units (ℤ/2^(e+3))ˣ. There is a group isomorphism unitsTwoPowEquiv e from (ℤ/2^(e+3))ˣ onto the product of a cyclic group of order 2 and a cyclic group of order 2^(e+1), written multiplicatively as Multiplicative (ZMod 2 × ZMod 2^(e+1)), sending -1 to (1, 0) and 5_e to (0, 1). Equivalently: 5_e has order 2^(e+1), -1 does not lie in the cyclic subgroup generated by 5_e, and every unit is uniquely (-1)^s · 5_e^k with s ∈ ℤ/2 and k ∈ ℤ/2^(e+1). The parametrisation by e + 3 encodes the hypothesis that the modulus is at least 8; for the moduli 2 and 4 the unit group is cyclic, which is the pinned ZMod.isCyclic_units_two_pow_iff.
+
+API unitsTwoPowFive: The unit 5 modulo 2^(e+3), as ZMod.unitOfCoprime 5.
+
+API unitsTwoPowEquiv: The group isomorphism (ℤ/2^(e+3))ˣ ≃* Multiplicative (ZMod 2 × ZMod 2^(e+1)).
+
+API unitsTwoPowEquiv_symm_apply: The inverse sends (s, k) to (-1)^s · 5^k, with s and k read through their canonical representatives.
+
+API unitsTwoPowEquiv_neg_one: The isomorphism sends -1 to (1, 0).
+
+API unitsTwoPowEquiv_five: The isomorphism sends 5 to (0, 1).
+
+API neg_one_notMem_zpowers_unitsTwoPowFive: -1 does not lie in the subgroup generated by 5.
+
+API orderOf_unitsTwoPowFive: The unit 5 has order 2^(e+1), the unit-group reading of Mathlib's ZMod.orderOf_five.
+
+Test unitsTwoPow_test_eight_klein: Every unit modulo 8 squares to 1.
+
+Test unitsTwoPow_test_sixteen_order_five: The unit 5 modulo 16 has order 4.
+
+Test unitsTwoPow_test_not_cyclic: For every e the units modulo 2^(e+3) do not form a cyclic group.
+
+Test unitsTwoPow_test_four_cyclic: The units modulo 4 form a cyclic group, which is why the construction starts at modulus 8.
+
+Test unitsTwoPow_test_seven_not_generator: The unit 7 modulo 16 has order 2, so 7 cannot replace 5 as generator of the cyclic factor.
+
+### ClassicalArithmeticCompletion:CA.1/squares-modulo-a-power-of-two
+
+Statement: For every natural number e, a unit u of ℤ/2^(e+3) is a square in (ℤ/2^(e+3))ˣ if and only if its image in (ℤ/8)ˣ under the reduction ZMod.unitsMap is 1, that is, u ≡ 1 (mod 8).
+
+### ClassicalArithmeticCompletion:CA.1/principal-units-modulo-an-odd-prime-power-are-squares
+
+Statement: Let p be an odd prime and k a natural number. Every unit u of ℤ/p^(k+1) whose reduction to (ℤ/p)ˣ under ZMod.unitsMap is 1 is a square in (ℤ/p^(k+1))ˣ.
+
+### ClassicalArithmeticCompletion:CA.1/power-residue-criterion-in-a-cyclic-group
+
+Statement: Let G be a finite cyclic commutative group of order N and let d be a natural number. The image of the d-th power map equals the kernel of the (N / gcd(N, d))-th power map; in particular an element a of G is a d-th power exactly when a^(N / gcd(N, d)) = 1, and the d-th powers form the unique subgroup of order N / gcd(N, d).
+
+### ClassicalArithmeticCompletion:CA.1/power-residue-criterion-in-a-finite-field
+
+Statement: Let F be a finite field with q elements, n a natural number and a a nonzero element of F. Then a is an n-th power in F if and only if a^((q - 1) / gcd(q - 1, n)) = 1. The nonzero n-th powers form the subgroup of index gcd(q - 1, n) of Fˣ, and a nonzero n-th power has exactly gcd(q - 1, n) n-th roots.
+
+### ClassicalArithmeticCompletion:CA.1/squarefree-part-of-a-rational
+
+Statement: For a nonzero rational u, ratSquarefreePart u is the unique squarefree integer d such that u = d · c^2 for some nonzero rational c; its sign is the sign of u, and a prime p divides d exactly when the p-adic valuation of u is odd. By convention ratSquarefreePart 0 = 0. The value depends only on the square class of u.
+
+API ratSquarefreePart: The squarefree part ℚ → ℤ, with value 0 at 0.
+
+API squarefree_ratSquarefreePart: For u ≠ 0, ratSquarefreePart u is squarefree.
+
+API exists_eq_ratSquarefreePart_mul_sq: For u ≠ 0 there is a nonzero rational c with u = ratSquarefreePart u · c^2.
+
+API ratSquarefreePart_eq_iff: For u ≠ 0 and d squarefree, ratSquarefreePart u = d if and only if u = d · c^2 for some nonzero rational c.
+
+API ratSquarefreePart_mul_sq: ratSquarefreePart (u · t^2) = ratSquarefreePart u for nonzero u and t.
+
+API ratSquarefreePart_intCast_of_squarefree: On a squarefree integer d, ratSquarefreePart d = d.
+
+API prime_dvd_ratSquarefreePart_iff: For u ≠ 0 and a prime p, p divides ratSquarefreePart u if and only if padicValRat p u is odd.
+
+API ratSquarefreePart_pos_iff: ratSquarefreePart u > 0 if and only if u > 0.
+
+API ratSquarefreePart_zero: ratSquarefreePart 0 = 0.
+
+Test ratSquarefreePart_test_eight_ninths: ratSquarefreePart (8/9) = 2.
+
+Test ratSquarefreePart_test_neg_twelve: ratSquarefreePart (-12) = -3.
+
+Test ratSquarefreePart_test_one: ratSquarefreePart 1 = 1.
+
+Test ratSquarefreePart_test_neg_one: ratSquarefreePart (-1) = -1, not 1: the sign is part of the square class.
+
+### ClassicalArithmeticCompletion:CA.1/dyadic-characters-are-primitive
+
+Statement: Mathlib's ZMod.χ₄, as a Dirichlet character of level 4, and ZMod.χ₈ and ZMod.χ₈', as Dirichlet characters of level 8, are primitive: each has conductor equal to its level.
+
+### ClassicalArithmeticCompletion:CA.1/legendre-character-is-primitive
+
+Statement: For an odd prime p, the quadratic character quadraticChar (ZMod p), as a Dirichlet character of level p with values in ℤ, is primitive.
+
+### ClassicalArithmeticCompletion:CA.1/primitivity-of-a-product-at-coprime-levels
+
+Statement: Let χ be a primitive Dirichlet character of level m and ψ a primitive Dirichlet character of level n, with values in a commutative monoid with zero, and suppose m and n are coprime. Then the character changeLevel χ · changeLevel ψ of level m n is primitive.
+
+### ClassicalArithmeticCompletion:CA.1/kronecker-character
+
+Statement: For a fundamental discriminant D (Mathlib's Int.IsFundamentalDiscr), kroneckerCharacter D is the Dirichlet character of level |D| with values in ℤ whose value at an integer n is the Kronecker symbol (D / n): it is completely multiplicative, it vanishes exactly at the integers not coprime to D, (D / q) = legendreSym q D for every odd prime q, (D / 2) is 0 if D is even, 1 if D ≡ 1 (mod 8) and -1 if D ≡ 5 (mod 8), and (D / -1) is the sign of D. It is the product of the characters of the prime discriminants in the unique factorisation of D, that is Tau Ceti's genusCharFun on that factorisation, bundled as a MulChar (ZMod |D|) ℤ. Its value at an integer that is not a fundamental discriminant is not specified.
+
+API kroneckerCharacter: The Dirichlet character of level |D| attached to a fundamental discriminant D.
+
+API kroneckerCharacter_apply_prime: For an odd prime q, kroneckerCharacter D q = legendreSym q D.
+
+API kroneckerCharacter_apply_two: kroneckerCharacter D 2 is 0 if D is even, 1 if D ≡ 1 (mod 8) and -1 if D ≡ 5 (mod 8).
+
+API kroneckerCharacter_apply_neg_one: kroneckerCharacter D (-1) is the sign of D: the character is even for D > 0 and odd for D < 0.
+
+API kroneckerCharacter_isQuadratic: kroneckerCharacter D is quadratic (values in {0, 1, -1}).
+
+API kroneckerCharacter_apply_eq_zero_iff: kroneckerCharacter D n = 0 if and only if n is not coprime to D.
+
+API kroneckerCharacter_natCast_eq_jacobiSym: At an odd natural number n, kroneckerCharacter D n = jacobiSym D n.
+
+API kroneckerCharacter_mul: For coprime fundamental discriminants D₁ and D₂, kroneckerCharacter (D₁ D₂) n = kroneckerCharacter D₁ n · kroneckerCharacter D₂ n.
+
+API kroneckerCharacter_one: kroneckerCharacter 1 is the trivial character of level 1.
+
+API kroneckerCharacter_neg_four: kroneckerCharacter (-4) agrees with ZMod.χ₄ at every integer.
+
+API kroneckerCharacter_eight: kroneckerCharacter 8 agrees with ZMod.χ₈ at every integer.
+
+API kroneckerCharacter_neg_eight: kroneckerCharacter (-8) agrees with ZMod.χ₈' at every integer.
+
+API kroneckerCharacter_oddPrimeDiscr: At the odd prime discriminant p* = (-1)^((p-1)/2) p, kroneckerCharacter p* n = legendreSym p n; this is Tau Ceti's primeDiscriminantCharFun at p*.
+
+Test kroneckerCharacter_test_five_two: kroneckerCharacter 5 2 = -1.
+
+Test kroneckerCharacter_test_neg_three_two: kroneckerCharacter (-3) 2 = -1 while jacobiSym (-3) 2 = 1: the Kronecker character is not the Jacobi symbol at even arguments.
+
+Test kroneckerCharacter_test_twelve: kroneckerCharacter 12 takes the values -1, -1 and 1 at 5, 7 and 11.
+
+Test kroneckerCharacter_test_one: kroneckerCharacter 1 is the trivial character of level 1.
+
+### ClassicalArithmeticCompletion:CA.1/kronecker-character-is-primitive
+
+Statement: For every fundamental discriminant D, kroneckerCharacter D is primitive: its conductor is |D|.
+
+### ClassicalArithmeticCompletion:CA.1/quadratic-character-of-a-squareclass
+
+Statement: For a nonzero rational u, let d = ratSquarefreePart u and let D(u) = d if d ≡ 1 (mod 4) and D(u) = 4d otherwise (squareclassDiscr u, Tau Ceti's fundamentalDiscriminant d). Then D(u) is a fundamental discriminant, and squareclassCharacter u := kroneckerCharacter D(u) is a primitive quadratic Dirichlet character of conductor |D(u)|. It agrees with the Legendre symbol (u / p) := legendreSym p (num u · den u) at every odd prime p with v_p(u) = 0; it depends only on the square class of u; its conductor has squarefree odd part, equal to the product of the odd primes p with v_p(u) odd, and 2-part 1, 4 or 8 according as d ≡ 1 (mod 4), d ≡ 3 (mod 4) or d is even; the odd part is 1 exactly when u ∈ {±1, ±2} · (ℚˣ)²; its value at -1 is the sign of u; and the square class of 1 gives the trivial character of conductor 1. Among primitive Dirichlet characters it is the only one agreeing with (u / p) at all but finitely many primes.
+
+API squareclassDiscr: The fundamental discriminant of the square class of u: d if d ≡ 1 (mod 4) and 4d otherwise, for d = ratSquarefreePart u.
+
+API squareclassCharacter: The Dirichlet character kroneckerCharacter (squareclassDiscr u) of level |squareclassDiscr u|.
+
+API isFundamentalDiscr_squareclassDiscr: For u ≠ 0, squareclassDiscr u is a fundamental discriminant.
+
+API squareclassCharacter_isPrimitive: For u ≠ 0 the character is primitive, of conductor |squareclassDiscr u|.
+
+API squareclassCharacter_apply_prime: At an odd prime p with padicValRat p u = 0, the value is legendreSym p (num u · den u).
+
+API squareclassDiscr_mul_sq: squareclassDiscr (u t^2) = squareclassDiscr u for nonzero u and t.
+
+API squareclassDiscr_one: squareclassDiscr 1 = 1, so the class of 1 has the trivial character of conductor 1.
+
+API odd_prime_dvd_squareclassDiscr_iff: For u ≠ 0 and an odd prime p, p divides squareclassDiscr u exactly when padicValRat p u is odd.
+
+API ordCompl_two_squareclassDiscr_eq_one_iff: The odd part of the conductor is 1 exactly when u = ω t^2 with ω ∈ {1, -1, 2, -2} and t ≠ 0.
+
+API factorization_two_squareclassDiscr: The 2-adic valuation of the conductor is 0, 2 or 3 according as ratSquarefreePart u is 1 or 3 modulo 4 or even.
+
+API squareclassCharacter_apply_neg_one: The value at -1 is 1 if u > 0 and -1 if u < 0: the archimedean sign of the square class.
+
+API squareclassCharacter_mul: At an integer n prime to 2 and to the numerators and denominators of u and v, squareclassCharacter (u v) n = squareclassCharacter u n · squareclassCharacter v n.
+
+Test squareclassCharacter_test_neg_one: squareclassDiscr (-1) = -4 and squareclassCharacter (-1) agrees with ZMod.χ₄ at every integer.
+
+Test squareclassDiscr_test_two: squareclassDiscr 2 = 8.
+
+Test squareclassDiscr_test_eight_ninths: squareclassDiscr (8/9) = 8, the same as for 2.
+
+Test squareclassDiscr_test_three: squareclassDiscr 3 = 12: the conductor of the class of 3 is 12, not 3.
+
+Test squareclassDiscr_test_five: squareclassDiscr 5 = 5.
+
+Test squareclassDiscr_test_one: The class of 1 has conductor |squareclassDiscr 1| = 1.
+
+### ClassicalArithmeticCompletion:CA.1/primitive-characters-agreeing-at-almost-all-primes-are-equal
+
+Statement: Let χ and ψ be primitive Dirichlet characters of nonzero levels N and M, with values in a nontrivial commutative ring, and suppose χ(p) = ψ(p) for every prime p outside a finite set S. Then N = M and χ(n) = ψ(n) for every integer n.
+
+### ClassicalArithmeticCompletion:CA.1/quadratic-conductor-is-not-twice-odd
+
+Statement: If χ is a primitive Dirichlet character of nonzero level N, then the 2-adic valuation of N is not 1.
+
+### ClassicalArithmeticCompletion:CA.1/odd-part-of-a-quadratic-conductor-is-squarefree
+
+Statement: If χ is a primitive quadratic Dirichlet character of nonzero level N with values in a commutative ring, then the odd part N / 2^(v₂(N)) of N is squarefree.
+
+### ClassicalArithmeticCompletion:CA.1/two-adic-conductor-bound
+
+Statement: If χ is a primitive quadratic Dirichlet character of nonzero level N with values in a commutative ring, then v₂(N) ≤ 3; equivalently N ≤ 8 · N^odd. Together with the two preceding lemmas, v₂(N) ∈ {0, 2, 3} and N^odd is squarefree, which is the shape N = 2^κ N₁ with N₁ squarefree and κ ∈ {0, 1, 2} used by Bennett and Siksek.
+
+### ClassicalArithmeticCompletion:CA.1/hilbert-symbol
+
+Statement: For a, b ∈ ℚˣ and a place v of ℚ, (a, b)_v denotes Quadratic Form Invariants 6C's norm-equation symbol hilbertSymbol over the completion ℚ_v (ℚ_[p] for v = p, ℝ for v = ∞): (a, b)_v = 1 if b = x^2 - a y^2 has a solution in ℚ_v and -1 otherwise. This node pins that reading and states its value at an odd prime p in Mathlib's vocabulary: if a = p^α u and b = p^β w with u, w rational p-adic units, then (a, b)_p = (-1)^(αβ(p-1)/2) · (u / p)^β · (w / p)^α, where (u / p) := legendreSym p (num u · den u). The value at ∞ ((a, b)_∞ = -1 exactly when a < 0 and b < 0) and the product formula ∏_v (a, b)_v = 1 are imported from Global Quadratic Forms 4.4 and Class Field Theory 14 and are not re-proved; the value at 2 is the dyadic comparison node.
+
+### ClassicalArithmeticCompletion:CA.1/dyadic-hilbert-symbol-via-chi4-chi8
+
+Statement: For odd integers u and w and natural numbers α and β, the Hilbert symbol of ℚ_2 satisfies (2^α u, 2^β w)_2 = s(u, w) · χ₈(w)^α · χ₈(u)^β, where s(u, w) = -1 exactly when χ₄(u) = χ₄(w) = -1 and s(u, w) = 1 otherwise. Equivalently, Serre's two sign functions of QFI 6C item 10 are read off Mathlib's characters: (-1)^ε(u) = χ₄(u) and (-1)^ω(u) = χ₈(u) for odd u.
+
+### ClassicalArithmeticCompletion:CA.1/norm-of-a-prime-is-one-modulo-n
+
+Statement: Let K be a number field whose ring of integers contains a primitive n-th root of unity ζ, n ≥ 1, and let 𝔭 be a maximal ideal of 𝓞_K whose absolute norm N𝔭 is coprime to n. Then N𝔭 ≡ 1 (mod n), and the n-th roots of unity of 𝓞_K reduce injectively onto the n-th roots of unity of the residue field 𝓞_K/𝔭.
+
+### ClassicalArithmeticCompletion:CA.1/power-residue-symbol
+
+Statement: Let K be a number field, n ≥ 1, and suppose 𝓞_K has enough n-th roots of unity (HasEnoughRootsOfUnity (𝓞_K) n: a primitive n-th root of unity exists). For a maximal ideal 𝔭 of 𝓞_K with N𝔭 coprime to n, the n-th power residue symbol is the multiplicative character (· / 𝔭)_n of the residue field 𝓞_K/𝔭 with values in 𝓞_K defined by: (x / 𝔭)_n = 0 for x = 0, and for x ≠ 0, (x / 𝔭)_n is the unique n-th root of unity μ of 𝓞_K with μ ≡ x^((N𝔭 - 1)/n) (mod 𝔭). For α ∈ 𝓞_K, (α / 𝔭)_n means the symbol at the residue of α. When N𝔭 is not coprime to n the symbol is, by convention, the trivial character; no formula is claimed for it at such primes.
+
+API powerResidueSymbol: The character (· / 𝔭)_n of the residue field 𝓞_K/𝔭 with values in 𝓞_K.
+
+API powerResidueSymbol_spec: For N𝔭 coprime to n and x ≠ 0, the reduction of (x / 𝔭)_n modulo 𝔭 is x^((N𝔭 - 1)/n).
+
+API powerResidueSymbol_mem_rootsOfUnity: For N𝔭 coprime to n and x ≠ 0, (x / 𝔭)_n is an n-th root of unity of 𝓞_K.
+
+API powerResidueSymbol_eq_iff: For N𝔭 coprime to n, x ≠ 0 and μ ∈ μ_n(𝓞_K): (x / 𝔭)_n = μ if and only if μ ≡ x^((N𝔭 - 1)/n) (mod 𝔭).
+
+API powerResidueSymbol_zeta: For a primitive n-th root of unity ζ, (ζ / 𝔭)_n = ζ^((N𝔭 - 1)/n): the supplementary law for roots of unity.
+
+API powerResidueSymbol_pow_div: For d dividing n, ((x / 𝔭)_n)^(n/d) = (x / 𝔭)_d.
+
+API orderOf_powerResidueSymbol: For N𝔭 coprime to n the character has order exactly n.
+
+API powerResidueSymbol_of_not_coprime: The convention at primes dividing n: the trivial character.
+
+Test powerResidueSymbol_test_one: For n = 1 the symbol is the trivial character.
+
+Test powerResidueSymbol_test_zeta_norm_four: For a primitive cube root of unity ζ and a prime of norm 4, (ζ / 𝔭)_3 = ζ.
+
+Test powerResidueSymbol_test_zeta_norm_seven: For a primitive cube root of unity ζ and a prime of norm 7, (ζ / 𝔭)_3 = ζ^2.
+
+Test powerResidueSymbol_test_not_sign: At a prime of norm 4, (ζ / 𝔭)_3 is neither 1 nor -1: a sign-valued 'is a cube' indicator is not the symbol.
+
+Test powerResidueSymbol_test_two_quadraticChar: For n = 2 and 𝔭 odd, (x / 𝔭)_2 is quadraticChar of the residue field at x, cast to 𝓞_K.
+
+### ClassicalArithmeticCompletion:CA.1/power-residue-euler-criterion
+
+Statement: Let K, n and 𝔭 be as for the power residue symbol, with N𝔭 coprime to n. For a nonzero residue x in 𝓞_K/𝔭, (x / 𝔭)_n = 1 if and only if x is an n-th power in 𝓞_K/𝔭.
+
+### ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal
+
+Statement: Let K and n be as for the power residue symbol. For a nonzero ideal 𝔞 of 𝓞_K with N𝔞 coprime to n and factorisation 𝔞 = 𝔭₁ ⋯ 𝔭ᵣ into maximal ideals (with repetition), and for α ∈ 𝓞_K, the symbol is (α / 𝔞)_n := ∏ᵢ (α / 𝔭ᵢ)_n ∈ 𝓞_K. For β ∈ 𝓞_K prime to n, (α / β)_n := (α / β 𝓞_K)_n. The empty product gives (α / 𝓞_K)_n = 1. Its value at an ideal not prime to n is not specified.
+
+API powerResidueSymbolIdeal: The symbol (α / 𝔞)_n ∈ 𝓞_K.
+
+API powerResidueSymbolIdeal_of_isMaximal: At a maximal ideal 𝔭 with N𝔭 coprime to n, (α / 𝔭)_n is the prime symbol at the residue of α.
+
+API powerResidueSymbolIdeal_mul_right: (α / 𝔞 𝔟)_n = (α / 𝔞)_n (α / 𝔟)_n for 𝔞, 𝔟 prime to n.
+
+API powerResidueSymbolIdeal_mul_left: (α β / 𝔞)_n = (α / 𝔞)_n (β / 𝔞)_n for 𝔞 prime to n.
+
+API powerResidueSymbolIdeal_top: (α / 𝓞_K)_n = 1.
+
+API powerResidueSymbolIdeal_eq_zero_iff: (α / 𝔞)_n = 0 exactly when (α) and 𝔞 are not coprime, for 𝔞 prime to n.
+
+API powerResidueSymbolIdeal_congr: If α ≡ β (mod 𝔞) then (α / 𝔞)_n = (β / 𝔞)_n, for 𝔞 prime to n.
+
+Test powerResidueSymbolIdeal_test_top: (α / 𝓞_K)_n = 1.
+
+Test powerResidueSymbolIdeal_test_sq: (α / 𝔭^2)_n = ((α / 𝔭)_n)^2.
+
+Test powerResidueSymbolIdeal_test_not_residue: For n = 2 and a nonresidue α modulo 𝔭, (α / 𝔭^2)_2 = 1 although α is not a square modulo 𝔭^2.
+
+### ClassicalArithmeticCompletion:CA.1/power-residue-symbol-galois-equivariance
+
+Statement: For every ring automorphism σ of 𝓞_K, every ideal 𝔞 prime to n and every α ∈ 𝓞_K: σ((α / 𝔞)_n) = (σ α / σ 𝔞)_n.
+
+### ClassicalArithmeticCompletion:CA.1/power-residue-symbol-and-frobenius
+
+Statement: Let L/K be an extension of number fields with 𝓞_K containing a primitive n-th root of unity, 𝔭 a maximal ideal of 𝓞_K with N𝔭 coprime to n, 𝔓 a prime of 𝓞_L lying over 𝔭, and σ an 𝓞_K-algebra automorphism of 𝓞_L that is an arithmetic Frobenius at 𝔓 (Mathlib's IsArithFrobAt: σ(x) ≡ x^(N𝔭) mod 𝔓). If α ∈ 𝓞_K is not in 𝔭 and β ∈ 𝓞_L satisfies β^n = α, then σ(β) = (α / 𝔭)_n · β.
+
+### ClassicalArithmeticCompletion:CA.1/tame-hilbert-symbol-formula
+
+Statement: Let K be a number field containing μ_n, v a finite place of K whose prime 𝔭 = 𝔭_v does not divide n, and (a, b)_v the degree-n Hilbert (norm-residue) symbol of K_v in the orientation (a, b)_v = Art_v(a)(ⁿ√b) / ⁿ√b. For a, b ∈ Kˣ with valuations α = v(a), β = v(b), (a, b)_v = ((-1)^(αβ) b^α / a^β mod 𝔭 / 𝔭)_n, where the element (-1)^(αβ) b^α a^(-β) is a v-adic unit read in the residue field. In particular (u, w)_v = 1 for units u, w, and (π, u)_v = (u / 𝔭)_n for a uniformiser π and a unit u.
+
+### ClassicalArithmeticCompletion:CA.1/hilbert-product-formula-of-degree-n
+
+Statement: Let K be a number field containing μ_n and a, b ∈ Kˣ. The degree-n Hilbert symbol (a, b)_v is 1 at all but finitely many places v of K, and ∏_v (a, b)_v = 1, the product running over all finite and archimedean places. For n ≥ 3 every archimedean place of K is complex and contributes 1; for n = 2 a real place contributes -1 exactly when a and b are both negative there.
+
+### ClassicalArithmeticCompletion:CA.1/power-reciprocity-law
+
+Statement: Let K be a number field containing μ_n, and let a, b be nonzero elements of 𝓞_K such that the ideals (a), (b) and (n) are pairwise coprime. Then (a / b)_n · ((b / a)_n)^(-1) = ∏_{v | n∞} (a, b)_v, where (a / b)_n is the power residue symbol at the principal ideal (b) and the product runs over the places above n and the archimedean places. The places above n enter only through Hilbert symbols; no power residue symbol is taken at a prime dividing n.
+
+### ClassicalArithmeticCompletion:CA.1/primary-eisenstein-integer
+
+Statement: Let K = ℚ(ζ₃) with ring of integers ℤ[ω], ω a primitive cube root of unity. An element π of 𝓞_K is primary if π ≡ 2 (mod 3𝓞_K); for π = a + b ω with a, b ∈ ℤ this says a ≡ 2 (mod 3) and b ≡ 0 (mod 3). Every prime π of ℤ[ω] of norm different from 3 has exactly one primary associate; rational primes q ≡ 2 (mod 3) are primary; and if α and β are primary then so is -α β. The predicate is stated for every number field (as π ≡ 2 modulo 3), and its content is for ℚ(ζ₃).
+
+API IsPrimaryEisenstein: π ≡ 2 (mod 3𝓞_K).
+
+API isPrimaryEisenstein_add_mul_iff: In ℚ(ζ₃), a + b ω is primary if and only if a ≡ 2 and b ≡ 0 (mod 3).
+
+API exists_unique_associated_isPrimaryEisenstein: A prime of ℤ[ω] of norm different from 3 has exactly one primary associate.
+
+API IsPrimaryEisenstein.neg_mul: If α and β are primary then -α β is primary.
+
+API isPrimaryEisenstein_intCast_iff: A rational integer a is primary exactly when a ≡ 2 (mod 3).
+
+Test isPrimaryEisenstein_test_two: 2 is primary.
+
+Test isPrimaryEisenstein_test_norm_seven: -1 - 3ω, of norm 7, is primary.
+
+Test isPrimaryEisenstein_test_three_add_zeta: 3 + ω, of norm 7, is not primary.
+
+Test isPrimaryEisenstein_test_one_sub_zeta: 1 - ω, the prime of norm 3, is not primary.
+
+### ClassicalArithmeticCompletion:CA.1/cubic-jacobi-sum-of-a-primary-prime
+
+Statement: Let π be a primary prime of ℤ[ω] of norm p ≡ 1 (mod 3), and χ_π = (· / π)_3 the cubic residue character of the residue field ℤ[ω]/π ≅ 𝔽_p. Then the Jacobi sum J(χ_π, χ_π) = Σ_x χ_π(x) χ_π(1 - x) equals π.
+
+### ClassicalArithmeticCompletion:CA.1/cubic-gauss-sum-cube
+
+Statement: Let π be a primary prime of ℤ[ω] of norm p ≡ 1 (mod 3), χ_π its cubic residue character on 𝔽_p ≅ ℤ[ω]/π, pushed to ℂ along an embedding φ of 𝓞_K, and ψ a primitive additive character of 𝔽_p with values in ℂ. Then g(χ_π, ψ)^3 = p · φ(π).
+
+### ClassicalArithmeticCompletion:CA.1/cubic-reciprocity
+
+Statement: Let π₁ and π₂ be primary primes of ℤ[ω], neither of norm 3, with N(π₁) ≠ N(π₂). Then (π₂ / π₁)_3 = (π₁ / π₂)_3, the symbols being the cubic power residue symbols at the principal ideals (π₁) and (π₂).
+
+### ClassicalArithmeticCompletion:CA.1/cubic-supplement-for-one-minus-zeta
+
+Statement: Let π = a + b ω be a primary prime of ℤ[ω] of norm different from 3, and write a = 3m - 1 with m ∈ ℤ. Then ((1 - ω) / π)_3 = ω^(2m). The companion supplements (-1 / π)_3 = 1 and (ω / π)_3 = ω^((N π - 1)/3), that is 1, ω or ω² according as N π ≡ 1, 4 or 7 (mod 9), are the values of the power residue symbol at -1 = (-1)^3 and at a root of unity.
+
+### ClassicalArithmeticCompletion:CA.1/primary-element-of-a-cyclotomic-ring
+
+Statement: Let l be an odd prime, K = ℚ(ζ_l) and ζ a primitive l-th root of unity in 𝓞_K = ℤ[ζ]. An element α of 𝓞_K is primary if it is prime to l and congruent to a rational integer modulo (1 - ζ)^2. For every α prime to l there is c ∈ ℤ/l, unique, such that ζ^c α is primary; rational integers prime to l are primary; and products of primary elements are primary. The predicate is stated for every number field and every ζ, and its content is for ℚ(ζ_l).
+
+API IsEisensteinPrimary: α is prime to l and α ≡ c (mod (1 - ζ)^2) for some c ∈ ℤ.
+
+API exists_unique_zeta_pow_mul_isEisensteinPrimary: For α prime to l, there is a unique c ∈ ℤ/l with ζ^c α primary.
+
+API isEisensteinPrimary_intCast: A rational integer prime to l is primary.
+
+API IsEisensteinPrimary.mul: Products of primary elements are primary.
+
+Test isEisensteinPrimary_test_one: 1 is primary.
+
+Test isEisensteinPrimary_test_two: 2 is primary for an odd prime l.
+
+Test isEisensteinPrimary_test_zeta: ζ is not primary: the normalising power is unique modulo l.
+
+Test isEisensteinPrimary_test_one_sub_zeta: 1 - ζ is not primary, not being prime to l.
+
+### ClassicalArithmeticCompletion:CA.1/eisenstein-reciprocity
+
+Statement: Let l be an odd prime, K = ℚ(ζ_l), α ∈ ℤ[ζ_l] a primary nonunit, and a ∈ ℤ with a ≠ ±1, a prime to l and (a) prime to (α). Then (α / a)_l = (a / α)_l, the l-th power residue symbols at the principal ideals (a) and (α).
+
+### ClassicalArithmeticCompletion:CA.2/generating-polynomials-and-the-minimal-polynomial
+
+Statement: Let F be a field and V an F-vector space. For a polynomial g = ∑ⱼ aⱼXʲ ∈ F[X] and a sequence s = (sᵢ)_{i≥0} in V put g ⋆ s = ∑ⱼ aⱼ sⱼ. The sequence s is linearly generated if there are k ≥ 0 and c₀, …, c_{k−1} ∈ F with s_{k+i} = ∑_{j<k} cⱼ s_{j+i} for every i ≥ 0 (k = 0 means s = 0), and g is a generating polynomial of s if (Xⁱg) ⋆ s = 0 for every i ≥ 0. The generating polynomials of s form an ideal G(s) of F[X]; s is linearly generated exactly when G(s) ≠ 0; and the minimal polynomial of s is the monic generator of G(s) when G(s) ≠ 0 and 0 otherwise. It is the unique monic generating polynomial that divides every generating polynomial.
+
+API Sequence.star: The pairing g ⋆ s = ∑ⱼ aⱼ • sⱼ of a polynomial g = ∑ aⱼXʲ with a sequence s.
+
+API Sequence.star_add: (g + h) ⋆ s = g ⋆ s + h ⋆ s (and (c g) ⋆ s = c • (g ⋆ s)).
+
+API Sequence.IsGeneratingPoly: g is a generating polynomial of s: (Xⁱ g) ⋆ s = 0 for every i ≥ 0.
+
+API Sequence.IsLinearlyGenerated: s satisfies s_{k+i} = ∑_{j<k} cⱼ s_{j+i} for some k ≥ 0 and cⱼ ∈ F; the field F is an explicit argument.
+
+API Sequence.generatingIdeal: The ideal G(s) of generating polynomials.
+
+API Sequence.mem_generatingIdeal: g ∈ G(s) iff g is a generating polynomial of s.
+
+API Sequence.minPoly: The monic generator of G(s), and 0 when s is not linearly generated.
+
+API Sequence.minPoly_dvd: g is a generating polynomial of s iff minPoly s divides g.
+
+API Sequence.minPoly_monic: If s is linearly generated, minPoly s is monic.
+
+API Sequence.isLinearlyGenerated_iff: s is linearly generated iff minPoly s ≠ 0.
+
+API Sequence.minPoly_of_powers: For α in an F-algebra A, minPoly of (αⁱ)_{i≥0} equals Mathlib's minpoly F α.
+
+API Sequence.isSolution_iff_charPoly_mem: For E : LinearRecurrence F and u : ℕ → F, E.IsSolution u iff E.charPoly ∈ G(u); hence minPoly u divides the characteristic polynomial of every recurrence u satisfies.
+
+Test Sequence.minPoly_zero: The zero sequence has minimal polynomial 1.
+
+Test Sequence.isGeneratingPoly_one_iff: 1 is a generating polynomial of s iff s = 0 (Shoup Exercise 18.1).
+
+Test Sequence.minPoly_fib: The Fibonacci sequence, over ℚ, has minimal polynomial X² − X − 1.
+
+Test Sequence.minPoly_geom: For a ∈ F the geometric sequence (aⁿ) has minimal polynomial X − C a, which is `minpoly F a`.
+
+Test Sequence.not_isLinearlyGenerated_two_pow_sq: The sequence n ↦ 2^{n²} over ℚ is not linearly generated (it grows faster than any solution of a recurrence with rational coefficients), so its minimal polynomial is 0.
+
+### ClassicalArithmeticCompletion:CA.2/rational-power-series
+
+Statement: Let K be a field. A formal power series f ∈ K⟦X⟧ is rational if there are polynomials P, Q ∈ K[X] with Q(0) ≠ 0 and f·Q = P in K⟦X⟧; equivalently f = P·Q⁻¹ in K⟦X⟧, or f lies in K⟦X⟧ ∩ K(X) inside the Laurent series field K⸨X⸩. No degree condition on P is part of the predicate. The rational power series form a subring of K⟦X⟧ closed under inversion of units, and f = ∑ aₙXⁿ is rational exactly when (aₙ) is linearly generated.
+
+API PowerSeries.IsRational: f is rational: f·Q = P for polynomials P, Q with Q(0) ≠ 0.
+
+API PowerSeries.IsRational.polynomial: Every polynomial, viewed in K⟦X⟧, is rational.
+
+API PowerSeries.IsRational.inv: If f is rational then so is f⁻¹ (Mathlib's inverse, 0 when constantCoeff f = 0).
+
+API PowerSeries.IsRational.subring: The rational power series form a subring of K⟦X⟧.
+
+API PowerSeries.isRational_iff_mem_range: f is rational iff its image in K⸨X⸩ is the image of some r ∈ K(X) (RatFunc).
+
+API PowerSeries.isRational_mk_iff: ∑ aₙXⁿ is rational iff (aₙ) is linearly generated over K.
+
+Test PowerSeries.isRational_mk_one: The geometric series ∑ Xⁿ is rational: (1 − X)·∑ Xⁿ = 1.
+
+Test PowerSeries.mk_fib_mul: Over ℚ, (∑ Fₙ Xⁿ)·(1 − X − X²) = X, the Fibonacci witness of rationality (Stanley Example 4.1.2).
+
+Test PowerSeries.not_isRational_exp: The exponential series ∑ Xⁿ/n! over ℚ is not rational: its coefficient sequence satisfies no linear recurrence.
+
+### ClassicalArithmeticCompletion:CA.2/linear-recurrence-of-a-monic-polynomial
+
+Statement: For a commutative ring R and p ∈ R[X], `LinearRecurrence.ofMonic p` is Mathlib's `LinearRecurrence R` of order natDegree p with coefficients −p.coeff i (i < natDegree p): its solutions are the u with u(n + d) = −∑_{i<d} p.coeff i · u(n + i). If p is monic its characteristic polynomial is p, and every recurrence E over a nontrivial ring is ofMonic E.charPoly. Over a field, u solves ofMonic p (p monic) iff p is a generating polynomial of u.
+
+API LinearRecurrence.ofMonic: The recurrence of p: order p.natDegree, coefficients −p.coeff i.
+
+API LinearRecurrence.order_ofMonic: (ofMonic p).order = p.natDegree (by definition).
+
+API LinearRecurrence.charPoly_ofMonic: For monic p, (ofMonic p).charPoly = p.
+
+API LinearRecurrence.ofMonic_charPoly: Over a nontrivial ring, ofMonic E.charPoly = E for every recurrence E.
+
+API LinearRecurrence.isSolution_ofMonic_iff: Over a field, for monic p: u solves ofMonic p iff p is a generating polynomial of u (Shoup's sense).
+
+Test LinearRecurrence.isSolution_ofMonic_fib: Over ℚ the Fibonacci sequence solves ofMonic (X² − X − 1).
+
+Test LinearRecurrence.isSolution_ofMonic_one: Over a nontrivial ring, u solves ofMonic 1 iff u = 0.
+
+Test LinearRecurrence.isSolution_ofMonic_X: u solves ofMonic X iff u(n + 1) = 0 for all n: a zero constant term gives solutions (δ₀) that are not exponential polynomials.
+
+### ClassicalArithmeticCompletion:CA.2/exponential-polynomial-solutions
+
+Statement: Let K be a field of characteristic 0, E a linear recurrence over K, θ ∈ K and j ≥ 0. If (X − θ)^{j+1} divides E.charPoly, then n ↦ nʲθⁿ is a solution of E. Consequently every n ↦ g(n)θⁿ with deg g < rootMultiplicity θ (E.charPoly) is a solution.
+
+### ClassicalArithmeticCompletion:CA.2/exponential-polynomials-are-linearly-independent
+
+Statement: Let K be a field of characteristic 0, S ⊆ K a finite set of nonzero elements and g : K → K[X]. If ∑_{θ∈S} g_θ(n)θⁿ = 0 for every n ∈ ℕ, then g_θ = 0 for every θ ∈ S. Equivalently the functions n ↦ nʲθⁿ (θ ∈ S, j ≥ 0) are linearly independent over K.
+
+### ClassicalArithmeticCompletion:CA.2/closed-form-of-a-complex-linear-recurrence
+
+Statement: Let E be a linear recurrence over ℂ (Mathlib's `LinearRecurrence ℂ`) whose characteristic polynomial E.charPoly = ∏_{i=1}^m (X − θᵢ)^{eᵢ} (θᵢ distinct) has nonzero constant term, and let u : ℕ → ℂ be a solution of E. Then there are polynomials g₁, …, g_m ∈ ℂ[X] with deg gᵢ < eᵢ such that u(h) = ∑ᵢ gᵢ(h)θᵢʰ for every h ≥ 0, and they are uniquely determined by u. In Lean form: ∃! g : ℂ → ℂ[X], (∀ θ, deg (g θ) < rootMultiplicity θ E.charPoly) ∧ ∀ h, u h = ∑_{θ ∈ roots} (g θ)(h) θʰ. In particular (simple roots) u(h) = ∑ gᵢθᵢʰ with constants gᵢ, and u = 0 iff all gᵢ = 0.
+
+### ClassicalArithmeticCompletion:CA.2/closed-forms-satisfy-a-linear-recurrence
+
+Statement: Let S ⊆ ℂ be finite, e : ℂ → ℕ and g : ℂ → ℂ[X] with deg g_θ < e_θ for θ ∈ S. Then h ↦ ∑_{θ∈S} g_θ(h)θʰ is a solution of the recurrence ofMonic (∏_{θ∈S}(X − θ)^{e_θ}), whose characteristic polynomial is that product; if every θ ∈ S is nonzero, the recurrence has nonzero constant term.
+
+### ClassicalArithmeticCompletion:CA.2/rational-iff-linearly-generated
+
+Statement: Fix complex numbers α₁, …, α_d with d ≥ 1 and α_d ≠ 0, and put Q(x) = 1 + α₁x + ⋯ + α_dx^d. For f : ℕ → ℂ the following are equivalent: (i) ∑ f(n)xⁿ = P(x)/Q(x) with P a polynomial of degree less than d; (ii) for every n ≥ 0, f(n + d) + α₁f(n + d − 1) + ⋯ + α_d f(n) = 0; (iii) for every n ≥ 0, f(n) = ∑ᵢ Pᵢ(n)γᵢⁿ, where Q(x) = ∏ᵢ(1 − γᵢx)^{dᵢ} with the γᵢ distinct and nonzero, and Pᵢ is a polynomial of degree less than dᵢ.
+
+### ClassicalArithmeticCompletion:CA.2/companion-matrix
+
+Statement: For a commutative ring R and p ∈ R[X] of natural degree d, the companion matrix C(p) ∈ M_d(R) has C(p)_{i+1,i} = 1 for i < d − 1, last column C(p)_{i,d−1} = −p.coeff i, and all other entries 0. For monic p it is the matrix of multiplication by X on R[X]/(p) in the basis 1, X, …, X^{d−1}; its transpose C(p)ᵀ is the state-transition matrix of the recurrence ofMonic p, sending (u(n), …, u(n + d − 1)) to (u(n + 1), …, u(n + d)).
+
+API Polynomial.companion: C(p): ones on the subdiagonal, −p.coeff i in the last column, indexed by Fin p.natDegree.
+
+API Polynomial.companion_apply: The entries of C(p).
+
+API Polynomial.leftMulMatrix_root_eq_companion: For monic p, the matrix of multiplication by the root of AdjoinRoot p in the power basis 1, X, …, X^{d−1} is C(p).
+
+API Polynomial.toLin'_companion_transpose: Matrix.toLin' C(p)ᵀ = (ofMonic p).tupleSucc, Mathlib's state shift of the recurrence.
+
+API Polynomial.det_companion: For monic p, det C(p) = (−1)^{natDegree p} · p.coeff 0.
+
+API Polynomial.minpoly_companion: Over a field, for monic p, minpoly K C(p) = p.
+
+API Polynomial.hasEigenvalue_companion_iff: Over a field, for monic p and q ∈ K: q is an eigenvalue of C(p) iff p(q) = 0 (no extension of scalars).
+
+Test Polynomial.companion_fib: C(X² − X − 1) over ℤ, reindexed along natDegree = 2, is [[0, 1], [1, 1]].
+
+Test Polynomial.companion_quadratic: C(X² − tX + d) reindexed to Fin 2 is [[0, −d], [1, t]], the body of Tau Ceti's `TauCeti.companionFinTwo t d` (`TauCeti.companionFinTwo_def`).
+
+Test Polynomial.charpoly_companion_one: C(1) is the empty matrix and its characteristic polynomial is 1.
+
+Test Polynomial.companion_ne_transpose: C(X² + 1) over ℤ is not equal to its transpose: the orientation (last column, not last row) is part of the definition.
+
+### ClassicalArithmeticCompletion:CA.2/characteristic-polynomial-of-the-companion-matrix
+
+Statement: For every commutative ring R and every monic p ∈ R[X], the characteristic polynomial of C(p) is p: det(X·I − C(p)) = p.
+
+### ClassicalArithmeticCompletion:CA.2/linear-recurrence-as-a-matrix-power
+
+Statement: Let R be a commutative ring, p ∈ R[X] with d = natDegree p ≥ 1, and u : ℕ → R. Write s_n = (u(n), u(n + 1), …, u(n + d − 1)) ∈ R^d. Then u solves ofMonic p iff s_n = (C(p)ᵀ)ⁿ s₀ for every n ≥ 0; in that case u(n) is the first coordinate of (C(p)ᵀ)ⁿ s₀.
+
+### ClassicalArithmeticCompletion:CA.2/roots-are-eigenvalues-of-the-companion-matrix
+
+Statement: Let R be a commutative ring, p ∈ R[X] monic with d = natDegree p ≥ 1, and q ∈ R. Then p(q) = 0 iff the vector (1, q, …, q^{d−1}) is an eigenvector of C(p)ᵀ with eigenvalue q. Over a field K, q ∈ K is an eigenvalue of C(p) iff p(q) = 0. No extension of scalars is made: eigenvalues are taken in R (or K) itself.
+
+### ClassicalArithmeticCompletion:CA.2/lucas-sequence-of-the-first-kind
+
+Statement: For a commutative ring R and P, Q ∈ R, the Lucas sequence of the first kind is U₀ = 0, U₁ = 1, U_{n+2} = P·U_{n+1} − Q·Uₙ. If α, β ∈ R satisfy α + β = P and αβ = Q then (α − β)Uₙ = αⁿ − βⁿ; for integer P, Q with α, β the roots of z² − Pz + Q, Uₙ = (αⁿ − βⁿ)/(α − β) is Carmichael's Dₙ.
+
+API lucasU: Uₙ(P, Q): U₀ = 0, U₁ = 1, U_{n+2} = P U_{n+1} − Q Uₙ.
+
+API lucasU_zero: U₀ = 0.
+
+API lucasU_one: U₁ = 1.
+
+API lucasU_add_two: U_{n+2} = P U_{n+1} − Q Uₙ.
+
+API isSolution_lucasU: lucasU P Q solves the Mathlib recurrence ⟨2, ![−Q, P]⟩ (= ofMonic (X² − P X + Q)).
+
+API lucasU_mul_sub: If α + β = P and αβ = Q then (α − β)Uₙ = αⁿ − βⁿ (Binet).
+
+API map_lucasU: f (Uₙ(P, Q)) = Uₙ(f P, f Q) for a ring homomorphism f.
+
+API lucasU_succ_eq_eval_dickson: U_{n+1}(P, Q) = (dickson 2 Q n)(P), Mathlib's Dickson polynomial of the second kind.
+
+API lucasU_two_mul: U_{2n} = Uₙ Vₙ.
+
+API lucasU_one_neg_one: Uₙ(1, −1) = Nat.fib n.
+
+Test lucasU_three_two: Uₙ(3, 2) = 2ⁿ − 1 over ℤ (the Mersenne numbers, Mathlib's `mersenne`).
+
+Test lucasU_two_one: Uₙ(2, 1) = n over ℤ (the repeated root α = β = 1, where the Binet quotient is undefined).
+
+Test lucasU_fib: Uₙ(1, −1) = Nat.fib n.
+
+Test lucasU_zero_one_two: U₂(0, 1) = 0 and U₃(0, 1) = −1: a Lucas sequence can vanish at n > 0, so Uₙ ≠ 0 is not automatic (Carmichael excludes these cases, the definition does not).
+
+### ClassicalArithmeticCompletion:CA.2/lucas-sequence-of-the-second-kind
+
+Statement: For a commutative ring R and P, Q ∈ R: V₀ = 2, V₁ = P, V_{n+2} = P·V_{n+1} − Q·Vₙ. If α + β = P and αβ = Q then Vₙ = αⁿ + βⁿ (Carmichael's Sₙ), and Vₙ² − (P² − 4Q)Uₙ² = 4Qⁿ.
+
+API lucasV: Vₙ(P, Q): V₀ = 2, V₁ = P, V_{n+2} = P V_{n+1} − Q Vₙ.
+
+API lucasV_zero: V₀ = 2.
+
+API lucasV_one: V₁ = P.
+
+API lucasV_add_two: V_{n+2} = P V_{n+1} − Q Vₙ.
+
+API lucasV_eq_add_pow: If α + β = P and αβ = Q then Vₙ = αⁿ + βⁿ.
+
+API lucasV_eq_eval_dickson: Vₙ(P, Q) = (dickson 1 Q n)(P), Mathlib's Dickson polynomial of the first kind.
+
+API lucasV_sq_sub: Vₙ² − (P² − 4Q)Uₙ² = 4Qⁿ.
+
+API map_lucasV: f (Vₙ(P, Q)) = Vₙ(f P, f Q) for a ring homomorphism f.
+
+Test lucasV_three_two: Vₙ(3, 2) = 2ⁿ + 1 over ℤ.
+
+Test lucasV_two_one: Vₙ(2, 1) = 2 for every n (repeated root).
+
+Test lucasV_lucas_numbers: V₀, …, V₅ of (1, −1) are 2, 1, 3, 4, 7, 11.
+
+Test lucasV_dickson: Vₙ(P, Q) = (dickson 1 Q n)(P) for P, Q ∈ ℤ (Mathlib's Dickson polynomial of the first kind).
+
+Test lucasV_lucasLehmer: V_{2^i}(4, 1) = LucasLehmer.s i, Mathlib's Lucas–Lehmer sequence 4, 14, 194, ….
+
+### ClassicalArithmeticCompletion:CA.2/lucas-addition-formula
+
+Statement: For every commutative ring R, P, Q ∈ R and m, n ≥ 0: U_{m+n+1} = U_{m+1}U_{n+1} − Q·U_mU_n.
+
+### ClassicalArithmeticCompletion:CA.2/lucas-sequences-are-divisibility-sequences
+
+Statement: For every commutative ring R, P, Q ∈ R and m, n ≥ 0: U_{mn}(P, Q) = U_m(P, Q)·Uₙ(V_m(P, Q), Q^m). In particular U_m divides U_{mn}, so n ↦ Uₙ(P, Q) is an `IsDvdSequence`.
+
+### ClassicalArithmeticCompletion:CA.2/coprimality-of-lucas-sequences
+
+Statement: Let P, Q ∈ ℤ be coprime. Then for every n ≥ 0, U_{n+1}(P, Q) is coprime to Q and to Uₙ(P, Q).
+
+### ClassicalArithmeticCompletion:CA.2/strong-divisibility-of-lucas-sequences
+
+Statement: Let P, Q ∈ ℤ be coprime. Then for all m, n ≥ 0, gcd(U_m(P, Q), Uₙ(P, Q)) = |U_{gcd(m, n)}(P, Q)|. Equivalently n ↦ |Uₙ(P, Q)| is a strong divisibility sequence (Mathlib's `Nat.IsStrongDvdSequence`).
+
+### ClassicalArithmeticCompletion:CA.2/euler-zigzag-numbers
+
+Statement: The Euler zigzag numbers E₀, E₁, … ∈ ℕ are defined by E₀ = E₁ = 1 and E_{n+1} = ∑_{1≤j≤n, j odd} C(n, j)E_jE_{n−j} for n ≥ 1 (1, 1, 1, 2, 5, 16, 61, 272, 1385, …; OEIS A000111). E_{2n} are the secant numbers and E_{2n+1} the tangent numbers. The classical signed Euler numbers of DLMF §24.2(ii), 2eᵗ/(e^{2t} + 1) = ∑ 𝐄ₙtⁿ/n!, are 𝐄_{2n} = (−1)ⁿE_{2n} and 𝐄_{2n+1} = 0.
+
+API zigzag: The Euler zigzag numbers, by E₀ = E₁ = 1 and the odd-index recursion.
+
+API zigzagPowerSeries: ∑ E_n Xⁿ/n! in A⟦X⟧ for a ℚ-algebra A.
+
+API eulerNumber: The signed Euler numbers of DLMF: (−1)^{n/2}E_n for n even, 0 for n odd.
+
+API zigzag_odd_eq_bernoulli: E_{2n+1} = (−1)ⁿ2^{2n+2}(2^{2n+2} − 1)B_{2n+2}/(2n + 2) with Mathlib's `bernoulli`.
+
+Test zigzag_values: (E₀, …, E₇) = (1, 1, 1, 2, 5, 16, 61, 272).
+
+Test zigzag_three_bernoulli: E₃ = 2 = −(2⁴(2⁴ − 1)B₄/4) with Mathlib's bernoulli 4 = −1/30.
+
+Test eulerNumber_two: The signed Euler number 𝐄₂ is −1 while E₂ = 1: a definition that takes the DLMF numbers as the zigzag numbers gets the sign wrong.
+
+### ClassicalArithmeticCompletion:CA.2/andre-alternating-permutations
+
+Statement: For every n ≥ 0 the number of permutations w of {1, …, n} with w(1) > w(2) < w(3) > ⋯ (descent set {1, 3, 5, …} ∩ [n − 1]) is the zigzag number E_n; the same holds for the reverse alternating permutations w(1) < w(2) > w(3) < ⋯.
+
+### ClassicalArithmeticCompletion:CA.2/secant-plus-tangent-formal-identity
+
+Statement: For every ℚ-algebra A, in A⟦X⟧: (∑_{n≥0} E_n Xⁿ/n!)·cos X = 1 + sin X, where cos X, sin X are Mathlib's `PowerSeries.cos A`, `PowerSeries.sin A`. Since cos X is a unit, ∑ E_n Xⁿ/n! = sec X + tan X with sec X = (cos X)⁻¹ and tan X = sin X·sec X; its even part is sec X and its odd part tan X. Equivalently y = ∑ E_nXⁿ/n! satisfies 2y′ = y² + 1, that is 2E_{n+1} = ∑_{k=0}^n C(n, k)E_kE_{n−k} for n ≥ 1 (Stanley (1.55)).
+
+### ClassicalArithmeticCompletion:CA.2/taylor-series-of-a-complex-function
+
+Statement: For f : ℂ → ℂ, taylorPowerSeries f ∈ ℂ⟦X⟧ is ∑_{n≥0} f⁽ⁿ⁾(0)/n!·Xⁿ, with Mathlib's `iteratedDeriv`. On functions analytic at 0 it is a ring homomorphism to ℂ⟦X⟧ (sums and products go to sums and products, constants to constants, z to X), it sends exp, sin, cos to Mathlib's formal `PowerSeries.exp`, `sin`, `cos`, it is injective on germs (an analytic f with zero Taylor series vanishes near 0), and if f is holomorphic on the disc |z| < r its Taylor series converges to f there.
+
+API taylorPowerSeries: ∑ f⁽ⁿ⁾(0)/n! Xⁿ ∈ ℂ⟦X⟧.
+
+API coeff_taylorPowerSeries: The n-th coefficient is f⁽ⁿ⁾(0)/n!.
+
+API taylorPowerSeries_add: T(f + g) = T f + T g for f, g analytic at 0.
+
+API taylorPowerSeries_mul: T(f g) = T f · T g for f, g analytic at 0.
+
+API taylorPowerSeries_const: T(const c) = C c.
+
+API taylorPowerSeries_id: T(id) = X.
+
+API taylorPowerSeries_exp: T(Complex.exp) = PowerSeries.exp ℂ.
+
+API taylorPowerSeries_sin: T(Complex.sin) = PowerSeries.sin ℂ.
+
+API taylorPowerSeries_cos: T(Complex.cos) = PowerSeries.cos ℂ.
+
+API eventuallyEq_zero_of_taylorPowerSeries_eq_zero: If f is analytic at 0 and T f = 0 then f = 0 near 0.
+
+API hasSum_taylorPowerSeries: If f is complex differentiable on the ball of radius r about 0, then ∑ Tₙ zⁿ = f(z) for |z| < r.
+
+Test taylorPowerSeries_geometric: T(z ↦ 1/(1 − z)) = ∑ Xⁿ.
+
+Test taylorPowerSeries_one: T(z ↦ 1) = 1.
+
+Test taylorPowerSeries_sq: T(z ↦ z²) = X², not 2X²: the coefficients are divided by n!.
+
+### ClassicalArithmeticCompletion:CA.2/formal-identities-specialise-on-a-disc
+
+Statement: Let r > 0 and let g, h be complex differentiable on the disc |z| < r, with g(z) ≠ 0 there. If F ∈ ℂ⟦X⟧ satisfies F·T(g) = T(h) in ℂ⟦X⟧ (T the Taylor series at 0), then for every z with |z| < r the series ∑ Fₙ zⁿ converges to h(z)/g(z).
+
+### ClassicalArithmeticCompletion:CA.2/bernoulli-generating-function-on-its-disc
+
+Statement: For z ∈ ℂ with |z| < 2π: ∑_{n≥0} B_n zⁿ/n! = z/(e^z − 1) for z ≠ 0 and = 1 for z = 0, with Mathlib's `bernoulli` (B₁ = −1/2). The radius 2π is exact: the series diverges for |z| > 2π.
+
+### ClassicalArithmeticCompletion:CA.2/secant-plus-tangent-on-its-disc
+
+Statement: For z ∈ ℂ with |z| < π/2: ∑_{n≥0} E_n zⁿ/n! = 1/cos z + tan z. The radius π/2 is exact.
+
+### ClassicalArithmeticCompletion:CA.2/p-adic-digit-expansion
+
+Statement: For a prime p, every x ∈ ℤ_p has a unique expansion x = ∑_{i≥0} dᵢpⁱ with digits dᵢ ∈ {0, …, p − 1}; this is an equivalence digitsEquiv : ℤ_p ≃ (ℕ → Fin p), with ∑_{i<n} dᵢpⁱ = appr x n (Mathlib's `PadicInt.appr`) and dᵢ = ⌊(x mod p^{i+1})/pⁱ⌋. It is a homeomorphism for the product topology on (ℕ → Fin p).
+
+API PadicInt.digitsEquiv: The equivalence ℤ_p ≃ (ℕ → Fin p), x ↦ its digits.
+
+API PadicInt.hasSum_digitsEquiv: ∑ dᵢ(x)pⁱ converges to x.
+
+API PadicInt.sum_digitsEquiv_eq_appr: ∑_{i<n} dᵢ(x)pⁱ = appr x n (Mathlib's truncation).
+
+API PadicInt.digitsEquiv_apply: dᵢ(x) = (toZModPow (i+1) x).val / pⁱ.
+
+API PadicInt.digitsEquiv_symm_apply: digitsEquiv.symm d is the sum ∑ dᵢpⁱ.
+
+API PadicInt.continuous_digitsEquiv: digitsEquiv and its inverse are continuous (a homeomorphism with the product topology).
+
+Test PadicInt.digitsEquiv_neg_one: Every digit of −1 ∈ ℤ_p is p − 1.
+
+Test PadicInt.digitsEquiv_natCast: For n ∈ ℕ, the i-th digit of n ∈ ℤ_p is the i-th entry of Mathlib's `Nat.digits p n` (0 beyond its length).
+
+Test PadicInt.digitsEquiv_zero: All digits of 0 are 0.
+
+Test PadicInt.digitsEquiv_not_additive: In ℤ₂, the digit of 1 + 1 at position 1 is 1 while that of 1 is 0: digitsEquiv is not additive.
+
+### ClassicalArithmeticCompletion:CA.2/canonical-real-expansion-is-recovered
+
+Statement: Let b ≥ 2 and d : ℕ → {0, …, b − 1} with dᵢ ≠ b − 1 for infinitely many i. Then x = ofDigits d = ∑ dᵢ/b^{i+1} lies in [0, 1) and Mathlib's canonical digits of x are d: Real.digits (Real.ofDigits d) b = d.
+
+### ClassicalArithmeticCompletion:CA.2/uniqueness-of-base-b-expansions
+
+Statement: Let b ≥ 2 and d, e : ℕ → {0, …, b − 1}. Then ∑ dᵢ/b^{i+1} = ∑ eᵢ/b^{i+1} iff d = e, or, after possibly swapping d and e, there is n with dᵢ = eᵢ for i < n, dₙ = eₙ + 1, dᵢ = 0 and eᵢ = b − 1 for i > n. In particular every x ∈ [0, 1) has exactly one expansion not ending in b − 1, and exactly two expansions iff x is a nonzero b-adic fraction k/bᵐ.
+
+### ClassicalArithmeticCompletion:CA.2/automata-with-output
+
+Statement: A deterministic automaton with output (DFAO) with input alphabet α, states σ and output alphabet Δ is a transition function δ : σ → α → σ, an initial state q₀ ∈ σ and an output function τ : σ → Δ. It runs on a word (a list) from the head of the list: evalFrom s [a₁, …, a_m] = δ(…δ(δ(s, a₁), a₂)…, a_m), and eval = evalFrom q₀. Finiteness of σ is imposed where it is used. For S ⊆ Δ, the acceptor toDFA S is Mathlib's `DFA` with the same transitions and accepting states τ⁻¹(S).
+
+API DFAO: A DFAO: step : σ → α → σ, start : σ, output : σ → Δ.
+
+API DFAO.evalFrom: Run from a state on a word, head first.
+
+API DFAO.eval: Run from the initial state.
+
+API DFAO.evalFrom_append: evalFrom s (x ++ y) = evalFrom (evalFrom s x) y.
+
+API DFAO.toDFA: The acceptor DFA with accepting states output⁻¹(S).
+
+API DFAO.eval_toDFA: (toDFA S).eval = eval.
+
+API DFAO.mem_accepts_toDFA: x ∈ (toDFA S).accepts iff output (eval x) ∈ S.
+
+API DFAO.mapOutput: Change the output alphabet along f : Δ → Δ'.
+
+API DFAO.prod: The product automaton, with output pairs.
+
+Test DFAO.parity_eval: The automaton on Fin 2 with states ZMod 2, step s a = s + a, start 0 and identity output returns the parity of the number of ones of the word.
+
+Test DFAO.eval_nil: eval [] = start.
+
+Test DFAO.toDFA_accepts: The acceptor for S = univ accepts every word (agreement with Mathlib's DFA.accepts).
+
+### ClassicalArithmeticCompletion:CA.2/automatic-sequences
+
+Statement: Let k ≥ 1 (NeZero k). A sequence a : ℕ → Δ is k-automatic if there are a finite type σ and a DFAO M with input alphabet Fin k and states σ such that a(n) = τ(eval((n)_k)) for every n, where (n)_k = Nat.digits k n is the base-k expansion of n read least significant digit first (Mathlib's order; (0)_k is empty), mapped into Fin k.
+
+API IsAutomatic: a is k-automatic (least significant digit first, canonical digits).
+
+API IsAutomatic.map: If a is k-automatic so is f ∘ a.
+
+API IsAutomatic.prod: If a and b are k-automatic so is n ↦ (a n, b n).
+
+API IsAutomatic.finite_range: A k-automatic sequence takes finitely many values.
+
+API isAutomatic_const: Constant sequences are k-automatic.
+
+API isAutomatic_of_eventually_periodic: Eventually periodic sequences are k-automatic for every k.
+
+Test isAutomatic_const_two: A constant sequence is 2-automatic.
+
+Test not_isAutomatic_id: n ↦ n (with values in ℕ) is not 2-automatic: it takes infinitely many values.
+
+Test isAutomatic_parity: n ↦ n mod 2 is 2-automatic (the output reads the first digit read, the last digit of n).
+
+### ClassicalArithmeticCompletion:CA.2/k-kernel
+
+Statement: The k-kernel of a : ℕ → Δ is the set of subsequences n ↦ a(k^e n + r) with e ≥ 0 and 0 ≤ r < k^e.
+
+API kernel: The set {n ↦ a(k^e n + r) | e ≥ 0, r < k^e}.
+
+API self_mem_kernel: a ∈ kernel k a.
+
+API kernel_subset: If b ∈ kernel k a then kernel k b ⊆ kernel k a.
+
+Test kernel_const: The 3-kernel of a constant sequence is the singleton of that sequence.
+
+Test kernel_parity: The 2-kernel of n ↦ n mod 2 is {n ↦ n mod 2, the constant 0, the constant 1}.
+
+Test kernel_thueMorse_eq_pair: The 2-kernel of the Thue–Morse sequence is {t, n ↦ 1 + t n} (in ZMod 2).
+
+Test kernel_two_mul_add_one_mem: n ↦ a(2n + 1) belongs to the 2-kernel of a (e = 1, r = 1), while r ≥ k^e is not allowed.
+
+### ClassicalArithmeticCompletion:CA.2/automatic-iff-finite-kernel
+
+Statement: Let k ≥ 2 and a : ℕ → Δ. Then a is k-automatic iff its k-kernel is finite. Moreover a DFAO whose states are the kernel elements computes a, reading least significant digit first, and it gives the same output on every base-k representation of n with trailing (leading-zero) padding.
+
+### ClassicalArithmeticCompletion:CA.2/automaticity-is-independent-of-reading-direction
+
+Statement: Let k ≥ 2 and a : ℕ → Δ. Then a is k-automatic (least significant digit first) iff some DFAO with finitely many states computes a(n) by reading the base-k digits of n most significant digit first.
+
+### ClassicalArithmeticCompletion:CA.2/automatic-in-base-a-power
+
+Statement: Let k ≥ 2 and m ≥ 1. A sequence is k^m-automatic iff it is k-automatic.
+
+### ClassicalArithmeticCompletion:CA.2/automatic-iff-uniform-morphism
+
+Statement: Let k ≥ 2. A sequence a : ℕ → Δ is k-automatic iff there are a finite alphabet Γ, a k-uniform morphism φ : Γ → Γ^k, a letter-to-letter coding τ : Γ → Δ and a fixed point s of φ (s(kn + r) = φ(s(n))_r for all n and r < k, in particular φ(s(0))₀ = s(0)) with a = τ ∘ s.
+
+### ClassicalArithmeticCompletion:CA.2/thue-morse-sequence
+
+Statement: The Thue–Morse sequence t : ℕ → 𝔽₂ is t(n) = s₂(n) mod 2, the parity of the sum of the binary digits of n: 0, 1, 1, 0, 1, 0, 0, 1, …. It satisfies t(2n) = t(n) and t(2n + 1) = 1 + t(n), is 2-automatic with 2-kernel {t, 1 + t}, is the fixed point of 0 ↦ 01, 1 ↦ 10, and its generating series T = ∑ t(n)Xⁿ ∈ 𝔽₂⟦X⟧ satisfies (1 + X)³T² + (1 + X)²T + X = 0.
+
+API thueMorse: t(n) = s₂(n) mod 2 ∈ ZMod 2.
+
+API thueMorse_two_mul: t(2n) = t(n).
+
+API thueMorse_two_mul_add_one: t(2n + 1) = 1 + t(n).
+
+API isAutomatic_thueMorse: t is 2-automatic.
+
+API kernel_thueMorse: The 2-kernel of t is {t, 1 + t}.
+
+API thueMorse_algebraic: (1 + X)³T² + (1 + X)²T + X = 0 in 𝔽₂⟦X⟧ for T = ∑ t(n)Xⁿ.
+
+Test thueMorse_values: t(0), …, t(7) = 0, 1, 1, 0, 1, 0, 0, 1.
+
+Test thueMorse_two_pow: t(2^j) = 1 for every j.
+
+Test thueMorse_not_eventually_periodic: t is not eventually periodic, so its series is not rational (a periodic mis-definition fails this).
+
+### ClassicalArithmeticCompletion:CA.2/cartier-operators
+
+Statement: Let K be a field and q, r ∈ ℕ. The Cartier operator Λ_r (of modulus q) on the Laurent series K⸨X⸩ is Λ_r(∑ aₙXⁿ) = ∑ a_{qn+r}Xⁿ. It is K-linear, maps power series to power series (Λ_r(∑ aₙXⁿ) is the series of the decimated sequence n ↦ a(qn + r)), and for K finite with q = |K| it satisfies Λ_r(gᵠh) = g·Λ_r(h) and f = ∑_{r<q} X^r (Λ_r f)^q. On polynomials, deg Λ_r(P) ≤ deg P / q.
+
+API LaurentSeries.cartier: Λ_r of modulus q on K⸨X⸩.
+
+API LaurentSeries.coeff_cartier: (Λ_r f).coeff n = f.coeff (q n + r).
+
+API LaurentSeries.cartier_add: Λ_r(f + g) = Λ_r f + Λ_r g.
+
+API LaurentSeries.cartier_smul: Λ_r(c f) = c Λ_r f for c ∈ K.
+
+API LaurentSeries.cartier_ofPowerSeries: Λ_r of the power series ∑ aₙXⁿ is the power series ∑ a(qn + r)Xⁿ.
+
+API LaurentSeries.cartier_pow_card_mul: For |K| = q: Λ_r(gᵠh) = g·Λ_r h.
+
+API LaurentSeries.eq_sum_single_mul_cartier_pow: For |K| = q: f = ∑_{r<q} X^r (Λ_r f)^q.
+
+API LaurentSeries.natDegree_cartier_le: Λ_r of a polynomial P is a polynomial of degree ≤ deg P / q.
+
+Test LaurentSeries.cartier_single: Λ_r(X^m) = X^{(m−r)/q} if q ∣ m − r, and 0 otherwise (0 ≤ r < q).
+
+Test LaurentSeries.cartier_one_zero: With modulus 1, Λ₀ is the identity.
+
+Test LaurentSeries.cartier_pow_card: Over a finite field with q elements, Λ₀(gᵠ) = g.
+
+### ClassicalArithmeticCompletion:CA.2/ore-relation
+
+Statement: Let K be a finite field with q elements and f ∈ K⟦X⟧ algebraic over K[X] (equivalently over K(X)). Then there are m ≥ 0 and a₀, …, a_m ∈ K[X] with a₀ ≠ 0 such that ∑_{i=0}^m aᵢ f^{qⁱ} = 0.
+
+### ClassicalArithmeticCompletion:CA.2/algebraic-series-are-automatic
+
+Statement: Let K be a finite field with q elements and f = ∑ aₙXⁿ ∈ K⟦X⟧ algebraic over K[X]. Then (aₙ) is q-automatic.
+
+### ClassicalArithmeticCompletion:CA.2/automatic-series-are-algebraic
+
+Statement: Let K be a finite field with q elements and a : ℕ → K q-automatic. Then f = ∑ aₙXⁿ is algebraic over K[X]; if the q-kernel has m elements, the degree of f is at most q^m − 1.
+
+### ClassicalArithmeticCompletion:CA.2/christol-theorem
+
+Statement: Let p be a prime, K a finite field of characteristic p with q = p^r elements (r ≥ 1), and a : ℕ → K. Then the power series ∑ aₙXⁿ ∈ K⟦X⟧ is algebraic over K(X) (equivalently over K[X]) iff the sequence (aₙ) is p-automatic, iff it is q-automatic.
+
+### ClassicalArithmeticCompletion:CA.2/mediant
+
+Statement: For rationals x = a/b and y = c/d written in lowest terms (b, d > 0), the mediant is (a + c)/(b + d) ∈ ℚ. If x < y then x < mediant(x, y) < y. If bc − ad = 1 then (a + c)/(b + d) is already in lowest terms: its numerator is a + c and its denominator b + d.
+
+API mediant_comm: mediant x y = mediant y x.
+
+API mediant_mem_Ioo: x < y implies x < mediant x y < y.
+
+API mediant_self: mediant x x = x.
+
+API den_mediant_of_det: If y.num·x.den − x.num·y.den = 1 then the mediant has numerator x.num + y.num and denominator x.den + y.den.
+
+Test mediant_zero_one: mediant 0 1 = 1/2.
+
+Test mediant_third_twothirds: mediant (1/3) (2/3) = 1/2, whose denominator is 2, not 3 + 3.
+
+Test mediant_ne_average: mediant 0 (1/2) = 1/3, not the midpoint 1/4.
+
+### ClassicalArithmeticCompletion:CA.2/farey-sequence
+
+Statement: For n ≥ 1, the Farey sequence F_n is the set of rational numbers x with 0 ≤ x ≤ 1 whose denominator (in lowest terms) is at most n, listed in increasing order; F_0 = ∅. Its cardinality is 1 + ∑_{k=1}^n φ(k); F_n ⊆ F_{n+1}; x ∈ F_n iff 1 − x ∈ F_n.
+
+API fareySeq: F_n as a Finset ℚ.
+
+API mem_fareySeq: x ∈ F_n iff 0 ≤ x ≤ 1, 1 ≤ n and x.den ≤ n.
+
+API card_fareySeq: |F_n| = 1 + ∑_{k=1}^n φ(k) for n ≥ 1.
+
+API fareySeq_mono: m ≤ n implies F_m ⊆ F_n.
+
+API one_sub_mem_fareySeq: x ∈ F_n implies 1 − x ∈ F_n.
+
+Test fareySeq_three: F₃ = {0, 1/3, 1/2, 2/3, 1}.
+
+Test card_fareySeq_seven: |F₇| = 19 (Hatcher lists F₇).
+
+Test fareySeq_zero: F₀ = ∅.
+
+Test fareySeq_one: F₁ = {0, 1}, and 2/4 = 1/2 is a single term: F_n is a set of rationals, not of pairs.
+
+### ClassicalArithmeticCompletion:CA.2/denominators-between-farey-neighbours
+
+Statement: Let a/b < c/d be fractions in lowest terms with bc − ad = 1. Every rational x/y strictly between them has y ≥ b + d, and the only one with y = b + d is the mediant (a + c)/(b + d).
+
+### ClassicalArithmeticCompletion:CA.2/farey-neighbour-property
+
+Statement: Let n ≥ 1 and let a/b < c/d be consecutive terms of F_n (in lowest terms). Then bc − ad = 1 and b + d > n.
+
+### ClassicalArithmeticCompletion:CA.2/farey-mediant-property
+
+Statement: Let n ≥ 1 and let a/b < c/d < e/f be three consecutive terms of F_n. Then c/d = (a + e)/(b + f), the mediant of its neighbours reduced to lowest terms.
+
+### ClassicalArithmeticCompletion:CA.2/stern-brocot-tree
+
+Statement: The Stern–Brocot tree assigns to every path w ∈ {left, right}* a pair of bounds (a/b, c/d) and a node value: the root has bounds (0/1, 1/0) and value 1/1; the node at w has value the mediant (a + c)/(b + d) of its bounds; its left child has bounds (a/b, (a + c)/(b + d)) and its right child ((a + c)/(b + d), c/d). The bounds always satisfy cb − ad = 1, the value is in lowest terms with denominator b + d, lies strictly between the bounds, and the left (right) subtree lies below (above) the node. This is the upper half (between 0/1 and 1/0) of Hatcher's Farey diagram with its mediant labelling.
+
+API sternBrocotBounds: The bounding pair ((a, b), (c, d)) along a path.
+
+API sternBrocot: The node value (a + c)/(b + d) along a path.
+
+API sternBrocotBounds_det: cb − ad = 1 for the bounds of every node.
+
+API den_sternBrocot: The value has denominator b + d (it is in lowest terms).
+
+API sternBrocot_lt_append_true: Every node of the right subtree of w is larger than the node at w.
+
+API sternBrocot_append_false_lt: Every node of the left subtree of w is smaller than the node at w.
+
+Test sternBrocot_nil: The root is 1/1.
+
+Test sternBrocot_small: sternBrocot [left] = 1/2, sternBrocot [right] = 2, sternBrocot [left, right] = 2/3.
+
+Test sternBrocot_ne_three_sixths: The node [left] has denominator 2: nodes are stored in lowest terms, never as 3/6.
+
+### ClassicalArithmeticCompletion:CA.2/stern-brocot-enumerates-positive-rationals
+
+Statement: The map w ↦ sternBrocot w from finite left/right paths to ℚ is injective and its image is the set of positive rationals.
+
+### ClassicalArithmeticCompletion:CA.3/smith-normal-form-certificate
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.smithCertificate_two_by_three: Every certificate of the matrix with rows (2, 4, 6) and (3, 6, 9) has r = 1 and d_0 = 1.
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.smithCertificate_chain_not_automatic: Every certificate of diag(2, 3) has r = 2 and d = (1, 6); the diagonal (2, 3) fails the chain.
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.smithCertificate_zero: Every certificate of the zero 2 × 3 matrix has r = 0.
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.smithCertificate_rational_transform: diag(1/2, 1/3) · diag(2, 3) = 1 over ℚ, but no integer certificate of diag(2, 3) has all d_i = 1.
+
+### ClassicalArithmeticCompletion:CA.3/smith-normal-form-of-an-integer-matrix
+
+API IntMatrix.prod_smithInvariantFactors: For square A with det A ≠ 0, the product of the invariant factors is |det A|.
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.smithInvariantFactors_two_by_three: smithInvariantFactors of the matrix with rows (2, 4, 6), (3, 6, 9) is [1].
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.smithInvariantFactors_diag_two_three: smithInvariantFactors diag(2, 3) = [1, 6], not [2, 3].
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.smithInvariantFactors_singular_square: smithInvariantFactors of the matrix with rows (2, 0), (0, 0) is [2].
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.smithInvariantFactors_zero: smithInvariantFactors of the zero 2 × 3 matrix is [].
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.smithInvariantFactors_length_of_det_ne_zero: A square matrix with nonzero determinant has as many invariant factors as rows, as in Tau Ceti Matrix.exists_smith_normal_form_of_det_ne_zero.
+
+### ClassicalArithmeticCompletion:CA.3/smith-invariant-factors-unique
+
+Statement: Let A be an m × n integer matrix. Any two Smith normal form certificates of A have the same number r of invariant factors and the same invariant factors d_0, …, d_{r−1}.
+
+### ClassicalArithmeticCompletion:CA.3/smith-normal-form-over-a-pid
+
+Statement: Let R be a principal ideal domain and A an m × n matrix over R. There are P ∈ GL_m(R), Q ∈ GL_n(R), a number r ≤ min(m, n) and nonzero d_0, …, d_{r−1} ∈ R with d_i | d_j for i ≤ j such that P A Q has d_i in position (i, i) for i < r and zeros elsewhere. The d_i are unique up to units (CA.3/invariant-factors-unique applied to the cokernel).
+
+### ClassicalArithmeticCompletion:CA.3/is-hermite-normal-form
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.isHermiteNormalForm_three_two: The matrix with columns (3, 0) and (2, 1) is in Hermite normal form.
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.not_isHermiteNormalForm_unreduced: The matrix with columns (3, 0) and (4, 1) is not in Hermite normal form.
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.not_isHermiteNormalForm_negative_pivot: diag(2, −1) is not in Hermite normal form.
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.isHermiteNormalForm_empty: The m × 0 matrix is in Hermite normal form (the zero lattice).
+
+### ClassicalArithmeticCompletion:CA.3/hermite-normal-form-certificate
+
+API IntMatrix.hermitePad: [H | 0]: an m × k matrix padded with zero columns to m × n.
+
+API IntMatrix.HermiteCertificate.eq_reconstruct: A = [H | 0] · U′.
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.hermiteCertificate_one: Every certificate of the 2 × 2 identity has k = 2 and H = 1.
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.hermiteCertificate_zero: Every certificate of the zero 2 × 3 matrix has k = 0.
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.hermiteCertificate_not_rational: Every certificate of diag(2, 1) has k = 2 and H_{0,0} = 2, although over ℚ the column space is everything.
+
+### ClassicalArithmeticCompletion:CA.3/hermite-normal-form
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.hermiteBasis_stein_example: hermiteBasis of the matrix with columns (1, 2, 3), (4, 5, 6), (7, 8, 9) has two columns, (2, 1, 0) and (−3, 0, 3).
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.hermiteBasis_unimodular: For U ∈ GL_2(ℤ), hermiteBasis U = 1.
+
+Test TauCeti.ClassicalArithmetic.IntMatrix.hermiteBasis_rank_deficient: hermiteBasis of the 1 × 2 matrix (6, 10) is the 1 × 1 matrix (2).
+
+### ClassicalArithmeticCompletion:CA.3/invariant-factors-of-an-endomorphism
+
+Test TauCeti.ClassicalArithmetic.invariantFactors_zero_map: invariantFactors of the zero endomorphism of ℚ² is [X, X].
+
+Test TauCeti.ClassicalArithmetic.invariantFactors_id: invariantFactors of the identity of ℚ² is [X − 1, X − 1], not [(X − 1)²].
+
+Test TauCeti.ClassicalArithmetic.invariantFactors_nilpotent_block: invariantFactors of the map of the matrix with rows (0, 0), (1, 0) is [X²].
+
+Test TauCeti.ClassicalArithmetic.invariantFactors_nonscalar_two: A non-scalar 2 × 2 matrix A over ℚ has invariantFactors [charpoly A], the case of Tau Ceti exists_det_ne_zero_mul_eq_mul_companionFinTwo.
+
+### ClassicalArithmeticCompletion:CA.3/rational-canonical-form
+
+Statement: Let K be a field, V finite-dimensional and T an endomorphism with invariant factors a_1 | ⋯ | a_k. There is a basis of V indexed by the pairs (i, j), 1 ≤ i ≤ k, 0 ≤ j < deg a_i, in which the matrix of T is block diagonal, the i-th block being the companion block C(f) of a monic f of degree d, the d × d matrix of multiplication by X on K[X]/(f) in the basis 1, X, …, X^{d−1}: ones on the subdiagonal, −coeff_i(f) in row i of the last column, zeros elsewhere (for f = a_i); this is the companion matrix C(a_i) of CA.2/companion-matrix, whose convention it shares, by that node's identification of the matrix of multiplication by the root of AdjoinRoot f with C(f). The basis vectors of block i are v_i, T v_i, …, T^{deg a_i − 1} v_i for a vector v_i generating the i-th cyclic summand. Matrix form: every n × n matrix A over K is similar to the block-diagonal matrix of the companion blocks of its invariant factors.
+
+Test TauCeti.ClassicalArithmetic.rationalCanonicalBasis_companion_convention: The companion block of X² + 1 over ℚ is the matrix with rows (0, −1), (1, 0).
+
+Test TauCeti.ClassicalArithmetic.rationalCanonicalBasis_id: For the identity of ℚ² there are two blocks, each of size 1.
+
+Test TauCeti.ClassicalArithmetic.rationalCanonicalBasis_block_charpoly: Each block has the corresponding invariant factor as characteristic polynomial (Mathlib charpoly_leftMulMatrix).
+
+### ClassicalArithmeticCompletion:CA.3/integer-valued-polynomials
+
+Test TauCeti.ClassicalArithmetic.intValuedPolynomials_half_choose_two: X(X − 1)/2 ∈ Int(ℤ), and it is not the image of any polynomial in ℤ[X].
+
+Test TauCeti.ClassicalArithmetic.intValuedPolynomials_not_half_X: X/2 ∉ Int(ℤ).
+
+Test TauCeti.ClassicalArithmetic.intValuedPolynomials_fermat_three: (X³ − X)/3 ∈ Int(ℤ).
+
+Test TauCeti.ClassicalArithmetic.intValuedPolynomials_constant: The constant 1/2 is not in Int(ℤ).
+
+### ClassicalArithmeticCompletion:CA.3/integer-valued-iff-consecutive-values
+
+Statement: Let f ∈ ℚ[X] have degree at most n and let a ∈ ℤ. Then f ∈ Int(ℤ) if and only if f(a), f(a + 1), …, f(a + n) are integers. Moreover, for any integers b_0, …, b_n there is exactly one f ∈ Int(ℤ) of degree at most n with f(a + k) = b_k.
+
+### ClassicalArithmeticCompletion:CA.3/integer-valued-polynomials-not-noetherian
+
+Statement: The ideal M_{2,0} = {f ∈ Int(ℤ) | f(0) is even} of Int(ℤ) is not finitely generated; hence Int(ℤ) is not a Noetherian ring.
+
+### ClassicalArithmeticCompletion:CA.3/binomial-polynomial-irreducible
+
+Statement: For every n ≥ 1 the binomial polynomial (X choose n) is an irreducible element of the ring Int(ℤ).
+
+### ClassicalArithmeticCompletion:CA.3/characteristic-ideals-of-int
+
+Test TauCeti.ClassicalArithmetic.characteristicIdeal_int: I_n(ℤ) = (1/n!)ℤ.
+
+Test TauCeti.ClassicalArithmetic.characteristicIdeal_field: I_n(ℚ) = ℚ when D = K = ℚ.
+
+Test TauCeti.ClassicalArithmetic.characteristicIdeal_int_not_integral: 1/2 ∈ I_2(ℤ) and 1/2 ∉ I_1(ℤ).
+
+### ClassicalArithmeticCompletion:CA.3/capelli-theorem
+
+Statement: Let K be a field, n ≥ 1 and a ∈ K. Then Xⁿ − a is irreducible over K if and only if a ∉ K^p for every prime p dividing n, and a ∉ −4K⁴ when 4 | n.
+
+### ClassicalArithmeticCompletion:CA.3/cohn-irreducibility-criterion
+
+Statement: Let b ≥ 2 and p a prime with base-b expansion p = Σ_{k=0}^n a_k b^k, 0 ≤ a_k ≤ b − 1. Then Σ a_k X^k is irreducible in ℤ[X].
+
+### ClassicalArithmeticCompletion:CA.3/sloped-valuation
+
+Test TauCeti.ClassicalArithmetic.slopedValuation_X: v_r(X) = r.
+
+Test TauCeti.ClassicalArithmetic.slopedValuation_X_sub_C: v_r(X − c) = min(v(c), r) for c ≠ 0.
+
+Test TauCeti.ClassicalArithmetic.slopedValuation_zero_poly: v_r(0) = ⊤.
+
+### ClassicalArithmeticCompletion:CA.3/newton-slope-multiplicity
+
+Test TauCeti.ClassicalArithmetic.newtonSlopeMultiplicity_sq_sub_uniformizer: If v(π) = 1 then m_{1/2}(X² − π) = 2.
+
+Test TauCeti.ClassicalArithmetic.newtonSlopeMultiplicity_orientation: If v(π) = 1 then m_{−1/2}(X² − π) = 0.
+
+Test TauCeti.ClassicalArithmetic.newtonSlopeMultiplicity_zero_poly: m_r(0) = 0.
+
+### ClassicalArithmeticCompletion:CA.4/fermat-right-triangle-descent-step
+
+Statement: If x, y, z are pairwise coprime positive integers with x⁴ − y⁴ = z² and z odd, then there are pairwise coprime positive integers x′, y′, z′ with x′⁴ − y′⁴ = z′², z′ odd and x′ < x.
+
+### ClassicalArithmeticCompletion:CA.4/fermat-right-triangle-theorem
+
+Statement: There are no positive integers x, y, z with x⁴ − y⁴ = z². Equivalently, every integer solution of x⁴ − y⁴ = z² has y = 0 or z = 0.
+
+### ClassicalArithmeticCompletion:CA.4/markoff-triple-coordinates-coprime
+
+Statement: If (a, b, c) ∈ M then gcd(a, b) = gcd(b, c) = gcd(a, c) = 1.
+
+### ClassicalArithmeticCompletion:CA.4/three-squares-necessary-condition
+
+Statement: If n = 4ᵃ(8b + 7) with a, b ∈ ℕ, then there are no integers x, y, z with x² + y² + z² = n.
+
+### ClassicalArithmeticCompletion:CA.4/three-squares-squarefree-reduction
+
+Statement: If n ≥ 1 is not of the form 4ᵃ(8b + 7), then n = 4ᵃ k² m with a ∈ ℕ, k odd and m squarefree with m mod 8 ∈ {1, 2, 3, 5, 6}. Consequently, if every squarefree m with m mod 8 ∈ {1, 2, 3, 5, 6} is a sum of three squares, so is every such n.
+
+### ClassicalArithmeticCompletion:CA.4/three-squares-auxiliary-prime
+
+Statement: Let m be a squarefree positive integer with m mod 8 ∈ {1, 2, 3, 5, 6}. Then there is a prime q ≡ 1 (mod 4) such that: (a) if m ≡ 3 (mod 8), the Jacobi symbol (−2q/p) = 1 for every prime p ∣ m; (b) otherwise (−q/p) = 1 for every odd prime p ∣ m, and, if m = 2m₁ is even, (−2/q) = (−1)^{(m₁−1)/2}. In both cases the Jacobi symbol (−m/q) = 1, so −m is a quadratic residue modulo q.
+
+### ClassicalArithmeticCompletion:CA.4/three-squares-lattice-point
+
+Statement: Let m and q be as in three-squares-auxiliary-prime. (a) If m ≡ 3 (mod 8), there are integers b (odd) and h with b² − 4qh = −m, and integers R, x, y such that R² + 2v = m for v = qx² + bxy + hy²; moreover 4qv = (2qx + by)² + my². (b) Otherwise there are integers b, h with b² − qh = −m and integers R, x, y such that R² + v = m for v = qx² + 2bxy + hy²; moreover qv = (qx + by)² + my². In both cases v ≥ 0.
+
+### ClassicalArithmeticCompletion:CA.4/three-squares-remainder-sum-of-two-squares
+
+Statement: In the situation of three-squares-lattice-point, every odd prime p that divides v to an odd power satisfies p ≡ 1 (mod 4). Hence 2v (case m ≡ 3 mod 8), respectively v (other cases), is a sum of two squares of integers.
+
+### ClassicalArithmeticCompletion:CA.4/three-squares-squarefree-case
+
+Statement: Every squarefree positive integer m with m mod 8 ∈ {1, 2, 3, 5, 6} is a sum of three squares of integers.
+
+### ClassicalArithmeticCompletion:CA.4/legendre-three-square-theorem
+
+Statement: A natural number n is a sum of three squares of integers if and only if n is not of the form 4ᵃ(8b + 7) with a, b ∈ ℕ.
+
+### ClassicalArithmeticCompletion:CA.4/sum-of-squares-representation-count
+
+Statement: For k, n ∈ ℕ, r_k(n) is the number of x ∈ ℤᵏ with x₁² + ⋯ + x_k² = n, counting order and signs. It is finite, since every coordinate satisfies |x_i| ≤ √n.
+
+### ClassicalArithmeticCompletion:CA.4/gaussian-norm-count-multiplicative
+
+Statement: For n ≥ 1 let ρ(n) = r₂(n)/4. Then r₂(n) = #{α ∈ ℤ[i] : N(α) = n} is divisible by 4, ρ(n) is the number of associate classes of Gaussian integers of norm n, and ρ is multiplicative: ρ(mn) = ρ(m)ρ(n) for coprime m, n.
+
+### ClassicalArithmeticCompletion:CA.4/gaussian-norm-count-prime-power
+
+Statement: With ρ as in gaussian-norm-count-multiplicative and k ≥ 0: ρ(2ᵏ) = 1; ρ(pᵏ) = k + 1 for primes p ≡ 1 (mod 4); ρ(qᵏ) = 1 if k is even and 0 if k is odd, for primes q ≡ 3 (mod 4). In every case ρ(pᵏ) = Σ_{j=0}^{k} χ₄(p)ʲ, where χ₄ is the nontrivial character modulo 4 (χ₄(2) = 0).
+
+### ClassicalArithmeticCompletion:CA.4/hirschhorn-sixth-power-identity
+
+Statement: In ℤ[[x]], ∏_{n≥1}(1 − xⁿ)⁶ = ½ Σ_{r,s∈ℤ} ((2r + 1)² − (2s)²) x^{r² + r + s²}.
+
+### ClassicalArithmeticCompletion:CA.4/hirschhorn-logarithmic-derivative-identity
+
+Statement: In ℤ[[x]], ∏_{n≥1}(1 − xⁿ)⁶ = ∏_{n≥1}(1 + x^{2n−1})²(1 + x^{2n})²(1 − x^{2n})² · (1 − 8 Σ_{n≥1}((2n − 1)x^{2n−1}/(1 + x^{2n−1}) − 2n x^{2n}/(1 + x^{2n}))).
+
+### ClassicalArithmeticCompletion:CA.4/theta-fourth-power-lambert-series
+
+Statement: In ℤ[[x]], (Σ_{n∈ℤ} x^{n²})⁴ = 1 + 8 Σ_{n≥1, 4∤n} n xⁿ/(1 − xⁿ).
+
+### ClassicalArithmeticCompletion:CA.4/negative-pell-solution-ordering
+
+Statement: Let d > 0 be a nonsquare. (a) If x² − dy² = −1 with x, y ∈ ℤ and x + y√d > 1, then x ≥ 1 and y ≥ 1. (b) If x² − dy² = −1 and a² − db² = −1 with x, y, a, b ≥ 1, then a + b√d < x + y√d ⇔ (a < x and b < y) ⇔ (a < x or b < y).
+
+### ClassicalArithmeticCompletion:CA.4/negative-pell-least-solution-squares-to-fundamental
+
+Statement: Let d > 0 be a nonsquare such that x² − dy² = −1 has a solution in positive integers, and let (x₁, y₁) be the one with least y₁. Then (x₁ + y₁√d)² = X₁ + Y₁√d, where (X₁, Y₁) = (x₁² + dy₁², 2x₁y₁) is the fundamental solution of x² − dy² = 1 in the sense of Mathlib's Pell.IsFundamental.
+
+### ClassicalArithmeticCompletion:CA.4/chebyshev-bound-generalised-pell
+
+Statement: Let d > 0 be a nonsquare, and u = a + b√d with a, b positive integers and a² − db² = 1. For every n ≠ 0, every integer solution of x² − dy² = n is (x′ + y′√d)u^k for some k ∈ ℤ and some solution (x′, y′) of x′² − dy′² = n with |x′| ≤ √|n|(√u + 1/√u)/2 and |y′| ≤ √|n|(√u + 1/√u)/(2√d). If n > 0 one may take |y′| ≤ √n(√u − 1/√u)/(2√d).
+
+### ClassicalArithmeticCompletion:CA.4/generalised-pell-finite-classes-and-bounded-search
+
+Statement: Let d > 0 be a nonsquare, n ≠ 0, and u = a + b√d as in chebyshev-bound-generalised-pell. (a) There is a finite set F ⊆ S(d, n) such that every element of S(d, n) is a Pell multiple ±f·u^k of an element of F; one may take F = S(d, n) ∩ B with B the box |x| ≤ √|n|(√u + 1/√u)/2, |y| ≤ √|n|(√u + 1/√u)/(2√d). (b) Consequently x² − dy² = n has an integer solution if and only if it has one in B, which is a finite check: the generalised Pell equation, and in particular the negative Pell equation, is decidable once a nontrivial Pell solution u is known.
+
+### ClassicalArithmeticCompletion:CA.4/pell-unit-solutions-are-convergents
+
+Statement: Let d > 1 be a nonsquare. If x, y are positive integers with x² − dy² = ±1, then there is k with Real.convergent (√d) k = x/y in lowest terms, i.e. x and y are the numerator and denominator of that convergent.
+
+### ClassicalArithmeticCompletion:CA.4/small-norm-pell-decision-by-convergents
+
+Statement: Let d > 1 be a nonsquare, 0 < |n| < √d, and u = a + b√d a Pell solution with positive coordinates; let Y = √|n|(√u + 1/√u)/(2√d). Then x² − dy² = n has a solution in positive integers if and only if either n is a perfect square, or there are k, g ∈ ℕ with g ≥ 1, g² ∣ n, g·q_k ≤ Y and p_k² − dq_k² = n/g², where p_k/q_k is the k-th convergent Real.convergent (√d) k in lowest terms. Only the finitely many k with q_k ≤ Y need to be checked, since q_k ≥ F_{k+1} (Fibonacci numbers).
+
+### ClassicalArithmeticCompletion:CA.4/ramanujan-nagell-ring-norm-euclidean
+
+Statement: Let R = ℤ[θ] with θ = (1 + √−7)/2, realised as Mathlib's QuadraticAlgebra ℤ (−2) 1 (θ² = θ − 2); θ′ = 1 − θ; norm N(x + yθ) = x² + xy + 2y² (Mathlib's QuadraticAlgebra.norm). For all α, β ∈ R with β ≠ 0 there are q, r ∈ R with α = βq + r and N(r) < N(β). Consequently R is a Euclidean domain, hence a principal ideal domain and a unique factorisation domain.
+
+### ClassicalArithmeticCompletion:CA.4/ramanujan-nagell-ring-units-and-primes
+
+Statement: In R (as in ramanujan-nagell-ring-norm-euclidean): the units are ±1; θθ′ = 2, θ + θ′ = 1 and (θ − θ′)² = −7; θ and θ′ are prime elements of norm 2 and are not associates.
+
+### ClassicalArithmeticCompletion:CA.4/ramanujan-nagell-even-case
+
+Statement: If x ∈ ℤ, n ∈ ℕ is even and x² + 7 = 2ⁿ, then n = 4 and x = ±3.
+
+### ClassicalArithmeticCompletion:CA.4/ramanujan-nagell-factorisation
+
+Statement: Let n ≥ 5 be odd, m = n − 2, and x a positive odd integer with x² + 7 = 2ⁿ; write x = 2k + 1. Then α = k + θ = (x + √−7)/2 and β = k + θ′ = (x − √−7)/2 satisfy αβ = 2^m = θ^mθ′^m and α − β = θ − θ′ = √−7, and α ∈ {±θ^m, ±θ′^m}. Consequently θ^m − θ′^m = ±(θ − θ′).
+
+### ClassicalArithmeticCompletion:CA.4/ramanujan-nagell-sign
+
+Statement: If m ≥ 3 is odd and θ^m − θ′^m = ±(θ − θ′) in R, then the sign is negative: θ^m − θ′^m = −(θ − θ′).
+
+### ClassicalArithmeticCompletion:CA.4/ramanujan-nagell-residues-mod-42
+
+Statement: If m is odd and θ^m − θ′^m = −(θ − θ′), then −2^{m−1} ≡ m (mod 7), and hence m ≡ 3, 5 or 13 (mod 42).
+
+### ClassicalArithmeticCompletion:CA.4/ramanujan-nagell-one-per-class
+
+Statement: There are no odd m < m′ with m ≡ m′ (mod 42) such that both satisfy θ^m − θ′^m = −(θ − θ′) = θ^{m′} − θ′^{m′}.
+
+### ClassicalArithmeticCompletion:CA.4/ramanujan-nagell-theorem
+
+Statement: The integer solutions (x, n) ∈ ℤ × ℕ of x² + 7 = 2ⁿ are exactly (±1, 3), (±3, 4), (±5, 5), (±11, 7) and (±181, 15).
+
+### ClassicalArithmeticCompletion:CA.4/powers-of-two-and-three-differing-by-one
+
+Statement: The solutions (a, b) ∈ ℕ² of |2ᵃ − 3ᵇ| = 1 are (1, 0), (1, 1), (2, 1) and (3, 2); that is, the only pairs (2ᵃ, 3ᵇ) of consecutive integers are (2, 1), (2, 3), (4, 3) and (8, 9).
+
+### ClassicalArithmeticCompletion:CA.4/apery-set
+
+Statement: For a numerical semigroup S and n ∈ S ∖ {0}, Ap(S, n) = {s ∈ S : s − n ∉ S} (with s − n computed in ℤ, so every s < n in S belongs to it). It has exactly n elements, one in each residue class modulo n: Ap(S, n) = {w(0) = 0, w(1), …, w(n − 1)}, where w(i) is the least element of S congruent to i modulo n (Lemma 4).
+
+### ClassicalArithmeticCompletion:CA.4/apery-set-unique-decomposition
+
+Statement: Let S be a numerical semigroup and n ∈ S ∖ {0}. Every s ∈ S can be written uniquely as s = kn + w with k ∈ ℕ and w ∈ Ap(S, n). Consequently S is generated by n and Ap(S, n) ∖ {0}, and is finitely generated.
+
+### ClassicalArithmeticCompletion:CA.4/selmer-frobenius-formula
+
+Statement: Let S be a numerical semigroup and n ∈ S ∖ {0}. Then F(S) = max Ap(S, n) − n.
+
+### ClassicalArithmeticCompletion:CA.4/selmer-genus-formula
+
+Statement: Let S be a numerical semigroup and n ∈ S ∖ {0}. Then g(S) = (1/n)Σ_{w∈Ap(S,n)} w − (n − 1)/2; equivalently 2n·g(S) = 2Σ_{w∈Ap(S,n)} w − n(n − 1).
+
+### ClassicalArithmeticCompletion:CA.4/sylvester-gap-count
+
+Statement: Let a, b ≥ 1 be coprime and S = ⟨a, b⟩. Then Ap(S, a) = {0, b, 2b, …, (a − 1)b}, F(S) = ab − a − b and g(S) = (a − 1)(b − 1)/2 = (F(S) + 1)/2.
+
+### ClassicalArithmeticCompletion:CA.4/genus-frobenius-inequality
+
+Statement: For every numerical semigroup S, 2g(S) ≥ F(S) + 1. More precisely n(S) + g(S) = F(S) + 1 and n(S) ≤ g(S), where n(S) = #{s ∈ S : s ≤ F(S)}.
+
+### ClassicalArithmeticCompletion:CA.4/symmetric-numerical-semigroup
+
+Statement: A numerical semigroup S is symmetric if for every x ∈ ℤ with x ∉ S (negative integers are never in S) one has F(S) − x ∈ S. Equivalently, for 0 ≤ x ≤ F(S) exactly one of x and F(S) − x lies in S.
+
+### ClassicalArithmeticCompletion:CA.4/symmetric-iff-genus
+
+Statement: A numerical semigroup S is symmetric if and only if 2g(S) = F(S) + 1.
+
+### ClassicalArithmeticCompletion:CA.4/two-generator-semigroup-symmetric
+
+Statement: For coprime a, b ≥ 1, the numerical semigroup ⟨a, b⟩ is symmetric.
+
+### ClassicalArithmeticCompletion:CA.4/apery-set-summand-closed
+
+Statement: Let S be a numerical semigroup and n ∈ S ∖ {0}. If x, y ∈ S and x + y ∈ Ap(S, n), then x, y ∈ Ap(S, n).
+
+### ClassicalArithmeticCompletion:CA.4/egyptian-fraction-expansion
+
+Statement: An Egyptian fraction expansion of a rational number r is a finite set D of positive integers with Σ_{d∈D} 1/d = r. (The denominators are distinct because D is a set; a representation with repetitions is not an Egyptian expansion.)
+
+### ClassicalArithmeticCompletion:CA.4/greedy-egyptian-step
+
+Statement: Let r = m/n with 0 < m < n coprime, and c = ⌈n/m⌉ ≥ 2. Then r − 1/c = m′/(nc) with m′ = (−n) mod m, so 0 ≤ m′ < m; and if m′ > 0, then ⌈nc/m′⌉ > c, i.e. the next greedy denominator is strictly larger.
+
+### ClassicalArithmeticCompletion:CA.4/sylvester-sequence
+
+Statement: Sylvester's sequence is s₀ = 2, s_{k+1} = s_k² − s_k + 1; equivalently s_{k+1} = s₀s₁⋯s_k + 1. Its terms are 2, 3, 7, 43, 1807, 3263443, ….
+
+### ClassicalArithmeticCompletion:CA.4/primitive-zero-of-a-form
+
+Statement: Let F ∈ ℤ[x₀, …, x_n] be homogeneous of degree e ≥ 1. A primitive zero of F is x ∈ ℤ^{n+1} with F(x) = 0 and gcd(x₀, …, x_n) = 1.
+
+### ClassicalArithmeticCompletion:CA.4/local-solubility-of-a-primitive-zero
+
+Statement: Let F ∈ ℤ[x₀, …, x_n] and let x be a primitive zero of F. Then for every prime p and every k ≥ 1, the reduction of x modulo pᵏ is a zero of F modulo pᵏ with some coordinate not divisible by p; x is a zero of F in ℤ_p^{n+1} with a unit coordinate for every p; and x is a nonzero real zero. Contrapositively, if for some p and k every zero of F modulo pᵏ has all coordinates divisible by p, then F has no primitive zero.
+
+### ClassicalArithmeticCompletion:CA.4/rational-points-of-y2-x3-plus-x
+
+Statement: Let E be the Weierstrass curve y² = x³ + x over ℚ (Mathlib's WeierstrassCurve with a₁ = a₂ = a₃ = a₆ = 0, a₄ = 1). Its only affine rational point is (0, 0); so E(ℚ) = {O, (0, 0)}. Conversely, this statement implies that x⁴ + y⁴ = z² has no solution in positive integers.
+
+### ClassicalArithmeticCompletion:CA.5/class-group-presentation
+
+Test TauCeti.ClassicalArithmetic.relationLattice_empty: For N = 0, relationLattice I = ⊤.
+
+Test TauCeti.ClassicalArithmetic.relationLattice_classNumber_one: If classNumber K = 1 then relationLattice I = ⊤ for every family I.
+
+Test TauCeti.ClassicalArithmetic.relationLattice_principal_generator: If I_i is principal then the i-th basis vector is a relation, although I_i need not be the unit ideal (a definition testing equality of ideals instead of classes fails this).
+
+Test TauCeti.ClassicalArithmetic.relationLattice_order: k times the i-th basis vector lies in Λ_I iff the order of [I_i] divides k.
+
+### ClassicalArithmeticCompletion:CA.5/ideal-hermite-matrix
+
+Test TauCeti.ClassicalArithmetic.idealHermiteMatrix_top: H_ω(𝓞_K) = 1.
+
+Test TauCeti.ClassicalArithmetic.idealHermiteMatrix_intCast: For m > 0, H_ω((m)) = m·1.
+
+Test TauCeti.ClassicalArithmetic.idealHermiteMatrix_one_add_i: In a field with ω = (1, θ), θ² = −1, H_ω((1 + θ)) has columns (2, 0) and (1, 1).
+
+### ClassicalArithmeticCompletion:CA.5/kummer-dedekind-for-a-monogenic-presentation
+
+Test TauCeti.ClassicalArithmetic.kummerDedekind_gaussian_three: In a field with ℤ[θ] = 𝓞_K and θ² = −1, there is exactly one prime over 3.
+
+Test TauCeti.ClassicalArithmetic.kummerDedekind_gaussian_five: In the same field there are exactly two primes over 5.
+
+Test TauCeti.ClassicalArithmetic.kummerDedekind_gaussian_two: In the same field there is one prime over 2 and its ramification index is 2 (the prime dividing the discriminant is covered).
+
+### ClassicalArithmeticCompletion:CA.5/zsqrtd-into-the-ring-of-integers
+
+Statement: For d ∈ ℤ and θ ∈ 𝓞_K with θ² = d, the ring homomorphism φ : ℤ√d → 𝓞_K, x + y√d ↦ x + yθ (Mathlib Zsqrtd.lift). Its image is ℤ[θ]; it is injective when d is not a square; for squarefree d ≠ 0,1 with K = ℚ(θ) it is an isomorphism iff d ≢ 1 (mod 4); under these quadratic-field hypotheses it carries the norm form x² − dy² of ℤ√d to the field norm N_{K/ℚ}.
+
+API ZsqrtdToRingOfIntegers.bijective_iff: For squarefree d ≠ 0,1 and K=Q(θ), φ is bijective if and only if d is not congruent to 1 modulo 4.
+
+API ZsqrtdToRingOfIntegers.norm: For squarefree d ≠ 0,1 and K=Q(θ), N_(K/Q)(φ(x))=Zsqrtd.norm x for every x in Zsqrtd.
+
+Test TauCeti.ClassicalArithmetic.zsqrtdToRingOfIntegers_gaussian: For d = −1 and θ² = −1 generating K, φ is bijective.
+
+Test TauCeti.ClassicalArithmetic.zsqrtdToRingOfIntegers_five_not_surjective: For d = 5, φ is not surjective.
+
+Test TauCeti.ClassicalArithmetic.zsqrtdToRingOfIntegers_norm_example: N_{K/ℚ}(φ(3 + 2√d)) = 9 − 4d.
+
+Test TauCeti.ClassicalArithmetic.zsqrtdToRingOfIntegers_degree_one_excluded: At d=1, θ=1 and K=Q, the ring map exists but is not injective: sqrt(1)-1 maps to zero. The field norm of φ(2)=2 differs from Zsqrtd.norm(2)=4, so the norm comparison requires the quadratic-field hypotheses.
+
+### ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four
+
+Statement: Let d > 1 be squarefree with d ≡ 1 (mod 4) and K = ℚ(√d), so that 𝓞_K = {(a + b√d)/2 : a, b ∈ ℤ, a ≡ b (mod 2)} and ℤ[√d] is the subring with a and b even. (i) If d ≡ 1 (mod 8), every unit of 𝓞_K lies in ℤ[√d]. (ii) If d ≡ 5 (mod 8), the cube of every unit of 𝓞_K lies in ℤ[√d]: for u = (a + b√d)/2 of norm ν = ±1, u³ = (a(a² − 3ν) + b(a² − ν)√d)/2. (iii) Hence x² − dy² = −1 has an integer solution if and only if 𝓞_K has a unit of norm −1. With CA.5/negative-pell-iff-unit-of-norm-minus-one (d ≢ 1 (mod 4)) this gives the equivalence for every squarefree d > 1.
+
+API unit_mem_zsqrtd_of_mod_eight_eq_one: For squarefree d>1 with d congruent to 1 modulo 8, every unit of O_Q(sqrt(d)) belongs to the image of Zsqrtd.
+
+API unit_cube_mem_zsqrtd_of_mod_eight_eq_five: For squarefree d>1 with d congruent to 5 modulo 8, every unit has its cube in the image of Zsqrtd, with the displayed integral coordinates.
+
+API negativePell_iff_unit_norm_neg_one_mod_four_one: For squarefree d>1 congruent to 1 modulo 4, an integer solution of x^2-d*y^2=-1 exists if and only if the ring of integers has a unit of field norm -1.
+
+API unit_cube_norm: For a ring-of-integers unit u of norm nu in {1,-1}, the cube used in the order comparison has field norm nu^3=nu.
+
+Test negativePell_half_unit_five: For d=5, (1+sqrt(5))/2 is a unit of norm -1 outside Z[sqrt(5)], while its cube 2+sqrt(5) lies in that order. Direct membership cannot replace cubing.
+
+Test negativePell_half_unit_thirteen: For d=13, ((3+sqrt(13))/2)^3=18+5sqrt(13), and 18^2-13*5^2=-1.
+
+Test negativePell_order_seventeen: For d=17 congruent to 1 modulo 8, 4+sqrt(17) has norm -1 and lies in Z[sqrt(17)]; odd half-integral coordinates cannot have norm plus or minus one.
+
+Test negativePell_positive_norm_twentyone: For d=21, ((5+sqrt(21))/2)^3=55+12sqrt(21) has norm +1, but negative Pell has no solution modulo 3. The mere existence of a unit is insufficient.
+
+### ClassicalArithmeticCompletion:CA.5/certified-number-field-output-interpretation
+
+Statement: For a number field K, the certified outputs of ComputationalNumberTheory:CN.2 are interpreted by the comparison theorems of this layer as follows. (1) A family b of n elements of 𝓞_K with a certificate disc(b) = d_K (or disc(b) squarefree) is an integral basis (CA.5/discriminant-of-a-sublattice-basis). (2) A matrix certified to be in Hermite normal form with an 𝓞_K-stable column lattice is the Hermite matrix of a unique ideal, of norm the product of its pivots (CA.5/hermite-matrix-of-an-ideal-criterion, CA.5/ideal-norm-eq-prod-hermite-diagonal). (3) A family of prime ideals containing all primes of norm ≤ M_K with a relation matrix and a completeness certificate determines Cl(K) ≅ ⊕ ℤ/d_i by the Smith form (CA.5/class-group-of-a-relation-matrix); without the completeness certificate it determines only a multiple of h_K (CA.5/class-number-divides-relation-determinant). (4) A unit family with IsMaxRank and a certified bound h* ≤ h_K R_K with |det A| R(u) < 2h* is a fundamental system (CA.5/class-number-regulator-certificate).
+
+### ClassicalArithmeticCompletion:CA.6/pisot-number
+
+Statement: A Pisot number is a real number θ that is an algebraic integer (integral over ℤ), satisfies θ > 1, and all of whose other complex conjugates lie in the open unit disc: every complex root z ≠ θ of the minimal polynomial minpoly ℤ θ has |z| < 1. The conjugates are the complex roots of minpoly ℤ θ (Mathlib's aroots of the minimal polynomial over ℤ, which for an algebraic integer is the monic minimal polynomial over ℚ by Gauss's lemma). Convention (pinned): degree one is allowed, so the Pisot numbers of degree one are exactly the integers n ≥ 2; the inequality θ > 1 is strict, so 1 is not a Pisot number.
+
+API IsPisot: IsPisot θ :⟺ θ integral over ℤ, 1 < θ, and |z| < 1 for every complex root z ≠ θ of minpoly ℤ θ.
+
+API IsPisot.isIntegral: IsPisot θ → θ is an algebraic integer.
+
+API IsPisot.one_lt: IsPisot θ → 1 < θ.
+
+API IsPisot.norm_lt_one: IsPisot θ, z a complex root of minpoly ℤ θ, z ≠ θ → |z| < 1.
+
+API IsPisot.eq_of_one_le_norm: IsPisot θ, z a complex root of minpoly ℤ θ with |z| ≥ 1 → z = θ: θ is the only conjugate outside the open unit disc.
+
+API isPisot_iff_minpoly_rat: IsPisot θ ⟺ θ integral over ℤ, 1 < θ and every complex root z ≠ θ of minpoly ℚ θ has |z| < 1 (the definition read with Mathlib's minimal polynomial over ℚ).
+
+API isPisot_natCast_iff: For n ∈ ℕ: IsPisot n ⟺ n ≥ 2.
+
+Test IsPisot.test_goldenRatio: IsPisot φ for the golden ratio φ = Real.goldenRatio.
+
+Test IsPisot.test_two: IsPisot 2: a degree-one Pisot number.
+
+Test IsPisot.test_not_one: ¬ IsPisot 1: a definition with 1 ≤ θ would accept it.
+
+Test IsPisot.test_not_threeHalves: ¬ IsPisot (3/2): a definition without integrality would accept it (it has no other conjugate).
+
+Test IsPisot.test_not_sqrtTwo: ¬ IsPisot √2: its conjugate −√2 has modulus > 1; a definition asking only for θ > 1 and integrality would accept it.
+
+Test IsPisot.test_mahlerMeasure_goldenRatio: Mathlib's Mahler measure of minpoly ℤ φ = X² − X − 1 mapped to ℂ[X] equals φ.
+
+### ClassicalArithmeticCompletion:CA.6/salem-number
+
+Statement: A Salem number is a real number τ that is an algebraic integer, satisfies τ > 1, all of whose other complex conjugates lie in the closed unit disc (every complex root z ≠ τ of minpoly ℤ τ has |z| ≤ 1), and at least one of whose conjugates lies on the unit circle (some complex root z of minpoly ℤ τ has |z| = 1). This is Salem's form of the definition; by Salem's lemma (CA.6/salem-number-conjugates) it is equivalent to the form 'degree at least 4, conjugate to τ⁻¹, all conjugates other than τ^{±1} of modulus 1'. Convention (pinned): the reciprocal quadratic units (3 + √5)/2, … (sometimes called quadratic Salem numbers) are not Salem numbers.
+
+API IsSalem: IsSalem τ :⟺ τ integral over ℤ, 1 < τ, |z| ≤ 1 for every complex root z ≠ τ of minpoly ℤ τ, and some complex root has |z| = 1.
+
+API IsSalem.isIntegral: IsSalem τ → τ is an algebraic integer.
+
+API IsSalem.one_lt: IsSalem τ → 1 < τ.
+
+API IsSalem.norm_le_one: IsSalem τ, z a complex root of minpoly ℤ τ, z ≠ τ → |z| ≤ 1.
+
+API IsSalem.exists_norm_eq_one: IsSalem τ → some complex root of minpoly ℤ τ has modulus 1.
+
+API IsSalem.not_isPisot: IsSalem τ → ¬ IsPisot τ: the two classes are disjoint.
+
+API IsSalem.isConjRoot_inv: IsSalem τ → τ and τ⁻¹ are conjugate over ℚ (IsConjRoot ℚ τ τ⁻¹).
+
+API IsSalem.four_le_natDegree: IsSalem τ → deg τ ≥ 4.
+
+API IsSalem.even_natDegree: IsSalem τ → deg τ is even.
+
+Test IsSalem.test_quartic: The largest real root 2.1537… of X⁴ − 3X³ + 3X² − 3X + 1 is a Salem number.
+
+Test IsSalem.test_not_two: ¬ IsSalem 2: a degree-one algebraic integer has no conjugate on the circle.
+
+Test IsSalem.test_not_quadraticUnit: ¬ IsSalem ((3 + √5)/2): a 'reciprocal of degree ≥ 2' definition would accept this quadratic unit.
+
+Test IsSalem.test_not_goldenRatio: ¬ IsSalem φ: φ is a Pisot number, with no conjugate on the circle.
+
+Test IsSalem.test_mahlerMeasure_quartic: Mathlib's Mahler measure of X⁴ − 3X³ + 3X² − 3X + 1 mapped to ℂ[X] equals its largest real root.
+
+### ClassicalArithmeticCompletion:CA.6/pisot-and-salem-numbers
+
+Statement: Let τ be a real algebraic integer with τ > 1, and let r_> and r_= be the numbers of complex roots of minpoly ℤ τ (counted in the multiset of roots) of modulus > 1 and of modulus = 1. Then (a) τ is a Pisot number iff r_> = 1 and r_= = 0; (b) τ is a Salem number iff r_> = 1 and r_= ≥ 1. In particular every real algebraic integer τ > 1 whose other conjugates lie in the closed unit disc is exactly one of Pisot or Salem, and τ is neither iff r_> ≥ 2. In case (b) the number of roots of modulus < 1 is 1 and r_= = deg τ − 2 ≥ 2 (CA.6/salem-number-conjugates).
+
+### ClassicalArithmeticCompletion:CA.6/pisot-certificate
+
+Statement: Let P ∈ ℤ[X] be monic and θ > 1 a real root of P such that every complex root of P other than one copy of θ (the multiset of complex roots of P with one occurrence of θ removed) has modulus < 1. Then θ is a Pisot number. No irreducibility of P is needed.
+
+### ClassicalArithmeticCompletion:CA.6/reciprocal-iff-reverse
+
+Statement: Let α ≠ 0 be an algebraic integer in a field of characteristic 0, with minimal polynomial P = minpoly ℤ α of degree d, and let P* = X^d P(1/X) (Mathlib's Polynomial.reverse). Then α is conjugate to α⁻¹ over ℚ (IsConjRoot ℚ α α⁻¹) iff P* = P or P* = −P. In that case P(0) = ±1, so α is a unit.
+
+### ClassicalArithmeticCompletion:CA.6/salem-number-conjugates
+
+Statement: A real number τ is a Salem number iff τ is an algebraic integer, τ > 1, deg τ ≥ 4, τ is conjugate to τ⁻¹, and every complex conjugate z of τ other than τ and τ⁻¹ has |z| = 1. Consequently τ⁻¹ is the only conjugate of τ in the open unit disc, the conjugates on the circle are non-real and occur in pairs z, z̄ = z⁻¹, and deg τ is even.
+
+### ClassicalArithmeticCompletion:CA.6/salem-minpoly-reciprocal
+
+Statement: If τ is a Salem number with minimal polynomial P = minpoly ℤ τ of degree d, then X^d P(1/X) = P, i.e. Polynomial.reverse P = P (the plus sign).
+
+### ClassicalArithmeticCompletion:CA.6/salem-number-pow
+
+Statement: If τ is a Salem number of degree d and n ≥ 1, then τⁿ is a Salem number of degree d.
+
+### ClassicalArithmeticCompletion:CA.6/pisot-number-pow
+
+Statement: If θ is a Pisot number and n ≥ 1, then θⁿ is a Pisot number.
+
+### ClassicalArithmeticCompletion:CA.6/salem-number-iff-trace
+
+Statement: Let τ > 1 be real and α = τ + τ⁻¹. Then τ is a Salem number iff α is an irrational algebraic integer all of whose conjugates other than α are real and lie in (−2, 2). In that case ℚ(α) is a totally real subfield of index 2 in ℚ(τ), α > 2, and deg τ = 2 deg α. Equivalently (Salem): a number field K is ℚ(τ) for a Salem number τ iff K has a totally real subfield ℚ(α) of index 2 with K = ℚ(τ), τ + τ⁻¹ = α, α > 2 an irrational algebraic integer with all other conjugates in (−2, 2).
+
+### ClassicalArithmeticCompletion:CA.6/salem-number-in-field
+
+Statement: Let τ and τ′ be Salem numbers with τ′ ∈ ℚ(τ). Then ℚ(τ′) = ℚ(τ), and if τ′ > τ then τ′/τ is a Salem number (in ℚ(τ)).
+
+### ClassicalArithmeticCompletion:CA.6/salem-numbers-in-field-powers
+
+Statement: If K = ℚ(τ) for a Salem number τ, there is a Salem number τ₁ ∈ K such that the Salem numbers in K are exactly the powers τ₁ⁿ, n ≥ 1.
+
+### ClassicalArithmeticCompletion:CA.6/salem-number-near-integers
+
+Statement: For every Salem number τ and every ε > 0 there is a real λ > 0 such that ‖λτⁿ‖ < ε for all n ∈ ℕ, where ‖x‖ = |x − round x| is the distance to the nearest integer. λ can be taken to be an algebraic integer of ℚ(τ).
+
+### ClassicalArithmeticCompletion:CA.6/pisot-number-pow-near-integer
+
+Statement: If θ is a Pisot number then ‖θⁿ‖ = |θⁿ − round(θⁿ)| → 0 as n → ∞; more precisely |θⁿ − Tr(θⁿ)| ≤ (d − 1)ρⁿ with d = deg θ, ρ < 1 the largest modulus of a conjugate other than θ, and Tr(θⁿ) ∈ ℤ.
+
+### ClassicalArithmeticCompletion:CA.6/mahler-measure-of-pisot-or-salem
+
+Statement: Let τ > 1 be a real algebraic integer all of whose other conjugates lie in the closed unit disc (a Pisot or a Salem number, CA.6/pisot-and-salem-numbers). Then M(τ) = τ and ⌈τ⌉ = τ.
+
+### ClassicalArithmeticCompletion:CA.6/reciprocal-pisot-numbers
+
+Statement: If θ is a Pisot number conjugate to θ⁻¹, then minpoly ℤ θ = X² − aX + 1 for an integer a ≥ 3; so θ = (a + √(a² − 4))/2 ≥ (3 + √5)/2.
+
+### ClassicalArithmeticCompletion:CA.6/plastic-number
+
+Statement: θ₀ = 1.3247179572… is the unique real root of X³ − X − 1 (the plastic number). As a declaration: the supremum of the set of real roots of x³ − x − 1, which is a singleton.
+
+API plasticNumber: θ₀ := the supremum of the real roots of x³ − x − 1 (a singleton).
+
+API plasticNumber_cube: θ₀³ = θ₀ + 1.
+
+API eq_plasticNumber_of_cube: x ∈ ℝ, x³ = x + 1 → x = θ₀ (the real root is unique).
+
+API plasticNumber_mem_Ioo: 1.3247 < θ₀ < 1.3248.
+
+API minpoly_plasticNumber: minpoly ℤ θ₀ = X³ − X − 1.
+
+API isPisot_plasticNumber: θ₀ is a Pisot number.
+
+API plasticNumber_not_isConjRoot_inv: θ₀ is not conjugate to θ₀⁻¹ (it is nonreciprocal).
+
+API mahlerMeasure_plasticNumber: Mathlib's Mahler measure of X³ − X − 1 mapped to ℂ[X] equals θ₀.
+
+Test plasticNumber.test_lt_goldenRatio: θ₀ < φ.
+
+Test plasticNumber.test_goldenRatio_lt_sq: φ < θ₀² (used by Smyth's trinomial argument).
+
+Test plasticNumber.test_neg_isRoot: −θ₀ is the real root of X³ − X + 1 and is negative: the misprinted polynomial X³ − X + 1 does not define θ₀.
+
+Test plasticNumber.test_irrational: θ₀ is irrational, so it is not one of the degree-one Pisot numbers.
+
+### ClassicalArithmeticCompletion:CA.6/plastic-number-least-pisot
+
+Statement: Every Pisot number θ satisfies θ ≥ θ₀; θ₀ itself is a Pisot number.
+
+### ClassicalArithmeticCompletion:CA.6/lehmer-number
+
+Statement: Lehmer's number τ₁₀ = 1.1762808182… is the largest real root of Lehmer's polynomial L = X¹⁰ + X⁹ − X⁷ − X⁶ − X⁵ − X⁴ − X³ + X + 1. As a declaration: the supremum of the set of real roots of L (which is {τ₁₀⁻¹, τ₁₀}).
+
+API lehmerNumber: τ₁₀ := the supremum of the real roots of L.
+
+API lehmerNumber_isRoot: L(τ₁₀) = 0.
+
+API one_lt_lehmerNumber: 1 < τ₁₀.
+
+API lehmerNumber_mem_Ioo: 1.17628 < τ₁₀ < 1.17629.
+
+API eq_lehmerNumber_of_isRoot: x ∈ ℝ, x > 1, L(x) = 0 → x = τ₁₀.
+
+API inv_lehmerNumber_isRoot: L(τ₁₀⁻¹) = 0 (L is reciprocal).
+
+API lehmerNumber_add_inv_isRoot: τ₁₀ + τ₁₀⁻¹ is a root of y⁵ + y⁴ − 5y³ − 5y² + 4y + 3.
+
+API mahlerMeasure_lehmerPolynomial: Mathlib's Mahler measure of L mapped to ℂ[X] equals τ₁₀.
+
+Test lehmerNumber.test_lt_plasticNumber: τ₁₀ < θ₀: a Salem number below the smallest Pisot number.
+
+Test lehmerNumber.test_add_inv_bounds: 2 < τ₁₀ + τ₁₀⁻¹ < 2.03.
+
+Test lehmerNumber.test_not_isPisot: τ₁₀ is not a Pisot number (a definition as the root of maximal modulus would not distinguish).
+
+Test lehmerNumber.test_inv_lt_one: The other real root τ₁₀⁻¹ of L lies in (0, 1).
+
+### ClassicalArithmeticCompletion:CA.6/lehmer-number-is-salem
+
+Statement: τ₁₀ is a Salem number and its minimal polynomial is L = X¹⁰ + X⁹ − X⁷ − X⁶ − X⁵ − X⁴ − X³ + X + 1; in particular deg τ₁₀ = 10 and M(τ₁₀) = τ₁₀.
+
+### ClassicalArithmeticCompletion:CA.6/house-mahler-measure-comparison
+
+Statement: Let α be an algebraic integer of degree d with r > 0 conjugates of modulus > 1. Then M(α)^{1/d} ≤ M(α)^{1/r} ≤ ⌈α⌉ ≤ M(α).
+
+### ClassicalArithmeticCompletion:CA.6/mahler-measure-of-unit-le-house
+
+Statement: Let α ≠ 0 be an algebraic unit (α and α⁻¹ algebraic integers) of degree d. Then M(α) = M(α⁻¹) and M(α) ≤ max(⌈α⌉, ⌈α⁻¹⌉)^{d/2}.
+
+### ClassicalArithmeticCompletion:CA.6/one-add-weil-height-le-house
+
+Statement: For a nonzero algebraic integer α of degree d, ⌈α⌉ ≥ M(α)^{1/d} = exp(h(α)) ≥ 1 + h(α), where h(α) = log M(α)/d is the absolute logarithmic Weil height (Mathlib's NumberField.absLogHeight₁). Consequently any lower bound M(α) ≥ c₀ > 1 gives ⌈α⌉ ≥ 1 + log(c₀)/d.
+
+### ClassicalArithmeticCompletion:CA.6/unit-of-mahler-measure-lt-two
+
+Statement: If α is a nonzero algebraic number with M(α) < 2, then α and α⁻¹ are algebraic integers.
+
+### ClassicalArithmeticCompletion:CA.6/smyth-integer-power-series
+
+Statement: Let P ∈ ℤ[X] be monic with P(0) = ±1 and P* = X^d P(1/X) its reverse (so P*(0) = 1). Then F = P(0)·P/P* has a Maclaurin expansion with integer coefficients, F(0) = 1, and F is constant iff P is reciprocal (P* = ±P).
+
+### ClassicalArithmeticCompletion:CA.6/smyth-nonreciprocal-lower-bound
+
+Statement: Let α be a nonzero algebraic integer that is not conjugate to α⁻¹. Then M(α) ≥ M(X³ − X − 1) = θ₀ = 1.3247…, and the constant is best possible (equality for α = θ₀).
+
+### ClassicalArithmeticCompletion:CA.6/frobenius-congruence-integer-polynomial
+
+Statement: Let p be prime and f ∈ ℤ[X₁, …, Xₙ] (any index type). Then f^p − f(X₁^p, …, Xₙ^p) is divisible by p in ℤ[X₁, …, Xₙ]; in Mathlib's terms (p : MvPolynomial σ ℤ) ∣ f^p − expand p f.
+
+### ClassicalArithmeticCompletion:CA.6/power-sum-frobenius-congruence
+
+Statement: Let P ∈ ℤ[X] be monic with complex roots α₁, …, α_d (with multiplicity) and sₙ = Σ αᵢⁿ. Then every sₙ is a rational integer, and for every prime p and n ≥ 0, s_{np} ≡ sₙ (mod p).
+
+### ClassicalArithmeticCompletion:CA.6/multiset-eq-of-power-sums-eq
+
+Statement: Let K be a field of characteristic 0 and s, t multisets in K of the same cardinality d. If Σ_{a∈s} a^k = Σ_{b∈t} b^k for k = 1, …, d, then s = t.
+
+### ClassicalArithmeticCompletion:CA.6/conjugate-powers-root-of-unity
+
+Statement: Let α be algebraic over ℚ in a field of characteristic 0 and k ≠ l positive integers with α^k and α^l conjugate over ℚ. Then α = 0 or αⁿ = 1 for some n ≥ 1.
+
+### ClassicalArithmeticCompletion:CA.6/dobrowolski-house-bound
+
+Statement: Let α be a nonzero algebraic integer of degree d that is not a root of unity. Then ⌈α⌉ > 1 + 1/(4ed²), e = exp(1). Equivalently: if ⌈α⌉ ≤ 1 + 1/(4ed²) then α = 0 or α is a root of unity.
+
+### ClassicalArithmeticCompletion:CA.6/norm-minpoly-pow-prime-dvd
+
+Statement: Let K be a number field, α ∈ K an algebraic integer with minimal polynomial f_α = minpoly ℤ α, and p a prime. Then N_{K/ℚ}(f_α(α^p)) is a rational integer divisible by p^{[K:ℚ]} (for K = ℚ(α): by p^d, d = deg α).
+
+### ClassicalArithmeticCompletion:CA.6/exists-prime-power-not-root
+
+Statement: Let α be a nonzero algebraic integer of degree d, not a root of unity, with deg(αⁿ) = d for all n ≥ 1. Let F ∈ ℤ[X] be nonzero of degree N with N/d ≥ 13, and x = 3(N/d) log(N/d). Then there is a prime p with x < p ≤ 2x and F(α^p) ≠ 0.
+
+### ClassicalArithmeticCompletion:CA.6/degree-drop-mahler-measure
+
+Statement: Let α be an algebraic integer of degree d with M(α) > 1, and suppose deg(αⁿ) < d for some n ≥ 1. Then there is an algebraic integer β with deg β < d and 1 < M(β) ≤ M(α).
+
+### ClassicalArithmeticCompletion:CA.6/dobrowolski-auxiliary-polynomial
+
+Statement: Let α be an algebraic integer of degree d, and N, M positive integers with M ≥ 3, N ≥ 10 and dM < N/2. Then there is a nonzero F ∈ ℤ[X] of degree ≤ N with f_α^M ∣ F (α is a zero of multiplicity ≥ M) and max_i |F_i| ≤ N^{2dM²/N} M(α)^{2M}.
+
+### ClassicalArithmeticCompletion:CA.6/dobrowolski-lower-bound
+
+Statement: Let α be a nonzero algebraic number of degree d ≥ 2 that is not a root of unity. Then M(α) ≥ 1 + (1/11700)·(log log d / log d)³. Here M(α) is the Mahler measure of the primitive minimal polynomial (DT.0), equal to absMulHeight₁(α)^d; equivalently d·h(α) ≥ log(1 + (1/11700)(log log d/log d)³).
+
+### ClassicalArithmeticCompletion:CA.6/root-power-polynomial
+
+Statement: For a commutative ring R, a monic P ∈ R[X] of degree n and m ∈ ℕ, P_m is the characteristic polynomial of multiplication by x^m on the free R-module R[x]/(P) of rank n (basis 1, x, …, x^{n−1}, AdjoinRoot.powerBasis'). If P = ∏(X − αᵢ) over a field containing the roots, then P_m = ∏(X − αᵢ^m); in particular P_m ∈ ℤ[X] for P ∈ ℤ[X] monic.
+
+API rootPowPoly: P_m := charpoly of multiplication by x^m on R[x]/(P), for P monic.
+
+API rootPowPoly_monic: P_m is monic (R nontrivial).
+
+API natDegree_rootPowPoly: deg P_m = deg P.
+
+API rootPowPoly_one: P_1 = P.
+
+API rootPowPoly_zero: P_0 = (X − 1)^{deg P}.
+
+API map_rootPowPoly: For f : R →+* S: (P.map f)_m = (P_m).map f.
+
+API rootPowPoly_eq_prod_roots: Over a field in which P splits: P_m = ∏ over the roots a of P (with multiplicity) of (X − a^m).
+
+API rootPowPoly_rootPowPoly: (P_m)_k = P_{mk}.
+
+API rootPowPoly_eq_minpoly_pow: For L/K finite and α ∈ L: (minpoly K α)_m = (minpoly K α^m)^{[K(α):K(α^m)]}.
+
+API rootPowPoly_two_comp_X_sq: P_2(X²) = (−1)^{deg P} P(X) P(−X) (Graeffe's root squaring).
+
+Test rootPowPoly.test_X_sub_C: (X − a)_m = X − a^m in ℤ[X].
+
+Test rootPowPoly.test_X_sq_sub_two: (X² − 2)_2 = (X − 2)².
+
+Test rootPowPoly.test_cyclotomic_three: (Φ₃)_2 = Φ₃ (an odd-level cyclotomic polynomial is fixed by squaring its roots).
+
+Test rootPowPoly.test_one: 1_m = 1 (degree 0).
+
+Test rootPowPoly.test_ne_comp: For P = X² + 1: P_2 = (X + 1)², which differs from P(X²) = X⁴ + 1 (the tempting definition by substitution).
+
+### ClassicalArithmeticCompletion:CA.6/root-power-polynomial-congruence
+
+Statement: For every monic P ∈ ℤ[X], P₄ − P₂ ∈ 4ℤ[X].
+
+### ClassicalArithmeticCompletion:CA.6/sqrt-one-add-four-integral
+
+Statement: There is T ∈ ℤ⟦Y⟧ with constant term 1 and T² = 1 + 4Y; explicitly T = 1 + 2Σ_{k≥0} (−1)^k C_k Y^{k+1} with C_k the Catalan numbers, equivalently T = Σ_k C(1/2, k) 4^k Y^k.
+
+### ClassicalArithmeticCompletion:CA.6/integral-square-root-power-series
+
+Statement: Let Q ∈ ℤ[X] with Q(0) = 1 and Q a square modulo 4 (Q = U² + 4V with U, V ∈ ℤ[X]). Then there is S ∈ ℤ⟦X⟧ with S(0) = 1 and S² = Q. In particular, for P ∈ ℤ[X] monic with P* = X^n P(1/X), √(P₂*·P₄*) ∈ 1 + Xℤ⟦X⟧.
+
+### ClassicalArithmeticCompletion:CA.6/root-power-polynomial-square-cyclotomic
+
+Statement: Let P ∈ ℤ[X] be monic irreducible of degree n > 1 with P₂ not a perfect square. Then the following are equivalent: (i) P = Φ_N for an odd N; (ii) P₂ = P₄; (iii) P₂P₄ is a perfect square in ℤ[X]; (iv) P₂P₄ is a square in ℚ(X) (the function √(P₂P₄) is rational).
+
+### ClassicalArithmeticCompletion:CA.6/schinzel-zassenhaus-dimitrov
+
+Statement: Let P ∈ ℤ[X] be monic irreducible of degree n > 1 and not cyclotomic. Then P has a complex root of modulus at least 2^{1/(4n)} = 1 + log 2/(4n) + O(1/n²). Equivalently, a nonzero algebraic integer α of degree n > 1 that is not a root of unity has ⌈α⌉ ≥ 2^{1/(4n)}.
+
+### ClassicalArithmeticCompletion:CA.6/abs-log-height-pow
+
+Statement: For every element α of a field of characteristic 0 and n ∈ ℕ, absLogHeight₁(αⁿ) = n·absLogHeight₁(α) (Mathlib's absolute logarithmic Weil height, junk value 0 at transcendental α).
+
+### ClassicalArithmeticCompletion:CA.6/weil-height-eq-zero-iff
+
+Statement: An algebraic number α (in a field of characteristic 0) has h(α) = 0 iff α = 0 or α is a root of unity.
+
+### ClassicalArithmeticCompletion:CA.6/canonical-height-power-map
+
+Statement: Let d ≥ 2 and f(x) = x^d on P¹. For every α (in a field of characteristic 0), d^{−n} h(f^{∘n}(α)) = h(α) for all n, so Tate's limit defining the canonical height exists and ĥ_f(α) = h(α) = log M(α)/deg α; also ĥ_f(∞) = 0 = h(∞). Consequently, for algebraic α, ĥ_f(α) = 0 iff α is 0 or a root of unity, and ĥ_f(∞) = 0 (these are the preperiodic points of f), and the dynamical Lehmer problem for f is Lehmer's problem.
+
+### ClassicalArithmeticCompletion:CA.7/projective-of-tame
+
+Statement: Let B/A be a finite extension of Dedekind domains with finite Galois group G. If B/A is tamely ramified then B is a projective A[G]-module (and projective over A[H] for every subgroup H). In particular, for a tame finite Galois extension of number fields, 𝓞_L is a finitely generated projective 𝓞_K[G]-module.
+
+### ClassicalArithmeticCompletion:CA.7/locally-free-not-free-example
+
+Statement: Let A be a Dedekind domain with a nonzero nonprincipal ideal I (for example A = ℤ[√−5], I = (2, 1 + √−5)). Then I is a locally free A-lattice of rank one (over the trivial group ring A[1] = A) but is not free. Hence a locally free lattice over an order need not be free, and the class of a locally free lattice in the locally free class group can be nonzero.
+
+### ClassicalArithmeticCompletion:CA.7/locally-free-class-represented-by-rank-one
+
+Statement: Let Λ be an A-order in a finite-dimensional semisimple K-algebra, A a Dedekind domain. For locally free Λ-lattices M, M′ there are t ≥ 0 and a locally free Λ-lattice M″ of rank one with M ⊕ M′ ≅ Λ^t ⊕ M″. Hence every element of Cl(Λ) is [M″] − [Λ] for a locally free lattice M″ of rank one.
+
+### ClassicalArithmeticCompletion:CA.7/taylor-odd-order-free
+
+Statement: Let M/N be a tame Galois extension of number fields with group Γ of odd order. Then 𝓞_M is a free ℤΓ-module of rank [N : ℚ].
+
+### ClassicalArithmeticCompletion:CA.4/markoff-coefficient-one-zero-orbits
+
+Statement: Every integral coefficient-one solution of x₁²+x₂²+x₃²=x₁x₂x₃ has all coordinates divisible by 3. Dividing by 3 identifies these solutions with coefficient-three integer Markoff triples and intertwines the Vieta moves, permutations and double sign changes. The Γ-orbits on V₀(ℤ) are exactly {0} and the orbit of (3,3,3).
+
+### ClassicalArithmeticCompletion:CA.4/markoff-positive-root-orbits
+
+Statement: For any integer k≥5, let F⁺_k={u∈ℤ³:3≤u₁≤u₂≤u₃, u₁²+u₂²+u₃²+u₁u₂u₃=k}. Sending u to the Γ-orbit of (−u₁,u₂,u₃) is injective. Every point in each image orbit has all |x_j|≥3, including when k is exceptional.
+
+### ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound
+
+Statement: For every exceptional integer k≥5, h_M(k)≥|F⁺_k(ℤ)|+1, where h_M(k) counts Γ-orbits in V_k(ℤ).
