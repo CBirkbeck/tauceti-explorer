@@ -12,7 +12,7 @@
     "SchemeAndStackFoundations:SF.6"
   ],
   "status": "partial",
-  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review. Flat-annihilator continuation: eight new lemma-sized supplier steps and seven tests, retaining the entire twenty-nine-node henselization strand. Quotient/cokernel continuation: thirteen native adapter declarations, three API items and eight tests, preserving all thirty-seven incoming whole nodes and every existing obligation. Affine ideal-pullback continuation: nine native adapters, three API items and five typed tests; all fifty incoming whole node objects and every prior obligation are preserved. Affine quotient naturality continuation: fourteen declaration-sized nodes, nine API items and nine typed tests. All59 incoming whole node objects and every prior obligation are preserved. Canonical quotient-to-closed-sections continuation: twelve declaration-sized nodes, nine API items and eight typed tests; all 73 incoming whole node objects and prior obligations are preserved.",
+  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review. Flat-annihilator continuation: eight new lemma-sized supplier steps and seven tests, retaining the entire twenty-nine-node henselization strand. Quotient/cokernel continuation: thirteen native adapter declarations, three API items and eight tests, preserving all thirty-seven incoming whole nodes and every existing obligation. Affine ideal-pullback continuation: nine native adapters, three API items and five typed tests; all fifty incoming whole node objects and every prior obligation are preserved. Affine quotient naturality continuation: fourteen declaration-sized nodes, nine API items and nine typed tests. All59 incoming whole node objects and every prior obligation are preserved. Canonical quotient-to-closed-sections continuation: twelve declaration-sized nodes, nine API items and eight typed tests; all 73 incoming whole node objects and prior obligations are preserved. All-open kernel quotient continuation: twenty declaration-sized nodes, sixteen API items and nine distinct typed tests; all 85 incoming whole node objects and prior obligations are preserved.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -855,6 +855,134 @@
         "line": 144,
         "provides": "def lift (f : R →+* S) (H : ∀ a : R, a ∈ I → f a = 0) : R ⧸ I →+* S :=",
         "checked": "Statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on 2026-10-04. Bounded ranges and file hashes in Reading.json; existing native inputs are not re-planned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ker_subschemeι_app",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
+        "line": 565,
+        "provides": "lemma ker_subschemeι_app (U : X.affineOpens) :",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.exists_isAffineOpen_mem_and_subset",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/AffineScheme.lean",
+        "line": 272,
+        "provides": "theorem exists_isAffineOpen_mem_and_subset {X : Scheme.{u}} {x : X}",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.GrothendieckTopology.W_iff",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/Localization.lean",
+        "line": 78,
+        "provides": "lemma W_iff {P₁ P₂ : Cᵒᵖ ⥤ A} (f : P₁ ⟶ P₂) :",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.GrothendieckTopology.W_of_isLocallyBijective",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/LocallyBijective.lean",
+        "line": 118,
+        "provides": "lemma W_of_isLocallyBijective [Presheaf.IsLocallyInjective J f]",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsIso.hom_inv_id",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "line": 257,
+        "provides": "theorem hom_inv_id (f : X ⟶ Y) [I : IsIso f] : f ≫ inv f = 𝟙 X :=",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Presheaf.isLocallyInjective_of_injective",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Sites/LocallyInjective.lean",
+        "line": 80,
+        "provides": "lemma isLocallyInjective_of_injective (hφ : ∀ (X : Cᵒᵖ), Function.Injective (φ.app X)) :",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.isIso_toSheafify",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "line": 150,
+        "provides": "theorem isIso_toSheafify {P : Cᵒᵖ ⥤ D} (hP : Presheaf.IsSheaf J P) : IsIso (toSheafify J P) := by",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.sheafifyLift",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "line": 169,
+        "provides": "noncomputable def sheafifyLift {P Q : Cᵒᵖ ⥤ D} (η : P ⟶ Q) (hQ : Presheaf.IsSheaf J Q) :",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.sheafifyLift_unique",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "line": 191,
+        "provides": "theorem sheafifyLift_unique {P Q : Cᵒᵖ ⥤ D} (η : P ⟶ Q) (hQ : Presheaf.IsSheaf J Q)",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.sheafify_hom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "line": 207,
+        "provides": "theorem sheafify_hom_ext {P Q : Cᵒᵖ ⥤ D} (η γ : sheafify J P ⟶ Q) (hQ : Presheaf.IsSheaf J Q)",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.toSheafify_naturality",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "line": 123,
+        "provides": "theorem toSheafify_naturality {P Q : Cᵒᵖ ⥤ D} (η : P ⟶ Q) :",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.toSheafify_sheafifyLift",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "line": 181,
+        "provides": "theorem toSheafify_sheafifyLift {P Q : Cᵒᵖ ⥤ D} (η : P ⟶ Q) (hQ : Presheaf.IsSheaf J Q) :",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:RingHom.kerLift",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "line": 41,
+        "provides": "def kerLift : R ⧸ ker f →+* S :=",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:RingHom.kerLift_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "line": 59,
+        "provides": "theorem kerLift_injective : Function.Injective (kerLift f) :=",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:TopCat.Presheaf.isLocallySurjective_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Sheaves/LocallySurjective.lean",
+        "line": 64,
+        "provides": "theorem isLocallySurjective_iff (T : ℱ ⟶ 𝒢) :",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:TopCat.Sheaf.pushforward_sheaf_of_sheaf",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Sheaves/Functors.lean",
+        "line": 53,
+        "provides": "theorem pushforward_sheaf_of_sheaf {F : X.Presheaf C} (h : F.IsSheaf) : (f _* F).IsSheaf :=",
+        "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
       }
     ]
   },
@@ -1106,6 +1234,32 @@
       "readSections": [
         "Complete displayed mathematical statement and proof freshly read in the web tool. No recursively cited chapter closure; exact quotient-factor and naturality maps are authored native deductions. No HTML retained.",
         "No recursive chapter closure. Canonical map and naturality formulas are authored deductions."
+      ]
+    },
+    {
+      "id": "STACKS-C8-01IN",
+      "title": "Closed-subscheme ring-sheaf context 01IN",
+      "authors": "The Stacks Project authors",
+      "edition": "Complete displayed mathematical block read 2026-10-04",
+      "url": "https://stacks.math.columbia.edu/tag/01IN",
+      "sha256": "a285f245d0b5ee5bfae26e4bf59c4ddd3e6113072d6a729b6fd68cc081354326",
+      "accessed": "2026-10-04T01:49:53.431740+00:00",
+      "readSections": [
+        "Complete displayed mathematical statement and proof of Lemma 26.10.1",
+        "No recursive chapter closure. All-open adapter formulas are authored deductions."
+      ]
+    },
+    {
+      "id": "STACKS-C8-01HM",
+      "title": "Closed-subscheme ring-sheaf context 01HM",
+      "authors": "The Stacks Project authors",
+      "edition": "Complete displayed mathematical block read 2026-10-04",
+      "url": "https://stacks.math.columbia.edu/tag/01HM",
+      "sha256": "69a45a981b2a0fec5c46015d76bc85cefbf1b28e41c2aa97c2ae432085f0e699",
+      "accessed": "2026-10-04T01:49:53.757677+00:00",
+      "readSections": [
+        "Complete displayed Example 26.4.3, including its explicitly cited external proof leaves, which are not claimed recursively read",
+        "No recursive chapter closure. All-open adapter formulas are authored deductions."
       ]
     }
   ],
@@ -5142,6 +5296,954 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-kernel-restriction",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Restriction preserves the section kernel",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenKernel_restriction",
+      "statement": "For native ideal data I on an arbitrary scheme X, set Z=I.subscheme and let ι:Z→X be its actual closed immersion. For every pair of opens U≤V, restriction Γ(X,V)→Γ(X,U) sends ker(ι.app V) into ker(ι.app U). Opens need not be affine or quasi-compact.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "mathlib:AlgebraicGeometry.Scheme.Hom.naturality"
+      ],
+      "proofSteps": [
+        "Apply the actual naturality square for ι to a section in the kernel; its restricted image is zero."
+      ],
+      "acceptance": [
+        "For native ideal data I on an arbitrary scheme X, set Z=I.subscheme and let ι:Z→X be its actual closed immersion. For every pair of opens U≤V, restriction Γ(X,V)→Γ(X,U) sends ker(ι.app V) into ker(ι.app U). Opens need not be affine or quasi-compact.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "construction",
+      "title": "All-open quotient restriction",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenRestriction",
+      "statement": "Define K(U)=ker(Γ(X,U)→Γ(Z,ι⁻¹U)) using the actual immersion section map, and Q_I(U)=Γ(X,U)/K(U). For every U≤V construct Q_I(V)→Q_I(U) by the native quotientMap of actual section restriction and the proved kernel inclusion. K(U) is an all-open section kernel, not a radical or an asserted pointwise extension of generators.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-kernel-restriction",
+        "mathlib:Ideal.quotientMap"
+      ],
+      "proofSteps": [
+        "Apply the native quotientMap to the actual restriction homomorphism; retain its concrete quotient carrier."
+      ],
+      "acceptance": [
+        "Define K(U)=ker(Γ(X,U)→Γ(Z,ι⁻¹U)) using the actual immersion section map, and Q_I(U)=Γ(X,U)/K(U). For every U≤V construct Q_I(V)→Q_I(U) by the native quotientMap of actual section restriction and the proved kernel inclusion. K(U) is an all-open section kernel, not a radical or an asserted pointwise extension of generators.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenRestriction_mk",
+          "role": "compatibility",
+          "statement": "For any section a∈Γ(X,V) and U≤V, allOpenRestriction sends [a] to [a|U] in Q_I(U).",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-representative with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenRestriction_id",
+          "role": "compatibility",
+          "statement": "For every open U, allOpenRestriction I (U≤U) equals the identity ring homomorphism of Q_I(U).",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-identity with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenRestriction_comp",
+          "role": "compatibility",
+          "statement": "For U≤V≤W, allOpenRestriction for V→U composed with that for W→V equals the restriction for W→U as ring homomorphisms.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-composition with its exact stated hypotheses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AllOpenRestrictionChecked.two_step",
+          "kind": "compatibility",
+          "statement": "For arbitrary opens U≤V≤W and every actual quotient section over W, two successive presheaf restrictions equal the direct restriction."
+        },
+        {
+          "name": "AllOpenQuotientChecked.unit_ideal",
+          "kind": "degenerate",
+          "statement": "For the unit ideal datum and an affine U, every element of the actual kernel quotient is zero; no nontrivial-ring assumption is imposed."
+        },
+        {
+          "name": "AllOpenQuotientChecked.nonreduced",
+          "kind": "non-example",
+          "statement": "For the zero ideal on Spec(Z/4), the actual q_U image of the class of the section 2 is nonzero and has square zero. Replacing the full kernel quotient by a reduction would fail this concrete test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SF.0 generic closed-subscheme structure sheaf and both current NeronModelsAndSemistableAbelianVarietiesPartII:G.0 supplier requests",
+          "how": "Export the actual quotient-to-direct-image ring-sheaf comparison and its all-open restriction and representative APIs. The consumer still identifies its own conductor and flat-recomputation maps."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-representative",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Restriction on quotient representatives",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenRestriction_mk",
+      "statement": "For any section a∈Γ(X,V) and U≤V, allOpenRestriction sends [a] to [a|U] in Q_I(U).",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction"
+      ],
+      "proofSteps": [
+        "Evaluate the concrete quotientMap on its native quotient projection."
+      ],
+      "acceptance": [
+        "For any section a∈Γ(X,V) and U≤V, allOpenRestriction sends [a] to [a|U] in Q_I(U).",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-identity",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Identity quotient restriction",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenRestriction_id",
+      "statement": "For every open U, allOpenRestriction I (U≤U) equals the identity ring homomorphism of Q_I(U).",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-representative",
+        "mathlib:Ideal.Quotient.ringHom_ext"
+      ],
+      "proofSteps": [
+        "Use quotient ring-homomorphism extensionality and the native presheaf identity law."
+      ],
+      "acceptance": [
+        "For every open U, allOpenRestriction I (U≤U) equals the identity ring homomorphism of Q_I(U).",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-composition",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Composite quotient restriction",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenRestriction_comp",
+      "statement": "For U≤V≤W, allOpenRestriction for V→U composed with that for W→V equals the restriction for W→U as ring homomorphisms.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-representative",
+        "mathlib:Ideal.Quotient.ringHom_ext"
+      ],
+      "proofSteps": [
+        "Reduce to quotient representatives and use the actual section-presheaf composition law."
+      ],
+      "acceptance": [
+        "For U≤V≤W, allOpenRestriction for V→U composed with that for W→V equals the restriction for W→U as ring homomorphisms.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-quotient-presheaf",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "construction",
+      "title": "All-open kernel quotient presheaf",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenQuotient",
+      "statement": "Construct a CommRingCat-valued presheaf Q_I on the opposite of all opens of X, with Q_I(U)=Γ(X,U)/ker(ι.app U) and maps allOpenRestriction. Supply identity and composition proofs. This presheaf is not assumed to satisfy the sheaf axiom.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction",
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-identity",
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-composition"
+      ],
+      "proofSteps": [
+        "Fill the native functor structure with actual quotient rings and restriction maps; use the two preceding functoriality lemmas."
+      ],
+      "acceptance": [
+        "Construct a CommRingCat-valued presheaf Q_I on the opposite of all opens of X, with Q_I(U)=Γ(X,U)/ker(ι.app U) and maps allOpenRestriction. Supply identity and composition proofs. This presheaf is not assumed to satisfy the sheaf axiom.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenQuotient_obj",
+          "role": "compatibility",
+          "statement": "The U component of allOpenQuotient I is exactly CommRingCat.of(Γ(X,U)/ker(ι.app U)).",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-quotient-object with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenQuotient_map",
+          "role": "compatibility",
+          "statement": "The map of allOpenQuotient I at an inclusion U≤V is exactly CommRingCat.ofHom(allOpenRestriction I (U≤V)).",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-quotient-map with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenRestriction_comp",
+          "role": "compatibility",
+          "statement": "For U≤V≤W, allOpenRestriction for V→U composed with that for W→V equals the restriction for W→U as ring homomorphisms.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-composition with its exact stated hypotheses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AllOpenQuotientChecked.affine_ideal",
+          "kind": "compatibility",
+          "statement": "On an affine open U, the actual q_U kills the class of a section a exactly when a lies in the original ideal I(U), using the native section-kernel equality."
+        },
+        {
+          "name": "AllOpenQuotientChecked.unit_ideal",
+          "kind": "degenerate",
+          "statement": "For the unit ideal datum and an affine U, every element of the actual kernel quotient is zero; no nontrivial-ring assumption is imposed."
+        },
+        {
+          "name": "AllOpenQuotientChecked.nonreduced",
+          "kind": "non-example",
+          "statement": "For the zero ideal on Spec(Z/4), the actual q_U image of the class of the section 2 is nonzero and has square zero. Replacing the full kernel quotient by a reduction would fail this concrete test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SF.0 generic closed-subscheme structure sheaf and both current NeronModelsAndSemistableAbelianVarietiesPartII:G.0 supplier requests",
+          "how": "Export the actual quotient-to-direct-image ring-sheaf comparison and its all-open restriction and representative APIs. The consumer still identifies its own conductor and flat-recomputation maps."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-quotient-object",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "All-open quotient object formula",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenQuotient_obj",
+      "statement": "The U component of allOpenQuotient I is exactly CommRingCat.of(Γ(X,U)/ker(ι.app U)).",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-presheaf"
+      ],
+      "proofSteps": [
+        "Unfold its concrete object field."
+      ],
+      "acceptance": [
+        "The U component of allOpenQuotient I is exactly CommRingCat.of(Γ(X,U)/ker(ι.app U)).",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-quotient-map",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "All-open quotient map formula",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenQuotient_map",
+      "statement": "The map of allOpenQuotient I at an inclusion U≤V is exactly CommRingCat.ofHom(allOpenRestriction I (U≤V)).",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-presheaf"
+      ],
+      "proofSteps": [
+        "Unfold its concrete map field."
+      ],
+      "acceptance": [
+        "The map of allOpenQuotient I at an inclusion U≤V is exactly CommRingCat.ofHom(allOpenRestriction I (U≤V)).",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-to-closed",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "construction",
+      "title": "All-open map to closed-subscheme sections",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed",
+      "statement": "Construct the natural transformation q:Q_I→ι_*O_Z on all opens of X. Its U component is the actual ring-homomorphism kerLift of ι.app U. The target is the native preimage-op functor composed with Z.presheaf. Naturality is supplied from the actual immersion section maps; no affineness or global section-surjectivity is assumed.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-presheaf",
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-representative",
+        "mathlib:RingHom.kerLift",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.naturality",
+        "mathlib:Ideal.Quotient.ringHom_ext"
+      ],
+      "proofSteps": [
+        "Specify native kerLift components. Reduce the naturality square to quotient representatives and apply ι.naturality."
+      ],
+      "acceptance": [
+        "Construct the natural transformation q:Q_I→ι_*O_Z on all opens of X. Its U component is the actual ring-homomorphism kerLift of ι.app U. The target is the native preimage-op functor composed with Z.presheaf. Naturality is supplied from the actual immersion section maps; no affineness or global section-surjectivity is assumed.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_mk",
+          "role": "compatibility",
+          "statement": "On every open U, q_U([a])=ι.app U(a) for all a∈Γ(X,U).",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-to-closed-representative with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_injective",
+          "role": "compatibility",
+          "statement": "For every open U of X, the component q_U:Q_I(U)→Γ(Z,ι⁻¹U) is injective, even if U is nonaffine.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-to-closed-injective with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_affine_bijective",
+          "role": "compatibility",
+          "statement": "For every affine open U of X, the actual component q_U is bijective.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-to-closed-affine-bijective with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_affine_agreement",
+          "role": "compatibility",
+          "statement": "For affine U, q_U equals the native identity-induced quotientMap from Γ(X,U)/ker(ι.app U) to Γ(X,U)/I(U), followed by (I.subschemeObjIso U).inv. The quotientMap uses the native equality ker(ι.app U)=I(U); this is equality of actual CommRingCat morphisms.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-to-closed-affine-agreement with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_locally_surjective",
+          "role": "compatibility",
+          "statement": "The actual natural transformation q is locally surjective for the native Grothendieck topology of all opens of X. At any x∈U, shrink to an affine V with x∈V⊆U and lift the restricted target section through q_V. This asserts local, not unrestricted componentwise, surjectivity.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-to-closed-locally-surjective with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_locally_injective",
+          "role": "compatibility",
+          "statement": "The transformation q is locally injective for the native topology of all opens of X.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-to-closed-locally-injective with its exact stated hypotheses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AllOpenQuotientChecked.affine_ideal",
+          "kind": "compatibility",
+          "statement": "On an affine open U, the actual q_U kills the class of a section a exactly when a lies in the original ideal I(U), using the native section-kernel equality."
+        },
+        {
+          "name": "AllOpenToClosedChecked.affine_roundtrip",
+          "kind": "computation",
+          "statement": "The native RingEquiv.ofBijective built from q_U on an affine U sends an image back to exactly its original quotient section."
+        },
+        {
+          "name": "AllOpenToClosedChecked.nonaffine_obstruction",
+          "kind": "non-example",
+          "statement": "If a supplied all-open component q_U is not surjective, U cannot be affine. This is a parameterized obstruction, not a newly instantiated concrete nonaffine example."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SF.0 generic closed-subscheme structure sheaf and both current NeronModelsAndSemistableAbelianVarietiesPartII:G.0 supplier requests",
+          "how": "Export the actual quotient-to-direct-image ring-sheaf comparison and its all-open restriction and representative APIs. The consumer still identifies its own conductor and flat-recomputation maps."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-to-closed-representative",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Closed-section image of a representative",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_mk",
+      "statement": "On every open U, q_U([a])=ι.app U(a) for all a∈Γ(X,U).",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed"
+      ],
+      "proofSteps": [
+        "Evaluate the native kerLift on a quotient representative."
+      ],
+      "acceptance": [
+        "On every open U, q_U([a])=ι.app U(a) for all a∈Γ(X,U).",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-to-closed-injective",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Injectivity on every open",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_injective",
+      "statement": "For every open U of X, the component q_U:Q_I(U)→Γ(Z,ι⁻¹U) is injective, even if U is nonaffine.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed",
+        "mathlib:RingHom.kerLift_injective"
+      ],
+      "proofSteps": [
+        "Use injectivity of the actual ring-homomorphism kerLift. This relies on quotienting by the full actual kernel."
+      ],
+      "acceptance": [
+        "For every open U of X, the component q_U:Q_I(U)→Γ(Z,ι⁻¹U) is injective, even if U is nonaffine.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-to-closed-affine-bijective",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Bijectivity on affine opens",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_affine_bijective",
+      "statement": "For every affine open U of X, the actual component q_U is bijective.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed-injective",
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed-representative",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app_surjective"
+      ],
+      "proofSteps": [
+        "Use unconditional kernel-quotient injectivity. Lift each target section through the native affine immersion section-surjectivity theorem, and take its quotient class."
+      ],
+      "acceptance": [
+        "For every affine open U of X, the actual component q_U is bijective.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-to-closed-affine-agreement",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Agreement with the native affine quotient",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_affine_agreement",
+      "statement": "For affine U, q_U equals the native identity-induced quotientMap from Γ(X,U)/ker(ι.app U) to Γ(X,U)/I(U), followed by (I.subschemeObjIso U).inv. The quotientMap uses the native equality ker(ι.app U)=I(U); this is equality of actual CommRingCat morphisms.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed-representative",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ker_subschemeι_app",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι_app",
+        "mathlib:Ideal.quotientMap",
+        "mathlib:Ideal.Quotient.ringHom_ext"
+      ],
+      "proofSteps": [
+        "Apply quotient homomorphism extensionality and the native subschemeι_app factorization. Preserve the actual kernel-to-ideal comparison, rather than silently identifying carriers."
+      ],
+      "acceptance": [
+        "For affine U, q_U equals the native identity-induced quotientMap from Γ(X,U)/ker(ι.app U) to Γ(X,U)/I(U), followed by (I.subschemeObjIso U).inv. The quotientMap uses the native equality ker(ι.app U)=I(U); this is equality of actual CommRingCat morphisms.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-to-closed-locally-surjective",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Local surjectivity on the Zariski site",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_locally_surjective",
+      "statement": "The actual natural transformation q is locally surjective for the native Grothendieck topology of all opens of X. At any x∈U, shrink to an affine V with x∈V⊆U and lift the restricted target section through q_V. This asserts local, not unrestricted componentwise, surjectivity.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed-affine-bijective",
+        "mathlib:AlgebraicGeometry.exists_isAffineOpen_mem_and_subset",
+        "mathlib:TopCat.Presheaf.isLocallySurjective_iff"
+      ],
+      "proofSteps": [
+        "Use the native open-neighbourhood criterion. Select an actual affine neighbourhood subordinate to U, then use q_V surjectivity on the restricted section."
+      ],
+      "acceptance": [
+        "The actual natural transformation q is locally surjective for the native Grothendieck topology of all opens of X. At any x∈U, shrink to an affine V with x∈V⊆U and lift the restricted target section through q_V. This asserts local, not unrestricted componentwise, surjectivity.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-to-closed-locally-injective",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Local injectivity on the Zariski site",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenToClosed_locally_injective",
+      "statement": "The transformation q is locally injective for the native topology of all opens of X.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed-injective",
+        "mathlib:CategoryTheory.Presheaf.isLocallyInjective_of_injective"
+      ],
+      "proofSteps": [
+        "Apply the native componentwise-injectivity-to-local-injectivity theorem to q_U for every open."
+      ],
+      "acceptance": [
+        "The transformation q is locally injective for the native topology of all opens of X.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "construction",
+      "title": "Canonical quotient-sheaf comparison",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenSheafComparison",
+      "statement": "On the native all-open Zariski site of arbitrary X, construct c:a(Q_I)→ι_*O_Z by the actual sheafifyLift of q. Here a is native CommRingCat-valued sheafification, available at the pinned library without additional geometric hypotheses, and the target is a sheaf by native direct image. No pointwise surjectivity of O_X(U)→O_Z(ι⁻¹U) is assumed.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed",
+        "mathlib:CategoryTheory.sheafifyLift",
+        "mathlib:TopCat.Sheaf.pushforward_sheaf_of_sheaf"
+      ],
+      "proofSteps": [
+        "Use the existing ring-valued sheafification instance and the native proof that direct image preserves sheaves. Apply sheafifyLift to the actual q and target sheaf proof."
+      ],
+      "acceptance": [
+        "On the native all-open Zariski site of arbitrary X, construct c:a(Q_I)→ι_*O_Z by the actual sheafifyLift of q. Here a is native CommRingCat-valued sheafification, available at the pinned library without additional geometric hypotheses, and the target is a sheaf by native direct image. No pointwise surjectivity of O_X(U)→O_Z(ι⁻¹U) is assumed.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenSheafComparison_factor",
+          "role": "compatibility",
+          "statement": "The sheafification unit η:Q_I→a(Q_I) followed by c equals q as natural transformations on all opens.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-factorization with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenSheafComparison_mk",
+          "role": "compatibility",
+          "statement": "For every open U and actual section a∈Γ(X,U), c_U(η_U([a]))=ι.app U(a).",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-representative with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenSheafComparison_unique",
+          "role": "compatibility",
+          "statement": "Any natural transformation d:a(Q_I)→ι_*O_Z satisfying η≫d=q equals c. This is the native sheafification universal-property uniqueness on the specified all-open site.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-uniqueness with its exact stated hypotheses."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.allOpenSheafComparison_isIso",
+          "role": "compatibility",
+          "statement": "The actual comparison c:a(Q_I)→ι_*O_Z is an isomorphism of CommRingCat-valued presheaves underlying sheaves on all opens of X. This holds for every native ideal datum on every scheme, without affine, Noetherian, finite, flat or quasi-compact assumptions.",
+          "proof": "Use SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism with its exact stated hypotheses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AllOpenSheafComparisonChecked.representative_inverse",
+          "kind": "compatibility",
+          "statement": "For arbitrary U and actual a, the inverse of c_U applied to ι.app U(a) equals η_U([a]), with the actual isomorphism and sheafification maps."
+        },
+        {
+          "name": "AllOpenSheafComparisonChecked.pullback_agreement",
+          "kind": "compatibility",
+          "statement": "For arbitrary f:X→Y and affine U in Y, the all-open sheaf comparison for I.comap f applied to η([a]) at f⁻¹U equals the existing quotientToClosed I f U([a]). No affine-preimage or flatness hypothesis is used."
+        },
+        {
+          "name": "AllOpenSheafComparisonChecked.arbitrary_section",
+          "kind": "computation",
+          "statement": "For every open U and every section of the actual closed subscheme above U, some section of the actual sheafification maps to it under c_U. The representative need not come from Γ(X,U)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SF.0 generic closed-subscheme structure sheaf and both current NeronModelsAndSemistableAbelianVarietiesPartII:G.0 supplier requests",
+          "how": "Export the actual quotient-to-direct-image ring-sheaf comparison and its all-open restriction and representative APIs. The consumer still identifies its own conductor and flat-recomputation maps."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-factorization",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Factorization through sheafification",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenSheafComparison_factor",
+      "statement": "The sheafification unit η:Q_I→a(Q_I) followed by c equals q as natural transformations on all opens.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison",
+        "mathlib:CategoryTheory.toSheafify_sheafifyLift"
+      ],
+      "proofSteps": [
+        "Use the exact native sheafifyLift factorization theorem."
+      ],
+      "acceptance": [
+        "The sheafification unit η:Q_I→a(Q_I) followed by c equals q as natural transformations on all opens.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-representative",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Sheaf comparison on actual representatives",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenSheafComparison_mk",
+      "statement": "For every open U and actual section a∈Γ(X,U), c_U(η_U([a]))=ι.app U(a).",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-factorization",
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed-representative"
+      ],
+      "proofSteps": [
+        "Evaluate the natural-transformation factorization at U and on the actual quotient class of a."
+      ],
+      "acceptance": [
+        "For every open U and actual section a∈Γ(X,U), c_U(η_U([a]))=ι.app U(a).",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-uniqueness",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Unique sheaf comparison",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenSheafComparison_unique",
+      "statement": "Any natural transformation d:a(Q_I)→ι_*O_Z satisfying η≫d=q equals c. This is the native sheafification universal-property uniqueness on the specified all-open site.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison",
+        "mathlib:CategoryTheory.sheafifyLift_unique"
+      ],
+      "proofSteps": [
+        "Apply sheafifyLift_unique with the native target sheaf proof and the supplied factorization."
+      ],
+      "acceptance": [
+        "Any natural transformation d:a(Q_I)→ι_*O_Z satisfying η≫d=q equals c. This is the native sheafification universal-property uniqueness on the specified all-open site.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Isomorphism with the closed-subscheme ring sheaf",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenSheafComparison_isIso",
+      "statement": "The actual comparison c:a(Q_I)→ι_*O_Z is an isomorphism of CommRingCat-valued presheaves underlying sheaves on all opens of X. This holds for every native ideal datum on every scheme, without affine, Noetherian, finite, flat or quasi-compact assumptions.",
+      "hypotheses": [
+        "X is a native scheme; I is its native IdealSheafData. Only explicitly stated affine-open hypotheses are used. Zero rings and nilpotents are allowed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-factorization",
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed-locally-surjective",
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed-locally-injective",
+        "mathlib:CategoryTheory.GrothendieckTopology.W_of_isLocallyBijective",
+        "mathlib:CategoryTheory.GrothendieckTopology.W_iff",
+        "mathlib:CategoryTheory.isIso_toSheafify",
+        "mathlib:CategoryTheory.sheafify_hom_ext",
+        "mathlib:CategoryTheory.toSheafify_naturality",
+        "mathlib:CategoryTheory.IsIso.hom_inv_id"
+      ],
+      "proofSteps": [
+        "The actual q is locally bijective, so its image under native sheafification is an isomorphism. The target is already a sheaf, hence its sheafification unit is an isomorphism. Sheafification extensionality and the factorization identify c followed by that unit with sheafifyMap(q). Cancel the target unit by the native isomorphism-of-composite theorem. No geometric axiom or admitted proof is used in the separate native evidence."
+      ],
+      "acceptance": [
+        "The actual comparison c:a(Q_I)→ι_*O_Z is an isomorphism of CommRingCat-valued presheaves underlying sheaves on all opens of X. This holds for every native ideal datum on every scheme, without affine, Noetherian, finite, flat or quasi-compact assumptions.",
+        "Use actual native quotients, restriction maps, closed-subscheme sections and ring-valued sheafification on the specified all-open Zariski site. Keep implementationStatus unchecked."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/AllOpenQuotient",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C8-01HM",
+          "locator": "Example 26.4.3, complete displayed example",
+          "match": "Source context identifies the quotient ring sheaf with the direct image of the closed-subspace structure sheaf. The twenty adapter formulas and proof decompositions are authored deductions from pinned native APIs, not additional literal source claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [],
@@ -5157,7 +6259,8 @@
         "The generic native quotient/cokernel comparison now has thirteen declaration-sized adapters and eight typed tests. Its actual quotient square and module-map naturality hold without flatness; full annihilator equality requires flatness and finiteness of the quotient/cokernel alone. The conductor consumer must still identify its particular algebra-image submodule, affine pullback ideals and section/sheaf maps. Existing henselization, reserved-key, all routed-source and other-stage obligations remain open.",
         "Nine generic affine ideal-pullback adapters now identify the full extended ideal and the actual quotient section map, without flatness or finiteness. The conductor-specialized consumer comparison in PR6023 remains separately owned. General ideal pullback is the image ideal, not an assertion that pullback preserves injectivity of its module inclusion. The remaining global conductor/sheaf and flat-recomputation consumer obligations, henselization coherence and source leaves, reserved keys,62 routed sources and all other-stage obligations remain open.",
         "Fourteen affine quotient-restriction and naturality declarations now compare the actual closed-subscheme section maps and construct an affine-indexed quotient presheaf and natural isomorphism. Restriction maps require arbitrary f; the natural isomorphism requires affine f to supply all affine preimages. This is not an all-open sheafification or global structure-sheaf comparison. The separately owned conductor/sheaf and flat-recomputation consumer obligations, henselization coherence and source leaves, six reserved-key boundaries,62 routed sources and all other-stage obligations remain open.",
-        "Twelve canonical quotient-to-closed-sections declarations now supply the actual quotient lift and its natural transformation for arbitrary morphisms, without affine-preimage or quasi-compactness hypotheses. The map agrees with the existing inverse comparison on an affine preimage, and is an isomorphism of affine-indexed presheaves for affine f. No general nonaffine isomorphism or all-open sheafification/global structure-sheaf comparison is claimed. Both conductor/sheaf and flat-recomputation consumer requests, henselization coherence/source leaves, all six reserved-key boundaries, 62 source routes and the other stages remain open."
+        "Twelve canonical quotient-to-closed-sections declarations now supply the actual quotient lift and its natural transformation for arbitrary morphisms, without affine-preimage or quasi-compactness hypotheses. The map agrees with the existing inverse comparison on an affine preimage, and is an isomorphism of affine-indexed presheaves for affine f. No general nonaffine isomorphism or all-open sheafification/global structure-sheaf comparison is claimed. Both conductor/sheaf and flat-recomputation consumer requests, henselization coherence/source leaves, all six reserved-key boundaries, 62 source routes and the other stages remain open.",
+        "Twenty all-open declarations now construct Q_I(U)=Γ(X,U)/ker(ι.app U), its actual quotient restrictions, the injective natural map to closed-subscheme sections, local bijectivity and the native ring-sheafification isomorphism a(Q_I)≅ι_*O_Z. The comparison agrees with the native affine quotient map and with quotientToClosed on actual pullback representatives. The presheaf itself is not asserted to be a sheaf or globally surjective. All consumer conductor identification, flat recomputation, henselization/source leaves, six reserved-key boundaries, 62 routed sources and other-stage obligations remain open."
       ]
     },
     {
@@ -5417,6 +6520,18 @@
       "url": "https://stacks.math.columbia.edu/tag/01IN",
       "read": "2026-10-04",
       "sha256": "a285f245d0b5ee5bfae26e4bf59c4ddd3e6113072d6a729b6fd68cc081354326"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/01IN",
+      "read": "2026-10-04",
+      "sha256": "a285f245d0b5ee5bfae26e4bf59c4ddd3e6113072d6a729b6fd68cc081354326"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/01HM",
+      "read": "2026-10-04",
+      "sha256": "69a45a981b2a0fec5c46015d76bc85cefbf1b28e41c2aa97c2ae432085f0e699"
     }
   ],
   "baselineCoverage": [
@@ -5901,13 +7016,13 @@
     }
   ],
   "validationBoundary": {
-    "agent": "Codex — codex-7e92bd",
+    "agent": "Codex — codex-rtOQ9t",
     "date": "2026-10-04",
     "issue": 642,
-    "implementation": "All 85 nodes remain unchecked and all seven stages partial/not_read. Separate native evidence checks twelve new declarations and eight examples together with the authenticated unchanged 930-line incoming native prefix and its 44 declaration audits. No whole-roadmap implementation claim.",
-    "sourceRead": "Complete issue, current handoff, both complete current Neron SF.0 requests, all gap contracts and SF.0 frontier read. All fourteen peer 6029 declarations and nine tests freshly read, plus the earlier local comparison maps consumed. Same-session own 6025 reading scopes reused only at matching control hashes; 27 external control files unchanged, with four owned inputs and consumer packet changed. Peer 6029 recovered publicly and its actual verifier reproduced byte-for-byte. Complete displayed Stacks 01JU, 01IQ and 01IN mathematical statements/proofs freshly read; 01JU and 01IN cited here. No fresh reading claim for all 73 incoming nodes, the full incoming native prefix, all historical findings or papers, or inherited E1 source-history audit.",
-    "elaboration": "Whole Mathlib-only canonical file and separate native proof evidence checked at the exact pin. Native audits use only propext, Classical.choice and Quot.sound. Canonical warnings are admissions only. Recoverable source/log receipts are in the handoff.",
-    "remaining": "Twelve canonical quotient-to-closed-sections declarations now supply the actual quotient lift and its natural transformation for arbitrary morphisms, without affine-preimage or quasi-compactness hypotheses. The map agrees with the existing inverse comparison on an affine preimage, and is an isomorphism of affine-indexed presheaves for affine f. No general nonaffine isomorphism or all-open sheafification/global structure-sheaf comparison is claimed. Both conductor/sheaf and flat-recomputation consumer requests, henselization coherence/source leaves, all six reserved-key boundaries, 62 source routes and the other stages remain open."
+    "implementation": "All 105 nodes remain unchecked. Separate native evidence checks twenty new declarations and nine examples, recompiling the authenticated unchanged 1169-line incoming prefix and its 56 audits. No whole-roadmap implementation claim.",
+    "sourceRead": "Complete issue before and after claim, current handoff, all eight gaps, SF.0 frontier and both complete consumer requests read. All twelve peer6035 declarations and eight tests freshly read, plus the previously authored own affine comparison scopes reused only at matching pins and control hashes. Own public6029 reading record recovered and authenticated; 27 external file guards unchanged, with four owned inputs and the consumer packet changed. Peer6035 recovered publicly and actual immutable verifier reproduced byte-for-byte. Complete displayed Stacks01IN statement/proof and01HM example freshly read. No fresh whole-paper, all85-node, all1169-line prefix, historical finding or inherited E1 erratum audit claimed.",
+    "elaboration": "Whole Mathlib-only canonical suggested file and separate native proof evidence checked at the exact pinned existing build. Native proof audits use only propext, Classical.choice and Quot.sound. Canonical warnings are admissions only. Sources, logs and actual immutable checker/graph receipts are publicly recoverable.",
+    "remaining": "Twenty all-open declarations now construct Q_I(U)=Γ(X,U)/ker(ι.app U), its actual quotient restrictions, the injective natural map to closed-subscheme sections, local bijectivity and the native ring-sheafification isomorphism a(Q_I)≅ι_*O_Z. The comparison agrees with the native affine quotient map and with quotientToClosed on actual pullback representatives. The presheaf itself is not asserted to be a sheaf or globally surjective. All consumer conductor identification, flat recomputation, henselization/source leaves, six reserved-key boundaries, 62 routed sources and other-stage obligations remain open."
   },
   "restructure": [
     {
