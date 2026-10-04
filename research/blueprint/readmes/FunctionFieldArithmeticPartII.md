@@ -1,3 +1,266 @@
+# Two-step normalization pullback coherence
+
+Successive arbitrary test-algebra changes now have an actual native scheme comparison from the changed normalization scheme to the iterated chosen pullback. It is constructed by pulling back the previous normalizationBaseChangeIso and composing the next one, with both forward and inverse projection formulas and roundtrips. After the native pullback-pasting isomorphism and the actual Spec-composition congruence, the whole isomorphism equals the direct normalizationBaseChangeIso, and the inverse route also agrees. The direct chosen comparison is natural for every actual framed arrow, including all unit labels, and the positive-exponent iterated chart triangle holds. Actual normalization scheme maps have identity, composition and three-map associativity for every natural exponent, including zero. No flatness or injectivity is assumed: Z/4 to Z/2 then identity kills a nonzero square-zero section while preserving the comparison equations. Wild exponents and the zero ring remain allowed. This establishes two-step chosen-scheme coherence only; three-step chosen-pullback associators, native sheaf RootObject comparison, local frames, stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open, with all inherited source, supplier and geometric obligations.
+
+All 655 incoming nodes and 325 baseline objects remain unchanged. This adds 21 nodes,16 API references and 9 distinct typed tests with13 references. All 40 planets, ten partial stages, eight gaps, thirteen requests, two paper routes, eleven source findings, omission ledger and version receipts retain their scope. Every implementation remains unchecked. The complete Tau-dependent suggested file is uncompiled; separate native Mathlib proof evidence and the admitted Mathlib sketch have their precise execution scopes recorded in the handoff.
+
+## The actual normalization change on schemes
+
+**TauCeti.RootStack.FramedRoot.normalizationChangeSpecMap** — For an arbitrary A-algebra homomorphism phi:B to C and framed root p=(u,y), construct the actual scheme map Spec D(phi p) to Spec Dp by taking the spectrum of the existing normalizationChange algebra map, where Dp=B[T]/(T^n-u).
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-map, FunctionFieldArithmeticPartII:RS.0/framed-fppf-map, mathlib:AlgebraicGeometry.Spec.map.
+
+Proof: Apply native spectrum contravariance to the existing normalization algebra homomorphism; use exactly its native scheme source and target.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationChangeSpecMap_identity**: The normalizationChangeSpecMap for the identity A-algebra map B to B is the identity of Spec Dp.
+- **TauCeti.RootStack.FramedRoot.normalizationChangeSpecMap_composition**: For phi:B to C and psi:C to D, the actual map Spec D(psi(phi p)) to Spec D(phi p) followed by the map to Spec Dp equals normalizationChangeSpecMap(psi composed with phi,p).
+- **TauCeti.RootStack.FramedRoot.normalizationChangeSpecMap_associativity**: For arbitrary phi:B to C,psi:C to D,chi:D to E, the three actual normalization scheme maps, associated on the left, equal normalizationChangeSpecMap(chi composed with (psi composed with phi),p). This is a scheme-map coherence equation; no three-step chosen-pullback isomorphism is asserted.
+- **TauCeti.RootStack.FramedRoot.normalizationChangeSpecMap_overBase**: normalizationChangeSpecMap(phi,p) followed by p.normalizationSpecMap equals normalizationSpecMap(phi p) followed by Spec(phi).
+- **TauCeti.RootStack.FramedRoot.normalizationChangeSpecMap_isPullback**: The square formed by normalizationChangeSpecMap(phi,p), both actual normalizationSpecMaps and Spec(phi) satisfies native IsPullback for arbitrary phi and every natural exponent.
+
+Typed examples:
+
+- **TauCeti.RootStack.normalizationTowerTests.map_coherence**: For arbitrary three composable A-algebra maps and every natural exponent, the actual normalization scheme maps have identity, two-map composition and three-map associativity, and the direct square is Cartesian.
+- **TauCeti.RootStack.normalizationTowerTests.killed_nilpotent**: For Z/4 to Z/2 then the identity, p=(1,2) at f=0,n=2 has a nonzero square-zero normalized section killed by the direct composite normalization algebra map, while the actual iterated pullback comparison retains the prescribed projection and roundtrip.
+- **TauCeti.RootStack.normalizationTowerTests.exponent_zero**: For f=1 at exponent0 the actual two-step comparison has its prescribed first projection and inverse roundtrip; no fppf or chart claim is inferred.
+
+## Identity normalization changes on schemes
+
+**TauCeti.RootStack.FramedRoot.normalizationChangeSpecMap_identity** — The normalizationChangeSpecMap for the identity A-algebra map B to B is the identity of Spec Dp.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-scheme-map, FunctionFieldArithmeticPartII:RS.0/normalization-change-identity, mathlib:AlgebraicGeometry.Spec.map_id.
+
+Proof: Apply the inherited algebra-map identity and native Spec.map_id.
+
+## Successive normalization scheme maps agree
+
+**TauCeti.RootStack.FramedRoot.normalizationChangeSpecMap_composition** — For phi:B to C and psi:C to D, the actual map Spec D(psi(phi p)) to Spec D(phi p) followed by the map to Spec Dp equals normalizationChangeSpecMap(psi composed with phi,p).
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-scheme-map, FunctionFieldArithmeticPartII:RS.0/normalization-change-composition, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Apply native contravariance to the entire inherited normalization algebra-map composition equation.
+
+## Three normalization changes have the same composite
+
+**TauCeti.RootStack.FramedRoot.normalizationChangeSpecMap_associativity** — For arbitrary phi:B to C,psi:C to D,chi:D to E, the three actual normalization scheme maps, associated on the left, equal normalizationChangeSpecMap(chi composed with (psi composed with phi),p). This is a scheme-map coherence equation; no three-step chosen-pullback isomorphism is asserted.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-scheme-composition.
+
+Proof: First combine the last two changes in the actual scheme maps, then combine with phi, using the inherited exact changed-object coefficients.
+
+## Normalization scheme changes lie over their test-base change
+
+**TauCeti.RootStack.FramedRoot.normalizationChangeSpecMap_overBase** — normalizationChangeSpecMap(phi,p) followed by p.normalizationSpecMap equals normalizationSpecMap(phi p) followed by Spec(phi).
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-scheme-map, FunctionFieldArithmeticPartII:RS.0/normalization-change-base.
+
+Proof: Unfold only the new spectrum-map construction and reuse the exact inherited coefficient triangle.
+
+## The actual normalization scheme map is Cartesian
+
+**TauCeti.RootStack.FramedRoot.normalizationChangeSpecMap_isPullback** — The square formed by normalizationChangeSpecMap(phi,p), both actual normalizationSpecMaps and Spec(phi) satisfies native IsPullback for arbitrary phi and every natural exponent.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-scheme-map, FunctionFieldArithmeticPartII:RS.0/normalization-change-pullback.
+
+Proof: Identify the new scheme map with the spectrum map in the inherited actual Cartesian square.
+
+## Transport of a chosen normalization pullback
+
+**TauCeti.RootStack.FramedRoot.normalizationPullbackTransportIso** — Construct the actual native isomorphism between Spec D times over Spec C with Spec D(phi p), and Spec D times over Spec C with the chosen pullback Spec C times over Spec B with Spec Dp. It is the pullback.map induced by the identity on Spec D, normalizationBaseChangeIso(phi,p) on the normalization factor, and the identity on Spec C.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-iso, FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-fst, mathlib:CategoryTheory.Limits.pullback.map, mathlib:CategoryTheory.Limits.pullback.map_isIso, mathlib:CategoryTheory.asIso.
+
+Proof: The exact first projection equation makes the pointwise map compatible. Native pullback.map_isIso applies because all three pointwise maps are isomorphisms; bundle it with asIso.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationPullbackTransportIso_hom_fst**: normalizationPullbackTransportIso.hom followed by its target first projection equals the source first projection to Spec D.
+- **TauCeti.RootStack.FramedRoot.normalizationPullbackTransportIso_hom_snd**: normalizationPullbackTransportIso.hom followed by its target second projection equals the source second projection followed by normalizationBaseChangeIso(phi,p).hom.
+- **TauCeti.RootStack.FramedRoot.normalizationPullbackTransportIso_inv_fst**: normalizationPullbackTransportIso.inv followed by its source first projection equals the target first projection to Spec D.
+- **TauCeti.RootStack.FramedRoot.normalizationPullbackTransportIso_inv_snd**: normalizationPullbackTransportIso.inv followed by its source second projection equals the target second projection followed by normalizationBaseChangeIso(phi,p).inv.
+
+Typed examples:
+
+- **TauCeti.RootStack.normalizationTowerTests.transport_projections**: The actual pullback transport has both specified forward projections, both inverse projections and both inverse roundtrips.
+- **TauCeti.RootStack.normalizationTowerTests.pasting**: For arbitrary phi,psi and every natural exponent, the whole two-step normalization isomorphism followed by native pasting and Spec-composition congruence equals the direct base-change isomorphism; the inverse route agrees too.
+- **TauCeti.RootStack.normalizationTowerTests.zero_ring**: For Z to Z/1 followed by the identity, at f=0,n=3 the actual iterated comparison has its first projection and inverse roundtrip and the changed normalization map is singleton fppf covering even though its spectrum has no points.
+
+## Transport preserves the forward test-base projection
+
+**TauCeti.RootStack.FramedRoot.normalizationPullbackTransportIso_hom_fst** — normalizationPullbackTransportIso.hom followed by its target first projection equals the source first projection to Spec D.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-transport, mathlib:CategoryTheory.Limits.pullback.lift_fst.
+
+Proof: Compute the native pullback.map first projection and its identity factor.
+
+## Transport has the forward normalization comparison
+
+**TauCeti.RootStack.FramedRoot.normalizationPullbackTransportIso_hom_snd** — normalizationPullbackTransportIso.hom followed by its target second projection equals the source second projection followed by normalizationBaseChangeIso(phi,p).hom.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-transport, mathlib:CategoryTheory.Limits.pullback.lift_snd.
+
+Proof: Compute the native pullback.map second projection.
+
+## Inverse transport preserves the test-base projection
+
+**TauCeti.RootStack.FramedRoot.normalizationPullbackTransportIso_inv_fst** — normalizationPullbackTransportIso.inv followed by its source first projection equals the target first projection to Spec D.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-transport-hom-fst, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Move the isomorphism across the equation and use its forward first projection.
+
+## Inverse transport has the inverse normalization comparison
+
+**TauCeti.RootStack.FramedRoot.normalizationPullbackTransportIso_inv_snd** — normalizationPullbackTransportIso.inv followed by its source second projection equals the target second projection followed by normalizationBaseChangeIso(phi,p).inv.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-transport-hom-snd, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Move the isomorphism across the equation, use the forward second projection, and cancel the native base-change isomorphism with its inverse.
+
+## The actual two-step normalization pullback comparison
+
+**TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso** — Construct the actual native isomorphism from Spec D(psi(phi p)) to the iterated chosen pullback Spec D times over Spec C with (Spec C times over Spec B with Spec Dp). Compose the existing base-change isomorphism for psi at phi p with normalizationPullbackTransportIso(phi,psi,p).
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-iso, FunctionFieldArithmeticPartII:RS.0/normalization-tower-transport.
+
+Proof: Compose the existing actual normalization isomorphism over Spec C with the proved actual pullback transport; no substitute scheme carrier is introduced.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_hom_fst**: normalizationIteratedBaseChangeIso.hom followed by the outer first projection equals normalizationSpecMap(psi(phi p)) to Spec D.
+- **TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_hom_snd**: normalizationIteratedBaseChangeIso.hom followed by both second projections equals the actual normalizationChangeSpecMap(psi composed with phi,p) to Spec Dp.
+- **TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_inv_fst**: normalizationIteratedBaseChangeIso.inv followed by normalizationSpecMap(psi(phi p)) equals the iterated pullback first projection.
+- **TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_inv_snd**: normalizationIteratedBaseChangeIso.inv followed by normalizationChangeSpecMap(psi composed with phi,p) equals the composite of both second pullback projections.
+- **TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_paste**: As actual native scheme isomorphisms, normalizationIteratedBaseChangeIso(phi,psi,p), followed by pullbackRightPullbackFstIso and the pullback.congrHom identifying Spec(psi) followed by Spec(phi) with Spec(psi composed with phi), equals normalizationBaseChangeIso(psi composed with phi,p).
+- **TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_paste_inverse**: The inverse congruence isomorphism, followed by inverse pullback pasting and inverse normalizationIteratedBaseChangeIso, equals normalizationBaseChangeIso(psi composed with phi,p).inv as an actual scheme morphism.
+- **TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_chart**: For positive exponent, normalizationIteratedBaseChangeIso.hom followed by both second projections and p.normalizationChartMap equals normalizationChartMap(psi(phi p)), as actual scheme morphisms to the existing root chart.
+
+Typed examples:
+
+- **TauCeti.RootStack.normalizationTowerTests.iterated_projections**: The actual two-step normalization isomorphism has its specified first projection, composite second projection, both inverse projection equations and both inverse roundtrips.
+- **TauCeti.RootStack.normalizationTowerTests.pasting**: For arbitrary phi,psi and every natural exponent, the whole two-step normalization isomorphism followed by native pasting and Spec-composition congruence equals the direct base-change isomorphism; the inverse route agrees too.
+- **TauCeti.RootStack.normalizationTowerTests.actual_arrow**: For every actual framed arrow the chosen pullback comparison has the full native pullback.map naturality equation; at positive exponent the two-step comparison also preserves the actual chart map.
+- **TauCeti.RootStack.normalizationTowerTests.killed_nilpotent**: For Z/4 to Z/2 then the identity, p=(1,2) at f=0,n=2 has a nonzero square-zero normalized section killed by the direct composite normalization algebra map, while the actual iterated pullback comparison retains the prescribed projection and roundtrip.
+- **TauCeti.RootStack.normalizationTowerTests.wild_exponent**: At exponent3 over Z/3, arbitrary successive test-algebra changes satisfy the iterated projection and inverse roundtrip and the changed normalization morphism is singleton fppf covering although the exponent is zero in the base.
+- **TauCeti.RootStack.normalizationTowerTests.exponent_zero**: For f=1 at exponent0 the actual two-step comparison has its prescribed first projection and inverse roundtrip; no fppf or chart claim is inferred.
+- **TauCeti.RootStack.normalizationTowerTests.zero_ring**: For Z to Z/1 followed by the identity, at f=0,n=3 the actual iterated comparison has its first projection and inverse roundtrip and the changed normalization map is singleton fppf covering even though its spectrum has no points.
+
+## The iterated forward comparison has the actual test-base projection
+
+**TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_hom_fst** — normalizationIteratedBaseChangeIso.hom followed by the outer first projection equals normalizationSpecMap(psi(phi p)) to Spec D.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated, FunctionFieldArithmeticPartII:RS.0/normalization-tower-transport-hom-fst, FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-fst.
+
+Proof: Compute the transport first projection, then the existing base-change first projection.
+
+## The iterated forward comparison has the direct normalization projection
+
+**TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_hom_snd** — normalizationIteratedBaseChangeIso.hom followed by both second projections equals the actual normalizationChangeSpecMap(psi composed with phi,p) to Spec Dp.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated, FunctionFieldArithmeticPartII:RS.0/normalization-tower-transport-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-tower-scheme-composition.
+
+Proof: Compute both forward second projections; the actual scheme-map composition equation identifies their composite with the direct change.
+
+## The iterated inverse comparison has the test-base projection
+
+**TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_inv_fst** — normalizationIteratedBaseChangeIso.inv followed by normalizationSpecMap(psi(phi p)) equals the iterated pullback first projection.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated-hom-fst, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Move the isomorphism across the forward first projection equation.
+
+## The iterated inverse comparison has the original normalization projection
+
+**TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_inv_snd** — normalizationIteratedBaseChangeIso.inv followed by normalizationChangeSpecMap(psi composed with phi,p) equals the composite of both second pullback projections.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated-hom-snd, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Move the isomorphism across the forward second projection equation.
+
+## Two-step normalization agrees with the direct chosen pullback
+
+**TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_paste** — As actual native scheme isomorphisms, normalizationIteratedBaseChangeIso(phi,psi,p), followed by pullbackRightPullbackFstIso and the pullback.congrHom identifying Spec(psi) followed by Spec(phi) with Spec(psi composed with phi), equals normalizationBaseChangeIso(psi composed with phi,p).
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated-hom-fst, FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-fst, FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-snd, mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso, mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_fst, mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_snd, mathlib:CategoryTheory.Limits.pullback.congrHom, mathlib:CategoryTheory.Limits.pullback.hom_ext, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Apply native isomorphism extensionality, then pullback hom extensionality. On the first projection both sides are the changed normalizationSpecMap; on the second they are the direct normalizationChangeSpecMap. Use actual pasting and congruence projection laws.
+
+## The inverse pasting route agrees with direct normalization
+
+**TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_paste_inverse** — The inverse congruence isomorphism, followed by inverse pullback pasting and inverse normalizationIteratedBaseChangeIso, equals normalizationBaseChangeIso(psi composed with phi,p).inv as an actual scheme morphism.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-pasting.
+
+Proof: Apply Iso.inv to the whole actual isomorphism equality, retaining the reversed composition order.
+
+## The identity base-change comparison has identity normalization projection
+
+**TauCeti.RootStack.FramedRoot.normalizationBaseChangeIso_identity_snd** — The hom of normalizationBaseChangeIso for the identity A-algebra change followed by its second pullback projection equals the identity on Spec Dp.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-tower-scheme-identity.
+
+Proof: Use the inherited exact second projection and the new scheme identity equation.
+
+## Chosen normalization pullbacks respect every actual framed arrow
+
+**TauCeti.RootStack.FramedRoot.normalizationBaseChangeIso_naturality** — For every actual arrow h:p to q, the changed normalization spectrum arrow followed by normalizationBaseChangeIso(phi,q).hom equals normalizationBaseChangeIso(phi,p).hom followed by the native pullback.map with the identity test-base and base maps and the actual normalization spectrum arrow of h.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. Every natural exponent n including zero is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-fst, FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-base, FunctionFieldArithmeticPartII:RS.0/normalization-change-arrow, mathlib:CategoryTheory.Limits.pullback.map, mathlib:CategoryTheory.Limits.pullback.hom_ext, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Compare both actual pullback projections. The first is the unchanged base triangle; the second is native spectrum contravariance applied to the entire inherited actual arrow normalization-change equation. No section is cancelled.
+
+## Iterated normalization comparisons preserve the actual chart
+
+**TauCeti.RootStack.FramedRoot.normalizationIteratedBaseChangeIso_chart** — For positive exponent, normalizationIteratedBaseChangeIso.hom followed by both second projections and p.normalizationChartMap equals normalizationChartMap(psi(phi p)), as actual scheme morphisms to the existing root chart.
+
+Hypotheses: Commutative rings A,B,C,D in one universe, A-algebra structures on B,C,D, arbitrary A-algebra maps phi:B to C and psi:C to D, section f in A, and actual chosen-frame root p=(u,y) with u a bundled unit and u*y^n=image(f). Three-map coherence also uses an A-algebra E and chi:D to E; arrow naturality uses actual h:p to q. The natural exponent n is positive. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Native sheaf root comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-change-chart.
+
+Proof: Postcompose the exact iterated second projection with the existing chart map, then apply the inherited chart equation for the direct composite change.
+
 # Cartesian normalization covers under arbitrary test-algebra change
 
 Let p=(u,y) be a framed root of f over the test A-algebra B, with u a bundled unit and u*y^n=image(f). Write Dp=B[T]/(T^n-u). For an arbitrary A-algebra homomorphism phi:B to C, use the existing framedRootChange to form phi p=(phi(u),phi(y)). The actual normalizationChange A-algebra homomorphism Dp to D(phi p) sends coefficients through phi and T to T. It preserves identity and composition and commutes with every actual framed-arrow normalizationRingMap, including its inverse unit label.
