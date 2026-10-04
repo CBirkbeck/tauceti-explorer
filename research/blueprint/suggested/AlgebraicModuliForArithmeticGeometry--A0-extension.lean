@@ -7796,3 +7796,245 @@ example (X : HomCategory b b) (f : V ⟶ U) (g : W ⟶ V) (h : Z ⟶ W)
   sorry
 
 end TauCeti.AlgebraicGeometry.SheafCoherenceTests
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+open Pseudofunctor.LocallyDiscreteOpToCat
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+  [IsGerbe F J] [IsGerbe G J] {A : Sheaf J AddCommGrpCat.{w}}
+  (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+local instance : Category (Pseudofunctor.StrongTrans F G) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := G)
+variable {U V : C} {x x' x'' : F.obj (.mk (op U))}
+  {y y' y'' : G.obj (.mk (op U))}
+
+def fibreHomEndpointTransport (X : HomCategory bF bG) (e : x ≅ x') (d : y ≅ y') :
+    fibreHomSheaf bF bG U x y X ⟶ fibreHomSheaf bF bG U x' y' X where
+  hom :=
+    { app := fun T => TypeCat.ofHom (fun p =>
+        (G.map T.unop.hom.op.toLoc).toFunctor.map d.inv ≫ p ≫
+        (G.map T.unop.hom.op.toLoc).toFunctor.map
+          ((X.obj.app (.mk (op U))).toFunctor.map e.hom))
+      naturality := by
+        intro T₁ T₂ f
+        ext p
+        dsimp [fibreHomSheaf, Pseudofunctor.sheafHom, Pseudofunctor.presheafHom, pullHom]
+        simp only [Functor.map_comp, Category.assoc]
+        rw [G.mapComp'_inv_naturality]
+        rw [← G.mapComp'_hom_naturality_assoc] }
+
+lemma fibreHomEndpointTransport_apply (X : HomCategory bF bG) (e : x ≅ x') (d : y ≅ y')
+    (T : Over U) (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomEndpointTransport bF bG X e d).hom.app (op T) p =
+      (G.map T.hom.op.toLoc).toFunctor.map d.inv ≫ p ≫
+      (G.map T.hom.op.toLoc).toFunctor.map
+        ((X.obj.app (.mk (op U))).toFunctor.map e.hom) := by
+  sorry
+
+lemma fibreHomEndpointTransport_id (X : HomCategory bF bG) :
+    fibreHomEndpointTransport bF bG X (Iso.refl x) (Iso.refl y) = 𝟙 _ := by
+  sorry
+
+lemma fibreHomEndpointTransport_comp (X : HomCategory bF bG)
+    (e : x ≅ x') (e' : x' ≅ x'') (d : y ≅ y') (d' : y' ≅ y'') :
+    fibreHomEndpointTransport bF bG X (e ≪≫ e') (d ≪≫ d') =
+      fibreHomEndpointTransport bF bG X e d ≫ fibreHomEndpointTransport bF bG X e' d' := by
+  sorry
+
+def fibreHomEndpointTransportIso (X : HomCategory bF bG) (e : x ≅ x') (d : y ≅ y') :
+    fibreHomSheaf bF bG U x y X ≅ fibreHomSheaf bF bG U x' y' X where
+  hom := fibreHomEndpointTransport bF bG X e d
+  inv := fibreHomEndpointTransport bF bG X e.symm d.symm
+  hom_inv_id := by
+    rw [← fibreHomEndpointTransport_comp]
+    simpa using fibreHomEndpointTransport_id bF bG X
+  inv_hom_id := by
+    rw [← fibreHomEndpointTransport_comp]
+    simpa using fibreHomEndpointTransport_id bF bG X
+
+lemma fibreHomEndpointTransport_transport (X : HomCategory bF bG)
+    (e : x ≅ x') (d : y ≅ y') (T : Over U)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    fibreHomTransportIsoEquiv bF bG U x' y' X T
+        ((fibreHomEndpointTransport bF bG X e d).hom.app (op T) p) =
+      ((G.map T.hom.op.toLoc).toFunctor.mapIso d).symm ≪≫
+        fibreHomTransportIsoEquiv bF bG U x y X T p ≪≫
+        (X.obj.app (.mk (op T.left))).toFunctor.mapIso
+          ((F.map T.hom.op.toLoc).toFunctor.mapIso e) := by
+  sorry
+
+lemma fibreHomEndpointTransport_equivariant (X : HomCategory bF bG)
+    (e : x ≅ x') (d : y ≅ y') (T : Over U)
+    (a : Multiplicative (A.obj.obj (op T.left)))
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomEndpointTransport bF bG X e d).hom.app (op T)
+        (((fibreHomSectionAction bF bG U x y X T).ρ a).hom p) =
+      ((fibreHomSectionAction bF bG U x' y' X T).ρ a).hom
+        ((fibreHomEndpointTransport bF bG X e d).hom.app (op T) p) := by
+  sorry
+
+lemma fibreHomEndpointTransport_modification {X Y : HomCategory bF bG}
+    (m : X ⟶ Y) (e : x ≅ x') (d : y ≅ y') :
+    fibreHomSheafMap bF bG U x y m ≫ fibreHomEndpointTransport bF bG Y e d =
+      fibreHomEndpointTransport bF bG X e d ≫ fibreHomSheafMap bF bG U x' y' m := by
+  sorry
+
+noncomputable def fibreHomEndpointTransportNatIso (e : x ≅ x') (d : y ≅ y') :
+    fibreHomSheafFunctor bF bG U x y ≅ fibreHomSheafFunctor bF bG U x' y' :=
+  NatIso.ofComponents (fun X => fibreHomEndpointTransportIso bF bG X e d)
+    (fun m => fibreHomEndpointTransport_modification bF bG m e d)
+
+lemma fibreHomEndpointTransportNatIso_app (e : x ≅ x') (d : y ≅ y')
+    (X : HomCategory bF bG) :
+    (fibreHomEndpointTransportNatIso bF bG e d).app X =
+      fibreHomEndpointTransportIso bF bG X e d := by
+  sorry
+
+lemma fibreHomEndpointTransportNatIso_id :
+    fibreHomEndpointTransportNatIso bF bG (Iso.refl x) (Iso.refl y) = Iso.refl _ := by
+  sorry
+
+lemma fibreHomEndpointTransportNatIso_comp
+    (e : x ≅ x') (e' : x' ≅ x'') (d : y ≅ y') (d' : y' ≅ y'') :
+    fibreHomEndpointTransportNatIso bF bG (e ≪≫ e') (d ≪≫ d') =
+      fibreHomEndpointTransportNatIso bF bG e d ≪≫
+        fibreHomEndpointTransportNatIso bF bG e' d' := by
+  sorry
+
+lemma fibreHomEndpointTransportIso_hom (X : HomCategory bF bG) (e : x ≅ x') (d : y ≅ y') :
+    (fibreHomEndpointTransportIso bF bG X e d).hom =
+      fibreHomEndpointTransport bF bG X e d := by
+  sorry
+
+lemma fibreHomEndpointTransportIso_inv (X : HomCategory bF bG) (e : x ≅ x') (d : y ≅ y') :
+    (fibreHomEndpointTransportIso bF bG X e d).inv =
+      fibreHomEndpointTransport bF bG X e.symm d.symm := by
+  sorry
+
+lemma fibreHomEndpointBaseChange_square (X : HomCategory bF bG) (f : V ⟶ U)
+    (e : x ≅ x') (d : y ≅ y') :
+    (J.overMapPullback (Type v') f).map (fibreHomEndpointTransport bF bG X e d) ≫
+        (fibreHomBaseChangeIso bF bG X f x' y').hom =
+      (fibreHomBaseChangeIso bF bG X f x y).hom ≫
+        fibreHomEndpointTransport bF bG X ((F.map f.op.toLoc).toFunctor.mapIso e)
+          ((G.map f.op.toLoc).toFunctor.mapIso d) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+  {U : C} {x x' : F.obj (.mk (op U))}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+lemma fibreHomEndpointTransportIso_self (X : HomCategory b b) (e : x ≅ x') :
+    fibreHomEndpointTransportIso b b X e e = selfHomSheafTransportIso b X e := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.EndpointTransportTests
+open CategoryTheory Opposite Bicategory BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+  [IsGerbe F J] [IsGerbe G J] {A : Sheaf J AddCommGrpCat.{w}}
+  (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+local instance : Category (Pseudofunctor.StrongTrans F G) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := G)
+variable {U V : C} {x x' x'' : F.obj (.mk (op U))}
+  {y y' y'' : G.obj (.mk (op U))}
+
+-- test: EndpointTransportTests.actual_endpoint_formula
+example (X : HomCategory bF bG) (e : x ≅ x') (d : y ≅ y') (T : Over U)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomEndpointTransport bF bG X e d).hom.app (op T) p =
+      (G.map T.hom.op.toLoc).toFunctor.map d.inv ≫ p ≫
+        (G.map T.hom.op.toLoc).toFunctor.map
+          ((X.obj.app (.mk (op U))).toFunctor.map e.hom) := by
+  sorry
+
+-- test: EndpointTransportTests.arbitrary_slice_arrow
+example (X : HomCategory bF bG) (e : x ≅ x') (d : y ≅ y')
+    {T W : Over U} (g : W ⟶ T) :
+    (fibreHomSheaf bF bG U x y X).obj.map g.op ≫
+        (fibreHomEndpointTransport bF bG X e d).hom.app (op W) =
+      (fibreHomEndpointTransport bF bG X e d).hom.app (op T) ≫
+        (fibreHomSheaf bF bG U x' y' X).obj.map g.op := by
+  sorry
+
+-- test: EndpointTransportTests.unbalanced_endpoint_is_not_identity
+example (X : HomCategory bF bG) (d : y ≅ y) (T : Over U)
+    (h : (G.map T.hom.op.toLoc).toFunctor.map d.inv ≠ 𝟙 _)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomEndpointTransport bF bG X (Iso.refl x) d).hom.app (op T) p ≠ p := by
+  sorry
+
+-- test: EndpointTransportTests.empty_sections_reflected
+example (X : HomCategory bF bG) (e : x ≅ x') (d : y ≅ y') (T : Over U)
+    [IsEmpty ((fibreHomSheaf bF bG U x y X).obj.obj (op T))] :
+    IsEmpty ((fibreHomSheaf bF bG U x' y' X).obj.obj (op T)) := by
+  sorry
+
+-- test: EndpointTransportTests.inverse_uses_both_reversed_endpoints
+example (X : HomCategory bF bG) (e : x ≅ x') (d : y ≅ y') (T : Over U)
+    (p : (fibreHomSheaf bF bG U x' y' X).obj.obj (op T)) :
+    (fibreHomEndpointTransportIso bF bG X e d).inv.hom.app (op T) p =
+      (G.map T.hom.op.toLoc).toFunctor.map d.hom ≫ p ≫
+        (G.map T.hom.op.toLoc).toFunctor.map
+          ((X.obj.app (.mk (op U))).toFunctor.map e.inv) := by
+  sorry
+
+-- test: EndpointTransportTests.modifications_retained
+example {X Y : HomCategory bF bG} (m : X ⟶ Y) (e : x ≅ x') (d : y ≅ y') :
+    (fibreHomSheafFunctor bF bG U x y).map m ≫
+        (fibreHomEndpointTransportNatIso bF bG e d).hom.app Y =
+      (fibreHomEndpointTransportNatIso bF bG e d).hom.app X ≫
+        (fibreHomSheafFunctor bF bG U x' y').map m := by
+  sorry
+
+-- test: EndpointTransportTests.separate_endpoint_composition
+example (e : x ≅ x') (e' : x' ≅ x'') (d : y ≅ y') (d' : y' ≅ y'') :
+    fibreHomEndpointTransportNatIso bF bG (e ≪≫ e') (d ≪≫ d') =
+      fibreHomEndpointTransportNatIso bF bG e d ≪≫
+        fibreHomEndpointTransportNatIso bF bG e' d' := by
+  sorry
+
+-- test: EndpointTransportTests.native_base_restriction_square
+example (X : HomCategory bF bG) (f : V ⟶ U) (e : x ≅ x') (d : y ≅ y') :
+    (J.overMapPullback (Type v') f).map (fibreHomEndpointTransport bF bG X e d) ≫
+        (fibreHomBaseChangeIso bF bG X f x' y').hom =
+      (fibreHomBaseChangeIso bF bG X f x y).hom ≫
+        fibreHomEndpointTransport bF bG X ((F.map f.op.toLoc).toFunctor.mapIso e)
+          ((G.map f.op.toLoc).toFunctor.mapIso d) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.EndpointTransportTests
+
+namespace TauCeti.AlgebraicGeometry.EndpointTransportTests
+open CategoryTheory Opposite Bicategory BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+  {U : C} {x x' : F.obj (.mk (op U))}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+-- test: EndpointTransportTests.diagonal_agrees_with_native_self_transport
+example (X : HomCategory b b) (e : x ≅ x') :
+    fibreHomEndpointTransportIso b b X e e = selfHomSheafTransportIso b X e := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.EndpointTransportTests
