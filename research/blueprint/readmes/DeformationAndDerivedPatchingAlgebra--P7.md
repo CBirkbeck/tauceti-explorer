@@ -1,3 +1,247 @@
+# Internal grading of the actual adic cokernel
+
+A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Each component is the original quotient image of L_n. To prove independence, lift a finite zero homogeneous sum: its sum lies in range(mu_a), and the inherited homogeneous-range theorem puts each original component projection in that same range. Spanning follows from the original decomposition and quotient surjectivity. Native internal-direct-sum data then give finite reconstruction and projections agreeing with the original ambient projections modulo range(mu_a).
+
+## Homogeneous components of the actual adic cokernel
+
+TauCeti.HilbertSamuel.adicModuleCokernelComponents
+
+Define C_n as the A-linear range of L_n→L→C. This is definitionally the existing target submodule of adicModuleCokernelComponent, not a second quotient carrier. The defining native SetLike.GradedSMul instance retains S_i·C_j⊆C_(i+j).
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: Use the original quotient projection restricted to A and compose with the original L_n inclusion. The defining graded scalar instance follows the component scalar lemma on the original quotient action.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-map, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action, mathlib:Submodule.mkQ, mathlib:LinearMap.restrictScalars.
+
+API TauCeti.HilbertSamuel.adicModuleCokernelComponents_mem: An actual x in C belongs to C_n if and only if x is the quotient class of some actual y in L_n.
+
+API TauCeti.HilbertSamuel.adicModuleCokernelComponents_eq_map: C_n equals the native A-submodule image of L_n under the scalar-restricted quotient map L→C.
+
+API TauCeti.HilbertSamuel.adicModuleCokernelComponents_smul: For b in S_i and actual x in C_j, the original quotient scalar product b·x lies in C_(i+j).
+
+## Representatives of cokernel components
+
+TauCeti.HilbertSamuel.adicModuleCokernelComponents_mem
+
+An actual x in C belongs to C_n if and only if x is the quotient class of some actual y in L_n.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: Unfold the native linear range; its membership predicate is exactly existence of a representative.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components.
+
+## Cokernel components as quotient images
+
+TauCeti.HilbertSamuel.adicModuleCokernelComponents_eq_map
+
+C_n equals the native A-submodule image of L_n under the scalar-restricted quotient map L→C.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: The range of a composite is the image of the first range; the range of the original component subtype is L_n.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components, mathlib:LinearMap.range_comp, mathlib:Submodule.range_subtype.
+
+## Original scalar degree addition in the cokernel
+
+TauCeti.HilbertSamuel.adicModuleCokernelComponents_smul
+
+For b in S_i and actual x in C_j, the original quotient scalar product b·x lies in C_(i+j).
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: Choose the actual homogeneous representative y of x. The ambient product b·y belongs to L_(i+j), and its quotient class is definitionally the original b·x.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components-membership, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action, mathlib:SetLike.GradedSMul.
+
+## Independent cokernel components
+
+TauCeti.HilbertSamuel.adicModuleCokernelComponents_iSupIndep
+
+The family of actual quotient submodules (C_n) is iSupIndep: each term of a finite homogeneous sum equal to zero is zero.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: Lift each term of a finite homogeneous sum to the original L_n; zero quotient sum means the sum of the lifts belongs to the actual range of mu_a. Project this sum to its n-th original component. Same-degree and wrong-degree identities give exactly the chosen n-th lift. The inherited homogeneous-range theorem puts this lift in the same range; its quotient class is therefore zero. No division by a or injectivity is used.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components-membership, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-homogeneous-criterion, DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-homogeneous-range, mathlib:iSupIndep_iff_finsetSum_eq_zero_imp_eq_zero, mathlib:DirectSum.decompose_of_mem_ne.
+
+## Cokernel components span the actual quotient
+
+TauCeti.HilbertSamuel.adicModuleCokernelComponents_iSup
+
+The supremum of the actual quotient components C_n is the whole A-module C.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: Rewrite each component as the image of L_n; commute the image with the supremum. The original internal decomposition spans L, and the actual quotient map is surjective; the image of the whole module is all of C.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components-map, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration, mathlib:Submodule.map_iSup, mathlib:DirectSum.IsInternal.submodule_iSup_eq_top, mathlib:Submodule.mkQ_surjective.
+
+## Internal direct sum of cokernel components
+
+TauCeti.HilbertSamuel.adicModuleCokernelComponents_isInternal
+
+The original inclusions of the C_n into C define a native DirectSum.IsInternal family.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: Apply the native internal-direct-sum criterion to the proved independence and spanning.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components-independent, DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components-spanning, mathlib:DirectSum.isInternal_submodule_of_iSupIndep_of_iSup_eq_top.
+
+## Native decomposition of the actual cokernel
+
+TauCeti.HilbertSamuel.adicModuleCokernelDecomposition
+
+Construct a native DirectSum.Decomposition of the family C_n on the actual quotient C. Its recomposition is the canonical finite sum of component inclusions. Install these data locally, without a new global competing decomposition instance.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: Use the existing native choice of decomposition from the proved IsInternal family. The carrier and canonical finite recomposition remain unchanged.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components-internal, mathlib:DirectSum.IsInternal.chooseDecomposition.
+
+API TauCeti.HilbertSamuel.adicModuleCokernelDecomposition_mk: For every original x in L and n≥0, with the new decomposition installed, the n-th quotient coordinate as an element of C equals the quotient class of the original adicModuleProjection π_n(x).
+
+API TauCeti.HilbertSamuel.adicModuleCokernelDecomposition_recompose: For every actual x in C, native finite recomposition of its full native quotient decomposition equals x in C.
+
+API TauCeti.HilbertSamuel.adicModuleCokernelDecomposition_of_mem: If actual x belongs to C_n, its n-th native quotient coordinate, included into C, equals x.
+
+## Quotient projection agrees with the ambient projection
+
+TauCeti.HilbertSamuel.adicModuleCokernelDecomposition_mk
+
+For every original x in L and n≥0, with the new decomposition installed, the n-th quotient coordinate as an element of C equals the quotient class of the original adicModuleProjection π_n(x).
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: The actual A-linear quotient map sends L_n into C_n by its defining representative. Apply the existing Tau map_decompose_shift with the identity injective degree map. This compares the two native decompositions without choosing an inverse representative.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-decomposition, DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components-membership, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration, tauceti:TauCeti.DirectSum.map_decompose_shift.
+
+## Finite reconstruction in the actual cokernel
+
+TauCeti.HilbertSamuel.adicModuleCokernelDecomposition_recompose
+
+For every actual x in C, native finite recomposition of its full native quotient decomposition equals x in C.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: Apply the left inverse field of the native decomposition on the actual quotient and canonical component inclusions.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-decomposition, mathlib:DirectSum.Decomposition.
+
+## Homogeneous quotient elements are fixed
+
+TauCeti.HilbertSamuel.adicModuleCokernelDecomposition_of_mem
+
+If actual x belongs to C_n, its n-th native quotient coordinate, included into C, equals x.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: Apply the native same-degree decomposition theorem to the actual quotient component family.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-decomposition, DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components-membership, mathlib:DirectSum.decompose_of_mem_same.
+
+## Linear homogeneous projections of the actual cokernel
+
+TauCeti.HilbertSamuel.adicModuleCokernelProjection
+
+Define the A-linear map p_n:C→C by the native quotient decomposition, evaluation at n and the original inclusion C_n→C. It uses the original quotient carrier and restricted A action.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: Install the actual quotient decomposition locally. Compose the native decomposition linear equivalence with dependent coordinate evaluation and the original component inclusion.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-decomposition, mathlib:DirectSum.decomposeLinearEquiv, mathlib:DFinsupp.lapply.
+
+API TauCeti.HilbertSamuel.adicModuleCokernelProjection_mk: For every x in L, p_n([x])=[π_n(x)] in the actual C.
+
+API TauCeti.HilbertSamuel.adicModuleCokernelProjection_mem: For every actual x in C, p_n(x) belongs to C_n.
+
+API TauCeti.HilbertSamuel.adicModuleCokernelProjection_eq_self_iff: For every actual x in C, p_n(x)=x if and only if x belongs to C_n.
+
+API TauCeti.HilbertSamuel.adicModuleCokernelProjection_comp: For all i,j≥0 and actual x in C, p_i(p_j(x)) equals p_j(x) if i=j and zero otherwise.
+
+## Linear projections commute with the quotient map
+
+TauCeti.HilbertSamuel.adicModuleCokernelProjection_mk
+
+For every x in L, p_n([x])=[π_n(x)] in the actual C.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: The new linear projection evaluates definitionally to the coordinate in the proved quotient decomposition identity.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-projection, DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-decomposition-quotient.
+
+## Projection lands in its actual component
+
+TauCeti.HilbertSamuel.adicModuleCokernelProjection_mem
+
+For every actual x in C, p_n(x) belongs to C_n.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: The native dependent coordinate carries precisely this membership proof before its inclusion into C.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-projection.
+
+## Fixed quotient projection characterizes degree
+
+TauCeti.HilbertSamuel.adicModuleCokernelProjection_eq_self_iff
+
+For every actual x in C, p_n(x)=x if and only if x belongs to C_n.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: A fixed projection belongs to its component by the projection membership theorem. An element already in C_n is fixed by the same-degree quotient decomposition theorem.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-projection, DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-projection-membership, DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-decomposition-homogeneous.
+
+## Orthogonal idempotent quotient projections
+
+TauCeti.HilbertSamuel.adicModuleCokernelProjection_comp
+
+For all i,j≥0 and actual x in C, p_i(p_j(x)) equals p_j(x) if i=j and zero otherwise.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
+
+Proof: Choose an original representative of x by quotient induction. Apply the quotient projection formula twice and the inherited ambient projection composition identity. Split the equality of degrees; the quotient map preserves zero.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-projection, DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-projection-quotient, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-orthogonality, mathlib:Submodule.mkQ_surjective.
+
+## Boundary tests
+
+AdicCokernelGradingTests.mixed_degrees (compatibility): For the quotient class of a sum of original degree-zero and degree-one terms, the new projections recover the corresponding quotient classes; degree two projects to zero.
+
+AdicCokernelGradingTests.wrong_degree (non-example): For every actual x in C_n and m≠n, its native quotient projection to degree m is zero. Repeating C as every component fails this test.
+
+AdicCokernelGradingTests.image_is_killed (compatibility): For every original homogeneous x in L_n, the quotient class of the actual product a·x has every quotient projection zero. The old component multiplication and new grading use exactly the same quotient.
+
+AdicCokernelGradingTests.homogeneous_scalar (compatibility): For b in S_i and x in L_j, b times the quotient class of x belongs to C_(i+j) and is fixed by its degree-(i+j) projection, using the original quotient S action.
+
+AdicCokernelGradingTests.finite_reconstruction (characterisation): Every possibly inhomogeneous actual quotient element is recovered by native finite recomposition. If all its quotient projections vanish, the element is zero; recomposition is proved, not assumed.
+
+AdicCokernelGradingTests.unit_ideal (degenerate): For q=A, every actual quotient element is zero, lies in every component as zero, and has every projection zero, for arbitrary A-modules.
+
+AdicCokernelGradingTests.nonfree_constant (non-example): For A=Z, M=Z/4, q=0 and a=0, the class of the constant 1 is nonzero in C_0 and fixed by the new degree-zero projection. No freeness assumption or zero cokernel substitution is allowed.
+
+AdicCokernelGradingTests.zero_multiplier_positive_degree (non-example): For A=M=Z/4, q=(2) and a=0, the class of2 in the original degree-one piece survives nonzero in C_1, is fixed by its quotient projection and is recovered by finite recomposition. A quotient grading concentrated in degree zero fails this nilpotent-ring example.
+
+## Continuation boundary
+
+Sixteen new nodes and one defining native graded-scalar instance give the actual cokernel C=L/range(mu_a) an internal grading: original quotient-image components, original S scalar degree addition, independence from homogeneous range projections, spanning by quotient surjectivity, native finite decomposition, quotient projection agreement, finite reconstruction, fixed-degree membership and orthogonal idempotent A-linear projections. No new generic quotient or graded-ring carrier is planned. This supersedes only the actual cokernel internal-decomposition frontier. The smaller-ring S/(a) graded scalar action, simultaneous graded kernel/cokernel finiteness over the remaining-generator ring and the Hilbert–Serre induction remain open. Preserve the finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; every node unchecked.
+
+All436 incoming whole nodes and every source/version/erratum, gap, request, planet and earlier stage obligation are preserved. The incoming reader follows unchanged. Only the explicitly identified quotient-decomposition frontier is superseded. The full Tau-importing suggested file remains uncompiled; isolated Mathlib evidence retains the exact four pinned Tau declarations already authenticated in the incoming prefix.
+
+---
+
 # Internal gradings of the actual adic kernel and range
 
 A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
