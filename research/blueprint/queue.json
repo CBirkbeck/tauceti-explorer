@@ -10245,7 +10245,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-JacobianChallengePartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3341"
   },
   {
    "id": "REV-DESIGN-JacobianChallengePartII",
@@ -10288,8 +10289,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-StableReductionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3342"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3342",
+   "finishedAt": "2026-10-04T19:34:52Z"
   },
   {
    "id": "REV-DESIGN-StableReductionPartII",
