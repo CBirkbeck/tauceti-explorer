@@ -8755,3 +8755,228 @@ example (i : T ⟶ U) (j : T ⟶ V)
   sorry
 
 end TauCeti.AlgebraicGeometry.ChartTransitionTests
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 800000
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+  {U V W T S R : C}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+lemma selfHomSheafTransportIso_baseChange (X : HomCategory b b) (q : S ⟶ T)
+    {x y : F.obj (.mk (op T))} (e : x ≅ y) :
+    (J.overMapPullback (Type v') q).mapIso (selfHomSheafTransportIso b X e) ≪≫
+        fibreHomBaseChangeIso b b X q y y =
+      fibreHomBaseChangeIso b b X q x x ≪≫
+        selfHomSheafTransportIso b X ((F.map q.op.toLoc).toFunctor.mapIso e) := by
+  sorry
+
+lemma selfHomChartTransition_pullback (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (q : S ⟶ T)
+    (d : (F.map (q ≫ i).op.toLoc).toFunctor.obj x ≅
+      (F.map (q ≫ j).op.toLoc).toFunctor.obj y) (X : HomCategory b b) :
+    (J.overMapPullback (Type v') q).mapIso ((selfHomChartTransition b i j x y e).app X) ≪≫
+        (J.overMapPullbackComp (Type v') q j).app (fibreHomSheaf b b V y y X) =
+      (J.overMapPullbackComp (Type v') q i).app (fibreHomSheaf b b U x x X) ≪≫
+        (selfHomChartTransition b (q ≫ i) (q ≫ j) x y d).app X := by
+  sorry
+
+noncomputable def selfHomChartRefinement (i : T ⟶ U) (q : S ⟶ T)
+    (x : F.obj (.mk (op U))) :
+    (fibreHomSheafFunctor b b U x x ⋙ J.overMapPullback (Type v') i) ⋙
+        J.overMapPullback (Type v') q ≅
+      fibreHomSheafFunctor b b U x x ⋙ J.overMapPullback (Type v') (q ≫ i) :=
+  Functor.associator _ _ _ ≪≫ Functor.isoWhiskerLeft (fibreHomSheafFunctor b b U x x)
+    (J.overMapPullbackComp (Type v') q i)
+
+lemma selfHomChartRefinement_app (i : T ⟶ U) (q : S ⟶ T)
+    (x : F.obj (.mk (op U))) (X : HomCategory b b) :
+    (selfHomChartRefinement b i q x).app X =
+      (J.overMapPullbackComp (Type v') q i).app (fibreHomSheaf b b U x x X) := by
+  sorry
+
+lemma selfHomChartRefinement_hom (i : T ⟶ U) (q : S ⟶ T)
+    (x : F.obj (.mk (op U))) (X : HomCategory b b) :
+    (selfHomChartRefinement b i q x).hom.app X =
+      ((J.overMapPullbackComp (Type v') q i).app (fibreHomSheaf b b U x x X)).hom := by
+  sorry
+
+lemma selfHomChartRefinement_inv (i : T ⟶ U) (q : S ⟶ T)
+    (x : F.obj (.mk (op U))) (X : HomCategory b b) :
+    (selfHomChartRefinement b i q x).inv.app X =
+      ((J.overMapPullbackComp (Type v') q i).app (fibreHomSheaf b b U x x X)).inv := by
+  sorry
+
+lemma selfHomChartTransition_pullbackNatIso (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (q : S ⟶ T)
+    (d : (F.map (q ≫ i).op.toLoc).toFunctor.obj x ≅
+      (F.map (q ≫ j).op.toLoc).toFunctor.obj y) :
+    Functor.isoWhiskerRight (selfHomChartTransition b i j x y e)
+        (J.overMapPullback (Type v') q) ≪≫ selfHomChartRefinement b j q y =
+      selfHomChartRefinement b i q x ≪≫ selfHomChartTransition b (q ≫ i) (q ≫ j) x y d := by
+  sorry
+
+lemma selfHomChartTransition_pullback_inverse (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (q : S ⟶ T)
+    (d : (F.map (q ≫ i).op.toLoc).toFunctor.obj x ≅
+      (F.map (q ≫ j).op.toLoc).toFunctor.obj y) :
+    (selfHomChartRefinement b j q y).symm ≪≫
+        (Functor.isoWhiskerRight (selfHomChartTransition b i j x y e)
+          (J.overMapPullback (Type v') q)).symm =
+      (selfHomChartTransition b (q ≫ i) (q ≫ j) x y d).symm ≪≫
+        (selfHomChartRefinement b i q x).symm := by
+  sorry
+
+lemma selfHomChartTransition_pullback_section (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (q : S ⟶ T)
+    (d : (F.map (q ≫ i).op.toLoc).toFunctor.obj x ≅
+      (F.map (q ≫ j).op.toLoc).toFunctor.obj y)
+    (X : HomCategory b b) (L : Over S)
+    (p : (((J.overMapPullback (Type v') q).obj
+      ((J.overMapPullback (Type v') i).obj (fibreHomSheaf b b U x x X))).obj.obj (op L))) :
+    ((selfHomChartRefinement b j q y).hom.app X).hom.app (op L)
+        (((selfHomChartTransition b i j x y e).hom.app X).hom.app
+          (op ((Over.map q).obj L)) p) =
+      ((selfHomChartTransition b (q ≫ i) (q ≫ j) x y d).hom.app X).hom.app (op L)
+        (((selfHomChartRefinement b i q x).hom.app X).hom.app (op L) p) := by
+  sorry
+
+lemma selfHomOverlapTransition_refined_cover (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (q : S ⟶ T) (h : GerbeLocalCovers.overlapCover F i j x y q) :
+    GerbeLocalCovers.overlapCover F (q ≫ i) (q ≫ j) x y = ⊤ := by
+  sorry
+
+lemma selfHomOverlapTransition_refinement (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (q : S ⟶ T) (h : GerbeLocalCovers.overlapCover F i j x y q)
+    (r : R ⟶ S) (hr : GerbeLocalCovers.overlapCover F (q ≫ i) (q ≫ j) x y r) :
+    Functor.isoWhiskerRight (selfHomOverlapTransition b i j x y q h)
+        (J.overMapPullback (Type v') r) ≪≫ selfHomChartRefinement b (q ≫ j) r y =
+      selfHomChartRefinement b (q ≫ i) r x ≪≫
+        selfHomOverlapTransition b (q ≫ i) (q ≫ j) x y r hr := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.ChartRefinementTests
+open CategoryTheory Opposite Bicategory BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+  {U V W T S R : C}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+-- test: ChartRefinementTests.native_inverse
+example (i : T ⟶ U) (q : S ⟶ T) (x : F.obj (.mk (op U)))
+    (X : HomCategory b b) :
+    (selfHomChartRefinement b i q x).hom.app X ≫
+        (selfHomChartRefinement b i q x).inv.app X = 𝟙 _ ∧
+      (selfHomChartRefinement b i q x).inv.app X =
+        ((J.overMapPullbackComp (Type v') q i).app (fibreHomSheaf b b U x x X)).inv := by
+  sorry
+
+-- test: ChartRefinementTests.empty_sections
+example (i : T ⟶ U) (q : S ⟶ T) (x : F.obj (.mk (op U)))
+    (X : HomCategory b b) (L : Over S)
+    [IsEmpty (((J.overMapPullback (Type v') q).obj
+      ((J.overMapPullback (Type v') i).obj (fibreHomSheaf b b U x x X))).obj.obj (op L))] :
+    IsEmpty (((J.overMapPullback (Type v') (q ≫ i)).obj
+      (fibreHomSheaf b b U x x X)).obj.obj (op L)) := by
+  sorry
+
+-- test: ChartRefinementTests.arbitrary_section
+example (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (q : S ⟶ T)
+    (d : (F.map (q ≫ i).op.toLoc).toFunctor.obj x ≅
+      (F.map (q ≫ j).op.toLoc).toFunctor.obj y)
+    (X : HomCategory b b) (L : Over S)
+    (p : (((J.overMapPullback (Type v') q).obj
+      ((J.overMapPullback (Type v') i).obj (fibreHomSheaf b b U x x X))).obj.obj (op L))) :
+    ((selfHomChartRefinement b j q y).hom.app X).hom.app (op L)
+        (((selfHomChartTransition b i j x y e).hom.app X).hom.app
+          (op ((Over.map q).obj L)) p) =
+      ((selfHomChartTransition b (q ≫ i) (q ≫ j) x y d).hom.app X).hom.app (op L)
+        (((selfHomChartRefinement b i q x).hom.app X).hom.app (op L) p) := by
+  sorry
+
+-- test: ChartRefinementTests.independent_choice
+example (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (q : S ⟶ T)
+    (d a : (F.map (q ≫ i).op.toLoc).toFunctor.obj x ≅
+      (F.map (q ≫ j).op.toLoc).toFunctor.obj y) (h : d ≠ a) :
+    d ≠ a ∧ (Functor.isoWhiskerRight (selfHomChartTransition b i j x y e)
+      (J.overMapPullback (Type v') q) ≪≫ selfHomChartRefinement b j q y =
+        selfHomChartRefinement b i q x ≪≫ selfHomChartTransition b (q ≫ i) (q ≫ j) x y a) ∧
+      selfHomChartTransition b (q ≫ i) (q ≫ j) x y d =
+        selfHomChartTransition b (q ≫ i) (q ≫ j) x y a := by
+  sorry
+
+-- test: ChartRefinementTests.covered_refinement
+example (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (q : S ⟶ T) (h : GerbeLocalCovers.overlapCover F i j x y q) (r : R ⟶ S) :
+    GerbeLocalCovers.overlapCover F (q ≫ i) (q ≫ j) x y = ⊤ ∧
+    ∃ hr : GerbeLocalCovers.overlapCover F (q ≫ i) (q ≫ j) x y r,
+      Functor.isoWhiskerRight (selfHomOverlapTransition b i j x y q h)
+          (J.overMapPullback (Type v') r) ≪≫ selfHomChartRefinement b (q ≫ j) r y =
+        selfHomChartRefinement b (q ≫ i) r x ≪≫
+          selfHomOverlapTransition b (q ≫ i) (q ≫ j) x y r hr := by
+  sorry
+
+-- test: ChartRefinementTests.natural_modifications
+example (i : T ⟶ U) (q : S ⟶ T) (x : F.obj (.mk (op U)))
+    {X Y Z : HomCategory b b} (m : X ⟶ Y) (n : Y ⟶ Z) :
+    (J.overMapPullback (Type v') q).map
+        ((J.overMapPullback (Type v') i).map (fibreHomSheafMap b b U x x (m ≫ n))) ≫
+        (selfHomChartRefinement b i q x).hom.app Z =
+      (selfHomChartRefinement b i q x).hom.app X ≫
+        (J.overMapPullback (Type v') (q ≫ i)).map (fibreHomSheafMap b b U x x (m ≫ n)) := by
+  sorry
+
+-- test: ChartRefinementTests.nonidentity_loop
+example (i : T ⟶ U) (x : F.obj (.mk (op U)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map i.op.toLoc).toFunctor.obj x)
+    (he : e ≠ Iso.refl _) (q : S ⟶ T) :
+    e ≠ Iso.refl _ ∧ Functor.isoWhiskerRight (selfHomChartTransition b i i x x e)
+        (J.overMapPullback (Type v') q) ≪≫ selfHomChartRefinement b i q x =
+      selfHomChartRefinement b i q x := by
+  sorry
+
+-- test: ChartRefinementTests.refined_cocycle
+example (i : T ⟶ U) (j : T ⟶ V) (k : T ⟶ W)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V))) (z : F.obj (.mk (op W)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (d : (F.map j.op.toLoc).toFunctor.obj y ≅ (F.map k.op.toLoc).toFunctor.obj z)
+    (q : S ⟶ T)
+    (a : (F.map (q ≫ i).op.toLoc).toFunctor.obj x ≅
+      (F.map (q ≫ k).op.toLoc).toFunctor.obj z) :
+    Functor.isoWhiskerRight
+        (selfHomChartTransition b i j x y e ≪≫ selfHomChartTransition b j k y z d)
+        (J.overMapPullback (Type v') q) ≪≫ selfHomChartRefinement b k q z =
+      selfHomChartRefinement b i q x ≪≫ selfHomChartTransition b (q ≫ i) (q ≫ k) x z a := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.ChartRefinementTests
