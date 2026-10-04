@@ -12,7 +12,7 @@
     "SchemeAndStackFoundations:SF.6"
   ],
   "status": "partial",
-  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review. Flat-annihilator continuation: eight new lemma-sized supplier steps and seven tests, retaining the entire twenty-nine-node henselization strand. Quotient/cokernel continuation: thirteen native adapter declarations, three API items and eight tests, preserving all thirty-seven incoming whole nodes and every existing obligation. Affine ideal-pullback continuation: nine native adapters, three API items and five typed tests; all fifty incoming whole node objects and every prior obligation are preserved. Affine quotient naturality continuation: fourteen declaration-sized nodes, nine API items and nine typed tests. All59 incoming whole node objects and every prior obligation are preserved. Canonical quotient-to-closed-sections continuation: twelve declaration-sized nodes, nine API items and eight typed tests; all 73 incoming whole node objects and prior obligations are preserved. All-open kernel quotient continuation: twenty declaration-sized nodes, sixteen API items and nine distinct typed tests; all 85 incoming whole node objects and prior obligations are preserved. Quotient-comparison continuation:12 declarations(2 constructions,10 lemmas),10 API entries and7 typed tests; all105 incoming node objects preserved whole. Composite quotient continuation:14 declarations(3 constructions,11 lemmas),10 API entries and10 typed tests; all117 incoming whole node objects preserved. All-open composite comparison continuation:14 declarations(3 constructions,11 lemmas),12 API entries and9 typed tests; all131 incoming whole node objects preserved.",
+  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review. Flat-annihilator continuation: eight new lemma-sized supplier steps and seven tests, retaining the entire twenty-nine-node henselization strand. Quotient/cokernel continuation: thirteen native adapter declarations, three API items and eight tests, preserving all thirty-seven incoming whole nodes and every existing obligation. Affine ideal-pullback continuation: nine native adapters, three API items and five typed tests; all fifty incoming whole node objects and every prior obligation are preserved. Affine quotient naturality continuation: fourteen declaration-sized nodes, nine API items and nine typed tests. All59 incoming whole node objects and every prior obligation are preserved. Canonical quotient-to-closed-sections continuation: twelve declaration-sized nodes, nine API items and eight typed tests; all 73 incoming whole node objects and prior obligations are preserved. All-open kernel quotient continuation: twenty declaration-sized nodes, sixteen API items and nine distinct typed tests; all 85 incoming whole node objects and prior obligations are preserved. Quotient-comparison continuation:12 declarations(2 constructions,10 lemmas),10 API entries and7 typed tests; all105 incoming node objects preserved whole. Composite quotient continuation:14 declarations(3 constructions,11 lemmas),10 API entries and10 typed tests; all117 incoming whole node objects preserved. All-open composite comparison continuation:14 declarations(3 constructions,11 lemmas),12 API entries and9 typed tests; all131 incoming whole node objects preserved. Native transport and identity/three-morphism coherence for the three existing composite comparisons: fifteen lemmas, twelve API additions and nine typed tests; no stage closes.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1071,6 +1071,38 @@
         "line": 130,
         "provides": "noncomputable abbrev sheafification : (Cᵒᵖ ⥤ D) ⥤ Cᵒᵖ ⥤ D := Reuse the native construction to compare the specified actual scheme quotient and closed-subscheme presheaves.",
         "checked": "Codex — codex-7e92bd read the declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "line": 68,
+        "provides": "lemma comap_id (I : Z.IdealSheafData) : Import native equality transport or ideal pullback identity, without planning generic theory again.",
+        "checked": "Codex — codex-7e92bd read the actual declaration and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04; exact scopes and source hashes are in SourceFiles.json."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.eqToIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/EqToHom.lean",
+        "line": 214,
+        "provides": "def eqToIso {X Y : C} (p : X = Y) : X ≅ Y := Import native equality transport or ideal pullback identity, without planning generic theory again.",
+        "checked": "Codex — codex-7e92bd read the actual declaration and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04; exact scopes and source hashes are in SourceFiles.json."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.eqToIso_map",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/EqToHom.lean",
+        "line": 352,
+        "provides": "theorem eqToIso_map (F : C ⥤ D) {X Y : C} (p : X = Y) : Import native equality transport or ideal pullback identity, without planning generic theory again.",
+        "checked": "Codex — codex-7e92bd read the actual declaration and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04; exact scopes and source hashes are in SourceFiles.json."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.eqToIso_trans",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/EqToHom.lean",
+        "line": 230,
+        "provides": "theorem eqToIso_trans {X Y Z : C} (p : X = Y) (q : Y = Z) : Import native equality transport or ideal pullback identity, without planning generic theory again.",
+        "checked": "Codex — codex-7e92bd read the actual declaration and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04; exact scopes and source hashes are in SourceFiles.json."
       }
     ]
   },
@@ -1412,6 +1444,18 @@
       "accessed": "2026-10-04T07:54:36.596884+00:00",
       "readSections": [
         "Whole displayed Lemma 26.17.6 statement, proof and three page comments read. Image-ideal pullback context only; all precise presheaf and sheafification transport formulas are authored deductions from pinned APIs. No recursive source or exhaustive version/errata closure."
+      ]
+    },
+    {
+      "id": "STACKS-C12-7e92bd-01JU",
+      "title": "Closed-immersion pullback: native transport and coherence context",
+      "authors": "The Stacks Project authors",
+      "edition": "Whole displayed statement, proof and three page comments read 4 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/01JU",
+      "sha256": "56d2f17cbb293a8b66a122d3c923d6b3fdaf1a3c5d507a12536397ec3c98d308",
+      "accessed": "2026-10-04T11:02:18.873110+00:00",
+      "readSections": [
+        "Whole displayed Lemma 26.17.6 statement, proof and three comments. Source context only; exact native transport and coherence equations are authored deductions. No recursive source or exhaustive version/errata closure."
       ]
     }
   ],
@@ -7735,6 +7779,26 @@
           "name": "TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_closed",
           "role": "compatibility",
           "statement": "As actual natural transformations on all opens of X, kernelCompNatIso.hom followed by the iterated allOpenToClosed equals the direct allOpenToClosed followed by closedCompNatIso.hom."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_eqToIso",
+          "role": "compatibility",
+          "statement": "For arbitrary f:X→Y,g:Y→Z and native I on Z, kernelCompNatIso I f g equals native eqToIso of congrArg allOpenQuotient applied to I.comap_comp f g. This identifies the entire natural isomorphism on all opens, including its inverse, with native equality transport."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_id_left",
+          "role": "compatibility",
+          "statement": "For I on Y and arbitrary f:X→Y, the existing kernelCompNatIso for identity_X followed by f, then native transport removing the identity pullback of I.comap f, equals the direct transport induced by identity_X followed by f=f. The equality is of complete natural isomorphisms of all-open immersion-kernel quotient presheaves."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_id_right",
+          "role": "compatibility",
+          "statement": "For I on Y and arbitrary f:X→Y, the existing kernelCompNatIso for f followed by identity_Y, then transport of I.comap(identity_Y)=I after comap f, equals the direct transport induced by f followed by identity_Y=f. This retains the actual family of all-open immersion-kernel quotient presheaves."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_assoc",
+          "role": "compatibility",
+          "statement": "For arbitrary f:X→Y,g:Y→Z,h:Z→W and I on W, first comparing (f followed by g),h and then f,g for I.comap h equals: transport along scheme-morphism associativity, compare f,(g followed by h), then transport comap_comp(g,h) after comap f. This is an equality of complete natural isomorphisms of all-open immersion-kernel quotient presheaves; neither associativity transport nor the final pullback of ideal-data equality is omitted."
         }
       ],
       "tests": [
@@ -7752,6 +7816,21 @@
           "name": "CompositeKernelPresheafChecked.two_restrictions",
           "kind": "compatibility",
           "statement": "For every U≤V≤W in X and every quotient class on W, comparison after two direct restrictions equals the single iterated restriction along U≤W after comparison at W."
+        },
+        {
+          "name": "CompositeCoherenceChecked.kernel_threefold_sections",
+          "kind": "compatibility",
+          "statement": "For every open and every actual section of the direct all-open immersion-kernel quotient presheaves, the two fully transported three-morphism comparison paths give the same section, retaining both endpoint transports."
+        },
+        {
+          "name": "CompositeCoherenceChecked.kernel_identity_sections",
+          "kind": "compatibility",
+          "statement": "Evaluate the left identity coherence on every section of the actual all-open immersion-kernel quotient presheaves. The output agrees with the explicit native transport removing the identity morphism."
+        },
+        {
+          "name": "CompositeCoherenceChecked.kernel_empty_open",
+          "kind": "degenerate",
+          "statement": "On the empty open, native comap_comp transport of every actual kernel-quotient class is zero; zero section rings are allowed."
         }
       ],
       "implementationStatus": "unchecked",
@@ -7933,6 +8012,26 @@
           "name": "TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_closed",
           "role": "compatibility",
           "statement": "As actual natural transformations on all opens of X, kernelCompNatIso.hom followed by the iterated allOpenToClosed equals the direct allOpenToClosed followed by closedCompNatIso.hom."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_eqToIso",
+          "role": "compatibility",
+          "statement": "closedCompNatIso I f g equals native eqToIso induced by comap_comp on the entire family K↦(Opens.map K.subschemeι.base).op followed by K.subscheme.presheaf. Both the scheme and the immersion inverse-image functor are transported together; this is literal equality of complete natural isomorphisms."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_id_left",
+          "role": "compatibility",
+          "statement": "For I on Y and arbitrary f:X→Y, the existing closedCompNatIso for identity_X followed by f, then native transport removing the identity pullback of I.comap f, equals the direct transport induced by identity_X followed by f=f. The equality is of complete natural isomorphisms of whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_id_right",
+          "role": "compatibility",
+          "statement": "For I on Y and arbitrary f:X→Y, the existing closedCompNatIso for f followed by identity_Y, then transport of I.comap(identity_Y)=I after comap f, equals the direct transport induced by f followed by identity_Y=f. This retains the actual family of whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_assoc",
+          "role": "compatibility",
+          "statement": "For arbitrary f:X→Y,g:Y→Z,h:Z→W and I on W, first comparing (f followed by g),h and then f,g for I.comap h equals: transport along scheme-morphism associativity, compare f,(g followed by h), then transport comap_comp(g,h) after comap f. This is an equality of complete natural isomorphisms of whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors; neither associativity transport nor the final pullback of ideal-data equality is omitted."
         }
       ],
       "tests": [
@@ -7950,6 +8049,21 @@
           "name": "CompositeClosedPresheafChecked.restriction",
           "kind": "compatibility",
           "statement": "For every U≤V and every closed-subscheme section over the inverse image of V, the closed comparison commutes with the actual structure-presheaf restrictions along the two immersion inverse images."
+        },
+        {
+          "name": "CompositeCoherenceChecked.closed_threefold_sections",
+          "kind": "compatibility",
+          "statement": "For every open and every actual section of the direct whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors, the two fully transported three-morphism comparison paths give the same section, retaining both endpoint transports."
+        },
+        {
+          "name": "CompositeCoherenceChecked.closed_identity_sections",
+          "kind": "compatibility",
+          "statement": "Evaluate the right identity coherence on every section of the actual whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors. The output agrees with the explicit native transport removing the identity morphism."
+        },
+        {
+          "name": "CompositeCoherenceChecked.closed_inverse_transport",
+          "kind": "compatibility",
+          "statement": "For any supplied proof of the ideal-data composition equality, the inverse old closed comparison equals inverse transport as a complete natural isomorphism of the dependent closed-section family. Both directions and all actual sections are determined; no ambient representative is assumed."
         }
       ],
       "implementationStatus": "unchecked",
@@ -8144,6 +8258,26 @@
           "name": "TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_unique",
           "role": "compatibility",
           "statement": "Any natural transformation q between these two sheafifications that commutes with the same direct and iterated allOpenSheafComparison maps and closedCompNatIso equals sheafCompNatIso.hom."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_eqToIso",
+          "role": "compatibility",
+          "statement": "The existing sheafCompNatIso equals native eqToIso of the equality of the two actual sheafified allOpenQuotient presheaves induced by native comap_comp. The statement is about the entire sheafification, including sections without an ambient representative on an open."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_id_left",
+          "role": "compatibility",
+          "statement": "For I on Y and arbitrary f:X→Y, the existing sheafCompNatIso for identity_X followed by f, then native transport removing the identity pullback of I.comap f, equals the direct transport induced by identity_X followed by f=f. The equality is of complete natural isomorphisms of native sheafifications of those all-open quotient presheaves."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_id_right",
+          "role": "compatibility",
+          "statement": "For I on Y and arbitrary f:X→Y, the existing sheafCompNatIso for f followed by identity_Y, then transport of I.comap(identity_Y)=I after comap f, equals the direct transport induced by f followed by identity_Y=f. This retains the actual family of native sheafifications of those all-open quotient presheaves."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_assoc",
+          "role": "compatibility",
+          "statement": "For arbitrary f:X→Y,g:Y→Z,h:Z→W and I on W, first comparing (f followed by g),h and then f,g for I.comap h equals: transport along scheme-morphism associativity, compare f,(g followed by h), then transport comap_comp(g,h) after comap f. This is an equality of complete natural isomorphisms of native sheafifications of those all-open quotient presheaves; neither associativity transport nor the final pullback of ideal-data equality is omitted."
         }
       ],
       "tests": [
@@ -8161,6 +8295,21 @@
           "name": "CompositeSheafChecked.nonreduced_identity",
           "kind": "computation",
           "statement": "For two identity morphisms of Spec(ZMod4), zero ideal datum and the global ambient section corresponding to2, its quotient class followed by the sheafification unit and composite sheafification comparison is nonzero and square-zero."
+        },
+        {
+          "name": "CompositeCoherenceChecked.sheaf_threefold_sections",
+          "kind": "compatibility",
+          "statement": "For every open and every actual section of the direct native sheafifications of those all-open quotient presheaves, the two fully transported three-morphism comparison paths give the same section, retaining both endpoint transports."
+        },
+        {
+          "name": "CompositeCoherenceChecked.sheaf_identity_sections",
+          "kind": "compatibility",
+          "statement": "Evaluate the right identity coherence on every section of the actual native sheafifications of those all-open quotient presheaves. The output agrees with the explicit native transport removing the identity morphism."
+        },
+        {
+          "name": "CompositeCoherenceChecked.sheaf_nonreduced",
+          "kind": "non-example",
+          "statement": "For Spec(ZMod4), zero ideal datum and two identity morphisms, every natural isomorphism between the actual direct and iterated sheafifications sends the unit-image of the ambient section2 to a nonzero square-zero section. The constructed comparison and its proved native equality transport are instances; a reduction map cannot satisfy this isomorphism fixture."
         }
       ],
       "implementationStatus": "unchecked",
@@ -8369,6 +8518,680 @@
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/quotient-transport",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Equality transport preserves the actual section class",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenQuotient_eqToIso_mk",
+      "statement": "For native ideal data I,J on X and h:I=J, the component on every open U of native eqToIso applied to the equality of allOpenQuotient presheaves sends the class of every a∈Γ(X,U) to the class of the same a in the J-kernel quotient.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-presheaf",
+        "mathlib:CategoryTheory.eqToIso"
+      ],
+      "proofSteps": [
+        "Eliminate the equality of ideal data; native equality transport then acts by the identity on every quotient class."
+      ],
+      "acceptance": [
+        "For native ideal data I,J on X and h:I=J, the component on every open U of native eqToIso applied to the equality of allOpenQuotient presheaves sends the class of every a∈Γ(X,U) to the class of the same a in the J-kernel quotient.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/quotient-characterization",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Representative preservation characterizes kernel-quotient transport",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenQuotient_iso_eqToIso",
+      "statement": "For native ideal data I,J on X, h:I=J and an actual natural isomorphism e:allOpenQuotient(I)≅allOpenQuotient(J), if every component preserves each ambient section class then e equals native equality transport of the entire quotient presheaf. The representative condition is on all opens; it determines both directions of the natural isomorphism.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.eqToIso",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-presheaf"
+      ],
+      "proofSteps": [
+        "Eliminate the equality of ideal data first. Use isomorphism, natural-transformation and concrete-morphism extensionality; lift an arbitrary quotient class with native quotient surjectivity, then apply the supplied representative-preservation equation."
+      ],
+      "acceptance": [
+        "For native ideal data I,J on X, h:I=J and an actual natural isomorphism e:allOpenQuotient(I)≅allOpenQuotient(J), if every component preserves each ambient section class then e equals native equality transport of the entire quotient presheaf. The representative condition is on all opens; it determines both directions of the natural isomorphism.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-transport",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "The kernel comparison is native presheaf transport",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_eqToIso",
+      "statement": "For arbitrary f:X→Y,g:Y→Z and native I on Z, kernelCompNatIso I f g equals native eqToIso of congrArg allOpenQuotient applied to I.comap_comp f g. This identifies the entire natural isomorphism on all opens, including its inverse, with native equality transport.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-isomorphism",
+        "SchemeAndStackFoundations:SF.0/composite-coherence/quotient-characterization",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp"
+      ],
+      "proofSteps": [
+        "Apply the preceding representative characterization to the existing actual kernelCompNatIso and its already proved representative law. This specialization imports a general proof with abstract ideal data rather than expanding nested scheme pullbacks inside quotient extensionality."
+      ],
+      "acceptance": [
+        "For arbitrary f:X→Y,g:Y→Z and native I on Z, kernelCompNatIso I f g equals native eqToIso of congrArg allOpenQuotient applied to I.comap_comp f g. This identifies the entire natural isomorphism on all opens, including its inverse, with native equality transport.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-transport",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "The sheafified comparison is native presheaf transport",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_eqToIso",
+      "statement": "The existing sheafCompNatIso equals native eqToIso of the equality of the two actual sheafified allOpenQuotient presheaves induced by native comap_comp. The statement is about the entire sheafification, including sections without an ambient representative on an open.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-sheafification-isomorphism",
+        "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-transport",
+        "mathlib:CategoryTheory.eqToIso_map"
+      ],
+      "proofSteps": [
+        "Use the real sheafification functor, replace its input isomorphism by kernel transport, and apply native eqToIso_map."
+      ],
+      "acceptance": [
+        "The existing sheafCompNatIso equals native eqToIso of the equality of the two actual sheafified allOpenQuotient presheaves induced by native comap_comp. The statement is about the entire sheafification, including sections without an ambient representative on an open.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/comparison-transport",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "The closed-section comparison respects equality of ideal data",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.allOpenSheafComparison_eqToIso",
+      "statement": "For native I,J on X and h:I=J, inverse allOpenSheafComparison(I), followed by native equality transport between the sheafifications and then allOpenSheafComparison(J), equals native equality transport between their whole closed-section direct-image presheaves. The family being transported includes both subscheme structure presheaf and immersion inverse-image functor.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism",
+        "mathlib:CategoryTheory.eqToIso",
+        "mathlib:CategoryTheory.asIso"
+      ],
+      "proofSteps": [
+        "Eliminate h. The native equality transport becomes identity; cancel the actual comparison isomorphism with its inverse."
+      ],
+      "acceptance": [
+        "For native I,J on X and h:I=J, inverse allOpenSheafComparison(I), followed by native equality transport between the sheafifications and then allOpenSheafComparison(J), equals native equality transport between their whole closed-section direct-image presheaves. The family being transported includes both subscheme structure presheaf and immersion inverse-image functor.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-transport",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "The closed-section comparison is native dependent transport",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_eqToIso",
+      "statement": "closedCompNatIso I f g equals native eqToIso induced by comap_comp on the entire family K↦(Opens.map K.subschemeι.base).op followed by K.subscheme.presheaf. Both the scheme and the immersion inverse-image functor are transported together; this is literal equality of complete natural isomorphisms.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-closed-presheaf-isomorphism",
+        "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-transport",
+        "SchemeAndStackFoundations:SF.0/composite-coherence/comparison-transport"
+      ],
+      "proofSteps": [
+        "Unfold the old three-factor closed comparison. Replace the sheaf comparison by native transport and apply the preceding equality-conjugation law."
+      ],
+      "acceptance": [
+        "closedCompNatIso I f g equals native eqToIso induced by comap_comp on the entire family K↦(Opens.map K.subschemeι.base).op followed by K.subscheme.presheaf. Both the scheme and the immersion inverse-image functor are transported together; this is literal equality of complete natural isomorphisms.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-left",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Left identity coherence for all-open immersion-kernel quotient presheaves",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_id_left",
+      "statement": "For I on Y and arbitrary f:X→Y, the existing kernelCompNatIso for identity_X followed by f, then native transport removing the identity pullback of I.comap f, equals the direct transport induced by identity_X followed by f=f. The equality is of complete natural isomorphisms of all-open immersion-kernel quotient presheaves.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-transport",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id",
+        "mathlib:CategoryTheory.eqToIso_trans"
+      ],
+      "proofSteps": [
+        "Replace the existing comparison by its native equality-transport characterization. Compose transports with eqToIso_trans; proof irrelevance identifies the two equality proofs with the same endpoints."
+      ],
+      "acceptance": [
+        "For I on Y and arbitrary f:X→Y, the existing kernelCompNatIso for identity_X followed by f, then native transport removing the identity pullback of I.comap f, equals the direct transport induced by identity_X followed by f=f. The equality is of complete natural isomorphisms of all-open immersion-kernel quotient presheaves.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-right",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Right identity coherence for all-open immersion-kernel quotient presheaves",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_id_right",
+      "statement": "For I on Y and arbitrary f:X→Y, the existing kernelCompNatIso for f followed by identity_Y, then transport of I.comap(identity_Y)=I after comap f, equals the direct transport induced by f followed by identity_Y=f. This retains the actual family of all-open immersion-kernel quotient presheaves.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-transport",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id",
+        "mathlib:CategoryTheory.eqToIso_trans"
+      ],
+      "proofSteps": [
+        "Use the comparison characterization and eqToIso_trans. Retain transport after comap f; the equality proofs agree by proof irrelevance."
+      ],
+      "acceptance": [
+        "For I on Y and arbitrary f:X→Y, the existing kernelCompNatIso for f followed by identity_Y, then transport of I.comap(identity_Y)=I after comap f, equals the direct transport induced by f followed by identity_Y=f. This retains the actual family of all-open immersion-kernel quotient presheaves.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-assoc",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Three-morphism coherence for all-open immersion-kernel quotient presheaves",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_assoc",
+      "statement": "For arbitrary f:X→Y,g:Y→Z,h:Z→W and I on W, first comparing (f followed by g),h and then f,g for I.comap h equals: transport along scheme-morphism associativity, compare f,(g followed by h), then transport comap_comp(g,h) after comap f. This is an equality of complete natural isomorphisms of all-open immersion-kernel quotient presheaves; neither associativity transport nor the final pullback of ideal-data equality is omitted.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-transport",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp",
+        "mathlib:CategoryTheory.eqToIso_trans"
+      ],
+      "proofSteps": [
+        "Replace both actual comparisons by their native transport characterizations. Use eqToIso_trans on each path and proof irrelevance for the common source and final triple-pullback target."
+      ],
+      "acceptance": [
+        "For arbitrary f:X→Y,g:Y→Z,h:Z→W and I on W, first comparing (f followed by g),h and then f,g for I.comap h equals: transport along scheme-morphism associativity, compare f,(g followed by h), then transport comap_comp(g,h) after comap f. This is an equality of complete natural isomorphisms of all-open immersion-kernel quotient presheaves; neither associativity transport nor the final pullback of ideal-data equality is omitted.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-left",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Left identity coherence for native sheafifications of those all-open quotient presheaves",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_id_left",
+      "statement": "For I on Y and arbitrary f:X→Y, the existing sheafCompNatIso for identity_X followed by f, then native transport removing the identity pullback of I.comap f, equals the direct transport induced by identity_X followed by f=f. The equality is of complete natural isomorphisms of native sheafifications of those all-open quotient presheaves.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-transport",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id",
+        "mathlib:CategoryTheory.eqToIso_trans"
+      ],
+      "proofSteps": [
+        "Replace the existing comparison by its native equality-transport characterization. Compose transports with eqToIso_trans; proof irrelevance identifies the two equality proofs with the same endpoints."
+      ],
+      "acceptance": [
+        "For I on Y and arbitrary f:X→Y, the existing sheafCompNatIso for identity_X followed by f, then native transport removing the identity pullback of I.comap f, equals the direct transport induced by identity_X followed by f=f. The equality is of complete natural isomorphisms of native sheafifications of those all-open quotient presheaves.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-right",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Right identity coherence for native sheafifications of those all-open quotient presheaves",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_id_right",
+      "statement": "For I on Y and arbitrary f:X→Y, the existing sheafCompNatIso for f followed by identity_Y, then transport of I.comap(identity_Y)=I after comap f, equals the direct transport induced by f followed by identity_Y=f. This retains the actual family of native sheafifications of those all-open quotient presheaves.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-transport",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id",
+        "mathlib:CategoryTheory.eqToIso_trans"
+      ],
+      "proofSteps": [
+        "Use the comparison characterization and eqToIso_trans. Retain transport after comap f; the equality proofs agree by proof irrelevance."
+      ],
+      "acceptance": [
+        "For I on Y and arbitrary f:X→Y, the existing sheafCompNatIso for f followed by identity_Y, then transport of I.comap(identity_Y)=I after comap f, equals the direct transport induced by f followed by identity_Y=f. This retains the actual family of native sheafifications of those all-open quotient presheaves.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-assoc",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Three-morphism coherence for native sheafifications of those all-open quotient presheaves",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_assoc",
+      "statement": "For arbitrary f:X→Y,g:Y→Z,h:Z→W and I on W, first comparing (f followed by g),h and then f,g for I.comap h equals: transport along scheme-morphism associativity, compare f,(g followed by h), then transport comap_comp(g,h) after comap f. This is an equality of complete natural isomorphisms of native sheafifications of those all-open quotient presheaves; neither associativity transport nor the final pullback of ideal-data equality is omitted.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-transport",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp",
+        "mathlib:CategoryTheory.eqToIso_trans"
+      ],
+      "proofSteps": [
+        "Replace both actual comparisons by their native transport characterizations. Use eqToIso_trans on each path and proof irrelevance for the common source and final triple-pullback target."
+      ],
+      "acceptance": [
+        "For arbitrary f:X→Y,g:Y→Z,h:Z→W and I on W, first comparing (f followed by g),h and then f,g for I.comap h equals: transport along scheme-morphism associativity, compare f,(g followed by h), then transport comap_comp(g,h) after comap f. This is an equality of complete natural isomorphisms of native sheafifications of those all-open quotient presheaves; neither associativity transport nor the final pullback of ideal-data equality is omitted.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-left",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Left identity coherence for whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_id_left",
+      "statement": "For I on Y and arbitrary f:X→Y, the existing closedCompNatIso for identity_X followed by f, then native transport removing the identity pullback of I.comap f, equals the direct transport induced by identity_X followed by f=f. The equality is of complete natural isomorphisms of whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-coherence/closed-transport",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id",
+        "mathlib:CategoryTheory.eqToIso_trans"
+      ],
+      "proofSteps": [
+        "Replace the existing comparison by its native equality-transport characterization. Compose transports with eqToIso_trans; proof irrelevance identifies the two equality proofs with the same endpoints."
+      ],
+      "acceptance": [
+        "For I on Y and arbitrary f:X→Y, the existing closedCompNatIso for identity_X followed by f, then native transport removing the identity pullback of I.comap f, equals the direct transport induced by identity_X followed by f=f. The equality is of complete natural isomorphisms of whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-right",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Right identity coherence for whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_id_right",
+      "statement": "For I on Y and arbitrary f:X→Y, the existing closedCompNatIso for f followed by identity_Y, then transport of I.comap(identity_Y)=I after comap f, equals the direct transport induced by f followed by identity_Y=f. This retains the actual family of whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-coherence/closed-transport",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id",
+        "mathlib:CategoryTheory.eqToIso_trans"
+      ],
+      "proofSteps": [
+        "Use the comparison characterization and eqToIso_trans. Retain transport after comap f; the equality proofs agree by proof irrelevance."
+      ],
+      "acceptance": [
+        "For I on Y and arbitrary f:X→Y, the existing closedCompNatIso for f followed by identity_Y, then transport of I.comap(identity_Y)=I after comap f, equals the direct transport induced by f followed by identity_Y=f. This retains the actual family of whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-assoc",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Three-morphism coherence for whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_assoc",
+      "statement": "For arbitrary f:X→Y,g:Y→Z,h:Z→W and I on W, first comparing (f followed by g),h and then f,g for I.comap h equals: transport along scheme-morphism associativity, compare f,(g followed by h), then transport comap_comp(g,h) after comap f. This is an equality of complete natural isomorphisms of whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors; neither associativity transport nor the final pullback of ideal-data equality is omitted.",
+      "hypotheses": [
+        "Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.",
+        "The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/composite-coherence/closed-transport",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp",
+        "mathlib:CategoryTheory.eqToIso_trans"
+      ],
+      "proofSteps": [
+        "Replace both actual comparisons by their native transport characterizations. Use eqToIso_trans on each path and proof irrelevance for the common source and final triple-pullback target."
+      ],
+      "acceptance": [
+        "For arbitrary f:X→Y,g:Y→Z,h:Z→W and I on W, first comparing (f followed by g),h and then f,g for I.comap h equals: transport along scheme-morphism associativity, compare f,(g followed by h), then transport comap_comp(g,h) after comap f. This is an equality of complete natural isomorphisms of whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors; neither associativity transport nor the final pullback of ideal-data equality is omitted.",
+        "Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C12-7e92bd-01JU",
+          "locator": "Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.",
+          "match": "Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "how": "Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification."
+        }
+      ]
     }
   ],
   "requests": [],
@@ -8388,7 +9211,8 @@
         "Twenty all-open declarations now construct Q_I(U)=Γ(X,U)/ker(ι.app U), its actual quotient restrictions, the injective natural map to closed-subscheme sections, local bijectivity and the native ring-sheafification isomorphism a(Q_I)≅ι_*O_Z. The comparison agrees with the native affine quotient map and with quotientToClosed on actual pullback representatives. The presheaf itself is not asserted to be a sheaf or globally surjective. All consumer conductor identification, flat recomputation, henselization/source leaves, six reserved-key boundaries, 62 routed sources and other-stage obligations remain open.",
         "Twelve actual quotient-comparison declarations now connect the earlier affine-indexed image-ideal quotients to the all-open immersion-kernel quotients by a native natural transformation. It is always componentwise surjective and factors the actual closed-section transformation and native ring-sheafification comparison. A single affine inverse image gives component bijectivity; affine f gives a natural isomorphism. No arbitrary nonaffine injectivity, closed-section surjectivity or quotient-presheaf sheaf condition is asserted. Consumer conductor/flat-recomputation, henselization/source leaves, all six reserved-key boundaries,62 source routes and other-stage obligations remain open.",
         "Fourteen composite quotient declarations give an identity-induced ring equivalence under a single affine intermediate-open hypothesis, native comap_comp transport of immersion-kernel quotients on every open, the actual commuting quotient-to-kernel square and a natural isomorphism when the second morphism is affine and the first remains arbitrary. Remaining work includes identity/threefold coherence and compatibility with actual closed-subscheme and sheafification comparisons, keeping their dependent inverse-image functors explicit. No arbitrary nonaffine image-ideal equality, closed-section surjectivity or naive quotient sheaf condition is asserted. The conductor and flat-recomputation consumer obligations, eight gaps, all six reserved-key boundaries,62 source routes and other-stage obligations remain open.",
-        "Fourteen new declarations compare composite and iterated immersion-kernel quotient presheaves, actual direct images of closed-subscheme structure presheaves and their native sheafifications on every open. Both comparison squares commute, and the sheafification comparison is uniquely determined by the closed-section square. Identity and three-morphism coherence, explicit reindexed image-ideal quotient-to-closed/sheafification natural squares and the remaining conductor/flat-recomputation obligations remain. No arbitrary nonaffine image-ideal equality, closed-section surjectivity or naive quotient sheaf condition is claimed. Eight gaps, six reserved-key boundaries,62 source routes and all other-stage obligations remain open."
+        "Fourteen new declarations compare composite and iterated immersion-kernel quotient presheaves, actual direct images of closed-subscheme structure presheaves and their native sheafifications on every open. Both comparison squares commute, and the sheafification comparison is uniquely determined by the closed-section square. Identity and three-morphism coherence, explicit reindexed image-ideal quotient-to-closed/sheafification natural squares and the remaining conductor/flat-recomputation obligations remain. No arbitrary nonaffine image-ideal equality, closed-section surjectivity or naive quotient sheaf condition is claimed. Eight gaps, six reserved-key boundaries,62 source routes and all other-stage obligations remain open.",
+        "The three existing all-open composite comparisons now equal native transport of the complete presheaf families, including the dependent closed-subscheme inverse-image functor. Left/right identity and three-morphism coherence retain explicit scheme-arrow associativity and pulled-back ideal-data equality transports. Explicit reindexed image-ideal quotient-to-closed/sheafification natural squares remain, with their intermediate affine hypotheses. No arbitrary nonaffine image-ideal equality, global closed-section surjectivity or naive quotient sheaf condition is asserted. Both conductor/flat-recomputation consumer obligations, all eight gaps, six reserved-key boundaries, 62 source routes and other-stage obligations remain open."
       ]
     },
     {
@@ -8672,6 +9496,12 @@
       "url": "https://stacks.math.columbia.edu/tag/01IQ",
       "read": "2026-10-04",
       "sha256": "0329016aa00c3919201c5c9df902eedb920a7d955af6928522c5dd0f5afac4a8"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/01JU",
+      "read": "2026-10-04",
+      "sha256": "56d2f17cbb293a8b66a122d3c923d6b3fdaf1a3c5d507a12536397ec3c98d308"
     },
     {
       "kind": "author copy",
@@ -9177,10 +10007,10 @@
     "agent": "Codex — codex-7e92bd",
     "date": "2026-10-04",
     "issue": 642,
-    "implementation": "All145 nodes remain unchecked. Separate admission-free native evidence checks fourteen new declarations and nine examples after the entire authenticated1912-line incoming proof prefix; this is bounded signature/proof evidence, not a whole-roadmap implementation.",
-    "sourceRead": "Whole55077-character issue read before and after exact numeric bot confirmation. Fresh reads include current handoff narrative/recovery, all eight gaps, full SF.0 frontier, reviewed SF.0 audit row and both complete current Neron SF.0 consumer requests. Peer6052 public recovery and both actual immutable verifier reports were authenticated; its fourteen new declarations and ten tests were read without borrowing its reading attribution. Own6049 reading scopes retain original attribution at27 unchanged controls among32; four owned files and the whole Neron packet differ, so only freshly read portions of those are claimed. Whole current displayed Stacks01JU statement, proof and three page comments read. No whole131-node, inherited erratum/finding, historical source-worklist or recursive paper closure is claimed.",
-    "elaboration": "Complete Mathlib-only suggested file and separate admission-free native proof evidence checked with the existing exact pinned build. Actual construction maps survive projection; lemma and example proofs are admissions. Actual checker, intake and atlas reconstruction reports and public hashes delimit this checkpoint.",
-    "remaining": "Fourteen new declarations compare composite and iterated immersion-kernel quotient presheaves, actual direct images of closed-subscheme structure presheaves and their native sheafifications on every open. Both comparison squares commute, and the sheafification comparison is uniquely determined by the closed-section square. Identity and three-morphism coherence, explicit reindexed image-ideal quotient-to-closed/sheafification natural squares and the remaining conductor/flat-recomputation obligations remain. No arbitrary nonaffine image-ideal equality, closed-section surjectivity or naive quotient sheaf condition is claimed. Eight gaps, six reserved-key boundaries,62 source routes and all other-stage obligations remain open."
+    "implementation": "All160 nodes remain unchecked. Native evidence checks fifteen new lemma bodies and nine tests after the authenticated2182-line proof prefix; this is not a whole-roadmap implementation.",
+    "sourceRead": "Whole issue before and after numeric bot confirmation; current own6058 handoff and new proofs/tests, all eight gaps, full SF.0 frontier, reviewed SF.0 audit row and both whole current consumer requests freshly read. Exact own6058 and inherited own6049 manifests bind the reused reading scopes and their original attribution. Complete current01JU statement/proof/three comments and all34 touching-link entries read. No fresh whole145-node manual proof review, historical source/erratum closure or complete paper audit is asserted.",
+    "elaboration": "Full Mathlib-only suggested file and separate native proof evidence checked serially with the existing exact build; actual maps remain unchanged in the projection.",
+    "remaining": "The three existing all-open composite comparisons now equal native transport of the complete presheaf families, including the dependent closed-subscheme inverse-image functor. Left/right identity and three-morphism coherence retain explicit scheme-arrow associativity and pulled-back ideal-data equality transports. Explicit reindexed image-ideal quotient-to-closed/sheafification natural squares remain, with their intermediate affine hypotheses. No arbitrary nonaffine image-ideal equality, global closed-section surjectivity or naive quotient sheaf condition is asserted. Both conductor/flat-recomputation consumer obligations, all eight gaps, six reserved-key boundaries, 62 source routes and other-stage obligations remain open."
   },
   "restructure": [
     {
