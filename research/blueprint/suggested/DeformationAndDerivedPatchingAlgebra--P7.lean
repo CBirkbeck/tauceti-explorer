@@ -1,3 +1,6 @@
+import TauCeti.RingTheory.GradedAlgebra.Homogeneous.Quotient
+import Mathlib.RingTheory.GradedAlgebra.Homogeneous.Ideal
+import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.RingTheory.Length
 import Mathlib.Algebra.Module.Torsion.Basic
 import Mathlib.RingTheory.Noetherian.Basic
@@ -6295,6 +6298,234 @@ example : let q : Ideal (ZMod 4) := Ideal.span {2}
       (letI := adicModuleCokernelDecomposition q (ZMod 4) 0
        DirectSum.coeAddMonoidHom (adicModuleCokernelComponents q (ZMod 4) 0)
          (DirectSum.decompose (adicModuleCokernelComponents q (ZMod 4) 0) x) = x) := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+open scoped _root_.DirectSum
+set_option synthInstance.maxHeartbeats 200000
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A : Type*} [CommRing A]
+local instance (q : Ideal A) : CommRing (adicGradedRing q) := inferInstance
+variable (q : Ideal A)
+
+lemma adicScalarQuotient_homogeneous (a : adicRingComponents q 1) :
+    (Ideal.span {(a : adicGradedRing q)}).IsHomogeneous (adicRingComponents q) := by
+  sorry
+
+lemma adicScalarQuotient_decompose_mk (a : adicRingComponents q 1) (n : ℕ)
+    (b : adicGradedRing q) :
+    letI := TauCeti.GradedAlgebra.gradedAlgebraGradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)}) (adicScalarQuotient_homogeneous q a)
+    (DirectSum.decompose (TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)}))
+      (Ideal.Quotient.mk (Ideal.span {(a : adicGradedRing q)}) b) n :
+      adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)}) =
+      Ideal.Quotient.mk (Ideal.span {(a : adicGradedRing q)}) (adicRingProjection q n b) := by
+  sorry
+
+variable (M : Type*) [AddCommGroup M] [Module A M]
+
+lemma adicModuleKernelScalar_gradedSMul (a : adicRingComponents q 1) :
+    letI := adicModuleKernelScalarModule q M a
+    SetLike.GradedSMul (TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)})) (adicModuleKernelComponents q M a) := by
+  sorry
+
+lemma adicModuleCokernelScalar_gradedSMul (a : adicRingComponents q 1) :
+    letI := adicModuleCokernelScalarModule q M a
+    SetLike.GradedSMul (TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)})) (adicModuleCokernelComponents q M a) := by
+  sorry
+
+lemma adicModuleKernelScalar_decompose_product (a : adicRingComponents q 1) (i j : ℕ)
+    (b : adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)})
+    (hb : b ∈ TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)}) i)
+    (x : LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+    (hx : x ∈ adicModuleKernelComponents q M a j) :
+    letI := adicModuleKernelScalarModule q M a
+    letI := adicModuleKernelDecomposition q M a
+    (DirectSum.decompose (adicModuleKernelComponents q M a) (b • x) (i+j) :
+      LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) = b • x := by
+  sorry
+
+lemma adicModuleCokernelScalar_projection_product (a : adicRingComponents q 1) (i j : ℕ)
+    (b : adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)})
+    (hb : b ∈ TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)}) i)
+    (x : adicGradedModule q M ⧸ LinearMap.range
+      (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+    (hx : x ∈ adicModuleCokernelComponents q M a j) :
+    letI := adicModuleCokernelScalarModule q M a
+    adicModuleCokernelProjection q M a (i+j) (b • x) = b • x := by
+  sorry
+
+variable {ι : Type*}
+
+def adicRemainingGeneratorMap (a : adicRingComponents q 1) (b : ι → adicRingComponents q 1) :
+    MvPolynomial ι (A ⧸ q) →ₐ[A ⧸ q]
+      (adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)}) :=
+  MvPolynomial.aeval (fun i => Ideal.Quotient.mk (Ideal.span {(a : adicGradedRing q)}) (b i))
+
+lemma adicRemainingGeneratorMap_X (a : adicRingComponents q 1)
+    (b : ι → adicRingComponents q 1) (i : ι) :
+    adicRemainingGeneratorMap q a b (MvPolynomial.X i) =
+      Ideal.Quotient.mk (Ideal.span {(a : adicGradedRing q)}) (b i) := by
+  sorry
+
+lemma adicRemainingGeneratorMap_C (a : adicRingComponents q 1)
+    (b : ι → adicRingComponents q 1) (c : A ⧸ q) :
+    adicRemainingGeneratorMap q a b (MvPolynomial.C c) =
+      algebraMap (A ⧸ q) (adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)}) c := by
+  sorry
+
+lemma adicRemainingGeneratorMap_unique (a : adicRingComponents q 1)
+    (b : ι → adicRingComponents q 1)
+    (g : MvPolynomial ι (A ⧸ q) →ₐ[A ⧸ q]
+      (adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)}))
+    (hg : ∀ i, g (MvPolynomial.X i) =
+      Ideal.Quotient.mk (Ideal.span {(a : adicGradedRing q)}) (b i)) :
+    g = adicRemainingGeneratorMap q a b := by
+  sorry
+
+lemma adicRemainingGeneratorMap_degree_one (a : adicRingComponents q 1)
+    (b : ι → adicRingComponents q 1) (i : ι) :
+    adicRemainingGeneratorMap q a b (MvPolynomial.X i) ∈
+      TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+        (Ideal.span {(a : adicGradedRing q)}) 1 := by
+  sorry
+
+lemma adicRemainingGeneratorMap_surjective (a : adicRingComponents q 1)
+    (b : ι → adicRingComponents q 1)
+    (hgen : Algebra.adjoin (A ⧸ q)
+      (insert (a : adicGradedRing q) (Set.range (fun i => (b i : adicGradedRing q)))) = ⊤) :
+    Function.Surjective (adicRemainingGeneratorMap q a b) := by
+  sorry
+
+lemma adicModuleKernelRemaining_finite (a : adicRingComponents q 1)
+    (b : ι → adicRingComponents q 1)
+    (hgen : Algebra.adjoin (A ⧸ q)
+      (insert (a : adicGradedRing q) (Set.range (fun i => (b i : adicGradedRing q)))) = ⊤)
+    [IsNoetherian (adicGradedRing q) (adicGradedModule q M)] :
+    letI := adicModuleKernelScalarModule q M a
+    letI := Module.compHom
+      (LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+      (adicRemainingGeneratorMap q a b).toRingHom
+    Module.Finite (MvPolynomial ι (A ⧸ q))
+      (LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) := by
+  sorry
+
+lemma adicModuleCokernelRemaining_finite (a : adicRingComponents q 1)
+    (b : ι → adicRingComponents q 1)
+    (hgen : Algebra.adjoin (A ⧸ q)
+      (insert (a : adicGradedRing q) (Set.range (fun i => (b i : adicGradedRing q)))) = ⊤)
+    [Module.Finite (adicGradedRing q) (adicGradedModule q M)] :
+    letI := adicModuleCokernelScalarModule q M a
+    letI := Module.compHom
+      (adicGradedModule q M ⧸ LinearMap.range
+        (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+      (adicRemainingGeneratorMap q a b).toRingHom
+    Module.Finite (MvPolynomial ι (A ⧸ q))
+      (adicGradedModule q M ⧸ LinearMap.range
+        (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+open scoped _root_.DirectSum
+set_option synthInstance.maxHeartbeats 200000
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A : Type*} [CommRing A]
+local instance (q : Ideal A) : CommRing (adicGradedRing q) := inferInstance
+variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+variable {ι : Type*}
+
+-- test: AdicRemainingTests.coefficient_and_variable
+example (a : adicRingComponents q 1) (b : ι → adicRingComponents q 1)
+    (i : ι) (c : A ⧸ q) :
+    adicRemainingGeneratorMap q a b (MvPolynomial.C c + MvPolynomial.X i) =
+      algebraMap (A ⧸ q) (adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)}) c +
+      Ideal.Quotient.mk (Ideal.span {(a : adicGradedRing q)}) (b i) := by
+  sorry
+
+-- test: AdicRemainingTests.eliminated_generator
+example (a : adicRingComponents q 1) :
+    adicRemainingGeneratorMap q a (fun _ : Unit => a) (MvPolynomial.X ()) = 0 := by
+  sorry
+
+-- test: AdicRemainingTests.empty_family
+example (a : adicRingComponents q 1)
+    (hgen : Algebra.adjoin (A ⧸ q) {(a : adicGradedRing q)} = ⊤) :
+    Function.Surjective (adicRemainingGeneratorMap q a (fun i : PEmpty => i.elim)) := by
+  sorry
+
+-- test: AdicRemainingTests.unit_ideal
+example (a : adicRingComponents (⊤ : Ideal A) 1)
+    (b : ι → adicRingComponents (⊤ : Ideal A) 1)
+    (p : MvPolynomial ι (A ⧸ (⊤ : Ideal A))) :
+    adicRemainingGeneratorMap (⊤ : Ideal A) a b p = 0 := by
+  sorry
+
+-- test: AdicRemainingTests.surviving_nilpotent
+example :
+    let q : Ideal (ZMod 4) := Ideal.span {2}
+    ∃ b : Unit → adicRingComponents q 1,
+      adicRemainingGeneratorMap q 0 b (MvPolynomial.X ()) ≠ 0 ∧
+      adicRemainingGeneratorMap q 0 b (MvPolynomial.X ()) ^ 2 = 0 := by
+  sorry
+
+-- test: AdicRemainingTests.kernel_two_scalars
+example (a : adicRingComponents q 1) (i j n : ℕ)
+    (b c : adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)})
+    (hb : b ∈ TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)}) i)
+    (hc : c ∈ TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)}) j)
+    (x : LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+    (hx : x ∈ adicModuleKernelComponents q M a n) :
+    letI := adicModuleKernelScalarModule q M a
+    letI := adicModuleKernelDecomposition q M a
+    (DirectSum.decompose (adicModuleKernelComponents q M a) (b • (c • x)) (i+(j+n)) :
+      LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) = b • (c • x) := by
+  sorry
+
+-- test: AdicRemainingTests.cokernel_two_scalars
+example (a : adicRingComponents q 1) (i j n : ℕ)
+    (b c : adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)})
+    (hb : b ∈ TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)}) i)
+    (hc : c ∈ TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)}) j)
+    (x : adicGradedModule q M ⧸ LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+    (hx : x ∈ adicModuleCokernelComponents q M a n) :
+    letI := adicModuleCokernelScalarModule q M a
+    adicModuleCokernelProjection q M a (i+(j+n)) (b • (c • x)) = b • (c • x) := by
+  sorry
+
+-- test: AdicRemainingTests.quotient_mixed_coordinates
+example (a : adicRingComponents q 1) (u : adicRingPiece q 0) (v : adicRingPiece q 1) :
+    letI := TauCeti.GradedAlgebra.gradedAlgebraGradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)}) (adicScalarQuotient_homogeneous q a)
+    let x := Ideal.Quotient.mk (Ideal.span {(a : adicGradedRing q)})
+      (adicPieceInclusion q 0 u + adicPieceInclusion q 1 v)
+    (DirectSum.decompose (TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)})) x 0 :
+      adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)}) =
+        Ideal.Quotient.mk (Ideal.span {(a : adicGradedRing q)}) (adicPieceInclusion q 0 u) ∧
+    (DirectSum.decompose (TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
+      (Ideal.span {(a : adicGradedRing q)})) x 2 :
+      adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)}) = 0 := by
   sorry
 
 end

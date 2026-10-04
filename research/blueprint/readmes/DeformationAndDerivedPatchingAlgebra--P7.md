@@ -1,3 +1,213 @@
+# Quotient graded actions and the remaining generators
+
+Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+The existing graded-ring quotient package supplies the quotient decomposition once the principal ideal is proved homogeneous. Homogeneous representatives then identify the descended actions with the old actions on the actual kernel and cokernel. The polynomial map from the remaining generators is surjective because the removed generator becomes zero. Its finite algebra action and the inherited finite Q-module structures give finite generation over the remaining polynomial ring.
+
+## Homogeneous principal scalar ideal
+
+TauCeti.HilbertSamuel.adicScalarQuotient_homogeneous
+
+The actual principal ideal I=(a) is homogeneous for the existing internal grading of S, including a=0 and nonzero zero divisors.
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+Proof: Use the existing theorem that the ideal spanned by homogeneous elements is homogeneous. The singleton generator belongs to the actual degree-one component.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration, mathlib:Ideal.homogeneous_span.
+
+## Scalar quotient coordinates
+
+TauCeti.HilbertSamuel.adicScalarQuotient_decompose_mk
+
+Install the existing Tau gradedAlgebraGradeQuot on Q using the preceding homogeneity proof. For every b in S and n≥0, the n-th coordinate of [b] in Q, included into Q, is exactly [pi_n(b)], where pi_n is the existing adicRingProjection.
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+Proof: The quotient algebra map is A-linear and sends each original component into the existing quotient component. Apply the existing shifted-decomposition comparison with the identity injective degree map and reverse the resulting equality. No new quotient grading is constructed.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-scalar-quotient-homogeneous, DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration, tauceti:TauCeti.GradedAlgebra.gradeQuot, tauceti:TauCeti.GradedAlgebra.gradedAlgebraGradeQuot, tauceti:TauCeti.GradedAlgebra.mk_mem_gradeQuot, tauceti:TauCeti.DirectSum.map_decompose_shift, mathlib:Ideal.Quotient.mkₐ.
+
+## Quotient scalar grading on the kernel
+
+TauCeti.HilbertSamuel.adicModuleKernelScalar_gradedSMul
+
+For the existing Q-module structure on K, the existing families Q_i and K_j satisfy native SetLike.GradedSMul: Q_i·K_j is contained in K_(i+j).
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+Proof: Lift the actual homogeneous quotient scalar to a homogeneous original scalar. Its descended action equals the original S action by the inherited representative formula; apply the already proved original kernel degree-addition law.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-smaller-ring-module, DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-smaller-ring-representative-action, DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components-scalar-action, tauceti:TauCeti.GradedAlgebra.gradeQuot, tauceti:TauCeti.GradedAlgebra.mem_gradeQuot_iff, mathlib:SetLike.GradedSMul.
+
+## Quotient scalar grading on the cokernel
+
+TauCeti.HilbertSamuel.adicModuleCokernelScalar_gradedSMul
+
+For the existing Q-module structure on C, the existing families Q_i and C_j satisfy native SetLike.GradedSMul: Q_i·C_j is contained in C_(i+j).
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+Proof: Lift the homogeneous quotient scalar and use the inherited descended representative-action formula. The original S action on the same cokernel already adds component degrees.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-smaller-ring-module, DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-smaller-ring-representative-action, DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-components-scalar, tauceti:TauCeti.GradedAlgebra.gradeQuot, tauceti:TauCeti.GradedAlgebra.mem_gradeQuot_iff, mathlib:SetLike.GradedSMul.
+
+## Kernel coordinate of a quotient scalar product
+
+TauCeti.HilbertSamuel.adicModuleKernelScalar_decompose_product
+
+For b in Q_i and actual x in K_j, with the existing Q action and kernel decomposition installed, the coordinate at i+j of b·x, included into K, equals b·x.
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+Proof: The new quotient graded-action theorem places b·x in K_(i+j); native homogeneous decomposition fixes it.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-quotient-graded-action, DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-decomposition, mathlib:DirectSum.decompose_of_mem_same.
+
+## Cokernel projection of a quotient scalar product
+
+TauCeti.HilbertSamuel.adicModuleCokernelScalar_projection_product
+
+For b in Q_i and actual x in C_j, the existing cokernel projection at i+j fixes the actual descended product b·x.
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+Proof: Apply the new quotient degree-addition theorem and the inherited fixed-projection characterization on the same quotient C.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-quotient-graded-action, DeformationAndDerivedPatchingAlgebra:R03.3/adic-cokernel-projection-fixed.
+
+## Polynomial map from the remaining generators
+
+TauCeti.HilbertSamuel.adicRemainingGeneratorMap
+
+For any index type J and family b:J→S_1, construct the A/q-algebra map F:(A/q)[X_j | j∈J]→Q sending X_j to the actual class of b_j. This uses ordinary native multivariate polynomials and the existing quotient algebra, without assuming that the family generates S.
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+Proof: Apply the native universal evaluation map to the quotient classes of the designated remaining degree-one generators. The coefficient algebra is the inherited A/q algebra on the actual quotient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-ring, DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components, mathlib:MvPolynomial.aeval, mathlib:Ideal.Quotient.mk.
+
+API TauCeti.HilbertSamuel.adicRemainingGeneratorMap_X: For every j∈J, F(X_j)=[b_j] in Q.
+
+API TauCeti.HilbertSamuel.adicRemainingGeneratorMap_C: For every c∈A/q, F(C(c)) is the actual coefficient algebra image of c in Q.
+
+API TauCeti.HilbertSamuel.adicRemainingGeneratorMap_unique: Any A/q-algebra homomorphism from (A/q)[X_j] to the same Q taking every X_j to [b_j] equals F.
+
+API TauCeti.HilbertSamuel.adicRemainingGeneratorMap_degree_one: For every j∈J, F(X_j) belongs to the existing quotient component Q_1. This permits zero generator images and does not assert their nonvanishing.
+
+API TauCeti.HilbertSamuel.adicRemainingGeneratorMap_surjective: If the designated a together with the family (b_j) generates S as an A/q-algebra, then F is surjective onto Q=S/(a). For J=Fin r this removes one generator from a list of r+1, without requiring minimality or nonzero generators.
+
+## Remaining variable evaluation
+
+TauCeti.HilbertSamuel.adicRemainingGeneratorMap_X
+
+For every j∈J, F(X_j)=[b_j] in Q.
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+Proof: Use native evaluation on a polynomial variable.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-remaining-generator-map, mathlib:MvPolynomial.aeval_X.
+
+## Remaining coefficient evaluation
+
+TauCeti.HilbertSamuel.adicRemainingGeneratorMap_C
+
+For every c∈A/q, F(C(c)) is the actual coefficient algebra image of c in Q.
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+Proof: Use native evaluation on a polynomial coefficient.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-remaining-generator-map, mathlib:MvPolynomial.aeval_C.
+
+## Uniqueness of the remaining generator map
+
+TauCeti.HilbertSamuel.adicRemainingGeneratorMap_unique
+
+Any A/q-algebra homomorphism from (A/q)[X_j] to the same Q taking every X_j to [b_j] equals F.
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+Proof: The native multivariate polynomial algebra-homomorphism extensionality theorem reduces equality to the prescribed variable values.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-remaining-generator-map, DeformationAndDerivedPatchingAlgebra:R03.3/adic-remaining-generator-variable, mathlib:MvPolynomial.algHom_ext.
+
+## Remaining variable has quotient degree one
+
+TauCeti.HilbertSamuel.adicRemainingGeneratorMap_degree_one
+
+For every j∈J, F(X_j) belongs to the existing quotient component Q_1. This permits zero generator images and does not assert their nonvanishing.
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.
+
+Proof: Each original b_j belongs to S_1; its quotient class belongs to the corresponding native quotient component.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-remaining-generator-variable, tauceti:TauCeti.GradedAlgebra.mk_mem_gradeQuot.
+
+## Surjectivity after removing one generator
+
+TauCeti.HilbertSamuel.adicRemainingGeneratorMap_surjective
+
+If the designated a together with the family (b_j) generates S as an A/q-algebra, then F is surjective onto Q=S/(a). For J=Fin r this removes one generator from a list of r+1, without requiring minimality or nonzero generators.
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit. The A/q-algebra generated by {a}∪{b_j | j∈J} is all of S. No finiteness of J is required for this statement.
+
+Proof: Map the original adjoin equality through the surjective quotient algebra map. The image of a is zero. Adjoining this zero adds nothing, so the quotient is generated by the remaining images. Identify this adjoin with the range of the native evaluation map.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-remaining-generator-map, mathlib:MvPolynomial.aeval_range, mathlib:AlgHom.range_eq_top, mathlib:Algebra.map_top, mathlib:AlgHom.map_adjoin, mathlib:Algebra.adjoin_insert_zero, mathlib:Ideal.Quotient.mk_surjective, mathlib:Ideal.Quotient.eq_zero_iff_mem.
+
+## Kernel finiteness over the remaining polynomial ring
+
+TauCeti.HilbertSamuel.adicModuleKernelRemaining_finite
+
+Assume {a}∪{b_j} generates S over A/q and L is Noetherian as an S-module. Restrict the existing Q action on the actual K along F using native Module.compHom. Then K is finite over (A/q)[X_j | j∈J].
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit. L is Noetherian as an S-module. The designated family {a}∪{b_j} generates S over A/q. No regularity of a is assumed.
+
+Proof: The inherited smaller-ring theorem makes K finite over Q under the stated Noetherian-module hypothesis. The surjective F makes Q finite over the polynomial source. Its actual induced action and the composed K action form the scalar tower by associativity of scalar multiplication. Apply native transitivity of finite modules.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-remaining-generator-surjective, DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-smaller-ring-finiteness, mathlib:Module.compHom, mathlib:RingHom.Finite.of_surjective, mathlib:Module.Finite.trans.
+
+## Cokernel finiteness over the remaining polynomial ring
+
+TauCeti.HilbertSamuel.adicModuleCokernelRemaining_finite
+
+Assume {a}∪{b_j} generates S over A/q and L is finite as an S-module. Restrict the existing Q action on the actual C along F using native Module.compHom. Then C is finite over (A/q)[X_j | j∈J].
+
+Hypotheses: Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit. L is finite as an S-module. The designated family {a}∪{b_j} generates S over A/q.
+
+Proof: The inherited quotient theorem gives finite generation over Q from finite generation of L over S. Surjectivity makes Q finite over the polynomial source; the composed action has the native scalar tower. Apply finite-module transitivity. Unlike the kernel theorem, this requires no Noetherian hypothesis.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-remaining-generator-surjective, DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-smaller-ring-finiteness, mathlib:Module.compHom, mathlib:RingHom.Finite.of_surjective, mathlib:Module.Finite.trans.
+
+## Boundary tests
+
+AdicRemainingTests.coefficient_and_variable (computation): The remaining-generator map evaluates C(c)+X_i to the actual coefficient image plus the quotient class of b_i.
+
+AdicRemainingTests.eliminated_generator (non-example): If the remaining family repeats a itself, every corresponding variable maps to zero in S/(a). A map into S or an identity substitute fails.
+
+AdicRemainingTests.empty_family (degenerate): If a alone generates S as an A/q-algebra, the map from polynomials with the empty variable type is still surjective onto S/(a). No positive number of remaining generators is assumed.
+
+AdicRemainingTests.unit_ideal (degenerate): For q=A, every polynomial evaluates to zero in the actual remaining-generator quotient, over the zero coefficient ring.
+
+AdicRemainingTests.surviving_nilpotent (non-example): For A=Z/4, q=(2), a=0, the degree-one class of2 supplies a remaining generator whose variable image is nonzero and has square zero in the actual quotient. Neither killing all positive degrees nor assuming a reduced quotient is allowed.
+
+AdicRemainingTests.kernel_two_scalars (compatibility): For actual b in Q_i, c in Q_j and x in K_n, the nested descended product b·(c·x) is fixed by the native kernel decomposition at i+(j+n).
+
+AdicRemainingTests.cokernel_two_scalars (compatibility): For actual b in Q_i, c in Q_j and x in C_n, the nested descended product b·(c·x) is fixed by the existing cokernel projection at i+(j+n).
+
+AdicRemainingTests.quotient_mixed_coordinates (compatibility): For a quotient class of an original degree-zero plus degree-one scalar, the native quotient coordinate at0 is exactly the class of its degree-zero term and its coordinate at2 vanishes.
+
+## Required continuation
+
+Fourteen new nodes specialize the existing Tau quotient grading to S/(a), prove agreement with original scalar projections, and supply native graded actions on the actual kernel and cokernel using their already constructed scalar descent. The remaining-generator polynomial algebra map has coefficient/variable formulas, uniqueness, degree-one images and proved surjectivity when {a} together with the remaining family generates S. Both actual modules are finite over this remaining polynomial ring under their distinct inherited Noetherian/finite-module hypotheses. This supersedes only these graded-scalar and remaining-polynomial-finiteness omissions. Still supply the induction in a form closed under repeated graded kernels and quotients, arbitrary homogeneous polynomial action, finite homogeneous generating families and the zero-generator eventual-vanishing branch, then assemble the finite-length recurrence with explicit finite-difference polynomial, threshold and initial constant. The current adic specializations do not themselves constitute the recursive Hilbert–Serre theorem. Preserve the nonzero kernel correction and guarded length conversions. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-paper obligation remain open; all nodes unchecked.
+
+All452 incoming whole nodes, source/version findings, fifteen gaps, two requests, thirteen planets and all earlier obligations remain unchanged. The original reader follows. The full Tau-importing suggested file remains uncompiled; isolated evidence replays the exact pinned quotient-grading source as well as the four previously authenticated Tau direct-sum declarations.
+
+---
+
 # Internal grading of the actual adic cokernel
 
 A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.
