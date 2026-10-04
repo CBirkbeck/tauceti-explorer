@@ -15511,8 +15511,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-QuiverRepresentationsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3462"
+   "state": "pending",
+   "note": "released on GitHub issue #3462"
   },
   {
    "id": "REV-DESIGN-QuiverRepresentationsPartII",
