@@ -1,5 +1,7 @@
 
 
+-- The authenticated incoming imports supply the native category and tensor APIs.
+
 import Mathlib.CategoryTheory.Monoidal.NaturalTransformation
 
 import Mathlib.Algebra.Category.ModuleCat.Monoidal.Adjunction
@@ -6580,6 +6582,405 @@ example :
       ((Functor.LaxMonoidal.μ (AffineCategory.pullback m) U U).1
         (((0 : ZMod 1) ⊗ₜ[ZMod 1] (0 : ZMod 1)) ⊗ₜ[ZMod 1]
           ((0 : ZMod 1) ⊗ₜ[ZMod 1] (0 : ZMod 1)))) = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 200000
+open CategoryTheory
+open scoped TensorProduct
+universe u w z p q a b c d
+variable {k R : Type u} [CommRing k] [CommRing R] [Algebra k R]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W] [IsScalarTower k R W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z]
+variable {Ω : TwoForms k R W Z} {lam mu : R}
+variable {S : Type u} [CommRing S] [Algebra k S] [Algebra R S]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V] [IsScalarTower k S V]
+variable {Y : Type q} [AddCommGroup Y] [Module S Y]
+variable {Γ : TwoForms k S V Y}
+
+def AffineCategory.pullbackParameterChangeIso (h : lam = mu)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    AffineCategory.parameterChange h ⋙ AffineCategory.pullback m ≅
+      AffineCategory.pullback m ⋙
+        AffineCategory.parameterChange (congrArg (algebraMap R S) h) :=
+  NatIso.ofComponents (fun X => AffineCategory.isoMk (LinearEquiv.refl S (S ⊗[R] X.1))
+    (by
+      intro x
+      subst mu
+      change ((AffineCategory.pullback m).obj X).2.toAddHom x =
+        TensorProduct.map LinearMap.id LinearMap.id (((AffineCategory.pullback m).obj X).2.toAddHom x)
+      simp)) (by intro X X' f; apply Subtype.ext; rfl)
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] in
+lemma AffineCategory.pullbackParameterChangeIso_hom (h : lam = mu)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
+    (x : S ⊗[R] X.1) :
+    ((AffineCategory.pullbackParameterChangeIso h m).hom.app X).1 x = x := by
+  sorry
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] in
+lemma AffineCategory.pullbackParameterChangeIso_inv (h : lam = mu)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
+    (x : S ⊗[R] X.1) :
+    ((AffineCategory.pullbackParameterChangeIso h m).inv.app X).1 x = x := by
+  sorry
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] in
+lemma AffineCategory.pullbackParameterChangeIso_naturality (h : lam = mu)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
+    (f : X ⟶ X') :
+    (AffineCategory.parameterChange h ⋙ AffineCategory.pullback m).map f ≫
+        (AffineCategory.pullbackParameterChangeIso h m).hom.app X' =
+      (AffineCategory.pullbackParameterChangeIso h m).hom.app X ≫
+        (AffineCategory.pullback m ⋙
+          AffineCategory.parameterChange (congrArg (algebraMap R S) h)).map f := by
+  sorry
+
+variable {T U : Type u} [CommRing T] [CommRing U]
+  [Algebra k T] [Algebra k U] [Algebra S T] [Algebra R T]
+  [Algebra T U] [Algebra S U] [Algebra R U]
+  [IsScalarTower R S T] [IsScalarTower S T U]
+  [IsScalarTower R S U] [IsScalarTower R T U]
+variable {P : Type a} [AddCommGroup P] [Module T P] [Module k P] [IsScalarTower k T P]
+variable {Q : Type b} [AddCommGroup Q] [Module T Q]
+variable {L : Type c} [AddCommGroup L] [Module U L] [Module k L] [IsScalarTower k U L]
+variable {N : Type d} [AddCommGroup N] [Module U N]
+variable {Δ : TwoForms k T P Q} {Ξ : TwoForms k U L N}
+
+def AffineCategory.pullbackTriple (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    AffineCategory Ω lam ⥤ AffineCategory Ξ (algebraMap R U lam) :=
+  AffineCategory.pullback m ⋙ AffineCategory.pullback n ⋙ AffineCategory.pullback p ⋙
+    AffineCategory.parameterChange
+      ((congrArg (algebraMap T U) (IsScalarTower.algebraMap_apply R S T lam).symm).trans
+        (IsScalarTower.algebraMap_apply R T U lam).symm)
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] [Algebra S U]
+  [IsScalarTower S T U] [IsScalarTower R S U] [IsScalarTower k T P] [IsScalarTower k U L] in
+lemma AffineCategory.pullbackTriple_operator (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam) :
+    ((AffineCategory.pullbackTriple p n m).obj X).2.toAddHom =
+      (((X.2.affinePullback m).affinePullback n).affinePullback p).toAddHom := by
+  sorry
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] [Algebra S U]
+  [IsScalarTower S T U] [IsScalarTower R S U] [IsScalarTower k T P] [IsScalarTower k U L] in
+lemma AffineCategory.pullbackTriple_map (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
+    (f : X ⟶ X') : ((AffineCategory.pullbackTriple p n m).map f).1 =
+      ((f.1.baseChange S).baseChange T).baseChange U := by
+  sorry
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] [Algebra S U]
+  [IsScalarTower S T U] [IsScalarTower R S U] [IsScalarTower k T P] [IsScalarTower k U L] in
+lemma AffineCategory.pullbackTriple_map_tmul (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
+    (f : X ⟶ X') (u : U) (t : T) (s : S) (x : X.1) :
+    ((AffineCategory.pullbackTriple p n m).map f).1
+        (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] x))) =
+      u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] f.1 x)) := by
+  sorry
+
+def AffineCategory.pullbackTripleOuterIso (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    AffineCategory.pullbackTriple (lam := lam) p n m ≅
+      AffineCategory.pullback ((p.towerComp n).towerComp m) :=
+  NatIso.ofComponents (fun X =>
+    (AffineCategory.parameterChange (IsScalarTower.algebraMap_apply R S U lam).symm).mapIso
+        ((AffineCategory.pullbackTowerIso p n).app ((AffineCategory.pullback m).obj X)) ≪≫
+      (AffineCategory.pullbackTowerIso (p.towerComp n) m).app X) (by
+    intro X X' f
+    apply Subtype.ext
+    change
+      ((TensorProduct.AlgebraTensorModule.cancelBaseChange R S U U X'.1).toLinearMap.comp
+        (TensorProduct.AlgebraTensorModule.cancelBaseChange S T U U (S ⊗[R] X'.1)).toLinearMap).comp
+        (((f.1.baseChange S).baseChange T).baseChange U) =
+      (f.1.baseChange U).comp
+        ((TensorProduct.AlgebraTensorModule.cancelBaseChange R S U U X.1).toLinearMap.comp
+          (TensorProduct.AlgebraTensorModule.cancelBaseChange S T U U (S ⊗[R] X.1)).toLinearMap)
+    rw [← LinearMap.comp_assoc, LinearMap.baseChange_baseChange]
+    ext x
+    simp [LinearMap.comp_assoc, LinearMap.baseChange_baseChange])
+
+def AffineCategory.pullbackTripleInnerIso (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    AffineCategory.pullbackTriple (lam := lam) p n m ≅
+      AffineCategory.pullback (p.towerComp (n.towerComp m)) :=
+  NatIso.ofComponents (fun X =>
+    (AffineCategory.parameterChange (IsScalarTower.algebraMap_apply R T U lam).symm).mapIso
+        ((AffineCategory.pullbackParameterChangeIso
+          (IsScalarTower.algebraMap_apply R S T lam).symm p).app
+          ((AffineCategory.pullback m ⋙ AffineCategory.pullback n).obj X)).symm ≪≫
+    (AffineCategory.parameterChange (IsScalarTower.algebraMap_apply R T U lam).symm).mapIso
+        ((AffineCategory.pullback p).mapIso ((AffineCategory.pullbackTowerIso n m).app X)) ≪≫
+    (AffineCategory.pullbackTowerIso p (n.towerComp m)).app X) (by
+    intro X X' f
+    apply Subtype.ext
+    change
+      ((TensorProduct.AlgebraTensorModule.cancelBaseChange R T U U X'.1).toLinearMap.comp
+        ((TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T X'.1).toLinearMap.baseChange U)).comp
+        (((f.1.baseChange S).baseChange T).baseChange U) =
+      (f.1.baseChange U).comp
+        ((TensorProduct.AlgebraTensorModule.cancelBaseChange R T U U X.1).toLinearMap.comp
+          ((TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T X.1).toLinearMap.baseChange U))
+    rw [affinePullback_cancel_assoc, affinePullback_cancel_assoc]
+    rw [← LinearMap.comp_assoc, LinearMap.baseChange_baseChange]
+    ext x
+    simp [LinearMap.comp_assoc, LinearMap.baseChange_baseChange])
+
+lemma AffineCategory.pullbackTripleOuterIso_hom
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
+    (x : U ⊗[T] (T ⊗[S] (S ⊗[R] X.1))) :
+    ((AffineCategory.pullbackTripleOuterIso p n m).hom.app X).1 x =
+      TensorProduct.AlgebraTensorModule.cancelBaseChange R S U U X.1
+        (TensorProduct.AlgebraTensorModule.cancelBaseChange S T U U (S ⊗[R] X.1) x) := by
+  sorry
+
+lemma AffineCategory.pullbackTripleOuterIso_naturality
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
+    (f : X ⟶ X') :
+    (AffineCategory.pullbackTriple p n m).map f ≫
+        (AffineCategory.pullbackTripleOuterIso p n m).hom.app X' =
+      (AffineCategory.pullbackTripleOuterIso p n m).hom.app X ≫
+        (AffineCategory.pullback ((p.towerComp n).towerComp m)).map f := by
+  sorry
+
+lemma AffineCategory.pullbackTripleOuterIso_tmul
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
+    (u : U) (t : T) (s : S) (x : X.1) :
+    ((AffineCategory.pullbackTripleOuterIso p n m).hom.app X).1
+        (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] x))) =
+      (s • (t • u)) ⊗ₜ[R] x := by
+  sorry
+
+lemma AffineCategory.pullbackTripleInnerIso_hom
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
+    (x : U ⊗[T] (T ⊗[S] (S ⊗[R] X.1))) :
+    ((AffineCategory.pullbackTripleInnerIso p n m).hom.app X).1 x =
+      TensorProduct.AlgebraTensorModule.cancelBaseChange R T U U X.1
+        ((TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T X.1).toLinearMap.baseChange U x) := by
+  sorry
+
+lemma AffineCategory.pullbackTripleInnerIso_naturality
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
+    (f : X ⟶ X') :
+    (AffineCategory.pullbackTriple p n m).map f ≫
+        (AffineCategory.pullbackTripleInnerIso p n m).hom.app X' =
+      (AffineCategory.pullbackTripleInnerIso p n m).hom.app X ≫
+        (AffineCategory.pullback (p.towerComp (n.towerComp m))).map f := by
+  sorry
+
+lemma AffineCategory.pullbackTripleInnerIso_tmul
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
+    (u : U) (t : T) (s : S) (x : X.1) :
+    ((AffineCategory.pullbackTripleInnerIso p n m).hom.app X).1
+        (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] x))) =
+      ((s • t) • u) ⊗ₜ[R] x := by
+  sorry
+
+lemma AffineCategory.pullbackTriple_coherence_hom
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    (AffineCategory.pullbackTripleOuterIso (lam := lam) p n m).hom =
+      (AffineCategory.pullbackTripleInnerIso (lam := lam) p n m).hom := by
+  sorry
+
+lemma AffineCategory.pullbackTriple_coherence_inv
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    (AffineCategory.pullbackTripleOuterIso (lam := lam) p n m).inv =
+      (AffineCategory.pullbackTripleInnerIso (lam := lam) p n m).inv := by
+  sorry
+
+lemma AffineCategory.pullbackTriple_coherence
+    (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    AffineCategory.pullbackTripleOuterIso (lam := lam) p n m =
+      AffineCategory.pullbackTripleInnerIso (lam := lam) p n m := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+open CategoryTheory MonoidalCategory
+open scoped TensorProduct
+universe u w z p q a b c d
+variable {k R : Type u} [CommRing k] [CommRing R] [Algebra k R]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W] [IsScalarTower k R W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z]
+variable {Ω : TwoForms k R W Z} {lam mu : R}
+variable {S : Type u} [CommRing S] [Algebra k S] [Algebra R S]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V] [IsScalarTower k S V]
+variable {Y : Type q} [AddCommGroup Y] [Module S Y]
+variable {Γ : TwoForms k S V Y}
+
+-- test: AffineTripleTests.parameter_values
+example (h : lam = mu) (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (X : AffineCategory Ω lam) (x : S ⊗[R] X.1) :
+    ((AffineCategory.pullbackParameterChangeIso h m).hom.app X).1 x = x ∧
+      ((AffineCategory.pullbackParameterChangeIso h m).inv.app X).1 x = x := by
+  sorry
+
+-- test: AffineTripleTests.parameter_roundtrip
+example (h : lam = mu) (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (X : AffineCategory Ω lam) (x : S ⊗[R] X.1) :
+    ((AffineCategory.pullbackParameterChangeIso h m).inv.app X).1
+      (((AffineCategory.pullbackParameterChangeIso h m).hom.app X).1 x) = x := by
+  sorry
+
+-- test: AffineTripleTests.parameter_nonconstant
+example :
+    ∃ Ω : TwoForms ℤ (Polynomial ℤ) (Polynomial ℤ) (Fin 0 → Polynomial ℤ),
+      Ω.d0 Polynomial.X = 1 ∧
+      let X := 𝟙_ (AffineCategory Ω (Polynomial.X + 0))
+      ((AffineCategory.pullbackParameterChangeIso (add_zero Polynomial.X)
+        (TwoForms.Morphism.refl Ω)).hom.app X).1
+        ((1 : Polynomial ℤ) ⊗ₜ[Polynomial ℤ] Polynomial.X) =
+          (1 : Polynomial ℤ) ⊗ₜ[Polynomial ℤ] Polynomial.X := by
+  sorry
+
+variable {T U : Type u} [CommRing T] [CommRing U]
+  [Algebra k T] [Algebra k U] [Algebra S T] [Algebra R T]
+  [Algebra T U] [Algebra S U] [Algebra R U]
+  [IsScalarTower R S T] [IsScalarTower S T U]
+  [IsScalarTower R S U] [IsScalarTower R T U]
+variable {P : Type a} [AddCommGroup P] [Module T P] [Module k P] [IsScalarTower k T P]
+variable {Q : Type b} [AddCommGroup Q] [Module T Q]
+variable {L : Type c} [AddCommGroup L] [Module U L] [Module k L] [IsScalarTower k U L]
+variable {N : Type d} [AddCommGroup N] [Module U N]
+variable {Δ : TwoForms k T P Q} {Ξ : TwoForms k U L N}
+
+-- test: AffineTripleTests.triple_generators
+example (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
+    (u : U) (t : T) (s : S) (x : X.1) :
+    ((AffineCategory.pullbackTripleOuterIso p n m).hom.app X).1
+        (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] x))) = (s • (t • u)) ⊗ₜ[R] x ∧
+    ((AffineCategory.pullbackTripleInnerIso p n m).hom.app X).1
+        (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] x))) = ((s • t) • u) ⊗ₜ[R] x ∧
+    (s • (t • u)) ⊗ₜ[R] x = ((s • t) • u) ⊗ₜ[R] x := by
+  sorry
+
+-- test: AffineTripleTests.triple_operator
+example (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
+    (x : U ⊗[T] (T ⊗[S] (S ⊗[R] X.1))) :
+    ((AffineCategory.pullbackTriple p n m).obj X).2.toAddHom x =
+      (((X.2.affinePullback m).affinePullback n).affinePullback p).toAddHom x := by
+  sorry
+
+-- test: AffineTripleTests.triple_arrows
+example (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
+    (f : X ⟶ X') (u : U) (t : T) (s : S) (x : X.1) :
+    ((AffineCategory.pullbackTriple p n m).map f).1
+        (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] x))) =
+      u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] f.1 x)) := by
+  sorry
+
+-- test: AffineTripleTests.outer_inverse
+example (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
+    (x : U ⊗[T] (T ⊗[S] (S ⊗[R] X.1))) :
+    ((AffineCategory.pullbackTripleOuterIso p n m).inv.app X).1
+      (((AffineCategory.pullbackTripleOuterIso p n m).hom.app X).1 x) = x := by
+  sorry
+
+-- test: AffineTripleTests.inner_inverse
+example (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
+    (x : U ⊗[T] (T ⊗[S] (S ⊗[R] X.1))) :
+    ((AffineCategory.pullbackTripleInnerIso p n m).inv.app X).1
+      (((AffineCategory.pullbackTripleInnerIso p n m).hom.app X).1 x) = x := by
+  sorry
+
+-- test: AffineTripleTests.naturality
+example (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
+    (f : X ⟶ X') :
+    (AffineCategory.pullbackTriple p n m).map f ≫
+        (AffineCategory.pullbackTripleOuterIso p n m).hom.app X' =
+      (AffineCategory.pullbackTripleOuterIso p n m).hom.app X ≫
+        (AffineCategory.pullback ((p.towerComp n).towerComp m)).map f ∧
+    (AffineCategory.pullbackTriple p n m).map f ≫
+        (AffineCategory.pullbackTripleInnerIso p n m).hom.app X' =
+      (AffineCategory.pullbackTripleInnerIso p n m).hom.app X ≫
+        (AffineCategory.pullback (p.towerComp (n.towerComp m))).map f := by
+  sorry
+
+-- test: AffineTripleTests.coherence
+example (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+    (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    (AffineCategory.pullbackTripleOuterIso (lam := lam) p n m).hom =
+      (AffineCategory.pullbackTripleInnerIso p n m).hom ∧
+    (AffineCategory.pullbackTripleOuterIso (lam := lam) p n m).inv =
+      (AffineCategory.pullbackTripleInnerIso p n m).inv ∧
+    AffineCategory.pullbackTripleOuterIso (lam := lam) p n m =
+      AffineCategory.pullbackTripleInnerIso p n m := by
+  sorry
+
+-- test: AffineTripleTests.nonreduced
+example :
+    ∃ Ω : TwoForms (ZMod 4) (ZMod 4) (ZMod 4) (Fin 0 → ZMod 4),
+      let m := TwoForms.Morphism.refl Ω
+      let X := 𝟙_ (AffineCategory Ω (0 : ZMod 4))
+      let x := (1 : ZMod 4) ⊗ₜ[ZMod 4] ((1 : ZMod 4) ⊗ₜ[ZMod 4]
+        ((1 : ZMod 4) ⊗ₜ[ZMod 4] (2 : ZMod 4)))
+      let v := TensorProduct.lid (ZMod 4) (ZMod 4)
+        (((AffineCategory.pullbackTripleOuterIso m m m).hom.app X).1 x)
+      let w := TensorProduct.lid (ZMod 4) (ZMod 4)
+        (((AffineCategory.pullbackTripleInnerIso m m m).hom.app X).1 x)
+      v = 2 ∧ v ≠ 0 ∧ v * v = 0 ∧ v = w := by
+  sorry
+
+-- test: AffineTripleTests.zero_ring
+example :
+    ∃ Ω : TwoForms (ZMod 1) (ZMod 1) (ZMod 1) (Fin 0 → ZMod 1),
+      let m := TwoForms.Morphism.refl Ω
+      let X := 𝟙_ (AffineCategory Ω (0 : ZMod 1))
+      ((AffineCategory.pullbackTripleOuterIso m m m).hom.app X).1
+        ((0 : ZMod 1) ⊗ₜ[ZMod 1] ((0 : ZMod 1) ⊗ₜ[ZMod 1]
+          ((0 : ZMod 1) ⊗ₜ[ZMod 1] (0 : ZMod 1)))) = 0 ∧
+      AffineCategory.pullbackTripleOuterIso (lam := (0 : ZMod 1)) m m m =
+        AffineCategory.pullbackTripleInnerIso m m m := by
   sorry
 
 end

@@ -1,3 +1,183 @@
+# Categorical three-step pullback coherence
+
+The actual three-step affine pullback now has two natural-isomorphism comparisons to direct pullback. The outer-first path compares the last two pullbacks and then the first. The inner-first path moves the intermediate parameter equality through the final pullback, compares the first two pullbacks, and then the last. Their forward and inverse natural transformations, and therefore the natural isomorphisms, agree. Both are assembled from the actual existing two-step comparisons; the underlying module associativity equation proves their equality after horizontal-arrow extensionality.
+
+All parameter transports are explicit. The new parameterChange/pullback comparison uses the two actual horizontal identity maps on the scalar-extension module, with horizontality proved by eliminating the parameter equality. Triple operators, horizontal-arrow maps, generator values, arbitrary-arrow naturality and inverse roundtrips use the actual category. Rings and module carriers share the native universe; form modules retain independent universes. Arbitrary modules and λ, including d₀λ≠0, require no flatness, injectivity, basis, integrability or reducedness.
+
+The actual three-step affine pullback functor now has outer-first and inner-first natural-isomorphism comparisons to direct pullback. Their forward transformations, inverse transformations and natural isomorphisms agree. A concrete parameterChange/pullback natural isomorphism retains the equality transport through the third pullback; both its underlying maps are identities. Triple operators/maps and both generator formulas are explicit, with arbitrary-horizontal-arrow naturality. Arbitrary modules and λ, including d₀λ≠0, require no flatness or injectivity. Monoidal packaging of these new three-step comparison paths, universal exterior-power and finite-projective dual comparisons, and genuine E1 sheaf tensor/restriction/equality detection/effective gluing remain open. The reserved global finite locally free integrable key retains relatively constant λ. All 149 routes,35 omissions,five requests,eleven gaps,six planets, determinant/Tate/period and arbitrary-Q tensor-valued-shuffle obligations remain. H.0 stays partial and H.1–H.8 not_read; earlier frontier prose is checkpoint history. Every implementation remains unchecked.
+
+## Declarations and tests
+
+### Pullback commutes with parameter transport
+
+`AffineCategory.pullbackParameterChangeIso` — For h:λ=μ and a calculus morphism m over R→S, construct a natural isomorphism parameterChange(h)⋙pullback(m) ≅ pullback(m)⋙parameterChange(congrArg(algebraMap R S,h)). Both components have identity underlying S-linear maps.
+
+Proof plan: Use the identity linear equivalence on the actual S⊗R X. Eliminate the given parameter equality only for horizontality and prove actual arbitrary-arrow naturality.
+
+API:
+
+- `AffineCategory.pullbackParameterChangeIso_hom`: The forward component of the actual pullbackParameterChangeIso is the identity S-linear map on S⊗R X.
+- `AffineCategory.pullbackParameterChangeIso_inv`: The inverse component of the actual pullbackParameterChangeIso is the identity S-linear map on S⊗R X.
+- `AffineCategory.pullbackParameterChangeIso_naturality`: Every actual horizontal arrow f commutes with the forward components of the parameter-change/pullback comparison between the two stated functor composites.
+
+TESTS:
+
+- `AffineTripleTests.parameter_values`: Both directions of parameter-change/pullback comparison fix every element of S⊗R X.
+- `AffineTripleTests.parameter_roundtrip`: The inverse component after the forward component fixes every element, including non-pure tensors.
+- `AffineTripleTests.parameter_nonconstant`: Over Z[x], with λ=x+0 transported to x and d₀x=1, the actual forward comparison on the pulled unit fixes 1⊗x.
+
+### Parameter comparison forward map
+
+`AffineCategory.pullbackParameterChangeIso_hom` — The forward component of the actual pullbackParameterChangeIso is the identity S-linear map on S⊗R X.
+
+Proof plan: Reduce the actual isoMk forward component at every element; no pure-tensor restriction.
+
+### Parameter comparison inverse map
+
+`AffineCategory.pullbackParameterChangeIso_inv` — The inverse component of the actual pullbackParameterChangeIso is the identity S-linear map on S⊗R X.
+
+Proof plan: Reduce the actual identity linear-equivalence inverse at every element; no pure-tensor restriction.
+
+### Parameter comparison naturality
+
+`AffineCategory.pullbackParameterChangeIso_naturality` — Every actual horizontal arrow f commutes with the forward components of the parameter-change/pullback comparison between the two stated functor composites.
+
+Proof plan: Use the naturality field of the actual natural isomorphism.
+
+### Actual three-step pullback functor
+
+`AffineCategory.pullbackTriple` — For compatible m:R→S, n:S→T, p:T→U, compose three actual pullback functors and then parameterChange along the explicit composite scalar-tower equality from the nested image of λ to algebraMap R U λ.
+
+Proof plan: Compose the actual functors; form the final parameter equality by congrArg(algebraMap T U) applied to the R/S/T equality, followed by the R/T/U equality.
+
+API:
+
+- `AffineCategory.pullbackTriple_operator`: The additive operator on pullbackTriple(p,n,m)(X) is the actual three successive affinePullback operators on X; parameterChange retains that operator.
+- `AffineCategory.pullbackTriple_map`: The underlying U-linear map on an actual horizontal f is its successive native S-, T-, and U-base changes.
+- `AffineCategory.pullbackTriple_map_tmul`: The actual three-step map sends u⊗(t⊗(s⊗x)) to u⊗(t⊗(s⊗f(x))) for arbitrary horizontal f and scalars.
+
+TESTS:
+
+- `AffineTripleTests.triple_generators`: Both actual comparison routes send arbitrary u⊗(t⊗(s⊗x)) to their stated scalar-tower products times x; the values agree.
+- `AffineTripleTests.triple_operator`: On an arbitrary threefold tensor element, the actual triple object has exactly the three successive affinePullback additive operators.
+- `AffineTripleTests.triple_arrows`: The actual triple functor sends every horizontal f on arbitrary threefold elementary tensors to the nested tensor with f(x).
+
+### Three-step additive operator
+
+`AffineCategory.pullbackTriple_operator` — The additive operator on pullbackTriple(p,n,m)(X) is the actual three successive affinePullback operators on X; parameterChange retains that operator.
+
+Proof plan: Reduce the composed functor objects and the actual parameter transport.
+
+### Three-step horizontal map
+
+`AffineCategory.pullbackTriple_map` — The underlying U-linear map on an actual horizontal f is its successive native S-, T-, and U-base changes.
+
+Proof plan: Reduce the actual composed functor maps.
+
+### Three-step map on generators
+
+`AffineCategory.pullbackTriple_map_tmul` — The actual three-step map sends u⊗(t⊗(s⊗x)) to u⊗(t⊗(s⊗f(x))) for arbitrary horizontal f and scalars.
+
+Proof plan: Evaluate the three native base changes on elementary tensors.
+
+### Outer-first categorical comparison
+
+`AffineCategory.pullbackTripleOuterIso` — Construct a natural isomorphism from the actual pullbackTriple to direct pullback along (p.towerComp n).towerComp m. At X, apply the existing p/n tower comparison to pullback(m)(X), transport its parameter to the R→U image, and compose with the existing (p∘n)/m tower comparison.
+
+Proof plan: Compose those actual object isomorphisms and prove arbitrary-arrow naturality using native baseChange_baseChange and cancelBaseChange, retaining each equality transport.
+
+API:
+
+- `AffineCategory.pullbackTripleOuterIso_hom`: The actual outer-first component has underlying U-linear map cancelBaseChange(R,S,U) composed with cancelBaseChange(S,T,U) on S⊗R X.
+- `AffineCategory.pullbackTripleOuterIso_naturality`: For every horizontal f, the actual three-step functor map followed by the outer comparison equals the outer comparison followed by direct pullback of f.
+- `AffineCategory.pullbackTripleOuterIso_tmul`: The actual outer component sends u⊗(t⊗(s⊗x)) to (s acting on (t acting on u))⊗x.
+
+TESTS:
+
+- `AffineTripleTests.triple_generators`: Both actual comparison routes send arbitrary u⊗(t⊗(s⊗x)) to their stated scalar-tower products times x; the values agree.
+- `AffineTripleTests.outer_inverse`: The actual outer comparison inverse after its forward component fixes every element of the triple-pullback object.
+- `AffineTripleTests.naturality`: Both actual comparisons satisfy naturality for arbitrary horizontal f, without identity-calculus assumptions.
+- `AffineTripleTests.coherence`: The actual forward transformations, inverse transformations and natural isomorphisms all agree.
+- `AffineTripleTests.nonreduced`: Over Z/4 with zero calculus, both actual triple comparisons carry 1⊗(1⊗(1⊗2)) to the same value whose native lid is2, nonzero and square-zero.
+- `AffineTripleTests.zero_ring`: Over Z/1 with zero calculus, the actual triple comparison sends the zero elementary tensor to zero and the two natural isomorphisms agree.
+
+### Inner-first categorical comparison
+
+`AffineCategory.pullbackTripleInnerIso` — Construct a natural isomorphism from the same actual pullbackTriple to direct pullback along p.towerComp(n.towerComp m). First invert the parameter-change/pullback comparison, then apply pullback(p) to the existing n/m tower comparison, then the existing p/(n∘m) tower comparison, retaining the final parameter transport.
+
+Proof plan: Use the three stated actual isomorphisms. The parameter comparison contributes identity on the carrier. Prove naturality after the existing module associativity equation and base-change naturality.
+
+API:
+
+- `AffineCategory.pullbackTripleInnerIso_hom`: The actual inner-first component has underlying U-linear map cancelBaseChange(R,T,U) composed with the U-base change of cancelBaseChange(R,S,T).
+- `AffineCategory.pullbackTripleInnerIso_naturality`: For every horizontal f, the actual three-step map followed by the inner comparison equals the inner comparison followed by direct pullback of f.
+- `AffineCategory.pullbackTripleInnerIso_tmul`: The actual inner component sends u⊗(t⊗(s⊗x)) to ((s acting on t) acting on u)⊗x.
+
+TESTS:
+
+- `AffineTripleTests.triple_generators`: Both actual comparison routes send arbitrary u⊗(t⊗(s⊗x)) to their stated scalar-tower products times x; the values agree.
+- `AffineTripleTests.inner_inverse`: The actual inner comparison inverse after its forward component fixes every element of the triple-pullback object.
+- `AffineTripleTests.naturality`: Both actual comparisons satisfy naturality for arbitrary horizontal f, without identity-calculus assumptions.
+- `AffineTripleTests.coherence`: The actual forward transformations, inverse transformations and natural isomorphisms all agree.
+- `AffineTripleTests.nonreduced`: Over Z/4 with zero calculus, both actual triple comparisons carry 1⊗(1⊗(1⊗2)) to the same value whose native lid is2, nonzero and square-zero.
+- `AffineTripleTests.zero_ring`: Over Z/1 with zero calculus, the actual triple comparison sends the zero elementary tensor to zero and the two natural isomorphisms agree.
+
+### Outer route underlying map
+
+`AffineCategory.pullbackTripleOuterIso_hom` — The actual outer-first component has underlying U-linear map cancelBaseChange(R,S,U) composed with cancelBaseChange(S,T,U) on S⊗R X.
+
+Proof plan: Reduce the existing tower component, mapIso and actual parameterChange map.
+
+### Outer route arbitrary-arrow naturality
+
+`AffineCategory.pullbackTripleOuterIso_naturality` — For every horizontal f, the actual three-step functor map followed by the outer comparison equals the outer comparison followed by direct pullback of f.
+
+Proof plan: Use the naturality field of the constructed natural isomorphism.
+
+### Outer route tensor value
+
+`AffineCategory.pullbackTripleOuterIso_tmul` — The actual outer component sends u⊗(t⊗(s⊗x)) to (s acting on (t acting on u))⊗x.
+
+Proof plan: Apply the two native cancellation formulas in their actual order.
+
+### Inner route underlying map
+
+`AffineCategory.pullbackTripleInnerIso_hom` — The actual inner-first component has underlying U-linear map cancelBaseChange(R,T,U) composed with the U-base change of cancelBaseChange(R,S,T).
+
+Proof plan: Reduce the explicit three isomorphism factors and the identity parameter comparison.
+
+### Inner route arbitrary-arrow naturality
+
+`AffineCategory.pullbackTripleInnerIso_naturality` — For every horizontal f, the actual three-step map followed by the inner comparison equals the inner comparison followed by direct pullback of f.
+
+Proof plan: Use its actual naturality field.
+
+### Inner route tensor value
+
+`AffineCategory.pullbackTripleInnerIso_tmul` — The actual inner component sends u⊗(t⊗(s⊗x)) to ((s acting on t) acting on u)⊗x.
+
+Proof plan: Apply native baseChange_tmul and cancellation on the actual threefold tensor.
+
+### Three-step natural-transformation coherence
+
+`AffineCategory.pullbackTriple_coherence_hom` — The forward natural transformations of the actual outer-first and inner-first comparisons are equal. Their targets agree via the existing actual calculus towerComp associativity; equality includes arbitrary components and horizontal arrows.
+
+Proof plan: Use natural-transformation extensionality and horizontal-arrow subtype extensionality; apply the inherited module cancellation associativity equation in the required direction.
+
+### Three-step inverse coherence
+
+`AffineCategory.pullbackTriple_coherence_inv` — The inverse natural transformations of the actual outer-first and inner-first comparisons are equal between the same actual direct and three-step functors.
+
+Proof plan: Use the native equivalence of inverse equality and forward equality for the two actual natural isomorphisms.
+
+### Equality of the two natural isomorphisms
+
+`AffineCategory.pullbackTriple_coherence` — The actual outer-first and inner-first natural isomorphisms are equal, including both directions and all naturality data, with the same source and definitionally associated direct calculus target.
+
+Proof plan: Apply native isomorphism extensionality to the actual forward natural-transformation equality.
+
+## Earlier checkpoint reader (preserved verbatim)
+
 # Monoidal identity and tower comparisons for affine connections
 
 The existing identity and tower pullback natural isomorphisms now preserve the actual unit and tensor comparison maps, in both directions. The actual parameterChange functor has a native strong monoidal structure whose four underlying maps are identities; the tower includes this transport along the scalar-tower parameter equality. Its tensorator first applies inverse distribBaseChange for S→T, then the base change of inverse distribBaseChange for R→S. Its inverse tensorator reverses these maps. The existing cancelBaseChange natural isomorphism intertwines this structure with direct pullback.
