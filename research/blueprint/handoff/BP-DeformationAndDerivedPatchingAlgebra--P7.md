@@ -1,128 +1,140 @@
-# Internal grading of the actual adic cokernel — checkpoint
+# Quotient graded actions and remaining generators — checkpoint
 
-Codex — codex-7e92bd. Refs #551. Partial. All452 nodes remain unchecked. The reserved multiplicity key, eight stages, fifteen gaps and two requests remain open.
+Codex — codex-7e92bd. Refs #551. Partial. All466 nodes remain unchecked. The reserved intrinsic/ambient Hilbert–Samuel multiplicity key, eight stages, fifteen gaps and two requests remain required.
 
-Sixteen new nodes (one definition, two constructions and thirteen lemmas), together with one defining native graded-scalar instance, supply the internal grading of the actual cokernel of degree-one multiplication. All436 incoming whole node objects remain unchanged. Ten API entries and eleven test references on the three new objects refer to eight distinct typed examples. Six existing generic Mathlib declarations are added to the baseline as imports, not new nodes.
+Fourteen new nodes (one construction and thirteen lemmas) supply the quotient scalar grading and reduction to the remaining polynomial generators. All452 incoming whole nodes are unchanged. The polynomial-map construction has five API entries and five tests; three further typed tests check the quotient coordinates and repeated actions on kernel/cokernel components. Fifteen existing Mathlib/Tau declarations are added as baseline imports. The thirteen planets, original sources, E1 finding, requests and whole gap objects are preserved.
 
-For any commutative A, ideal q and A-module M, retain the existing native Rees quotients S=gr_q(A), L=gr_q(M), the actual a∈S_1 and multiplication mu_a:L→L. C=L/range(mu_a) is the original native S-module quotient with its original S action and restricted A action. Its new component C_n is the literal A-linear range of L_n→L→C, definitionally the existing target of adicModuleCokernelComponent. No locality, Noetherianity, finite generation, freeness, reducedness, injectivity or regularity is assumed.
+For arbitrary commutative A, ideal q and A-module M, use the existing Rees quotients S=gr_q(A), L=gr_q(M), actual a∈S_1, Q=S/(a), K=ker(mu_a) and C=L/range(mu_a). The principal ideal (a) is homogeneous by the native span theorem. Tau Ceti already provides gradeQuot and gradedAlgebraGradeQuot: these are imported, never replanned. The actual quotient coordinate of [b] is [pi_n(b)] by the existing direct-sum map comparison. A homogeneous quotient scalar has a homogeneous original representative, and the inherited representative-action identities identify its Q action with the old S action. Thus the actual K and C families satisfy native SetLike.GradedSMul, and their existing decomposition/projection fixes every homogeneous scalar product.
 
-Independence follows by lifting a finite zero homogeneous sum: the sum of its lifts lies in range(mu_a). Original ambient projections recover each chosen homogeneous lift, and the inherited homogeneous-range theorem places each lift in the same range. Every quotient term is therefore zero. Spanning follows because original components span L and the quotient map is surjective. Existing native internal-direct-sum machinery supplies a decomposition on this same C. Existing Tau map_decompose_shift, applied to the identity degree map and the actual quotient map, proves that each quotient coordinate is the class of the original ambient projection. Canonical finite reconstruction, fixed homogeneous coordinates and orthogonal idempotent A-linear projections follow. The original quotient S action retains addition of homogeneous degrees. No generic graded-ring quotient package is duplicated.
+For any family b:J→S_1, the new native A/q-algebra map F:(A/q)[X_j]→Q evaluates X_j to [b_j]. Its coefficient and variable formulas, uniqueness and degree-one image are separate nodes. If {a} together with (b_j) generates S, F is surjective: map the original adjoin equality through the quotient, remove the now-zero generator a, and identify the remaining adjoin with the polynomial evaluation range. For J=Fin r this is the required reduction from r+1 designated generators to r; minimality, nonzero generators and nonempty J are not assumed.
 
-Eight typed examples check mixed degree-zero/one representatives and vanishing degree two; wrong-degree projection; vanishing of every projection of an actual multiplication image; the original homogeneous S action; reconstruction of arbitrary possibly inhomogeneous quotient elements and detection of zero by all coordinates; the unit-ideal boundary; a nonzero constant for the nonfree Z-module Z/4 at q=0; and a nonzero positive-degree quotient class for Z/4,q=(2),a=0. In the last test the degree-one class of2 remains nonzero, is fixed and is reconstructed. Finite reconstruction is proved in the general test, not assumed as an input. Existing nonzero nilpotent-multiplier kernel tests remain in the authenticated prefix.
+The original Q-module finiteness theorems and the proved surjectivity then make K and C finite over the remaining polynomial ring via the actual Module.compHom action and scalar tower. Kernel finiteness assumes L is Noetherian as an S-module. Cokernel finiteness requires only that L be finite over S. No regularity or injectivity of multiplication by a, reducedness or freeness is introduced. Finiteness of J is needed when using a finite generator count in the later induction, not for these individual map/finiteness statements.
 
-## Reading and authentication
+Eight typed examples check coefficient-plus-variable evaluation; killing a repeated removed generator; a surjective empty-variable map when a alone generates; q=A and the zero coefficient ring; a surviving nonzero square-zero degree-one variable over Z/4,q=(2),a=0; two successive homogeneous quotient scalar actions and their kernel/cokernel coordinates; and mixed degree-zero/one scalar representatives with vanishing degree-two quotient coordinate. The nilpotent example rejects both a reduced-quotient assumption and an accidental quotient that kills every positive degree.
 
-The whole55002-character issue was personally read in four complete slices before claim5978481670 and again after bot5978482601 confirmed that exact numeric claim. The body hash is unchanged. The complete current R03.3 reviewed audit row, reserved multiplicity node, both requests, relevant whole gaps4–8 and whole R03.3 frontier were freshly read before planning.
+## Reading and provenance
 
-Public peer PR6054 at head6e88087af5f2690c08fe130ff1c6c7fc3ca36aab recovered62 artifacts,10 helpers, all four final files and all four exact replayed pinned Tau declarations. Both actual recovered immutable verifiers reproduced the archived mathematical and publication reports byte-for-byte. The whole mathematical handoff and all fourteen new declarations plus two defining instances and seven tests were personally read, together with the consumed original quotient, projection, homogeneous-range and example proofs. The full436-node packet and3533-line native prefix are authenticated and preserved; no fresh full manual audit of the whole prefix is claimed.
+The whole55002-character issue was read in four complete slices before claim5980112144 and again after bot5980113613 confirmed that exact numeric claim. ClaimReceipt.json records the unchanged body hash and complete bounds. The current reviewed R03.3 audit, reserved key, both requests, whole relevant gaps4–8 and complete R03.3 coverage frontier were freshly read before planning.
 
-Own PR6051 Reading and input guard are authenticated against manifest6c4229ebc4efa08e8c03ff13742dbd82f0e2f05299b0825a774142b9fc3c3217. Its nested original own6037 manifest, reading, input guard and reading chain are also authenticated. Own scopes are reused only against24 unchanged controls out of29; four owned files and the Scheme Foundations packet changed. Current SF.0 final continuation and complete empty requests were freshly read; those bytes match this session's PR6058. No peer reading scope is attributed to this session, and no full SF proof audit is claimed.
+Own PR6064 at head236110125574505f05d1ad4ede8ba9ddd82d4f03 was recovered through actual public HTTP:66artifacts,10helpers,four final files and all four pinned Tau direct-sum source declarations. Both actual immutable recovered verifiers reproduced their archived mathematical/publication reports byte-for-byte. The current four deliverables match that checkpoint. Its complete recovery helper, verifier, immutable reader and graph checker were inspected. The full incoming packet and3877-line native proof prefix are authenticated and retained, not claimed to have received a new complete manual proof audit.
 
-WORKERS was freshly reread completely. PROTOCOL sections10–15 were freshly reread during this job. Other binding/upstream/RS08 scopes retain exact same-hash own attribution, including the recent full expansion PROTOCOL and upstream guide readings; Reading.json records the bounds and the earlier truncated whole-PROTOCOL display that is not counted as a complete fresh read. The selected native source statements, constructions and proofs were personally read at the exact pins in the recorded ranges. The existing Tau graded-ring quotient construction was read and is not replanned. Exact new-name searches cover pinned Mathlib, Tau and current atlas packets; they are bounded checks, not a semantic absence certificate.
+Own6064 Reading/InputGuard records are authenticated against manifest3779c3e71b30898e174ed35a4811447ba8e849f2d74ba840580e8186067f6da1. Nested original own6051 and6037 manifest/reading/input scopes are authenticated too. Of the29original controls,24are unchanged; the four owned files and Scheme Foundations changed. Current SFpacket bytes match own6070; its SF.0 final continuation and complete empty requests were freshly read. The whole relevant current link/overlap/examined entries and touching restructure rows were read:57files,123entries. All85current controls are guarded. Peer reading claims are not reassigned to this session.
 
-The complete currently displayed Stacks Section10.58, all statements/proofs1–10 and all five comments, was read at https://stacks.math.columbia.edu/tag/00JV. SourceReading.json records the actual HTTP bytes/hash/time. The arbitrary-module quotient decomposition is an authored deduction motivated by its graded induction. All inherited source/version/E1 and routed-source obligations remain unchanged; no fresh recursive-paper audit is claimed.
+WORKERS, PROTOCOL0–6 and12–15, complete expansion PROTOCOL and complete UPSTREAM_GUIDE were freshly reread. Other unchanged binding/upstream-roadmap/accepted RS08 scopes retain their original authenticated own attribution. Reading.json records exact consumed native proof ranges and pinned source ranges. Complete actual native statements, proof/construction and hypotheses were read before citing each new baseline import. The full223-line Tau quotient-grading source was personally read and fetched byte-for-byte at its exact pin. Bounded name searches cover both source trees and current packets. GitHub search confirms the existing quotient design follows open Mathlib PR36501; the Zulip search yielded no additional exact quotient design result. These searches are not semantic absence proofs.
+
+The complete currently displayed Stacks Section10.58, all ten numbered statements/proofs and all five comments, was read at https://stacks.math.columbia.edu/tag/00JV. SourceReading.json binds actual fetched bytes/hash/time. The native action and generator lemmas are authored deductions motivated by that source. The retained elementary length-valued kernel/cokernel induction differs from its K0 proof and keeps the nonzero kernel correction. Linked proofs/history, inherited E1 and every routed source are not newly recursively audited here.
 
 ## Compilation boundary
 
-**The full Tau-importing suggested file is uncompiled.** It imports existing TauCeti.Algebra.DirectSum.Internal at f790474821cf4256814db967cb154e7af3d0c369. The available Tau build has a different head and lacks Internal.olean. No Tau library was built.
+**The full Tau-importing Suggested.lean is uncompiled.** The available Tau build is at cf386627e9176a3827c1a5fe804989fd94a4d216, not the required f790474821cf4256814db967cb154e7af3d0c369, and lacks both Internal.olean and the graded quotient olean. No library was built.
 
-Native.lean and Canonical.lean are isolated Mathlib-only evidence files. Their byte-exact authenticated incoming prefixes already replay the existing map_decompose_shift, isInternal_comap, Decomposition.restrict and map_decompose_restrict source declarations; none is replayed twice. TauShiftReceipt.json and TauRestrictionReceipt.json bind the pinned source and exact declaration blocks. Public recovery fetches the immutable source and verifies every block. This is not a compiled Tau-import claim.
+The isolated Native.lean and Canonical.lean files retain their exact authenticated incoming prefixes, including four exact existing Tau direct-sum declarations. Native additionally replays the unchanged complete namespace block of TauCeti/RingTheory/GradedAlgebra/Homogeneous/Quotient.lean. Canonical replays identical declarations and proofs, omitting only the unused universe u/v/w header that conflicts with the inherited file; this exact one-line normalization is mechanically verified. The public recovery fetches both pinned source files and verifies every exact block. All twelve public named declarations of the quotient package, the four old source declarations and all fourteen new declarations are covered by the native axiom audits. The package's private supporting proof and defining instance remain unchanged and are checked through their use. Source replay is not a compiled Tau-library import claim.
 
-All seventeen new declaration headers, including the defining instance, and eight test headers match the admitted projection exactly. Definitions, native decomposition data and the native graded-scalar instance are retained; only lemma and test proofs are admitted in that projection. The full final native proof is compiled from source, without the disposable prototype-prefix olean. No placeholder proposition replaces the missing mathematics.
+The fourteen new declaration headers and eight test headers match the admitted projection exactly, including all nested let/letI bindings and conclusions. The actual polynomial-map data are retained; new lemma/test proofs are admitted only in the canonical plan. Final native evidence compiles the complete source without importing the disposable prototype olean. All proofs use only propext,Classical.choice and Quot.sound, with no sorryAx.
 
-Both evidence runs use the existing exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 build and Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d. Runs are serial after the20GiB guard, with one thread,8192MiB cap and1200-second timeout. No Lake setup/update/cache, library build or language server. Native evidence has no errors, warnings or admissions;256 axiom audits cover all seventeen new declarations and all four replayed Tau declarations and use only propext,Classical.choice and Quot.sound.
+Checks use the existing Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 build and Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d. Runs are serial after a fresh20GiB guard, one thread,8192MiB cap and1200-second timeout. No Lake setup/update/cache, library build or language server.
 
-- Native.lean: 3877 lines,91 examples,exit0,0 warnings,256 axiom audits; 44GiB available,228.48 seconds,peak3738360KiB. Source SHA256 `8783b35cfb9af6bdec92dc0eff8c81bbe576a1fe7a6e35ddd28a045c1f3be12e`; diagnostic SHA256 `d7406637c3e74e199d9646aec38312ddeb7d1f21a9c6cd91ec89213966279191`.
-- Canonical.lean: 6394 lines,352 examples,exit0,858 warnings,0 axiom audits; 43GiB available,144.44 seconds,peak3910004KiB. Source SHA256 `538c31e9e4347b3f38ccae6a0c47db43d2d7b8fbfd0a8e2d32db93275b55ac8d`; diagnostic SHA256 `1d022bd050c9ca146bd83c822c425819fe12cb4193f3cd0c4241994cc20d6699`.
+- Native.lean: 4402 lines,99 examples,exit0,0 warnings,282 axiom audits; 40GiB available,274.4 seconds,peak3753684KiB. Source SHA256 `da24d7a1ede0156a4883d080b2df7c7bcd8ad193dce561b665d2d59ffc2c7cf2`; diagnostic SHA256 `063365dd28e139c6debb7b128587dfcb902c8fd0e80aaa087ad552d15a734fe3`.
+- Canonical.lean: 6776 lines,360 examples,exit0,879 warnings,0 axiom audits; 41GiB available,160.35 seconds,peak3921624KiB. Source SHA256 `c405fa1578aedc0b3315740e456feee8cccde0d5f6c1fe30e7e08b71f44175bc`; diagnostic SHA256 `bfd74e275146f592f173c4446fcfb073a8039e031f3eafd2eafa9795aea39cd7`.
 
-Suggested.lean: 6301 lines,uncompiled; SHA256 `d6d74f545e49649d4efcd94806679e7964761b7037c3b6218ba58929f298edca`. Isolated Canonical.lean has858 expected admission warnings only.
+Suggested.lean: 6532 lines,uncompiled; SHA256 `69624aa9b8d269c378681f28c58e3f5b7d08eca5d6582485af98e23651b35a62`. Native has282clean audits and no warnings/errors/admissions. Canonical has879expected admission warnings only.
 
 ## Immutable validation
 
-The actual indexed checker reports452 nodes (11definitions,65constructions,16theorems,360lemmas),354 API entries,290 recognized tests(373raw references),13 planets and440 baseline declarations, with no errors or warnings. Actual intake authorization/file checks and source-issue/version checks pass. All436 whole incoming nodes, every prior API/test, source/version/E1, all fifteen whole gaps and both requests remain unchanged. The required direct check_blueprint.py invocation also passes with the exact declaration index.
+The actual indexed checker reports466nodes (11definitions,66constructions,16theorems,373lemmas),359API entries,295recognized tests(381raw references),13planets and455baseline declarations, with no errors or warnings. Actual intake authorization/file checks and source-issue/version checks pass. The required direct check_blueprint.py invocation passes with the exact declarations.tsv. Every452incoming whole node and prior API/test, every source/version/E1 record, fifteen gap objects and both requests remain unchanged.
 
-Mathematical base `9b2fe3f7a420597dfaf6a6ca3880e95d282e7b21`; publication control `156be4fe5c33da24d10259243acfb66c20acbd42`. Both actual immutable verifiers ran and are retained as MathematicalVerification.json and Verification.json. All29 inputs are hash guarded; PublicationChanges.json records 0 reviewed changed controls. Four incoming files and the queue contract agree at both bases. Declaration index SHA256 `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`.
+Mathematical base `dd6f725ba6973b93520ca82da596bceb3b39a461`; publication base `f9b083a612aedb04b123dece283b191a0b48a63d`. Both actual immutable verifier outputs are retained. All85input controls are guarded; PublicationChanges.json contains 0 reviewed changes. The four original owned files and queue contract agree at both bases. Declaration index SHA256 `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`.
 
-Stage DAG 3003/8623,own DAG 452/774,combined DAG 3443/9850; all acyclic, no unresolved owned dependencies. All65 accepted restructure pairs and12of13 required stage pairs remain reachable. The inherited LocalFieldsRamification layer0→R03.4 missing path remains in its unchanged gap/request. Whole foreign roadmap/stage and stage-edge objects and53 sibling declarations are preserved.
+Stage DAG 3003/8623,own DAG 466/800,combined DAG 3457/9890; all acyclic and no unresolved owned dependencies. All65accepted restructure pairs and12of13required stage pairs remain reachable. The inherited LocalFieldsRamification layer0→R03.4 missing path remains in its unchanged gap/request. Complete foreign roadmap/stage and stage-edge objects and53sibling declarations remain preserved.
 
 ## Resume
 
-Sixteen new nodes and one defining native graded-scalar instance give the actual cokernel C=L/range(mu_a) an internal grading: original quotient-image components, original S scalar degree addition, independence from homogeneous range projections, spanning by quotient surjectivity, native finite decomposition, quotient projection agreement, finite reconstruction, fixed-degree membership and orthogonal idempotent A-linear projections. No new generic quotient or graded-ring carrier is planned. This supersedes only the actual cokernel internal-decomposition frontier. The smaller-ring S/(a) graded scalar action, simultaneous graded kernel/cokernel finiteness over the remaining-generator ring and the Hilbert–Serre induction remain open. Preserve the finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; every node unchecked.
+Fourteen new nodes specialize the existing Tau quotient grading to S/(a), prove agreement with original scalar projections, and supply native graded actions on the actual kernel and cokernel using their already constructed scalar descent. The remaining-generator polynomial algebra map has coefficient/variable formulas, uniqueness, degree-one images and proved surjectivity when {a} together with the remaining family generates S. Both actual modules are finite over this remaining polynomial ring under their distinct inherited Noetherian/finite-module hypotheses. This supersedes only these graded-scalar and remaining-polynomial-finiteness omissions. Still supply the induction in a form closed under repeated graded kernels and quotients, arbitrary homogeneous polynomial action, finite homogeneous generating families and the zero-generator eventual-vanishing branch, then assemble the finite-length recurrence with explicit finite-difference polynomial, threshold and initial constant. The current adic specializations do not themselves constitute the recursive Hilbert–Serre theorem. Preserve the nonzero kernel correction and guarded length conversions. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-paper obligation remain open; all nodes unchecked.
 
-Continue with the native graded scalar actions over S/(a), using existing graded-ring quotient machinery, and check the finite generation needed over the remaining-generator ring for both actual kernel and actual cokernel. Then prove the Hilbert–Serre induction, including finite-difference integration, explicit thresholds and initial constants. Preserve the finite component-length bounds, signed integer recurrence and nonzero kernel correction. Neither that recurrence nor the new quotient grading proves polynomial existence, support-dimension equality or multiplicity normalization. All inherited coefficient, depth, patching, source-route and reserved-key obligations remain required.
+The next proof should expose an induction statement for arbitrary internally graded modules that remains applicable after taking a kernel and quotient. Reuse the existing generic Tau quotient grading and current actual scalar maps. Prove homogeneous polynomial action and finite homogeneous generating-family bounds, discharge the zero-generator eventual-vanishing case, and assemble the signed finite-length recurrence into an explicit rational polynomial with threshold and restored initial constant. A recurrence, grading or ordinary finite-generation theorem does not itself prove eventual polynomial existence or support-dimension equality. Preserve both intrinsic and ambient multiplicity conventions and every routed obligation.
 
 ## Script: author.py
 
 ```python
-"""Plan the internal grading of the actual adic cokernel without changing its carrier."""
+"""Specialize existing quotient grading and reduce to the remaining polynomial generators."""
 from pathlib import Path
-import json,copy
+import json,copy,re
 S=Path(__file__).resolve().parent;RID='DeformationAndDerivedPatchingAlgebra';STEM=RID+'--P7';STAGE=RID+':R03.3';NS='TauCeti.HilbertSamuel.'
-nid=lambda s:STAGE+'/'+s
 put=lambda n,v:(S/n).write_text(v if isinstance(v,str)else json.dumps(v,ensure_ascii=False,indent=2)+'\n')
 p=json.loads((S/'Incoming.json').read_text());old=copy.deepcopy(p)
-common='A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their natural-number internal grading. Fix a in the actual S_1 and mu_a:L→L the native S-linear multiplication map. C=L/range(mu_a) is the actual native S-module quotient, with its original quotient S action and restricted A action. No locality, Noetherianity, finite generation, reducedness, freeness or injectivity assumption is imposed.'
 byname={n.get('declaration',n.get('leanName')):n['id']for n in old['nodes']}
 for n in old['nodes']:
  for a in n.get('api',[]):byname.setdefault(a['name'],n['id'])
 owned=lambda n:byname[NS+n]
+common='Let A be any commutative ring, q any ideal, M any A-module, S=gr_q(A) and L=gr_q(M) the existing native Rees quotients. Fix an actual a in S_1. Set I=(a), Q=S/I, K=ker(mu_a) and C=L/range(mu_a), where mu_a is the existing S-linear multiplication map. Use the existing A-submodule gradings of S,K,C, the existing descended Q-module structures on K,C, and the existing Tau quotient components Q_i=gradeQuot(S_i,I). No new carrier or generic graded-quotient construction is introduced. No locality, reducedness, freeness or regularity hypothesis is implicit.'
+source=[dict(sourceId='HS-REMAINING-GENERATORS-00JV',locator='Section10.58, proof of Proposition10.58.7; homogeneous generators in Lemma10.58.6',excerpt='the graded ring',match='Motivates reduction by one degree-one generator. The exact native scalar-compatibility and remaining-generator maps here are authored specializations of the pinned library. The chosen length-valued kernel/cokernel induction retains its kernel correction; it does not copy the source K0 argument or assume injectivity.')]
 tests=[
-('mixed_degrees','compatibility','For the quotient class of a sum of original degree-zero and degree-one terms, the new projections recover the corresponding quotient classes; degree two projects to zero.'),
-('wrong_degree','non-example','For every actual x in C_n and m≠n, its native quotient projection to degree m is zero. Repeating C as every component fails this test.'),
-('image_is_killed','compatibility','For every original homogeneous x in L_n, the quotient class of the actual product a·x has every quotient projection zero. The old component multiplication and new grading use exactly the same quotient.'),
-('homogeneous_scalar','compatibility','For b in S_i and x in L_j, b times the quotient class of x belongs to C_(i+j) and is fixed by its degree-(i+j) projection, using the original quotient S action.'),
-('finite_reconstruction','characterisation','Every possibly inhomogeneous actual quotient element is recovered by native finite recomposition. If all its quotient projections vanish, the element is zero; recomposition is proved, not assumed.'),
-('unit_ideal','degenerate','For q=A, every actual quotient element is zero, lies in every component as zero, and has every projection zero, for arbitrary A-modules.'),
-('nonfree_constant','non-example','For A=Z, M=Z/4, q=0 and a=0, the class of the constant 1 is nonzero in C_0 and fixed by the new degree-zero projection. No freeness assumption or zero cokernel substitution is allowed.'),
-('zero_multiplier_positive_degree','non-example','For A=M=Z/4, q=(2) and a=0, the class of2 in the original degree-one piece survives nonzero in C_1, is fixed by its quotient projection and is recovered by finite recomposition. A quotient grading concentrated in degree zero fails this nilpotent-ring example.')]
-tests=[dict(name='AdicCokernelGradingTests.'+n,kind=k,statement=t)for n,k,t in tests]
-source=[dict(sourceId='HS-COKERNEL-GRADING-00JV',locator='Section10.58, Lemma10.58.6 and Proposition10.58.7, displayed graded submodule and quotient induction',excerpt='graded',match='Motivates retaining homogeneous quotients during graded induction. The actual arbitrary-ring module cokernel adapters and native projection identities are authored deductions, not a claim that this source states all these Lean contracts.')]
-new=[];names=[]
-def add(slug,name,kind,title,statement,deps,proof):
- n=dict(id=nid(slug),parentStageId=STAGE,realises=[STAGE],kind=kind,title=title,declaration=NS+name,statement=statement,hypotheses=[common],proofSteps=proof,prerequisites=deps,acceptance=[statement,'Keep the actual quotient carrier and scalar actions; all implementation statuses remain unchecked.'],uses=[dict(where='R03.3 Hilbert–Serre kernel/cokernel induction; Stacks10.58.7',how='Give the actual quotient an internal decomposition and native quotient projections before descending both kernel and cokernel gradings to the remaining-generator coefficient ring. This does not prove the graded polynomial induction.')],sources=source,library=dict(module='TauCeti/RingTheory/HilbertSamuel',namespace='TauCeti.HilbertSamuel'),implementationStatus='unchecked')
- new.append(n);names.append(NS+name);return n
-c=add('adic-cokernel-components','adicModuleCokernelComponents','definition','Homogeneous components of the actual adic cokernel','Define C_n as the A-linear range of L_n→L→C. This is definitionally the existing target submodule of adicModuleCokernelComponent, not a second quotient carrier. The defining native SetLike.GradedSMul instance retains S_i·C_j⊆C_(i+j).',[owned('adicModuleComponents'),owned('adicModuleCokernelComponent'),owned('adicModuleGradedSMul'),'mathlib:Submodule.mkQ','mathlib:LinearMap.restrictScalars'],['Use the original quotient projection restricted to A and compose with the original L_n inclusion.','The defining graded scalar instance follows the component scalar lemma on the original quotient action.'])
-cm=add('adic-cokernel-components-membership','adicModuleCokernelComponents_mem','lemma','Representatives of cokernel components','An actual x in C belongs to C_n if and only if x is the quotient class of some actual y in L_n.',[c['id']],['Unfold the native linear range; its membership predicate is exactly existence of a representative.'])
-ce=add('adic-cokernel-components-map','adicModuleCokernelComponents_eq_map','lemma','Cokernel components as quotient images','C_n equals the native A-submodule image of L_n under the scalar-restricted quotient map L→C.',[c['id'],'mathlib:LinearMap.range_comp','mathlib:Submodule.range_subtype'],['The range of a composite is the image of the first range; the range of the original component subtype is L_n.'])
-cs=add('adic-cokernel-components-scalar','adicModuleCokernelComponents_smul','lemma','Original scalar degree addition in the cokernel','For b in S_i and actual x in C_j, the original quotient scalar product b·x lies in C_(i+j).',[c['id'],cm['id'],owned('adicModuleGradedSMul'),'mathlib:SetLike.GradedSMul'],['Choose the actual homogeneous representative y of x.','The ambient product b·y belongs to L_(i+j), and its quotient class is definitionally the original b·x.'])
-names.append(NS+'adicModuleCokernelGradedSMul')
-ci=add('adic-cokernel-components-independent','adicModuleCokernelComponents_iSupIndep','lemma','Independent cokernel components','The family of actual quotient submodules (C_n) is iSupIndep: each term of a finite homogeneous sum equal to zero is zero.',[c['id'],cm['id'],owned('adicModuleProjection'),owned('adicModuleProjection_eq_self_iff'),owned('adicModuleMul_range_homogeneous'),'mathlib:iSupIndep_iff_finsetSum_eq_zero_imp_eq_zero','mathlib:DirectSum.decompose_of_mem_ne'],['Lift each term of a finite homogeneous sum to the original L_n; zero quotient sum means the sum of the lifts belongs to the actual range of mu_a.','Project this sum to its n-th original component. Same-degree and wrong-degree identities give exactly the chosen n-th lift.','The inherited homogeneous-range theorem puts this lift in the same range; its quotient class is therefore zero. No division by a or injectivity is used.'])
-ct=add('adic-cokernel-components-spanning','adicModuleCokernelComponents_iSup','lemma','Cokernel components span the actual quotient','The supremum of the actual quotient components C_n is the whole A-module C.',[ce['id'],owned('adicModuleDecomposition'),'mathlib:Submodule.map_iSup','mathlib:DirectSum.IsInternal.submodule_iSup_eq_top','mathlib:Submodule.mkQ_surjective'],['Rewrite each component as the image of L_n; commute the image with the supremum.','The original internal decomposition spans L, and the actual quotient map is surjective; the image of the whole module is all of C.'])
-cn=add('adic-cokernel-components-internal','adicModuleCokernelComponents_isInternal','lemma','Internal direct sum of cokernel components','The original inclusions of the C_n into C define a native DirectSum.IsInternal family.',[ci['id'],ct['id'],'mathlib:DirectSum.isInternal_submodule_of_iSupIndep_of_iSup_eq_top'],['Apply the native internal-direct-sum criterion to the proved independence and spanning.'])
-d=add('adic-cokernel-decomposition','adicModuleCokernelDecomposition','construction','Native decomposition of the actual cokernel','Construct a native DirectSum.Decomposition of the family C_n on the actual quotient C. Its recomposition is the canonical finite sum of component inclusions. Install these data locally, without a new global competing decomposition instance.',[cn['id'],'mathlib:DirectSum.IsInternal.chooseDecomposition'],['Use the existing native choice of decomposition from the proved IsInternal family. The carrier and canonical finite recomposition remain unchanged.'])
-dm=add('adic-cokernel-decomposition-quotient','adicModuleCokernelDecomposition_mk','lemma','Quotient projection agrees with the ambient projection','For every original x in L and n≥0, with the new decomposition installed, the n-th quotient coordinate as an element of C equals the quotient class of the original adicModuleProjection π_n(x).',[d['id'],cm['id'],owned('adicModuleProjection'),'tauceti:TauCeti.DirectSum.map_decompose_shift'],['The actual A-linear quotient map sends L_n into C_n by its defining representative.','Apply the existing Tau map_decompose_shift with the identity injective degree map. This compares the two native decompositions without choosing an inverse representative.'])
-dr=add('adic-cokernel-decomposition-recompose','adicModuleCokernelDecomposition_recompose','lemma','Finite reconstruction in the actual cokernel','For every actual x in C, native finite recomposition of its full native quotient decomposition equals x in C.',[d['id'],'mathlib:DirectSum.Decomposition'],['Apply the left inverse field of the native decomposition on the actual quotient and canonical component inclusions.'])
-df=add('adic-cokernel-decomposition-homogeneous','adicModuleCokernelDecomposition_of_mem','lemma','Homogeneous quotient elements are fixed','If actual x belongs to C_n, its n-th native quotient coordinate, included into C, equals x.',[d['id'],cm['id'],'mathlib:DirectSum.decompose_of_mem_same'],['Apply the native same-degree decomposition theorem to the actual quotient component family.'])
-v=add('adic-cokernel-projection','adicModuleCokernelProjection','construction','Linear homogeneous projections of the actual cokernel','Define the A-linear map p_n:C→C by the native quotient decomposition, evaluation at n and the original inclusion C_n→C. It uses the original quotient carrier and restricted A action.',[d['id'],'mathlib:DirectSum.decomposeLinearEquiv','mathlib:DFinsupp.lapply'],['Install the actual quotient decomposition locally. Compose the native decomposition linear equivalence with dependent coordinate evaluation and the original component inclusion.'])
-vm=add('adic-cokernel-projection-quotient','adicModuleCokernelProjection_mk','lemma','Linear projections commute with the quotient map','For every x in L, p_n([x])=[π_n(x)] in the actual C.',[v['id'],dm['id']],['The new linear projection evaluates definitionally to the coordinate in the proved quotient decomposition identity.'])
-vv=add('adic-cokernel-projection-membership','adicModuleCokernelProjection_mem','lemma','Projection lands in its actual component','For every actual x in C, p_n(x) belongs to C_n.',[v['id']],['The native dependent coordinate carries precisely this membership proof before its inclusion into C.'])
-vf=add('adic-cokernel-projection-fixed','adicModuleCokernelProjection_eq_self_iff','lemma','Fixed quotient projection characterizes degree','For every actual x in C, p_n(x)=x if and only if x belongs to C_n.',[v['id'],vv['id'],df['id']],['A fixed projection belongs to its component by the projection membership theorem.','An element already in C_n is fixed by the same-degree quotient decomposition theorem.'])
-vc=add('adic-cokernel-projection-composition','adicModuleCokernelProjection_comp','lemma','Orthogonal idempotent quotient projections','For all i,j≥0 and actual x in C, p_i(p_j(x)) equals p_j(x) if i=j and zero otherwise.',[v['id'],vm['id'],owned('adicModuleProjection_comp'),'mathlib:Submodule.mkQ_surjective'],['Choose an original representative of x by quotient induction.','Apply the quotient projection formula twice and the inherited ambient projection composition identity. Split the equality of degrees; the quotient map preserves zero.'])
-c['api']=[dict(name=n['declaration'],role=r,statement=n['statement'])for n,r in [(cm,'characterisation'),(ce,'relation'),(cs,'compatibility')]]
-d['api']=[dict(name=n['declaration'],role=r,statement=n['statement'])for n,r in [(dm,'compatibility'),(dr,'relation'),(df,'simp')]]
-v['api']=[dict(name=n['declaration'],role=r,statement=n['statement'])for n,r in [(vm,'compatibility'),(vv,'characterisation'),(vf,'characterisation'),(vc,'relation')]]
-c['tests']=[tests[i]for i in [0,3,6,7]];d['tests']=[tests[i]for i in [1,4,7]];v['tests']=[tests[i]for i in [0,2,5,6]]
-base=[('iSupIndep_iff_finsetSum_eq_zero_imp_eq_zero','theorem','Mathlib/LinearAlgebra/DFinsupp.lean',580,'Independence of submodules is equivalent to each term of every zero finite homogeneous sum being zero.'),('DirectSum.IsInternal.submodule_iSup_eq_top','theorem','Mathlib/Algebra/DirectSum/Module.lean',452,'An internal direct-sum family of submodules spans the whole module.'),('DirectSum.isInternal_submodule_of_iSupIndep_of_iSup_eq_top','theorem','Mathlib/Algebra/DirectSum/Module.lean',510,'Independent submodules whose supremum is top form a native internal direct sum.'),('DirectSum.IsInternal.chooseDecomposition','def','Mathlib/Algebra/DirectSum/Decomposition.lean',80,'Choose native decomposition data from the bijective canonical finite recomposition.'),('Submodule.map_iSup','theorem','Mathlib/Algebra/Module/Submodule/Map.lean',230,'The native submodule image preserves arbitrary suprema.'),('LinearMap.range_comp','theorem','Mathlib/Algebra/Module/Submodule/Range.lean',82,'The range of a composite is the image of the first range under the second map.')]
-newbase=[dict(ref='mathlib:'+name,kind=kind,module=module,provides=desc,checked=f'Actual complete statement, proof/construction and ambient hypotheses personally read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04 by Codex — codex-7e92bd; line{line}; exact declaration index checked. Existing generic theorem imported, never replanned.')for name,kind,module,line,desc in base]
+ ('coefficient_and_variable','computation','The remaining-generator map evaluates C(c)+X_i to the actual coefficient image plus the quotient class of b_i.'),
+ ('eliminated_generator','non-example','If the remaining family repeats a itself, every corresponding variable maps to zero in S/(a). A map into S or an identity substitute fails.'),
+ ('empty_family','degenerate','If a alone generates S as an A/q-algebra, the map from polynomials with the empty variable type is still surjective onto S/(a). No positive number of remaining generators is assumed.'),
+ ('unit_ideal','degenerate','For q=A, every polynomial evaluates to zero in the actual remaining-generator quotient, over the zero coefficient ring.'),
+ ('surviving_nilpotent','non-example','For A=Z/4, q=(2), a=0, the degree-one class of2 supplies a remaining generator whose variable image is nonzero and has square zero in the actual quotient. Neither killing all positive degrees nor assuming a reduced quotient is allowed.'),
+ ('kernel_two_scalars','compatibility','For actual b in Q_i, c in Q_j and x in K_n, the nested descended product b·(c·x) is fixed by the native kernel decomposition at i+(j+n).'),
+ ('cokernel_two_scalars','compatibility','For actual b in Q_i, c in Q_j and x in C_n, the nested descended product b·(c·x) is fixed by the existing cokernel projection at i+(j+n).'),
+ ('quotient_mixed_coordinates','compatibility','For a quotient class of an original degree-zero plus degree-one scalar, the native quotient coordinate at0 is exactly the class of its degree-zero term and its coordinate at2 vanishes.')]
+tests=[dict(name='AdicRemainingTests.'+n,kind=k,statement=t)for n,k,t in tests]
+new=[]
+def add(slug,name,kind,title,statement,deps,proof,hyp=None):
+ n=dict(id=STAGE+'/'+slug,parentStageId=STAGE,realises=[STAGE],kind=kind,title=title,declaration=NS+name,statement=statement,hypotheses=[common]+(hyp or []),proofSteps=proof,prerequisites=deps,acceptance=[statement,'Use the same native quotient and module actions; implementation status stays unchecked.'],uses=[dict(where='R03.3 length-valued Hilbert–Serre induction, motivated by Stacks10.58.7',how='Reduce one designated degree-one generator while retaining actual homogeneous kernel/cokernel components, scalar action and finiteness. These data are inputs to the still-required polynomial-existence induction.')],sources=source,library=dict(module='TauCeti/RingTheory/HilbertSamuel',namespace='TauCeti.HilbertSamuel'),implementationStatus='unchecked')
+ new.append(n);return n
+h=add('adic-scalar-quotient-homogeneous','adicScalarQuotient_homogeneous','lemma','Homogeneous principal scalar ideal','The actual principal ideal I=(a) is homogeneous for the existing internal grading of S, including a=0 and nonzero zero divisors.',[owned('adicRingComponents'),owned('adicRingGrading'),'mathlib:Ideal.homogeneous_span'],['Use the existing theorem that the ideal spanned by homogeneous elements is homogeneous. The singleton generator belongs to the actual degree-one component.'])
+d=add('adic-scalar-quotient-coordinate','adicScalarQuotient_decompose_mk','lemma','Scalar quotient coordinates','Install the existing Tau gradedAlgebraGradeQuot on Q using the preceding homogeneity proof. For every b in S and n≥0, the n-th coordinate of [b] in Q, included into Q, is exactly [pi_n(b)], where pi_n is the existing adicRingProjection.',[h['id'],owned('adicRingProjection'),'tauceti:TauCeti.GradedAlgebra.gradeQuot','tauceti:TauCeti.GradedAlgebra.gradedAlgebraGradeQuot','tauceti:TauCeti.GradedAlgebra.mk_mem_gradeQuot','tauceti:TauCeti.DirectSum.map_decompose_shift','mathlib:Ideal.Quotient.mkₐ'],['The quotient algebra map is A-linear and sends each original component into the existing quotient component.','Apply the existing shifted-decomposition comparison with the identity injective degree map and reverse the resulting equality. No new quotient grading is constructed.'])
+k=add('adic-kernel-quotient-graded-action','adicModuleKernelScalar_gradedSMul','lemma','Quotient scalar grading on the kernel','For the existing Q-module structure on K, the existing families Q_i and K_j satisfy native SetLike.GradedSMul: Q_i·K_j is contained in K_(i+j).',[owned('adicModuleKernelScalarModule'),owned('adicModuleKernelScalar_mk_smul'),owned('adicModuleKernelComponents_smul'),'tauceti:TauCeti.GradedAlgebra.gradeQuot','tauceti:TauCeti.GradedAlgebra.mem_gradeQuot_iff','mathlib:SetLike.GradedSMul'],['Lift the actual homogeneous quotient scalar to a homogeneous original scalar.','Its descended action equals the original S action by the inherited representative formula; apply the already proved original kernel degree-addition law.'])
+c=add('adic-cokernel-quotient-graded-action','adicModuleCokernelScalar_gradedSMul','lemma','Quotient scalar grading on the cokernel','For the existing Q-module structure on C, the existing families Q_i and C_j satisfy native SetLike.GradedSMul: Q_i·C_j is contained in C_(i+j).',[owned('adicModuleCokernelScalarModule'),owned('adicModuleCokernelScalar_mk_smul'),owned('adicModuleCokernelComponents_smul'),'tauceti:TauCeti.GradedAlgebra.gradeQuot','tauceti:TauCeti.GradedAlgebra.mem_gradeQuot_iff','mathlib:SetLike.GradedSMul'],['Lift the homogeneous quotient scalar and use the inherited descended representative-action formula.','The original S action on the same cokernel already adds component degrees.'])
+kp=add('adic-kernel-quotient-action-coordinate','adicModuleKernelScalar_decompose_product','lemma','Kernel coordinate of a quotient scalar product','For b in Q_i and actual x in K_j, with the existing Q action and kernel decomposition installed, the coordinate at i+j of b·x, included into K, equals b·x.',[k['id'],owned('adicModuleKernelDecomposition'),'mathlib:DirectSum.decompose_of_mem_same'],['The new quotient graded-action theorem places b·x in K_(i+j); native homogeneous decomposition fixes it.'])
+cp=add('adic-cokernel-quotient-action-projection','adicModuleCokernelScalar_projection_product','lemma','Cokernel projection of a quotient scalar product','For b in Q_i and actual x in C_j, the existing cokernel projection at i+j fixes the actual descended product b·x.',[c['id'],owned('adicModuleCokernelProjection_eq_self_iff')],['Apply the new quotient degree-addition theorem and the inherited fixed-projection characterization on the same quotient C.'])
+f=add('adic-remaining-generator-map','adicRemainingGeneratorMap','construction','Polynomial map from the remaining generators','For any index type J and family b:J→S_1, construct the A/q-algebra map F:(A/q)[X_j | j∈J]→Q sending X_j to the actual class of b_j. This uses ordinary native multivariate polynomials and the existing quotient algebra, without assuming that the family generates S.',[owned('adicGradedRing'),owned('adicRingComponents'),'mathlib:MvPolynomial.aeval','mathlib:Ideal.Quotient.mk'],['Apply the native universal evaluation map to the quotient classes of the designated remaining degree-one generators. The coefficient algebra is the inherited A/q algebra on the actual quotient.'])
+fx=add('adic-remaining-generator-variable','adicRemainingGeneratorMap_X','lemma','Remaining variable evaluation','For every j∈J, F(X_j)=[b_j] in Q.',[f['id'],'mathlib:MvPolynomial.aeval_X'],['Use native evaluation on a polynomial variable.'])
+fc=add('adic-remaining-generator-coefficient','adicRemainingGeneratorMap_C','lemma','Remaining coefficient evaluation','For every c∈A/q, F(C(c)) is the actual coefficient algebra image of c in Q.',[f['id'],'mathlib:MvPolynomial.aeval_C'],['Use native evaluation on a polynomial coefficient.'])
+fu=add('adic-remaining-generator-uniqueness','adicRemainingGeneratorMap_unique','lemma','Uniqueness of the remaining generator map','Any A/q-algebra homomorphism from (A/q)[X_j] to the same Q taking every X_j to [b_j] equals F.',[f['id'],fx['id'],'mathlib:MvPolynomial.algHom_ext'],['The native multivariate polynomial algebra-homomorphism extensionality theorem reduces equality to the prescribed variable values.'])
+fd=add('adic-remaining-generator-degree','adicRemainingGeneratorMap_degree_one','lemma','Remaining variable has quotient degree one','For every j∈J, F(X_j) belongs to the existing quotient component Q_1. This permits zero generator images and does not assert their nonvanishing.',[fx['id'],'tauceti:TauCeti.GradedAlgebra.mk_mem_gradeQuot'],['Each original b_j belongs to S_1; its quotient class belongs to the corresponding native quotient component.'])
+fs=add('adic-remaining-generator-surjective','adicRemainingGeneratorMap_surjective','lemma','Surjectivity after removing one generator','If the designated a together with the family (b_j) generates S as an A/q-algebra, then F is surjective onto Q=S/(a). For J=Fin r this removes one generator from a list of r+1, without requiring minimality or nonzero generators.',[f['id'],'mathlib:MvPolynomial.aeval_range','mathlib:AlgHom.range_eq_top','mathlib:Algebra.map_top','mathlib:AlgHom.map_adjoin','mathlib:Algebra.adjoin_insert_zero','mathlib:Ideal.Quotient.mk_surjective','mathlib:Ideal.Quotient.eq_zero_iff_mem'],['Map the original adjoin equality through the surjective quotient algebra map.','The image of a is zero. Adjoining this zero adds nothing, so the quotient is generated by the remaining images.','Identify this adjoin with the range of the native evaluation map.'],['The A/q-algebra generated by {a}∪{b_j | j∈J} is all of S. No finiteness of J is required for this statement.'])
+kf=add('adic-kernel-remaining-polynomial-finite','adicModuleKernelRemaining_finite','lemma','Kernel finiteness over the remaining polynomial ring','Assume {a}∪{b_j} generates S over A/q and L is Noetherian as an S-module. Restrict the existing Q action on the actual K along F using native Module.compHom. Then K is finite over (A/q)[X_j | j∈J].',[fs['id'],owned('adicModuleKernelScalar_finite'),'mathlib:Module.compHom','mathlib:RingHom.Finite.of_surjective','mathlib:Module.Finite.trans'],['The inherited smaller-ring theorem makes K finite over Q under the stated Noetherian-module hypothesis.','The surjective F makes Q finite over the polynomial source. Its actual induced action and the composed K action form the scalar tower by associativity of scalar multiplication.','Apply native transitivity of finite modules.'],['L is Noetherian as an S-module. The designated family {a}∪{b_j} generates S over A/q. No regularity of a is assumed.'])
+cf=add('adic-cokernel-remaining-polynomial-finite','adicModuleCokernelRemaining_finite','lemma','Cokernel finiteness over the remaining polynomial ring','Assume {a}∪{b_j} generates S over A/q and L is finite as an S-module. Restrict the existing Q action on the actual C along F using native Module.compHom. Then C is finite over (A/q)[X_j | j∈J].',[fs['id'],owned('adicModuleCokernelScalar_finite'),'mathlib:Module.compHom','mathlib:RingHom.Finite.of_surjective','mathlib:Module.Finite.trans'],['The inherited quotient theorem gives finite generation over Q from finite generation of L over S.','Surjectivity makes Q finite over the polynomial source; the composed action has the native scalar tower.','Apply finite-module transitivity. Unlike the kernel theorem, this requires no Noetherian hypothesis.'],['L is finite as an S-module. The designated family {a}∪{b_j} generates S over A/q.'])
+f['api']=[dict(name=n['declaration'],role=r,statement=n['statement'])for n,r in [(fx,'simp'),(fc,'simp'),(fu,'universal-property'),(fd,'compatibility'),(fs,'characterisation')]]
+f['tests']=tests[:5];k['tests']=[tests[5]];c['tests']=[tests[6]];d['tests']=[tests[7]]
+base=[
+ ('mathlib','AlgHom.range_eq_top','theorem','Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean',251,'An algebra homomorphism has full range exactly when it is surjective.'),
+ ('mathlib','Algebra.map_top','theorem','Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean',263,'The image of the whole algebra under an algebra homomorphism equals its range.'),
+ ('mathlib','Ideal.Quotient.mk','def','Mathlib/RingTheory/Ideal/Quotient/Defs.lean',83,'The native quotient ring homomorphism.'),
+ ('mathlib','Ideal.Quotient.mkₐ','def','Mathlib/RingTheory/Ideal/Quotient/Operations.lean',369,'The native quotient algebra homomorphism with its actual inherited coefficient action.'),
+ ('tauceti','TauCeti.GradedAlgebra.gradeQuot','def','TauCeti/RingTheory/GradedAlgebra/Homogeneous/Quotient.lean',84,'Original homogeneous component image under the native quotient algebra map.'),
+ ('tauceti','TauCeti.GradedAlgebra.gradedAlgebraGradeQuot','def','TauCeti/RingTheory/GradedAlgebra/Homogeneous/Quotient.lean',215,'Existing native GradedAlgebra on a quotient by a homogeneous two-sided ideal.'),
+ ('tauceti','TauCeti.GradedAlgebra.mem_gradeQuot_iff','theorem','TauCeti/RingTheory/GradedAlgebra/Homogeneous/Quotient.lean',89,'Quotient component membership is existence of a homogeneous original representative.'),
+ ('tauceti','TauCeti.GradedAlgebra.mk_mem_gradeQuot','theorem','TauCeti/RingTheory/GradedAlgebra/Homogeneous/Quotient.lean',96,'Homogeneous elements map to their corresponding quotient component.'),
+ ('tauceti','TauCeti.GradedAlgebra.mul_mem_gradeQuot','theorem','TauCeti/RingTheory/GradedAlgebra/Homogeneous/Quotient.lean',137,'Existing quotient component products add degrees.'),
+ ('mathlib','Ideal.homogeneous_span','theorem','Mathlib/RingTheory/GradedAlgebra/Homogeneous/Ideal.lean',156,'An ideal generated by homogeneous elements is homogeneous.'),
+ ('mathlib','MvPolynomial.aeval_range','theorem','Mathlib/Algebra/MvPolynomial/Eval.lean',623,'The range of native polynomial evaluation is the algebra generated by its variable images.'),
+ ('mathlib','AlgHom.map_adjoin','theorem','Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean',868,'An algebra homomorphism maps a generated algebra to the algebra generated by the images.'),
+ ('mathlib','Algebra.adjoin_insert_zero','theorem','Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean',677,'Adjoining zero adds no algebra generator.'),
+ ('mathlib','RingHom.Finite.of_surjective','theorem','Mathlib/RingTheory/Finiteness/Basic.lean',460,'A surjective ring homomorphism makes its target a finite module for the induced algebra action.'),
+ ('mathlib','Module.Finite.trans','theorem','Mathlib/RingTheory/Finiteness/Basic.lean',366,'Finite generation is transitive along an actual scalar tower.')]
+newbase=[dict(ref=lib+':'+name,kind=kind,module=module,provides=desc,checked=f'Actual complete statement, construction/proof and ambient hypotheses personally read on2026-10-04 by Codex — codex-7e92bd at '+('TauCeti f790474821cf4256814db967cb154e7af3d0c369'if lib=='tauceti'else'Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174')+f'; line{line}; exact declaration index checked. Existing general theory is imported, not replanned.')for lib,name,kind,module,line,desc in base]
 refs={b['ref']for b in p['baseline']['declarations']};assert not refs&{b['ref']for b in newbase}
 allids={n['id']for n in old['nodes']+new};refs|={b['ref']for b in newbase}
 assert all(r in refs if r.startswith(('mathlib:','tauceti:'))else r in allids for n in new for r in n['prerequisites'])
 p['nodes']+=new;p['baseline']['declarations']+=newbase
-sr=json.loads((S/'SourceReading.json').read_text())[0];p['sources'].append(dict(id='HS-COKERNEL-GRADING-00JV',title='Noetherian graded rings: homogeneous quotient induction',authors='The Stacks Project Authors',edition='Currently displayed Section10.58,4October2026',url=sr['url'],sha256=sr['sha256'],readSections=[sr['scope']]))
-frontier='Sixteen new nodes and one defining native graded-scalar instance give the actual cokernel C=L/range(mu_a) an internal grading: original quotient-image components, original S scalar degree addition, independence from homogeneous range projections, spanning by quotient surjectivity, native finite decomposition, quotient projection agreement, finite reconstruction, fixed-degree membership and orthogonal idempotent A-linear projections. No new generic quotient or graded-ring carrier is planned. This supersedes only the actual cokernel internal-decomposition frontier. The smaller-ring S/(a) graded scalar action, simultaneous graded kernel/cokernel finiteness over the remaining-generator ring and the Hilbert–Serre induction remain open. Preserve the finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; every node unchecked.'
+sr=json.loads((S/'SourceReading.json').read_text())[0];p['sources'].append(dict(id='HS-REMAINING-GENERATORS-00JV',title='Noetherian graded rings: reduction by a degree-one generator',authors='The Stacks Project Authors',edition='Currently displayed Section10.58,4October2026',url=sr['url'],sha256=sr['sha256'],readSections=[sr['scope']]))
+frontier='Fourteen new nodes specialize the existing Tau quotient grading to S/(a), prove agreement with original scalar projections, and supply native graded actions on the actual kernel and cokernel using their already constructed scalar descent. The remaining-generator polynomial algebra map has coefficient/variable formulas, uniqueness, degree-one images and proved surjectivity when {a} together with the remaining family generates S. Both actual modules are finite over this remaining polynomial ring under their distinct inherited Noetherian/finite-module hypotheses. This supersedes only these graded-scalar and remaining-polynomial-finiteness omissions. Still supply the induction in a form closed under repeated graded kernels and quotients, arbitrary homogeneous polynomial action, finite homogeneous generating families and the zero-generator eventual-vanishing branch, then assemble the finite-length recurrence with explicit finite-difference polynomial, threshold and initial constant. The current adic specializations do not themselves constitute the recursive Hilbert–Serre theorem. Preserve the nonzero kernel correction and guarded length conversions. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-paper obligation remain open; all nodes unchecked.'
 p['summary']+=' '+frontier;next(c for c in p['coverage']if c['stageId']==STAGE)['remaining'].append(frontier)
-assert p['nodes'][:436]==old['nodes'] and len(new)==16 and len(names)==17
-plan=dict(newNames=names,newNodes=[n['id']for n in new],definingInstances=[NS+'adicModuleCokernelGradedSMul'],newBaseline=newbase,apiAdditions={},newTests=tests,frontier=frontier)
+names=[n['declaration']for n in new]
+assert p['nodes'][:452]==old['nodes'] and len(new)==14 and names==['TauCeti.HilbertSamuel.'+n for n in re.findall(r'^(?:def|lemma) (\w+)',(S/'New.lean').read_text(),re.M)]
+plan=dict(newNames=names,newNodes=[n['id']for n in new],definingInstances=[],newBaseline=newbase,apiAdditions={},newTests=tests,frontier=frontier)
 for name,x in [('Plan.json',plan),('NewNodes.json',new),('NewTests.json',tests),('Candidate.json',p),(STEM+'.json',p)]:put(name,x)
-t='# Internal grading of the actual adic cokernel\n\n'+common+'\n\nEach component is the original quotient image of L_n. To prove independence, lift a finite zero homogeneous sum: its sum lies in range(mu_a), and the inherited homogeneous-range theorem puts each original component projection in that same range. Spanning follows from the original decomposition and quotient surjectivity. Native internal-direct-sum data then give finite reconstruction and projections agreeing with the original ambient projections modulo range(mu_a).\n\n'
+t='# Quotient graded actions and the remaining generators\n\n'+common+'\n\nThe existing graded-ring quotient package supplies the quotient decomposition once the principal ideal is proved homogeneous. Homogeneous representatives then identify the descended actions with the old actions on the actual kernel and cokernel. The polynomial map from the remaining generators is surjective because the removed generator becomes zero. Its finite algebra action and the inherited finite Q-module structures give finite generation over the remaining polynomial ring.\n\n'
 for n in new:
  t+='## '+n['title']+'\n\n'+n['declaration']+'\n\n'+n['statement']+'\n\nHypotheses: '+' '.join(n['hypotheses'])+'\n\nProof: '+' '.join(n['proofSteps'])+'\n\nPrerequisites: '+', '.join(n['prerequisites'])+'.\n\n'
  for a in n.get('api',[]):t+='API '+a['name']+': '+a['statement']+'\n\n'
 t+='## Boundary tests\n\n'
 for x in tests:t+=x['name']+' ('+x['kind']+'): '+x['statement']+'\n\n'
-t+='## Continuation boundary\n\n'+frontier+'\n\nAll436 incoming whole nodes and every source/version/erratum, gap, request, planet and earlier stage obligation are preserved. The incoming reader follows unchanged. Only the explicitly identified quotient-decomposition frontier is superseded. The full Tau-importing suggested file remains uncompiled; isolated Mathlib evidence retains the exact four pinned Tau declarations already authenticated in the incoming prefix.\n\n---\n\n'
+t+='## Required continuation\n\n'+frontier+'\n\nAll452 incoming whole nodes, source/version findings, fifteen gaps, two requests, thirteen planets and all earlier obligations remain unchanged. The original reader follows. The full Tau-importing suggested file remains uncompiled; isolated evidence replays the exact pinned quotient-grading source as well as the four previously authenticated Tau direct-sum declarations.\n\n---\n\n'
 put('ReaderAddition.md',t);put('Reader.md',t+(S/'IncomingReader.md').read_text())
-print(json.dumps(dict(nodes=len(p['nodes']),newNodes=len(new),definingInstances=1,newAPI=10,newTestReferences=11,newTests=8,baseline=len(p['baseline']['declarations']))))
+print(json.dumps(dict(nodes=len(p['nodes']),newNodes=len(new),newAPI=5,newTests=8,baseline=len(p['baseline']['declarations']))))
 ```
 
 ## Script: projection.py
@@ -165,71 +177,73 @@ from projection import admit_lemmas
 S=Path(__file__).resolve().parent;t=lambda n:(S/n).read_text()
 def put(n,v):(S/n).write_text(v)
 put('NewAdmitted.lean',admit_lemmas(t('New.lean'))+'\n'+admit_lemmas(t('NewTests.lean')))
-put('Suggested.lean',t('NewImports.lean')+t('Incoming.lean')+'\n'+t('NewAdmitted.lean'))
-put('Canonical.lean',t('NewImports.lean')+t('CanonicalPrefix.lean')+'\n'+t('NewAdmitted.lean'))
-put('Audits.lean','\n'.join('#print axioms '+n for n in json.loads(t('Plan.json'))['newNames'])+'\n')
-put('Native.lean',t('NewImports.lean')+t('NativePrefix.lean')+'\n'+t('New.lean')+'\n'+t('NewTests.lean')+'\n'+t('Audits.lean'))
+put('Suggested.lean',t('TauImports.lean')+t('NewImports.lean')+t('Incoming.lean')+'\n'+t('NewAdmitted.lean'))
+put('Canonical.lean',t('NewImports.lean')+t('CanonicalPrefix.lean')+'\n'+t('TauGradedQuotientCanonical.lean')+'\n'+t('NewAdmitted.lean'))
+put('Audits.lean','\n'.join('#print axioms '+n for n in json.loads(t('Plan.json'))['newNames']+json.loads(t('TauGradedQuotientNames.json')))+'\n')
+put('Native.lean',t('NewImports.lean')+t('NativePrefix.lean')+'\n'+t('TauGradedQuotient.lean')+'\n'+t('New.lean')+'\n'+t('NewTests.lean')+'\n'+t('Audits.lean'))
 ```
 
 ## Script: handoff.py
 
 ```python
-"""Write exact mathematical scope, authenticated readings, validation and recoverable helpers."""
+"""Write the mathematical boundary, actual checks and exact reproducible helper fences."""
 from pathlib import Path
 import json,hashlib
 S=Path(__file__).resolve().parent;d=lambda n:json.loads((S/n).read_text());v=d('Verification.json');g=v['graph'];p=d('Candidate.json');plan=d('Plan.json')
-t='''# Internal grading of the actual adic cokernel — checkpoint
+t='''# Quotient graded actions and remaining generators — checkpoint
 
-Codex — codex-7e92bd. Refs #551. Partial. All452 nodes remain unchecked. The reserved multiplicity key, eight stages, fifteen gaps and two requests remain open.
+Codex — codex-7e92bd. Refs #551. Partial. All466 nodes remain unchecked. The reserved intrinsic/ambient Hilbert–Samuel multiplicity key, eight stages, fifteen gaps and two requests remain required.
 
-Sixteen new nodes (one definition, two constructions and thirteen lemmas), together with one defining native graded-scalar instance, supply the internal grading of the actual cokernel of degree-one multiplication. All436 incoming whole node objects remain unchanged. Ten API entries and eleven test references on the three new objects refer to eight distinct typed examples. Six existing generic Mathlib declarations are added to the baseline as imports, not new nodes.
+Fourteen new nodes (one construction and thirteen lemmas) supply the quotient scalar grading and reduction to the remaining polynomial generators. All452 incoming whole nodes are unchanged. The polynomial-map construction has five API entries and five tests; three further typed tests check the quotient coordinates and repeated actions on kernel/cokernel components. Fifteen existing Mathlib/Tau declarations are added as baseline imports. The thirteen planets, original sources, E1 finding, requests and whole gap objects are preserved.
 
-For any commutative A, ideal q and A-module M, retain the existing native Rees quotients S=gr_q(A), L=gr_q(M), the actual a∈S_1 and multiplication mu_a:L→L. C=L/range(mu_a) is the original native S-module quotient with its original S action and restricted A action. Its new component C_n is the literal A-linear range of L_n→L→C, definitionally the existing target of adicModuleCokernelComponent. No locality, Noetherianity, finite generation, freeness, reducedness, injectivity or regularity is assumed.
+For arbitrary commutative A, ideal q and A-module M, use the existing Rees quotients S=gr_q(A), L=gr_q(M), actual a∈S_1, Q=S/(a), K=ker(mu_a) and C=L/range(mu_a). The principal ideal (a) is homogeneous by the native span theorem. Tau Ceti already provides gradeQuot and gradedAlgebraGradeQuot: these are imported, never replanned. The actual quotient coordinate of [b] is [pi_n(b)] by the existing direct-sum map comparison. A homogeneous quotient scalar has a homogeneous original representative, and the inherited representative-action identities identify its Q action with the old S action. Thus the actual K and C families satisfy native SetLike.GradedSMul, and their existing decomposition/projection fixes every homogeneous scalar product.
 
-Independence follows by lifting a finite zero homogeneous sum: the sum of its lifts lies in range(mu_a). Original ambient projections recover each chosen homogeneous lift, and the inherited homogeneous-range theorem places each lift in the same range. Every quotient term is therefore zero. Spanning follows because original components span L and the quotient map is surjective. Existing native internal-direct-sum machinery supplies a decomposition on this same C. Existing Tau map_decompose_shift, applied to the identity degree map and the actual quotient map, proves that each quotient coordinate is the class of the original ambient projection. Canonical finite reconstruction, fixed homogeneous coordinates and orthogonal idempotent A-linear projections follow. The original quotient S action retains addition of homogeneous degrees. No generic graded-ring quotient package is duplicated.
+For any family b:J→S_1, the new native A/q-algebra map F:(A/q)[X_j]→Q evaluates X_j to [b_j]. Its coefficient and variable formulas, uniqueness and degree-one image are separate nodes. If {a} together with (b_j) generates S, F is surjective: map the original adjoin equality through the quotient, remove the now-zero generator a, and identify the remaining adjoin with the polynomial evaluation range. For J=Fin r this is the required reduction from r+1 designated generators to r; minimality, nonzero generators and nonempty J are not assumed.
 
-Eight typed examples check mixed degree-zero/one representatives and vanishing degree two; wrong-degree projection; vanishing of every projection of an actual multiplication image; the original homogeneous S action; reconstruction of arbitrary possibly inhomogeneous quotient elements and detection of zero by all coordinates; the unit-ideal boundary; a nonzero constant for the nonfree Z-module Z/4 at q=0; and a nonzero positive-degree quotient class for Z/4,q=(2),a=0. In the last test the degree-one class of2 remains nonzero, is fixed and is reconstructed. Finite reconstruction is proved in the general test, not assumed as an input. Existing nonzero nilpotent-multiplier kernel tests remain in the authenticated prefix.
+The original Q-module finiteness theorems and the proved surjectivity then make K and C finite over the remaining polynomial ring via the actual Module.compHom action and scalar tower. Kernel finiteness assumes L is Noetherian as an S-module. Cokernel finiteness requires only that L be finite over S. No regularity or injectivity of multiplication by a, reducedness or freeness is introduced. Finiteness of J is needed when using a finite generator count in the later induction, not for these individual map/finiteness statements.
 
-## Reading and authentication
+Eight typed examples check coefficient-plus-variable evaluation; killing a repeated removed generator; a surjective empty-variable map when a alone generates; q=A and the zero coefficient ring; a surviving nonzero square-zero degree-one variable over Z/4,q=(2),a=0; two successive homogeneous quotient scalar actions and their kernel/cokernel coordinates; and mixed degree-zero/one scalar representatives with vanishing degree-two quotient coordinate. The nilpotent example rejects both a reduced-quotient assumption and an accidental quotient that kills every positive degree.
 
-The whole55002-character issue was personally read in four complete slices before claim5978481670 and again after bot5978482601 confirmed that exact numeric claim. The body hash is unchanged. The complete current R03.3 reviewed audit row, reserved multiplicity node, both requests, relevant whole gaps4–8 and whole R03.3 frontier were freshly read before planning.
+## Reading and provenance
 
-Public peer PR6054 at head6e88087af5f2690c08fe130ff1c6c7fc3ca36aab recovered62 artifacts,10 helpers, all four final files and all four exact replayed pinned Tau declarations. Both actual recovered immutable verifiers reproduced the archived mathematical and publication reports byte-for-byte. The whole mathematical handoff and all fourteen new declarations plus two defining instances and seven tests were personally read, together with the consumed original quotient, projection, homogeneous-range and example proofs. The full436-node packet and3533-line native prefix are authenticated and preserved; no fresh full manual audit of the whole prefix is claimed.
+The whole55002-character issue was read in four complete slices before claim5980112144 and again after bot5980113613 confirmed that exact numeric claim. ClaimReceipt.json records the unchanged body hash and complete bounds. The current reviewed R03.3 audit, reserved key, both requests, whole relevant gaps4–8 and complete R03.3 coverage frontier were freshly read before planning.
 
-Own PR6051 Reading and input guard are authenticated against manifest6c4229ebc4efa08e8c03ff13742dbd82f0e2f05299b0825a774142b9fc3c3217. Its nested original own6037 manifest, reading, input guard and reading chain are also authenticated. Own scopes are reused only against24 unchanged controls out of29; four owned files and the Scheme Foundations packet changed. Current SF.0 final continuation and complete empty requests were freshly read; those bytes match this session's PR6058. No peer reading scope is attributed to this session, and no full SF proof audit is claimed.
+Own PR6064 at head236110125574505f05d1ad4ede8ba9ddd82d4f03 was recovered through actual public HTTP:66artifacts,10helpers,four final files and all four pinned Tau direct-sum source declarations. Both actual immutable recovered verifiers reproduced their archived mathematical/publication reports byte-for-byte. The current four deliverables match that checkpoint. Its complete recovery helper, verifier, immutable reader and graph checker were inspected. The full incoming packet and3877-line native proof prefix are authenticated and retained, not claimed to have received a new complete manual proof audit.
 
-WORKERS was freshly reread completely. PROTOCOL sections10–15 were freshly reread during this job. Other binding/upstream/RS08 scopes retain exact same-hash own attribution, including the recent full expansion PROTOCOL and upstream guide readings; Reading.json records the bounds and the earlier truncated whole-PROTOCOL display that is not counted as a complete fresh read. The selected native source statements, constructions and proofs were personally read at the exact pins in the recorded ranges. The existing Tau graded-ring quotient construction was read and is not replanned. Exact new-name searches cover pinned Mathlib, Tau and current atlas packets; they are bounded checks, not a semantic absence certificate.
+Own6064 Reading/InputGuard records are authenticated against manifest3779c3e71b30898e174ed35a4811447ba8e849f2d74ba840580e8186067f6da1. Nested original own6051 and6037 manifest/reading/input scopes are authenticated too. Of the29original controls,24are unchanged; the four owned files and Scheme Foundations changed. Current SFpacket bytes match own6070; its SF.0 final continuation and complete empty requests were freshly read. The whole relevant current link/overlap/examined entries and touching restructure rows were read:57files,123entries. All85current controls are guarded. Peer reading claims are not reassigned to this session.
 
-The complete currently displayed Stacks Section10.58, all statements/proofs1–10 and all five comments, was read at https://stacks.math.columbia.edu/tag/00JV. SourceReading.json records the actual HTTP bytes/hash/time. The arbitrary-module quotient decomposition is an authored deduction motivated by its graded induction. All inherited source/version/E1 and routed-source obligations remain unchanged; no fresh recursive-paper audit is claimed.
+WORKERS, PROTOCOL0–6 and12–15, complete expansion PROTOCOL and complete UPSTREAM_GUIDE were freshly reread. Other unchanged binding/upstream-roadmap/accepted RS08 scopes retain their original authenticated own attribution. Reading.json records exact consumed native proof ranges and pinned source ranges. Complete actual native statements, proof/construction and hypotheses were read before citing each new baseline import. The full223-line Tau quotient-grading source was personally read and fetched byte-for-byte at its exact pin. Bounded name searches cover both source trees and current packets. GitHub search confirms the existing quotient design follows open Mathlib PR36501; the Zulip search yielded no additional exact quotient design result. These searches are not semantic absence proofs.
+
+The complete currently displayed Stacks Section10.58, all ten numbered statements/proofs and all five comments, was read at https://stacks.math.columbia.edu/tag/00JV. SourceReading.json binds actual fetched bytes/hash/time. The native action and generator lemmas are authored deductions motivated by that source. The retained elementary length-valued kernel/cokernel induction differs from its K0 proof and keeps the nonzero kernel correction. Linked proofs/history, inherited E1 and every routed source are not newly recursively audited here.
 
 ## Compilation boundary
 
-**The full Tau-importing suggested file is uncompiled.** It imports existing TauCeti.Algebra.DirectSum.Internal at f790474821cf4256814db967cb154e7af3d0c369. The available Tau build has a different head and lacks Internal.olean. No Tau library was built.
+**The full Tau-importing Suggested.lean is uncompiled.** The available Tau build is at cf386627e9176a3827c1a5fe804989fd94a4d216, not the required f790474821cf4256814db967cb154e7af3d0c369, and lacks both Internal.olean and the graded quotient olean. No library was built.
 
-Native.lean and Canonical.lean are isolated Mathlib-only evidence files. Their byte-exact authenticated incoming prefixes already replay the existing map_decompose_shift, isInternal_comap, Decomposition.restrict and map_decompose_restrict source declarations; none is replayed twice. TauShiftReceipt.json and TauRestrictionReceipt.json bind the pinned source and exact declaration blocks. Public recovery fetches the immutable source and verifies every block. This is not a compiled Tau-import claim.
+The isolated Native.lean and Canonical.lean files retain their exact authenticated incoming prefixes, including four exact existing Tau direct-sum declarations. Native additionally replays the unchanged complete namespace block of TauCeti/RingTheory/GradedAlgebra/Homogeneous/Quotient.lean. Canonical replays identical declarations and proofs, omitting only the unused universe u/v/w header that conflicts with the inherited file; this exact one-line normalization is mechanically verified. The public recovery fetches both pinned source files and verifies every exact block. All twelve public named declarations of the quotient package, the four old source declarations and all fourteen new declarations are covered by the native axiom audits. The package's private supporting proof and defining instance remain unchanged and are checked through their use. Source replay is not a compiled Tau-library import claim.
 
-All seventeen new declaration headers, including the defining instance, and eight test headers match the admitted projection exactly. Definitions, native decomposition data and the native graded-scalar instance are retained; only lemma and test proofs are admitted in that projection. The full final native proof is compiled from source, without the disposable prototype-prefix olean. No placeholder proposition replaces the missing mathematics.
+The fourteen new declaration headers and eight test headers match the admitted projection exactly, including all nested let/letI bindings and conclusions. The actual polynomial-map data are retained; new lemma/test proofs are admitted only in the canonical plan. Final native evidence compiles the complete source without importing the disposable prototype olean. All proofs use only propext,Classical.choice and Quot.sound, with no sorryAx.
 
-Both evidence runs use the existing exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 build and Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d. Runs are serial after the20GiB guard, with one thread,8192MiB cap and1200-second timeout. No Lake setup/update/cache, library build or language server. Native evidence has no errors, warnings or admissions;256 axiom audits cover all seventeen new declarations and all four replayed Tau declarations and use only propext,Classical.choice and Quot.sound.
+Checks use the existing Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 build and Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d. Runs are serial after a fresh20GiB guard, one thread,8192MiB cap and1200-second timeout. No Lake setup/update/cache, library build or language server.
 
 '''
 for name,r in v['compilation'].items():
  t+=f"- {name}: {r['lines']} lines,{r['examples']} examples,exit{r['exitStatus']},{r['warnings']} warnings,{r['axiomAudits']} axiom audits; {r['availableGiBBefore']}GiB available,{r['elapsedSeconds']} seconds,peak{r['maxRssKiB']}KiB. Source SHA256 `{r['sourceSha256']}`; diagnostic SHA256 `{r['logSha256']}`.\n"
-b=(S/'Suggested.lean').read_bytes();t+=f"\nSuggested.lean: {len(b.splitlines())} lines,uncompiled; SHA256 `{hashlib.sha256(b).hexdigest()}`. Isolated Canonical.lean has858 expected admission warnings only.\n"
+b=(S/'Suggested.lean').read_bytes();t+=f"\nSuggested.lean: {len(b.splitlines())} lines,uncompiled; SHA256 `{hashlib.sha256(b).hexdigest()}`. Native has282clean audits and no warnings/errors/admissions. Canonical has879expected admission warnings only.\n"
 t+=f'''
 ## Immutable validation
 
-The actual indexed checker reports452 nodes (11definitions,65constructions,16theorems,360lemmas),354 API entries,290 recognized tests(373raw references),13 planets and440 baseline declarations, with no errors or warnings. Actual intake authorization/file checks and source-issue/version checks pass. All436 whole incoming nodes, every prior API/test, source/version/E1, all fifteen whole gaps and both requests remain unchanged. The required direct check_blueprint.py invocation also passes with the exact declaration index.
+The actual indexed checker reports466nodes (11definitions,66constructions,16theorems,373lemmas),359API entries,295recognized tests(381raw references),13planets and455baseline declarations, with no errors or warnings. Actual intake authorization/file checks and source-issue/version checks pass. The required direct check_blueprint.py invocation passes with the exact declarations.tsv. Every452incoming whole node and prior API/test, every source/version/E1 record, fifteen gap objects and both requests remain unchanged.
 
-Mathematical base `{v['mathematicalBase']}`; publication control `{v['immutableBase']}`. Both actual immutable verifiers ran and are retained as MathematicalVerification.json and Verification.json. All29 inputs are hash guarded; PublicationChanges.json records {len(v['reviewedPublicationChanges'])} reviewed changed controls. Four incoming files and the queue contract agree at both bases. Declaration index SHA256 `{v['indexSha256']}`.
+Mathematical base `{v['mathematicalBase']}`; publication base `{v['immutableBase']}`. Both actual immutable verifier outputs are retained. All85input controls are guarded; PublicationChanges.json contains {len(v['reviewedPublicationChanges'])} reviewed changes. The four original owned files and queue contract agree at both bases. Declaration index SHA256 `{v['indexSha256']}`.
 
-Stage DAG {g['stageDAG']['vertices']}/{g['stageDAG']['edges']},own DAG {g['ownDAG']['vertices']}/{g['ownDAG']['edges']},combined DAG {g['combinedDAG']['vertices']}/{g['combinedDAG']['edges']}; all acyclic, no unresolved owned dependencies. All65 accepted restructure pairs and12of13 required stage pairs remain reachable. The inherited LocalFieldsRamification layer0→R03.4 missing path remains in its unchanged gap/request. Whole foreign roadmap/stage and stage-edge objects and53 sibling declarations are preserved.
+Stage DAG {g['stageDAG']['vertices']}/{g['stageDAG']['edges']},own DAG {g['ownDAG']['vertices']}/{g['ownDAG']['edges']},combined DAG {g['combinedDAG']['vertices']}/{g['combinedDAG']['edges']}; all acyclic and no unresolved owned dependencies. All{g['acceptedRestructurePairs']}accepted restructure pairs and{g['requiredStagePairsReachable']}of{g['requiredStagePairs']}required stage pairs remain reachable. The inherited LocalFieldsRamification layer0→R03.4 missing path remains in its unchanged gap/request. Complete foreign roadmap/stage and stage-edge objects and53sibling declarations remain preserved.
 
 ## Resume
 
 {plan['frontier']}
 
-Continue with the native graded scalar actions over S/(a), using existing graded-ring quotient machinery, and check the finite generation needed over the remaining-generator ring for both actual kernel and actual cokernel. Then prove the Hilbert–Serre induction, including finite-difference integration, explicit thresholds and initial constants. Preserve the finite component-length bounds, signed integer recurrence and nonzero kernel correction. Neither that recurrence nor the new quotient grading proves polynomial existence, support-dimension equality or multiplicity normalization. All inherited coefficient, depth, patching, source-route and reserved-key obligations remain required.
+The next proof should expose an induction statement for arbitrary internally graded modules that remains applicable after taking a kernel and quotient. Reuse the existing generic Tau quotient grading and current actual scalar maps. Prove homogeneous polynomial action and finite homogeneous generating-family bounds, discharge the zero-generator eventual-vanishing case, and assemble the signed finite-length recurrence into an explicit rational polynomial with threshold and restored initial constant. A recurrence, grading or ordinary finite-generation theorem does not itself prove eventual polynomial existence or support-dimension equality. Preserve both intrinsic and ambient multiplicity conventions and every routed obligation.
 '''
 for n in ['author.py','projection.py','assemble.py','handoff.py','verify.py','graph.py','immutable_view.py','compile.py','runcheck.py','package.py']:
  t+='\n## Script: '+n+'\n\n```python\n'+(S/n).read_text()+'```\n'
@@ -254,14 +268,14 @@ paths=['research/blueprint/'+f+'/'+('BP-'if f=='handoff'else'')+STEM+'.'+e for f
 contents={p:txt(n)for p,n in zip(paths,['Candidate.json','Reader.md','Suggested.lean','PublicHandoff.md'if(S/'PublicHandoff.md').exists()else'Handoff.md'])}
 for path,n in zip(paths,['Incoming.json','IncomingReader.md','Incoming.lean','IncomingHandoff.md']):assert blob(MATH,path)==(S/n).read_bytes()==blob(BASE,path),path
 p=data('Candidate.json');old=data('Incoming.json');plan=data('Plan.json')
-assert len(old['nodes'])==436 and len(p['nodes'])==452 and set(p)==set(old)
-assert p['nodes'][:436]==old['nodes']
+assert len(old['nodes'])==452 and len(p['nodes'])==466 and set(p)==set(old)
+assert p['nodes'][:452]==old['nodes']
 assert plan['apiAdditions']=={}
-assert p['nodes'][436:]==data('NewNodes.json')
-assert [n['id']for n in p['nodes'][436:]]==plan['newNodes']
+assert p['nodes'][452:]==data('NewNodes.json')
+assert [n['id']for n in p['nodes'][452:]]==plan['newNodes']
 for k in old:
  if k not in ['nodes','summary','sources','baseline','coverage']:assert p[k]==old[k],k
-assert p['baseline']['declarations']==old['baseline']['declarations']+plan['newBaseline']and len(p['baseline']['declarations'])==440
+assert p['baseline']['declarations']==old['baseline']['declarations']+plan['newBaseline']and len(p['baseline']['declarations'])==455
 assert {k:v for k,v in p['baseline'].items()if k!='declarations'}=={k:v for k,v in old['baseline'].items()if k!='declarations'}
 assert p['sources'][:-1]==old['sources']and p['summary'].startswith(old['summary'])
 for a,b in zip(old['coverage'],p['coverage']):
@@ -274,29 +288,33 @@ assert(len(p['gaps']),len(p['requests']),len(p['coverage']),len(p['sourceIssues'
 assert txt('Reader.md')==txt('ReaderAddition.md')+txt('IncomingReader.md')
 from projection import admit_lemmas,split_imports
 assert txt('NewAdmitted.lean')==admit_lemmas(txt('New.lean'))+'\n'+admit_lemmas(txt('NewTests.lean'))
-assert txt('Suggested.lean')==txt('NewImports.lean')+txt('Incoming.lean')+'\n'+txt('NewAdmitted.lean')
-assert txt('Canonical.lean')==txt('NewImports.lean')+txt('CanonicalPrefix.lean')+'\n'+txt('NewAdmitted.lean')
-assert txt('Native.lean')==txt('NewImports.lean')+txt('NativePrefix.lean')+'\n'+txt('New.lean')+'\n'+txt('NewTests.lean')+'\n'+txt('Audits.lean')
+assert txt('Suggested.lean')==txt('TauImports.lean')+txt('NewImports.lean')+txt('Incoming.lean')+'\n'+txt('NewAdmitted.lean')
+assert txt('Canonical.lean')==txt('NewImports.lean')+txt('CanonicalPrefix.lean')+'\n'+txt('TauGradedQuotientCanonical.lean')+'\n'+txt('NewAdmitted.lean')
+assert txt('Native.lean')==txt('NewImports.lean')+txt('NativePrefix.lean')+'\n'+txt('TauGradedQuotient.lean')+'\n'+txt('New.lean')+'\n'+txt('NewTests.lean')+'\n'+txt('Audits.lean')
 assert not re.search(r'\b(?:sorry|admit|axiom)\b',txt('Native.lean'))
+assert 'import PrototypeBase' not in txt('Native.lean') and 'import PrototypeBase' not in txt('Canonical.lean')
 prev=data('PreviousRecovery.json');manifest=data('PreviousManifest.json')
-assert prev['head']=='6e88087af5f2690c08fe130ff1c6c7fc3ca36aab'and prev['artifactsVerified']==62 and prev['archivedHelpersVerified']==10
-assert sha((S/'PreviousManifest.json').read_bytes())=='f3591a3f8a175e581fa0dfc8a1a484025be45d5bacaae86f7354a18d6e13ed7b'
+assert prev['head']=='236110125574505f05d1ad4ede8ba9ddd82d4f03'and prev['artifactsVerified']==66 and prev['archivedHelpersVerified']==10
+assert sha((S/'PreviousManifest.json').read_bytes())=='3779c3e71b30898e174ed35a4811447ba8e849f2d74ba840580e8186067f6da1'
 for original,current in [('Native.lean','NativePrefix.lean'),('Canonical.lean','CanonicalPrefix.lean'),('Verification.json','PreviousVerification.json'),('MathematicalVerification.json','PreviousMathematicalVerification.json')]:assert manifest[original]['sha256']==sha((S/current).read_bytes())
 for path,n in zip(paths,['Incoming.json','IncomingReader.md','Incoming.lean','IncomingHandoff.md']):assert sha((S/n).read_bytes())==prev['publicDeliverables'][path]
 assert (S/'IncomingPublicationVerification-replayed.json').read_bytes()==(S/'PreviousVerification.json').read_bytes()
 assert (S/'IncomingMathematicalVerification-replayed.json').read_bytes()==(S/'PreviousMathematicalVerification.json').read_bytes()
 om=data('OwnPreviousManifest.json')
-assert sha((S/'OwnPreviousManifest.json').read_bytes())=='6c4229ebc4efa08e8c03ff13742dbd82f0e2f05299b0825a774142b9fc3c3217'
-for original,current in [('Reading.json','OwnPreviousReading.json'),('InputGuard.json','OwnPreviousInputGuard.json'),('OwnPreviousReading.json','OwnInheritedReading.json'),('OwnPreviousManifest.json','OwnInheritedManifest.json'),('OwnPreviousInputGuard.json','OwnInheritedInputGuard.json'),('OwnPreviousReadingChain.json','OwnInheritedReadingChain.json')]:assert om[original]['sha256']==sha((S/current).read_bytes())
-im=data('OwnInheritedManifest.json')
-assert sha((S/'OwnInheritedManifest.json').read_bytes())=='518be554db21e4e42d3bcf5374ed4d0d9bfdf7ee3379b56dc6b4cdfffdfbc318'
-for original,current in [('Reading.json','OwnInheritedReading.json'),('InputGuard.json','OwnInheritedInputGuard.json'),('OwnPreviousReadingChain.json','OwnInheritedReadingChain.json')]:assert im[original]['sha256']==sha((S/current).read_bytes())
+assert sha((S/'OwnPreviousManifest.json').read_bytes())=='3779c3e71b30898e174ed35a4811447ba8e849f2d74ba840580e8186067f6da1'
+for original,current in [('Reading.json','OwnPreviousReading.json'),('InputGuard.json','OwnPreviousInputGuard.json'),('Candidate.json','OwnPreviousCandidate.json'),('OwnPreviousManifest.json','OwnInherited6051Manifest.json'),('OwnPreviousReading.json','OwnInherited6051Reading.json'),('OwnPreviousInputGuard.json','OwnInherited6051InputGuard.json'),('OwnInheritedManifest.json','OwnInherited6037Manifest.json'),('OwnInheritedReading.json','OwnInherited6037Reading.json'),('OwnInheritedInputGuard.json','OwnInherited6037InputGuard.json'),('OwnInheritedReadingChain.json','OwnInherited6037ReadingChain.json')]:assert om[original]['sha256']==sha((S/current).read_bytes())
+middle=data('OwnInherited6051Manifest.json')
+assert sha((S/'OwnInherited6051Manifest.json').read_bytes())=='6c4229ebc4efa08e8c03ff13742dbd82f0e2f05299b0825a774142b9fc3c3217'
+for original,current in [('OwnPreviousManifest.json','OwnInherited6037Manifest.json'),('OwnPreviousReading.json','OwnInherited6037Reading.json'),('OwnPreviousInputGuard.json','OwnInherited6037InputGuard.json'),('OwnPreviousReadingChain.json','OwnInherited6037ReadingChain.json')]:assert middle[original]['sha256']==sha((S/current).read_bytes())
+im=data('OwnInherited6037Manifest.json')
+assert sha((S/'OwnInherited6037Manifest.json').read_bytes())=='518be554db21e4e42d3bcf5374ed4d0d9bfdf7ee3379b56dc6b4cdfffdfbc318'
+for original,current in [('Reading.json','OwnInherited6037Reading.json'),('InputGuard.json','OwnInherited6037InputGuard.json'),('OwnPreviousReadingChain.json','OwnInherited6037ReadingChain.json')]:assert im[original]['sha256']==sha((S/current).read_bytes())
 prior={g['path']:g['sha256']for g in data('OwnPreviousInputGuard.json')}
 reuse=data('OwnReadingReuse.json');assert len(reuse)==29 and sum(g['unchanged']for g in reuse)==24
 for g in reuse:
  assert g['before']==prior[g['path']]and g['after']==sha(blob(MATH,g['path']))
  assert g['unchanged']==(g['before']==g['after'])
-assert data('ClaimReceipt.json')['claim']==5978481670 and data('ClaimReceipt.json')['confirmation']==5978482601 and data('ClaimReceipt.json')['beforeAfterEqual']
+assert data('ClaimReceipt.json')['claim']==5980112144 and data('ClaimReceipt.json')['confirmation']==5980113613
 assert data('ClaimReceipt.json')['wholeIssueCharacters']==55002 and data('Reading.json')['agent']=='Codex — codex-7e92bd'
 def headers(t):
  found={}
@@ -317,17 +335,17 @@ def headers(t):
   assert label not in found;found[label]=' '.join(t[m.start():end].split())
  return found
 nh=headers(txt('New.lean'));nt=headers(txt('NewTests.lean'));ch=headers(txt('NewAdmitted.lean'))
-assert {**nh,**nt}==ch and len(nh)==17 and len(nt)==8
-assert 'adicModuleCokernelProjection q M a 2 x = 0' in nt['example#0']
-assert 'adicModuleCokernelProjection q M a (i+j) y = y' in nt['example#3']
+assert {**nh,**nt}==ch and len(nh)==14 and len(nt)==8
+assert 'MvPolynomial.X' in nt['example#0'] and '≠ 0' in nt['example#4'] and '^ 2 = 0' in nt['example#4']
+assert 'i+(j+n)' in nt['example#5'] and 'i+(j+n)' in nt['example#6']
 assert set(plan['newNames'])=={NS+n for n in nh}
-assert {n['declaration']for n in p['nodes'][436:]}|set(plan['definingInstances'])==set(plan['newNames'])
-assert sum(len(n.get('api',[]))for n in p['nodes'][436:])==10
-assert sum(len(n.get('tests',[]))for n in p['nodes'][436:])==11
-assert len({t['name']for n in p['nodes'][436:]for t in n.get('tests',[])})==8
-assert all(len(n['tests'])>=3 and len(n['api'])>=3 for n in p['nodes'][436:]if n['kind']in ['definition','construction'])
+assert {n['declaration']for n in p['nodes'][452:]}|set(plan['definingInstances'])==set(plan['newNames'])
+assert sum(len(n.get('api',[]))for n in p['nodes'][452:])==5
+assert sum(len(n.get('tests',[]))for n in p['nodes'][452:])==8
+assert len({t['name']for n in p['nodes'][452:]for t in n.get('tests',[])})==8
+assert all(len(n['tests'])>=3 and len(n['api'])>=3 for n in p['nodes'][452:]if n['kind']in ['definition','construction'])
 assert{t['name']for t in data('NewTests.json')}==set(re.findall(r'^-- test: (.+)$',txt('NewTests.lean'),re.M))
-for n in p['nodes'][436:]:assert n['declaration']in txt('Reader.md')and n['statement']in txt('Reader.md')
+for n in p['nodes'][452:]:assert n['declaration']in txt('Reader.md')and n['statement']in txt('Reader.md')
 tr=data('TauShiftReceipt.json');tb=txt('TauShift.lean').split('namespace TauCeti\n',1)[1].rsplit('end TauCeti\n',1)[0]
 assert sha(tb.encode())==tr['declarationSha256']and tr['fileSha256']==tr['publicFetchedSha256']
 assert tr['pin']=='f790474821cf4256814db967cb154e7af3d0c369'
@@ -341,8 +359,18 @@ rb=txt('TauRestriction.lean').split('open scoped _root_.DirectSum\n',1)[1].rspli
 assert sha(rb.encode())==rr['blockSha256'] and rr['fileSha256']==rr['publicFetchedSha256']==tr['fileSha256']
 assert rr['pin']==tr['pin'] and list(headers(rb))==['DirectSum.isInternal_comap','DirectSum.Decomposition.restrict','DirectSum.map_decompose_restrict']
 assert set(rr['declarations'])=={'TauCeti.'+n for n in headers(rb)}
+qr=data('TauGradedQuotientReceipt.json')
+assert qr['pin']==tr['pin'] and qr['fileSha256']==qr['publicFetchedSha256']=='ad945c4225f5bf968548405880353d68eb7921d4fc4b8cc45756029035a9dcc5'
+assert sha((S/'TauGradedQuotient.lean').read_bytes())==qr['blockSha256']
+assert txt('TauGradedQuotient.lean').count('universe u v w\n')==1
+assert txt('TauGradedQuotientCanonical.lean')==txt('TauGradedQuotient.lean').replace('universe u v w\n','')
+assert headers(txt('TauGradedQuotient.lean'))==headers(txt('TauGradedQuotientCanonical.lean'))
+assert sha((S/'TauGradedQuotientCanonical.lean').read_bytes())==qr['canonicalNormalization']['canonicalSha256']
+assert len(data('TauGradedQuotientNames.json'))==12
+assert txt('TauImports.lean')=='import TauCeti.RingTheory.GradedAlgebra.Homogeneous.Quotient\n'
+for row in data('TouchingLinks.json')['files']:assert sha(blob(MATH,row['path']))==row['sha256']
 compilation={}
-for name,warnings,examples,audits in [('Native.lean',0,91,256),('Canonical.lean',858,352,0)]:
+for name,warnings,examples,audits in [('Native.lean',0,99,282),('Canonical.lean',879,360,0)]:
  rec=data(name[:-5]+'.receipt.json');log=txt(name[:-5]+'.log')
  assert rec['exitStatus']==0 and rec['availableGiBBefore']>=20 and rec['elapsedSeconds']<1200
  assert rec['sourceSha256']==sha((S/name).read_bytes())and rec['logSha256']==sha(log.encode())
@@ -350,7 +378,7 @@ for name,warnings,examples,audits in [('Native.lean',0,91,256),('Canonical.lean'
  assert len(re.findall(r'^example\b',txt(name),re.M))==examples
  a=re.findall(r"'([^']+)' depends on axioms:\s*\[([^]]*)\]",log);assert len(a)==audits
  assert 'sorryAx'not in log and all(set(x.strip()for x in v.replace('\n',' ').split(',')if x.strip())<={'propext','Classical.choice','Quot.sound'}for _,v in a)
- if name=='Native.lean':assert set(plan['newNames'])|set(rr['declarations'])|{'TauCeti.DirectSum.map_decompose_shift'}<={n for n,_ in a}
+ if name=='Native.lean':assert set(plan['newNames'])|set(data('TauGradedQuotientNames.json'))|set(rr['declarations'])|{'TauCeti.DirectSum.map_decompose_shift'}<={n for n,_ in a}
  assert '-j 1 -M 8192'in log and 'timeout 1200'in log and 'Exit status: 0'in log
  compilation[name]={**rec,'lines':len(txt(name).splitlines()),'examples':examples}
 changes=data('PublicationChanges.json');allowed={d['path']:d for d in changes}
@@ -380,7 +408,7 @@ env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'
 job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs']if j['id']=='BP-'+STEM)
 problems=[x for f in paths for x in env['file_problems'](f,contents[f])];refusals=env['auto_refusals'](job,paths,False,{'codex-7e92bd'},set());assert not problems and not refusals,(problems,refusals)
 graph=json.loads(subprocess.check_output([sys.executable,str(S/'graph.py'),str(S)],cwd=R,text=True,env={**os.environ,'ROOT_ACTION_VALIDATE_BASE':BASE}));assert graph['worldCommit']==BASE
-print(json.dumps(dict(checker=summary,sourceIssueErrors=issues,intakeProblems=problems,intakeRefusals=refusals,preservedWholeNodes=436,preservedContracts=436,newNodes=16,newMathematicalDeclarations=17,definingInstances=1,newAPI=10,newTests=8,matchedNewHeaders=17,matchedTestHeaders=8,rawAPI=sum(len(n.get('api',[]))for n in p['nodes']),rawTests=sum(len(n.get('tests',[]))for n in p['nodes']),compilation=compilation,inputGuards=len(data('InputGuard.json')),reviewedPublicationChanges=changes,indexSha256=sha(Path(sys.argv[2]).read_bytes()),mathematicalBase=MATH,immutableBase=BASE,graph=graph,fullSuggestedCompiled=False,sourceReplayBoundary=data('SourceBoundary.json'),tauSourceReplay=tr,tauRestrictionSourceReplay=rr,LeanExecuted=False),indent=2))
+print(json.dumps(dict(checker=summary,sourceIssueErrors=issues,intakeProblems=problems,intakeRefusals=refusals,preservedWholeNodes=452,preservedContracts=452,newNodes=14,newMathematicalDeclarations=14,definingInstances=0,newAPI=5,newTests=8,matchedNewHeaders=14,matchedTestHeaders=8,rawAPI=sum(len(n.get('api',[]))for n in p['nodes']),rawTests=sum(len(n.get('tests',[]))for n in p['nodes']),compilation=compilation,inputGuards=len(data('InputGuard.json')),reviewedPublicationChanges=changes,indexSha256=sha(Path(sys.argv[2]).read_bytes()),mathematicalBase=MATH,immutableBase=BASE,graph=graph,fullSuggestedCompiled=False,sourceReplayBoundary=data('SourceBoundary.json'),tauSourceReplay=tr,tauRestrictionSourceReplay=rr,tauQuotientSourceReplay=qr,LeanExecuted=False),indent=2))
 ```
 
 ## Script: graph.py
@@ -628,7 +656,7 @@ def install():
 from pathlib import Path
 import os,sys,subprocess,json
 out=Path(sys.argv[1]).resolve();mathlib=Path(sys.argv[2]).resolve();lean=Path(sys.argv[3]).resolve()
-name=sys.argv[4];assert name in {'Native.lean','Canonical.lean','Published.lean','AdmittedTyping.lean','Prototype.lean','Sketch.lean','Probe.lean'}
+name=sys.argv[4];assert name in {'Native.lean','Canonical.lean','Published.lean','AdmittedTyping.lean','Prototype.lean','Sketch.lean','PrototypeBase.lean','Probe.lean'}
 pin='082e2d37e8b0463410cdb532e111cd43d5a66174'
 assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=mathlib,text=True).strip()==pin
 assert not subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],cwd=mathlib,text=True).strip()
@@ -649,8 +677,8 @@ free=subprocess.check_output(['free','-g'],text=True)
 available=int(free.splitlines()[1].split()[-1])
 print(json.dumps({'preflight':'serial existing pinned build','availableGiB':available,'packages':packages,'omitted':omitted,'leanVersion':version}),flush=True)
 if available<20:print('Memory guard refused compilation.',flush=True);sys.exit(75)
-env=os.environ.copy();env['LEAN_PATH']=os.pathsep.join(str(p) for p in libs)
-result=subprocess.run(['/usr/bin/time','-v','timeout','1200',str(lean),'-j','1','-M','8192',str(out/name)],env=env)
+env=os.environ.copy();env['LEAN_PATH']=os.pathsep.join(str(p) for p in ([out]+libs if name in {'Prototype.lean','Probe.lean'} else libs))
+result=subprocess.run(['/usr/bin/time','-v','stdbuf','-oL','-eL','timeout','1200',str(lean),'-j','1','-M','8192',*(['-o',str(out/'PrototypeBase.olean')] if name=='PrototypeBase.lean' else []),str(out/name)],env=env,cwd=out)
 sys.exit(result.returncode)
 ```
 
@@ -662,8 +690,14 @@ from pathlib import Path
 import subprocess,sys,hashlib,json,re,time
 S=Path(sys.argv[1]).resolve();name=sys.argv[4];prefix=name[:-5]
 start=time.monotonic()
-r=subprocess.run([sys.executable,str(S/'compile.py')]+sys.argv[1:],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
-raw=r.stdout
+r=subprocess.Popen([sys.executable,str(S/'compile.py')]+sys.argv[1:],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,bufsize=1)
+lines=[]
+for line in r.stdout:
+ lines.append(line)
+ if 'error:' in line or line.startswith('Test completed: ') or (line.startswith('TauCeti.SchemeFoundations.IdealPullback.') and 'depends on axioms' not in line):
+  print(line.replace(str(S),'<SCRATCH>').rstrip(),flush=True)
+r.wait();raw=''.join(lines)
+
 log=raw.replace(str(S),'<SCRATCH>').replace(sys.argv[2],'<MATHLIB>').replace(sys.argv[3],'<LEAN>')
 def put(n,t):
  p=S/n
@@ -681,7 +715,7 @@ record={'sourceSha256':hashlib.sha256((S/name).read_bytes()).hexdigest(),'logSha
 put(prefix+'.log',log);put(prefix+'.receipt.json',json.dumps(record,indent=2)+'\n')
 print(json.dumps(record,indent=2))
 if r.returncode or record['warnings']!=record['admissionWarnings']:
- print('\n'.join(x for x in log.splitlines() if 'error' in x or 'warning' in x))
+ print('\n'.join(x for x in log.splitlines() if 'error' in x or ('warning' in x and 'warning: declaration uses' not in x)))
 sys.exit(r.returncode)
 ```
 
@@ -697,10 +731,13 @@ suggested=R/'research/blueprint/suggested'/(STEM+'.lean')
 sha=lambda b:hashlib.sha256(b).hexdigest()
 NAMES='''Incoming.json IncomingReader.md Incoming.lean IncomingHandoff.md NativePrefix.lean CanonicalPrefix.lean
 Native.lean Native.log Native.receipt.json Canonical.lean Canonical.log Canonical.receipt.json
-New.lean NewTests.lean NewImports.lean Audits.lean NewAdmitted.lean
+New.lean NewTests.lean NewImports.lean TauImports.lean Audits.lean NewAdmitted.lean
+TauGradedQuotient.lean TauGradedQuotientCanonical.lean TauGradedQuotientReceipt.json TauGradedQuotientNames.json TouchingLinks.json SupplierScope.json
 TauShift.lean TauShiftReceipt.json TauRestriction.lean TauRestrictionReceipt.json SourceBoundary.json Candidate.json Reader.md ReaderAddition.md Suggested.lean
 Handoff.md HandoffBase.md ClaimReceipt.json Reading.json SourceReading.json OwnPreviousReading.json
-OwnPreviousManifest.json OwnPreviousInputGuard.json OwnInheritedReading.json OwnInheritedManifest.json OwnInheritedInputGuard.json OwnInheritedReadingChain.json OwnReadingReuse.json Search.json InputGuard.json PublicationChanges.json
+OwnPreviousManifest.json OwnPreviousInputGuard.json OwnPreviousCandidate.json
+OwnInherited6051Reading.json OwnInherited6051Manifest.json OwnInherited6051InputGuard.json
+OwnInherited6037Reading.json OwnInherited6037Manifest.json OwnInherited6037InputGuard.json OwnInherited6037ReadingChain.json OwnReadingReuse.json Search.json InputGuard.json PublicationChanges.json
 Plan.json NewNodes.json NewTests.json PreviousManifest.json PreviousRecovery.json PreviousVerification.json PreviousMathematicalVerification.json IncomingPublicationVerification-replayed.json IncomingMathematicalVerification-replayed.json Graph.json
 MathematicalVerification.json Verification.json base.txt publication-base.txt
 author.py projection.py assemble.py handoff.py verify.py graph.py immutable_view.py compile.py runcheck.py package.py'''.split()
@@ -711,12 +748,12 @@ if mode=='archive':
  pb=(json.dumps(payload,sort_keys=True,separators=(',',':'))+'\n').encode();(S/'payload.json').write_bytes(pb)
  report=dict(artifacts=len(NAMES),helpers=sum(n.endswith('.py')for n in NAMES),manifestSha256=sha(mb),payloadSha256=sha(pb))
  (S/'package.json').write_text(json.dumps(report,indent=2)+'\n')
- suggested.write_bytes((S/'Suggested.lean').read_bytes()+b'\n/- BEGIN ARCHIVED ADIC COKERNEL GRADING PAYLOAD\n'+pb+b'END ARCHIVED ADIC COKERNEL GRADING PAYLOAD -/\n')
+ suggested.write_bytes((S/'Suggested.lean').read_bytes()+b'\n/- BEGIN ARCHIVED ADIC REMAINING GENERATORS PAYLOAD\n'+pb+b'END ARCHIVED ADIC REMAINING GENERATORS PAYLOAD -/\n')
  print(json.dumps(report,indent=2))
 elif mode=='final':
  archive=sys.argv[3];assert re.fullmatch('[0-9a-f]{40}',archive)
  p=json.loads((S/'package.json').read_text());expected={k:sha((S/n).read_bytes())for k,n in [('packets','Candidate.json'),('readmes','Reader.md'),('suggested','Suggested.lean')]}
- code='''"""Recover public authenticated adic cokernel grading evidence; never executes Lean."""
+ code='''"""Recover public authenticated adic remaining-generator evidence; never executes Lean."""
 from pathlib import Path
 import base64,hashlib,json,re,sys,urllib.request,zlib
 S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
@@ -731,7 +768,7 @@ sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch(ref,path):
  with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
 raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
-pb=raw.split('/- BEGIN ARCHIVED ADIC COKERNEL GRADING PAYLOAD\\n',1)[1].split('END ARCHIVED ADIC COKERNEL GRADING PAYLOAD -/',1)[0].encode()
+pb=raw.split('/- BEGIN ARCHIVED ADIC REMAINING GENERATORS PAYLOAD\\n',1)[1].split('END ARCHIVED ADIC REMAINING GENERATORS PAYLOAD -/',1)[0].encode()
 assert sha(pb)==PAYLOAD_SHA
 payload=json.loads(pb)
 def unpack(name):
@@ -759,6 +796,13 @@ c=ts.index('/-- Homogeneous projection in a restricted decomposition');d=ts.inde
 rblock=ts[a:b].rstrip()+'\\n\\n'+ts[c:d].rstrip()+'\\n'
 assert sha(rblock.encode())==rr['blockSha256']
 assert rblock==(S/'TauRestriction.lean').read_text().split('open scoped _root_.DirectSum\\n',1)[1].rsplit('end\\nend TauCeti\\n',1)[0]
+qr=json.loads((S/'TauGradedQuotientReceipt.json').read_text())
+assert qr['url']=='https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/GradedAlgebra/Homogeneous/Quotient.lean'
+with urllib.request.urlopen(qr['url'],timeout=30)as r:qsource=r.read()
+assert sha(qsource)==qr['fileSha256']==qr['publicFetchedSha256']
+qblock='namespace TauCeti\\n'+qsource.decode().split('namespace TauCeti\\n',1)[1]
+assert sha(qblock.encode())==qr['blockSha256'] and qblock==(S/'TauGradedQuotient.lean').read_text()
+assert (S/'TauGradedQuotientCanonical.lean').read_text()==qblock.replace('universe u v w\\n','')
 public={}
 for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','PublicHandoff.md')]:
  path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+RID+'.'+ext
@@ -775,7 +819,7 @@ for name in meta:
 code=handoff.split('## Script: recover.py\\n\\n'+fence+'python\\n',1)[1].split('\\n'+fence+'\\n',1)[0]+'\\n'
 assert code==Path(__file__).read_text(),'Executed recovery script differs from public handoff.'
 (S/'recover.py').write_text(code)
-receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=sum(n.endswith('.py')for n in meta),publicDeliverables=public,recoverySha256=sha(code.encode()),pinnedTauSourceVerified=tr['fileSha256'],tauRestrictionBlockVerified=rr['blockSha256'],LeanExecuted=False)
+receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=sum(n.endswith('.py')for n in meta),publicDeliverables=public,recoverySha256=sha(code.encode()),pinnedTauSourceVerified=tr['fileSha256'],tauRestrictionBlockVerified=rr['blockSha256'],tauGradedQuotientBlockVerified=qr['blockSha256'],LeanExecuted=False)
 (S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\\n');print(json.dumps(receipt,indent=2))
 '''
  for key,val in [('__ARCHIVE__',archive),('__MANIFEST__',p['manifestSha256']),('__PAYLOAD__',p['payloadSha256']),('__EXPECTED__',expected)]:code=code.replace(key,repr(val))
@@ -785,9 +829,9 @@ receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpe
 
 Archive commit `{archive}` is an ancestor changing only this issue's four named deliverable paths. Its {p['artifacts']} inert artifacts include all {p['helpers']} authoring, projection, handoff, package, verification, graph and compilation helpers. Manifest SHA256 `{p['manifestSha256']}`; payload SHA256 `{p['payloadSha256']}`. The final suggested file has no archive payload and contains the full unchecked plan with its native Tau Ceti import.
 
-Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the immutable public archive and four final deliverables, authenticates every hash, size and line count, fetches the existing pinned Tau source and verifies all four exact replayed declarations, binds this handoff's mathematical prefix and checks its own code against the public handoff. Inspect the recovered helpers. From an existing repository checkout containing both recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the exact prescribed declarations.tsv and place REPLAY_DIR outside the checkout. Its output should equal Verification.json. Set ROOT_ACTION_VALIDATE_BASE to the mathematical base to reproduce MathematicalVerification.json. The verifier executes the actual immutable checker, intake and atlas assembler without executing Lean or creating a repository snapshot. It checks the final public handoff as well as all archived artifacts.
+Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the immutable public archive and four final deliverables, authenticates every hash, size and line count, fetches the existing pinned Tau source and verifies all four direct-sum declarations and the unchanged complete graded-quotient namespace, binds this handoff's mathematical prefix and checks its own code against the public handoff. Inspect the recovered helpers. From an existing repository checkout containing both recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the exact prescribed declarations.tsv and place REPLAY_DIR outside the checkout. Its output should equal Verification.json. Set ROOT_ACTION_VALIDATE_BASE to the mathematical base to reproduce MathematicalVerification.json. The verifier executes the actual immutable checker, intake and atlas assembler without executing Lean or creating a repository snapshot. It checks the final public handoff as well as all archived artifacts.
 
-Optional serial proof replay with an existing exact Mathlib build: `python3 REPLAY_DIR/runcheck.py REPLAY_DIR MATHLIB_CHECKOUT LEAN_BINARY Native.lean`, followed by the corresponding Canonical.lean command only after completion. The runner checks pins, tracked cleanliness, compiled dependencies, compiler version, memory≥20GiB and timeout. Canonical.lean is the admitted Mathlib-only evidence projection with the exact pinned Tau source declarations replayed; Suggested.lean imports the Tau library and is uncompiled. Native.lean replays the same four existing declarations from source and proves the new contracts without admissions. No exact-pin Tau compiled-import claim is made. Recorded diagnostic hashes authenticate the original runs; timing and resource statistics vary on replay.
+Optional serial proof replay with an existing exact Mathlib build: `python3 REPLAY_DIR/runcheck.py REPLAY_DIR MATHLIB_CHECKOUT LEAN_BINARY Native.lean`, followed by the corresponding Canonical.lean command only after completion. The runner checks pins, tracked cleanliness, compiled dependencies, compiler version, memory≥20GiB and timeout. Canonical.lean is the admitted Mathlib-only evidence projection with the exact pinned Tau source declarations replayed; Suggested.lean imports the Tau library and is uncompiled. Native.lean replays the same four direct-sum declarations and exact graded-quotient namespace from source and proves the new contracts without admissions. No exact-pin Tau compiled-import claim is made. Recorded diagnostic hashes authenticate the original runs; timing and resource statistics vary on replay.
 
 Actual public HTTP recovery and both immutable verifier reports at the final head are checked before opening the PR. Disposable scratch is removed after submission; this handoff contains all recovery references and exact archived helper fences.
 
@@ -804,33 +848,33 @@ else:raise ValueError(mode)
 
 ## Public recovery and replay
 
-Archive commit `49b8af23f102ffb7b463801faaf1bdde5391d635` is an ancestor changing only this issue's four named deliverable paths. Its 66 inert artifacts include all 10 authoring, projection, handoff, package, verification, graph and compilation helpers. Manifest SHA256 `3779c3e71b30898e174ed35a4811447ba8e849f2d74ba840580e8186067f6da1`; payload SHA256 `b3c120773786a6fe433695ef99e45443f8d06c7ee56ec22363953f4ab2d85089`. The final suggested file has no archive payload and contains the full unchecked plan with its native Tau Ceti import.
+Archive commit `c8c8839ca31e6fd534207a0a2c62fa72722e010c` is an ancestor changing only this issue's four named deliverable paths. Its 77 inert artifacts include all 10 authoring, projection, handoff, package, verification, graph and compilation helpers. Manifest SHA256 `ace3ce5cafcc7e4445d86377a70206b82f4638cdcc49c4a91a7ae37c52ed71c3`; payload SHA256 `82df872fad6d83d54fe3468a5d40dc9ad28b01d5aeb08c6b981a658f3e116789`. The final suggested file has no archive payload and contains the full unchecked plan with its native Tau Ceti import.
 
-Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the immutable public archive and four final deliverables, authenticates every hash, size and line count, fetches the existing pinned Tau source and verifies all four exact replayed declarations, binds this handoff's mathematical prefix and checks its own code against the public handoff. Inspect the recovered helpers. From an existing repository checkout containing both recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the exact prescribed declarations.tsv and place REPLAY_DIR outside the checkout. Its output should equal Verification.json. Set ROOT_ACTION_VALIDATE_BASE to the mathematical base to reproduce MathematicalVerification.json. The verifier executes the actual immutable checker, intake and atlas assembler without executing Lean or creating a repository snapshot. It checks the final public handoff as well as all archived artifacts.
+Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the immutable public archive and four final deliverables, authenticates every hash, size and line count, fetches the existing pinned Tau source and verifies all four direct-sum declarations and the unchanged complete graded-quotient namespace, binds this handoff's mathematical prefix and checks its own code against the public handoff. Inspect the recovered helpers. From an existing repository checkout containing both recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the exact prescribed declarations.tsv and place REPLAY_DIR outside the checkout. Its output should equal Verification.json. Set ROOT_ACTION_VALIDATE_BASE to the mathematical base to reproduce MathematicalVerification.json. The verifier executes the actual immutable checker, intake and atlas assembler without executing Lean or creating a repository snapshot. It checks the final public handoff as well as all archived artifacts.
 
-Optional serial proof replay with an existing exact Mathlib build: `python3 REPLAY_DIR/runcheck.py REPLAY_DIR MATHLIB_CHECKOUT LEAN_BINARY Native.lean`, followed by the corresponding Canonical.lean command only after completion. The runner checks pins, tracked cleanliness, compiled dependencies, compiler version, memory≥20GiB and timeout. Canonical.lean is the admitted Mathlib-only evidence projection with the exact pinned Tau source declarations replayed; Suggested.lean imports the Tau library and is uncompiled. Native.lean replays the same four existing declarations from source and proves the new contracts without admissions. No exact-pin Tau compiled-import claim is made. Recorded diagnostic hashes authenticate the original runs; timing and resource statistics vary on replay.
+Optional serial proof replay with an existing exact Mathlib build: `python3 REPLAY_DIR/runcheck.py REPLAY_DIR MATHLIB_CHECKOUT LEAN_BINARY Native.lean`, followed by the corresponding Canonical.lean command only after completion. The runner checks pins, tracked cleanliness, compiled dependencies, compiler version, memory≥20GiB and timeout. Canonical.lean is the admitted Mathlib-only evidence projection with the exact pinned Tau source declarations replayed; Suggested.lean imports the Tau library and is uncompiled. Native.lean replays the same four direct-sum declarations and exact graded-quotient namespace from source and proves the new contracts without admissions. No exact-pin Tau compiled-import claim is made. Recorded diagnostic hashes authenticate the original runs; timing and resource statistics vary on replay.
 
 Actual public HTTP recovery and both immutable verifier reports at the final head are checked before opening the PR. Disposable scratch is removed after submission; this handoff contains all recovery references and exact archived helper fences.
 
 ## Script: recover.py
 
 ```python
-"""Recover public authenticated adic cokernel grading evidence; never executes Lean."""
+"""Recover public authenticated adic remaining-generator evidence; never executes Lean."""
 from pathlib import Path
 import base64,hashlib,json,re,sys,urllib.request,zlib
 S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
 HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
 ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
 RID='DeformationAndDerivedPatchingAlgebra--P7'
-ARCHIVE='49b8af23f102ffb7b463801faaf1bdde5391d635'
-MANIFEST_SHA='3779c3e71b30898e174ed35a4811447ba8e849f2d74ba840580e8186067f6da1'
-PAYLOAD_SHA='b3c120773786a6fe433695ef99e45443f8d06c7ee56ec22363953f4ab2d85089'
-EXPECTED={'packets': '4279baca0a2003dc0927e512d4808419e10eba1367d7e0180e14be7770e604be', 'readmes': 'b48ae260e3df4ece5b3e153eeef66eff9d76bc247724063904f5cadb15220488', 'suggested': 'd6d74f545e49649d4efcd94806679e7964761b7037c3b6218ba58929f298edca'}
+ARCHIVE='c8c8839ca31e6fd534207a0a2c62fa72722e010c'
+MANIFEST_SHA='ace3ce5cafcc7e4445d86377a70206b82f4638cdcc49c4a91a7ae37c52ed71c3'
+PAYLOAD_SHA='82df872fad6d83d54fe3468a5d40dc9ad28b01d5aeb08c6b981a658f3e116789'
+EXPECTED={'packets': 'ad190eb71b5f5b566840673fc75d99196cd7a7b008b6e5a7340c617ae92815aa', 'readmes': '4b034597d9fcc5160b0b2c0c52e27a2535f6e5c0ab38e19c5c16ce6e3b50d55d', 'suggested': '69624aa9b8d269c378681f28c58e3f5b7d08eca5d6582485af98e23651b35a62'}
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch(ref,path):
  with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
 raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
-pb=raw.split('/- BEGIN ARCHIVED ADIC COKERNEL GRADING PAYLOAD\n',1)[1].split('END ARCHIVED ADIC COKERNEL GRADING PAYLOAD -/',1)[0].encode()
+pb=raw.split('/- BEGIN ARCHIVED ADIC REMAINING GENERATORS PAYLOAD\n',1)[1].split('END ARCHIVED ADIC REMAINING GENERATORS PAYLOAD -/',1)[0].encode()
 assert sha(pb)==PAYLOAD_SHA
 payload=json.loads(pb)
 def unpack(name):
@@ -858,6 +902,13 @@ c=ts.index('/-- Homogeneous projection in a restricted decomposition');d=ts.inde
 rblock=ts[a:b].rstrip()+'\n\n'+ts[c:d].rstrip()+'\n'
 assert sha(rblock.encode())==rr['blockSha256']
 assert rblock==(S/'TauRestriction.lean').read_text().split('open scoped _root_.DirectSum\n',1)[1].rsplit('end\nend TauCeti\n',1)[0]
+qr=json.loads((S/'TauGradedQuotientReceipt.json').read_text())
+assert qr['url']=='https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/GradedAlgebra/Homogeneous/Quotient.lean'
+with urllib.request.urlopen(qr['url'],timeout=30)as r:qsource=r.read()
+assert sha(qsource)==qr['fileSha256']==qr['publicFetchedSha256']
+qblock='namespace TauCeti\n'+qsource.decode().split('namespace TauCeti\n',1)[1]
+assert sha(qblock.encode())==qr['blockSha256'] and qblock==(S/'TauGradedQuotient.lean').read_text()
+assert (S/'TauGradedQuotientCanonical.lean').read_text()==qblock.replace('universe u v w\n','')
 public={}
 for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','PublicHandoff.md')]:
  path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+RID+'.'+ext
@@ -874,6 +925,6 @@ for name in meta:
 code=handoff.split('## Script: recover.py\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
 assert code==Path(__file__).read_text(),'Executed recovery script differs from public handoff.'
 (S/'recover.py').write_text(code)
-receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=sum(n.endswith('.py')for n in meta),publicDeliverables=public,recoverySha256=sha(code.encode()),pinnedTauSourceVerified=tr['fileSha256'],tauRestrictionBlockVerified=rr['blockSha256'],LeanExecuted=False)
+receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=sum(n.endswith('.py')for n in meta),publicDeliverables=public,recoverySha256=sha(code.encode()),pinnedTauSourceVerified=tr['fileSha256'],tauRestrictionBlockVerified=rr['blockSha256'],tauGradedQuotientBlockVerified=qr['blockSha256'],LeanExecuted=False)
 (S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
 ```
