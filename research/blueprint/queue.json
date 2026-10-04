@@ -28997,9 +28997,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-SpecialValuesBirchTate.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #998"
+   "note": "released on GitHub issue #998"
   },
   {
    "id": "REV-SpecialValuesBirchTate",
