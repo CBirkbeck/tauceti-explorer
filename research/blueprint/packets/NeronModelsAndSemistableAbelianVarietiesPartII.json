@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts. Affine conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and6 typed examples;657 incoming node objects retained whole. Global conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and8 typed examples;666 incoming whole node objects preserved. The existing geometric conductor theorem receives a separate native counterpart proof. Actual conductor Scheme descent continuation:21 declarations(5 constructions,16 lemmas),18 API references and15 distinct typed examples(17 references). All675 incoming node contracts are preserved;674 whole objects are unchanged, and the existing Scheme pushout node gains only appended prerequisites/proof steps. Conductor cokernel scalar-extension continuation:13 declarations(2 constructions,11 lemmas),10 API references and9 distinct typed tests(10 references). All696 incoming contracts remain;695 whole node objects are unchanged and one existing flat-conductor node gains appended prerequisites/proof steps. One known corrected historical Stacks proof-reference finding is appended with its narrow version scope.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts. Affine conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and6 typed examples;657 incoming node objects retained whole. Global conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and8 typed examples;666 incoming whole node objects preserved. The existing geometric conductor theorem receives a separate native counterpart proof. Actual conductor Scheme descent continuation:21 declarations(5 constructions,16 lemmas),18 API references and15 distinct typed examples(17 references). All675 incoming node contracts are preserved;674 whole objects are unchanged, and the existing Scheme pushout node gains only appended prerequisites/proof steps. Conductor cokernel scalar-extension continuation:13 declarations(2 constructions,11 lemmas),10 API references and9 distinct typed tests(10 references). All696 incoming contracts remain;695 whole node objects are unchanged and one existing flat-conductor node gains appended prerequisites/proof steps. One known corrected historical Stacks proof-reference finding is appended with its narrow version scope. Right-oriented conductor continuation:12 new declarations(2 constructions,10 lemmas),7 API references and11 typed tests. All709 incoming contracts remain;708 whole nodes are unchanged and only the existing flat-conductor node gains appended prerequisites/proof steps. Its exact inherited suggested header now has native proof evidence; generic supplier definitions are consumed, never replanned.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -4138,6 +4138,54 @@
         "line": 331,
         "provides": "def castHom (h : m ∣ n) (R : Type*) [Ring R] [CharP R m] : ZMod n →+* R where Reuse the actual tensor, quotient or algebra-map API.",
         "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.commRight",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+        "line": 416,
+        "provides": "def commRight : S ⊗[R] A ≃ₐ[S] A ⊗[R] S where Reuse this native API for the actual conductor specialization.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.commRight_tmul",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+        "line": 422,
+        "provides": "lemma commRight_tmul (s : S) (a : A) : commRight R S A (s ⊗ₜ a) = a ⊗ₜ s := rfl Reuse this native API for the actual conductor specialization.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.includeRight_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "line": 417,
+        "provides": "theorem includeRight_injective [Module.Flat R B] (ha : Function.Injective (algebraMap R A)) : Reuse this native API for the actual conductor specialization.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.equiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "line": 327,
+        "provides": "def Quotient.equiv (f : M ≃ₛₗ[σ₁₂] N) (hf : P.map (f : M →ₛₗ[σ₁₂] N) = Q) : Reuse this native API for the actual conductor specialization.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.equiv_apply",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "line": 335,
+        "provides": "lemma Quotient.equiv_apply (f : M ≃ₛₗ[σ₁₂] N) (hf : P.map (f : M →ₛₗ[σ₁₂] N) = Q) (a : M ⧸ P) : Reuse this native API for the actual conductor specialization.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Submodule.map_span",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Basic.lean",
+        "line": 73,
+        "provides": "theorem map_span [RingHomSurjective σ₁₂] (f : M →ₛₗ[σ₁₂] M₂) (s : Set M) : Reuse this native API for the actual conductor specialization.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
       }
     ]
   },
@@ -4918,6 +4966,19 @@
       "readSections": [
         "Complete displayed lemma statement/proof and page comments read through primary public page; section-level comments/history not read.",
         "The actual unit-image comparison is an authored conductor specialization; the generic finite-flat annihilator theorem stays at SF.0."
+      ]
+    },
+    {
+      "id": "conductor-right-rtOQ9t-07T8",
+      "title": "Flat base change of finite-module annihilators",
+      "authors": "The Stacks Project authors",
+      "edition": "Current primary displayed lemma; read4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/07T8",
+      "sha256": "09f951f7a17951a7e273a51ec2520181edef236040a149e9d4d98e7d5cd0a19c",
+      "accessed": "2026-10-04T11:54:11.513731+00:00",
+      "readSections": [
+        "Complete current displayed Lemma10.40.4 statement and proof; page has no direct comments. Linked section comments/history were not read. No new source error alleged.",
+        "SF.0 owns the generic export; the right conductor specialization is authored."
       ]
     }
   ],
@@ -10880,7 +10941,8 @@
         "Apply native flat tensor injectivity to A→B, identifying A⊗_A F with F; this gives the actual inclusion f_F.",
         "Native flat exactness identifies (B/(A·1))⊗_A F with B_F/(F·1). The quotient is a finite A-module because B is finite.",
         "Invoke the requested general finite-module annihilator base-change export (Stacks07T8, with its finite-intersection input0BBY) at SF.0. Transport both annihilators through conductor-annihilator to get exactly the equality of ideals in F.",
-        "A native F-linear equivalence now identifies F⊗_A(B/span_A{1}) with the quotient by the actual base-changed unit span, without flatness. Its annihilator is the recomputed conductor for the left-oriented F⊗_A B. To realize this existing theorem, import the already owned SF.0 finite-module flat-annihilator export, then explicitly compare the left-oriented algebraMap with the inherited right-oriented includeRight map by the actual tensor commutativity equivalence. Global conductor ideal-sheaf pullback and restriction maps remain separate. No original statement, hypotheses or acceptance condition changes."
+        "A native F-linear equivalence now identifies F⊗_A(B/span_A{1}) with the quotient by the actual base-changed unit span, without flatness. Its annihilator is the recomputed conductor for the left-oriented F⊗_A B. To realize this existing theorem, import the already owned SF.0 finite-module flat-annihilator export, then explicitly compare the left-oriented algebraMap with the inherited right-oriented includeRight map by the actual tensor commutativity equivalence. Global conductor ideal-sheaf pullback and restriction maps remain separate. No original statement, hypotheses or acceptance condition changes.",
+        "The exact existing conductor_flat_baseChange header now has native evidence: specialize native includeRight injectivity to the supplied injective A→B and F-flatness, rewrite the original conductor as the annihilator of B/span_A{1}, and apply the SF.0 finite-module flat-annihilator export followed by the actual right-oriented recomputed-conductor identification. Only B-finiteness and F-flatness are used for the ideal equality; no Noetherian or reduced hypothesis is added. The global ideal-sheaf comparison and actual restriction maps remain separate gaps. Original statement, hypotheses, sources and acceptance conditions are unchanged."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator",
@@ -10892,7 +10954,10 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-span-base-change",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-annihilator",
-        "SchemeAndStackFoundations:SF.0/flat-annihilator"
+        "SchemeAndStackFoundations:SF.0/flat-annihilator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-annihilator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-right-map-injective",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-right-flat-annihilator"
       ],
       "sources": [
         {
@@ -40468,6 +40533,595 @@
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-span-swap",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The actual unit span under tensor commutativity",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorUnitSpan_swap",
+      "statement": "The native F-algebra equivalence commRight from F⊗_A B to B⊗_A F maps the actual F-unit span onto the actual F-unit span; the target uses the native right F-action.",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "mathlib:Submodule.map_span",
+        "mathlib:Algebra.TensorProduct.commRight"
+      ],
+      "proofSteps": [
+        "Apply native map_span and the actual algebra equivalence map-one law."
+      ],
+      "acceptance": [
+        "The native F-algebra equivalence commRight from F⊗_A B to B⊗_A F maps the actual F-unit span onto the actual F-unit span; the target uses the native right F-action.",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-quotient-swap",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "Swap the conductor unit-image quotients",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorUnitQuotientSwap",
+      "statement": "Construct the actual F-linear equivalence (F⊗_A B)/span_F{1} ≃ (B⊗_A F)/span_F{1} induced by native commRight. Both carriers are the native module quotients.",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-span-swap",
+        "mathlib:Submodule.Quotient.equiv",
+        "mathlib:Algebra.TensorProduct.commRight"
+      ],
+      "proofSteps": [
+        "Use native quotient equiv with the exact unit-span image equality; no generic tensor commutativity equivalence is replanned."
+      ],
+      "acceptance": [
+        "Construct the actual F-linear equivalence (F⊗_A B)/span_F{1} ≃ (B⊗_A F)/span_F{1} induced by native commRight. Both carriers are the native module quotients.",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorUnitQuotientSwap_mk",
+          "role": "compatibility",
+          "statement": "The quotient swap sends [s⊗b] to [b⊗s] for s∈F and b∈B."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorUnitQuotientSwap_symm_mk",
+          "role": "compatibility",
+          "statement": "The inverse quotient swap sends [b⊗s] to [s⊗b]."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorUnitQuotientSwap_annihilator",
+          "role": "compatibility",
+          "statement": "The full F-annihilator of (F⊗_A B)/span_F{1} equals that of (B⊗_A F)/span_F{1}, with the latter carrying the native right F-action."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorRightChecked.swap_sum",
+          "kind": "compatibility",
+          "statement": "The quotient swap sends [s⊗b+t⊗c] to [b⊗s+c⊗t]."
+        },
+        {
+          "name": "ConductorRightChecked.swap_inverse_sum",
+          "kind": "compatibility",
+          "statement": "The inverse quotient swap sends [b⊗s+c⊗t] to [s⊗b+t⊗c]."
+        },
+        {
+          "name": "ConductorRightChecked.swap_scalar_action",
+          "kind": "compatibility",
+          "statement": "The quotient swap sends a•[s⊗b] to a•[b⊗s] using the actual right F-action on the target."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change",
+          "how": "Realize the exact existing right-oriented conductor theorem by transporting the actual unit-image quotient, then consuming the SF.0 finite-module flat-annihilator export."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-quotient-swap-representative",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Swap actual quotient representatives",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorUnitQuotientSwap_mk",
+      "statement": "The quotient swap sends [s⊗b] to [b⊗s] for s∈F and b∈B.",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-quotient-swap",
+        "mathlib:Algebra.TensorProduct.commRight_tmul",
+        "mathlib:Submodule.Quotient.equiv_apply"
+      ],
+      "proofSteps": [
+        "Reduce native quotient transport and commRight on an actual representative."
+      ],
+      "acceptance": [
+        "The quotient swap sends [s⊗b] to [b⊗s] for s∈F and b∈B.",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-quotient-swap-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Inverse quotient swap",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorUnitQuotientSwap_symm_mk",
+      "statement": "The inverse quotient swap sends [b⊗s] to [s⊗b].",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-quotient-swap",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-quotient-swap-representative"
+      ],
+      "proofSteps": [
+        "Use the actual equivalence injectivity and inverse law."
+      ],
+      "acceptance": [
+        "The inverse quotient swap sends [b⊗s] to [s⊗b].",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-quotient-swap-annihilator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Annihilator under quotient swap",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorUnitQuotientSwap_annihilator",
+      "statement": "The full F-annihilator of (F⊗_A B)/span_F{1} equals that of (B⊗_A F)/span_F{1}, with the latter carrying the native right F-action.",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-quotient-swap",
+        "mathlib:LinearEquiv.annihilator_eq"
+      ],
+      "proofSteps": [
+        "Apply native annihilator invariance to this actual F-linear equivalence."
+      ],
+      "acceptance": [
+        "The full F-annihilator of (F⊗_A B)/span_F{1} equals that of (B⊗_A F)/span_F{1}, with the latter carrying the native right F-action.",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-base-change",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "The right-oriented conductor cokernel comparison",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelRightBaseChange",
+      "statement": "Construct F⊗_A(B/span_A{1}) ≃_F (B⊗_A F)/span_F{1}, with the actual right F-module structure on the target, by composing the existing left-oriented comparison with conductorUnitQuotientSwap. No flatness or finite-module hypothesis is needed.",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-quotient-swap",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change"
+      ],
+      "proofSteps": [
+        "Compose the already planned conductor-specific left comparison with native unit-quotient swap. No generic quotient-basechange object is duplicated."
+      ],
+      "acceptance": [
+        "Construct F⊗_A(B/span_A{1}) ≃_F (B⊗_A F)/span_F{1}, with the actual right F-module structure on the target, by composing the existing left-oriented comparison with conductorUnitQuotientSwap. No flatness or finite-module hypothesis is needed.",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelRightBaseChange_tmul",
+          "role": "compatibility",
+          "statement": "The right-oriented conductor comparison sends s⊗[b] to [b⊗s]."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelRightBaseChange_symm_tmul",
+          "role": "compatibility",
+          "statement": "The inverse right-oriented comparison sends [b⊗s] to s⊗[b]."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelRightBaseChange_scalar_zero",
+          "role": "compatibility",
+          "statement": "The right-oriented comparison sends s⊗[algebraMap A B(a)] to zero for every s∈F and a∈A."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelRightBaseChange_annihilator",
+          "role": "compatibility",
+          "statement": "Ann_F(F⊗_A(B/span_A{1})) equals the inverse image under the actual includeRight ring map F→B⊗_A F of the conductor of that map’s image subring. This is an equality of full ideals."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorRightChecked.right_sum",
+          "kind": "compatibility",
+          "statement": "The right comparison sends s⊗[b]+t⊗[c] to [b⊗s+c⊗t]."
+        },
+        {
+          "name": "ConductorRightChecked.right_inverse",
+          "kind": "compatibility",
+          "statement": "The inverse right comparison sends [b⊗s] to s⊗[b]."
+        },
+        {
+          "name": "ConductorRightChecked.right_scalar_zero",
+          "kind": "degenerate",
+          "statement": "The right comparison sends s⊗[algebraMap(a)] to zero."
+        },
+        {
+          "name": "ConductorRightChecked.nonreduced_quotient_class",
+          "kind": "computation",
+          "statement": "The class of (2,0) is nonzero in (Z/4×Z/4)/span_(Z/4){(1,1)}."
+        },
+        {
+          "name": "ConductorRightChecked.nonflat_right_tensor",
+          "kind": "degenerate",
+          "statement": "For the actual quotient algebra Z/4→Z/2 the right comparison sends 1⊗[(2,0)] to zero, despite the preceding nonzero original quotient class."
+        },
+        {
+          "name": "ConductorRightChecked.flat_nonreduced_diagonal",
+          "kind": "compatibility",
+          "statement": "For the finite injective diagonal Z/4→Z/4×Z/4 and the flat identity extension F=Z/4, the exact existing conductor_flat_baseChange conjunction holds with the actual includeRight map and full conductor ideals."
+        },
+        {
+          "name": "ConductorRightChecked.nilpotent_right_map",
+          "kind": "computation",
+          "statement": "For that actual finite diagonal algebra and flat identity extension, includeRight sends the nonzero nilpotent 2∈Z/4 to a nonzero element of (Z/4×Z/4)⊗_(Z/4)Z/4."
+        },
+        {
+          "name": "ConductorRightChecked.zero_ring",
+          "kind": "degenerate",
+          "statement": "The actual right inclusion Z/1→Z/1⊗_(Z/1)Z/1 is injective."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change",
+          "how": "Realize the exact existing right-oriented conductor theorem by transporting the actual unit-image quotient, then consuming the SF.0 finite-module flat-annihilator export."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-representative",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Right comparison on tensor classes",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelRightBaseChange_tmul",
+      "statement": "The right-oriented conductor comparison sends s⊗[b] to [b⊗s].",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-base-change",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-tensor",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-quotient-swap-representative"
+      ],
+      "proofSteps": [
+        "Reduce the two actual equivalence components on tensor representatives."
+      ],
+      "acceptance": [
+        "The right-oriented conductor comparison sends s⊗[b] to [b⊗s].",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Inverse right comparison",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelRightBaseChange_symm_tmul",
+      "statement": "The inverse right-oriented comparison sends [b⊗s] to s⊗[b].",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-base-change",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-representative"
+      ],
+      "proofSteps": [
+        "Apply the actual comparison injectivity and inverse law."
+      ],
+      "acceptance": [
+        "The inverse right-oriented comparison sends [b⊗s] to s⊗[b].",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-scalars",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The actual algebra image vanishes",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelRightBaseChange_scalar_zero",
+      "statement": "The right-oriented comparison sends s⊗[algebraMap A B(a)] to zero for every s∈F and a∈A.",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-base-change",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-scalars"
+      ],
+      "proofSteps": [
+        "Use the already planned left comparison scalar-zero formula and the quotient swap map-zero law."
+      ],
+      "acceptance": [
+        "The right-oriented comparison sends s⊗[algebraMap A B(a)] to zero for every s∈F and a∈A.",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-annihilator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The actual right-map recomputed conductor",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelRightBaseChange_annihilator",
+      "statement": "Ann_F(F⊗_A(B/span_A{1})) equals the inverse image under the actual includeRight ring map F→B⊗_A F of the conductor of that map’s image subring. This is an equality of full ideals.",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-base-change",
+        "mathlib:LinearEquiv.annihilator_eq",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator"
+      ],
+      "proofSteps": [
+        "Transport annihilators through the actual right comparison and specialize the existing conductor-annihilator equality to the native right F-algebra structure. The algebra map is definitionally includeRight."
+      ],
+      "acceptance": [
+        "Ann_F(F⊗_A(B/span_A{1})) equals the inverse image under the actual includeRight ring map F→B⊗_A F of the conductor of that map’s image subring. This is an equality of full ideals.",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-right-map-injective",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Flat injectivity of the actual right map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorRightMap_injective",
+      "statement": "If A→B is injective and F is flat as an A-module, then the actual includeRight ring map F→B⊗_A F is injective. No finiteness hypothesis is needed.",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "mathlib:Algebra.TensorProduct.includeRight_injective"
+      ],
+      "proofSteps": [
+        "Specialize the pinned native flat tensor inclusion injectivity theorem; no generic flat tensor theorem is replanned."
+      ],
+      "acceptance": [
+        "If A→B is injective and F is flat as an A-module, then the actual includeRight ring map F→B⊗_A F is injective. No finiteness hypothesis is needed.",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-right-flat-annihilator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Finite flat recomputation in the right orientation",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorRightAnnihilator_flat",
+      "statement": "If B is finite as an A-module and F is flat as an A-module, then the extension to F of Ann_A(B/span_A{1}) equals the actual recomputed conductor inverse image for includeRight:F→B⊗_A F. This full-ideal equality does not need A→B injective.",
+      "hypotheses": [
+        "A,B,F are commutative rings in a common universe; zero rings and nonreduced rings are allowed. B and F carry the indicated A-algebra structures.",
+        "The source F⊗_A B uses its native left F-action; B⊗_A F and its unit quotient use native Algebra.TensorProduct.rightAlgebra. No Noetherian, reduced, faithful-flat or finite-presentation condition is assumed. F-flatness and B-finiteness occur only where explicitly stated."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/flat-annihilator",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-right-annihilator"
+      ],
+      "proofSteps": [
+        "The native finite quotient instance supplies finiteness of B/span_A{1}. Consume the exact SF.0 finite-module flat-annihilator export, then identify the actual right recomputed conductor by the new comparison."
+      ],
+      "acceptance": [
+        "If B is finite as an A-module and F is flat as an A-module, then the extension to F of Ann_A(B/span_A{1}) equals the actual recomputed conductor inverse image for includeRight:F→B⊗_A F. This full-ideal equality does not need A→B injective.",
+        "Keep the actual right-oriented ring map and full ideals, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-right-rtOQ9t-07T8",
+          "locator": "Complete displayed Lemma10.40.4 statement/proof; conductor specialization is authored",
+          "match": "The finite-module flat annihilator statement supplies context. Its generic export is consumed from SF.0; the exact right-oriented unit-image quotient and conductor identifications are authored specializations using pinned native tensor commutativity."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -40834,7 +41488,8 @@
         "The affine conductor square for any injective integral ring map now has a native TopCat pushout theorem, using actual spectra and a specified continuous descent to arbitrary topological targets. Its source and closed triangles, uniqueness and continuous postcomposition are checked. No finiteness, Noetherianity, reducedness or nontriviality is required. The global finite schematically dominant topology and geometric/categorical Scheme pushout, recomputed flat conductors, P¹/Proj, properness/projectivity, coherent cohomology, separate I₂ and all later model/classification work remain open. All18 gaps and23 requests remain, with three bounded notation findings added to the23 inherited findings. All seven stages remain partial, all implementations unchecked, and the full Tau-importing suggested file remains UNCOMPILED.",
         "The actual global conductor square for every finite schematically dominant map now has a specified continuous descent, both triangles, uniqueness, continuous postcomposition and an actual TopCat IsPushout, obtained by affine-local off-conductor fibers and actual closed-subscheme supports. Combined with the inherited every-open structure-sheaf pullback, the exact existing GeometricPushout predicate also has a separately checked native proof. No affine, Noetherian, reduced, separated, birational or nonempty hypothesis is imposed. The categorical Scheme universal property, recomputed flat-conductor integration, algebraic-space existence, P¹/Proj, projectivity/properness, coherent cohomology, separate I₂ and later classification/model work remain required. All18 gaps,23 requests,26 source findings,78 routes and seven partial stages remain; every implementation is unchecked and the full Tau-importing suggested file is UNCOMPILED.",
         "The actual global conductor square for every finite schematically dominant scheme morphism now has an explicit descended scheme morphism to every compatible scheme target. Twenty-one declarations construct the actual base map, every-open ring maps, their natural transformation, ringed-space morphism and stalk-local scheme morphism, with both triangles, uniqueness and scheme postcomposition. A native proof realizes the exact existing conductor_global_isPushout header without a duplicate target node. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added. This closes this native Scheme-universal-property substep; it does not establish generic Ferrand algebraic-space existence, recomputed flat conductors, P¹/Proj, properness/projectivity, coherent cohomology, separate I₂ or later classification/model obligations. All18 gaps,23 requests,26 source findings,78 routes and seven partial stages remain, all implementations unchecked; the full Tau-dependent suggested file is UNCOMPILED.",
-        "Thirteen conductor-specific declarations now identify the actual F-linear scalar-extension cokernel, its representative and inverse formulas, algebra-image vanishing, full recomputed-conductor annihilator and naturality for actual algebra morphisms. Two native constructions reuse the existing unit spans, quotient carriers and tensor equivalence; no flatness, injectivity or finiteness is needed for these comparisons. SF.0 continues to own its already proven generic finite-flat annihilator/quotient exports. Explicit transport to the inherited right-oriented B⊗_A F conductor theorem and global ideal-sheaf flat recomputation remain open, together with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, P¹/Proj, projectivity/properness, coherent cohomology/genus, separate I₂ and later model/classification obligations. All18 gaps,23 requests,78 routes and seven partial stages remain; implementations stay unchecked. The full Tau-dependent suggested file remains UNCOMPILED."
+        "Thirteen conductor-specific declarations now identify the actual F-linear scalar-extension cokernel, its representative and inverse formulas, algebra-image vanishing, full recomputed-conductor annihilator and naturality for actual algebra morphisms. Two native constructions reuse the existing unit spans, quotient carriers and tensor equivalence; no flatness, injectivity or finiteness is needed for these comparisons. SF.0 continues to own its already proven generic finite-flat annihilator/quotient exports. Explicit transport to the inherited right-oriented B⊗_A F conductor theorem and global ideal-sheaf flat recomputation remain open, together with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, P¹/Proj, projectivity/properness, coherent cohomology/genus, separate I₂ and later model/classification obligations. All18 gaps,23 requests,78 routes and seven partial stages remain; implementations stay unchecked. The full Tau-dependent suggested file remains UNCOMPILED.",
+        "Twelve conductor-specific declarations(2 constructions,10 lemmas) now transport the actual unit-image quotient to B⊗_A F with its native right F-action. The exact existing conductor_flat_baseChange header has native proof evidence using SF.0’s finite-module flat-annihilator export and pinned native includeRight injectivity, with no extra Noetherian/reduced assumptions. Seven consumed API references and11 typed examples retain nilpotents, zero rings and the nonflat quotient distinction. Global conductor ideal-sheaf flat recomputation and restriction maps remain open, together with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, P¹/Proj, projectivity/properness, coherent cohomology/genus, separate I₂ and later model/classification obligations. All18 gaps,23 requests,78 routes and seven partial stages remain; implementationStatus stays unchecked and the full Tau-dependent suggested file remains UNCOMPILED."
       ]
     },
     {
