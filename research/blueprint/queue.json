@@ -10808,8 +10808,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3351"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3351",
+   "finishedAt": "2026-10-04T21:37:14Z"
   },
   {
    "id": "REV-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
