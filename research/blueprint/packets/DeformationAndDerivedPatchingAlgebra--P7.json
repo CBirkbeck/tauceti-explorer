@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract. Native adic-module generation continuation:20 declaration-sized nodes,14 API items and14 typed tests, with native proofs of the exact existing monomial and degree-zero/finite-generation contracts. Native module coefficient continuation:20 declaration-sized nodes,8 API items and10 typed tests, proving the exact existing denominator, monomial kernel, homogeneous action and finite decomposition without finiteness assumptions. The existing native adic module image grading, scalar action, direct-sum comparison and projections now have admission-free proof prototypes on their exact inherited signatures. Ten new lemmas give actual inverse identities, native decomposition agreement, coefficient projection, membership, orthogonality, homogeneity, zero detection and all-projection extensionality. This supersedes prototype omissions for these adapters only. Homogeneous kernel/range/quotient gradings, scalar descent and finiteness over the smaller ring and degreewise length exactness remain required for general Hilbert–Serre; no eventual polynomial is assumed as its own existence premise. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-source obligation remain open; implementation statuses stay unchecked. Degree-one component continuation: sixteen nodes, fourteen API items and six typed tests on actual maps; all381incoming whole nodes and prior obligations preserved. Full suggested file imports the pinned Tau shifted-projection theorem; only isolated Mathlib source-replay evidence is compiled. Twelve new specialized declarations now descend the actual native kernel and cokernel of degree-one multiplication to S/(a), prove their representative actions and scalar towers, and certify smaller-ring finite generation. Kernel finiteness uses a Noetherian S-module L, or finite M over A plus explicit Noetherianity of S; quotient finiteness needs only finite L over S, or finite M over A. This supersedes the scalar-descent/finiteness prototype frontier only. Full native homogeneous kernel/range/quotient decompositions and smaller-ring grading, finite component lengths, two degreewise length identities with finite ENat-toNat conversion before integer subtraction, remaining-generator induction and general Hilbert–Serre existence remain open. The support/degree, completion, localization, associativity, intrinsic/ambient conventions, all eight stages and every routed-source obligation remain unchanged and open; all implementation statuses are unchecked. One existing component-equivalence API is promoted to its own prerequisite construction node. Twelve new lemmas prove finite actual adic component lengths for Noetherian A, finite M and Artinian A/q; two native extended-length identities; separately guarded natural-length conversions; and the signed integer recurrence with the nonzero kernel correction retained. Degree-zero quotient lengths agree without finite-length assumptions. This supersedes the finite-component-length and degreewise-length-identity frontier for these actual maps only. Native kernel/range/quotient decompositions, smaller-ring grading, remaining-generator induction and general Hilbert–Serre existence remain open. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open and all implementation statuses unchecked.",
+  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract. Native adic-module generation continuation:20 declaration-sized nodes,14 API items and14 typed tests, with native proofs of the exact existing monomial and degree-zero/finite-generation contracts. Native module coefficient continuation:20 declaration-sized nodes,8 API items and10 typed tests, proving the exact existing denominator, monomial kernel, homogeneous action and finite decomposition without finiteness assumptions. The existing native adic module image grading, scalar action, direct-sum comparison and projections now have admission-free proof prototypes on their exact inherited signatures. Ten new lemmas give actual inverse identities, native decomposition agreement, coefficient projection, membership, orthogonality, homogeneity, zero detection and all-projection extensionality. This supersedes prototype omissions for these adapters only. Homogeneous kernel/range/quotient gradings, scalar descent and finiteness over the smaller ring and degreewise length exactness remain required for general Hilbert–Serre; no eventual polynomial is assumed as its own existence premise. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-source obligation remain open; implementation statuses stay unchecked. Degree-one component continuation: sixteen nodes, fourteen API items and six typed tests on actual maps; all381incoming whole nodes and prior obligations preserved. Full suggested file imports the pinned Tau shifted-projection theorem; only isolated Mathlib source-replay evidence is compiled. Twelve new specialized declarations now descend the actual native kernel and cokernel of degree-one multiplication to S/(a), prove their representative actions and scalar towers, and certify smaller-ring finite generation. Kernel finiteness uses a Noetherian S-module L, or finite M over A plus explicit Noetherianity of S; quotient finiteness needs only finite L over S, or finite M over A. This supersedes the scalar-descent/finiteness prototype frontier only. Full native homogeneous kernel/range/quotient decompositions and smaller-ring grading, finite component lengths, two degreewise length identities with finite ENat-toNat conversion before integer subtraction, remaining-generator induction and general Hilbert–Serre existence remain open. The support/degree, completion, localization, associativity, intrinsic/ambient conventions, all eight stages and every routed-source obligation remain unchanged and open; all implementation statuses are unchecked. One existing component-equivalence API is promoted to its own prerequisite construction node. Twelve new lemmas prove finite actual adic component lengths for Noetherian A, finite M and Artinian A/q; two native extended-length identities; separately guarded natural-length conversions; and the signed integer recurrence with the nonzero kernel correction retained. Degree-zero quotient lengths agree without finite-length assumptions. This supersedes the finite-component-length and degreewise-length-identity frontier for these actual maps only. Native kernel/range/quotient decompositions, smaller-ring grading, remaining-generator induction and general Hilbert–Serre existence remain open. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open and all implementation statuses unchecked. Fourteen new nodes and two defining native instances give actual internally graded kernel and range modules for degree-one multiplication on the existing ordinary adic module: literal comap components, inherited S scalar degree addition, native restricted decompositions, ambient projection agreement, finite reconstruction and fixed homogeneous projections. The generic restriction and projection theorems are existing pinned Tau imports. This supersedes only the kernel/range internal-decomposition frontier; the actual cokernel decomposition, smaller-ring graded scalar action and remaining-generator Hilbert–Serre induction remain open. Retain the previous finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; all nodes unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3059,6 +3059,34 @@
         "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
         "provides": "The range of a native submodule inclusion is exactly the given submodule.",
         "checked": "Exact statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line309; native import, not a new generic node."
+      },
+      {
+        "ref": "tauceti:TauCeti.DirectSum.isInternal_comap",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/DirectSum/Internal.lean",
+        "provides": "An injective linear map whose range contains each ambient homogeneous projection transfers internal direct-sum decomposition to the comap family.",
+        "checked": "Full actual statement, proof/construction and ambient hypotheses personally read at the exact pinned tauceti commit on2026-10-04 by Codex — codex-rtOQ9t, line133; exact declaration index checked. Generic native theorem imported, never replanned."
+      },
+      {
+        "ref": "tauceti:TauCeti.DirectSum.map_decompose_restrict",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/DirectSum/Internal.lean",
+        "provides": "Restricted homogeneous projections agree under the original injective map with the ambient native projections.",
+        "checked": "Full actual statement, proof/construction and ambient hypotheses personally read at the exact pinned tauceti commit on2026-10-04 by Codex — codex-rtOQ9t, line210; exact declaration index checked. Generic native theorem imported, never replanned."
+      },
+      {
+        "ref": "mathlib:Submodule.comap",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
+        "provides": "Native inverse-image submodule with definitionally exact membership criterion.",
+        "checked": "Full actual statement, proof/construction and ambient hypotheses personally read at the exact pinned mathlib commit on2026-10-04 by Codex — codex-rtOQ9t, line172; exact declaration index checked. Generic native theorem imported, never replanned."
+      },
+      {
+        "ref": "mathlib:Submodule.subtype_injective",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/Submodule/LinearMap.lean",
+        "provides": "The original submodule subtype is injective.",
+        "checked": "Full actual statement, proof/construction and ambient hypotheses personally read at the exact pinned mathlib commit on2026-10-04 by Codex — codex-rtOQ9t, line92; exact declaration index checked. Generic native theorem imported, never replanned."
       }
     ]
   },
@@ -4241,6 +4269,17 @@
       "sha256": "e0e348edf92286999b39c2d44acbdbf72e8b3fb7b645f63df93ceed79aeffd63",
       "readSections": [
         "Complete currently displayed Section10.58 statements and proofs10.58.1–10.58.10 and all five comments. The finite-length kernel/cokernel recurrence is an authored specialization of the exact-sequence method, retaining a kernel instead of assuming injectivity. No recursive-source or fresh inherited-erratum audit."
+      ]
+    },
+    {
+      "id": "HS-KERNEL-RANGE-GRADING-00JV",
+      "title": "Noetherian graded rings: homogeneous submodule and quotient induction",
+      "authors": "The Stacks Project Authors",
+      "edition": "Currently displayed Section10.58,4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/00JV",
+      "sha256": "e0e348edf92286999b39c2d44acbdbf72e8b3fb7b645f63df93ceed79aeffd63",
+      "readSections": [
+        "Complete currently displayed Section10.58 statements and proofs1–10 and all five comments. Kernel/range decomposition adapters are authored native deductions; quotient decomposition and smaller-ring induction remain open."
       ]
     }
   ],
@@ -27400,6 +27439,786 @@
           "statement": "For every a∈S_1, ℓ_A(C_0)=ℓ_A(L_0), even if the lengths are infinite."
         }
       ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "definition",
+      "title": "Native kernel image components",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleKernelComponents",
+      "statement": "Define K_n as the A-submodule of the actual K obtained by comapping L_n along the scalar-restricted native subtype K→L. Thus membership means precisely that the original ambient value belongs to L_n. The defining native graded scalar instance has S_i·K_j⊆K_(i+j), with the original inherited S action.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Use the native comap of the original component, not a new quotient or direct-sum carrier.",
+        "Reduce the scalar membership goal and hypothesis to the ambient L; apply its existing native graded scalar action. The actual S-submodule supplies closure of the original S action."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action",
+        "mathlib:Submodule.comap",
+        "mathlib:LinearMap.restrictScalars"
+      ],
+      "acceptance": [
+        "Define K_n as the A-submodule of the actual K obtained by comapping L_n along the scalar-restricted native subtype K→L. Thus membership means precisely that the original ambient value belongs to L_n. The defining native graded scalar instance has S_i·K_j⊆K_(i+j), with the original inherited S action.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleKernelComponents_mem",
+          "role": "characterisation",
+          "statement": "For every actual x in K and n≥0, x∈K_n if and only if its native subtype value in L lies in L_n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleKernelComponents_smul",
+          "role": "compatibility",
+          "statement": "For every b∈S_i and actual x∈K_j, the inherited S-scalar product b·x lies in K_(i+j). The original ambient value is the original scalar product in L."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleKernelGradedSMul",
+          "role": "instance",
+          "statement": "The defining native SetLike.GradedSMul instance uses the inherited S action and has S_i·K_j⊆K_(i+j)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicRestrictionTests.zero_multiplier_kernel",
+          "kind": "compatibility",
+          "statement": "For a=0, every y in the actual L_n defines x in the full native kernel K with ambient value y; x lies in K_n and its degree-n restricted projection equals x."
+        },
+        {
+          "name": "AdicRestrictionTests.kernel_wrong_degree",
+          "kind": "non-example",
+          "statement": "For every actual x in K_n and m≠n, the degree-m restricted kernel projection is zero. Copying the same kernel into every degree fails this test."
+        },
+        {
+          "name": "AdicRestrictionTests.nilpotent_nonzero_kernel",
+          "kind": "non-example",
+          "statement": "For A=M=Z/4 and q=(2), the nonzero degree-one class a of2 has a nonzero x in the actual K_1. Its restricted degree-one projection fixes x and finite native recomposition recovers x. The kernel cannot be replaced by zero or restricted to regular multipliers."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components-membership",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Ambient membership for kernel components",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleKernelComponents_mem",
+      "statement": "For every actual x in K and n≥0, x∈K_n if and only if its native subtype value in L lies in L_n.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Unfold the native comap and the scalar-restricted subtype; membership is definitionally identical."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components",
+        "mathlib:Submodule.comap"
+      ],
+      "acceptance": [
+        "For every actual x in K and n≥0, x∈K_n if and only if its native subtype value in L lies in L_n.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components-scalar-action",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Inherited homogeneous scalar action on kernel components",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleKernelComponents_smul",
+      "statement": "For every b∈S_i and actual x∈K_j, the inherited S-scalar product b·x lies in K_(i+j). The original ambient value is the original scalar product in L.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Express both component memberships in the ambient L by the comap criterion.",
+        "Apply native ambient graded scalar multiplication; the native subtype scalar action has the same ambient value."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components-membership",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action",
+        "mathlib:SetLike.GradedSMul"
+      ],
+      "acceptance": [
+        "For every b∈S_i and actual x∈K_j, the inherited S-scalar product b·x lies in K_(i+j). The original ambient value is the original scalar product in L.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-decomposition",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "construction",
+      "title": "Internal grading of the actual kernel",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleKernelDecomposition",
+      "statement": "Construct a native DirectSum.Decomposition of (K_n) on the same actual K. Its canonical recomposition is the finite sum of the native component inclusions. The data are obtained from the existing Tau restriction theorem applied to the original ambient decomposition and the injective scalar-restricted subtype.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "The comap family has exactly the membership condition of the existing restriction theorem.",
+        "Use the inherited homogeneous-kernel theorem to exhibit every ambient homogeneous projection in the actual subtype range.",
+        "Apply the existing Tau native restriction construction; its canonical finite recomposition is unchanged."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-homogeneous-kernel",
+        "tauceti:TauCeti.DirectSum.Decomposition.restrict",
+        "tauceti:TauCeti.DirectSum.isInternal_comap",
+        "mathlib:Submodule.subtype_injective"
+      ],
+      "acceptance": [
+        "Construct a native DirectSum.Decomposition of (K_n) on the same actual K. Its canonical recomposition is the finite sum of the native component inclusions. The data are obtained from the existing Tau restriction theorem applied to the original ambient decomposition and the injective scalar-restricted subtype.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleKernelDecomposition_coe",
+          "role": "compatibility",
+          "statement": "With the restricted decomposition installed, the ambient subtype value of the n-th native projection of every actual x∈K equals the inherited adicModuleProjection π_n(x) in L."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleKernelDecomposition_recompose",
+          "role": "relation",
+          "statement": "With the restricted decomposition installed, native canonical finite recomposition of the full native decomposition of any actual x∈K equals x in K, not merely after inclusion into L."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleKernelDecomposition_of_mem",
+          "role": "simp",
+          "statement": "With the restricted decomposition installed, if actual x belongs to K_n then the n-th native projection, as an element of K, equals x."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicRestrictionTests.zero_multiplier_kernel",
+          "kind": "compatibility",
+          "statement": "For a=0, every y in the actual L_n defines x in the full native kernel K with ambient value y; x lies in K_n and its degree-n restricted projection equals x."
+        },
+        {
+          "name": "AdicRestrictionTests.kernel_wrong_degree",
+          "kind": "non-example",
+          "statement": "For every actual x in K_n and m≠n, the degree-m restricted kernel projection is zero. Copying the same kernel into every degree fails this test."
+        },
+        {
+          "name": "AdicRestrictionTests.nilpotent_nonzero_kernel",
+          "kind": "non-example",
+          "statement": "For A=M=Z/4 and q=(2), the nonzero degree-one class a of2 has a nonzero x in the actual K_1. Its restricted degree-one projection fixes x and finite native recomposition recovers x. The kernel cannot be replaced by zero or restricted to regular multipliers."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-decomposition-ambient-projection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Ambient projection agreement for the kernel",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleKernelDecomposition_coe",
+      "statement": "With the restricted decomposition installed, the ambient subtype value of the n-th native projection of every actual x∈K equals the inherited adicModuleProjection π_n(x) in L.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Apply the existing Tau map_decompose_restrict theorem to the scalar-restricted subtype and the exact comap membership condition. The ambient projection is the original native adic projection."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-decomposition",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration",
+        "tauceti:TauCeti.DirectSum.map_decompose_restrict"
+      ],
+      "acceptance": [
+        "With the restricted decomposition installed, the ambient subtype value of the n-th native projection of every actual x∈K equals the inherited adicModuleProjection π_n(x) in L.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-decomposition-finite-recomposition",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Finite recomposition in the actual kernel",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleKernelDecomposition_recompose",
+      "statement": "With the restricted decomposition installed, native canonical finite recomposition of the full native decomposition of any actual x∈K equals x in K, not merely after inclusion into L.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Use the left inverse field of native DirectSum.Decomposition on this actual carrier and its canonical component inclusions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-decomposition",
+        "mathlib:DirectSum.Decomposition"
+      ],
+      "acceptance": [
+        "With the restricted decomposition installed, native canonical finite recomposition of the full native decomposition of any actual x∈K equals x in K, not merely after inclusion into L.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-decomposition-homogeneous-projection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Homogeneous elements fixed in the actual kernel",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleKernelDecomposition_of_mem",
+      "statement": "With the restricted decomposition installed, if actual x belongs to K_n then the n-th native projection, as an element of K, equals x.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Apply the native same-degree projection theorem to the actual restricted component family and its decomposition."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-decomposition",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components-membership",
+        "mathlib:DirectSum.decompose_of_mem_same"
+      ],
+      "acceptance": [
+        "With the restricted decomposition installed, if actual x belongs to K_n then the n-th native projection, as an element of K, equals x.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "definition",
+      "title": "Native range image components",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleRangeComponents",
+      "statement": "Define R_n as the A-submodule of the actual R obtained by comapping L_n along the scalar-restricted native subtype R→L. Thus membership means precisely that the original ambient value belongs to L_n. The defining native graded scalar instance has S_i·R_j⊆R_(i+j), with the original inherited S action.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Use the native comap of the original component, not a new quotient or direct-sum carrier.",
+        "Reduce the scalar membership goal and hypothesis to the ambient L; apply its existing native graded scalar action. The actual S-submodule supplies closure of the original S action."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action",
+        "mathlib:Submodule.comap",
+        "mathlib:LinearMap.restrictScalars"
+      ],
+      "acceptance": [
+        "Define R_n as the A-submodule of the actual R obtained by comapping L_n along the scalar-restricted native subtype R→L. Thus membership means precisely that the original ambient value belongs to L_n. The defining native graded scalar instance has S_i·R_j⊆R_(i+j), with the original inherited S action.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleRangeComponents_mem",
+          "role": "characterisation",
+          "statement": "For every actual x in R and n≥0, x∈R_n if and only if its native subtype value in L lies in L_n."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleRangeComponents_smul",
+          "role": "compatibility",
+          "statement": "For every b∈S_i and actual x∈R_j, the inherited S-scalar product b·x lies in R_(i+j). The original ambient value is the original scalar product in L."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleRangeGradedSMul",
+          "role": "instance",
+          "statement": "The defining native SetLike.GradedSMul instance uses the inherited S action and has S_i·R_j⊆R_(i+j)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicRestrictionTests.zero_multiplier_range",
+          "kind": "degenerate",
+          "statement": "For a=0, every element of the actual range is zero, belongs to every range component as zero, and its native finite recomposition is zero."
+        },
+        {
+          "name": "AdicRestrictionTests.range_degree_zero",
+          "kind": "non-example",
+          "statement": "For every degree-one a, an actual range element lying in degree zero is zero; its restricted degree-zero projection is zero. Treating the range grading as an unshifted copy of L fails this boundary."
+        },
+        {
+          "name": "AdicRestrictionTests.range_successor",
+          "kind": "compatibility",
+          "statement": "For every actual y in L_n, the element a·y of R lies in R_(n+1), has exactly that ambient value, and is fixed by its restricted degree-(n+1) projection."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components-membership",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Ambient membership for range components",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleRangeComponents_mem",
+      "statement": "For every actual x in R and n≥0, x∈R_n if and only if its native subtype value in L lies in L_n.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Unfold the native comap and the scalar-restricted subtype; membership is definitionally identical."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components",
+        "mathlib:Submodule.comap"
+      ],
+      "acceptance": [
+        "For every actual x in R and n≥0, x∈R_n if and only if its native subtype value in L lies in L_n.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components-scalar-action",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Inherited homogeneous scalar action on range components",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleRangeComponents_smul",
+      "statement": "For every b∈S_i and actual x∈R_j, the inherited S-scalar product b·x lies in R_(i+j). The original ambient value is the original scalar product in L.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Express both component memberships in the ambient L by the comap criterion.",
+        "Apply native ambient graded scalar multiplication; the native subtype scalar action has the same ambient value."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components-membership",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action",
+        "mathlib:SetLike.GradedSMul"
+      ],
+      "acceptance": [
+        "For every b∈S_i and actual x∈R_j, the inherited S-scalar product b·x lies in R_(i+j). The original ambient value is the original scalar product in L.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-decomposition",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "construction",
+      "title": "Internal grading of the actual range",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleRangeDecomposition",
+      "statement": "Construct a native DirectSum.Decomposition of (R_n) on the same actual R. Its canonical recomposition is the finite sum of the native component inclusions. The data are obtained from the existing Tau restriction theorem applied to the original ambient decomposition and the injective scalar-restricted subtype.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "The comap family has exactly the membership condition of the existing restriction theorem.",
+        "Use the inherited homogeneous-range theorem to exhibit every ambient homogeneous projection in the actual subtype range.",
+        "Apply the existing Tau native restriction construction; its canonical finite recomposition is unchanged."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-homogeneous-range",
+        "tauceti:TauCeti.DirectSum.Decomposition.restrict",
+        "tauceti:TauCeti.DirectSum.isInternal_comap",
+        "mathlib:Submodule.subtype_injective"
+      ],
+      "acceptance": [
+        "Construct a native DirectSum.Decomposition of (R_n) on the same actual R. Its canonical recomposition is the finite sum of the native component inclusions. The data are obtained from the existing Tau restriction theorem applied to the original ambient decomposition and the injective scalar-restricted subtype.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleRangeDecomposition_coe",
+          "role": "compatibility",
+          "statement": "With the restricted decomposition installed, the ambient subtype value of the n-th native projection of every actual x∈R equals the inherited adicModuleProjection π_n(x) in L."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleRangeDecomposition_recompose",
+          "role": "relation",
+          "statement": "With the restricted decomposition installed, native canonical finite recomposition of the full native decomposition of any actual x∈R equals x in R, not merely after inclusion into L."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleRangeDecomposition_of_mem",
+          "role": "simp",
+          "statement": "With the restricted decomposition installed, if actual x belongs to R_n then the n-th native projection, as an element of R, equals x."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdicRestrictionTests.zero_multiplier_range",
+          "kind": "degenerate",
+          "statement": "For a=0, every element of the actual range is zero, belongs to every range component as zero, and its native finite recomposition is zero."
+        },
+        {
+          "name": "AdicRestrictionTests.range_successor",
+          "kind": "compatibility",
+          "statement": "For every actual y in L_n, the element a·y of R lies in R_(n+1), has exactly that ambient value, and is fixed by its restricted degree-(n+1) projection."
+        },
+        {
+          "name": "AdicRestrictionTests.range_finite_reconstruction",
+          "kind": "characterisation",
+          "statement": "For every possibly inhomogeneous actual x in R, native finite recomposition recovers x and each restricted coordinate, included into L, equals the original native ambient projection of x."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-decomposition-ambient-projection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Ambient projection agreement for the range",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleRangeDecomposition_coe",
+      "statement": "With the restricted decomposition installed, the ambient subtype value of the n-th native projection of every actual x∈R equals the inherited adicModuleProjection π_n(x) in L.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Apply the existing Tau map_decompose_restrict theorem to the scalar-restricted subtype and the exact comap membership condition. The ambient projection is the original native adic projection."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-decomposition",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration",
+        "tauceti:TauCeti.DirectSum.map_decompose_restrict"
+      ],
+      "acceptance": [
+        "With the restricted decomposition installed, the ambient subtype value of the n-th native projection of every actual x∈R equals the inherited adicModuleProjection π_n(x) in L.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-decomposition-finite-recomposition",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Finite recomposition in the actual range",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleRangeDecomposition_recompose",
+      "statement": "With the restricted decomposition installed, native canonical finite recomposition of the full native decomposition of any actual x∈R equals x in R, not merely after inclusion into L.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Use the left inverse field of native DirectSum.Decomposition on this actual carrier and its canonical component inclusions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-decomposition",
+        "mathlib:DirectSum.Decomposition"
+      ],
+      "acceptance": [
+        "With the restricted decomposition installed, native canonical finite recomposition of the full native decomposition of any actual x∈R equals x in R, not merely after inclusion into L.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-decomposition-homogeneous-projection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Homogeneous elements fixed in the actual range",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleRangeDecomposition_of_mem",
+      "statement": "With the restricted decomposition installed, if actual x belongs to R_n then the n-th native projection, as an element of R, equals x.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Apply the native same-degree projection theorem to the actual restricted component family and its decomposition."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-decomposition",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components-membership",
+        "mathlib:DirectSum.decompose_of_mem_same"
+      ],
+      "acceptance": [
+        "With the restricted decomposition installed, if actual x belongs to R_n then the n-th native projection, as an element of R, equals x.",
+        "Retain the original ambient carrier and scalar actions; every implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre kernel/cokernel induction and Stacks10.58.7",
+          "how": "Supply actual finite homogeneous decompositions and original scalar actions before descending the kernel/quotient to the remaining-generator coefficient ring. The quotient grading and polynomial induction still require separate closure."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-KERNEL-RANGE-GRADING-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7, complete displayed graded submodule/quotient argument",
+          "excerpt": "graded",
+          "match": "Motivates retaining homogeneous kernels and images during the degree-shifted induction. The arbitrary-ring internal decompositions and projection identities are authored native adapters using pinned Tau restriction; no injectivity reduction or polynomial existence is assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -27546,7 +28365,8 @@
         "The existing native adic module image grading, scalar action, direct-sum comparison and projections now have admission-free proof prototypes on their exact inherited signatures. Ten new lemmas give actual inverse identities, native decomposition agreement, coefficient projection, membership, orthogonality, homogeneity, zero detection and all-projection extensionality. This supersedes prototype omissions for these adapters only. Homogeneous kernel/range/quotient gradings, scalar descent and finiteness over the smaller ring and degreewise length exactness remain required for general Hilbert–Serre; no eventual polynomial is assumed as its own existence premise. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-source obligation remain open; implementation statuses stay unchecked.",
         "Sixteen actual degree-one multiplication/component declarations now prove shifted and degree-zero projection laws, native homogeneous kernel/range predicates, adjacent component maps and their exact quotient sequence, degree-zero injectivity and annihilation of the actual kernel/quotient. Zero-divisor scalars remain allowed. The plan imports the already-built Tau Ceti map_decompose_shift; isolated Mathlib evidence replays its exact pinned source, not a compiled Tau library. Still install the full native kernel/range/quotient decompositions and their graded actions using existing generic restriction interfaces; construct scalar descent to S/(a), prove smaller-ring finite generation, finite degree lengths and length recurrence, then Hilbert–Serre induction. All support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, eight-stage and routed-paper obligations remain open.",
         "Twelve new specialized declarations now descend the actual native kernel and cokernel of degree-one multiplication to S/(a), prove their representative actions and scalar towers, and certify smaller-ring finite generation. Kernel finiteness uses a Noetherian S-module L, or finite M over A plus explicit Noetherianity of S; quotient finiteness needs only finite L over S, or finite M over A. This supersedes the scalar-descent/finiteness prototype frontier only. Full native homogeneous kernel/range/quotient decompositions and smaller-ring grading, finite component lengths, two degreewise length identities with finite ENat-toNat conversion before integer subtraction, remaining-generator induction and general Hilbert–Serre existence remain open. The support/degree, completion, localization, associativity, intrinsic/ambient conventions, all eight stages and every routed-source obligation remain unchanged and open; all implementation statuses are unchecked.",
-        "One existing component-equivalence API is promoted to its own prerequisite construction node. Twelve new lemmas prove finite actual adic component lengths for Noetherian A, finite M and Artinian A/q; two native extended-length identities; separately guarded natural-length conversions; and the signed integer recurrence with the nonzero kernel correction retained. Degree-zero quotient lengths agree without finite-length assumptions. This supersedes the finite-component-length and degreewise-length-identity frontier for these actual maps only. Native kernel/range/quotient decompositions, smaller-ring grading, remaining-generator induction and general Hilbert–Serre existence remain open. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open and all implementation statuses unchecked."
+        "One existing component-equivalence API is promoted to its own prerequisite construction node. Twelve new lemmas prove finite actual adic component lengths for Noetherian A, finite M and Artinian A/q; two native extended-length identities; separately guarded natural-length conversions; and the signed integer recurrence with the nonzero kernel correction retained. Degree-zero quotient lengths agree without finite-length assumptions. This supersedes the finite-component-length and degreewise-length-identity frontier for these actual maps only. Native kernel/range/quotient decompositions, smaller-ring grading, remaining-generator induction and general Hilbert–Serre existence remain open. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open and all implementation statuses unchecked.",
+        "Fourteen new nodes and two defining native instances give actual internally graded kernel and range modules for degree-one multiplication on the existing ordinary adic module: literal comap components, inherited S scalar degree addition, native restricted decompositions, ambient projection agreement, finite reconstruction and fixed homogeneous projections. The generic restriction and projection theorems are existing pinned Tau imports. This supersedes only the kernel/range internal-decomposition frontier; the actual cokernel decomposition, smaller-ring graded scalar action and remaining-generator Hilbert–Serre induction remain open. Retain the previous finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; all nodes unchecked."
       ]
     },
     {

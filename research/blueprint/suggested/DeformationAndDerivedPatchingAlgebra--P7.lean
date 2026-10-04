@@ -5871,3 +5871,219 @@ example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
 
 end
 end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+open scoped _root_.DirectSum
+set_option synthInstance.maxHeartbeats 200000
+set_option linter.style.haveILetI false
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A : Type*} [CommRing A]
+variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+
+def adicModuleKernelComponents (a : adicRingComponents q 1) (n : ℕ) :
+    Submodule A (LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) :=
+  (adicModuleComponents q M n).comap
+    ((LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).subtype.restrictScalars A)
+
+lemma adicModuleKernelComponents_mem (a : adicRingComponents q 1) (n : ℕ)
+    (x : LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) :
+    x ∈ adicModuleKernelComponents q M a n ↔
+      (x : adicGradedModule q M) ∈ adicModuleComponents q M n := by
+  sorry
+
+lemma adicModuleKernelComponents_smul (a : adicRingComponents q 1) (i j : ℕ)
+    (b : adicRingComponents q i)
+    (x : LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+    (hx : x ∈ adicModuleKernelComponents q M a j) :
+    (b : adicGradedRing q) • x ∈ adicModuleKernelComponents q M a (i + j) := by
+  sorry
+
+instance adicModuleKernelGradedSMul (a : adicRingComponents q 1) :
+    SetLike.GradedSMul (adicRingComponents q) (adicModuleKernelComponents q M a) where
+  smul_mem := by
+    intro i j b x hb hx
+    change b • (x : adicGradedModule q M) ∈ adicModuleComponents q M (i+j)
+    change (x : adicGradedModule q M) ∈ adicModuleComponents q M j at hx
+    exact SetLike.GradedSMul.smul_mem hb hx
+
+@[instance_reducible]
+def adicModuleKernelDecomposition (a : adicRingComponents q 1) :
+    DirectSum.Decomposition (adicModuleKernelComponents q M a) :=
+  TauCeti.DirectSum.Decomposition.restrict (adicModuleComponents q M)
+    (adicModuleKernelComponents q M a)
+    ((LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).subtype.restrictScalars A)
+    (Submodule.subtype_injective _) (fun _ _ => Iff.rfl)
+    (fun n x => ⟨⟨_, adicModuleMul_ker_homogeneous q M a n x.property⟩, rfl⟩)
+
+lemma adicModuleKernelDecomposition_coe (a : adicRingComponents q 1) (n : ℕ)
+    (x : LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) :
+    letI := adicModuleKernelDecomposition q M a
+    (((DirectSum.decompose (adicModuleKernelComponents q M a) x n :
+      LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))) :
+      adicGradedModule q M) = adicModuleProjection q M n x := by
+  sorry
+
+lemma adicModuleKernelDecomposition_recompose (a : adicRingComponents q 1)
+    (x : LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) :
+    letI := adicModuleKernelDecomposition q M a
+    DirectSum.coeAddMonoidHom (adicModuleKernelComponents q M a)
+      (DirectSum.decompose (adicModuleKernelComponents q M a) x) = x := by
+  sorry
+
+lemma adicModuleKernelDecomposition_of_mem (a : adicRingComponents q 1) (n : ℕ)
+    (x : LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+    (hx : x ∈ adicModuleKernelComponents q M a n) :
+    letI := adicModuleKernelDecomposition q M a
+    (DirectSum.decompose (adicModuleKernelComponents q M a) x n :
+      LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) = x := by
+  sorry
+
+def adicModuleRangeComponents (a : adicRingComponents q 1) (n : ℕ) :
+    Submodule A (LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) :=
+  (adicModuleComponents q M n).comap
+    ((LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).subtype.restrictScalars A)
+
+lemma adicModuleRangeComponents_mem (a : adicRingComponents q 1) (n : ℕ)
+    (x : LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) :
+    x ∈ adicModuleRangeComponents q M a n ↔
+      (x : adicGradedModule q M) ∈ adicModuleComponents q M n := by
+  sorry
+
+lemma adicModuleRangeComponents_smul (a : adicRingComponents q 1) (i j : ℕ)
+    (b : adicRingComponents q i)
+    (x : LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+    (hx : x ∈ adicModuleRangeComponents q M a j) :
+    (b : adicGradedRing q) • x ∈ adicModuleRangeComponents q M a (i + j) := by
+  sorry
+
+instance adicModuleRangeGradedSMul (a : adicRingComponents q 1) :
+    SetLike.GradedSMul (adicRingComponents q) (adicModuleRangeComponents q M a) where
+  smul_mem := by
+    intro i j b x hb hx
+    change b • (x : adicGradedModule q M) ∈ adicModuleComponents q M (i+j)
+    change (x : adicGradedModule q M) ∈ adicModuleComponents q M j at hx
+    exact SetLike.GradedSMul.smul_mem hb hx
+
+@[instance_reducible]
+def adicModuleRangeDecomposition (a : adicRingComponents q 1) :
+    DirectSum.Decomposition (adicModuleRangeComponents q M a) :=
+  TauCeti.DirectSum.Decomposition.restrict (adicModuleComponents q M)
+    (adicModuleRangeComponents q M a)
+    ((LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).subtype.restrictScalars A)
+    (Submodule.subtype_injective _) (fun _ _ => Iff.rfl)
+    (fun n x => ⟨⟨_, adicModuleMul_range_homogeneous q M a n x.property⟩, rfl⟩)
+
+lemma adicModuleRangeDecomposition_coe (a : adicRingComponents q 1) (n : ℕ)
+    (x : LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) :
+    letI := adicModuleRangeDecomposition q M a
+    (((DirectSum.decompose (adicModuleRangeComponents q M a) x n :
+      LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))) :
+      adicGradedModule q M) = adicModuleProjection q M n x := by
+  sorry
+
+lemma adicModuleRangeDecomposition_recompose (a : adicRingComponents q 1)
+    (x : LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) :
+    letI := adicModuleRangeDecomposition q M a
+    DirectSum.coeAddMonoidHom (adicModuleRangeComponents q M a)
+      (DirectSum.decompose (adicModuleRangeComponents q M a) x) = x := by
+  sorry
+
+lemma adicModuleRangeDecomposition_of_mem (a : adicRingComponents q 1) (n : ℕ)
+    (x : LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+    (hx : x ∈ adicModuleRangeComponents q M a n) :
+    letI := adicModuleRangeDecomposition q M a
+    (DirectSum.decompose (adicModuleRangeComponents q M a) x n :
+      LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) = x := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+open scoped _root_.DirectSum
+set_option synthInstance.maxHeartbeats 200000
+set_option maxHeartbeats 1200000
+set_option linter.style.haveILetI false
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A : Type*} [CommRing A]
+variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+
+-- test: AdicRestrictionTests.zero_multiplier_kernel
+example (n : ℕ) (y : adicModuleComponents q M n) :
+    ∃ x : LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) 0),
+      (x : adicGradedModule q M) = y ∧ x ∈ adicModuleKernelComponents q M 0 n ∧
+      (letI := adicModuleKernelDecomposition q M 0
+       (DirectSum.decompose (adicModuleKernelComponents q M 0) x n :
+         LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) 0)) = x) := by
+  sorry
+
+-- test: AdicRestrictionTests.kernel_wrong_degree
+example (a : adicRingComponents q 1) (n m : ℕ) (hnm : n ≠ m)
+    (x : LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+    (hx : x ∈ adicModuleKernelComponents q M a n) :
+    letI := adicModuleKernelDecomposition q M a
+    (DirectSum.decompose (adicModuleKernelComponents q M a) x m :
+      LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) = 0 := by
+  sorry
+
+-- test: AdicRestrictionTests.nilpotent_nonzero_kernel
+example :
+    let q : Ideal (ZMod 4) := Ideal.span {2}
+    ∃ a : adicRingComponents q 1, a ≠ 0 ∧
+      ∃ x : LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q (ZMod 4)) a),
+        x ≠ 0 ∧ x ∈ adicModuleKernelComponents q (ZMod 4) a 1 ∧
+        (letI := adicModuleKernelDecomposition q (ZMod 4) a
+         (DirectSum.decompose (adicModuleKernelComponents q (ZMod 4) a) x 1 :
+           LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q (ZMod 4)) a)) = x) ∧
+        (letI := adicModuleKernelDecomposition q (ZMod 4) a
+         DirectSum.coeAddMonoidHom (adicModuleKernelComponents q (ZMod 4) a)
+           (DirectSum.decompose (adicModuleKernelComponents q (ZMod 4) a) x) = x) := by
+  sorry
+
+-- test: AdicRestrictionTests.zero_multiplier_range
+example (n : ℕ)
+    (x : LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) 0)) :
+    x = 0 ∧ x ∈ adicModuleRangeComponents q M 0 n ∧
+      (letI := adicModuleRangeDecomposition q M 0
+       DirectSum.coeAddMonoidHom (adicModuleRangeComponents q M 0)
+         (DirectSum.decompose (adicModuleRangeComponents q M 0) x) = 0) := by
+  sorry
+
+-- test: AdicRestrictionTests.range_degree_zero
+example (a : adicRingComponents q 1)
+    (x : LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))
+    (hx : x ∈ adicModuleRangeComponents q M a 0) :
+    x = 0 ∧
+      (letI := adicModuleRangeDecomposition q M a
+       (DirectSum.decompose (adicModuleRangeComponents q M a) x 0 :
+         LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) = 0) := by
+  sorry
+
+-- test: AdicRestrictionTests.range_successor
+example (a : adicRingComponents q 1) (n : ℕ) (y : adicModuleComponents q M n) :
+    ∃ x : LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a),
+      (x : adicGradedModule q M) = (a : adicGradedRing q) • (y : adicGradedModule q M) ∧
+      x ∈ adicModuleRangeComponents q M a (n+1) ∧
+      (letI := adicModuleRangeDecomposition q M a
+       (DirectSum.decompose (adicModuleRangeComponents q M a) x (n+1) :
+         LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) = x) := by
+  sorry
+
+-- test: AdicRestrictionTests.range_finite_reconstruction
+example (a : adicRingComponents q 1)
+    (x : LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) :
+    letI := adicModuleRangeDecomposition q M a
+    DirectSum.coeAddMonoidHom (adicModuleRangeComponents q M a)
+      (DirectSum.decompose (adicModuleRangeComponents q M a) x) = x ∧
+    ∀ n, (((DirectSum.decompose (adicModuleRangeComponents q M a) x n :
+      LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a))) :
+      adicGradedModule q M) = adicModuleProjection q M n x := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
