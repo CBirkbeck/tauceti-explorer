@@ -1,3 +1,5 @@
+import Mathlib.CategoryTheory.Functor.FullyFaithful
+
 import Mathlib.CategoryTheory.Groupoid.Grpd.Basic
 
 import Mathlib.CategoryTheory.Groupoid
@@ -6458,6 +6460,240 @@ example (f : A) (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) :
         (rootPointFunctor f).map (CommAlgCat.ofHom ψ) =
       (rootPointFunctor f).map (CommAlgCat.ofHom (ψ.comp φ)) ∧
     (rootPointFunctor f).map (𝟙 (CommAlgCat.of A B)) = 𝟙 _ := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory
+variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
+
+-- Coordinates after choosing a frame for the root line, with no normalization
+-- of its power identification. No global frame existence or descent is asserted.
+structure FramedRoot (f : A) (n : ℕ) (B : Type uPoint) [CommRing B] [Algebra A B] where
+  coefficient : Bˣ
+  root : B
+  equation : (coefficient : B) * root ^ n = algebraMap A B f
+
+@[instance_reducible]
+def FramedRoot.groupoid (f : A) (n : ℕ) : Groupoid (FramedRoot f n B) where
+  Hom p q := {w : Bˣ // q.root = (w : B) * p.root ∧
+    q.coefficient * w ^ n = p.coefficient}
+  id p := ⟨1, by simp⟩
+  comp h j := ⟨j.1 * h.1, by
+    constructor
+    · simpa only [Units.val_mul, mul_assoc] using
+        j.2.1.trans (congrArg (fun b : B => (j.1 : B) * b) h.2.1)
+    · rw [mul_pow, ← mul_assoc, j.2.2, h.2.2]⟩
+  id_comp := by intros; apply Subtype.ext; exact mul_one _
+  comp_id := by intros; apply Subtype.ext; exact one_mul _
+  assoc := by intros; apply Subtype.ext; exact (mul_assoc _ _ _).symm
+  inv h := ⟨h.1⁻¹, by
+    constructor
+    · simpa only [← mul_assoc, Units.inv_mul, one_mul] using
+        (congrArg (fun b : B => ((h.1⁻¹ : Bˣ) : B) * b) h.2.1).symm
+    · calc
+        _ = (_ * h.1 ^ n) * (h.1⁻¹) ^ n := congrArg (fun z => z * (h.1⁻¹) ^ n) h.2.2.symm
+        _ = _ := by rw [inv_pow, mul_assoc, mul_inv_cancel, mul_one]⟩
+  inv_comp := by intros; apply Subtype.ext; exact mul_inv_cancel _
+  comp_inv := by intros; apply Subtype.ext; exact inv_mul_cancel _
+
+attribute [instance] FramedRoot.groupoid
+
+lemma FramedRoot.coordinate_equation {f : A} {n : ℕ} (p : FramedRoot f n B) :
+    (p.coefficient : B) * p.root ^ n = algebraMap A B f := by
+  sorry
+
+lemma FramedRoot.hom_ext {f : A} {n : ℕ} {p q : FramedRoot f n B}
+    (h j : p ⟶ q) (he : h.1 = j.1) : h = j := by
+  sorry
+
+lemma FramedRoot.id_label {f : A} {n : ℕ} (p : FramedRoot f n B) :
+    (𝟙 p : p ⟶ p).1 = 1 := by
+  sorry
+
+lemma FramedRoot.comp_label {f : A} {n : ℕ} {p q r : FramedRoot f n B}
+    (h : p ⟶ q) (j : q ⟶ r) : (h ≫ j).1 = j.1 * h.1 := by
+  sorry
+
+lemma FramedRoot.inv_label {f : A} {n : ℕ} {p q : FramedRoot f n B}
+    (h : p ⟶ q) : (Groupoid.inv h).1 = h.1⁻¹ := by
+  sorry
+
+lemma FramedRoot.arrow_section {f : A} {n : ℕ} {p q : FramedRoot f n B}
+    (h : p ⟶ q) : q.root = (h.1 : B) * p.root := by
+  sorry
+
+lemma FramedRoot.arrow_coefficient {f : A} {n : ℕ} {p q : FramedRoot f n B}
+    (h : p ⟶ q) : q.coefficient * h.1 ^ n = p.coefficient := by
+  sorry
+
+def rootChartEmbedding (f : A) (n : ℕ) [NeZero n] :
+    affineRootPointGroupoid f n B ⥤ FramedRoot f n B where
+  obj p := ⟨1, p (AdjoinRoot.root _), by
+    simpa only [Units.val_one, one_mul] using affineRootPointGroupoid.root_equation p⟩
+  map h := ⟨(h.1 : Bˣ), h.2, by
+    simpa only [one_mul] using ((mem_rootsOfUnity n (h.1 : Bˣ)).mp h.1.2)⟩
+  map_id _ := rfl
+  map_comp _ _ := rfl
+
+lemma rootChartEmbedding.obj_coefficient (f : A) (n : ℕ) [NeZero n]
+    (p : affineRootPointGroupoid f n B) :
+    ((rootChartEmbedding f n).obj p).coefficient = 1 := by
+  sorry
+
+lemma rootChartEmbedding.obj_section (f : A) (n : ℕ) [NeZero n]
+    (p : affineRootPointGroupoid f n B) :
+    ((rootChartEmbedding f n).obj p).root = p (AdjoinRoot.root _) := by
+  sorry
+
+lemma rootChartEmbedding.map_label (f : A) (n : ℕ) [NeZero n]
+    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
+    ((rootChartEmbedding f n).map h).1 = (h.1 : Bˣ) := by
+  sorry
+
+def rootChartEmbedding.fullyFaithful (f : A) (n : ℕ) [NeZero n] :
+    (rootChartEmbedding f n (B := B)).FullyFaithful where
+  preimage h := ⟨⟨h.1, (mem_rootsOfUnity n (h.1 : Bˣ)).mpr (by simpa only [rootChartEmbedding, one_mul] using h.2.2)⟩, h.2.1⟩
+  map_preimage _ := rfl
+  preimage_map _ := rfl
+
+def rootChartEmbedding.homEquiv (f : A) (n : ℕ) [NeZero n]
+    (p q : affineRootPointGroupoid f n B) :
+    (p ⟶ q) ≃ ((rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q) :=
+  (rootChartEmbedding.fullyFaithful f n).homEquiv
+
+lemma rootChartEmbedding.preimage_label (f : A) (n : ℕ) [NeZero n]
+    {p q : affineRootPointGroupoid f n B}
+    (h : (rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q) :
+    (((rootChartEmbedding.fullyFaithful f n).preimage h).1 : Bˣ) = h.1 := by
+  sorry
+
+lemma rootChartEmbedding.map_preimage (f : A) (n : ℕ) [NeZero n]
+    {p q : affineRootPointGroupoid f n B}
+    (h : (rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q) :
+    (rootChartEmbedding f n).map ((rootChartEmbedding.fullyFaithful f n).preimage h) = h := by
+  sorry
+
+lemma rootChartEmbedding.preimage_map (f : A) (n : ℕ) [NeZero n]
+    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
+    (rootChartEmbedding.fullyFaithful f n).preimage ((rootChartEmbedding f n).map h) = h := by
+  sorry
+
+lemma rootChartEmbedding.homEquiv_label (f : A) (n : ℕ) [NeZero n]
+    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
+    (rootChartEmbedding.homEquiv f n p q h).1 = (h.1 : Bˣ) := by
+  sorry
+
+lemma rootChartEmbedding.homEquiv_symm_label (f : A) (n : ℕ) [NeZero n]
+    {p q : affineRootPointGroupoid f n B}
+    (h : (rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q) :
+    (((rootChartEmbedding.homEquiv f n p q).symm h).1 : Bˣ) = h.1 := by
+  sorry
+
+lemma rootChartEmbedding.homEquiv_identity (f : A) (n : ℕ) [NeZero n]
+    (p : affineRootPointGroupoid f n B) :
+    rootChartEmbedding.homEquiv f n p p (𝟙 p) = 𝟙 _ := by
+  sorry
+
+lemma rootChartEmbedding.homEquiv_composition (f : A) (n : ℕ) [NeZero n]
+    {p q r : affineRootPointGroupoid f n B} (h : p ⟶ q) (j : q ⟶ r) :
+    rootChartEmbedding.homEquiv f n p r (h ≫ j) =
+      rootChartEmbedding.homEquiv f n p q h ≫ rootChartEmbedding.homEquiv f n q r j := by
+  sorry
+
+lemma FramedRoot.normalized_section_pow {f : A} {n : ℕ} (p : FramedRoot f n B)
+    (w : Bˣ) (hw : w ^ n = p.coefficient) :
+    ((w : B) * p.root) ^ n = algebraMap A B f := by
+  sorry
+
+-- An arrow from p to a normalized chart object has exactly the required
+-- unit-root label. This is an objectwise criterion before any stackification.
+lemma rootChartEmbedding.essentialImage_iff (f : A) (n : ℕ) [NeZero n]
+    (p : FramedRoot f n B) :
+    (∃ q : affineRootPointGroupoid f n B, Nonempty (p ≅ (rootChartEmbedding f n).obj q)) ↔
+      ∃ w : Bˣ, w ^ n = p.coefficient := by
+  sorry
+
+lemma rootChartEmbedding.exponent_one (f : A) (p : FramedRoot f 1 B) :
+    ∃ q : affineRootPointGroupoid f 1 B, Nonempty (p ≅ (rootChartEmbedding f 1).obj q) := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory
+variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
+
+-- test: framedRootTests.chart_coordinates
+example (f : A) (n : ℕ) [NeZero n] (y : B) (hy : y ^ n = algebraMap A B f) :
+    let q := affineRootPoint f n y hy
+    ((rootChartEmbedding f n).obj q).coefficient = 1 ∧
+    ((rootChartEmbedding f n).obj q).root = y ∧
+    (∃ p : affineRootPointGroupoid f n B,
+      Nonempty ((rootChartEmbedding f n).obj q ≅ (rootChartEmbedding f n).obj p)) := by
+  sorry
+
+-- test: framedRootTests.all_arrows_recovered
+example (f : A) (n : ℕ) [NeZero n] (p q : affineRootPointGroupoid f n B) :
+    Function.Bijective ((rootChartEmbedding f n).map :
+      (p ⟶ q) → ((rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q)) ∧
+    ∀ h : p ⟶ q, (rootChartEmbedding.homEquiv f n p q h).1 = (h.1 : Bˣ) := by
+  sorry
+
+-- test: framedRootTests.exponent_one
+example (f : A) (p : FramedRoot f 1 B) :
+    (p.coefficient : B) * p.root = algebraMap A B f ∧
+    ∃ q : affineRootPointGroupoid f 1 B, Nonempty (p ≅ (rootChartEmbedding f 1).obj q) := by
+  sorry
+
+-- test: framedRootTests.inverse_and_composition
+example (f : A) (n : ℕ) [NeZero n] {p q r : affineRootPointGroupoid f n B}
+    (h : p ⟶ q) (j : q ⟶ r) :
+    ((rootChartEmbedding f n).map (h ≫ j)).1 = (j.1 : Bˣ) * (h.1 : Bˣ) ∧
+    (Groupoid.inv ((rootChartEmbedding f n).map h)).1 = (h.1 : Bˣ)⁻¹ ∧
+    (𝟙 ((rootChartEmbedding f n).obj p) : _ ⟶ _).1 = 1 := by
+  sorry
+
+-- test: framedRootTests.wild_stabilizer_retained
+example :
+    let q := affineRootPoint (0 : ZMod 4) 2 (0 : ZMod 4) (by decide)
+    ∃ h : q ⟶ q, h ≠ 𝟙 q ∧
+      (rootChartEmbedding (0 : ZMod 4) 2).map h ≠ 𝟙 _ ∧
+      (((rootChartEmbedding (0 : ZMod 4) 2).map h).1 : ZMod 4) = -1 := by
+  sorry
+
+-- test: framedRootTests.arrow_roundtrips
+example (f : A) (n : ℕ) [NeZero n] (p q : affineRootPointGroupoid f n B)
+    (h : (rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q) :
+    (rootChartEmbedding f n).map ((rootChartEmbedding.fullyFaithful f n).preimage h) = h ∧
+    rootChartEmbedding.homEquiv f n p q ((rootChartEmbedding.homEquiv f n p q).symm h) = h ∧
+    (((rootChartEmbedding.homEquiv f n p q).symm h).1 : Bˣ) = h.1 := by
+  sorry
+
+-- test: framedRootTests.unit_section_chart_empty
+example :
+    let p : FramedRoot (3 : ZMod 4) 2 (ZMod 4) := ⟨-1, 1, by decide⟩
+    p.root = 1 ∧ p.coefficient ≠ 1 ∧
+    ¬(∃ q : affineRootPointGroupoid (3 : ZMod 4) 2 (ZMod 4),
+      Nonempty (p ≅ (rootChartEmbedding (3 : ZMod 4) 2).obj q)) := by
+  sorry
+
+-- test: framedRootTests.normalization_obstruction
+example :
+    let p : FramedRoot (3 : ZMod 4) 2 (ZMod 4) := ⟨-1, 1, by decide⟩
+    ¬(∃ w : (ZMod 4)ˣ, w ^ 2 = p.coefficient) := by
+  sorry
+
+-- test: framedRootTests.zero_section_retains_nilpotents
+example :
+    let p : FramedRoot (0 : ZMod 9) 2 (ZMod 9) := ⟨1, 3, by decide⟩
+    let q : FramedRoot (0 : ZMod 9) 2 (ZMod 9) := ⟨1, 0, by decide⟩
+    p.coefficient = q.coefficient ∧ p.root ≠ 0 ∧ ¬Nonempty (p ⟶ q) := by
   sorry
 
 end TauCeti.RootStack

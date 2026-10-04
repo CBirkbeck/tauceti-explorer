@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim. Positive-divisibility coefficient continuation:23 explicit declarations,18 API items and12 typed tests establish coefficient functoriality of the universal coaction and actual invariant algebra. Native scheme-limit continuation:21 declarations,23 API entries and21 typed tests specify the actual affine inverse-limit and its coefficient/factorial dictionary. Native affine base-change continuation:21 declarations,14 API entries and14 typed tests specify the actual ring pushout, tensor equivalence and Cartesian scheme comparison. Tensor-action continuation:11 declaration contracts,9 API entries and8 typed tests describe the actual coaction comparison and native tensor invariant algebra under arbitrary affine base change. Finite-projection continuation: 14 declarations (2 constructions, 12 lemmas), 12 API entries and 8 typed examples; all 501 incoming mathematical contracts retained. Affine root-point continuation: 23 declarations (5 constructions,18 lemmas),20 API entries and14 distinct typed tests; all515 whole incoming node objects preserved. Root-point diagram continuation:20 declarations(3 constructions17 lemmas),17 API references and7 distinct typed tests; all538 incoming mathematical contracts preserved,535 whole old nodes unchanged and three receive only appended API references.",
+  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim. Positive-divisibility coefficient continuation:23 explicit declarations,18 API items and12 typed tests establish coefficient functoriality of the universal coaction and actual invariant algebra. Native scheme-limit continuation:21 declarations,23 API entries and21 typed tests specify the actual affine inverse-limit and its coefficient/factorial dictionary. Native affine base-change continuation:21 declarations,14 API entries and14 typed tests specify the actual ring pushout, tensor equivalence and Cartesian scheme comparison. Tensor-action continuation:11 declaration contracts,9 API entries and8 typed tests describe the actual coaction comparison and native tensor invariant algebra under arbitrary affine base change. Finite-projection continuation: 14 declarations (2 constructions, 12 lemmas), 12 API entries and 8 typed examples; all 501 incoming mathematical contracts retained. Affine root-point continuation: 23 declarations (5 constructions,18 lemmas),20 API entries and14 distinct typed tests; all515 whole incoming node objects preserved. Root-point diagram continuation:20 declarations(3 constructions17 lemmas),17 API references and7 distinct typed tests; all538 incoming mathematical contracts preserved,535 whole old nodes unchanged and three receive only appended API references. Framed root continuation:25 declarations(1 definition4 constructions20 lemmas),22 API references and9 distinct typed tests. All558 incoming node objects are unchanged.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2110,6 +2110,38 @@
         "line": 74,
         "provides": "abbrev Hom.hom (f : Hom A B) := ConcreteCategory.hom (C := CommAlgCat R) f Reuse native categorical structure for the specialized root-point diagram.",
         "checked": "Codex — codex-7e92bd read the actual statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Units",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+        "line": 49,
+        "provides": "structure Units (α : Type u) [Monoid α] where Reuse native categorical structure for the framed root comparison.",
+        "checked": "Codex — codex-rtOQ9t read the actual statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.FullyFaithful",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+        "line": 130,
+        "provides": "structure FullyFaithful where Reuse native categorical structure for the framed root comparison.",
+        "checked": "Codex — codex-rtOQ9t read the actual statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.FullyFaithful.homEquiv",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+        "line": 160,
+        "provides": "def homEquiv {X Y : C} : (X ⟶ Y) ≃ (F.obj X ⟶ F.obj Y) where Reuse native categorical structure for the framed root comparison.",
+        "checked": "Codex — codex-rtOQ9t read the actual statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Groupoid.isoEquivHom",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Groupoid.lean",
+        "line": 97,
+        "provides": "def Groupoid.isoEquivHom : (X ≅ Y) ≃ (X ⟶ Y) where Reuse native categorical structure for the framed root comparison.",
+        "checked": "Codex — codex-rtOQ9t read the actual statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
       }
     ]
   },
@@ -2478,6 +2510,19 @@
       "accessed": "2026-10-04T06:48:35.728237+00:00",
       "readSections": [
         "Complete displayed Section39.10, definitions39.10.1–2, both action/equivariance diagrams, Lemma39.10.3 proof and allfive comments. Ordinary action/equivariance convention only. Categorical divisibility diagram and test-algebra functor are authored deductions; no full source closure or new erratum claim."
+      ]
+    },
+    {
+      "id": "FramedRoot-codex-rtOQ9t",
+      "title": "Root stacks; authored framed root-coordinate and normalized-chart deductions",
+      "authors": "Jarod Alper; specialized deductions by Codex — codex-rtOQ9t",
+      "edition": "Author draft5January2026, selected extracted printedpp.159–160 only; corresponding23February2023 p.139 collated",
+      "url": "https://sites.math.washington.edu/~jarod/moduli.pdf",
+      "sha256": "f07437af689e9ae4ccd355183f357d234474606a4e0d6511ff2d4ac0a4f14d6d",
+      "accessed": "2026-10-04T08:55:45.066188+00:00",
+      "readSections": [
+        "Complete extracted printedp.139 only: Example3.9.13, Exercise3.9.14 and Examples3.9.15–16. No rendered or whole-book read.",
+        "Complete extracted printedpp.159–160 only: Examples4.9.21–22, Exercise4.9.23 and following examples. Title dated5January2026. No rendered or whole-book read."
       ]
     }
   ],
@@ -33594,6 +33639,1280 @@
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-object",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "definition",
+      "title": "Framed root coordinates",
+      "declarationName": "TauCeti.RootStack.FramedRoot",
+      "statement": "For arbitrary f in A and a commutative A-algebra B, store a bundled unit u and a root-section coordinate y with u*y^n=algebraMap(f). The unit records the power identification after choosing a frame; it is not assumed to have an n-th root. This coordinate carrier does not assert that a root line admits a global frame.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "mathlib:Units"
+      ],
+      "proofSteps": [
+        "Use the native unit type and retain the power-identification equation as a field."
+      ],
+      "acceptance": [
+        "For arbitrary f in A and a commutative A-algebra B, store a bundled unit u and a root-section coordinate y with u*y^n=algebraMap(f). The unit records the power identification after choosing a frame; it is not assumed to have an n-th root. This coordinate carrier does not assert that a root line admits a global frame.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.FramedRoot.coordinate_equation",
+          "role": "compatibility",
+          "statement": "Every framed root p satisfies p.u*p.y^n=algebraMap(f), with p.u a native bundled unit."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalized_section_pow",
+          "role": "compatibility",
+          "statement": "If a bundled unit w has w^n=p.u, then (w*p.y)^n=algebraMap(f). This gives an actual normalized chart root with no field, regularity or exponent-invertibility assumption."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.arrow_section",
+          "role": "compatibility",
+          "statement": "For every actual framed arrow h:p to q, q.y=h.label*p.y. No cancellation or regularity of the section is assumed."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.arrow_coefficient",
+          "role": "compatibility",
+          "statement": "For every actual framed arrow h:p to q, q.u*h.label^n=p.u as an equality of bundled units. This retains the power-identification constraint even if the sections vanish."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.framedRootTests.chart_coordinates",
+          "kind": "computation",
+          "statement": "For arbitrary actual chart root y, the embedding has coefficient1 and section coordinate y and has its actual identity isomorphism."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.exponent_one",
+          "kind": "computation",
+          "statement": "For arbitrary framed root at exponent1, the retained equation becomes u*y=f and the actual normalization isomorphism exists."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.unit_section_chart_empty",
+          "kind": "non-example",
+          "statement": "Over Z/4 at f=3,n=2, the framed root u=minus1,y=1 exists, but no normalized chart root or isomorphism to an embedded chart point exists. A unit section does not imply objectwise surjectivity of this chart presentation."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.normalization_obstruction",
+          "kind": "non-example",
+          "statement": "Over Z/4 at f=3,n=2,u=minus1,y=1, no bundled unit has square equal to u; the framed power-identification coefficient cannot be dropped over the original test algebra."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.zero_section_retains_nilpotents",
+          "kind": "non-example",
+          "statement": "Over Z/9 at f=0,n=2, the framed roots with coefficient1 and root3 or root0 share power-identification data but admit no arrow from root3 to root0. Nonzero nilpotent root sections remain even when n is invertible."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars",
+          "how": "Supply the actual target coordinate groupoid for the planned native sheaf-arrow comparison; the sheaf-to-coordinate functor and frame existence remain open."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
+          "how": "Locate the exact chart-normalization obstruction before claiming that finite chart point diagrams recover general root-object groupoids or their limits."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-groupoid",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "construction",
+      "title": "The groupoid of framed root coordinates",
+      "declarationName": "TauCeti.RootStack.FramedRoot.groupoid",
+      "statement": "Construct a native Groupoid of framed root coordinates. An arrow p to q has a unit label w with q.y=w*p.y and q.u*w^n=p.u. Compose labels in categorical order as label(j)*label(h); identities have label1 and inverses have inverse labels. Both arrow equations remain even for the zero section.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-object",
+        "mathlib:CategoryTheory.Groupoid"
+      ],
+      "proofSteps": [
+        "Multiply the section equations and unit-power equations for composition; use the native unit inverse for both inverse equations. Subtype extensionality proves the category and inverse axioms."
+      ],
+      "acceptance": [
+        "Construct a native Groupoid of framed root coordinates. An arrow p to q has a unit label w with q.y=w*p.y and q.u*w^n=p.u. Compose labels in categorical order as label(j)*label(h); identities have label1 and inverses have inverse labels. Both arrow equations remain even for the zero section.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.FramedRoot.hom_ext",
+          "role": "compatibility",
+          "statement": "Two arrows between the same framed roots are equal when their underlying bundled unit labels agree."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.id_label",
+          "role": "compatibility",
+          "statement": "The categorical identity arrow on a framed root has unit label1."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.comp_label",
+          "role": "compatibility",
+          "statement": "The actual categorical composite h followed by j has label(j)*label(h)."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.inv_label",
+          "role": "compatibility",
+          "statement": "The native groupoid inverse of an arrow has the inverse bundled unit label."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.arrow_section",
+          "role": "compatibility",
+          "statement": "For every actual framed arrow h:p to q, q.y=h.label*p.y. No cancellation or regularity of the section is assumed."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.arrow_coefficient",
+          "role": "compatibility",
+          "statement": "For every actual framed arrow h:p to q, q.u*h.label^n=p.u as an equality of bundled units. This retains the power-identification constraint even if the sections vanish."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.framedRootTests.inverse_and_composition",
+          "kind": "compatibility",
+          "statement": "The actual embedding retains the categorical composite label, groupoid inverse label and identity label for arbitrary actual chart arrows."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.wild_stabilizer_retained",
+          "kind": "non-example",
+          "statement": "Over Z/4 at f=0,n=2,y=0, construct the nonidentity stabilizer labelled minus1; its actual image stays nonidentity and keeps the same label. The Hom equivalence detects the distinction."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.unit_section_chart_empty",
+          "kind": "non-example",
+          "statement": "Over Z/4 at f=3,n=2, the framed root u=minus1,y=1 exists, but no normalized chart root or isomorphism to an embedded chart point exists. A unit section does not imply objectwise surjectivity of this chart presentation."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.zero_section_retains_nilpotents",
+          "kind": "non-example",
+          "statement": "Over Z/9 at f=0,n=2, the framed roots with coefficient1 and root3 or root0 share power-identification data but admit no arrow from root3 to root0. Nonzero nilpotent root sections remain even when n is invertible."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars",
+          "how": "Supply the actual target coordinate groupoid for the planned native sheaf-arrow comparison; the sheaf-to-coordinate functor and frame existence remain open."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
+          "how": "Locate the exact chart-normalization obstruction before claiming that finite chart point diagrams recover general root-object groupoids or their limits."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-equation",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The retained framed root equation",
+      "declarationName": "TauCeti.RootStack.FramedRoot.coordinate_equation",
+      "statement": "Every framed root p satisfies p.u*p.y^n=algebraMap(f), with p.u a native bundled unit.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-object"
+      ],
+      "proofSteps": [
+        "Use the actual coordinate carrier equation field."
+      ],
+      "acceptance": [
+        "Every framed root p satisfies p.u*p.y^n=algebraMap(f), with p.u a native bundled unit.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-hom-ext",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Extensionality of framed root arrows",
+      "declarationName": "TauCeti.RootStack.FramedRoot.hom_ext",
+      "statement": "Two arrows between the same framed roots are equal when their underlying bundled unit labels agree.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-groupoid"
+      ],
+      "proofSteps": [
+        "Use native subtype extensionality."
+      ],
+      "acceptance": [
+        "Two arrows between the same framed roots are equal when their underlying bundled unit labels agree.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-identity",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The framed identity label",
+      "declarationName": "TauCeti.RootStack.FramedRoot.id_label",
+      "statement": "The categorical identity arrow on a framed root has unit label1.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-groupoid"
+      ],
+      "proofSteps": [
+        "Reduce the actual groupoid identity."
+      ],
+      "acceptance": [
+        "The categorical identity arrow on a framed root has unit label1.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-composition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The framed composite label",
+      "declarationName": "TauCeti.RootStack.FramedRoot.comp_label",
+      "statement": "The actual categorical composite h followed by j has label(j)*label(h).",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-groupoid"
+      ],
+      "proofSteps": [
+        "Reduce the actual groupoid composition."
+      ],
+      "acceptance": [
+        "The actual categorical composite h followed by j has label(j)*label(h).",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-inverse",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The framed inverse label",
+      "declarationName": "TauCeti.RootStack.FramedRoot.inv_label",
+      "statement": "The native groupoid inverse of an arrow has the inverse bundled unit label.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-groupoid"
+      ],
+      "proofSteps": [
+        "Reduce the actual inverse construction."
+      ],
+      "acceptance": [
+        "The native groupoid inverse of an arrow has the inverse bundled unit label.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-arrow-section",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The section equation on every framed arrow",
+      "declarationName": "TauCeti.RootStack.FramedRoot.arrow_section",
+      "statement": "For every actual framed arrow h:p to q, q.y=h.label*p.y. No cancellation or regularity of the section is assumed.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-groupoid"
+      ],
+      "proofSteps": [
+        "Use the first retained equation in the actual arrow carrier."
+      ],
+      "acceptance": [
+        "For every actual framed arrow h:p to q, q.y=h.label*p.y. No cancellation or regularity of the section is assumed.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-arrow-coefficient",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The power-identification equation on every framed arrow",
+      "declarationName": "TauCeti.RootStack.FramedRoot.arrow_coefficient",
+      "statement": "For every actual framed arrow h:p to q, q.u*h.label^n=p.u as an equality of bundled units. This retains the power-identification constraint even if the sections vanish.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-groupoid"
+      ],
+      "proofSteps": [
+        "Use the second retained equation in the actual arrow carrier."
+      ],
+      "acceptance": [
+        "For every actual framed arrow h:p to q, q.u*h.label^n=p.u as an equality of bundled units. This retains the power-identification constraint even if the sections vanish.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-chart-embedding",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "construction",
+      "title": "The normalized chart embedded in framed coordinates",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding",
+      "statement": "Construct an actual functor from the existing affine root-point action groupoid to framed coordinates. A chart point becomes coefficient1 with its actual root image; its roots-of-unity arrow keeps its underlying unit label.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.2/root-point-groupoid",
+        "FunctionFieldArithmeticPartII:RS.2/root-point-root-equation",
+        "FunctionFieldArithmeticPartII:RS.0/framed-groupoid",
+        "mathlib:mem_rootsOfUnity"
+      ],
+      "proofSteps": [
+        "The inherited root equation defines the framed object with coefficient1. The roots-of-unity equation supplies the second framed arrow equation. Both categorical functor axioms reduce to the existing labels."
+      ],
+      "acceptance": [
+        "Construct an actual functor from the existing affine root-point action groupoid to framed coordinates. A chart point becomes coefficient1 with its actual root image; its roots-of-unity arrow keeps its underlying unit label.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.obj_coefficient",
+          "role": "compatibility",
+          "statement": "Every embedded chart object has coefficient1 as a bundled unit."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.obj_section",
+          "role": "compatibility",
+          "statement": "The section coordinate of the embedded chart object is its algebra-map image of the AdjoinRoot root."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.map_label",
+          "role": "compatibility",
+          "statement": "The mapped arrow label is exactly the underlying bundled unit of the original roots-of-unity label."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.essentialImage_iff",
+          "role": "compatibility",
+          "statement": "For a framed root p, an isomorphism to some embedded normalized chart object exists if and only if its coefficient p.u is an n-th power in the native unit group B.units. The isomorphism is an actual groupoid arrow, not an orbit-set equality."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.exponent_one",
+          "role": "compatibility",
+          "statement": "At exponent1 every framed root is isomorphic to an embedded normalized chart object, using its own coefficient as the unit root."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.framedRootTests.chart_coordinates",
+          "kind": "computation",
+          "statement": "For arbitrary actual chart root y, the embedding has coefficient1 and section coordinate y and has its actual identity isomorphism."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.all_arrows_recovered",
+          "kind": "compatibility",
+          "statement": "For arbitrary chart objects the actual embedding map is bijective on the full Hom type and its Hom equivalence preserves the bundled unit label."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.wild_stabilizer_retained",
+          "kind": "non-example",
+          "statement": "Over Z/4 at f=0,n=2,y=0, construct the nonidentity stabilizer labelled minus1; its actual image stays nonidentity and keeps the same label. The Hom equivalence detects the distinction."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.unit_section_chart_empty",
+          "kind": "non-example",
+          "statement": "Over Z/4 at f=3,n=2, the framed root u=minus1,y=1 exists, but no normalized chart root or isomorphism to an embedded chart point exists. A unit section does not imply objectwise surjectivity of this chart presentation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars",
+          "how": "Supply the actual target coordinate groupoid for the planned native sheaf-arrow comparison; the sheaf-to-coordinate functor and frame existence remain open."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
+          "how": "Locate the exact chart-normalization obstruction before claiming that finite chart point diagrams recover general root-object groupoids or their limits."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-chart-coefficient",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The embedded power identification is normalized",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.obj_coefficient",
+      "statement": "Every embedded chart object has coefficient1 as a bundled unit.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-chart-embedding"
+      ],
+      "proofSteps": [
+        "Reduce the actual object field."
+      ],
+      "acceptance": [
+        "Every embedded chart object has coefficient1 as a bundled unit.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-chart-section",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The embedding keeps the actual root image",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.obj_section",
+      "statement": "The section coordinate of the embedded chart object is its algebra-map image of the AdjoinRoot root.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-chart-embedding"
+      ],
+      "proofSteps": [
+        "Reduce the actual object field."
+      ],
+      "acceptance": [
+        "The section coordinate of the embedded chart object is its algebra-map image of the AdjoinRoot root.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-chart-arrow",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The embedding keeps every arrow label",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.map_label",
+      "statement": "The mapped arrow label is exactly the underlying bundled unit of the original roots-of-unity label.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-chart-embedding"
+      ],
+      "proofSteps": [
+        "Reduce the actual functor map."
+      ],
+      "acceptance": [
+        "The mapped arrow label is exactly the underlying bundled unit of the original roots-of-unity label.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-fully-faithful",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "construction",
+      "title": "Full faithfulness of the normalized chart embedding",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.fullyFaithful",
+      "statement": "Construct native Functor.FullyFaithful data for the actual chart embedding. Recover every framed arrow between normalized objects by its unit label; its power-identification equation proves membership in rootsOfUnity. The recovery and map are mutually inverse.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-chart-embedding",
+        "mathlib:CategoryTheory.Functor.FullyFaithful",
+        "mathlib:mem_rootsOfUnity"
+      ],
+      "proofSteps": [
+        "Between coefficient1 objects the second arrow equation is w^n=1. Bundle the same unit as a root of unity and retain the section equation. Both native roundtrip laws hold on actual arrows."
+      ],
+      "acceptance": [
+        "Construct native Functor.FullyFaithful data for the actual chart embedding. Recover every framed arrow between normalized objects by its unit label; its power-identification equation proves membership in rootsOfUnity. The recovery and map are mutually inverse.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.preimage_label",
+          "role": "compatibility",
+          "statement": "The preimage of an actual framed arrow between embedded chart objects has the same underlying bundled unit label."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.map_preimage",
+          "role": "compatibility",
+          "statement": "Mapping the recovered chart preimage of an actual framed arrow gives that very framed arrow."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.preimage_map",
+          "role": "compatibility",
+          "statement": "Recovering the preimage of a mapped chart arrow gives that very chart arrow."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.framedRootTests.all_arrows_recovered",
+          "kind": "compatibility",
+          "statement": "For arbitrary chart objects the actual embedding map is bijective on the full Hom type and its Hom equivalence preserves the bundled unit label."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.arrow_roundtrips",
+          "kind": "compatibility",
+          "statement": "Every actual framed arrow between embedded chart objects is recovered and mapped back exactly, with the same unit label; both FullyFaithful and Hom equivalence roundtrips are consumed."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.wild_stabilizer_retained",
+          "kind": "non-example",
+          "statement": "Over Z/4 at f=0,n=2,y=0, construct the nonidentity stabilizer labelled minus1; its actual image stays nonidentity and keeps the same label. The Hom equivalence detects the distinction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars",
+          "how": "Supply the actual target coordinate groupoid for the planned native sheaf-arrow comparison; the sheaf-to-coordinate functor and frame existence remain open."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
+          "how": "Locate the exact chart-normalization obstruction before claiming that finite chart point diagrams recover general root-object groupoids or their limits."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-hom-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "construction",
+      "title": "An equivalence on actual chart Hom types",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.homEquiv",
+      "statement": "For every pair of chart objects, provide the actual equivalence of its full Hom type with the framed Hom type between their embedded objects. In particular every automorphism and its label is retained.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-fully-faithful",
+        "mathlib:CategoryTheory.Functor.FullyFaithful.homEquiv"
+      ],
+      "proofSteps": [
+        "Reuse the native Hom equivalence of the constructed FullyFaithful data."
+      ],
+      "acceptance": [
+        "For every pair of chart objects, provide the actual equivalence of its full Hom type with the framed Hom type between their embedded objects. In particular every automorphism and its label is retained.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.homEquiv_label",
+          "role": "compatibility",
+          "statement": "The Hom equivalence sends a chart arrow to a framed arrow with its same underlying bundled unit."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.homEquiv_symm_label",
+          "role": "compatibility",
+          "statement": "The inverse Hom equivalence recovers the original bundled unit label of any actual framed arrow between embedded objects."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.homEquiv_identity",
+          "role": "compatibility",
+          "statement": "At every chart object the actual Hom equivalence maps the categorical identity to the framed categorical identity."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartEmbedding.homEquiv_composition",
+          "role": "compatibility",
+          "statement": "The Hom equivalence sends a composite of chart arrows to the actual categorical composite of their framed images."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.framedRootTests.all_arrows_recovered",
+          "kind": "compatibility",
+          "statement": "For arbitrary chart objects the actual embedding map is bijective on the full Hom type and its Hom equivalence preserves the bundled unit label."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.arrow_roundtrips",
+          "kind": "compatibility",
+          "statement": "Every actual framed arrow between embedded chart objects is recovered and mapped back exactly, with the same unit label; both FullyFaithful and Hom equivalence roundtrips are consumed."
+        },
+        {
+          "name": "TauCeti.RootStack.framedRootTests.wild_stabilizer_retained",
+          "kind": "non-example",
+          "statement": "Over Z/4 at f=0,n=2,y=0, construct the nonidentity stabilizer labelled minus1; its actual image stays nonidentity and keeps the same label. The Hom equivalence detects the distinction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars",
+          "how": "Supply the actual target coordinate groupoid for the planned native sheaf-arrow comparison; the sheaf-to-coordinate functor and frame existence remain open."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
+          "how": "Locate the exact chart-normalization obstruction before claiming that finite chart point diagrams recover general root-object groupoids or their limits."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-preimage-label",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The recovered chart arrow label",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.preimage_label",
+      "statement": "The preimage of an actual framed arrow between embedded chart objects has the same underlying bundled unit label.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-fully-faithful"
+      ],
+      "proofSteps": [
+        "Reduce the explicit arrow preimage."
+      ],
+      "acceptance": [
+        "The preimage of an actual framed arrow between embedded chart objects has the same underlying bundled unit label.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-map-preimage",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The framed-arrow roundtrip",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.map_preimage",
+      "statement": "Mapping the recovered chart preimage of an actual framed arrow gives that very framed arrow.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-fully-faithful"
+      ],
+      "proofSteps": [
+        "Reduce the actual native FullyFaithful roundtrip."
+      ],
+      "acceptance": [
+        "Mapping the recovered chart preimage of an actual framed arrow gives that very framed arrow.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-preimage-map",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The chart-arrow roundtrip",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.preimage_map",
+      "statement": "Recovering the preimage of a mapped chart arrow gives that very chart arrow.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-fully-faithful"
+      ],
+      "proofSteps": [
+        "Reduce the actual native FullyFaithful roundtrip."
+      ],
+      "acceptance": [
+        "Recovering the preimage of a mapped chart arrow gives that very chart arrow.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-hom-label",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The forward Hom equivalence label",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.homEquiv_label",
+      "statement": "The Hom equivalence sends a chart arrow to a framed arrow with its same underlying bundled unit.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-hom-equivalence"
+      ],
+      "proofSteps": [
+        "Reduce the native Hom equivalence and explicit map."
+      ],
+      "acceptance": [
+        "The Hom equivalence sends a chart arrow to a framed arrow with its same underlying bundled unit.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-hom-inverse-label",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The inverse Hom equivalence label",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.homEquiv_symm_label",
+      "statement": "The inverse Hom equivalence recovers the original bundled unit label of any actual framed arrow between embedded objects.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-hom-equivalence"
+      ],
+      "proofSteps": [
+        "Reduce the inverse Hom equivalence and explicit preimage."
+      ],
+      "acceptance": [
+        "The inverse Hom equivalence recovers the original bundled unit label of any actual framed arrow between embedded objects.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-hom-identity",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The Hom equivalence preserves identities",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.homEquiv_identity",
+      "statement": "At every chart object the actual Hom equivalence maps the categorical identity to the framed categorical identity.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-hom-equivalence"
+      ],
+      "proofSteps": [
+        "Reduce the concrete native functor identity."
+      ],
+      "acceptance": [
+        "At every chart object the actual Hom equivalence maps the categorical identity to the framed categorical identity.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-hom-composition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The Hom equivalence preserves composition",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.homEquiv_composition",
+      "statement": "The Hom equivalence sends a composite of chart arrows to the actual categorical composite of their framed images.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-hom-equivalence"
+      ],
+      "proofSteps": [
+        "Reduce the concrete native functor composition."
+      ],
+      "acceptance": [
+        "The Hom equivalence sends a composite of chart arrows to the actual categorical composite of their framed images.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-normalized-equation",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Normalizing a framed root by a unit root",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalized_section_pow",
+      "statement": "If a bundled unit w has w^n=p.u, then (w*p.y)^n=algebraMap(f). This gives an actual normalized chart root with no field, regularity or exponent-invertibility assumption.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-equation"
+      ],
+      "proofSteps": [
+        "Expand the power of the product, use the actual unit-power coercion and w^n=p.u, and apply the framed root equation."
+      ],
+      "acceptance": [
+        "If a bundled unit w has w^n=p.u, then (w*p.y)^n=algebraMap(f). This gives an actual normalized chart root with no field, regularity or exponent-invertibility assumption.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-essential-image",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The exact objectwise normalization obstruction",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.essentialImage_iff",
+      "statement": "For a framed root p, an isomorphism to some embedded normalized chart object exists if and only if its coefficient p.u is an n-th power in the native unit group B.units. The isomorphism is an actual groupoid arrow, not an orbit-set equality.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-chart-embedding",
+        "FunctionFieldArithmeticPartII:RS.0/framed-normalized-equation",
+        "mathlib:CategoryTheory.Groupoid.isoEquivHom"
+      ],
+      "proofSteps": [
+        "An actual isomorphism to a coefficient1 object supplies a unit w with w^n=p.u. Conversely construct the AdjoinRoot point with root w*p.y, construct the actual framed arrow labelled w, and use the native groupoid Hom-to-Iso equivalence."
+      ],
+      "acceptance": [
+        "For a framed root p, an isomorphism to some embedded normalized chart object exists if and only if its coefficient p.u is an n-th power in the native unit group B.units. The isomorphism is an actual groupoid arrow, not an orbit-set equality.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/framed-exponent-one",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Every framed first root normalizes",
+      "declarationName": "TauCeti.RootStack.rootChartEmbedding.exponent_one",
+      "statement": "At exponent1 every framed root is isomorphic to an embedded normalized chart object, using its own coefficient as the unit root.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.",
+        "A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-essential-image"
+      ],
+      "proofSteps": [
+        "Apply the proved criterion with w=p.u and the native first-power identity."
+      ],
+      "acceptance": [
+        "At exponent1 every framed root is isomorphic to an embedded normalized chart object, using its own coefficient as the unit root.",
+        "Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedRoot-codex-rtOQ9t",
+          "locator": "Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions",
+          "excerpt": "Root stacks",
+          "match": "The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -33764,7 +35083,8 @@
       "remaining": [
         "Resolve JAC-A’s actual tensor-section/unit coordinate and pullback contracts.",
         "Implement and elaborate the five native root-coordinate comparison nodes and full-file signatures at the exact pins.",
-        "The separate native proof extraction checks the weighted comparison, specified module kernel/cokernel and unit inverse, all inherited direct examples and the general zero-section field ranks. The determinant sign and all native calculation bodies are now checked separately; complete native geometric supplier contracts and full-file elaboration. No stage or implementation closure is claimed."
+        "The separate native proof extraction checks the weighted comparison, specified module kernel/cokernel and unit inverse, all inherited direct examples and the general zero-section field ranks. The determinant sign and all native calculation bodies are now checked separately; complete native geometric supplier contracts and full-file elaboration. No stage or implementation closure is claimed.",
+        "An actual native framed root-coordinate groupoid now retains the arbitrary power-identification unit u and equation u*y^n=f. Its arrows retain both section and unit-power equations. The existing normalized affine chart embeds fully faithfully, with native FullyFaithful data and an actual Hom equivalence preserving all stabilizers. A framed object is isomorphic to an embedded chart object exactly when u is an n-th power in the test algebra unit group. The Z/4 example u=3,y=1,f=3,n=2 has framed root data but no chart root, so chart points do not give objectwise essential surjectivity before local trivialization and stackification. The native sheaf RootObject-to-coordinate functor, frame/unit-root existence locally, fppf stackification, infinite coherent reindexing, genuine 2-limit comparison, effective fpqc quotient/descent and higher-universe adapters remain open. The reserved scheme/stack and all-positive-exponent fppf scope is unchanged."
       ]
     },
     {
@@ -34036,7 +35356,7 @@
     {
       "id": "TOWER-TYPING",
       "title": "Typed infinite fpqc comparison and root-limit coherence",
-      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison. The native affine-chart IsLimit, universal maps and factorial/coefficient scheme comparisons now have explicit contracts and separate proof evidence; the remaining TOWER-AFF and coherent root-groupoid obligations are unchanged. The arbitrary affine-chart coefficient square now has an explicit native ring pushout, tensor equivalence and categorical scheme pullback with both projections. This discharges the affine Cartesian comparison only; higher-universe, coherent root-groupoid and TOWER-AFF fpqc obligations remain open. The actual affine tensor base-change comparison now intertwines the universal rational-character coaction and identifies its tensor equalizer with B. The coherent root-groupoid and TOWER-AFF fpqc comparisons remain open. The actual finite root ring and scheme diagrams now have coefficient natural transformations for every positive index, with identity/composition coherence. The existing infinite coefficient map restricts to every finite level, and its actual affine scheme base-change isomorphism and inverse respect every finite projection. This discharges the affine finite-projection square only. Higher-universe adapters, coherent root-object groupoid reindexing and finite projections for the general stack comparison, TOWER-AFF fpqc frame torsors and actual infinite quotient/descent on objects and arrows remain open. All ten stages, eight gaps, thirteen requests, both paper routes, full omission ledger, finite Kummer/DVR bridges and geometric sheaf obligations retain their scope. The finite affine charts now have actual algebra-valued point action groupoids retaining every roots-of-unity arrow label, native power functors for all positive n|N, and change-of-test-algebra functors. Root images and labels satisfy identity/composition power laws and commute with test-algebra change. This discharges a finite chart point-and-arrow prerequisite only: no general line-bundle root-object equivalence, coherent infinite groupoid reindexing, frame-torsor existence, fppf stackification or fpqc quotient/descent is inferred. Higher-universe adapters and every existing TOWER-TYPING/TOWER-AFF geometric obligation remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes and the complete omission ledger retain their scope. The actual finite root-point power and test-algebra change functors now satisfy identity, composition and interchange as equalities of full functors. They give a native positive-divisibility diagram valued in Grpd and natural transformations for arbitrary test-algebra maps, packaged into a functor from native CommAlgCat to the groupoid-diagram category. All stabilizers and nilpotent points are retained. This provides finite chart categorical coherence only: the general line-bundle root-object comparison, coherent infinite groupoid reindexing and 2-limit comparison, frame-torsor existence, fppf stackification, effective infinite fpqc quotient/descent and higher-universe adapters remain open. All ten partial stages,eight gaps,thirteen requests,forty planets,both paper routes,the full omission ledger and source issue/version envelopes retain their scope.",
+      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison. The native affine-chart IsLimit, universal maps and factorial/coefficient scheme comparisons now have explicit contracts and separate proof evidence; the remaining TOWER-AFF and coherent root-groupoid obligations are unchanged. The arbitrary affine-chart coefficient square now has an explicit native ring pushout, tensor equivalence and categorical scheme pullback with both projections. This discharges the affine Cartesian comparison only; higher-universe, coherent root-groupoid and TOWER-AFF fpqc obligations remain open. The actual affine tensor base-change comparison now intertwines the universal rational-character coaction and identifies its tensor equalizer with B. The coherent root-groupoid and TOWER-AFF fpqc comparisons remain open. The actual finite root ring and scheme diagrams now have coefficient natural transformations for every positive index, with identity/composition coherence. The existing infinite coefficient map restricts to every finite level, and its actual affine scheme base-change isomorphism and inverse respect every finite projection. This discharges the affine finite-projection square only. Higher-universe adapters, coherent root-object groupoid reindexing and finite projections for the general stack comparison, TOWER-AFF fpqc frame torsors and actual infinite quotient/descent on objects and arrows remain open. All ten stages, eight gaps, thirteen requests, both paper routes, full omission ledger, finite Kummer/DVR bridges and geometric sheaf obligations retain their scope. The finite affine charts now have actual algebra-valued point action groupoids retaining every roots-of-unity arrow label, native power functors for all positive n|N, and change-of-test-algebra functors. Root images and labels satisfy identity/composition power laws and commute with test-algebra change. This discharges a finite chart point-and-arrow prerequisite only: no general line-bundle root-object equivalence, coherent infinite groupoid reindexing, frame-torsor existence, fppf stackification or fpqc quotient/descent is inferred. Higher-universe adapters and every existing TOWER-TYPING/TOWER-AFF geometric obligation remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes and the complete omission ledger retain their scope. The actual finite root-point power and test-algebra change functors now satisfy identity, composition and interchange as equalities of full functors. They give a native positive-divisibility diagram valued in Grpd and natural transformations for arbitrary test-algebra maps, packaged into a functor from native CommAlgCat to the groupoid-diagram category. All stabilizers and nilpotent points are retained. This provides finite chart categorical coherence only: the general line-bundle root-object comparison, coherent infinite groupoid reindexing and 2-limit comparison, frame-torsor existence, fppf stackification, effective infinite fpqc quotient/descent and higher-universe adapters remain open. All ten partial stages,eight gaps,thirteen requests,forty planets,both paper routes,the full omission ledger and source issue/version envelopes retain their scope. An actual native framed root-coordinate groupoid now retains the arbitrary power-identification unit u and equation u*y^n=f. Its arrows retain both section and unit-power equations. The existing normalized affine chart embeds fully faithfully, with native FullyFaithful data and an actual Hom equivalence preserving all stabilizers. A framed object is isomorphic to an embedded chart object exactly when u is an n-th power in the test algebra unit group. The Z/4 example u=3,y=1,f=3,n=2 has framed root data but no chart root, so chart points do not give objectwise essential surjectivity before local trivialization and stackification. The native sheaf RootObject-to-coordinate functor, frame/unit-root existence locally, fppf stackification, infinite coherent reindexing, genuine 2-limit comparison, effective fpqc quotient/descent and higher-universe adapters remain open. The reserved scheme/stack and all-positive-exponent fppf scope is unchanged.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
         "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
@@ -34879,6 +36199,34 @@
         "reason": "found and checked on the page image by the review",
         "by": "REV-PAPER-YUN-ZHANG-19"
       }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII/E10",
+      "source": "FramedRoot-codex-rtOQ9t",
+      "kind": "error",
+      "locator": "Alper author working draft23February2023, Example3.9.13 p.139, paragraph following the displayed root-stack definition; corrected author draft5January2026 Example4.9.22 p.159.",
+      "printed": "identification of √[r](L,0)/X with the root gerbe √[r]L/X",
+      "correction": "The zero-section root stack retains root sections t with t^n=0; these can be nonzero on nonreduced test schemes. Do not identify it with the root gerbe that forgets t. The later draft explicitly cautions against this identification.",
+      "reason": "On Spec(Z/9), n=2 is invertible. With trivial line and identification coefficient1, both t=0 and t=3 satisfy t^2=0. No unit sends3 to0. These distinct root objects forget to the same framed root-gerbe data. The native framedRootTests.zero_section_retains_nilpotents proves the coordinate counterexample; the general sheaf comparison remains planned.",
+      "affects": "a stated result",
+      "known": "Corrected in the author draft5January2026, Example4.9.22 p.159, explicit Caution.",
+      "searched": [
+        "Author-hosted23February2023 draft and current author-hosted5January2026 draft; selected corresponding pages were collated. No publisher-version or complete erratum search claimed."
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII/E11",
+      "source": "FramedRoot-codex-rtOQ9t",
+      "kind": "error",
+      "locator": "Alper author working draft23February2023, Exercise3.9.14(e) p.139; corrected author draft5January2026 Exercise4.9.23(f) p.160.",
+      "printed": "the fiber over a point x∈X is isomorphic to Bμ_r,κ(x)",
+      "correction": "The map is an isomorphism over the nonvanishing locus. The zero locus carries an infinitesimal extension of the root gerbe as the later draft states; do not give every fiber the classifying-stack description or discard its infinitesimal structure.",
+      "reason": "For r=2 over a characteristic-zero field with nonzero section, the asserted isomorphism on the nonvanishing locus gives a scheme fiber with trivial automorphism groups; Bμ_2 has a nontrivial automorphism group. Over the zero locus, nonzero nilpotent root sections also remain, as in E10. No general root-stack or gerbe equivalence is closed by this checkpoint.",
+      "affects": "a stated result",
+      "known": "Corrected in author draft5January2026, Exercise4.9.23(f) p.160.",
+      "searched": [
+        "Author-hosted23February2023 draft and current author-hosted5January2026 draft; corresponding selected exercise paragraphs were collated. No publisher-version or complete erratum search claimed."
+      ]
     }
   ],
   "upstreamNotes": [
@@ -35206,6 +36554,20 @@
       "url": "https://arxiv.org/pdf/1712.08026v2",
       "read": "2026-10-02",
       "sha256": "e159d869e86a3526e95aaf9560780870ed5c7af35593eb5ebb4fe477f0adf258"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.washington.edu/~jarod/moduli-versions/moduli-2-23-23.pdf",
+      "read": "2026-10-04",
+      "sha256": "d97ca3395446c719f53182bbe1976c76aa6603a0fb99a7705016caad87a1ce91",
+      "citation": "Alper Stacks and Moduli author working draft23February2023; selected extractedp.139 only. Finding applies to this draft, no publisher version read."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.washington.edu/~jarod/moduli.pdf",
+      "read": "2026-10-04",
+      "sha256": "f07437af689e9ae4ccd355183f357d234474606a4e0d6511ff2d4ac0a4f14d6d",
+      "citation": "Alper Stacks and Moduli author draft5January2026; selected extractedpp.159–160 only. This later author draft supplies the correction, no publisher version read."
     }
   ],
   "auditEvidence": {
