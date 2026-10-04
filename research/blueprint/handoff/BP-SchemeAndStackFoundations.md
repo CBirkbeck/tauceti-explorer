@@ -1,43 +1,37 @@
-# Composite ideal pullback: closed sections and sheafification — checkpoint
+# Scheme and stack foundations: native comparison transport and coherence
 
-Agent: Codex — codex-7e92bd. Refs #642. Partial; all145 nodes remain unchecked.
+Codex — codex-7e92bd; 4 October 2026. Partial checkpoint for #642. Numeric claim5979238921 was confirmed by bot comment5979239856. Mathematical base `84973e1e8589bce98d211174a13c553d7a6e2b24`; publication base `941c41a45ad4fec5d3d9ba464e6ea0f3fee8f188`.
 
-For arbitrary f:X→Y, g:Y→Z and native ideal datum I on Z, let J=I.comap(f≫g) and K=(I.comap g).comap f. The existing kernelCompIso on every open of X now forms kernelCompNatIso between the actual allOpenQuotient presheaves. Its forward and inverse components preserve ambient section classes. The presheaves use the actual immersion-section kernels and restriction maps, without requiring an open or either morphism to be affine.
+Fifteen new lemma nodes extend the APIs of the three existing composite natural isomorphisms. All145 incoming mathematical contracts are unchanged;142 complete node objects are unchanged and only three API/test lists gain twelve API entries and nine tests. There are160 nodes and143 exact baseline declarations. Every node remains implementationStatus=unchecked; all seven stages retain their partial/not_read status, with SF.1 not_read. Eight gaps,62 source routes,twelve confirmed findings,five planets,six reserved-key boundaries and inherited E1 remain unchanged. No consumer request is marked discharged and no stage closes.
 
-Apply the native sheafification functor to kernelCompNatIso to construct sheafCompNatIso. Compose the inverse direct allOpenSheafComparison, this sheafified isomorphism and the iterated allOpenSheafComparison to obtain closedCompNatIso between the actual direct images of the two closed-subscheme structure presheaves. Both native immersion inverse-image functors remain explicit. Inverse cancellation gives the square with allOpenSheafComparison on every sheafified section. Evaluating it on the sheafification unit of an ambient class gives the closed comparison representative law. Quotient extensionality then proves the allOpenToClosed square on every quotient class. The sheafified square uniquely determines sheafCompNatIso.hom.
+The actual kernel-quotient comparison is identified with native eqToIso applied to the comap_comp equality of ideal data. The proof first eliminates equality of abstract ideal data, then uses concrete-morphism extensionality and quotient surjectivity: preservation of all representatives determines the entire natural isomorphism. This order avoids the kernel expansion encountered by earlier unsuccessful extensionality prototypes. The existing sheafification comparison equals the image of this transport under native sheafification. Conjugating by the two actual sheafification-to-closed-section isomorphisms identifies the existing closed comparison with transport of the entire dependent family K↦(Opens.map K.subschemeι.base).op followed by K.subscheme.presheaf. Arbitrary closed sections need no ambient representative.
 
-Fourteen nodes(3constructions11lemmas),12 API entries and9 distinct typed tests append to all131 unchanged incoming whole node objects. The136 old baseline entries,74 old raw API entries,78 old raw tests,eight gaps,62 source routes,twelve confirmed findings,six reserved-key boundaries,five planets and inherited E1 remain. Three native APIs are added to the baseline: asIso,Functor.mapIso,sheafification. All seven stages retain their partial/not_read status.
+Each of these three families now has left/right identity and three-morphism coherence. The three-morphism equation retains the scheme-arrow associativity transport and the transport of comap_comp(g,h) after comap f. Both paths are complete natural isomorphisms with identical endpoints. The generic equality-transport theory is imported from the pinned library.
 
-Tests cover every-class inverse cancellation, the empty open, two successive quotient restrictions, every closed-subscheme section and its actual restriction, the kernel-to-closed square on every class, the sheafified square on every section and its forced map. For two identity morphisms of Spec(ZMod4) and zero ideal datum, the global section corresponding to2 remains nonzero and square-zero after the sheafification unit and comparison. No flatness, reducedness, Noetherianity, finiteness or affineness hypothesis is imposed. No arbitrary closed section or sheafified section is assumed to have an ambient representative on its whole open.
-
-The closed comparison is constructed through the existing sheafification comparison isomorphisms; it is not asserted here to be literally the dependent eqToIso transport of the whole closed-section presheaf. Native comap_comp already underlies the component kernel equivalences. Identity and three-morphism coherence and explicit reindexed image-ideal quotient-to-closed/sheafification natural squares remain. No arbitrary nonaffine image-ideal equality, closed-section surjectivity or naive quotient sheaf condition is claimed.
+Nine typed tests evaluate all three associativity laws on arbitrary sections, evaluate identity laws, treat the empty open and arbitrary-proof inverse transport, and preserve a nonzero square-zero section2 for every natural isomorphism between the actual direct and iterated sheafifications on Spec(ZMod4). The existing comparison and its established native equality transport instantiate that last fixture; it does not assume the nilpotent-section conclusion. No reducedness, affineness, finiteness, flatness or Noetherianity is imposed on the all-open results.
 
 ## Reading and ownership
 
-The entire55077-character issue was read before claim5977776864 and reread after exact bot5977777784 confirmed that comment. ClaimReceipt.json binds the unchanged body SHA256 c08c1d0eb0edc9fd4ce94b778e1dfbe34aa995c8d47c6cdced5961d3ef21e439. Fresh reads include the current handoff narrative and recovery script, all eight gap contracts, the whole eleven-entry SF.0 frontier, both complete current Neron SF.0 request objects and the full reviewed SF.0 library-audit row plus AUDIT-01 review metadata before planning.
+Incoming own PR6058 at head2cd07be343df4ad2dd0f2b79390fe6d192cd2371 was recovered over actual public HTTP:66 artifacts,11 helpers,four final files. Manifest81fc4b14cf64aabe10ff0b99468892ff7b36a90ca72744a9421317a73f5770f8. Its actual verify.py and immutable.py were personally read and both immutable verifier reports reproduced byte-for-byte. All four current owned inputs equal those public deliverables. The2182-line native prefix and complete1838-line Mathlib-only planning prefix are authenticated, preserved verbatim and recompiled in full.
 
-Peer6052 at immutable head3c9cbed36f355a4e1911d9aa9e9fdf430e869e12 was publicly recovered:63 artifacts,10 archived helpers and4 final deliverables. Both actual immutable verifier reports were replayed byte-for-byte at their respective mathematical and publication bases. All four incoming files match that public head. Its14 new declarations and10 examples and the consumed earlier all-open restriction, quotient, closed-section and sheafification block were freshly read. The entire1912-line native prefix is authenticated and recompiled; no fresh manual review of every inherited proof or every131-node contract is asserted. Peer reading attribution is not borrowed.
+The whole55077-character issue was read before and after exact numeric bot confirmation. Fresh reading covers the prior handoff narrative and recovery code; all fourteen own6058 additions and nine tests; consumed earlier native ranges1180–1328 and1670–1805; all eight gaps and the full SF.0 frontier; the reviewed SF.0 library audit row and review metadata; both complete current SF.0 consumer requests; and all34 whole touching-link/overlap/examined entries across29 files. Exact own6058 and nested own6049 manifests preserve the attribution and scopes of reused reading.27 of32 previous guard controls are unchanged. The changed four owned inputs are own6058 final outputs; the changed consumer packet was freshly read at the two complete SF.0 requests. No new whole145-node manual audit is asserted.
 
-Own6049 manifest74840cf3b0c894b9cafc3e9a7cec6cadc3637e32ce6fa64ca9a24ab6bca01ac3 binds its original Reading/InputGuard records and inherited same-session6035 reading/guard/manifest records. Their original protocol, audit, review, campaign, RS25, reserved-key and upstream reading scopes retain their original attribution. Reuse is limited to27 unchanged controls among32. Four owned inputs and the whole Neron consumer packet changed; both current complete SF.0 requests were freshly read, without claiming a fresh whole consumer-packet audit. Hash equality is not new reading.
+Fresh source reading is the complete displayed Stacks Lemma26.17.6, tag01JU: statement, proof and all three page comments. It supplies image-ideal pullback context. These exact native transport and coherence equations are authored deductions from the pinned APIs and existing comparisons, not additional literal source theorems. The HTTP byte hash, date and precise source scopes are retained. Native source reading includes IdealSheaf/Functorial1–92, CategoryTheory/EqToHom1–365 and Ideal/Quotient/Defs185–238, plus ConcreteCategory/EpiMono1–58 and150–193 for the native component-isomorphism bijectivity used by the nonreduced test. All fifteen new statements, proof bodies and nine complete test bodies were inspected. Exact-name searches over both pinned libraries and current packets found no proposed names; this is bounded name evidence, not exhaustive semantic or upstream PR/Zulip absence.
 
-The whole current displayed Stacks01JU mathematical statement, proof and three page comments were read. SourceReading.json records the actual HTTP hash, byte count and access time without retaining source HTML or PDFs. The source supplies the image-ideal pullback convention. These precise composite presheaf, unit, closed-section and sheafification equations are authored deductions from pinned native APIs and the existing actual constructions. No new finding arose in this bounded passage. Historical sources,62 routes,12 confirmed findings and E1 retain their original attribution and unresolved obligations. No fresh inherited-erratum, whole-paper, source-history or recursive source closure is claimed. SourceFiles.json records whole pinned file hashes and read ranges; BaselineReading.json records exact index statements. Search.json records bounded exact-name searches, with no claim that name absence proves semantic novelty.
+Both existing conductor/flat-recomputation requests remain open. The complete touching-link corpus, accepted RS25 interfaces and owner boundaries are checked at both immutable bases. No upstream roadmap, link file or foreign packet is edited. The unchanged inherited source/version records and E1 retain their earlier attribution: no fresh full-source or historical erratum audit is claimed.
 
 ## Validation
 
-The complete Mathlib-only suggested file equals Canonical.lean and compiles at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 with Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d. Native.lean recompiles the full authenticated incoming proof prefix, all fourteen new bodies and nine tests, with116 axiom audits. It has no admissions, errors or warnings. Every audit uses only propext,Classical.choice and Quot.sound. Canonical has217 admission-only warnings. All14 new declaration headers and9 example headers match their admitted projections; the three actual construction bodies, carriers, maps and dependent inverse-image functors survive projection.
+Exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and TauCeti f790474821cf4256814db967cb154e7af3d0c369. Exact declarations.tsv SHA25686649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1. Existing compiled dependencies and Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d were checked before each serial compile. No cache download, build setup or language server was used. Each run used one thread, an8192MiB cap, a1200-second timeout and fresh available memory≥20GiB.
 
-Only the existing exact build was used. Lean runs were serial with a fresh available-memory check≥20GiB,8192MiB limit and1200-second timeout. No Lake project/update/cache/library build or language server was started. Nothing is left running at submission.
+Native.lean: 2467 lines,81 examples,131 axiom audits,zero errors or warnings,no sorryAx. Source SHA256 `fad1b6e817bb3c9f9885c9d134be93fadd23d5a667883774b71e5d23f8e1831c`; log SHA256 `cc563bcb985874bb596198f8b2992b64c5bbfad977793f1205ec22ae59a037c9`. Available memory41GiB; elapsed35.28seconds; peak RSS3308416KiB. Every new declaration audit uses only propext, Classical.choice and Quot.sound as applicable. This is proof evidence for the bounded accumulated strand, not implementation of the whole roadmap.
 
-- Native.lean: 2182 lines, 72 examples, exit0, 0 admission-only warnings, 116 axiom audits; 52GiB available, 32.68s, peak3318408KiB. Source SHA256 `4a2da190825baec80993eef3b22360d1670b11fe8064cb269e7bb0fee14991da`; diagnostic SHA256 `634067263709442423b3426bdc85f858e1c9077d68b078390ca39cbbbc7d354e`.
-- Canonical.lean: 1838 lines, 93 examples, exit0, 217 admission-only warnings, 0 axiom audits; 51GiB available, 13.46s, peak3293136KiB. Source SHA256 `9b0b04744017630c23eff0f57fb64ab9cd27e1944e75e3eb1fb00d43e910cbc8`; diagnostic SHA256 `13024bb7116931cb0d8a41607a5698174ec5c5930fc3584cbcec35c01b79fb58`.
+Canonical.lean equals the complete final Suggested.lean byte-for-byte: 2047 lines,102 examples,241 admission-only warnings,zero errors or other warnings. Source SHA256 `6fb3883bd883d2d923ff03de03d98a37e802aa1b1fb97f517b33b3be19a05a59`; log SHA256 `515ef1b81bd1e75199fa5e499206bb8d3c8c522f0d48015d59a8b8fe833b68ff`. Available memory42GiB; elapsed14.17seconds; peak RSS3294148KiB. The complete Mathlib-only suggested file was compiled. Its deliberate admissions preserve the exact fifteen new theorem headers and nine test headers; actual definitions and dependent transports are unchanged.
 
-Actual indexed checker, source/errata and intake functions are executed by verify.py. The packet has145 nodes(1definition21constructions117lemmas6theorems),86 raw API entries,87 raw tests,139 baseline declarations and5 planets. The exact checker counts and zero-error/zero-warning result are in both archived verification reports.
-
-Immutable atlas assembly has stage3012/8643, own145/227 and scoped3152/9013 vertices/edges, all acyclic. All6 required supplier and27 owned accepted-restructure pairs are reachable. No owned unresolved/skipped/pending links appear. Whole foreign roadmap and stage objects and all existing stage-edge objects match their controls. The45 unrelated preexisting missing restructure paths retain hash4101be60e5c05999c4e96d9a60d93f717851d100e0bf02c6b4bac42a630c4aa6.
-
-Mathematical base `52f604174e994cd80e62b3147cedd683ec69e33e`; publication control `686cfb1b7f65ff3d72e21b8dc5ce9f9f579fdef6`. Both actual immutable reports are archived. All32 input guards are checked at both controls, with1 explicitly reviewed changes. Both complete incoming SF.0 request objects match both controls. There is no new outgoing request.
+The archived actual verifier runs the blueprint checker against the exact index, source-issue/errata validation, intake and atlas graph assembly at both immutable bases. It checks all66 guarded inputs, both complete consumer requests, the full touching-link corpus, all preserved node contracts, proof/source/log hashes, axiom audits, declaration-header equality, test names, ownership, dependencies and closure. Foreign graph missing-pair evidence is retained by the graph verifier, without silently repairing unrelated roadmaps. Final actual public HTTP recovery and both immutable reports must reproduce byte-for-byte before submission.
 
 ## Retained findings and reserved definitions
+
 
 The following block is inherited whole from the incoming6052 handoff with its original attribution. It records ownership and unfinished work; it is not new implementation or a fresh historical review:
 
@@ -73,16 +67,18 @@ The exact reserved-key boundaries remain:
 
 
 
+
 ## Resume
 
-Use kernelCompNatIso on all opens, sheafCompNatIso on the actual native sheafifications, and closedCompNatIso on the actual direct images of closed-subscheme structure presheaves. Their allOpenToClosed and allOpenSheafComparison squares commute, with representatives preserved in both directions. Next compare the closed isomorphism with native ideal-data equality transport if that literal transport API is required, then establish identity and three-morphism coherence and the explicit reindexed image-ideal quotient natural squares. Preserve every dependent inverse-image functor and the intermediate affine hypothesis of quotientCompIso.
+The complete whole-presheaf equality and identity/three-morphism coherence are now available for kernel quotient, native sheafification and closed-section families. Continue with explicit reindexed image-ideal quotient-to-closed and sheafification natural squares; preserve their intermediate affine hypotheses. Then identify the actual conductor ideals and prove flat recomputation required by the two consumer requests. Do not replace kernel quotients by image ideals on arbitrary nonaffine opens, assert global closed-section surjectivity, or assume the naive quotient presheaf is a sheaf.
 
-All eight gaps remain: henselization scalar towers/coequalizers, lifted selectors and localization, unread source/Zariski-main leaves, remaining sample API, five other reserved keys, alteration ownership, source-route/stage closure and PerfectoidSpaces consolidation. Conductor identification, scheme pushout and recomputed flat conductors remain with the Neron consumer. Preserve all62 source routes and other-stage obligations. No stage, source worklist or roadmap is certified complete.
+The three existing all-open composite comparisons now equal native transport of the complete presheaf families, including the dependent closed-subscheme inverse-image functor. Left/right identity and three-morphism coherence retain explicit scheme-arrow associativity and pulled-back ideal-data equality transports. Explicit reindexed image-ideal quotient-to-closed/sheafification natural squares remain, with their intermediate affine hypotheses. No arbitrary nonaffine image-ideal equality, global closed-section surjectivity or naive quotient sheaf condition is asserted. Both conductor/flat-recomputation consumer obligations, all eight gaps, six reserved-key boundaries, 62 source routes and other-stage obligations remain open.
 
+All remaining stages, eight gaps, source/version and reserved-key obligations remain exactly as recorded. Depth-first continuation should use the recovered Native.lean and the actual three existing comparisons, retaining all dependent inverse images and explicit transports.
 
 ## Public recovery and replay
 
-Archive commit `faac22fc2191658e989df0cb3eedb5b0463749c5` is an ancestor changing only this issue's suggested file. Its 66 inert artifacts include all 11 authoring, projection, handoff, package, verification, graph and compilation helpers. Manifest SHA256 `81fc4b14cf64aabe10ff0b99468892ff7b36a90ca72744a9421317a73f5770f8`; payload SHA256 `9d7b48b515e8d9ffcbd81d1c2e6869c16c64861b4a91c031d0c4fade338622ac`. The final suggested file has no archive payload and equals Canonical.lean, whose complete Mathlib-only file was compiled.
+Archive commit `0c8fa79af1d24e9220bea3b873e009d70a781c22` is an ancestor changing only this issue's suggested file. Its 69 inert artifacts include all 11 authoring, projection, handoff, package, verification, graph and compilation helpers. Manifest SHA256 `91805b2d6c27eb515c25dc9d547e18c20338e069ee2bc16a1940fe678164095f`; payload SHA256 `359a575aad583c4d7210a6855f9fae257eec52b259584ab68f04bd6ad36d56e7`. The final suggested file has no archive payload and equals Canonical.lean, whose complete Mathlib-only file was compiled.
 
 Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the immutable public archive and four final deliverables, authenticates every hash, size and line count, binds this handoff's mathematical prefix and checks its own code against the public handoff. Inspect the recovered helpers. From an existing repository checkout containing both recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the exact prescribed declarations.tsv and place REPLAY_DIR outside the checkout. Its output should equal Verification.json. Set SCHEME_VALIDATE_BASE to the mathematical base to reproduce MathematicalVerification.json. The verifier executes the actual immutable checker, intake and atlas assembler without executing Lean or creating a repository snapshot. It checks the final public handoff as well as all archived artifacts.
 
@@ -93,22 +89,22 @@ Actual public HTTP recovery and both immutable verifier reports at the final hea
 ## Script: recover.py
 
 ```python
-"""Recover public authenticated composite all-open comparison evidence; never executes Lean."""
+"""Recover public authenticated composite coherence evidence; never executes Lean."""
 from pathlib import Path
 import base64,hashlib,json,re,sys,urllib.request,zlib
 S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
 HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
 ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
 RID='SchemeAndStackFoundations'
-ARCHIVE='faac22fc2191658e989df0cb3eedb5b0463749c5'
-MANIFEST_SHA='81fc4b14cf64aabe10ff0b99468892ff7b36a90ca72744a9421317a73f5770f8'
-PAYLOAD_SHA='9d7b48b515e8d9ffcbd81d1c2e6869c16c64861b4a91c031d0c4fade338622ac'
-EXPECTED={'packets': '779c4a03170cc104b0e4df681b6a28522b5db41dbacd8f8e02c6da7e5606830f', 'readmes': '1f0ddc2bd4404a6816a756758d6835bd26d81d75aefcf12664ab49a45e6ef27b', 'suggested': '9b0b04744017630c23eff0f57fb64ab9cd27e1944e75e3eb1fb00d43e910cbc8'}
+ARCHIVE='0c8fa79af1d24e9220bea3b873e009d70a781c22'
+MANIFEST_SHA='91805b2d6c27eb515c25dc9d547e18c20338e069ee2bc16a1940fe678164095f'
+PAYLOAD_SHA='359a575aad583c4d7210a6855f9fae257eec52b259584ab68f04bd6ad36d56e7'
+EXPECTED={'packets': 'ece016d3e3b972028d1eb14e954fd400e0ea8b41ed9393bd8d751df3c7f15132', 'readmes': '96835f8e068cd0b5faa4d5241da9c636bea7f06943d2ee9a66900c2404e68fc9', 'suggested': '6fb3883bd883d2d923ff03de03d98a37e802aa1b1fb97f517b33b3be19a05a59'}
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch(ref,path):
  with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
 raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
-pb=raw.split('/- BEGIN ARCHIVED COMPOSITE ALL-OPEN COMPARISON PAYLOAD\n',1)[1].split('END ARCHIVED COMPOSITE ALL-OPEN COMPARISON PAYLOAD -/',1)[0].encode()
+pb=raw.split('/- BEGIN ARCHIVED COMPOSITE COHERENCE PAYLOAD\n',1)[1].split('END ARCHIVED COMPOSITE COHERENCE PAYLOAD -/',1)[0].encode()
 assert sha(pb)==PAYLOAD_SHA
 payload=json.loads(pb)
 def unpack(name):
@@ -151,11 +147,11 @@ S=Path(sys.argv[1]).resolve();sys.path.insert(0,str(S))
 from projection import admit_lemmas
 txt=lambda n:(S/n).read_text()
 names=re.findall(r'^(?:noncomputable )?(?:def|lemma|theorem) (\w+)',txt('New.lean'),re.M)
-assert len(names)==14
+assert len(names)==15
 (S/'Audits.lean').write_text(''.join('#print axioms TauCeti.SchemeFoundations.IdealPullback.'+n+'\n'for n in names))
 (S/'NewAdmitted.lean').write_text(admit_lemmas(txt('New.lean')))
 (S/'TestsAdmitted.lean').write_text(admit_lemmas(txt('NewTests.lean')))
-assert len(re.findall(r'\bsorry\b',txt('NewAdmitted.lean')+txt('TestsAdmitted.lean')))==20
+assert len(re.findall(r'\bsorry\b',txt('NewAdmitted.lean')+txt('TestsAdmitted.lean')))==24
 (S/'NewImports.lean').write_text('')
 (S/'Native.lean').write_text(txt('NativePrefix.lean')+'\n'+txt('New.lean')+'\n'+txt('NewTests.lean')+'\n'+txt('Audits.lean'))
 (S/'Canonical.lean').write_text(txt('CanonicalPrefix.lean')+'\n'+txt('NewAdmitted.lean')+'\n'+txt('TestsAdmitted.lean'))
@@ -165,177 +161,180 @@ assert len(re.findall(r'\bsorry\b',txt('NewAdmitted.lean')+txt('TestsAdmitted.le
 ## Script: author.py
 
 ```python
-"""Append all-open composite comparison contracts, preserving every incoming node."""
+"""Extend existing composite comparison APIs with native transport and coherence."""
 from pathlib import Path
-import copy,csv,json,sys
-S=Path(__file__).resolve().parent;RID='SchemeAndStackFoundations';P=RID+':SF.0/';NS='TauCeti.SchemeFoundations.IdealPullback.'
-load=lambda n:json.loads((S/n).read_text())
-def save(n,x):(S/n).write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
-old=load('Incoming.json');p=copy.deepcopy(old)
+import copy,csv,hashlib,json,sys
+S=Path(sys.argv[1]).resolve();LIB=Path(sys.argv[2]);INDEX=Path(sys.argv[3])
+RID='SchemeAndStackFoundations';P=RID+':SF.0/';NS='TauCeti.SchemeFoundations.IdealPullback.';PRE=P+'composite-coherence/'
+old=json.loads((S/'Incoming.json').read_text());p=copy.deepcopy(old);assert len(old['nodes'])==145
+source='STACKS-C12-7e92bd-01JU';known={n['id']for n in old['nodes']}
 specs=[
-('composite-kernel-presheaf-isomorphism','kernelCompNatIso','construction','Composite kernel quotient presheaf comparison','For arbitrary scheme morphisms f:X→Y and g:Y→Z and native ideal datum I on Z, construct a natural isomorphism on all opens of X from allOpenQuotient(I.comap(f≫g)) to allOpenQuotient((I.comap g).comap f), with the existing kernelCompIso as its actual components.',['composite-kernel-quotient-isomorphism','composite-kernel-restriction','mathlib:CategoryTheory.NatIso.ofComponents'],'Package the existing native kernel quotient ring equivalences and their restriction law by NatIso.ofComponents.'),
-('composite-kernel-presheaf-component','kernelCompNatIso_app','lemma','Kernel presheaf comparison component','On every open U of X, the component is exactly the CommRingCat isomorphism of kernelCompIso I f g U.',['composite-kernel-presheaf-isomorphism'],'Reduce the explicitly specified natural components.'),
-('composite-kernel-presheaf-representative','kernelCompNatIso_mk','lemma','Kernel presheaf comparison on representatives','On every open U of X the forward component sends the class of each a∈Γ(X,U) to the same section class in the iterated immersion-kernel quotient.',['composite-kernel-presheaf-component','composite-kernel-representative'],'Use the existing kernelCompIso representative law.'),
-('composite-kernel-presheaf-inverse-representative','kernelCompNatIso_inv_mk','lemma','Inverse kernel presheaf comparison on representatives','On every open U of X the inverse component sends each section class in the iterated immersion-kernel quotient to the same section class in the direct quotient.',['composite-kernel-presheaf-component','composite-kernel-inverse-representative'],'Use the existing inverse kernelCompIso representative law.'),
-('composite-closed-presheaf-isomorphism','closedCompNatIso','construction','Composite closed-subscheme section comparison','Construct the actual natural isomorphism from U↦Γ((I.comap(f≫g)).subscheme,(I.comap(f≫g)).ι⁻¹U) to U↦Γ(((I.comap g).comap f).subscheme,((I.comap g).comap f).ι⁻¹U) by the inverse direct allOpenSheafComparison, then sheafCompNatIso, then the iterated allOpenSheafComparison. Both dependent inverse-image functors remain explicit.',['composite-sheafification-isomorphism','all-open-sheaf-comparison-isomorphism','mathlib:CategoryTheory.asIso'],'Compose the actual comparison isomorphisms with the sheafification of kernel transport. Native comap_comp already determines the kernel equivalence; no equality cast of the large dependent direct-image presheaf is needed.'),
-('composite-closed-presheaf-representative','closedCompNatIso_mk','lemma','Composite closed comparison preserves ambient sections','For every open U and a∈Γ(X,U), closedCompNatIso sends the direct pulled-back immersion restriction of a to the iterated pulled-back immersion restriction of a.',['composite-sheafification-closed-square','composite-sheafification-unit-representative','all-open-sheaf-comparison-representative'],'Evaluate the actual sheafified comparison square on the unit-image of each ambient quotient class and use the two existing comparison representative formulas.'),
-('composite-closed-presheaf-inverse-representative','closedCompNatIso_inv_mk','lemma','Inverse closed comparison preserves ambient sections','For every open U, the inverse closedCompNatIso sends the iterated immersion restriction of each ambient section a to its direct immersion restriction.',['composite-closed-presheaf-representative'],'Rewrite by the forward representative formula and cancel the actual natural isomorphism.'),
-('composite-kernel-presheaf-closed-square','kernelCompNatIso_closed','lemma','Composite kernel comparison commutes with closed sections','As actual natural transformations on all opens of X, kernelCompNatIso.hom followed by the iterated allOpenToClosed equals the direct allOpenToClosed followed by closedCompNatIso.hom.',['composite-kernel-presheaf-representative','composite-closed-presheaf-representative','all-open-to-closed-representative','mathlib:Ideal.Quotient.ringHom_ext'],'Apply natural-transformation and native quotient ring-map extensionality. Both composites send each ambient section class to its iterated immersion restriction.'),
-('composite-sheafification-isomorphism','sheafCompNatIso','construction','Composite quotient sheafification comparison','Apply the native CommRingCat-valued sheafification functor on the Zariski site of X to kernelCompNatIso, producing an actual natural isomorphism between the sheafifications of the direct and iterated all-open kernel quotient presheaves.',['composite-kernel-presheaf-isomorphism','mathlib:CategoryTheory.sheafification','mathlib:CategoryTheory.Functor.mapIso'],'Use the existing sheafification functor and its native mapIso; retain the actual source and target presheaves.'),
-('composite-sheafification-unit','sheafCompNatIso_unit','lemma','Composite sheafification comparison preserves the unit','The direct toSheafify unit followed by sheafCompNatIso.hom equals kernelCompNatIso.hom followed by the iterated unit, as natural transformations on every open.',['composite-sheafification-isomorphism','mathlib:CategoryTheory.toSheafify_naturality'],'Apply native naturality of the sheafification adjunction unit.'),
-('composite-sheafification-unit-representative','sheafCompNatIso_unit_mk','lemma','Sheafification comparison on section classes','For every open U and ambient section a, sheafCompNatIso.hom sends the unit-image of the direct quotient class of a to the unit-image of the iterated quotient class of the same a.',['composite-sheafification-unit','composite-kernel-presheaf-representative'],'Evaluate unit naturality at U and the quotient representative, then use the kernel comparison representative formula.'),
-('composite-sheafification-inverse-unit-representative','sheafCompNatIso_inv_unit_mk','lemma','Inverse sheafification comparison on section classes','On every open U the inverse sheafification comparison sends the unit-image of each iterated section class to the unit-image of the direct section class with the same ambient representative.',['composite-sheafification-unit-representative'],'Rewrite by the forward unit representative formula and cancel the actual isomorphism.'),
-('composite-sheafification-closed-square','sheafCompNatIso_closed','lemma','Composite sheafification comparison commutes with closed sections','As actual natural transformations on all opens, sheafCompNatIso.hom followed by the iterated allOpenSheafComparison equals the direct allOpenSheafComparison followed by closedCompNatIso.hom. This equality holds on every sheafified section, including sections without an ambient representative on that open.',['composite-closed-presheaf-isomorphism','all-open-sheaf-comparison-isomorphism'],'Expand the specified composite closed isomorphism and cancel the direct allOpenSheafComparison with its inverse. This proves the equality on all sections without any ambient-section surjectivity claim.'),
-('composite-sheafification-uniqueness','sheafCompNatIso_unique','lemma','Closed comparison determines composite sheafification transport','Any natural transformation q between these two sheafifications that commutes with the same direct and iterated allOpenSheafComparison maps and closedCompNatIso equals sheafCompNatIso.hom.',['composite-sheafification-closed-square','all-open-sheaf-comparison-isomorphism'],'Cancel the iterated allOpenSheafComparison, already an actual isomorphism, and use the commuting square.')]
-nodes=[];by={}
-for slug,name,kind,title,statement,deps,proof in specs:
- n=dict(id=P+slug,parentStageId=RID+':SF.0',realises=[RID+':SF.0'],kind=kind,title=title,leanName=NS+name,statement=statement,hypotheses=['X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z.','Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.'],prerequisites=[d if ':'in d else P+d for d in deps],proofSteps=[proof],acceptance=[statement,'Use actual kernel quotients, structure presheaves, inverse-image functors and native sheafification; retain nonzero nilpotent sections.'],library=dict(module='TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition',namespace=NS[:-1]),sources=[dict(sourceId='STACKS-C11-7e92bd-01JU',locator='Lemma 26.17.6 complete displayed statement, proof and page comments',excerpt='closed immersion',match='Image-ideal pullback context only. The precise composite presheaf and sheafification formulas are authored deductions from pinned native APIs and preceding constructions; they are not quoted source theorems.')],api=[],tests=[],implementationStatus='unchecked')
- nodes.append(n);by[name]=n
-for name,api in {'kernelCompNatIso':['kernelCompNatIso_app','kernelCompNatIso_mk','kernelCompNatIso_inv_mk','kernelCompNatIso_closed'],'closedCompNatIso':['closedCompNatIso_mk','closedCompNatIso_inv_mk','kernelCompNatIso_closed'],'sheafCompNatIso':['sheafCompNatIso_unit','sheafCompNatIso_unit_mk','sheafCompNatIso_inv_unit_mk','sheafCompNatIso_closed','sheafCompNatIso_unique']}.items():
- by[name]['api']=[dict(name=NS+a,role='compatibility',statement=by[a]['statement'])for a in api]
- by[name]['uses']=[dict(where=P+'composite-sheafification-closed-square',how='Make the generic direct-versus-iterated ideal pullback comparison commute with the actual closed-section comparison on every open, before and after sheafification. The Neron consumer retains conductor identification and flat recomputation.')]
-td=[
-('CompositeKernelPresheafChecked.roundtrip','compatibility','For arbitrary f,g, every open U and every direct kernel quotient class q, the forward and inverse natural components return q.'),
-('CompositeKernelPresheafChecked.empty_open','degenerate','On the empty open of X every direct kernel quotient class maps to zero, for arbitrary f,g and I.'),
-('CompositeKernelPresheafChecked.two_restrictions','compatibility','For every U≤V≤W in X and every quotient class on W, comparison after two direct restrictions equals the single iterated restriction along U≤W after comparison at W.'),
-('CompositeClosedPresheafChecked.all_sections_roundtrip','characterisation','Every section of the direct closed subscheme over the inverse image of any open U returns under forward and inverse comparison, without assuming that the section lifts to an ambient section.'),
-('CompositeClosedPresheafChecked.all_quotient_classes','compatibility','On every open and every quotient class, kernel comparison followed by iterated allOpenToClosed agrees with direct allOpenToClosed followed by closed comparison.'),
-('CompositeClosedPresheafChecked.restriction','compatibility','For every U≤V and every closed-subscheme section over the inverse image of V, the closed comparison commutes with the actual structure-presheaf restrictions along the two immersion inverse images.'),
-('CompositeSheafChecked.all_sections_square','compatibility','For every open U and every section q of the direct quotient sheafification, including sections not given by global ambient representatives, the sheaf comparison commutes with the two actual closed-subscheme comparisons.'),
-('CompositeSheafChecked.forced_comparison','characterisation','The composite of direct allOpenSheafComparison, closedCompNatIso and the inverse iterated allOpenSheafComparison is exactly sheafCompNatIso.hom as a natural transformation.'),
-('CompositeSheafChecked.nonreduced_identity','computation','For two identity morphisms of Spec(ZMod4), zero ideal datum and the global ambient section corresponding to2, its quotient class followed by the sheafification unit and composite sheafification comparison is nonzero and square-zero.')]
-tests=[dict(name=a,kind=b,statement=c)for a,b,c in td]
-by['kernelCompNatIso']['tests']=tests[:3];by['closedCompNatIso']['tests']=tests[3:6];by['sheafCompNatIso']['tests']=tests[6:]
-p['nodes']+=nodes
-rows=list(csv.reader(Path(sys.argv[1]).open(),delimiter='\t'));have={d['ref']for d in p['baseline']['declarations']};baseline=[];reading=[]
-for name in sorted({d[8:]for n in nodes for d in n['prerequisites']if d.startswith('mathlib:')}):
- row=next(r for r in rows if len(r)>5 and r[0]=='mathlib'and r[1]==name)
- reading.append(dict(name=name,file=row[3],line=int(row[4]),signature=row[5],scope='Exact pinned source statement and implementation inspected in this continuation, or native quotient extensionality retained from authenticated own6049 reading.'))
- if 'mathlib:'+name not in have:baseline.append(dict(ref='mathlib:'+name,kind=row[2],module=row[3],line=int(row[4]),provides=row[5]+' Reuse the native construction to compare the specified actual scheme quotient and closed-subscheme presheaves.',checked='Codex — codex-7e92bd read the declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04.'))
-p['baseline']['declarations']+=baseline;save('BaselineReading.json',reading)
-s=load('SourceReading.json');src=dict(id='STACKS-C11-7e92bd-01JU',title='Closed-immersion pullback: composite presheaf and sheafification context',authors='The Stacks Project authors',edition='Whole displayed statement, proof and three page comments read 4 October 2026',url=s['url'],sha256=s['sha256'],accessed=s['accessed'],readSections=[s['scope']]);version=dict(kind='author copy',url=s['url'],read='2026-10-04',sha256=s['sha256']);p['sources'].append(src);p['sourceVersions'].append(version)
-frontier='Fourteen new declarations compare composite and iterated immersion-kernel quotient presheaves, actual direct images of closed-subscheme structure presheaves and their native sheafifications on every open. Both comparison squares commute, and the sheafification comparison is uniquely determined by the closed-section square. Identity and three-morphism coherence, explicit reindexed image-ideal quotient-to-closed/sheafification natural squares and the remaining conductor/flat-recomputation obligations remain. No arbitrary nonaffine image-ideal equality, closed-section surjectivity or naive quotient sheaf condition is claimed. Eight gaps, six reserved-key boundaries,62 source routes and all other-stage obligations remain open.'
-p['summary']+=' All-open composite comparison continuation:14 declarations(3 constructions,11 lemmas),12 API entries and9 typed tests; all131 incoming whole node objects preserved.'
-p['coverage'][0]['remaining'].append(frontier)
-p['validationBoundary']=dict(agent='Codex — codex-7e92bd',date='2026-10-04',issue=642,implementation='All145 nodes remain unchecked. Separate admission-free native evidence checks fourteen new declarations and nine examples after the entire authenticated1912-line incoming proof prefix; this is bounded signature/proof evidence, not a whole-roadmap implementation.',sourceRead='Whole55077-character issue read before and after exact numeric bot confirmation. Fresh reads include current handoff narrative/recovery, all eight gaps, full SF.0 frontier, reviewed SF.0 audit row and both complete current Neron SF.0 consumer requests. Peer6052 public recovery and both actual immutable verifier reports were authenticated; its fourteen new declarations and ten tests were read without borrowing its reading attribution. Own6049 reading scopes retain original attribution at27 unchanged controls among32; four owned files and the whole Neron packet differ, so only freshly read portions of those are claimed. Whole current displayed Stacks01JU statement, proof and three page comments read. No whole131-node, inherited erratum/finding, historical source-worklist or recursive paper closure is claimed.',elaboration='Complete Mathlib-only suggested file and separate admission-free native proof evidence checked with the existing exact pinned build. Actual construction maps survive projection; lemma and example proofs are admissions. Actual checker, intake and atlas reconstruction reports and public hashes delimit this checkpoint.',remaining=frontier)
-save('Candidate.json',p);save(RID+'.json',p);save('NewNodes.json',nodes)
-save('Plan.json',dict(newNames=[n['leanName']for n in nodes],newNodes=[n['id']for n in nodes],newBaseline=baseline,newSources=[src],newVersions=[version],newTests=tests,newApi=[a for n in nodes for a in n['api']],frontier=frontier))
-intro='''# Composite ideal pullback: closed sections and sheafification
-
-Write J=I.comap(f≫g) and K=(I.comap g).comap f for arbitrary scheme morphisms f:X→Y, g:Y→Z and native ideal datum I on Z. The previous checkpoint compares Γ(X,U)/ker(J.ι.app U) with Γ(X,U)/ker(K.ι.app U) on every open U. Those actual ring equivalences now form kernelCompNatIso between the all-open quotient presheaves. Its inverse preserves the same ambient section representatives.
-
-Sheafify the kernel transport and compose it with the inverse direct and forward iterated allOpenSheafComparison isomorphisms to construct closedCompNatIso between the actual direct images of the two closed-subscheme structure presheaves. The inverse-image functors belong to the respective native immersions and remain explicit. On an ambient section a, this transport sends J.ι(a) to K.ι(a). Consequently kernelCompNatIso followed by the iterated allOpenToClosed equals the direct allOpenToClosed followed by closedCompNatIso, as actual natural transformations.
-
-Apply native sheafification to kernelCompNatIso to obtain sheafCompNatIso. Unit naturality gives its representative formula. The definition of closedCompNatIso and inverse cancellation give the square with both actual allOpenSheafComparison maps. This equality applies to every sheafified section; its proof does not assume that closed sections or sheafified sections on an arbitrary open have ambient representatives there. Since allOpenSheafComparison is already an isomorphism, that square uniquely determines the new sheafification map.
-
-Nine typed tests cover all-class inverses, the empty open, two successive quotient restrictions, every closed section and its actual restrictions, the closed comparison on all quotient classes, the sheafified square on all sections and its forced map. A concrete test on Spec(ZMod4) carries the nonzero square-zero class of2 through the unit and the comparison. Replacing the quotient or sheafification by its reduced ring would fail this test.
-
-All131 incoming whole nodes, five planets, eight gaps,62 source routes, twelve confirmed findings, inherited E1 and all six reserved-key boundaries remain. Fourteen nodes add three constructions, twelve API entries and nine tests. Native asIso, Functor.mapIso and sheafification are reused rather than planned again. Every implementation stays unchecked and all seven stages retain their partial/not_read status.
-
-Fresh source reading is the complete displayed Stacks01JU statement, proof and three page comments. It supplies the image-ideal pullback convention; the exact presheaf and sheafification equations are authored deductions from pinned native APIs and existing constructions. No new source finding arose in this bounded passage. Own6049 original reading scopes remain scoped to27 unchanged controls among32, with original attribution. Peer6052 evidence was authenticated and its two actual verifier reports replayed; its reading attribution is not reused.
-
-'''+frontier+'\n\n'
-parts=[intro]
-for n in nodes:
- parts+=['## '+n['title']+'\n\n','**'+n['leanName']+'** — '+n['statement']+'\n\n','Hypotheses: '+' '.join(n['hypotheses'])+'\n\n','Prerequisites: '+', '.join(n['prerequisites'])+'.\n\n','Proof: '+' '.join(n['proofSteps'])+'\n\n']
- for label,key in [('Consumed API','api'),('Typed tests','tests')]:
-  if n[key]:parts+=[label+':\n\n']+['- **'+x['name']+'**: '+x['statement']+'\n'for x in n[key]]+['\n']
-(S/'ReaderAddition.md').write_text(''.join(parts));(S/'Reader.md').write_text(''.join(parts)+(S/'IncomingReader.md').read_text())
-print(json.dumps(dict(nodes=len(p['nodes']),api=sum(len(n['api'])for n in nodes),tests=len(tests),baseline=len(p['baseline']['declarations']))))
+('quotient-transport','allOpenQuotient_eqToIso_mk','Equality transport preserves the actual section class',
+ 'For native ideal data I,J on X and h:I=J, the component on every open U of native eqToIso applied to the equality of allOpenQuotient presheaves sends the class of every a∈Γ(X,U) to the class of the same a in the J-kernel quotient.',
+ [P+'all-open-quotient-presheaf','mathlib:CategoryTheory.eqToIso'],['Eliminate the equality of ideal data; native equality transport then acts by the identity on every quotient class.']),
+('kernel-transport','kernelCompNatIso_eqToIso','The kernel comparison is native presheaf transport',
+ 'For arbitrary f:X→Y,g:Y→Z and native I on Z, kernelCompNatIso I f g equals native eqToIso of congrArg allOpenQuotient applied to I.comap_comp f g. This identifies the entire natural isomorphism on all opens, including its inverse, with native equality transport.',
+ [P+'composite-kernel-presheaf-isomorphism','@quotient-transport','mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp'],['Use isomorphism, natural-transformation and quotient-ring extensionality. Both maps preserve each ambient section class by the old representative law and the preceding transport law.']),
+('sheaf-transport','sheafCompNatIso_eqToIso','The sheafified comparison is native presheaf transport',
+ 'The existing sheafCompNatIso equals native eqToIso of the equality of the two actual sheafified allOpenQuotient presheaves induced by native comap_comp. The statement is about the entire sheafification, including sections without an ambient representative on an open.',
+ [P+'composite-sheafification-isomorphism','@kernel-transport','mathlib:CategoryTheory.eqToIso_map'],['Use the real sheafification functor, replace its input isomorphism by kernel transport, and apply native eqToIso_map.']),
+('comparison-transport','allOpenSheafComparison_eqToIso','The closed-section comparison respects equality of ideal data',
+ 'For native I,J on X and h:I=J, inverse allOpenSheafComparison(I), followed by native equality transport between the sheafifications and then allOpenSheafComparison(J), equals native equality transport between their whole closed-section direct-image presheaves. The family being transported includes both subscheme structure presheaf and immersion inverse-image functor.',
+ [P+'all-open-sheaf-comparison-isomorphism','mathlib:CategoryTheory.eqToIso','mathlib:CategoryTheory.asIso'],['Eliminate h. The native equality transport becomes identity; cancel the actual comparison isomorphism with its inverse.']),
+('closed-transport','closedCompNatIso_eqToIso','The closed-section comparison is native dependent transport',
+ 'closedCompNatIso I f g equals native eqToIso induced by comap_comp on the entire family K↦(Opens.map K.subschemeι.base).op followed by K.subscheme.presheaf. Both the scheme and the immersion inverse-image functor are transported together; this is literal equality of complete natural isomorphisms.',
+ [P+'composite-closed-presheaf-isomorphism','@sheaf-transport','@comparison-transport'],['Unfold the old three-factor closed comparison. Replace the sheaf comparison by native transport and apply the preceding equality-conjugation law.'])]
+specs.insert(1,('quotient-characterization','allOpenQuotient_iso_eqToIso','Representative preservation characterizes kernel-quotient transport',
+ 'For native ideal data I,J on X, h:I=J and an actual natural isomorphism e:allOpenQuotient(I)≅allOpenQuotient(J), if every component preserves each ambient section class then e equals native equality transport of the entire quotient presheaf. The representative condition is on all opens; it determines both directions of the natural isomorphism.',
+ ['mathlib:CategoryTheory.eqToIso','mathlib:Ideal.Quotient.mk_surjective',P+'all-open-quotient-presheaf'],['Eliminate the equality of ideal data first. Use isomorphism, natural-transformation and concrete-morphism extensionality; lift an arbitrary quotient class with native quotient surjectivity, then apply the supplied representative-preservation equation.']))
+specs[2][4][:]=[P+'composite-kernel-presheaf-isomorphism','@quotient-characterization','mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp']
+specs[2][5][:]=['Apply the preceding representative characterization to the existing actual kernelCompNatIso and its already proved representative law. This specialization imports a general proof with abstract ideal data rather than expanding nested scheme pullbacks inside quotient extensionality.']
+families={'kernel':('all-open immersion-kernel quotient presheaves','composite-kernel-presheaf-isomorphism'), 'sheaf':('native sheafifications of those all-open quotient presheaves','composite-sheafification-isomorphism'), 'closed':('whole direct-image closed-subscheme structure presheaves, with their dependent inverse-image functors','composite-closed-presheaf-isomorphism')}
+for key,(family,owner) in families.items():
+ specs += [(key+'-left',key+'CompNatIso_id_left','Left identity coherence for '+family,
+  'For I on Y and arbitrary f:X→Y, the existing '+key+'CompNatIso for identity_X followed by f, then native transport removing the identity pullback of I.comap f, equals the direct transport induced by identity_X followed by f=f. The equality is of complete natural isomorphisms of '+family+'.',
+  ['@'+key+'-transport','mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id','mathlib:CategoryTheory.eqToIso_trans'],['Replace the existing comparison by its native equality-transport characterization. Compose transports with eqToIso_trans; proof irrelevance identifies the two equality proofs with the same endpoints.']),
+ (key+'-right',key+'CompNatIso_id_right','Right identity coherence for '+family,
+  'For I on Y and arbitrary f:X→Y, the existing '+key+'CompNatIso for f followed by identity_Y, then transport of I.comap(identity_Y)=I after comap f, equals the direct transport induced by f followed by identity_Y=f. This retains the actual family of '+family+'.',
+  ['@'+key+'-transport','mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id','mathlib:CategoryTheory.eqToIso_trans'],['Use the comparison characterization and eqToIso_trans. Retain transport after comap f; the equality proofs agree by proof irrelevance.']),
+ (key+'-assoc',key+'CompNatIso_assoc','Three-morphism coherence for '+family,
+  'For arbitrary f:X→Y,g:Y→Z,h:Z→W and I on W, first comparing (f followed by g),h and then f,g for I.comap h equals: transport along scheme-morphism associativity, compare f,(g followed by h), then transport comap_comp(g,h) after comap f. This is an equality of complete natural isomorphisms of '+family+'; neither associativity transport nor the final pullback of ideal-data equality is omitted.',
+  ['@'+key+'-transport','mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp','mathlib:CategoryTheory.eqToIso_trans'],['Replace both actual comparisons by their native transport characterizations. Use eqToIso_trans on each path and proof irrelevance for the common source and final triple-pullback target.'])]
+ids={k:PRE+k for k,*_ in specs};known|=set(ids.values())
+hyps=['Use native schemes, native IdealSheafData and arbitrary named scheme morphisms. All opens of the source are allowed; no affineness, flatness, finiteness, reducedness or Noetherianity is imposed.', 'The closed-section family includes both the closed subscheme structure presheaf and its actual immersion inverse-image functor. Sheafified and closed sections need not lift to ambient sections on their whole open.']
+frontier='The three existing all-open composite comparisons now equal native transport of the complete presheaf families, including the dependent closed-subscheme inverse-image functor. Left/right identity and three-morphism coherence retain explicit scheme-arrow associativity and pulled-back ideal-data equality transports. Explicit reindexed image-ideal quotient-to-closed/sheafification natural squares remain, with their intermediate affine hypotheses. No arbitrary nonaffine image-ideal equality, global closed-section surjectivity or naive quotient sheaf condition is asserted. Both conductor/flat-recomputation consumer obligations, all eight gaps, six reserved-key boundaries, 62 source routes and other-stage obligations remain open.'
+new=[]
+for key,name,title,statement,deps,steps in specs:
+ deps=[ids[d[1:]]if d.startswith('@')else d for d in deps]
+ new.append(dict(id=ids[key],parentStageId=RID+':SF.0',realises=[RID+':SF.0'],kind='lemma',title=title,leanName=NS+name,statement=statement,hypotheses=hyps,prerequisites=deps,proofSteps=steps,acceptance=[statement,'Keep all actual maps and dependent inverse images; do not replace full presheaf equality by equality only on ambient representatives.'],library=dict(module='TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComposition',namespace=NS[:-1]),sources=[dict(sourceId=source,locator='Lemma 26.17.6, complete displayed statement, proof and page comments; exact coherence equations are authored deductions.',excerpt='immersion',match='Image-ideal pullback context only. Native equality transport and these particular coherence formulas are deductions from the explicit pinned APIs and existing constructions, not additional literal source theorems.')],implementationStatus='unchecked',uses=[dict(where=P+'composite-sheafification-closed-square',how='Make the actual quotient, sheafification and closed-section comparisons compatible with identities and three successive pullbacks before consumer-specific conductor identification.')]))
+tests=[]
+for key,(family,owner)in families.items():
+ tests.append(dict(owner=P+owner,name='CompositeCoherenceChecked.'+key+'_threefold_sections',kind='compatibility',statement='For every open and every actual section of the direct '+family+', the two fully transported three-morphism comparison paths give the same section, retaining both endpoint transports.'))
+ tests.append(dict(owner=P+owner,name='CompositeCoherenceChecked.'+key+'_identity_sections',kind='compatibility',statement='Evaluate the '+('left'if key=='kernel'else'right')+' identity coherence on every section of the actual '+family+'. The output agrees with the explicit native transport removing the identity morphism.'))
+tests += [dict(owner=P+families['kernel'][1],name='CompositeCoherenceChecked.kernel_empty_open',kind='degenerate',statement='On the empty open, native comap_comp transport of every actual kernel-quotient class is zero; zero section rings are allowed.'),dict(owner=P+families['closed'][1],name='CompositeCoherenceChecked.closed_inverse_transport',kind='compatibility',statement='For any supplied proof of the ideal-data composition equality, the inverse old closed comparison equals inverse transport as a complete natural isomorphism of the dependent closed-section family. Both directions and all actual sections are determined; no ambient representative is assumed.'),dict(owner=P+families['sheaf'][1],name='CompositeCoherenceChecked.sheaf_nonreduced',kind='non-example',statement='For Spec(ZMod4), zero ideal datum and two identity morphisms, every natural isomorphism between the actual direct and iterated sheafifications sends the unit-image of the ambient section2 to a nonzero square-zero section. The constructed comparison and its proved native equality transport are instances; a reduction map cannot satisfy this isomorphism fixture.')]
+byid={n['id']:n for n in new};updates={}
+for key,(_,owner)in families.items():
+ n=next(n for n in p['nodes']if n['id']==P+owner)
+ api=[dict(name=byid[ids[key+'-'+suffix]]['leanName'],role='compatibility',statement=byid[ids[key+'-'+suffix]]['statement'])for suffix in ['transport','left','right','assoc']]
+ ts=[{k:v for k,v in t.items()if k!='owner'}for t in tests if t['owner']==n['id']]
+ n['api']+=api;n['tests']+=ts;updates[n['id']]=dict(api=api,tests=ts)
+rows={r['name']:r for r in csv.DictReader(INDEX.open(),delimiter='\t')if r['library']=='mathlib'};refs={d['ref']for d in old['baseline']['declarations']};added=[]
+for ref in sorted({d for n in new for d in n['prerequisites']if d.startswith('mathlib:')}-refs):
+ r=rows[ref.removeprefix('mathlib:')];added.append(dict(ref=ref,kind=r['kind'],module=r['file'],line=int(r['line']),provides=r['signature']+' Import native equality transport or ideal pullback identity, without planning generic theory again.',checked='Codex — codex-7e92bd read the actual declaration and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04; exact scopes and source hashes are in SourceFiles.json.'))
+assert len(added)==4
+assert all(d in known or d in refs or d in {b['ref']for b in added}for n in new for d in n['prerequisites'])
+p['nodes']+=new;p['baseline']['declarations']+=added;p['coverage'][0]['remaining'].append(frontier)
+r=json.loads((S/'SourceReading.json').read_text());src=dict(id=source,title='Closed-immersion pullback: native transport and coherence context',authors='The Stacks Project authors',edition='Whole displayed statement, proof and three page comments read 4 October 2026',url=r['url'],sha256=r['sha256'],accessed=r['accessedUTC'],readSections=['Whole displayed Lemma 26.17.6 statement, proof and three comments. Source context only; exact native transport and coherence equations are authored deductions. No recursive source or exhaustive version/errata closure.'])
+ver=dict(kind='author copy',url=r['url'],read='2026-10-04',sha256=r['sha256']);p['sources'].append(src);p['sourceVersions'].append(ver)
+p['summary']+=' Native transport and identity/three-morphism coherence for the three existing composite comparisons: fifteen lemmas, twelve API additions and nine typed tests; no stage closes.'
+p['validationBoundary']=dict(agent='Codex — codex-7e92bd',date='2026-10-04',issue=642,implementation='All160 nodes remain unchecked. Native evidence checks fifteen new lemma bodies and nine tests after the authenticated2182-line proof prefix; this is not a whole-roadmap implementation.',sourceRead='Whole issue before and after numeric bot confirmation; current own6058 handoff and new proofs/tests, all eight gaps, full SF.0 frontier, reviewed SF.0 audit row and both whole current consumer requests freshly read. Exact own6058 and inherited own6049 manifests bind the reused reading scopes and their original attribution. Complete current01JU statement/proof/three comments and all34 touching-link entries read. No fresh whole145-node manual proof review, historical source/erratum closure or complete paper audit is asserted.',elaboration='Full Mathlib-only suggested file and separate native proof evidence checked serially with the existing exact build; actual maps remain unchanged in the projection.',remaining=frontier)
+plan=dict(newNodes=[n['id']for n in new],newNames=[n['leanName']for n in new],newTests=tests,newBaseline=added,newSources=[src],newVersions=[ver],apiUpdates=updates,frontier=frontier,preservedMathematicalContracts=145,preservedWholeNodes=142,newAPI=12)
+addition='# Native transport and coherence of composite ideal pullback\n\nCodex — codex-7e92bd, 4 October 2026. Partial checkpoint: fifteen lemmas extend three existing comparison APIs.\n\n'+frontier+'\n\nThe kernel comparison is identified on actual quotient representatives with native equality transport of the whole quotient presheaf. The sheafification functor preserves this transport. For equal ideal data, conjugating sheafification transport by the two actual closed-section comparisons gives transport of the whole closed-section family. This identifies the existing closed comparison with that dependent transport without assuming that every closed section has an ambient representative.\n\nEach left/right unit law retains transport removing the identity pullback. For three morphisms f,g,h, compare (f followed by g),h and then f,g. The other path first transports along arrow associativity, compares f,(g followed by h), and transports the equality for g,h after pulling back by f. These two paths agree for kernel quotients, native sheafifications and full closed-section direct-image presheaves. The generic equality-transport operations are native imports.\n\n'
+for n in new:
+ addition+='## '+n['title']+'\n\nDeclaration: **'+n['leanName']+'**. Node: **'+n['id']+'**.\n\n'+n['statement']+'\n\nHypotheses: '+' '.join(n['hypotheses'])+'\n\nProof plan: '+' '.join(n['proofSteps'])+'\n\nPrerequisites: '+', '.join(n['prerequisites'])+'.\n\n'
+for owner,up in updates.items():
+ addition+='## Extended API: '+owner+'\n\n'
+ for a in up['api']:addition+='API **'+a['name']+'**: '+a['statement']+'\n\n'
+ for t in up['tests']:addition+='Test **'+t['name']+'** ('+t['kind']+'): '+t['statement']+'\n\n'
+addition+='All145 incoming mathematical contracts remain unchanged;142 whole node objects are untouched and only the API/test lists of the three existing composite comparisons are extended. Eight gaps,62 source routes,twelve confirmed findings,six reserved-key boundaries,five planets and E1 remain unchanged. All seven stages retain their partial/not_read status. The complete Mathlib-only suggested file and separate native proof file are checked; every implementation status remains unchecked. Source context: [Stacks01JU](https://stacks.math.columbia.edu/tag/01JU). The exact transport and coherence results are authored deductions; no new source issue is asserted. The complete prior reader follows verbatim.\n\n'
+for n,x in [('Candidate.json',p),(RID+'.json',p),('NewNodes.json',new),('Plan.json',plan)]: (S/n).write_text(json.dumps(x,indent=2,ensure_ascii=False)+'\n')
+(S/'ReaderAddition.md').write_text(addition);(S/'Reader.md').write_text(addition+(S/'IncomingReader.md').read_text())
+print(json.dumps(dict(nodes=len(p['nodes']),new=len(new),baseline=len(p['baseline']['declarations']),rawAPI=sum(len(n.get('api',[]))for n in p['nodes']),rawTests=sum(len(n.get('tests',[]))for n in p['nodes']))))
 ```
 
 ## Script: projection.py
 
 ```python
-"""Keep concrete carriers, maps and components; admit mathematical proofs only."""
+"""Admit lemma/test proofs while retaining actual native scalar-module data."""
 import re
-
 def admit_lemmas(text):
-    lines=text.splitlines(keepends=True);out=[];i=0
-    while i<len(lines):
-        if re.match(r'^(?:lemma|theorem) |^example\b',lines[i]):
-            j=i+1
-            while j<len(lines) and (not lines[j].strip() or lines[j][0].isspace()):j+=1
-            block=''.join(lines[i:j]);depth=0;pos=None
-            for k,c in enumerate(block):
-                if c in '([{':depth+=1
-                elif c in ')]}':depth-=1
-                if block[k:k+2]==':=' and depth==0 and not re.match(r'\s*let(?:I)?\b',block[:k].rsplit('\n',1)[-1]):pos=k;break
-            assert pos is not None
-            out.append(block[:pos]+':= by\n  sorry\n\n');i=j
-        else:out.append(lines[i]);i+=1
-    return ''.join(out)
+ lines=text.splitlines(keepends=True);out=[];i=0
+ while i<len(lines):
+  if re.match(r'^(?:lemma|theorem) |^example\b',lines[i]):
+   j=i+1
+   while j<len(lines)and(not lines[j].strip()or lines[j][0].isspace()):j+=1
+   block=''.join(lines[i:j]);depth=0;pos=None;pending_let=0
+   for k,c in enumerate(block):
+    if c in '([{':depth+=1
+    elif c in ')]}':depth-=1
+    if depth==0 and re.match(r'let(?:I)?\b',block[k:]) and (k==0 or not (block[k-1].isalnum() or block[k-1]=='_')):
+     pending_let+=1
+    if block[k:k+2]==':='and depth==0:
+     if pending_let:pending_let-=1
+     else:pos=k;break
+   assert pos is not None,block
+   out.append(block[:pos]+':= by\n  sorry\n\n');i=j
+  else:out.append(lines[i]);i+=1
+ return ''.join(out)
+def split_imports(text):
+ lines=text.splitlines(keepends=True);last=max(i for i,l in enumerate(lines)if l.startswith('import '))
+ assert all(not l.strip()or l.startswith(('import ','--'))for l in lines[:last+1])
+ return ''.join(lines[:last+1]),''.join(lines[last+1:])
 
 def project(proofs,tests):
-    return admit_lemmas(proofs)+'\n'+admit_lemmas(tests)
+ return admit_lemmas(proofs)+'\n'+admit_lemmas(tests)
 ```
 
 ## Script: write_handoff.py
 
 ```python
-"""Record the bounded all-open composite comparison checkpoint and its replay scope."""
+"""Write the scoped mathematical handoff from exact completed proof receipts."""
 from pathlib import Path
-import hashlib,json,re
-S=Path(__file__).resolve().parent
-txt=lambda n:(S/n).read_text()
-data=lambda n:json.loads(txt(n))
-sha=lambda b:hashlib.sha256(b).hexdigest()
-def line(stem):
- r=data(stem+'.receipt.json');b=(S/(stem+'.lean')).read_bytes();assert r['exitStatus']==0
- assert r['warnings']==r['admissionWarnings'] and r['sorryAxReferences']==0
- return f"- {stem}.lean: {len(b.splitlines())} lines, {len(re.findall(r'^example\b',b.decode(),re.M))} examples, exit0, {r['warnings']} admission-only warnings, {r['axiomAudits']} axiom audits; {r['availableGiBBefore']}GiB available, {r['elapsedSeconds']}s, peak{r['maxRssKiB']}KiB. Source SHA256 `{sha(b)}`; diagnostic SHA256 `{r['logSha256']}`.\n"
-g=data('Graph.json');p=data('Candidate.json');changes=data('InputChanges.json')
-inherited=txt('IncomingHandoff.md').split('## Retained findings and reserved definitions\n\n',1)[1].split('## Resume\n',1)[0]
-h='''# Composite ideal pullback: closed sections and sheafification — checkpoint
+import hashlib,json,sys
+S=Path(sys.argv[1]).resolve()
+load=lambda n:json.loads((S/n).read_text())
+sha=lambda n:hashlib.sha256((S/n).read_bytes()).hexdigest()
+p=load('Candidate.json');plan=load('Plan.json');native=load('Native.receipt.json');canonical=load('Canonical.receipt.json')
+assert native['exitStatus']==canonical['exitStatus']==0
+assert native['warnings']==0 and canonical['warnings']==canonical['admissionWarnings']
+for stem in ['Native','Canonical']:
+ r=load(stem+'.receipt.json');assert r['sourceSha256']==sha(stem+'.lean')and r['logSha256']==sha(stem+'.log')
+text=f'''# Scheme and stack foundations: native comparison transport and coherence
 
-Agent: Codex — codex-7e92bd. Refs #642. Partial; all145 nodes remain unchecked.
+Codex — codex-7e92bd; 4 October 2026. Partial checkpoint for #642. Numeric claim5979238921 was confirmed by bot comment5979239856. Mathematical base `{(S/'base.txt').read_text().strip()}`; publication base `{(S/'publication-base.txt').read_text().strip()}`.
 
-For arbitrary f:X→Y, g:Y→Z and native ideal datum I on Z, let J=I.comap(f≫g) and K=(I.comap g).comap f. The existing kernelCompIso on every open of X now forms kernelCompNatIso between the actual allOpenQuotient presheaves. Its forward and inverse components preserve ambient section classes. The presheaves use the actual immersion-section kernels and restriction maps, without requiring an open or either morphism to be affine.
+Fifteen new lemma nodes extend the APIs of the three existing composite natural isomorphisms. All145 incoming mathematical contracts are unchanged;142 complete node objects are unchanged and only three API/test lists gain twelve API entries and nine tests. There are160 nodes and143 exact baseline declarations. Every node remains implementationStatus=unchecked; all seven stages retain their partial/not_read status, with SF.1 not_read. Eight gaps,62 source routes,twelve confirmed findings,five planets,six reserved-key boundaries and inherited E1 remain unchanged. No consumer request is marked discharged and no stage closes.
 
-Apply the native sheafification functor to kernelCompNatIso to construct sheafCompNatIso. Compose the inverse direct allOpenSheafComparison, this sheafified isomorphism and the iterated allOpenSheafComparison to obtain closedCompNatIso between the actual direct images of the two closed-subscheme structure presheaves. Both native immersion inverse-image functors remain explicit. Inverse cancellation gives the square with allOpenSheafComparison on every sheafified section. Evaluating it on the sheafification unit of an ambient class gives the closed comparison representative law. Quotient extensionality then proves the allOpenToClosed square on every quotient class. The sheafified square uniquely determines sheafCompNatIso.hom.
+The actual kernel-quotient comparison is identified with native eqToIso applied to the comap_comp equality of ideal data. The proof first eliminates equality of abstract ideal data, then uses concrete-morphism extensionality and quotient surjectivity: preservation of all representatives determines the entire natural isomorphism. This order avoids the kernel expansion encountered by earlier unsuccessful extensionality prototypes. The existing sheafification comparison equals the image of this transport under native sheafification. Conjugating by the two actual sheafification-to-closed-section isomorphisms identifies the existing closed comparison with transport of the entire dependent family K↦(Opens.map K.subschemeι.base).op followed by K.subscheme.presheaf. Arbitrary closed sections need no ambient representative.
 
-Fourteen nodes(3constructions11lemmas),12 API entries and9 distinct typed tests append to all131 unchanged incoming whole node objects. The136 old baseline entries,74 old raw API entries,78 old raw tests,eight gaps,62 source routes,twelve confirmed findings,six reserved-key boundaries,five planets and inherited E1 remain. Three native APIs are added to the baseline: asIso,Functor.mapIso,sheafification. All seven stages retain their partial/not_read status.
+Each of these three families now has left/right identity and three-morphism coherence. The three-morphism equation retains the scheme-arrow associativity transport and the transport of comap_comp(g,h) after comap f. Both paths are complete natural isomorphisms with identical endpoints. The generic equality-transport theory is imported from the pinned library.
 
-Tests cover every-class inverse cancellation, the empty open, two successive quotient restrictions, every closed-subscheme section and its actual restriction, the kernel-to-closed square on every class, the sheafified square on every section and its forced map. For two identity morphisms of Spec(ZMod4) and zero ideal datum, the global section corresponding to2 remains nonzero and square-zero after the sheafification unit and comparison. No flatness, reducedness, Noetherianity, finiteness or affineness hypothesis is imposed. No arbitrary closed section or sheafified section is assumed to have an ambient representative on its whole open.
-
-The closed comparison is constructed through the existing sheafification comparison isomorphisms; it is not asserted here to be literally the dependent eqToIso transport of the whole closed-section presheaf. Native comap_comp already underlies the component kernel equivalences. Identity and three-morphism coherence and explicit reindexed image-ideal quotient-to-closed/sheafification natural squares remain. No arbitrary nonaffine image-ideal equality, closed-section surjectivity or naive quotient sheaf condition is claimed.
+Nine typed tests evaluate all three associativity laws on arbitrary sections, evaluate identity laws, treat the empty open and arbitrary-proof inverse transport, and preserve a nonzero square-zero section2 for every natural isomorphism between the actual direct and iterated sheafifications on Spec(ZMod4). The existing comparison and its established native equality transport instantiate that last fixture; it does not assume the nilpotent-section conclusion. No reducedness, affineness, finiteness, flatness or Noetherianity is imposed on the all-open results.
 
 ## Reading and ownership
 
-The entire55077-character issue was read before claim5977776864 and reread after exact bot5977777784 confirmed that comment. ClaimReceipt.json binds the unchanged body SHA256 c08c1d0eb0edc9fd4ce94b778e1dfbe34aa995c8d47c6cdced5961d3ef21e439. Fresh reads include the current handoff narrative and recovery script, all eight gap contracts, the whole eleven-entry SF.0 frontier, both complete current Neron SF.0 request objects and the full reviewed SF.0 library-audit row plus AUDIT-01 review metadata before planning.
+Incoming own PR6058 at head2cd07be343df4ad2dd0f2b79390fe6d192cd2371 was recovered over actual public HTTP:66 artifacts,11 helpers,four final files. Manifest81fc4b14cf64aabe10ff0b99468892ff7b36a90ca72744a9421317a73f5770f8. Its actual verify.py and immutable.py were personally read and both immutable verifier reports reproduced byte-for-byte. All four current owned inputs equal those public deliverables. The2182-line native prefix and complete1838-line Mathlib-only planning prefix are authenticated, preserved verbatim and recompiled in full.
 
-Peer6052 at immutable head3c9cbed36f355a4e1911d9aa9e9fdf430e869e12 was publicly recovered:63 artifacts,10 archived helpers and4 final deliverables. Both actual immutable verifier reports were replayed byte-for-byte at their respective mathematical and publication bases. All four incoming files match that public head. Its14 new declarations and10 examples and the consumed earlier all-open restriction, quotient, closed-section and sheafification block were freshly read. The entire1912-line native prefix is authenticated and recompiled; no fresh manual review of every inherited proof or every131-node contract is asserted. Peer reading attribution is not borrowed.
+The whole55077-character issue was read before and after exact numeric bot confirmation. Fresh reading covers the prior handoff narrative and recovery code; all fourteen own6058 additions and nine tests; consumed earlier native ranges1180–1328 and1670–1805; all eight gaps and the full SF.0 frontier; the reviewed SF.0 library audit row and review metadata; both complete current SF.0 consumer requests; and all34 whole touching-link/overlap/examined entries across29 files. Exact own6058 and nested own6049 manifests preserve the attribution and scopes of reused reading.27 of32 previous guard controls are unchanged. The changed four owned inputs are own6058 final outputs; the changed consumer packet was freshly read at the two complete SF.0 requests. No new whole145-node manual audit is asserted.
 
-Own6049 manifest74840cf3b0c894b9cafc3e9a7cec6cadc3637e32ce6fa64ca9a24ab6bca01ac3 binds its original Reading/InputGuard records and inherited same-session6035 reading/guard/manifest records. Their original protocol, audit, review, campaign, RS25, reserved-key and upstream reading scopes retain their original attribution. Reuse is limited to27 unchanged controls among32. Four owned inputs and the whole Neron consumer packet changed; both current complete SF.0 requests were freshly read, without claiming a fresh whole consumer-packet audit. Hash equality is not new reading.
+Fresh source reading is the complete displayed Stacks Lemma26.17.6, tag01JU: statement, proof and all three page comments. It supplies image-ideal pullback context. These exact native transport and coherence equations are authored deductions from the pinned APIs and existing comparisons, not additional literal source theorems. The HTTP byte hash, date and precise source scopes are retained. Native source reading includes IdealSheaf/Functorial1–92, CategoryTheory/EqToHom1–365 and Ideal/Quotient/Defs185–238, plus ConcreteCategory/EpiMono1–58 and150–193 for the native component-isomorphism bijectivity used by the nonreduced test. All fifteen new statements, proof bodies and nine complete test bodies were inspected. Exact-name searches over both pinned libraries and current packets found no proposed names; this is bounded name evidence, not exhaustive semantic or upstream PR/Zulip absence.
 
-The whole current displayed Stacks01JU mathematical statement, proof and three page comments were read. SourceReading.json records the actual HTTP hash, byte count and access time without retaining source HTML or PDFs. The source supplies the image-ideal pullback convention. These precise composite presheaf, unit, closed-section and sheafification equations are authored deductions from pinned native APIs and the existing actual constructions. No new finding arose in this bounded passage. Historical sources,62 routes,12 confirmed findings and E1 retain their original attribution and unresolved obligations. No fresh inherited-erratum, whole-paper, source-history or recursive source closure is claimed. SourceFiles.json records whole pinned file hashes and read ranges; BaselineReading.json records exact index statements. Search.json records bounded exact-name searches, with no claim that name absence proves semantic novelty.
+Both existing conductor/flat-recomputation requests remain open. The complete touching-link corpus, accepted RS25 interfaces and owner boundaries are checked at both immutable bases. No upstream roadmap, link file or foreign packet is edited. The unchanged inherited source/version records and E1 retain their earlier attribution: no fresh full-source or historical erratum audit is claimed.
 
 ## Validation
 
-The complete Mathlib-only suggested file equals Canonical.lean and compiles at exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 with Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d. Native.lean recompiles the full authenticated incoming proof prefix, all fourteen new bodies and nine tests, with116 axiom audits. It has no admissions, errors or warnings. Every audit uses only propext,Classical.choice and Quot.sound. Canonical has217 admission-only warnings. All14 new declaration headers and9 example headers match their admitted projections; the three actual construction bodies, carriers, maps and dependent inverse-image functors survive projection.
+Exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and TauCeti f790474821cf4256814db967cb154e7af3d0c369. Exact declarations.tsv SHA25686649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1. Existing compiled dependencies and Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d were checked before each serial compile. No cache download, build setup or language server was used. Each run used one thread, an8192MiB cap, a1200-second timeout and fresh available memory≥20GiB.
 
-Only the existing exact build was used. Lean runs were serial with a fresh available-memory check≥20GiB,8192MiB limit and1200-second timeout. No Lake project/update/cache/library build or language server was started. Nothing is left running at submission.
+Native.lean: {len((S/'Native.lean').read_text().splitlines())} lines,81 examples,131 axiom audits,zero errors or warnings,no sorryAx. Source SHA256 `{native['sourceSha256']}`; log SHA256 `{native['logSha256']}`. Available memory{native['availableGiBBefore']}GiB; elapsed{native['elapsedSeconds']}seconds; peak RSS{native['maxRssKiB']}KiB. Every new declaration audit uses only propext, Classical.choice and Quot.sound as applicable. This is proof evidence for the bounded accumulated strand, not implementation of the whole roadmap.
 
-'''+line('Native')+line('Canonical')+f'''
-Actual indexed checker, source/errata and intake functions are executed by verify.py. The packet has145 nodes(1definition21constructions117lemmas6theorems),86 raw API entries,87 raw tests,139 baseline declarations and5 planets. The exact checker counts and zero-error/zero-warning result are in both archived verification reports.
+Canonical.lean equals the complete final Suggested.lean byte-for-byte: {len((S/'Canonical.lean').read_text().splitlines())} lines,102 examples,241 admission-only warnings,zero errors or other warnings. Source SHA256 `{canonical['sourceSha256']}`; log SHA256 `{canonical['logSha256']}`. Available memory{canonical['availableGiBBefore']}GiB; elapsed{canonical['elapsedSeconds']}seconds; peak RSS{canonical['maxRssKiB']}KiB. The complete Mathlib-only suggested file was compiled. Its deliberate admissions preserve the exact fifteen new theorem headers and nine test headers; actual definitions and dependent transports are unchanged.
 
-Immutable atlas assembly has stage{g['stageDAG']['vertices']}/{g['stageDAG']['edges']}, own{g['ownDeclarationDAG']['vertices']}/{g['ownDeclarationDAG']['edges']} and scoped{g['scopedDAG']['vertices']}/{g['scopedDAG']['edges']} vertices/edges, all acyclic. All{g['requiredPairs']} required supplier and{g['ownRestructurePairs']} owned accepted-restructure pairs are reachable. No owned unresolved/skipped/pending links appear. Whole foreign roadmap and stage objects and all existing stage-edge objects match their controls. The{g['otherPreexistingMissingRestructurePairs']} unrelated preexisting missing restructure paths retain hash{g['otherMissingRestructurePairsSha256']}.
-
-Mathematical base `{txt('base.txt').strip()}`; publication control `{txt('publication-base.txt').strip()}`. Both actual immutable reports are archived. All{len(data('InputGuard.json'))} input guards are checked at both controls, with{len(changes)} explicitly reviewed changes. Both complete incoming SF.0 request objects match both controls. There is no new outgoing request.
+The archived actual verifier runs the blueprint checker against the exact index, source-issue/errata validation, intake and atlas graph assembly at both immutable bases. It checks all66 guarded inputs, both complete consumer requests, the full touching-link corpus, all preserved node contracts, proof/source/log hashes, axiom audits, declaration-header equality, test names, ownership, dependencies and closure. Foreign graph missing-pair evidence is retained by the graph verifier, without silently repairing unrelated roadmaps. Final actual public HTTP recovery and both immutable reports must reproduce byte-for-byte before submission.
 
 ## Retained findings and reserved definitions
 
-The following block is inherited whole from the incoming6052 handoff with its original attribution. It records ownership and unfinished work; it is not new implementation or a fresh historical review:
-
-'''+inherited+'''
+{(S/'FindingsBlock.md').read_text()}
 ## Resume
 
-Use kernelCompNatIso on all opens, sheafCompNatIso on the actual native sheafifications, and closedCompNatIso on the actual direct images of closed-subscheme structure presheaves. Their allOpenToClosed and allOpenSheafComparison squares commute, with representatives preserved in both directions. Next compare the closed isomorphism with native ideal-data equality transport if that literal transport API is required, then establish identity and three-morphism coherence and the explicit reindexed image-ideal quotient natural squares. Preserve every dependent inverse-image functor and the intermediate affine hypothesis of quotientCompIso.
+The complete whole-presheaf equality and identity/three-morphism coherence are now available for kernel quotient, native sheafification and closed-section families. Continue with explicit reindexed image-ideal quotient-to-closed and sheafification natural squares; preserve their intermediate affine hypotheses. Then identify the actual conductor ideals and prove flat recomputation required by the two consumer requests. Do not replace kernel quotients by image ideals on arbitrary nonaffine opens, assert global closed-section surjectivity, or assume the naive quotient presheaf is a sheaf.
 
-All eight gaps remain: henselization scalar towers/coequalizers, lifted selectors and localization, unread source/Zariski-main leaves, remaining sample API, five other reserved keys, alteration ownership, source-route/stage closure and PerfectoidSpaces consolidation. Conductor identification, scheme pushout and recomputed flat conductors remain with the Neron consumer. Preserve all62 source routes and other-stage obligations. No stage, source worklist or roadmap is certified complete.
+{plan['frontier']}
 
+All remaining stages, eight gaps, source/version and reserved-key obligations remain exactly as recorded. Depth-first continuation should use the recovered Native.lean and the actual three existing comparisons, retaining all dependent inverse images and explicit transports.
 '''
-(S/'HandoffBase.md').write_text(h);(S/'Handoff.md').write_text(h)
+(S/'HandoffBase.md').write_text(text)
+(S/'Handoff.md').write_text(text)
+print('Wrote scoped handoff from completed exact proof receipts')
 ```
 
 ## Script: verify.py
@@ -360,14 +359,20 @@ assert sha((S/'PreviousMathematicalVerification.json').read_bytes())==incoming['
 assert sha((S/'NativePrefix.lean').read_bytes())==incoming['nativeSourceSha256']==data('PreviousVerification.json')['compilation']['Native']['sourceSha256']
 for path,n in zip(paths,['Incoming.json','IncomingReader.md','Incoming.lean','IncomingHandoff.md']):assert sha((S/n).read_bytes())==incoming['publicRecovery']['publicDeliverables'][path]
 p=data('Candidate.json');old=data('Incoming.json');plan=data('Plan.json')
-assert len(old['nodes'])==131 and len(p['nodes'])==145 and p['nodes'][:131]==old['nodes']
-assert p['nodes'][131:]==data('NewNodes.json')and [n['id']for n in p['nodes'][131:]]==plan['newNodes']
-assert len({n['id']for n in p['nodes']})==145 and set(p)==set(old)
+assert len(old['nodes'])==145 and len(p['nodes'])==160
+for a,b in zip(old['nodes'],p['nodes'][:145]):
+ if a['id']in plan['apiUpdates']:
+  u=plan['apiUpdates'][a['id']];assert b['api']==a['api']+u['api']and b['tests']==a['tests']+u['tests']
+  assert {k:v for k,v in a.items()if k not in ['api','tests']}=={k:v for k,v in b.items()if k not in ['api','tests']}
+ else:assert a==b
+assert sum(a==b for a,b in zip(old['nodes'],p['nodes']))==142
+assert p['nodes'][145:]==data('NewNodes.json')and [n['id']for n in p['nodes'][145:]]==plan['newNodes']
+assert len({n['id']for n in p['nodes']})==160 and set(p)==set(old)
 for k in old:
  if k not in ['nodes','summary','sources','sourceVersions','baseline','coverage','validationBoundary']:assert p[k]==old[k],k
 assert p['sources']==old['sources']+plan['newSources']and p['sourceVersions']==old['sourceVersions']+plan['newVersions']
 assert p['summary'].startswith(old['summary'])
-assert p['baseline']['declarations']==old['baseline']['declarations']+plan['newBaseline']and len(p['baseline']['declarations'])==139
+assert p['baseline']['declarations']==old['baseline']['declarations']+plan['newBaseline']and len(p['baseline']['declarations'])==143
 assert {k:v for k,v in p['baseline'].items()if k!='declarations'}=={k:v for k,v in old['baseline'].items()if k!='declarations'}
 assert p['coverage'][1:]==old['coverage'][1:]
 assert p['coverage'][0]['remaining']==old['coverage'][0]['remaining']+[plan['frontier']]
@@ -376,7 +381,7 @@ assert p['status']=='partial'and all(n['implementationStatus']=='unchecked'for n
 assert (len(p['requests']),len(p['gaps']),len(p['coverage']),len(p['sourceWorklist']),len(p['sourceIssues']),len(p['confirmedFindings']))==(0,8,7,62,1,12)
 assert txt('Reader.md')==txt('ReaderAddition.md')+txt('IncomingReader.md')
 assert not re.search(r'```\s*lean|\bsorry\b',txt('ReaderAddition.md'))
-for n in p['nodes'][131:]:
+for n in p['nodes'][145:]:
  assert n['statement']in txt('ReaderAddition.md')and n['leanName']in txt('ReaderAddition.md')
  for item in n.get('api',[])+n.get('tests',[]):assert not re.search(r'\b(?:lemma|theorem|example)\b[^.]*:=|```',item['statement'])
 for t in plan['newTests']:assert t['name']in txt('ReaderAddition.md')and t['statement']in txt('ReaderAddition.md')
@@ -386,18 +391,21 @@ assert txt('TestsAdmitted.lean')==admit_lemmas(txt('NewTests.lean'))
 def headers(text):
  out={}
  for m in re.finditer(r'^(?:(noncomputable )?def|lemma|theorem|example)\b(?: ([\w.]+))?',text,re.M):
-  depth=0;end=None
+  depth=0;end=None;pending_let=0
   for i in range(m.start(),len(text)):
    c=text[i]
    if c in '([{⟨':depth+=1
    elif c in ')]}⟩':depth-=1
-   if depth==0 and text.startswith(':=',i)and not re.match(r'\s*let(?:I)?\b',text[m.start():i].rsplit('\n',1)[-1]):end=i;break
+   if depth==0 and re.match(r'let(?:I)?\b',text[i:]) and (i==0 or not (text[i-1].isalnum()or text[i-1]=='_')):pending_let+=1
+   if depth==0 and text.startswith(':=',i):
+    if pending_let:pending_let-=1;continue
+    end=i;break
   assert end is not None
   name=m.group(2)if not m.group().startswith('example')else'example#'+str(len(out))
   assert name not in out
   out[name]=' '.join(text[m.start():end].split())
  return out
-assert headers(txt('New.lean'))==headers(txt('NewAdmitted.lean'))and len(headers(txt('New.lean')))==14
+assert headers(txt('New.lean'))==headers(txt('NewAdmitted.lean'))and len(headers(txt('New.lean')))==15
 assert headers(txt('NewTests.lean'))==headers(txt('TestsAdmitted.lean'))and len(headers(txt('NewTests.lean')))==9
 assert {n.rsplit('.',1)[-1]for n in plan['newNames']}==set(headers(txt('New.lean')))
 assert txt('Canonical.lean')==txt('NewImports.lean')+txt('Incoming.lean')+'\n'+txt('NewAdmitted.lean')+'\n'+txt('TestsAdmitted.lean')==txt('Suggested.lean')
@@ -405,7 +413,7 @@ assert txt('Native.lean')==txt('NewImports.lean')+txt('NativePrefix.lean')+'\n'+
 assert not re.search(r'\b(?:sorry|admit|axiom)\b',txt('Native.lean'))
 assert {t['name']for t in plan['newTests']}==set(re.findall(r'^-- test: (.+)$',txt('NewTests.lean'),re.M))
 comp={}
-for stem,ex,want,audits in [('Native',72,0,116),('Canonical',93,217,0)]:
+for stem,ex,want,audits in [('Native',81,0,131),('Canonical',102,241,0)]:
  rec=data(stem+'.receipt.json');log=txt(stem+'.log');b=(S/(stem+'.lean')).read_bytes()
  assert rec['exitStatus']==0 and rec['availableGiBBefore']>=20
  assert rec['sourceSha256']==sha(b)and rec['logSha256']==sha(log.encode())
@@ -430,21 +438,22 @@ for ref in [MATH,BASE]:
  else:assert contract==original
  consumer=json.loads(blob(ref,'research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json'))
  assert [q for q in consumer['requests']if q['supplier']==RID+':SF.0']==data('ConsumerRequest.json')
-claim=data('ClaimReceipt.json');assert claim['issue']==642 and claim['claim']==5977776864 and claim['confirmation']==5977777784
-assert claim['wholeIssueCharacters']==55077 and claim['wholeIssueReadBeforeAndAfterInSixSlices']
+claim=data('ClaimReceipt.json');assert claim['issue']==642 and claim['claim']==5979238921 and claim['confirmation']==5979239856
+assert claim['wholeIssueCharacters']==55077 and claim['wholeReadsBeforeAndAfter']==[[0,15000],[15000,30000],[30000,45000],[45000,55077]]
 assert claim['bodySha256']=='c08c1d0eb0edc9fd4ce94b778e1dfbe34aa995c8d47c6cdced5961d3ef21e439'
-assert len({t['name']for n in p['nodes'][131:]for t in n.get('tests',[])})==9
-assert sum(len(n.get('api',[]))for n in p['nodes'][131:])==12
-for n in p['nodes'][131:]:
+assert len({t['name']for u in plan['apiUpdates'].values()for t in u['tests']})==9
+assert sum(len(u['api'])for u in plan['apiUpdates'].values())==12
+assert len(plan['apiUpdates'])==3
+for n in p['nodes'][145:]:
  if n['kind']=='construction':assert len(n['api'])>=3 and len(n['tests'])>=3
-assert len(plan['newNames'])==14 and len(plan['newTests'])==9
+assert len(plan['newNames'])==15 and len(plan['newTests'])==9
 assert txt('CanonicalPrefix.lean')==txt('Incoming.lean')and txt('NewImports.lean')==''
 for a,b in [('IncomingMathematicalVerification-replayed.json','PreviousMathematicalVerification.json'),('IncomingPublicationVerification-replayed.json','PreviousVerification.json')]:assert (S/a).read_bytes()==(S/b).read_bytes()
 im=data('IncomingManifest.json');ir=data('PreviousRecovery.json')
-assert sha((S/'IncomingManifest.json').read_bytes())=='fc39e850352f81e0d9ef9003c8418d2b00f2659587d02b3712d194115ab63017'
-assert ir['head']=='3c9cbed36f355a4e1911d9aa9e9fdf430e869e12'and ir['artifactsVerified']==63 and ir['archivedHelpersVerified']==10
+assert sha((S/'IncomingManifest.json').read_bytes())=='81fc4b14cf64aabe10ff0b99468892ff7b36a90ca72744a9421317a73f5770f8'
+assert ir['head']=='2cd07be343df4ad2dd0f2b79390fe6d192cd2371'and ir['artifactsVerified']==66 and ir['archivedHelpersVerified']==11
 assert im['Native.lean']['sha256']==sha((S/'NativePrefix.lean').read_bytes())and im['Canonical.lean']['sha256']==sha((S/'CanonicalPrefix.lean').read_bytes())
-assert sha((S/'OwnPreviousManifest.json').read_bytes())=='74840cf3b0c894b9cafc3e9a7cec6cadc3637e32ce6fa64ca9a24ab6bca01ac3'
+assert sha((S/'OwnPreviousManifest.json').read_bytes())=='81fc4b14cf64aabe10ff0b99468892ff7b36a90ca72744a9421317a73f5770f8'
 om=data('OwnPreviousManifest.json')
 for original,current in [('Reading.json','OwnPreviousReading.json'),('InputGuard.json','OwnPreviousInputGuard.json'),('OwnPreviousReading.json','OwnInheritedReading.json'),('OwnPreviousInputGuard.json','OwnInheritedInputGuard.json'),('OwnPreviousManifest.json','OwnInheritedManifest.json')]:assert om[original]['sha256']==sha((S/current).read_bytes())
 prior={x['path']:x['sha256']for x in data('OwnPreviousInputGuard.json')}
@@ -452,7 +461,28 @@ comparisons=data('OwnReadingReuse.json');assert len(comparisons)==32 and sum(g['
 for g in comparisons:
  assert g['before']==prior[g['path']]and g['after']==sha(blob(MATH,g['path']))
  assert g['unchanged']==(g['before']==g['after'])
-assert len(data('SourceFiles.json'))==6
+assert len(data('InputGuard.json'))==66
+search=data('Search.json');assert search['names']==plan['newNames']
+assert search['searchedShortNames']==[n.rsplit('.',1)[-1]for n in plan['newNames']]
+assert {x['scope']for x in search['searches']}=={'mathlib','TauCeti','packets'}
+assert all(x['exitStatus']==1 and x['matches']==[]for x in search['searches'])
+touch=data('TouchingLinks.json');assert len(touch)==29 and sum(len(t['entries'])for t in touch)==34
+for ref in [MATH,BASE]:
+ found=[]
+ linkpaths=subprocess.check_output(['git','ls-tree','-r','--name-only',ref,'--','research/blueprint/links'],cwd=R,text=True).splitlines()
+ for path in linkpaths:
+  if not path.endswith('.json'):continue
+  raw=blob(ref,path);link=json.loads(raw)
+  entries=[dict(kind=k,index=i,entry=e)for k in ['links','overlaps','examined']for i,e in enumerate(link.get(k,[]))if RID in json.dumps(e)]
+  if entries:found.append(dict(path=path,sha256=sha(raw),entries=entries))
+ assert found==touch,'Touching links changed at '+ref
+assert txt('FindingsBlock.md')in txt('HandoffBase.md')
+assert len(data('SourceFiles.json'))==4
+assert data('OwnPreviousCandidate.json')==old
+assert sha((S/'OwnPreviousCandidate.json').read_bytes())==om['Candidate.json']['sha256']
+assert sha((S/'OwnInheritedManifest.json').read_bytes())=='74840cf3b0c894b9cafc3e9a7cec6cadc3637e32ce6fa64ca9a24ab6bca01ac3'
+for original,current in [('Reading.json','OwnInheritedReading.json'),('InputGuard.json','OwnInheritedInputGuard.json')]:assert data('OwnInheritedManifest.json')[original]['sha256']==sha((S/current).read_bytes())
+assert sha(Path(sys.argv[2]).read_bytes())=='86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1'
 if (S/'PublicHandoff.md').exists():
  assert txt('PublicHandoff.md').startswith(txt('HandoffBase.md'))
  fence=chr(96)*3
@@ -480,7 +510,7 @@ env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'
 job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs']if j['id']==JOB)
 problems=[x for f,t in contents.items()for x in env['file_problems'](f,t)];refusals=env['auto_refusals'](job,paths,False,{'codex-7e92bd'},set());assert not problems and not refusals,(problems,refusals)
 graph=json.loads(subprocess.check_output([sys.executable,str(S/'graph.py'),str(S)],cwd=R,text=True,env={**os.environ,'SCHEME_VALIDATE_BASE':BASE}));assert graph['auditBase']==BASE
-print(json.dumps(dict(mathematicalBase=MATH,publicationBase=BASE,preservedWholeNodes=131,newNodes=14,newApi=12,newTests=9,baselineDeclarations=139,rawApi=sum(len(n.get('api',[]))for n in p['nodes']),rawTests=sum(len(n.get('tests',[]))for n in p['nodes']),matchedNewDeclarationHeaders=14,matchedTestHeaders=9,checker=checker,compilation=comp,canonicalSha256=sha(txt('Canonical.lean').encode()),fullCanonicalCompiled=True,guardedInputs=len(data('InputGuard.json')),reviewedInputChanges=changes,consumerRequestsUnchanged=2,indexSha256=sha(Path(sys.argv[2]).read_bytes()),intakeProblems=problems,intakeRefusals=refusals,sourceIssueErrors=issues,sourceVersionScope='All inherited version records and E1 preserved; one complete current displayed01JU reading appended. No fresh inherited-erratum or whole-paper audit.',graph=graph,LeanExecuted=False),indent=2))
+print(json.dumps(dict(mathematicalBase=MATH,publicationBase=BASE,preservedWholeNodes=142,preservedMathematicalContracts=145,newNodes=15,newApi=12,newTests=9,baselineDeclarations=143,rawApi=sum(len(n.get('api',[]))for n in p['nodes']),rawTests=sum(len(n.get('tests',[]))for n in p['nodes']),matchedNewDeclarationHeaders=15,matchedTestHeaders=9,checker=checker,compilation=comp,canonicalSha256=sha(txt('Canonical.lean').encode()),fullCanonicalCompiled=True,guardedInputs=len(data('InputGuard.json')),reviewedInputChanges=changes,consumerRequestsUnchanged=2,indexSha256=sha(Path(sys.argv[2]).read_bytes()),intakeProblems=problems,intakeRefusals=refusals,sourceIssueErrors=issues,sourceVersionScope='All inherited version records and E1 preserved; one complete current displayed01JU reading appended. No fresh inherited-erratum or whole-paper audit.',graph=graph,LeanExecuted=False),indent=2))
 ```
 
 ## Script: graph.py
@@ -723,7 +753,7 @@ available=int(free.splitlines()[1].split()[-1])
 print(json.dumps({'preflight':'serial existing pinned build','availableGiB':available,'packages':packages,'omitted':omitted,'leanVersion':version}),flush=True)
 if available<20:print('Memory guard refused compilation.',flush=True);sys.exit(75)
 env=os.environ.copy();env['LEAN_PATH']=os.pathsep.join(str(p) for p in libs)
-result=subprocess.run(['/usr/bin/time','-v','timeout','1200',str(lean),'-j','1','-M','8192',str(out/name)],env=env)
+result=subprocess.run(['/usr/bin/time','-v','stdbuf','-oL','-eL','timeout','1200',str(lean),'-j','1','-M','8192',str(out/name)],env=env)
 sys.exit(result.returncode)
 ```
 
@@ -735,8 +765,14 @@ from pathlib import Path
 import subprocess,sys,hashlib,json,re,time
 S=Path(sys.argv[1]).resolve();name=sys.argv[4];prefix=name[:-5]
 start=time.monotonic()
-r=subprocess.run([sys.executable,str(S/'compile.py')]+sys.argv[1:],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
-raw=r.stdout
+r=subprocess.Popen([sys.executable,str(S/'compile.py')]+sys.argv[1:],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,bufsize=1)
+lines=[]
+for line in r.stdout:
+ lines.append(line)
+ if 'error:' in line or line.startswith('Test completed: ') or (line.startswith('TauCeti.SchemeFoundations.IdealPullback.') and 'depends on axioms' not in line):
+  print(line.replace(str(S),'<SCRATCH>').rstrip(),flush=True)
+r.wait();raw=''.join(lines)
+
 log=raw.replace(str(S),'<SCRATCH>').replace(sys.argv[2],'<MATHLIB>').replace(sys.argv[3],'<LEAN>')
 def put(n,t):
  p=S/n
@@ -754,7 +790,7 @@ record={'sourceSha256':hashlib.sha256((S/name).read_bytes()).hexdigest(),'logSha
 put(prefix+'.log',log);put(prefix+'.receipt.json',json.dumps(record,indent=2)+'\n')
 print(json.dumps(record,indent=2))
 if r.returncode or record['warnings']!=record['admissionWarnings']:
- print('\n'.join(x for x in log.splitlines() if 'error' in x or 'warning' in x))
+ print('\n'.join(x for x in log.splitlines() if 'error' in x or ('warning' in x and 'warning: declaration uses' not in x)))
 sys.exit(r.returncode)
 ```
 
@@ -772,7 +808,7 @@ NAMES='''Incoming.json IncomingReader.md Incoming.lean IncomingHandoff.md Incomi
 NativePrefix.lean CanonicalPrefix.lean Native.lean Native.log Native.receipt.json Canonical.lean Canonical.log Canonical.receipt.json
 New.lean NewTests.lean NewAdmitted.lean TestsAdmitted.lean Audits.lean NewImports.lean Candidate.json NewNodes.json Reader.md ReaderAddition.md Suggested.lean Handoff.md HandoffBase.md
 ClaimReceipt.json Reading.json SourceReading.json SourceFiles.json BaselineReading.json Search.json ConsumerRequest.json
-OwnPreviousReading.json OwnPreviousInputGuard.json OwnPreviousManifest.json OwnReadingReuse.json OwnInheritedReading.json OwnInheritedInputGuard.json OwnInheritedManifest.json InputGuard.json InputChanges.json
+OwnPreviousCandidate.json TouchingLinks.json FindingsBlock.md OwnPreviousReading.json OwnPreviousInputGuard.json OwnPreviousManifest.json OwnReadingReuse.json OwnInheritedReading.json OwnInheritedInputGuard.json OwnInheritedManifest.json InputGuard.json InputChanges.json
 Plan.json PreviousHead.txt PreviousRecovery.json PreviousVerification.json PreviousMathematicalVerification.json MathematicalVerification.json Verification.json Graph.json base.txt publication-base.txt
 assemble.py author.py projection.py write_handoff.py verify.py graph.py immutable.py compile.py runcheck.py package.py prepare.py'''.split()
 if mode=='archive':
@@ -782,12 +818,12 @@ if mode=='archive':
  pb=(json.dumps(payload,sort_keys=True,separators=(',',':'))+'\n').encode();(S/'payload.json').write_bytes(pb)
  report=dict(artifacts=len(NAMES),helpers=sum(n.endswith('.py')for n in NAMES),manifestSha256=sha(mb),payloadSha256=sha(pb))
  (S/'package.json').write_text(json.dumps(report,indent=2)+'\n')
- suggested.write_bytes((S/'Suggested.lean').read_bytes()+b'\n/- BEGIN ARCHIVED COMPOSITE ALL-OPEN COMPARISON PAYLOAD\n'+pb+b'END ARCHIVED COMPOSITE ALL-OPEN COMPARISON PAYLOAD -/\n')
+ suggested.write_bytes((S/'Suggested.lean').read_bytes()+b'\n/- BEGIN ARCHIVED COMPOSITE COHERENCE PAYLOAD\n'+pb+b'END ARCHIVED COMPOSITE COHERENCE PAYLOAD -/\n')
  print(json.dumps(report,indent=2))
 elif mode=='final':
  archive=sys.argv[3];assert re.fullmatch('[0-9a-f]{40}',archive)
  p=json.loads((S/'package.json').read_text());expected={k:sha((S/n).read_bytes())for k,n in [('packets','Candidate.json'),('readmes','Reader.md'),('suggested','Suggested.lean')]}
- code='''"""Recover public authenticated composite all-open comparison evidence; never executes Lean."""
+ code='''"""Recover public authenticated composite coherence evidence; never executes Lean."""
 from pathlib import Path
 import base64,hashlib,json,re,sys,urllib.request,zlib
 S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
@@ -802,7 +838,7 @@ sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch(ref,path):
  with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
 raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
-pb=raw.split('/- BEGIN ARCHIVED COMPOSITE ALL-OPEN COMPARISON PAYLOAD\\n',1)[1].split('END ARCHIVED COMPOSITE ALL-OPEN COMPARISON PAYLOAD -/',1)[0].encode()
+pb=raw.split('/- BEGIN ARCHIVED COMPOSITE COHERENCE PAYLOAD\\n',1)[1].split('END ARCHIVED COMPOSITE COHERENCE PAYLOAD -/',1)[0].encode()
 assert sha(pb)==PAYLOAD_SHA
 payload=json.loads(pb)
 def unpack(name):
@@ -863,26 +899,32 @@ else:raise ValueError(mode)
 ## Script: prepare.py
 
 ```python
-"""Bind recovered peer evidence and the worker's own earlier reading scope."""
+"""Authenticate own incoming evidence and record bounded reading provenance."""
 from pathlib import Path
-import shutil,json,hashlib,subprocess
-S=Path(__file__).resolve().parent;R=Path.cwd();I=S/'incoming';E=Path(__import__('sys').argv[1])
+import hashlib,json,subprocess
+S=Path(__file__).resolve().parent;R=Path.cwd()
 sha=lambda b:hashlib.sha256(b).hexdigest()
-def save(n,x):(S/n).write_text(json.dumps(x,indent=2)+'\n')
-for a,b in [('artifact-manifest.json','IncomingManifest.json'),('public-recovery.json','PreviousRecovery.json'),('MathematicalVerification.json','PreviousMathematicalVerification.json'),('Verification.json','PreviousVerification.json')]:shutil.copyfile(I/a,S/b)
-for a,b in [('OwnPreviousReading.json','OwnInheritedReading.json'),('OwnPreviousInputGuard.json','OwnInheritedInputGuard.json'),('OwnPreviousManifest.json','OwnInheritedManifest.json')]:shutil.copyfile(E/a,S/b)
-om=json.loads((S/'OwnPreviousManifest.json').read_text())
-for original,current in [('Reading.json','OwnPreviousReading.json'),('InputGuard.json','OwnPreviousInputGuard.json'),('OwnPreviousReading.json','OwnInheritedReading.json'),('OwnPreviousInputGuard.json','OwnInheritedInputGuard.json'),('OwnPreviousManifest.json','OwnInheritedManifest.json')]:assert om[original]['sha256']==sha((S/current).read_bytes())
-ir=json.loads((S/'PreviousRecovery.json').read_text())
+def data(n):return json.loads((S/n).read_text())
+def save(n,x):(S/n).write_text(json.dumps(x,indent=2,ensure_ascii=False)+'\n')
+im=data('IncomingManifest.json');om=data('OwnPreviousManifest.json')
+expected='81fc4b14cf64aabe10ff0b99468892ff7b36a90ca72744a9421317a73f5770f8'
+assert sha((S/'IncomingManifest.json').read_bytes())==sha((S/'OwnPreviousManifest.json').read_bytes())==expected
+for orig,local in [('Reading.json','OwnPreviousReading.json'),('InputGuard.json','OwnPreviousInputGuard.json'),('Candidate.json','OwnPreviousCandidate.json'),('OwnPreviousReading.json','OwnInheritedReading.json'),('OwnPreviousInputGuard.json','OwnInheritedInputGuard.json'),('OwnPreviousManifest.json','OwnInheritedManifest.json')]:assert om[orig]['sha256']==sha((S/local).read_bytes())
+assert sha((S/'OwnInheritedManifest.json').read_bytes())=='74840cf3b0c894b9cafc3e9a7cec6cadc3637e32ce6fa64ca9a24ab6bca01ac3'
+ih=data('OwnInheritedManifest.json')
+for orig,local in [('Reading.json','OwnInheritedReading.json'),('InputGuard.json','OwnInheritedInputGuard.json')]:assert ih[orig]['sha256']==sha((S/local).read_bytes())
+ir=data('PreviousRecovery.json')
+assert ir['head']=='2cd07be343df4ad2dd0f2b79390fe6d192cd2371'
 for folder,ext,n in [('packets','json','Incoming.json'),('readmes','md','IncomingReader.md'),('suggested','lean','Incoming.lean'),('handoff','md','IncomingHandoff.md')]:
- p='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+'SchemeAndStackFoundations.'+ext
- assert sha((S/n).read_bytes())==ir['publicDeliverables'][p]
- assert (S/n).read_bytes()==subprocess.check_output(['git','show',(S/'base.txt').read_text().strip()+':'+p],cwd=R)
+ path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+'SchemeAndStackFoundations.'+ext
+ assert sha((S/n).read_bytes())==ir['publicDeliverables'][path]
+ assert (S/n).read_bytes()==subprocess.check_output(['git','show',(S/'base.txt').read_text().strip()+':'+path],cwd=R)
 for a,b in [('IncomingMathematicalVerification-replayed.json','PreviousMathematicalVerification.json'),('IncomingPublicationVerification-replayed.json','PreviousVerification.json')]:assert (S/a).read_bytes()==(S/b).read_bytes()
-save('IncomingReceipt.json',dict(producer=6052,publicRecovery=ir,fourMathematicalBaseFilesMatchPublicHead=True,bothActualVerifiersMatchRecordedExactly=True,nativeSourceSha256=sha((S/'NativePrefix.lean').read_bytes()),mathematicalVerificationSha256=sha((S/'PreviousMathematicalVerification.json').read_bytes()),publicationVerificationSha256=sha((S/'PreviousVerification.json').read_bytes())))
-consumer=json.loads((R/'research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json').read_text());save('ConsumerRequest.json',[q for q in consumer['requests']if q['supplier']=='SchemeAndStackFoundations:SF.0'])
+for a,b in [('NativePrefix.lean','Native.lean'),('CanonicalPrefix.lean','Canonical.lean'),('PreviousVerification.json','Verification.json'),('PreviousMathematicalVerification.json','MathematicalVerification.json')]:assert sha((S/a).read_bytes())==im[b]['sha256']
+save('IncomingReceipt.json',dict(producer=6058,publicRecovery=ir,fourMathematicalBaseFilesMatchPublicHead=True,bothActualVerifiersMatchRecordedExactly=True,nativeSourceSha256=sha((S/'NativePrefix.lean').read_bytes()),mathematicalVerificationSha256=sha((S/'PreviousMathematicalVerification.json').read_bytes()),publicationVerificationSha256=sha((S/'PreviousVerification.json').read_bytes())))
+(S/'PreviousHead.txt').write_text(ir['head']+'\n')
 save('InputChanges.json',[])
-save('Search.json',dict(mathlibPin='082e2d37e8b0463410cdb532e111cd43d5a66174',tauPin='f790474821cf4256814db967cb154e7af3d0c369',trackedTreesClean=True,exactNameSearch='kernelCompNatIso|closedCompNatIso|sheafCompNatIso|closedSections_eqToIso_mk',exactNameHitsInBothSourceTrees=0,limits='Missing names alone are not a novelty proof; reviewed SF.0 audit, native ideal pullback and sheafification source APIs, incoming all-open comparison contracts and both complete Neron requests were examined. Native ideal pullback, equality isomorphisms, sheafification and its universal property are reused.'))
-save('Reading.json',dict(agent='Codex — codex-7e92bd',date='2026-10-04',scope='All-open composite kernel, closed-section and sheafification comparison. No whole-roadmap or recursive source closure.',ownReuse='Own6049 reading at27 unchanged controls among32; its original6035/6025/6017 scopes retain their attribution. Changed owned files and Neron packet are bounded to fresh reads.',freshScope=['Whole issue before and after exact bot confirmation; current handoff narrative and recovery, all8gaps, whole SF.0 frontier, current reviewed SF.0 audit and its review metadata, both complete Neron SF.0 requests.','Actual peer6052 public63artifacts10helpers4files recovered. Both actual immutable verifiers replayed byte-for-byte. Whole14 new declarations and10 examples, consumed all-open restriction/quotient/closed/sheafification block and helpers read; no peer reading attribution borrowed.','Complete displayed Stacks01JU statement/proof/three comments. Precise new transport and naturality formulas are authored deductions; no new source finding in this bounded reading.'],pinnedReadings='Actual statements and implementations: Functorial.lean1–85; Sheafification.lean70–218; EqToHom.lean140–169,210–240; Iso.lean470–510; NatIso.lean1–120,170–203. Exact index signatures separately bound in BaselineReading.json; whole-source hashes in SourceFiles.json.'))
-print('Incoming evidence and own scoped reading chain bound')
+save('Reading.json',dict(agent='Codex — codex-7e92bd',date='2026-10-04',scope='Native equality transport and identity/three-morphism coherence of the existing all-open composite comparisons. No whole-roadmap or recursive source closure.',ownReuse='Own6058 exact scopes and authenticated own6049 inherited scopes.27 of32 old guard controls unchanged; four owned files now equal own6058 final deliverables and both complete current Neron requests freshly read despite the changed consumer packet. Additional34 controls bind29 freshly read touching-link files and unchanged redteam/RS25 sources. Original attribution retained; equality is not a fresh whole-file reading.',freshScope=['Whole55077-character issue before and after claim5979238921 and exact bot5979239856, in four complete bounded slices.','Whole current handoff mathematical narrative and recovery code; own6058 public66artifacts11helpers4files authenticated. Actual mathematical and publication verifiers personally read and executed, reproducing both reports byte-for-byte.','All14 own6058 added proof declarations and9 tests; consumed earlier native1180–1328 and1670–1805. Full2182-line incoming native prefix authenticated/recompiled; no fresh whole-file manual proof audit.','All eight gaps and full twelve-entry SF.0 remaining list; reviewed SF.0 audit row and AUDIT-01 review metadata; both whole current SF.0 consumer request objects.','Whole displayed Stacks01JU statement, proof and all three comments; exact transport and coherence equations authored from native APIs. No new source finding; inherited E1 and historical source/version scopes retain their attribution.','All34 whole touching-link/overlap/examined entries across29 files freshly read, including the complete five substantive link/overlap entries.','Actual native declarations and implementations: Functorial1–92; EqToHom1–365; Ideal/Quotient/Defs185–238 and ConcreteCategory/EpiMono1–58,150–193 for the native bijectivity-of-isomorphism API used by the nonreduced test. Exact hashes/ranges in SourceFiles.json and new index signatures in BaselineReading.json.'],limits=['No full paper/source-worklist closure','No arbitrary nonaffine image-ideal equality or global closed-section surjectivity','No conductor-specific identification or flat-recomputation closure','No reserved-key or other-stage closure']))
+r=data('Reading.json');r['freshScope'].append('All fifteen current lemma statements and proof bodies, nine complete test bodies, and all current authoring/projection/recovery/verification/helper code personally inspected. Final complete Native and Canonical serial replay receipts bind the exact successful sources; preliminary failed prototypes are not claimed as evidence.');save('Reading.json',r)
+print('Authenticated own6058 incoming evidence and bounded reading chain')
 ```
