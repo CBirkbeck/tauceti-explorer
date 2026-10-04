@@ -1,3 +1,175 @@
+# Actual smaller-ring modules for the adic kernel and cokernel
+
+A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed.
+
+The general quotient scalar descent is already in pinned Mathlib and is imported. These declarations bind it to the exact previously constructed kernel and quotient. The Noetherian premise for the kernel is explicit and the quotient theorem is stronger: finite M over A suffices, with no Noetherian ring assumption. Full smaller-ring grading and the Hilbert–Serre induction remain open.
+
+## The actual kernel as a module over the smaller ring
+
+TauCeti.HilbertSamuel.adicModuleKernelScalarModule
+
+Construct a B-module structure on the same native kernel K using Mathlib Module.IsTorsionBy.module and the already proved a-annihilation witness. This preserves the existing additive carrier and S-action; it does not replace K by a separately chosen isomorphic module.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed.
+
+Proof: Feed the actual a-annihilation theorem to the native singleton-ideal scalar descent. Keep the original subtype carrier and its existing addition; quotient scalar representatives act by the original S-action.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-kernel-annihilated, mathlib:Module.IsTorsionBy.module, mathlib:Module.IsTorsionBySet.module.
+
+## The actual cokernel as a module over the smaller ring
+
+TauCeti.HilbertSamuel.adicModuleCokernelScalarModule
+
+Construct a B-module structure on the same native quotient C=L/aL using Mathlib Module.IsTorsionBy.module and the already proved a-annihilation witness. The native quotient classes and additive structure remain the same.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed.
+
+Proof: Feed actual quotient a-annihilation into the native singleton-ideal descent. Use the existing quotient carrier and representatives, without adding a non-zero-divisor premise.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-quotient-annihilated, mathlib:Module.IsTorsionBy.module, mathlib:Module.IsTorsionBySet.module.
+
+## Kernel scalar action on an actual ring representative
+
+TauCeti.HilbertSamuel.adicModuleKernelScalar_mk_smul
+
+For b∈S and x∈K, the descended action satisfies [b]·x=b·x in K, with [b] the actual class in S/(a).
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed.
+
+Proof: Unfold the specialized native torsion module action. The representative formula is definitional.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-smaller-ring-module.
+
+## Cokernel scalar action on an actual ring representative
+
+TauCeti.HilbertSamuel.adicModuleCokernelScalar_mk_smul
+
+For b∈S and z∈C, the descended action satisfies [b]·z=b·z in the original quotient C.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed.
+
+Proof: Unfold native torsion scalar descent; equality on an actual ring representative is definitional.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-smaller-ring-module.
+
+## Kernel scalar tower through the smaller ring
+
+TauCeti.HilbertSamuel.adicModuleKernelScalar_tower
+
+The original S-action and the descended B-action on K form IsScalarTower S B K for the actual ring quotient map.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed.
+
+Proof: Apply the exact native scalar-tower instance to the annihilation witness used in the module constructor.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-smaller-ring-module, mathlib:Module.IsTorsionBySet.isScalarTower.
+
+## Cokernel scalar tower through the smaller ring
+
+TauCeti.HilbertSamuel.adicModuleCokernelScalar_tower
+
+The original S-action and the descended B-action on C form IsScalarTower S B C for the actual ring quotient map.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed.
+
+Proof: Apply the native scalar-tower instance with the same quotient annihilation witness.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-smaller-ring-module, mathlib:Module.IsTorsionBySet.isScalarTower.
+
+## Independence of kernel scalar representatives
+
+TauCeti.HilbertSamuel.adicModuleKernelScalar_representative
+
+If b,c∈S have equal actual classes in S/(a), then b·x=c·x for every x∈K under the inherited S-action.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed.
+
+Proof: Replace both original scalar actions by the proved descended representative formula and rewrite using equality of the ring quotient classes.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-smaller-ring-representative-action.
+
+## Independence of cokernel scalar representatives
+
+TauCeti.HilbertSamuel.adicModuleCokernelScalar_representative
+
+If b,c∈S have equal actual classes in S/(a), then b·z=c·z for every z∈C under the inherited S-action.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed.
+
+Proof: Rewrite both original actions as actions of actual ring quotient classes and use their equality.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-smaller-ring-representative-action.
+
+## Kernel finite generation over the smaller ring
+
+TauCeti.HilbertSamuel.adicModuleKernelScalar_finite
+
+If L is Noetherian as an S-module, then the actual kernel K, with its descended action, is a finite B-module. Mere finiteness of L over a general non-Noetherian S is not asserted to suffice.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed. L is Noetherian as an S-module.
+
+Proof: Use the actual injective kernel subtype and the Noetherian ambient S-module to prove finiteness over S. Install the proved S/B/K scalar tower and apply native finite generation along restriction of scalars.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-smaller-ring-scalar-tower, mathlib:Module.Finite.of_injective, mathlib:Module.Finite.of_restrictScalars_finite.
+
+## Cokernel finite generation over the smaller ring
+
+TauCeti.HilbertSamuel.adicModuleCokernelScalar_finite
+
+If L is finite as an S-module, then the actual quotient C with its descended action is finite as a B-module. No Noetherian ring premise is needed for this quotient statement.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed. L is finite as an S-module.
+
+Proof: The native quotient of finite L is finite over S via its actual surjective quotient map. Install the proved S/B/C tower and apply native finite generation along restriction of scalars.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-smaller-ring-scalar-tower, mathlib:Module.Finite.of_surjective, mathlib:Module.Finite.of_restrictScalars_finite.
+
+## Finite original modules give a finite smaller-ring kernel
+
+TauCeti.HilbertSamuel.adicModuleKernelScalar_finite_of_base
+
+If M is finite over A and S=gr_q(A) is Noetherian, then K is finite over B with the same descended action. This retains an explicit Noetherian hypothesis on S; no adic Noetherianity theorem is hidden in the statement.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed. M is finite over A, and the actual S=gr_q(A) is a Noetherian ring.
+
+Proof: Use the already proved actual adic finite-generation theorem to make L finite over S. With the explicit Noetherian-ring hypothesis infer that L is Noetherian over S, then invoke kernel descent finiteness.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-smaller-ring-finiteness, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-finite, mathlib:isNoetherian_of_isNoetherianRing_of_finite.
+
+## Finite original modules give a finite smaller-ring cokernel
+
+TauCeti.HilbertSamuel.adicModuleCokernelScalar_finite_of_base
+
+If M is finite over A, then C is finite over B with the actual descended action, for arbitrary q and without any Noetherian-ring hypothesis.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed. M is finite over A.
+
+Proof: Apply the existing adic finite-generation theorem to L and then the proved actual quotient finiteness over B.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-smaller-ring-finiteness, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-finite.
+
+## Typed boundary tests
+
+AdicKernelScalarTests.nonfree_zero_scalar (computation): For A=Z,q=0,M=Z/4,a=0, the actual constant1 belongs to the native kernel, is nonzero, and the class of1 in S/(0) acts as the identity.
+
+AdicKernelScalarTests.nonreduced_kernel (non-example): For A=M=Z/4,q=(2), the nonzero degree-one monomial2 belongs to the kernel of multiplication by the degree-one scalar2, and [1] fixes it. The multiplier itself is nonzero; this tests descent across an actual zero divisor.
+
+AdicKernelScalarTests.representative_multiple (compatibility): For arbitrary A,q,M,a,b,t and actual x∈K, the representatives b+a*t and b act identically on x.
+
+AdicCokernelScalarTests.nonfree_survival (computation): For A=Z,q=0,M=Z/4,a=0, the actual quotient constant1 is nonzero and [1] acts as the identity; the cokernel carrier is the inherited native quotient.
+
+AdicCokernelScalarTests.representative_action (compatibility): For arbitrary A,q,M,a,b and actual x∈L, the action of [b] on the native quotient class of x equals the quotient class of b*x. This checks both ring and module representatives.
+
+AdicCokernelScalarTests.unit_ideal (degenerate): For q=A, every actual quotient class is zero under the descended action, with no nontriviality hypothesis.
+
+## Continuation boundary
+
+Twelve new specialized declarations now descend the actual native kernel and cokernel of degree-one multiplication to S/(a), prove their representative actions and scalar towers, and certify smaller-ring finite generation. Kernel finiteness uses a Noetherian S-module L, or finite M over A plus explicit Noetherianity of S; quotient finiteness needs only finite L over S, or finite M over A. This supersedes the scalar-descent/finiteness prototype frontier only. Full native homogeneous kernel/range/quotient decompositions and smaller-ring grading, finite component lengths, two degreewise length identities with finite ENat-toNat conversion before integer subtraction, remaining-generator induction and general Hilbert–Serre existence remain open. The support/degree, completion, localization, associativity, intrinsic/ambient conventions, all eight stages and every routed-source obligation remain unchanged and open; all implementation statuses are unchecked.
+
+The incoming reader follows unchanged. Historical omissions are superseded only within the explicit scope above. Admission-free native proof evidence is recovered from immutable PR6037; the full suggested file imports Tau Ceti and remains uncompiled because no existing exact-pin compiled import is available. No library formalisation is claimed.
+
+---
+
 # Degree-one multiplication and actual quotient components
 
 Codex — codex-7e92bd · 4 October2026 · Refs #551 · partial.
