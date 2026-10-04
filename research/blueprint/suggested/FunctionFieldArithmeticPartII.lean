@@ -7855,3 +7855,327 @@ example :
 
 end TauCeti.RootStack
 end
+
+noncomputable section
+universe uNormalizationThree
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option linter.style.haveILetI false
+variable {A B C D E : Type uNormalizationThree}
+variable [CommRing A] [CommRing B] [CommRing C] [CommRing D] [CommRing E]
+variable [Algebra A B] [Algebra A C] [Algebra A D] [Algebra A E]
+variable {f : A} {n : ℕ}
+
+def FramedRoot.normalizationPastingIso (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (p : FramedRoot f n B) :
+    pullback (Spec.map (CommRingCat.ofHom ψ.toRingHom))
+      (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap) ≅
+    pullback (Spec.map (CommRingCat.ofHom (ψ.comp φ).toRingHom)) p.normalizationSpecMap :=
+  pullbackRightPullbackFstIso (Spec.map (CommRingCat.ofHom φ.toRingHom))
+    p.normalizationSpecMap (Spec.map (CommRingCat.ofHom ψ.toRingHom)) ≪≫
+  pullback.congrHom
+    (Spec.map_comp (CommRingCat.ofHom φ.toRingHom) (CommRingCat.ofHom ψ.toRingHom)).symm rfl
+
+lemma FramedRoot.normalizationPastingIso_hom_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (p : FramedRoot f n B) :
+    (p.normalizationPastingIso φ ψ).hom ≫ pullback.fst _ _ = pullback.fst _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationPastingIso_hom_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (p : FramedRoot f n B) :
+    (p.normalizationPastingIso φ ψ).hom ≫ pullback.snd _ _ =
+      pullback.snd _ _ ≫ pullback.snd _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationPastingIso_inv_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (p : FramedRoot f n B) :
+    (p.normalizationPastingIso φ ψ).inv ≫ pullback.fst _ _ = pullback.fst _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationPastingIso_inv_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (p : FramedRoot f n B) :
+    (p.normalizationPastingIso φ ψ).inv ≫ pullback.snd _ _ ≫ pullback.snd _ _ =
+      pullback.snd _ _ := by
+  sorry
+
+def FramedRoot.normalizationTripleTransportIso (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    pullback (Spec.map (CommRingCat.ofHom χ.toRingHom))
+      ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)).normalizationSpecMap ≅
+    pullback (Spec.map (CommRingCat.ofHom χ.toRingHom))
+      (pullback.fst (Spec.map (CommRingCat.ofHom ψ.toRingHom))
+        (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)) :=
+  asIso (pullback.map _ _ _ _ (𝟙 _) (p.normalizationIteratedBaseChangeIso φ ψ).hom (𝟙 _)
+    (by simp) (by simpa using (p.normalizationIteratedBaseChangeIso_hom_fst φ ψ).symm))
+
+lemma FramedRoot.normalizationTripleTransportIso_hom_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTripleTransportIso φ ψ χ).hom ≫ pullback.fst _ _ = pullback.fst _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationTripleTransportIso_hom_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTripleTransportIso φ ψ χ).hom ≫ pullback.snd _ _ =
+      pullback.snd _ _ ≫ (p.normalizationIteratedBaseChangeIso φ ψ).hom := by
+  sorry
+
+lemma FramedRoot.normalizationTripleTransportIso_inv_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTripleTransportIso φ ψ χ).inv ≫ pullback.fst _ _ = pullback.fst _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationTripleTransportIso_inv_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTripleTransportIso φ ψ χ).inv ≫ pullback.snd _ _ =
+      pullback.snd _ _ ≫ (p.normalizationIteratedBaseChangeIso φ ψ).inv := by
+  sorry
+
+def FramedRoot.normalizationTripleBaseChangeIso (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    Spec (CommRingCat.of (AffineRing
+      (((framedRootChange f n χ).obj
+        ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p))).coefficient : E) n)) ≅
+    pullback (Spec.map (CommRingCat.ofHom χ.toRingHom))
+      (pullback.fst (Spec.map (CommRingCat.ofHom ψ.toRingHom))
+        (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)) :=
+  ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)).normalizationBaseChangeIso χ ≪≫
+    p.normalizationTripleTransportIso φ ψ χ
+
+lemma FramedRoot.normalizationTripleBaseChangeIso_hom_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTripleBaseChangeIso φ ψ χ).hom ≫ pullback.fst _ _ =
+      ((framedRootChange f n χ).obj
+        ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p))).normalizationSpecMap := by
+  sorry
+
+lemma FramedRoot.normalizationTripleBaseChangeIso_hom_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTripleBaseChangeIso φ ψ χ).hom ≫
+      pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ =
+        p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) := by
+  sorry
+
+lemma FramedRoot.normalizationTripleBaseChangeIso_inv_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTripleBaseChangeIso φ ψ χ).inv ≫
+      ((framedRootChange f n χ).obj
+        ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p))).normalizationSpecMap =
+          pullback.fst _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationTripleBaseChangeIso_inv_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTripleBaseChangeIso φ ψ χ).inv ≫
+      p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) =
+        pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ := by
+  sorry
+
+def FramedRoot.normalizationTriplePastingIso (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    pullback (Spec.map (CommRingCat.ofHom χ.toRingHom))
+      (pullback.fst (Spec.map (CommRingCat.ofHom ψ.toRingHom))
+        (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)) ≅
+    pullback (Spec.map (CommRingCat.ofHom (χ.comp (ψ.comp φ)).toRingHom)) p.normalizationSpecMap :=
+  asIso (pullback.map _ _ _ _ (𝟙 _) (p.normalizationPastingIso φ ψ).hom (𝟙 _)
+    (by simp) (by simpa using (p.normalizationPastingIso_hom_fst φ ψ).symm)) ≪≫
+  p.normalizationPastingIso (ψ.comp φ) χ
+
+lemma FramedRoot.normalizationTriplePastingIso_hom_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTriplePastingIso φ ψ χ).hom ≫ pullback.fst _ _ = pullback.fst _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationTriplePastingIso_hom_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTriplePastingIso φ ψ χ).hom ≫ pullback.snd _ _ =
+      pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationTriplePastingIso_inv_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTriplePastingIso φ ψ χ).inv ≫ pullback.fst _ _ = pullback.fst _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationTriplePastingIso_inv_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTriplePastingIso φ ψ χ).inv ≫
+      pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ = pullback.snd _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationTriplePastingIso_associativity (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    p.normalizationTriplePastingIso φ ψ χ =
+      pullbackRightPullbackFstIso (Spec.map (CommRingCat.ofHom ψ.toRingHom))
+        (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)
+        (Spec.map (CommRingCat.ofHom χ.toRingHom)) ≪≫
+      pullback.congrHom
+        (Spec.map_comp (CommRingCat.ofHom ψ.toRingHom) (CommRingCat.ofHom χ.toRingHom)).symm
+        rfl ≪≫ p.normalizationPastingIso φ (χ.comp ψ) ≪≫
+      pullback.congrHom
+        (congrArg (fun k : B →ₐ[A] E => Spec.map (CommRingCat.ofHom k.toRingHom))
+          (AlgHom.comp_assoc χ ψ φ)) rfl := by
+  sorry
+
+lemma FramedRoot.normalizationTriplePastingIso_associativity_inverse (φ : B →ₐ[A] C)
+    (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTriplePastingIso φ ψ χ).inv =
+      (pullbackRightPullbackFstIso (Spec.map (CommRingCat.ofHom ψ.toRingHom))
+        (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)
+        (Spec.map (CommRingCat.ofHom χ.toRingHom)) ≪≫
+      pullback.congrHom
+        (Spec.map_comp (CommRingCat.ofHom ψ.toRingHom) (CommRingCat.ofHom χ.toRingHom)).symm
+        rfl ≪≫ p.normalizationPastingIso φ (χ.comp ψ) ≪≫
+      pullback.congrHom
+        (congrArg (fun k : B →ₐ[A] E => Spec.map (CommRingCat.ofHom k.toRingHom))
+          (AlgHom.comp_assoc χ ψ φ)) rfl).inv := by
+  sorry
+
+lemma FramedRoot.normalizationTripleBaseChangeIso_paste (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
+    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    p.normalizationTripleBaseChangeIso φ ψ χ ≪≫ p.normalizationTriplePastingIso φ ψ χ =
+      p.normalizationBaseChangeIso (χ.comp (ψ.comp φ)) := by
+  sorry
+
+lemma FramedRoot.normalizationTripleBaseChangeIso_paste_inverse (φ : B →ₐ[A] C)
+    (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTriplePastingIso φ ψ χ).inv ≫
+      (p.normalizationTripleBaseChangeIso φ ψ χ).inv =
+        (p.normalizationBaseChangeIso (χ.comp (ψ.comp φ))).inv := by
+  sorry
+
+lemma FramedRoot.normalizationTripleBaseChangeIso_chart [NeZero n] (φ : B →ₐ[A] C)
+    (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    (p.normalizationTripleBaseChangeIso φ ψ χ).hom ≫ pullback.snd _ _ ≫
+      pullback.snd _ _ ≫ pullback.snd _ _ ≫ p.normalizationChartMap =
+        ((framedRootChange f n χ).obj
+          ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p))).normalizationChartMap := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option linter.style.haveILetI false
+variable {A B C D E : Type uNormalizationThree}
+variable [CommRing A] [CommRing B] [CommRing C] [CommRing D] [CommRing E]
+variable [Algebra A B] [Algebra A C] [Algebra A D] [Algebra A E]
+
+-- test: normalizationThreeTests.pasting_projections
+example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
+    let e := p.normalizationPastingIso φ ψ
+    e.hom ≫ pullback.fst _ _ = pullback.fst _ _ ∧
+    e.hom ≫ pullback.snd _ _ = pullback.snd _ _ ≫ pullback.snd _ _ ∧
+    e.inv ≫ pullback.fst _ _ = pullback.fst _ _ ∧
+    e.inv ≫ pullback.snd _ _ ≫ pullback.snd _ _ = pullback.snd _ _ ∧
+    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
+  sorry
+
+-- test: normalizationThreeTests.transport_projections
+example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    let e := p.normalizationTripleTransportIso φ ψ χ
+    e.hom ≫ pullback.fst _ _ = pullback.fst _ _ ∧
+    e.hom ≫ pullback.snd _ _ = pullback.snd _ _ ≫ (p.normalizationIteratedBaseChangeIso φ ψ).hom ∧
+    e.inv ≫ pullback.fst _ _ = pullback.fst _ _ ∧
+    e.inv ≫ pullback.snd _ _ = pullback.snd _ _ ≫ (p.normalizationIteratedBaseChangeIso φ ψ).inv ∧
+    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
+  sorry
+
+-- test: normalizationThreeTests.triple_projections
+example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
+    let e := p.normalizationTripleBaseChangeIso φ ψ χ
+    let q := (framedRootChange f n χ).obj ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p))
+    e.hom ≫ pullback.fst _ _ = q.normalizationSpecMap ∧
+    e.hom ≫ pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ = p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) ∧
+    e.inv ≫ q.normalizationSpecMap = pullback.fst _ _ ∧
+    e.inv ≫ p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) = pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ ∧
+    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
+  sorry
+
+-- test: normalizationThreeTests.collapse_associativity
+example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E)
+    (p : FramedRoot f n B) :
+    let e := p.normalizationTriplePastingIso φ ψ χ
+    let a := pullbackRightPullbackFstIso (Spec.map (CommRingCat.ofHom ψ.toRingHom))
+      (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)
+      (Spec.map (CommRingCat.ofHom χ.toRingHom))
+    let c := pullback.congrHom
+      (Spec.map_comp (CommRingCat.ofHom ψ.toRingHom) (CommRingCat.ofHom χ.toRingHom)).symm
+      (rfl : pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap = _)
+    let b := p.normalizationPastingIso φ (χ.comp ψ)
+    let d := pullback.congrHom
+      (congrArg (fun k : B →ₐ[A] E => Spec.map (CommRingCat.ofHom k.toRingHom))
+        (AlgHom.comp_assoc χ ψ φ)) (rfl : p.normalizationSpecMap = _)
+    e.hom ≫ pullback.fst _ _ = pullback.fst _ _ ∧
+    e.hom ≫ pullback.snd _ _ = pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ ∧
+    e.inv ≫ pullback.fst _ _ = pullback.fst _ _ ∧
+    e.inv ≫ pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ = pullback.snd _ _ ∧
+    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ ∧
+    e = a ≪≫ c ≪≫ b ≪≫ d ∧ e.inv = d.inv ≫ b.inv ≫ c.inv ≫ a.inv := by
+  sorry
+
+-- test: normalizationThreeTests.direct_comparison
+example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E)
+    (p : FramedRoot f n B) :
+    let e := p.normalizationTripleBaseChangeIso φ ψ χ
+    let c := p.normalizationTriplePastingIso φ ψ χ
+    e ≪≫ c = p.normalizationBaseChangeIso (χ.comp (ψ.comp φ)) ∧
+    c.inv ≫ e.inv = (p.normalizationBaseChangeIso (χ.comp (ψ.comp φ))).inv := by
+  sorry
+
+-- test: normalizationThreeTests.killed_nilpotent
+example :
+    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 := (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).toIntAlgHom
+    let ψ := AlgHom.id ℤ (ZMod 2)
+    let χ := AlgHom.id ℤ (ZMod 2)
+    let p : FramedRoot (0 : ℤ) 2 (ZMod 4) := ⟨1,2,by decide⟩
+    let z := p.normalizationPoint (AdjoinRoot.root _)
+    let e := p.normalizationTripleBaseChangeIso φ ψ χ
+    z ≠ 0 ∧ z ^ 2 = 0 ∧ p.normalizationChange (χ.comp (ψ.comp φ)) z = 0 ∧
+    e.hom ≫ pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ = p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) ∧
+    e.hom ≫ e.inv = 𝟙 _ := by
+  sorry
+
+-- test: normalizationThreeTests.wild_chart
+example (φ ψ χ : ZMod 3 →ₐ[ℤ] ZMod 3) (p : FramedRoot (0 : ℤ) 3 (ZMod 3)) :
+    let e := p.normalizationTripleBaseChangeIso φ ψ χ
+    (3 : ZMod 3) = 0 ∧
+    e.hom ≫ pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ ≫
+      p.normalizationChartMap =
+        ((framedRootChange (0 : ℤ) 3 χ).obj
+          ((framedRootChange (0 : ℤ) 3 ψ).obj ((framedRootChange (0 : ℤ) 3 φ).obj p))).normalizationChartMap ∧
+    e.hom ≫ e.inv = 𝟙 _ ∧
+    Presieve.singleton ((framedRootChange (0 : ℤ) 3 (χ.comp (ψ.comp φ))).obj p).normalizationSpecMap ∈
+      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 3))) := by
+  sorry
+
+-- test: normalizationThreeTests.exponent_zero
+example (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot (1 : A) 0 B) :
+    let e := p.normalizationTripleBaseChangeIso φ ψ χ
+    e ≪≫ p.normalizationTriplePastingIso φ ψ χ = p.normalizationBaseChangeIso (χ.comp (ψ.comp φ)) ∧
+    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
+  sorry
+
+-- test: normalizationThreeTests.zero_ring
+example :
+    let φ := Algebra.ofId ℤ (ZMod 1)
+    let ψ := AlgHom.id ℤ (ZMod 1)
+    let χ := AlgHom.id ℤ (ZMod 1)
+    let p : FramedRoot (0 : ℤ) 3 ℤ := ⟨1,0,by norm_num⟩
+    let e := p.normalizationTripleBaseChangeIso φ ψ χ
+    e.hom ≫ pullback.fst _ _ =
+      ((framedRootChange (0 : ℤ) 3 χ).obj ((framedRootChange (0 : ℤ) 3 ψ).obj ((framedRootChange (0 : ℤ) 3 φ).obj p))).normalizationSpecMap ∧
+    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ ∧
+    Presieve.singleton ((framedRootChange (0 : ℤ) 3 (χ.comp (ψ.comp φ))).obj p).normalizationSpecMap ∈
+      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 1))) := by
+  sorry
+
+end TauCeti.RootStack
+end

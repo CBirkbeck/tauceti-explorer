@@ -1,3 +1,319 @@
+# Three-step chosen normalization coherence
+
+Three successive arbitrary test-algebra changes now have an actual normalization isomorphism to the three nested chosen scheme pullbacks. Pull back the complete two-step comparison along the third change and compose its normalizationBaseChangeIso. All forward and inverse projection equations and roundtrips hold. The actual triple pullback collapse agrees, as a whole native isomorphism and on its inverse, with the alternate route that first combines the last two changes. Composing the actual triple normalization comparison with either collapse route gives the direct normalizationBaseChangeIso for the triple composite. The positive-exponent actual chart triangle holds. Every natural exponent is allowed for scheme comparisons, with no flatness or injectivity assumptions; the nonflat Z/4 to Z/2 example kills a nonzero square-zero normalized section and preserves the comparison. Wild exponents and zero rings remain allowed. This establishes three-step chosen-scheme coherence only; higher coherence, native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open with all inherited source, supplier and geometric obligations.
+
+All676 incoming node objects and336 baseline records retain their full scope. This adds25 nodes,21 API references and9 distinct typed examples with15 references. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,eleven source findings,omission ledger and version receipts retain their scope. Every implementation remains unchecked. The whole Tau-dependent suggested file is uncompiled; separate executed native Mathlib proof and admitted sketch evidence have exact scopes in the handoff.
+
+## The chosen normalization pullback pasting comparison
+
+**TauCeti.RootStack.FramedRoot.normalizationPastingIso** — For arbitrary A-algebra maps phi:B to C and psi:C to D and framed root p=(u,y), construct the actual scheme isomorphism from the chosen iterated pullback Spec D times over Spec C with (Spec C times over Spec B with Spec Dp), to the chosen direct pullback Spec D times over Spec B with Spec Dp. Here Dp=B[T]/(T^n-u). Use native pullbackRightPullbackFstIso followed by pullback.congrHom for the actual Spec-composition equality.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso, mathlib:CategoryTheory.Limits.pullback.congrHom, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Compose the actual native pasting and Spec-composition congruence isomorphisms. This comparison itself is pulled back across the third test-algebra change.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationPastingIso_hom_fst**: The forward pasting map followed by the direct first projection equals the outer iterated first projection.
+- **TauCeti.RootStack.FramedRoot.normalizationPastingIso_hom_snd**: The forward pasting map followed by the direct normalization projection equals the composite of both iterated second projections.
+- **TauCeti.RootStack.FramedRoot.normalizationPastingIso_inv_fst**: The inverse pasting map followed by the outer iterated first projection equals the direct first projection.
+- **TauCeti.RootStack.FramedRoot.normalizationPastingIso_inv_snd**: The inverse pasting map followed by both iterated second projections equals the direct normalization projection.
+
+Typed examples:
+
+- **TauCeti.RootStack.normalizationThreeTests.pasting_projections**: The two-step pasting comparison has all four projection equations and both inverse roundtrips.
+- **TauCeti.RootStack.normalizationThreeTests.collapse_associativity**: The actual three-step collapse has all four projection formulas and both roundtrips; its whole isomorphism equals the alternate native pasting route and the inverse routes agree.
+- **TauCeti.RootStack.normalizationThreeTests.direct_comparison**: The whole actual three-step normalization comparison followed by the triple collapse equals the direct normalization isomorphism, and the inverse routes agree.
+
+## normalizationPastingIso hom fst
+
+**TauCeti.RootStack.FramedRoot.normalizationPastingIso_hom_fst** — The forward pasting map followed by the direct first projection equals the outer iterated first projection.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting, mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_fst, mathlib:CategoryTheory.Limits.pullback.lift_fst, mathlib:CategoryTheory.Limits.pullback.lift_snd.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationPastingIso hom snd
+
+**TauCeti.RootStack.FramedRoot.normalizationPastingIso_hom_snd** — The forward pasting map followed by the direct normalization projection equals the composite of both iterated second projections.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting, mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_snd, mathlib:CategoryTheory.Limits.pullback.lift_fst, mathlib:CategoryTheory.Limits.pullback.lift_snd.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationPastingIso inv fst
+
+**TauCeti.RootStack.FramedRoot.normalizationPastingIso_inv_fst** — The inverse pasting map followed by the outer iterated first projection equals the direct first projection.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-fst, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationPastingIso inv snd
+
+**TauCeti.RootStack.FramedRoot.normalizationPastingIso_inv_snd** — The inverse pasting map followed by both iterated second projections equals the direct normalization projection.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-snd, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## Transport the whole two-step comparison through a third change
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso** — For phi:B to C,psi:C to D,chi:D to E, construct the actual native isomorphism between the pullback of Spec D(psi(phi p)) along Spec(chi) and the pullback along Spec(chi) of the chosen two-step normalization pullback. Its underlying map is pullback.map with identities on Spec E and Spec D and normalizationIteratedBaseChangeIso(phi,psi,p).hom on the normalization factor.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated, FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated-hom-fst, mathlib:CategoryTheory.Limits.pullback.map, mathlib:CategoryTheory.Limits.pullback.map_isIso, mathlib:CategoryTheory.asIso.
+
+Proof: The exact existing first projection supplies compatibility; all three pointwise maps are isomorphisms. Use native pullback.map_isIso and asIso.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_hom_fst**: The forward three-step transport followed by its target first projection equals the source first projection to Spec E.
+- **TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_hom_snd**: The forward three-step transport followed by its target second projection equals the source second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).hom.
+- **TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_inv_fst**: The inverse three-step transport followed by its source first projection equals its target first projection to Spec E.
+- **TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_inv_snd**: The inverse three-step transport followed by its source second projection equals its target second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).inv.
+
+Typed examples:
+
+- **TauCeti.RootStack.normalizationThreeTests.transport_projections**: Transport of the whole two-step comparison along an arbitrary third change has all four projection equations and both inverse roundtrips.
+- **TauCeti.RootStack.normalizationThreeTests.triple_projections**: The actual three-step normalization comparison has both forward and both inverse projection formulas and both roundtrips.
+- **TauCeti.RootStack.normalizationThreeTests.zero_ring**: For Z to Z/1 followed by two identities and p=(1,0),n=3, the actual three-step comparison has its first projection and both roundtrips and the changed normalization map is singleton fppf covering on the empty spectrum.
+
+## normalizationTripleTransportIso hom fst
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_hom_fst** — The forward three-step transport followed by its target first projection equals the source first projection to Spec E.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-transport, mathlib:CategoryTheory.Limits.pullback.lift_fst, mathlib:CategoryTheory.Limits.pullback.lift_snd.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationTripleTransportIso hom snd
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_hom_snd** — The forward three-step transport followed by its target second projection equals the source second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).hom.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-transport, mathlib:CategoryTheory.Limits.pullback.lift_fst, mathlib:CategoryTheory.Limits.pullback.lift_snd.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationTripleTransportIso inv fst
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_inv_fst** — The inverse three-step transport followed by its source first projection equals its target first projection to Spec E.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-hom-fst, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationTripleTransportIso inv snd
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_inv_snd** — The inverse three-step transport followed by its source second projection equals its target second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).inv.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-hom-snd, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## The actual three-step normalization comparison
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso** — Construct the native scheme isomorphism from Spec D(chi(psi(phi p))) to Spec E times over Spec D with (Spec D times over Spec C with (Spec C times over Spec B with Spec Dp)). Compose normalizationBaseChangeIso(chi,psi(phi p)) with normalizationTripleTransportIso(phi,psi,chi,p).
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-change-iso, FunctionFieldArithmeticPartII:RS.0/normalization-three-transport.
+
+Proof: Compose the existing actual third normalization base-change comparison with the pullback transport of the entire two-step comparison.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_hom_fst**: The three-step normalization comparison followed by the outer first projection equals the actual normalizationSpecMap of chi(psi(phi p)) to Spec E.
+- **TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_hom_snd**: The three-step normalization comparison followed by all three second projections equals normalizationChangeSpecMap(chi composed with (psi composed with phi),p).
+- **TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_inv_fst**: The inverse three-step normalization comparison followed by the actual changed normalizationSpecMap equals the outer first projection.
+- **TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_inv_snd**: The inverse three-step normalization comparison followed by the actual direct normalizationChangeSpecMap equals the composite of all three second projections.
+- **TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_paste**: The whole normalizationTripleBaseChangeIso(phi,psi,chi,p) followed by normalizationTriplePastingIso(phi,psi,chi,p) equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p) as actual native scheme isomorphisms.
+- **TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_paste_inverse**: normalizationTriplePastingIso.inv followed by normalizationTripleBaseChangeIso.inv equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p).inv as actual scheme morphisms.
+- **TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_chart**: For positive exponent, normalizationTripleBaseChangeIso.hom followed by all three second projections and p.normalizationChartMap equals normalizationChartMap(chi(psi(phi p))), as actual scheme morphisms to the existing root chart.
+
+Typed examples:
+
+- **TauCeti.RootStack.normalizationThreeTests.triple_projections**: The actual three-step normalization comparison has both forward and both inverse projection formulas and both roundtrips.
+- **TauCeti.RootStack.normalizationThreeTests.direct_comparison**: The whole actual three-step normalization comparison followed by the triple collapse equals the direct normalization isomorphism, and the inverse routes agree.
+- **TauCeti.RootStack.normalizationThreeTests.killed_nilpotent**: For Z/4 to Z/2 followed by two identities, p=(1,2) at f=0,n=2 has a nonzero square-zero normalized section killed by the actual direct composite algebra map, while the three-step comparison retains its exact normalization projection and roundtrip.
+- **TauCeti.RootStack.normalizationThreeTests.wild_chart**: At exponent3 over Z/3 and arbitrary three successive algebra changes, the exponent vanishes in the base while the actual three-step chart triangle and roundtrip hold and the direct changed normalization map is singleton fppf covering.
+- **TauCeti.RootStack.normalizationThreeTests.exponent_zero**: For f=1,n=0 and arbitrary three changes the actual three-step comparison equals the direct chosen comparison after pasting and has both roundtrips; no positive-exponent chart or cover is asserted.
+- **TauCeti.RootStack.normalizationThreeTests.zero_ring**: For Z to Z/1 followed by two identities and p=(1,0),n=3, the actual three-step comparison has its first projection and both roundtrips and the changed normalization map is singleton fppf covering on the empty spectrum.
+
+## normalizationTripleBaseChangeIso hom fst
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_hom_fst** — The three-step normalization comparison followed by the outer first projection equals the actual normalizationSpecMap of chi(psi(phi p)) to Spec E.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison, FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-hom-fst, FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-fst, FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-tower-scheme-composition.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationTripleBaseChangeIso hom snd
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_hom_snd** — The three-step normalization comparison followed by all three second projections equals normalizationChangeSpecMap(chi composed with (psi composed with phi),p).
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison, FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-tower-scheme-composition.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationTripleBaseChangeIso inv fst
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_inv_fst** — The inverse three-step normalization comparison followed by the actual changed normalizationSpecMap equals the outer first projection.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-fst, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationTripleBaseChangeIso inv snd
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_inv_snd** — The inverse three-step normalization comparison followed by the actual direct normalizationChangeSpecMap equals the composite of all three second projections.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-snd, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## Collapse the three actual chosen pullbacks
+
+**TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso** — Construct the actual native isomorphism from the three nested chosen pullbacks to the direct chosen pullback for chi composed with (psi composed with phi). First pull normalizationPastingIso(phi,psi,p) back along Spec(chi) using pullback.map with identities on the outer test scheme and common base; then compose normalizationPastingIso(psi composed with phi,chi,p).
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting, FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-fst, mathlib:CategoryTheory.Limits.pullback.map, mathlib:CategoryTheory.Limits.pullback.map_isIso, mathlib:CategoryTheory.asIso.
+
+Proof: Pull back the first-two-change pasting comparison and compose the remaining two-change pasting comparison. Native carriers retain the chosen pullback parentheses.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_hom_fst**: The forward three-step collapse followed by the direct first projection equals the outer first projection of the three nested chosen pullbacks.
+- **TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_hom_snd**: The forward three-step collapse followed by the direct normalization projection equals all three nested second projections.
+- **TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_inv_fst**: The inverse three-step collapse followed by the outer nested first projection equals the direct first projection.
+- **TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_inv_snd**: The inverse three-step collapse followed by all three nested second projections equals the direct normalization projection.
+- **TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_associativity**: The whole normalizationTriplePastingIso equals the alternate route which first applies pullbackRightPullbackFstIso to Spec(psi), the first projection of the phi pullback and Spec(chi), then pullback.congrHom for Spec(chi composed with psi), then normalizationPastingIso(phi,chi composed with psi,p), and finally the explicit pullback.congrHom for the spectrum of AlgHom.comp_assoc. This is equality of actual native scheme isomorphisms with the same three-nested source and direct target.
+- **TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_associativity_inverse**: The inverse of normalizationTriplePastingIso equals normalizationPastingIso(phi,chi composed with psi,p).inv preceded by the inverse final AlgHom-associativity spectrum congruence and followed by the inverse Spec-composition congruence and inverse outer pullbackRightPullbackFstIso, in exactly reversed order.
+
+Typed examples:
+
+- **TauCeti.RootStack.normalizationThreeTests.collapse_associativity**: The actual three-step collapse has all four projection formulas and both roundtrips; its whole isomorphism equals the alternate native pasting route and the inverse routes agree.
+- **TauCeti.RootStack.normalizationThreeTests.direct_comparison**: The whole actual three-step normalization comparison followed by the triple collapse equals the direct normalization isomorphism, and the inverse routes agree.
+- **TauCeti.RootStack.normalizationThreeTests.exponent_zero**: For f=1,n=0 and arbitrary three changes the actual three-step comparison equals the direct chosen comparison after pasting and has both roundtrips; no positive-exponent chart or cover is asserted.
+
+## normalizationTriplePastingIso hom fst
+
+**TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_hom_fst** — The forward three-step collapse followed by the direct first projection equals the outer first projection of the three nested chosen pullbacks.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse, FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-fst, mathlib:CategoryTheory.Limits.pullback.lift_fst, mathlib:CategoryTheory.Limits.pullback.lift_snd.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationTriplePastingIso hom snd
+
+**TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_hom_snd** — The forward three-step collapse followed by the direct normalization projection equals all three nested second projections.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse, FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-snd, mathlib:CategoryTheory.Limits.pullback.lift_fst, mathlib:CategoryTheory.Limits.pullback.lift_snd.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationTriplePastingIso inv fst
+
+**TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_inv_fst** — The inverse three-step collapse followed by the outer nested first projection equals the direct first projection.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-fst, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## normalizationTriplePastingIso inv snd
+
+**TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_inv_snd** — The inverse three-step collapse followed by all three nested second projections equals the direct normalization projection.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-snd, mathlib:CategoryTheory.Iso.inv_comp_eq.
+
+Proof: Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.
+
+## The two three-step chosen collapse routes agree
+
+**TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_associativity** — The whole normalizationTriplePastingIso equals the alternate route which first applies pullbackRightPullbackFstIso to Spec(psi), the first projection of the phi pullback and Spec(chi), then pullback.congrHom for Spec(chi composed with psi), then normalizationPastingIso(phi,chi composed with psi,p), and finally the explicit pullback.congrHom for the spectrum of AlgHom.comp_assoc. This is equality of actual native scheme isomorphisms with the same three-nested source and direct target.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-fst, FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-fst, FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-snd, mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso, mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_fst, mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_snd, mathlib:CategoryTheory.Limits.pullback.congrHom, mathlib:CategoryTheory.Limits.pullback.hom_ext, mathlib:CategoryTheory.Iso.ext, mathlib:AlgHom.comp_assoc.
+
+Proof: Apply native Iso.ext and pullback.hom_ext. Both routes have the same outer first projection and all three second projections; actual AlgHom composition identifies the direct target maps.
+
+## The inverse associativity routes agree
+
+**TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_associativity_inverse** — The inverse of normalizationTriplePastingIso equals normalizationPastingIso(phi,chi composed with psi,p).inv preceded by the inverse final AlgHom-associativity spectrum congruence and followed by the inverse Spec-composition congruence and inverse outer pullbackRightPullbackFstIso, in exactly reversed order.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-associativity.
+
+Proof: Apply Iso.inv to the entire actual three-step associativity equality.
+
+## Three-step normalization equals the direct comparison
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_paste** — The whole normalizationTripleBaseChangeIso(phi,psi,chi,p) followed by normalizationTriplePastingIso(phi,psi,chi,p) equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p) as actual native scheme isomorphisms.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-fst, FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-fst, FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-fst, FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-snd, mathlib:CategoryTheory.Limits.pullback.hom_ext, mathlib:CategoryTheory.Iso.ext.
+
+Proof: Use Iso.ext and pullback.hom_ext; the projections are the actual third-changed normalizationSpecMap and direct normalizationChangeSpecMap.
+
+## The inverse three-step comparison equals the direct inverse
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_paste_inverse** — normalizationTriplePastingIso.inv followed by normalizationTripleBaseChangeIso.inv equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p).inv as actual scheme morphisms.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-direct.
+
+Proof: Apply Iso.inv to the complete direct comparison equality, retaining reversed order.
+
+## Three-step normalization retains the actual chart
+
+**TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_chart** — For positive exponent, normalizationTripleBaseChangeIso.hom followed by all three second projections and p.normalizationChartMap equals normalizationChartMap(chi(psi(phi p))), as actual scheme morphisms to the existing root chart.
+
+Hypotheses: Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). The natural exponent n is positive. No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-snd, FunctionFieldArithmeticPartII:RS.0/normalization-change-chart.
+
+Proof: Postcompose the exact triple normalization projection with the existing chart map and apply normalizationChange_chart for the direct composite.
+
 # Two-step normalization pullback coherence
 
 Successive arbitrary test-algebra changes now have an actual native scheme comparison from the changed normalization scheme to the iterated chosen pullback. It is constructed by pulling back the previous normalizationBaseChangeIso and composing the next one, with both forward and inverse projection formulas and roundtrips. After the native pullback-pasting isomorphism and the actual Spec-composition congruence, the whole isomorphism equals the direct normalizationBaseChangeIso, and the inverse route also agrees. The direct chosen comparison is natural for every actual framed arrow, including all unit labels, and the positive-exponent iterated chart triangle holds. Actual normalization scheme maps have identity, composition and three-map associativity for every natural exponent, including zero. No flatness or injectivity is assumed: Z/4 to Z/2 then identity kills a nonzero square-zero section while preserving the comparison equations. Wild exponents and the zero ring remain allowed. This establishes two-step chosen-scheme coherence only; three-step chosen-pullback associators, native sheaf RootObject comparison, local frames, stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open, with all inherited source, supplier and geometric obligations.
