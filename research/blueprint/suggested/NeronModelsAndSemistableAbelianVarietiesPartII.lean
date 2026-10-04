@@ -7481,3 +7481,209 @@ example :
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
+
+noncomputable section
+namespace TauCeti.GenusOne.FerrandPushout
+open _root_.CategoryTheory _root_.CategoryTheory.Limits _root_.AlgebraicGeometry
+universe conductorTowerLevel
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 1200000
+variable {Y P T Z : Scheme.{conductorTowerLevel}}
+
+def conductorTargetTowerIso (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorIdealSheaf (pullback.snd (pullback.snd f q) r)).subscheme ≅
+      (conductorIdealSheaf (pullback.snd f (r ≫ q))).subscheme :=
+  eqToIso (congrArg Scheme.IdealSheafData.subscheme
+    ((conductorIdealSheaf_flat_tower f q r).trans
+      (conductor_global_flat_comparison f (r ≫ q)).symm))
+
+@[reassoc (attr := simp)]
+lemma conductorTargetTowerIso_hom_inclusion (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorTargetTowerIso f q r).hom ≫
+      (conductorIdealSheaf (pullback.snd f (r ≫ q))).subschemeι =
+        (conductorIdealSheaf (pullback.snd (pullback.snd f q) r)).subschemeι := by
+  sorry
+
+@[reassoc (attr := simp)]
+lemma conductorTargetTowerIso_inv_inclusion (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorTargetTowerIso f q r).inv ≫
+      (conductorIdealSheaf (pullback.snd (pullback.snd f q) r)).subschemeι =
+        (conductorIdealSheaf (pullback.snd f (r ≫ q))).subschemeι := by
+  sorry
+
+lemma conductorTargetTowerIso_unique (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r]
+    (h : (conductorIdealSheaf (pullback.snd (pullback.snd f q) r)).subscheme ⟶
+      (conductorIdealSheaf (pullback.snd f (r ≫ q))).subscheme)
+    (hh : h ≫ (conductorIdealSheaf (pullback.snd f (r ≫ q))).subschemeι =
+      (conductorIdealSheaf (pullback.snd (pullback.snd f q) r)).subschemeι) :
+    h = (conductorTargetTowerIso f q r).hom := by
+  sorry
+
+def conductorTargetPullbackTowerIso (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    pullback r (conductorIdealSheaf (pullback.snd f q)).subschemeι ≅
+      pullback (r ≫ q) (conductorIdealSheaf f).subschemeι :=
+  asIso (pullback.map r (conductorIdealSheaf (pullback.snd f q)).subschemeι
+    r (pullback.fst q (conductorIdealSheaf f).subschemeι)
+    (𝟙 Z) (conductorTargetBaseChangeIso f q).hom (𝟙 T)
+    (by simp) (by simp)) ≪≫
+      pullbackRightPullbackFstIso q (conductorIdealSheaf f).subschemeι r
+
+@[reassoc (attr := simp)]
+lemma conductorTargetPullbackTowerIso_hom_fst (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorTargetPullbackTowerIso f q r).hom ≫ pullback.fst _ _ =
+      pullback.fst r (conductorIdealSheaf (pullback.snd f q)).subschemeι := by
+  sorry
+
+@[reassoc (attr := simp)]
+lemma conductorTargetPullbackTowerIso_hom_snd (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorTargetPullbackTowerIso f q r).hom ≫ pullback.snd _ _ =
+      pullback.snd r (conductorIdealSheaf (pullback.snd f q)).subschemeι ≫
+        (conductorTargetBaseChangeIso f q).hom ≫ pullback.snd _ _ := by
+  sorry
+
+@[reassoc (attr := simp)]
+lemma conductorTargetPullbackTowerIso_inv_fst (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorTargetPullbackTowerIso f q r).inv ≫
+      pullback.fst r (conductorIdealSheaf (pullback.snd f q)).subschemeι =
+        pullback.fst (r ≫ q) (conductorIdealSheaf f).subschemeι := by
+  sorry
+
+@[reassoc (attr := simp)]
+lemma conductorTargetPullbackTowerIso_inv_snd (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorTargetPullbackTowerIso f q r).inv ≫
+      pullback.snd r (conductorIdealSheaf (pullback.snd f q)).subschemeι ≫
+        (conductorTargetBaseChangeIso f q).hom ≫ pullback.snd _ _ =
+          pullback.snd (r ≫ q) (conductorIdealSheaf f).subschemeι := by
+  sorry
+
+lemma conductorTargetBaseChangeIso_tower (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    conductorTargetBaseChangeIso (pullback.snd f q) r ≪≫
+      conductorTargetPullbackTowerIso f q r =
+        conductorTargetTowerIso f q r ≪≫ conductorTargetBaseChangeIso f (r ≫ q) := by
+  sorry
+
+lemma conductorTargetBaseChangeIso_tower_inverse (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorTargetPullbackTowerIso f q r).inv ≫
+      (conductorTargetBaseChangeIso (pullback.snd f q) r).inv =
+        (conductorTargetBaseChangeIso f (r ≫ q)).inv ≫
+          (conductorTargetTowerIso f q r).inv := by
+  sorry
+
+lemma conductorTargetBaseChangeIso_tower_snd (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorTargetBaseChangeIso (pullback.snd f q) r).hom ≫
+      pullback.snd _ _ ≫ (conductorTargetBaseChangeIso f q).hom ≫ pullback.snd _ _ =
+        (conductorTargetTowerIso f q r).hom ≫
+          (conductorTargetBaseChangeIso f (r ≫ q)).hom ≫ pullback.snd _ _ := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+end
+
+namespace TauCeti.GenusOne.FerrandPushout
+open _root_.CategoryTheory _root_.CategoryTheory.Limits _root_.AlgebraicGeometry
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 1200000
+variable {Y P T Z : Scheme.{conductorTowerLevel}}
+
+-- test: ConductorTowerChecked.carrier_inclusions
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorTargetTowerIso f q r).hom ≫ (conductorTargetTowerIso f q r).inv = 𝟙 _ ∧
+    (conductorTargetTowerIso f q r).inv ≫
+      (conductorIdealSheaf (pullback.snd (pullback.snd f q) r)).subschemeι =
+        (conductorIdealSheaf (pullback.snd f (r ≫ q))).subschemeι := by
+  sorry
+
+-- test: ConductorTowerChecked.uniqueness
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r]
+    (e : (conductorIdealSheaf (pullback.snd (pullback.snd f q) r)).subscheme ≅
+      (conductorIdealSheaf (pullback.snd f (r ≫ q))).subscheme)
+    (he : e.hom ≫ (conductorIdealSheaf (pullback.snd f (r ≫ q))).subschemeι =
+      (conductorIdealSheaf (pullback.snd (pullback.snd f q) r)).subschemeι) :
+    e = conductorTargetTowerIso f q r := by
+  sorry
+
+-- test: ConductorTowerChecked.native_pullback_projections
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorTargetPullbackTowerIso f q r).inv ≫
+      pullback.fst r (conductorIdealSheaf (pullback.snd f q)).subschemeι =
+        pullback.fst (r ≫ q) (conductorIdealSheaf f).subschemeι ∧
+    (conductorTargetPullbackTowerIso f q r).inv ≫
+      pullback.snd r (conductorIdealSheaf (pullback.snd f q)).subschemeι ≫
+        (conductorTargetBaseChangeIso f q).hom ≫ pullback.snd _ _ =
+          pullback.snd (r ≫ q) (conductorIdealSheaf f).subschemeι := by
+  sorry
+
+-- test: ConductorTowerChecked.whole_inverse
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    (conductorTargetBaseChangeIso (pullback.snd f q) r ≪≫
+      conductorTargetPullbackTowerIso f q r).symm =
+        (conductorTargetTowerIso f q r ≪≫ conductorTargetBaseChangeIso f (r ≫ q)).symm := by
+  sorry
+
+-- test: ConductorTowerChecked.actual_conductor_map
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    conductorMap (pullback.snd (pullback.snd f q) r) ≫
+      (conductorTargetBaseChangeIso (pullback.snd f q) r).hom ≫
+        pullback.snd _ _ ≫ (conductorTargetBaseChangeIso f q).hom ≫ pullback.snd _ _ =
+    conductorMap (pullback.snd (pullback.snd f q) r) ≫
+      (conductorTargetTowerIso f q r).hom ≫
+        (conductorTargetBaseChangeIso f (r ≫ q)).hom ≫ pullback.snd _ _ := by
+  sorry
+
+-- test: ConductorTowerChecked.identity_base
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    conductorTargetBaseChangeIso (pullback.snd f (𝟙 P)) (𝟙 P) ≪≫
+      conductorTargetPullbackTowerIso f (𝟙 P) (𝟙 P) =
+        conductorTargetTowerIso f (𝟙 P) (𝟙 P) ≪≫
+          conductorTargetBaseChangeIso f (𝟙 P ≫ 𝟙 P) := by
+  sorry
+
+-- test: ConductorTowerChecked.nested_open_restriction
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U : P.Opens) (V : U.toScheme.Opens) :
+    conductorTargetBaseChangeIso (pullback.snd f U.ι) V.ι ≪≫
+      conductorTargetPullbackTowerIso f U.ι V.ι =
+        conductorTargetTowerIso f U.ι V.ι ≪≫ conductorTargetBaseChangeIso f (V.ι ≫ U.ι) := by
+  sorry
+
+-- test: ConductorTowerChecked.zero_ring
+example :
+    let P := Spec (CommRingCat.of (ZMod 1))
+    (conductorTargetTowerIso (𝟙 P) (𝟙 P) (𝟙 P)).hom ≫
+      (conductorTargetTowerIso (𝟙 P) (𝟙 P) (𝟙 P)).inv = 𝟙 _ ∧
+    (conductorTargetPullbackTowerIso (𝟙 P) (𝟙 P) (𝟙 P)).hom ≫
+      (conductorTargetPullbackTowerIso (𝟙 P) (𝟙 P) (𝟙 P)).inv = 𝟙 _ := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout

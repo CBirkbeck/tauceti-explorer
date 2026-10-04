@@ -1,3 +1,173 @@
+# Target conductor coherence for successive flat base changes
+
+Let f:Y→P be finite and schematically dominant, q:T→P flat and r:Z→T flat. Write C_g for the closed subscheme defined by the full conductor ideal of g, and e_(g,a) for the existing actual target base-change comparison. The twice-recomputed conductor and the directly recomputed conductor are closed in the same scheme Z. Their full ideal data are equal by the proved conductor tower identity. The first construction t transports their actual closed-subscheme carriers along this equality. It preserves the inclusion in both directions and is uniquely characterized by the forward inclusion equation.
+
+The second construction h maps the native pullback of r and the inclusion of C_(f_q) to the pullback of r∘q and the inclusion of C_f. It uses the actual e_(f,q) through native pullback.map, followed by the native right pullback-pasting isomorphism. Both forward and inverse projection formulas retain the intermediate comparison in the map to C_f. The whole isomorphism e_(f_q,r) followed by h equals t followed by e_(f,r∘q). Canceling the monic projection to Z proves this equality; the inverse equation and the equality of both actual maps to C_f follow. This is an equality of the actual scheme isomorphisms, not only an equality of ideals.
+
+Both new constructions have at least three API items and tests with explicit consumers. Eight proved examples cover the two carrier roundtrips, uniqueness, the whole inverse comparison, both inverse projections, the actual conductor map followed by the target comparison, identity bases, nested open restrictions and Spec(Z/1). No reducedness, Noetherianity, affine-open condition, faithful flatness or nonemptiness is imposed. Generic scheme pullbacks and ideal-sheaf constructions remain native or SF.0 imports.
+
+The incoming nonreduced_conductor_section retains its exact typed statement, but its attempted native proof still times out in kernel checking. The final successful native file omits that single previously omitted test. No nilpotent-test recovery is claimed here. Source-carrier tower coherence, three-step coherence and geometric conductor pushout transport remain required. Every incoming node object, request, gap, source finding, route and planet is preserved. The full Tau-importing suggested file remains UNCOMPILED.
+
+Two actual conductor-specific isomorphisms now identify the twice-recomputed target conductor carrier with the direct one and flatten the intermediate native target conductor pullback. Ten lemmas give forward/inverse projection laws, uniqueness by the closed inclusion, equality of the whole successive and direct comparison isomorphisms, the inverse equality and the induced map to the old conductor. Eight proved typed examples include nested nonaffine open restrictions, identity base changes and the zero ring. All739 incoming node objects and530 baseline entries are retained. Target-side two-step coherence is supplied; source-carrier tower coherence, three-step coherence and geometric conductor pushout transport remain required, as do generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, projective/cohomological work, separateI2 and the other model/classification obligations. The incoming nonreduced_conductor_section has admitted typing evidence only: its attempted native proof again hit a kernel timeout, so no new proof certificate is claimed for it. All18 gaps,23 requests,78 routes,27 findings and seven partial stages remain; implementations stay unchecked and the whole Tau-dependent suggested file is UNCOMPILED.
+
+## The target conductor carrier comparison for a flat tower
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetTowerIso** — For finite schematically dominant f:Y→P and flat q:T→P, r:Z→T, construct the actual scheme isomorphism t from the target conductor subscheme of (f_q)_r to the target conductor subscheme of f_(r∘q), both closed in Z. Here f_q is the native second projection of the pullback of f and q.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-flat-tower, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison, mathlib:CategoryTheory.eqToIso.
+
+Proof: Both full conductor ideal-sheaf data equal the pullback of I_f along r∘q. Compose those equalities, apply the native subscheme constructor and use eqToIso. Retain the full ideals, without radicalization.
+
+Consumed API:
+
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetTowerIso_hom_inclusion**: The forward carrier comparison t.hom followed by the direct recomputed target conductor inclusion into Z equals the twice-recomputed target conductor inclusion into Z.
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetTowerIso_inv_inclusion**: The inverse carrier comparison t.inv followed by the twice-recomputed target conductor inclusion equals the direct recomputed target conductor inclusion.
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetTowerIso_unique**: Every actual morphism from the twice-recomputed target conductor subscheme to the direct recomputed one whose composite with the direct closed inclusion is the twice-recomputed inclusion equals t.hom.
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_tower**: As whole native scheme isomorphisms, e_(f_q,r) followed by h equals t followed by e_(f,r∘q), where e is the existing conductorTargetBaseChangeIso. All four corners are the actual recomputed conductor subschemes or native scheme pullbacks.
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_tower_inverse**: The composite h.inv followed by e_(f_q,r).inv equals e_(f,r∘q).inv followed by t.inv, as actual scheme morphisms between the specified carriers.
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_tower_snd**: The morphism from C_((f_q)_r) to C_f obtained by e_(f_q,r), the intermediate second projection, e_(f,q) and its second projection equals the route through t, e_(f,r∘q) and the direct second projection.
+
+Typed examples:
+
+- **ConductorTowerChecked.carrier_inclusions**: The actual carrier comparison has its native roundtrip and the inverse preserves the full twice-recomputed closed inclusion.
+- **ConductorTowerChecked.uniqueness**: Every scheme isomorphism between the specified recomputed conductor carriers preserving the inclusion equals the constructed tower isomorphism as a whole isomorphism.
+- **ConductorTowerChecked.whole_inverse**: The inverses of the successive and direct composite comparison isomorphisms are equal as whole native isomorphisms.
+- **ConductorTowerChecked.actual_conductor_map**: After precomposition with the actual conductorMap of the twice-base-changed finite morphism, the successive and direct maps to the old target conductor agree. This does not assert source-carrier tower coherence.
+- **ConductorTowerChecked.identity_base**: Two identity base changes satisfy the whole tower comparison on the actual native pullback carriers; no definitional identification of these carriers with the original one is assumed.
+- **ConductorTowerChecked.nested_open_restriction**: For any open U of P and any open V of U, without either being affine, the successive restriction comparison equals the direct comparison along V→U→P after the specified carrier isomorphisms.
+- **ConductorTowerChecked.zero_ring**: Over Spec(Z/1), both actual conductor carrier and native pullback flattening isomorphisms have the native forward-inverse roundtrip, without a point or nontriviality hypothesis.
+
+## The tower comparison preserves the actual inclusion
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetTowerIso_hom_inclusion** — The forward carrier comparison t.hom followed by the direct recomputed target conductor inclusion into Z equals the twice-recomputed target conductor inclusion into Z.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-tower-iso.
+
+Proof: Eliminate the equality of full ideal data used by t; the transported closed inclusion becomes the original inclusion.
+
+## The inverse tower comparison preserves the inclusion
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetTowerIso_inv_inclusion** — The inverse carrier comparison t.inv followed by the twice-recomputed target conductor inclusion equals the direct recomputed target conductor inclusion.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-tower-hom-inclusion.
+
+Proof: Rewrite the twice-recomputed inclusion using the forward formula and cancel the inverse-forward pair.
+
+## The tower carrier map is determined by its inclusion
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetTowerIso_unique** — Every actual morphism from the twice-recomputed target conductor subscheme to the direct recomputed one whose composite with the direct closed inclusion is the twice-recomputed inclusion equals t.hom.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-tower-hom-inclusion, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι.
+
+Proof: Cancel the native monomorphism given by the direct closed-subscheme inclusion; use the proved forward inclusion equation.
+
+## Flattening successive target conductor pullbacks
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetPullbackTowerIso** — Construct the actual scheme isomorphism h from the native pullback of r and the recomputed conductor inclusion i_(f_q) to the native pullback of r∘q and i_f. First use native pullback.map induced by identities on Z,T and the actual conductorTargetBaseChangeIso(f,q), then the native right pullback-pasting isomorphism.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-base-change-iso, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-base-change-fst, mathlib:CategoryTheory.Limits.pullback.map, mathlib:CategoryTheory.Limits.pullback.map_isIso, mathlib:CategoryTheory.asIso, mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso.
+
+Proof: The existing target comparison identifies i_(f_q) with the first projection of the pullback of q and i_f. Thus the native map has three isomorphism components and is an isomorphism. Compose its asIso with native pullbackRightPullbackFstIso; no generic pullback carrier is introduced.
+
+Consumed API:
+
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetPullbackTowerIso_hom_fst**: The forward flattening h.hom followed by the direct pullback first projection to Z equals the iterated pullback first projection to Z.
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetPullbackTowerIso_hom_snd**: The forward flattening h.hom followed by the direct second projection to C_f equals the successive composite: second projection to C_(f_q), forward conductorTargetBaseChangeIso(f,q), and second projection to C_f.
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetPullbackTowerIso_inv_fst**: The inverse flattening h.inv followed by the iterated first projection to Z equals the direct first projection.
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetPullbackTowerIso_inv_snd**: The inverse flattening h.inv followed by the successive old-conductor projection through C_(f_q) and conductorTargetBaseChangeIso(f,q) equals the direct second projection to C_f.
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_tower**: As whole native scheme isomorphisms, e_(f_q,r) followed by h equals t followed by e_(f,r∘q), where e is the existing conductorTargetBaseChangeIso. All four corners are the actual recomputed conductor subschemes or native scheme pullbacks.
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_tower_inverse**: The composite h.inv followed by e_(f_q,r).inv equals e_(f,r∘q).inv followed by t.inv, as actual scheme morphisms between the specified carriers.
+- **TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_tower_snd**: The morphism from C_((f_q)_r) to C_f obtained by e_(f_q,r), the intermediate second projection, e_(f,q) and its second projection equals the route through t, e_(f,r∘q) and the direct second projection.
+
+Typed examples:
+
+- **ConductorTowerChecked.native_pullback_projections**: The inverse native pullback flattening preserves both the last-base projection and the full successive projection to the original conductor.
+- **ConductorTowerChecked.whole_inverse**: The inverses of the successive and direct composite comparison isomorphisms are equal as whole native isomorphisms.
+- **ConductorTowerChecked.actual_conductor_map**: After precomposition with the actual conductorMap of the twice-base-changed finite morphism, the successive and direct maps to the old target conductor agree. This does not assert source-carrier tower coherence.
+- **ConductorTowerChecked.identity_base**: Two identity base changes satisfy the whole tower comparison on the actual native pullback carriers; no definitional identification of these carriers with the original one is assumed.
+- **ConductorTowerChecked.nested_open_restriction**: For any open U of P and any open V of U, without either being affine, the successive restriction comparison equals the direct comparison along V→U→P after the specified carrier isomorphisms.
+- **ConductorTowerChecked.zero_ring**: Over Spec(Z/1), both actual conductor carrier and native pullback flattening isomorphisms have the native forward-inverse roundtrip, without a point or nontriviality hypothesis.
+
+## Flattening preserves the projection to the last base
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetPullbackTowerIso_hom_fst** — The forward flattening h.hom followed by the direct pullback first projection to Z equals the iterated pullback first projection to Z.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-pullback-tower-iso, mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_fst.
+
+Proof: Use the native pasting first-projection formula and the first-projection computation of pullback.map with its identity component on Z.
+
+## Flattening preserves the projection to the old conductor
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetPullbackTowerIso_hom_snd** — The forward flattening h.hom followed by the direct second projection to C_f equals the successive composite: second projection to C_(f_q), forward conductorTargetBaseChangeIso(f,q), and second projection to C_f.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-pullback-tower-iso, mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_snd.
+
+Proof: Compute the second projection using the native pasting formula and pullback.map second projection. Keep the actual intermediate target comparison in the composite.
+
+## Inverse flattening preserves the last-base projection
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetPullbackTowerIso_inv_fst** — The inverse flattening h.inv followed by the iterated first projection to Z equals the direct first projection.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-pullback-tower-hom-fst.
+
+Proof: Precompose the forward first-projection identity with h.inv and cancel the inverse-forward pair.
+
+## Inverse flattening preserves the old-conductor projection
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetPullbackTowerIso_inv_snd** — The inverse flattening h.inv followed by the successive old-conductor projection through C_(f_q) and conductorTargetBaseChangeIso(f,q) equals the direct second projection to C_f.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-pullback-tower-hom-snd.
+
+Proof: Precompose the full forward second-projection identity with h.inv; reassociate and cancel.
+
+## Successive and direct target conductor comparisons agree
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_tower** — As whole native scheme isomorphisms, e_(f_q,r) followed by h equals t followed by e_(f,r∘q), where e is the existing conductorTargetBaseChangeIso. All four corners are the actual recomputed conductor subschemes or native scheme pullbacks.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-tower-hom-inclusion, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-pullback-tower-hom-fst, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-base-change-fst, mathlib:CategoryTheory.Iso.ext, mathlib:CategoryTheory.Limits.pullback.fst_of_mono.
+
+Proof: Use native Iso.ext. Cancel the first projection of the direct pullback, which is monic because the old conductor inclusion is monic. Both composites with it equal the twice-recomputed closed inclusion by the three listed projection identities.
+
+## The inverse successive and direct comparisons agree
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_tower_inverse** — The composite h.inv followed by e_(f_q,r).inv equals e_(f,r∘q).inv followed by t.inv, as actual scheme morphisms between the specified carriers.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-base-change-tower.
+
+Proof: Apply congruence to the inverse field of the proved whole-isomorphism equality; the composite inverse has the indicated reversed order.
+
+## Both tower routes induce the same old-conductor morphism
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_tower_snd** — The morphism from C_((f_q)_r) to C_f obtained by e_(f_q,r), the intermediate second projection, e_(f,q) and its second projection equals the route through t, e_(f,r∘q) and the direct second projection.
+
+Hypotheses: Schemes in a common universe; f:Y→P finite and schematically dominant; q:T→P and r:Z→T flat. Native base-change and composition instances supply the required hypotheses. C_g denotes the native closed subscheme of the full conductorIdealSheaf(g); i_g is its actual closed inclusion. e_(g,a) is the existing conductorTargetBaseChangeIso(g,a). Composition is written in traversal order in the declarations. No affine, Noetherian, reduced, separated, birational, faithfully-flat or nonempty assumption is added. These are target-conductor comparisons; source-carrier tower coherence and three-step coherence remain distinct obligations.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-base-change-tower, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-pullback-tower-hom-snd.
+
+Proof: Postcompose the whole-isomorphism equality with the direct second projection, then substitute the actual flattening second-projection formula.
+
 # Actual conductor subscheme base-change comparisons
 
 For finite schematically dominant f and arbitrary flat q, use the proved equality of full target and source conductor ideals. Transport their actual closed subschemes along those equalities and compose with native comapIso. The result is a pair of actual scheme isomorphisms to the pullbacks of the old conductor inclusions. Their forward and inverse maps preserve the actual inclusions and projections, and both recomputed conductor inclusion squares are native cartesian squares.
