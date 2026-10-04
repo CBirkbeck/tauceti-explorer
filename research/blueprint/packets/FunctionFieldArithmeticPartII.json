@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim. Positive-divisibility coefficient continuation:23 explicit declarations,18 API items and12 typed tests establish coefficient functoriality of the universal coaction and actual invariant algebra. Native scheme-limit continuation:21 declarations,23 API entries and21 typed tests specify the actual affine inverse-limit and its coefficient/factorial dictionary. Native affine base-change continuation:21 declarations,14 API entries and14 typed tests specify the actual ring pushout, tensor equivalence and Cartesian scheme comparison. Tensor-action continuation:11 declaration contracts,9 API entries and8 typed tests describe the actual coaction comparison and native tensor invariant algebra under arbitrary affine base change. Finite-projection continuation: 14 declarations (2 constructions, 12 lemmas), 12 API entries and 8 typed examples; all 501 incoming mathematical contracts retained. Affine root-point continuation: 23 declarations (5 constructions,18 lemmas),20 API entries and14 distinct typed tests; all515 whole incoming node objects preserved. Root-point diagram continuation:20 declarations(3 constructions17 lemmas),17 API references and7 distinct typed tests; all538 incoming mathematical contracts preserved,535 whole old nodes unchanged and three receive only appended API references. Framed root continuation:25 declarations(1 definition4 constructions20 lemmas),22 API references and9 distinct typed tests. All558 incoming node objects are unchanged. Framed normalization continuation:19 declarations (4 constructions and15 lemmas),12 API references and8 distinct typed tests. All583 incoming node objects are unchanged. Affine fppf scheme continuation:14 declarations (3 constructions and11 lemmas),11 API references and7 distinct typed tests with14 references. All602 incoming node objects are unchanged.",
+  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim. Positive-divisibility coefficient continuation:23 explicit declarations,18 API items and12 typed tests establish coefficient functoriality of the universal coaction and actual invariant algebra. Native scheme-limit continuation:21 declarations,23 API entries and21 typed tests specify the actual affine inverse-limit and its coefficient/factorial dictionary. Native affine base-change continuation:21 declarations,14 API entries and14 typed tests specify the actual ring pushout, tensor equivalence and Cartesian scheme comparison. Tensor-action continuation:11 declaration contracts,9 API entries and8 typed tests describe the actual coaction comparison and native tensor invariant algebra under arbitrary affine base change. Finite-projection continuation: 14 declarations (2 constructions, 12 lemmas), 12 API entries and 8 typed examples; all 501 incoming mathematical contracts retained. Affine root-point continuation: 23 declarations (5 constructions,18 lemmas),20 API entries and14 distinct typed tests; all515 whole incoming node objects preserved. Root-point diagram continuation:20 declarations(3 constructions17 lemmas),17 API references and7 distinct typed tests; all538 incoming mathematical contracts preserved,535 whole old nodes unchanged and three receive only appended API references. Framed root continuation:25 declarations(1 definition4 constructions20 lemmas),22 API references and9 distinct typed tests. All558 incoming node objects are unchanged. Framed normalization continuation:19 declarations (4 constructions and15 lemmas),12 API references and8 distinct typed tests. All583 incoming node objects are unchanged. Affine fppf scheme continuation:14 declarations (3 constructions and11 lemmas),11 API references and7 distinct typed tests with14 references. All602 incoming node objects are unchanged. Faithful normalization-arrow continuation:18 declarations (3 constructions and15 lemmas),14 API references and8 distinct typed tests with14 references. All616 incoming node objects are unchanged.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2246,6 +2246,86 @@
         "line": 396,
         "provides": "lemma finitePresentation_algebraMap [Algebra A B] : Reuse the native scheme or ring API for the actual root-specific normalization cover and chart.",
         "checked": "Codex — codex-rtOQ9t read the statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Spec.map_id",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "line": 481,
+        "provides": "theorem Spec.map_id (R : CommRingCat) : Spec.map (𝟙 R) = 𝟙 (Spec R) := Reuse the actual native API for arrow-wise normalization covers.",
+        "checked": "Codex — codex-rtOQ9t read the statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04; original extent is recorded in Reading.json."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Spec.map_injective",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/GammaSpecAdjunction.lean",
+        "line": 548,
+        "provides": "lemma Spec.map_injective {R S : CommRingCat} : Function.Injective (Spec.map : (R ⟶ S) → _) := Reuse the actual native API for arrow-wise normalization covers.",
+        "checked": "Codex — codex-rtOQ9t read the statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04; original extent is recorded in Reading.json."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.Faithful",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
+        "line": 52,
+        "provides": "class Faithful (F : C ⥤ D) : Prop where Reuse the actual native API for arrow-wise normalization covers.",
+        "checked": "Codex — codex-rtOQ9t read the statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04; original extent is recorded in Reading.json."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.const",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Functor/Const.lean",
+        "line": 36,
+        "provides": "def const : C ⥤ J ⥤ C where Reuse the actual native API for arrow-wise normalization covers.",
+        "checked": "Codex — codex-rtOQ9t read the statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04; original extent is recorded in Reading.json."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.map_isIso",
+        "kind": "instance",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "line": 495,
+        "provides": "instance map_isIso (F : C ⥤ D) (f : X ⟶ Y) [IsIso f] : IsIso (F.map f) := Reuse the actual native API for arrow-wise normalization covers.",
+        "checked": "Codex — codex-rtOQ9t read the statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04; original extent is recorded in Reading.json."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.NatTrans",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/NatTrans.lean",
+        "line": 53,
+        "provides": "structure NatTrans (F G : C ⥤ D) : Type max u₁ v₂ where Reuse the actual native API for arrow-wise normalization covers.",
+        "checked": "Codex — codex-rtOQ9t read the statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04; original extent is recorded in Reading.json."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Over.OverMorphism.ext",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Comma/Over/Basic.lean",
+        "line": 80,
+        "provides": "theorem OverMorphism.ext {X : T} {U V : Over X} {f g : U ⟶ V} (h : f.left = g.left) : f = g := by Reuse the actual native API for arrow-wise normalization covers.",
+        "checked": "Codex — codex-rtOQ9t read the statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04; original extent is recorded in Reading.json."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Over.forget",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Comma/Over/Basic.lean",
+        "line": 177,
+        "provides": "def forget : Over X ⥤ T := Reuse the actual native API for arrow-wise normalization covers.",
+        "checked": "Codex — codex-rtOQ9t read the statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04; original extent is recorded in Reading.json."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Over.homMk",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Comma/Over/Basic.lean",
+        "line": 120,
+        "provides": "def homMk {U V : Over X} (f : U.left ⟶ V.left) (w : f ≫ V.hom = U.hom := by cat_disch) : U ⟶ V := Reuse the actual native API for arrow-wise normalization covers.",
+        "checked": "Codex — codex-rtOQ9t read the statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04; original extent is recorded in Reading.json."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Over.mk",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Comma/Over/Basic.lean",
+        "line": 99,
+        "provides": "def mk {X Y : T} (f : Y ⟶ X) : Over X := Reuse the actual native API for arrow-wise normalization covers.",
+        "checked": "Codex — codex-rtOQ9t read the statement and ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04; original extent is recorded in Reading.json."
       }
     ]
   },
@@ -2651,6 +2731,18 @@
       "accessed": "2026-10-04",
       "readSections": [
         "Whole displayed Definition34.7.1 only, flat and locally finitely presented jointly surjective scheme families. No whole-section, paper or version/errata audit. The root-specific Spec/cover/chart deductions are authored using the authenticated native algebraic normalization."
+      ]
+    },
+    {
+      "id": "FramedNormalizationArrows-codex-rtOQ9t",
+      "title": "Roots-of-lines context and authored faithful normalization arrows",
+      "authors": "The Stacks Project Authors; specialized deductions by Codex — codex-rtOQ9t",
+      "edition": "Current displayed Subsection112.5.13 only, accessed4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/04V8",
+      "sha256": "94ff98771dce977671fc59654acf26cd3f7060a98e3b42930e92e8e136561ebc",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "Whole current displayed Subsection112.5.13 paragraph and reference list; no comments exist. Literature/root-stack context only. Arrow-wise normalization-cover deductions authored from the recovered actual framed groupoid and normalization algebras. No whole source papers or historical-version collation."
       ]
     }
   ],
@@ -36028,6 +36120,937 @@
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-map",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "construction",
+      "title": "Normalization on actual framed arrows",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationRingMap",
+      "statement": "For an actual framed arrow h:p to q with unit label zeta, construct the B-algebra homomorphism Dq to Dp, sending Tq to Tp times the image of zeta inverse. Here Dr=B[Tr]/(Tr^n-ur). This allows every natural exponent.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. Every natural exponent n is allowed, including zero.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-object",
+        "mathlib:AdjoinRoot.liftAlgHom",
+        "FunctionFieldArithmeticPartII:RS.0/affine-root-relation"
+      ],
+      "proofSteps": [
+        "The framed coefficient equation gives up times zeta inverse to the n equals uq. Evaluate the defining polynomial at Tp times zeta inverse, then use the native adjoined-root universal property."
+      ],
+      "acceptance": [
+        "For an actual framed arrow h:p to q with unit label zeta, construct the B-algebra homomorphism Dq to Dp, sending Tq to Tp times the image of zeta inverse. Here Dr=B[Tr]/(Tr^n-ur). This allows every natural exponent.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationRingMap_root",
+          "role": "compatibility",
+          "statement": "The actual normalization homomorphism sends Tq to Tp times the image of the inverse of the actual arrow label."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationRingMap_coefficients",
+          "role": "compatibility",
+          "statement": "For every b in B, the normalization homomorphism sends its coefficient image in Dq to its coefficient image in Dp."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationRingMap_identity",
+          "role": "compatibility",
+          "statement": "For every actual framed root p, the normalization map of its identity arrow is the actual identity B-algebra homomorphism of Dp."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationRingMap_composition",
+          "role": "compatibility",
+          "statement": "For arrows h:p to q and j:q to r, normalization(h) composed with normalization(j) equals normalization(h followed by j)."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationRingMap_point",
+          "role": "compatibility",
+          "statement": "For positive exponent, the normalization map restricted to A and composed with q normalizationPoint equals p normalizationPoint as actual A-algebra homomorphisms."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationRingMap_injective",
+          "role": "compatibility",
+          "statement": "For positive exponent and fixed framed roots p and q, the function from actual arrows p to q to normalization B-algebra homomorphisms Dq to Dp is injective."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.generators",
+          "kind": "compatibility",
+          "statement": "For every natural exponent and actual framed arrow, the actual normalization ring map sends the unit root to Tp times the inverse label and fixes every coefficient from B."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.functoriality",
+          "kind": "compatibility",
+          "statement": "For every natural exponent, the actual normalization ring map preserves identity and reverses composition exactly."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.nilpotent_section",
+          "kind": "non-example",
+          "statement": "Over Z/9 at n=2, the actual minus-one arrow connects (1,3) to (1,6). Its normalization ring map transports the actual normalized chart root, which remains nonzero and has square zero."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.coefficient_change",
+          "kind": "compatibility",
+          "statement": "Over Z/7 at n=2 and f=1, the actual label-two arrow connects (1,1) to (2,2). Its normalization ring map sends Tq to Tp times the image of 4, and its actual scheme chart square commutes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/framed-essential-image",
+          "how": "Make the actual affine fppf normalization functorial in chosen-frame arrows, retaining stabilizer labels and the actual normalized chart point."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-object",
+          "how": "Supply actual faithful changes of affine normalization covers and natural chart squares for the still-open native sheaf comparison and descent construction."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The arrow sends the unit root to the exact rescaled root",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationRingMap_root",
+      "statement": "The actual normalization homomorphism sends Tq to Tp times the image of the inverse of the actual arrow label.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. Every natural exponent n is allowed, including zero.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-map",
+        "mathlib:AdjoinRoot.liftAlgHom_root"
+      ],
+      "proofSteps": [
+        "Compute the native universal-property map on the adjoined root."
+      ],
+      "acceptance": [
+        "The actual normalization homomorphism sends Tq to Tp times the image of the inverse of the actual arrow label.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-coefficients",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Normalization arrows fix the base coefficients",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationRingMap_coefficients",
+      "statement": "For every b in B, the normalization homomorphism sends its coefficient image in Dq to its coefficient image in Dp.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. Every natural exponent n is allowed, including zero.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-map"
+      ],
+      "proofSteps": [
+        "Use the actual B-algebra homomorphism coefficient law."
+      ],
+      "acceptance": [
+        "For every b in B, the normalization homomorphism sends its coefficient image in Dq to its coefficient image in Dp.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-identity",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Normalization sends the identity arrow to the identity ring map",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationRingMap_identity",
+      "statement": "For every actual framed root p, the normalization map of its identity arrow is the actual identity B-algebra homomorphism of Dp.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. Every natural exponent n is allowed, including zero.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-root",
+        "FunctionFieldArithmeticPartII:RS.0/framed-identity",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "Compare the root images by native adjoined-root algebra homomorphism extensionality; the identity unit label is one."
+      ],
+      "acceptance": [
+        "For every actual framed root p, the normalization map of its identity arrow is the actual identity B-algebra homomorphism of Dp.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-composition",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Normalization respects contravariant ring composition",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationRingMap_composition",
+      "statement": "For arrows h:p to q and j:q to r, normalization(h) composed with normalization(j) equals normalization(h followed by j).",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. Every natural exponent n is allowed, including zero.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-root",
+        "FunctionFieldArithmeticPartII:RS.0/framed-composition",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "Compare root images. The composite label is label(j) times label(h), so its inverse has the required reverse order. Coefficients are fixed."
+      ],
+      "acceptance": [
+        "For arrows h:p to q and j:q to r, normalization(h) composed with normalization(j) equals normalization(h followed by j).",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-point",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Normalization arrows transport the actual chart point",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationRingMap_point",
+      "statement": "For positive exponent, the normalization map restricted to A and composed with q normalizationPoint equals p normalizationPoint as actual A-algebra homomorphisms.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-root",
+        "FunctionFieldArithmeticPartII:RS.0/framed-normalization-point-root",
+        "mathlib:AdjoinRoot.algHom_ext"
+      ],
+      "proofSteps": [
+        "Compare the chart root images. Substitute q.root=zeta times p.root and cancel the unit label with its inverse. Do not cancel the section."
+      ],
+      "acceptance": [
+        "For positive exponent, the normalization map restricted to A and composed with q normalizationPoint equals p normalizationPoint as actual A-algebra homomorphisms.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-faithful",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Actual framed labels are detected by normalization ring maps",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationRingMap_injective",
+      "statement": "For positive exponent and fixed framed roots p and q, the function from actual arrows p to q to normalization B-algebra homomorphisms Dq to Dp is injective.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-root",
+        "FunctionFieldArithmeticPartII:RS.0/framed-hom-ext",
+        "FunctionFieldArithmeticPartII:RS.0/framed-normalization-unit",
+        "FunctionFieldArithmeticPartII:RS.0/framed-normalization-faithfully-flat",
+        "mathlib:FaithfulSMul.algebraMap_injective"
+      ],
+      "proofSteps": [
+        "Evaluate equal maps at Tq. Cancel the bundled unit Tp inside Dp, then use faithful flatness to inject B into Dp. Recover the inverse labels and the original arrows. No root section cancellation is used."
+      ],
+      "acceptance": [
+        "For positive exponent and fixed framed roots p and q, the function from actual arrows p to q to normalization B-algebra homomorphisms Dq to Dp is injective.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-base",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Normalization spectrum arrows lie over the actual coefficient base",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationRingMap_overBase",
+      "statement": "For every natural exponent, Spec(normalization(h)) followed by q normalizationSpecMap equals p normalizationSpecMap as actual scheme morphisms to Spec B.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. Every natural exponent n is allowed, including zero.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-coefficients",
+        "FunctionFieldArithmeticPartII:RS.0/framed-fppf-map",
+        "mathlib:AlgebraicGeometry.Spec.map_comp"
+      ],
+      "proofSteps": [
+        "Use contravariance of the spectrum and compare the composite coefficient homomorphisms pointwise."
+      ],
+      "acceptance": [
+        "For every natural exponent, Spec(normalization(h)) followed by q normalizationSpecMap equals p normalizationSpecMap as actual scheme morphisms to Spec B.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "construction",
+      "title": "The actual normalization cover functor over Spec B",
+      "declarationName": "TauCeti.RootStack.normalizationFunctor",
+      "statement": "For positive exponent, construct the actual native functor from FramedRoot f n B to Over(Spec B). Its object p is the actual normalization coefficient spectrum map; its arrow h is the actual spectrum of normalizationRingMap h with the proved base triangle.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-identity",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-composition",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-base",
+        "mathlib:CategoryTheory.Over.mk",
+        "mathlib:CategoryTheory.Over.homMk",
+        "mathlib:CategoryTheory.Over.OverMorphism.ext",
+        "mathlib:AlgebraicGeometry.Spec.map_id",
+        "mathlib:AlgebraicGeometry.Spec.map_comp"
+      ],
+      "proofSteps": [
+        "Use native Over objects and morphisms. Prove identity and composition by the actual ring-map laws, spectrum contravariance and native Over morphism extensionality."
+      ],
+      "acceptance": [
+        "For positive exponent, construct the actual native functor from FramedRoot f n B to Over(Spec B). Its object p is the actual normalization coefficient spectrum map; its arrow h is the actual spectrum of normalizationRingMap h with the proved base triangle.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.normalizationFunctor_obj",
+          "role": "compatibility",
+          "statement": "The image of p under normalizationFunctor is exactly Over.mk p.normalizationSpecMap."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationFunctor_map",
+          "role": "compatibility",
+          "statement": "The underlying scheme morphism of normalizationFunctor.map h is exactly Spec(normalizationRingMap h)."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationFunctor_faithful",
+          "role": "compatibility",
+          "statement": "For every positive exponent, normalizationFunctor is faithful in the native Functor.Faithful sense. Equal actual arrows over Spec B imply equal original framed arrows, including stabilizers of zero and nilpotent sections."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationFunctor_map_isIso",
+          "role": "compatibility",
+          "statement": "Every actual arrow of the framed root groupoid is sent to an isomorphism in the native category Over(Spec B)."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationFunctor_cover",
+          "role": "compatibility",
+          "statement": "For every object p, the singleton presieve of the actual Over object homomorphism belongs to the native scheme fppf precoverage of Spec B."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.actual_scheme_diagram",
+          "kind": "compatibility",
+          "statement": "For arbitrary positive exponent, the actual Over arrow is an isomorphism, its base triangle commutes, its chart naturality square commutes, its composite with the inverse arrow is the identity, and the actual object homomorphism is fppf covering."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.zero_section_automorphism",
+          "kind": "non-example",
+          "statement": "Over Z/4 at n=2, the framed object (1,0) has the actual minus-one automorphism. Its image under normalizationFunctor is not the identity, despite the zero root section."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.coefficient_change",
+          "kind": "compatibility",
+          "statement": "Over Z/7 at n=2 and f=1, the actual label-two arrow connects (1,1) to (2,2). Its normalization ring map sends Tq to Tp times the image of 4, and its actual scheme chart square commutes."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.exponent_one",
+          "kind": "degenerate",
+          "statement": "For arbitrary framed p at exponent one, the actual normalizationFunctor object homomorphism is fppf covering and the conjugated component global-section map sends the chart root to the image of f."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.zero_ring",
+          "kind": "degenerate",
+          "statement": "Over Z/1 at n=3, the actual functor identity law, actual fppf singleton membership and exact chart natural-transformation component all hold without assuming any spectrum point exists."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/framed-essential-image",
+          "how": "Make the actual affine fppf normalization functorial in chosen-frame arrows, retaining stabilizer labels and the actual normalized chart point."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-object",
+          "how": "Supply actual faithful changes of affine normalization covers and natural chart squares for the still-open native sheaf comparison and descent construction."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor-object",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The cover functor has the actual normalization object",
+      "declarationName": "TauCeti.RootStack.normalizationFunctor_obj",
+      "statement": "The image of p under normalizationFunctor is exactly Over.mk p.normalizationSpecMap.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor"
+      ],
+      "proofSteps": [
+        "Reduce the actual native functor object field."
+      ],
+      "acceptance": [
+        "The image of p under normalizationFunctor is exactly Over.mk p.normalizationSpecMap.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor-arrow",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The cover functor has the actual spectrum arrow",
+      "declarationName": "TauCeti.RootStack.normalizationFunctor_map",
+      "statement": "The underlying scheme morphism of normalizationFunctor.map h is exactly Spec(normalizationRingMap h).",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor"
+      ],
+      "proofSteps": [
+        "Reduce the actual native functor morphism field."
+      ],
+      "acceptance": [
+        "The underlying scheme morphism of normalizationFunctor.map h is exactly Spec(normalizationRingMap h).",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor-faithful",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The actual normalization cover functor is faithful",
+      "declarationName": "TauCeti.RootStack.normalizationFunctor_faithful",
+      "statement": "For every positive exponent, normalizationFunctor is faithful in the native Functor.Faithful sense. Equal actual arrows over Spec B imply equal original framed arrows, including stabilizers of zero and nilpotent sections.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor-arrow",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-faithful",
+        "mathlib:AlgebraicGeometry.Spec.map_injective",
+        "mathlib:CategoryTheory.Functor.Faithful"
+      ],
+      "proofSteps": [
+        "Take the underlying actual scheme maps. Native spectrum faithfulness detects equality of ring maps; injectivity of the normalization assignment recovers the original actual arrow labels."
+      ],
+      "acceptance": [
+        "For every positive exponent, normalizationFunctor is faithful in the native Functor.Faithful sense. Equal actual arrows over Spec B imply equal original framed arrows, including stabilizers of zero and nilpotent sections.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor-isomorphisms",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Actual framed arrows induce isomorphisms of normalization covers",
+      "declarationName": "TauCeti.RootStack.normalizationFunctor_map_isIso",
+      "statement": "Every actual arrow of the framed root groupoid is sent to an isomorphism in the native category Over(Spec B).",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor",
+        "FunctionFieldArithmeticPartII:RS.0/framed-groupoid",
+        "mathlib:CategoryTheory.Functor.map_isIso"
+      ],
+      "proofSteps": [
+        "Use native preservation of isomorphisms by the actual functor from the existing groupoid."
+      ],
+      "acceptance": [
+        "Every actual arrow of the framed root groupoid is sent to an isomorphism in the native category Over(Spec B).",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor-cover",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Every cover functor object is actually fppf covering",
+      "declarationName": "TauCeti.RootStack.normalizationFunctor_cover",
+      "statement": "For every object p, the singleton presieve of the actual Over object homomorphism belongs to the native scheme fppf precoverage of Spec B.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor-object",
+        "FunctionFieldArithmeticPartII:RS.0/framed-fppf-cover-membership"
+      ],
+      "proofSteps": [
+        "Use the previously proved actual singleton normalization cover membership."
+      ],
+      "acceptance": [
+        "For every object p, the singleton presieve of the actual Over object homomorphism belongs to the native scheme fppf precoverage of Spec B.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-chart-naturality",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The actual normalization chart arrows form commuting squares",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationChartMap_naturality",
+      "statement": "For every actual framed arrow h:p to q, Spec(normalizationRingMap h) followed by q normalizationChartMap equals p normalizationChartMap as actual scheme morphisms.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-point",
+        "FunctionFieldArithmeticPartII:RS.0/framed-fppf-chart",
+        "mathlib:AlgebraicGeometry.Spec.map_comp"
+      ],
+      "proofSteps": [
+        "Apply actual spectrum contravariance to the proved equality of the composed normalization-point algebra homomorphisms."
+      ],
+      "acceptance": [
+        "For every actual framed arrow h:p to q, Spec(normalizationRingMap h) followed by q normalizationChartMap equals p normalizationChartMap as actual scheme morphisms.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-chart-transformation",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "construction",
+      "title": "The native natural transformation from covers to the affine root chart",
+      "declarationName": "TauCeti.RootStack.normalizationChartNatTrans",
+      "statement": "Construct the actual native natural transformation from normalizationFunctor followed by Over.forget to the constant functor with value Spec(A[Z]/(Z^n-f)). The component at p is its actual normalizationChartMap.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-chart-naturality",
+        "mathlib:CategoryTheory.Over.forget",
+        "mathlib:CategoryTheory.Functor.const",
+        "mathlib:CategoryTheory.NatTrans"
+      ],
+      "proofSteps": [
+        "Use the native natural transformation carrier and fields. The actual chart-square equality supplies naturality; the constant target has identity arrow maps."
+      ],
+      "acceptance": [
+        "Construct the actual native natural transformation from normalizationFunctor followed by Over.forget to the constant functor with value Spec(A[Z]/(Z^n-f)). The component at p is its actual normalizationChartMap.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationChartMap_naturality",
+          "role": "compatibility",
+          "statement": "For every actual framed arrow h:p to q, Spec(normalizationRingMap h) followed by q normalizationChartMap equals p normalizationChartMap as actual scheme morphisms."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationChartNatTrans_app",
+          "role": "compatibility",
+          "statement": "The component of normalizationChartNatTrans at p equals p normalizationChartMap as an actual scheme morphism."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationChartNatTrans_appTop",
+          "role": "compatibility",
+          "statement": "After conjugation by the native spectrum global-section isomorphisms, the actual global-section map of the component at p equals p normalizationPoint.toRingHom."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.actual_scheme_diagram",
+          "kind": "compatibility",
+          "statement": "For arbitrary positive exponent, the actual Over arrow is an isomorphism, its base triangle commutes, its chart naturality square commutes, its composite with the inverse arrow is the identity, and the actual object homomorphism is fppf covering."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.nilpotent_section",
+          "kind": "non-example",
+          "statement": "Over Z/9 at n=2, the actual minus-one arrow connects (1,3) to (1,6). Its normalization ring map transports the actual normalized chart root, which remains nonzero and has square zero."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.coefficient_change",
+          "kind": "compatibility",
+          "statement": "Over Z/7 at n=2 and f=1, the actual label-two arrow connects (1,1) to (2,2). Its normalization ring map sends Tq to Tp times the image of 4, and its actual scheme chart square commutes."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.exponent_one",
+          "kind": "degenerate",
+          "statement": "For arbitrary framed p at exponent one, the actual normalizationFunctor object homomorphism is fppf covering and the conjugated component global-section map sends the chart root to the image of f."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationArrowTests.zero_ring",
+          "kind": "degenerate",
+          "statement": "Over Z/1 at n=3, the actual functor identity law, actual fppf singleton membership and exact chart natural-transformation component all hold without assuming any spectrum point exists."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/framed-essential-image",
+          "how": "Make the actual affine fppf normalization functorial in chosen-frame arrows, retaining stabilizer labels and the actual normalized chart point."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-object",
+          "how": "Supply actual faithful changes of affine normalization covers and natural chart squares for the still-open native sheaf comparison and descent construction."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-chart-component",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The natural transformation has the actual chart component",
+      "declarationName": "TauCeti.RootStack.normalizationChartNatTrans_app",
+      "statement": "The component of normalizationChartNatTrans at p equals p normalizationChartMap as an actual scheme morphism.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-chart-transformation"
+      ],
+      "proofSteps": [
+        "Reduce the actual component field."
+      ],
+      "acceptance": [
+        "The component of normalizationChartNatTrans at p equals p normalizationChartMap as an actual scheme morphism.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-chart-sections",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The natural transformation computes the actual chart global sections",
+      "declarationName": "TauCeti.RootStack.normalizationChartNatTrans_appTop",
+      "statement": "After conjugation by the native spectrum global-section isomorphisms, the actual global-section map of the component at p equals p normalizationPoint.toRingHom.",
+      "hypotheses": [
+        "Arbitrary commutative A and commutative A-algebra B in a common universe, arbitrary section f and actual chosen-frame roots (u,y) with bundled unit u and u*y^n equal to the image of f. Actual arrows retain their unit labels and both the section and coefficient equations. The exponent n is positive, expressed by the native NeZero instance.",
+        "No exponent-invertibility, reducedness, nontriviality, section-regularity or injectivity of the original A to B coefficient map is assumed. No cancellation of the root section is used.",
+        "These are actual arrow-wise constructions on the existing chosen-frame groupoid. Native sheaf RootObject comparison, local frame existence, stackification, effective descent, infinite genuine 2-limits and higher-universe adapters remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-chart-component",
+        "FunctionFieldArithmeticPartII:RS.0/framed-fppf-chart-sections"
+      ],
+      "proofSteps": [
+        "Reuse the exact global-section computation for the existing actual chart morphism."
+      ],
+      "acceptance": [
+        "After conjugation by the native spectrum global-section isomorphisms, the actual global-section map of the component at p equals p normalizationPoint.toRingHom.",
+        "Use the actual native framed arrows, normalization algebras, scheme morphisms, Over category, functor and natural transformation. Retain wild exponents and nonzero nilpotent sections."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "FramedNormalizationArrows-codex-rtOQ9t",
+          "locator": "Stacks Subsection112.5.13, tag04V8, literature context only; authored arrow-wise normalization deductions",
+          "match": "The source supplies context and primary literature references for roots of lines. The precise ring maps, actual cover functor, faithfulness and chart natural transformation are authored deductions from the authenticated prior framed groupoid and normalization algebra, checked using pinned native APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -36201,7 +37224,8 @@
         "The separate native proof extraction checks the weighted comparison, specified module kernel/cokernel and unit inverse, all inherited direct examples and the general zero-section field ranks. The determinant sign and all native calculation bodies are now checked separately; complete native geometric supplier contracts and full-file elaboration. No stage or implementation closure is claimed.",
         "An actual native framed root-coordinate groupoid now retains the arbitrary power-identification unit u and equation u*y^n=f. Its arrows retain both section and unit-power equations. The existing normalized affine chart embeds fully faithfully, with native FullyFaithful data and an actual Hom equivalence preserving all stabilizers. A framed object is isomorphic to an embedded chart object exactly when u is an n-th power in the test algebra unit group. The Z/4 example u=3,y=1,f=3,n=2 has framed root data but no chart root, so chart points do not give objectwise essential surjectivity before local trivialization and stackification. The native sheaf RootObject-to-coordinate functor, frame/unit-root existence locally, fppf stackification, infinite coherent reindexing, genuine 2-limit comparison, effective fpqc quotient/descent and higher-universe adapters remain open. The reserved scheme/stack and all-positive-exponent fppf scope is unchanged.",
         "For every chosen-frame root (u,y), the existing extension D=B[T]/(T^n-u) now has its actual adjoined root unit, normalized affine chart point and native framed-groupoid isomorphism labelled by that unit. For every positive exponent D has a Fin n basis and is faithfully flat; it is finitely presented even for n=0. This removes the unit-root obstruction after the specified algebra extension, including wild characteristic, while preserving nonzero nilpotent root sections. The arbitrary algebra-change functor retains actual arrow labels and is not claimed faithful. The native sheaf RootObject-to-coordinate comparison, local line-frame existence, scheme-cover packaging, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open; the reserved scheme/stack and all-positive-exponent fppf scope is unchanged.",
-        "For every positive exponent and actual chosen-frame root p=(u,y), the existing normalization extension D=B[T]/(T^n-u) now gives an actual singleton cover of Spec B in the native scheme fppf precoverage. Its actual coefficient spectrum map is flat, surjective and locally of finite presentation; its unique source, arrow and presieve are computed and every actual base point lifts. The actual normalized chart arrow Spec D to Spec(A[Z]/(Z^n-f)) induces the existing normalization-point map on global sections, pulls the root section to T times the image of y, and has the proved coefficient triangle to Spec A. Wild exponents, nonzero nilpotents and the empty zero-ring spectrum are retained. Finite presentation of the scheme map also holds for n=0; the cover assertion uses positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, as do all existing source, supplier and geometric obligations."
+        "For every positive exponent and actual chosen-frame root p=(u,y), the existing normalization extension D=B[T]/(T^n-u) now gives an actual singleton cover of Spec B in the native scheme fppf precoverage. Its actual coefficient spectrum map is flat, surjective and locally of finite presentation; its unique source, arrow and presieve are computed and every actual base point lifts. The actual normalized chart arrow Spec D to Spec(A[Z]/(Z^n-f)) induces the existing normalization-point map on global sections, pulls the root section to T times the image of y, and has the proved coefficient triangle to Spec A. Wild exponents, nonzero nilpotents and the empty zero-ring spectrum are retained. Finite presentation of the scheme map also holds for n=0; the cover assertion uses positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, as do all existing source, supplier and geometric obligations.",
+        "For positive exponent, chosen-frame normalization is now an actual faithful functor from FramedRoot f n B to the native category Over(Spec B). An actual arrow with unit label zeta induces the B-algebra map Dq to Dp sending Tq to Tp times zeta inverse; its actual spectrum arrow lies over Spec B, respects identity and composition, is an isomorphism and preserves the actual normalized chart point. Every object retains its actual singleton fppf covering morphism. The chart maps form a native natural transformation to the constant actual affine root chart, with the proved global-section computation. Faithfulness cancels the bundled unit Tp and uses faithful flatness of B to Dp; it never cancels the root section. Zero-section stabilizers over Z/4 and nonzero square-zero sections over Z/9 remain visible. Ring-map functoriality and the base triangle allow n=0, while normalization points, faithful covers and chart naturality require positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, along with every existing source, supplier and geometric obligation."
       ]
     },
     {
@@ -36473,7 +37497,7 @@
     {
       "id": "TOWER-TYPING",
       "title": "Typed infinite fpqc comparison and root-limit coherence",
-      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison. The native affine-chart IsLimit, universal maps and factorial/coefficient scheme comparisons now have explicit contracts and separate proof evidence; the remaining TOWER-AFF and coherent root-groupoid obligations are unchanged. The arbitrary affine-chart coefficient square now has an explicit native ring pushout, tensor equivalence and categorical scheme pullback with both projections. This discharges the affine Cartesian comparison only; higher-universe, coherent root-groupoid and TOWER-AFF fpqc obligations remain open. The actual affine tensor base-change comparison now intertwines the universal rational-character coaction and identifies its tensor equalizer with B. The coherent root-groupoid and TOWER-AFF fpqc comparisons remain open. The actual finite root ring and scheme diagrams now have coefficient natural transformations for every positive index, with identity/composition coherence. The existing infinite coefficient map restricts to every finite level, and its actual affine scheme base-change isomorphism and inverse respect every finite projection. This discharges the affine finite-projection square only. Higher-universe adapters, coherent root-object groupoid reindexing and finite projections for the general stack comparison, TOWER-AFF fpqc frame torsors and actual infinite quotient/descent on objects and arrows remain open. All ten stages, eight gaps, thirteen requests, both paper routes, full omission ledger, finite Kummer/DVR bridges and geometric sheaf obligations retain their scope. The finite affine charts now have actual algebra-valued point action groupoids retaining every roots-of-unity arrow label, native power functors for all positive n|N, and change-of-test-algebra functors. Root images and labels satisfy identity/composition power laws and commute with test-algebra change. This discharges a finite chart point-and-arrow prerequisite only: no general line-bundle root-object equivalence, coherent infinite groupoid reindexing, frame-torsor existence, fppf stackification or fpqc quotient/descent is inferred. Higher-universe adapters and every existing TOWER-TYPING/TOWER-AFF geometric obligation remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes and the complete omission ledger retain their scope. The actual finite root-point power and test-algebra change functors now satisfy identity, composition and interchange as equalities of full functors. They give a native positive-divisibility diagram valued in Grpd and natural transformations for arbitrary test-algebra maps, packaged into a functor from native CommAlgCat to the groupoid-diagram category. All stabilizers and nilpotent points are retained. This provides finite chart categorical coherence only: the general line-bundle root-object comparison, coherent infinite groupoid reindexing and 2-limit comparison, frame-torsor existence, fppf stackification, effective infinite fpqc quotient/descent and higher-universe adapters remain open. All ten partial stages,eight gaps,thirteen requests,forty planets,both paper routes,the full omission ledger and source issue/version envelopes retain their scope. An actual native framed root-coordinate groupoid now retains the arbitrary power-identification unit u and equation u*y^n=f. Its arrows retain both section and unit-power equations. The existing normalized affine chart embeds fully faithfully, with native FullyFaithful data and an actual Hom equivalence preserving all stabilizers. A framed object is isomorphic to an embedded chart object exactly when u is an n-th power in the test algebra unit group. The Z/4 example u=3,y=1,f=3,n=2 has framed root data but no chart root, so chart points do not give objectwise essential surjectivity before local trivialization and stackification. The native sheaf RootObject-to-coordinate functor, frame/unit-root existence locally, fppf stackification, infinite coherent reindexing, genuine 2-limit comparison, effective fpqc quotient/descent and higher-universe adapters remain open. The reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every chosen-frame root (u,y), the existing extension D=B[T]/(T^n-u) now has its actual adjoined root unit, normalized affine chart point and native framed-groupoid isomorphism labelled by that unit. For every positive exponent D has a Fin n basis and is faithfully flat; it is finitely presented even for n=0. This removes the unit-root obstruction after the specified algebra extension, including wild characteristic, while preserving nonzero nilpotent root sections. The arbitrary algebra-change functor retains actual arrow labels and is not claimed faithful. The native sheaf RootObject-to-coordinate comparison, local line-frame existence, scheme-cover packaging, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open; the reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every positive exponent and actual chosen-frame root p=(u,y), the existing normalization extension D=B[T]/(T^n-u) now gives an actual singleton cover of Spec B in the native scheme fppf precoverage. Its actual coefficient spectrum map is flat, surjective and locally of finite presentation; its unique source, arrow and presieve are computed and every actual base point lifts. The actual normalized chart arrow Spec D to Spec(A[Z]/(Z^n-f)) induces the existing normalization-point map on global sections, pulls the root section to T times the image of y, and has the proved coefficient triangle to Spec A. Wild exponents, nonzero nilpotents and the empty zero-ring spectrum are retained. Finite presentation of the scheme map also holds for n=0; the cover assertion uses positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, as do all existing source, supplier and geometric obligations.",
+      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison. The native affine-chart IsLimit, universal maps and factorial/coefficient scheme comparisons now have explicit contracts and separate proof evidence; the remaining TOWER-AFF and coherent root-groupoid obligations are unchanged. The arbitrary affine-chart coefficient square now has an explicit native ring pushout, tensor equivalence and categorical scheme pullback with both projections. This discharges the affine Cartesian comparison only; higher-universe, coherent root-groupoid and TOWER-AFF fpqc obligations remain open. The actual affine tensor base-change comparison now intertwines the universal rational-character coaction and identifies its tensor equalizer with B. The coherent root-groupoid and TOWER-AFF fpqc comparisons remain open. The actual finite root ring and scheme diagrams now have coefficient natural transformations for every positive index, with identity/composition coherence. The existing infinite coefficient map restricts to every finite level, and its actual affine scheme base-change isomorphism and inverse respect every finite projection. This discharges the affine finite-projection square only. Higher-universe adapters, coherent root-object groupoid reindexing and finite projections for the general stack comparison, TOWER-AFF fpqc frame torsors and actual infinite quotient/descent on objects and arrows remain open. All ten stages, eight gaps, thirteen requests, both paper routes, full omission ledger, finite Kummer/DVR bridges and geometric sheaf obligations retain their scope. The finite affine charts now have actual algebra-valued point action groupoids retaining every roots-of-unity arrow label, native power functors for all positive n|N, and change-of-test-algebra functors. Root images and labels satisfy identity/composition power laws and commute with test-algebra change. This discharges a finite chart point-and-arrow prerequisite only: no general line-bundle root-object equivalence, coherent infinite groupoid reindexing, frame-torsor existence, fppf stackification or fpqc quotient/descent is inferred. Higher-universe adapters and every existing TOWER-TYPING/TOWER-AFF geometric obligation remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes and the complete omission ledger retain their scope. The actual finite root-point power and test-algebra change functors now satisfy identity, composition and interchange as equalities of full functors. They give a native positive-divisibility diagram valued in Grpd and natural transformations for arbitrary test-algebra maps, packaged into a functor from native CommAlgCat to the groupoid-diagram category. All stabilizers and nilpotent points are retained. This provides finite chart categorical coherence only: the general line-bundle root-object comparison, coherent infinite groupoid reindexing and 2-limit comparison, frame-torsor existence, fppf stackification, effective infinite fpqc quotient/descent and higher-universe adapters remain open. All ten partial stages,eight gaps,thirteen requests,forty planets,both paper routes,the full omission ledger and source issue/version envelopes retain their scope. An actual native framed root-coordinate groupoid now retains the arbitrary power-identification unit u and equation u*y^n=f. Its arrows retain both section and unit-power equations. The existing normalized affine chart embeds fully faithfully, with native FullyFaithful data and an actual Hom equivalence preserving all stabilizers. A framed object is isomorphic to an embedded chart object exactly when u is an n-th power in the test algebra unit group. The Z/4 example u=3,y=1,f=3,n=2 has framed root data but no chart root, so chart points do not give objectwise essential surjectivity before local trivialization and stackification. The native sheaf RootObject-to-coordinate functor, frame/unit-root existence locally, fppf stackification, infinite coherent reindexing, genuine 2-limit comparison, effective fpqc quotient/descent and higher-universe adapters remain open. The reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every chosen-frame root (u,y), the existing extension D=B[T]/(T^n-u) now has its actual adjoined root unit, normalized affine chart point and native framed-groupoid isomorphism labelled by that unit. For every positive exponent D has a Fin n basis and is faithfully flat; it is finitely presented even for n=0. This removes the unit-root obstruction after the specified algebra extension, including wild characteristic, while preserving nonzero nilpotent root sections. The arbitrary algebra-change functor retains actual arrow labels and is not claimed faithful. The native sheaf RootObject-to-coordinate comparison, local line-frame existence, scheme-cover packaging, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open; the reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every positive exponent and actual chosen-frame root p=(u,y), the existing normalization extension D=B[T]/(T^n-u) now gives an actual singleton cover of Spec B in the native scheme fppf precoverage. Its actual coefficient spectrum map is flat, surjective and locally of finite presentation; its unique source, arrow and presieve are computed and every actual base point lifts. The actual normalized chart arrow Spec D to Spec(A[Z]/(Z^n-f)) induces the existing normalization-point map on global sections, pulls the root section to T times the image of y, and has the proved coefficient triangle to Spec A. Wild exponents, nonzero nilpotents and the empty zero-ring spectrum are retained. Finite presentation of the scheme map also holds for n=0; the cover assertion uses positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, as do all existing source, supplier and geometric obligations. For positive exponent, chosen-frame normalization is now an actual faithful functor from FramedRoot f n B to the native category Over(Spec B). An actual arrow with unit label zeta induces the B-algebra map Dq to Dp sending Tq to Tp times zeta inverse; its actual spectrum arrow lies over Spec B, respects identity and composition, is an isomorphism and preserves the actual normalized chart point. Every object retains its actual singleton fppf covering morphism. The chart maps form a native natural transformation to the constant actual affine root chart, with the proved global-section computation. Faithfulness cancels the bundled unit Tp and uses faithful flatness of B to Dp; it never cancels the root section. Zero-section stabilizers over Z/4 and nonzero square-zero sections over Z/9 remain visible. Ring-map functoriality and the base triangle allow n=0, while normalization points, faithful covers and chart naturality require positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, along with every existing source, supplier and geometric obligation.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
         "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
