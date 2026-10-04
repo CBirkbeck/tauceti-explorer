@@ -13133,8 +13133,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FunctionFieldArithmeticPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3403"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3403",
+   "finishedAt": "2026-10-04T20:00:38Z"
   },
   {
    "id": "REV-DESIGN-FunctionFieldArithmeticPartII",
@@ -30649,7 +30650,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeligneWeightsAndPurity--DWP.0",
     "BP-DeligneWeightsAndPurity--DWP.7",
