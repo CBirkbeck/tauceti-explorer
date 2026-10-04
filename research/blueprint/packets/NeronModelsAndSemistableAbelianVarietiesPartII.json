@@ -11,8 +11,8 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.5",
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
-  "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts. Affine conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and6 typed examples;657 incoming node objects retained whole. Global conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and8 typed examples;666 incoming whole node objects preserved. The existing geometric conductor theorem receives a separate native counterpart proof. Actual conductor Scheme descent continuation:21 declarations(5 constructions,16 lemmas),18 API references and15 distinct typed examples(17 references). All675 incoming node contracts are preserved;674 whole objects are unchanged, and the existing Scheme pushout node gains only appended prerequisites/proof steps. Conductor cokernel scalar-extension continuation:13 declarations(2 constructions,11 lemmas),10 API references and9 distinct typed tests(10 references). All696 incoming contracts remain;695 whole node objects are unchanged and one existing flat-conductor node gains appended prerequisites/proof steps. One known corrected historical Stacks proof-reference finding is appended with its narrow version scope. Right-oriented conductor continuation:12 new declarations(2 constructions,10 lemmas),7 API references and11 typed tests. All709 incoming contracts remain;708 whole nodes are unchanged and only the existing flat-conductor node gains appended prerequisites/proof steps. Its exact inherited suggested header now has native proof evidence; generic supplier definitions are consumed, never replanned. Scheme flat-conductor continuation:five conductor-specific lemmas, four API references and eight typed tests; the exact inherited global ideal-sheaf equality has native evidence. All721 incoming contracts remain, with719 whole node objects unchanged; only the conductor ideal-sheaf API/tests and global comparison proof dependencies are appended. Conductor subscheme comparison continuation:13 nodes (2 constructions,10 authored lemmas and1 promotion of the retained conductorMap_square API),8 API references and13 references to8 distinct typed tests. All726 incoming node objects are unchanged. Target conductor tower continuation:12 nodes (2 constructions,10 lemmas),13 API references and13 references to8 distinct proved typed examples; all739 incoming node objects unchanged. Source conductor tower continuation:15 nodes (2 constructions,13 lemmas),15 API references and12 references to9 distinct proved typed examples; all751 incoming node objects unchanged.",
+  "status": "complete",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts. Affine conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and6 typed examples;657 incoming node objects retained whole. Global conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and8 typed examples;666 incoming whole node objects preserved. The existing geometric conductor theorem receives a separate native counterpart proof. Actual conductor Scheme descent continuation:21 declarations(5 constructions,16 lemmas),18 API references and15 distinct typed examples(17 references). All675 incoming node contracts are preserved;674 whole objects are unchanged, and the existing Scheme pushout node gains only appended prerequisites/proof steps. Conductor cokernel scalar-extension continuation:13 declarations(2 constructions,11 lemmas),10 API references and9 distinct typed tests(10 references). All696 incoming contracts remain;695 whole node objects are unchanged and one existing flat-conductor node gains appended prerequisites/proof steps. One known corrected historical Stacks proof-reference finding is appended with its narrow version scope. Right-oriented conductor continuation:12 new declarations(2 constructions,10 lemmas),7 API references and11 typed tests. All709 incoming contracts remain;708 whole nodes are unchanged and only the existing flat-conductor node gains appended prerequisites/proof steps. Its exact inherited suggested header now has native proof evidence; generic supplier definitions are consumed, never replanned. Scheme flat-conductor continuation:five conductor-specific lemmas, four API references and eight typed tests; the exact inherited global ideal-sheaf equality has native evidence. All721 incoming contracts remain, with719 whole node objects unchanged; only the conductor ideal-sheaf API/tests and global comparison proof dependencies are appended. Conductor subscheme comparison continuation:13 nodes (2 constructions,10 authored lemmas and1 promotion of the retained conductorMap_square API),8 API references and13 references to8 distinct typed tests. All726 incoming node objects are unchanged. Target conductor tower continuation:12 nodes (2 constructions,10 lemmas),13 API references and13 references to8 distinct proved typed examples; all739 incoming node objects unchanged. Source conductor tower continuation:15 nodes (2 constructions,13 lemmas),15 API references and12 references to9 distinct proved typed examples; all751 incoming node objects unchanged. The planning pass is complete under the updated300-node budget; all seven stages remain honestly partial, with their remaining lists and gaps retained for independent review and follow-up jobs. Actual conductor nilpotent-section continuation:10 lemma nodes (9 new declarations and1 promoted existing API),5 new typed examples and recovery of the exact inherited nonreduced section test; all766 incoming nodes unchanged.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -4378,6 +4378,62 @@
         "line": 542,
         "provides": "theorem pullbackLeftPullbackSndIso_hom_snd : Actual ambient source and conductor pullback tower API.",
         "checked": "Codex — codex-rtOQ9t read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "line": 68,
+        "provides": "lemma comap_id (I : Z.IdealSheafData) : Native input for actual conductor nilpotent-section deductions.",
+        "checked": "Codex — codex-7e92bd read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ext",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "line": 79,
+        "provides": "protected lemma ext {I J : X.IdealSheafData} (h : I.ideal = J.ideal) : I = J := by Native input for actual conductor nilpotent-section deductions.",
+        "checked": "Codex — codex-7e92bd read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Γ",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "line": 574,
+        "provides": "def Γ : Schemeᵒᵖ ⥤ CommRingCat := Native input for actual conductor nilpotent-section deductions.",
+        "checked": "Codex — codex-7e92bd read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "line": 604,
+        "provides": "def ΓSpecIso : Γ(Spec R, ⊤) ≅ R := SpecΓIdentity.app R Native input for actual conductor nilpotent-section deductions.",
+        "checked": "Codex — codex-7e92bd read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.mapIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "line": 475,
+        "provides": "def mapIso (F : C ⥤ D) {X Y : C} (i : X ≅ Y) : F.obj X ≅ F.obj Y where Native input for actual conductor nilpotent-section deductions.",
+        "checked": "Codex — codex-7e92bd read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Module.Finite.prod",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Finiteness/Prod.lean",
+        "line": 45,
+        "provides": "instance prod [hM : Module.Finite R M] [hN : Module.Finite R N] : Module.Finite R (M × N) := Native input for actual conductor nilpotent-section deductions.",
+        "checked": "Codex — codex-7e92bd read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:RingHom.Finite",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "line": 170,
+        "provides": "def Finite (f : A →+* B) : Prop := Native input for actual conductor nilpotent-section deductions.",
+        "checked": "Codex — codex-7e92bd read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
       }
     ]
   },
@@ -5233,6 +5289,18 @@
       "accessed": "2026-10-04",
       "readSections": [
         "Whole displayed Section26.17, both definitions, five lemmas with displayed proofs/diagrams and eight direct comments. Linked histories, correction patches and recursive dependencies not read."
+      ]
+    },
+    {
+      "id": "ConductorNilpotentSections-codex-7e92bd",
+      "title": "Conductor pushouts and authored actual nilpotent-section tests",
+      "authors": "The Stacks Project authors; conductor deductions by Codex — codex-7e92bd",
+      "edition": "Current displayed Lemma37.14.1, accessed4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/0ET0",
+      "sha256": "bbbfdcd78318dc3aef0acc1615cef57eb793f430e96986a119ab7808daf558d9",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "Whole displayed Lemma37.14.1 statement, proof, diagrams and zero direct comments. The two section-level comments and linked history were not freshly read; inherited domain misprint retained."
       ]
     }
   ],
@@ -44540,6 +44608,458 @@
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-membership",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Membership in the full subring conductor",
+      "declarationName": "Subring.conductor_mem",
+      "statement": "For any commutative ring B, subring A and b in B, b belongs to the full B-ideal c(A,B) if and only if bx belongs to A for every x in B.",
+      "hypotheses": [
+        "All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed.",
+        "Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor"
+      ],
+      "proofSteps": [
+        "Unfold the retained conductor definition. This promotes its existing API declaration without adding another carrier or another proof."
+      ],
+      "acceptance": [
+        "For any commutative ring B, subring A and b in B, b belongs to the full B-ideal c(A,B) if and only if bx belongs to A for every x in B.",
+        "Retain actual conductor subschemes and the inverse comparison section map; no radical substitution."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "Subring"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorNilpotentSections-codex-7e92bd",
+          "locator": "Lemma37.14.1, full displayed statement and proof; authored conductor-specific deduction using native quotient-section comparison",
+          "excerpt": "ideal",
+          "match": "The source motivates full ideal and structure-sheaf data in conductor pushouts. The diagonal calculation and actual nilpotent-section formulas are authored deductions from the retained conductor contracts and native APIs, not claims quoted from the source."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-finite",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Finiteness of the diagonal test morphism",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductor_diagonal_isFinite",
+      "statement": "For every commutative ring R in any universe, the actual morphism Spec(R×R)→Spec(R) induced by a↦(a,a) is finite.",
+      "hypotheses": [
+        "All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed.",
+        "Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported."
+      ],
+      "prerequisites": [
+        "mathlib:AlgebraicGeometry.IsFinite.SpecMap_iff",
+        "mathlib:RingHom.Finite",
+        "mathlib:Module.Finite.prod"
+      ],
+      "proofSteps": [
+        "Use the native SpecMap criterion and the product finite-module instance. The algebra structure induced by the diagonal is the native coordinatewise R-module structure."
+      ],
+      "acceptance": [
+        "For every commutative ring R in any universe, the actual morphism Spec(R×R)→Spec(R) induced by a↦(a,a) is finite.",
+        "Retain actual conductor subschemes and the inverse comparison section map; no radical substitution."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorNilpotentSections-codex-7e92bd",
+          "locator": "Lemma37.14.1, full displayed statement and proof; authored conductor-specific deduction using native quotient-section comparison",
+          "excerpt": "ideal",
+          "match": "The source motivates full ideal and structure-sheaf data in conductor pushouts. The diagonal calculation and actual nilpotent-section formulas are authored deductions from the retained conductor contracts and native APIs, not claims quoted from the source."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-dominance",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Schematic dominance of the diagonal test morphism",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductor_diagonal_schemeTheoreticallyDominant",
+      "statement": "For every commutative ring R, including the zero ring and nonreduced rings, the actual diagonal Spec(R×R)→Spec(R) is schematically dominant.",
+      "hypotheses": [
+        "All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed.",
+        "Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported."
+      ],
+      "prerequisites": [
+        "mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant",
+        "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso_naturality",
+        "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso",
+        "mathlib:AlgebraicGeometry.Scheme.ker_of_isAffine",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ext",
+        "mathlib:RingHom.injective_iff_ker_eq_bot"
+      ],
+      "proofSteps": [
+        "The diagonal ring homomorphism is injective by its first coordinate. Native global-section naturality transports injectivity to the actual scheme map. Its affine ideal-sheaf kernel is zero by the native injective-kernel criterion."
+      ],
+      "acceptance": [
+        "For every commutative ring R, including the zero ring and nonreduced rings, the actual diagonal Spec(R×R)→Spec(R) is schematically dominant.",
+        "Retain actual conductor subschemes and the inverse comparison section map; no radical substitution."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorNilpotentSections-codex-7e92bd",
+          "locator": "Lemma37.14.1, full displayed statement and proof; authored conductor-specific deduction using native quotient-section comparison",
+          "excerpt": "ideal",
+          "match": "The source motivates full ideal and structure-sheaf data in conductor pushouts. The diagonal calculation and actual nilpotent-section formulas are authored deductions from the retained conductor contracts and native APIs, not claims quoted from the source."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-zero-ideal",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The contracted diagonal conductor is zero",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductor_diagonal_comap_eq_bot",
+      "statement": "For every commutative ring R and diagonal d:R→R×R, the full conductor of im(d) contracted along d is the zero ideal of R.",
+      "hypotheses": [
+        "All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed.",
+        "Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-membership"
+      ],
+      "proofSteps": [
+        "If a lies in the contracted conductor, d(a)(1,0) lies in im(d). Its coordinates force its diagonal preimage to be both a and zero. The reverse containment is automatic. This does not replace the zero ideal by its radical."
+      ],
+      "acceptance": [
+        "For every commutative ring R and diagonal d:R→R×R, the full conductor of im(d) contracted along d is the zero ideal of R.",
+        "Retain actual conductor subschemes and the inverse comparison section map; no radical substitution."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorNilpotentSections-codex-7e92bd",
+          "locator": "Lemma37.14.1, full displayed statement and proof; authored conductor-specific deduction using native quotient-section comparison",
+          "excerpt": "ideal",
+          "match": "The source motivates full ideal and structure-sheaf data in conductor pushouts. The diagonal calculation and actual nilpotent-section formulas are authored deductions from the retained conductor contracts and native APIs, not claims quoted from the source."
+        }
+      ],
+      "api": [],
+      "tests": [
+        {
+          "name": "ConductorNilpotentChecked.arbitrary_universe_diagonal",
+          "kind": "compatibility",
+          "statement": "The full contracted diagonal conductor is zero for a commutative ring in an arbitrary universe, without a nontriviality assumption."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-affine-ideal",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The actual diagonal conductor on the top affine open",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductor_diagonal_ideal_top",
+      "statement": "For R a commutative ring, the global affine ideal of the actual conductorIdealSheaf of the diagonal Spec(R×R)→Spec(R) is zero, for its finite and schematically dominant instances.",
+      "hypotheses": [
+        "All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed.",
+        "Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-finite",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-dominance",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-zero-ideal",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-spec-comparison",
+        "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso",
+        "mathlib:RingHom.injective_iff_ker_eq_bot"
+      ],
+      "proofSteps": [
+        "The retained Spec comparison expresses this ideal as contraction of the ring conductor along the actual ΓSpecIso. Apply the diagonal computation and injectivity of that native section isomorphism."
+      ],
+      "acceptance": [
+        "For R a commutative ring, the global affine ideal of the actual conductorIdealSheaf of the diagonal Spec(R×R)→Spec(R) is zero, for its finite and schematically dominant instances.",
+        "Retain actual conductor subschemes and the inverse comparison section map; no radical substitution."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorNilpotentSections-codex-7e92bd",
+          "locator": "Lemma37.14.1, full displayed statement and proof; authored conductor-specific deduction using native quotient-section comparison",
+          "excerpt": "ideal",
+          "match": "The source motivates full ideal and structure-sheaf data in conductor pushouts. The diagonal calculation and actual nilpotent-section formulas are authored deductions from the retained conductor contracts and native APIs, not claims quoted from the source."
+        }
+      ],
+      "api": [],
+      "tests": [
+        {
+          "name": "ConductorNilpotentChecked.reduced_diagonal",
+          "kind": "computation",
+          "statement": "For R=Z, derive the actual diagonal morphism hypotheses and prove its full conductor ideal-sheaf datum is zero."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-ideal-sheaf",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The full diagonal conductor ideal-sheaf datum",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductor_diagonal_idealSheaf_eq_bot",
+      "statement": "For every commutative ring R, the actual full conductor ideal-sheaf datum of Spec(R×R)→Spec(R) is the bottom ideal-sheaf datum.",
+      "hypotheses": [
+        "All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed.",
+        "Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-affine-ideal",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ext_of_isAffine"
+      ],
+      "proofSteps": [
+        "Apply native affine ideal-sheaf extensionality to the zero global affine ideal. Thus the conductor subscheme retains the full target scheme structure, including nilpotents."
+      ],
+      "acceptance": [
+        "For every commutative ring R, the actual full conductor ideal-sheaf datum of Spec(R×R)→Spec(R) is the bottom ideal-sheaf datum.",
+        "Retain actual conductor subschemes and the inverse comparison section map; no radical substitution."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorNilpotentSections-codex-7e92bd",
+          "locator": "Lemma37.14.1, full displayed statement and proof; authored conductor-specific deduction using native quotient-section comparison",
+          "excerpt": "ideal",
+          "match": "The source motivates full ideal and structure-sheaf data in conductor pushouts. The diagonal calculation and actual nilpotent-section formulas are authored deductions from the retained conductor contracts and native APIs, not claims quoted from the source."
+        }
+      ],
+      "api": [],
+      "tests": [
+        {
+          "name": "ConductorNilpotentChecked.diagonal_zero_ring",
+          "kind": "degenerate",
+          "statement": "For R=Z/1, derive finiteness and schematic dominance of the actual diagonal and prove its full conductor ideal-sheaf datum is zero; no point-existence assumption is made."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-nilpotent-section",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "A nilpotent section on the actual conductor subscheme",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductor_nilpotent_section",
+      "statement": "Let f:Y→P be finite and schematically dominant with P affine. If a in Γ(P,top) is outside the full conductor ideal and a^n=0 for a natural number n, the actual conductor closed subscheme has a section z with z≠0 and z^n=0.",
+      "hypotheses": [
+        "All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed.",
+        "Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso",
+        "mathlib:Ideal.Quotient.eq_zero_iff_mem"
+      ],
+      "proofSteps": [
+        "The quotient class of a is nonzero by the native quotient membership criterion and has vanishing nth power. Transport it along the inverse of the native subschemeObjIso at the top affine open. The native quotient and section isomorphism remain imported."
+      ],
+      "acceptance": [
+        "Let f:Y→P be finite and schematically dominant with P affine. If a in Γ(P,top) is outside the full conductor ideal and a^n=0 for a natural number n, the actual conductor closed subscheme has a section z with z≠0 and z^n=0.",
+        "Retain actual conductor subschemes and the inverse comparison section map; no radical substitution."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorNilpotentSections-codex-7e92bd",
+          "locator": "Lemma37.14.1, full displayed statement and proof; authored conductor-specific deduction using native quotient-section comparison",
+          "excerpt": "ideal",
+          "match": "The source motivates full ideal and structure-sheaf data in conductor pushouts. The diagonal calculation and actual nilpotent-section formulas are authored deductions from the retained conductor contracts and native APIs, not claims quoted from the source."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-comparison-nonzero-section",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Nonzero sections survive the actual conductor comparison",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_nonzero",
+      "statement": "Let f:Y→P be finite and schematically dominant and q:T→P flat. Every nonzero global section z of the actual recomputed target conductor subscheme remains nonzero under the section map induced by the inverse of the actual conductorTargetBaseChangeIso(f,q).",
+      "hypotheses": [
+        "All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed.",
+        "Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-base-change-iso",
+        "mathlib:AlgebraicGeometry.Scheme.Γ",
+        "mathlib:CategoryTheory.Functor.mapIso"
+      ],
+      "proofSteps": [
+        "Apply the native global-section functor to the opposite of the symmetric actual scheme isomorphism. Cancel its inverse after an assumed zero image. A local proof fact about arbitrary scheme isomorphisms keeps the conductor construction opaque during kernel checking; it adds no generic public carrier."
+      ],
+      "acceptance": [
+        "Let f:Y→P be finite and schematically dominant and q:T→P flat. Every nonzero global section z of the actual recomputed target conductor subscheme remains nonzero under the section map induced by the inverse of the actual conductorTargetBaseChangeIso(f,q).",
+        "Retain actual conductor subschemes and the inverse comparison section map; no radical substitution."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorNilpotentSections-codex-7e92bd",
+          "locator": "Lemma37.14.1, full displayed statement and proof; authored conductor-specific deduction using native quotient-section comparison",
+          "excerpt": "ideal",
+          "match": "The source motivates full ideal and structure-sheaf data in conductor pushouts. The diagonal calculation and actual nilpotent-section formulas are authored deductions from the retained conductor contracts and native APIs, not claims quoted from the source."
+        }
+      ],
+      "api": [],
+      "tests": [
+        {
+          "name": "ConductorNilpotentChecked.comparison_retains_nilpotence",
+          "kind": "compatibility",
+          "statement": "For every actual target conductor comparison along a flat map, its inverse section map preserves both nonzeroness and the vanishing nth power of a global conductor section."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-flat-nilpotent-section",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Nilpotent sections after actual flat conductor recomputation",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_nilpotent_section",
+      "statement": "Let f:Y→P be finite and schematically dominant, q:T→P flat and T affine. If a in Γ(T,top) lies outside the top ideal of I_f.comap q and a^n=0, there is a nonzero section z of the actual recomputed conductor subscheme with z^n=0 whose image under the inverse target-comparison section map is nonzero.",
+      "hypotheses": [
+        "All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed.",
+        "Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-nilpotent-section",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-comparison-nonzero-section",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison"
+      ],
+      "proofSteps": [
+        "Use the retained equality of the full recomputed and pulled-back conductor ideals. Apply the preceding quotient-section lemma and nonzero-comparison lemma. No nilpotence is inferred merely from a ring used as a surrogate for the actual subscheme."
+      ],
+      "acceptance": [
+        "Let f:Y→P be finite and schematically dominant, q:T→P flat and T affine. If a in Γ(T,top) lies outside the top ideal of I_f.comap q and a^n=0, there is a nonzero section z of the actual recomputed conductor subscheme with z^n=0 whose image under the inverse target-comparison section map is nonzero.",
+        "Retain actual conductor subschemes and the inverse comparison section map; no radical substitution."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorNilpotentSections-codex-7e92bd",
+          "locator": "Lemma37.14.1, full displayed statement and proof; authored conductor-specific deduction using native quotient-section comparison",
+          "excerpt": "ideal",
+          "match": "The source motivates full ideal and structure-sheaf data in conductor pushouts. The diagonal calculation and actual nilpotent-section formulas are authored deductions from the retained conductor contracts and native APIs, not claims quoted from the source."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-nilpotent-section",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Nonzero diagonal conductor sections from nilpotent ring elements",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductor_diagonal_nilpotent_section",
+      "statement": "For every commutative ring R, n in the natural numbers and a≠0 in R with a^n=0, the diagonal Spec(R×R)→Spec(R), after identity base change, has an actual target conductor global section z≠0 with z^n=0, and the actual inverse target-comparison section map keeps z nonzero. Finiteness and schematic dominance are supplied by the preceding lemmas.",
+      "hypotheses": [
+        "All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed.",
+        "Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-flat-nilpotent-section",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-affine-ideal",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id",
+        "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso"
+      ],
+      "proofSteps": [
+        "Transport a into actual global sections by ΓSpecIso inverse. The full diagonal conductor ideal is zero, so injectivity proves nonmembership. Ring-map laws preserve the vanishing nth power, and the flat section theorem supplies the actual recomputed conductor section."
+      ],
+      "acceptance": [
+        "For every commutative ring R, n in the natural numbers and a≠0 in R with a^n=0, the diagonal Spec(R×R)→Spec(R), after identity base change, has an actual target conductor global section z≠0 with z^n=0, and the actual inverse target-comparison section map keeps z nonzero. Finiteness and schematic dominance are supplied by the preceding lemmas.",
+        "Retain actual conductor subschemes and the inverse comparison section map; no radical substitution."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorNilpotentSections-codex-7e92bd",
+          "locator": "Lemma37.14.1, full displayed statement and proof; authored conductor-specific deduction using native quotient-section comparison",
+          "excerpt": "ideal",
+          "match": "The source motivates full ideal and structure-sheaf data in conductor pushouts. The diagonal calculation and actual nilpotent-section formulas are authored deductions from the retained conductor contracts and native APIs, not claims quoted from the source."
+        }
+      ],
+      "api": [],
+      "tests": [
+        {
+          "name": "ConductorNilpotentChecked.cubic_nilpotent",
+          "kind": "computation",
+          "statement": "For the actual diagonal over Z/8, derive its morphism hypotheses and use the nonzero element2 with cube zero to obtain a nonzero actual recomputed conductor section with cube zero and nonzero inverse-comparison image."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -44911,7 +45431,8 @@
         "The exact existing conductor_global_flat_comparison header now has native proof evidence for every finite schematically dominant f and arbitrary flat q. Five new lemmas connect the actual ring pushout to refined affine charts, compare the source ideal and handle a two-step flat tower. Four API entries and eight typed examples include actual chart restrictions, empty charts, zero rings and a nonzero nilpotent excluded from the full diagonal conductor overZ/4. No affine, Noetherian, reduced, separated or quasi-compact-target hypothesis is added. Explicit subscheme comparison isomorphisms and conductorMap coherence remain, together with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, projective/cohomological work, separateI2 and later models/classification. All18 gap records,23 requests,78 routes,27 findings and seven partial stages remain; every implementation stays unchecked and the full Tau-dependent suggested file is UNCOMPILED.",
         "The recomputed target and source conductor closed subschemes now have actual native scheme isomorphisms to the pullbacks of the original conductor inclusions. Eight API lemmas compute their forward and inverse inclusion/projection maps and supply exact native IsPullback squares. Two further lemmas identify the actual recomputed conductorMap with the native pullback.map of the original conductor map, in both forward and inverse comparison diagrams. The existing conductorMap_square API is promoted to its own dependency node without duplicating its retained Lean declaration. Two concrete constructions and eight distinct typed tests preserve arbitrary flat base change, open restrictions, identity/empty conductors, zero rings and a nonzero square-zero actual conductor global section overZ/4. All726 incoming node objects and528 baseline objects are retained whole. Iterated conductor subscheme isomorphism/carrier coherence, geometric conductor pushout transport, generic Ferrand algebraic-space existence and the scheme affine-neighborhood criterion remain open, together with projective/cohomological work, separateI2 and remaining model/classification obligations. All18 gaps,23 requests,78 routes,27 source findings and seven partial stages remain; implementations stay unchecked and the complete Tau-dependent suggested file remains UNCOMPILED.",
         "Two actual conductor-specific isomorphisms now identify the twice-recomputed target conductor carrier with the direct one and flatten the intermediate native target conductor pullback. Ten lemmas give forward/inverse projection laws, uniqueness by the closed inclusion, equality of the whole successive and direct comparison isomorphisms, the inverse equality and the induced map to the old conductor. Eight proved typed examples include nested nonaffine open restrictions, identity base changes and the zero ring. All739 incoming node objects and530 baseline entries are retained. Target-side two-step coherence is supplied; source-carrier tower coherence, three-step coherence and geometric conductor pushout transport remain required, as do generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, projective/cohomological work, separateI2 and the other model/classification obligations. The incoming nonreduced_conductor_section has admitted typing evidence only: its attempted native proof again hit a kernel timeout, so no new proof certificate is claimed for it. All18 gaps,23 requests,78 routes,27 findings and seven partial stages remain; implementations stay unchecked and the whole Tau-dependent suggested file is UNCOMPILED.",
-        "Two actual source conductor isomorphisms now flatten the source pullbacks along the native ambient pullbackLeftPullbackSndIso and compare the twice/direct recomputed source carriers. Thirteen lemmas give full source-ideal transport, four flattening projection laws, forward/inverse inclusion laws, uniqueness, equality of the whole successive/direct source comparison isomorphisms and their inverses, the induced old-source-conductor morphism, and both actual conductorMap tower squares with the retained target comparison. Nine proved typed examples include nested nonaffine opens, identity bases, the zero ring and the actual nonreduced diagonal overZ/4. All751 incoming nodes and536 baselines remain whole. Source and target two-step conductor-map compatibility is supplied; three-step coherence and transport of the geometric conductor pushout predicate remain required, along with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, small étale structure sheaves, projective/cohomological work, separateI2 and model/classification obligations. The retained nonreduced_conductor_section statement still has admitted-only evidence with its inherited kernel-timeout source/log/receipt; this job makes no recovery claim for it. All18 gaps,23 requests,78 routes,27 findings and seven partial stages remain; implementations stay unchecked and the whole Tau-importing suggested file is UNCOMPILED."
+        "Two actual source conductor isomorphisms now flatten the source pullbacks along the native ambient pullbackLeftPullbackSndIso and compare the twice/direct recomputed source carriers. Thirteen lemmas give full source-ideal transport, four flattening projection laws, forward/inverse inclusion laws, uniqueness, equality of the whole successive/direct source comparison isomorphisms and their inverses, the induced old-source-conductor morphism, and both actual conductorMap tower squares with the retained target comparison. Nine proved typed examples include nested nonaffine opens, identity bases, the zero ring and the actual nonreduced diagonal overZ/4. All751 incoming nodes and536 baselines remain whole. Source and target two-step conductor-map compatibility is supplied; three-step coherence and transport of the geometric conductor pushout predicate remain required, along with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, small étale structure sheaves, projective/cohomological work, separateI2 and model/classification obligations. The retained nonreduced_conductor_section statement still has admitted-only evidence with its inherited kernel-timeout source/log/receipt; this job makes no recovery claim for it. All18 gaps,23 requests,78 routes,27 findings and seven partial stages remain; implementations stay unchecked and the whole Tau-importing suggested file is UNCOMPILED.",
+        "The actual nonreduced conductor-section test overZ/4 now has a kernel-checked proof with its exact inherited statement. Nine new lemmas derive diagonal finiteness and schematic dominance over arbitrary commutative rings, compute its full conductor ideal, produce nonzero nilpotent sections on actual conductor subschemes, and retain them through the actual inverse base-change comparison. The existing subring-conductor membership API is promoted to one lemma node. Five additional proved examples includeZ/1,Z,Z/8, arbitrary universes and preservation of nilpotence by the actual comparison. All766 incoming node objects and539 baseline entries remain unchanged. Earlier frontier statements about admitted-only evidence for this test are superseded by this exact native recovery. Source and target two-step conductor-map coherence remains available; three-step coherence and geometric conductor-pushout transport remain required, together with generic Ferrand existence, the scheme affine-neighborhood criterion, small étale structure sheaves, projective/cohomological work, separateI2 and model/classification obligations. All18 gaps,23 requests,78 routes,27 findings and seven partial stages remain; implementationStatus stays unchecked and the whole Tau-importing suggested file is UNCOMPILED."
       ]
     },
     {
