@@ -1,3 +1,299 @@
+# BP-AlgebraicModuliForArithmeticGeometry--A0-extension: pass finished
+
+Codex — `codex-a71f92`, 2026-10-04; Refs #672. Claim 5983463883; bot confirmation 5983465297.
+
+## Current result and where to resume
+
+The job began with **660 nodes**. Under the current PROTOCOL §0 and issue budget rule, this pass adds **zero nodes/API/tests** and sets `status:complete` for independent review. This is pass completion, not roadmap, stage, gerbe-key or implementation closure. All 660 whole node objects, 248 baseline declarations, 596 raw API entries, 589 raw test references, 10 planets, 10 gaps, 22 requests, 8 source issues, source versions and ownership contracts are unchanged. Only status/summary and an authoritative R09.4 remaining-work frontier change in the packet; all inherited remaining-work entries are retained.
+
+Four stages are partial (A0-extension, R09.3, R09.4, R09.5); four are not_read (R09.1, R09.2, R09.6, R09.7). The inherited “eight partial stages” shorthand is not the current coverage. The current reader table and packet remaining lists identify the mandatory target-led follow-up work. After independent acceptance, open-stage work belongs in separately assigned/reviewed packets and an assembly, not more checkpoint nodes appended to this oversized pass. No supplier is assumed implemented.
+
+### A0-extension — partial
+
+General Picard/Artin criteria and algebraicity; finite-presentation/perfect/Tor-amplitude extension; analytification, normalization/excellence and recorded obstruction/trace inputs.
+
+### R09.1 — not_read
+
+O(n), Plücker/smoothness and flag comparisons; very-ampleness, Hilbert polynomials/regularity and Frobenius/rank loci. Import Grassmannians/Proj; do not reconstruct them.
+
+### R09.2 — not_read
+
+Projective Hilbert/Quot representability and boundedness, universal-family flatness, Hom/Isom, Chow modification and coherent dévissage. Do not transfer family flatness to the parameter map.
+
+### R09.3 — partial
+
+Native chosen-overlap module coordinates and comparison proofs; coherent étale-presentation descent/GAGA; polarized fppf projective descent and algebraic-space Weil restriction/base change.
+
+### R09.4 — partial
+
+Current pass-end frontier (660 inherited nodes; no additions): the global fixed-band Hom candidate has its conditional native chart comparison, not a completed torsor equivalence. Descend the actual band action, establish local torsor properties, package the D0 torsor groupoid and prove full faithfulness with coherent inverse/unit/counit. WEqualsLocallyBijective remains an explicit hypothesis outside the matched base/fibre-universe case; preserve an independent coefficient universe. Establish SF.1 descended intrinsic-band compatibility, nonconstant and nonneutral geometric fixtures, the nonneutral O(1) root gerbe and derived H2/classification, and compatible fpqc/profinite object-limit coherence. Algebraic/DM criteria and other R09.4 source targets remain open. The subsequent entries preserve historical sub-frontiers; later qualified continuations supersede earlier sub-obligations only within their stated scope. There are four partial and four not_read stages, not eight partial stages. All 10 gaps and 22 requests stay open.
+
+### R09.5 — partial
+
+General rigidification and its universal property; finite-inertia coarse existence, legal base change, normalization and finite-correspondence descent. The affine-gerbe kernel case is not the general theorem.
+
+### R09.6 — not_read
+
+Deformation groupoids, stabilizers/completed-local comparison, effectivity and algebraization. Import the A0 Artin criterion; place approximation suppliers before criterion-dependent applications.
+
+### R09.7 — not_read
+
+Full published Bierstone–Milman resolution proof, marked ideals/controlled transforms, SNC centers, maximal contact, invariant/history and termination, then open-preserving compactification. Respect the separate R09.7a–d packet boundaries.
+
+## Ownership and proof boundaries
+
+RS-27 supplies the authoritative narrowing. Reuse ModularCurves and StableReduction anchor components, SF.1 spaces/sites/diagonals and D0 ordinary stacks/inverse coherence. A0 owns Artin’s criterion; R09.6 imports it. General moduli criteria precede downstream PEL/generalized-elliptic application verification. Coherent duality and stable pointed curve moduli retain their reserved owners; R09.7a–d sibling parts are unchanged. Native gerbes remain IsStack plus groupoid fibres and covering-sieve local existence and isomorphisms, without a chosen global object. Coefficients retain independent universes. Chart comparison requires the native WEqualsLocallyBijective class at the stated universe; automatic discharge is only checked in the matched universe case.
+
+## Fresh reading and authenticated inherited evidence
+
+Reading.json distinguishes fresh whole-issue/governance/coverage/ownership/record reads from inherited primary-paper reading and errata searches. No new primary-source coverage or atlas-wide absence claim is made. The worker’s own earlier full reads of JacobianChallenge/HodgeStructures were reused only with unchanged source hashes. All 77 predecessor artifacts authenticate against payload `65d34dc86bb3480a2c896f64ec3e3edf669da4e907ed5952daaf5156ac6c07ec` and manifest `ee830aef63ad053fae913b331aeb07beebec5fca728c307246a487b4d1506264` at public commit `0ca98d80f7a804f364310864a96d272c742976ac`. The 79-byte ExternalSearch artifact has no final newline and is preserved exactly encoded, not silently normalized. Old helpers that write files were read but not executed. 81 current immutable input paths are guarded; 57 touching-record files/144 entries authenticate, including 29 current link files. Historical negative screens retain their original scope and are not fresh complete source reads.
+
+## Fresh checks and resource limits
+
+The admission-free native prototype and recovered selected Mathlib-only admitted projection were freshly replayed with the existing pinned Mathlib/Lean build. The projection is not the full suggested file; it intentionally omits other planned interfaces, not just one Tau Ceti import. Full Tau Ceti suggested code is **uncompiled** because no exact pre-existing pinned full Tau Ceti build is available. No setup, Lake update/cache/build or language server was used. One compiler at a time; same-process availability check >=20 GiB, Lean -j 1 -M 8192, timeout 1200 seconds. The managed-memory cap is not a guarantee about whole-process RSS.
+
+### Native source-bound receipt
+
+```json
+{
+  "sourceSha256": "4d776edebbc69bf460de38fe34432fb963573cffe98b7114f7b4c78a328f3c7f",
+  "logSha256": "d7ecf33ac890525124da827b0380dd56f3fa42d0ce2ba97b13555b2344090866",
+  "availableGiBBefore": 36,
+  "elapsedSeconds": 28.38,
+  "maxRssKiB": 2421704,
+  "exitStatus": 0,
+  "errors": 0,
+  "warnings": 0,
+  "admissionWarnings": 0,
+  "axiomAudits": 253,
+  "sorryAxReferences": 0,
+  "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
+}
+```
+
+### Canonical source-bound receipt
+
+```json
+{
+  "sourceSha256": "7ffeee5eaf787b9c8e03d5f3e35561057e8d6e5d8445c78c2d8a8d80faba8976",
+  "logSha256": "0258eb94aa7f8c549c3bbb0300c69a02beaae262bce6e506f80f7120fe3bb9a1",
+  "availableGiBBefore": 39,
+  "elapsedSeconds": 32.18,
+  "maxRssKiB": 3865844,
+  "exitStatus": 0,
+  "errors": 0,
+  "warnings": 972,
+  "admissionWarnings": 972,
+  "axiomAudits": 0,
+  "sorryAxReferences": 0,
+  "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
+}
+```
+
+Native: 176 examples/253 axiom audits; no admissions, errors or warnings, only propext/Classical.choice/Quot.sound. Canonical projection: 437 examples and exactly 972 planned-admission warnings, no other warnings/errors. All implementation statuses remain unchecked. Fresh prototype proof replay does not close the general classification.
+
+### Actual packet, source-issue, intake and atlas replay
+
+```json
+{
+  "worldCommit": "edb6aa00c94a144d96b61a8e98b242fe51212947",
+  "checker": {
+    "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json",
+    "roadmap": "AlgebraicModuliForArithmeticGeometry",
+    "status": "complete",
+    "nodes": 660,
+    "kinds": {
+      "definition": 17,
+      "lemma": 468,
+      "construction": 142,
+      "theorem": 28,
+      "comparison": 5
+    },
+    "apiItems": 588,
+    "unitTests": 556,
+    "planets": 10,
+    "baselineDeclarations": 248,
+    "prerequisites": {
+      "baseline": 660,
+      "node (this packet)": 1391,
+      "node (blueprint)": 25,
+      "stage": 40
+    },
+    "gaps": 10,
+    "requests": 22,
+    "stagesInScope": 8,
+    "stagesClosed": 0,
+    "stagesPlanned": 0
+  },
+  "checkerErrors": [],
+  "checkerWarnings": [],
+  "intakeProblems": [],
+  "intakeRefusals": [],
+  "sourceIssueErrors": [],
+  "preservedWholeNodes": 660,
+  "newNodes": 0,
+  "newAPI": 0,
+  "newTests": 0,
+  "passFinished": true,
+  "allStagesClosed": false,
+  "stageStatuses": {
+    "AlgebraicModuliForArithmeticGeometry:A0-extension": "partial",
+    "AlgebraicModuliForArithmeticGeometry:R09.1": "not_read",
+    "AlgebraicModuliForArithmeticGeometry:R09.2": "not_read",
+    "AlgebraicModuliForArithmeticGeometry:R09.3": "partial",
+    "AlgebraicModuliForArithmeticGeometry:R09.4": "partial",
+    "AlgebraicModuliForArithmeticGeometry:R09.5": "partial",
+    "AlgebraicModuliForArithmeticGeometry:R09.6": "not_read",
+    "AlgebraicModuliForArithmeticGeometry:R09.7": "not_read"
+  },
+  "rawAPI": 596,
+  "rawTests": 589,
+  "baselineDeclarations": 248,
+  "compilation": {
+    "Native": {
+      "sourceSha256": "4d776edebbc69bf460de38fe34432fb963573cffe98b7114f7b4c78a328f3c7f",
+      "logSha256": "d7ecf33ac890525124da827b0380dd56f3fa42d0ce2ba97b13555b2344090866",
+      "availableGiBBefore": 36,
+      "elapsedSeconds": 28.38,
+      "maxRssKiB": 2421704,
+      "exitStatus": 0,
+      "errors": 0,
+      "warnings": 0,
+      "admissionWarnings": 0,
+      "axiomAudits": 253,
+      "sorryAxReferences": 0,
+      "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+      "examples": 176,
+      "lines": 4972
+    },
+    "Canonical": {
+      "sourceSha256": "7ffeee5eaf787b9c8e03d5f3e35561057e8d6e5d8445c78c2d8a8d80faba8976",
+      "logSha256": "0258eb94aa7f8c549c3bbb0300c69a02beaae262bce6e506f80f7120fe3bb9a1",
+      "availableGiBBefore": 39,
+      "elapsedSeconds": 32.18,
+      "maxRssKiB": 3865844,
+      "exitStatus": 0,
+      "errors": 0,
+      "warnings": 972,
+      "admissionWarnings": 972,
+      "axiomAudits": 0,
+      "sorryAxReferences": 0,
+      "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+      "examples": 437,
+      "lines": 8210
+    }
+  },
+  "fullTauCetiCompiled": false,
+  "guardedPaths": 81,
+  "incomingDeliverableGuards": 4,
+  "indexSha256": "86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1",
+  "graph": {
+    "worldCommit": "edb6aa00c94a144d96b61a8e98b242fe51212947",
+    "stageDAG": {
+      "vertices": 3017,
+      "edges": 8655,
+      "acyclic": true
+    },
+    "ownDeclarationDAG": {
+      "vertices": 660,
+      "edges": 1391,
+      "acyclic": true
+    },
+    "scopedDAG": {
+      "vertices": 3670,
+      "edges": 10774,
+      "acyclic": true
+    },
+    "reachableDeclarations": 663,
+    "externalDeclarations": [
+      "DiamondsAndVStacks:D0/cech-to-derived-comparison",
+      "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+      "DiamondsAndVStacks:D0/stackification"
+    ],
+    "baselineLeaves": 245,
+    "requiredPairs": 24,
+    "restructurePairs": 40,
+    "unresolved": [],
+    "ownSkippedLinks": [],
+    "ownPendingLinks": [],
+    "otherSkipsMatch": true,
+    "fullForeignRoadmapsMatch": true,
+    "fullForeignStagesMatch": true,
+    "otherParts": {},
+    "stageEdgesUnchanged": true,
+    "immutableInputPathsRead": 844,
+    "immutableReadPathsSha256": "7a5bc33a56515cfcab14167e3482f671db14c0313804a9dbcc53159bb2d0c9ea"
+  },
+  "LeanExecuted": false
+}
+```
+
+## Public recovery after scratch cleanup
+
+The suggested file retains its exact incoming mathematical prefix and predecessor archive, followed only by inert budget/recovery comments. Its new archive contains the following source/log/check artifacts with SHA256, byte and line receipts:
+
+`Native.lean`, `Native.log`, `Native.receipt.json`, `Canonical.lean`, `Canonical.log`, `Canonical.receipt.json`, `InputGuard.json`, `Guards.json`, `Plan.json`, `ClaimReceipt.json`, `Reading.json`, `incoming-recovery.json`, `Previous-artifact-manifest.json`, `base.txt`, `publication-base.txt`, `ReaderAddition.md`, `common.py`, `author.py`, `capture.py`, `guard.py`, `verify.py`, `graph.py`, `immutable.py`, `compile.py`, `runcheck.py`, `recover-incoming.py`, `package.py`, `recover.py`.
+
+Current manifest SHA256: `42c2dbdd867217f378cfee816899990c30e24a1eff97c7a1d888587e2991510e`.
+
+Recover from the immutable submission commit, not a moving branch. Save the following helper into an empty owned directory, run it with the submission SHA, then read the recovered check helpers before replaying them. It downloads only this job’s four current and four original input files plus the inert evidence archive, never a repository snapshot. It does not run Lean or old helpers. The actual checker can then read the existing repository at the submission SHA through the immutable read-only adapter; no checkout or repository writes are needed.
+
+```python
+"""Recover this job's public files and inert replay archive; never execute them."""
+from pathlib import Path
+import base64, hashlib, json, re, subprocess, sys, urllib.request, zlib
+S=Path(__file__).resolve().parent
+HEAD=sys.argv[1];assert re.fullmatch('[0-9a-f]{40}',HEAD)
+STEM='AlgebraicModuliForArithmeticGeometry--A0-extension'
+PATHS=['research/blueprint/'+f+'/'+('BP-' if f=='handoff' else '')+STEM+'.'+e for f,e in [('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def download(ref,path):
+    return urllib.request.urlopen('https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+ref+'/'+path,timeout=60).read()
+def put(name,b):
+    assert Path(name).name==name and b.endswith(b'\n'),name
+    p=S/name
+    if p.exists(): assert p.read_bytes()==b,name;return
+    patch='*** Begin Patch\n*** Add File: '+str(p)+'\n'+''.join('+'+l+'\n' for l in b.decode().splitlines())+'*** End Patch\n'
+    subprocess.run(['apply_patch'],input=patch,text=True,check=True,stdout=subprocess.DEVNULL)
+    assert p.read_bytes()==b,name
+for path,name in zip(PATHS,['Candidate.json','Reader.md','Suggested.lean','Handoff.md']): put(name,download(HEAD,path))
+MARKER='AM PASS-BUDGET FINISH CODEX A71F92 ISSUE 672'
+text=(S/'Suggested.lean').read_text()
+raw=text.split('/- BEGIN '+MARKER+'\n',1)[1].split('END '+MARKER+' -/',1)[0].encode()
+payload=json.loads(raw)
+def unpack(name):
+    b=zlib.decompress(base64.b64decode(payload[name]['data']))
+    assert sha(b)==payload[name]['sha256'],name
+    return b
+mb=unpack('artifact-manifest.json');meta=json.loads(mb)
+assert set(payload)==set(meta)|{'artifact-manifest.json'}
+assert sha(mb) in (S/'Handoff.md').read_text()
+for name,m in meta.items():
+    b=unpack(name);assert sha(b)==m['sha256'] and len(b)==m['bytes'] and len(b.splitlines())==m['lines'],name
+    put(name,b)
+put('artifact-manifest.json',mb)
+inputs=json.loads((S/'InputGuard.json').read_text())
+for path,name in zip(PATHS,['Input-packet.json','Input-reader.md','Input-canonical.lean','Input-handoff.md']):
+    b=download(inputs['base'],path)
+    assert sha(b)==inputs['inputs'][path],path
+    put(name,b)
+addition=(S/'ReaderAddition.md').read_bytes()
+assert (S/'Reader.md').read_bytes()==addition+(S/'Input-reader.md').read_bytes()
+base=(S/'Input-canonical.lean').read_text()
+assert text.startswith(base)
+before=text.split('/- BEGIN '+MARKER+'\n',1)[0]
+put('SuggestedBase.lean',before[:-1].encode())
+old=json.loads((S/'Input-packet.json').read_text());p=json.loads((S/'Candidate.json').read_text())
+assert old['nodes']==p['nodes'] and len(p['nodes'])==660 and p['status']=='complete'
+record={'head':HEAD,'artifacts':len(meta),'manifestSha256':sha(mb),'payloadSha256':sha(raw),'publicFiles':{p:sha((S/n).read_bytes()) for p,n in zip(PATHS,['Candidate.json','Reader.md','Suggested.lean','Handoff.md'])},'all660WholeNodesPreserved':True,'LeanExecuted':False}
+put('Recovery.json',(json.dumps(record,indent=2)+'\n').encode())
+print(json.dumps(record,indent=2))
+```
+
+## Historical handoff — retained unchanged
+
+This history describes earlier checkpoints. Its old claim identifiers, source-reading claims and partial pass status are not the current worker’s assertions.
+
 # Local charts for the global fixed-band Hom sheaf
 
 Codex — codex-7e92bd. Refs #672. Partial continuation; every implementation status is unchecked and all eight stages remain partial.
