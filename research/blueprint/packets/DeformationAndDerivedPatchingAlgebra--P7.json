@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract. Native adic-module generation continuation:20 declaration-sized nodes,14 API items and14 typed tests, with native proofs of the exact existing monomial and degree-zero/finite-generation contracts. Native module coefficient continuation:20 declaration-sized nodes,8 API items and10 typed tests, proving the exact existing denominator, monomial kernel, homogeneous action and finite decomposition without finiteness assumptions. The existing native adic module image grading, scalar action, direct-sum comparison and projections now have admission-free proof prototypes on their exact inherited signatures. Ten new lemmas give actual inverse identities, native decomposition agreement, coefficient projection, membership, orthogonality, homogeneity, zero detection and all-projection extensionality. This supersedes prototype omissions for these adapters only. Homogeneous kernel/range/quotient gradings, scalar descent and finiteness over the smaller ring and degreewise length exactness remain required for general Hilbert–Serre; no eventual polynomial is assumed as its own existence premise. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-source obligation remain open; implementation statuses stay unchecked. Degree-one component continuation: sixteen nodes, fourteen API items and six typed tests on actual maps; all381incoming whole nodes and prior obligations preserved. Full suggested file imports the pinned Tau shifted-projection theorem; only isolated Mathlib source-replay evidence is compiled. Twelve new specialized declarations now descend the actual native kernel and cokernel of degree-one multiplication to S/(a), prove their representative actions and scalar towers, and certify smaller-ring finite generation. Kernel finiteness uses a Noetherian S-module L, or finite M over A plus explicit Noetherianity of S; quotient finiteness needs only finite L over S, or finite M over A. This supersedes the scalar-descent/finiteness prototype frontier only. Full native homogeneous kernel/range/quotient decompositions and smaller-ring grading, finite component lengths, two degreewise length identities with finite ENat-toNat conversion before integer subtraction, remaining-generator induction and general Hilbert–Serre existence remain open. The support/degree, completion, localization, associativity, intrinsic/ambient conventions, all eight stages and every routed-source obligation remain unchanged and open; all implementation statuses are unchecked.",
+  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract. Native adic-module generation continuation:20 declaration-sized nodes,14 API items and14 typed tests, with native proofs of the exact existing monomial and degree-zero/finite-generation contracts. Native module coefficient continuation:20 declaration-sized nodes,8 API items and10 typed tests, proving the exact existing denominator, monomial kernel, homogeneous action and finite decomposition without finiteness assumptions. The existing native adic module image grading, scalar action, direct-sum comparison and projections now have admission-free proof prototypes on their exact inherited signatures. Ten new lemmas give actual inverse identities, native decomposition agreement, coefficient projection, membership, orthogonality, homogeneity, zero detection and all-projection extensionality. This supersedes prototype omissions for these adapters only. Homogeneous kernel/range/quotient gradings, scalar descent and finiteness over the smaller ring and degreewise length exactness remain required for general Hilbert–Serre; no eventual polynomial is assumed as its own existence premise. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-source obligation remain open; implementation statuses stay unchecked. Degree-one component continuation: sixteen nodes, fourteen API items and six typed tests on actual maps; all381incoming whole nodes and prior obligations preserved. Full suggested file imports the pinned Tau shifted-projection theorem; only isolated Mathlib source-replay evidence is compiled. Twelve new specialized declarations now descend the actual native kernel and cokernel of degree-one multiplication to S/(a), prove their representative actions and scalar towers, and certify smaller-ring finite generation. Kernel finiteness uses a Noetherian S-module L, or finite M over A plus explicit Noetherianity of S; quotient finiteness needs only finite L over S, or finite M over A. This supersedes the scalar-descent/finiteness prototype frontier only. Full native homogeneous kernel/range/quotient decompositions and smaller-ring grading, finite component lengths, two degreewise length identities with finite ENat-toNat conversion before integer subtraction, remaining-generator induction and general Hilbert–Serre existence remain open. The support/degree, completion, localization, associativity, intrinsic/ambient conventions, all eight stages and every routed-source obligation remain unchanged and open; all implementation statuses are unchecked. One existing component-equivalence API is promoted to its own prerequisite construction node. Twelve new lemmas prove finite actual adic component lengths for Noetherian A, finite M and Artinian A/q; two native extended-length identities; separately guarded natural-length conversions; and the signed integer recurrence with the nonzero kernel correction retained. Degree-zero quotient lengths agree without finite-length assumptions. This supersedes the finite-component-length and degreewise-length-identity frontier for these actual maps only. Native kernel/range/quotient decompositions, smaller-ring grading, remaining-generator induction and general Hilbert–Serre existence remain open. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open and all implementation statuses unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3024,6 +3024,41 @@
         "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
         "provides": "An injective semilinear map into a Noetherian module gives finite generation of its source, with the stated inverse-pair ring-hom hypotheses.",
         "checked": "Exact statement and ambient semiring/module/inverse-pair hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, lines60–145; indexed and imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Module.length_ne_top",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "An Artinian and Noetherian module has finite native extended length.",
+        "checked": "Exact statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line106; native import, not a new generic node."
+      },
+      {
+        "ref": "mathlib:isArtinian_of_surjective_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Artinian/Module.lean",
+        "provides": "Artinianity restricts along a surjective algebra map with the given module scalar tower.",
+        "checked": "Exact statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line98; native import, not a new generic node."
+      },
+      {
+        "ref": "mathlib:isArtinian_of_fg_of_artinian'",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Artinian/Module.lean",
+        "provides": "Finite modules over Artinian rings are Artinian.",
+        "checked": "Exact statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line394; native import, not a new generic node."
+      },
+      {
+        "ref": "mathlib:LinearMap.ker_rangeRestrict",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+        "provides": "The kernel of the native range restriction equals the original kernel.",
+        "checked": "Exact statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line464; native import, not a new generic node."
+      },
+      {
+        "ref": "mathlib:Submodule.range_subtype",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+        "provides": "The range of a native submodule inclusion is exactly the given submodule.",
+        "checked": "Exact statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line309; native import, not a new generic node."
       }
     ]
   },
@@ -4195,6 +4230,17 @@
       "sha256": "e0e348edf92286999b39c2d44acbdbf72e8b3fb7b645f63df93ceed79aeffd63",
       "readSections": [
         "Complete displayed Section10.58 through Lemma10.58.10 proofs and comments; specialized scalar descent and finite-generation adapters are authored deductions, not literal source formulas."
+      ]
+    },
+    {
+      "id": "HS-COMPONENT-LENGTH-00JV",
+      "title": "Noetherian graded rings: degreewise length recurrence",
+      "authors": "The Stacks Project Authors",
+      "edition": "Current displayed Section10.58,4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/00JV",
+      "sha256": "e0e348edf92286999b39c2d44acbdbf72e8b3fb7b645f63df93ceed79aeffd63",
+      "readSections": [
+        "Complete currently displayed Section10.58 statements and proofs10.58.1–10.58.10 and all five comments. The finite-length kernel/cokernel recurrence is an authored specialization of the exact-sequence method, retaining a kernel instead of assuming injectivity. No recursive-source or fresh inherited-erratum audit."
       ]
     }
   ],
@@ -9178,6 +9224,18 @@
           "name": "TauCeti.HilbertSamuel.adicModuleDecompose_rightInverse",
           "role": "relation",
           "statement": "For the same native maps, d_M∘c=id_(⊕L_n) as A-linear maps; the identity holds on every finitely supported component vector."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModulePiece_length_ne_top",
+          "role": "compatibility",
+          "statement": "If A is Noetherian, M is finite over A and A/q is Artinian, then ℓ_A(q^nM/q^(n+1)M)≠∞ for every n≥0. The exact quotient carrier is adicModulePiece, including zero modules and the unit ideal.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-finite-length with its explicit hypotheses."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleComponents_length_ne_top",
+          "role": "compatibility",
+          "statement": "Under the same Noetherian A, finite M and Artinian A/q hypotheses, ℓ_A(L_n)≠∞ for every n≥0.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-image-component-finite-length with its explicit hypotheses."
         }
       ],
       "tests": [
@@ -25404,6 +25462,30 @@
           "role": "compatibility",
           "statement": "For x in the actual S-module ker μ_a, its inherited scalar action satisfies a·x=0 in that kernel module.",
           "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-kernel-annihilated with its exact stated maps and hypotheses."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleMulComponent_length_eq",
+          "role": "compatibility",
+          "statement": "For every a and n, ℓ_A(L_n)=ℓ_A(K_n)+ℓ_A(I_(n+1)) in ENat, without a finite-length premise.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-length with its explicit hypotheses."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleMulComponent_ker_length_ne_top",
+          "role": "compatibility",
+          "statement": "If ℓ_A(L_n)≠∞, then ℓ_A(K_n)≠∞. No ambient Noetherian-ring assumption is needed once this component length is finite.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-kernel-finite-length with its explicit hypotheses."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleMulComponent_range_length_ne_top",
+          "role": "compatibility",
+          "statement": "If ℓ_A(L_n)≠∞, then ℓ_A(I_(n+1))≠∞.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-image-finite-length with its explicit hypotheses."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleMulComponent_length_toNat",
+          "role": "compatibility",
+          "statement": "If ℓ_A(L_n)≠∞, then toNat ℓ_A(L_n)=toNat ℓ_A(K_n)+toNat ℓ_A(I_(n+1)). Both summand lengths are proved finite before ENat.toNat_add is applied.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-natural-length with its explicit hypotheses."
         }
       ],
       "tests": [
@@ -25637,6 +25719,42 @@
           "role": "compatibility",
           "statement": "For every z in the actual S-module C=L/aL, its inherited scalar action satisfies a·z=0. This supplies the annihilation input for future scalar descent to S/(a); no smaller-ring finiteness is asserted.",
           "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-quotient-annihilated with its exact stated maps and hypotheses."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleCokernelComponent_length_eq",
+          "role": "compatibility",
+          "statement": "For every a and n, ℓ_A(L_(n+1))=ℓ_A(I_(n+1))+ℓ_A(C_(n+1)) in ENat, without assuming injectivity or finite length.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-length with its explicit hypotheses."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleCokernelComponent_length_ne_top",
+          "role": "compatibility",
+          "statement": "If ℓ_A(L_n)≠∞, then ℓ_A(C_n)≠∞ for the actual image in L/aL.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-quotient-finite-length with its explicit hypotheses."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleCokernelComponent_length_toNat",
+          "role": "compatibility",
+          "statement": "If ℓ_A(L_(n+1))≠∞, then toNat ℓ_A(L_(n+1))=toNat ℓ_A(I_(n+1))+toNat ℓ_A(C_(n+1)). This requires only the target component length, not finiteness of L_n.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-natural-length with its explicit hypotheses."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleComponent_length_recurrence",
+          "role": "compatibility",
+          "statement": "If ℓ_A(L_n) and ℓ_A(L_(n+1)) are finite, then in Z: toNat ℓ_A(L_(n+1))−toNat ℓ_A(L_n)=toNat ℓ_A(C_(n+1))−toNat ℓ_A(K_n). The integer casts precede subtraction, preserving negative differences; the kernel correction is retained.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-signed-length-recurrence with its explicit hypotheses."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleComponent_length_recurrence_of_finite",
+          "role": "compatibility",
+          "statement": "For Noetherian A, finite M and Artinian A/q, the signed integer recurrence holds for every a∈S_1 and every n≥0, with no injectivity or regularity hypothesis on a.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-signed-length-recurrence-from-base with its explicit hypotheses."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleCokernelComponent_zero_length",
+          "role": "compatibility",
+          "statement": "For every a∈S_1, ℓ_A(C_0)=ℓ_A(L_0), even if the lengths are infinite.",
+          "proof": "Use DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-zero-quotient-length with its explicit hypotheses."
         }
       ],
       "tests": [
@@ -26601,6 +26719,687 @@
         "namespace": "TauCeti.HilbertSamuel"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-finite-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Finite length of each actual adic piece",
+      "declaration": "TauCeti.HilbertSamuel.adicModulePiece_length_ne_top",
+      "statement": "If A is Noetherian, M is finite over A and A/q is Artinian, then ℓ_A(q^nM/q^(n+1)M)≠∞ for every n≥0. The exact quotient carrier is adicModulePiece, including zero modules and the unit ideal.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.",
+        "A is Noetherian, M is finite over A, and A/q is Artinian."
+      ],
+      "proofSteps": [
+        "The submodule q^nM is finite over Noetherian A, so its actual quotient is finite over A.",
+        "Use the existing native A/q action and scalar tower to obtain finite generation over A/q; Artinianity of A/q makes the quotient Artinian over A/q.",
+        "Restrict along the surjective quotient algebra map to obtain Artinianity over A. Together with Noetherianity this gives finite native length."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum",
+        "mathlib:Module.Finite.of_restrictScalars_finite",
+        "mathlib:isArtinian_of_surjective_algebraMap",
+        "mathlib:isArtinian_of_fg_of_artinian'",
+        "mathlib:Module.length_ne_top"
+      ],
+      "acceptance": [
+        "If A is Noetherian, M is finite over A and A/q is Artinian, then ℓ_A(q^nM/q^(n+1)M)≠∞ for every n≥0. The exact quotient carrier is adicModulePiece, including zero modules and the unit ideal.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "AdicLengthTests.infinite_component",
+          "kind": "non-example",
+          "statement": "For A=Q,q=0,M=the countable direct sum of Q, the degree-zero component has infinite native length while its toNat is0. The finite-length premise cannot be discarded."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-image-component-finite-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Finite length of each image component",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleComponents_length_ne_top",
+      "statement": "Under the same Noetherian A, finite M and Artinian A/q hypotheses, ℓ_A(L_n)≠∞ for every n≥0.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.",
+        "A is Noetherian, M is finite over A, and A/q is Artinian."
+      ],
+      "proofSteps": [
+        "Transport length along the existing actual component linear equivalence q^nM/q^(n+1)M≃L_n and apply the preceding finite-length theorem."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-finite-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-component-equivalence",
+        "mathlib:LinearEquiv.length_eq"
+      ],
+      "acceptance": [
+        "Under the same Noetherian A, finite M and Artinian A/q hypotheses, ℓ_A(L_n)≠∞ for every n≥0.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "AdicLengthTests.unit_ideal",
+          "kind": "degenerate",
+          "statement": "For every A-module M and n, the actual degree-n component at q=A has native length0, without nontriviality hypotheses."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Kernel-image length identity",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleMulComponent_length_eq",
+      "statement": "For every a and n, ℓ_A(L_n)=ℓ_A(K_n)+ℓ_A(I_(n+1)) in ENat, without a finite-length premise.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed."
+      ],
+      "proofSteps": [
+        "Apply native exact-sequence length additivity to the kernel inclusion and the actual range-restricted f_n.",
+        "Use the native kernel-of-range-restriction equality to identify the kernel with K_n."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-map",
+        "mathlib:Module.length_eq_add_of_exact",
+        "mathlib:LinearMap.exact_iff",
+        "mathlib:Submodule.range_subtype",
+        "mathlib:LinearMap.ker_rangeRestrict",
+        "mathlib:LinearMap.surjective_rangeRestrict"
+      ],
+      "acceptance": [
+        "For every a and n, ℓ_A(L_n)=ℓ_A(K_n)+ℓ_A(I_(n+1)) in ENat, without a finite-length premise.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Image-quotient length identity",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCokernelComponent_length_eq",
+      "statement": "For every a and n, ℓ_A(L_(n+1))=ℓ_A(I_(n+1))+ℓ_A(C_(n+1)) in ENat, without assuming injectivity or finite length.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed."
+      ],
+      "proofSteps": [
+        "Apply native length additivity to the kernel inclusion of p_(n+1) and the actual surjective p_(n+1).",
+        "Replace that kernel by the existing exact equality with range(f_n)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-exactness",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-surjectivity",
+        "mathlib:Module.length_eq_add_of_exact",
+        "mathlib:LinearMap.exact_iff",
+        "mathlib:Submodule.range_subtype"
+      ],
+      "acceptance": [
+        "For every a and n, ℓ_A(L_(n+1))=ℓ_A(I_(n+1))+ℓ_A(C_(n+1)) in ENat, without assuming injectivity or finite length.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-kernel-finite-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Finite component kernel length",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleMulComponent_ker_length_ne_top",
+      "statement": "If ℓ_A(L_n)≠∞, then ℓ_A(K_n)≠∞. No ambient Noetherian-ring assumption is needed once this component length is finite.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.",
+        "ℓ_A(L_n)≠∞."
+      ],
+      "proofSteps": [
+        "Use native length monotonicity for the actual injective kernel subtype and the finite upper bound."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-map",
+        "mathlib:Module.length_le_of_injective"
+      ],
+      "acceptance": [
+        "If ℓ_A(L_n)≠∞, then ℓ_A(K_n)≠∞. No ambient Noetherian-ring assumption is needed once this component length is finite.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "AdicLengthTests.zero_multiplier_kernel",
+          "kind": "compatibility",
+          "statement": "For the zero degree-one multiplier, the actual component kernel length equals the entire source component length, without a finite-length assumption."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-image-finite-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Finite component image length",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleMulComponent_range_length_ne_top",
+      "statement": "If ℓ_A(L_n)≠∞, then ℓ_A(I_(n+1))≠∞.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.",
+        "ℓ_A(L_n)≠∞."
+      ],
+      "proofSteps": [
+        "The actual range restriction of f_n is surjective. Its image length is bounded by the finite length of L_n."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-map",
+        "mathlib:Module.length_le_of_surjective",
+        "mathlib:LinearMap.surjective_rangeRestrict"
+      ],
+      "acceptance": [
+        "If ℓ_A(L_n)≠∞, then ℓ_A(I_(n+1))≠∞.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-quotient-finite-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Finite quotient component length",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCokernelComponent_length_ne_top",
+      "statement": "If ℓ_A(L_n)≠∞, then ℓ_A(C_n)≠∞ for the actual image in L/aL.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.",
+        "ℓ_A(L_n)≠∞."
+      ],
+      "proofSteps": [
+        "Apply native length monotonicity to the actual surjective component map p_n."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-surjectivity",
+        "mathlib:Module.length_le_of_surjective"
+      ],
+      "acceptance": [
+        "If ℓ_A(L_n)≠∞, then ℓ_A(C_n)≠∞ for the actual image in L/aL.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-natural-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Natural kernel-image length identity",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleMulComponent_length_toNat",
+      "statement": "If ℓ_A(L_n)≠∞, then toNat ℓ_A(L_n)=toNat ℓ_A(K_n)+toNat ℓ_A(I_(n+1)). Both summand lengths are proved finite before ENat.toNat_add is applied.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.",
+        "ℓ_A(L_n)≠∞."
+      ],
+      "proofSteps": [
+        "Rewrite the extended-length identity.",
+        "Supply the proved finite kernel and image lengths to native ENat.toNat_add; no infinite length is silently converted to zero."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-kernel-finite-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-image-finite-length",
+        "mathlib:ENat.toNat_add"
+      ],
+      "acceptance": [
+        "If ℓ_A(L_n)≠∞, then toNat ℓ_A(L_n)=toNat ℓ_A(K_n)+toNat ℓ_A(I_(n+1)). Both summand lengths are proved finite before ENat.toNat_add is applied.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-natural-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Natural image-quotient length identity",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCokernelComponent_length_toNat",
+      "statement": "If ℓ_A(L_(n+1))≠∞, then toNat ℓ_A(L_(n+1))=toNat ℓ_A(I_(n+1))+toNat ℓ_A(C_(n+1)). This requires only the target component length, not finiteness of L_n.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.",
+        "ℓ_A(L_(n+1))≠∞."
+      ],
+      "proofSteps": [
+        "Bound the image length by L_(n+1) using its actual subtype, and use the quotient finite-length theorem.",
+        "Apply native toNat_add with both finite summands."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-quotient-finite-length",
+        "mathlib:Module.length_le_of_injective",
+        "mathlib:ENat.toNat_add"
+      ],
+      "acceptance": [
+        "If ℓ_A(L_(n+1))≠∞, then toNat ℓ_A(L_(n+1))=toNat ℓ_A(I_(n+1))+toNat ℓ_A(C_(n+1)). This requires only the target component length, not finiteness of L_n.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-signed-length-recurrence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Signed component length recurrence",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleComponent_length_recurrence",
+      "statement": "If ℓ_A(L_n) and ℓ_A(L_(n+1)) are finite, then in Z: toNat ℓ_A(L_(n+1))−toNat ℓ_A(L_n)=toNat ℓ_A(C_(n+1))−toNat ℓ_A(K_n). The integer casts precede subtraction, preserving negative differences; the kernel correction is retained.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.",
+        "ℓ_A(L_n)≠∞ and ℓ_A(L_(n+1))≠∞."
+      ],
+      "proofSteps": [
+        "Take the two proved natural-number identities, cast their finite values to Z, and cancel the common image term by integer arithmetic."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-natural-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-natural-length"
+      ],
+      "acceptance": [
+        "If ℓ_A(L_n) and ℓ_A(L_(n+1)) are finite, then in Z: toNat ℓ_A(L_(n+1))−toNat ℓ_A(L_n)=toNat ℓ_A(C_(n+1))−toNat ℓ_A(K_n). The integer casts precede subtraction, preserving negative differences; the kernel correction is retained.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "AdicLengthTests.negative_difference",
+          "kind": "non-example",
+          "statement": "For A=M=Q and q=0, the actual component lengths in degrees0 and1 are1 and0, and their signed integer difference is−1. Natural subtraction would lose this value."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-signed-length-recurrence-from-base",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Signed recurrence from coefficient hypotheses",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleComponent_length_recurrence_of_finite",
+      "statement": "For Noetherian A, finite M and Artinian A/q, the signed integer recurrence holds for every a∈S_1 and every n≥0, with no injectivity or regularity hypothesis on a.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.",
+        "A is Noetherian, M is finite over A, and A/q is Artinian."
+      ],
+      "proofSteps": [
+        "Apply component finiteness at n and n+1, then the signed recurrence."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-signed-length-recurrence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-image-component-finite-length"
+      ],
+      "acceptance": [
+        "For Noetherian A, finite M and Artinian A/q, the signed integer recurrence holds for every a∈S_1 and every n≥0, with no injectivity or regularity hypothesis on a.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "AdicLengthTests.nonreduced_kernel_correction",
+          "kind": "non-example",
+          "statement": "For A=M=Z/4 and q=(2), choose the nonzero degree-one class of2. Its degree-one multiplication component has a kernel of strictly positive finite native length, witnessed by the nonzero class of2. The kernel correction cannot be dropped."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-degree-zero-quotient-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Degree-zero quotient length",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleCokernelComponent_zero_length",
+      "statement": "For every a∈S_1, ℓ_A(C_0)=ℓ_A(L_0), even if the lengths are infinite.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed."
+      ],
+      "proofSteps": [
+        "Package the actual bijective degree-zero quotient component map as a native A-linear equivalence and transport length."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-degree-zero-injective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-surjectivity",
+        "mathlib:LinearEquiv.ofBijective",
+        "mathlib:LinearEquiv.length_eq"
+      ],
+      "acceptance": [
+        "For every a∈S_1, ℓ_A(C_0)=ℓ_A(L_0), even if the lengths are infinite.",
+        "Use the actual image and kernel components; all implementation statuses remain unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction and Stacks10.58.7",
+          "how": "Supply finite component lengths and the corrected degreewise signed recurrence before induction over the remaining degree-one generators. No polynomial tail is assumed to prove its own existence."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "AdicLengthTests.zero_degree_quotient",
+          "kind": "compatibility",
+          "statement": "For arbitrary A,q,M and a∈S_1, the degree-zero quotient component length equals the length of the native adic piece M/qM, whether finite or infinite."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-component-equivalence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "construction",
+      "title": "Actual adic piece and image component equivalence",
+      "declaration": "TauCeti.HilbertSamuel.adicModuleComponentEquiv",
+      "statement": "For every n, construct the existing canonical A-linear equivalence e_n:q^nM/q(q^nM)≃L_n, where L_n is the actual image of the injective piece inclusion. This promotes the already planned and prototyped API item to its own prerequisite node; it introduces no new carrier or mathematical declaration.",
+      "hypotheses": [
+        "A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed."
+      ],
+      "proofSteps": [
+        "Apply native LinearEquiv.ofInjective to the existing piece inclusion and its injectivity witness. The component is its actual range."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components",
+        "mathlib:LinearEquiv.ofInjective"
+      ],
+      "acceptance": [
+        "The ambient image of e_n(x) is exactly the existing piece inclusion of x."
+      ],
+      "uses": [
+        {
+          "where": "Actual component finite-length theorem",
+          "how": "Transport native module length from the literal adic quotient to its image submodule."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-COMPONENT-LENGTH-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and Proposition10.58.7 proof; native length additivity",
+          "excerpt": "sequence",
+          "match": "The source motivates the degree-shifted exact-sequence method. The two-sequence kernel-corrected finite-length specialization is authored; no generic K0 theory is reconstructed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "AdicLengthTests.negative_difference",
+          "kind": "non-example",
+          "statement": "For A=M=Q and q=0, the actual component lengths in degrees0 and1 are1 and0, and their signed integer difference is−1. Natural subtraction would lose this value."
+        },
+        {
+          "name": "AdicLengthTests.infinite_component",
+          "kind": "non-example",
+          "statement": "For A=Q,q=0,M=the countable direct sum of Q, the degree-zero component has infinite native length while its toNat is0. The finite-length premise cannot be discarded."
+        },
+        {
+          "name": "AdicLengthTests.zero_degree_quotient",
+          "kind": "compatibility",
+          "statement": "For arbitrary A,q,M and a∈S_1, the degree-zero quotient component length equals the length of the native adic piece M/qM, whether finite or infinite."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleComponentEquiv_coe",
+          "role": "compatibility",
+          "statement": "For every actual piece x, the ambient value of e_n(x) is the existing piece inclusion of x."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleComponents_length_ne_top",
+          "role": "compatibility",
+          "statement": "Under the same Noetherian A, finite M and Artinian A/q hypotheses, ℓ_A(L_n)≠∞ for every n≥0."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.adicModuleCokernelComponent_zero_length",
+          "role": "compatibility",
+          "statement": "For every a∈S_1, ℓ_A(C_0)=ℓ_A(L_0), even if the lengths are infinite."
+        }
+      ]
     }
   ],
   "baselineCoverage": [
@@ -26746,7 +27545,8 @@
         "The actual module denominator coefficient criterion, monomial kernel, piece inclusions, homogeneous action and full finite direct-sum comparison now have admission-free native proof prototypes at the pin, on their exact existing contracts. Actual coefficient maps recover every inverse comparison coordinate. No locality, Noetherianity, finite generation or freeness premise is added. This supersedes historical prototype omissions for these precise adapters only. Next prove the existing native image-component grading and module projection compatibility, then homogeneous kernel/range/quotient gradings, scalar descent to the smaller ring, smaller-ring finite generation and degreewise length exactness for general Hilbert–Serre. General support-degree, intrinsic/ambient multiplicity, completion, associativity, every stage and routed-paper obligation remain open; all canonical bodies and implementation statuses remain admitted/unchecked.",
         "The existing native adic module image grading, scalar action, direct-sum comparison and projections now have admission-free proof prototypes on their exact inherited signatures. Ten new lemmas give actual inverse identities, native decomposition agreement, coefficient projection, membership, orthogonality, homogeneity, zero detection and all-projection extensionality. This supersedes prototype omissions for these adapters only. Homogeneous kernel/range/quotient gradings, scalar descent and finiteness over the smaller ring and degreewise length exactness remain required for general Hilbert–Serre; no eventual polynomial is assumed as its own existence premise. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-source obligation remain open; implementation statuses stay unchecked.",
         "Sixteen actual degree-one multiplication/component declarations now prove shifted and degree-zero projection laws, native homogeneous kernel/range predicates, adjacent component maps and their exact quotient sequence, degree-zero injectivity and annihilation of the actual kernel/quotient. Zero-divisor scalars remain allowed. The plan imports the already-built Tau Ceti map_decompose_shift; isolated Mathlib evidence replays its exact pinned source, not a compiled Tau library. Still install the full native kernel/range/quotient decompositions and their graded actions using existing generic restriction interfaces; construct scalar descent to S/(a), prove smaller-ring finite generation, finite degree lengths and length recurrence, then Hilbert–Serre induction. All support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, eight-stage and routed-paper obligations remain open.",
-        "Twelve new specialized declarations now descend the actual native kernel and cokernel of degree-one multiplication to S/(a), prove their representative actions and scalar towers, and certify smaller-ring finite generation. Kernel finiteness uses a Noetherian S-module L, or finite M over A plus explicit Noetherianity of S; quotient finiteness needs only finite L over S, or finite M over A. This supersedes the scalar-descent/finiteness prototype frontier only. Full native homogeneous kernel/range/quotient decompositions and smaller-ring grading, finite component lengths, two degreewise length identities with finite ENat-toNat conversion before integer subtraction, remaining-generator induction and general Hilbert–Serre existence remain open. The support/degree, completion, localization, associativity, intrinsic/ambient conventions, all eight stages and every routed-source obligation remain unchanged and open; all implementation statuses are unchecked."
+        "Twelve new specialized declarations now descend the actual native kernel and cokernel of degree-one multiplication to S/(a), prove their representative actions and scalar towers, and certify smaller-ring finite generation. Kernel finiteness uses a Noetherian S-module L, or finite M over A plus explicit Noetherianity of S; quotient finiteness needs only finite L over S, or finite M over A. This supersedes the scalar-descent/finiteness prototype frontier only. Full native homogeneous kernel/range/quotient decompositions and smaller-ring grading, finite component lengths, two degreewise length identities with finite ENat-toNat conversion before integer subtraction, remaining-generator induction and general Hilbert–Serre existence remain open. The support/degree, completion, localization, associativity, intrinsic/ambient conventions, all eight stages and every routed-source obligation remain unchanged and open; all implementation statuses are unchecked.",
+        "One existing component-equivalence API is promoted to its own prerequisite construction node. Twelve new lemmas prove finite actual adic component lengths for Noetherian A, finite M and Artinian A/q; two native extended-length identities; separately guarded natural-length conversions; and the signed integer recurrence with the nonzero kernel correction retained. Degree-zero quotient lengths agree without finite-length assumptions. This supersedes the finite-component-length and degreewise-length-identity frontier for these actual maps only. Native kernel/range/quotient decompositions, smaller-ring grading, remaining-generator induction and general Hilbert–Serre existence remain open. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open and all implementation statuses unchecked."
       ]
     },
     {
