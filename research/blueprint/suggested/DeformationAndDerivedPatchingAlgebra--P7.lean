@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import TauCeti.RingTheory.GradedAlgebra.Homogeneous.Quotient
 import Mathlib.RingTheory.GradedAlgebra.Homogeneous.Ideal
 import Mathlib.RingTheory.Ideal.Quotient.Operations
@@ -6526,6 +6527,163 @@ example (a : adicRingComponents q 1) (u : adicRingPiece q 0) (v : adicRingPiece 
     (DirectSum.decompose (TauCeti.GradedAlgebra.gradeQuot (adicRingComponents q)
       (Ideal.span {(a : adicGradedRing q)})) x 2 :
       adicGradedRing q ⧸ Ideal.span {(a : adicGradedRing q)}) = 0 := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+open scoped _root_.DirectSum
+variable {A S M : Type*} [CommRing A] [CommRing S]
+  [AddCommGroup M] [Module A M] [Module S M]
+
+lemma gradedModule_exists_homogeneous_generators
+    (𝓜 : ℕ → Submodule A M) [DirectSum.Decomposition 𝓜] [Module.Finite S M] :
+    ∃ t : Finset M, Submodule.span S (t : Set M) = ⊤ ∧
+      ∀ x ∈ t, ∃ n, x ∈ 𝓜 n := by
+  sorry
+
+lemma gradedModule_exists_bounded_generators
+    (𝓜 : ℕ → Submodule A M) [DirectSum.Decomposition 𝓜] [Module.Finite S M] :
+    ∃ (t : Finset M) (B : ℕ), Submodule.span S (t : Set M) = ⊤ ∧
+      ∀ x ∈ t, ∃ n < B, x ∈ 𝓜 n := by
+  sorry
+
+lemma gradedModule_component_eq_bot_of_bounded_generators
+    (𝓜 : ℕ → Submodule A M) [DirectSum.Decomposition 𝓜]
+    (t : Finset M) (B : ℕ) (ht : Submodule.span A (t : Set M) = ⊤)
+    (hdeg : ∀ x ∈ t, ∃ k < B, x ∈ 𝓜 k) (n : ℕ) (hn : B ≤ n) :
+    𝓜 n = ⊥ := by
+  sorry
+
+lemma gradedModule_eventually_eq_bot
+    (𝓜 : ℕ → Submodule A M) [DirectSum.Decomposition 𝓜] [Module.Finite A M] :
+    ∃ B : ℕ, ∀ n, B ≤ n → 𝓜 n = ⊥ := by
+  sorry
+
+lemma gradedModule_eventually_length_zero
+    (𝓜 : ℕ → Submodule A M) [DirectSum.Decomposition 𝓜] [Module.Finite A M] :
+    ∃ B : ℕ, ∀ n, B ≤ n → Module.length A (𝓜 n) = 0 := by
+  sorry
+
+section PolynomialAction
+variable {J : Type*} [Module (MvPolynomial J A) M]
+variable (𝓜 : ℕ → Submodule A M)
+variable (hX : ∀ (j : J) (n : ℕ) (x : M), x ∈ 𝓜 n →
+  (MvPolynomial.X j : MvPolynomial J A) • x ∈ 𝓜 (n+1))
+include hX
+
+lemma gradedPolynomial_X_pow_smul_mem (j : J) (k n : ℕ) (x : M) (hx : x ∈ 𝓜 n) :
+    ((MvPolynomial.X j : MvPolynomial J A)^k) • x ∈ 𝓜 (k+n) := by
+  sorry
+
+variable [IsScalarTower A (MvPolynomial J A) M]
+
+lemma gradedPolynomial_monomial_smul_mem (d : J →₀ ℕ) (a : A) (n : ℕ)
+    (x : M) (hx : x ∈ 𝓜 n) :
+    (MvPolynomial.monomial d a) • x ∈ 𝓜 (d.degree+n) := by
+  sorry
+
+lemma gradedPolynomial_homogeneous_smul_mem (p : MvPolynomial J A) (k n : ℕ)
+    (hp : p.IsHomogeneous k) (x : M) (hx : x ∈ 𝓜 n) :
+    p • x ∈ 𝓜 (k+n) := by
+  sorry
+
+lemma gradedPolynomial_gradedSMul :
+    SetLike.GradedSMul (MvPolynomial.homogeneousSubmodule J A) 𝓜 := by
+  sorry
+
+end PolynomialAction
+
+lemma gradedPolynomial_empty_eventually_eq_bot
+    {J : Type*} [IsEmpty J] [Module (MvPolynomial J A) M]
+    [IsScalarTower A (MvPolynomial J A) M] [Module.Finite (MvPolynomial J A) M]
+    (𝓜 : ℕ → Submodule A M) [DirectSum.Decomposition 𝓜] :
+    ∃ B : ℕ, ∀ n, B ≤ n → 𝓜 n = ⊥ := by
+  sorry
+
+lemma gradedPolynomial_empty_eventually_length_zero
+    {J : Type*} [IsEmpty J] [Module (MvPolynomial J A) M]
+    [IsScalarTower A (MvPolynomial J A) M] [Module.Finite (MvPolynomial J A) M]
+    (𝓜 : ℕ → Submodule A M) [DirectSum.Decomposition 𝓜] :
+    ∃ B : ℕ, ∀ n, B ≤ n → Module.length A (𝓜 n) = 0 := by
+  sorry
+
+lemma gradedPolynomial_empty_zero_polynomial
+    {J : Type*} [IsEmpty J] [Module (MvPolynomial J A) M]
+    [IsScalarTower A (MvPolynomial J A) M] [Module.Finite (MvPolynomial J A) M]
+    (𝓜 : ℕ → Submodule A M) [DirectSum.Decomposition 𝓜] :
+    ∃ B : ℕ, ∀ n, B ≤ n →
+      Module.length A (𝓜 n) ≠ ⊤ ∧
+      (Polynomial.eval (n : ℚ) (0 : Polynomial ℚ)) =
+        ((Module.length A (𝓜 n)).toNat : ℚ) := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+open scoped _root_.DirectSum
+attribute [local instance] MvPolynomial.gradedAlgebra
+
+-- test: GradedInductionTests.polynomial_finite_generators
+example : ∃ t : Finset (MvPolynomial Unit (ZMod 4)),
+    Submodule.span (MvPolynomial Unit (ZMod 4)) (t : Set (MvPolynomial Unit (ZMod 4))) = ⊤ ∧
+    ∀ p ∈ t, ∃ n, p.IsHomogeneous n := by
+  sorry
+
+-- test: GradedInductionTests.delayed_tail
+example :
+    let 𝓜 : ℕ → Submodule (ZMod 4) (ZMod 4) := fun n => if n = 7 then ⊤ else ⊥
+    𝓜 7 ≠ ⊥ ∧ ∀ n, 8 ≤ n → 𝓜 n = ⊥ := by
+  sorry
+
+-- test: GradedInductionTests.empty_variables
+example (M : Type*) [AddCommGroup M] [Module (ZMod 4) M]
+    [Module (MvPolynomial PEmpty (ZMod 4)) M]
+    [IsScalarTower (ZMod 4) (MvPolynomial PEmpty (ZMod 4)) M]
+    [Module.Finite (MvPolynomial PEmpty (ZMod 4)) M]
+    (𝓜 : ℕ → Submodule (ZMod 4) M) [DirectSum.Decomposition 𝓜] :
+    ∃ B : ℕ, ∀ n, B ≤ n → Module.length (ZMod 4) (𝓜 n) ≠ ⊤ ∧
+      Polynomial.eval (n : ℚ) (0 : Polynomial ℚ) =
+        ((Module.length (ZMod 4) (𝓜 n)).toNat : ℚ) := by
+  sorry
+
+-- test: GradedInductionTests.nilpotent_monomial_action
+example :
+    let p : MvPolynomial Unit (ZMod 4) := MvPolynomial.monomial (Finsupp.single () 3) 2
+    p • (MvPolynomial.X () : MvPolynomial Unit (ZMod 4)) ∈
+      MvPolynomial.homogeneousSubmodule Unit (ZMod 4) 4 ∧ p ≠ 0 ∧ p^2 = 0 := by
+  sorry
+
+-- test: GradedInductionTests.zero_polynomial_any_degree
+example {A J M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+    [Module (MvPolynomial J A) M] [IsScalarTower A (MvPolynomial J A) M]
+    (𝓜 : ℕ → Submodule A M)
+    (hX : ∀ j n x, x ∈ 𝓜 n → (MvPolynomial.X j : MvPolynomial J A) • x ∈ 𝓜 (n+1))
+    (k n : ℕ) (x : M) (hx : x ∈ 𝓜 n) :
+    (0 : MvPolynomial J A) • x ∈ 𝓜 (k+n) := by
+  sorry
+
+-- test: GradedInductionTests.inhomogeneous_polynomial
+example :
+    ¬ (1 + MvPolynomial.X () : MvPolynomial Unit (ZMod 4)).IsHomogeneous 1 := by
+  sorry
+
+-- test: GradedInductionTests.power_zero
+example {A J M : Type*} [CommRing A] [AddCommGroup M] [Module A M]
+    [Module (MvPolynomial J A) M] (𝓜 : ℕ → Submodule A M)
+    (hX : ∀ j n x, x ∈ 𝓜 n → (MvPolynomial.X j : MvPolynomial J A) • x ∈ 𝓜 (n+1))
+    (j : J) (n : ℕ) (x : M) (hx : x ∈ 𝓜 n) :
+    ((MvPolynomial.X j : MvPolynomial J A)^0) • x ∈ 𝓜 n := by
+  sorry
+
+-- test: GradedInductionTests.zero_module_empty_generators
+example {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M] [Subsingleton M]
+    (𝓜 : ℕ → Submodule A M) [DirectSum.Decomposition 𝓜] (n : ℕ) :
+    𝓜 n = ⊥ := by
   sorry
 
 end
