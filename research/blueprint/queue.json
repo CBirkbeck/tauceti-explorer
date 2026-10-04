@@ -20908,9 +20908,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #551"
+   "note": "claimed on GitHub issue #551"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--P7",
@@ -21205,11 +21205,11 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #642"
+   "note": "released on GitHub issue #642"
   },
   {
    "id": "REV-SchemeAndStackFoundations",
