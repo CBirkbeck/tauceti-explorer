@@ -1,3 +1,81 @@
+# Global flat comparison of conductor ideal sheaves
+
+The exact existing conductor_global_flat_comparison header now has native proof evidence for every finite schematically dominant f and arbitrary flat q. Five new lemmas connect the actual ring pushout to refined affine charts, compare the source ideal and handle a two-step flat tower. Four API entries and eight typed examples include actual chart restrictions, empty charts, zero rings and a nonzero nilpotent excluded from the full diagonal conductor overZ/4. No affine, Noetherian, reduced, separated or quasi-compact-target hypothesis is added. Explicit subscheme comparison isomorphisms and conductorMap coherence remain, together with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, projective/cohomological work, separateI2 and later models/classification. All18 gap records,23 requests,78 routes,27 findings and seven partial stages remain; every implementation stays unchecked and the full Tau-dependent suggested file is UNCOMPILED.
+
+The affine opens of T used here lie over affine opens of P. The proof never assumes their full inverse images under q are affine. The actual finite map f has affine inverse images, so the native section pushout supplies the required tensor comparison. Ideal extension uses the full conductor, including its nilpotents, and actual presheaf maps. The SF.0 generic affine ideal-pullback formula is imported. Both source-ideal equality and iterated pullback equality concern native ideal data; explicit isomorphisms of the closed conductor schemes and conductorMap compatibility are still required.
+
+All721 incoming contracts,27 source findings,78 routes and23 requests are retained. The exact existing global theorem is proved in native evidence without a duplicate node or a stronger hypothesis. The plan and full suggested file remain partial and unchecked.
+
+## Conductor recomputation in an actual ring pushout
+
+**TauCeti.GenusOne.FerrandPushout.conductor_comap_pushout** — For an actual CommRingCat pushout A→B, A→F, B→D, F→D, if A→B is finite and A→F is flat, extending the full inverse-image conductor ideal of A→B to F gives the full inverse-image conductor ideal of F→D. Injectivity of A→B is not needed for this ideal equality.
+
+Hypotheses: Four commutative rings in a common universe; the specified square is a categorical pushout, its original map is finite and its base-change map is flat. The original map need not be injective.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-right-flat-annihilator, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-postcomposition, mathlib:CommRingCat.isPushout_tensorProduct, mathlib:CategoryTheory.IsPushout.isoIsPushout, mathlib:CategoryTheory.IsPushout.inr_isoIsPushout_hom.
+
+Proof: Use the native tensor-product pushout and its unique comparison with the given pushout. Its actual right inclusion commutes with F→D. Rewrite the finite flat annihilator result as the original conductor, then transport the recomputed conductor by the actual comparison ring equivalence.
+
+## Pullback conductor ideal on a refined chart
+
+**TauCeti.GenusOne.FerrandPushout.conductorIdealSheaf_comap_chart** — For finite schematically dominant f:Y→P, any q:T→P, affine U⊂P and affine V⊂T with V⊂q⁻¹U, the V-ideal of (conductorIdealSheaf f).comap q equals the extension of the U-conductor ideal along the actual q.appLE U V. Neither q-affineness nor q-flatness is required.
+
+Hypotheses: Schemes and section rings lie in a common universe. Zero rings and nonreduced rings are allowed. Only the finite, schematically dominant and flat hypotheses explicitly stated are assumed. No Noetherian, reduced, separated, faithful-flat, birational or quasi-compactness hypothesis on the base-change target is added.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/ideal-comap-top, SchemeAndStackFoundations:SF.0/ideal-restrict-top, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp, mathlib:AlgebraicGeometry.Scheme.Hom.resLE_comp_ι, mathlib:AlgebraicGeometry.Scheme.Hom.resLE_app_top, mathlib:Ideal.comap_injective_of_surjective, mathlib:Ideal.map_comap_of_surjective, mathlib:Ideal.map_symm.
+
+Proof: Restrict q to V→U and consume the SF.0 native affine ideal-pullback formula. Use native composition of ideal pullbacks and resLE_comp_ι. Transport along the two actual topIso section isomorphisms and cancel the surjective source topIso. This conductor specialization imports the generic ideal theory without replanning it.
+
+## Recomputed flat conductor on a refined chart
+
+**TauCeti.GenusOne.FerrandPushout.conductor_flat_chart** — For finite schematically dominant f:Y→P and flat q:T→P, on every affine V⊂q⁻¹U with U affine, the recomputed conductor of pullback.snd f q on V equals the extension of the original U-conductor along q.appLE U V. All ideals are full ideals.
+
+Hypotheses: Schemes and section rings lie in a common universe. Zero rings and nonreduced rings are allowed. Only the finite, schematically dominant and flat hypotheses explicitly stated are assumed. No Noetherian, reduced, separated, faithful-flat, birational or quasi-compactness hypothesis on the base-change target is added.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-pushout-recomputation, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-affine-component, mathlib:AlgebraicGeometry.isIso_pushoutSection_of_isAffineOpen, mathlib:AlgebraicGeometry.isIso_pushoutSection_iff, mathlib:AlgebraicGeometry.Scheme.Hom.finite_app, mathlib:AlgebraicGeometry.Scheme.Hom.flat_appLE, mathlib:AlgebraicGeometry.Scheme.Hom.app_eq_appLE, mathlib:CategoryTheory.Limits.pullback.condition.
+
+Proof: The inverse image of V under pullback.snd is the intersection of its inverse image with the pullback of f⁻¹U. Native affine-section comparison makes the actual four section maps a ring pushout. Apply conductor_comap_pushout with native finite_app and flat_appLE, then identify both actual conductorIdealSheaf affine ideals.
+
+## Flat comparison of the source conductor ideal
+
+**TauCeti.GenusOne.FerrandPushout.conductorSourceIdeal_flat** — For finite schematically dominant f:Y→P and flat q:T→P, the source conductor ideal of the base-changed map equals the pullback along pullback.fst f q of the original source ideal (conductorIdealSheaf f).comap f.
+
+Hypotheses: Schemes and section rings lie in a common universe. Zero rings and nonreduced rings are allowed. Only the finite, schematically dominant and flat hypotheses explicitly stated are assumed. No Noetherian, reduced, separated, faithful-flat, birational or quasi-compactness hypothesis on the base-change target is added.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp, mathlib:CategoryTheory.Limits.pullback.condition.
+
+Proof: Rewrite the recomputed target conductor by the exact global flat comparison. Native ideal-pullback composition and the actual scheme pullback square identify the two source ideals.
+
+## Conductor ideals through two flat base changes
+
+**TauCeti.GenusOne.FerrandPushout.conductorIdealSheaf_flat_tower** — For finite schematically dominant f:Y→P and flat q:T→P and r:Z→T, the conductor of the iterated pullback map to Z equals the pullback of the original conductor along r≫q.
+
+Hypotheses: Schemes and section rings lie in a common universe. Zero rings and nonreduced rings are allowed. Only the finite, schematically dominant and flat hypotheses explicitly stated are assumed. No Noetherian, reduced, separated, faithful-flat, birational or quasi-compactness hypothesis on the base-change target is added.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp.
+
+Proof: Apply the exact global flat comparison twice and native comap_comp. Native instances supply finiteness and schematic dominance after the first flat base change. No identification of the two iterated pullback scheme carriers is silently assumed.
+
+## Added conductor API and tests
+
+Consumed API:
+
+- **TauCeti.GenusOne.FerrandPushout.conductorIdealSheaf_comap_chart**: For finite schematically dominant f:Y→P, any q:T→P, affine U⊂P and affine V⊂T with V⊂q⁻¹U, the V-ideal of (conductorIdealSheaf f).comap q equals the extension of the U-conductor ideal along the actual q.appLE U V. Neither q-affineness nor q-flatness is required.
+- **TauCeti.GenusOne.FerrandPushout.conductor_flat_chart**: For finite schematically dominant f:Y→P and flat q:T→P, on every affine V⊂q⁻¹U with U affine, the recomputed conductor of pullback.snd f q on V equals the extension of the original U-conductor along q.appLE U V. All ideals are full ideals.
+- **TauCeti.GenusOne.FerrandPushout.conductorSourceIdeal_flat**: For finite schematically dominant f:Y→P and flat q:T→P, the source conductor ideal of the base-changed map equals the pullback along pullback.fst f q of the original source ideal (conductorIdealSheaf f).comap f.
+- **TauCeti.GenusOne.FerrandPushout.conductorIdealSheaf_flat_tower**: For finite schematically dominant f:Y→P and flat q:T→P and r:Z→T, the conductor of the iterated pullback map to Z equals the pullback of the original conductor along r≫q.
+
+Typed examples:
+
+- **ConductorSchemeFlatChecked.identity_base**: Base change of any finite schematically dominant f along the identity has exactly the original conductor ideal sheaf.
+- **ConductorSchemeFlatChecked.identity_morphism**: After any flat base change of the identity morphism, the conductor ideal sheaf is the whole ideal.
+- **ConductorSchemeFlatChecked.empty_chart**: Extension of an affine conductor along the actual section map to the empty open equals the whole ideal of the zero section ring.
+- **ConductorSchemeFlatChecked.refinement**: For affine V⊂W⊂q⁻¹U, restricting the extended U-conductor from W to V equals extending it directly along q.appLE U V, using the actual presheaf restriction map.
+- **ConductorSchemeFlatChecked.source_identity**: For identity base change the recomputed source conductor equals the pullback of the original source conductor along the actual pullback.fst.
+- **ConductorSchemeFlatChecked.tower_restriction**: Following an arbitrary flat base change by restriction to any open V gives the conductor ideal obtained by restricting the first pulled-back ideal to V.
+- **ConductorSchemeFlatChecked.zero_ring**: Identity base change of the identity of Spec(Z/1) has the whole conductor ideal sheaf.
+- **ConductorSchemeFlatChecked.nonreduced_identity_base**: For the actual finite schematically dominant Spec(Z/4×Z/4)→Spec(Z/4) induced by the diagonal, after identity base change the global section corresponding to the nonzero square-zero element2 is not in the conductor ideal. Thus replacing this full ideal by its radical fails the test.
+
 # Actual right-oriented conductor base change
 
 Twelve conductor-specific declarations(2 constructions,10 lemmas) now transport the actual unit-image quotient to B⊗_A F with its native right F-action. The exact existing conductor_flat_baseChange header has native proof evidence using SF.0’s finite-module flat-annihilator export and pinned native includeRight injectivity, with no extra Noetherian/reduced assumptions. Seven consumed API references and11 typed examples retain nilpotents, zero rings and the nonflat quotient distinction. Global conductor ideal-sheaf flat recomputation and restriction maps remain open, together with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, P¹/Proj, projectivity/properness, coherent cohomology/genus, separate I₂ and later model/classification obligations. All18 gaps,23 requests,78 routes and seven partial stages remain; implementationStatus stays unchecked and the full Tau-dependent suggested file remains UNCOMPILED.

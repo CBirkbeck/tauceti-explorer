@@ -1,3 +1,6 @@
+import Mathlib.AlgebraicGeometry.Morphisms.Flat
+import Mathlib.Algebra.Category.Ring.Constructions
+import Mathlib.Topology.Sets.OpenCover
 import Mathlib.LinearAlgebra.Quotient.Basic
 import Mathlib.RingTheory.Flat.Basic
 import Mathlib.LinearAlgebra.TensorProduct.Quotient
@@ -7165,6 +7168,122 @@ example :
 example :
     Function.Injective (Algebra.TensorProduct.includeRight :
       ZMod 1 →ₐ[ZMod 1] ZMod 1 ⊗[ZMod 1] ZMod 1).toRingHom := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+namespace TauCeti.GenusOne.FerrandPushout
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry TopologicalSpace Opposite
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 800000
+
+lemma conductor_comap_pushout {A B F D : CommRingCat.{u}}
+    {f : A ⟶ B} {g : A ⟶ F} {i : B ⟶ D} {j : F ⟶ D}
+    (H : IsPushout f g i j) (hf : f.hom.Finite) (hg : g.hom.Flat) :
+    (f.hom.range.conductor.comap f.hom).map g.hom =
+      j.hom.range.conductor.comap j.hom := by
+  sorry
+
+variable {Y P T : Scheme.{u}}
+
+lemma conductorIdealSheaf_comap_chart (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P)
+    (U : P.affineOpens) (V : T.affineOpens) (h : V.1 ≤ q ⁻¹ᵁ U) :
+    ((conductorIdealSheaf f).comap q).ideal V =
+      ((conductorIdealSheaf f).ideal U).map (q.appLE U V h).hom := by
+  sorry
+
+lemma conductor_flat_chart (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q]
+    (U : P.affineOpens) (V : T.affineOpens) (h : V.1 ≤ q ⁻¹ᵁ U) :
+    (conductorIdealSheaf (pullback.snd f q)).ideal V =
+      ((conductorIdealSheaf f).ideal U).map (q.appLE U V h).hom := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+namespace TauCeti.GenusOne.FerrandPushout
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry TopologicalSpace Opposite
+variable {Y P T Z : Scheme.{u}}
+
+lemma conductorSourceIdeal_flat (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    (conductorIdealSheaf (pullback.snd f q)).comap (pullback.snd f q) =
+      ((conductorIdealSheaf f).comap f).comap (pullback.fst f q) := by
+  sorry
+
+lemma conductorIdealSheaf_flat_tower (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (r : Z ⟶ T) [Flat r] :
+    conductorIdealSheaf (pullback.snd (pullback.snd f q) r) =
+      (conductorIdealSheaf f).comap (r ≫ q) := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+namespace TauCeti.GenusOne.FerrandPushout
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry TopologicalSpace Opposite
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {Y P T Z : Scheme.{u}}
+
+-- test: ConductorSchemeFlatChecked.identity_base
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    conductorIdealSheaf (pullback.snd f (𝟙 P)) = conductorIdealSheaf f := by
+  sorry
+
+-- test: ConductorSchemeFlatChecked.identity_morphism
+example (q : T ⟶ P) [Flat q] :
+    conductorIdealSheaf (pullback.snd (𝟙 P) q) = ⊤ := by
+  sorry
+
+-- test: ConductorSchemeFlatChecked.empty_chart
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (U : P.affineOpens) :
+    ((conductorIdealSheaf f).ideal U).map
+      (q.appLE U ⊥ bot_le).hom = ⊤ := by
+  sorry
+
+-- test: ConductorSchemeFlatChecked.refinement
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (U : P.affineOpens) (V W : T.affineOpens)
+    (hVW : V.1 ≤ W) (hWU : W.1 ≤ q ⁻¹ᵁ U) :
+    (((conductorIdealSheaf f).ideal U).map (q.appLE U W hWU).hom).map
+        (T.presheaf.map (homOfLE hVW).op).hom =
+      ((conductorIdealSheaf f).ideal U).map (q.appLE U V (hVW.trans hWU)).hom := by
+  sorry
+
+-- test: ConductorSchemeFlatChecked.source_identity
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    (conductorIdealSheaf (pullback.snd f (𝟙 P))).comap (pullback.snd f (𝟙 P)) =
+      ((conductorIdealSheaf f).comap f).comap (pullback.fst f (𝟙 P)) := by
+  sorry
+
+-- test: ConductorSchemeFlatChecked.tower_restriction
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] (V : T.Opens) :
+    conductorIdealSheaf (pullback.snd (pullback.snd f q) V.ι) =
+      ((conductorIdealSheaf f).comap q).comap V.ι := by
+  sorry
+
+-- test: ConductorSchemeFlatChecked.zero_ring
+example :
+    conductorIdealSheaf (pullback.snd (𝟙 (Spec (CommRingCat.of (ZMod 1))))
+      (𝟙 (Spec (CommRingCat.of (ZMod 1))))) = ⊤ := by
+  sorry
+
+-- test: ConductorSchemeFlatChecked.nonreduced_identity_base
+example :
+    let A := CommRingCat.of (ZMod 4)
+    let B := CommRingCat.of (ZMod 4 × ZMod 4)
+    let d : A ⟶ B := CommRingCat.ofHom ((RingHom.id (ZMod 4)).prod (RingHom.id (ZMod 4)))
+    let f := Spec.map d
+    ∃ (_ : IsFinite f) (_ : IsSchemeTheoreticallyDominant f),
+      (2 : ZMod 4) ≠ 0 ∧ (2 : ZMod 4) ^ 2 = 0 ∧
+      (Scheme.ΓSpecIso A).inv (2 : ZMod 4) ∉
+        (conductorIdealSheaf (pullback.snd f (𝟙 (Spec A)))).ideal
+          ⟨⊤, isAffineOpen_top _⟩ := by
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
