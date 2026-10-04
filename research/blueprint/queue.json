@@ -13049,7 +13049,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-GenericDoublePointInterpolation.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1694"
   },
   {
    "id": "REV-DESIGN-GenericDoublePointInterpolation",
@@ -15803,8 +15804,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-SemisimpleAlgebrasPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3469"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3469",
+   "finishedAt": "2026-10-04T21:08:09Z"
   },
   {
    "id": "REV-DESIGN-SemisimpleAlgebrasPartII",
