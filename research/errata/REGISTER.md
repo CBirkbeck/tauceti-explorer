@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-6668 new mistakes confirmed · 1789 awaiting review · 1262 already corrected in print · 90 rejected on review · 20 extractions and packets not yet checked.
+6668 new mistakes confirmed · 1790 awaiting review · 1262 already corrected in print · 90 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -16885,6 +16885,10 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 ### The Stacks Project Authors, Product compatibility of henselization, Online tag 0H7Q, retrieved 2026-10-02 (`SchemeAndStackFoundations`)
 
 - **Misprint** at Lemma 15.12.8 (tag 0H7Q), final cofinality paragraph, online text of 2026-10-02 and current master TeX (it affects the proof). The source says `B''_2 = B_2 \otimes_B B''_2`; it should be `B''_2 = B_2 \otimes_B B'_2`. The displayed definition refers to B''_2 on its own right-hand side. The common future object for B_2 and B'_2 is their tensor product over B, exactly parallel to the preceding B''_1 formula. This corrects a subscript in the proof; no product theorem is challenged. Recorded as `SchemeAndStackFoundations/E1`; looked for an existing correction in: 0EM7/0H7Q online comments and the current master more-algebra.tex: the circular subscript remains; no listed correction.; General web query for henselization, 0EM7 and typo, and GitHub query for the B double-prime expression: no existing correction located. This is a limited search, not a comprehensive history survey..
+
+### Guido Kings and Johannes Sprang, Eisenstein–Kronecker classes, integrality of critical values of Hecke L-functions and p-adic interpolation, arXiv:1912.03657 v4, 14 September 2024, 85-page preprint (not the 109-page Annals version) (`SchemeAndStackFoundations`)
+
+- **Misprint** at arXiv v4, Appendix A.1, printed p.79 (PDF page 79), just before Definition A.2; preprint only. The source says `Hom_{Γ,O_X}(O_X,G) ≅ Γ(X,F)^Γ`; it should be `The right-hand section sheaf is G, not F.`. Hom(O_X,G) identifies with sections of G. On a point with trivial group, F=0 and G=Z gives a nonzero left side and zero printed right side. The intended comparison uses G. Recorded as `SchemeAndStackFoundations/E2`; looked for an existing correction in: Current arXiv v4 Appendix A retains the letter mismatch; arXiv metadata checked.; Annals publisher article landing page and DOI accessed; full published PDF not obtained. A general search for Kings–Sprang Appendix A.1 erratum found no correction. Limited search, not a claim about the published text..
 
 ### Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Author-hosted combined draft of 29 August 2013 (Kbook.pdf); PDF page = book page + 8; the published AMS GSM 145 numbering differs. (`SchemeKTheoryOperations`)
 
