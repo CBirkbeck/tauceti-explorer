@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-04T12:40:05Z",
- "exported_at": "2026-10-04T12:40:05Z",
+ "cutoff": "2026-10-04T18:45:08Z",
+ "exported_at": "2026-10-04T18:45:08Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 125,
-  "recent": 5686,
-  "total": 10653,
+  "open": 126,
+  "recent": 5788,
+  "total": 10779,
   "unattributed": {
-   "no_label": 1165,
+   "no_label": 1184,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    659,
    1080,
    1649,
-   2061
+   2187
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "ce57cca0e3bb6a449a7e320b0844bf750b20969c",
+ "roadmap_head": "7a21a47cb8f4446c8ecd7ed39b86cb9c6f998100",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-04T11:45:30Z",
+    "last": "2026-10-04T14:55:26Z",
     "open": 1,
-    "recent": 173,
-    "since_report": 18,
-    "total": 412,
+    "recent": 170,
+    "since_report": 19,
+    "total": 413,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      31,
      19,
      42,
-     60
+     61
     ]
    },
    "assessment": {
@@ -156,7 +156,7 @@
   {
    "activity": {
     "last": "2026-10-03T05:39:18Z",
-    "open": 0,
+    "open": 1,
     "recent": 86,
     "since_report": 15,
     "total": 86,
@@ -255,11 +255,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T11:18:25Z",
-    "open": 1,
-    "recent": 105,
-    "since_report": 28,
-    "total": 158,
+    "last": "2026-10-04T16:23:42Z",
+    "open": 0,
+    "recent": 107,
+    "since_report": 30,
+    "total": 160,
     "weekly": [
      0,
      0,
@@ -276,7 +276,7 @@
      10,
      22,
      25,
-     46
+     48
     ]
    },
    "assessment": {
@@ -521,11 +521,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T20:43:23Z",
+    "last": "2026-10-04T18:39:20Z",
     "open": 3,
-    "recent": 43,
-    "since_report": 11,
-    "total": 43,
+    "recent": 50,
+    "since_report": 18,
+    "total": 50,
     "weekly": [
      0,
      0,
@@ -542,7 +542,7 @@
      0,
      8,
      16,
-     19
+     26
     ]
    },
    "assessment": {
@@ -636,11 +636,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T12:04:57Z",
-    "open": 1,
-    "recent": 72,
-    "since_report": 19,
-    "total": 72,
+    "last": "2026-10-04T17:49:33Z",
+    "open": 2,
+    "recent": 74,
+    "since_report": 21,
+    "total": 74,
     "weekly": [
      0,
      0,
@@ -657,7 +657,7 @@
      9,
      14,
      21,
-     26
+     28
     ]
    },
    "assessment": {
@@ -882,11 +882,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T11:13:28Z",
-    "open": 2,
-    "recent": 93,
-    "since_report": 18,
-    "total": 93,
+    "last": "2026-10-04T16:04:39Z",
+    "open": 1,
+    "recent": 94,
+    "since_report": 19,
+    "total": 94,
     "weekly": [
      0,
      0,
@@ -903,7 +903,7 @@
      5,
      24,
      18,
-     46
+     47
     ]
    },
    "assessment": {
@@ -1279,11 +1279,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T11:56:16Z",
+    "last": "2026-10-04T18:34:26Z",
     "open": 3,
-    "recent": 208,
-    "since_report": 54,
-    "total": 208,
+    "recent": 216,
+    "since_report": 63,
+    "total": 217,
     "weekly": [
      0,
      0,
@@ -1300,7 +1300,7 @@
      8,
      23,
      84,
-     89
+     98
     ]
    },
    "assessment": {
@@ -1423,11 +1423,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T09:27:46Z",
+    "last": "2026-10-04T17:31:10Z",
     "open": 1,
-    "recent": 105,
-    "since_report": 21,
-    "total": 196,
+    "recent": 107,
+    "since_report": 23,
+    "total": 198,
     "weekly": [
      8,
      21,
@@ -1444,7 +1444,7 @@
      5,
      21,
      19,
-     59
+     61
     ]
    },
    "assessment": {
@@ -1533,11 +1533,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T11:14:04Z",
-    "open": 2,
-    "recent": 85,
-    "since_report": 11,
-    "total": 263,
+    "last": "2026-10-04T18:25:20Z",
+    "open": 3,
+    "recent": 87,
+    "since_report": 13,
+    "total": 265,
     "weekly": [
      0,
      0,
@@ -1554,7 +1554,7 @@
      9,
      21,
      30,
-     24
+     26
     ]
    },
    "assessment": {
@@ -1644,7 +1644,7 @@
   {
    "activity": {
     "last": "2026-10-04T12:14:17Z",
-    "open": 0,
+    "open": 1,
     "recent": 83,
     "since_report": 14,
     "total": 104,
@@ -1781,11 +1781,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T10:30:31Z",
-    "open": 1,
-    "recent": 74,
-    "since_report": 12,
-    "total": 109,
+    "last": "2026-10-04T13:53:47Z",
+    "open": 0,
+    "recent": 75,
+    "since_report": 13,
+    "total": 110,
     "weekly": [
      0,
      0,
@@ -1802,7 +1802,7 @@
      11,
      11,
      32,
-     17
+     18
     ]
    },
    "assessment": {
@@ -1909,11 +1909,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T10:02:46Z",
-    "open": 1,
-    "recent": 187,
-    "since_report": 21,
-    "total": 440,
+    "last": "2026-10-04T17:01:42Z",
+    "open": 2,
+    "recent": 188,
+    "since_report": 25,
+    "total": 444,
     "weekly": [
      0,
      0,
@@ -1930,7 +1930,7 @@
      62,
      24,
      36,
-     40
+     44
     ]
    },
    "assessment": {
@@ -2159,11 +2159,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T11:53:31Z",
-    "open": 3,
-    "recent": 84,
-    "since_report": 22,
-    "total": 84,
+    "last": "2026-10-04T18:08:10Z",
+    "open": 4,
+    "recent": 86,
+    "since_report": 24,
+    "total": 86,
     "weekly": [
      0,
      0,
@@ -2180,7 +2180,7 @@
      2,
      16,
      24,
-     42
+     44
     ]
    },
    "assessment": {
@@ -2278,11 +2278,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T11:53:31Z",
+    "last": "2026-10-04T18:22:51Z",
     "open": 4,
-    "recent": 134,
-    "since_report": 41,
-    "total": 210,
+    "recent": 140,
+    "since_report": 47,
+    "total": 216,
     "weekly": [
      5,
      11,
@@ -2299,7 +2299,7 @@
      19,
      24,
      19,
-     70
+     76
     ]
    },
    "assessment": {
@@ -2421,11 +2421,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T09:48:24Z",
-    "open": 1,
-    "recent": 95,
-    "since_report": 26,
-    "total": 98,
+    "last": "2026-10-04T14:33:09Z",
+    "open": 2,
+    "recent": 97,
+    "since_report": 28,
+    "total": 100,
     "weekly": [
      0,
      0,
@@ -2442,7 +2442,7 @@
      8,
      12,
      41,
-     34
+     36
     ]
    },
    "assessment": {
@@ -2563,11 +2563,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T12:01:50Z",
+    "last": "2026-10-04T17:57:59Z",
     "open": 0,
-    "recent": 39,
-    "since_report": 4,
-    "total": 39,
+    "recent": 40,
+    "since_report": 5,
+    "total": 40,
     "weekly": [
      0,
      0,
@@ -2584,7 +2584,7 @@
      4,
      15,
      11,
-     9
+     10
     ]
    },
    "assessment": {
@@ -2697,7 +2697,7 @@
   {
    "activity": {
     "last": "2026-10-04T12:04:22Z",
-    "open": 0,
+    "open": 1,
     "recent": 76,
     "since_report": 16,
     "total": 110,
@@ -2819,11 +2819,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T09:32:31Z",
-    "open": 0,
-    "recent": 78,
-    "since_report": 13,
-    "total": 197,
+    "last": "2026-10-04T15:43:08Z",
+    "open": 2,
+    "recent": 80,
+    "since_report": 16,
+    "total": 200,
     "weekly": [
      23,
      11,
@@ -2840,7 +2840,7 @@
      6,
      11,
      33,
-     26
+     29
     ]
    },
    "assessment": {
@@ -3034,11 +3034,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T21:38:25Z",
+    "last": "2026-10-04T16:26:52Z",
     "open": 0,
-    "recent": 68,
-    "since_report": 7,
-    "total": 95,
+    "recent": 69,
+    "since_report": 8,
+    "total": 96,
     "weekly": [
      0,
      0,
@@ -3055,7 +3055,7 @@
      2,
      15,
      30,
-     18
+     19
     ]
    },
    "assessment": {
@@ -3126,11 +3126,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T12:05:33Z",
+    "last": "2026-10-04T16:41:25Z",
     "open": 0,
-    "recent": 45,
-    "since_report": 17,
-    "total": 101,
+    "recent": 46,
+    "since_report": 18,
+    "total": 102,
     "weekly": [
      0,
      0,
@@ -3147,7 +3147,7 @@
      4,
      1,
      0,
-     38
+     39
     ]
    },
    "assessment": {
@@ -3262,11 +3262,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T10:38:05Z",
+    "last": "2026-10-04T16:59:50Z",
     "open": 3,
-    "recent": 85,
-    "since_report": 25,
-    "total": 160,
+    "recent": 87,
+    "since_report": 27,
+    "total": 162,
     "weekly": [
      3,
      11,
@@ -3283,7 +3283,7 @@
      7,
      18,
      28,
-     29
+     31
     ]
    },
    "assessment": {
@@ -3374,11 +3374,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T10:39:57Z",
+    "last": "2026-10-04T13:09:51Z",
     "open": 1,
-    "recent": 117,
-    "since_report": 23,
-    "total": 117,
+    "recent": 118,
+    "since_report": 24,
+    "total": 118,
     "weekly": [
      0,
      0,
@@ -3395,7 +3395,7 @@
      6,
      19,
      33,
-     59
+     60
     ]
    },
    "assessment": {
@@ -3484,11 +3484,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T11:45:29Z",
-    "open": 0,
-    "recent": 49,
-    "since_report": 30,
-    "total": 49,
+    "last": "2026-10-04T17:18:12Z",
+    "open": 1,
+    "recent": 53,
+    "since_report": 34,
+    "total": 53,
     "weekly": [
      0,
      0,
@@ -3505,7 +3505,7 @@
      0,
      0,
      1,
-     48
+     52
     ]
    },
    "assessment": {
@@ -3604,11 +3604,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T10:49:47Z",
-    "open": 1,
-    "recent": 3,
+    "last": "2026-10-04T17:57:58Z",
+    "open": 0,
+    "recent": 5,
     "since_report": null,
-    "total": 3,
+    "total": 5,
     "weekly": [
      0,
      0,
@@ -3625,7 +3625,7 @@
      0,
      0,
      0,
-     3
+     5
     ]
    },
    "assessment": {
@@ -3704,7 +3704,7 @@
    "activity": {
     "last": "2026-10-04T11:26:36Z",
     "open": 1,
-    "recent": 226,
+    "recent": 225,
     "since_report": 18,
     "total": 507,
     "weekly": [
@@ -3852,7 +3852,7 @@
    "activity": {
     "last": "2026-10-03T22:45:13Z",
     "open": 0,
-    "recent": 63,
+    "recent": 62,
     "since_report": 9,
     "total": 210,
     "weekly": [
@@ -3942,11 +3942,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T21:24:26Z",
-    "open": 2,
-    "recent": 123,
-    "since_report": 7,
-    "total": 128,
+    "last": "2026-10-04T18:02:22Z",
+    "open": 1,
+    "recent": 127,
+    "since_report": 11,
+    "total": 132,
     "weekly": [
      0,
      0,
@@ -3963,7 +3963,7 @@
      13,
      40,
      42,
-     24
+     28
     ]
    },
    "assessment": {
@@ -4054,11 +4054,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T01:44:39Z",
+    "last": "2026-10-04T14:05:37Z",
     "open": 4,
-    "recent": 64,
-    "since_report": 15,
-    "total": 182,
+    "recent": 65,
+    "since_report": 16,
+    "total": 183,
     "weekly": [
      3,
      19,
@@ -4075,7 +4075,7 @@
      5,
      18,
      16,
-     19
+     20
     ]
    },
    "assessment": {
@@ -4140,11 +4140,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T12:04:22Z",
+    "last": "2026-10-04T13:53:48Z",
     "open": 0,
     "recent": 72,
-    "since_report": 10,
-    "total": 102,
+    "since_report": 11,
+    "total": 103,
     "weekly": [
      0,
      0,
@@ -4161,7 +4161,7 @@
      4,
      18,
      18,
-     27
+     28
     ]
    },
    "assessment": {
@@ -4299,11 +4299,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T12:14:16Z",
-    "open": 3,
-    "recent": 68,
-    "since_report": 25,
-    "total": 68,
+    "last": "2026-10-04T18:23:08Z",
+    "open": 4,
+    "recent": 71,
+    "since_report": 28,
+    "total": 71,
     "weekly": [
      0,
      0,
@@ -4320,7 +4320,7 @@
      0,
      0,
      33,
-     35
+     38
     ]
    },
    "assessment": {
@@ -4404,11 +4404,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T09:58:46Z",
-    "open": 1,
+    "last": "2026-10-04T16:59:49Z",
+    "open": 3,
     "recent": 99,
-    "since_report": 11,
-    "total": 190,
+    "since_report": 12,
+    "total": 191,
     "weekly": [
      1,
      13,
@@ -4425,7 +4425,7 @@
      10,
      18,
      34,
-     34
+     35
     ]
    },
    "assessment": {
@@ -4714,11 +4714,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T03:11:50Z",
+    "last": "2026-10-04T17:21:33Z",
     "open": 1,
-    "recent": 28,
-    "since_report": 7,
-    "total": 28,
+    "recent": 30,
+    "since_report": 9,
+    "total": 30,
     "weekly": [
      0,
      0,
@@ -4735,7 +4735,7 @@
      0,
      0,
      0,
-     28
+     30
     ]
    },
    "assessment": {
@@ -4818,11 +4818,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T22:43:43Z",
+    "last": "2026-10-04T18:13:45Z",
     "open": 4,
-    "recent": 135,
-    "since_report": 29,
-    "total": 169,
+    "recent": 141,
+    "since_report": 35,
+    "total": 175,
     "weekly": [
      0,
      0,
@@ -4839,7 +4839,7 @@
      5,
      17,
      51,
-     59
+     65
     ]
    },
    "assessment": {
@@ -4972,11 +4972,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T10:48:31Z",
-    "open": 0,
-    "recent": 247,
-    "since_report": 13,
-    "total": 251,
+    "last": "2026-10-04T15:17:44Z",
+    "open": 1,
+    "recent": 249,
+    "since_report": 15,
+    "total": 253,
     "weekly": [
      0,
      0,
@@ -4993,7 +4993,7 @@
      10,
      16,
      96,
-     122
+     124
     ]
    },
    "assessment": {
@@ -5111,11 +5111,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T11:36:02Z",
+    "last": "2026-10-04T16:50:50Z",
     "open": 2,
-    "recent": 114,
-    "since_report": 20,
-    "total": 114,
+    "recent": 116,
+    "since_report": 22,
+    "total": 116,
     "weekly": [
      0,
      0,
@@ -5132,7 +5132,7 @@
      8,
      18,
      40,
-     47
+     49
     ]
    },
    "assessment": {
@@ -5235,11 +5235,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T11:02:04Z",
-    "open": 5,
-    "recent": 43,
-    "since_report": 20,
-    "total": 43,
+    "last": "2026-10-04T18:09:39Z",
+    "open": 2,
+    "recent": 55,
+    "since_report": 32,
+    "total": 55,
     "weekly": [
      0,
      0,
@@ -5256,7 +5256,7 @@
      0,
      0,
      5,
-     38
+     50
     ]
    },
    "assessment": {
@@ -5356,11 +5356,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T10:59:41Z",
-    "open": 2,
+    "last": "2026-10-04T15:43:08Z",
+    "open": 6,
     "recent": 346,
-    "since_report": 36,
-    "total": 1064,
+    "since_report": 39,
+    "total": 1067,
     "weekly": [
      22,
      19,
@@ -5377,7 +5377,7 @@
      65,
      73,
      69,
-     121
+     124
     ]
    },
    "assessment": {
@@ -5486,11 +5486,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T11:52:55Z",
-    "open": 40,
-    "recent": 521,
-    "since_report": 135,
-    "total": 1244,
+    "last": "2026-10-04T16:50:15Z",
+    "open": 38,
+    "recent": 529,
+    "since_report": 145,
+    "total": 1254,
     "weekly": [
      0,
      0,
@@ -5507,7 +5507,7 @@
      69,
      62,
      150,
-     227
+     237
     ]
    },
    "assessment": {
@@ -6914,11 +6914,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T12:10:48Z",
+    "last": "2026-10-04T15:01:49Z",
     "open": 1,
-    "recent": 68,
-    "since_report": 13,
-    "total": 68,
+    "recent": 70,
+    "since_report": 15,
+    "total": 70,
     "weekly": [
      0,
      0,
@@ -6935,7 +6935,7 @@
      0,
      20,
      21,
-     27
+     29
     ]
    },
    "assessment": {
@@ -7042,11 +7042,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T04:15:06Z",
-    "open": 2,
-    "recent": 73,
-    "since_report": 15,
-    "total": 73,
+    "last": "2026-10-04T14:43:55Z",
+    "open": 3,
+    "recent": 74,
+    "since_report": 16,
+    "total": 74,
     "weekly": [
      0,
      0,
@@ -7063,7 +7063,7 @@
      8,
      20,
      24,
-     21
+     22
     ]
    },
    "assessment": {
@@ -7181,7 +7181,7 @@
    "activity": {
     "last": "2026-09-29T23:49:41Z",
     "open": 0,
-    "recent": 116,
+    "recent": 113,
     "since_report": 3,
     "total": 180,
     "weekly": [
@@ -7280,8 +7280,8 @@
   {
    "activity": {
     "last": "2026-10-04T10:29:28Z",
-    "open": 0,
-    "recent": 82,
+    "open": 1,
+    "recent": 81,
     "since_report": 26,
     "total": 109,
     "weekly": [
@@ -7602,11 +7602,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T12:05:33Z",
+    "last": "2026-10-04T16:41:25Z",
     "open": 0,
-    "recent": 45,
-    "since_report": 14,
-    "total": 101,
+    "recent": 46,
+    "since_report": 15,
+    "total": 102,
     "weekly": [
      0,
      0,
@@ -7623,7 +7623,7 @@
      4,
      1,
      0,
-     38
+     39
     ]
    },
    "assessment": {
@@ -7796,11 +7796,11 @@
   },
   {
    "activity": {
-    "last": "2026-09-30T15:39:44Z",
+    "last": "2026-10-04T15:17:44Z",
     "open": 3,
-    "recent": 27,
-    "since_report": 0,
-    "total": 120,
+    "recent": 28,
+    "since_report": 1,
+    "total": 121,
     "weekly": [
      2,
      14,
@@ -7817,7 +7817,7 @@
      8,
      3,
      6,
-     6
+     7
     ]
    },
    "assessment": {
