@@ -5,8 +5,8 @@
   "scope": [
     "DirichletPadicLFunctions:L4"
   ],
-  "status": "partial",
-  "summary": "Layer L4 (Eisenstein families) of the Dirichlet p-adic L-functions blueprint: 182 nodes, split on 2026-10-02 from the whole-roadmap packet of BP-DirichletPadicLFunctions (issue #713). What remains open is listed in this layer's coverage record and gaps.",
+  "status": "complete",
+  "summary": "The L4 planning pass accounts for the accepted Eisenstein-family targets with 192 nodes: 182 inherited mathematical contracts and ten new declarations. New work makes the corrected non-interpolation argument explicit, constructs principal tame Euler deletion on the actual localized family, records its constant, classical comparison and cleared congruences, and imports the primitive nontrivial-left classical form from its single owner. L4 is planned with explicit supplier, finite-character, conductor/exceptional-weight and full-signature gaps; it is not closed. All implementations remain unchecked.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1221,6 +1221,55 @@
         "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
         "provides": "The native multiplicative homomorphism sending a group element to its coefficient-one basis element in its actual integral group ring.",
         "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges retained in the reading note. Existing group-ring and actual-unit universal constructions are reused directly."
+      },
+      {
+        "ref": "mathlib:Nat.totient_prime_pow_succ",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Totient.lean",
+        "provides": "The exact totient of p^(n+1), including p=2.",
+        "checked": "Statement and hypotheses read at the pinned commit on 2026-10-04; used only in the displayed generality."
+      },
+      {
+        "ref": "mathlib:Padic.norm_p_lt_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "The p-adic norm of the natural prime is strictly below one.",
+        "checked": "Statement and hypotheses read at the pinned commit on 2026-10-04; used only in the displayed generality."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff_expand",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+        "provides": "Expansion at a nonzero natural index preserves the constant coefficient.",
+        "checked": "Statement and hypotheses read at the pinned commit on 2026-10-04; used only in the displayed generality."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map_expand",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+        "provides": "Coefficient maps commute with nonzero-index expansion.",
+        "checked": "Statement and hypotheses read at the pinned commit on 2026-10-04; used only in the displayed generality."
+      },
+      {
+        "ref": "mathlib:ZMod.pow_totient",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+        "provides": "Every unit modulo n has totient-th power equal to one.",
+        "checked": "Statement and hypotheses read at the pinned commit on 2026-10-04; used only in the displayed generality."
+      },
+      {
+        "ref": "mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecificLimits/Normed.lean",
+        "provides": "Powers of a norm-less-than-one element of a seminormed ring tend to zero.",
+        "checked": "Statement and hypotheses read at the pinned commit on 2026-10-04; used only in the displayed generality."
+      },
+      {
+        "ref": "tauceti:CongruenceSubgroup.Gamma0_le_Gamma0_of_dvd",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ModularForms/CongruenceSubgroups/Basic.lean",
+        "provides": "The native Gamma0 subgroups are antitone in the positive integer level.",
+        "checked": "Statement and hypotheses read at the pinned commit on 2026-10-04; used only in the displayed generality."
       }
     ]
   },
@@ -1255,7 +1304,8 @@
         "27 September2026 character-twist continuation: complete printed139–144/PDF40–45 freshly read; full v2PDF30–32 collated; published142/144 visually inspected. Equation5-1 is decomposed on the actual arithmetic measure. Primitive Gauss/Fourier interpolation and tame construction remain gaps. E11/E12 record proof-display slips; no full-paper extraction is claimed.",
         "27 September2026 tame-kernel continuation: complete published139–147/PDF40–48 read, including downstream tame uses; fullv2PDF33–35 collated and published145 visually inspected. Finite rational arithmetic and bounded K-valued construction are worker deductions; primitive Gauss comparison, integral-ring transport and special values remain gaps. E13 records the Gauss-inverse notation slip. Older Warwick note title/pp23–25 checked as a bounded correction-search result, not the source of record.",
         "28September2026: complete published149–150/PDF50–51 freshly read for Theorem6.1(i), its full proof, Remark6.3 and opening§6.2. The eight log-kernel nodes give a native improper-integral route to the classical formula. No new source finding, whole-paper reading or p-adic logarithmic theorem is asserted.",
-        "28September2026 even refinement: the complete published149–150/PDF50–51 reading from the immediate predecessor is reused for Remark6.3. Native conjugation, argument/slit-plane, even-character and finite-reindexing statements read with their applicable hypotheses. No new source finding or odd/p-adic logarithmic theorem is asserted."
+        "28September2026 even refinement: the complete published149–150/PDF50–51 reading from the immediate predecessor is reused for Remark6.3. Native conjugation, argument/slit-plane, even-character and finite-reindexing statements read with their applicable hypotheses. No new source finding or odd/p-adic logarithmic theorem is asserted.",
+        "L4 target pass, 4October2026: complete published printed158–161 / physicalPDF59–62 freshly read, hash unchanged. The corrected fixed-component obstruction and finite tame Euler-deletion adapters are worker decompositions. Earlier source reading remains attributed history, not a fresh whole-paper read."
       ]
     },
     {
@@ -1283,7 +1333,8 @@
       "accessed": "2026-09-30",
       "readSections": [
         "Definition5.1",
-        "Explicit Basis: equation(4), constant formula and Theorem5.8, used only at weight≥3"
+        "Explicit Basis: equation(4), constant formula and Theorem5.8, used only at weight≥3",
+        "4October2026: Definition5.1, equation(4), the two-case constant formula and Theorem5.8 freshly read. Only w≥3 primitive-pair existence is imported; the cited Miyake proof is not claimed read."
       ]
     },
     {
@@ -1541,7 +1592,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
-        "namespace": "DirichletPadic"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.positiveEisensteinMeasure"
       },
       "sources": [
         {
@@ -1680,7 +1732,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
-        "namespace": "DirichletPadic"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.positiveEisensteinMeasure_apply"
       },
       "sources": [
         {
@@ -1719,7 +1772,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
-        "namespace": "DirichletPadic"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.positiveEisensteinMeasure_moment"
       },
       "sources": [
         {
@@ -1763,7 +1817,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
-        "namespace": "DirichletPadic"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.positiveEisensteinMeasure_mul_p"
       },
       "sources": [
         {
@@ -1803,7 +1858,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
-        "namespace": "DirichletPadic"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.divisorSum_eulerDeletion"
       },
       "sources": [
         {
@@ -1842,7 +1898,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
-        "namespace": "DirichletPadic"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.positiveEisensteinMeasure_euler_moment"
       },
       "sources": [
         {
@@ -1886,7 +1943,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
-        "namespace": "DirichletPadic"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.positiveEisensteinMeasure_moment_congr"
       },
       "sources": [
         {
@@ -2397,7 +2455,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinFinite"
+        "declaration": "DirichletPadic.positiveEisensteinFinite"
       },
       "sources": [
         {
@@ -2536,7 +2594,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinFinite_coeff"
+        "declaration": "DirichletPadic.positiveEisensteinFinite_coeff"
       },
       "sources": [
         {
@@ -2581,7 +2639,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinFinite_transition"
+        "declaration": "DirichletPadic.positiveEisensteinFinite_transition"
       },
       "sources": [
         {
@@ -2621,7 +2679,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinFinite_apply"
+        "declaration": "DirichletPadic.positiveEisensteinFinite_apply"
       },
       "sources": [
         {
@@ -2662,7 +2720,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinFinite_moment"
+        "declaration": "DirichletPadic.positiveEisensteinFinite_moment"
       },
       "sources": [
         {
@@ -2704,7 +2762,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisenstein_completed_projection"
+        "declaration": "DirichletPadic.positiveEisenstein_completed_projection"
       },
       "sources": [
         {
@@ -2744,7 +2802,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinMeasure_norm_le"
+        "declaration": "DirichletPadic.positiveEisensteinMeasure_norm_le"
       },
       "sources": [
         {
@@ -2788,7 +2846,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinSeries"
+        "declaration": "DirichletPadic.positiveEisensteinSeries"
       },
       "sources": [
         {
@@ -2920,7 +2978,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinSeries_coeff"
+        "declaration": "DirichletPadic.positiveEisensteinSeries_coeff"
       },
       "sources": [
         {
@@ -2958,7 +3016,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinSeries_coeff_norm_le"
+        "declaration": "DirichletPadic.positiveEisensteinSeries_coeff_norm_le"
       },
       "sources": [
         {
@@ -3002,7 +3060,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinSeries_test_congr"
+        "declaration": "DirichletPadic.positiveEisensteinSeries_test_congr"
       },
       "sources": [
         {
@@ -3045,7 +3103,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinSeries_weight_congr"
+        "declaration": "DirichletPadic.positiveEisensteinSeries_weight_congr"
       },
       "sources": [
         {
@@ -3083,7 +3141,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinSeries_coeff_mul_p"
+        "declaration": "DirichletPadic.positiveEisensteinSeries_coeff_mul_p"
       },
       "sources": [
         {
@@ -3132,7 +3190,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinCoefficients",
         "namespace": "DirichletPadic",
-        "declaration": "positiveEisensteinSeries_modular"
+        "declaration": "DirichletPadic.positiveEisensteinSeries_modular"
       },
       "sources": [
         {
@@ -13143,6 +13201,532 @@
       "acceptance": [
         "The theorem is conditional on an actual bundled classical form and exact coefficient formulas. It makes no existence assertion at weights1 or2 or for imprimitive characters."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/unit-power-totient-precision",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Uniform precision of unit powers",
+      "kind": "lemma",
+      "statement": "For every k,n≥0, ‖j_(k+(p−1)pⁿ)−j_k‖≤p^(−(n+1)).",
+      "hypotheses": [
+        "p is any prime, U=(ℤ_p)ˣ with its native compact topology. For e≥0 write j_e∈C(U,ℚ_p) for u↦(u:ℚ_p)^e. All norms of tests are the native supremum norm."
+      ],
+      "proofSteps": [
+        "Map each actual unit u to (ℤ/p^(n+1)ℤ)ˣ using Units.map(PadicInt.toZModPow). ZMod.pow_totient and Nat.totient_prime_pow_succ give u^((p−1)pⁿ)=1 after reduction.",
+        "Multiplication by u^k shows u^(k+(p−1)pⁿ)−u^k lies in ker(toZModPow(n+1)). Rewrite this kernel as the ideal generated by p^(n+1).",
+        "PadicInt.norm_le_pow_iff_mem_span_pow gives the pointwise bound; PadicInt.norm_def preserves it under ℤ_p→ℚ_p. ContinuousMap.norm_le converts the uniform pointwise bound into the supremum-norm bound. This uses no Teichmüller splitting."
+      ],
+      "prerequisites": [
+        "mathlib:ZMod.pow_totient",
+        "mathlib:Nat.totient_prime_pow_succ",
+        "mathlib:PadicInt.toZModPow",
+        "mathlib:PadicInt.ker_toZModPow",
+        "mathlib:PadicInt.norm_le_pow_iff_mem_span_pow",
+        "mathlib:PadicInt.norm_def",
+        "mathlib:ContinuousMap.norm_le"
+      ],
+      "acceptance": [
+        "Preserve every displayed carrier, hypothesis and normalization; a conditional input is not a completed supplier proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinTargets",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.unitPower_totient_precision"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published §8, printed159 / physicalPDF60, non-interpolation argument; complete pp.158–161 freshly read 4October2026.",
+          "excerpt": "there was indeed a measure",
+          "match": "Decomposition of the corrected argument recorded as PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E53. Use the explicit sequence k+(p−1)pⁿ and uniform convergence in the continuous-test norm; include p=2 without a cyclic-unit assumption."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinTargetTests.dyadic_uniform_precision",
+          "kind": "compatibility",
+          "statement": "For p=2, k=0, n=2, the test u↦u⁴−1 has supremum norm at most1/8."
+        },
+        {
+          "name": "SuggestedEisensteinTargetTests.odd_torsion_retained",
+          "kind": "computation",
+          "statement": "At p=3,u=−1,k=0,n=2, u^18−1=0."
+        },
+        {
+          "name": "SuggestedEisensteinTargetTests.wrong_component_fails",
+          "kind": "non-example",
+          "statement": "At p=3,u=−1 the sequence u^(3ⁿ) is constantly−1, and never tends to1."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/unit-power-sequence-convergence",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Convergence within a fixed weight component",
+      "kind": "lemma",
+      "statement": "For each k≥0 the sequence j_(k+(p−1)pⁿ) tends to j_k in C(U,ℚ_p).",
+      "hypotheses": [
+        "p is any prime, U=(ℤ_p)ˣ with its native compact topology. For e≥0 write j_e∈C(U,ℚ_p) for u↦(u:ℚ_p)^e. All norms of tests are the native supremum norm."
+      ],
+      "proofSteps": [
+        "The preceding uniform bound tends to zero because p>1. Apply the metric characterization of convergence to the norm of the difference.",
+        "The exponents are all congruent to k modulo p−1, tend to k in ℤ_p, and tend to infinity as natural numbers. The specified sequence handles the dyadic case as well. Mere p-adic convergence of arbitrary exponents is not substituted for the fixed-component assertion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/unit-power-totient-precision",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one"
+      ],
+      "acceptance": [
+        "Preserve every displayed carrier, hypothesis and normalization; a conditional input is not a completed supplier proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinTargets",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.unitPower_sequence_tendsto"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published §8, printed159 / physicalPDF60, non-interpolation argument; complete pp.158–161 freshly read 4October2026.",
+          "excerpt": "there was indeed a measure",
+          "match": "Decomposition of the corrected argument recorded as PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E53. Use the explicit sequence k+(p−1)pⁿ and uniform convergence in the continuous-test norm; include p=2 without a cyclic-unit assumption."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/prime-power-moments-impossible",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "No unit measure interpolates prime powers",
+      "kind": "theorem",
+      "statement": "There is no μ∈AbstractMeasure U ℚ_p ℚ_p with μ(j_e)=(p:ℚ_p)^e for every e≥0.",
+      "hypotheses": [
+        "p is any prime, U=(ℤ_p)ˣ with its native compact topology. For e≥0 write j_e∈C(U,ℚ_p) for u↦(u:ℚ_p)^e. All norms of tests are the native supremum norm."
+      ],
+      "proofSteps": [
+        "Apply continuity of the native continuous linear functional AbstractMeasure.toCLMEquiv μ to the preceding convergence with k=0. Its values would tend to μ(1)=1.",
+        "The alleged moments on the same sequence are p^((p−1)pⁿ). Since ‖p‖=p⁻¹<1 and (p−1)pⁿ tends to infinity, these values tend to0 by the native power-limit theorem.",
+        "Uniqueness of limits in ℚ_p gives1=0, contradicting the field structure. Thus deletion of p-divisible divisors is essential, rather than a choice of an unavailable Dirac mass at p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/unit-power-sequence-convergence",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:Padic.norm_p_lt_one",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one"
+      ],
+      "acceptance": [
+        "Preserve every displayed carrier, hypothesis and normalization; a conditional input is not a completed supplier proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinTargets",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.not_exists_primePower_moments"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published §8, printed159 / physicalPDF60, non-interpolation argument; complete pp.158–161 freshly read 4October2026.",
+          "excerpt": "there was indeed a measure",
+          "match": "Decomposition of the corrected argument recorded as PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E53. Use the explicit sequence k+(p−1)pⁿ and uniform convergence in the continuous-test norm; include p=2 without a cyclic-unit assumption."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/principal-tame-eisenstein-series",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The principal tame Eisenstein family",
+      "kind": "construction",
+      "statement": "Define E_(a,D)=Σ_(T⊆P)(−1)^|T| C(i_a(δ_(u_T)))·expand_(d_T)(E_a) in the native S_a[[q]]. This finite Euler deletion retains exactly the divisors prime to pD.",
+      "hypotheses": [
+        "p is any prime. Z=ℤ_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing commutative convolution algebra. For a∈U let S_a=Localization.Away(2·eisensteinTwistedDenominator(p,a)) and i_a:M→S_a be its canonical map.",
+        "D>0 and p∤D. Let P be the native finite set of prime divisors of D. For T⊆P put d_T=∏ℓ∈T ℓ and let u_T∈U have underlying value d_T. Empty products are1. Every d_T is prime to p, so its native unit exists.",
+        "Use E_a=eisensteinAwaySeries(p,a), A₀,a=eisensteinAwayConstant(p,a) and the existing positive coefficient measures. No principal tame kernel of L2 is identified with this localized zeta family."
+      ],
+      "proofSteps": [
+        "The native prime-factor finset has no repetition. Its subset product is positive and divides D; hence its ℤ_p image is a unit. Use that actual unit and the existing native Dirac measure, independent of its membership certificate.",
+        "Apply native PowerSeries.expand at the positive integer d_T, multiply by the constant series of the indicated coefficient and sum over P.powerset. This is a finite algebraic construction on E_a; there is no convergence assumption or new completed-algebra carrier.",
+        "For D=1 the powerset contains only the empty subset and δ_1 is the convolution identity, so E_(a,1)=E_a. Since the definition depends only on primeFactors(D), repeated prime factors have no additional effect.",
+        "The coefficient and specialization lemmas below identify the retained divisor measures and the Euler-deleted constant. The construction uses the localized constant, which may fail integral ordinary-pseudomeasure membership."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/full-eisenstein-away-series",
+        "DirichletPadicLFunctions:L4/eisenstein-away-constant",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-measure",
+        "PadicMeasuresIwasawaAlgebras:L1/commutative-convolution",
+        "mathlib:PowerSeries.expand",
+        "mathlib:PowerSeries.C",
+        "mathlib:AbstractMeasure.dirac"
+      ],
+      "acceptance": [
+        "Preserve every displayed carrier, hypothesis and normalization; a conditional input is not a completed supplier proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinTargets",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principalTameEisensteinAwaySeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
+          "excerpt": "taking p-stabilisations",
+          "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinTargetTests.principal_level_one_keeps_constant",
+          "kind": "compatibility",
+          "statement": "D=1 returns E_a, not the zero-constant level-one tame kernel."
+        },
+        {
+          "name": "SuggestedEisensteinTargetTests.principal_repeated_prime",
+          "kind": "compatibility",
+          "statement": "For p=2, tame levels3 and9 give the same principal family."
+        },
+        {
+          "name": "SuggestedEisensteinTargetTests.principal_first_coefficient",
+          "kind": "computation",
+          "statement": "For every allowed D the first coefficient is1 in S_a."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.principalTameEisensteinAwaySeries_def",
+          "role": "constructor",
+          "statement": "The series equals the displayed finite subset sum."
+        },
+        {
+          "name": "DirichletPadic.principalTameEisensteinAwaySeries_one",
+          "role": "simp",
+          "statement": "At D=1 it equals E_a, including its actual localized constant."
+        },
+        {
+          "name": "DirichletPadic.principalTameEisensteinAwaySeries_primeFactors",
+          "role": "compatibility",
+          "statement": "Equal prime-factor sets give equal series, under the stated positivity and coprimality hypotheses."
+        },
+        {
+          "name": "DirichletPadic.principalTameEisensteinAwaySeries_coeff_pos",
+          "role": "projection",
+          "statement": "For n>0 its coefficient is i_a(Σ_(d|n,gcd(d,pD)=1)δ_(u(d))). Promoted below."
+        },
+        {
+          "name": "DirichletPadic.principalTameEisensteinAwaySeries_constant",
+          "role": "projection",
+          "statement": "The constant is (∏_(ℓ∈P)(1−i_a(δ_(u(ℓ)))))A₀,a. Promoted below."
+        }
+      ],
+      "uses": [
+        {
+          "where": "L4 principal tame-character specialization",
+          "how": "Supplies the constant missing from the level-one-zero tame kernel."
+        },
+        {
+          "where": "L4 integral q-expansion congruences",
+          "how": "Finite Euler operators commute with clearing and preserve integral coefficient formulas."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/principal-tame-positive-coefficients",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Tame Euler deletion of positive coefficients",
+      "kind": "lemma",
+      "statement": "For n>0, coeff_n(E_(a,D))=i_a(Σ_(d|n,gcd(d,pD)=1)δ_(u(d))).",
+      "hypotheses": [
+        "p is any prime. Z=ℤ_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing commutative convolution algebra. For a∈U let S_a=Localization.Away(2·eisensteinTwistedDenominator(p,a)) and i_a:M→S_a be its canonical map.",
+        "D>0 and p∤D. Let P be the native finite set of prime divisors of D. For T⊆P put d_T=∏ℓ∈T ℓ and let u_T∈U have underlying value d_T. Empty products are1. Every d_T is prime to p, so its native unit exists.",
+        "Use E_a=eisensteinAwaySeries(p,a), A₀,a=eisensteinAwayConstant(p,a) and the existing positive coefficient measures. No principal tame kernel of L2 is identified with this localized zeta family."
+      ],
+      "proofSteps": [
+        "Use the native coefficient formula for expand and C-multiplication on each subset term. A summand contributes only when d_T divides n.",
+        "The original positive coefficient formula and convolution δ_(u_T)δ_(u(b))=δ_(u(d_Tb)) reindex each contributing pair by the divisor d=d_Tb of n.",
+        "For each fixed p-prime divisor d, the signed subset sum ranges over prime factors of D dividing d. It is the product of 1−1 over those primes: it is1 exactly when gcd(d,D)=1 and0 otherwise. This proves the displayed finite sum, retaining the native unit rather than its residue representative."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/principal-tame-eisenstein-series",
+        "DirichletPadicLFunctions:L4/full-eisenstein-away-coefficients",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-measure",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-dirac",
+        "mathlib:PowerSeries.coeff_expand"
+      ],
+      "acceptance": [
+        "Preserve every displayed carrier, hypothesis and normalization; a conditional input is not a completed supplier proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinTargets",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principalTameEisensteinAwaySeries_coeff_pos"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
+          "excerpt": "taking p-stabilisations",
+          "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/principal-tame-constant",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The principal tame localized constant",
+      "kind": "lemma",
+      "statement": "coeff₀(E_(a,D))=(∏_(ℓ∈P)(1−i_a(δ_(u(ℓ)))))A₀,a.",
+      "hypotheses": [
+        "p is any prime. Z=ℤ_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing commutative convolution algebra. For a∈U let S_a=Localization.Away(2·eisensteinTwistedDenominator(p,a)) and i_a:M→S_a be its canonical map.",
+        "D>0 and p∤D. Let P be the native finite set of prime divisors of D. For T⊆P put d_T=∏ℓ∈T ℓ and let u_T∈U have underlying value d_T. Empty products are1. Every d_T is prime to p, so its native unit exists.",
+        "Use E_a=eisensteinAwaySeries(p,a), A₀,a=eisensteinAwayConstant(p,a) and the existing positive coefficient measures. No principal tame kernel of L2 is identified with this localized zeta family."
+      ],
+      "proofSteps": [
+        "Every expand_(d_T) preserves coefficient zero because d_T>0. Pull A₀,a out of the finite sum.",
+        "Use the actual Dirac multiplication law to write δ_(u_T) as the product of the δ_(u(ℓ)). The finite distributive expansion of ∏(1−i_a(δ_(u(ℓ)))) is exactly the signed subset sum.",
+        "The factor is1 when D=1. There is no division by2 inside ℤ_p and no claim that the displayed constant is an integral measure."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/principal-tame-eisenstein-series",
+        "DirichletPadicLFunctions:L4/full-eisenstein-away-coefficients",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-dirac",
+        "mathlib:PowerSeries.constantCoeff_expand"
+      ],
+      "acceptance": [
+        "Preserve every displayed carrier, hypothesis and normalization; a conditional input is not a completed supplier proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinTargets",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principalTameEisensteinAwaySeries_constant"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
+          "excerpt": "taking p-stabilisations",
+          "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/principal-tame-ordinary-constant",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Ordinary arithmetic values of the principal tame constant",
+      "kind": "lemma",
+      "statement": "For canonical a with value p+1 and e≥0, the actual evaluator E_(a,e) sends coeff₀(E_(a,D)) to −(1−p^e)B_(e+1)/(2(e+1))·∏_(ℓ∈P)(1−ℓ^e), viewed in ℚ_p.",
+      "hypotheses": [
+        "p is any prime. Z=ℤ_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing commutative convolution algebra. For a∈U let S_a=Localization.Away(2·eisensteinTwistedDenominator(p,a)) and i_a:M→S_a be its canonical map.",
+        "D>0 and p∤D. Let P be the native finite set of prime divisors of D. For T⊆P put d_T=∏ℓ∈T ℓ and let u_T∈U have underlying value d_T. Empty products are1. Every d_T is prime to p, so its native unit exists.",
+        "Use E_a=eisensteinAwaySeries(p,a), A₀,a=eisensteinAwayConstant(p,a) and the existing positive coefficient measures. No principal tame kernel of L2 is identified with this localized zeta family.",
+        "The evaluator is the already constructed eisensteinAwayMoment, and all rational expressions are mapped directly to ℚ_p."
+      ],
+      "proofSteps": [
+        "Map the preceding product formula through the existing ring homomorphism E_(a,e). The inherited integral-evaluation theorem and Dirac evaluation send i_a(δ_(u(ℓ))) to ℓ^e.",
+        "Apply eisenstein-away-constant-value to A₀,a and multiply by the finite Euler factors. No character evaluation on the entire total quotient ring is used.",
+        "At p=2,D=3,e=3 the value is(−7/240)(1−27)=91/120. At D=1 recover−7/240; neither is replaced by zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/principal-tame-constant",
+        "DirichletPadicLFunctions:L4/eisenstein-away-integral-evaluation",
+        "DirichletPadicLFunctions:L4/eisenstein-away-constant-value",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "acceptance": [
+        "Preserve every displayed carrier, hypothesis and normalization; a conditional input is not a completed supplier proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinTargets",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principalTameEisensteinAwaySeries_constant_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
+          "excerpt": "taking p-stabilisations",
+          "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinTargetTests.principal_dyadic_cubic_constant",
+          "kind": "computation",
+          "statement": "At p=2,D=3 and arithmetic exponent3 the constant is91/120 in ℚ₂."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/principal-tame-classical-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Classical comparison of principal tame Euler deletion",
+      "kind": "comparison",
+      "statement": "For every even w≥4 and canonical a, there is an actual g_D∈ModularForm(Γ₀(pD),w) whose value at z is Σ_(T⊆P)(−1)^|T|d_T^(w−1)·pStabilizedEisenstein(p,w)(d_Tz). Its q-expansion and the specialization of E_(a,D) at x^(w−1) are the separate complex and p-adic images of one unique rational power series.",
+      "hypotheses": [
+        "p is any prime. Z=ℤ_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing commutative convolution algebra. For a∈U let S_a=Localization.Away(2·eisensteinTwistedDenominator(p,a)) and i_a:M→S_a be its canonical map.",
+        "D>0 and p∤D. Let P be the native finite set of prime divisors of D. For T⊆P put d_T=∏ℓ∈T ℓ and let u_T∈U have underlying value d_T. Empty products are1. Every d_T is prime to p, so its native unit exists.",
+        "Use E_a=eisensteinAwaySeries(p,a), A₀,a=eisensteinAwayConstant(p,a) and the existing positive coefficient measures. No principal tame kernel of L2 is identified with this localized zeta family."
+      ],
+      "proofSteps": [
+        "For each T, d_T>0 and d_T divides D. Apply the native levelRaise to the existing modular form at Γ₀(p), then the native subgroup inclusion from Γ₀(pD) into Γ₀(pd_T). Sum with the displayed rational scalar. This constructs an actual modular form and does not invoke an imprimitive Eisenstein existence assertion.",
+        "Native level-raising q-expansions turn the finite sum into Σ_T(−1)^|T|d_T^(w−1)expand_(d_T)(F), where F is the unique rational series already supplied by full-eisenstein-common-series.",
+        "Map the constructor’s finite subset formula through the existing admissible moment homomorphism. Dirac evaluation gives d_T^(w−1), and native map_expand commutes with both coefficient embeddings. The resulting p-adic series is the same rational expression.",
+        "Uniqueness follows from injectivity of the rational-to-complex coefficient map. At D=1 recover the original actual p-stabilization and common rational series, including the constant."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/principal-tame-eisenstein-series",
+        "DirichletPadicLFunctions:L4/full-eisenstein-common-series",
+        "DirichletPadicLFunctions:L4/eisenstein-away-integral-evaluation",
+        "tauceti:TauCeti.ModularForm.levelRaise",
+        "tauceti:TauCeti.ModularForm.qExpansion_levelRaise",
+        "tauceti:ModularForm.ofLe",
+        "tauceti:TauCeti.Gamma0_map_le_conjAct_scaleGL",
+        "mathlib:PowerSeries.map_expand",
+        "mathlib:PowerSeries.map_injective",
+        "tauceti:CongruenceSubgroup.Gamma0_le_Gamma0_of_dvd"
+      ],
+      "acceptance": [
+        "Preserve every displayed carrier, hypothesis and normalization; a conditional input is not a completed supplier proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinTargets",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principalTameEisensteinAwaySeries_classical"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
+          "excerpt": "taking p-stabilisations",
+          "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/principal-tame-cleared-congruence",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Integral precision of the principal tame family",
+      "kind": "theorem",
+      "statement": "For canonical a, put F_(e,D)=map(E_(a,e))(E_(a,D)) and Δ_e=2(a^(e+1)−1) in ℚ_p. If r≥1 and e≡e′ modulo p^(r−1)(p−1), then every q-coefficient of Δ_e′F_(e′,D)−Δ_eF_(e,D) has norm at most p^(−r).",
+      "hypotheses": [
+        "p is any prime. Z=ℤ_p, U=Zˣ and M=AbstractMeasure U Z Z carry the existing commutative convolution algebra. For a∈U let S_a=Localization.Away(2·eisensteinTwistedDenominator(p,a)) and i_a:M→S_a be its canonical map.",
+        "D>0 and p∤D. Let P be the native finite set of prime divisors of D. For T⊆P put d_T=∏ℓ∈T ℓ and let u_T∈U have underlying value d_T. Empty products are1. Every d_T is prime to p, so its native unit exists.",
+        "Use E_a=eisensteinAwaySeries(p,a), A₀,a=eisensteinAwayConstant(p,a) and the existing positive coefficient measures. No principal tame kernel of L2 is identified with this localized zeta family."
+      ],
+      "proofSteps": [
+        "The constructor and Dirac evaluation express Δ_eF_(e,D) as the finite sum Σ_T(−1)^|T|d_T^e expand_(d_T)(N_e), where N_e is the included actual integral cleared Eisenstein moment series.",
+        "The inherited full-cleared-eisenstein-weight-congruence bounds each coefficient of N_e′−N_e. Every coefficient of N_e is integral, and each d_T is prime to p.",
+        "The native totient congruence implies d_T^e′−d_T^e is divisible by p^r. Expand d_T^e′N_e′−d_T^eN_e into d_T^e′(N_e′−N_e)+(d_T^e′−d_T^e)N_e. Both terms have coefficient norm at most p^(−r).",
+        "The ultrametric finite-sum inequality preserves the same bound. Expansion inserts zero coefficients and does not weaken it. Retain both weight-dependent clearing factors; the theorem does not assert integral congruences for the uncleared constant or an integral half at p=2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/principal-tame-eisenstein-series",
+        "DirichletPadicLFunctions:L4/full-cleared-eisenstein-weight-congruence",
+        "DirichletPadicLFunctions:L4/full-eisenstein-cleared-specialization",
+        "DirichletPadicLFunctions:L4/full-eisenstein-cleared-field-congruence",
+        "mathlib:Nat.pow_totient_mod",
+        "mathlib:Nat.totient_prime_pow",
+        "mathlib:PowerSeries.map_expand"
+      ],
+      "acceptance": [
+        "Preserve every displayed carrier, hypothesis and normalization; a conditional input is not a completed supplier proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinTargets",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principalTameEisensteinAwaySeries_cleared_congr"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and proof, published159–160 / physicalPDF60–61, freshly read4October2026; Stein equation(4) specifies the corresponding divisor coefficients.",
+          "excerpt": "taking p-stabilisations",
+          "match": "Worker-derived finite tame Euler deletion on the existing localized principal family. The new formulas are not quoted as a theorem of RJW. Classical existence uses the already owned modular-form level-raising maps; finite-character value identification remains a separately recorded gap."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/nontrivial-left-full-family",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The full family with nontrivial primitive left character",
+      "kind": "comparison",
+      "statement": "For primitive ψ modulo u>1 and primitive φ modulo v, and weight w≥3 with ψ(−1)φ(−1)=(−1)^w, the existing integral positive-series measure specializes to the full q-expansion of the p-stabilized owned classical E_w^(ψ,φ), through its unique common coefficient-field series. The constant is zero.",
+      "hypotheses": [
+        "Use the same characteristic-zero field F with separate embeddings into ℂ and a complete ultrametric K as in integral-twisted-classical-full-comparison. The native integer subring O⊆K, integral arithmetic test κ^O_(0,1,w−1) and ordered characters are unchanged.",
+        "The positive conductor levels u,v are prime to p; ψ and φ are primitive at their stated levels, u>1, w≥3 and the stated parity holds. The classical owner supplies an actual f∈ModularForm(Γ₁(uv),w) with coefficients Σ_(d|n)ψ(n/d)φ(d)d^(w−1) and constant0.",
+        "Use the actual native inclusion and p-level raising to form g=f−φ(p)p^(w−1)V_p f on Γ₁(puv). No product primitivity is inferred and no exceptional-weight existence theorem is used."
+      ],
+      "proofSteps": [
+        "Request the actual classical form with these hypotheses and its zero constant from the existing ModularForms Layer0. Its character carrier and Bernoulli/Fourier construction are not recreated in this packet.",
+        "Apply integral-twisted-classical-full-comparison to that form with c=0. Its constant term after stabilization is(1−φ(p)p^(w−1))·0=0, so the existing actual positive measure gives the whole series.",
+        "The inherited integral test and weight congruences now cover every coefficient, including degree0. They require no factor1/2 even at p=2, unlike the nonprincipal-right/left-trivial constant family."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-classical-full-comparison",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-test-congruence",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-weight-congruence",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus"
+      ],
+      "acceptance": [
+        "Preserve every displayed carrier, hypothesis and normalization; a conditional input is not a completed supplier proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinTargets",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries_nontrivial_left_full"
+      },
+      "sources": [
+        {
+          "sourceId": "Stein-Eisenstein-online",
+          "locator": "Definition5.1; Explicit Basis equation(4), following constant formula, Theorem5.8, restricted to weight≥3. Freshly read4October2026.",
+          "excerpt": "primitive Dirichlet characters",
+          "match": "Import the primitive-pair classical form from its existing ModularForms owner. The arithmetic measure, Euler deletion and comparison on a common coefficient field are L4 work. No claim to have read the cited Miyake proof or to construct an exceptional-weight form."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedEisensteinTargetTests.nontrivial_left_zero_constant",
+          "kind": "degenerate",
+          "statement": "For a primitive left character of conductor greater than1, both the full integral family and its stabilized classical series have coefficient zero equal to0."
+        }
+      ]
     }
   ],
   "requests": [
@@ -13159,25 +13743,38 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/localized-eisenstein-twist-comparison"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "need": "Export actual primitive-pair Eisenstein forms in the native character eigenspaces and hence ModularForm(Γ₁(uv),w), for positive conductors u,v, primitive ψ,φ, w≥3 and ψ(−1)φ(−1)=(−1)^w, raising parameter1. Their positive coefficient is the native twistedDivisorSum(w−1,ψ,φ); the constant is0 when u>1 and −B_(w,φ)/(2w) when u=1. Supply the exact finite Bernoulli polynomial comparison through each specified coefficient embedding. The owner supplies the Fourier/Gauss translation to native Eisenstein series. For the nonprincipal tame application the right character θ=ηχ must separately satisfy primitivity at Dp^t; no primitivity of a product is inferred. Retain the owner’s separate weight1 and weight2 trivial-pair correction contracts; this request does not import them as ordinary w≥3 cases.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L4/nontrivial-left-full-family",
+        "DirichletPadicLFunctions:L4/tame-actual-classical-full-comparison"
+      ]
     }
   ],
   "coverage": [
     {
       "stageId": "DirichletPadicLFunctions:L4",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "The full nonprincipal tame arithmetic specialization now has an explicit common algebraic q-expansion and a comparison with a supplied actual classical form, including the existing constant measure. Principal tame constants, two nontrivial character constants, imprimitive modular existence, weights1/2 and analytic weight-space realization remain open. The all-prime scalar classification is preserved. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact prevents full-module compilation. The current unmodified check_blueprint.py tests BASE_REF before the stage registry, so the real owner id tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus is misclassified as an undeclared native library theorem if used as a prerequisite. The attempted existence application is therefore not published. No owner-stage baseline is fabricated and no existence theorem is asserted. The two current conditional comparisons have explicit classical hypotheses and no dependency on an existence theorem. The exact supplier input to discharge those hypotheses is recorded here for the later application: For N>1, a native primitive complex Dirichlet character θ at levelN, and natural w≥3 with θ(−1)=(−1)^w, export the existing Layer0 construction as an actual f:ModularForm(Γ₁(N),w), from its native character eigenspace. Supply a_m(f)=Σ_(d|m)θ(d)d^(w−1) for m>0 (native twistedDivisorSum with left character of conductor1) and a₀(f)=−N^(w−1)/(2w)Σ_(a:ZMod N)θ(a)B_w(a.val/N). The constant must compare the owner’s generalized Bernoulli convention with the native rational Bernoulli polynomial under an arbitrary specified coefficient embedding. Preserve the character’s given primitive level, parity, natural exponent and raising parameter1. Supply this through the owner’s existing Fourier/Gauss translation to native Eisenstein series, not a second modular-form type. The current consumer takes θ=ηχ at N=D p^t and applies native p-level raising only after this construction. This request deliberately excludes weights1/2 and any inference of product primitivity.",
-        "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+        "Discharge the two inherited PMIA requests: the actual completed-algebra comparison with joint finite quotient projections, and the character-twist ring equivalence on the convolution algebra. The completed-coordinate comparison stays an explicit unstatable signature comment until its owner supplies the native carrier and maps.",
+        "Obtain the actual primitive-pair classical forms and precise generalized-Bernoulli/Fourier coefficient translation from the existing ModularForms Layer0 request. The nontrivial-left comparison imports that construction; the inherited nonprincipal-right comparison still takes an actual supplied classical form. Primitive levels, parity and w≥3 are mandatory. Product primitivity and arbitrary imprimitive existence are not inferred.",
+        "Complete the finite-character specialization of the principal tame localized constant, using the actual coefficient-field character ring homomorphism and an admissible shifted denominator. L2 provides a primitive p-power smoothing formula only with its actual root, nonzero Gauss sum and coefficient-field hypotheses; its general evaluator is itself conditional. Reconcile imprimitive zero extensions at the given modulus with the primitive inducing character and every removed Euler factor. The new principal construction and ordinary-weight specialization do not discharge this finite-character comparison.",
+        "Extend the full two-character comparison along the exact native conductor-change and level-raising maps, retaining the zero constant for nontrivial primitive left character and the actual nonprincipal-right constant for trivial left character. The ordinary principal tame family is now specified by finite Euler deletion of the localized zeta family. Weight1 and the weight2 trivial-pair correction require the classical owner’s separate hypotheses; they are not ordinary-weight applications.",
+        "Check the whole split suggested module after the L1/L2 prototype imports and exact pinned Tau dependency closure are available. The new Mathlib-only obstruction file has an admitted signature-check receipt; this is neither a proof certificate nor a compilation of the full file. The entire roadmap’s RJW §§2–8 acceptance also requires the separately owned L0–L3 work; geometric affinoid and Hida–Coleman realization remain PadicFamilies work."
       ]
     }
   ],
   "gaps": [
     {
-      "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
+      "title": "Full tame and exceptional-weight comparison boundaries",
       "neededBy": [
-        "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
+        "DirichletPadicLFunctions:L4/principal-tame-eisenstein-series",
+        "DirichletPadicLFunctions:L4/nontrivial-left-full-family",
+        "DirichletPadicLFunctions:L4/tame-actual-classical-full-comparison"
       ],
-      "detail": "The full nonprincipal tame arithmetic specialization now has an explicit common algebraic q-expansion and a comparison with a supplied actual classical form, including the existing constant measure. Principal tame constants, two nontrivial character constants, imprimitive modular existence, weights1/2 and analytic weight-space realization remain open. The all-prime scalar classification is preserved. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact prevents full-module compilation. The current unmodified check_blueprint.py tests BASE_REF before the stage registry, so the real owner id tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus is misclassified as an undeclared native library theorem if used as a prerequisite. The attempted existence application is therefore not published. No owner-stage baseline is fabricated and no existence theorem is asserted. The two current conditional comparisons have explicit classical hypotheses and no dependency on an existence theorem. The exact supplier input to discharge those hypotheses is recorded here for the later application: For N>1, a native primitive complex Dirichlet character θ at levelN, and natural w≥3 with θ(−1)=(−1)^w, export the existing Layer0 construction as an actual f:ModularForm(Γ₁(N),w), from its native character eigenspace. Supply a_m(f)=Σ_(d|m)θ(d)d^(w−1) for m>0 (native twistedDivisorSum with left character of conductor1) and a₀(f)=−N^(w−1)/(2w)Σ_(a:ZMod N)θ(a)B_w(a.val/N). The constant must compare the owner’s generalized Bernoulli convention with the native rational Bernoulli polynomial under an arbitrary specified coefficient embedding. Preserve the character’s given primitive level, parity, natural exponent and raising parameter1. Supply this through the owner’s existing Fourier/Gauss translation to native Eisenstein series, not a second modular-form type. The current consumer takes θ=ηχ at N=D p^t and applies native p-level raising only after this construction. This request deliberately excludes weights1/2 and any inference of product primitivity. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "The old note described a whole-roadmap checkpoint and an obsolete checker limitation. The current checker accepts the existing ModularForms stage, now an explicit request. The principal ordinary family has finite Euler-deletion, constant, actual classical comparison and cleared-congruence nodes. The finite-character and conductor-change synthesis and the separate classical weight1/2 contracts remain open, as enumerated in coverage. No zero tame kernel is substituted for the principal localized zeta constant."
     },
     {
       "title": "Generic character twist on the actual convolution algebra",
@@ -13185,6 +13782,28 @@
         "DirichletPadicLFunctions:L4/localized-eisenstein-twist-comparison"
       ],
       "detail": "For the existing compact-group measure algebra D(G,R), supply the generic character-twist algebra equivalence attached to an actual continuous unit-valued character, with pointwise weighting action on every measure, inverse-character law, coefficient compatibility and exact Dirac action. In the arithmetic specialization G=Z_pˣ,R=Z_p, export an actual T:D(G,R)≃+*D(G,R) with T(μ)=weight(Units.val)(μ). Use the native total-quotient equivalence and its algebraMap compatibility, and state precisely how clearing by δ_g−1 is transported to clearing by χ(g)δ_g−1; do not assert preservation of ordinary pseudomeasures. This is distinct from the earlier coefficient-field evaluation request. The consumer supplies the arithmetic numerator, doubled shifted denominator and native localized constant; the generic convolution compatibility and ring-equivalence structure belong to this owner."
+    },
+    {
+      "title": "Principal finite-character value and conductor comparison",
+      "neededBy": [
+        "DirichletPadicLFunctions:L4/principal-tame-eisenstein-series"
+      ],
+      "detail": "Complete the finite-character specialization of the principal tame localized constant, using the actual coefficient-field character ring homomorphism and an admissible shifted denominator. L2 provides a primitive p-power smoothing formula only with its actual root, nonzero Gauss sum and coefficient-field hypotheses; its general evaluator is itself conditional. Reconcile imprimitive zero extensions at the given modulus with the primitive inducing character and every removed Euler factor. The new principal construction and ordinary-weight specialization do not discharge this finite-character comparison."
+    },
+    {
+      "title": "Classical primitive-pair construction supplied by its existing owner",
+      "neededBy": [
+        "DirichletPadicLFunctions:L4/nontrivial-left-full-family",
+        "DirichletPadicLFunctions:L4/tame-actual-classical-full-comparison"
+      ],
+      "detail": "Obtain the actual primitive-pair classical forms and precise generalized-Bernoulli/Fourier coefficient translation from the existing ModularForms Layer0 request. The nontrivial-left comparison imports that construction; the inherited nonprincipal-right comparison still takes an actual supplied classical form. Primitive levels, parity and w≥3 are mandatory. Product primitivity and arbitrary imprimitive existence are not inferred."
+    },
+    {
+      "title": "Complete split signature integration",
+      "neededBy": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "detail": "Check the whole split suggested module after the L1/L2 prototype imports and exact pinned Tau dependency closure are available. The new Mathlib-only obstruction file has an admitted signature-check receipt; this is neither a proof certificate nor a compilation of the full file. The entire roadmap’s RJW §§2–8 acceptance also requires the separately owned L0–L3 work; geometric affinoid and Hida–Coleman realization remain PadicFamilies work."
     }
   ],
   "sourceIssues": [
@@ -13224,398 +13843,429 @@
     }
   ],
   "checks": {
-    "blueprint": "The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 26 inherited warnings. No new short-API warning is introduced.",
-    "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
-    "validation": {
-      "nodes": 2271,
-      "kinds": {
-        "definition": 22,
-        "lemma": 1433,
-        "construction": 250,
-        "theorem": 359,
-        "comparison": 207
-      },
-      "api": 1530,
-      "packetTests": 3962,
-      "definitionConstructionTests": 1025,
-      "typedExamples": 3965,
-      "planets": 24,
-      "baseline": 1289,
-      "preservedWholeNodes": 2258,
-      "preservedBaseline": 1285,
-      "preservedSourceIssues": 27,
-      "newSourceIssues": 0,
-      "newNodes": 13,
-      "newNamedDeclarations": 13,
-      "newTypedTests": 18,
-      "requests": 16,
-      "gaps": 18,
-      "closedStages": 0,
-      "reachableNodes": 2533,
-      "dependencyEdges": 10116,
-      "acyclic": true,
-      "baselineLeaves": 1455,
-      "stageRequestLeaves": [
-        "AdicSpacesPartII:F1",
-        "AdicSpacesPartII:R2",
-        "ColemanIntegration:L0",
-        "LocallyAnalyticDistributions:L0",
-        "LocallyAnalyticDistributions:L1",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.0",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.6",
-        "PadicHodgeTheory:P7:annulus-foundations",
-        "PadicMeasuresIwasawaAlgebras:L1",
-        "PadicMeasuresIwasawaAlgebras:L2",
-        "PadicMeasuresIwasawaAlgebras:L3"
-      ],
-      "readerWords": 1168597,
-      "scopedMutationCheck": true,
-      "correctedPredecessorNodes": 0,
-      "fullSuggestedCompiled": false,
-      "compilerErrors": null,
-      "compilerWarnings": null,
-      "lastCompiledPredecessor": {
-        "pr": 4773,
-        "result": {
-          "exitCode": 0,
-          "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
-          "modules": 3573,
-          "warnings": 1803,
-          "errors": 0
-        }
-      },
-      "supplierNodes": 332,
-      "currentSupplierNodes": 369,
-      "supplierArtifactAvailable": true,
-      "supplierArtifactUsedForCurrentCompile": false,
-      "pinnedMathlibSourceModules": 3915,
-      "requiredPinnedTauSourceModules": 32,
-      "availablePinnedTauArtifacts": 31,
-      "missingPinnedTauArtifacts": [
-        "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
-      ],
-      "scratchCompleteDefinitions": 192,
-      "scratchCompleteLemmas": 1555,
-      "scratchMathlibModules": 3282,
-      "scratchTauModules": 10,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "finiteControls": {
-        "levels": 36,
-        "primaryKernelEquivalences": 53,
-        "primaryUnitCoordinates": 361,
-        "subsetProducts": 109,
-        "uniquePrimaryTuples": 583,
-        "productCoefficients": 1167
-      },
-      "numericalControlsCertified": false,
-      "newRoutesStageLeaves": [],
-      "partialSignatures": {
-        "exitCode": 0,
-        "sourceSha256": "bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d",
-        "modules": 3914,
-        "warnings": 6581,
-        "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,581 expected placeholder warnings across 3,914 pinned source modules. It includes all 13 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d.",
-        "fullSuggestedFile": false,
-        "documentedOmissionsRetained": true
-      },
-      "blueprintWarnings": [
-        "warning DirichletPadicLFunctions:L3/kubert-parity-lift: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-orbit-relations: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-normalized-lift: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-primitive: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-presentation-source-to-global: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-congruence-circle-level-module: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-norm-intertwining: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-intertwining: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-finite-group: api outline has only 1 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-factorial-diagram: api outline has only 1 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-continuous-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-norm: api outline has only 1 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-of: api outline has only 1 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum: api outline has only 2 item(s)",
-        "warning DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-linear: api outline has only 2 item(s)"
-      ]
-    },
-    "lean": {
-      "status": "NOT COMPILED: required pinned native artifact unavailable",
-      "compiled": false,
-      "errors": null,
-      "warnings": null,
-      "sha256": "ce75c4bd3e586fa3ec16ad470aecaa1ba5a8c946998e48e7be1880ff17f31e9f",
-      "missingNativeArtifacts": [
-        "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
-      ],
-      "lastCompiledPredecessor": {
-        "pr": 4773,
-        "result": {
-          "exitCode": 0,
-          "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
-          "modules": 3573,
-          "warnings": 1803,
-          "errors": 0
-        }
-      },
-      "nativeProbe": {
-        "completeLemmas": 1555,
-        "errors": 0,
-        "warnings": 0,
-        "placeholders": 0,
-        "sha256": "ee34b78d27769ca0074a30921ae05cb719238aa271f7d5959eb81f14cfe2d9b3"
-      },
-      "sourceAndAvailableArtifactAudit": {
-        "compiledSupplierNodes": 332,
-        "currentSupplierNodes": 369,
-        "supplierWarnings": 707,
-        "supplierFreshlyElaborated": false,
-        "hashes": {
-          "source": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
-          "olean": "4b34a19961eec73bfa90a280566521896e8ecbc1ec706982525962146a7b7f88",
-          "log": "d16ae7a3163aed649ee9eba01e7d6837831e42797c510a6bdd861be97cddce75"
-        },
-        "wholeOldBodyPreserved": true,
-        "currentSupplierSourceSha256": "e3779c11b149f5e5b14b11ba3b95e881d2ccd9b0e5fd61bdbae3dfaaf896a6cf",
-        "nativeTauModules": 32,
-        "nativeMathlibModules": 3915,
-        "artifactSha256": {
-          "TauCeti.RepresentationTheory.Homological.TateCohomology.Periodic": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
-          "TauCeti.RepresentationTheory.Invariants": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
-          "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
-          "TauCeti.NumberTheory.LocalField.Teichmuller": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
-          "TauCeti.FieldTheory.Finite.RootsOfUnity": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
-          "TauCeti.NumberTheory.LocalField.Henselian": "a4b847bed872748f4ba8845f64842827d89b014d40e42055fe52fe8636b5efd7",
-          "TauCeti.RingTheory.RootsOfUnity.Henselian": "ab80e76fb323bae19c2b319961acccb4e47bc50ae734ad071dcc735365fd6e3b",
-          "TauCeti.RingTheory.RootsOfUnity.LocalRing": "dd1501ef55b87c428a001470b5eabcfe94bf37bba3b5e4bccf61772e8bd7856e",
-          "TauCeti.RingTheory.RootsOfUnity.Basic": "9e11cb5dee5c493b9b515336c152483dc8da12f33e23b1cca2bdfbc123189e9d",
-          "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": "0504ce2dd3d6092368fffc9ec18bbe15adf7ab3500af9064715f7e8293f31940",
-          "TauCeti.NumberTheory.ModularForms.Degeneracy": "2016655e67266e5582e3bddcd93a5ed68af362af30b64c88734ec2e748764d72",
-          "TauCeti.Data.ZMod.Divisibility": "8751616831392059bebd4351279bc07fc8a02b3687d28d1c815d0b904473ecfb",
-          "TauCeti.Algebra.GroupWithZero.Divisibility": "d8f4bf8a1728da45f6c53fbb8286c5b895d7047cd08d9fcd81b64b2505889f84",
-          "TauCeti.NumberTheory.ModularForms.Basic": "23899f59f71dc847a8e2cc6bc8e6fef776dcbef1c538aa5d9fd0b3e5d3f5929d",
-          "TauCeti.Analysis.Complex.UpperHalfPlane.MoebiusAction": "35132289eb0fe82abae95efcdb82c26d34adc763bb74f2a9fa8fd50d6267a3a6",
-          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Units": "a65d2c3defc8a95cd90dd7b8f43f41658852796d48f07b9c5b8ffa6e57106c47",
-          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Basic": "b50d612d695c8ebc257b7f401492ccc81f0da0da760434d2f2474ff214ea0eb6",
-          "TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Basic": "43f818e123177d26034bf712256845a86d470751829665e2c0861c981cb8d139",
-          "TauCeti.Data.ZMod.Units": "851735abe5f1587518dc31c25d6e8fdc68bc24ac70f610d37582c6476649f0f2",
-          "TauCeti.NumberTheory.ModularForms.DiamondOperators": "25e75934b43aaf1b6399341ce62e404762eeb64e5a03e65e6399616c340499fd",
-          "TauCeti.NumberTheory.ModularForms.SlashActionRat": "03a81db422f21dabda08a5e8d7d8229cf6b861f0fc6dd95fd1daa6db58d8753e",
-          "TauCeti.NumberTheory.HeckeRing.GLn.Basic": "e509998eda8d398e9f141bbc6fe3e256179342c9a4d5f8c3b7d37c6839620cfd",
-          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.DoubleCoset": "9b1098ef93027f0455e3be9d88879f194716b5ecb045f7d5830438af95e8dccc",
-          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic": "c924051ab73a640801b370eea23b81f03fee7e6f772bfbcea91189d68af72d16",
-          "TauCeti.Algebra.Group.Subgroup.Centralizer": "4d86210849b3b8c4752b76f32658a419b4419e82955a0288a9c2a57bba91474e",
-          "TauCeti.RingTheory.PowerSeries.Support": "9834a0db712ca2c2512559efad99b5c027e374069de17a1266fdc0457488a67f",
-          "TauCeti.Analysis.Complex.UpperHalfPlane.Manifold": "e595b347e823cb1e4b9340a4800cce7c61b72a523169f9545983666b47bc0e0f",
-          "TauCeti.Topology.DiscreteSeparation": "b52d85d020754b97a57c629ca49e6dc747752971bb48b8ba87b31eab37e09433",
-          "TauCeti.NumberTheory.ModularForms.Cusps.Basic": "4fc5f585625b3f687d57e6dc2a136f20f232d2a374a99d9914c4ef696be306d2",
-          "TauCeti.Topology.Algebra.Group.LocallyConstant": "e66f653b6b7dc52ed9b1d01616246f9197bc3677f7861cdb459788d889edc800",
-          "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "dd5e0cf19ea201a93a943cb43a135eaa20b7a2a23585fb4697ebb55080aa6ed8"
-        },
-        "nativeLogSha256": {
-          "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.LocalField.Teichmuller": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.FieldTheory.Finite.RootsOfUnity": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.LocalField.Henselian": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.RingTheory.RootsOfUnity.Henselian": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.RingTheory.RootsOfUnity.LocalRing": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.RingTheory.RootsOfUnity.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.Degeneracy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Data.ZMod.Divisibility": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Algebra.GroupWithZero.Divisibility": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Analysis.Complex.UpperHalfPlane.MoebiusAction": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Units": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Data.ZMod.Units": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.DiamondOperators": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.SlashActionRat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.HeckeRing.GLn.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.DoubleCoset": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Algebra.Group.Subgroup.Centralizer": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.RingTheory.PowerSeries.Support": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Analysis.Complex.UpperHalfPlane.Manifold": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Topology.DiscreteSeparation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.ModularForms.Cusps.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.Topology.Algebra.Group.LocallyConstant": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-        },
-        "supplierNativeArtifacts": {
-          "TauCeti.Topology.Algebra.Group.LocallyConstant": "e66f653b6b7dc52ed9b1d01616246f9197bc3677f7861cdb459788d889edc800",
-          "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "dd5e0cf19ea201a93a943cb43a135eaa20b7a2a23585fb4697ebb55080aa6ed8"
-        },
-        "nativeArtifactFileCount": 152,
-        "scope": "Source closure only for the current full suggested module. The compiled 332-node PMIA artifact and 31 existing Tau artifacts remain hash-verified available dependencies, across 152 artifact files. The required native TwistedDivisorSum artifact is unavailable at the compatible pins. The full current file was NOT COMPILED. The current 369-node PMIA source preserves the 332-node artifact interface; no compilation against the 369-node source is claimed. Seven Teichmuller source/object/log receipts from an existing native build are verified. PR4773 alone retains its successful full-module compiler result. No library build, Lake setup, update or cache fetch occurred. The existing native low-degree Tate module source, object and empty compiler log are also hash-verified; four existing artifact files are reused without a native build. Two further existing native periodicity/invariants modules and eight artifact files are verified against archived pinned sources, import metadata and the archived report/toolchain provenance, with the byte-identical LowDegree artifact as an independent anchor. Separate original compiler logs for those two modules were not located; no empty-log claim is made for them. The current complete native probe supplies a fresh compatibility check with zero errors or warnings. The historical build script was read only and was never executed.",
-        "currentModuleCompiled": false,
-        "requiredNativeTauModules": 32,
-        "availableNativeTauModules": 31,
-        "missingNativeArtifacts": [
-          "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
-        ],
-        "lastCompiledPredecessor": {
-          "pr": 4773,
-          "result": {
-            "exitCode": 0,
-            "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
-            "modules": 3573,
-            "warnings": 1803,
-            "errors": 0
-          }
-        },
-        "teichmullerReuse": {
-          "TauCeti.NumberTheory.LocalField.Teichmuller": {
-            "sourceSha256": "4964e5ff0f74c7f93baa0c8831640e027d4a33ecfaa6f4b1b8651e08632b2b68",
-            "objectSha256": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "inheritedCombinedHistory": {
+      "scope": "Historical combined roadmap evidence; not current L4 validation or compilation.",
+      "record": {
+        "blueprint": "The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 26 inherited warnings. No new short-API warning is introduced.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "All 27 earlier source findings and eight source versions remain whole. No new source issue, independent review verdict or stage closure is added.",
+        "validation": {
+          "nodes": 2271,
+          "kinds": {
+            "definition": 22,
+            "lemma": 1433,
+            "construction": 250,
+            "theorem": 359,
+            "comparison": 207
           },
-          "TauCeti.FieldTheory.Finite.RootsOfUnity": {
-            "sourceSha256": "a0d276296236b6731ae0a452987a0430298994df3ff2f0d821796b81e6815be8",
-            "objectSha256": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          },
-          "TauCeti.NumberTheory.LocalField.Henselian": {
-            "sourceSha256": "1d4094ebe8b8aeca2a388b396a26796fc05463ce6c499a8a729431d9e71e4d8c",
-            "objectSha256": "a4b847bed872748f4ba8845f64842827d89b014d40e42055fe52fe8636b5efd7",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          },
-          "TauCeti.RingTheory.RootsOfUnity.Henselian": {
-            "sourceSha256": "0888d26e6a8fe1f87a55bceb4cfe5542925ec0169fe765fdeea2cac76bf54b90",
-            "objectSha256": "ab80e76fb323bae19c2b319961acccb4e47bc50ae734ad071dcc735365fd6e3b",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          },
-          "TauCeti.RingTheory.RootsOfUnity.LocalRing": {
-            "sourceSha256": "438dcee46cedb9ac8b484d7a049d8fee67d0b88ffd507548668fb87255e22cfe",
-            "objectSha256": "dd1501ef55b87c428a001470b5eabcfe94bf37bba3b5e4bccf61772e8bd7856e",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          },
-          "TauCeti.RingTheory.RootsOfUnity.Basic": {
-            "sourceSha256": "5501edec3a11e4e228543c8fd76fc07bccf6bd6fdd9573d8ec2549946c0e559c",
-            "objectSha256": "9e11cb5dee5c493b9b515336c152483dc8da12f33e23b1cca2bdfbc123189e9d",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          },
-          "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": {
-            "sourceSha256": "4429ab4b1ae3ab1c28752aad06896e5cdb94a0c3959d32d1209a10e1ea99df83",
-            "objectSha256": "0504ce2dd3d6092368fffc9ec18bbe15adf7ab3500af9064715f7e8293f31940",
-            "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-          }
-        },
-        "tateLowDegreeReuse": {
-          "module": "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree",
-          "sourceSha256": "1c896a85d09d70431a5cb128f6e6548b6738d0bebe9f61c4b538cc5f6f6591be",
-          "objectSha256": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
-          "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "existingArtifactsOnly": true,
-          "nativeBuildPerformed": false
-        },
-        "periodicityReuse": {
-          "modules": {
-            "TauCeti.RepresentationTheory.Invariants": {
-              "sourceSha256": "4cc9f3134b6eb6b316351d5152aac92486f359e9a519e78acf2a2043dd8f4454",
-              "objectSha256": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
-              "ileanSha256": "68e0afaa184b5ce6c61dcc9132cc27ba4a2f12518faf7d9e813a3b7222138a0c",
-              "directImports": [
-                [
-                  "Mathlib.RepresentationTheory.Invariants",
-                  false,
-                  false,
-                  false
-                ]
-              ],
-              "artifactSha256": {
-                "TauCeti/RepresentationTheory/Invariants.olean": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
-                "TauCeti/RepresentationTheory/Invariants.olean.private": "a1171bf7929e92d2d1e224ae4caca168801bb921c253ea2921cf22f3c63a221d",
-                "TauCeti/RepresentationTheory/Invariants.olean.server": "501cf116ad51eff68690b5a65e38e06ca5a91d83cc8b101de6ed46583c48936a",
-                "TauCeti/RepresentationTheory/Invariants.ir": "5796b9934b9d5e161c5894c96f87014f1abad473e44d8c9ce6a999111f9411b3"
-              },
-              "originalNativeCompilerLogAvailable": false
-            },
-            "TauCeti.RepresentationTheory.Homological.TateCohomology.Periodic": {
-              "sourceSha256": "8f66af553223d424e750de5521dcb28a30071d92a55096bdca45de3a24436c22",
-              "objectSha256": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
-              "ileanSha256": "74ec59328f3b6d1ea30b6b189ce1407074029abec7482c8001fc7dc902292e1b",
-              "directImports": [
-                [
-                  "Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyclic",
-                  false,
-                  false,
-                  false
-                ],
-                [
-                  "Mathlib.RepresentationTheory.Homological.GroupHomology.FiniteCyclic",
-                  false,
-                  false,
-                  false
-                ],
-                [
-                  "TauCeti.RepresentationTheory.Invariants",
-                  false,
-                  false,
-                  false
-                ],
-                [
-                  "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree",
-                  false,
-                  false,
-                  false
-                ]
-              ],
-              "artifactSha256": {
-                "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
-                "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean.private": "5a62fca1003f6e2a6cc303d8cb2787250a13a4b42f025fa8557a011aa915f8a4",
-                "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean.server": "9bc4891ad0b58ef0e192894b9ef940f2b1b0e4bfaaa68a8a9a5ea2eb492d32b2",
-                "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.ir": "09fab25e03a7daa4c20c553e7e214bf0f7834d6b21957cd660bd82a53aeb7922"
-              },
-              "originalNativeCompilerLogAvailable": false
+          "api": 1530,
+          "packetTests": 3962,
+          "definitionConstructionTests": 1025,
+          "typedExamples": 3965,
+          "planets": 24,
+          "baseline": 1289,
+          "preservedWholeNodes": 2258,
+          "preservedBaseline": 1285,
+          "preservedSourceIssues": 27,
+          "newSourceIssues": 0,
+          "newNodes": 13,
+          "newNamedDeclarations": 13,
+          "newTypedTests": 18,
+          "requests": 16,
+          "gaps": 18,
+          "closedStages": 0,
+          "reachableNodes": 2533,
+          "dependencyEdges": 10116,
+          "acyclic": true,
+          "baselineLeaves": 1455,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:F1",
+            "AdicSpacesPartII:R2",
+            "ColemanIntegration:L0",
+            "LocallyAnalyticDistributions:L0",
+            "LocallyAnalyticDistributions:L1",
+            "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+            "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+            "PadicDifferentialEquationsAndRigidCohomology:RD.6",
+            "PadicHodgeTheory:P7:annulus-foundations",
+            "PadicMeasuresIwasawaAlgebras:L1",
+            "PadicMeasuresIwasawaAlgebras:L2",
+            "PadicMeasuresIwasawaAlgebras:L3"
+          ],
+          "readerWords": 1168597,
+          "scopedMutationCheck": true,
+          "correctedPredecessorNodes": 0,
+          "fullSuggestedCompiled": false,
+          "compilerErrors": null,
+          "compilerWarnings": null,
+          "lastCompiledPredecessor": {
+            "pr": 4773,
+            "result": {
+              "exitCode": 0,
+              "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
+              "modules": 3573,
+              "warnings": 1803,
+              "errors": 0
             }
           },
-          "anchorLowDegreeObjectSha256": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
-          "reportSha256": "eb513550b7fea3ef65eb4420f9455f584a6ea8ebff16e435c6a5dca2e78130ec",
-          "checkScriptSha256": "43c188dc1d97ff6c1070ee7e694e5fe909e1747bf2f2ddb14b372082b06eccb6",
-          "historicalBuildScriptSha256": "02fc2a51bd33cc6107700fbb9e2071b6b55e34472ec7b2f7f98165632e5d888a",
-          "lakePathsSha256": "a58c45c1f6dbb9a63f6ecf935c4886a5388ce3ad8965721a57abb0da8c6e29a8",
-          "nativeBuildPerformed": false,
-          "existingArtifactsOnly": true,
-          "provenance": "Archived source bytes match the exact pinned Tau files. The old report/check script identifies both baseline commits and the old lake path identifies Lean4.34rc2. The imported LowDegree object is byte-identical to the separately verified existing receipt. Original separate native compiler logs were not located, so no empty-log claim is made for these two reused modules. The old build script was read only; never executed."
-        }
-      },
-      "partialSignatures": {
-        "exitCode": 0,
-        "sourceSha256": "bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d",
-        "modules": 3914,
-        "warnings": 6581,
-        "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,581 expected placeholder warnings across 3,914 pinned source modules. It includes all 13 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d.",
-        "fullSuggestedFile": false,
-        "documentedOmissionsRetained": true
+          "supplierNodes": 332,
+          "currentSupplierNodes": 369,
+          "supplierArtifactAvailable": true,
+          "supplierArtifactUsedForCurrentCompile": false,
+          "pinnedMathlibSourceModules": 3915,
+          "requiredPinnedTauSourceModules": 32,
+          "availablePinnedTauArtifacts": 31,
+          "missingPinnedTauArtifacts": [
+            "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
+          ],
+          "scratchCompleteDefinitions": 192,
+          "scratchCompleteLemmas": 1555,
+          "scratchMathlibModules": 3282,
+          "scratchTauModules": 10,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "finiteControls": {
+            "levels": 36,
+            "primaryKernelEquivalences": 53,
+            "primaryUnitCoordinates": 361,
+            "subsetProducts": 109,
+            "uniquePrimaryTuples": 583,
+            "productCoefficients": 1167
+          },
+          "numericalControlsCertified": false,
+          "newRoutesStageLeaves": [],
+          "partialSignatures": {
+            "exitCode": 0,
+            "sourceSha256": "bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d",
+            "modules": 3914,
+            "warnings": 6581,
+            "errors": 0,
+            "scope": "The separate partial signature file also compiled with zero errors and 6,581 expected placeholder warnings across 3,914 pinned source modules. It includes all 13 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d.",
+            "fullSuggestedFile": false,
+            "documentedOmissionsRetained": true
+          },
+          "blueprintWarnings": [
+            "warning DirichletPadicLFunctions:L3/kubert-parity-lift: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-orbit-relations: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-normalized-lift: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-primitive: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-presentation-source-to-global: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-congruence-circle-level-module: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-norm-intertwining: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-intertwining: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-finite-group: api outline has only 1 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-factorial-diagram: api outline has only 1 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-continuous-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-all-root-level-root-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-norm: api outline has only 1 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-of: api outline has only 1 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-tate-periodicity-sign-group-h1-neg-one-equiv: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum: api outline has only 2 item(s)",
+            "warning DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-linear: api outline has only 2 item(s)"
+          ]
+        },
+        "lean": {
+          "status": "NOT COMPILED: required pinned native artifact unavailable",
+          "compiled": false,
+          "errors": null,
+          "warnings": null,
+          "sha256": "ce75c4bd3e586fa3ec16ad470aecaa1ba5a8c946998e48e7be1880ff17f31e9f",
+          "missingNativeArtifacts": [
+            "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
+          ],
+          "lastCompiledPredecessor": {
+            "pr": 4773,
+            "result": {
+              "exitCode": 0,
+              "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
+              "modules": 3573,
+              "warnings": 1803,
+              "errors": 0
+            }
+          },
+          "nativeProbe": {
+            "completeLemmas": 1555,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "sha256": "ee34b78d27769ca0074a30921ae05cb719238aa271f7d5959eb81f14cfe2d9b3"
+          },
+          "sourceAndAvailableArtifactAudit": {
+            "compiledSupplierNodes": 332,
+            "currentSupplierNodes": 369,
+            "supplierWarnings": 707,
+            "supplierFreshlyElaborated": false,
+            "hashes": {
+              "source": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
+              "olean": "4b34a19961eec73bfa90a280566521896e8ecbc1ec706982525962146a7b7f88",
+              "log": "d16ae7a3163aed649ee9eba01e7d6837831e42797c510a6bdd861be97cddce75"
+            },
+            "wholeOldBodyPreserved": true,
+            "currentSupplierSourceSha256": "e3779c11b149f5e5b14b11ba3b95e881d2ccd9b0e5fd61bdbae3dfaaf896a6cf",
+            "nativeTauModules": 32,
+            "nativeMathlibModules": 3915,
+            "artifactSha256": {
+              "TauCeti.RepresentationTheory.Homological.TateCohomology.Periodic": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
+              "TauCeti.RepresentationTheory.Invariants": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
+              "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
+              "TauCeti.NumberTheory.LocalField.Teichmuller": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
+              "TauCeti.FieldTheory.Finite.RootsOfUnity": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
+              "TauCeti.NumberTheory.LocalField.Henselian": "a4b847bed872748f4ba8845f64842827d89b014d40e42055fe52fe8636b5efd7",
+              "TauCeti.RingTheory.RootsOfUnity.Henselian": "ab80e76fb323bae19c2b319961acccb4e47bc50ae734ad071dcc735365fd6e3b",
+              "TauCeti.RingTheory.RootsOfUnity.LocalRing": "dd1501ef55b87c428a001470b5eabcfe94bf37bba3b5e4bccf61772e8bd7856e",
+              "TauCeti.RingTheory.RootsOfUnity.Basic": "9e11cb5dee5c493b9b515336c152483dc8da12f33e23b1cca2bdfbc123189e9d",
+              "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": "0504ce2dd3d6092368fffc9ec18bbe15adf7ab3500af9064715f7e8293f31940",
+              "TauCeti.NumberTheory.ModularForms.Degeneracy": "2016655e67266e5582e3bddcd93a5ed68af362af30b64c88734ec2e748764d72",
+              "TauCeti.Data.ZMod.Divisibility": "8751616831392059bebd4351279bc07fc8a02b3687d28d1c815d0b904473ecfb",
+              "TauCeti.Algebra.GroupWithZero.Divisibility": "d8f4bf8a1728da45f6c53fbb8286c5b895d7047cd08d9fcd81b64b2505889f84",
+              "TauCeti.NumberTheory.ModularForms.Basic": "23899f59f71dc847a8e2cc6bc8e6fef776dcbef1c538aa5d9fd0b3e5d3f5929d",
+              "TauCeti.Analysis.Complex.UpperHalfPlane.MoebiusAction": "35132289eb0fe82abae95efcdb82c26d34adc763bb74f2a9fa8fd50d6267a3a6",
+              "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Units": "a65d2c3defc8a95cd90dd7b8f43f41658852796d48f07b9c5b8ffa6e57106c47",
+              "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Basic": "b50d612d695c8ebc257b7f401492ccc81f0da0da760434d2f2474ff214ea0eb6",
+              "TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Basic": "43f818e123177d26034bf712256845a86d470751829665e2c0861c981cb8d139",
+              "TauCeti.Data.ZMod.Units": "851735abe5f1587518dc31c25d6e8fdc68bc24ac70f610d37582c6476649f0f2",
+              "TauCeti.NumberTheory.ModularForms.DiamondOperators": "25e75934b43aaf1b6399341ce62e404762eeb64e5a03e65e6399616c340499fd",
+              "TauCeti.NumberTheory.ModularForms.SlashActionRat": "03a81db422f21dabda08a5e8d7d8229cf6b861f0fc6dd95fd1daa6db58d8753e",
+              "TauCeti.NumberTheory.HeckeRing.GLn.Basic": "e509998eda8d398e9f141bbc6fe3e256179342c9a4d5f8c3b7d37c6839620cfd",
+              "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.DoubleCoset": "9b1098ef93027f0455e3be9d88879f194716b5ecb045f7d5830438af95e8dccc",
+              "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic": "c924051ab73a640801b370eea23b81f03fee7e6f772bfbcea91189d68af72d16",
+              "TauCeti.Algebra.Group.Subgroup.Centralizer": "4d86210849b3b8c4752b76f32658a419b4419e82955a0288a9c2a57bba91474e",
+              "TauCeti.RingTheory.PowerSeries.Support": "9834a0db712ca2c2512559efad99b5c027e374069de17a1266fdc0457488a67f",
+              "TauCeti.Analysis.Complex.UpperHalfPlane.Manifold": "e595b347e823cb1e4b9340a4800cce7c61b72a523169f9545983666b47bc0e0f",
+              "TauCeti.Topology.DiscreteSeparation": "b52d85d020754b97a57c629ca49e6dc747752971bb48b8ba87b31eab37e09433",
+              "TauCeti.NumberTheory.ModularForms.Cusps.Basic": "4fc5f585625b3f687d57e6dc2a136f20f232d2a374a99d9914c4ef696be306d2",
+              "TauCeti.Topology.Algebra.Group.LocallyConstant": "e66f653b6b7dc52ed9b1d01616246f9197bc3677f7861cdb459788d889edc800",
+              "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "dd5e0cf19ea201a93a943cb43a135eaa20b7a2a23585fb4697ebb55080aa6ed8"
+            },
+            "nativeLogSha256": {
+              "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.LocalField.Teichmuller": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.FieldTheory.Finite.RootsOfUnity": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.LocalField.Henselian": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.RingTheory.RootsOfUnity.Henselian": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.RingTheory.RootsOfUnity.LocalRing": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.RingTheory.RootsOfUnity.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.Degeneracy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Data.ZMod.Divisibility": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Algebra.GroupWithZero.Divisibility": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Analysis.Complex.UpperHalfPlane.MoebiusAction": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Units": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Data.ZMod.Units": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.DiamondOperators": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.SlashActionRat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.HeckeRing.GLn.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.DoubleCoset": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Algebra.Group.Subgroup.Centralizer": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.RingTheory.PowerSeries.Support": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Analysis.Complex.UpperHalfPlane.Manifold": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Topology.DiscreteSeparation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.ModularForms.Cusps.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.Topology.Algebra.Group.LocallyConstant": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "supplierNativeArtifacts": {
+              "TauCeti.Topology.Algebra.Group.LocallyConstant": "e66f653b6b7dc52ed9b1d01616246f9197bc3677f7861cdb459788d889edc800",
+              "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "dd5e0cf19ea201a93a943cb43a135eaa20b7a2a23585fb4697ebb55080aa6ed8"
+            },
+            "nativeArtifactFileCount": 152,
+            "scope": "Source closure only for the current full suggested module. The compiled 332-node PMIA artifact and 31 existing Tau artifacts remain hash-verified available dependencies, across 152 artifact files. The required native TwistedDivisorSum artifact is unavailable at the compatible pins. The full current file was NOT COMPILED. The current 369-node PMIA source preserves the 332-node artifact interface; no compilation against the 369-node source is claimed. Seven Teichmuller source/object/log receipts from an existing native build are verified. PR4773 alone retains its successful full-module compiler result. No library build, Lake setup, update or cache fetch occurred. The existing native low-degree Tate module source, object and empty compiler log are also hash-verified; four existing artifact files are reused without a native build. Two further existing native periodicity/invariants modules and eight artifact files are verified against archived pinned sources, import metadata and the archived report/toolchain provenance, with the byte-identical LowDegree artifact as an independent anchor. Separate original compiler logs for those two modules were not located; no empty-log claim is made for them. The current complete native probe supplies a fresh compatibility check with zero errors or warnings. The historical build script was read only and was never executed.",
+            "currentModuleCompiled": false,
+            "requiredNativeTauModules": 32,
+            "availableNativeTauModules": 31,
+            "missingNativeArtifacts": [
+              "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
+            ],
+            "lastCompiledPredecessor": {
+              "pr": 4773,
+              "result": {
+                "exitCode": 0,
+                "sourceSha256": "b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef",
+                "modules": 3573,
+                "warnings": 1803,
+                "errors": 0
+              }
+            },
+            "teichmullerReuse": {
+              "TauCeti.NumberTheory.LocalField.Teichmuller": {
+                "sourceSha256": "4964e5ff0f74c7f93baa0c8831640e027d4a33ecfaa6f4b1b8651e08632b2b68",
+                "objectSha256": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.FieldTheory.Finite.RootsOfUnity": {
+                "sourceSha256": "a0d276296236b6731ae0a452987a0430298994df3ff2f0d821796b81e6815be8",
+                "objectSha256": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.NumberTheory.LocalField.Henselian": {
+                "sourceSha256": "1d4094ebe8b8aeca2a388b396a26796fc05463ce6c499a8a729431d9e71e4d8c",
+                "objectSha256": "a4b847bed872748f4ba8845f64842827d89b014d40e42055fe52fe8636b5efd7",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.RingTheory.RootsOfUnity.Henselian": {
+                "sourceSha256": "0888d26e6a8fe1f87a55bceb4cfe5542925ec0169fe765fdeea2cac76bf54b90",
+                "objectSha256": "ab80e76fb323bae19c2b319961acccb4e47bc50ae734ad071dcc735365fd6e3b",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.RingTheory.RootsOfUnity.LocalRing": {
+                "sourceSha256": "438dcee46cedb9ac8b484d7a049d8fee67d0b88ffd507548668fb87255e22cfe",
+                "objectSha256": "dd1501ef55b87c428a001470b5eabcfe94bf37bba3b5e4bccf61772e8bd7856e",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.RingTheory.RootsOfUnity.Basic": {
+                "sourceSha256": "5501edec3a11e4e228543c8fd76fc07bccf6bd6fdd9573d8ec2549946c0e559c",
+                "objectSha256": "9e11cb5dee5c493b9b515336c152483dc8da12f33e23b1cca2bdfbc123189e9d",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "TauCeti.RingTheory.RootsOfUnity.ValuativeRel": {
+                "sourceSha256": "4429ab4b1ae3ab1c28752aad06896e5cdb94a0c3959d32d1209a10e1ea99df83",
+                "objectSha256": "0504ce2dd3d6092368fffc9ec18bbe15adf7ab3500af9064715f7e8293f31940",
+                "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              }
+            },
+            "tateLowDegreeReuse": {
+              "module": "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree",
+              "sourceSha256": "1c896a85d09d70431a5cb128f6e6548b6738d0bebe9f61c4b538cc5f6f6591be",
+              "objectSha256": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "existingArtifactsOnly": true,
+              "nativeBuildPerformed": false
+            },
+            "periodicityReuse": {
+              "modules": {
+                "TauCeti.RepresentationTheory.Invariants": {
+                  "sourceSha256": "4cc9f3134b6eb6b316351d5152aac92486f359e9a519e78acf2a2043dd8f4454",
+                  "objectSha256": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
+                  "ileanSha256": "68e0afaa184b5ce6c61dcc9132cc27ba4a2f12518faf7d9e813a3b7222138a0c",
+                  "directImports": [
+                    [
+                      "Mathlib.RepresentationTheory.Invariants",
+                      false,
+                      false,
+                      false
+                    ]
+                  ],
+                  "artifactSha256": {
+                    "TauCeti/RepresentationTheory/Invariants.olean": "03476a68f9db4fd8f2db1141345454e2b9718d4533e2231a58bd15ebb375548c",
+                    "TauCeti/RepresentationTheory/Invariants.olean.private": "a1171bf7929e92d2d1e224ae4caca168801bb921c253ea2921cf22f3c63a221d",
+                    "TauCeti/RepresentationTheory/Invariants.olean.server": "501cf116ad51eff68690b5a65e38e06ca5a91d83cc8b101de6ed46583c48936a",
+                    "TauCeti/RepresentationTheory/Invariants.ir": "5796b9934b9d5e161c5894c96f87014f1abad473e44d8c9ce6a999111f9411b3"
+                  },
+                  "originalNativeCompilerLogAvailable": false
+                },
+                "TauCeti.RepresentationTheory.Homological.TateCohomology.Periodic": {
+                  "sourceSha256": "8f66af553223d424e750de5521dcb28a30071d92a55096bdca45de3a24436c22",
+                  "objectSha256": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
+                  "ileanSha256": "74ec59328f3b6d1ea30b6b189ce1407074029abec7482c8001fc7dc902292e1b",
+                  "directImports": [
+                    [
+                      "Mathlib.RepresentationTheory.Homological.GroupCohomology.FiniteCyclic",
+                      false,
+                      false,
+                      false
+                    ],
+                    [
+                      "Mathlib.RepresentationTheory.Homological.GroupHomology.FiniteCyclic",
+                      false,
+                      false,
+                      false
+                    ],
+                    [
+                      "TauCeti.RepresentationTheory.Invariants",
+                      false,
+                      false,
+                      false
+                    ],
+                    [
+                      "TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree",
+                      false,
+                      false,
+                      false
+                    ]
+                  ],
+                  "artifactSha256": {
+                    "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean": "12472d3b8c087b652c77291cb9b0b8ec36a5e961ff2b50aefdbd8735ac73e61a",
+                    "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean.private": "5a62fca1003f6e2a6cc303d8cb2787250a13a4b42f025fa8557a011aa915f8a4",
+                    "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.olean.server": "9bc4891ad0b58ef0e192894b9ef940f2b1b0e4bfaaa68a8a9a5ea2eb492d32b2",
+                    "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.ir": "09fab25e03a7daa4c20c553e7e214bf0f7834d6b21957cd660bd82a53aeb7922"
+                  },
+                  "originalNativeCompilerLogAvailable": false
+                }
+              },
+              "anchorLowDegreeObjectSha256": "a56f08707f38195f10fbda1879a21c2d2284e46f6e09d184c3366d75f4446bf7",
+              "reportSha256": "eb513550b7fea3ef65eb4420f9455f584a6ea8ebff16e435c6a5dca2e78130ec",
+              "checkScriptSha256": "43c188dc1d97ff6c1070ee7e694e5fe909e1747bf2f2ddb14b372082b06eccb6",
+              "historicalBuildScriptSha256": "02fc2a51bd33cc6107700fbb9e2071b6b55e34472ec7b2f7f98165632e5d888a",
+              "lakePathsSha256": "a58c45c1f6dbb9a63f6ecf935c4886a5388ce3ad8965721a57abb0da8c6e29a8",
+              "nativeBuildPerformed": false,
+              "existingArtifactsOnly": true,
+              "provenance": "Archived source bytes match the exact pinned Tau files. The old report/check script identifies both baseline commits and the old lake path identifies Lean4.34rc2. The imported LowDegree object is byte-identical to the separately verified existing receipt. Original separate native compiler logs were not located, so no empty-log claim is made for these two reused modules. The old build script was read only; never executed."
+            }
+          },
+          "partialSignatures": {
+            "exitCode": 0,
+            "sourceSha256": "bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d",
+            "modules": 3914,
+            "warnings": 6581,
+            "errors": 0,
+            "scope": "The separate partial signature file also compiled with zero errors and 6,581 expected placeholder warnings across 3,914 pinned source modules. It includes all 13 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: bc1ec71501dc8d5af4628922a0f214df0262d207f723bcd87741703e8e2fde7d.",
+            "fullSuggestedFile": false,
+            "documentedOmissionsRetained": true
+          }
+        },
+        "publication": {
+          "base": "fcbc9decd8e2b4e2cb51d562fc3de0f023d2031e",
+          "unchangedInputs": 79,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: 18 gaps, 16 requests (PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6), zero closed stages; every implementation status unchecked.",
+        "split": "Split by layer on 2026-10-02 from the whole-roadmap packet; these checks describe that packet, so the next worker re-runs them on this part."
       }
     },
-    "publication": {
-      "base": "fcbc9decd8e2b4e2cb51d562fc3de0f023d2031e",
-      "unchangedInputs": 79,
-      "unchangedOutputs": 4,
-      "sameSessionFollowupAfterMerge": true,
-      "lastClaimConfirmation": 5854791937,
-      "reviewIssue": 390,
-      "reviewUnclaimed": true
-    },
-    "closure": "Partial: 18 gaps, 16 requests (PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6), zero closed stages; every implementation status unchecked.",
-    "split": "Split by layer on 2026-10-02 from the whole-roadmap packet; these checks describe that packet, so the next worker re-runs them on this part."
+    "l4PlanningPass": {
+      "nodes": 192,
+      "inheritedMathematicalContracts": 182,
+      "declarationMetadataUpdates": 21,
+      "newNodes": 10,
+      "apiItems": 169,
+      "definitionConstructionTests": 111,
+      "rawTests": 358,
+      "planets": 6,
+      "baselineDeclarations": 180,
+      "gaps": 5,
+      "requests": 3,
+      "blueprintErrors": 0,
+      "blueprintWarnings": 0,
+      "fullSuggestedCompiled": false,
+      "boundedObstructionCheck": {
+        "file": "Obstruction.lean",
+        "sourceSha256": "c92d02150116ad3b5ff62f060b08d2b58d2f62a1f61a60d4738fdee8dcb25b3f",
+        "signatures": 3,
+        "examples": 3,
+        "errors": 0,
+        "expectedSorryWarnings": 6,
+        "proofsAdmitted": true
+      },
+      "evidence": "Exact current checker, intake and atlas results and independently recoverable artifacts are bound by the handoff."
+    }
   },
   "provenance": {
     "split": {
