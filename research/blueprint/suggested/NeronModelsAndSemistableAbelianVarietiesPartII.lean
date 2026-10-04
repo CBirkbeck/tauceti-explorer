@@ -5924,3 +5924,203 @@ example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
+
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry TopologicalSpace
+
+namespace TauCeti.GenusOne.FerrandPushout
+
+variable {Y P : Scheme.{u}} (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+
+def conductorSheafInclusion :
+    (TopCat.Sheaf.pushforward CommRingCat f.base).obj Y.sheaf ⟶
+      (TopCat.Sheaf.pushforward CommRingCat f.base).obj
+        ((TopCat.Sheaf.pushforward CommRingCat
+          ((conductorIdealSheaf f).comap f).subschemeι.base).obj
+            ((conductorIdealSheaf f).comap f).subscheme.sheaf) :=
+  ⟨Functor.whiskerLeft (Opens.map f.base).op ((conductorIdealSheaf f).comap f).subschemeι.c⟩
+
+def conductorSheafChart :
+    (TopCat.Sheaf.pushforward CommRingCat (conductorIdealSheaf f).subschemeι.base).obj
+        (conductorIdealSheaf f).subscheme.sheaf ⟶
+      (TopCat.Sheaf.pushforward CommRingCat f.base).obj
+        ((TopCat.Sheaf.pushforward CommRingCat
+          ((conductorIdealSheaf f).comap f).subschemeι.base).obj
+            ((conductorIdealSheaf f).comap f).subscheme.sheaf) :=
+  ⟨{ app := fun U => conductorChartMap f U.unop
+     naturality := fun _ _ h => conductorChartMap_restrict f h.unop.le }⟩
+
+lemma conductorSheafInclusion_app (U : P.Opens) :
+    (conductorSheafInclusion f).hom.app (op U) =
+      ((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U) := by
+  sorry
+
+lemma conductorSheafChart_app (U : P.Opens) :
+    (conductorSheafChart f).hom.app (op U) = conductorChartMap f U := by
+  sorry
+
+def conductorSheafComparison :
+    P.sheaf ⟶ pullback (conductorSheafInclusion f) (conductorSheafChart f) :=
+  pullback.lift ⟨f.c⟩ ⟨(conductorIdealSheaf f).subschemeι.c⟩ (by
+    apply CategoryTheory.Sheaf.hom_ext
+    apply NatTrans.ext
+    funext U
+    exact (conductorChartMap_comm f U.unop).symm)
+
+lemma conductorSheafComparison_fst :
+    conductorSheafComparison f ≫ pullback.fst _ _ = ⟨f.c⟩ := by
+  sorry
+
+lemma conductorSheafComparison_snd :
+    conductorSheafComparison f ≫ pullback.snd _ _ =
+      ⟨(conductorIdealSheaf f).subschemeι.c⟩ := by
+  sorry
+
+lemma conductorSheafComparison_isIso : IsIso (conductorSheafComparison f) := by
+  sorry
+
+lemma conductor_sheaf_isPullback :
+    IsPullback (⟨f.c⟩ : P.sheaf ⟶ (TopCat.Sheaf.pushforward CommRingCat f.base).obj Y.sheaf)
+      (⟨(conductorIdealSheaf f).subschemeι.c⟩ : P.sheaf ⟶
+        (TopCat.Sheaf.pushforward CommRingCat (conductorIdealSheaf f).subschemeι.base).obj
+          (conductorIdealSheaf f).subscheme.sheaf)
+      (conductorSheafInclusion f) (conductorSheafChart f) := by
+  sorry
+
+lemma conductor_open_isPullback (U : P.Opens) :
+    IsPullback (f.app U) ((conductorIdealSheaf f).subschemeι.app U)
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U) := by
+  sorry
+
+lemma conductorSectionDifference_open_exact (U : P.Opens) :
+    Function.Exact ((f.app U).hom.prod ((conductorIdealSheaf f).subschemeι.app U).hom)
+      (conductorSectionDifference f U) := by
+  sorry
+
+def conductorOpenSectionsIso (U : P.Opens) :
+    Γ(P, U) ≅ (CommRingCat.pullbackCone
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U)).pt :=
+  (conductor_open_isPullback f U).isLimit.conePointUniqueUpToIso
+    (CommRingCat.pullbackConeIsLimit _ _)
+
+lemma conductorOpenSectionsIso_fst (U : P.Opens) :
+    (conductorOpenSectionsIso f U).hom ≫ (CommRingCat.pullbackCone
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U)).fst = f.app U := by
+  sorry
+
+lemma conductorOpenSectionsIso_snd (U : P.Opens) :
+    (conductorOpenSectionsIso f U).hom ≫ (CommRingCat.pullbackCone
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U)).snd = (conductorIdealSheaf f).subschemeι.app U := by
+  sorry
+
+lemma conductorOpenSectionsIso_inv_fst (U : P.Opens) :
+    (conductorOpenSectionsIso f U).inv ≫ f.app U = (CommRingCat.pullbackCone
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U)).fst := by
+  sorry
+
+lemma conductorOpenSectionsIso_inv_snd (U : P.Opens) :
+    (conductorOpenSectionsIso f U).inv ≫ (conductorIdealSheaf f).subschemeι.app U =
+      (CommRingCat.pullbackCone
+        (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+        (conductorChartMap f U)).snd := by
+  sorry
+
+lemma conductorOpenSectionsIso_affine (U : P.affineOpens) :
+    conductorOpenSectionsIso f U = conductorSectionsIso f U := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry TopologicalSpace
+
+namespace TauCeti.GenusOne.FerrandPushout
+
+variable {Y P : Scheme.{u}}
+
+-- test: ConductorSheafChecked.inclusion_empty
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (b : Γ(Y, f ⁻¹ᵁ (⊥ : P.Opens))) :
+    (conductorSheafInclusion f).hom.app (op ⊥) b = 0 := by
+  sorry
+
+-- test: ConductorSheafChecked.inclusion_restriction
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    {U V : P.Opens} (h : U ≤ V) :
+    ((TopCat.Sheaf.pushforward CommRingCat f.base).obj Y.sheaf).obj.map
+        (homOfLE h).op ≫ (conductorSheafInclusion f).hom.app (op U) =
+      (conductorSheafInclusion f).hom.app (op V) ≫
+        ((TopCat.Sheaf.pushforward CommRingCat f.base).obj
+          ((TopCat.Sheaf.pushforward CommRingCat
+            ((conductorIdealSheaf f).comap f).subschemeι.base).obj
+              ((conductorIdealSheaf f).comap f).subscheme.sheaf)).obj.map (homOfLE h).op := by
+  sorry
+
+-- test: ConductorSheafChecked.chart_signed_units
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.Opens) :
+    (conductorSheafInclusion f).hom.app (op U) 1 -
+        (conductorSheafChart f).hom.app (op U) 0 = 1 ∧
+      (conductorSheafInclusion f).hom.app (op U) 0 -
+        (conductorSheafChart f).hom.app (op U) 1 = -1 := by
+  sorry
+
+-- test: ConductorSheafChecked.chart_commutes
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U : P.Opens) (a : Γ(P, U)) :
+    (conductorSheafInclusion f).hom.app (op U) ((f.app U) a) =
+      (conductorSheafChart f).hom.app (op U)
+        ((conductorIdealSheaf f).subschemeι.app U a) := by
+  sorry
+
+-- test: ConductorSheafChecked.unique_sheaf_lift
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (F : TopCat.Sheaf CommRingCat P.carrier)
+    (b : F ⟶ (TopCat.Sheaf.pushforward CommRingCat f.base).obj Y.sheaf)
+    (c : F ⟶ (TopCat.Sheaf.pushforward CommRingCat
+      (conductorIdealSheaf f).subschemeι.base).obj (conductorIdealSheaf f).subscheme.sheaf)
+    (h : b ≫ conductorSheafInclusion f = c ≫ conductorSheafChart f) :
+    ∃! a : F ⟶ P.sheaf,
+      a ≫ (⟨f.c⟩ : P.sheaf ⟶ (TopCat.Sheaf.pushforward CommRingCat f.base).obj Y.sheaf) = b ∧
+      a ≫ (⟨(conductorIdealSheaf f).subschemeι.c⟩ : P.sheaf ⟶
+        (TopCat.Sheaf.pushforward CommRingCat (conductorIdealSheaf f).subschemeι.base).obj
+          (conductorIdealSheaf f).subscheme.sheaf) = c := by
+  sorry
+
+-- test: ConductorSheafChecked.union_lifting
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U V : P.Opens)
+    (b : Γ(Y, f ⁻¹ᵁ (U ⊔ V)))
+    (c : Γ((conductorIdealSheaf f).subscheme,
+      (conductorIdealSheaf f).subschemeι ⁻¹ᵁ (U ⊔ V)))
+    (h : conductorSectionDifference f (U ⊔ V) (b, c) = 0) :
+    ∃! a : Γ(P, U ⊔ V), (f.app (U ⊔ V)) a = b ∧
+      (conductorIdealSheaf f).subschemeι.app (U ⊔ V) a = c := by
+  sorry
+
+-- test: ConductorSheafChecked.open_reconstruction
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U : P.Opens) (a : Γ(P, U)) :
+    (conductorOpenSectionsIso f U).inv ((conductorOpenSectionsIso f U).hom a) = a := by
+  sorry
+
+-- test: ConductorSheafChecked.nonreduced_identity
+example :
+    let P := Spec (.of (ZMod 4))
+    let a := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    let p := (conductorOpenSectionsIso (𝟙 P) ⊤).hom a
+    p ≠ 0 ∧ p ^ 2 = 0 := by
+  sorry
+
+-- test: ConductorSheafChecked.affine_inverse_agreement
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U : P.affineOpens)
+    (p : (CommRingCat.pullbackCone
+      (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
+      (conductorChartMap f U)).pt) :
+    (conductorOpenSectionsIso f U).inv p = (conductorSectionsIso f U).inv p := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
