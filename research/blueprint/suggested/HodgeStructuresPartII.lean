@@ -1,3 +1,5 @@
+import Mathlib.Algebra.Category.ModuleCat.Monoidal.Symmetric
+
 import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
 
 
@@ -5501,6 +5503,280 @@ example :
         (TensorProduct.map i.hom.1 LinearMap.id
           ((F.obj X).2.toAddHom ((2 : ZMod 4) ⊗ₜ[ZMod 4] (1 : ZMod 4))))
       y = 2 ∧ y ≠ 0 ∧ y ^ 2 = 0 ∧ i.hom.1 (i.inv.1 (2 : ZMod 4)) = (2 : ZMod 4) := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open CategoryTheory MonoidalCategory
+open scoped TensorProduct
+universe u w z
+variable {k R : Type u} [CommRing k] [CommRing R] [Algebra k R]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z] [IsScalarTower k R W]
+variable {Ω : TwoForms k R W Z} {lam : R}
+
+def AffineCategory.tensorObj (X Y : AffineCategory Ω lam) : AffineCategory Ω lam :=
+  ⟨ModuleCat.of R (X.1 ⊗[R] Y.1), X.2.affineTensor Y.2⟩
+
+def AffineCategory.tensorMap {X X' Y Y' : AffineCategory Ω lam}
+    (h : X ⟶ X') (j : Y ⟶ Y') :
+    AffineCategory.tensorObj X Y ⟶ AffineCategory.tensorObj X' Y' :=
+  ⟨TensorProduct.map h.1 j.1, X.2.affineTensor_horizontal Y.2 X'.2 Y'.2 h.1 j.1 h.2 j.2⟩
+
+def AffineCategory.tensorUnit : AffineCategory Ω lam :=
+  ⟨ModuleCat.of R R, Preconnection.unit Ω lam⟩
+
+def AffineCategory.associator (X Y T : AffineCategory Ω lam) :
+    AffineCategory.tensorObj (AffineCategory.tensorObj X Y) T ≅
+      AffineCategory.tensorObj X (AffineCategory.tensorObj Y T) :=
+  AffineCategory.isoMk (TensorProduct.assoc R X.1 Y.1 T.1) (X.2.affineTensor_assoc Y.2 T.2)
+
+def AffineCategory.leftUnitor (X : AffineCategory Ω lam) :
+    AffineCategory.tensorObj AffineCategory.tensorUnit X ≅ X :=
+  AffineCategory.isoMk (TensorProduct.lid R X.1) X.2.affineTensor_lid
+
+def AffineCategory.rightUnitor (X : AffineCategory Ω lam) :
+    AffineCategory.tensorObj X AffineCategory.tensorUnit ≅ X :=
+  AffineCategory.isoMk (TensorProduct.rid R X.1) X.2.affineTensor_rid
+
+@[instance_reducible]
+def AffineCategory.monoidalStruct : MonoidalCategoryStruct (AffineCategory Ω lam) where
+  tensorObj := AffineCategory.tensorObj
+  tensorHom := AffineCategory.tensorMap
+  whiskerLeft X _ _ h := AffineCategory.tensorMap (𝟙 X) h
+  whiskerRight h X := AffineCategory.tensorMap h (𝟙 X)
+  tensorUnit := AffineCategory.tensorUnit
+  associator := AffineCategory.associator
+  leftUnitor := AffineCategory.leftUnitor
+  rightUnitor := AffineCategory.rightUnitor
+
+attribute [instance] AffineCategory.monoidalStruct
+attribute [local instance] AffineCategory.forget_faithful
+
+def AffineCategory.inducingData : Monoidal.InducingFunctorData
+    (AffineCategory.forget (Ω := Ω) (lam := lam)) where
+  μIso _ _ := Iso.refl _
+  εIso := Iso.refl _
+  whiskerLeft_eq := by intros; simp; rfl
+  whiskerRight_eq := by intros; simp; rfl
+  tensorHom_eq := by intros; simp; rfl
+  associator_eq := by
+    intros
+    apply ModuleCat.hom_ext
+    apply TensorProduct.ext_threefold
+    intro x y z
+    rfl
+  leftUnitor_eq := by
+    intros
+    apply ModuleCat.hom_ext
+    apply TensorProduct.ext'
+    intro x y
+    rfl
+  rightUnitor_eq := by
+    intros
+    apply ModuleCat.hom_ext
+    apply TensorProduct.ext'
+    intro x y
+    rfl
+
+@[instance_reducible]
+def AffineCategory.monoidal : MonoidalCategory (AffineCategory Ω lam) :=
+  Monoidal.induced AffineCategory.forget AffineCategory.inducingData
+
+attribute [instance] AffineCategory.monoidal
+
+def AffineCategory.forgetCoreMonoidal :
+    (AffineCategory.forget (Ω := Ω) (lam := lam)).CoreMonoidal :=
+  Monoidal.fromInducedCoreMonoidal AffineCategory.forget AffineCategory.inducingData
+
+@[instance_reducible]
+def AffineCategory.forgetMonoidal :
+    (AffineCategory.forget (Ω := Ω) (lam := lam)).Monoidal :=
+  AffineCategory.forgetCoreMonoidal.toMonoidal
+
+attribute [instance] AffineCategory.forgetMonoidal
+
+def AffineCategory.braiding (X Y : AffineCategory Ω lam) : X ⊗ Y ≅ Y ⊗ X :=
+  AffineCategory.isoMk (TensorProduct.comm R X.1 Y.1) (X.2.affineTensor_comm Y.2)
+
+@[instance_reducible]
+def AffineCategory.braided : BraidedCategory (AffineCategory Ω lam) :=
+  BraidedCategory.ofFaithful AffineCategory.forget AffineCategory.braiding
+    (fun _ _ => by
+      apply ModuleCat.hom_ext
+      apply TensorProduct.ext'
+      intro x y
+      rfl)
+
+attribute [instance] AffineCategory.braided
+
+@[instance_reducible]
+def AffineCategory.forgetBraided :
+    (AffineCategory.forget (Ω := Ω) (lam := lam)).Braided where
+  braided X Y := by
+    apply ModuleCat.hom_ext
+    apply TensorProduct.ext'
+    intro x y
+    rfl
+
+attribute [instance] AffineCategory.forgetBraided
+
+@[instance_reducible]
+def AffineCategory.symmetric : SymmetricCategory (AffineCategory Ω lam) :=
+  SymmetricCategory.ofFaithful AffineCategory.forget
+
+attribute [instance] AffineCategory.symmetric
+
+lemma AffineCategory.tensor_connection (X Y : AffineCategory Ω lam) :
+    (X ⊗ Y).2 = X.2.affineTensor Y.2 := by
+  sorry
+
+lemma AffineCategory.tensorMap_tmul {X X' Y Y' : AffineCategory Ω lam}
+    (h : X ⟶ X') (j : Y ⟶ Y') (x : X.1) (y : Y.1) :
+    (h ⊗ₘ j).1 (x ⊗ₜ[R] y) = h.1 x ⊗ₜ[R] j.1 y := by
+  sorry
+
+lemma AffineCategory.unit_connection :
+    (𝟙_ (AffineCategory Ω lam)).2 = Preconnection.unit Ω lam := by
+  sorry
+
+lemma AffineCategory.associator_linear (X Y T : AffineCategory Ω lam) :
+    (α_ X Y T).hom.1 = (TensorProduct.assoc R X.1 Y.1 T.1).toLinearMap := by
+  sorry
+
+lemma AffineCategory.leftUnitor_linear (X : AffineCategory Ω lam) :
+    (λ_ X).hom.1 = (TensorProduct.lid R X.1).toLinearMap := by
+  sorry
+
+lemma AffineCategory.rightUnitor_linear (X : AffineCategory Ω lam) :
+    (ρ_ X).hom.1 = (TensorProduct.rid R X.1).toLinearMap := by
+  sorry
+
+lemma AffineCategory.braiding_linear (X Y : AffineCategory Ω lam) :
+    (β_ X Y).hom.1 = (TensorProduct.comm R X.1 Y.1).toLinearMap := by
+  sorry
+
+lemma AffineCategory.forget_tensor_map {X X' Y Y' : AffineCategory Ω lam}
+    (h : X ⟶ X') (j : Y ⟶ Y') :
+    AffineCategory.forget.map (h ⊗ₘ j) =
+      AffineCategory.forget.map h ⊗ₘ AffineCategory.forget.map j := by
+  sorry
+
+lemma AffineCategory.forget_tensor_comparison (X Y : AffineCategory Ω lam) :
+    Functor.LaxMonoidal.μ AffineCategory.forget X Y = 𝟙 _ := by
+  sorry
+
+lemma AffineCategory.forget_unit_comparison :
+    Functor.LaxMonoidal.ε (AffineCategory.forget (Ω := Ω) (lam := lam)) = 𝟙 _ := by
+  sorry
+
+lemma AffineCategory.tensor_id (X Y : AffineCategory Ω lam) :
+    (𝟙 X) ⊗ₘ (𝟙 Y) = 𝟙 (X ⊗ Y) := by
+  sorry
+
+lemma AffineCategory.tensor_comp {X X' X'' Y Y' Y'' : AffineCategory Ω lam}
+    (h : X ⟶ X') (h' : X' ⟶ X'') (j : Y ⟶ Y') (j' : Y' ⟶ Y'') :
+    (h ⊗ₘ j) ≫ (h' ⊗ₘ j') = (h ≫ h') ⊗ₘ (j ≫ j') := by
+  sorry
+
+lemma AffineCategory.pentagon (A B C D : AffineCategory Ω lam) :
+    (α_ A B C).hom ▷ D ≫ (α_ A (B ⊗ C) D).hom ≫ A ◁ (α_ B C D).hom =
+      (α_ (A ⊗ B) C D).hom ≫ (α_ A B (C ⊗ D)).hom := by
+  sorry
+
+lemma AffineCategory.triangle (X Y : AffineCategory Ω lam) :
+    (α_ X (𝟙_ (AffineCategory Ω lam)) Y).hom ≫ X ◁ (λ_ Y).hom = (ρ_ X).hom ▷ Y := by
+  sorry
+
+lemma AffineCategory.symmetry (X Y : AffineCategory Ω lam) :
+    (β_ X Y).hom ≫ (β_ Y X).hom = 𝟙 (X ⊗ Y) := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open CategoryTheory MonoidalCategory
+open scoped TensorProduct
+universe u w z
+variable {k R : Type u} [CommRing k] [CommRing R] [Algebra k R]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z] [IsScalarTower k R W]
+variable {Ω : TwoForms k R W Z} {lam : R}
+
+-- test: AffineMonoidalTests.tensor_zero_map
+example {X X' Y Y' : AffineCategory Ω lam} (j : Y ⟶ Y') :
+    ∃ h : X ⟶ X', ∀ x : X.1, ∀ y : Y.1, (h ⊗ₘ j).1 (x ⊗ₜ[R] y) = 0 := by
+  sorry
+
+-- test: AffineMonoidalTests.coherence_generators
+example (A B C D : AffineCategory Ω lam) (a : A.1) (b : B.1) (c : C.1) (d : D.1) :
+    ((α_ A B C).hom ▷ D ≫ (α_ A (B ⊗ C) D).hom ≫ A ◁ (α_ B C D).hom).1
+      (((a ⊗ₜ[R] b) ⊗ₜ[R] c) ⊗ₜ[R] d) = a ⊗ₜ[R] (b ⊗ₜ[R] (c ⊗ₜ[R] d)) ∧
+    ((α_ (A ⊗ B) C D).hom ≫ (α_ A B (C ⊗ D)).hom).1
+      (((a ⊗ₜ[R] b) ⊗ₜ[R] c) ⊗ₜ[R] d) = a ⊗ₜ[R] (b ⊗ₜ[R] (c ⊗ₜ[R] d)) := by
+  sorry
+
+-- test: AffineMonoidalTests.unit_derivative
+example (X : AffineCategory Ω lam) (r : R) (x : X.1) :
+    TensorProduct.map (λ_ X).hom.1 LinearMap.id
+      (((𝟙_ (AffineCategory Ω lam)) ⊗ X).2.toAddHom (r ⊗ₜ[R] x)) =
+      r • X.2.toAddHom x + lam • (x ⊗ₜ[R] Ω.d0 r) ∧
+    TensorProduct.map (ρ_ X).hom.1 LinearMap.id
+      ((X ⊗ (𝟙_ (AffineCategory Ω lam))).2.toAddHom (x ⊗ₜ[R] r)) =
+      r • X.2.toAddHom x + lam • (x ⊗ₜ[R] Ω.d0 r) := by
+  sorry
+
+-- test: AffineMonoidalTests.braiding_generator
+example (X Y : AffineCategory Ω lam) (x : X.1) (y : Y.1) :
+    (β_ X Y).hom.1 (x ⊗ₜ[R] y) = y ⊗ₜ[R] x ∧
+      (β_ Y X).hom.1 ((β_ X Y).hom.1 (x ⊗ₜ[R] y)) = x ⊗ₜ[R] y := by
+  sorry
+
+-- test: AffineMonoidalTests.forget_native_data
+example (X Y T : AffineCategory Ω lam) :
+    AffineCategory.forget.map (α_ X Y T).hom = (α_ X.1 Y.1 T.1).hom ∧
+    AffineCategory.forget.map (λ_ X).hom = (λ_ X.1).hom ∧
+    AffineCategory.forget.map (ρ_ X).hom = (ρ_ X.1).hom ∧
+    AffineCategory.forget.map (β_ X Y).hom = (β_ X.1 Y.1).hom := by
+  sorry
+
+-- test: AffineMonoidalTests.nonconstant_parameter_unit
+example :
+    ∃ Ω : TwoForms ℤ (Polynomial ℤ) (Polynomial ℤ) (Fin 0 → Polynomial ℤ),
+      Ω.d0 Polynomial.X = 1 ∧
+      let U := 𝟙_ (AffineCategory Ω Polynomial.X)
+      TensorProduct.lid (Polynomial ℤ) (Polynomial ℤ)
+        (TensorProduct.map (λ_ U).hom.1 LinearMap.id
+          ((U ⊗ U).2.toAddHom (Polynomial.X ⊗ₜ[Polynomial ℤ] (1 : Polynomial ℤ)))) =
+        Polynomial.X := by
+  sorry
+
+-- test: AffineMonoidalTests.parameter_not_doubled
+example :
+    ∃ Ω : TwoForms ℤ (Polynomial ℤ) (Polynomial ℤ) (Fin 0 → Polynomial ℤ),
+      let U := 𝟙_ (AffineCategory Ω (2 : Polynomial ℤ))
+      let value := TensorProduct.lid (Polynomial ℤ) (Polynomial ℤ)
+        (TensorProduct.map (λ_ U).hom.1 LinearMap.id
+          ((U ⊗ U).2.toAddHom (Polynomial.X ⊗ₜ[Polynomial ℤ] (1 : Polynomial ℤ))))
+      value = 2 ∧ value ≠ 4 := by
+  sorry
+
+-- test: AffineMonoidalTests.nonreduced_braiding
+example :
+    ∃ Ω : TwoForms (ZMod 4) (ZMod 4) (ZMod 4) (Fin 0 → ZMod 4),
+      let X : AffineCategory Ω (0 : ZMod 4) :=
+        ⟨ModuleCat.of (ZMod 4) (ZMod 4),
+          Preconnection.ofLinear (TensorProduct.lid (ZMod 4) (ZMod 4)).symm.toLinearMap⟩
+      let t := (2 : ZMod 4) ⊗ₜ[ZMod 4] (1 : ZMod 4)
+      let value := TensorProduct.lid (ZMod 4) (ZMod 4)
+        ((β_ X X).hom.1 t)
+      value = 2 ∧ value ≠ 0 ∧ value ^ 2 = 0 ∧
+        (β_ X X).hom.1 ((β_ X X).hom.1 t) = t := by
   sorry
 
 end
