@@ -23676,12 +23676,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions--L0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #5878"
+   "note": "claimed on GitHub issue #5878"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L0",
@@ -30451,13 +30451,14 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-KTheoryLowDegrees--U.1",
     "BP-KTheoryLowDegrees--Z.3"
    ],
-   "note": "claimed on GitHub issue #1025"
+   "note": "deliverables arrived from an external worker on issue #1025",
+   "finishedAt": "2026-10-04T22:03:57Z"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion",
