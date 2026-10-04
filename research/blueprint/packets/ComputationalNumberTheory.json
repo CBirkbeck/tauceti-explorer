@@ -178,18 +178,24 @@
         "checked": "Full statement read at the pinned commit; hypotheses retained."
       },
       {
-        "ref": "mathlib:ModularForm.L",
+        "ref": "mathlib:L",
         "kind": "def",
         "module": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
         "provides": "The continued modular L-function, defined from the completed Mellin transform; positive weight and arithmetic subgroup are parameters.",
-        "checked": "Full statement read at the pinned commit; hypotheses retained."
+        "checked": "Full statement read at the pinned commit; hypotheses retained.",
+        "qualifiedName": "ModularForm.L",
+        "sourceLine": 134,
+        "indexNote": "The pinned index stores the short name. The fully qualified Lean name and exact module/line disambiguate this citation; the prototype uses the full Lean name."
       },
       {
-        "ref": "mathlib:ModularForm.Λ",
+        "ref": "mathlib:Λ",
         "kind": "def",
         "module": "Mathlib/NumberTheory/ModularForms/LFunction.lean",
         "provides": "Completed L-function from the native weak functional-equation pair, for positive weight and arithmetic subgroup.",
-        "checked": "Full statement read at the pinned commit; hypotheses retained."
+        "checked": "Full statement read at the pinned commit; hypotheses retained.",
+        "qualifiedName": "ModularForm.Λ",
+        "sourceLine": 91,
+        "indexNote": "The pinned index stores the short name. The fully qualified Lean name and exact module/line disambiguate this citation; the prototype uses the full Lean name."
       },
       {
         "ref": "mathlib:CuspForm.differentiable_Λ",
@@ -6857,7 +6863,7 @@
         "Obtain exact finite coordinates through the integral lattice and Miller basis. Import the native continuation and functional equation. Enclose finite sums and bound both smoothed tails before outward rounding. Effective constants and the general-level normalization comparison remain recorded proof inputs."
       ],
       "prerequisites": [
-        "mathlib:ModularForm.L",
+        "mathlib:L",
         "ComputationalNumberTheory:CN.4/complex-box-denotation",
         "ComputationalNumberTheory:CN.3/miller-basis",
         "ComputationalNumberTheory:CN.3/integral-cusp-lattice",
@@ -8114,7 +8120,7 @@
       ],
       "imports": [
         "mathlib:DirichletCharacter.LFunction",
-        "mathlib:ModularForm.L",
+        "mathlib:L",
         "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "AnalyticNumberTheory:AN.4"
@@ -8207,7 +8213,7 @@
       "target": "Continuation and exact analytic-rank inputs",
       "providers": [
         "mathlib:DirichletCharacter.LFunction",
-        "mathlib:ModularForm.L",
+        "mathlib:L",
         "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "AnalyticNumberTheory:AN.4"
