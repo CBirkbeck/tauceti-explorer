@@ -1,3 +1,5 @@
+Current scope: this partial plan retains the incoming affine henselization and quotient work and adds the concrete excellence and algebraic-space predicates below. SF.0 and SF.1 are partial; SF.2–SF.6 are not yet planned. All implementation statuses are unchecked. The remaining-work section below supersedes older remaining-work summaries.
+
 # Image-ideal quotient tower coherence
 
 Codex — codex-7e92bd,4October2026. Partial checkpoint: ten lemmas.
@@ -3345,3 +3347,293 @@ The full current Mathlib-only file elaborates; precise diagnostics and hashes ar
 The new source reads cover the complete statements and displayed proofs of Stacks 10.151.4, 10.143.9 and 10.143.8 and all mathematical text/proofs of 15.12.1–8. Twelve additional baseline statements were read at the pin. The generic unramified diagonal product already exists; its public existential signature does not specify a projection. The new adapters explicitly carry the given section. A lift of a residue idempotent is not assumed idempotent before reduction.
 
 Eight gap groups, seven open stages, all 62 routed-paper obligations, twelve unimplemented confirmed findings, the other five reserved keys and the unaccepted PerfectoidSpaces consolidation proposal remain. Source issue E1 is inherited unchanged and awaits independent review. Compilation and the local proof audit do not certify the henselization construction or any global roadmap closure.
+
+
+## Excellence on actual affine and local rings
+
+Excellence is a condition on the actual section and local rings. The definition must keep geometric regularity, flatness, openness of regular loci and catenarity separate. A Noetherian ring can fail these conditions; a ring with nilpotents can satisfy excellence. The implementation should therefore use the native regular-ring predicate and actual residue-field tensor products, rather than package an unspecified proposition as a formal-fibre condition.
+
+For a field k and a k-algebra B, geometric regularity means that B is Noetherian and every finite purely inseparable extension L/k gives a regular native algebra L⊗ₖB. The equivalence with testing all finite field extensions is a separate lemma. B is not required to be finite type. A regular R-algebra map is flat and has geometrically regular fibres κ(p)⊗ᴿB for every prime p of R; Noetherianity of the entire target is not added. In the field comparison to the native Algebra.IsSeparable predicate, L/k is explicitly finite. The native separability class implies algebraicity and cannot express unrestricted transcendental separability.
+
+The regular locus consists of those native prime ideals for which Rₚ is a regular local ring. This subset is defined before any openness assertion. A G-ring is Noetherian and has a regular completion map Rₚ→R̂ₚ at every prime p. Each of these maps tests all its residue-field fibres, not just the closed fibre. J-2 is Noetherianity together with openness of the regular locus of every finite-type algebra. Quasi-excellence combines G and J-2. Excellence also requires universal catenarity.
+
+Ordinary catenarity has an existing owner, DeformationAndDerivedPatchingAlgebra:R03.3/catenary. Its proposed predicate retains both boundedness of strict prime-chain lengths between fixed endpoints and equality of lengths of saturated chains. This packet imports that node. Because the supplier module is not present in the pinned library, the suggested excellence definition displays precisely that predicate's formula for every finite-type algebra; it does not define another catenary carrier. The supplier node is not yet visible in the current promoted atlas assembly. Promotion of the supplier or an accepted import adapter is still needed before the assembler can draw that named dependency.
+
+A scheme is quasi-excellent, or excellent, if each point has an affine neighbourhood whose actual section ring has that property. Checking every affine open, agreement on Spec R, and local Noetherianity are named comparisons. The definition itself does not assert regularity, reducedness or quasi-compactness of the scheme.
+
+The field and zero-ring tests fix the basic and empty cases. The actual square-zero extension k⋉k distinguishes regularity from excellence: it is flat as a k-module and is excellent, but is not geometrically regular; its regular locus is empty. A finite purely inseparable nonseparable field extension gives another genuine failure of geometric regularity. The integer and complete Noetherian local examples keep the principal arithmetic uses in view. All example proofs remain planning signatures.
+
+The main source ranges are [Stacks045K](https://stacks.math.columbia.edu/tag/045K), [07BY](https://stacks.math.columbia.edu/tag/07BY), [07GG](https://stacks.math.columbia.edu/tag/07GG), [07P6](https://stacks.math.columbia.edu/tag/07P6), [07QS](https://stacks.math.columbia.edu/tag/07QS) and [0HA6](https://stacks.math.columbia.edu/tag/0HA6). Native localization, tensor and completion comparisons, G-ring ascent, regularity ascent/descent and the Zariski-local passage are proof leaves, not consequences of elaborating an admitted signature.
+
+Česnavičius's selected arXiv passages supply a different CM/Serre template: locally Noetherian schemes, the respective condition on formal fibres, and a nonempty suitable open in every integral closed subscheme. Universal catenarity gives its excellent variant. Those predicates remain unplanned. The complete key also still needs pathological examples and normalization/completion consequences.
+
+### Geometrically regular algebras
+
+For a field k and a commutative k-algebra B, require B Noetherian and L tensor_k B a native regular ring for every finite purely inseparable field extension L/k. This is the Noetherian geometric-regularity predicate; B need not be finite type over k.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Excellence`. Node: `SchemeAndStackFoundations:SF.0/geometrically-regular-algebra`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Excellence.GeometricallyRegular.regular`: Geometric regularity of B/k implies native IsRegularRing B.
+- `TauCeti.SchemeFoundations.Excellence.GeometricallyRegular.finite_extension`: For every finite field extension L/k, L tensor_k B is regular if B is geometrically regular over k.
+- `TauCeti.SchemeFoundations.Excellence.GeometricallyRegular.algEquiv`: A k-algebra equivalence B ≃ C identifies their geometric-regularity predicates.
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Excellence.GeometricallyRegular.test_field`: k is geometrically regular over itself.
+- `TauCeti.SchemeFoundations.Excellence.GeometricallyRegular.test_zero`: The zero k-algebra k/(1) is geometrically regular; no nontriviality is imposed.
+- `TauCeti.SchemeFoundations.Excellence.GeometricallyRegular.test_dual_numbers`: The actual square-zero extension k ⋉ k is not geometrically regular over k.
+- `TauCeti.SchemeFoundations.Excellence.GeometricallyRegular.test_inseparable`: A finite purely inseparable field extension L/k which is not separable is not geometrically regular over k, although L is a regular ring.
+
+Prerequisites: `mathlib:IsRegularRing`, `mathlib:IsPurelyInseparable`, `mathlib:Module.Finite`.
+
+### Regular algebra maps
+
+For a specified R-algebra B, require native Module.Flat R B and, for every prime p of R, Noetherian geometric regularity of the actual fibre κ(p) tensor_R B over κ(p). This predicate imposes neither finite presentation nor Noetherianity on B itself.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Excellence`. Node: `SchemeAndStackFoundations:SF.0/regular-algebra-map`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Excellence.RegularAlgebraMap.flat`: A regular R-algebra map makes B flat over R.
+- `TauCeti.SchemeFoundations.Excellence.RegularAlgebraMap.fibre`: Each actual native residue-field fibre of a regular map is geometrically regular.
+- `TauCeti.SchemeFoundations.Excellence.RegularAlgebraMap.field_iff`: For a finite field extension L/k, the map is regular iff native Algebra.IsSeparable k L. The finite hypothesis is essential to this native formulation; no claim is made for arbitrary transcendental extensions.
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Excellence.RegularAlgebraMap.test_identity`: The identity R-algebra R is regular for any commutative R, even without Noetherianity.
+- `TauCeti.SchemeFoundations.Excellence.RegularAlgebraMap.test_zero`: R→R/(1) is regular: its fibres are zero and its target is flat.
+- `TauCeti.SchemeFoundations.Excellence.RegularAlgebraMap.test_flat_not_regular`: k⋉k is flat as a k-module but its structural k-algebra map is not regular.
+
+Prerequisites: `mathlib:Module.Flat`, `mathlib:Ideal.ResidueField`, `mathlib:Ideal.Fiber`, `SchemeAndStackFoundations:SF.0/geometrically-regular-algebra`.
+
+### Regular locus of an affine scheme
+
+For any commutative R, form the subset of native PrimeSpectrum R consisting of primes p for which Localization.AtPrime p is a native regular local ring. Openness is a separate assertion, not part of this subset.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Excellence`. Node: `SchemeAndStackFoundations:SF.0/regular-locus`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Excellence.mem_regularLocus`: A prime belongs exactly when its native localization is regular local.
+- `TauCeti.SchemeFoundations.Excellence.regularLocus_eq_univ`: For a native regular ring R, this subset is all of PrimeSpectrum R.
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Excellence.regularLocus.test_field`: The regular locus of a field is its entire spectrum.
+- `TauCeti.SchemeFoundations.Excellence.regularLocus.test_zero`: The regular locus of R/(1) is empty; its spectrum is also empty.
+- `TauCeti.SchemeFoundations.Excellence.regularLocus.test_dual_numbers`: The regular locus of k⋉k is empty, despite this algebra being finite free over k.
+
+Prerequisites: `mathlib:PrimeSpectrum`, `mathlib:IsRegularLocalRing`.
+
+### G-rings
+
+R is Noetherian and, for every prime p, the canonical R_p-algebra AdicCompletion(m_p,R_p) is a regular algebra map, where R_p is native Localization.AtPrime p and m_p its native maximal ideal. All prime fibres of each local completion are tested, not only the closed fibre.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Excellence`. Node: `SchemeAndStackFoundations:SF.0/g-ring`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Excellence.IsGRing.noetherian`: A G-ring is Noetherian.
+- `TauCeti.SchemeFoundations.Excellence.IsGRing.completion_regular`: For every prime p, the actual local completion map R_p→AdicCompletion(m_p,R_p) is regular.
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Excellence.IsGRing.test_field`: Every field is a G-ring.
+- `TauCeti.SchemeFoundations.Excellence.IsGRing.test_zero`: The zero ring R/(1) is a G-ring: the prime-indexed condition is vacuous.
+- `TauCeti.SchemeFoundations.Excellence.IsGRing.test_complete_local`: A native Noetherian local ring which is adically complete for its maximal ideal is a G-ring.
+
+Prerequisites: `mathlib:AdicCompletion`, `mathlib:IsLocalRing.maximalIdeal`, `SchemeAndStackFoundations:SF.0/regular-algebra-map`.
+
+### J-2 rings
+
+R is Noetherian and the actual regular locus of every finite-type R-algebra B is Zariski open. Quantify over all specified finite-type algebras, rather than checking only R or only its localizations.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Excellence`. Node: `SchemeAndStackFoundations:SF.0/j2-ring`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Excellence.IsJ2.noetherian`: A J-2 ring is Noetherian.
+- `TauCeti.SchemeFoundations.Excellence.IsJ2.regularLocus_open`: For any finite-type R-algebra B, J-2 of R supplies IsOpen(regularLocus B).
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Excellence.IsJ2.test_field`: Every field is J-2.
+- `TauCeti.SchemeFoundations.Excellence.IsJ2.test_zero`: The zero ring R/(1) is J-2.
+- `TauCeti.SchemeFoundations.Excellence.IsJ2.test_singular_allowed`: k⋉k is J-2, although its regular locus is empty. Requiring regularity or a nonempty regular locus is an incorrect replacement.
+
+Prerequisites: `mathlib:Algebra.FiniteType`, `SchemeAndStackFoundations:SF.0/regular-locus`.
+
+### Quasi-excellent rings
+
+A commutative ring is quasi-excellent exactly when it is a G-ring and J-2. Noetherianity is retained through both predicates. Universal catenarity is not required in this definition.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Excellence`. Node: `SchemeAndStackFoundations:SF.0/quasi-excellent-ring`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Excellence.IsQuasiExcellentRing.gRing`: A quasi-excellent ring is a G-ring.
+- `TauCeti.SchemeFoundations.Excellence.IsQuasiExcellentRing.j2`: A quasi-excellent ring is J-2.
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Excellence.IsQuasiExcellentRing.test_field`: Every field is quasi-excellent.
+- `TauCeti.SchemeFoundations.Excellence.IsQuasiExcellentRing.test_zero`: The zero ring R/(1) is quasi-excellent.
+- `TauCeti.SchemeFoundations.Excellence.IsQuasiExcellentRing.test_nilpotents_allowed`: k⋉k is quasi-excellent. Reducedness is not part of the definition.
+
+Prerequisites: `SchemeAndStackFoundations:SF.0/g-ring`, `SchemeAndStackFoundations:SF.0/j2-ring`.
+
+### Excellent rings
+
+A commutative R is excellent exactly when it is quasi-excellent and every finite-type R-algebra is catenary in the existing R03.3/catenary sense: lengths of strict prime chains between each fixed pair are bounded and all saturated chains between that pair have equal length. Both boundedness and saturation are retained; this packet does not create a second catenary carrier.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Excellence`. Node: `SchemeAndStackFoundations:SF.0/excellent-ring`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentRing.quasiExcellent`: An excellent ring is quasi-excellent.
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentRing.finiteType`: A finite-type algebra over an excellent ring is excellent, with its specified base action.
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentRing.localization`: Localization at any submonoid of an excellent ring is excellent; finite generation of that submonoid is unnecessary.
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentRing.test_field`: Every field is excellent.
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentRing.test_zero`: The zero ring R/(1) is excellent.
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentRing.test_integers`: The ring of integers Z is excellent.
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentRing.test_nilpotents_allowed`: k⋉k is excellent despite its nonzero nilpotent ideal.
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentRing.test_complete_local`: A native Noetherian local ring adically complete for its maximal ideal is excellent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.0/quasi-excellent-ring`, `DeformationAndDerivedPatchingAlgebra:R03.3/catenary`, `mathlib:Algebra.FiniteType`.
+
+### Quasi-excellent schemes
+
+For each point x of native Scheme X, there is an affine open U containing x whose actual section ring Γ(X,U) is quasi-excellent. Equivalence to checking every affine open and local Noetherianity are separate lemmas.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Excellence`. Node: `SchemeAndStackFoundations:SF.0/quasi-excellent-scheme`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Excellence.IsQuasiExcellentScheme.affine_iff`: X is quasi-excellent iff every affine open U has quasi-excellent section ring Γ(X,U).
+- `TauCeti.SchemeFoundations.Excellence.IsQuasiExcellentScheme.locallyNoetherian`: A quasi-excellent scheme is locally Noetherian in the native sense.
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Excellence.IsQuasiExcellentScheme.test_spec`: Spec R is quasi-excellent iff R is quasi-excellent.
+- `TauCeti.SchemeFoundations.Excellence.IsQuasiExcellentScheme.test_field`: Spec k is quasi-excellent for every field k.
+- `TauCeti.SchemeFoundations.Excellence.IsQuasiExcellentScheme.test_zero`: The empty scheme Spec(R/(1)) is quasi-excellent.
+
+Prerequisites: `SchemeAndStackFoundations:SF.0/quasi-excellent-ring`, `mathlib:AlgebraicGeometry.Scheme`, `mathlib:AlgebraicGeometry.IsAffineOpen`.
+
+### Excellent schemes
+
+For every point x of native Scheme X, require an affine open U containing x with excellent actual section ring Γ(X,U). This is the main reserved excellent-schemes definition. Neither reducedness nor regularity of X is required. The companion CM- and (S_n)-excellence extensions of the survey remain explicitly unplanned.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Excellence`. Node: `SchemeAndStackFoundations:key/excellent-schemes`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentScheme.affine_iff`: X is excellent iff every affine open U has excellent section ring Γ(X,U).
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentScheme.quasiExcellent`: An excellent scheme is quasi-excellent.
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentScheme.locallyNoetherian`: An excellent scheme is locally Noetherian in the native sense.
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentScheme.test_spec`: Spec R is excellent iff R is excellent.
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentScheme.test_field`: Spec k is excellent for every field k.
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentScheme.test_empty`: The empty scheme Spec(R/(1)) is excellent.
+- `TauCeti.SchemeFoundations.Excellence.IsExcellentScheme.test_nonreduced`: Spec(k⋉k) is excellent and nonreduced; excellence must not be confused with regularity.
+
+Prerequisites: `SchemeAndStackFoundations:SF.0/excellent-ring`, `mathlib:AlgebraicGeometry.Scheme`, `mathlib:AlgebraicGeometry.IsAffineOpen`.
+
+
+## Algebraic spaces through existing sheaf carriers
+
+The geometric predicate starts from the native presheaf category Schemeᵒᵖ→Type, the native fppf topology and Yoneda functor. Relative representability and morphism properties on represented pullbacks already exist. They are imported directly. A representable diagonal means that every scheme base change of F→F×F is represented by a scheme. An étale atlas is an actual natural transformation h_U→F whose represented base changes are étale and surjective. Surjectivity is tested after base change; it is not objectwise surjectivity of U(T)→F(T).
+
+An absolute algebraic space is an fppf sheaf with representable diagonal and an étale scheme atlas. The atlas is existential: replacing a presheaf by an isomorphic one preserves the predicate. Relative spaces over S use objects with a map to h_S; proving agreement with the slice fppf site is an explicit obligation. Neither properness nor quasi-compactness of the diagonal belongs to the predicate. The field, empty and actual nonreduced square-zero schemes are tests, and every scheme must embed without a quasi-separatedness assumption.
+
+The source definition and scheme embedding are [Stacks025X](https://stacks.math.columbia.edu/tag/025X); the existing native relative-representability API matches [025U](https://stacks.math.columbia.edu/tag/025U). The full mathematical proof of the étale-equivalence-relation quotient in [0264](https://stacks.math.columbia.edu/tag/0264) was read. Its quotient sheaf, kernel pair, affine representability, quasi-finite descent and gluing leaves still require actual declaration nodes. These predicates do not yet supply a quotient construction or atlas-independence theorem.
+
+The R09.4 finite étale gerbe and R09.3 quasi-coherent-space consumers need precisely these geometric carriers. Their requested small étale ringed site, chart fibre products and module comparisons remain unfinished. Ordinary stackification and quotient-stack machinery stays with DiamondsAndVStacks:D0. Effective descent of MC0E's classes and SR2's polarized data stays with those owners. General stacks, stabilizers, coarse/fine moduli and Galois gerbs are separate unplanned targets.
+
+### Representable diagonal of a scheme presheaf
+
+For a native Scheme-valued-domain presheaf F, the canonical native product diagonal F→F×F is relatively representable with respect to the native Yoneda functor. For every scheme T and T→F×F, the pullback is represented by a scheme. Neither quasi-compactness of the diagonal nor a sheaf hypothesis is built into this predicate.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Spaces`. Node: `SchemeAndStackFoundations:SF.1/representable-diagonal`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Spaces.RepresentableDiagonal.of_scheme`: The Yoneda presheaf of every scheme has representable diagonal, without a quasi-separatedness hypothesis.
+- `TauCeti.SchemeFoundations.Spaces.RepresentableDiagonal.iso`: An isomorphism F≅G of native presheaves identifies their representable-diagonal predicates.
+- `TauCeti.SchemeFoundations.Spaces.RepresentableDiagonal.from_scheme`: If F has representable diagonal, every natural transformation h_X→F from a scheme is relatively representable; pull it back along a test scheme through F×F.
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Spaces.RepresentableDiagonal.test_field`: h_Spec(k) has representable diagonal for every field k.
+- `TauCeti.SchemeFoundations.Spaces.RepresentableDiagonal.test_empty`: The actual native empty scheme has representable diagonal.
+- `TauCeti.SchemeFoundations.Spaces.RepresentableDiagonal.test_nonreduced`: The actual scheme Spec(k⋉k) has representable diagonal despite its nilpotents.
+
+Prerequisites: `mathlib:CategoryTheory.Functor.relativelyRepresentable`, `mathlib:CategoryTheory.yoneda`.
+
+### Etale scheme atlas
+
+For a native presheaf F, a scheme U and natural transformation a:h_U→F, require native relative etaleness and relative surjectivity. Thus every base change along h_T→F is represented by a scheme V, and the actual morphism V→T is etale and surjective. Objectwise surjectivity F(T)←U(T) is not the definition.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Spaces`. Node: `SchemeAndStackFoundations:SF.1/etale-atlas`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Spaces.EtaleAtlas.representable`: An etale atlas is relatively representable by schemes.
+- `TauCeti.SchemeFoundations.Spaces.EtaleAtlas.etale`: Every represented scheme base change of an etale atlas is an etale morphism.
+- `TauCeti.SchemeFoundations.Spaces.EtaleAtlas.surjective`: Every represented scheme base change of an etale atlas is a surjective morphism.
+- `TauCeti.SchemeFoundations.Spaces.EtaleAtlas.yoneda_iff`: For a scheme morphism f:U→X, its Yoneda transformation is an etale atlas exactly when f is etale and surjective.
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Spaces.EtaleAtlas.test_identity`: The identity of h_X is an atlas for every scheme X.
+- `TauCeti.SchemeFoundations.Spaces.EtaleAtlas.test_empty_identity`: The identity of the actual empty scheme is an atlas of its own presheaf.
+- `TauCeti.SchemeFoundations.Spaces.EtaleAtlas.test_empty_not_cover`: For every field k, no transformation from h_empty to h_Spec(k) is an atlas; it cannot be surjective after scheme base change.
+
+Prerequisites: `mathlib:CategoryTheory.MorphismProperty.presheaf`, `mathlib:AlgebraicGeometry.Etale`, `mathlib:AlgebraicGeometry.Surjective`.
+
+### Algebraic spaces
+
+A native scheme presheaf F is an absolute algebraic space when it is a sheaf for native Scheme.fppfTopology, has representable diagonal, and admits an etale scheme atlas. All clauses have concrete native expressions in the suggested file. The relative version over S is the native over-category of these objects mapping to h_S; the slice-site equivalence remains a separate comparison obligation. No properness, finite type, quasi-separatedness or smoothness over the base is implicit.
+
+Proposed namespace: `TauCeti.SchemeFoundations.Spaces`. Node: `SchemeAndStackFoundations:SF.1/algebraic-space`.
+
+API:
+
+- `TauCeti.SchemeFoundations.Spaces.IsAlgebraicSpace.sheaf`: An algebraic space satisfies the native fppf sheaf condition.
+- `TauCeti.SchemeFoundations.Spaces.IsAlgebraicSpace.diagonal`: An algebraic space has representable diagonal.
+- `TauCeti.SchemeFoundations.Spaces.IsAlgebraicSpace.atlas`: An algebraic space has a scheme and a specified representable etale surjective atlas map.
+- `TauCeti.SchemeFoundations.Spaces.IsAlgebraicSpace.of_scheme`: The native Yoneda presheaf of every scheme is an algebraic space.
+- `TauCeti.SchemeFoundations.Spaces.IsAlgebraicSpace.iso`: Isomorphic native scheme presheaves have equivalent algebraic-space predicates; the choice of atlas is not part of the object.
+
+Typed boundary tests:
+
+- `TauCeti.SchemeFoundations.Spaces.IsAlgebraicSpace.test_field`: h_Spec(k) is an algebraic space for every field k.
+- `TauCeti.SchemeFoundations.Spaces.IsAlgebraicSpace.test_empty`: h_empty is an algebraic space.
+- `TauCeti.SchemeFoundations.Spaces.IsAlgebraicSpace.test_nonreduced`: h_Spec(k⋉k) is an algebraic space, without a reducedness requirement.
+- `TauCeti.SchemeFoundations.Spaces.IsAlgebraicSpace.test_arbitrary_scheme`: Every native scheme gives an algebraic space; in particular this theorem cannot require its diagonal to be quasi-compact.
+
+Prerequisites: `mathlib:CategoryTheory.Presheaf.IsSheaf`, `mathlib:AlgebraicGeometry.Scheme.fppfTopology`, `SchemeAndStackFoundations:SF.1/representable-diagonal`, `SchemeAndStackFoundations:SF.1/etale-atlas`.
+
+
+## Current target inventory and remaining work
+
+The reviewed target inventory covers all seven stages, preserving each audit note and distinguishing an existing library import, a partial target strand, an unplanned target and the SF.6 consumer handoff. An inventory entry alone does not make a stage planned. The packet remains partial, below the 300-node budget, because this first target pass is unfinished.
+
+| Stage | Coverage | Remaining work |
+|---|---|---|
+| SF.0 | partial | Finish the inherited henselization strand: actual scalar towers/coequalizer, lifted residue-selector quotient/localization, recursively cited etale-section criterion, universal property and the remaining sample API. Respect the unresolved PerfectoidSpaces owner consolidation. The existing actual image-ideal quotient has whole three-morphism and right-identity coherence. Left identity, longer tower/pentagon and conductor-specific identification/coherence remain. Preserve both current consumer request objects; no arbitrary nonaffine image-ideal equality or global section surjectivity follows. Excellence now has nine concrete predicates/constructions and22 named APIs. Complete source proof leaves, CM/(S_n) variants, pathological examples, normalization/completion consequences and the full reserved brief; import R03.3/catenary. Plan relative Spec, general relative Proj/canonical comparisons and the remaining SF.0 targets. Import finite-generated relative Proj from SR2 and the native scheme/morphism/QCoh/local-algebra baseline; do not add unrestricted O(1) or properness claims. Preserve every SF.0 sourceWorklist route and the accepted Weil-restriction MC0F→RG2.0a→R09.3 import. Finish the breadth-first target pass across all seven stages before further quotient refinement. |
+| SF.1 | partial | Algebraic spaces now have concrete native representable-diagonal, etale-atlas and algebraic-space predicates, with twelve named interfaces and ten typed tests. Finish the actual category, relative comparison, quotient/presentation/atlas-independence proof and concrete nonscheme examples. Read and plan the small etale ringed site and chart fibre products requested by R09.3; retain its QCoh and relative Picard constructions as consumers, not duplicate local definitions. Plan the remaining Artin/Deligne-Mumford stack, stabilizer, coarse/fine moduli and effective object-class descent targets, importing MC0E/SR2 and DiamondsAndVStacks:D0 exactly. Generic quotient stacks remain owned by D0. Plan reserved galois-gerbs and all routed quotient/root-stack, perfect-site groupoid and Galois/descent source routes. This stage is partial, not fully planned. |
+| SF.2 | not_read | Plan reserved scheme-brauer, coherent-duality and equivariant-sheaf-cohomology, with their canonical comparison and scope-qualified APIs/tests. Split early site/coefficients from later comparisons: import EDC/CPC and EtaleDualityAbsolutePurityPartII. Preserve coherent-curve SR2 and general coherent-duality distinction; do not create a second six-operations or absolute-purity theory. Retain all site/localization/support/compact support/base-change/Cousin/pro-etale/Nisnevich routes with coefficient distinctions. Henselian points require the still-open affine strand and additional site geometry. |
+| SF.3 | not_read | Import upstream AlgebraicCurves/JacobianChallenge function-field divisors, genus and RR; prove scheme/Picard/line-bundle/coherent-duality comparisons. Do not infer arbitrary-vector-bundle duality from function-field RR. Keep NS/Picard-number theory with A2; retain rational-divisor versus rational-class/Brauer-obstruction and family/Jacobian routes. |
+| SF.4 | not_read | Formal geometry, deformation/lifting, algebraization, non-Noetherian modifications, strict transforms and source-qualified alterations remain unread at their primary locators. Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9. Resolve the conflicting confirmed alteration-owner recommendations before adding any alteration dependency. |
+| SF.5 | not_read | Build on the existing AlgebraicCycle carrier; construct rational equivalence/Chow, pushforward, flat/lci pullback, refined Gysin, intersection/Chern/RR in their actual domains. Import arithmetic-surface intersections from StableReductionLayer4. Retain SF.3/R09.1/coherent-duality inputs, isolated-intersection Bezout inequalities, DM-stack and positivity/Keel routes without requiring unrelated reduction theorems. |
+| SF.6 | not_read | This is a consumer handoff/process layer according to AUDIT-01: do not invent mathematical nodes for integration itself. Record typed imports and coefficient/comparison contracts from the actual suppliers, including ComplexComparison C5, once the mathematical nodes exist. All arithmetic handoffs in sourceWorklist remain unfinished. |
+
+All 186 incoming mathematical node objects, 62 source routes, baseline declarations and current consumer request objects are preserved. The plan now has 232 nodes, 179 baseline references, 11 recorded gaps and seven planets across two stages. The two new strands add 12 concrete predicates/constructions, 34 named interfaces and 41 typed examples. Full source-proof closure and mathematical implementation are not claimed.
