@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.Length
 import Mathlib.Algebra.Module.Torsion.Basic
 import Mathlib.RingTheory.Noetherian.Basic
 import TauCeti.Algebra.DirectSum.Internal
@@ -5720,6 +5721,152 @@ example (M : Type*) [AddCommGroup M] [Module A M]
       (LinearMap.lsmul (adicGradedRing (⊤ : Ideal A)) (adicGradedModule (⊤ : Ideal A) M) a)) :
     letI := adicModuleCokernelScalarModule (⊤ : Ideal A) M a
     x = 0 ∧ Ideal.Quotient.mk (Ideal.span {(a : adicGradedRing (⊤ : Ideal A))}) b • x = 0 := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+set_option synthInstance.maxHeartbeats 200000
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A : Type*} [CommRing A]
+variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+
+lemma adicModulePiece_length_ne_top [IsNoetherianRing A] [Module.Finite A M]
+    [IsArtinianRing (A ⧸ q)] (n : ℕ) :
+    Module.length A (adicModulePiece q M n) ≠ ⊤ := by
+  sorry
+
+lemma adicModuleComponents_length_ne_top [IsNoetherianRing A] [Module.Finite A M]
+    [IsArtinianRing (A ⧸ q)] (n : ℕ) :
+    Module.length A (adicModuleComponents q M n) ≠ ⊤ := by
+  sorry
+
+lemma adicModuleMulComponent_length_eq (a : adicRingComponents q 1) (n : ℕ) :
+    Module.length A (adicModuleComponents q M n) =
+      Module.length A (LinearMap.ker (adicModuleMulComponent q M a n)) +
+      Module.length A (LinearMap.range (adicModuleMulComponent q M a n)) := by
+  sorry
+
+lemma adicModuleCokernelComponent_length_eq (a : adicRingComponents q 1) (n : ℕ) :
+    Module.length A (adicModuleComponents q M (n + 1)) =
+      Module.length A (LinearMap.range (adicModuleMulComponent q M a n)) +
+      Module.length A (LinearMap.range (((LinearMap.range
+        (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).mkQ.restrictScalars A).comp
+          (adicModuleComponents q M (n + 1)).subtype)) := by
+  sorry
+
+lemma adicModuleMulComponent_ker_length_ne_top (a : adicRingComponents q 1) (n : ℕ)
+    (h : Module.length A (adicModuleComponents q M n) ≠ ⊤) :
+    Module.length A (LinearMap.ker (adicModuleMulComponent q M a n)) ≠ ⊤ := by
+  sorry
+
+lemma adicModuleMulComponent_range_length_ne_top (a : adicRingComponents q 1) (n : ℕ)
+    (h : Module.length A (adicModuleComponents q M n) ≠ ⊤) :
+    Module.length A (LinearMap.range (adicModuleMulComponent q M a n)) ≠ ⊤ := by
+  sorry
+
+lemma adicModuleCokernelComponent_length_ne_top (a : adicRingComponents q 1) (n : ℕ)
+    (h : Module.length A (adicModuleComponents q M n) ≠ ⊤) :
+    Module.length A (LinearMap.range (((LinearMap.range
+      (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).mkQ.restrictScalars A).comp
+        (adicModuleComponents q M n).subtype)) ≠ ⊤ := by
+  sorry
+
+lemma adicModuleMulComponent_length_toNat (a : adicRingComponents q 1) (n : ℕ)
+    (h : Module.length A (adicModuleComponents q M n) ≠ ⊤) :
+    (Module.length A (adicModuleComponents q M n)).toNat =
+      (Module.length A (LinearMap.ker (adicModuleMulComponent q M a n))).toNat +
+      (Module.length A (LinearMap.range (adicModuleMulComponent q M a n))).toNat := by
+  sorry
+
+lemma adicModuleCokernelComponent_length_toNat (a : adicRingComponents q 1) (n : ℕ)
+    (h : Module.length A (adicModuleComponents q M (n + 1)) ≠ ⊤) :
+    (Module.length A (adicModuleComponents q M (n + 1))).toNat =
+      (Module.length A (LinearMap.range (adicModuleMulComponent q M a n))).toNat +
+      (Module.length A (LinearMap.range (((LinearMap.range
+        (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).mkQ.restrictScalars A).comp
+          (adicModuleComponents q M (n + 1)).subtype))).toNat := by
+  sorry
+
+lemma adicModuleComponent_length_recurrence (a : adicRingComponents q 1) (n : ℕ)
+    (h : Module.length A (adicModuleComponents q M n) ≠ ⊤)
+    (h' : Module.length A (adicModuleComponents q M (n + 1)) ≠ ⊤) :
+    ((Module.length A (adicModuleComponents q M (n + 1))).toNat : ℤ) -
+      (Module.length A (adicModuleComponents q M n)).toNat =
+    ((Module.length A (LinearMap.range (((LinearMap.range
+      (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).mkQ.restrictScalars A).comp
+        (adicModuleComponents q M (n + 1)).subtype))).toNat : ℤ) -
+      (Module.length A (LinearMap.ker (adicModuleMulComponent q M a n))).toNat := by
+  sorry
+
+lemma adicModuleComponent_length_recurrence_of_finite [IsNoetherianRing A] [Module.Finite A M]
+    [IsArtinianRing (A ⧸ q)] (a : adicRingComponents q 1) (n : ℕ) :
+    ((Module.length A (adicModuleComponents q M (n + 1))).toNat : ℤ) -
+      (Module.length A (adicModuleComponents q M n)).toNat =
+    ((Module.length A (LinearMap.range (((LinearMap.range
+      (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).mkQ.restrictScalars A).comp
+        (adicModuleComponents q M (n + 1)).subtype))).toNat : ℤ) -
+      (Module.length A (LinearMap.ker (adicModuleMulComponent q M a n))).toNat := by
+  sorry
+
+lemma adicModuleCokernelComponent_zero_length (a : adicRingComponents q 1) :
+    Module.length A (LinearMap.range (((LinearMap.range
+      (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).mkQ.restrictScalars A).comp
+        (adicModuleComponents q M 0).subtype)) = Module.length A (adicModuleComponents q M 0) := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+set_option synthInstance.maxHeartbeats 200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A : Type*} [CommRing A]
+
+-- test: AdicLengthTests.negative_difference
+example :
+    let q : Ideal ℚ := ⊥
+    ((Module.length ℚ (adicModuleComponents q ℚ 1)).toNat : ℤ) -
+      (Module.length ℚ (adicModuleComponents q ℚ 0)).toNat = -1 := by
+  sorry
+
+-- test: AdicLengthTests.infinite_component
+example :
+    Module.length ℚ (adicModuleComponents (⊥ : Ideal ℚ) (ℕ →₀ ℚ) 0) = ⊤ ∧
+      (Module.length ℚ (adicModuleComponents (⊥ : Ideal ℚ) (ℕ →₀ ℚ) 0)).toNat = 0 := by
+  sorry
+
+-- test: AdicLengthTests.unit_ideal
+example (M : Type*) [AddCommGroup M] [Module A M] (n : ℕ) :
+    Module.length A (adicModuleComponents (⊤ : Ideal A) M n) = 0 := by
+  sorry
+
+-- test: AdicLengthTests.zero_multiplier_kernel
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M] (n : ℕ) :
+    Module.length A (LinearMap.ker (adicModuleMulComponent q M 0 n)) =
+      Module.length A (adicModuleComponents q M n) := by
+  sorry
+
+-- test: AdicLengthTests.nonreduced_kernel_correction
+example :
+    let q : Ideal (ZMod 4) := Ideal.span {2}
+    ∃ a : adicRingComponents q 1, a ≠ 0 ∧
+      0 < Module.length (ZMod 4) (LinearMap.ker (adicModuleMulComponent q (ZMod 4) a 1)) ∧
+      Module.length (ZMod 4) (LinearMap.ker (adicModuleMulComponent q (ZMod 4) a 1)) ≠ ⊤ := by
+  sorry
+
+-- test: AdicLengthTests.zero_degree_quotient
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+    (a : adicRingComponents q 1) :
+    Module.length A (LinearMap.range (((LinearMap.range
+      (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).mkQ.restrictScalars A).comp
+        (adicModuleComponents q M 0).subtype)) = Module.length A (adicModulePiece q M 0) := by
   sorry
 
 end

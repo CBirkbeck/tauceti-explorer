@@ -1,3 +1,187 @@
+# Finite component lengths and the signed Hilbert–Serre recurrence
+
+A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.
+
+The extended-length identities need no finiteness. Natural conversion occurs only after both summands are proved finite, and subtraction takes place in Z. Finite original M over Noetherian A together with Artinian A/q supplies the component bounds; no local, field or injective-multiplier assumption is introduced.
+
+## Finite length of each actual adic piece
+
+TauCeti.HilbertSamuel.adicModulePiece_length_ne_top
+
+If A is Noetherian, M is finite over A and A/q is Artinian, then ℓ_A(q^nM/q^(n+1)M)≠∞ for every n≥0. The exact quotient carrier is adicModulePiece, including zero modules and the unit ideal.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed. A is Noetherian, M is finite over A, and A/q is Artinian.
+
+Proof: The submodule q^nM is finite over Noetherian A, so its actual quotient is finite over A. Use the existing native A/q action and scalar tower to obtain finite generation over A/q; Artinianity of A/q makes the quotient Artinian over A/q. Restrict along the surjective quotient algebra map to obtain Artinianity over A. Together with Noetherianity this gives finite native length.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum, mathlib:Module.Finite.of_restrictScalars_finite, mathlib:isArtinian_of_surjective_algebraMap, mathlib:isArtinian_of_fg_of_artinian', mathlib:Module.length_ne_top.
+
+## Finite length of each image component
+
+TauCeti.HilbertSamuel.adicModuleComponents_length_ne_top
+
+Under the same Noetherian A, finite M and Artinian A/q hypotheses, ℓ_A(L_n)≠∞ for every n≥0.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed. A is Noetherian, M is finite over A, and A/q is Artinian.
+
+Proof: Transport length along the existing actual component linear equivalence q^nM/q^(n+1)M≃L_n and apply the preceding finite-length theorem.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-finite-length, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-component-equivalence, mathlib:LinearEquiv.length_eq.
+
+## Kernel-image length identity
+
+TauCeti.HilbertSamuel.adicModuleMulComponent_length_eq
+
+For every a and n, ℓ_A(L_n)=ℓ_A(K_n)+ℓ_A(I_(n+1)) in ENat, without a finite-length premise.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.
+
+Proof: Apply native exact-sequence length additivity to the kernel inclusion and the actual range-restricted f_n. Use the native kernel-of-range-restriction equality to identify the kernel with K_n.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-map, mathlib:Module.length_eq_add_of_exact, mathlib:LinearMap.exact_iff, mathlib:Submodule.range_subtype, mathlib:LinearMap.ker_rangeRestrict, mathlib:LinearMap.surjective_rangeRestrict.
+
+## Image-quotient length identity
+
+TauCeti.HilbertSamuel.adicModuleCokernelComponent_length_eq
+
+For every a and n, ℓ_A(L_(n+1))=ℓ_A(I_(n+1))+ℓ_A(C_(n+1)) in ENat, without assuming injectivity or finite length.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.
+
+Proof: Apply native length additivity to the kernel inclusion of p_(n+1) and the actual surjective p_(n+1). Replace that kernel by the existing exact equality with range(f_n).
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-exactness, DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-surjectivity, mathlib:Module.length_eq_add_of_exact, mathlib:LinearMap.exact_iff, mathlib:Submodule.range_subtype.
+
+## Finite component kernel length
+
+TauCeti.HilbertSamuel.adicModuleMulComponent_ker_length_ne_top
+
+If ℓ_A(L_n)≠∞, then ℓ_A(K_n)≠∞. No ambient Noetherian-ring assumption is needed once this component length is finite.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed. ℓ_A(L_n)≠∞.
+
+Proof: Use native length monotonicity for the actual injective kernel subtype and the finite upper bound.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-map, mathlib:Module.length_le_of_injective.
+
+## Finite component image length
+
+TauCeti.HilbertSamuel.adicModuleMulComponent_range_length_ne_top
+
+If ℓ_A(L_n)≠∞, then ℓ_A(I_(n+1))≠∞.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed. ℓ_A(L_n)≠∞.
+
+Proof: The actual range restriction of f_n is surjective. Its image length is bounded by the finite length of L_n.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-map, mathlib:Module.length_le_of_surjective, mathlib:LinearMap.surjective_rangeRestrict.
+
+## Finite quotient component length
+
+TauCeti.HilbertSamuel.adicModuleCokernelComponent_length_ne_top
+
+If ℓ_A(L_n)≠∞, then ℓ_A(C_n)≠∞ for the actual image in L/aL.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed. ℓ_A(L_n)≠∞.
+
+Proof: Apply native length monotonicity to the actual surjective component map p_n.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-surjectivity, mathlib:Module.length_le_of_surjective.
+
+## Natural kernel-image length identity
+
+TauCeti.HilbertSamuel.adicModuleMulComponent_length_toNat
+
+If ℓ_A(L_n)≠∞, then toNat ℓ_A(L_n)=toNat ℓ_A(K_n)+toNat ℓ_A(I_(n+1)). Both summand lengths are proved finite before ENat.toNat_add is applied.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed. ℓ_A(L_n)≠∞.
+
+Proof: Rewrite the extended-length identity. Supply the proved finite kernel and image lengths to native ENat.toNat_add; no infinite length is silently converted to zero.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-length, DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-kernel-finite-length, DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-image-finite-length, mathlib:ENat.toNat_add.
+
+## Natural image-quotient length identity
+
+TauCeti.HilbertSamuel.adicModuleCokernelComponent_length_toNat
+
+If ℓ_A(L_(n+1))≠∞, then toNat ℓ_A(L_(n+1))=toNat ℓ_A(I_(n+1))+toNat ℓ_A(C_(n+1)). This requires only the target component length, not finiteness of L_n.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed. ℓ_A(L_(n+1))≠∞.
+
+Proof: Bound the image length by L_(n+1) using its actual subtype, and use the quotient finite-length theorem. Apply native toNat_add with both finite summands.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-length, DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-quotient-finite-length, mathlib:Module.length_le_of_injective, mathlib:ENat.toNat_add.
+
+## Signed component length recurrence
+
+TauCeti.HilbertSamuel.adicModuleComponent_length_recurrence
+
+If ℓ_A(L_n) and ℓ_A(L_(n+1)) are finite, then in Z: toNat ℓ_A(L_(n+1))−toNat ℓ_A(L_n)=toNat ℓ_A(C_(n+1))−toNat ℓ_A(K_n). The integer casts precede subtraction, preserving negative differences; the kernel correction is retained.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed. ℓ_A(L_n)≠∞ and ℓ_A(L_(n+1))≠∞.
+
+Proof: Take the two proved natural-number identities, cast their finite values to Z, and cancel the common image term by integer arithmetic.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-natural-length, DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-natural-length.
+
+## Signed recurrence from coefficient hypotheses
+
+TauCeti.HilbertSamuel.adicModuleComponent_length_recurrence_of_finite
+
+For Noetherian A, finite M and Artinian A/q, the signed integer recurrence holds for every a∈S_1 and every n≥0, with no injectivity or regularity hypothesis on a.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed. A is Noetherian, M is finite over A, and A/q is Artinian.
+
+Proof: Apply component finiteness at n and n+1, then the signed recurrence.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-component-signed-length-recurrence, DeformationAndDerivedPatchingAlgebra:R03.3/adic-image-component-finite-length.
+
+## Degree-zero quotient length
+
+TauCeti.HilbertSamuel.adicModuleCokernelComponent_zero_length
+
+For every a∈S_1, ℓ_A(C_0)=ℓ_A(L_0), even if the lengths are infinite.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.
+
+Proof: Package the actual bijective degree-zero quotient component map as a native A-linear equivalence and transport length.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-degree-zero-injective, DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-surjectivity, mathlib:LinearEquiv.ofBijective, mathlib:LinearEquiv.length_eq.
+
+## Actual adic piece and image component equivalence
+
+TauCeti.HilbertSamuel.adicModuleComponentEquiv
+
+For every n, construct the existing canonical A-linear equivalence e_n:q^nM/q(q^nM)≃L_n, where L_n is the actual image of the injective piece inclusion. This promotes the already planned and prototyped API item to its own prerequisite node; it introduces no new carrier or mathematical declaration.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.
+
+Proof: Apply native LinearEquiv.ofInjective to the existing piece inclusion and its injectivity witness. The component is its actual range.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components, mathlib:LinearEquiv.ofInjective.
+
+## Boundary tests
+
+AdicLengthTests.negative_difference (non-example): For A=M=Q and q=0, the actual component lengths in degrees0 and1 are1 and0, and their signed integer difference is−1. Natural subtraction would lose this value.
+
+AdicLengthTests.infinite_component (non-example): For A=Q,q=0,M=the countable direct sum of Q, the degree-zero component has infinite native length while its toNat is0. The finite-length premise cannot be discarded.
+
+AdicLengthTests.unit_ideal (degenerate): For every A-module M and n, the actual degree-n component at q=A has native length0, without nontriviality hypotheses.
+
+AdicLengthTests.zero_multiplier_kernel (compatibility): For the zero degree-one multiplier, the actual component kernel length equals the entire source component length, without a finite-length assumption.
+
+AdicLengthTests.nonreduced_kernel_correction (non-example): For A=M=Z/4 and q=(2), choose the nonzero degree-one class of2. Its degree-one multiplication component has a kernel of strictly positive finite native length, witnessed by the nonzero class of2. The kernel correction cannot be dropped.
+
+AdicLengthTests.zero_degree_quotient (compatibility): For arbitrary A,q,M and a∈S_1, the degree-zero quotient component length equals the length of the native adic piece M/qM, whether finite or infinite.
+
+## Continuation boundary
+
+One existing component-equivalence API is promoted to its own prerequisite construction node. Twelve new lemmas prove finite actual adic component lengths for Noetherian A, finite M and Artinian A/q; two native extended-length identities; separately guarded natural-length conversions; and the signed integer recurrence with the nonzero kernel correction retained. Degree-zero quotient lengths agree without finite-length assumptions. This supersedes the finite-component-length and degreewise-length-identity frontier for these actual maps only. Native kernel/range/quotient decompositions, smaller-ring grading, remaining-generator induction and general Hilbert–Serre existence remain open. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open and all implementation statuses unchecked.
+
+All409 incoming declaration contracts remain exact; only twelve API references are appended to three existing component constructions. The incoming reader follows unchanged, with its historical frontiers superseded only in the explicit scope above. The full Tau-importing suggested file remains uncompiled; isolated Mathlib evidence replays the exact existing Tau shifted-projection source.
+
+---
+
 # Actual smaller-ring modules for the adic kernel and cokernel
 
 A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the exact existing ordinary adic Rees quotients; a belongs to the actual degree-one component S_1. Put J=(a), B=S/J, K=ker μ_a and C=L/range μ_a with their actual native carriers. No locality, freeness, reducedness or regularity of a is assumed.
