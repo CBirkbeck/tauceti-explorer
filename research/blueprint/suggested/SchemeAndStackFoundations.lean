@@ -962,3 +962,157 @@ example (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f]
   sorry
 
 end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X Y : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+lemma extendedIdeal_le_ker (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens) :
+    (I.ideal U).map (f.app U).hom ≤
+      RingHom.ker ((I.comap f).subschemeι.app (f ⁻¹ᵁ U)).hom := by
+  sorry
+
+def quotientToClosed (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens) :
+    (Γ(X, f ⁻¹ᵁ U) ⧸ (I.ideal U).map (f.app U).hom) →+*
+      Γ((I.comap f).subscheme, (I.comap f).subschemeι ⁻¹ᵁ (f ⁻¹ᵁ U)) :=
+  Ideal.Quotient.lift _ ((I.comap f).subschemeι.app (f ⁻¹ᵁ U)).hom
+    (by sorry)
+
+lemma quotientToClosed_mk (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
+    (a : Γ(X, f ⁻¹ᵁ U)) :
+    quotientToClosed I f U (Ideal.Quotient.mk _ a) =
+      (I.comap f).subschemeι.app (f ⁻¹ᵁ U) a := by
+  sorry
+
+lemma quotientToClosed_unique (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
+    (q : (Γ(X, f ⁻¹ᵁ U) ⧸ (I.ideal U).map (f.app U).hom) →+*
+      Γ((I.comap f).subscheme, (I.comap f).subschemeι ⁻¹ᵁ (f ⁻¹ᵁ U)))
+    (hq : q.comp (Ideal.Quotient.mk _) = ((I.comap f).subschemeι.app (f ⁻¹ᵁ U)).hom) :
+    q = quotientToClosed I f U := by
+  sorry
+
+lemma quotientToClosed_naturality (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V : Y.affineOpens} (h : U ≤ V) :
+    CommRingCat.ofHom (quotientRestriction I f h) ≫
+        CommRingCat.ofHom (quotientToClosed I f U) =
+      CommRingCat.ofHom (quotientToClosed I f V) ≫
+        (I.comap f).subscheme.presheaf.map
+          ((TopologicalSpace.Opens.map (I.comap f).subschemeι.base).map
+            ((TopologicalSpace.Opens.map f.base).map (homOfLE h))).op := by
+  sorry
+
+lemma quotientToClosed_eq_inv (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) (H : IsAffineOpen (f ⁻¹ᵁ U)) :
+    CommRingCat.ofHom (quotientToClosed I f U) = (comapObjIso I f U H).inv := by
+  sorry
+
+lemma quotientToClosed_injective (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) (H : IsAffineOpen (f ⁻¹ᵁ U)) :
+    Function.Injective (quotientToClosed I f U) := by
+  sorry
+
+lemma quotientToClosed_surjective (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) (H : IsAffineOpen (f ⁻¹ᵁ U)) :
+    Function.Surjective (quotientToClosed I f U) := by
+  sorry
+
+def quotientToClosedNatTrans (I : Y.IdealSheafData) (f : X ⟶ Y) :
+    quotientPresheaf I f ⟶
+      ((show Monotone (fun U : Y.affineOpens => U.1) from fun _ _ h => h).functor ⋙
+        TopologicalSpace.Opens.map f.base ⋙
+        TopologicalSpace.Opens.map (I.comap f).subschemeι.base).op ⋙
+          (I.comap f).subscheme.presheaf where
+  app U := CommRingCat.ofHom (quotientToClosed I f U.unop)
+  naturality _ _ h := by sorry
+
+lemma quotientToClosedNatTrans_app (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) :
+    (quotientToClosedNatTrans I f).app (op U) = CommRingCat.ofHom (quotientToClosed I f U) := by
+  sorry
+
+lemma quotientToClosedNatTrans_affine (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f] :
+    quotientToClosedNatTrans I f = (comapObjNatIso I f).inv := by
+  sorry
+
+lemma quotientToClosedNatTrans_isIso (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f] :
+    IsIso (quotientToClosedNatTrans I f) := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X Y : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: QuotientToClosedChecked.actual_factorization
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens) :
+    (quotientToClosed I f U).comp (Ideal.Quotient.mk _) =
+      ((I.comap f).subschemeι.app (f ⁻¹ᵁ U)).hom := by
+  sorry
+
+-- test: QuotientToClosedChecked.top_ideal
+example (f : X ⟶ Y) (U : Y.affineOpens)
+    (q : Γ(X, f ⁻¹ᵁ U) ⧸ ((⊤ : Y.IdealSheafData).ideal U).map (f.app U).hom) :
+    quotientToClosed (⊤ : Y.IdealSheafData) f U q = 0 := by
+  sorry
+
+-- test: QuotientToClosedChecked.nonreduced_section
+example :
+    let X := Spec (.of (ZMod 4))
+    let I : X.IdealSheafData := ⊥
+    let U : X.affineOpens := ⟨⊤, isAffineOpen_top _⟩
+    let b := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    let q := quotientToClosed I (𝟙 X) U (Ideal.Quotient.mk _ b)
+    q ≠ 0 ∧ q ^ 2 = 0 := by
+  sorry
+
+-- test: QuotientToClosedChecked.nonflat_surviving_unit
+example :
+    let Y := Spec (.of ℤ)
+    let X := Spec (.of (ZMod 2))
+    let f : X ⟶ Y := Spec.map (CommRingCat.ofHom (Int.castRingHom (ZMod 2)))
+    let I : Y.IdealSheafData := Scheme.IdealSheafData.ofIdealTop (Ideal.span {2})
+    let U : Y.affineOpens := ⟨⊤, isAffineOpen_top _⟩
+    quotientToClosed I f U 1 ≠ 0 := by
+  sorry
+
+-- test: QuotientToClosedNatTransChecked.basic_open
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (V : Y.affineOpens)
+    (s : Γ(Y, V)) (a : Γ(X, f ⁻¹ᵁ V)) :
+    (quotientToClosedNatTrans I f).app (op (Y.affineBasicOpen s))
+      ((quotientPresheaf I f).map (homOfLE (Y.affineBasicOpen_le s)).op (Ideal.Quotient.mk _ a)) =
+        (I.comap f).subschemeι.app (f ⁻¹ᵁ (Y.affineBasicOpen s))
+          ((X.presheaf.map ((TopologicalSpace.Opens.map f.base).map
+            (homOfLE (Y.affineBasicOpen_le s))).op) a) := by
+  sorry
+
+-- test: QuotientToClosedNatTransChecked.two_step_overlap
+example (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V W : Y.affineOpens} (h : U ≤ V) (k : V ≤ W) :
+    (quotientPresheaf I f).map (homOfLE k).op ≫
+        (quotientPresheaf I f).map (homOfLE h).op ≫
+        (quotientToClosedNatTrans I f).app (op U) =
+      (quotientToClosedNatTrans I f).app (op W) ≫
+        (I.comap f).subscheme.presheaf.map
+          ((TopologicalSpace.Opens.map (I.comap f).subschemeι.base).map
+            ((TopologicalSpace.Opens.map f.base).map (homOfLE (h.trans k)))).op := by
+  sorry
+
+-- test: QuotientToClosedNatTransChecked.affine_roundtrip
+example (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f] :
+    quotientToClosedNatTrans I f ≫ (comapObjNatIso I f).hom = 𝟙 _ := by
+  sorry
+
+-- test: QuotientToClosedNatTransChecked.nonaffine_obstruction
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
+    (h : ¬ Function.Surjective ((quotientToClosedNatTrans I f).app (op U))) :
+    ¬ IsAffineHom f := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
