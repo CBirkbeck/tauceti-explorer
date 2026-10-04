@@ -1,3 +1,5 @@
+import TauCeti.Algebra.DirectSum.Internal
+import Mathlib.RingTheory.GradedAlgebra.Homogeneous.Submodule
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import Mathlib.Algebra.Polynomial.Roots
 import Mathlib.Algebra.Polynomial.Degree.SmallDegree
@@ -1340,7 +1342,7 @@ No generic Rees carrier is reconstructed. Module comparison and graded polynomia
 remain gaps; every proposed mathematical implementation is unchecked. -/
 namespace TauCeti.HilbertSamuel
 noncomputable section AdicGraded
-open scoped Polynomial DirectSum
+open scoped Polynomial _root_.DirectSum
 variable {A : Type*} [CommRing A]
 
 abbrev reesCoefficientIdeal (q : Ideal A) : Ideal (reesAlgebra q) :=
@@ -1480,7 +1482,7 @@ Only the adic quotient and its comparisons are new. No graded polynomial is assu
 namespace TauCeti.HilbertSamuel
 noncomputable section AdicModule
 set_option backward.isDefEq.respectTransparency.types false
-open scoped Polynomial DirectSum
+open scoped Polynomial _root_.DirectSum
 variable {A : Type*} [CommRing A]
 variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
 
@@ -1616,7 +1618,7 @@ end TauCeti.HilbertSamuel
 /-! Native acceptance tests for the four module constructions. -/
 namespace TauCeti.HilbertSamuel
 noncomputable section AdicModuleTests
-open scoped DirectSum
+open scoped _root_.DirectSum
 variable {A : Type*} [CommRing A]
 variable (M : Type*) [AddCommGroup M] [Module A M]
 
@@ -1676,7 +1678,7 @@ not new generic graded carriers. All compatibility proofs remain unchecked.
 The kernel/cokernel induction in the preceding handoff is a subsequent step. -/
 namespace TauCeti.HilbertSamuel
 noncomputable section AdicGrading
-open scoped DirectSum
+open scoped _root_.DirectSum
 variable {A : Type*} [CommRing A]
 
 -- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components
@@ -3698,7 +3700,7 @@ end TauCeti.HilbertSamuel.NativeCurveDegreeTests
 /- BEGIN FULL CURVE GRADED ASSEMBLY -/
 namespace TauCeti.HilbertSamuel
 noncomputable section FullCurveGraded
-open scoped DirectSum
+open scoped _root_.DirectSum
 set_option backward.isDefEq.respectTransparency false
 variable {σ k : Type*} [CommRing k] [Finite σ]
 variable (f : (MvPowerSeries σ k))
@@ -4590,7 +4592,7 @@ end TauCeti.HilbertSamuel
 The existing adicExpansion declaration above realises node DeformationAndDerivedPatchingAlgebra:R03.3/adic-expansion-map. -/
 noncomputable section AdicCoefficientDecomposition
 namespace TauCeti.HilbertSamuel
-open scoped Polynomial DirectSum
+open scoped Polynomial _root_.DirectSum
 variable {A : Type*} [CommRing A]
 
 -- Actual coefficient map from the native polynomial subalgebra.
@@ -4648,7 +4650,7 @@ lemma adicExpansion_surjective (q : Ideal A) : Function.Surjective (adicExpansio
 
 end TauCeti.HilbertSamuel
 namespace TauCeti.HilbertSamuel
-open scoped DirectSum
+open scoped _root_.DirectSum
 variable {A : Type*} [CommRing A]
 lemma adicRecompose_componentEquiv (q : Ideal A)
     (x : ⨁ n : ℕ, adicRingPiece q n) :
@@ -4657,7 +4659,7 @@ lemma adicRecompose_componentEquiv (q : Ideal A)
 
 end TauCeti.HilbertSamuel
 namespace TauCeti.HilbertSamuel
-open scoped DirectSum
+open scoped _root_.DirectSum
 variable {A : Type*} [CommRing A]
 
 lemma adicCoefficient_directSumEquiv_symm (q : Ideal A) (n : ℕ) (x : adicGradedRing q) :
@@ -4674,7 +4676,7 @@ lemma adicGradedMap_projection (f : A →+* B) (I : Ideal A) (J : Ideal B)
 
 end TauCeti.HilbertSamuel
 namespace TauCeti.HilbertSamuel
-open scoped Polynomial DirectSum
+open scoped Polynomial _root_.DirectSum
 variable {A : Type*} [CommRing A]
 
 -- test: AdicReesCoefficient.degree_three
@@ -5098,7 +5100,7 @@ noncomputable section
 set_option backward.isDefEq.respectTransparency.types false
 set_option backward.isDefEq.respectTransparency false
 set_option maxHeartbeats 1600000
-open scoped Polynomial DirectSum
+open scoped Polynomial _root_.DirectSum
 variable {A : Type*} [CommRing A]
 variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
 
@@ -5214,7 +5216,7 @@ noncomputable section
 set_option backward.isDefEq.respectTransparency.types false
 set_option backward.isDefEq.respectTransparency false
 set_option maxHeartbeats 1600000
-open scoped Polynomial DirectSum
+open scoped Polynomial _root_.DirectSum
 variable {A : Type*} [CommRing A]
 
 -- test: AdicModuleCoordinates.nonfree_zero_ideal_survives
@@ -5283,7 +5285,7 @@ end TauCeti.HilbertSamuel
 
 namespace TauCeti.HilbertSamuel
 noncomputable section
-open scoped DirectSum
+open scoped _root_.DirectSum
 variable {A : Type*} [CommRing A]
 variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
 
@@ -5339,7 +5341,7 @@ namespace TauCeti.HilbertSamuel
 noncomputable section
 set_option backward.isDefEq.respectTransparency.types false
 set_option backward.isDefEq.respectTransparency false
-open scoped DirectSum
+open scoped _root_.DirectSum
 variable {A : Type*} [CommRing A]
 
 -- test: AdicModuleProjectionTests.nonfree_constant
@@ -5367,6 +5369,183 @@ example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
 example (M : Type*) [AddCommGroup M] [Module A M] (n : ℕ)
     (x : adicGradedModule (⊤ : Ideal A) M) :
     adicModuleProjection (⊤ : Ideal A) M n x = 0 := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+open scoped _root_.DirectSum
+set_option synthInstance.maxHeartbeats 200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A : Type*} [CommRing A]
+variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+
+lemma adicModuleMul_projection_succ (a : adicRingComponents q 1)
+    (n : ℕ) (x : adicGradedModule q M) :
+    adicModuleProjection q M (n + 1) ((a : adicGradedRing q) • x) =
+      (a : adicGradedRing q) • adicModuleProjection q M n x := by
+  sorry
+
+lemma adicModuleMul_projection_zero (a : adicRingComponents q 1)
+    (x : adicGradedModule q M) :
+    adicModuleProjection q M 0 ((a : adicGradedRing q) • x) = 0 := by
+  sorry
+
+lemma adicModuleMul_ker_homogeneous (a : adicRingComponents q 1) :
+    (LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).IsHomogeneous
+      (adicModuleComponents q M) := by
+  sorry
+
+lemma adicModuleMul_range_homogeneous (a : adicRingComponents q 1) :
+    (LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).IsHomogeneous
+      (adicModuleComponents q M) := by
+  sorry
+
+def adicModuleMulComponent (a : adicRingComponents q 1) (n : ℕ) :
+    adicModuleComponents q M n →ₗ[A] adicModuleComponents q M (n + 1) :=
+  (((LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a).restrictScalars A).comp
+    (adicModuleComponents q M n).subtype).codRestrict (adicModuleComponents q M (n + 1))
+      (fun x => by sorry)
+
+lemma adicModuleMulComponent_coe (a : adicRingComponents q 1) (n : ℕ)
+    (x : adicModuleComponents q M n) :
+    (adicModuleMulComponent q M a n x : adicGradedModule q M) =
+      (a : adicGradedRing q) • (x : adicGradedModule q M) := by
+  sorry
+
+lemma adicModuleMulComponent_ker (a : adicRingComponents q 1) (n : ℕ)
+    (x : adicModuleComponents q M n) :
+    x ∈ LinearMap.ker (adicModuleMulComponent q M a n) ↔
+      (x : adicGradedModule q M) ∈
+        LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a) := by
+  sorry
+
+lemma adicModuleMulComponent_range (a : adicRingComponents q 1) (n : ℕ)
+    (x : adicModuleComponents q M (n + 1)) :
+    x ∈ LinearMap.range (adicModuleMulComponent q M a n) ↔
+      (x : adicGradedModule q M) ∈
+        LinearMap.range (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a) := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+open scoped _root_.DirectSum
+set_option synthInstance.maxHeartbeats 200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A : Type*} [CommRing A]
+variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+
+def adicModuleCokernelComponent (a : adicRingComponents q 1) (n : ℕ) :
+    adicModuleComponents q M n →ₗ[A]
+      LinearMap.range (((LinearMap.range
+        (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).mkQ.restrictScalars A).comp
+          (adicModuleComponents q M n).subtype) :=
+  (((LinearMap.range
+    (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)).mkQ.restrictScalars A).comp
+      (adicModuleComponents q M n).subtype).rangeRestrict
+
+lemma adicModuleCokernelComponent_coe (a : adicRingComponents q 1) (n : ℕ)
+    (x : adicModuleComponents q M n) :
+    (adicModuleCokernelComponent q M a n x :
+      adicGradedModule q M ⧸ LinearMap.range
+        (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) =
+          Submodule.Quotient.mk (x : adicGradedModule q M) := by
+  sorry
+
+lemma adicModuleCokernelComponent_surjective (a : adicRingComponents q 1) (n : ℕ) :
+    Function.Surjective (adicModuleCokernelComponent q M a n) := by
+  sorry
+
+lemma adicModuleCokernelComponent_ker (a : adicRingComponents q 1) (n : ℕ)
+    (x : adicModuleComponents q M n) :
+    x ∈ LinearMap.ker (adicModuleCokernelComponent q M a n) ↔
+      (x : adicGradedModule q M) ∈ LinearMap.range
+        (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a) := by
+  sorry
+
+lemma adicModuleCokernelComponent_exact (a : adicRingComponents q 1) (n : ℕ) :
+    LinearMap.range (adicModuleMulComponent q M a n) =
+      LinearMap.ker (adicModuleCokernelComponent q M a (n + 1)) := by
+  sorry
+
+lemma adicModuleCokernelComponent_zero_injective (a : adicRingComponents q 1) :
+    Function.Injective (adicModuleCokernelComponent q M a 0) := by
+  sorry
+
+lemma adicModuleMul_ker_annihilated (a : adicRingComponents q 1)
+    (x : LinearMap.ker (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) :
+    (a : adicGradedRing q) • x = 0 := by
+  sorry
+
+lemma adicModuleMul_cokernel_annihilated (a : adicRingComponents q 1)
+    (x : adicGradedModule q M ⧸ LinearMap.range
+      (LinearMap.lsmul (adicGradedRing q) (adicGradedModule q M) a)) :
+    (a : adicGradedRing q) • x = 0 := by
+  sorry
+
+end
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+noncomputable section
+open scoped _root_.DirectSum
+set_option synthInstance.maxHeartbeats 200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A : Type*} [CommRing A]
+
+-- test: AdicModuleMulComponentTests.zero_scalar
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+    (n : ℕ) (x : adicModuleComponents q M n) :
+    adicModuleMulComponent q M 0 n x = 0 := by
+  sorry
+
+-- test: AdicModuleMulComponentTests.actual_monomials
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+    (n : ℕ) (a : ↥(q ^ 1)) (x : ↥(q ^ n • (⊤ : Submodule A M))) :
+    ∃ h : (a : A) • (x : M) ∈ q ^ (1 + n) • (⊤ : Submodule A M),
+      (adicModuleMulComponent q M
+        (adicRingComponentEquiv q 1 (Submodule.Quotient.mk a)) n
+        (adicModuleComponentEquiv q M n (Submodule.Quotient.mk x)) : adicGradedModule q M) =
+          adicModuleMonomial q M (1 + n) ⟨_,h⟩ := by
+  sorry
+
+-- test: AdicModuleMulComponentTests.nonreduced_nilpotent
+example :
+    let q : Ideal (ZMod 4) := Ideal.span {2}
+    ∃ (a : adicRingComponents q 1)
+      (x : adicModuleComponents q (ZMod 4) 0)
+      (y : adicModuleComponents q (ZMod 4) 1),
+      adicModuleMulComponent q (ZMod 4) a 0 x = y ∧ y ≠ 0 ∧
+        adicModuleMulComponent q (ZMod 4) a 1 y = 0 := by
+  sorry
+
+-- test: AdicModuleCokernelComponentTests.image_is_killed
+example (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+    (a : adicRingComponents q 1) (n : ℕ) (x : adicModuleComponents q M n) :
+    adicModuleCokernelComponent q M a (n + 1) (adicModuleMulComponent q M a n x) = 0 := by
+  sorry
+
+-- test: AdicModuleCokernelComponentTests.nonfree_constant_survives
+example :
+    let q : Ideal ℤ := ⊥
+    ∃ x : adicModuleComponents q (ZMod 4) 0,
+      (x : adicGradedModule q (ZMod 4)) = adicGradedConstant q (ZMod 4) 1 ∧
+        adicModuleCokernelComponent q (ZMod 4) 0 0 x ≠ 0 := by
+  sorry
+
+-- test: AdicModuleCokernelComponentTests.unit_ideal
+example (M : Type*) [AddCommGroup M] [Module A M]
+    (a : adicRingComponents (⊤ : Ideal A) 1) (n : ℕ)
+    (x : adicModuleComponents (⊤ : Ideal A) M n) :
+    adicModuleCokernelComponent (⊤ : Ideal A) M a n x = 0 := by
   sorry
 
 end
