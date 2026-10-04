@@ -21116,9 +21116,10 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #555"
+   "note": "deliverables arrived from an external worker on issue #555",
+   "finishedAt": "2026-10-04T21:19:45Z"
   },
   {
    "id": "REV-PadicMeasuresIwasawaAlgebras",
@@ -30554,11 +30555,11 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "released on GitHub issue #1027"
+   "note": "claimed on GitHub issue #1027"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence",
