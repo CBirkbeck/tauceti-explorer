@@ -16,6 +16,14 @@ ledger names every API, example and layer theorem whose full signature needs sup
 The two partial data structures below are not substitutes for their mathematical definitions.
 -/
 
+import Mathlib.CategoryTheory.Sites.Abelian
+import Mathlib.CategoryTheory.Sites.Limits
+import Mathlib.CategoryTheory.Sites.Whiskering
+import Mathlib.Algebra.Category.Ring.Limits
+import Mathlib.CategoryTheory.Limits.Preserves.FunctorCategory
+import Mathlib.CategoryTheory.Abelian.CommSq
+import Mathlib.Topology.Sheaves.LocallySurjective
+import Mathlib.Algebra.Homology.ShortComplex.ShortExact
 import Mathlib.RingTheory.Localization.Ideal
 import Mathlib.Algebra.Exact.Basic
 import Mathlib.AlgebraicGeometry.Normalization
@@ -6121,6 +6129,159 @@ example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
       (((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U))
       (conductorChartMap f U)).pt) :
     (conductorOpenSectionsIso f U).inv p = (conductorSectionsIso f U).inv p := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry TopologicalSpace
+
+namespace TauCeti.GenusOne.FerrandPushout
+
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+variable {Y P : Scheme.{u}} (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+
+lemma conductor_additive_isPullback :
+    let A := sheafCompose (Opens.grothendieckTopology P)
+      (forget₂ CommRingCat.{u} RingCat.{u} ⋙ forget₂ RingCat.{u} AddCommGrpCat.{u})
+    IsPullback (A.map (⟨f.c⟩ : P.sheaf ⟶ (TopCat.Sheaf.pushforward CommRingCat.{u} f.base).obj Y.sheaf)) (A.map (⟨(conductorIdealSheaf f).subschemeι.c⟩ : P.sheaf ⟶
+        (TopCat.Sheaf.pushforward CommRingCat.{u} (conductorIdealSheaf f).subschemeι.base).obj
+          (conductorIdealSheaf f).subscheme.sheaf))
+      (A.map (conductorSheafInclusion f)) (A.map (conductorSheafChart f)) := by
+  sorry
+
+def conductorAdditiveShortComplex : ShortComplex (TopCat.Sheaf AddCommGrpCat.{u} P.carrier) :=
+  (conductor_additive_isPullback f).shortComplex'
+
+lemma conductorAdditiveShortComplex_f_fst :
+    (conductorAdditiveShortComplex f).f ≫ biprod.fst =
+      (sheafCompose (Opens.grothendieckTopology P)
+        (forget₂ CommRingCat.{u} RingCat.{u} ⋙ forget₂ RingCat.{u} AddCommGrpCat.{u})).map (⟨f.c⟩ : P.sheaf ⟶ (TopCat.Sheaf.pushforward CommRingCat.{u} f.base).obj Y.sheaf) := by
+  sorry
+
+lemma conductorAdditiveShortComplex_f_snd :
+    (conductorAdditiveShortComplex f).f ≫ biprod.snd =
+      (sheafCompose (Opens.grothendieckTopology P)
+        (forget₂ CommRingCat.{u} RingCat.{u} ⋙ forget₂ RingCat.{u} AddCommGrpCat.{u})).map (⟨(conductorIdealSheaf f).subschemeι.c⟩ : P.sheaf ⟶
+        (TopCat.Sheaf.pushforward CommRingCat.{u} (conductorIdealSheaf f).subschemeι.base).obj
+          (conductorIdealSheaf f).subscheme.sheaf) := by
+  sorry
+
+lemma conductorAdditiveShortComplex_inl_g :
+    biprod.inl ≫ (conductorAdditiveShortComplex f).g =
+      (sheafCompose (Opens.grothendieckTopology P)
+        (forget₂ CommRingCat.{u} RingCat.{u} ⋙ forget₂ RingCat.{u} AddCommGrpCat.{u})).map (conductorSheafInclusion f) := by
+  sorry
+
+lemma conductorAdditiveShortComplex_inr_g :
+    biprod.inr ≫ (conductorAdditiveShortComplex f).g =
+      -(sheafCompose (Opens.grothendieckTopology P)
+        (forget₂ CommRingCat.{u} RingCat.{u} ⋙ forget₂ RingCat.{u} AddCommGrpCat.{u})).map (conductorSheafChart f) := by
+  sorry
+
+lemma conductorAdditiveShortComplex_inl_g_app (U : P.Opens) (b : Γ(Y, f ⁻¹ᵁ U)) :
+    ((conductorAdditiveShortComplex f).g.hom.app (op U))
+        (((biprod.inl : _ ⟶ (conductorAdditiveShortComplex f).X₂).hom.app (op U)) b) =
+      ((conductorIdealSheaf f).comap f).subschemeι.app (f ⁻¹ᵁ U) b := by
+  sorry
+
+lemma conductorAdditiveShortComplex_inr_g_app (U : P.Opens)
+    (c : Γ((conductorIdealSheaf f).subscheme, (conductorIdealSheaf f).subschemeι ⁻¹ᵁ U)) :
+    ((conductorAdditiveShortComplex f).g.hom.app (op U))
+        (((biprod.inr : _ ⟶ (conductorAdditiveShortComplex f).X₂).hom.app (op U)) c) = -(conductorChartMap f U c) := by
+  sorry
+
+lemma conductorAdditiveShortComplex_pair_app (U : P.Opens)
+    (b : Γ(Y, f ⁻¹ᵁ U))
+    (c : Γ((conductorIdealSheaf f).subscheme, (conductorIdealSheaf f).subschemeι ⁻¹ᵁ U)) :
+    ((conductorAdditiveShortComplex f).g.hom.app (op U))
+        (((biprod.inl : _ ⟶ (conductorAdditiveShortComplex f).X₂).hom.app (op U)) b + ((biprod.inr : _ ⟶ (conductorAdditiveShortComplex f).X₂).hom.app (op U)) c) =
+      conductorSectionDifference f U (b, c) := by
+  sorry
+
+lemma conductorAdditiveShortComplex_mono : Mono (conductorAdditiveShortComplex f).f := by
+  sorry
+
+lemma conductorAdditiveShortComplex_exact : (conductorAdditiveShortComplex f).Exact := by
+  sorry
+
+lemma conductorAdditiveShortComplex_affine_surjective (U : P.affineOpens) :
+    Function.Surjective ((conductorAdditiveShortComplex f).g.hom.app (op (U : P.Opens))) := by
+  sorry
+
+lemma conductorAdditiveShortComplex_locally_surjective :
+    TopCat.Presheaf.IsLocallySurjective (conductorAdditiveShortComplex f).g.hom := by
+  sorry
+
+lemma conductorAdditiveShortComplex_epi : Epi (conductorAdditiveShortComplex f).g := by
+  sorry
+
+lemma conductorAdditiveShortComplex_shortExact : (conductorAdditiveShortComplex f).ShortExact := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry TopologicalSpace
+
+namespace TauCeti.GenusOne.FerrandPushout
+
+variable {Y P : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: ConductorAdditiveChecked.signed_units
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.Opens) :
+    ((conductorAdditiveShortComplex f).g.hom.app (op U))
+      (((biprod.inl : _ ⟶ (conductorAdditiveShortComplex f).X₂).hom.app (op U)) (1 : Γ(Y, f ⁻¹ᵁ U)) +
+        ((biprod.inr : _ ⟶ (conductorAdditiveShortComplex f).X₂).hom.app (op U)) 0) =
+        (1 : Γ(((conductorIdealSheaf f).comap f).subscheme,
+          ((conductorIdealSheaf f).comap f).subschemeι ⁻¹ᵁ (f ⁻¹ᵁ U))) ∧
+    ((conductorAdditiveShortComplex f).g.hom.app (op U))
+      (((biprod.inl : _ ⟶ (conductorAdditiveShortComplex f).X₂).hom.app (op U)) 0 +
+        ((biprod.inr : _ ⟶ (conductorAdditiveShortComplex f).X₂).hom.app (op U)) (1 : Γ((conductorIdealSheaf f).subscheme,
+          (conductorIdealSheaf f).subschemeι ⁻¹ᵁ U))) =
+        (-1 : Γ(((conductorIdealSheaf f).comap f).subscheme,
+          ((conductorIdealSheaf f).comap f).subschemeι ⁻¹ᵁ (f ⁻¹ᵁ U))) := by
+  sorry
+
+-- test: ConductorAdditiveChecked.empty_open
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (s : (conductorAdditiveShortComplex f).X₂.obj.obj (op (⊥ : P.Opens))) :
+    ((conductorAdditiveShortComplex f).g.hom.app (op (⊥ : P.Opens))) s = 0 := by
+  sorry
+
+-- test: ConductorAdditiveChecked.actual_section_pair
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U : P.Opens) (a : Γ(P, U)) :
+    ((conductorAdditiveShortComplex f).g.hom.app (op U))
+      (((biprod.inl : _ ⟶ (conductorAdditiveShortComplex f).X₂).hom.app (op U)) ((f.app U) a) +
+        ((biprod.inr : _ ⟶ (conductorAdditiveShortComplex f).X₂).hom.app (op U))
+          ((conductorIdealSheaf f).subschemeι.app U a)) = 0 := by
+  sorry
+
+-- test: ConductorAdditiveChecked.affine_lift
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (U : P.affineOpens) (t : (conductorAdditiveShortComplex f).X₃.obj.obj (op (U : P.Opens))) :
+    ∃ s : (conductorAdditiveShortComplex f).X₂.obj.obj (op (U : P.Opens)),
+      ((conductorAdditiveShortComplex f).g.hom.app (op (U : P.Opens))) s = t := by
+  sorry
+
+-- test: ConductorAdditiveChecked.kernel_universal_property
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (F : TopCat.Sheaf AddCommGrpCat.{u} P.carrier)
+    (m : F ⟶ (conductorAdditiveShortComplex f).X₂)
+    (hm : m ≫ (conductorAdditiveShortComplex f).g = 0) :
+    ∃! a : F ⟶ (conductorAdditiveShortComplex f).X₁,
+      a ≫ (conductorAdditiveShortComplex f).f = m := by
+  sorry
+
+-- test: ConductorAdditiveChecked.nonreduced_identity
+example :
+    let P := Spec (.of (ZMod 4))
+    let a := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    a ≠ 0 ∧ a ^ 2 = 0 ∧
+      ((conductorAdditiveShortComplex (𝟙 P)).f.hom.app (op (⊤ : P.Opens))) a ≠ 0 := by
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
