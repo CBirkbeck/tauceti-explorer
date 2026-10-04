@@ -1,3 +1,173 @@
+# Monoidal identity and tower comparisons for affine connections
+
+The existing identity and tower pullback natural isomorphisms now preserve the actual unit and tensor comparison maps, in both directions. The actual parameterChange functor has a native strong monoidal structure whose four underlying maps are identities; the tower includes this transport along the scalar-tower parameter equality. Its tensorator first applies inverse distribBaseChange for S→T, then the base change of inverse distribBaseChange for R→S. Its inverse tensorator reverses these maps. The existing cancelBaseChange natural isomorphism intertwines this structure with direct pullback.
+
+The actual affine pullback also carries native Functor.Braided. Its compatibility equation uses the existing source and target braidings and the existing tensorator, proved by tensor extensionality after cancelling the tensorator inverse. No replacement comparison map or replacement category is introduced.
+
+The common native module universe, independent form universes, compatible calculus morphisms and scalar-tower hypotheses are explicit. Modules and λ are arbitrary, including d₀λ≠0; there is no flatness, injectivity, projectivity, finite generation or reducedness assumption. Examples check arbitrary scalars, actual inverse monoidal compatibility, a polynomial parameter with derivative1, a nonzero square-zero value2 over Z/4 through actual tower maps, and the zero ring.
+
+Categorical three-step coherence, universal exterior powers, finite-projective dual comparisons and actual sheaf tensor/restriction/equality detection/gluing remain open. The reserved global finite locally free integrable ringed-site key still requires relatively constant λ. All149 routes,35 omissions,five requests,eleven gaps,six planets and later stages are preserved. Every implementation remains unchecked.
+
+## Declarations and tests
+
+### Monoidal transport of the connection parameter
+
+`AffineCategory.parameterChangeMonoidal` — For an equality h:λ=μ in R, equip the actual parameterChange(h) functor from affine λ-connections to affine μ-connections with native strong monoidal structure. Its four structure maps have identity underlying linear maps.
+
+Proof plan: Eliminate h and use the native monoidal identity functor; actual operators and horizontal arrows are retained.
+
+API:
+
+- `AffineCategory.parameterChangeMonoidal_tensor`: The actual lax tensor map of parameterChange(h) at X,Y is the identity R-linear map on their underlying tensor product.
+- `AffineCategory.parameterChangeMonoidal_unit`: The actual lax unit map of parameterChange(h) is the identity R-linear map on R.
+- `AffineCategory.parameterChangeMonoidal_cotensor`: The actual oplax tensor map of parameterChange(h) at X,Y is the identity R-linear map.
+- `AffineCategory.parameterChangeMonoidal_counit`: The actual oplax unit map of parameterChange(h) is the identity R-linear map on R.
+
+TESTS:
+
+- `AffineMonoidalComparisonTests.parameter_values`: All four actual structure maps for transport along any h:λ=μ act identically on r and x⊗y.
+- `AffineMonoidalComparisonTests.parameter_roundtrip`: The actual tensorators for h and h inverse compose to identity on every tensor, including non-pure tensors.
+- `AffineMonoidalComparisonTests.nonconstant_parameter`: Over Z[x] with parameter x and d₀x=1, actual parameter-transport unit fixes x and the actual identity comparison is monoidal. No relative-constancy hypothesis is added to this raw affine category.
+- `AffineMonoidalComparisonTests.identity_unit`: The actual pulled unit comparison followed by the existing identity comparison sends every r to r.
+- `AffineMonoidalComparisonTests.identity_tensor`: The actual identity-pullback tensorator and identity comparison send (r⊗x)⊗(s⊗y) to (r·x)⊗(s·y).
+
+### Parameter transport tensorator
+
+`AffineCategory.parameterChangeMonoidal_tensor` — The actual lax tensor map of parameterChange(h) at X,Y is the identity R-linear map on their underlying tensor product.
+
+Proof plan: Eliminate the parameter equality and reduce the native identity tensorator.
+
+### Parameter transport unit
+
+`AffineCategory.parameterChangeMonoidal_unit` — The actual lax unit map of parameterChange(h) is the identity R-linear map on R.
+
+Proof plan: Eliminate the parameter equality and reduce the native identity unit map.
+
+### Parameter transport inverse tensorator
+
+`AffineCategory.parameterChangeMonoidal_cotensor` — The actual oplax tensor map of parameterChange(h) at X,Y is the identity R-linear map.
+
+Proof plan: Eliminate the parameter equality and reduce the native inverse tensorator.
+
+### Parameter transport counit
+
+`AffineCategory.parameterChangeMonoidal_counit` — The actual oplax unit map of parameterChange(h) is the identity R-linear map on R.
+
+Proof plan: Eliminate the parameter equality and reduce the native counit.
+
+### Identity comparison preserves the unit
+
+`AffineCategory.pullbackIdentityIso_unit` — The unit comparison for pullback along the identity calculus morphism followed by the unit component of the existing pullbackIdentityIso equals the native identity functor unit map, as actual horizontal arrows.
+
+Proof plan: Use subtype extensionality and evaluate the actual composite lid after rid inverse at r; it gives r·1=r.
+
+### Identity comparison preserves tensor products
+
+`AffineCategory.pullbackIdentityIso_tensor` — For actual X,Y, the identity-pullback tensorator followed by the component of pullbackIdentityIso at X⊗Y equals the tensor of its components followed by the identity functor tensorator.
+
+Proof plan: Precompose with the invertible tensorator inverse; use horizontal-arrow extensionality and native heterobasic tensor extensionality. Both maps take r⊗(x⊗y) to (r·x)⊗y.
+
+### Monoidal identity natural isomorphism
+
+`AffineCategory.pullbackIdentityIso_isMonoidal` — The hom natural transformation of the existing pullbackIdentityIso satisfies native NatTrans.IsMonoidal for the actual pullback monoidal structure and native identity monoidal structure.
+
+Proof plan: Package the proved unit and tensor equations; install the resulting proposition as an instance.
+
+### Inverse identity comparison is monoidal
+
+`AffineCategory.pullbackIdentityIso_inv_isMonoidal` — The inverse natural transformation of pullbackIdentityIso satisfies native NatTrans.IsMonoidal for those same structures.
+
+Proof plan: Apply the pinned native inverse-natural-isomorphism instance, whose proof cancels the hom components in the unit and tensor equations.
+
+### Affine pullback preserves braiding
+
+`AffineCategory.pullback_braiding` — For actual X,Y, the pullback tensorator followed by pullback of the source braiding equals the target braiding followed by the tensorator with X,Y interchanged, as actual horizontal arrows.
+
+Proof plan: Cancel the invertible tensorator; restrict the target module action by the actual algebra map and use native tensor extensionality. The inverse tensorator sends (1⊗y)⊗(s⊗x) to s⊗(y⊗x).
+
+### Native braided affine pullback
+
+`AffineCategory.pullbackBraided` — Equip the actual affine pullback functor along m with native Functor.Braided, extending its existing strong monoidal structure and preserving the existing native braidings.
+
+Proof plan: Retain the existing monoidal structure and supply the proved actual braiding equation.
+
+API:
+
+- `AffineCategory.pullback_braiding`: For actual X,Y, the pullback tensorator followed by pullback of the source braiding equals the target braiding followed by the tensorator with X,Y interchanged, as actual horizontal arrows.
+- `AffineCategory.pullbackMonoidal_μ`: Functor.LaxMonoidal.μ for actual pullback is exactly the hom of pullbackTensorIso.
+- `AffineCategory.pullbackMonoidal_ε`: Functor.LaxMonoidal.ε for actual pullback is exactly the hom of pullbackUnitIso.
+
+TESTS:
+
+- `AffineMonoidalComparisonTests.braiding_generators`: The actual pullback of braiding after the tensorator sends (s⊗x)⊗(t⊗y) to (s·t)⊗(y⊗x).
+- `AffineMonoidalComparisonTests.nonreduced_tower`: Over Z/4 with zero calculus and parameter0, the actual tower unit followed by the tower comparison and lid returns2, which is nonzero and square-zero; the actual pullback admits native braided structure.
+- `AffineMonoidalComparisonTests.zero_ring`: Over Z/1 with zero calculus, the actual pullback admits native braided structure and its actual tensorator sends the zero elementary tensor to zero.
+
+### Monoidal structure on the actual pullback tower
+
+`AffineCategory.pullbackTowerMonoidal` — For compatible calculus morphisms m over R→S and n over S→T with IsScalarTower R S T, equip the existing pullbackTower(n,m) with the composite native strong monoidal structure, including its final parameterChange along the scalar-tower equality.
+
+Proof plan: Use the native monoidal composition instance on pullback(m), pullback(n), and the actual equality-transport functor; do not replace the transported target parameter by an informal equality.
+
+API:
+
+- `AffineCategory.pullbackTowerMonoidal_unit`: The underlying T-linear unit map of pullbackTower is the inverse rid for S→T followed by the T-base change of inverse rid for R→S. The parameter-transport unit contributes the identity.
+- `AffineCategory.pullbackTowerMonoidal_tensor`: The underlying T-linear tensorator of pullbackTower at X,Y is inverse distribBaseChange for S→T on S⊗R X,S⊗R Y, followed by the T-base change of inverse distribBaseChange for R→S on X,Y.
+- `AffineCategory.pullbackTowerMonoidal_cotensor`: The underlying T-linear inverse tensorator is the T-base change of distribBaseChange for R→S, followed by distribBaseChange for S→T.
+- `AffineCategory.pullbackTowerIso_unit`: The actual tower unit followed by the unit component of the existing pullbackTowerIso(n,m) equals the direct-pullback unit for n.towerComp(m), as actual horizontal arrows.
+- `AffineCategory.pullbackTowerIso_tensor`: For actual X,Y, the tower tensorator followed by the existing tower comparison at X⊗Y equals the tensor of the two comparison components followed by the direct-pullback tensorator.
+
+TESTS:
+
+- `AffineMonoidalComparisonTests.tower_unit`: The actual tower unit and existing tower comparison send every t to t⊗1.
+- `AffineMonoidalComparisonTests.tower_tensor`: The actual tower tensorator and existing tower comparison send (t⊗(s⊗x))⊗(u⊗(v⊗y)) to ((s·v) acting on (t·u))⊗(x⊗y).
+- `AffineMonoidalComparisonTests.inverse_monoidal`: Instantiate the full native monoidal tensor equation for the inverse of the actual tower natural isomorphism.
+- `AffineMonoidalComparisonTests.nonreduced_tower`: Over Z/4 with zero calculus and parameter0, the actual tower unit followed by the tower comparison and lid returns2, which is nonzero and square-zero; the actual pullback admits native braided structure.
+
+### Actual tower unit formula
+
+`AffineCategory.pullbackTowerMonoidal_unit` — The underlying T-linear unit map of pullbackTower is the inverse rid for S→T followed by the T-base change of inverse rid for R→S. The parameter-transport unit contributes the identity.
+
+Proof plan: Reduce the native composite unit formula and rewrite the actual parameter-change unit map.
+
+### Actual tower tensorator formula
+
+`AffineCategory.pullbackTowerMonoidal_tensor` — The underlying T-linear tensorator of pullbackTower at X,Y is inverse distribBaseChange for S→T on S⊗R X,S⊗R Y, followed by the T-base change of inverse distribBaseChange for R→S on X,Y.
+
+Proof plan: Reduce the native composite tensorator and rewrite the parameter-change tensorator at the actual twice-pulled objects.
+
+### Actual tower inverse tensorator formula
+
+`AffineCategory.pullbackTowerMonoidal_cotensor` — The underlying T-linear inverse tensorator is the T-base change of distribBaseChange for R→S, followed by distribBaseChange for S→T.
+
+Proof plan: Reduce the native composite oplax tensor map and rewrite the actual parameter-change inverse tensorator.
+
+### Tower comparison preserves the unit
+
+`AffineCategory.pullbackTowerIso_unit` — The actual tower unit followed by the unit component of the existing pullbackTowerIso(n,m) equals the direct-pullback unit for n.towerComp(m), as actual horizontal arrows.
+
+Proof plan: Use horizontal-arrow extensionality and the actual unit formula; cancelBaseChange sends t⊗(1⊗1) to t⊗1.
+
+### Tower comparison preserves tensor products
+
+`AffineCategory.pullbackTowerIso_tensor` — For actual X,Y, the tower tensorator followed by the existing tower comparison at X⊗Y equals the tensor of the two comparison components followed by the direct-pullback tensorator.
+
+Proof plan: Precompose with the actual invertible tower inverse tensorator. Twice apply native heterobasic tensor extensionality, then ordinary tensor extensionality. On t⊗(s⊗(x⊗y)), both sides are (s·t)⊗(x⊗y); retain the native existing scalar towers.
+
+### Monoidal tower natural isomorphism
+
+`AffineCategory.pullbackTowerIso_isMonoidal` — The hom natural transformation of the existing pullbackTowerIso(n,m) satisfies native NatTrans.IsMonoidal between the actual tower structure and direct-pullback structure.
+
+Proof plan: Package the unit and tensor equations and install the resulting proposition as an instance.
+
+### Inverse tower comparison is monoidal
+
+`AffineCategory.pullbackTowerIso_inv_isMonoidal` — The inverse natural transformation of pullbackTowerIso(n,m) satisfies native NatTrans.IsMonoidal for the direct and iterated pullback structures.
+
+Proof plan: Use the native monoidal inverse-natural-isomorphism instance; the actual inverse remains the existing cancelBaseChange inverse.
+
+## Earlier checkpoint reader (preserved verbatim)
+
 # Strong monoidal affine pullback
 
 The actual affine pullback now has a native strong monoidal structure. Its tensorator is the inverse of native distribBaseChange and its unit is the inverse of native rid. Both maps and their inverses are horizontal for the actual pulled operators. The CoreMonoidal constructor verifies both naturality laws, associativity and both unit laws; the resulting Monoidal instance supplies precisely those lax and oplax maps.
