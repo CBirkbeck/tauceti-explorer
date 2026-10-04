@@ -818,3 +818,86 @@ Actual public HTTP recovery and both immutable verifier reports at the final hea
  print(json.dumps(dict(archive=archive,recoverySha256=sha(code.encode()),finalHandoffSha256=sha(text.encode())),indent=2))
 else:raise ValueError(mode)
 ```
+
+## Public recovery and replay
+
+Archive commit `fb233fe95743dbdaf14cc4735f91a95a29b06d08` is an ancestor changing only this issue's four named deliverable paths. Its 82 inert artifacts include all 10 authoring, projection, handoff, package, verification, graph and compilation helpers. Manifest SHA256 `9c80a5cad6c3366e90adc8a82084e979d943348b65f404d688963cebe980d720`; payload SHA256 `3f857ba23607572e6acf9392e4b95fdb6b4213c202c66942ec1c6ebc1e0eb90d`. The final suggested file has no archive payload and contains the full unchecked plan with its native Tau Ceti import.
+
+Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the immutable public archive and four final deliverables, authenticates every hash, size and line count, fetches the existing pinned Tau source and verifies all four direct-sum declarations and the unchanged complete graded-quotient namespace, binds this handoff's mathematical prefix and checks its own code against the public handoff. Inspect the recovered helpers. From an existing repository checkout containing both recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the exact prescribed declarations.tsv and place REPLAY_DIR outside the checkout. Its output should equal Verification.json. Set ROOT_ACTION_VALIDATE_BASE to the mathematical base to reproduce MathematicalVerification.json. The verifier executes the actual immutable checker, intake and atlas assembler without executing Lean or creating a repository snapshot. It checks the final public handoff as well as all archived artifacts.
+
+Optional serial proof replay with an existing exact Mathlib build: `python3 REPLAY_DIR/runcheck.py REPLAY_DIR MATHLIB_CHECKOUT LEAN_BINARY Native.lean`, followed by the corresponding Canonical.lean command only after completion. The runner checks pins, tracked cleanliness, compiled dependencies, compiler version, memory≥20GiB and timeout. Canonical.lean is the admitted Mathlib-only evidence projection with the exact pinned Tau source declarations replayed; Suggested.lean imports the Tau library and is uncompiled. Native.lean replays the same four direct-sum declarations and exact graded-quotient namespace from source and proves the new contracts without admissions. No exact-pin Tau compiled-import claim is made. Recorded diagnostic hashes authenticate the original runs; timing and resource statistics vary on replay.
+
+Actual public HTTP recovery and both immutable verifier reports at the final head are checked before opening the PR. Disposable scratch is removed after submission; this handoff contains all recovery references and exact archived helper fences.
+
+## Script: recover.py
+
+```python
+"""Recover public authenticated generic graded-module induction evidence; never executes Lean."""
+from pathlib import Path
+import base64,hashlib,json,re,sys,urllib.request,zlib
+S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
+HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
+ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+RID='DeformationAndDerivedPatchingAlgebra--P7'
+ARCHIVE='fb233fe95743dbdaf14cc4735f91a95a29b06d08'
+MANIFEST_SHA='9c80a5cad6c3366e90adc8a82084e979d943348b65f404d688963cebe980d720'
+PAYLOAD_SHA='3f857ba23607572e6acf9392e4b95fdb6b4213c202c66942ec1c6ebc1e0eb90d'
+EXPECTED={'packets': '53e217813e7045ef4ff66e8d80551e82324b4d6d9f2335f8f1c79875320a9b7c', 'readmes': 'bc40f4173786237804a355eb3e6179895bfe86f90e54e238d2900ae64235ea31', 'suggested': '39990c5a0a0d09b3ad74218bdfe81cf6752c373971f8c6b9c62b802eeb7ccf79'}
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def fetch(ref,path):
+ with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
+raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
+pb=raw.split('/- BEGIN ARCHIVED GENERIC GRADED MODULE INDUCTION PAYLOAD\n',1)[1].split('END ARCHIVED GENERIC GRADED MODULE INDUCTION PAYLOAD -/',1)[0].encode()
+assert sha(pb)==PAYLOAD_SHA
+payload=json.loads(pb)
+def unpack(name):
+ b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
+ return b
+mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
+assert set(payload)==set(meta)|{'artifact-manifest.json'}
+for name,m in meta.items():
+ assert Path(name).name==name and name not in {'.','..'}
+ b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
+ (S/name).write_bytes(b)
+(S/'artifact-manifest.json').write_bytes(mb)
+tr=json.loads((S/'TauShiftReceipt.json').read_text())
+assert tr['publicUrl']=='https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/DirectSum/Internal.lean'
+with urllib.request.urlopen(tr['publicUrl'],timeout=30)as r:tau=r.read()
+assert sha(tau)==tr['fileSha256']==tr['publicFetchedSha256']
+ts=tau.decode();a=ts.index('theorem DirectSum.map_decompose_shift');b=ts.index('/-- Homogeneous projection',a)
+block=ts[a:b].rstrip()+'\n'
+assert sha(block.encode())==tr['declarationSha256']
+assert block==(S/'TauShift.lean').read_text().split('namespace TauCeti\n',1)[1].rsplit('end TauCeti\n',1)[0]
+rr=json.loads((S/'TauRestrictionReceipt.json').read_text())
+assert rr['publicUrl']==tr['publicUrl'] and rr['fileSha256']==rr['publicFetchedSha256']==sha(tau)
+a=ts.index('theorem DirectSum.isInternal_comap');b=ts.index('/-- A linear map which carries',a)
+c=ts.index('/-- Homogeneous projection in a restricted decomposition');d=ts.index('-- The inverse congruence',c)
+rblock=ts[a:b].rstrip()+'\n\n'+ts[c:d].rstrip()+'\n'
+assert sha(rblock.encode())==rr['blockSha256']
+assert rblock==(S/'TauRestriction.lean').read_text().split('open scoped _root_.DirectSum\n',1)[1].rsplit('end\nend TauCeti\n',1)[0]
+qr=json.loads((S/'TauGradedQuotientReceipt.json').read_text())
+assert qr['url']=='https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/GradedAlgebra/Homogeneous/Quotient.lean'
+with urllib.request.urlopen(qr['url'],timeout=30)as r:qsource=r.read()
+assert sha(qsource)==qr['fileSha256']==qr['publicFetchedSha256']
+qblock='namespace TauCeti\n'+qsource.decode().split('namespace TauCeti\n',1)[1]
+assert sha(qblock.encode())==qr['blockSha256'] and qblock==(S/'TauGradedQuotient.lean').read_text()
+assert (S/'TauGradedQuotientCanonical.lean').read_text()==qblock.replace('universe u v w\n','')
+public={}
+for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','PublicHandoff.md')]:
+ path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+RID+'.'+ext
+ b=fetch(HEAD,path)
+ if folder in EXPECTED:assert sha(b)==EXPECTED[folder]and b==(S/name).read_bytes(),path
+ (S/name).write_bytes(b);public[path]=sha(b)
+(S/(RID+'.json')).write_bytes((S/'Candidate.json').read_bytes())
+fence=chr(96)*3;handoff=(S/'PublicHandoff.md').read_text()
+assert handoff.startswith((S/'HandoffBase.md').read_text())
+for name in meta:
+ if name.endswith('.py'):
+  helper=handoff.split('## Script: '+name+'\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
+  assert helper==(S/name).read_text(),name
+code=handoff.split('## Script: recover.py\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
+assert code==Path(__file__).read_text(),'Executed recovery script differs from public handoff.'
+(S/'recover.py').write_text(code)
+receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=sum(n.endswith('.py')for n in meta),publicDeliverables=public,recoverySha256=sha(code.encode()),pinnedTauSourceVerified=tr['fileSha256'],tauRestrictionBlockVerified=rr['blockSha256'],tauGradedQuotientBlockVerified=qr['blockSha256'],LeanExecuted=False)
+(S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
+```
