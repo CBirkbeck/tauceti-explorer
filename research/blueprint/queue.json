@@ -21214,11 +21214,12 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #642"
+   "note": "deliverables arrived from an external worker on issue #642",
+   "finishedAt": "2026-10-04T20:37:01Z"
   },
   {
    "id": "REV-SchemeAndStackFoundations",
@@ -27166,8 +27167,9 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/BP-NeronModelsAndSemistableAbelianVarieties.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #960"
   },
   {
    "id": "REV-NeronModelsAndSemistableAbelianVarieties",
@@ -31165,7 +31167,7 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ClassicalArithmeticCompletion",
     "BP-FoundationsAndLibraryIntegration",
@@ -31174,7 +31176,7 @@
     "BP-SchemeAndStackFoundations",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "released on GitHub issue #1038"
+   "note": "claimed on GitHub issue #1038"
   },
   {
    "id": "REV-ArithmeticStatistics",
@@ -31327,7 +31329,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-ArithmeticQuantumTopology",
     "BP-ClassicalArithmeticCompletion",
@@ -31340,7 +31342,8 @@
     "BP-ModularCurvesPartII--R13.3",
     "BP-ModularCurvesPartII--R14.3"
    ],
-   "note": "claimed on GitHub issue #1042"
+   "note": "deliverables arrived from an external worker on issue #1042",
+   "finishedAt": "2026-10-04T20:37:02Z"
   },
   {
    "id": "REV-QSeriesPartitionsAndMockModularForms",
