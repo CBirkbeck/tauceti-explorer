@@ -88,6 +88,22 @@ convention, is not a baseline declaration. The node is still needed, and its
 
 ## 2. Granularity
 
+A roadmap is planned at one of two levels, set in `research/blueprint/detail.json`.
+
+- **Target level** is the default. It has one node for each target a stage
+  states, and one for each definition or key theorem a target needs on the way.
+  Each node has its exact statement, a proof sketch that cites the source, and its
+  direct prerequisites. Proofs are not broken into lemma nodes. Definitions and
+  constructions still carry their full API outline and unit tests (sections 4
+  and 12).
+- **Lemma level** is for roadmaps near the front of the line: those whose
+  distance from the libraries (`data/roadmap-classification.json`) is at most
+  `lemmaLevelMaxDistance`, and those the maintainer picks for formalisation. The
+  rules below apply to it. A roadmap moves from target level to lemma level as it
+  comes near the front of the line.
+
+At lemma level:
+
 - One node is one library declaration: a definition, structure or class (with
   the instances that define it), a lemma, a theorem, or a construction whose data
   is a single declaration.

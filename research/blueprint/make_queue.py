@@ -52,7 +52,7 @@ METHOD = """METHOD
    (d) add a new node to this packet.
    Recurse on every new node until every chain ends in (a), (b), (c) or a recorded gap. Keep an explicit worklist in your scratch directory and work through it methodically; do not stop at the first level.
    Build on existing roadmaps and never duplicate them (PROTOCOL.md section 15): what a Tau Ceti roadmap or another proposed roadmap plans is imported through (b) or (c), never planned again in (d). If you need more than an existing roadmap provides in its own direction, propose the addition as "<that roadmap>, Part II" in `restructure`.
-3. Granularity. One node per library declaration. Split multi-part results. Every non-routine step becomes its own lemma node.
+{DETAIL}
 4. Uses, API and unit tests. For every definition and construction, first find where and how it is used, in the sources and in the layers that consume it (the stage links in the atlas extracts, and other packets), and record each use in `uses` as {{"where", "how"}}. Then give it an `api` outline that serves those uses (PROTOCOL.md section 4) and a `tests` list of at least three unit tests (section 12), chosen so that a plausible wrong definition fails one of them: a value in a small case, the degenerate case, agreement with the closest Mathlib or Tau Ceti notion wherever both are defined, and a non-example. Think as a library designer: what does a user of this object need in order to use it without unfolding its definition? Include compatibility with the closest Mathlib or Tau Ceti notion, stated precisely.
 5. Sources. Every node cites the passage that states or proves it. Keep excerpts short. Record every mistake you find in a source under the packet's `sourceIssues` (PROTOCOL.md section 18): misprints, errors and gaps, quoted at their locators, with the correction, the reason, and whether a published correction exists; nodes use the corrected statements.
 6. Check. Run `python3 scripts/check_blueprint.py {OUTPUT}` and fix every error. Record anything you could not establish as a gap; never paper over a missing step.
@@ -295,7 +295,7 @@ Check each item below, and correct it in place wherever the fix is clear. Record
    - Check that every target of a stage marked planned or closed is realised.
    - Check that cross-roadmap prerequisites are justified, by reading the supplier's statement.
    - Check that each request is precise.
-4. Granularity. Split any node that bundles several declarations or hides a non-routine argument.
+4. Granularity, at the level this blueprint was set: {LEVEL} (PROTOCOL.md section 2). At lemma level, split any node that bundles several declarations or hides a non-routine argument. At target level, check that every target and every definition or key theorem a target needs is a node with the right direct prerequisites and a sound proof sketch, and do not split proofs into lemmas.
 5. API. For every definition and construction, check that the outline would let a user work with the object without unfolding its definition. It should cover constructors, extensionality, simp lemmas, structure, functoriality, the universal property, compatibility with Mathlib or Tau Ceti, relations and examples. Add any missing items.
 6. Unit tests, suggested file and planets. Every definition and construction has at least three unit tests that would catch a plausible wrong definition (PROTOCOL.md section 12). The suggested Lean file matches the packet, uses `sorry` honestly and, if you can run Lean at the pinned baseline, elaborates (section 13). Planets are key definitions, central constructions and named theorems, named from the source (section 14). Add or correct what is missing.
 6a. Mistakes in the sources (PROTOCOL.md section 18). Check every entry of the packet's `sourceIssues` at its locator, and add to it "review": {{"verdict": "confirmed | rejected", "reason": "...", "by": "{JOB}"}}. Add any mistake the packet missed, with your own verdict.
@@ -1010,8 +1010,33 @@ def split_note(rid, output):
             f"and source findings, so continue it. Its document research/blueprint/split/{rid}.md, suggested file "
             f"research/blueprint/split/{rid}.lean and handoff note research/blueprint/handoff/BP-{rid}.md cover every layer, in "
             "the order its checkpoints wrote them. Read them for this layer and carry what is right into your own document and "
-            "suggested file, but do not edit them. Close this layer's remaining items at the granularity of PROTOCOL.md "
-            "section 2, one node per library declaration of up to about a page of source.\n")
+            "suggested file, but do not edit them. Close this layer's remaining items at the level step 3 of the method sets.\n")
+
+
+# How finely a roadmap is planned (PROTOCOL.md section 2; research/blueprint/detail.json): at lemma level
+# when it is near the front of the line or the maintainer picked it for formalisation, else at target
+# level. A lemma-by-lemma plan of a distant roadmap goes stale long before anyone formalises it.
+DETAIL = {
+    "lemma": ("3. Granularity, at lemma level: this roadmap is near the front of the line (PROTOCOL.md section 2). One node per "
+              "library declaration. Split multi-part results. Every non-routine step becomes its own lemma node."),
+    "target": ("3. Granularity, at target level (PROTOCOL.md section 2). One node for each target a stage states, and one for each "
+               "definition or key theorem a target needs on the way. Give each its exact statement with all hypotheses, a proof "
+               "sketch of a few steps that cites the source, and its direct prerequisites. In step 2, recurse only through "
+               "definitions and key theorems; smaller steps stay in the proof sketch. Do not break proofs into further lemma "
+               "nodes: that happens at lemma level, once the roadmap comes near the front of the line. Definitions and "
+               "constructions still carry their full API outline and unit tests (step 4)."),
+}
+
+
+def detail_levels():
+    """{roadmap id: "lemma"} for the roadmaps planned at lemma level; every other roadmap is at target level."""
+    config_path = BP / "detail.json"
+    config = json.loads(config_path.read_text()) if config_path.exists() else {}
+    limit = config.get("lemmaLevelMaxDistance", -1)
+    classification = json.loads((REPO / "data" / "roadmap-classification.json").read_text()).get("roadmaps", {})
+    near = {rid for rid, record in classification.items()
+            if isinstance(record.get("distance"), (int, float)) and record["distance"] <= limit and not rid.startswith("tauceti:")}
+    return {rid: "lemma" for rid in near | set(config.get("lemmaLevel") or [])}
 
 HABIRO_FAMILY = {"HabiroNumberFields", "HabiroRings", "HabiroCyclotomicCompletions", "HabiroNahmSeries",
                  "HabiroCohomologyFoundations", "ArithmeticQuantumTopology"}
@@ -1238,6 +1263,10 @@ def main():
         if comp[a] != comp[b]:
             suppliers[b].add(a)
     fill = dict(REPO=str(REPO), BASELINE=args.baseline, LIBRARY=args.library, WORKERS=args.workers, BUDGET=NODE_BUDGET)
+    lemma_level = detail_levels()
+
+    def level(rid):
+        return lemma_level.get(rid, "target")
     jobs = []
     prompts = {}
 
@@ -1297,7 +1326,7 @@ def main():
             output = f"research/blueprint/packets/{file_id(rid)}" + (f"--{key}" if multi else "") + ".json"
             readme = f"research/blueprint/readmes/{file_id(rid)}" + (f"--{key}" if multi else "") + ".md"
             suggested = f"research/blueprint/suggested/{file_id(rid)}" + (f"--{key}" if multi else "") + ".lean"
-            text = BP_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested,
+            text = BP_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested, DETAIL=DETAIL[level(rid)],
                                       PARTNOTE=f", part {i + 1} of {len(groups)}" if multi else "",
                                       STAGES=stage_lines(group), OUTPUT=output, PART=json.dumps(part),
                                       EXTRA=extra + (split_note(rid, output) if rid in ONE_LAYER_PER_PART else ""),
@@ -1308,7 +1337,7 @@ def main():
             bp_jobs_of[rid].append(job_id)
             parts_of[rid].append((job_id, output, readme, suggested))
             review_id = "REV-" + job_id[3:]
-            rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
+            rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stages: {', '.join(s['id'] for s in group)})")
             add({"id": review_id, "kind": "review", "priority": 2, "order": order * 100 + i,
                  "roadmapIds": [rid], "outputs": [f"research/blueprint/reviews/{review_id}.md", output, suggested],
                  "after": [job_id], "avoidAccountOf": job_id}, rtext)
@@ -1376,14 +1405,14 @@ def main():
     for position, (job_id, rid, group, brief, name) in enumerate(designs, 1):
         output = f"research/blueprint/packets/{rid}.json"
         suggested = f"research/blueprint/suggested/{rid}.lean"
-        text = DESIGN_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, GROUP=group, BRIEF=brief, OUTPUT=output,
+        text = DESIGN_TEMPLATE.format(**fill, JOB=job_id, ROADMAP=rid, GROUP=group, BRIEF=brief, OUTPUT=output, DETAIL=DETAIL[level(rid)],
                                       README=f"research/blueprint/readmes/{rid}.md", SUGGESTED=suggested,
                                       FILE=rid, EDITABLE=f"research/blueprint/roadmaps/{rid}.json and {output}")
         add({"id": job_id, "kind": "design", "priority": 1, "order": position, "roadmapIds": [rid], **({"name": name} if name else {}),
              "outputs": [f"research/blueprint/roadmaps/{rid}.json", output, f"research/blueprint/readmes/{rid}.md", suggested],
              "after": ["DESIGN-BCGP18"] if job_id == "DESIGN-BCGP25" else [], "timeout": 8 * 3600}, text)
         review_id = "REV-" + job_id
-        rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json, its blueprint packet {output} and its suggested Lean file {suggested}")
+        rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_id, LEVEL=f"{level(rid)} level", TARGETS=f"the new roadmap definition research/blueprint/roadmaps/{rid}.json, its blueprint packet {output} and its suggested Lean file {suggested}")
         add({"id": review_id, "kind": "review", "priority": 2, "order": 1, "roadmapIds": [rid], **({"name": name} if name else {}),
              "outputs": [f"research/blueprint/reviews/{review_id}.md", f"research/blueprint/roadmaps/{rid}.json", output, suggested],
              "after": [job_id], "avoidAccountOf": job_id, "timeout": 8 * 3600}, rtext)
@@ -1510,7 +1539,7 @@ def main():
                     f"alone. Start from the coverage record for {sid} in {packet_path}, which says what remains"
                     + (f" ({'; '.join(str(r) for r in remaining)[:600]})" if remaining else "") +
                     f". Cite that packet's nodes by id wherever they apply, give your nodes ids it does not use, and do not edit it.\n")
-            text = BP_TEMPLATE.format(**fill, JOB=fid, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested,
+            text = BP_TEMPLATE.format(**fill, JOB=fid, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested, DETAIL=DETAIL[level(rid)],
                                       PARTNOTE=f", stage {key}, a follow-up of {job['id']}",
                                       STAGES=f"- {sid} — {stage_titles.get(sid, sid)}", OUTPUT=output, PART=json.dumps(part),
                                       EXTRA=note, FILE=file_id(rid), EDITABLE=output)
@@ -1518,7 +1547,7 @@ def main():
                       "roadmapIds": [rid], "scope": [sid], "outputs": [output, readme, suggested], "after": [review_id],
                       "followUpOf": job["id"]}
             add(follow, text)
-            rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_job(fid), TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stage {sid}, a follow-up of {job['id']})")
+            rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_job(fid), LEVEL=f"{level(rid)} level", TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stage {sid}, a follow-up of {job['id']})")
             add({"id": review_job(fid), "kind": "review", "priority": 2, "order": job.get("order", 0), "roadmapIds": [rid],
                  "outputs": [f"research/blueprint/reviews/{review_job(fid)}.md", output, suggested], "after": [fid],
                  "avoidAccountOf": fid}, rtext)
