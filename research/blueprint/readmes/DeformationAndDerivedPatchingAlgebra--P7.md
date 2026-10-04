@@ -1,3 +1,188 @@
+# Degree-one multiplication and actual quotient components
+
+Codex — codex-7e92bd · 4 October2026 · Refs #551 · partial.
+
+The actual adic module now has degree-one multiplication maps between adjacent image components and quotient maps to their actual images in L/aL. The sequence is right exact in every positive degree; degree zero is unchanged by this quotient. The kernel and range satisfy the native homogeneous-submodule predicate. Zero-divisor scalars are allowed; the Z/4 example has both a nonzero image and a nonzero kernel.
+
+[Stacks Section10.58](https://stacks.math.columbia.edu/tag/00JV), especially the complete proof of Proposition10.58.7, supplies the degree-shifted quotient context. The arbitrary-ring component interfaces are authored deductions. The existing Tau Ceti shifted-projection theorem is imported. No full quotient grading, smaller-ring finiteness or eventual polynomial is claimed.
+
+Sixteen actual degree-one multiplication/component declarations now prove shifted and degree-zero projection laws, native homogeneous kernel/range predicates, adjacent component maps and their exact quotient sequence, degree-zero injectivity and annihilation of the actual kernel/quotient. Zero-divisor scalars remain allowed. The plan imports the already-built Tau Ceti map_decompose_shift; isolated Mathlib evidence replays its exact pinned source, not a compiled Tau library. Still install the full native kernel/range/quotient decompositions and their graded actions using existing generic restriction interfaces; construct scalar descent to S/(a), prove smaller-ring finite generation, finite degree lengths and length recurrence, then Hilbert–Serre induction. All support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, eight-stage and routed-paper obligations remain open.
+
+All381incoming whole nodes, the two requests, fifteen whole gaps, thirteen planets and reserved multiplicity key retain their prior contracts. Peer6033public recovery and actual verifier replay authenticate the incoming prefix. Fresh reading covers the consumed grading/projection contracts and peer proof addition, not all prior nodes or proofs; own earlier control readings are reused only at matching hashes. The full suggested file requires the pinned Tau import and is uncompiled. Native and admitted Mathlib-only evidence replay exactly one existing pinned Tau declaration from source; this is not a Tau library build. Historical prose below retains its attribution.
+
+## Degree-one multiplication and shifted projections
+
+**TauCeti.HilbertSamuel.adicModuleMul_projection_succ** — Let A be a commutative ring, q any ideal, M any A-module, S=gr_q(A), L=gr_q(M) the actual native Rees quotients, and a∈S_1. For every n≥0 and z∈L, π_(n+1)(a·z)=a·π_n(z), for the actual ambient A-linear projections. Multiplication raises degree by one and is not asserted to preserve degree.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration, tauceti:TauCeti.DirectSum.map_decompose_shift, mathlib:LinearMap.lsmul.
+
+Proof: Apply the existing pinned Tau Ceti shifted-projection theorem to the actual scalar endomorphism restricted to A, with injective reindexing n↦n+1. The already-registered graded action supplies its degree-shift hypothesis. Import the generic theorem; do not re-plan it.
+
+## Degree-zero projection of positive-degree multiplication
+
+**TauCeti.HilbertSamuel.adicModuleMul_projection_zero** — For the same actual degree-one scalar a and every z∈L, π_0(a·z)=0, including arbitrary mixed-degree z.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration, mathlib:DirectSum.Decomposition.inductionOn, mathlib:DirectSum.decompose_of_mem_ne.
+
+Proof: Induct on the existing native direct-sum decomposition. A homogeneous degree-n input has product in degree1+n, whose degree-zero projection vanishes; addition handles finite sums.
+
+## Homogeneous kernel of degree-one multiplication
+
+**TauCeti.HilbertSamuel.adicModuleMul_ker_homogeneous** — The actual S-submodule ker(μ_a:L→ₗ[S]L), where μ_a(z)=a·z, satisfies the native Submodule.IsHomogeneous predicate for the existing image-component grading L_n. No injectivity of μ_a is assumed.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-shifted-projection, mathlib:Submodule.IsHomogeneous, mathlib:LinearMap.lsmul.
+
+Proof: For z in the actual kernel, the shifted projection formula rewrites a·π_n(z) as π_(n+1)(a·z)=0. Thus every projection remains in the same kernel.
+
+## Homogeneous range of degree-one multiplication
+
+**TauCeti.HilbertSamuel.adicModuleMul_range_homogeneous** — The actual S-submodule range(μ_a)=aL satisfies the native Submodule.IsHomogeneous predicate for the existing L_n. The degree-zero part vanishes and each degree-(n+1) projection of a·z is the image of π_n(z).
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-shifted-projection, DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-zero-projection, mathlib:Submodule.IsHomogeneous, mathlib:LinearMap.lsmul.
+
+Proof: Write a range element as a·z. In degree zero use the zero projection; in a successor degree use π_n(z) as the explicit preimage witness.
+
+## Actual multiplication between adjacent homogeneous components
+
+**TauCeti.HilbertSamuel.adicModuleMulComponent** — For a∈S_1 and n≥0 construct μ_(a,n):L_n→ₗ[A]L_(n+1) by restricting the actual S-linear scalar map μ_a to A and to the native source/target image submodules. The map retains the original action on the same Rees quotient.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration, mathlib:LinearMap.lsmul, mathlib:LinearMap.codRestrict.
+
+Proof: Compose the scalar endomorphism restricted to A with the source subtype map; codomain-restrict to L_(n+1) using the existing homogeneous scalar action. No generic shifted-map carrier is introduced.
+
+API: TauCeti.HilbertSamuel.adicModuleMul_projection_succ, TauCeti.HilbertSamuel.adicModuleMul_projection_zero, TauCeti.HilbertSamuel.adicModuleMul_ker_homogeneous, TauCeti.HilbertSamuel.adicModuleMul_range_homogeneous, TauCeti.HilbertSamuel.adicModuleMulComponent_coe, TauCeti.HilbertSamuel.adicModuleMulComponent_ker, TauCeti.HilbertSamuel.adicModuleMulComponent_range, TauCeti.HilbertSamuel.adicModuleMul_ker_annihilated. Exact contracts appear above or below.
+
+## Ambient value of the multiplication component
+
+**TauCeti.HilbertSamuel.adicModuleMulComponent_coe** — For x∈L_n, the ambient value of μ_(a,n)(x) is exactly a·x in the original native quotient L.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-map.
+
+Proof: Unfold the two restrictions and the native scalar endomorphism; the equality is reflexive.
+
+## Kernel of the multiplication component
+
+**TauCeti.HilbertSamuel.adicModuleMulComponent_ker** — For x∈L_n, x belongs to ker μ_(a,n) if and only if its ambient value belongs to ker μ_a.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-value.
+
+Proof: Use subtype extensionality to identify zero in the target component with zero in L.
+
+## Range of the multiplication component
+
+**TauCeti.HilbertSamuel.adicModuleMulComponent_range** — For x∈L_(n+1), x belongs to range μ_(a,n) if and only if its ambient value belongs to the actual global range aL. This supplies a homogeneous preimage for every homogeneous element in aL.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-value, DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-shifted-projection, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-image-membership, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-homogeneous-criterion.
+
+Proof: One direction forgets the subtype. Given any global preimage z, take π_n(z); the shifted formula and homogeneity of x prove that this actual degree-n preimage maps to x.
+
+## Actual component map to the quotient by degree-one multiplication
+
+**TauCeti.HilbertSamuel.adicModuleCokernelComponent** — For a∈S_1 and n≥0, let C=L/aL be the actual native module quotient and C_n the actual A-linear range of L_n→L→C. Construct p_(a,n):L_n→ₗ[A]C_n as the range restriction of the actual quotient map composed with the source subtype. This does not yet install a full decomposition on C.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components, mathlib:LinearMap.lsmul, mathlib:Submodule.mkQ, mathlib:LinearMap.rangeRestrict.
+
+Proof: Use the existing S-submodule range μ_a and its native quotient. Restrict its quotient map to A, compose with L_n inclusion and apply the native range restriction. Keep the concrete quotient carrier and map.
+
+API: TauCeti.HilbertSamuel.adicModuleCokernelComponent_coe, TauCeti.HilbertSamuel.adicModuleCokernelComponent_surjective, TauCeti.HilbertSamuel.adicModuleCokernelComponent_ker, TauCeti.HilbertSamuel.adicModuleCokernelComponent_exact, TauCeti.HilbertSamuel.adicModuleCokernelComponent_zero_injective, TauCeti.HilbertSamuel.adicModuleMul_cokernel_annihilated. Exact contracts appear above or below.
+
+## Actual quotient class of a component
+
+**TauCeti.HilbertSamuel.adicModuleCokernelComponent_coe** — For x∈L_n, the ambient value of p_(a,n)(x) in C=L/aL is precisely the native quotient class of x.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-map.
+
+Proof: Unfold the native quotient and range restriction; the equality is reflexive.
+
+## Surjectivity onto the actual quotient component
+
+**TauCeti.HilbertSamuel.adicModuleCokernelComponent_surjective** — For every n≥0, p_(a,n):L_n→C_n is surjective onto the actual homogeneous image component.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-map, mathlib:LinearMap.surjective_rangeRestrict.
+
+Proof: Apply native surjectivity of a range-restricted linear map.
+
+## Kernel of the actual quotient component
+
+**TauCeti.HilbertSamuel.adicModuleCokernelComponent_ker** — For x∈L_n, x belongs to ker p_(a,n) if and only if its ambient value lies in aL=range μ_a.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-value, mathlib:Submodule.Quotient.mk_eq_zero.
+
+Proof: Use subtype extensionality and the native quotient-class zero criterion; no quotient equality is replaced by a formal surrogate.
+
+## Exactness of adjacent multiplication and quotient components
+
+**TauCeti.HilbertSamuel.adicModuleCokernelComponent_exact** — For every n≥0, range μ_(a,n)=ker p_(a,n+1) as A-submodules of L_(n+1). Together with surjectivity this is L_n→L_(n+1)→C_(n+1)→0 for the actual maps. No injectivity of μ_(a,n) or regularity of a is assumed.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-component-range, DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-kernel.
+
+Proof: Apply submodule extensionality and identify both sides with membership of the ambient section in aL using the two preceding component criteria.
+
+## Degree-zero injectivity of the quotient component
+
+**TauCeti.HilbertSamuel.adicModuleCokernelComponent_zero_injective** — The actual degree-zero map p_(a,0):L_0→C_0 is injective, and hence bijective by the separate surjectivity theorem. This uses the nonnegative grading and a of degree one.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-kernel, DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-zero-projection, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-projection-homogeneous-criterion, mathlib:LinearMap.ker_eq_bot.
+
+Proof: A degree-zero kernel element equals a·z. Its degree-zero projection is itself by homogeneity and zero by the positive-degree product formula, so it vanishes.
+
+## The degree-one scalar annihilates its actual kernel
+
+**TauCeti.HilbertSamuel.adicModuleMul_ker_annihilated** — For x in the actual S-module ker μ_a, its inherited scalar action satisfies a·x=0 in that kernel module.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-homogeneous-kernel, mathlib:LinearMap.lsmul.
+
+Proof: Apply subtype extensionality; the defining native kernel membership is exactly the required ambient scalar equation.
+
+## The degree-one scalar annihilates the actual quotient
+
+**TauCeti.HilbertSamuel.adicModuleMul_cokernel_annihilated** — For every z in the actual S-module C=L/aL, its inherited scalar action satisfies a·z=0. This supplies the annihilation input for future scalar descent to S/(a); no smaller-ring finiteness is asserted.
+
+Hypotheses: A is an arbitrary commutative ring, q any ideal, M any A-module; S and L are the already constructed native adic Rees quotients. The scalar a lies in the actual degree-one image component of S. No locality, Noetherianity, finite generation, freeness, domain or non-zero-divisor hypothesis is added.
+
+Dependencies: DeformationAndDerivedPatchingAlgebra:R03.3/adic-quotient-component-map, mathlib:Submodule.Quotient.mk_eq_zero.
+
+Proof: Use native quotient induction. The scalar multiple of a representative is the image under μ_a of that representative, hence its quotient class vanishes.
+
+## Typed tests
+
+- **AdicModuleMulComponentTests.zero_scalar**: For arbitrary A,q,M,n and x∈L_n, the component map for the zero degree-one scalar sends x to zero.
+- **AdicModuleMulComponentTests.actual_monomials**: For a∈q and m∈q^nM, the actual adjacent component map on their native quotient classes is the native degree-(1+n) monomial of a·m, with its proved ideal-power membership.
+- **AdicModuleMulComponentTests.nonreduced_nilpotent**: For A=M=Z/4 and q=(2), there are actual a∈S_1,x∈L_0,y∈L_1 with μ_(a,0)(x)=y≠0 and μ_(a,1)(y)=0. The nonzero image and nonzero kernel retain the nilpotent coefficient2; injectivity cannot be assumed.
+- **AdicModuleCokernelComponentTests.image_is_killed**: For arbitrary A,q,M,a,n and x∈L_n, applying the actual quotient component map to μ_(a,n)(x) gives zero in C_(n+1).
+- **AdicModuleCokernelComponentTests.nonfree_constant_survives**: For A=Z,q=0,M=Z/4 and the zero degree-one scalar, an actual degree-zero component with ambient value the graded constant1 has nonzero image in C_0. The original module is not free over A.
+- **AdicModuleCokernelComponentTests.unit_ideal**: For q=A, every actual component element maps to zero under p_(a,n), for every degree-one scalar and degree n.
+
 # Actual adic module image grading and projections
 
 The native image-component decomposition and homogeneous scalar action use the same ordinary Rees module quotient and its existing degree quotient inclusions. Arbitrary commutative rings, ideals and modules are allowed. Recomposition agrees with the exact inherited expansion, and the two actual inverse identities register the existing native decomposition. The external direct sum carries precisely GradedModule.isModule for the original quotient action; its comparison is linear over gr_q(A). Individual degree projections are A-linear and generally shift under positive-degree scalars.
