@@ -1,3 +1,4 @@
+import Mathlib.CategoryTheory.Sites.LocallyBijective
 import Mathlib.Data.Quot
 import Mathlib.CategoryTheory.Sites.LeftExact
 import Mathlib.CategoryTheory.Bicategory.Functor.LocallyDiscrete
@@ -9309,3 +9310,272 @@ example {X Y Z : HomCategory b b} (m : X ⟶ Y) (n : Y ⟶ Z) :
   sorry
 
 end TauCeti.AlgebraicGeometry.GlobalHomTests
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+open Pseudofunctor.LocallyDiscreteOpToCat
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+lemma selfHomTransport_pullHom (X : HomCategory b b) {U V W : C}
+    (x : F.obj (.mk (op U))) (f : V ⟶ U) (g : W ⟶ V) (h : W ⟶ U)
+    (w : g ≫ f = h) (p : (fibreHomSheaf b b U x x X).obj.obj (op (Over.mk f))) :
+    fibreHomTransportIsoEquiv b b U x x X (Over.mk h) (pullHom p g h h w w) =
+      (selfTransportActionIso b X
+        ((Cat.Hom.toNatIso (F.mapComp' f.op.toLoc g.op.toLoc h.op.toLoc
+          (by rw [← w]; rfl))).app x).symm).hom.hom
+        ((fibreIsomRestriction b b X g _ _).hom
+          (fibreHomTransportIsoEquiv b b U x x X (Over.mk f) p)) := by
+  sorry
+
+noncomputable def selfHomChartToOrbit (X : HomCategory b b) (U : C)
+    (x : F.obj (.mk (op U))) :
+    (fibreHomSheaf b b U x x X).obj ⋙ uliftFunctor.{max u v u',v'} ⟶
+      (Over.forget U).op ⋙ (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v,max u' v'}) where
+  app T := TypeCat.ofHom (fun p => ULift.up (Quotient.mk (selfHomOrbitSetoid b T.unop.left X)
+    ⟨(F.map T.unop.hom.op.toLoc).toFunctor.obj x,
+      fibreHomTransportIsoEquiv b b U x x X T.unop p.down⟩))
+  naturality := by
+    intro T S f
+    ext p
+    apply ULift.ext
+    change Quotient.mk (selfHomOrbitSetoid b S.unop.left X) ⟨_, fibreHomTransportIsoEquiv b b U x x X (Over.mk S.unop.hom)
+      (pullHom p.down f.unop.left S.unop.hom S.unop.hom)⟩ = _
+    rw [selfHomTransport_pullHom b X x T.unop.hom f.unop.left S.unop.hom (Over.w f.unop)]
+    exact (selfHomOrbit_mk_transport b S.unop.left X _ _).symm
+
+lemma selfHomChartToOrbit_injective (X : HomCategory b b) (U : C)
+    (x : F.obj (.mk (op U))) (T : Over U) :
+    Function.Injective ((selfHomChartToOrbit b X U x).app (op T)) := by
+  sorry
+
+lemma selfHomChartToOrbit_locallySurjective (X : HomCategory b b) (U : C)
+    (x : F.obj (.mk (op U))) :
+    Presheaf.IsLocallySurjective (J.over U) (selfHomChartToOrbit b X U x) := by
+  sorry
+
+noncomputable def selfHomChartToGlobal (X : HomCategory b b) (U : C)
+    (x : F.obj (.mk (op U))) :
+    (sheafCompose (J.over U) uliftFunctor.{max u v u',v'}).obj
+      (fibreHomSheaf b b U x x X) ⟶ ((selfHomGlobalSheafFunctor b).obj X).over U where
+  hom := selfHomChartToOrbit b X U x ≫
+    Functor.whiskerLeft (Over.forget U).op
+      (toSheafify J (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v,max u' v'}))
+
+lemma selfHomChartToGlobal_isIso [J.WEqualsLocallyBijective (Type (max u v u' v'))]
+    (X : HomCategory b b) (U : C)
+    (x : F.obj (.mk (op U))) : IsIso (selfHomChartToGlobal b X U x) := by
+  sorry
+
+noncomputable def selfHomChartGlobalIso [J.WEqualsLocallyBijective (Type (max u v u' v'))]
+    (X : HomCategory b b) (U : C)
+    (x : F.obj (.mk (op U))) :
+    (sheafCompose (J.over U) uliftFunctor.{max u v u',v'}).obj
+      (fibreHomSheaf b b U x x X) ≅ ((selfHomGlobalSheafFunctor b).obj X).over U := by
+  letI := selfHomChartToGlobal_isIso b X U x
+  exact asIso (selfHomChartToGlobal b X U x)
+
+lemma selfHomChartGlobalIso_hom [J.WEqualsLocallyBijective (Type (max u v u' v'))]
+    (X : HomCategory b b) (U : C)
+    (x : F.obj (.mk (op U))) :
+    (selfHomChartGlobalIso b X U x).hom = selfHomChartToGlobal b X U x := by
+  sorry
+
+lemma selfHomChartToOrbit_apply (X : HomCategory b b) (U : C)
+    (x : F.obj (.mk (op U))) (T : Over U)
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    (selfHomChartToOrbit b X U x).app (op T) (ULift.up p) =
+      ULift.up (Quotient.mk (selfHomOrbitSetoid b T.left X)
+        ⟨(F.map T.hom.op.toLoc).toFunctor.obj x,
+          fibreHomTransportIsoEquiv b b U x x X T p⟩) := by
+  sorry
+
+lemma selfHomChartGlobalIso_apply [J.WEqualsLocallyBijective (Type (max u v u' v'))]
+    (X : HomCategory b b) (U : C)
+    (x : F.obj (.mk (op U))) (T : Over U)
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    (selfHomChartGlobalIso b X U x).hom.hom.app (op T) (ULift.up p) =
+      (toSheafify J (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v,max u' v'})).app
+        (op T.left) ((selfHomChartToOrbit b X U x).app (op T) (ULift.up p)) := by
+  sorry
+
+lemma selfHomChartToOrbit_modification {X Y : HomCategory b b} (m : X ⟶ Y)
+    (U : C) (x : F.obj (.mk (op U))) :
+    Functor.whiskerRight (fibreHomSheafMap b b U x x m).hom uliftFunctor.{max u v u',v'} ≫
+        selfHomChartToOrbit b Y U x =
+      selfHomChartToOrbit b X U x ≫ Functor.whiskerLeft (Over.forget U).op
+        (Functor.whiskerRight ((selfHomOrbitFunctor b).map m)
+          uliftFunctor.{max u v,max u' v'}) := by
+  sorry
+
+lemma selfHomChartToGlobal_modification {X Y : HomCategory b b} (m : X ⟶ Y)
+    (U : C) (x : F.obj (.mk (op U))) :
+    (sheafCompose (J.over U) uliftFunctor.{max u v u',v'}).map
+        (fibreHomSheafMap b b U x x m) ≫ selfHomChartToGlobal b Y U x =
+      selfHomChartToGlobal b X U x ≫
+        (J.overPullback (Type (max u v u' v')) U).map ((selfHomGlobalSheafFunctor b).map m) := by
+  sorry
+
+lemma selfHomChartToOrbit_transport (X : HomCategory b b) (U : C)
+    {x y : F.obj (.mk (op U))} (e : x ≅ y) (T : Over U)
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    (selfHomChartToOrbit b X U y).app (op T)
+        (ULift.up ((selfHomSheafTransport b X e).hom.app (op T) p)) =
+      (selfHomChartToOrbit b X U x).app (op T) (ULift.up p) := by
+  sorry
+
+lemma selfHomChartToOrbit_baseChange (X : HomCategory b b) {U V : C}
+    (f : V ⟶ U) (x : F.obj (.mk (op U))) (T : Over V)
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op ((Over.map f).obj T))) :
+    (selfHomChartToOrbit b X V ((F.map f.op.toLoc).toFunctor.obj x)).app (op T)
+        (ULift.up ((fibreHomBaseChangeIso b b X f x x).hom.hom.app (op T) p)) =
+      (selfHomChartToOrbit b X U x).app (op ((Over.map f).obj T)) (ULift.up p) := by
+  sorry
+
+lemma selfHomChartToGlobal_transport (X : HomCategory b b) (U : C)
+    {x y : F.obj (.mk (op U))} (e : x ≅ y) :
+    (sheafCompose (J.over U) uliftFunctor.{max u v u',v'}).map
+        (selfHomSheafTransport b X e) ≫ selfHomChartToGlobal b X U y =
+      selfHomChartToGlobal b X U x := by
+  sorry
+
+lemma selfHomChartToGlobal_baseChange (X : HomCategory b b) {U V : C}
+    (f : V ⟶ U) (x : F.obj (.mk (op U))) (T : Over V)
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op ((Over.map f).obj T))) :
+    (selfHomChartToGlobal b X V ((F.map f.op.toLoc).toFunctor.obj x)).hom.app (op T)
+        (ULift.up ((fibreHomBaseChangeIso b b X f x x).hom.hom.app (op T) p)) =
+      (selfHomChartToGlobal b X U x).hom.app (op ((Over.map f).obj T)) (ULift.up p) := by
+  sorry
+
+lemma selfHomChartGlobalIso_inv_hom [J.WEqualsLocallyBijective (Type (max u v u' v'))]
+    (X : HomCategory b b) (U : C) (x : F.obj (.mk (op U))) (T : Over U)
+    (p : (((selfHomGlobalSheafFunctor b).obj X).over U).obj.obj (op T)) :
+    (selfHomChartGlobalIso b X U x).hom.hom.app (op T)
+      ((selfHomChartGlobalIso b X U x).inv.hom.app (op T) p) = p := by
+  sorry
+
+lemma selfHomChartGlobalIso_hom_inv [J.WEqualsLocallyBijective (Type (max u v u' v'))]
+    (X : HomCategory b b) (U : C) (x : F.obj (.mk (op U))) (T : Over U)
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    (selfHomChartGlobalIso b X U x).inv.hom.app (op T)
+      ((selfHomChartGlobalIso b X U x).hom.hom.app (op T) (ULift.up p)) = ULift.up p := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.ChartGlobalTests
+open CategoryTheory Opposite Bicategory BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+-- test: ChartGlobalTests.raw_distinct
+example (X : HomCategory b b) (U : C) (x : F.obj (.mk (op U))) (T : Over U)
+    (p q : (fibreHomSheaf b b U x x X).obj.obj (op T)) (hpq : p ≠ q) :
+    (selfHomChartToOrbit b X U x).app (op T) (ULift.up p) ≠
+      (selfHomChartToOrbit b X U x).app (op T) (ULift.up q) := by
+  sorry
+
+-- test: ChartGlobalTests.cover_of_arbitrary_class
+example (X : HomCategory b b) (U : C) (x : F.obj (.mk (op U))) (T : Over U)
+    (q : ((Over.forget U).op ⋙ (selfHomOrbitPresheaf b X ⋙
+      uliftFunctor.{max u v,max u' v'})).obj (op T)) :
+    Presheaf.imageSieve (selfHomChartToOrbit b X U x) q ∈ (J.over U) T := by
+  sorry
+
+-- test: ChartGlobalTests.restriction_square
+example (X : HomCategory b b) (U : C) (x : F.obj (.mk (op U))) {T S : Over U}
+    (f : S ⟶ T) (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    (selfHomChartToOrbit b X U x).app (op S)
+      (ULift.up ((fibreHomSheaf b b U x x X).obj.map f.op p)) =
+    ((selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v,max u' v'}).map f.left.op)
+      ((selfHomChartToOrbit b X U x).app (op T) (ULift.up p)) := by
+  sorry
+
+-- test: ChartGlobalTests.two_transports
+example (X : HomCategory b b) (U : C) {x y z : F.obj (.mk (op U))}
+    (e : x ≅ y) (d : y ≅ z) :
+    (sheafCompose (J.over U) uliftFunctor.{max u v u',v'}).map (selfHomSheafTransport b X e) ≫
+      (sheafCompose (J.over U) uliftFunctor.{max u v u',v'}).map (selfHomSheafTransport b X d) ≫
+        selfHomChartToGlobal b X U z = selfHomChartToGlobal b X U x := by
+  sorry
+
+-- test: ChartGlobalTests.transport_choice
+example (X : HomCategory b b) (U : C) {x y : F.obj (.mk (op U))}
+    (e d : x ≅ y) (T : Over U) (p : (fibreHomSheaf b b U x x X).obj.obj (op T)) :
+    (selfHomChartToOrbit b X U y).app (op T)
+        (ULift.up ((selfHomSheafTransport b X e).hom.app (op T) p)) =
+      (selfHomChartToOrbit b X U y).app (op T)
+        (ULift.up ((selfHomSheafTransport b X d).hom.app (op T) p)) := by
+  sorry
+
+-- test: ChartGlobalTests.two_modifications
+example {X Y Z : HomCategory b b} (m : X ⟶ Y) (n : Y ⟶ Z)
+    (U : C) (x : F.obj (.mk (op U))) :
+    (sheafCompose (J.over U) uliftFunctor.{max u v u',v'}).map (fibreHomSheafMap b b U x x m) ≫
+      (sheafCompose (J.over U) uliftFunctor.{max u v u',v'}).map (fibreHomSheafMap b b U x x n) ≫
+        selfHomChartToGlobal b Z U x =
+      selfHomChartToGlobal b X U x ≫
+        (J.overPullback (Type (max u v u' v')) U).map ((selfHomGlobalSheafFunctor b).map (m ≫ n)) := by
+  sorry
+
+-- test: ChartGlobalTests.refined_base_change
+example (X : HomCategory b b) {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U)))
+    {T S : Over V} (g : S ⟶ T)
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op ((Over.map f).obj T))) :
+    (selfHomChartToGlobal b X V ((F.map f.op.toLoc).toFunctor.obj x)).hom.app (op S)
+        (ULift.up ((fibreHomBaseChangeIso b b X f x x).hom.hom.app (op S)
+          ((fibreHomSheaf b b U x x X).obj.map ((Over.map f).map g).op p))) =
+      (selfHomChartToGlobal b X U x).hom.app (op ((Over.map f).obj S))
+        (ULift.up ((fibreHomSheaf b b U x x X).obj.map ((Over.map f).map g).op p)) := by
+  sorry
+
+section
+variable [J.WEqualsLocallyBijective (Type (max u v u' v'))]
+
+-- test: ChartGlobalTests.arbitrary_global_section
+example (X : HomCategory b b) (U : C) (x : F.obj (.mk (op U))) (T : Over U)
+    (q : (((selfHomGlobalSheafFunctor b).obj X).over U).obj.obj (op T)) :
+    ∃ p : (fibreHomSheaf b b U x x X).obj.obj (op T),
+      (selfHomChartToGlobal b X U x).hom.app (op T) (ULift.up p) = q := by
+  sorry
+
+-- test: ChartGlobalTests.distinct_after_sheafification
+example (X : HomCategory b b) (U : C) (x : F.obj (.mk (op U))) (T : Over U)
+    (p q : (fibreHomSheaf b b U x x X).obj.obj (op T)) (hpq : p ≠ q) :
+    (selfHomChartToGlobal b X U x).hom.app (op T) (ULift.up p) ≠
+      (selfHomChartToGlobal b X U x).hom.app (op T) (ULift.up q) := by
+  sorry
+
+-- test: ChartGlobalTests.empty_local_carrier
+example (X : HomCategory b b) (U : C) (x : F.obj (.mk (op U))) (T : Over U)
+    [h : IsEmpty ((fibreHomSheaf b b U x x X).obj.obj (op T))] :
+    IsEmpty ((((selfHomGlobalSheafFunctor b).obj X).over U).obj.obj (op T)) := by
+  sorry
+
+end
+end TauCeti.AlgebraicGeometry.ChartGlobalTests
+
+namespace TauCeti.AlgebraicGeometry.ChartGlobalTests
+open CategoryTheory Opposite Bicategory BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+-- test: ChartGlobalTests.matched_universes
+example {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+    {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v,u}} [IsGerbe F J]
+    {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+    (X : HomCategory b b) (U : C) (x : F.obj (.mk (op U))) :
+    IsIso (selfHomChartToGlobal b X U x) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.ChartGlobalTests
