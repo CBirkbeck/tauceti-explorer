@@ -885,3 +885,63 @@ assert code==Path(__file__).read_text(),'Executed recovery script differs from p
 receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=sum(n.endswith('.py')for n in meta),publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
 (S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
 ```
+
+## Public recovery and replay
+
+Archive commit `68dab44da9060df898cd2f8c36053738d7b59447` is an ancestor changing only this issue's suggested file. Its 72 inert artifacts include all 11 authoring, projection, handoff, package, verification, graph and compilation helpers. Manifest SHA256 `71725cdc1330306335f8e0a2289cc383fe8bc001ff4235ff8290fb2cc7186be3`; payload SHA256 `20790ed51cf4cdfa6d7e837993e93190fae76385125d2814a345317896b6081b`. The final suggested file has no archive payload and preserves the complete Tau Ceti-import planning text.
+
+Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the immutable public archive and four final deliverables, authenticates every hash, size and line count, binds this handoff's mathematical prefix and checks its own code against the public handoff. Inspect the recovered helpers. From an existing repository checkout containing both recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the exact prescribed declarations.tsv and place REPLAY_DIR outside the checkout. Its output should equal Verification.json. Set MODULI_VALIDATE_BASE to the mathematical base to reproduce Verification-math.json. The verifier executes the actual immutable checker, intake and atlas assembler without executing Lean or creating a repository snapshot. It checks the final public handoff as well as all archived artifacts.
+
+Optional serial proof replay with an existing exact Mathlib build: `python3 REPLAY_DIR/runcheck.py REPLAY_DIR MATHLIB_CHECKOUT LEAN_BINARY Native.lean`, followed by the corresponding Canonical.lean command only after completion. The runner checks pins, tracked cleanliness, compiled dependencies, compiler version, memory≥20GiB and timeout. Canonical.lean is the Mathlib-only projection; Suggested.lean is the complete uncompiled Tau Ceti-import file. Recorded diagnostic hashes authenticate the original runs; timing and resource statistics vary on replay.
+
+Actual public HTTP recovery and both immutable verifier reports at the final head are checked before opening the PR. Disposable scratch is removed after submission; this handoff contains all recovery references.
+
+## Script: recover.py
+
+```python
+"""Recover public authenticated global fixed-band Hom evidence; never executes Lean."""
+from pathlib import Path
+import base64,hashlib,json,re,sys,urllib.request,zlib
+S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
+HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
+ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+RID='AlgebraicModuliForArithmeticGeometry--A0-extension'
+ARCHIVE='68dab44da9060df898cd2f8c36053738d7b59447'
+MANIFEST_SHA='71725cdc1330306335f8e0a2289cc383fe8bc001ff4235ff8290fb2cc7186be3'
+PAYLOAD_SHA='20790ed51cf4cdfa6d7e837993e93190fae76385125d2814a345317896b6081b'
+EXPECTED={'packets': 'a4ddc7077c528fe0ff7e50f64b3b6282bfb862b2091f8c8a0b68dc8eceb1adea', 'readmes': '1f8ad713947383c5d1d082531a42db9d35f97f738f38508995bc4c421e749275', 'suggested': '4b068404fbbcc5d9f94ea19010d52262edf9fbf0ffa18aff752207d9bf53beb2'}
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def fetch(ref,path):
+ with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
+raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
+pb=raw.split('/- BEGIN ARCHIVED GLOBAL FIXED BAND HOM PAYLOAD\n',1)[1].split('END ARCHIVED GLOBAL FIXED BAND HOM PAYLOAD -/',1)[0].encode()
+assert sha(pb)==PAYLOAD_SHA
+payload=json.loads(pb)
+def unpack(name):
+ b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
+ return b
+mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
+assert set(payload)==set(meta)|{'artifact-manifest.json'}
+for name,m in meta.items():
+ assert Path(name).name==name and name not in {'.','..'}
+ b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
+ (S/name).write_bytes(b)
+(S/'artifact-manifest.json').write_bytes(mb)
+public={}
+for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','PublicHandoff.md')]:
+ path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+RID+'.'+ext
+ b=fetch(HEAD,path)
+ if folder in EXPECTED:assert sha(b)==EXPECTED[folder]and b==(S/name).read_bytes(),path
+ (S/name).write_bytes(b);public[path]=sha(b)
+fence=chr(96)*3;handoff=(S/'PublicHandoff.md').read_text()
+assert handoff.startswith((S/'HandoffBase.md').read_text())
+for name in meta:
+ if name.endswith('.py'):
+  publicCode=handoff.split('## Script: '+name+'\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
+  assert publicCode.encode()==(S/name).read_bytes(),'Public helper differs: '+name
+code=handoff.split('## Script: recover.py\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
+assert code==Path(__file__).read_text(),'Executed recovery script differs from public handoff.'
+(S/'recover.py').write_text(code)
+receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=sum(n.endswith('.py')for n in meta),publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
+(S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
+```
