@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract. Native adic-module generation continuation:20 declaration-sized nodes,14 API items and14 typed tests, with native proofs of the exact existing monomial and degree-zero/finite-generation contracts. Native module coefficient continuation:20 declaration-sized nodes,8 API items and10 typed tests, proving the exact existing denominator, monomial kernel, homogeneous action and finite decomposition without finiteness assumptions. The existing native adic module image grading, scalar action, direct-sum comparison and projections now have admission-free proof prototypes on their exact inherited signatures. Ten new lemmas give actual inverse identities, native decomposition agreement, coefficient projection, membership, orthogonality, homogeneity, zero detection and all-projection extensionality. This supersedes prototype omissions for these adapters only. Homogeneous kernel/range/quotient gradings, scalar descent and finiteness over the smaller ring and degreewise length exactness remain required for general Hilbert–Serre; no eventual polynomial is assumed as its own existence premise. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-source obligation remain open; implementation statuses stay unchecked. Degree-one component continuation: sixteen nodes, fourteen API items and six typed tests on actual maps; all381incoming whole nodes and prior obligations preserved. Full suggested file imports the pinned Tau shifted-projection theorem; only isolated Mathlib source-replay evidence is compiled. Twelve new specialized declarations now descend the actual native kernel and cokernel of degree-one multiplication to S/(a), prove their representative actions and scalar towers, and certify smaller-ring finite generation. Kernel finiteness uses a Noetherian S-module L, or finite M over A plus explicit Noetherianity of S; quotient finiteness needs only finite L over S, or finite M over A. This supersedes the scalar-descent/finiteness prototype frontier only. Full native homogeneous kernel/range/quotient decompositions and smaller-ring grading, finite component lengths, two degreewise length identities with finite ENat-toNat conversion before integer subtraction, remaining-generator induction and general Hilbert–Serre existence remain open. The support/degree, completion, localization, associativity, intrinsic/ambient conventions, all eight stages and every routed-source obligation remain unchanged and open; all implementation statuses are unchecked. One existing component-equivalence API is promoted to its own prerequisite construction node. Twelve new lemmas prove finite actual adic component lengths for Noetherian A, finite M and Artinian A/q; two native extended-length identities; separately guarded natural-length conversions; and the signed integer recurrence with the nonzero kernel correction retained. Degree-zero quotient lengths agree without finite-length assumptions. This supersedes the finite-component-length and degreewise-length-identity frontier for these actual maps only. Native kernel/range/quotient decompositions, smaller-ring grading, remaining-generator induction and general Hilbert–Serre existence remain open. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open and all implementation statuses unchecked. Fourteen new nodes and two defining native instances give actual internally graded kernel and range modules for degree-one multiplication on the existing ordinary adic module: literal comap components, inherited S scalar degree addition, native restricted decompositions, ambient projection agreement, finite reconstruction and fixed homogeneous projections. The generic restriction and projection theorems are existing pinned Tau imports. This supersedes only the kernel/range internal-decomposition frontier; the actual cokernel decomposition, smaller-ring graded scalar action and remaining-generator Hilbert–Serre induction remain open. Retain the previous finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; all nodes unchecked. Sixteen new nodes and one defining native graded-scalar instance give the actual cokernel C=L/range(mu_a) an internal grading: original quotient-image components, original S scalar degree addition, independence from homogeneous range projections, spanning by quotient surjectivity, native finite decomposition, quotient projection agreement, finite reconstruction, fixed-degree membership and orthogonal idempotent A-linear projections. No new generic quotient or graded-ring carrier is planned. This supersedes only the actual cokernel internal-decomposition frontier. The smaller-ring S/(a) graded scalar action, simultaneous graded kernel/cokernel finiteness over the remaining-generator ring and the Hilbert–Serre induction remain open. Preserve the finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; every node unchecked. Fourteen new nodes specialize the existing Tau quotient grading to S/(a), prove agreement with original scalar projections, and supply native graded actions on the actual kernel and cokernel using their already constructed scalar descent. The remaining-generator polynomial algebra map has coefficient/variable formulas, uniqueness, degree-one images and proved surjectivity when {a} together with the remaining family generates S. Both actual modules are finite over this remaining polynomial ring under their distinct inherited Noetherian/finite-module hypotheses. This supersedes only these graded-scalar and remaining-polynomial-finiteness omissions. Still supply the induction in a form closed under repeated graded kernels and quotients, arbitrary homogeneous polynomial action, finite homogeneous generating families and the zero-generator eventual-vanishing branch, then assemble the finite-length recurrence with explicit finite-difference polynomial, threshold and initial constant. The current adic specializations do not themselves constitute the recursive Hilbert–Serre theorem. Preserve the nonzero kernel correction and guarded length conversions. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-paper obligation remain open; all nodes unchecked.",
+  "summary": "Coefficient projections and finite homogeneous decomposition continuation: register the actual native GradedAlgebra on the existing ordinary Rees quotient and prove degree-preserving coefficient change; the general module, finiteness, Hilbert–Serre and dimension arguments remain open. Native coefficient-change maps, exact graded injectivity and ring-equivalence transport, with a proved old coefficient-ideal/monomial/piece core. Finite-length local modules, actual adic quotient finiteness and cumulative/graded stabilization are refined with eight declaration-sized lemmas. Graded annihilator checkpoint: ten new declarations, three promoted API statements and six typed boundary tests. Actual graded quotient transport, extended graded lengths, the nonzero primary boundary and the zero-module unit-ideal boundary have independent native proofs. Polynomial and both multiplicity invariances explicitly depend on the existing admitted general polynomial specification. Annihilator-enlargement checkpoint: preserve all 247 incoming declaration objects and add six actual-carrier declarations, three promoted API items and four boundary tests. The action, power, quotient and extended-length equalities require no finiteness or faithful-module assumption. The six-proof/four-test native prototype is checked; canonical forms remain admitted and all implementation statuses unchecked. General Hilbert–Serre, dimension and all stage/source obligations remain open. Full actual curve graded assembly checkpoint: 20 new declarations (3 constructions), 16 API items and 13 boundary/compatibility tests. The polynomial map lands in the inherited Rees quotient, with exact full principal-kernel and component-compatible quotient-equivalence plans. All 210 incoming node objects and all ownership, source and general multiplicity boundaries remain intact. New proof bodies remain admitted. This partial P7/R03 checkpoint contains 210 declarations, preserving all 192 incoming node objects and the full general Noetherian-local finite-module Hilbert–Samuel key. Eighteen new declarations compare the actual equation-jet image with successive powers of the curve variable ideal, then identify the homogeneous polynomial quotient with the actual degree piece. Fifteen named boundary tests cover zero/unit equations, no variables, nilpotent coefficients and the characteristic-two nonreduced equation. Degreewise principal kernels retain exact-order and no-zero-divisors hypotheses. Multiplicative full graded assembly, dimension, general multiplicity and all inherited stage/source obligations remain open. This continuation compares actual adic quotient carriers under scalar restriction, transfers cumulative lengths under surjective coefficient maps, and links the general intrinsic multiplicity API to the explicit finite-order plane-curve polynomial. It keeps a fixed degree-two extraction distinct from intrinsic multiplicity and from a dimension-two ambient interpretation. Degree-one and generator-presentation continuation:15 declaration-sized nodes,10 API items and9 typed tests, plus a native proof of the existing degree-one generation contract. Native adic-module generation continuation:20 declaration-sized nodes,14 API items and14 typed tests, with native proofs of the exact existing monomial and degree-zero/finite-generation contracts. Native module coefficient continuation:20 declaration-sized nodes,8 API items and10 typed tests, proving the exact existing denominator, monomial kernel, homogeneous action and finite decomposition without finiteness assumptions. The existing native adic module image grading, scalar action, direct-sum comparison and projections now have admission-free proof prototypes on their exact inherited signatures. Ten new lemmas give actual inverse identities, native decomposition agreement, coefficient projection, membership, orthogonality, homogeneity, zero detection and all-projection extensionality. This supersedes prototype omissions for these adapters only. Homogeneous kernel/range/quotient gradings, scalar descent and finiteness over the smaller ring and degreewise length exactness remain required for general Hilbert–Serre; no eventual polynomial is assumed as its own existence premise. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-source obligation remain open; implementation statuses stay unchecked. Degree-one component continuation: sixteen nodes, fourteen API items and six typed tests on actual maps; all381incoming whole nodes and prior obligations preserved. Full suggested file imports the pinned Tau shifted-projection theorem; only isolated Mathlib source-replay evidence is compiled. Twelve new specialized declarations now descend the actual native kernel and cokernel of degree-one multiplication to S/(a), prove their representative actions and scalar towers, and certify smaller-ring finite generation. Kernel finiteness uses a Noetherian S-module L, or finite M over A plus explicit Noetherianity of S; quotient finiteness needs only finite L over S, or finite M over A. This supersedes the scalar-descent/finiteness prototype frontier only. Full native homogeneous kernel/range/quotient decompositions and smaller-ring grading, finite component lengths, two degreewise length identities with finite ENat-toNat conversion before integer subtraction, remaining-generator induction and general Hilbert–Serre existence remain open. The support/degree, completion, localization, associativity, intrinsic/ambient conventions, all eight stages and every routed-source obligation remain unchanged and open; all implementation statuses are unchecked. One existing component-equivalence API is promoted to its own prerequisite construction node. Twelve new lemmas prove finite actual adic component lengths for Noetherian A, finite M and Artinian A/q; two native extended-length identities; separately guarded natural-length conversions; and the signed integer recurrence with the nonzero kernel correction retained. Degree-zero quotient lengths agree without finite-length assumptions. This supersedes the finite-component-length and degreewise-length-identity frontier for these actual maps only. Native kernel/range/quotient decompositions, smaller-ring grading, remaining-generator induction and general Hilbert–Serre existence remain open. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open and all implementation statuses unchecked. Fourteen new nodes and two defining native instances give actual internally graded kernel and range modules for degree-one multiplication on the existing ordinary adic module: literal comap components, inherited S scalar degree addition, native restricted decompositions, ambient projection agreement, finite reconstruction and fixed homogeneous projections. The generic restriction and projection theorems are existing pinned Tau imports. This supersedes only the kernel/range internal-decomposition frontier; the actual cokernel decomposition, smaller-ring graded scalar action and remaining-generator Hilbert–Serre induction remain open. Retain the previous finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; all nodes unchecked. Sixteen new nodes and one defining native graded-scalar instance give the actual cokernel C=L/range(mu_a) an internal grading: original quotient-image components, original S scalar degree addition, independence from homogeneous range projections, spanning by quotient surjectivity, native finite decomposition, quotient projection agreement, finite reconstruction, fixed-degree membership and orthogonal idempotent A-linear projections. No new generic quotient or graded-ring carrier is planned. This supersedes only the actual cokernel internal-decomposition frontier. The smaller-ring S/(a) graded scalar action, simultaneous graded kernel/cokernel finiteness over the remaining-generator ring and the Hilbert–Serre induction remain open. Preserve the finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; every node unchecked. Fourteen new nodes specialize the existing Tau quotient grading to S/(a), prove agreement with original scalar projections, and supply native graded actions on the actual kernel and cokernel using their already constructed scalar descent. The remaining-generator polynomial algebra map has coefficient/variable formulas, uniqueness, degree-one images and proved surjectivity when {a} together with the remaining family generates S. Both actual modules are finite over this remaining polynomial ring under their distinct inherited Noetherian/finite-module hypotheses. This supersedes only these graded-scalar and remaining-polynomial-finiteness omissions. Still supply the induction in a form closed under repeated graded kernels and quotients, arbitrary homogeneous polynomial action, finite homogeneous generating families and the zero-generator eventual-vanishing branch, then assemble the finite-length recurrence with explicit finite-difference polynomial, threshold and initial constant. The current adic specializations do not themselves constitute the recursive Hilbert–Serre theorem. Preserve the nonzero kernel correction and guarded length conversions. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-paper obligation remain open; all nodes unchecked. Twelve generic lemma nodes now supply finite homogeneous S-generators for any internally A-graded finite S-module, a bound on their degrees, explicit component vanishing from a bounded A-spanning set, actual homogeneous polynomial degree actions from degree-one variable shifts, and the empty-variable induction base with eventually zero native finite lengths and an actual zero rational polynomial. All use existing carriers. This resolves only these generic input/base-case omissions; it does not derive coefficient-module finiteness from polynomial-module finiteness when variables remain. Next construct generic graded kernels/cokernels of the last-variable action, their remaining-polynomial module structures and finite homogeneous pieces, with a recursive induction hypothesis that applies to both; then assemble the guarded signed finite-length recurrence into an explicit rational polynomial, threshold and initial constant. Preserve the nonzero kernel correction. Positive-variable polynomial existence, support/dimension degree equality, completion, localization, associativity, both intrinsic and ambient multiplicity conventions, all eight stages and every routed obligation remain open. All nodes unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3234,6 +3234,41 @@
         "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
         "provides": "Finite generation is transitive along an actual scalar tower.",
         "checked": "Actual complete statement, construction/proof and ambient hypotheses personally read on2026-10-04 by Codex — codex-7e92bd at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; line366; exact declaration index checked. Existing general theory is imported, not replanned."
+      },
+      {
+        "ref": "mathlib:DirectSum.sum_support_decompose",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/DirectSum/Decomposition.lean",
+        "provides": "An element is the finite sum of its native homogeneous coordinates.",
+        "checked": "Actual whole statement and proof/construction with ambient hypotheses personally read on2026-10-04 by Codex — codex-7e92bd at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line190. Exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:DirectSum.decompose_smul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/DirectSum/Decomposition.lean",
+        "provides": "The native homogeneous decomposition commutes with coefficient scalar multiplication.",
+        "checked": "Actual whole statement and proof/construction with ambient hypotheses personally read on2026-10-04 by Codex — codex-7e92bd at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line272. Exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.IsWeightedHomogeneous.induction_on",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean",
+        "provides": "Induction on a homogeneous polynomial using zero, sums and monomials of its prescribed degree.",
+        "checked": "Actual whole statement and proof/construction with ambient hypotheses personally read on2026-10-04 by Codex — codex-7e92bd at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line340. Exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.monomial_single_add",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
+        "provides": "A monomial with one added exponent coordinate factors as a variable power times the remaining monomial.",
+        "checked": "Actual whole statement and proof/construction with ambient hypotheses personally read on2026-10-04 by Codex — codex-7e92bd at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line255. Exact declaration index checked."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.isEmptyAlgEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Equiv.lean",
+        "provides": "Existing algebra equivalence from polynomials in an empty variable type to the coefficient ring.",
+        "checked": "Actual whole statement and proof/construction with ambient hypotheses personally read on2026-10-04 by Codex — codex-7e92bd at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, line265. Exact declaration index checked."
       }
     ]
   },
@@ -4449,6 +4484,17 @@
       "sha256": "e0e348edf92286999b39c2d44acbdbf72e8b3fb7b645f63df93ceed79aeffd63",
       "readSections": [
         "Complete displayed Section10.58: all ten numbered statements/proofs and five comments; linked proofs and historical versions not freshly read. Kernel/cokernel induction is the previously selected authored specialization."
+      ]
+    },
+    {
+      "id": "HS-GRADED-INDUCTION-00JV",
+      "title": "Noetherian graded rings: homogeneous module generators and induction",
+      "authors": "The Stacks Project Authors",
+      "edition": "Currently displayed Section10.58,4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/00JV",
+      "sha256": "e0e348edf92286999b39c2d44acbdbf72e8b3fb7b645f63df93ceed79aeffd63",
+      "readSections": [
+        "Whole currently displayed Stacks Section10.58, all ten numbered statements/proofs and all five comments. Linked proofs/history and full routed papers not newly recursively audited. Generic homogeneous generation and zero-generator branch are authored deductions motivated by the length-valued induction, retaining its nonzero kernel correction."
       ]
     }
   ],
@@ -29970,6 +30016,612 @@
         "namespace": "TauCeti.HilbertSamuel"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-exists-homogeneous-generators",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Finite homogeneous module generators",
+      "declaration": "TauCeti.HilbertSamuel.gradedModule_exists_homogeneous_generators",
+      "statement": "If M is finite over S and G is an internal A-linear grading of M, there is a finite subset t of M spanning M over S such that every x in t belongs to some G_n. No graded structure on S or compatibility between the two scalar actions is needed for this splitting statement.",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "Native DirectSum.Decomposition G and Module.Finite S M."
+      ],
+      "proofSteps": [
+        "Choose a finite S-spanning set. Replace each generator by all of its finitely many native homogeneous coordinates.",
+        "The resulting finite union spans: each original generator is the finite sum of its coordinates. Each selected coordinate belongs to its actual component."
+      ],
+      "prerequisites": [
+        "mathlib:Module.Finite",
+        "mathlib:DirectSum.Decomposition",
+        "mathlib:DirectSum.sum_support_decompose",
+        "mathlib:Submodule.span_induction"
+      ],
+      "acceptance": [
+        "If M is finite over S and G is an internal A-linear grading of M, there is a finite subset t of M spanning M over S such that every x in t belongs to some G_n. No graded structure on S or compatibility between the two scalar actions is needed for this splitting statement.",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "GradedInductionTests.polynomial_finite_generators",
+          "kind": "compatibility",
+          "statement": "The polynomial ring (Z/4)[X] as a finite module over itself has a finite homogeneous spanning family. This uses polynomial-ring finiteness without asserting finiteness over Z/4."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-exists-bounded-generators",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Bound on homogeneous generator degrees",
+      "declaration": "TauCeti.HilbertSamuel.gradedModule_exists_bounded_generators",
+      "statement": "Under the same hypotheses, choose t and a natural B with span_S(t)=M and for each x in t some n<B with x in G_n. B may be positive even for the empty generating family.",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "Native DirectSum.Decomposition G and Module.Finite S M."
+      ],
+      "proofSteps": [
+        "Choose one degree for each homogeneous generator and take one plus the finite supremum of those degrees."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-exists-homogeneous-generators"
+      ],
+      "acceptance": [
+        "Under the same hypotheses, choose t and a natural B with span_S(t)=M and for each x in t some n<B with x in G_n. B may be positive even for the empty generating family.",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-component-eq-bot-of-bounded-generators",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Vanishing above coefficient-generator degrees",
+      "declaration": "TauCeti.HilbertSamuel.gradedModule_component_eq_bot_of_bounded_generators",
+      "statement": "Given a finite A-spanning set t and B with every generator in some G_k for k<B, prove G_n=0 for every n≥B. This requires coefficient-ring spanning, not merely spanning over a positive-variable polynomial ring.",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "span_A(t)=M and ∀x∈t, ∃k<B, x∈G_k. Native DirectSum.Decomposition G."
+      ],
+      "proofSteps": [
+        "The degree-n coordinate kills every generator because its selected degree is strictly below B≤n.",
+        "A-linear span induction shows that coordinate kills every element of M. On G_n the same coordinate is the identity, so every element there is zero."
+      ],
+      "prerequisites": [
+        "mathlib:DirectSum.Decomposition",
+        "mathlib:DirectSum.decompose_of_mem_same",
+        "mathlib:DirectSum.decompose_of_mem_ne",
+        "mathlib:DirectSum.decompose_smul",
+        "mathlib:Submodule.span_induction"
+      ],
+      "acceptance": [
+        "Given a finite A-spanning set t and B with every generator in some G_k for k<B, prove G_n=0 for every n≥B. This requires coefficient-ring spanning, not merely spanning over a positive-variable polynomial ring.",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "GradedInductionTests.delayed_tail",
+          "kind": "non-example",
+          "statement": "For Z/4 concentrated in degree7, that degree is nonzero and the bounded-generator theorem kills every component n≥8. Replacing the threshold by zero is false."
+        },
+        {
+          "name": "GradedInductionTests.zero_module_empty_generators",
+          "kind": "degenerate",
+          "statement": "For a zero module with any internal grading, the empty A-spanning set and B=0 prove every component zero, including degree0."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-eventually-eq-bot",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Eventual zero coefficient-module components",
+      "declaration": "TauCeti.HilbertSamuel.gradedModule_eventually_eq_bot",
+      "statement": "If M is finite over A and G is an internal A-linear natural-number grading, then there exists B with G_n=0 for all n≥B.",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "Native DirectSum.Decomposition G and Module.Finite A M."
+      ],
+      "proofSteps": [
+        "Apply the homogeneous degree bound with S=A, then the explicit bounded-generator vanishing criterion. This is a natural-index specialization of finite homogeneous support, not a replacement for the existing generic Tau finite-support theorem."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-exists-bounded-generators",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-component-eq-bot-of-bounded-generators"
+      ],
+      "acceptance": [
+        "If M is finite over A and G is an internal A-linear natural-number grading, then there exists B with G_n=0 for all n≥B.",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-eventually-length-zero",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Eventual zero component lengths",
+      "declaration": "TauCeti.HilbertSamuel.gradedModule_eventually_length_zero",
+      "statement": "Under the same coefficient-module finiteness hypotheses, there is B such that Module.length A G_n=0 for every n≥B, as an equality of native extended natural lengths.",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "Native DirectSum.Decomposition G and Module.Finite A M."
+      ],
+      "proofSteps": [
+        "Above the component-vanishing threshold the component is the zero submodule, which has length zero. No unguarded conversion of an infinite length is used."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-eventually-eq-bot",
+        "mathlib:Module.length_eq_zero"
+      ],
+      "acceptance": [
+        "Under the same coefficient-module finiteness hypotheses, there is B such that Module.length A G_n=0 for every n≥B, as an equality of native extended natural lengths.",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-X-pow-smul-mem",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Variable powers add degrees",
+      "declaration": "TauCeti.HilbertSamuel.gradedPolynomial_X_pow_smul_mem",
+      "statement": "For j∈J, k,n≥0 and x∈G_n, the actual action X_j^k·x belongs to G_(k+n).",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "M is a module over A[X_j | j∈J]. Each X_j sends G_n into G_(n+1). J may be infinite or empty. No decomposition or module finiteness is needed for the degree-action lemmas."
+      ],
+      "proofSteps": [
+        "Induct on k, using the actual module multiplication action and the assumed one-step variable shift. The exponent-zero case is the identity action."
+      ],
+      "prerequisites": [
+        "mathlib:SetLike.GradedSMul"
+      ],
+      "acceptance": [
+        "For j∈J, k,n≥0 and x∈G_n, the actual action X_j^k·x belongs to G_(k+n).",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "GradedInductionTests.power_zero",
+          "kind": "degenerate",
+          "statement": "The zero power of a variable acts within G_n for every actual x∈G_n, with no scalar-tower hypothesis needed for this variable-only assertion."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-monomial-smul-mem",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Monomial actions add total degree",
+      "declaration": "TauCeti.HilbertSamuel.gradedPolynomial_monomial_smul_mem",
+      "statement": "For a finitely supported exponent vector d:J→ℕ, a∈A and x∈G_n, monomial(d,a)·x belongs to G_(|d|+n), with |d| the native Finsupp.degree. This includes zero or nilpotent coefficients.",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "M is a module over A[X_j | j∈J]. Each X_j sends G_n into G_(n+1). J may be infinite or empty. No decomposition or module finiteness is needed for the degree-action lemmas.",
+        "The existing A action and polynomial action satisfy IsScalarTower A (MvPolynomial J A) M."
+      ],
+      "proofSteps": [
+        "Induct on the exponent vector by adjoining one nonzero coordinate. The native monomial factorization reduces the step to the variable-power lemma.",
+        "For zero exponent, the scalar tower identifies C(a)·x with a·x, and G_n is an A-submodule."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-X-pow-smul-mem",
+        "mathlib:MvPolynomial.monomial_single_add"
+      ],
+      "acceptance": [
+        "For a finitely supported exponent vector d:J→ℕ, a∈A and x∈G_n, monomial(d,a)·x belongs to G_(|d|+n), with |d| the native Finsupp.degree. This includes zero or nilpotent coefficients.",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "GradedInductionTests.nilpotent_monomial_action",
+          "kind": "computation",
+          "statement": "In (Z/4)[X], p=2X^3 is nonzero and square-zero, and p acting on X belongs to degree4. Neither domain assumptions nor killing nilpotent coefficients are valid."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-homogeneous-smul-mem",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Homogeneous polynomial actions add degrees",
+      "declaration": "TauCeti.HilbertSamuel.gradedPolynomial_homogeneous_smul_mem",
+      "statement": "For any native homogeneous polynomial p of degree k and x∈G_n, the actual p action sends x into G_(k+n). The zero polynomial is allowed in every degree; an inhomogeneous polynomial is not covered.",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "M is a module over A[X_j | j∈J]. Each X_j sends G_n into G_(n+1). J may be infinite or empty. No decomposition or module finiteness is needed for the degree-action lemmas.",
+        "The existing coefficient and polynomial actions satisfy the native scalar-tower law."
+      ],
+      "proofSteps": [
+        "Use the existing homogeneous-polynomial induction into zero, addition and monomials of the prescribed degree. The monomial degree is the native total exponent degree.",
+        "Use module add_smul and A-submodule closure under sums, retaining the actual action."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-monomial-smul-mem",
+        "mathlib:MvPolynomial.IsWeightedHomogeneous.induction_on",
+        "mathlib:MvPolynomial.homogeneousSubmodule"
+      ],
+      "acceptance": [
+        "For any native homogeneous polynomial p of degree k and x∈G_n, the actual p action sends x into G_(k+n). The zero polynomial is allowed in every degree; an inhomogeneous polynomial is not covered.",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "GradedInductionTests.zero_polynomial_any_degree",
+          "kind": "degenerate",
+          "statement": "For arbitrary k,n, the zero polynomial viewed as homogeneous of degree k sends an actual x∈G_n into G_(k+n)."
+        },
+        {
+          "name": "GradedInductionTests.inhomogeneous_polynomial",
+          "kind": "non-example",
+          "statement": "The actual polynomial 1+X over Z/4 is not homogeneous of degree1."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-gradedSMul",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Native graded polynomial module action",
+      "declaration": "TauCeti.HilbertSamuel.gradedPolynomial_gradedSMul",
+      "statement": "The existing families of homogeneous polynomial submodules and G satisfy native SetLike.GradedSMul for the actual polynomial action.",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "M is a module over A[X_j | j∈J]. Each X_j sends G_n into G_(n+1). J may be infinite or empty. No decomposition or module finiteness is needed for the degree-action lemmas.",
+        "The coefficient and polynomial actions satisfy IsScalarTower."
+      ],
+      "proofSteps": [
+        "Package the preceding membership theorem in the existing graded-action class; introduce no new carrier or action."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-homogeneous-smul-mem",
+        "mathlib:SetLike.GradedSMul",
+        "mathlib:MvPolynomial.homogeneousSubmodule"
+      ],
+      "acceptance": [
+        "The existing families of homogeneous polynomial submodules and G satisfy native SetLike.GradedSMul for the actual polynomial action.",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-empty-eventually-eq-bot",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Empty-variable induction base",
+      "declaration": "TauCeti.HilbertSamuel.gradedPolynomial_empty_eventually_eq_bot",
+      "statement": "For an empty variable type J, if M is finite over A[X_j] and G is any internal A-linear natural-number grading, then some B satisfies G_n=0 for all n≥B. No variable-shift hypothesis is needed when J is empty.",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "IsEmpty J, Module.Finite (MvPolynomial J A) M, native IsScalarTower A (MvPolynomial J A) M and DirectSum.Decomposition G."
+      ],
+      "proofSteps": [
+        "The native empty-variable algebra equivalence makes A[X_j] a finite A-module.",
+        "The actual scalar tower and finite-module transitivity make M finite over A; apply the coefficient-module vanishing theorem."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/gradedModule-eventually-eq-bot",
+        "mathlib:MvPolynomial.isEmptyAlgEquiv",
+        "mathlib:Module.Finite.equiv",
+        "mathlib:Module.Finite.trans"
+      ],
+      "acceptance": [
+        "For an empty variable type J, if M is finite over A[X_j] and G is any internal A-linear natural-number grading, then some B satisfies G_n=0 for all n≥B. No variable-shift hypothesis is needed when J is empty.",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-empty-eventually-length-zero",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Empty-variable length base",
+      "declaration": "TauCeti.HilbertSamuel.gradedPolynomial_empty_eventually_length_zero",
+      "statement": "Under the empty-variable hypotheses, some B satisfies length_A(G_n)=0 for every n≥B.",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "The same empty-variable finiteness, scalar-tower and internal-grading hypotheses."
+      ],
+      "proofSteps": [
+        "Rewrite the actual component as the zero submodule and use native length_zero."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-empty-eventually-eq-bot",
+        "mathlib:Module.length_eq_zero"
+      ],
+      "acceptance": [
+        "Under the empty-variable hypotheses, some B satisfies length_A(G_n)=0 for every n≥B.",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-empty-zero-polynomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Zero polynomial in the induction base",
+      "declaration": "TauCeti.HilbertSamuel.gradedPolynomial_empty_zero_polynomial",
+      "statement": "Under the empty-variable hypotheses, there exists B such that for n≥B the native length of G_n is finite and eval(0,n)=toNat(length_A G_n), as rational numbers. This supplies a genuine zero-polynomial base case with a threshold, without assuming eventual polynomial behavior.",
+      "hypotheses": [
+        "A and S are commutative rings, M an additive commutative group with the stated module structures. Use existing natural-number-indexed A-submodules G_n of M and native DirectSum.Decomposition G when specified. No new graded-module carrier is introduced. Finiteness over S and over A are distinguished. No locality, Noetherianity, reducedness, freeness, finite length or positive generator count is implicit.",
+        "The same empty-variable finiteness, scalar-tower and internal-grading hypotheses."
+      ],
+      "proofSteps": [
+        "The proved length-zero equality gives both length≠infinity and the valid natural/rational conversion. Evaluate the actual zero rational polynomial."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/gradedPolynomial-empty-eventually-length-zero"
+      ],
+      "acceptance": [
+        "Under the empty-variable hypotheses, there exists B such that for n≥B the native length of G_n is finite and eval(0,n)=toNat(length_A G_n), as rational numbers. This supplies a genuine zero-polynomial base case with a threshold, without assuming eventual polynomial behavior.",
+        "Retain actual native components, actions and thresholds. Implementation status remains unchecked."
+      ],
+      "uses": [
+        {
+          "where": "R03.3 Hilbert–Serre induction for finite graded modules and its Hilbert–Samuel application",
+          "how": "Supply generic hypotheses that can be reused after graded kernels and quotients: homogeneous generators, compatible polynomial action and the zero-generator base case. The positive-variable recursive theorem and finite-length recurrence remain obligations."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "HS-GRADED-INDUCTION-00JV",
+          "locator": "Section10.58, Lemma10.58.6 and the induction in Proposition10.58.7",
+          "excerpt": "the graded ring",
+          "match": "Motivates finite homogeneous module generators and induction on degree-one generators. These exact native lemmas are authored deductions from the pinned libraries. The explicit length-valued empty-variable branch is compatible with the retained kernel/cokernel route; it does not claim the source K0 proof or the positive-variable induction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "GradedInductionTests.empty_variables",
+          "kind": "degenerate",
+          "statement": "For any finite module over (Z/4)[X_j | j∈PEmpty] with an internal coefficient grading, the zero rational polynomial equals the eventually finite component length."
+        }
+      ]
     }
   ],
   "baselineCoverage": [
@@ -30119,7 +30771,8 @@
         "One existing component-equivalence API is promoted to its own prerequisite construction node. Twelve new lemmas prove finite actual adic component lengths for Noetherian A, finite M and Artinian A/q; two native extended-length identities; separately guarded natural-length conversions; and the signed integer recurrence with the nonzero kernel correction retained. Degree-zero quotient lengths agree without finite-length assumptions. This supersedes the finite-component-length and degreewise-length-identity frontier for these actual maps only. Native kernel/range/quotient decompositions, smaller-ring grading, remaining-generator induction and general Hilbert–Serre existence remain open. Support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open and all implementation statuses unchecked.",
         "Fourteen new nodes and two defining native instances give actual internally graded kernel and range modules for degree-one multiplication on the existing ordinary adic module: literal comap components, inherited S scalar degree addition, native restricted decompositions, ambient projection agreement, finite reconstruction and fixed homogeneous projections. The generic restriction and projection theorems are existing pinned Tau imports. This supersedes only the kernel/range internal-decomposition frontier; the actual cokernel decomposition, smaller-ring graded scalar action and remaining-generator Hilbert–Serre induction remain open. Retain the previous finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; all nodes unchecked.",
         "Sixteen new nodes and one defining native graded-scalar instance give the actual cokernel C=L/range(mu_a) an internal grading: original quotient-image components, original S scalar degree addition, independence from homogeneous range projections, spanning by quotient surjectivity, native finite decomposition, quotient projection agreement, finite reconstruction, fixed-degree membership and orthogonal idempotent A-linear projections. No new generic quotient or graded-ring carrier is planned. This supersedes only the actual cokernel internal-decomposition frontier. The smaller-ring S/(a) graded scalar action, simultaneous graded kernel/cokernel finiteness over the remaining-generator ring and the Hilbert–Serre induction remain open. Preserve the finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; every node unchecked.",
-        "Fourteen new nodes specialize the existing Tau quotient grading to S/(a), prove agreement with original scalar projections, and supply native graded actions on the actual kernel and cokernel using their already constructed scalar descent. The remaining-generator polynomial algebra map has coefficient/variable formulas, uniqueness, degree-one images and proved surjectivity when {a} together with the remaining family generates S. Both actual modules are finite over this remaining polynomial ring under their distinct inherited Noetherian/finite-module hypotheses. This supersedes only these graded-scalar and remaining-polynomial-finiteness omissions. Still supply the induction in a form closed under repeated graded kernels and quotients, arbitrary homogeneous polynomial action, finite homogeneous generating families and the zero-generator eventual-vanishing branch, then assemble the finite-length recurrence with explicit finite-difference polynomial, threshold and initial constant. The current adic specializations do not themselves constitute the recursive Hilbert–Serre theorem. Preserve the nonzero kernel correction and guarded length conversions. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-paper obligation remain open; all nodes unchecked."
+        "Fourteen new nodes specialize the existing Tau quotient grading to S/(a), prove agreement with original scalar projections, and supply native graded actions on the actual kernel and cokernel using their already constructed scalar descent. The remaining-generator polynomial algebra map has coefficient/variable formulas, uniqueness, degree-one images and proved surjectivity when {a} together with the remaining family generates S. Both actual modules are finite over this remaining polynomial ring under their distinct inherited Noetherian/finite-module hypotheses. This supersedes only these graded-scalar and remaining-polynomial-finiteness omissions. Still supply the induction in a form closed under repeated graded kernels and quotients, arbitrary homogeneous polynomial action, finite homogeneous generating families and the zero-generator eventual-vanishing branch, then assemble the finite-length recurrence with explicit finite-difference polynomial, threshold and initial constant. The current adic specializations do not themselves constitute the recursive Hilbert–Serre theorem. Preserve the nonzero kernel correction and guarded length conversions. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and every routed-paper obligation remain open; all nodes unchecked.",
+        "Twelve generic lemma nodes now supply finite homogeneous S-generators for any internally A-graded finite S-module, a bound on their degrees, explicit component vanishing from a bounded A-spanning set, actual homogeneous polynomial degree actions from degree-one variable shifts, and the empty-variable induction base with eventually zero native finite lengths and an actual zero rational polynomial. All use existing carriers. This resolves only these generic input/base-case omissions; it does not derive coefficient-module finiteness from polynomial-module finiteness when variables remain. Next construct generic graded kernels/cokernels of the last-variable action, their remaining-polynomial module structures and finite homogeneous pieces, with a recursive induction hypothesis that applies to both; then assemble the guarded signed finite-length recurrence into an explicit rational polynomial, threshold and initial constant. Preserve the nonzero kernel correction. Positive-variable polynomial existence, support/dimension degree equality, completion, localization, associativity, both intrinsic and ambient multiplicity conventions, all eight stages and every routed obligation remain open. All nodes unchecked."
       ]
     },
     {
