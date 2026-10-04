@@ -1,3 +1,44 @@
+# BP-ArithmeticStatistics — budgeted planning continuation, 2026-10-04
+
+Worker: **Codex — codex-5ebb6f**. Issue **#1038**. Base `541aa9b874dcf0de70ca9d80ba9b63e4a89abdac`.
+
+The incoming 415-node packet exceeds PROTOCOL §0's 300-node budget. The pass is now `complete`; all six stages remain
+`partial`. No nodes are added. All 415 whole node objects, 278 baseline declarations, 52 sources, 47 gaps, 53 requests,
+76 source findings, one source-version receipt, four restructuring proposals, and the scoped September 30 review are
+preserved. The review accepts the matrix-law fix only; this planning continuation needs its own independent review.
+
+The coverage lists now name a concrete stage frontier and preserve every prior obligation. One stale ST.0 sentence
+is corrected: the Cohen–Lenstra measure already belongs to ST.5; actual arithmetic-family comparisons remain open.
+The reader now distinguishes named conjectures and explicitly conditional consequences. PAPER-BHARGAVA-25's seven
+field-counting targets are recorded with the primitive-field generator hypothesis, fixed-base/fixed-group Galois bound,
+ε and the Klein-four logarithmic caveat. Wood's corrected generator domain, finite computational scope, liminf versus
+ordinary limits; LWZB's corrected iterated limsup/liminf; BGW's Sel_2(J¹) distinction; and Lipnowski–Tsimerman's
+conditional endpoints remain explicit. No graph edge or ownership proposal is applied.
+
+The routing inventory has 527 distinct source-route item IDs, 31 routes from 18 papers. IDs were checked against the
+current extraction registers. This is a routing index, not node mapping or proof closure; multi-stage routes keep their
+stage sets. The packet stores every register's SHA-256. This pass read all six current stage descriptions/edges,
+reviewed AUDIT-07 rows, the ArithmeticStatistics scope of accepted RS-07, existing coverage, and selected corrected
+extraction targets. It adds no baseline citation and claims no full 278-statement re-audit, primary-source proof read,
+publication-version collation or numerical replay. The full ArithmeticDirichletSeries and OrthogonalL2Bases upstream
+documents read by this worker in the preceding job are reused; their hashes are recorded in `planningPass`.
+
+The full 8,960-line suggested file compiled with the existing pinned Mathlib build, Lean `v4.34.0-rc2`, all 122 direct
+imports checked byte-for-byte against pinned source and their compiled modules present. Exit **0**, **1,137** warnings,
+all `declaration uses` admission warnings; no errors or other warnings. Single thread, 8,192 MiB Lean limit, 1,200-second
+timeout, 37 GiB available before compilation; elapsed **30.01 s**. No Tau Ceti module is imported. No build/cache setup.
+Suggested-file SHA-256: `4dd92aabd3f3c7ebe280d37e11e14914634b33579dedc5fdb013941dc754e478`.
+Compiler-output SHA-256: `695eebd0892b1536ceed83857e6b7e3abeea03188d3d4c6cd1b7150493d9a4a5`.
+
+Validation passed: indexed blueprint checker **0 errors / 0 warnings**; source-issue and source-version validators **0**;
+intake **4 files / 0 problems**, **0 refusals**; `git diff --check` clean. Exact comparison to the base confirms every
+whole declaration object and mathematical field, the suggested imports/bodies, the prior handoff and the reader
+declaration body are retained. Only the new reader frontier and two conjecture/conditionality sentences differ.
+The following note is unchanged predecessor evidence: its source readings, numerical runs and compiler receipt
+are historical and are not this pass's new checks.
+
+---
+
 # BP-ArithmeticStatistics — symmetric-rank recurrence continuation
 
 Agent: Codex — codex-hjdg0j, 2026-09-27. Refs #1038.
