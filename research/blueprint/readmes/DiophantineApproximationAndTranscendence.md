@@ -1,3 +1,131 @@
+# Diophantine approximation and transcendence: completed budget pass
+
+Budgeted planning pass complete: 392 inherited unchecked nodes and no new nodes above the 300-node budget. Four prerequisite lists now use exact existing suppliers, matching three former mathematical requests while retaining a GN.1 promotion bridge and preserving every node statement, proof outline, API, test and planet. Three freshly read Tau Ceti dimension declarations correct a stale baseline-absence claim. DT.1 retains its inherited closed planning coverage; the other five stages remain partial. The CDT G-function/global-monodromy route, inherited Chudnovsky factorial-normalization defect and all remaining proof gaps are explicit; compilation does not establish their correctness.
+
+Current frontier text and exact supplier replacements below supersede older request/absence language in the preserved reader. Mathematical node statements are inherited unchecked plans, not proofs. The new normalization counterexample is an explicit restriction on reusing the inherited Chudnovsky statement.
+
+## Coverage and follow-up work
+
+### DiophantineApproximationAndTranscendence:DT.0 — partial
+
+Boundary linear forms are now imported by exact node id from GN.1; the polar-lattice covering request to GN.4 remains. All node statements and quantitative conventions are unchanged.
+
+Open request to GeometryOfNumbersAndQuadraticArithmetic:GN.4: the polar-lattice covering bound (consumed by DT.0/kronecker-approximation-theorem).
+
+### DiophantineApproximationAndTranscendence:DT.1 — closed
+
+Inherited closed planning coverage retained: the ordinary Roth proof chain is distinct from the still-open sharp Roth/Product Theorem needed by DT.2. No fresh complete Roth-source audit or formalisation is claimed by this budget pass.
+
+
+
+### DiophantineApproximationAndTranscendence:DT.2 — partial
+
+
+
+Split the Evertse–Ferretti proof of the Parametric Subspace Theorem into page-sized nodes: Lemmas 9.1, 9.3, 9.4, 10.1–10.3, 11.1, 11.2, 11.4–11.6, 13.3–13.5, the §14 argument, Lemma 15.3, Lemmas 16.2–16.4, 17.1–17.4, 18.1–18.4, Proposition 18.5 and Lemma 5.2 of arXiv:1008.2340 (gap 'Internal lemmas of the Evertse–Ferretti proof').
+
+Read and decompose Evertse–Schlickewei 2002 (preprint 00-abssub.pdf) §7 (Corollary 7.2, the absolute Minkowski theorem via Roy–Thunder) and §§6, 9 (Lemma 6.3, Davenport's Lemma 9.2).
+
+Decompose the geometric and arithmetic intersection arguments of Evertse 1995 §§2–5 that prove the explicit Product Theorem and sharp Roth. The affine-chart comparison in §1 is now closed through block homogenization, Hasse jets, weighted-index equality and coefficient H₂ preservation. Preserve findings E217–E224 and the distinction between the strict height premise in 1995 (1.12) and the inherited ≥ boundary in the 1996 lemma. The Evertse 1996 Lemmas 24–26 chain still depends on this sharp-Roth input.
+
+Obtain a public source for Bombieri–Vaaler's Siegel lemma (Invent. Math. 73 (1983)) and decompose its Theorem 9, or replace it by Evertse's public 'A variation on Siegel's lemma'.
+
+Read and decompose Evertse–Schlickewei–Schmidt §§6–12 (their Theorem 2.1).
+
+Find and decompose a public proof of Schmidt's norm form theorem ((i) ⇒ (ii) of Evertse Theorem 7.13); candidate: Evertse, 'The number of solutions of decomposable form equations' (preprint 95-decforms.pdf).
+
+Schmidt's bound for the zero multiplicity of non-degenerate (not necessarily simple) recurrences (Evertse Theorem 8.19, Schmidt, Acta Math. 182 (1999)) and the refined counts of Amoroso–Viada quoted after Evertse Theorem 8.13: stated in the source without proof; no public full proof was read.
+
+The classical boundary linear-forms theorem, attained successive minima, both Minkowski product inequalities and the complex-recurrence closed form now have exact supplier node prerequisites. These match three former requests at the planning-interface level; a GN.1 promotion bridge stays in requests until the assembler can see its unpromoted supplier nodes; they do not prove the absolute/adelic twisted-height theorem, the sharp-Roth boundary case, or the S-unit theorem that consumes them.
+
+### DiophantineApproximationAndTranscendence:DT.3 — partial
+
+
+
+Decompose the proof of Waldschmidt's Theorem 9.1 (DALAG §9.2-9.3 and its inputs from Chapters 3, 5-8, listed in the gap) or of Matveev's Corollary 2.3 (Izv. Math. 64 (2000) §§3-9) into nodes; either one closes DiophantineApproximationAndTranscendence:DT.3/baker-lower-bounds-for-linear-forms-in-logarithms and its consumers.
+
+Decompose Yu's proof of the bound of DiophantineApproximationAndTranscendence:DT.3/yu-explicit-p-adic-bound (Compositio 74 (1990) §§1-5 and 91 (1994) §§1-6), including the p-adic exponential and logarithm on 𝔭-adic units of valuation > 1/(p−1) that the proof uses internally.
+
+Obtain a public source for the Laurent-Mignotte-Nesterenko estimate (J. Number Theory 55 (1995) 285-321) or replace the node by the corresponding case of DiophantineApproximationAndTranscendence:DT.3/matveev-corollary-linear-form-bound.
+
+Supply the absolute-height lemmas still listed in the gap 'Absolute Weil height API for NumberField.absLogHeight₁' (inverse, product, sum, integer values and the size bound; upstream owner) and then close the five derivation nodes that use them.
+
+Keep the qualitative algebraic-coefficient and inhomogeneous logarithmic independence interfaces separate from quantitative integer-coefficient bounds. Complex branch choices and nonzero linear forms travel with each bound; p-adic deep-unit convergence and the chosen logarithm branch are distinct from arbitrary normed-space log series. The native absolute-height API gap remains; no new implementation is inferred from compilation.
+
+### DiophantineApproximationAndTranscendence:DT.4 — partial
+
+
+
+Decompose the proof of Theorem 5.14 from Bérczes–Evertse–Győry 2013, sections 3–5 (see gaps), including the relative discriminant estimates and the effective Thue equations over O_S that it uses.
+
+Decompose the proof of Theorem 5.15 (Schinzel–Tijdeman 1976 or Bérczes–Evertse–Győry section 6).
+
+Obtain and decompose Tijdeman's 1976 proof of the Catalan bound.
+
+DT.3 must supply Yu's p-adic bound for algebraic numbers (gap) for Theorem 5.18 and the Thue–Mahler theorem to rest on a node rather than on the DT.3 stage.
+
+RS-03 keeps equation-specific height/degree conversions and proven explicit bounds here. ED.2 owns certified numerical evaluation, lattice reduction and exhaustive residual enumeration. The accepted DT.4→ED.2 and forwarded ED.5 paths must survive promotion; ineffective Roth/Subspace finiteness is never used as a search cutoff.
+
+### DiophantineApproximationAndTranscendence:DT.5 — partial
+
+
+
+Decompose Adamczewski–Faverjon §3 (proof of Theorem 1.4 from Nishioka) and §§4–5 (Theorems 1.7, 1.9, 1.10) into nodes.
+
+Obtain a public complete proof of Nishioka's theorem (candidate: Adamczewski–Faverjon arXiv:1809.04823, sections 4–8, several-variable regular singular case) and decompose it.
+
+Obtain proofs of Shidlovskii's Lemma II and Galochkin's theorem (Shidlovskii's book; André, Annals 2000) or an alternative public source.
+
+Nesterenko's theorem: acquire a public proof source (none found) and decompose the multiplicity estimate and Philippon's criterion.
+
+Functional transcendence: decompose Chevalley's indecomposability theorem and the algebraic-subgroup step (gap), and the geometric forms of Ax–Lindemann (Bakker–Tsimerman Theorem 1.2.11 and Corollaries 1.2.13–1.2.15).
+
+Differential Galois theory (gap) must be supplied before Beukers' Theorem 2.5 rests on nodes.
+
+CDT Theorem 7.3.3 routes four DT.5 inputs. The existing g-function node supplies the arithmetic growth/D-finiteness definition but needs its finite-coefficient-field and minimal-system comparisons checked. chudnovsky-galochkin-condition is a nearby system theorem, conditional on the recorded Shidlovskii proof gap; connect its denominator convention to finite global operator height for the minimal connection. Bombieri–André (Galochkin condition ⇒ Bombieri generic-radius condition ⇒ global nilpotence) and Katz (global nilpotence ⇒ regular singularities and quasi-unipotent local monodromy at every singular point, including infinity) have no exact nodes in this packet. The at-zero G-operator statement alone is not this global chain. Read DGS94 VIII.1.5, VII.2.1 and III.2.3(ii), and Katz 1970, at their full hypotheses and proof scope in a follow-up. Generic connection/differential-equation infrastructure must be imported if an owner supplies it; the modular-form application belongs to the CDT modular owner, and quantitative holonomy/algebraization belongs to its separate Part II.
+
+Inherited chudnovsky-galochkin-condition first defines G_s by y^(s)/s! = G_s y, then uses T^m G_m/m! in its denominator condition. These conventions insert the factorial twice: for the stated test y′=y/(1−z), normalized G_m=(1−z)^(−m), T=1−z, so the displayed quotient is 1/m!, contradicting the acceptance claim q_s=1 and its exponential bound. Reconcile normalized versus unnormalized iterated connection matrices against the original source before reuse. This is an inherited packet-normalization defect, not a newly verified erratum in Beukers or DGS. The source and proposed signatures are preserved and remain unchecked.
+
+The old absence claim is superseded by three freshly read pinned Tau Ceti declarations: injective integral extensions preserve Krull dimension; an injective integral map from a finite polynomial algebra computes dimension by the variable count; finite-type dimension is invariant under field extension. These are baseline inputs, not new nodes. What remains is their exact comparison with the fraction-field transcendence-degree interface and the torsion-free/flat finite-type family over the affine line used by fibre-dimension-over-the-affine-line and Siegel–Shidlovskii. Confirm the generic scheme/algebra owner before assigning new work; the inherited proposal must not re-plan the native integral-extension or field-base-change results.
+
+Schanuel and period conjectures remain explicit conditional hypotheses. Exponential functional transcendence here is distinct from o-minimal modular/Shimura inputs at LD.6, arithmetic unlikely intersections at RP.5 and dynamical endpoints at DY.6. The old broad Picard–Vessiot request is still not supplied by a generic owner found in this pass; RD.1 only has a cyclic-vector theorem with its own proof gap.
+
+## Resolved supplier interfaces
+
+- **DiophantineApproximationAndTranscendence:DT.0/dirichlet-approximation-from-minkowski** imports GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-linear-forms.
+- **DiophantineApproximationAndTranscendence:DT.2/linear-form-dirichlet-exponent** imports GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-linear-forms.
+- **DiophantineApproximationAndTranscendence:DT.2/skolem-mahler-lech-simple-roots** imports ClassicalArithmeticCompletion:CA.2/closed-form-of-a-complex-linear-recurrence.
+- **DiophantineApproximationAndTranscendence:DT.2/absolute-minkowski-for-twisted-heights** imports GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-is-least, GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses, GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-lower, GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper.
+
+These suppliers remain unchecked plans; the two-sided classical Minkowski bounds do not replace the absolute/adelic theorem. GN.4 polar-lattice covering is the remaining mathematical request. A GN.1 promotion bridge remains because its unpromoted nodes do not yet resolve to stages in the atlas assembler; the exact node and stage prerequisites are both retained to preserve the supplier edge.
+
+## Fresh pinned dimension inputs
+
+- **tauceti:TauCeti.ringKrullDim_eq_of_isIntegral_of_faithfulSMul**: For commutative R-algebra S, Algebra.IsIntegral R S and FaithfulSMul R S imply ringKrullDim S = ringKrullDim R. This supplies the injective integral-extension part of the inherited dimension gap.
+- **tauceti:TauCeti.ringKrullDim_eq_of_injective_of_isIntegral_mvPolynomial**: For a field k and a finite variable type, an injective integral k-algebra map from the polynomial ring to A gives ringKrullDim A equal to the number of variables. No domain hypothesis on A is added.
+- **tauceti:TauCeti.ringKrullDim_tensorProduct_field_of_finiteType**: For a field extension K/k and any finite-type commutative k-algebra A, scalar extension K tensor_k A preserves ringKrullDim. This does not by itself prove a flat-family fibre dimension theorem.
+
+## CDT source route
+
+All four records named by issue #1027 were read with their accepted route. The complete source papers were not reread in this pass.
+
+- **PAPER-CALEGARI-DIMITROV-TANG-25/g-functions** — existing_interface_with_gap. Existing node: DiophantineApproximationAndTranscendence:DT.5/g-function. G-functions; proof of Theorem 7.3.3, p.690 (JAMS 38 (2025)).
+- **PAPER-CALEGARI-DIMITROV-TANG-25/chudnovsky** — existing_interface_with_gap. Existing node: DiophantineApproximationAndTranscendence:DT.5/chudnovsky-galochkin-condition. Chudnovsky's theorem on G-functions; proof of Theorem 7.3.3, pp.690–691 (JAMS 38 (2025)).
+- **PAPER-CALEGARI-DIMITROV-TANG-25/bombieri-andre** — open. No exact node supplied. The Bombieri–André theorem; proof of Theorem 7.3.3, p.691 (JAMS 38 (2025)).
+- **PAPER-CALEGARI-DIMITROV-TANG-25/katz-local-monodromy** — open. No exact node supplied. Katz's local monodromy theorem; proof of Theorem 7.3.3, p.691 (JAMS 38 (2025)).
+
+CDT Theorem 7.3.3 routes four DT.5 inputs. The existing g-function node supplies the arithmetic growth/D-finiteness definition but needs its finite-coefficient-field and minimal-system comparisons checked. chudnovsky-galochkin-condition is a nearby system theorem, conditional on the recorded Shidlovskii proof gap; connect its denominator convention to finite global operator height for the minimal connection. Bombieri–André (Galochkin condition ⇒ Bombieri generic-radius condition ⇒ global nilpotence) and Katz (global nilpotence ⇒ regular singularities and quasi-unipotent local monodromy at every singular point, including infinity) have no exact nodes in this packet. The at-zero G-operator statement alone is not this global chain. Read DGS94 VIII.1.5, VII.2.1 and III.2.3(ii), and Katz 1970, at their full hypotheses and proof scope in a follow-up. Generic connection/differential-equation infrastructure must be imported if an owner supplies it; the modular-form application belongs to the CDT modular owner, and quantitative holonomy/algebraization belongs to its separate Part II.
+
+Inherited chudnovsky-galochkin-condition first defines G_s by y^(s)/s! = G_s y, then uses T^m G_m/m! in its denominator condition. These conventions insert the factorial twice: for the stated test y′=y/(1−z), normalized G_m=(1−z)^(−m), T=1−z, so the displayed quotient is 1/m!, contradicting the acceptance claim q_s=1 and its exponential bound. Reconcile normalized versus unnormalized iterated connection matrices against the original source before reuse. This is an inherited packet-normalization defect, not a newly verified erratum in Beukers or DGS. The source and proposed signatures are preserved and remain unchecked.
+
+## Current validation boundary
+
+Full suggested file compiled at the exact pinned Mathlib with zero errors, 820 expected admission warnings and no other warnings. All 3832 imported Mathlib sources and dependency pins matched the existing build. No Tau Ceti module is imported; the new native dimension citations are planning inputs read at the pinned source. The file has 675 named commands and 232 examples. All 376 distinct indexed API names resolve, including relative names under their packet namespace; all 392 nodes lack explicit declaration metadata, so the API index alone is not a complete node-to-signature correspondence proof.
+
+## Inherited reader, preserved verbatim
+
+The following text records earlier work and source reading. Current status, imports and limits are above.
+
 # Diophantine approximation and transcendence
 
 **Roadmap** `DiophantineApproximationAndTranscendence` · stages DT.0–DT.5 · baseline Mathlib `082e2d3`, Tau Ceti `f790474`.
@@ -3463,3 +3591,2503 @@ theorem as the missing input. Conjectural principles appear only as the definiti
 `SchanuelConjecture` and `LogarithmsAlgebraicIndependenceConjecture` and as hypotheses of the two
 conditional theorems. Numerical and structural tests: `e^{β_i}` independence recovers
 Lindemann–Weierstrass; `Σ 2^{−2^n}` is transcendental; `E₂(i) = 3/π`; `trdeg ℂ(t, eᵗ) = 2`.
+
+## Exact inherited contract supplement
+
+Packet wording omitted or paraphrased by the older reader is reproduced here. These statements remain unchecked, including the normalization defect identified above.
+
+### DiophantineApproximationAndTranscendence:DT.0/primitive-minimal-polynomial
+
+Statement: Let F be a field of characteristic zero and x ∈ F. If x is algebraic over ℚ, its primitive minimal polynomial F_x ∈ ℤ[X] is the unique polynomial with integer coefficients that (a) is primitive (the gcd of its coefficients is 1), (b) has positive leading coefficient a₀ > 0, and (c) is a rational multiple of the minimal polynomial minpoly ℚ x. Equivalently F_x = a₀·minpoly ℚ x with a₀ the least common multiple of the denominators of the coefficients of minpoly ℚ x, and F_x = a₀ ∏_{i=1}^{d} (X − x^{(i)}) over ℂ, where d = deg x and x^{(1)}, …, x^{(d)} are the complex conjugates of x. Construction: clear the denominators of minpoly ℚ x (Mathlib's integer normalization), take the primitive part, and change the sign if the leading coefficient is negative. Convention (pinned): F_x := 1 when x is transcendental over ℚ.
+
+API primitiveMinpoly: F_x ∈ ℤ[X] for x in a field of characteristic zero; 1 for transcendental x.
+
+API aeval_primitiveMinpoly: For algebraic x, F_x(x) = 0.
+
+API isPrimitive_primitiveMinpoly: F_x is primitive.
+
+API leadingCoeff_primitiveMinpoly_pos: The leading coefficient a₀ of F_x is positive.
+
+API irreducible_primitiveMinpoly: For algebraic x, F_x is irreducible in ℤ[X].
+
+API natDegree_primitiveMinpoly: deg F_x = deg minpoly ℚ x.
+
+API primitiveMinpoly_dvd_iff: For algebraic x and P ∈ ℤ[X]: F_x ∣ P in ℤ[X] ↔ P(x) = 0.
+
+API primitiveMinpoly_eq_of_isPrimitive: A primitive irreducible P ∈ ℤ[X] with positive leading coefficient and P(x) = 0 equals F_x.
+
+API primitiveMinpoly_eq_minpoly_int: For x integral over ℤ, F_x = minpoly ℤ x.
+
+API primitiveMinpoly_ratCast: F_{p/q} = qX − p for q ∈ ℚ written in lowest terms (den q)X − num q.
+
+API primitiveMinpoly_map: For a ring homomorphism f : F → F' of characteristic-zero fields, F_{f(x)} = F_x.
+
+API primitiveMinpoly_eq_of_minpoly_eq: If minpoly ℚ x = minpoly ℚ y (x, y possibly in different fields) then F_x = F_y; in particular conjugates share F.
+
+API primitiveMinpoly_of_not_isAlgebraic: F_x = 1 for x transcendental over ℚ.
+
+API isIntegral_leadingCoeff_primitiveMinpoly_smul: a₀·x is an algebraic integer (Evertse Lemma 3.7).
+
+API natDenominator_dvd_leadingCoeff_primitiveMinpoly: den(x) divides a₀, where den is Mathlib's Algebra.natDenominator.
+
+Test test_primitiveMinpoly_twoThirds: primitiveMinpoly ((2/3 : ℚ) : ℝ) = 3X − 2.
+
+Test test_primitiveMinpoly_evertseExample: primitiveMinpoly ((1 + 2√3)/5) = 25X² − 10X − 11.
+
+Test test_primitiveMinpoly_transcendental: primitiveMinpoly (liouvilleNumber 10) = 1.
+
+Test test_primitiveMinpoly_half_ne_minpolyInt: primitiveMinpoly (1/2) ≠ minpoly ℤ (1/2): the integral minimal polynomial is 0 at a non-integral element, so it is the wrong definition.
+
+Test test_primitiveMinpoly_sqrtTwo: primitiveMinpoly √2 = minpoly ℤ √2 (= X² − 2).
+
+### DiophantineApproximationAndTranscendence:DT.0/naive-height-of-algebraic-number
+
+Statement: For x in a field of characteristic zero, the naive height is H(x) := max_i |a_i|, the maximum of the absolute values of the coefficients a_0, …, a_d of the primitive minimal polynomial F_x = a_0 X^d + ⋯ + a_d; as a declaration it is Mathlib's sup norm of F_x (Polynomial.supNorm), valued in ℝ. For a rational x/y in lowest terms, H(x/y) = max(|x|, |y|) (see DT.0/naive-height-of-rational). Convention (pinned): H(x) = 1 for transcendental x (F_x = 1).
+
+API naiveHeight: H(x) := supNorm F_x ∈ ℝ.
+
+API naiveHeight_eq_iSup: H(x) = sup_i |coeff_i F_x|.
+
+API one_le_naiveHeight: 1 ≤ H(x).
+
+API naiveHeight_inv: H(x⁻¹) = H(x) (Evertse Exercise 3.1(i)).
+
+API naiveHeight_map: H(f x) = H(x) for a ring homomorphism f of characteristic-zero fields.
+
+API naiveHeight_eq_of_minpoly_eq: Conjugates (equal minimal polynomials) have equal naive height.
+
+API inv_naiveHeight_add_one_le_norm: (H(x) + 1)⁻¹ ≤ |x| for nonzero algebraic x ∈ ℂ (Evertse Exercise 3.1(ii)).
+
+API norm_le_naiveHeight_add_one: |x| ≤ H(x) + 1 for algebraic x ∈ ℂ (Evertse Exercise 3.1(ii)).
+
+API natDenominator_le_naiveHeight: den(x) ≤ H(x) for algebraic x.
+
+API naiveHeight_intCast: H(n) = max(|n|, 1) for n ∈ ℤ.
+
+Test test_naiveHeight_evertseExample: naiveHeight ((1 + 2√3)/5) = 25.
+
+Test test_naiveHeight_zero: naiveHeight 0 = 1.
+
+Test test_naiveHeight_sqrtTwo: naiveHeight √2 = 2.
+
+Test test_naiveHeight_sqrtTwo_ne_absHeight: naiveHeight √2 ≠ absMulHeight₁ √2 (2 versus √2): the naive height is not the Weil height.
+
+Test test_naiveHeight_twoThirds_eq_mulHeight: naiveHeight (2/3) = mulHeight₁ (2/3 : ℚ) (= 3).
+
+### DiophantineApproximationAndTranscendence:DT.0/mahler-measure-of-algebraic-number
+
+Statement: For x in a field of characteristic zero, M(x) := M(F_x), Mathlib's Mahler measure of the primitive minimal polynomial F_x mapped to ℂ[X] (Polynomial.mapMahlerMeasure along ℤ → ℂ). By Jensen's formula M(x) = a₀ ∏_{i=1}^{d} max(1, |x^{(i)}|), where a₀ > 0 is the leading coefficient of F_x and x^{(1)}, …, x^{(d)} are the complex conjugates of x (the roots of minpoly ℚ x in ℂ). Convention (pinned): M(x) = 1 for transcendental x.
+
+API mahlerMeasure: M(x) := Mahler measure of F_x in ℂ[X].
+
+API mahlerMeasure_eq_leadingCoeff_mul_prod: M(x) = a₀ · ∏ over the complex roots z of minpoly ℚ x of max(1, |z|).
+
+API one_le_mahlerMeasure: 1 ≤ M(x).
+
+API leadingCoeff_le_mahlerMeasure: a₀ ≤ M(x).
+
+API mahlerMeasure_ratCast: M(p/q) = max(|p|, q) for p/q in lowest terms.
+
+API mahlerMeasure_inv: M(x⁻¹) = M(x).
+
+API mahlerMeasure_map: M(f x) = M(x) for ring homomorphisms of characteristic-zero fields.
+
+API mahlerMeasure_eq_of_minpoly_eq: Conjugates have equal Mahler measure.
+
+API mahlerMeasure_eq_one_iff: For algebraic x: M(x) = 1 ↔ x = 0 or x is a root of unity (Kronecker).
+
+API finite_setOf_mahlerMeasure_le: Finitely many algebraic z ∈ ℂ of degree ≤ d with M(z) ≤ B (Northcott for M).
+
+Test test_mahlerMeasure_half: mahlerMeasure (1/2) = 2.
+
+Test test_mahlerMeasure_sqrtTwo: mahlerMeasure √2 = 2.
+
+Test test_mahlerMeasure_goldenRatio: mahlerMeasure φ = φ for the golden ratio φ.
+
+Test test_mahlerMeasure_I: mahlerMeasure i = 1 (a root of unity).
+
+Test test_mahlerMeasure_zero: mahlerMeasure 0 = 1.
+
+Test test_mahlerMeasure_half_ne_norm: mahlerMeasure (1/2) ≠ |N_{ℚ/ℚ}(1/2)|: the Mahler measure keeps the leading coefficient and discards conjugates inside the unit disc.
+
+### DiophantineApproximationAndTranscendence:DT.0/house-of-algebraic-number
+
+Statement: For x in a field of characteristic zero, the house is ⌈x⌉ := max{|z| : z ∈ ℂ a root of minpoly ℚ x}, the largest absolute value of a complex conjugate of x. For x in a number field K it equals Mathlib's NumberField.house x = max_{σ : K → ℂ} |σ(x)| (Evertse (3.2)). Convention (pinned): ⌈x⌉ = 0 for transcendental x (empty set of roots).
+
+API house: ⌈x⌉ := max of |z| over the complex roots z of minpoly ℚ x; 0 for transcendental x.
+
+API house_nonneg: 0 ≤ ⌈x⌉.
+
+API norm_le_house: |x| ≤ ⌈x⌉ for algebraic x ∈ ℂ.
+
+API house_map: ⌈f x⌉ = ⌈x⌉ for ring homomorphisms of characteristic-zero fields.
+
+API house_eq_of_minpoly_eq: Conjugates have equal house.
+
+API house_mul_le: ⌈xy⌉ ≤ ⌈x⌉⌈y⌉ for algebraic x, y ∈ ℂ.
+
+API house_add_le: ⌈x + y⌉ ≤ ⌈x⌉ + ⌈y⌉ for algebraic x, y ∈ ℂ.
+
+API house_pow: ⌈x^n⌉ = ⌈x⌉^n for algebraic x ∈ ℂ.
+
+API house_ratCast: ⌈q⌉ = |q| for q ∈ ℚ.
+
+API one_le_house: 1 ≤ ⌈x⌉ for a nonzero algebraic integer (Evertse Lemma 3.6).
+
+API house_eq_one_iff: For a nonzero algebraic integer: ⌈x⌉ = 1 ↔ x is a root of unity (Kronecker).
+
+API house_le_mahlerMeasure: ⌈x⌉ ≤ M(x) for algebraic integers.
+
+API mahlerMeasure_le_leadingCoeff_mul_max_one_house_pow: M(x) ≤ a₀ · max(1, ⌈x⌉)^{deg x}.
+
+Test test_house_sqrtTwo: house √2 = √2.
+
+Test test_house_conjugateGolden: house ((1 − √5)/2) = (1 + √5)/2.
+
+Test test_house_ne_abs: |(1 − √5)/2| < house ((1 − √5)/2): the house is not the absolute value of the given embedding.
+
+Test test_house_zero: house (0 : ℂ) = 0.
+
+Test test_house_I: house i = 1.
+
+Test test_house_two_eq_numberFieldHouse: house (2 : ℚ) = NumberField.house (2 : ℚ).
+
+### DiophantineApproximationAndTranscendence:DT.0/irrationality-exponent
+
+Statement: For ξ ∈ ℝ, the irrationality exponent is μ(ξ) := sup { p ∈ ℝ : LiouvilleWith p ξ } ∈ [1, ∞], taken in ℝ≥0∞ (the supremum of ENNReal.ofReal p over the p with LiouvilleWith p ξ), where Mathlib's LiouvilleWith p ξ means: there is C with |ξ − m/n| < C/n^p and ξ ≠ m/n for infinitely many n ∈ ℕ (with some m ∈ ℤ). Pinned values: μ(ξ) = 1 for every rational ξ, μ(ξ) ≥ 2 for every irrational ξ, and μ(ξ) = ∞ exactly for Liouville numbers. For irrational ξ, μ(ξ) = sup{p : |ξ − r| < den(r)^{-p} for infinitely many r ∈ ℚ}, the exponent of Sondow's Definition 2 and of Bugeaud (μ = w₁ + 1).
+
+API irrationalityExponent: μ(ξ) := ⨆ over p with LiouvilleWith p ξ of ofReal p ∈ ℝ≥0∞.
+
+API one_le_irrationalityExponent: 1 ≤ μ(ξ).
+
+API le_irrationalityExponent_of_liouvilleWith: LiouvilleWith p ξ → ofReal p ≤ μ(ξ).
+
+API liouvilleWith_of_lt_irrationalityExponent: ofReal p < μ(ξ) → LiouvilleWith p ξ.
+
+API irrationalityExponent_eq_iSup_infinite: For irrational ξ: μ(ξ) = sup of the p such that |ξ − r| < den(r)^{-p} for infinitely many r ∈ ℚ.
+
+API irrationalityExponent_eq_top_iff: μ(ξ) = ⊤ ↔ Liouville ξ.
+
+API irrationalityExponent_ratCast: μ(q) = 1 for q ∈ ℚ.
+
+API two_le_irrationalityExponent_iff: 2 ≤ μ(ξ) ↔ ξ irrational.
+
+API irrationalityExponent_add_ratCast: μ(ξ + r) = μ(ξ) for r ∈ ℚ.
+
+API irrationalityExponent_ratCast_mul: μ(rξ) = μ(ξ) for r ∈ ℚ, r ≠ 0.
+
+API irrationalityExponent_neg: μ(−ξ) = μ(ξ).
+
+API ae_irrationalityExponent_eq_two: μ(ξ) = 2 for Lebesgue-almost every ξ.
+
+Test test_irrationalityExponent_half: irrationalityExponent (1/2) = 1.
+
+Test test_irrationalityExponent_sqrtTwo: irrationalityExponent √2 = 2.
+
+Test test_irrationalityExponent_liouvilleNumber: irrationalityExponent (liouvilleNumber 10) = ⊤.
+
+Test test_irrationalityExponent_zero_ne_top: irrationalityExponent 0 ≠ ⊤: the exact approximations 0 = 0/n are excluded.
+
+### DiophantineApproximationAndTranscendence:DT.0/linear-form-exponent
+
+Statement: For θ = (θ₁, …, θₙ) ∈ ℝⁿ, w(θ) ∈ ℝ≥0∞ is the supremum of the real w for which 0 < |x₀ + x₁θ₁ + ⋯ + xₙθₙ| ≤ ‖x‖^{-w} holds for infinitely many x = (x₀, …, xₙ) ∈ ℤ^{n+1}, where ‖x‖ = max_j |x_j| (supremum of ofReal w, so negative w contribute 0). Mahler's exponent is w_n(ξ) := w(ξ, ξ², …, ξⁿ): the supremum of w with 0 < |P(ξ)| ≤ H(P)^{-w} for infinitely many P ∈ ℤ[X] of degree ≤ n (Bugeaud, Definition 2.1).
+
+API linearFormExponent: w(θ) for θ : Fin n → ℝ, valued in ℝ≥0∞.
+
+API mahlerExponent: Mahler's w_n(ξ) := w(ξ, ξ², …, ξⁿ).
+
+API linearFormExponent_one_add: For irrational ξ: w(ξ) + 1 = μ(ξ).
+
+API le_linearFormExponent_of_infinite: If the solution set for w is infinite then ofReal w ≤ w(θ).
+
+API mahlerExponent_mono: w_m(ξ) ≤ w_n(ξ) for m ≤ n.
+
+Test test_linearFormExponent_sqrtTwo: linearFormExponent ![√2] = 1.
+
+Test test_linearFormExponent_half: linearFormExponent ![1/2] = 0: dropping the condition 0 < |…| would give ⊤.
+
+Test test_linearFormExponent_empty: linearFormExponent of the empty vector = 0.
+
+Test test_linearFormExponent_liouvilleNumber: linearFormExponent ![liouvilleNumber 10] = ⊤, matching irrationalityExponent = ⊤.
+
+### DiophantineApproximationAndTranscendence:DT.0/simultaneous-approximation-exponent
+
+Statement: For θ = (θ₁, …, θₙ) ∈ ℝⁿ, λ(θ) ∈ ℝ≥0∞ is the supremum of the real λ for which max_j |x₀θ_j − x_j| ≤ |x₀|^{-λ} holds for infinitely many (x₀, x₁, …, xₙ) ∈ ℤ^{n+1} with x₀ ≠ 0. The exponent of Bugeaud's Definition 2.2 is λ_n(ξ) = λ(ξ, ξ², …, ξⁿ).
+
+API simultaneousExponent: λ(θ) for θ : Fin n → ℝ, valued in ℝ≥0∞.
+
+API simultaneousExponent_one_add: For irrational ξ: λ(ξ) + 1 = μ(ξ).
+
+API simultaneousExponent_eq_top_of_forall_rat: λ(θ) = ⊤ when every θ_j is rational.
+
+API simultaneousExponent_le_comp: λ(θ) ≤ λ(θ ∘ f) for an injective reindexing f : Fin m → Fin n.
+
+Test test_simultaneousExponent_sqrtTwo: simultaneousExponent ![√2] = 1.
+
+Test test_simultaneousExponent_rationals: simultaneousExponent ![1/2, 1/3] = ⊤.
+
+Test test_simultaneousExponent_empty: simultaneousExponent of the empty vector = ⊤.
+
+Test test_simultaneousExponent_sqrtTwo_sqrtThree: simultaneousExponent ![√2, √3] ≤ 1.
+
+### DiophantineApproximationAndTranscendence:DT.0/algebraic-approximation-exponent
+
+Statement: For n ∈ ℕ and ξ ∈ ℝ, w*_n(ξ) ∈ ℝ≥0∞ is the supremum of the real w for which 0 < |ξ − α| ≤ H(α)^{-w-1} holds for infinitely many algebraic α ∈ ℂ of degree at most n, where H is the naive height (DT.0/naive-height-of-algebraic-number). Conventions (pinned): α ranges over all complex algebraic numbers of degree ≤ n, real or not; the height is the naive height of the minimal polynomial over ℤ.
+
+API algebraicApproximationExponent: w*_n(ξ) valued in ℝ≥0∞.
+
+API algebraicApproximationExponent_one_add: For irrational ξ: w*_1(ξ) + 1 = μ(ξ).
+
+API algebraicApproximationExponent_mono: w*_m(ξ) ≤ w*_n(ξ) for m ≤ n.
+
+Test test_algebraicApproximationExponent_sqrtTwo: algebraicApproximationExponent 1 √2 = 1.
+
+Test test_algebraicApproximationExponent_zero: algebraicApproximationExponent 0 ξ = 0 for every ξ.
+
+Test test_algebraicApproximationExponent_half: algebraicApproximationExponent 1 (1/2) = 0: without 0 < |ξ − α| it would be ⊤.
+
+Test test_algebraicApproximationExponent_liouvilleNumber: algebraicApproximationExponent 1 (liouvilleNumber 10) = ⊤, matching μ = ⊤.
+
+### DiophantineApproximationAndTranscendence:DT.0/badly-approximable
+
+Statement: A real number ξ is badly approximable if ξ is irrational and there is c > 0 with q · ‖qξ‖ ≥ c for every integer q ≥ 1, where ‖t‖ = |t − round t| is the distance to the nearest integer.
+
+API BadlyApproximable: The predicate on ℝ.
+
+API BadlyApproximable.irrationalityExponent_eq: Badly approximable ⇒ μ(ξ) = 2.
+
+API badlyApproximable_of_natDegree_minpoly_eq_two: Irrational real algebraic numbers of degree 2 are badly approximable.
+
+API BadlyApproximable.not_liouville: Badly approximable numbers are not Liouville numbers.
+
+API BadlyApproximable.add_ratCast: Stable under ξ ↦ ξ + r, r ∈ ℚ.
+
+API BadlyApproximable.ratCast_mul: Stable under ξ ↦ rξ, r ∈ ℚ^×.
+
+Test test_badlyApproximable_sqrtTwo: BadlyApproximable √2.
+
+Test test_not_badlyApproximable_rat: ¬ BadlyApproximable q for q ∈ ℚ.
+
+Test test_not_badlyApproximable_liouvilleNumber: ¬ BadlyApproximable (liouvilleNumber 10).
+
+Test test_badlyApproximable_goldenRatio: BadlyApproximable φ.
+
+### DiophantineApproximationAndTranscendence:DT.0/littlewood-conjecture
+
+Statement: Littlewood's conjecture is the proposition: for all α, β ∈ ℝ and every ε > 0 there is an integer y ≥ 1 with y · ‖yα‖ · ‖yβ‖ < ε, where ‖t‖ is the distance from t to the nearest integer. It is recorded as a statement (a proposition to be used as an explicit hypothesis), not as a theorem; this stage proves the cases it reduces to and the Dirichlet bound y‖yα‖‖yβ‖ ≤ 1 for infinitely many y.
+
+API LittlewoodConjecture: The proposition.
+
+API littlewood_of_not_badlyApproximable: For α not badly approximable, every β and ε > 0, some y ≥ 1 has y‖yα‖‖yβ‖ < ε.
+
+API infinite_setOf_mul_le_one: For all α, β, infinitely many y ≥ 1 satisfy y‖yα‖‖yβ‖ ≤ 1.
+
+Test test_littlewood_rat: For q ∈ ℚ, β ∈ ℝ, ε > 0 there is y ≥ 1 with y‖yq‖‖yβ‖ < ε.
+
+Test test_littlewood_liouvilleNumber: For α = liouvilleNumber 10, every β and ε > 0 there is y ≥ 1 with y‖yα‖‖yβ‖ < ε.
+
+Test test_littlewood_oneDimensional_false: It is false that for every α and ε > 0 some y ≥ 1 has y‖yα‖ < ε (√2 is a counterexample), so the conjecture genuinely needs two numbers.
+
+### DiophantineApproximationAndTranscendence:DT.0/naive-height-of-rational
+
+Statement: For q ∈ ℚ with q = x/y in lowest terms (y = den q > 0, x = num q), and for q viewed in any field F of characteristic zero, H(q) = max(|x|, y) and H(q) = Height.mulHeight₁ q, the multiplicative height of q ∈ ℚ in Mathlib's normalisation.
+
+### DiophantineApproximationAndTranscendence:DT.0/house-eq-numberField-house
+
+Statement: Let K be a number field and x ∈ K. Then the field-independent house ⌈x⌉ = max{|z| : z ∈ ℂ, minpoly ℚ x (z) = 0} equals Mathlib's NumberField.house x = max_{σ : K → ℂ} |σ(x)|.
+
+### DiophantineApproximationAndTranscendence:DT.0/map-primitive-minpoly
+
+Statement: Let x be algebraic over ℚ in a field of characteristic zero, with primitive minimal polynomial F_x of leading coefficient a₀. Then the image of F_x in ℚ[X] is a₀·minpoly ℚ x; consequently deg F_x = deg x, and the multiset of complex roots of F_x is the multiset of complex roots of minpoly ℚ x (the d distinct conjugates x^{(1)}, …, x^{(d)}), so F_x = a₀ ∏_{i=1}^{d} (X − x^{(i)}) in ℂ[X]. The same holds in any field L over which minpoly ℚ x splits.
+
+### DiophantineApproximationAndTranscendence:DT.0/infinite-places-over
+
+Statement: Let K ⊆ L be number fields (an algebra K → L) and g : InfinitePlace K → M a map to a commutative monoid. Then ∏_{w ∈ InfinitePlace L} g(w|_K)^{mult w} = ∏_{v ∈ InfinitePlace K} g(v)^{mult v · [L:K]}, where w|_K = w.comap (algebraMap K L). Equivalently, for every infinite place v of K, ∑_{w | v} mult w = mult v · [L:K].
+
+### DiophantineApproximationAndTranscendence:DT.0/mul-height-algebra-map
+
+Statement: Let K ⊆ L be number fields, ι a finite type and x : ι → K. Then Height.mulHeight (algebraMap K L ∘ x) = Height.mulHeight x ^ [L:K], where each side is Mathlib's relative multiplicative height in its own field (NumberField.instAdmissibleAbsValues). Applied to ![x, 1] (Height.mulHeight₁_eq_mulHeight) it gives mulHeight₁ of x computed in L = (mulHeight₁ of x computed in K)^{[L:K]}.
+
+### DiophantineApproximationAndTranscendence:DT.0/mul-height-ring-equiv
+
+Statement: Let e : K ≃+* K' be an isomorphism of number fields, ι finite and x : ι → K. Then Height.mulHeight (e ∘ x) = Height.mulHeight x; in particular mulHeight₁ (e x) = mulHeight₁ x.
+
+### DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-rpow
+
+Statement: Let K be a number field and x ∈ K. Then NumberField.absMulHeight₁ x = (mulHeight₁ x)^{1/[K:ℚ]}, the multiplicative height of x computed in K raised to 1/[K:ℚ].
+
+### DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-of-minpoly-eq
+
+Statement: Let F, F' be fields of characteristic zero and x ∈ F, y ∈ F' with minpoly ℚ x = minpoly ℚ y. Then NumberField.absMulHeight₁ x = NumberField.absMulHeight₁ y. In particular conjugate algebraic numbers have equal absolute height, and absMulHeight₁(φ x) = absMulHeight₁ x for every ring homomorphism φ : F → F'.
+
+### DiophantineApproximationAndTranscendence:DT.0/gauss-norm-primitive-finite-place
+
+Statement: Let L be a number field, w a finite place of L and P ∈ ℤ[X] primitive. Then the Gauss norm of P mapped to L[X] at w (with radius 1), max_i w(a_i) over the coefficients a_i of P, equals 1.
+
+### DiophantineApproximationAndTranscendence:DT.0/finite-place-gauss-lemma
+
+Statement: Let L be a number field, w a finite place of L, P ∈ ℤ[X] primitive, and suppose P = a·∏_{b ∈ s} (X − b) in L[X] for some a ∈ L and a multiset s of elements of L. Then w(a) · ∏_{b ∈ s} max(w(b), 1) = 1.
+
+### DiophantineApproximationAndTranscendence:DT.0/height-comparisons
+
+Statement: For every x in a field of characteristic zero, M(x) = absMulHeight₁(x)^{d} with d = deg minpoly ℚ x, where M is DT.0/mahler-measure-of-algebraic-number and absMulHeight₁ is Mathlib's absolute multiplicative height. Equivalently log M(x) = d · h(x) with h the absolute logarithmic Weil height. For transcendental x both sides are 1.
+
+### DiophantineApproximationAndTranscendence:DT.0/naive-height-le-choose-mul-mahler-measure
+
+Statement: For x in a field of characteristic zero with d = deg minpoly ℚ x: H(x) ≤ binom(d, ⌊d/2⌋)·M(x); in particular H(x) ≤ 2^d M(x).
+
+### DiophantineApproximationAndTranscendence:DT.0/mahler-measure-le-sqrt-mul-naive-height
+
+Statement: For x in a field of characteristic zero with d = deg minpoly ℚ x: M(x) ≤ √(d + 1)·H(x).
+
+### DiophantineApproximationAndTranscendence:DT.0/naive-height-abs-height-comparison
+
+Statement: For x in a field of characteristic zero with d = deg minpoly ℚ x: 2^{-d}·H(x) ≤ absMulHeight₁(x)^d ≤ √(d + 1)·H(x). For x ∈ ℚ the three heights coincide: H(x) = M(x) = absMulHeight₁(x) = max(|num x|, den x).
+
+### DiophantineApproximationAndTranscendence:DT.0/northcott-naive-height
+
+Statement: For d ∈ ℕ and B ∈ ℝ, the set of algebraic α ∈ ℂ of degree ≤ d with H(α) ≤ B is finite, and it has at most d·(2⌊B⌋₊ + 1)^{d+1} elements.
+
+### DiophantineApproximationAndTranscendence:DT.0/northcott-absolute-height
+
+Statement: For d ∈ ℕ and B ∈ ℝ, the set of algebraic α ∈ ℂ of degree ≤ d with absMulHeight₁ α ≤ B is finite.
+
+### DiophantineApproximationAndTranscendence:DT.0/central-binomial-sqrt-bound
+
+Statement: For every k ∈ ℕ, binom(k, ⌊k/2⌋)·√(k + 1) ≤ 2^k.
+
+### DiophantineApproximationAndTranscendence:DT.0/gelfond-inequality
+
+Statement: Let f₁, …, f_m ∈ ℂ[X] and f = f₁⋯f_m of degree d. Then ∏_j H(f_j) ≤ 2^d·H(f) and H(f) ≤ 2^d·∏_j H(f_j), where H(g) is the sup norm of the coefficients of g (Polynomial.supNorm).
+
+### DiophantineApproximationAndTranscendence:DT.0/naive-height-le-two-mul-house-pow
+
+Statement: Let x be a nonzero algebraic integer (in a field of characteristic zero) of degree d. Then H(x) ≤ (2⌈x⌉)^d.
+
+### DiophantineApproximationAndTranscendence:DT.0/finite-algebraic-integers-house-le
+
+Statement: For d ∈ ℕ and C ∈ ℝ, the set of algebraic integers α ∈ ℂ of degree ≤ d with ⌈α⌉ ≤ C is finite, with at most ∑_{k=0}^{d} k·(2⌊(2 max(C, 1))^k⌋₊ + 1)^k elements.
+
+### DiophantineApproximationAndTranscendence:DT.0/liouville-size-bound-embedding
+
+Statement: Let K be a number field of degree D = [K:ℚ], x ∈ K nonzero and σ : K → ℂ an embedding. Then |σ(x)| ≥ den(x)^{-D}·house(x)^{1−D}, where den is Mathlib's Algebra.natDenominator and house is NumberField.house. For a unit ε of 𝓞 K this reads |σ(ε)| ≥ house(ε)^{1−D}.
+
+### DiophantineApproximationAndTranscendence:DT.0/liouville-size-bound
+
+Statement: Let z ∈ ℂ be a nonzero algebraic number of degree d. Then |z| ≥ den(z)^{-d}·⌈z⌉^{1−d}; in particular a nonzero algebraic integer of degree d has |z| ≥ ⌈z⌉^{1−d}, and the same bound holds for every conjugate of z.
+
+### DiophantineApproximationAndTranscendence:DT.0/small-integral-element-eq-zero
+
+Statement: Let K be a number field and α ∈ 𝓞 K. If |Re σ(α)| ≤ 2/3 and |Im σ(α)| ≤ 2/3 for every embedding σ : K → ℂ (equivalently, every coordinate of Evertse's map ϕ, i.e. of the mixed embedding, is at most 2/3 in absolute value), then α = 0.
+
+### DiophantineApproximationAndTranscendence:DT.0/siegel-lemma-number-field
+
+Statement: Let K be a number field of degree d, let M, N be integers with N > dM > 0, let A ≥ 1, and let a_ij ∈ 𝓞 K (1 ≤ i ≤ M, 1 ≤ j ≤ N) with ⌈a_ij⌉ ≤ A. Then the system ∑_j a_ij x_j = 0 (i = 1, …, M) has a solution x ∈ ℤ^N \ {0} with max_j |x_j| ≤ (3NA)^{dM/(N−dM)}.
+
+### DiophantineApproximationAndTranscendence:DT.0/dirichlet-approximation-from-minkowski
+
+Statement: Let m, n ≥ 1, let A = (a_ij) be a real m × n matrix, L_i(y) = ∑_j a_ij y_j, and let Q > 1 be real. Then there are y ∈ ℤ^n \ {0} and x ∈ ℤ^m with max_j |y_j| ≤ Q and |L_i(y) − x_i| ≤ Q^{-n/m} for i = 1, …, m. The case m = n = 1 is Evertse's Theorem 1.1 (with the Minkowski derivation of printed pp. 2-3), the case n = 1 gives the simultaneous Theorem 1.4(i), and the case m = 1 the linear-form version of Corollary 2.7(ii).
+
+Current prerequisites: GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-linear-forms, GeometryOfNumbersAndQuadraticArithmetic:GN.1.
+
+### DiophantineApproximationAndTranscendence:DT.0/dirichlet-linear-forms-infinitely-many
+
+Statement: Let m, n ≥ 1 and A a real m × n matrix with L_i(y) = ∑_j a_ij y_j, and suppose that the only y ∈ ℤ^n with L_i(y) ∈ ℤ for all i is y = 0. Then there are infinitely many (y, x) ∈ (ℤ^n \ {0}) × ℤ^m with |L_i(y) − x_i| ≤ (max_j |y_j|)^{-n/m} for all i.
+
+### DiophantineApproximationAndTranscendence:DT.0/simultaneous-dirichlet-theorem
+
+Statement: Let n ≥ 1, α₁, …, αₙ ∈ ℝ and Q > 1 real. Then there is (x₁, …, xₙ, y) ∈ ℤ^{n+1} with 0 < y ≤ Q^n and |x_i − α_i y| ≤ Q^{-1} for i = 1, …, n.
+
+### DiophantineApproximationAndTranscendence:DT.0/simultaneous-dirichlet-infinitely-many
+
+Statement: Let n ≥ 1 and α₁, …, αₙ ∈ ℝ, not all rational. Then there are infinitely many (x₁, …, xₙ, y) ∈ ℤ^{n+1} with y > 0, gcd(x₁, …, xₙ, y) = 1 and |α_i − x_i/y| ≤ y^{-1-1/n} for i = 1, …, n.
+
+### DiophantineApproximationAndTranscendence:DT.0/dirichlet-linear-form-infinitely-many
+
+Statement: Let n ≥ 1 and α₁, …, αₙ ∈ ℝ such that the only y ∈ ℤ^n with α₁y₁ + ⋯ + αₙyₙ ∈ ℤ is y = 0 (this holds when 1, α₁, …, αₙ are linearly independent over ℚ). Then there are infinitely many (x, y) ∈ ℤ × (ℤ^n \ {0}) with |α₁y₁ + ⋯ + αₙyₙ − x| ≤ (max_j |y_j|)^{-n}.
+
+### DiophantineApproximationAndTranscendence:DT.0/irrationality-criterion
+
+Statement: Let α ∈ ℝ and let (x_k, y_k) be integers with y_k > 0, x_k/y_k ≠ α and |x_k − αy_k| → 0 as k → ∞. Then α is irrational.
+
+### DiophantineApproximationAndTranscendence:DT.0/kronecker-approximation-theorem
+
+Statement: Let α₁, …, αₙ, θ₁, …, θₙ ∈ ℝ and suppose that 1, α₁, …, αₙ are linearly independent over ℚ. Then for every ε > 0 there are infinitely many (x₁, …, xₙ, y) ∈ ℤ^{n+1} with |α_i y − x_i − θ_i| ≤ ε for i = 1, …, n.
+
+### DiophantineApproximationAndTranscendence:DT.0/simultaneous-exponent-dirichlet-bound
+
+Statement: For every n ≥ 1 and θ ∈ ℝ^n, λ(θ) ≥ 1/n (DT.0/simultaneous-approximation-exponent); in particular λ_n(ξ) ≥ 1/n for every real ξ.
+
+### DiophantineApproximationAndTranscendence:DT.0/linear-form-exponent-dirichlet-bound
+
+Statement: Let n ≥ 1 and θ ∈ ℝ^n with 1, θ₁, …, θₙ linearly independent over ℚ. Then w(θ) ≥ n (DT.0/linear-form-exponent); in particular Mahler's w_n(ξ) ≥ n for every real ξ that is not algebraic of degree ≤ n.
+
+### DiophantineApproximationAndTranscendence:DT.0/algebraic-exponent-le-mahler-exponent
+
+Statement: Let n ≥ 1 and ξ ∈ ℝ not algebraic of degree ≤ n. Then w*_n(ξ) ≤ w_n(ξ) (DT.0/algebraic-approximation-exponent, DT.0/linear-form-exponent).
+
+### DiophantineApproximationAndTranscendence:DT.0/convergent-error-lower-bound
+
+Statement: Let ξ be irrational with convergents p_k/q_k (Mathlib's Real.convergent ξ k, in lowest terms). Then |ξ − p_k/q_k| > 1/(q_k(q_k + q_{k+1})) for every k ≥ 0. Together with Mathlib's upper bound |ξ − p_k/q_k| ≤ 1/(q_k q_{k+1}) this pins the error within a factor 2.
+
+### DiophantineApproximationAndTranscendence:DT.0/irrationality-exponent-continued-fraction
+
+Statement: Let ξ be irrational with convergent denominators q_k. Then μ(ξ) = 1 + limsup_{k→∞} log q_{k+1} / log q_k (in ℝ≥0∞, the finitely many k with q_k = 1 contributing 0). Equivalently μ(ξ) = 2 + limsup log a_{k+1}/log q_k with a_k the partial quotients.
+
+### DiophantineApproximationAndTranscendence:DT.1/binary-form-distance-bound
+
+Statement: Let f ∈ ℤ[X] have degree d ≥ 1 and let α ∈ ℂ be a root of f. Write F(X, Y) = Y^d f(X/Y) = ∑_{k} f_k X^k Y^{d-k} for the homogenization of f in degree d (Mathlib's Polynomial.homogenize f d). For all integers x and y with y > 0: |F(x, y)| ≤ 2^{d-1} M(f) max(|x|, y)^d |α − x/y|, where M(f) is the Mahler measure of f viewed in ℂ[X]. When gcd(x, y) = 1, max(|x|, y) = H(x/y).
+
+### DiophantineApproximationAndTranscendence:DT.1/liouville-inequality-with-explicit-constant
+
+Statement: Let α ∈ ℂ be algebraic of degree d ≥ 1 with primitive minimal polynomial F_α ∈ ℤ[X] (irreducible, primitive, positive leading coefficient) and Mahler measure M(α) = M(F_α). For every ξ ∈ ℚ with ξ ≠ α: |ξ − α| ≥ 2^{1-d} M(α)^{-1} H(ξ)^{-d}, where H(x/y) = max(|x|, |y|) for coprime x, y (Mathlib's mulHeight₁ on ℚ). The constant is effectively computable from α.
+
+### DiophantineApproximationAndTranscendence:DT.1/l1-norm-of-polynomial
+
+Statement: For a polynomial P = ∑_{i=0}^{D} p_i X^i with coefficients in a seminormed ring A, ‖P‖ := ∑_i ‖p_i‖ (Mahler's length; Evertse's 'norm of a polynomial'). It is defined for all P, with ‖0‖ = 0.
+
+API Polynomial.l1Norm: ‖P‖ = ∑_{i ∈ support P} ‖coeff P i‖.
+
+API Polynomial.l1Norm_zero: ‖0‖ = 0.
+
+API Polynomial.l1Norm_nonneg: 0 ≤ ‖P‖.
+
+API Polynomial.l1Norm_eq_sum_range: ‖P‖ = ∑_{i=0}^{natDegree P} ‖coeff P i‖.
+
+API Polynomial.l1Norm_C: ‖C a‖ = ‖a‖.
+
+API Polynomial.l1Norm_monomial: ‖a X^n‖ = ‖a‖.
+
+API Polynomial.l1Norm_neg: ‖−P‖ = ‖P‖.
+
+API Polynomial.norm_coeff_le_l1Norm: ‖coeff P i‖ ≤ ‖P‖.
+
+API Polynomial.supNorm_le_l1Norm: Mathlib's supNorm P ≤ ‖P‖.
+
+API Polynomial.l1Norm_le_mul_supNorm: ‖P‖ ≤ (natDegree P + 1) supNorm P.
+
+API Polynomial.l1Norm_eq_zero_iff: Over a normed ring, ‖P‖ = 0 iff P = 0.
+
+API Polynomial.mahlerMeasure_le_l1Norm: For P ∈ ℂ[X], M(P) ≤ ‖P‖ (Mathlib's mahlerMeasure_le_sum_norm_coeff).
+
+Test Polynomial.l1Norm.test_X_sub_one_sq: ‖(X − 1)^2‖ = 4 in ℤ[X].
+
+Test Polynomial.l1Norm.test_one: ‖1‖ = 1 in ℤ[X].
+
+Test Polynomial.l1Norm.test_supNorm_X_sub_two: For X − 2 ∈ ℂ[X]: supNorm = 2 and ‖X − 2‖ = 3, so the ℓ¹-norm is not Mathlib's sup norm.
+
+Test Polynomial.l1Norm.test_not_multiplicative: ‖(X + 1)(X − 1)‖ = 2 < 4 = ‖X + 1‖ ‖X − 1‖: the norm is only submultiplicative.
+
+### DiophantineApproximationAndTranscendence:DT.1/l1-norm-add-le
+
+Statement: For P, Q with coefficients in a seminormed ring: ‖P + Q‖ ≤ ‖P‖ + ‖Q‖.
+
+### DiophantineApproximationAndTranscendence:DT.1/l1-norm-mul-le
+
+Statement: For P, Q with coefficients in a seminormed ring: ‖PQ‖ ≤ ‖P‖ ‖Q‖.
+
+### DiophantineApproximationAndTranscendence:DT.1/l1-norm-eval-bound
+
+Statement: For P over a normed field and any z: |P(z)| ≤ ‖P‖ max(1, |z|)^{deg P}.
+
+### DiophantineApproximationAndTranscendence:DT.1/l1-norm-taylor-shift-bound
+
+Statement: For P over a normed field and any a: the polynomial P̃(X) = P(X + a) (Mathlib's taylor a P) satisfies ‖P̃‖ ≤ ‖P‖ (1 + |a|)^{deg P}.
+
+### DiophantineApproximationAndTranscendence:DT.1/l1-norm-hasse-derivative-bound
+
+Statement: For P over a normed field and k ≥ 0, the k-th divided derivative P^{((k))} = P^{(k)}/k! (Mathlib's hasseDeriv k P) satisfies ‖P^{((k))}‖ ≤ 2^{deg P} ‖P‖.
+
+### DiophantineApproximationAndTranscendence:DT.1/thue-auxiliary-polynomials
+
+Statement: Let α ∈ ℂ be algebraic of degree d, b ≥ 1 an integer with bα ∈ O_{ℚ(α)} (for instance the leading coefficient of the primitive minimal polynomial), and 0 < ε < 1/2. For every integer r ≥ 1 there are P_r, Q_r ∈ ℤ[X], not both 0, of degree at most m := [(1/2 + ε) d r], such that (X − α)^r divides P_r − α Q_r in ℂ[X] and ‖P_r‖, ‖Q_r‖ ≤ C_1^r with C_1 = (12 b max(1, house α))^{d(1 + 1/ε)}; C_1 depends only on α and ε and is effectively computable. (Evertse's proof bounds the largest coefficient by (6 b max(1, house α))^{d(1 + 1/ε) r}; the extra factor 2^{d(1+1/ε)} absorbs the at most m + 1 ≤ 2^{dr} coefficients of the ℓ¹-norm.)
+
+### DiophantineApproximationAndTranscendence:DT.1/minimal-polynomial-power-divides
+
+Statement: Let F ∈ ℚ[X], β ∈ ℂ algebraic with minimal polynomial f ∈ ℚ[X], and m ≥ 0. If (X − β)^m divides F in ℂ[X], then f^m divides F in ℚ[X].
+
+### DiophantineApproximationAndTranscendence:DT.1/thue-nonvanishing-of-a-divided-derivative
+
+Statement: Let α be algebraic of degree d ≥ 2, 0 < ε < 1/2, r ≥ 1, and P_r, Q_r ∈ ℤ[X], not both 0, of degree ≤ (1/2 + ε)dr with (X − α)^r | P_r − αQ_r. For all ξ_1, ξ_2 ∈ ℚ there is an integer k with 0 ≤ k ≤ d(2εr + 1) and P_r^{((k))}(ξ_1) ≠ ξ_2 Q_r^{((k))}(ξ_1).
+
+### DiophantineApproximationAndTranscendence:DT.1/thue-remainder-bounds
+
+Statement: Let α ∈ ℂ, d ≥ 1, ε > 0, C_1 ≥ 0, integers 0 ≤ k ≤ r, and P, Q ∈ ℤ[X] of degree ≤ (1/2 + ε)dr with ‖P‖, ‖Q‖ ≤ C_1^r. Write P^{((k))} − αQ^{((k))} = V (X − α)^{r−k} with V ∈ ℂ[X]. Then for every z ∈ ℂ with |z − α| ≤ 1: |V(z)| ≤ C_2^r and |Q^{((k))}(z)| ≤ C_2^r, where C_2 = 2^{(1/2+ε)d} (1 + |α|)^{1+(1/2+ε)d} C_1.
+
+### DiophantineApproximationAndTranscendence:DT.1/thue-effective-gap-principle
+
+Statement: Let α ∈ ℂ be algebraic of degree d ≥ 2 and κ > d/2 + 1. There are effectively computable C ≥ 1 and λ ≥ 1, depending only on α and κ, such that: if ξ_1 ∈ ℚ satisfies |ξ_1 − α| ≤ H(ξ_1)^{-κ} and H(ξ_1) ≥ C, then every other ξ ∈ ℚ with |ξ − α| ≤ H(ξ)^{-κ} satisfies H(ξ) ≤ H(ξ_1)^λ. One may take ε = (κ − 1 − d/2)/((2κ + 2)d), C = max(e, (2C_2)^{2/(εd)}) and λ = 1 + 2(1 + κd)/(dε), with C_2 as in thue-remainder-bounds for C_1 as in thue-auxiliary-polynomials.
+
+### DiophantineApproximationAndTranscendence:DT.1/thue-approximation-theorem-and-the-auxiliary-polynomial-method
+
+Statement: Let α be a real algebraic number of degree d ≥ 3 and κ > d/2 + 1. Then |ξ − α| ≤ H(ξ)^{-κ} has only finitely many solutions ξ ∈ ℚ. The proof does not provide the solutions (ineffective).
+
+### DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative
+
+Statement: For a commutative semiring R, a type σ of variables and d ∈ ℕ^(σ) (finitely supported), the R-linear map ∂^d on R[x_σ] with ∂^d(x^m) = (∏_j binom(m_j, d_j)) x^{m−d} (and 0 when some d_j > m_j). Over a ring containing ℚ, ∂^d = (∏_j d_j!)^{-1} ∂^{|d|}/∂x^d; over ℤ it preserves integrality.
+
+API MvPolynomial.hasseDeriv: ∂^d as an R-linear map R[x_σ] → R[x_σ].
+
+API MvPolynomial.hasseDeriv_monomial: ∂^d(a x^m) = (∏_j binom(m_j, d_j)) a x^{m−d}.
+
+API MvPolynomial.hasseDeriv_zero: ∂^0 = id.
+
+API MvPolynomial.factorial_smul_hasseDeriv_single: k! ∂^{k e_i} P = (∂/∂x_i)^k P (Mathlib's pderiv iterated).
+
+API MvPolynomial.hasseDeriv_eq_zero_of_degreeOf_lt: If deg_{x_i} P < d_i then ∂^d P = 0.
+
+API MvPolynomial.degreeOf_hasseDeriv_le: deg_{x_i}(∂^d P) ≤ deg_{x_i} P − d_i.
+
+Test MvPolynomial.hasseDeriv.test_X0_cube_X1: ∂^{(2,0)}(x_0^3 x_1) = 3 x_0 x_1 over ℤ.
+
+Test MvPolynomial.hasseDeriv.test_one: ∂^d 1 = 0 for d ≠ 0.
+
+Test MvPolynomial.hasseDeriv.test_divided_not_ordinary: ∂^{(2)}(x_0^2) = 1 while (∂/∂x_0)^2 x_0^2 = 2: the divided derivative is not the ordinary one.
+
+Test MvPolynomial.hasseDeriv.test_one_variable: ∂^{e_1}((X^2)(x_1)) = (2X)(x_1): agreement with Mathlib's univariate Hasse derivative.
+
+### DiophantineApproximationAndTranscendence:DT.1/multivariate-taylor-expansion
+
+Statement: For P ∈ R[x_σ] and a, y ∈ R^σ: P(a + y) = ∑_d (∂^d P)(a) ∏_j y_j^{d_j}, the sum being finite (∂^d P = 0 unless d ≤ some exponent of P).
+
+### DiophantineApproximationAndTranscendence:DT.1/hasse-derivative-archimedean-coefficient-bound
+
+Statement: For an absolute value v on a commutative ring K, P ∈ K[x_σ], d and m: v(coeff_m(∂^d P)) ≤ 2^{|m + d|} v(coeff_{m+d} P), where |e| = ∑_j e_j.
+
+### DiophantineApproximationAndTranscendence:DT.1/hasse-derivative-nonarchimedean-coefficient-bound
+
+Statement: For a nonarchimedean absolute value v on K: v(coeff_m(∂^d P)) ≤ v(coeff_{m+d} P).
+
+### DiophantineApproximationAndTranscendence:DT.1/weighted-index-of-polynomial
+
+Statement: For a commutative ring R, weights r ∈ ℕ^σ, a point a ∈ R^σ and P ∈ R[x_σ]: Ind_{a,r}(P) := min { ∑_j i_j / r_j : i ∈ ℕ^(σ), (∂^i P)(a) ≠ 0 } ∈ [0, ∞], with Ind_{a,r}(0) = ∞. Equivalently, Ind_{a,r}(P) ≥ t iff ∂^i P(a) = 0 for every i with ∑_j i_j/r_j < t. For P ≠ 0 and all r_j ≥ 1 it is a finite rational number.
+
+API MvPolynomial.weightedIndex: Ind_{a,r}(P) ∈ [0, ∞].
+
+API MvPolynomial.weightedIndex_zero: Ind_{a,r}(0) = ∞.
+
+API MvPolynomial.weightedIndex_eq_zero_iff: For r_j ≠ 0: Ind_{a,r}(P) = 0 iff P(a) ≠ 0.
+
+API MvPolynomial.weightedIndex_ne_top: For r_j ≠ 0 and P ≠ 0 the index is finite.
+
+API MvPolynomial.weightedIndex_map: For an injective ring map f: Ind_{f∘a,r}(map f P) = Ind_{a,r}(P).
+
+Test MvPolynomial.weightedIndex.test_X0_cube_sub_X1_sq: Ind_{(0,0),(3,3)}(x_0^3 − x_1^2) = 2/3 over ℚ.
+
+Test MvPolynomial.weightedIndex.test_one: Ind_{a,r}(1) = 0 for all a, r.
+
+Test MvPolynomial.weightedIndex.test_X0_X1: Ind_{(0,0),(1,2)}(x_0 x_1) = 3/2, not the total order of vanishing 2: the index is weighted.
+
+Test MvPolynomial.weightedIndex.test_X_sub_C_pow: In one variable, Ind_{β,r}((x_0 − β)^m) = m/r (order of vanishing divided by the weight).
+
+### DiophantineApproximationAndTranscendence:DT.1/weighted-index-mul
+
+Statement: Over an integral domain R with all r_j ≥ 1: Ind_{a,r}(PQ) = Ind_{a,r}(P) + Ind_{a,r}(Q) for all P, Q (with ∞ + x = ∞).
+
+### DiophantineApproximationAndTranscendence:DT.1/weighted-index-add
+
+Statement: For all P, Q: min(Ind_{a,r}(P), Ind_{a,r}(Q)) ≤ Ind_{a,r}(P + Q).
+
+### DiophantineApproximationAndTranscendence:DT.1/weighted-index-of-derivative
+
+Statement: Over an integral domain of characteristic 0: Ind_{a,r}(P) ≤ Ind_{a,r}(∂^d P) + ∑_j d_j/r_j.
+
+### DiophantineApproximationAndTranscendence:DT.1/weighted-index-rename
+
+Statement: For an injective f : τ → σ and Q ∈ R[x_τ]: Ind_{a,r}(Q(x_{f(·)})) = Ind_{a∘f, r∘f}(Q).
+
+### DiophantineApproximationAndTranscendence:DT.1/weighted-index-scale-weights
+
+Statement: For c ≥ 1: Ind_{a, c·r}(P) = Ind_{a,r}(P)/c.
+
+### DiophantineApproximationAndTranscendence:DT.1/weighted-index-one-variable
+
+Statement: For a one-variable polynomial p ≠ 0 placed in the variable x_i: Ind_{a,r}(p(x_i)) = ord_{a_i}(p)/r_i, where ord is the root multiplicity.
+
+### DiophantineApproximationAndTranscendence:DT.1/height-of-multivariate-polynomial
+
+Statement: For a field K with admissible absolute values (a number field in the applications) and P ∈ K[x_σ]: h(P) := the logarithmic projective height of the coefficient vector of P, i.e. Mathlib's Finsupp.logHeight of the coefficient function. For a number field K and P ≠ 0: h(P) = ∑_{w | ∞} mult(w) log max_m w(coeff_m P) + ∑_{v ∤ ∞} log max_m v(coeff_m P). It is the relative height over K; Pottmeyer's absolute h_P(P) is h(P)/[K : ℚ]. Over ℚ, for P ∈ ℤ[x] with coprime coefficients, h(P) = log max_m |coeff_m P|.
+
+API MvPolynomial.logHeight: h(P) = Finsupp.logHeight (coefficients of P).
+
+API MvPolynomial.logHeight_nonneg: h(P) ≥ 0.
+
+API MvPolynomial.logHeight_zero: h(0) = 0.
+
+API MvPolynomial.logHeight_C_mul: h(cP) = h(P) for c ≠ 0 (projectivity; Pottmeyer, Lemma 3.2.2).
+
+API MvPolynomial.logHeight_C: h(c) = 0 for a constant.
+
+API MvPolynomial.logHeight_rename: h is invariant under injective renaming of variables.
+
+API MvPolynomial.logHeight_eq_of_numberField: The place-by-place formula over a number field (Mathlib's NumberField.mulHeight_eq).
+
+Test MvPolynomial.logHeight.test_two_X_add_four: h(2x_0 + 4) = log 2 over ℚ.
+
+Test MvPolynomial.logHeight.test_C_five: h(5) = 0.
+
+Test MvPolynomial.logHeight.test_X_sub_C: h(x_0 − q) = Mathlib's logHeight₁ q for q ∈ ℚ.
+
+Test MvPolynomial.logHeight.test_two_X_add_two: h(2x_0 + 2) = 0, not log 2 = log of the largest coefficient: the height is projective.
+
+### DiophantineApproximationAndTranscendence:DT.1/height-of-one-variable-polynomial
+
+Statement: For K with admissible absolute values and p ∈ K[X]: h(p) := Finsupp.logHeight of the coefficient function of p; it agrees with the height of p placed in any variable of a multivariate ring.
+
+API Polynomial.logHeight: h(p) = Finsupp.logHeight (coefficients of p).
+
+API Polynomial.logHeight_nonneg: h(p) ≥ 0.
+
+API Polynomial.logHeight_C_mul: h(cp) = h(p) for c ≠ 0.
+
+API Polynomial.logHeight_X_sub_C: h(X − β) = logHeight₁ β (Mathlib's height of β).
+
+Test Polynomial.logHeight.test_X_sub_two: h(X − 2) = log 2 over ℚ.
+
+Test Polynomial.logHeight.test_C_seven: h(7) = 0.
+
+Test Polynomial.logHeight.test_X_sq_sub_quarter: h(X^2 − 1/4) = log 4 (the primitive multiple is 4X^2 − 1).
+
+Test Polynomial.logHeight.test_X_sub_half: h(X − 1/2) = log 2, although every coefficient has absolute value ≤ 1: the height sees denominators.
+
+### DiophantineApproximationAndTranscendence:DT.1/height-of-product-in-disjoint-variables
+
+Statement: For nonzero P, Q ∈ K[x_σ] with disjoint sets of variables: h(PQ) = h(P) + h(Q).
+
+### DiophantineApproximationAndTranscendence:DT.1/height-of-integer-polynomial-bound
+
+Statement: For P ∈ ℤ[x_σ], P ≠ 0, viewed over ℚ: h(P) ≤ log max_m |coeff_m P|, with equality when the coefficients are coprime.
+
+### DiophantineApproximationAndTranscendence:DT.1/central-binomial-product-le
+
+Statement: For a, b ∈ ℕ: binom(a, ⌊a/2⌋) binom(b, ⌊b/2⌋) ≤ binom(a + b, ⌊(a + b)/2⌋).
+
+### DiophantineApproximationAndTranscendence:DT.1/central-binomial-sqrt-bound
+
+Statement: For d ∈ ℕ: binom(d, ⌊d/2⌋) √(d + 1) ≤ 2^d.
+
+### DiophantineApproximationAndTranscendence:DT.1/complex-sup-norm-product-bound
+
+Statement: For f, g ∈ ℂ[X]: |f| |g| ≤ 2^{deg(fg)} |fg|, where |·| is the largest absolute value of a coefficient (Mathlib's supNorm).
+
+### DiophantineApproximationAndTranscendence:DT.1/gelfond-lemma-one-variable
+
+Statement: For a number field K and nonzero f, g ∈ K[X]: h(f) + h(g) ≤ h(fg) + [K : ℚ] deg(fg) log 2 (relative heights over K).
+
+### DiophantineApproximationAndTranscendence:DT.1/roth-lemma-one-variable
+
+Statement: For a number field K, P ∈ K[X] \ {0}, an integer r ≥ deg P and β ∈ K: ord_β(P) h(β) ≤ h(P) + [K : ℚ] r log 2 (relative heights over K). Consequently, if r h(β) ≥ σ^{-1}(h(P) + 4r[K : ℚ]) with 0 < σ, then Ind_{β,r}(P) = ord_β(P)/r ≤ σ (Remark 3.4.4).
+
+### DiophantineApproximationAndTranscendence:DT.1/wronskian-of-one-variable-polynomials
+
+Statement: For g_1, ..., g_m ∈ R[X]: W(g) := det(g_l^{((k))})_{0 ≤ k < m, 1 ≤ l ≤ m}, built from the divided derivatives g^{((k))} = hasseDeriv k g. It equals (∏_{k<m} k!)^{-1} times the classical Wronskian det(g_l^{(k)}) (Pottmeyer, Remark 3.3.6), and W(a, b) is Mathlib's wronskian a b.
+
+API Polynomial.hasseWronskian: W(g) = det(hasseDeriv k (g l)).
+
+API Polynomial.hasseWronskian_fin_two: W(a, b) = Mathlib's wronskian a b = a b' − a' b.
+
+API Polynomial.hasseWronskian_fin_zero: The empty Wronskian is 1.
+
+API Polynomial.hasseWronskian_fin_one: W(g_0) = g_0.
+
+API Polynomial.prod_factorial_mul_hasseWronskian: (∏_k k!) W(g) = det(derivative^[k] g_l), the classical Wronskian (Remark 3.3.6).
+
+API Polynomial.hasseWronskian_eq_zero_of_not_linearIndependent: Linearly dependent families have W = 0 (Lemma 3.3.2).
+
+API Polynomial.hasseWronskian_comp_perm: Permuting the family multiplies W by the sign.
+
+API Polynomial.hasseWronskian_map: W commutes with coefficient ring maps.
+
+Test Polynomial.hasseWronskian.test_one_X_X_sq: W(1, X, X^2) = 1 over ℚ.
+
+Test Polynomial.hasseWronskian.test_dependent: W(X, 2X) = 0.
+
+Test Polynomial.hasseWronskian.test_one_X: W(1, X) = 1.
+
+Test Polynomial.hasseWronskian.test_classical_normalisation: The classical Wronskian det(derivative^[k] g_l) of (1, X, X^2) is 2, not 1: the normalisation matters.
+
+### DiophantineApproximationAndTranscendence:DT.1/wronskian-criterion-one-variable
+
+Statement: Let K be a field of characteristic 0 and g_1, ..., g_m ∈ K[X]. Then g_1, ..., g_m are K-linearly independent iff W(g_1, ..., g_m) ≠ 0.
+
+### DiophantineApproximationAndTranscendence:DT.1/generalized-wronskian
+
+Statement: For f_1, ..., f_m ∈ R[x_σ] and D = (D_1, ..., D_m) with D_k ∈ ℕ^(σ): W_D(f) := det(∂^{D_k} f_l)_{k,l}. D is admissible when |D_k| ≤ k − 1 for every k (0-indexed: |D_k| ≤ k); admissibility is a hypothesis of the theorems, not part of the definition.
+
+API MvPolynomial.genWronskian: W_D(f) = det(∂^{D_k} f_l).
+
+API MvPolynomial.genWronskian_eq_zero_of_not_linearIndependent: Linearly dependent families have all W_D = 0.
+
+API MvPolynomial.genWronskian_fin_zero: The empty generalized Wronskian is 1.
+
+API MvPolynomial.genWronskian_fin_one: W_{(0)}(f_0) = f_0.
+
+API MvPolynomial.map_genWronskian: W_D commutes with coefficient ring maps.
+
+API MvPolynomial.genWronskian_single_toMvPolynomial: With D_k = k e_i and one-variable g_l placed in x_i, W_D is the one-variable Wronskian placed in x_i.
+
+Test MvPolynomial.genWronskian.test_X0_X1: W_{(0, e_0)}(x_0, x_1) = −x_1.
+
+Test MvPolynomial.genWronskian.test_empty: For m = 0 the generalized Wronskian is 1.
+
+Test MvPolynomial.genWronskian.test_dependent: W_D(x_0, x_0) = 0 for every D.
+
+Test MvPolynomial.genWronskian.test_one_X0: W_{(0, e_0)}(1, x_0) = 1, the one-variable Wronskian W(1, X).
+
+### DiophantineApproximationAndTranscendence:DT.1/kronecker-substitution-linear-independence
+
+Statement: Let K be a field, f_1..f_m ∈ K[x_1..x_n] and B > every partial degree of every f_l. Then f_1..f_m are linearly independent iff the one-variable polynomials φ(f_l) = f_l(t, t^B, ..., t^{B^{n−1}}) are.
+
+### DiophantineApproximationAndTranscendence:DT.1/kronecker-substitution-derivatives
+
+Statement: For n, B, k there are polynomials a_{d,k} ∈ K[t], zero unless |d| ≤ k, such that for every f ∈ K[x_1..x_n]: (d/dt)^k φ(f) = ∑_d a_{d,k}(t) φ(∂^d f), where φ(f) = f(t, t^B, ..., t^{B^{n−1}}).
+
+### DiophantineApproximationAndTranscendence:DT.1/generalized-wronskian-criterion
+
+Statement: Let K be a field of characteristic 0 and f_1..f_m ∈ K[x_1..x_n]. Then f_1..f_m are linearly independent iff some admissible generalized Wronskian W_D(f) (|D_k| ≤ k, 0-indexed) is nonzero.
+
+### DiophantineApproximationAndTranscendence:DT.1/separation-of-one-variable
+
+Statement: Let K be a field, P ∈ K[x_σ] \ {0} and i_0 ∈ σ. There are s ≤ deg_{x_{i_0}} P, linearly independent f_0..f_s not involving x_{i_0}, and linearly independent g_0..g_s involving only x_{i_0}, with P = ∑_{k=0}^{s} f_k g_k.
+
+### DiophantineApproximationAndTranscendence:DT.1/wronskian-factorisation-for-separated-variables
+
+Statement: Let f_0..f_s not involve x_{i_0}, g_0..g_s involve only x_{i_0}, P = ∑ f_k g_k, and D_0..D_s with (D_k)_{i_0} = 0. Then W_D(f) · W_{(0, e_{i_0}, ..., s e_{i_0})}(g) = det(∂^{D_k + l e_{i_0}} P)_{0 ≤ k, l ≤ s}.
+
+### DiophantineApproximationAndTranscendence:DT.1/product-coefficient-bound
+
+Statement: For an absolute value v on an integral domain R, finitely many f_k ∈ R[x_1..x_n] and a monomial m: v(coeff_m ∏_k f_k) ≤ 2^{∑_j deg_{x_j}(∏_k f_k)} ∏_k max_a v(coeff_a f_k).
+
+### DiophantineApproximationAndTranscendence:DT.1/generalized-wronskian-height-bound
+
+Statement: Let K be a number field, P ∈ K[x_1..x_n] and E_{k,l} ∈ ℕ^n (0 ≤ k, l < m). Then h(det(∂^{E_{k,l}} P)) ≤ m h(P) + [K : ℚ](2m (∑_j deg_{x_j} P) log 2 + log m!). In particular, under Roth's-lemma hypothesis (ii) and s ≤ r_n (m = s + 1, deg_{x_j} P ≤ r_j), h(W) ≤ (s + 1)(h(P) + 4 r_1 [K : ℚ]) ((3.19)).
+
+### DiophantineApproximationAndTranscendence:DT.1/truncated-linear-sum-lower-bound
+
+Statement: For k ∈ ℕ and δ ∈ ℝ: ∑_{i=0}^{k} max(δ − i/k, 0) ≥ (k + 1) min(δ/2, δ^2/2) (with i/0 := 0).
+
+### DiophantineApproximationAndTranscendence:DT.1/roth-lemma
+
+Statement: Let K be a number field, n ≥ 1, P ∈ K[x_1..x_n] \ {0}, β ∈ K^n, 0 < σ ≤ 1/2 and r ∈ ℕ^n with r_i ≥ 1, such that (i) deg_{x_i} P ≤ r_i; (ii) r_{i+1} ≤ σ r_i for 1 ≤ i < n; (iii) r_i h(β_i) ≥ σ^{-1}(h(P) + 4 n r_1 [K : ℚ]) for all i (relative heights over K). Then Ind_{β,r}(P) ≤ 2n σ^{1/2^{n−1}}.
+
+### DiophantineApproximationAndTranscendence:DT.1/weighted-lattice-point-count
+
+Statement: Let r ∈ ℕ^n with r_i ≥ 1 and 0 < ε < 1. The number of d ∈ ∏_i {0, ..., r_i} with ∑_i d_i/r_i ≤ (n/2)(1 − ε) is at most (r_1 + 1)···(r_n + 1) e^{−ε^2 n/4}.
+
+### DiophantineApproximationAndTranscendence:DT.1/roth-auxiliary-polynomial
+
+Statement: Let α be algebraic of degree d, 0 < ε < 1 and n ≥ 1 with e^{ε^2 n/4} ≥ 2d. There is C ≥ 1 depending only on α (one may take C = 12 b max(1, house α) with b the leading coefficient of the primitive minimal polynomial of α) such that for every r ∈ ℕ^n with r_i ≥ 1 there is P ∈ ℤ[x_1..x_n] \ {0} with (i) deg_{x_i} P ≤ r_i, (ii) Ind_{(α,...,α), r}(P) ≥ (n/2)(1 − ε), (iii) every coefficient of P has absolute value ≤ C^{r_1 + ... + r_n}.
+
+### DiophantineApproximationAndTranscendence:DT.1/rapidly-increasing-good-approximations
+
+Statement: Let S ⊆ ℚ be infinite, n ≥ 1 and L, M ∈ ℝ. There are β_1, ..., β_n ∈ S with h(β_1) ≥ L and h(β_{i+1}) ≥ M h(β_i) for 1 ≤ i < n (h = log H).
+
+### DiophantineApproximationAndTranscendence:DT.1/roth-weights-satisfy-roth-lemma-hypotheses
+
+Statement: Let n ≥ 1, 0 < ε < 1/12, σ := (5ε/4)^{2^{n−1}}, C_1 ≥ 0, M ≥ 2σ^{-1}, L > 0 with L ≥ σ^{-1}((5/2)C_1 + 5n), β_1..β_n ∈ ℚ with h(β_1) ≥ L and h(β_{i+1}) ≥ M h(β_i), and D ≥ 5 h(β_n). Put r_i := ⌊D/h(β_i)⌋. Then: r_i ≥ 1; ∑ r_i ≤ 2D/L; r_{i+1} ≤ σ r_i; and for every H ≤ C_1 ∑ r_i and every i, σ^{-1}(H + 4n r_1) ≤ r_i h(β_i).
+
+### DiophantineApproximationAndTranscendence:DT.1/roth-nonvanishing-derivative
+
+Statement: Let P ∈ ℤ[x_1..x_n], r_i ≥ 1, deg_{x_i} P ≤ r_i, ∑ r_i ≤ 2D/L, log|coeff P| ≤ C_1 ∑ r_i with C_1 ≥ log 2, Ind_{(α,...,α),r}(P) ≥ (n/2)(1 − ε) (over ℝ) and Ind_{β,r}(P) ≤ (5/2)nε (over ℚ). Then some Q = ∂^d P ∈ ℤ[x] satisfies deg_{x_i} Q ≤ r_i, Ind_{(α,...,α),r}(Q) ≥ (1/2 − 3ε)n, Q(β) ≠ 0 and log|coeff Q| ≤ 4C_1 D/L.
+
+### DiophantineApproximationAndTranscendence:DT.1/roth-archimedean-upper-bound
+
+Statement: Let α ∈ ℝ, Q ∈ ℤ[x_1..x_n] with deg_{x_i} Q ≤ r_i (r_i ≥ 1), t ≥ 0 with Ind_{(α,...,α),r}(Q) ≥ t, κ ≥ 0, D' ≥ 0, and β ∈ ℚ^n with |β_i − α| ≤ H(β_i)^{-κ} and r_i h(β_i) ≥ D' for all i. If Q(β) ≠ 0 then log|Q(β)| ≤ log max_m|coeff_m Q| + (∑ r_i)(log 2 + log max(1, |α|)) + 2 ∑ log(r_i + 1) − κ D' t.
+
+### DiophantineApproximationAndTranscendence:DT.1/roth-denominator-lower-bound
+
+Statement: Let Q ∈ ℤ[x_1..x_n] with deg_{x_i} Q ≤ r_i and β ∈ ℚ^n with Q(β) ≠ 0. Then log|Q(β)| ≥ −∑_i r_i log den(β_i).
+
+### DiophantineApproximationAndTranscendence:DT.1/roth-theorem
+
+Statement: Let α be a real algebraic number of degree ≥ 2 (equivalently, algebraic and irrational) and κ > 2 (κ = 2 + ε, ε > 0). Then only finitely many rational numbers ξ satisfy |α − ξ| ≤ H(ξ)^{-κ}, where H(x/y) = max(|x|, |y|) for coprime x, y (Mathlib's mulHeight₁). The proof shows finiteness only: it provides no bound for the heights of the solutions and no way to list them.
+
+### DiophantineApproximationAndTranscendence:DT.1/roth-theorem-lower-bound-form
+
+Statement: Let α be a real algebraic irrational number and κ > 2. There is c(α, κ) > 0 with |ξ − α| ≥ c(α, κ) H(ξ)^{-κ} for every ξ ∈ ℚ. The constant is not effectively computable by the method.
+
+### DiophantineApproximationAndTranscendence:DT.1/roth-lower-bound-for-all-algebraic-numbers
+
+Statement: Let α ∈ ℂ be algebraic and κ > 2. There is c > 0 with |ξ − α| ≥ c H(ξ)^{-κ} for every ξ ∈ ℚ with ξ ≠ α.
+
+### DiophantineApproximationAndTranscendence:DT.1/algebraic-numbers-are-not-liouville-with-exponent-above-two
+
+Statement: For every real algebraic α and every p > 2, α is not LiouvilleWith p (Mathlib's predicate: there is no C such that infinitely many n admit m with α ≠ m/n and |α − m/n| < C n^{-p}). Equivalently, the irrationality exponent of a real algebraic number is at most 2.
+
+### DiophantineApproximationAndTranscendence:DT.1/lacunary-series-transcendental
+
+Statement: For every integer b ≥ 2 the real number ∑_{k ≥ 1} b^{-3^k} is transcendental.
+
+### DiophantineApproximationAndTranscendence:DT.1/squarefree-binary-form-factorisation
+
+Statement: Let F ∈ ℂ[X, Y] be a nonzero binary form of degree d, not divisible by (aX + bY)^2 for any (a, b) ≠ (0, 0), and not divisible by Y. Then F = a_0 ∏_{i=1}^{d} (X − α_i Y) with a_0 ≠ 0 and α_1, ..., α_d pairwise distinct.
+
+### DiophantineApproximationAndTranscendence:DT.1/binary-form-lower-bound
+
+Statement: Let F ∈ ℤ[X, Y] be a square-free binary form of degree d ≥ 3 and κ > 2. There is c(F, κ) > 0 such that |F(x, y)| ≥ c(F, κ) max(|x|, |y|)^{d−κ} for all (x, y) ∈ ℤ^2 with F(x, y) ≠ 0.
+
+### DiophantineApproximationAndTranscendence:DT.1/squarefree-divisor-of-binary-form
+
+Statement: Let F ∈ ℤ[X, Y] be a binary form such that F(X, 1) has at least three distinct complex roots. Then F is divisible in ℤ[X, Y] by a square-free binary form F* ∈ ℤ[X, Y] of degree ≥ 3.
+
+### DiophantineApproximationAndTranscendence:DT.1/thue-equation-finiteness
+
+Statement: Let F ∈ ℤ[X, Y] be a binary form such that F(X, 1) has at least three distinct roots in ℂ, and let m be a nonzero integer. Then F(x, y) = m has only finitely many solutions (x, y) ∈ ℤ^2. The proof is ineffective; effective bounds for the solutions are stage DT.4's theorem DT.4/thue-equation-effective-bound.
+
+### DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-coefficients
+
+Statement: coeff_m(∂^d P) = (∏_j binom(m_j + d_j, d_j)) coeff_{m+d}(P) for all P ∈ R[x_σ] and monomials m.
+
+### DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-leibniz-rule
+
+Statement: ∂^d(PQ) = ∑_{a + b = d} ∂^a P · ∂^b Q.
+
+### DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-composition
+
+Statement: ∂^a ∂^b P = (∏_j binom(a_j + b_j, a_j)) ∂^{a+b} P.
+
+### DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-commutes-with-ring-maps
+
+Statement: For a ring map f : R → S: map f (∂^d P) = ∂^d (map f P); in particular ∂^d of an integer polynomial is an integer polynomial whose images in ℚ[x] and ℝ[x] are the derivatives there.
+
+### DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-of-one-variable-polynomial
+
+Statement: For a one-variable p and a variable x_i: ∂^{k e_i}(p(x_i)) = (Polynomial.hasseDeriv k p)(x_i), and ∂^d(p(x_i)) = 0 unless d is supported on {i}.
+
+### DiophantineApproximationAndTranscendence:DT.1/weighted-index-vanishing-characterisation
+
+Statement: For t ∈ [0, ∞]: t ≤ Ind_{a,r}(P) iff (∂^i P)(a) = 0 for every i with ∑_j i_j/r_j < t.
+
+### DiophantineApproximationAndTranscendence:DT.1/weighted-index-bounded-by-degrees
+
+Statement: For P ≠ 0: Ind_{a,r}(P) ≤ ∑_j deg_{x_j}(P)/r_j; in particular Ind_{a,r}(P) ≤ n when deg_{x_j} P ≤ r_j for all j ((3.15)).
+
+### DiophantineApproximationAndTranscendence:DT.1/generalized-wronskian-partial-degree-bound
+
+Statement: If deg_{x_i} f_l ≤ N for all l, then deg_{x_i} W_D(f_1..f_m) ≤ mN.
+
+### DiophantineApproximationAndTranscendence:DT.1/height-of-one-variable-polynomial-in-several-variables
+
+Statement: For p ∈ K[X] and a variable x_i: the height of p(x_i) ∈ K[x_σ] equals h(p).
+
+### DiophantineApproximationAndTranscendence:DT.2/linear-forms-in-general-position
+
+Statement: Let F be a field, n ≥ 1 an integer and ι a finite index type. A linear form in X_1, …, X_n with coefficients in F is identified with its coefficient vector: L = α_1X_1 + ⋯ + α_nX_n ↔ α = (α_1, …, α_n) ∈ F^n, and L(x) := α · x = Σ_j α_j x_j (the dot product) for x ∈ F^n (and, by coercion, for x ∈ ℤ^n when ℤ → F). A family L = (L_i)_{i ∈ ι} of such forms is in general position if every n-element subfamily is linearly independent over F: for every S ⊆ ι with #S = n, the vectors (L_i)_{i ∈ S} are linearly independent in F^n, equivalently det(α_{ij})_{i ∈ S, 1 ≤ j ≤ n} ≠ 0 for any ordering of S. Convention pinned: when #ι < n the condition is vacuous, but every use below has #ι ≥ n (Evertse writes r ≥ n); when #ι = n it is linear independence of L.
+
+API InGeneralPosition: InGeneralPosition L for L : ι → (Fin n → F): every n-element subfamily is linearly independent over F.
+
+API InGeneralPosition.linearIndependent: If InGeneralPosition L and S : Finset ι has #S = n then the subfamily (L i)_{i ∈ S} is linearly independent.
+
+API inGeneralPosition_iff_det_ne_zero: InGeneralPosition L ↔ for every injective e : Fin n → ι, det (fun k j ↦ L (e k) j) ≠ 0.
+
+API inGeneralPosition_iff_linearIndependent: If Fintype.card ι = n then InGeneralPosition L ↔ LinearIndependent F L.
+
+API inGeneralPosition_two_iff: For n = 2: InGeneralPosition L ↔ for all i ≠ j the vectors L i and L j are linearly independent (no two forms are proportional).
+
+API InGeneralPosition.comp_injective: If InGeneralPosition L and e : κ → ι is injective then InGeneralPosition (L ∘ e).
+
+API InGeneralPosition.smul: If InGeneralPosition L and c : ι → F with c i ≠ 0 for all i, then InGeneralPosition (fun i ↦ c i • L i).
+
+API InGeneralPosition.map: If σ : F →+* F' is a ring homomorphism of fields and InGeneralPosition L then InGeneralPosition (fun i ↦ σ ∘ L i) (used for Galois transport in Lemma 7.11).
+
+API InGeneralPosition.comp_matrix: If A is an invertible n × n matrix over F and InGeneralPosition L, then InGeneralPosition (fun i ↦ Aᵀ.mulVec (L i)), i.e. general position is preserved by the linear change of variables x ↦ A x.
+
+API inGeneralPosition_coords_add_sum: For every n ≥ 1 the n + 1 forms X_1, …, X_n, X_1 + ⋯ + X_n are in general position over any field.
+
+Test inGeneralPosition_X_Y_XaddY: Over ℚ with n = 2, the family ![![1,0], ![0,1], ![1,1]] is in general position.
+
+Test not_inGeneralPosition_repeat: Over ℚ with n = 2, the family ![![1,0], ![0,1], ![1,0]] (a repeated form) is not in general position.
+
+Test not_inGeneralPosition_pairwise: Over ℚ with n = 3, the family X_1, X_2, X_1 + X_2, X_3 is pairwise linearly independent but not in general position (a definition by pairwise independence would accept it).
+
+Test inGeneralPosition_basis: Over any field, the n standard coordinate forms (ι = Fin n) are in general position; with #ι = n general position is exactly linear independence.
+
+Test inGeneralPosition_iff_det_three: Over ℝ the three forms x_1 + √2x_2 + √3x_3, x_1 − √2x_2 + √3x_3, x_1 − √2x_2 − √3x_3 of Evertse (7.5) are in general position (determinant 4√6 ≠ 0).
+
+### DiophantineApproximationAndTranscendence:DT.2/sup-norm-bounded-by-independent-forms
+
+Statement: Let F be a field with an absolute value |·|_* (Mathlib `AbsoluteValue F ℝ`), n ≥ 1, and M_1, …, M_n linearly independent linear forms in X_1, …, X_n with coefficients in F. Then there is C' > 0 such that for all x = (x_1, …, x_n) ∈ F^n, max_{1≤k≤n} |x_k|_* ≤ C' · max_{1≤j≤n} |M_j(x)|_*. One may take C' := max(1, max_k Σ_j |β_{kj}|_*), where (β_{kj}) is the inverse of the coefficient matrix of M_1, …, M_n, so that X_k = Σ_j β_{kj} M_j.
+
+### DiophantineApproximationAndTranscendence:DT.2/hadamard-inequality
+
+Statement: For vectors a_1, …, a_n ∈ ℂ^n (n ≥ 1), |det(a_1, …, a_n)| ≤ ∏_{j=1}^n ‖a_j‖_2, where ‖a‖_2 = (Σ_i |a_i|^2)^{1/2} is the Euclidean norm. In particular, for linear forms L_1, …, L_n with complex coefficients, |det(L_1, …, L_n)| ≤ ∏ ‖L_j‖_2 (coefficient vectors), and |det(x_1, …, x_p) minors| ≤ ∏‖x_j‖_2 for the Plücker coordinates of p vectors.
+
+### DiophantineApproximationAndTranscendence:DT.2/absolute-value-continuation-exists
+
+Statement: Let K be a number field. (a) For every prime p there is an absolute value |·|_𝔭 on K with |q|_𝔭 = |q|_p for all q ∈ ℚ (a continuation of the p-adic absolute value, normalised by |p|_p = p⁻¹). (b) There is an absolute value |·|_∞ on K with |q|_∞ = |q| for all q ∈ ℚ. Concretely, (a) x ↦ ‖τ(x)‖ for any field embedding τ : K → PadicAlgCl p (a fixed algebraic closure of ℚ_p with its spectral norm), and (b) x ↦ |σ(x)| for any field embedding σ : K → ℂ.
+
+### DiophantineApproximationAndTranscendence:DT.2/absolute-value-extends-to-algebraic-closure
+
+Statement: Let K be a number field, Q̄ an algebraic closure of K, and |·|_v an absolute value on K whose restriction to ℚ is |·|_p for a prime p, or is |·| (p = ∞). Then there is a field embedding τ : Q̄ → PadicAlgCl p (resp. τ : Q̄ → ℂ) with |x|_v = ‖τ(x)‖ (resp. |τ(x)|) for all x ∈ K; in particular |·|_v extends to the absolute value x ↦ ‖τ(x)‖ on Q̄. Equivalently: every continuation of |·|_p to K is of the form x ↦ ‖τ(x)‖ for a ℚ-embedding τ : K → PadicAlgCl p.
+
+### DiophantineApproximationAndTranscendence:DT.2/rational-s-unit-product-criterion
+
+Statement: Let p_1, …, p_s be distinct primes and u ∈ ℚ. Then u = ±p_1^{w_1} ⋯ p_s^{w_s} for some w_1, …, w_s ∈ ℤ if and only if |u| · |u|_{p_1} ⋯ |u|_{p_s} = 1. More generally, for every non-zero integer g, |g| · ∏_{j} |g|_{p_j} = ∏_{q ∉ {p_1,…,p_s}} q^{v_q(g)} ≥ 1.
+
+### DiophantineApproximationAndTranscendence:DT.2/subspace-theorem-and-its-exceptional-subspaces
+
+Statement: Let n ≥ 2, let L_i = α_{i1}X_1 + ⋯ + α_{in}X_n (i = 1, …, n) be n linearly independent linear forms with coefficients α_{ij} ∈ Q̄ ⊂ ℂ (algebraic complex numbers), and let C > 0, δ > 0. For x ∈ ℤ^n put ‖x‖ := max(|x_1|, …, |x_n|). Then there are finitely many proper linear subspaces T_1, …, T_t of ℚ^n such that every solution x ∈ ℤ^n of |L_1(x) ⋯ L_n(x)| ≤ C‖x‖^{−δ} (7.1) lies in T_1 ∪ ⋯ ∪ T_t (ℤ^n ⊂ ℚ^n). The subspaces T_i are the exceptional subspaces; the theorem asserts their existence only: the known proofs are ineffective and do not determine them, while the number t can be bounded explicitly (quantitative Subspace Theorem).
+
+### DiophantineApproximationAndTranscendence:DT.2/subspace-theorem-general-position
+
+Statement: Let n ≥ 2, r ≥ n, and let L_i = α_{i1}X_1 + ⋯ + α_{in}X_n (i = 1, …, r) be linear forms with coefficients in Q̄ ⊂ ℂ in general position, and C > 0, δ > 0. Then the set of solutions x ∈ ℤ^n of |L_1(x) ⋯ L_r(x)| ≤ C‖x‖^{r−n−δ} (7.6) is contained in a union of finitely many proper linear subspaces of ℚ^n. The case r = n is Theorem 7.1, so the two theorems are equivalent.
+
+### DiophantineApproximationAndTranscendence:DT.2/p-adic-subspace-theorem
+
+Statement: Let K be a number field, p_1, …, p_s distinct primes (s ≥ 0), and for each p ∈ {∞, p_1, …, p_s} fix a continuation |·|_p to K of the absolute value |·|_p of ℚ (|·|_∞ the ordinary one, |p|_p = p⁻¹). Let n ≥ 2, ε > 0, C > 0, and for each p ∈ {∞, p_1, …, p_s} let L_{1,p}, …, L_{n,p} be linearly independent linear forms in X_1, …, X_n with coefficients in K. Then there are finitely many proper linear subspaces T_1, …, T_t of ℚ^n such that every solution x ∈ ℤ^n of |L_{1,∞}(x) ⋯ L_{n,∞}(x)|_∞ · ∏_{j=1}^s |L_{1,p_j}(x) ⋯ L_{n,p_j}(x)|_{p_j} ≤ C‖x‖^{−ε} (8.7) lies in T_1 ∪ ⋯ ∪ T_t. The only known proofs are ineffective.
+
+### DiophantineApproximationAndTranscendence:DT.2/p-adic-subspace-theorem-general-position
+
+Statement: Keep notation (8.4) and let n ≥ 2, ε > 0, C > 0. For each p ∈ {∞, p_1, …, p_s} let L_{1,p}, …, L_{r_p,p} (r_p ≥ n) be linear forms in X_1, …, X_n with coefficients in K in general position. Then there are finitely many proper linear subspaces T_1, …, T_t of ℚ^n containing all solutions x ∈ ℤ^n with gcd(x_1, …, x_n) = 1 of |L_{1,∞}(x) ⋯ L_{r_∞,∞}(x)|_∞ · ∏_{j=1}^s |L_{1,p_j}(x) ⋯ L_{r_{p_j},p_j}(x)|_{p_j} ≤ C‖x‖^{r_∞ − n − ε} (8.9).
+
+### DiophantineApproximationAndTranscendence:DT.2/product-inequality-reduces-to-systems
+
+Statement: Keep notation (8.4), let n ≥ 2, 0 < ε ≤ 1, C > 0, and for each p ∈ S := {∞, p_1, …, p_s} let L_{1,p}, …, L_{n,p} be linearly independent forms with coefficients in K. Put A_{ip} := n · max(1, max_j |α^{(p)}_{ij}|_p) where L_{i,p} = Σ_j α^{(p)}_{ij}X_j, so that |L_{i,p}(x)|_p ≤ A_{ip}‖x‖_p for x ∈ ℤ^n (‖x‖_∞ = ‖x‖, ‖x‖_p = max_j|x_j|_p). Then there are a real B ≥ 1 and a finite set D of tuples d = (d_{ip})_{p ∈ S, 1 ≤ i ≤ n} of reals with d_{ip} ≤ 0 and Σ_{p,i} d_{ip} = −n − ε/2, such that every primitive x ∈ ℤ^n with ‖x‖ ≥ B, with L_{i,p}(x) ≠ 0 for all (i, p), and satisfying (8.7), satisfies for some d ∈ D the system |L_{i,p}(x)|_p ≤ A_{ip}‖x‖_p ‖x‖^{d_{ip}} for all p ∈ S and i = 1, …, n.
+
+### DiophantineApproximationAndTranscendence:DT.2/vojta-effective-exceptional-subspaces
+
+Statement: Let n ≥ 2, r ≥ n and L_1, …, L_r linear forms in X_1, …, X_n with coefficients in Q̄ ⊂ ℂ in general position. Then there is a finite, effectively computable collection U_1, …, U_s of proper linear subspaces of ℚ^n, depending only on L_1, …, L_r, such that for every C > 0 and δ > 0 the inequality |L_1(x) ⋯ L_r(x)| ≤ C‖x‖^{r−n−δ} has only finitely many solutions x ∈ ℤ^n outside U_1 ∪ ⋯ ∪ U_s. The subspaces are fixed as C, δ vary; the finite set of solutions outside them depends on C, δ and cannot be determined effectively by the known proofs.
+
+### DiophantineApproximationAndTranscendence:DT.2/vanishing-form-gives-infinitely-many-solutions
+
+Statement: Let n ≥ 2, L_1, …, L_n linear forms with complex coefficients, C > 0, δ > 0. If L_i(x_0) = 0 for some i and some non-zero x_0 ∈ ℤ^n, then every λx_0 (λ ∈ ℤ) is a solution of |L_1(x) ⋯ L_n(x)| ≤ C‖x‖^{−δ} (7.1); these infinitely many solutions lie in the proper subspace ℚx_0. Hence the conclusion of the Subspace Theorem cannot be strengthened to finiteness of the solution set of (7.1).
+
+### DiophantineApproximationAndTranscendence:DT.2/exceptional-subspace-example-three-forms
+
+Statement: Let 0 < δ < 1. The inequality 0 < |(x_1 + √2x_2 + √3x_3)(x_1 − √2x_2 + √3x_3)(x_1 − √2x_2 − √3x_3)| ≤ ‖x‖^{−δ} (7.5) in x ∈ ℤ³ has infinitely many solutions with x_3 = 0, although its three linear forms are linearly independent (determinant 4√6). Hence for n ≥ 3 even the strict version 0 < |L_1(x) ⋯ L_n(x)| ≤ C‖x‖^{−δ} (7.3) may have infinitely many solutions, and the exceptional subspaces in the Subspace Theorem are necessary.
+
+### DiophantineApproximationAndTranscendence:DT.2/two-form-strict-inequality-finite
+
+Statement: Let L_i = α_{i1}X + α_{i2}Y (i = 1, 2) be two linearly independent linear forms with coefficients in Q̄ ⊂ ℂ and C > 0, δ > 0. Then 0 < |L_1(x)L_2(x)| ≤ C‖x‖^{−δ} (7.4) has only finitely many solutions x = (x, y) ∈ ℤ².
+
+### DiophantineApproximationAndTranscendence:DT.2/roth-from-subspace-theorem
+
+Statement: Let α ∈ Q̄ ⊂ ℂ be algebraic, C > 0 and κ > 2. Then |ξ − α| ≤ C·H(ξ)^{−κ} (7.2) has only finitely many solutions ξ ∈ ℚ, where H(x/y) := max(|x|, |y|) for coprime x, y ∈ ℤ (Mathlib's Height.mulHeight₁ on ℚ, by Rat.mulHeight₁_eq_max). Like the Subspace Theorem, the proof is ineffective: it bounds neither the size of the solutions nor gives a way to list them.
+
+### DiophantineApproximationAndTranscendence:DT.2/linear-form-dirichlet-exponent
+
+Statement: Let n ≥ 2 and α_1, …, α_n ∈ ℝ be linearly independent over ℚ. Then there is C > 0 such that |α_1x_1 + ⋯ + α_nx_n| ≤ C‖x‖^{1−n} (7.8) has infinitely many solutions x ∈ ℤ^n; one may take C = |α_n| n^{n−1} after renumbering so that |α_n| = max_i |α_i|.
+
+Current prerequisites: GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-linear-forms, GeometryOfNumbersAndQuadraticArithmetic:GN.1.
+
+### DiophantineApproximationAndTranscendence:DT.2/single-linear-form-inequality-finite
+
+Statement: Let n ≥ 1, α_1, …, α_n ∈ Q̄ ⊂ ℂ, C > 0 and δ > 0. Then 0 < |α_1x_1 + ⋯ + α_nx_n| ≤ C‖x‖^{1−n−δ} (7.10) has only finitely many solutions x ∈ ℤ^n.
+
+### DiophantineApproximationAndTranscendence:DT.2/approximation-by-algebraic-numbers-of-bounded-degree
+
+Statement: Let α ∈ Q̄ ⊂ ℂ, d ≥ 1, C > 0 and κ > d + 1. Then |ξ − α| ≤ C·H(ξ)^{−κ} (7.11) has only finitely many solutions ξ ∈ Q̄ with deg ξ ≤ d, where H(ξ) is the maximum of the absolute values of the coefficients of the primitive minimal polynomial of ξ (the polynomial F = a_0X^{deg ξ} + ⋯ ∈ ℤ[X], irreducible, with F(ξ) = 0, a_0 > 0 and coprime coefficients; DT.0's naive height).
+
+### DiophantineApproximationAndTranscendence:DT.2/embedding-vectors-linearly-independent
+
+Statement: Let K be a number field of degree d with complex embeddings σ_1, …, σ_d, and α_1, …, α_n ∈ K linearly independent over ℚ. Then the vectors (σ_1(α_i), …, σ_d(α_i)) ∈ ℂ^d (i = 1, …, n) are linearly independent over ℂ.
+
+### DiophantineApproximationAndTranscendence:DT.2/norm-form-linear-factors-general-position
+
+Statement: Let K = ℚ(θ) be a number field of degree d with embeddings σ_i(θ) = θ^{(i)} (i = 1, …, d), G := ℚ(θ^{(1)}, …, θ^{(d)}) the normal closure, and suppose Gal(G/ℚ) acts on θ^{(1)}, …, θ^{(d)} as the full symmetric group S_d. Let 1 ≤ n ≤ d and α_1, …, α_n ∈ K linearly independent over ℚ. Then the d linear forms L_i := σ_i(α_1)X_1 + ⋯ + σ_i(α_n)X_n (i = 1, …, d) are in general position.
+
+### DiophantineApproximationAndTranscendence:DT.2/norm-form-equation-finite-full-symmetric-group
+
+Statement: Let K = ℚ(θ) be a number field of degree d whose normal closure has Galois group S_d acting on the conjugates of θ, let 1 ≤ n < d and α_1, …, α_n ∈ K linearly independent over ℚ. Then for every c ∈ ℚ the norm form equation N_{K/ℚ}(α_1x_1 + ⋯ + α_nx_n) = c (7.13) has only finitely many solutions x ∈ ℤ^n.
+
+### DiophantineApproximationAndTranscendence:DT.2/unit-group-infinite-criterion
+
+Statement: Let L be a number field with ring of integers O_L. Then O_L^* is infinite if and only if L ≠ ℚ and L is not imaginary quadratic (i.e. not ([L : ℚ] = 2 and L totally complex)); equivalently, iff L has at least two infinite places.
+
+### DiophantineApproximationAndTranscendence:DT.2/degenerate-module-norm-form-infinitely-many-solutions
+
+Statement: Let K be a number field, α_1, …, α_n ∈ K linearly independent over ℚ, and M := ℤα_1 + ⋯ + ℤα_n. Suppose there are µ ∈ K^* and a subfield L ⊆ K with L ≠ ℚ and L not imaginary quadratic such that µO_L ⊆ M. Then with c := N_{K/ℚ}(µ) ∈ ℚ^*, the equation N_{K/ℚ}(ξ) = c (7.14) has infinitely many solutions ξ ∈ M; equivalently N_{K/ℚ}(α_1x_1 + ⋯ + α_nx_n) = c has infinitely many solutions x ∈ ℤ^n.
+
+### DiophantineApproximationAndTranscendence:DT.2/schmidt-norm-form-theorem
+
+Statement: Let K be a number field, α_1, …, α_n ∈ K linearly independent over ℚ, and M := ℤα_1 + ⋯ + ℤα_n. Suppose (i): there do not exist µ ∈ K^* and a subfield L of K with L ≠ ℚ and L not imaginary quadratic such that µO_L ⊆ M. Then (ii): for every c ∈ ℚ^*, the equation N_{K/ℚ}(ξ) = c in ξ ∈ M has only finitely many solutions. Together with degenerate-module-norm-form-infinitely-many-solutions, (i) and (ii) are equivalent (Schmidt 1972).
+
+### DiophantineApproximationAndTranscendence:DT.2/p-adic-roth-theorem
+
+Statement: Keep notation (8.4) and let κ > 2, C > 0, and α_p ∈ K for each p ∈ {∞, p_1, …, p_s}. Then |α_∞ − ξ|_∞ · |α_{p_1} − ξ|_{p_1} ⋯ |α_{p_s} − ξ|_{p_s} ≤ C·H(ξ)^{−κ} (8.5) has only finitely many solutions ξ ∈ ℚ, where H(x/y) = max(|x|, |y|).
+
+### DiophantineApproximationAndTranscendence:DT.2/squarefree-binary-form-linear-factors
+
+Statement: Let F(X, Y) ∈ ℤ[X, Y] be a binary form (homogeneous polynomial) of degree n ≥ 1 which is square-free in ℚ[X, Y]. Then there are β_i, γ_i ∈ Q̄ ⊂ ℂ (i = 1, …, n) with F(X, Y) = ∏_{i=1}^n (β_iX − γ_iY), and the n linear forms β_iX − γ_iY are in general position (pairwise linearly independent). Explicitly, F = a_0∏(X − α_iY) with distinct α_i if F(1, 0) = a_0 ≠ 0, and F = a_0Y∏_{i<n}(X − α_iY) with distinct α_i if F(1, 0) = 0.
+
+### DiophantineApproximationAndTranscendence:DT.2/thue-mahler-finiteness
+
+Statement: Let F(X, Y) ∈ ℤ[X, Y] be a square-free binary form of degree n ≥ 3 and p_1, …, p_s distinct primes (s ≥ 0). Then the Thue–Mahler equation |F(x, y)| = p_1^{z_1} ⋯ p_s^{z_s} in x, y, z_1, …, z_s ∈ ℤ with gcd(x, y) = 1 (8.10) has only finitely many solutions. The proof via the p-adic Subspace Theorem is ineffective; an effective proof exists via lower bounds for linear forms in complex and p-adic logarithms (DT.4).
+
+### DiophantineApproximationAndTranscendence:DT.2/two-term-unit-equation-over-rationals
+
+Statement: Let a, b ∈ ℚ^* and let Γ be a finitely generated subgroup of ℚ^*. Then ax + by = 1 (8.12) has only finitely many solutions x, y ∈ Γ.
+
+### DiophantineApproximationAndTranscendence:DT.2/nondegenerate-solution
+
+Statement: Let K be a field, ι a finite index set and α = (α_i)_{i ∈ ι} ∈ (K^*)^ι. A solution x = (x_i) ∈ K^ι of the inhomogeneous equation Σ_{i ∈ ι} α_ix_i = 1 (8.14) is non-degenerate if Σ_{i ∈ I} α_ix_i ≠ 0 for every non-empty subset I ⊆ ι. (For the homogeneous version see nondegenerate-homogeneous-solution.)
+
+API IsNondegenerateSolution: IsNondegenerateSolution α x for α x : ι → K.
+
+API IsNondegenerateSolution.sum_eq_one: IsNondegenerateSolution α x → Σ_i α_ix_i = 1.
+
+API IsNondegenerateSolution.subsum_ne_zero: IsNondegenerateSolution α x → I.Nonempty → Σ_{i ∈ I} α_ix_i ≠ 0.
+
+API IsNondegenerateSolution.ne_zero: IsNondegenerateSolution α x → ∀ i, α_i x_i ≠ 0 (singleton subsums).
+
+API IsNondegenerateSolution.map: For a ring homomorphism φ : K →+* K' that is injective on the finitely many elements Σ_{i∈I} α_ix_i, IsNondegenerateSolution α x → IsNondegenerateSolution (φ ∘ α) (φ ∘ x) (the specialisation step of ESS §3).
+
+API isNondegenerateSolution_of_subsingleton: If ι has one element and α_i x_i = 1 then IsNondegenerateSolution α x.
+
+API IsNondegenerateSolution.restrict: If x is a solution whose subsum over I ⊊ ι vanishes and no proper subsum of it does, then the complementary part is a non-degenerate solution of Σ_{i ∉ I} α_ix_i = 1 (the decomposition behind the induction in ESS §4).
+
+Test isNondegenerateSolution_half_half: Over ℚ with α = (1, 1), x = (1/2, 1/2) is a non-degenerate solution.
+
+Test not_isNondegenerateSolution_vanishing: Over ℚ with α = (1, −1, 1), x = (2, 2, 1) solves α·x = 1 but is degenerate (the subsum 2 − 2 = 0); a definition checking only the total sum would accept it.
+
+Test isNondegenerateSolution_single: With one unknown, x = α⁻¹ is the unique solution and it is non-degenerate.
+
+Test isNondegenerateSolution_two_iff: For two unknowns, (x, y) is non-degenerate iff αx + βy = 1, αx ≠ 0 and βy ≠ 0.
+
+### DiophantineApproximationAndTranscendence:DT.2/nondegenerate-homogeneous-solution
+
+Statement: Let K be a field, ι a finite index set and α ∈ (K^*)^ι. A solution x ∈ K^ι of Σ_{i ∈ ι} α_ix_i = 0 (8.15) is non-degenerate if Σ_{i ∈ I} α_ix_i ≠ 0 for every proper non-empty subset I ⊊ ι. Taking ι = {0, …, n}, α_0 = −1 and x_0 = 1 turns non-degenerate solutions of (8.15) into non-degenerate solutions of (8.14) and back.
+
+API IsNondegenerateHomogeneousSolution: IsNondegenerateHomogeneousSolution α x for α x : ι → K.
+
+API IsNondegenerateHomogeneousSolution.sum_eq_zero: Σ_i α_ix_i = 0.
+
+API IsNondegenerateHomogeneousSolution.smul: For λ ≠ 0, IsNondegenerateHomogeneousSolution α x → IsNondegenerateHomogeneousSolution α (λ • x).
+
+API isNondegenerateHomogeneousSolution_iff_cons: For ι = Option κ, α none = −1 and x none = 1: IsNondegenerateHomogeneousSolution α x ↔ IsNondegenerateSolution (α ∘ some) (x ∘ some).
+
+API IsNondegenerateHomogeneousSolution.merge: If x_p = βx_q (p ≠ q) and x is non-degenerate, then dropping x_p and replacing α_q by α_q + βα_p gives a non-degenerate solution with one unknown fewer (proof of Theorem 8.14).
+
+API IsNondegenerateHomogeneousSolution.ne_zero: Each x_i with α_i ≠ 0 is non-zero when #ι ≥ 2.
+
+Test isNondegenerateHomogeneousSolution_one_one_two: Over ℚ, α = (1, 1, −1), x = (1, 1, 2) is non-degenerate.
+
+Test not_isNondegenerateHomogeneousSolution: Over ℚ, α = (1, −1, 1, −1), x = (1, 1, 1, 1) solves the equation but the proper subsum 1 − 1 vanishes.
+
+Test isNondegenerateHomogeneousSolution_two: With two unknowns every non-zero solution of α_0x_0 + α_1x_1 = 0 is non-degenerate, and x_0/x_1 = −α_1/α_0.
+
+Test isNondegenerateHomogeneousSolution_iff_cons_test: x = (1, 1/2, 1/2) with α = (−1, 1, 1) is non-degenerate iff (1/2, 1/2) is a non-degenerate solution of y_1 + y_2 = 1.
+
+### DiophantineApproximationAndTranscendence:DT.2/homogeneous-unit-equation-subspace-cover
+
+Statement: Let n ≥ 2, α_0, …, α_n ∈ ℚ^*, Γ ⊂ ℚ^* finitely generated, and H := {x ∈ ℚ^{n+1} : α_0x_0 + ⋯ + α_nx_n = 0}. Then there are finitely many proper linear subspaces T_1, …, T_t of H such that every solution (x_0, …, x_n) ∈ Γ^{n+1} of (8.15), degenerate or not, lies in T_1 ∪ ⋯ ∪ T_t.
+
+### DiophantineApproximationAndTranscendence:DT.2/homogeneous-unit-equation-ratio-lemma
+
+Statement: Let n ≥ 1, α_0, …, α_n ∈ ℚ^* and Γ ⊂ ℚ^* finitely generated. There is a finite set U' ⊂ ℚ^* such that for every solution (x_0, …, x_n) ∈ Γ^{n+1} of α_0x_0 + ⋯ + α_nx_n = 0 (8.15), degenerate or not, there are distinct i, j ∈ {0, …, n} with x_i/x_j ∈ U'.
+
+### DiophantineApproximationAndTranscendence:DT.2/nondegenerate-solutions-have-finitely-many-ratios
+
+Statement: Let n ≥ 1, α_0, …, α_n ∈ ℚ^* and Γ ⊂ ℚ^* finitely generated. There is a finite set U such that x_i/x_j ∈ U for every non-degenerate solution (x_0, …, x_n) ∈ Γ^{n+1} of α_0x_0 + ⋯ + α_nx_n = 0 (8.15) and every pair of indices i, j ∈ {0, …, n}.
+
+### DiophantineApproximationAndTranscendence:DT.2/s-unit-equation-over-rationals
+
+Statement: Let n ≥ 1, α_1, …, α_n ∈ ℚ^* and Γ ⊂ ℚ^* a finitely generated subgroup. Then α_1x_1 + ⋯ + α_nx_n = 1 (8.14) has only finitely many non-degenerate solutions (x_1, …, x_n) ∈ Γ^n.
+
+### DiophantineApproximationAndTranscendence:DT.2/specialization-to-algebraic-numbers
+
+Statement: Let K be an algebraically closed field of characteristic 0 containing Q̄, and U = {u_1, …, u_k} a finite subset of K. Then there is a ring homomorphism φ : Q̄[U] → Q̄ whose restriction to Q̄ is the identity. Consequently every non-zero element of Q̄[U] whose inverse lies in Q̄[U] is mapped to a non-zero element.
+
+### DiophantineApproximationAndTranscendence:DT.2/unit-equation-subspace-bound-algebraic
+
+Statement: Let n ≥ 2 and let Γ be a subgroup of (Q̄^*)^n of finite rank r. Then the set of y ∈ Q̄^n with y_1 + ⋯ + y_n = 1 (2.6) of the form y = x ∗ z with x ∈ Γ, z ∈ (Q̄^*)^n and h(z) ≤ n^{−1}exp(−(4n)^{3n})(1 + h(x)) (2.10) is contained in the union of at most B(n, r) = exp((5n)^{3n}(r + 1)) proper linear subspaces of Q̄^n. Here ∗ is coordinatewise multiplication and h(x) = log H(x) with H(x) = ∏_v max(1, ‖x_1‖_v, …, ‖x_n‖_v) the absolute multiplicative height.
+
+### DiophantineApproximationAndTranscendence:DT.2/uniform-bound-nondegenerate-solutions
+
+Statement: Let K be a field of characteristic 0, n ≥ 1, Γ a subgroup of (K^*)^n of finite rank r, and a = (a_1, …, a_n) ∈ (K^*)^n. Then a_1x_1 + ⋯ + a_nx_n = 1 (1.1) has at most A(n, r) = exp((6n)^{3n}(r + 1)) non-degenerate solutions x ∈ Γ.
+
+### DiophantineApproximationAndTranscendence:DT.2/s-unit-equation-finiteness
+
+Statement: Let K be a field of characteristic 0, Γ a finitely generated subgroup of K^*, n ≥ 1 and α_1, …, α_n ∈ K^*. Then α_1x_1 + ⋯ + α_nx_n = 1 (8.14) has only finitely many non-degenerate solutions (x_1, …, x_n) ∈ Γ^n. For n = 2 every solution with x, y ∈ Γ is non-degenerate, so ax + by = 1 has finitely many solutions (Lang's theorem, Evertse 8.12). The known proofs for n ≥ 3 are ineffective; for n = 2 and K a number field an effective proof exists (DT.4).
+
+### DiophantineApproximationAndTranscendence:DT.2/nondegenerate-linear-recurrence
+
+Statement: A linear recurrence E over ℂ (Mathlib's `LinearRecurrence ℂ`: an order k and coefficients (E.coeffs i)_{i<k}, with solutions u satisfying u(h + k) = Σ_{i<k} E.coeffs i · u(h + i)) is non-degenerate if its characteristic polynomial E.charPoly = X^k − Σ_{i<k} E.coeffs i X^i has non-zero constant term (so all its roots are non-zero; Evertse's c_k ≠ 0) and for any two distinct roots θ ≠ θ' of E.charPoly, the quotient θ/θ' is not a root of unity (¬ IsOfFinOrder (θ/θ')). A linear recurrence sequence is non-degenerate if its minimal recurrence is; a sequence satisfying some non-degenerate recurrence is non-degenerate, since the characteristic polynomial of the minimal recurrence divides that of any recurrence it satisfies.
+
+API LinearRecurrence.IsNondegenerate: E.IsNondegenerate for E : LinearRecurrence ℂ.
+
+API LinearRecurrence.IsNondegenerate.root_ne_zero: E.IsNondegenerate → θ ∈ E.charPoly.roots → θ ≠ 0.
+
+API LinearRecurrence.IsNondegenerate.not_isOfFinOrder_div: E.IsNondegenerate → θ, θ' distinct roots → ¬ IsOfFinOrder (θ / θ').
+
+API LinearRecurrence.isNondegenerate_iff_pow: E.IsNondegenerate ↔ constant term non-zero and for distinct roots θ, θ' and every N ≥ 1, θ^N ≠ θ'^N.
+
+API LinearRecurrence.IsNondegenerate.of_dvd: If E.IsNondegenerate and E'.charPoly ∣ E.charPoly with E'.charPoly.coeff 0 ≠ 0, then E'.IsNondegenerate (passage to the minimal recurrence).
+
+API LinearRecurrence.isNondegenerate_of_order_le_one: A recurrence of order ≤ 1 with non-zero constant term is non-degenerate (at most one root).
+
+Test isNondegenerate_fibonacci: The Fibonacci recurrence (order 2, coeffs ![1, 1]) is non-degenerate.
+
+Test not_isNondegenerate_period_four: The recurrence u(h + 2) = −u(h) (coeffs ![−1, 0]) is degenerate: its roots ±i have ratio −1.
+
+Test isNondegenerate_geometric: The order-1 recurrence u(h + 1) = 2u(h) is non-degenerate.
+
+Test isNondegenerate_double_root: u(h + 2) = 2u(h + 1) − u(h) has the double root 1 and no pair of distinct roots, so it is non-degenerate; its solutions u(h) = a + bh have at most one zero unless u = 0, consistent with Skolem–Mahler–Lech.
+
+### DiophantineApproximationAndTranscendence:DT.2/skolem-mahler-lech-simple-roots
+
+Statement: Let m ≥ 1, θ_1, …, θ_m non-zero complex numbers such that no quotient θ_i/θ_j (i ≠ j) is a root of unity, and g_1, …, g_m ∈ ℂ not all 0. Then g_1θ_1^h + ⋯ + g_mθ_m^h = 0 has only finitely many solutions h ∈ ℤ_{≥0}. Equivalently: a non-zero linear recurrence sequence U over ℂ satisfying a non-degenerate recurrence whose characteristic polynomial has no multiple roots has a finite zero set Z_U = {h ≥ 0 : u_h = 0}.
+
+Current prerequisites: DiophantineApproximationAndTranscendence:DT.2/s-unit-equation-finiteness, DiophantineApproximationAndTranscendence:DT.2/nondegenerate-linear-recurrence, ClassicalArithmeticCompletion:CA.2/closed-form-of-a-complex-linear-recurrence, mathlib:IsOfFinOrder, mathlib:LinearRecurrence.IsSolution.
+
+### DiophantineApproximationAndTranscendence:DT.2/uniform-bound-zeros-simple-recurrence
+
+Statement: Let K be an algebraically closed field of characteristic 0, n ≥ 3, and let u_m = a_1α_1^m + ⋯ + a_nα_n^m (m ∈ ℤ) with a_i ∈ K^* and pairwise distinct α_i ∈ K^* (a simple linear recurrence sequence of order n, indexed by ℤ). Then there are integers k_1, …, k_{q_1} and arithmetic progressions T_i = {a'_i + tv_i : t ∈ ℤ} (v_i ≠ 0, i = 1, …, q_2) with q_1 + q_2 ≤ exp((6n)^{3n}) such that S(u) := {k ∈ ℤ : u_k = 0} = {k_1, …, k_{q_1}} ∪ T_1 ∪ ⋯ ∪ T_{q_2}. If moreover no α_i/α_j (i ≠ j) is a root of unity, then #S(u) ≤ exp((6n)^{3n}).
+
+### DiophantineApproximationAndTranscendence:DT.2/twisted-height
+
+Statement: Let K be a number field with normalised absolute values ‖·‖_v (v ∈ M_K), n ≥ 1, L = (L_i^{(v)}) a tuple of linear forms in K[X_1, …, X_n] satisfying (2.5)–(2.6) and c = (c_{iv}) a tuple of reals satisfying (2.7) (for the theorems also (2.8)–(2.9)). For a real Q ≥ 1 the twisted height is H_{L,c,Q}(x) := ∏_{v ∈ M_K} max_{1≤i≤n} (‖L_i^{(v)}(x)‖_v · Q^{−c_{iv}}) for x ∈ K^n. For x ∈ Q̄^n choose a finite extension E ⊇ K with x ∈ E^n and put L_i^{(w)} := L_i^{(v)}, c_{iw} := d(w|v)c_{iv} for w | v, d(w|v) := [E_w : K_v]/[E : K], and H_{L,c,Q}(x) := ∏_{w ∈ M_E} max_i ‖L_i^{(w)}(x)‖_w Q^{−c_{iw}}; this does not depend on E. H_{L,c,Q}(0) = 0; for x ≠ 0 all factors are non-zero and almost all equal 1. With L_i^{(v)} = X_i and c = 0 it is the absolute multiplicative height H(x) = ∏_v max_i ‖x_i‖_v.
+
+API Place: Place K := InfinitePlace K ⊕ FinitePlace K, the places of the number field K.
+
+API normAbs: normAbs v x, the normalised absolute value ‖x‖_v: w x^{mult w/[K:ℚ]} at an infinite place w and v x^{1/[K:ℚ]} at a finite place v (Mathlib's FinitePlace is normalised by the absolute norm).
+
+API twistedHeight: twistedHeight L c Q x = ∏ᶠ v, max_i ‖L v i ⬝ᵥ x‖_v · Q^{−c v i} for x ≠ 0 in K^n, and 0 for x = 0.
+
+API coordForms: coordForms K n: the coordinate forms X_1, …, X_n at every place.
+
+API deltaL: deltaL L = Δ_L = ∏ᶠ v, ‖det(L_1^{(v)}, …, L_n^{(v)})‖_v (EF (2.11)).
+
+API IsTwistedData: IsTwistedData L c bundles (2.4)–(2.9): n ≥ 2, independence at each place, finitely many distinct forms, finite support of c, Σ_i c_{iv} = 0 and Σ_v max_i c_{iv} ≤ 1.
+
+API twistedHeight_zero: twistedHeight L c Q 0 = 0 (n ≥ 1).
+
+API twistedHeight_pos: Under (2.5)–(2.7), x ≠ 0 → 0 < twistedHeight L c Q x.
+
+API twistedHeight_smul: Under (2.5)–(2.7), for a ∈ K^*: twistedHeight L c Q (a • x) = twistedHeight L c Q x (product formula).
+
+API twistedHeight_coords_zero: If L v i = X_i for all v, i and c = 0 then twistedHeight L 0 Q x = (Height.mulHeight x)^{1/[K:ℚ]}, the absolute multiplicative height.
+
+API twistedHeight_shift: EF Lemma 7.2(i): under (2.5)–(2.7), if d_{iv} = c_{iv} − θ_v with finitely many θ_v ≠ 0 and Θ = Σ_v θ_v, then twistedHeight L d Q x = Q^Θ · twistedHeight L c Q x.
+
+API twistedHeight_comp: EF Lemma 7.3(i): under (2.5)–(2.7), for an invertible K-linear φ of K^n, twistedHeight (L ∘ φ) c Q x = twistedHeight L c Q (φ x).
+
+API twistedHeight_one: For x ≠ 0: twistedHeight L c 1 x = ∏ᶠ v, max_i ‖L v i ⬝ᵥ x‖_v (independent of c).
+
+Test twistedHeight_rat_example: Over ℚ with L = coordinates, c_∞ = (1/2, −1/2) and c = 0 at primes: twistedHeight L c Q ![1, 0] = Q^{−1/2} for Q ≥ 1.
+
+Test twistedHeight_at_one: For Q = 1 the twisted height does not depend on c.
+
+Test twistedHeight_coords_rat: Over ℚ with L = coordinates and c = 0, the twisted height of a primitive x ∈ ℤ^n (cast to ℚ^n) is max_i |x_i|.
+
+Test twistedHeight_smul_two: Over ℚ with L = coordinates and c = 0, twistedHeight of 2 • ![1, 0] equals that of ![1, 0] (= 1): the twisted height is projective, unlike a norm, which would double.
+
+### DiophantineApproximationAndTranscendence:DT.2/successive-infima-of-twisted-height
+
+Statement: In the setting of twisted-height, for Q ≥ 1 and λ ≥ 0 let T(Q, λ) be the Q̄-vector space spanned by {x ∈ Q̄^n : H_{L,c,Q}(x) ≤ λ}. The successive infima are λ_i(Q) := inf{λ ≥ 0 : dim T(Q, λ) ≥ i} (i = 1, …, n), and T_i(Q) := ∩_{λ > λ_i(Q)} T(Q, λ). Over Q̄ the infima need not be attained. The spaces T_i(Q) are defined over K (Galois invariance of the twisted height), and if λ_k(Q) < λ_{k+1}(Q) then dim T_k(Q) = k and T(Q, λ) = T_k(Q) for λ_k(Q) < λ < λ_{k+1}(Q) (EF Lemma 9.1).
+
+API successiveInfimum: successiveInfimum L c Q i := sInf {λ ≥ 0 | i ≤ finrank K (span K {x | twistedHeight L c Q x ≤ λ})}.
+
+API infimumSpace: infimumSpace L c Q i := ⨅ λ > successiveInfimum L c Q i, span K {x | twistedHeight L c Q x ≤ λ}.
+
+API successiveInfimum_mono: i ≤ j → successiveInfimum L c Q i ≤ successiveInfimum L c Q j.
+
+API successiveInfimum_nonneg: 0 ≤ successiveInfimum L c Q i.
+
+API finrank_infimumSpace_of_lt: EF Lemma 9.1(ii): if λ_k(Q) < λ_{k+1}(Q) then finrank (infimumSpace L c Q k) = k.
+
+API successiveInfimum_coords_zero: For L = coordinates and c = 0, successiveInfimum L 0 Q i = 1 for 1 ≤ i ≤ n (the successive minima of the absolute height are all 1).
+
+Test successiveInfimum_coords: Over ℚ with L = coordinates and c = 0, every successive infimum equals 1.
+
+Test successiveInfimum_zero_index: successiveInfimum L c Q 0 = 0 (dimension ≥ 0 holds for every λ ≥ 0).
+
+Test successiveInfimum_rat_example: Over ℚ with L = coordinates, c_∞ = (1/2, −1/2): λ_1(Q) = Q^{−1/2} (attained at e_1) and λ_2(Q) = Q^{1/2} (attained at e_2).
+
+Test successiveInfimum_not_first_only: In the previous example λ_2(Q) ≠ λ_1(Q): the successive infima are not all equal to the minimum of the height (a definition taking only λ_1 fails).
+
+### DiophantineApproximationAndTranscendence:DT.2/height-of-linear-subspace
+
+Statement: For y ∈ Q̄^N with y ∈ E^N (E a number field) put H_2(y) := ∏_{w ∈ M_E} ‖y‖_{w,2}, where ‖y‖_{w,2} := (Σ_i |σ_w(y_i)|²)^{s(w)/2} with s(w) := [E_w : ℝ]/[E : ℚ] at infinite w and ‖y‖_{w,2} := max_i ‖y_i‖_w at finite w; it is independent of E, and n^{−1/2}H_2(y) ≤ H(y) ≤ H_2(y). For p vectors x_1, …, x_p ∈ Q̄^n the exterior product x_1 ∧ ⋯ ∧ x_p ∈ Q̄^N (N = C(n, p)) is the vector of p × p minors of the matrix with rows x_i, indexed by the p-subsets of {1, …, n} in lexicographic order. For a linear subspace T ⊆ Q̄^n: H_2(T) := 1 if T = {0} or T = Q̄^n, and H_2(T) := H_2(x_1 ∧ ⋯ ∧ x_p) if dim T = p ∈ (0, n) and {x_1, …, x_p} is any basis of T (independent of the basis by the product formula). Linear forms are identified with their coefficient vectors, which defines H_2(L) and H_2(V) for spaces V of linear forms.
+
+API height2: height2 y := ∏ over infinite places of (Σ_i |σ_w(y_i)|²)^{mult w/(2[K:ℚ])} times ∏ᶠ over finite places of (max_i ‖y_i‖_v)^{1/[K:ℚ]}, for y : ι → K.
+
+API plucker: plucker x : {s : Finset (Fin n) // s.card = p} → K, the p × p minors of the p × n matrix with rows x_i.
+
+API subspaceHeight: subspaceHeight T := 1 if T = ⊥ or T = ⊤, else height2 (plucker of the rows of Module.finBasis K T).
+
+API dotOrthogonal: dotOrthogonal T = T^⊥ := {y | ∀ x ∈ T, y ⬝ᵥ x = 0}, the space of linear forms vanishing on T.
+
+API subspaceHeight_bot: subspaceHeight ⊥ = 1.
+
+API subspaceHeight_top: subspaceHeight ⊤ = 1.
+
+API subspaceHeight_span_singleton: For x ≠ 0 and n ≥ 2, subspaceHeight (K ∙ x) = height2 x.
+
+API subspaceHeight_le_prod: EF (6.11): for linearly independent x_1, …, x_p spanning T, subspaceHeight T ≤ ∏_i height2 (x_i).
+
+API subspaceHeight_orthogonal: EF (6.13): subspaceHeight T^⊥ = subspaceHeight T, where T^⊥ = {y | ∀ x ∈ T, y ⬝ᵥ x = 0}.
+
+API subspaceHeight_inf_mul_sup_le: Struppeck–Vaaler (EF (6.12)): subspaceHeight (T₁ ⊓ T₂) · subspaceHeight (T₁ ⊔ T₂) ≤ subspaceHeight T₁ · subspaceHeight T₂.
+
+API one_le_subspaceHeight: 1 ≤ subspaceHeight T.
+
+API finite_subspaceHeight_le: Northcott for subspaces (Schmidt 1967): for every B the set of subspaces T of K^n with subspaceHeight T ≤ B is finite.
+
+API subspaceHeight_rat_eq_covolume: For K = ℚ and a subspace T of ℚ^n, subspaceHeight T equals the covolume of the lattice T ∩ ℤ^n in its real span (GeometryOfNumbersAndQuadraticArithmetic:GN.0).
+
+Test subspaceHeight_line_one_one: Over ℚ, subspaceHeight (ℚ ∙ ![1, 1]) = √2.
+
+Test subspaceHeight_bot_top: subspaceHeight ⊥ = subspaceHeight ⊤ = 1.
+
+Test subspaceHeight_coordinate_plane: Over ℚ, the span of e_1, …, e_p in ℚ^n has subspaceHeight 1.
+
+Test subspaceHeight_line_two_two: Over ℚ, subspaceHeight (ℚ ∙ ![2, 2]) = √2, not 2√2: the height of a subspace does not depend on the chosen (non-primitive) spanning vector.
+
+Test subspaceHeight_hyperplane: Over ℚ, the hyperplane {x | ![1, 2, 2] ⬝ᵥ x = 0} has subspaceHeight 3 = ‖(1, 2, 2)‖_2 (by (6.13)).
+
+### DiophantineApproximationAndTranscendence:DT.2/weight-and-exceptional-subspace
+
+Statement: In the setting of twisted-height, for a linear subspace U ⊆ Q̄^n of dimension k and v ∈ M_K put w_v(U) := 0 if k = 0 and otherwise w_v(U) := min{c_{i_1v} + ⋯ + c_{i_kv} : L^{(v)}_{i_1}|_U, …, L^{(v)}_{i_k}|_U linearly independent}; the weight is w(U) := Σ_v w_v(U) (a finite sum by (2.7)). The weight is supermodular: w(U_1 ∩ U_2) + w(U_1 + U_2) ≥ w(U_1) + w(U_2) (EF Lemma 15.1). There is a unique proper subspace T = T(L, c) of Q̄^n such that w(T)/(n − dim T) ≥ w(U)/(n − dim U) for every proper subspace U, and dim T is minimal subject to this; T is defined over K (EF Lemma 15.2 with V = Q̄^n, where w(Q̄^n) = 0 by (2.8)). (L, c) is semistable if T(L, c) = {0}, equivalently w(U) ≤ 0 for every proper U.
+
+API localWeight: localWeight L c v U : ℝ, the minimum of Σ_{i ∈ s} c v i over s with #s = finrank U and the forms L v i (i ∈ s) restricted to U linearly independent (0 if U = ⊥).
+
+API weight: weight L c U := Σᶠ v, localWeight L c v U.
+
+API weightRatio: weightRatio L c U := (weight L c U − weight L c ⊤)/(n − dim U) = −µ(K^n, U) (EF (15.6)); under (2.8) it is w(U)/(n − dim U).
+
+API exists_exceptionalSubspace: For n ≥ 1 there is a proper T maximising weightRatio among proper subspaces and of minimal dimension among the maximisers (EF Lemma 15.2(i)); uniqueness is EF Lemma 15.2(ii).
+
+API exceptionalSubspace: exceptionalSubspace L c : Submodule K (Fin n → K), the space T(L, c) of (2.21), chosen by exists_exceptionalSubspace.
+
+API weight_bot: weight L c ⊥ = 0.
+
+API weight_top: weight L c ⊤ = Σᶠ v, Σ_i c v i (= 0 under (2.8)).
+
+API weight_inf_add_weight_sup: EF Lemma 15.1: weight (U₁ ⊓ U₂) + weight (U₁ ⊔ U₂) ≥ weight U₁ + weight U₂.
+
+API exceptionalSubspace_ne_top: exceptionalSubspace L c ≠ ⊤.
+
+API exceptionalSubspace_spec: For every proper U: weightRatio L c U ≤ weightRatio L c T (under (2.8): w(U)/(n − dim U) ≤ w(T)/(n − dim T)), T having minimal dimension among the maximisers.
+
+API exceptionalSubspace_eq_bot_iff: Under (2.8): exceptionalSubspace L c = ⊥ ↔ ∀ U ≠ ⊤, weight L c U ≤ 0 (semistability, EF (8.9)).
+
+API exceptionalSubspace_shift: EF Lemma 7.2(iii): shifting c_{iv} by θ_v (independent of i) does not change the exceptional subspace.
+
+API exceptionalSubspace_comp: EF Lemma 7.3(iii): exceptionalSubspace (L ∘ φ) c = (exceptionalSubspace L c).comap φ for invertible φ over K.
+
+API exceptionalSubspace_coords_sum: EF Lemma 15.3: if every L^{(v)} consists of forms among X_1, …, X_n, X_1 + ⋯ + X_n, the exceptional subspace is cut out by equations Σ_{j ∈ I_i} x_j = 0 for pairwise disjoint I_i.
+
+Test exceptionalSubspace_c_zero: With c = 0 the exceptional subspace is ⊥.
+
+Test exceptionalSubspace_rat_example: Over ℚ with L = coordinates, c_∞ = (−1, 1) and c = 0 elsewhere, the exceptional subspace is span{e_2}.
+
+Test weight_rat_example_line: In the same example, weight (span{![1, 1]}) = −1 and weight (span{e_2}) = 1.
+
+Test exceptionalSubspace_not_max_weight: The exceptional subspace maximises w(U)/(n − dim U), not w(U): over ℚ with n = 3, L = coordinates and c_∞ = (−1, 0, 1), both span{e_3} and span{e_2, e_3} have weight 1, but the ratios are 1/2 and 1, so T = span{e_2, e_3}; a definition taking a subspace of maximal weight and minimal dimension would wrongly give span{e_3}.
+
+### DiophantineApproximationAndTranscendence:DT.2/twisted-height-filtration
+
+Statement: In the setting of weight-and-exceptional-subspace, for a subspace V ⊆ Q̄^n defined over K let B(V, L, c) be the upper convex hull of the points P(U) := (dim U, w(U)) for subspaces U ⊆ V. There is a unique filtration {0} = T_0 ⊊ T_1 ⊊ ⋯ ⊊ T_{r−1} ⊊ T_r = V such that P(T_0), …, P(T_r) are precisely the vertices of B(V, L, c); the T_i are defined over K, and T_{r−1} is the subspace T of EF Lemma 15.2(i) for V (for V = Q̄^n, T_{r−1} = T(L, c)). The slopes µ(T_l, T_{l−1}) := (w(T_l) − w(T_{l−1}))/(dim T_l − dim T_{l−1}) are strictly decreasing in l. It is the analogue of the Harder–Narasimhan filtration of Faltings–Wüstholz.
+
+API twistedFiltration: twistedFiltration L c : List (Submodule K (Fin n → K)), the chain T_0 ⊊ ⋯ ⊊ T_r.
+
+API twistedFiltration_head: The first term of twistedFiltration L c is ⊥.
+
+API twistedFiltration_last: The last term of twistedFiltration L c is ⊤.
+
+API twistedFiltration_chain: twistedFiltration L c is a strictly increasing chain (List.Chain' (· < ·)).
+
+API twistedFiltration_penultimate: If r ≥ 1, the term T_{r−1} equals exceptionalSubspace L c.
+
+API twistedFiltration_vertices: The points (finrank T_l, weight T_l) are exactly the vertices of the upper convex hull of {(finrank U, weight U)}.
+
+API twistedFiltration_slope_antitone: The slopes µ(T_l, T_{l−1}) are strictly decreasing in l.
+
+Test twistedFiltration_c_zero: With c = 0 the filtration is [⊥, ⊤].
+
+Test twistedFiltration_rat_example: Over ℚ with L = coordinates, c_∞ = (−1, 1): the filtration is [⊥, span{e_2}, ⊤].
+
+Test twistedFiltration_length_le: The filtration has at most n + 1 terms.
+
+Test twistedFiltration_not_complete_flag: The filtration need not be a complete flag: with c = 0 it has only the two terms ⊥ and ⊤ for every n ≥ 2.
+
+### DiophantineApproximationAndTranscendence:DT.2/absolute-minkowski-for-twisted-heights
+
+Statement: Let (L, c) satisfy (2.4)–(2.7) and put α := Σ_{v ∈ M_K} Σ_{i=1}^n c_{iv}. Then for every Q ≥ 1, n^{−n/2} Δ_L Q^{−α} ≤ λ_1(Q) ⋯ λ_n(Q) ≤ 2^{n(n−1)/2} Δ_L Q^{−α}, where λ_i(Q) are the successive infima of H_{L,c,Q} over Q̄^n and Δ_L = ∏_v ‖det(L_1^{(v)}, …, L_n^{(v)})‖_v. In particular, under (2.8) (α = 0), n^{−n/2}Δ_L ≤ λ_1(Q) ⋯ λ_n(Q) ≤ 2^{n(n−1)/2}Δ_L.
+
+Current prerequisites: DiophantineApproximationAndTranscendence:DT.2/successive-infima-of-twisted-height, GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-is-least, GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses, GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-lower, GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper, GeometryOfNumbersAndQuadraticArithmetic:GN.1.
+
+### DiophantineApproximationAndTranscendence:DT.2/twisted-height-gap-principle
+
+Statement: Assume (2.4)–(2.10) and let A ≥ n^{1/δ}. Then there is a single proper linear subspace T_0 of Q̄^n, defined over K, such that for every Q with A ≤ Q < A^{1+δ/2}, {x ∈ Q̄^n : H_{L,c,Q}(x) ≤ Δ_L^{1/n}Q^{−δ}} ⊂ T_0.
+
+### DiophantineApproximationAndTranscendence:DT.2/davenport-lemma-for-twisted-heights
+
+Statement: Assume (8.1)–(8.9) (the semistable setting of interval-result-semistable-case, with the non-archimedean place v_0 of (8.8)), fix Q ≥ 1, let λ_i = λ_i(Q) be the successive infima of H_{L,c,Q}, choose ε > 0 with (1 + ε)²λ_i < λ_{i+1} whenever λ_i < λ_{i+1} and (1 + ε)^{n+1}·n·2^{n²} < 3^{n²} (11.1), and linearly independent g_1, …, g_n ∈ Q̄^n with H_{L,c,Q}(g_i) ≤ (1 + ε/2)λ_i (11.2). Then there exist a finite extension E of K, a permutation π of {1, …, n} and vectors h_j = h_j(Q) ∈ E^n (j = 1, …, n) with span{h_1, …, h_j} = span{g_1, …, g_j} for all j (11.5), ‖L_i^{(w)}(h_j)‖_w ≤ n^{−s(w)}Q^{c_{iw}} for all i, j and all w ∈ M_E not above v_0 (11.6), and ‖L_{π(i)}^{(w)}(h_j)‖_w ≤ (3^{n²} min(λ_i, λ_j))^{d(w|v_0)} for all i, j and w | v_0 (11.7).
+
+### DiophantineApproximationAndTranscendence:DT.2/sharp-roths-lemma
+
+Statement: Let m ≥ 2, d = (d_1, …, d_m) positive integers and 0 < Θ ≤ 1 with d_h/d_{h+1} ≥ 2m²/Θ for h = 1, …, m − 1. Let F ∈ Q̄[X_{11}, X_{12}, …, X_{m1}, X_{m2}] be non-zero and homogeneous of degree d_h in (X_{h1}, X_{h2}) for each h, and let x_h ∈ Q̄² ∖ {0} (h = 1, …, m) with H_2(x_h)^{d_h} ≥ (e^{d_1+⋯+d_m}H_2(F))^{(3m²/Θ)^m}. Then F has index < mΘ at x = (x_1, …, x_m) with respect to d: there is a multi-index i = (i_{hl}) with Σ_h (i_{h1} + i_{h2})/d_h < mΘ such that the divided derivative F_i = (∏_{h,l} (1/i_{hl}!) ∂^{i_{hl}}/∂X_{hl}^{i_{hl}}) F does not vanish at x.
+
+### DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids
+
+Statement: Let m, N ≥ 2, 0 < ε ≤ 1 and r_1, …, r_m positive integers with r_h/r_{h+1} ≥ 2m²/ε (h = 1, …, m − 1) (12.3). Let P ∈ Q̄[X_1, …, X_m] (blocks X_h = (X_{h1}, …, X_{hN})) be non-zero and homogeneous of degree r_h in X_h for each h, and let T_1, …, T_m be (N − 1)-dimensional linear subspaces of Q̄^N with H_2(T_h)^{r_h} ≥ (e^{r_1+⋯+r_m}H_2(P))^{(N−1)(3m²/ε)^m} (12.4). For each h let Γ_h be a grid of size N/ε in T_h (the set {Σ_i x_ia_i : x_i ∈ ℤ, |x_i| ≤ N/ε} for a basis a_1, …, a_{N−1} of T_h). Then there are x_h ∈ Γ_h ∖ {0} (h = 1, …, m) and i ∈ ℤ_{≥0}^{mN} with Σ_h (1/r_h)Σ_l i_{hl} ≤ 2mε (12.5) and P_i(x_1, …, x_m) ≠ 0 (12.6), where P_i = ∏_{h,l}(1/i_{hl}!)∂^{i_{hl}}/∂X_{hl}^{i_{hl}} P.
+
+### DiophantineApproximationAndTranscendence:DT.2/bombieri-vaaler-siegel-lemma
+
+Statement: Let K be a number field with discriminant D_K and C_K := |D_K|^{1/(2[K:ℚ])}, let U, V be integers with V > U > 0, and L_1, …, L_U non-zero linear forms in K[X_1, …, X_V]. Then there is x ∈ K^V ∖ {0} with L_1(x) = ⋯ = L_U(x) = 0 and H_2(x) ≤ V^{1/2}C_K(H_2(L_1) ⋯ H_2(L_U))^{1/(V−U)}.
+
+### DiophantineApproximationAndTranscendence:DT.2/auxiliary-polynomial-for-twisted-heights
+
+Statement: Assume (8.1)–(8.9), let k and N = C(n, k) be as in EF §11, and let the exterior-power forms L̂_l^{(v)} and exponents ĉ_{lv}, ĉ_{l,v_0}(Q) be as in (11.10)–(11.16). Let 0 < ε ≤ 1, m an integer with m ≥ 2nε^{−2}log(4R/ε) (13.22), r_1, …, r_m positive integers, and Q_1, …, Q_m reals each satisfying (11.8)–(11.9). Then there is a non-zero polynomial P ∈ K[X_1, …, X_m], homogeneous of degree r_h in the block X_h of N variables (type (13.9)), such that: (i) for every v ≠ v_0, every i with Σ_h (1/r_h)Σ_l i_{hl} ≤ 2mε (13.23) and every j ∈ U(r, i) with Σ_h (1/r_h)Σ_l ĉ_{lv}j_{hl} > 4mnε max_i c_{iv} (13.24), the coefficient d^{(v)}_{i,j}(a_P) of P_i in the coordinates L̂^{(v)} vanishes; (ii) for every i with (13.23) and j ∈ U(r, i) with Σ_h (1/r_h)Σ_l ĉ_{l,v_0}(Q_h)j_{hl} > −mδ/(nN) + 4mnε (13.26), d^{(v_0)}_{i,j}(a_P) = 0; (iii) H_2(P) ≤ (C_K(2^{3n}H_L^{R^n}))^{r_1+⋯+r_m}; (iv) the product over v of max_j ‖d^{(v)}_{i,j}(a_P)‖_v is bounded by (C_K 2^{6n}H_L^{2R^n})^{r_1+⋯+r_m} (13.29).
+
+### DiophantineApproximationAndTranscendence:DT.2/interval-result-semistable-case
+
+Statement: Assume (8.1)–(8.9): K a number field, R ≥ n ≥ 2, 0 < δ ≤ 1, (L, c) with c_{iv} = 0 for almost all v, Σ_i c_{iv} = 0, Σ_v max_i c_{iv} ≤ 1, L_i^{(v)} ∈ K[X]_lin independent for each v, #∪_v{L_i^{(v)}} ≤ R, a non-archimedean v_0 with c_{i,v_0} = 0 and L_i^{(v_0)} = X_i, and w(U) ≤ 0 for every proper subspace U of Q̄^n (semistability). Put m_2 := [61n^6 2^{2n}δ^{−2} log(22n²2^nR/δ)], ω_2 := m_2^{5/2}, C_2 := (2H_L)^{m_2^{2m_2}}. Then there are reals C_2 ≤ Q_1 < ⋯ < Q_{m_2} such that every Q ≥ 1 with {x ∈ Q̄^n : H_{L,c,Q}(x) ≤ Q^{−δ}} ≠ {0} lies in [1, C_2) ∪ ∪_{h=1}^{m_2}[Q_h, Q_h^{ω_2}).
+
+### DiophantineApproximationAndTranscendence:DT.2/limit-of-successive-infima
+
+Statement: Let (L, c) satisfy (2.4)–(2.7) with n ≥ 1, let {0} = T_0 ⊊ T_1 ⊊ ⋯ ⊊ T_r = Q̄^n be the filtration of Q̄^n with respect to (L, c) (twisted-height-filtration), d_l := dim T_l, and µ(T_l, T_{l−1}) := (w(T_l) − w(T_{l−1}))/(d_l − d_{l−1}). For every δ > 0 there is Q_0 such that for all Q ≥ Q_0: Q^{−µ(T_l,T_{l−1})−δ} ≤ λ_i(Q) ≤ Q^{−µ(T_l,T_{l−1})+δ} for l = 1, …, r and d_{l−1} < i ≤ d_l (16.2), and T_{d_l}(Q) = T_l for l = 1, …, r (16.3).
+
+### DiophantineApproximationAndTranscendence:DT.2/height-bound-for-filtration-subspaces
+
+Statement: Let (L, c) satisfy (2.4)–(2.7), let T_1, …, T_{r−1} be the subspaces of the filtration of Q̄^n with respect to (L, c), and H_2 := max{H_2(L_i^{(v)}) : v ∈ M_K, 1 ≤ i ≤ n}. Then H_2(T_i) ≤ H_2^{4^n} for i = 1, …, r − 1. In particular the exceptional subspace T(L, c) belongs to a finite, effectively determinable collection of subspaces depending only on L (Northcott for subspaces).
+
+### DiophantineApproximationAndTranscendence:DT.2/interval-result
+
+Statement: Let n, L, c, δ, R satisfy (2.4)–(2.10) and let T = T(L, c) be the exceptional subspace (2.21). Put m_0 := [10^5 2^{2n}n^{10}δ^{−2}log(3δ^{−1}R)] and ω_0 := δ^{−1}log 3R. Then there are reals Q_1 < ⋯ < Q_{m_0} with C_0 := max(H_L^{1/R}, n^{1/δ}) ≤ Q_1 such that every Q ≥ 1 with {x ∈ Q̄^n : H_{L,c,Q}(x) ≤ Δ_L^{1/n}Q^{−δ}} ⊄ T lies in [1, C_0) ∪ [Q_1, Q_1^{ω_0}) ∪ ⋯ ∪ [Q_{m_0}, Q_{m_0}^{ω_0}). The Q_h cannot be determined effectively from the proof; T can.
+
+### DiophantineApproximationAndTranscendence:DT.2/parametric-subspace-theorem
+
+Statement: Let n, L, c, δ, R satisfy (2.4)–(2.10). Then there are proper linear subspaces T_1, …, T_{t_0} of Q̄^n, all defined over K, with t_0 ≤ 10^6 2^{2n}n^{10}δ^{−3}log(3δ^{−1}R)log(δ^{−1}log 3R), such that for every real Q ≥ C_0 := max(H_L^{1/R}, n^{1/δ}) there is T_i ∈ {T_1, …, T_{t_0}} with {x ∈ Q̄^n : H_{L,c,Q}(x) ≤ Δ_L^{1/n}Q^{−δ}} ⊂ T_i. Special case (EF Theorem 1.1): if Σ_i c_{iv} = 0, Σ_v max_i c_{iv} ≤ 1 and each {L_1^{(v)}, …, L_n^{(v)}} ⊂ {X_1, …, X_n, X_1 + ⋯ + X_n} is linearly independent, then for 0 < δ ≤ 1 one can take Q ≥ n^{1/δ} and t_3 ≤ 10^6 2^{2n}n^{10}δ^{−3}(log(6nδ^{−1}))².
+
+### DiophantineApproximationAndTranscendence:DT.2/twisted-height-of-system-solutions
+
+Statement: Assume (3.1)–(3.6) (see absolute-subspace-theorem-for-systems), let K' be a finite Galois extension of K containing the coefficients of all L_i^{(v)}, and define (L, c, δ) over K' by (5.1)–(5.4): L_i^{(v)} := X_i and d_{iv} := 0 for v ∉ S, L_i^{(v')} := τ_{v'}^{−1}(L_i^{(v)}) and c_{i,v'} := d(v'|v)·(n/(n + ε))(d_{iv} − (1/n)Σ_j d_{jv}) for places v' | v of K', and δ := ε/(n + ε). If x ∈ Q̄^n solves (3.7) then with Q := H(x)^{1+ε/n}, H_{L,c,Q}(σ(x)) ≤ Δ_L^{1/n}Q^{−δ} for every σ ∈ Gal(Q̄/K). Moreover (L, c, δ) satisfies (2.4)–(2.10) over K' with R replaced by RD + n, and Δ_L = ∏_{v ∈ S}‖det(L_1^{(v)}, …, L_n^{(v)})‖_v, H_L ≤ n^{n/2}(H^*)^{DR}.
+
+### DiophantineApproximationAndTranscendence:DT.2/absolute-subspace-theorem-for-systems
+
+Statement: Let K ⊂ Q̄ be a number field, with a fixed extension of each ‖·‖_v (v ∈ M_K) to Q̄; let n ≥ 2, S ⊆ M_K finite, L_i^{(v)} (v ∈ S, 1 ≤ i ≤ n) linear forms with coefficients in Q̄ and d_{iv} reals such that {L_1^{(v)}, …, L_n^{(v)}} is linearly independent for v ∈ S (3.1), H^*(L_i^{(v)}) ≤ H^* and [K(L_i^{(v)}) : K] ≤ D (3.2), #∪_{v∈S}{L_i^{(v)}} ≤ R (3.3), Σ_{v∈S}Σ_i d_{iv} = −n − ε with 0 < ε ≤ 1 (3.4), d_{iv} ≤ 0 (3.5), and A_v := ‖det(L_1^{(v)}, …, L_n^{(v)})‖_v^{1/n} (3.6). Then the solutions x ∈ Q̄^n of max_{σ ∈ Gal(Q̄/K)} ‖L_i^{(v)}(σ(x))‖_v/‖σ(x)‖_v ≤ A_vH(x)^{d_{iv}} (v ∈ S, i = 1, …, n) (3.7) with H(x) ≥ C_1 := max((H^*)^{1/3RD}, n^{n/ε}) lie in a union of at most 10^9 2^{2n}n^{14}ε^{−3}log(3ε^{−1}RD)log(ε^{−1}log 3RD) proper linear subspaces of Q̄^n, all defined over K. Here H^*(α_1X_1 + ⋯ + α_nX_n) := H(1, α_1, …, α_n) and H is the absolute height.
+
+### DiophantineApproximationAndTranscendence:DT.2/faltings-wustholz-interval-refinement
+
+Statement: Assume (3.1)–(3.6) and put m_1 := [10^8 2^{2n}n^{14}ε^{−2}log(3ε^{−1}RD)], ω_1 := 3nε^{−1}log 3RD. There are a proper linear subspace T of Q̄^n defined over K, which is effectively computable and belongs to a finite collection depending only on {L_i^{(v)} : v ∈ S, 1 ≤ i ≤ n}, and reals C_1 ≤ H_1 < ⋯ < H_{m_1} (C_1 as in absolute-subspace-theorem-for-systems) such that every solution x ∈ Q̄^n of (3.7) satisfies x ∈ T or H(x) ∈ [1, C_1) ∪ ∪_{h=1}^{m_1}[H_h, H_h^{ω_1}). In particular (3.7) has, up to scalar multiples, only finitely many solutions x ∈ K^n outside T (Faltings–Wüstholz, Theorem 9.1).
+
+### DiophantineApproximationAndTranscendence:DT.3/algebraic-logarithms
+
+Statement: Define 𝓛 := {λ ∈ ℂ : e^λ is algebraic over ℚ} ⊆ ℂ. Since e^λ ≠ 0, 𝓛 is the set of all logarithms of nonzero algebraic numbers, where a logarithm of α ∈ ℂ^× is ANY λ ∈ ℂ with e^λ = α (no branch is fixed; the logarithms of α form the coset λ + 2πiℤ). 𝓛 is a ℚ-linear subspace of ℂ: e^{λ+μ} = e^λ e^μ, e^{-λ} = (e^λ)^{-1}, and for a/b ∈ ℚ (b ≥ 1) the number e^{aλ/b} is a root of X^b − (e^λ)^a. It is formalised as a Submodule ℚ ℂ, algebraicLogs. Conventions pinned for the whole stage: (i) algebraic means algebraic over ℚ (equivalently over ℤ, IsAlgebraic.restrictScalars); (ii) ℚ̄ denotes integralClosure ℚ ℂ, the algebraic numbers in ℂ, as in the Mathlib Lindemann-Weierstrass pull request; (iii) the principal logarithm is Mathlib's Complex.log, log z = log|z| + i·arg z with −π < arg z ≤ π, and Complex.cpow is x^y = exp(log x · y) for x ≠ 0; every theorem of this stage is stated for arbitrary logarithms (elements of 𝓛) and the principal-branch versions are corollaries. Proposed declaration: Transcendence.algebraicLogs.
+
+API Transcendence.algebraicLogs: The ℚ-submodule 𝓛 = {λ : ℂ | IsAlgebraic ℚ (exp λ)} of ℂ.
+
+API Transcendence.mem_algebraicLogs: λ ∈ 𝓛 ↔ IsAlgebraic ℚ (exp λ).
+
+API Transcendence.log_mem_algebraicLogs: For α ≠ 0 algebraic, Complex.log α ∈ 𝓛.
+
+API Transcendence.mem_algebraicLogs_iff_exists_int: λ ∈ 𝓛 ↔ ∃ α ≠ 0 algebraic, ∃ k : ℤ, λ = Complex.log α + k·2πi.
+
+API Transcendence.intCast_mul_two_pi_I_mem_algebraicLogs: k·2πi ∈ 𝓛 for every k : ℤ.
+
+API Transcendence.conj_mem_algebraicLogs: λ ∈ 𝓛 → conj λ ∈ 𝓛 (exp commutes with complex conjugation, conjugates of algebraic numbers are algebraic).
+
+API Transcendence.ofReal_log_mem_algebraicLogs: For a positive rational q, (Real.log q : ℂ) ∈ 𝓛.
+
+Test Transcendence.zero_mem_algebraicLogs: 0 ∈ algebraicLogs.
+
+Test Transcendence.pi_mul_I_mem_algebraicLogs: π·i ∈ algebraicLogs, since exp(πi) = −1.
+
+Test Transcendence.two_pi_I_mem_algebraicLogs_not_mem_range_log: 2πi ∈ algebraicLogs but 2πi ∉ Set.range Complex.log: a definition by principal logarithms only is wrong.
+
+Test Transcendence.ofReal_log_two_mem_algebraicLogs: ((Real.log 2 : ℝ) : ℂ) ∈ algebraicLogs, and it equals Complex.log 2.
+
+Test Transcendence.one_not_mem_algebraicLogs: 1 ∉ algebraicLogs (exp 1 = e is transcendental, DiophantineApproximationAndTranscendence:DT.3/hermite-transcendence-of-e): 𝓛 is not the set of algebraic numbers.
+
+### DiophantineApproximationAndTranscendence:DT.3/galois-subfield-containing-finite-set
+
+Statement: Let S ⊆ ℂ be a finite set of algebraic numbers. There is an intermediate field L of ℂ/ℚ with S ⊆ L, [L : ℚ] < ∞ and L/ℚ Galois. Proposed declaration: Transcendence.exists_isGalois_superset.
+
+### DiophantineApproximationAndTranscendence:DT.3/nonzero-integer-has-large-conjugate
+
+Statement: Let L be an intermediate field of ℂ/ℚ with [L : ℚ] < ∞ and L/ℚ Galois, and let x ∈ L be integral over ℤ with x ≠ 0. Then there is τ ∈ Gal(L/ℚ) with |τ(x)| ≥ 1 (absolute value in ℂ). (Evertse, Lemma 3.6, for an element of a Galois subfield.) Proposed declaration: Transcendence.exists_one_le_norm_algEquiv.
+
+### DiophantineApproximationAndTranscendence:DT.3/liouville-size-inequality
+
+Statement: Let K be a number field of degree d, σ : K → ℂ a field embedding, x ∈ K with x ≠ 0, and m ≥ 1 an integer with m·x integral over ℤ. Then 1 ≤ m^d · |σ(x)| · house(x)^{d−1}, where house(x) = max_τ |τ(x)| over all embeddings τ : K → ℂ (NumberField.house). Equivalently |σ(x)| ≥ m^{−d} house(x)^{−(d−1)}. Proposed declaration: Transcendence.one_le_pow_mul_norm_mul_house_pow.
+
+### DiophantineApproximationAndTranscendence:DT.3/hermite-transcendence-of-e
+
+Statement: e = exp(1) is transcendental: Transcendental ℤ (Complex.exp 1). (Evertse, Theorem 4.1.) Proposed declaration: transcendental_e.
+
+### DiophantineApproximationAndTranscendence:DT.3/hermite-integral
+
+Statement: For a polynomial f ∈ ℂ[X] and z ∈ ℂ put F_f(z) := z ∫₀¹ e^{z(1−t)} f(zt) dt, the integral of e^{z−u} f(u) along the segment from 0 to z (Evertse (4.2)). Formalised as LindemannWeierstrass.hermiteIntegral f z, with the interval integral over t ∈ [0, 1]. Proposed declaration: LindemannWeierstrass.hermiteIntegral.
+
+API LindemannWeierstrass.hermiteIntegral: F_f(z) = z ∫₀¹ e^{z(1−t)} f(zt) dt for f : ℂ[X], z : ℂ.
+
+API LindemannWeierstrass.hermiteIntegral_eq_sumIDeriv: F_f(z) = e^z (sumIDeriv f)(0) − (sumIDeriv f)(z) (Lemma 4.2; node DiophantineApproximationAndTranscendence:DT.3/hermite-integral-eq-sum-iterated-derivatives).
+
+API LindemannWeierstrass.norm_hermiteIntegral_le: If ‖f(u)‖ ≤ C for ‖u‖ ≤ ‖z‖ then ‖F_f(z)‖ ≤ ‖z‖ e^{‖z‖} C (Lemma 4.4; node DiophantineApproximationAndTranscendence:DT.3/norm-hermite-integral-le).
+
+API LindemannWeierstrass.hermiteIntegral_add: F_{f+g} = F_f + F_g.
+
+API LindemannWeierstrass.hermiteIntegral_smul: F_{c•f} = c • F_f.
+
+API LindemannWeierstrass.hermiteIntegral_zero_right: F_f(0) = 0.
+
+API LindemannWeierstrass.hermiteIntegral_C: F_{C c}(z) = c (e^z − 1).
+
+Test LindemannWeierstrass.hermiteIntegral_one: hermiteIntegral 1 z = exp z − 1.
+
+Test LindemannWeierstrass.hermiteIntegral_X_one: hermiteIntegral X 1 = exp 1 − 2.
+
+Test LindemannWeierstrass.hermiteIntegral_at_zero: hermiteIntegral f 0 = 0.
+
+Test LindemannWeierstrass.hermiteIntegral_X_one_ne: hermiteIntegral X 1 ≠ ∫ u in 0..1, exp u * u (= 1): the kernel is e^{z−u}, not e^u.
+
+Test LindemannWeierstrass.hermiteIntegral_eq_exp_mul: hermiteIntegral f z = exp z * (z * ∫ x in 0..1, exp (−(x • z)) * f.eval (x • z)), the expression in LindemannWeierstrass.integral_exp_mul_eval.
+
+### DiophantineApproximationAndTranscendence:DT.3/hermite-integral-eq-sum-iterated-derivatives
+
+Statement: For f ∈ ℂ[X] and z ∈ ℂ: F_f(z) = e^z · (Σ_{j≥0} f^{(j)}(0)) − Σ_{j≥0} f^{(j)}(z), i.e. hermiteIntegral f z = exp z * (sumIDeriv f).eval 0 − (sumIDeriv f).eval z. Proposed declaration: LindemannWeierstrass.hermiteIntegral_eq_sumIDeriv.
+
+### DiophantineApproximationAndTranscendence:DT.3/norm-hermite-integral-le
+
+Statement: Let f ∈ ℂ[X], z ∈ ℂ and C ≥ 0 with |f(u)| ≤ C for all u with |u| ≤ |z|. Then |F_f(z)| ≤ |z| e^{|z|} C. Proposed declaration: LindemannWeierstrass.norm_hermiteIntegral_le.
+
+### DiophantineApproximationAndTranscendence:DT.3/sum-hermite-integral-of-exp-relation
+
+Statement: Let (γ_j, δ_j)_{j ∈ J} be a finite family in ℂ² with Σ_j δ_j e^{γ_j} = 0, and f ∈ ℂ[X]. Then Σ_j δ_j F_f(γ_j) = −Σ_j δ_j (sumIDeriv f)(γ_j). Proposed declaration: LindemannWeierstrass.sum_mul_hermiteIntegral_eq.
+
+### DiophantineApproximationAndTranscendence:DT.3/exponential-polynomial-evaluation
+
+Statement: Let L be an intermediate field of ℂ/ℚ and L[L] = AddMonoidAlgebra L L the group algebra of the additive group (L, +) with coefficients in L; its elements are finite formal sums x = Σ_γ δ_γ [γ] (δ_γ ∈ L, γ ∈ L) with [γ][γ'] = [γ + γ']. expEval L : L[L] →ₐ[L] ℂ is the unique L-algebra homomorphism with [γ] ↦ e^γ, i.e. expEval L x = Σ_γ δ_γ e^γ; it is AddMonoidAlgebra.lift of the character γ ↦ exp γ (Complex.expMonoidHom composed with the inclusion L → ℂ). Proposed declaration: LindemannWeierstrass.expEval.
+
+API LindemannWeierstrass.expEval: The L-algebra hom L[L] →ₐ[L] ℂ with [γ] ↦ e^γ.
+
+API LindemannWeierstrass.expEval_single: expEval L (single γ c) = c * exp γ.
+
+API LindemannWeierstrass.expEval_apply: expEval L x = Σ_{γ ∈ x.coeff.support} x.coeff γ * exp γ.
+
+API LindemannWeierstrass.expEval_mul: expEval L (x * y) = expEval L x * expEval L y.
+
+API LindemannWeierstrass.expEval_algebraMap: expEval L (algebraMap L L[L] c) = c.
+
+Test LindemannWeierstrass.expEval_single_zero: expEval L (single 0 c) = c.
+
+Test LindemannWeierstrass.expEval_single_mul_single: expEval L (single γ 1 * single γ' 1) = exp γ * exp γ' = exp (γ + γ').
+
+Test LindemannWeierstrass.expEval_top_single_pi_mul_I: expEval ⊤ (single (π I) 1) = −1.
+
+Test LindemannWeierstrass.expEval_top_not_injective: For L = ⊤: single 0 1 − single (2π I) 1 ≠ 0 but its image is 0; injectivity of expEval (the Lindemann-Weierstrass theorem) needs L ⊆ ℚ̄.
+
+Test LindemannWeierstrass.expEval_eq_lift: expEval L = AddMonoidAlgebra.lift L ℂ L (expMonoidHom.comp (inclusion as a Multiplicative hom)).
+
+### DiophantineApproximationAndTranscendence:DT.3/galois-conjugation-of-exponential-polynomials
+
+Statement: Let L be an intermediate field of ℂ/ℚ and τ ∈ Gal(L/ℚ) = (L ≃ₐ[ℚ] L). galConj τ : L[L] ≃+* L[L] is the ring automorphism Σ_γ δ_γ [γ] ↦ Σ_γ τ(δ_γ) [τ(γ)], acting on exponents and coefficients simultaneously; it is the composite of AddMonoidAlgebra.mapDomainRingEquiv for the additive automorphism τ of L and AddMonoidAlgebra.mapRingEquiv for the ring automorphism τ. An element x is Galois-fixed (galConj τ x = x for all τ) exactly when every τ permutes the pairs (γ, δ_γ) with δ_γ ≠ 0 — Evertse's hypothesis in Theorem 4.11. Proposed declaration: LindemannWeierstrass.galConj.
+
+API LindemannWeierstrass.galConj: galConj τ : L[L] ≃+* L[L], Σ δ_γ[γ] ↦ Σ τ(δ_γ)[τγ].
+
+API LindemannWeierstrass.galConj_single: galConj τ (single γ δ) = single (τ γ) (τ δ).
+
+API LindemannWeierstrass.coeff_galConj: (galConj τ x).coeff (τ γ) = τ (x.coeff γ).
+
+API LindemannWeierstrass.galConj_refl: galConj (AlgEquiv.refl) = RingEquiv.refl.
+
+API LindemannWeierstrass.galConj_trans: galConj (τ.trans σ) = (galConj τ).trans (galConj σ).
+
+API LindemannWeierstrass.support_galConj: (galConj τ x).coeff.support = (x.coeff.support).map τ.
+
+API LindemannWeierstrass.forall_galConj_eq_iff: (∀ τ, galConj τ x = x) ↔ ∀ τ γ, x.coeff (τ γ) = τ (x.coeff γ).
+
+API LindemannWeierstrass.galConj_prod_galConj: For finite L/ℚ: galConj σ (∏_τ galConj τ x) = ∏_τ galConj τ x (reindex τ ↦ τ.trans σ).
+
+Test LindemannWeierstrass.galConj_single_ratCast: galConj τ (single 0 (q : L)) = single 0 (q : L) for q ∈ ℚ.
+
+Test LindemannWeierstrass.galConj_single_I: If I ∈ L and τ I = −I then galConj τ (single I I) = single (−I) (−I).
+
+Test LindemannWeierstrass.galConj_fixed_of_quadratic: If [L : ℚ] = 2, s ∈ L and τ s = −s for the nontrivial τ, then single s 1 + single (−s) 1 is fixed by every galConj τ.
+
+Test LindemannWeierstrass.expEval_galConj_ne: If √2 ∈ L and τ √2 = −√2 then expEval L (galConj τ (single √2 1)) = e^{−√2} ≠ e^{√2} = expEval L (single √2 1): evaluation is not Galois-equivariant.
+
+### DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-polynomial
+
+Statement: Let L be an intermediate field of ℂ/ℚ, S ⊆ L finite with t = |S|, l, p ∈ ℕ and γ ∈ L. auxPoly S l p γ := (l^{tp}/(p−1)!) · (X − γ)^{p−1} · ∏_{γ' ∈ S, γ' ≠ γ} (X − γ')^p ∈ L[X] (Evertse's f_k with γ_k = γ). For γ ∈ S, l ≠ 0 and p ≥ 1 it has degree tp − 1. Proposed declaration: LindemannWeierstrass.auxPoly.
+
+API LindemannWeierstrass.auxPoly: auxPoly S l p γ as displayed.
+
+API LindemannWeierstrass.natDegree_auxPoly: γ ∈ S, l ≠ 0, 1 ≤ p ⇒ natDegree (auxPoly S l p γ) = S.card * p − 1.
+
+API LindemannWeierstrass.auxPoly_map: (auxPoly S l p γ).map τ = auxPoly (S.map τ) l p (τ γ) for τ : L ≃ₐ[ℚ] L.
+
+API LindemannWeierstrass.eval_iterate_derivative_auxPoly: Values of the derivatives at the points of S (Lemma 4.13; node DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-polynomial-derivative-values).
+
+Test LindemannWeierstrass.auxPoly_singleton: auxPoly {γ} l p γ = C (l^p/(p−1)!) * (X − C γ)^(p−1).
+
+Test LindemannWeierstrass.auxPoly_hermite: For L = ⊥, S = {0,1,…,n}, l = 1, γ = 0: auxPoly S 1 p 0 = C (1/(p−1)!) * X^(p−1) * ∏_{a=1}^n (X − C a)^p (Evertse (4.3)).
+
+Test LindemannWeierstrass.auxPoly_zero_one: auxPoly {0, 1} 1 2 0 = X^3 − 2X^2 + X.
+
+Test LindemannWeierstrass.auxPoly_not_integral: auxPoly {0} 1 3 0 = C (1/2) * X^2: the coefficients are not algebraic integers, so the factor 1/(p−1)! must be tracked (Lemma 4.13(iii) divides by (p−1)!, not by p!).
+
+### DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-value
+
+Statement: Let L be an intermediate field of ℂ/ℚ, x = Σ_γ δ_γ[γ] ∈ L[L] with support S, and l, p ∈ ℕ. For γ ∈ L put auxValue x l p γ := −Σ_{γ' ∈ S} δ_{γ'} · (sumIDeriv (auxPoly S l p γ))(γ') ∈ L. When expEval x = 0 this is Evertse's M_k = Σ_j δ_j F_k(γ_j) (Lemma 4.12(i)); the definition takes the algebraic side so that it is an element of L to which Galois automorphisms and norms apply. Proposed declaration: LindemannWeierstrass.auxValue.
+
+API LindemannWeierstrass.auxValue: auxValue x l p γ as displayed.
+
+API LindemannWeierstrass.coe_auxValue_eq_sum_hermiteIntegral: Analytic expression when expEval x = 0 (node DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-value-eq-hermite-sum).
+
+API LindemannWeierstrass.auxValue_galConj: τ (auxValue x l p γ) = auxValue x l p (τ γ) for Galois-fixed x (node DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-value-galois-permutation).
+
+API LindemannWeierstrass.isIntegral_auxValue: integrality (node DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-value-integral-nonzero).
+
+API LindemannWeierstrass.auxValue_ne_zero: nonvanishing for large primes p (node DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-value-integral-nonzero).
+
+API LindemannWeierstrass.norm_auxValue_le: the bound C c^p/(p−1)! (node DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-value-small).
+
+Test LindemannWeierstrass.auxValue_single_zero: auxValue (single 0 1) l p 0 = −l^p for p ≥ 1.
+
+Test LindemannWeierstrass.auxValue_zero: auxValue 0 l p γ = 0.
+
+Test LindemannWeierstrass.auxValue_single_zero_two: auxValue (single 0 1) 2 p 0 = −2^p ≠ −1 = auxValue (single 0 1) 1 p 0 for p ≥ 1: M depends on the auxiliary integer l and is not an invariant of x.
+
+Test LindemannWeierstrass.auxValue_compat_hermiteIntegral: If expEval L x = 0 then (auxValue x l p γ : ℂ) = Σ_{γ'} (x.coeff γ' : ℂ) * hermiteIntegral ((auxPoly S l p γ).map (algebraMap L ℂ)) γ' (Lemma 4.12(i)).
+
+### DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-value-eq-hermite-sum
+
+Statement: Let L be an intermediate field of ℂ/ℚ and x ∈ L[L] with expEval L x = 0. Then for all l, p ∈ ℕ and γ ∈ L: (auxValue x l p γ : ℂ) = Σ_{γ' ∈ supp x} δ_{γ'} · F_{f}(γ'), where f = auxPoly (supp x) l p γ mapped to ℂ[X] and F is Hermite's integral. Proposed declaration: LindemannWeierstrass.coe_auxValue_eq_sum_hermiteIntegral.
+
+### DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-value-galois-permutation
+
+Statement: Let L be an intermediate field of ℂ/ℚ, x ∈ L[L] with galConj τ x = x for every τ ∈ Gal(L/ℚ), and γ ∈ supp x. Then for every τ: τ(auxValue x l p γ) = auxValue x l p (τ γ), and τ γ ∈ supp x. Proposed declaration: LindemannWeierstrass.auxValue_galConj.
+
+### DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-polynomial-derivative-values
+
+Statement: Let L be a number field inside ℂ, S ⊆ L finite with t = |S|, γ ∈ S, l ≥ 1 an integer with l·γ' integral over ℤ for all γ' ∈ S, and p a prime. Let f = auxPoly S l p γ and A_γ := l^t ∏_{γ' ∈ S, γ' ≠ γ} (γ − γ'). Then (i) f^{(p−1)}(γ) = A_γ^p, and A_γ is integral; (ii) f^{(j)}(γ') = 0 for γ' ∈ S, 0 ≤ j ≤ p − 1 and (γ', j) ≠ (γ, p − 1); (iii) for γ' ∈ S and j ≥ p, f^{(j)}(γ')/p is integral over ℤ. Proposed declaration: LindemannWeierstrass.eval_iterate_derivative_auxPoly.
+
+### DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-value-integral-nonzero
+
+Statement: Let L be a number field inside ℂ of degree d, x ∈ L[L] whose coefficients δ_{γ'} are algebraic integers, l ≥ 1 an integer with l·γ' integral for γ' ∈ S = supp x, and γ ∈ S. Let A_γ be as in Lemma 4.13. Then for every prime p > |N_{L/ℚ}(δ_γ) · N_{L/ℚ}(A_γ)|, auxValue x l p γ is integral over ℤ and nonzero. Proposed declaration: LindemannWeierstrass.isIntegral_auxValue and LindemannWeierstrass.auxValue_ne_zero.
+
+### DiophantineApproximationAndTranscendence:DT.3/lindemann-auxiliary-value-small
+
+Statement: Let L be an intermediate field of ℂ/ℚ, x ∈ L[L] with expEval L x = 0 and support S, and l ≥ 1. There are real C, c > 0 such that for every p ≥ 1 and every γ ∈ S: |auxValue x l p γ| ≤ C·c^p/(p−1)!. In particular |auxValue x l p γ| < 1 for all γ ∈ S and all sufficiently large p. Proposed declaration: LindemannWeierstrass.norm_auxValue_le.
+
+### DiophantineApproximationAndTranscendence:DT.3/lindemann-weierstrass-weak-form
+
+Statement: Let L be an intermediate field of ℂ/ℚ, finite and Galois over ℚ, and let x ∈ L[L] be nonzero and fixed by every Galois conjugation galConj τ, τ ∈ Gal(L/ℚ). Then expEval L x ≠ 0. Equivalently: if γ_1, …, γ_t ∈ L are distinct, δ_1, …, δ_t ∈ L are nonzero and every τ ∈ Gal(L/ℚ) permutes the pairs (γ_k, δ_k), then δ_1 e^{γ_1} + ⋯ + δ_t e^{γ_t} ≠ 0. Proposed declaration: LindemannWeierstrass.expEval_ne_zero_of_forall_galConj_eq.
+
+### DiophantineApproximationAndTranscendence:DT.3/lindemann-weierstrass-in-bakers-form
+
+Statement: Let ℚ̄ = integralClosure ℚ ℂ. For every injective family u : ι → ℚ̄, the family (e^{u_i})_{i∈ι} is linearly independent over ℚ̄: linearIndependent_exp u u_inj : LinearIndependent ℚ̄ (fun i ↦ exp (u i)). Equivalently (Evertse Theorem 4.8): if α_1, …, α_n ∈ ℚ̄ are pairwise distinct and β_1, …, β_n ∈ ℚ̄ are nonzero, then β_1e^{α_1} + ⋯ + β_ne^{α_n} ≠ 0. Proposed declaration: linearIndependent_exp.
+
+### DiophantineApproximationAndTranscendence:DT.3/hermite-lindemann-transcendence-of-exp
+
+Statement: If a ∈ ℂ is algebraic and a ≠ 0 then e^a is transcendental: transcendental_exp : a ≠ 0 → IsAlgebraic ℤ a → Transcendental ℤ (exp a). Proposed declaration: transcendental_exp.
+
+### DiophantineApproximationAndTranscendence:DT.3/transcendence-of-pi
+
+Statement: π is transcendental: transcendental_pi : Transcendental ℤ Real.pi. Proposed declaration: transcendental_pi.
+
+### DiophantineApproximationAndTranscendence:DT.3/algebraic-independence-of-exponentials
+
+Statement: If u : ι → ℚ̄ is a family of algebraic numbers that is linearly independent over ℚ (stated, as in the Mathlib pull request, as LinearIndependent ℕ u, which for a ℚ-vector space is equivalent), then (e^{u_i})_i is algebraically independent over ℚ̄: algebraicIndependent_exp. Proposed declaration: algebraicIndependent_exp.
+
+### DiophantineApproximationAndTranscendence:DT.3/transcendence-of-nonzero-algebraic-logarithm
+
+Statement: If λ ∈ 𝓛 and λ ≠ 0 then λ is transcendental: for every α ∈ ℚ̄ \ {0, 1} and EVERY logarithm λ of α (any solution of e^z = α), λ is transcendental. The Mathlib pull request's transcendental_log (principal branch, hypothesis Complex.log u ≠ 0) is the case λ = Complex.log u. Proposed declaration: Transcendence.transcendental_of_mem_algebraicLogs.
+
+### DiophantineApproximationAndTranscendence:DT.3/schanuel-conjecture
+
+Statement: SchanuelConjecture : Prop is the statement: for every n ∈ ℕ and every x : Fin n → ℂ that is linearly independent over ℚ, the transcendence degree over ℚ of the field ℚ(x_1, …, x_n, e^{x_1}, …, e^{x_n}) is at least n; formally (n : Cardinal) ≤ Algebra.trdeg ℚ ↥(IntermediateField.adjoin ℚ (Set.range x ∪ Set.range (exp ∘ x))). It is a statement to be formalised, never assumed as an axiom: results depending on it take SchanuelConjecture as an explicit hypothesis. Proposed declaration: Transcendence.SchanuelConjecture.
+
+API Transcendence.SchanuelConjecture: The proposition displayed.
+
+API Transcendence.SchanuelConjecture.le_trdeg: SchanuelConjecture → LinearIndependent ℚ x → n ≤ trdeg ℚ ℚ(x, e^x).
+
+API Transcendence.schanuel_ineq_one: The unconditional case n = 1.
+
+API Transcendence.schanuel_ineq_of_isAlgebraic: The unconditional case of algebraic x.
+
+Test Transcendence.schanuelConjecture_zero: The n = 0 instance of the inequality holds trivially (0 ≤ trdeg).
+
+Test Transcendence.schanuelConjecture_one_variable_unconditional: Unconditionally, for x = 1: 1 ≤ Algebra.trdeg ℚ ℚ(1, e) (e is transcendental).
+
+Test Transcendence.schanuelConjecture_algebraic_unconditional: Unconditionally, for x = (1, √2): 2 ≤ trdeg ℚ ℚ(1, √2, e, e^{√2}) (agreement with algebraicIndependent_exp).
+
+Test Transcendence.not_schanuel_of_distinct: The variant with 'pairwise distinct' instead of 'linearly independent over ℚ' is false: x = (0) gives trdeg ℚ(0, 1) = 0 < 1 (Evertse Exercise 4.4).
+
+### DiophantineApproximationAndTranscendence:DT.3/schanuel-implies-e-pi-algebraically-independent
+
+Statement: Assume SchanuelConjecture. Then e and π are algebraically independent over ℚ: AlgebraicIndependent ℚ ![Real.exp 1, Real.pi] (as complex numbers). Proposed declaration: Transcendence.SchanuelConjecture.algebraicIndependent_exp_one_pi.
+
+### DiophantineApproximationAndTranscendence:DT.3/schanuel-implies-logarithms-algebraically-independent
+
+Statement: Assume SchanuelConjecture. If λ_1, …, λ_n ∈ 𝓛 are linearly independent over ℚ, then they are algebraically independent over ℚ. Proposed declaration: Transcendence.SchanuelConjecture.algebraicIndependent_of_mem_algebraicLogs.
+
+### DiophantineApproximationAndTranscendence:DT.3/rolle-zero-count
+
+Statement: Let f : ℝ → ℝ be differentiable and S a finite nonempty set of zeros of f. Then there is a finite set T of zeros of f' with |T| = |S| − 1; its elements separate consecutive elements of S. Proposed declaration: Transcendence.exists_finset_card_deriv_zeros.
+
+### DiophantineApproximationAndTranscendence:DT.3/real-exponential-polynomial-zero-bound
+
+Statement: Let r ≥ 1, let γ_1, …, γ_r be distinct real numbers and p_1, …, p_r ∈ ℝ[X] nonzero polynomials, and put M := Σ_{k=1}^{r} (1 + deg p_k) and E(x) := Σ_k p_k(x) e^{γ_k x}. Then E has at most M − 1 real zeros: every finite set of real zeros of E has at most M − 1 elements. Proposed declaration: Transcendence.card_zeros_expPoly_le.
+
+### DiophantineApproximationAndTranscendence:DT.3/entire-function-divided-by-zeros
+
+Statement: Let f : ℂ → ℂ be entire, a_1, …, a_s ∈ ℂ distinct and k_1, …, k_s ∈ ℕ such that f^{(j)}(a_i) = 0 for all i and all j < k_i. Then there is an entire g with f(z) = g(z) ∏_i (z − a_i)^{k_i} for all z ∈ ℂ. Proposed declaration: Transcendence.exists_differentiable_eq_mul_prod_pow.
+
+### DiophantineApproximationAndTranscendence:DT.3/schwarz-lemma-many-zeros
+
+Statement: Let f be entire, a_1, …, a_s distinct with |a_i| ≤ R, and k_i ∈ ℕ with f^{(j)}(a_i) = 0 for j < k_i; put K := Σ k_i. Let 0 < R and T ≥ 3R, and M ≥ 0 with |f(w)| ≤ M for all |w| = T. Then |f(z)| ≤ M·(3R/T)^K for all |z| ≤ R. Proposed declaration: Transcendence.norm_le_of_zeros.
+
+### DiophantineApproximationAndTranscendence:DT.3/schneider-auxiliary-function
+
+Statement: Setting S: K ⊆ ℂ is a number field (an intermediate field of ℂ/ℚ of finite degree d), l ∈ ℂ and β ∈ K with α := e^l ∈ K and γ := e^{βl} ∈ K. Constants c_i depend only on (K, l, β), never on the parameters L, D_1, D_2, a, b. There is c_1 > 0 such that for all integers L ≥ 3 and D_1, D_2 ≥ 1 with D_1D_2 ≥ 2dL² there are a_{ij} ∈ 𝓞_K (0 ≤ i < D_1, 0 ≤ j < D_2), not all zero, with house(a_{ij}) ≤ exp(c_1(D_1 log L + D_2L)), such that F(z) := Σ_{i,j} a_{ij} z^i e^{jlz} vanishes at z = a + bβ for all a, b ∈ {1, …, L}. For integers a, b ≥ 0, F(a + bβ) is the image of y_{ab} := Σ_{i,j} a_{ij}(a + bβ)^i α^{aj}γ^{bj} ∈ K. Proposed declaration: GelfondSchneider.exists_schneider_auxiliary.
+
+### DiophantineApproximationAndTranscendence:DT.3/schneider-auxiliary-values-small
+
+Statement: Setting S: K ⊆ ℂ is a number field (an intermediate field of ℂ/ℚ of finite degree d), l ∈ ℂ and β ∈ K with α := e^l ∈ K and γ := e^{βl} ∈ K. Constants c_i depend only on (K, l, β), never on the parameters L, D_1, D_2, a, b. Assume β ∉ ℚ. Parameters: M ≥ 1 an integer, L := 2dM², D_1 := (2d)²M³, D_2 := 2dM (so D_1 = √(2d)L^{3/2}, D_2 = √(2d)L^{1/2}, D_1D_2 = 2dL²), c := 1 + ⌊√(2d)⌋, and F, a_{ij}, y_{ab} as in Lemma 4.22 (node DiophantineApproximationAndTranscendence:DT.3/schneider-auxiliary-function) for these parameters. There is c_4 such that |F(a + bβ)| ≤ exp(c_4L^{3/2} log L − L²) for all integers 1 ≤ a, b ≤ cL. Proposed declaration: GelfondSchneider.norm_schneider_auxiliary_le.
+
+### DiophantineApproximationAndTranscendence:DT.3/schneider-auxiliary-values-conjugates
+
+Statement: Setting S: K ⊆ ℂ is a number field (an intermediate field of ℂ/ℚ of finite degree d), l ∈ ℂ and β ∈ K with α := e^l ∈ K and γ := e^{βl} ∈ K. Constants c_i depend only on (K, l, β), never on the parameters L, D_1, D_2, a, b. Parameters: M ≥ 1 an integer, L := 2dM², D_1 := (2d)²M³, D_2 := 2dM (so D_1 = √(2d)L^{3/2}, D_2 = √(2d)L^{1/2}, D_1D_2 = 2dL²), c := 1 + ⌊√(2d)⌋, and F, a_{ij}, y_{ab} as in Lemma 4.22 (node DiophantineApproximationAndTranscendence:DT.3/schneider-auxiliary-function) for these parameters. There is c_5 such that for every field embedding σ : K → ℂ and all integers 1 ≤ a, b ≤ cL: |σ(y_{ab})| ≤ exp(c_5L^{3/2} log L); hence house(y_{ab}) ≤ exp(c_5L^{3/2} log L). Proposed declaration: GelfondSchneider.norm_embedding_schneider_value_le.
+
+### DiophantineApproximationAndTranscendence:DT.3/schneider-auxiliary-values-denominator
+
+Statement: Setting S: K ⊆ ℂ is a number field (an intermediate field of ℂ/ℚ of finite degree d), l ∈ ℂ and β ∈ K with α := e^l ∈ K and γ := e^{βl} ∈ K. Constants c_i depend only on (K, l, β), never on the parameters L, D_1, D_2, a, b. Parameters: M ≥ 1 an integer, L := 2dM², D_1 := (2d)²M³, D_2 := 2dM (so D_1 = √(2d)L^{3/2}, D_2 = √(2d)L^{1/2}, D_1D_2 = 2dL²), c := 1 + ⌊√(2d)⌋, and F, a_{ij}, y_{ab} as in Lemma 4.22 (node DiophantineApproximationAndTranscendence:DT.3/schneider-auxiliary-function) for these parameters. Let m ≥ 1 be an integer with mα, mβ, mγ integral. Then m^{D_1+2cLD_2}·y_{ab} is integral over ℤ for all integers 1 ≤ a, b ≤ cL, and m^{D_1+2cLD_2} ≤ exp(c_6L^{3/2}). Proposed declaration: GelfondSchneider.isIntegral_pow_mul_schneider_value.
+
+### DiophantineApproximationAndTranscendence:DT.3/gelfond-schneider-real-case
+
+Statement: Let α, β be real algebraic numbers with α > 0, α ≠ 1 and β ∉ ℚ. Then α^β = e^{β log α} (Real.rpow, log the real logarithm) is transcendental. Proposed declaration: GelfondSchneider.transcendental_rpow.
+
+### DiophantineApproximationAndTranscendence:DT.3/gelfond-derivative-values
+
+Statement: Setting G: l ∈ ℂ with l ≠ 0, β ∈ ℂ with β ∉ ℚ, and K ⊆ ℂ a number field (intermediate field of ℂ/ℚ) of degree h containing α := e^l, β and γ := e^{βl}; m := 2h + 2; c_0 ≥ 1 an integer with c_0α, c_0β, c_0γ integral. For positive integers n, q with q² = 2mn and η = (η_{ab})_{1≤a,b≤q} put R_η(z) := Σ_{a,b=1}^{q} η_{ab} e^{(a+bβ)lz}. Constants c_i depend only on the setting (K, l, β, c_0), never on n, q, r. For all k, t ∈ ℕ: R_η^{(k)}(t) = l^k · Σ_{a,b} η_{ab}(a + bβ)^k α^{at}γ^{bt}. Proposed declaration: GelfondSchneider.iteratedDeriv_gelfond.
+
+### DiophantineApproximationAndTranscendence:DT.3/gelfond-auxiliary-function
+
+Statement: Setting G: l ∈ ℂ with l ≠ 0, β ∈ ℂ with β ∉ ℚ, and K ⊆ ℂ a number field (intermediate field of ℂ/ℚ) of degree h containing α := e^l, β and γ := e^{βl}; m := 2h + 2; c_0 ≥ 1 an integer with c_0α, c_0β, c_0γ integral. For positive integers n, q with q² = 2mn and η = (η_{ab})_{1≤a,b≤q} put R_η(z) := Σ_{a,b=1}^{q} η_{ab} e^{(a+bβ)lz}. Constants c_i depend only on the setting (K, l, β, c_0), never on n, q, r. There is c_1 ≥ 1 such that for all positive integers n, q with q² = 2mn there is η ∈ 𝓞_K^{q×q}, η ≠ 0, with house(η_{ab}) ≤ c_1^n n^{(n+1)/2} for all a, b, and R_η^{(k)}(t) = 0 for all 0 ≤ k < n and t ∈ {1, …, m}. Proposed declaration: GelfondSchneider.exists_gelfond_auxiliary.
+
+### DiophantineApproximationAndTranscendence:DT.3/exponential-sum-not-identically-zero
+
+Statement: Let ρ_1, …, ρ_N ∈ ℂ be pairwise distinct and c ∈ ℂ^N, c ≠ 0. Then the entire function E(z) := Σ_i c_i e^{ρ_i z} is not identically zero; consequently its order of vanishing analyticOrderAt E z_0 is finite at every z_0 ∈ ℂ. Proposed declaration: Transcendence.sum_mul_exp_ne_zero.
+
+### DiophantineApproximationAndTranscendence:DT.3/gelfond-first-nonvanishing-derivative
+
+Statement: Setting G: l ∈ ℂ with l ≠ 0, β ∈ ℂ with β ∉ ℚ, and K ⊆ ℂ a number field (intermediate field of ℂ/ℚ) of degree h containing α := e^l, β and γ := e^{βl}; m := 2h + 2; c_0 ≥ 1 an integer with c_0α, c_0β, c_0γ integral. For positive integers n, q with q² = 2mn and η = (η_{ab})_{1≤a,b≤q} put R_η(z) := Σ_{a,b=1}^{q} η_{ab} e^{(a+bβ)lz}. Constants c_i depend only on the setting (K, l, β, c_0), never on n, q, r. Let η ≠ 0 be as in DiophantineApproximationAndTranscendence:DT.3/gelfond-auxiliary-function. Then there are r ≥ n and t_0 ∈ {1, …, m} with R_η^{(k)}(t) = 0 for all k < r and all t ∈ {1, …, m}, and R_η^{(r)}(t_0) ≠ 0. Proposed declaration: GelfondSchneider.exists_first_nonvanishing_derivative.
+
+### DiophantineApproximationAndTranscendence:DT.3/gelfond-arithmetic-lower-bound
+
+Statement: Setting G: l ∈ ℂ with l ≠ 0, β ∈ ℂ with β ∉ ℚ, and K ⊆ ℂ a number field (intermediate field of ℂ/ℚ) of degree h containing α := e^l, β and γ := e^{βl}; m := 2h + 2; c_0 ≥ 1 an integer with c_0α, c_0β, c_0γ integral. For positive integers n, q with q² = 2mn and η = (η_{ab})_{1≤a,b≤q} put R_η(z) := Σ_{a,b=1}^{q} η_{ab} e^{(a+bβ)lz}. Constants c_i depend only on the setting (K, l, β, c_0), never on n, q, r. There is c_2 ≥ 1 such that, for n, q, η, r, t_0 as in DiophantineApproximationAndTranscendence:DT.3/gelfond-first-nonvanishing-derivative, the number ρ := Σ_{a,b} η_{ab}(a + bβ)^r α^{at_0}γ^{bt_0} ∈ K is nonzero and |ρ| ≥ c_2^{−r} r^{−(h−1)(r+1)}. Proposed declaration: GelfondSchneider.norm_gelfond_value_ge.
+
+### DiophantineApproximationAndTranscendence:DT.3/gelfond-analytic-upper-bound
+
+Statement: Setting G: l ∈ ℂ with l ≠ 0, β ∈ ℂ with β ∉ ℚ, and K ⊆ ℂ a number field (intermediate field of ℂ/ℚ) of degree h containing α := e^l, β and γ := e^{βl}; m := 2h + 2; c_0 ≥ 1 an integer with c_0α, c_0β, c_0γ integral. For positive integers n, q with q² = 2mn and η = (η_{ab})_{1≤a,b≤q} put R_η(z) := Σ_{a,b=1}^{q} η_{ab} e^{(a+bβ)lz}. Constants c_i depend only on the setting (K, l, β, c_0), never on n, q, r. There is c_3 ≥ 1 such that, for n, q, η, r, t_0 as in DiophantineApproximationAndTranscendence:DT.3/gelfond-first-nonvanishing-derivative and ρ as in DiophantineApproximationAndTranscendence:DT.3/gelfond-arithmetic-lower-bound: |ρ| = |l|^{−r}|R_η^{(r)}(t_0)| ≤ c_3^r r^{((3−m)r+1)/2}. Proposed declaration: GelfondSchneider.norm_gelfond_value_le.
+
+### DiophantineApproximationAndTranscendence:DT.3/gelfond-schneider
+
+Statement: Let λ ∈ 𝓛 with λ ≠ 0 and let β be an algebraic number with β ∉ ℚ. Then e^{βλ} is transcendental. Equivalently (Evertse Theorem 4.16): if α, β are algebraic, α ≠ 0, 1, β ∉ ℚ and log α is ANY solution of e^z = α, then α^β := e^{β log α} is transcendental. (The formulation with λ ≠ 0 also covers α = 1 with a nonzero logarithm 2πik.) Proposed declaration: Transcendence.transcendental_exp_mul_of_mem_algebraicLogs.
+
+### DiophantineApproximationAndTranscendence:DT.3/gelfond-schneider-principal-branch
+
+Statement: Let α, β ∈ ℂ be algebraic with α ≠ 0, α ≠ 1, and β ≠ i/j for all integers i, j. Then α^β = exp(log α · β) (Complex.cpow, principal logarithm) is transcendental over ℚ. This is the Lean statement transcendental_cpow_of_isAlgebraic_of_irrational of Karatarakis-Wiedijk. Proposed declaration: transcendental_cpow_of_isAlgebraic_of_irrational.
+
+### DiophantineApproximationAndTranscendence:DT.3/transcendence-of-exp-pi-alpha
+
+Statement: If α is algebraic and α ∉ ℚ·i then e^{πα} is transcendental. In particular e^π is transcendental. Proposed declaration: Transcendence.transcendental_exp_pi_mul.
+
+### DiophantineApproximationAndTranscendence:DT.3/two-logarithms-linear-independence
+
+Statement: If λ_1, λ_2 ∈ 𝓛 are linearly independent over ℚ, they are linearly independent over ℚ̄: for β_1, β_2 algebraic, not both 0, β_1λ_1 + β_2λ_2 ≠ 0. (DALAG Theorem 1.4.) Proposed declaration: Transcendence.linearIndependent_integralClosure_of_two.
+
+### DiophantineApproximationAndTranscendence:DT.3/multi-index-partial-derivative
+
+Statement: For n ∈ ℕ, f : ℂ^n → ℂ (ℂ^n = Fin n → ℂ) and σ ∈ ℕ^n, D^σ f := (∂/∂z_1)^{σ_1} ⋯ (∂/∂z_n)^{σ_n} f, where (∂_i g)(z) := fderiv ℂ g z (e_i) with e_i = Pi.single i 1. Formalised as Baker.mDeriv σ f, iterating ∂_i σ_i times for i = 1, …, n. For entire f (Differentiable ℂ f) the partial derivatives commute, so the order is immaterial. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). Proposed declaration: Baker.mDeriv.
+
+API Baker.mDeriv: D^σ f for σ : Fin n → ℕ.
+
+API Baker.mDeriv_zero: D^0 f = f.
+
+API Baker.mDeriv_add_single: For entire f: D^{σ + e_i} f = ∂_i (D^σ f).
+
+API Baker.mDeriv_add: D^σ (f + g) = D^σ f + D^σ g for entire f, g.
+
+API Baker.differentiable_mDeriv: D^σ f is entire when f is.
+
+API Baker.mDeriv_exp_dotProduct: D^σ (z ↦ e^{w·z}) = w^σ e^{w·z}.
+
+API Baker.mDeriv_monomial_mul_exp: The Leibniz expansion of D^σ(z^τ e^{w·z}) (Lemma 4.9 of the source; node DiophantineApproximationAndTranscendence:DT.3/exponential-monomial-derivatives).
+
+Test Baker.mDeriv_zero_example: mDeriv 0 f = f.
+
+Test Baker.mDeriv_single_mul: For f(z) = z_0 z_1 on ℂ^2: mDeriv (Pi.single 0 1) f = fun z ↦ z 1.
+
+Test Baker.mDeriv_one_variable: For n = 1 and entire g : ℂ → ℂ: mDeriv (fun _ ↦ k) (fun z ↦ g (z 0)) = fun z ↦ iteratedDeriv k g (z 0).
+
+Test Baker.mDeriv_ne_total_derivative: For f(z) = z_0^2 on ℂ^2, mDeriv ![1, 1] f = 0 while iteratedFDeriv ℂ 2 f z ![e_0, e_0] = 2: D^σ is a mixed partial of multi-order σ, not the total derivative of order ‖σ‖ along one direction.
+
+### DiophantineApproximationAndTranscendence:DT.3/several-variable-division-by-linear-factor
+
+Statement: Let f : ℂ^n → ℂ be entire, k ∈ {1, …, n} and ζ ∈ ℂ. Put f_0(z) := f(z with z_k replaced by ζ) and g(z) := ∫_0^1 (∂_k f)(z with z_k replaced by ζ + t(z_k − ζ)) dt. Then g is entire and f = f_0 + (z_k − ζ)·g. If 0 ≤ |ζ| ≤ r < R then |f_0|_R ≤ |f|_R and |g|_R ≤ 2|f|_R/(R − r). If f is a polynomial of degree ≤ e in some variable z_j, so are f_0 and g, and for j = k, g has degree ≤ e − 1 in z_k. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). Proposed declaration: Baker.exists_div_sub_single.
+
+### DiophantineApproximationAndTranscendence:DT.3/several-variable-division-by-one-variable-polynomial
+
+Statement: Let P ∈ ℂ[X] be monic of degree p with all roots in the disc |ζ| ≤ r, let 0 < 5r ≤ R, k ∈ {1, …, n}, and f entire on ℂ^n. There are unique entire f_0, f_k with f = f_0 + f_k·P(z_k) and f_0 a polynomial in z_k of degree < p. Moreover |f_0|_R ≤ 3^p|f|_R and |f_k|_R ≤ (3/R)^p|f|_R; if f is a polynomial of degree ≤ e in z_j (j ≠ k) so are f_0 and f_k. Finally, if (∂_k)^κ f vanishes on {z_k = ζ} for every root ζ of P and every κ < m_P(ζ) (the multiplicity), then f_0 = 0, i.e. f = f_k·P(z_k). Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). Proposed declaration: Baker.exists_div_polynomial.
+
+### DiophantineApproximationAndTranscendence:DT.3/several-variable-division-by-cartesian-polynomials
+
+Statement: Let P_1, …, P_n ∈ ℂ[X] be monic of degrees p_i with all roots in |ζ| ≤ r, 0 < 5r ≤ R, p := max p_i, E_i := P_i^{−1}(0). For every entire f on ℂ^n there are entire f_0, f_1, …, f_n with f = f_0 + Σ_i f_i·P_i(z_i), f_0 a polynomial of degree < p_j in each z_j, f_i a polynomial of degree < p_j in z_j for j > i, and |f_i|_R ≤ 9^{np}R^{−p_i}|f|_R for i = 0, 1, …, n (p_0 := 0). If D^κ f(ζ) = 0 for all ζ ∈ E_1 × ⋯ × E_n and all κ ∈ ℕ^n with κ_i < m_{P_i}(ζ_i) for every i, then f_0 = 0. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). Proposed declaration: Baker.exists_div_cartesian.
+
+### DiophantineApproximationAndTranscendence:DT.3/schwarz-lemma-cartesian-product
+
+Statement: Let E_1, …, E_n ⊆ ℂ be finite sets with S_1 elements each, E := E_1 × ⋯ × E_n, r > 0 with r ≥ max_i max_{ζ∈E_i} |ζ|, and R ≥ 18^n r. Let f be entire on ℂ^n with D^σ f(ξ) = 0 for all ξ ∈ E and all σ ∈ ℕ^n with |σ| < S_0. Then |f|_r ≤ |f|_R·(R/(18^n r))^{−S_0S_1}. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). Proposed declaration: Baker.norm_le_of_vanishing_cartesian.
+
+### DiophantineApproximationAndTranscendence:DT.3/exponential-monomial-derivatives
+
+Statement: Let x_1, …, x_{d_1} and y_1, …, y_{ℓ_1} be in ℂ^n; for t ∈ ℤ^{d_1} write tx := Σ t_ix_i and for s ∈ ℤ^{ℓ_1} write sy := Σ s_jy_j. For τ, σ ∈ ℕ^n define P^{(σs)}_{τt}(X, Y) := Σ_κ ∏_{ν=1}^{n} [σ_ν!τ_ν!/(κ_ν!(σ_ν − κ_ν)!(τ_ν − κ_ν)!)]·(Σ_i t_iX_{νi})^{σ_ν−κ_ν}(Σ_j s_jY_{νj})^{τ_ν−κ_ν} ∈ ℤ[X, Y], κ over 0 ≤ κ_ν ≤ min(σ_ν, τ_ν). Then D^σ(z^τ e^{(tx)·z})(sy) = P^{(σs)}_{τt}(x, y)·∏_{i,j} e^{(x_i·y_j) t_is_j}. The total degree of P^{(σs)}_{τt} in the X-variables is ≤ ‖σ‖, in the Y-variables ≤ ‖τ‖, and for T ≥ max(‖t‖, 1), S ≥ max(‖s‖, 1) its length (sum of absolute values of coefficients) is ≤ T^{‖σ‖}S^{‖τ‖} min{(1 + |τ|/(TS))^{‖σ‖}, (1 + |σ|/(TS))^{‖τ‖}}. Proposed declaration: Baker.mDeriv_monomial_mul_exp.
+
+### DiophantineApproximationAndTranscendence:DT.3/thue-siegel-lemma-for-inequalities
+
+Statement: Let v_{ij} ∈ ℝ (1 ≤ i ≤ ν, 1 ≤ j ≤ μ), U a positive integer with U ≥ max_j Σ_i |v_{ij}|, and X, ℓ positive integers with ℓ^μ < (X + 1)^ν. Then there are ξ_1, …, ξ_ν ∈ ℤ with 0 < max_i |ξ_i| ≤ X and max_j |Σ_i v_{ij}ξ_i| ≤ UX/ℓ. Proposed declaration: Baker.exists_int_vec_small_real.
+
+### DiophantineApproximationAndTranscendence:DT.3/thue-siegel-lemma-complex-coefficients
+
+Statement: Let X be a positive integer, U, V > 0 and u_{ij} ∈ ℂ (1 ≤ i ≤ ν, 1 ≤ j ≤ μ) with Σ_i |u_{ij}| ≤ e^U for all j and (√2·X·e^{U+V} + 1)^{2μ} ≤ (X + 1)^ν. Then there is (ξ_1, …, ξ_ν) ∈ ℤ^ν with 0 < max|ξ_i| ≤ X and max_j |Σ_i u_{ij}ξ_i| ≤ e^{−V}. Proposed declaration: Baker.exists_int_vec_small_complex.
+
+### DiophantineApproximationAndTranscendence:DT.3/cauchy-inequalities-polydisc
+
+Statement: Let f be entire on ℂ^n and r > 0. For every σ ∈ ℕ^n: |D^σ f(0)| ≤ σ!·r^{−‖σ‖}·|f|_r; and for ζ ∈ ℂ^n with r ≥ 1 + |ζ|: |D^σ f(ζ)| ≤ σ!·(r − |ζ|)^{−‖σ‖}|f|_r ≤ σ!·|f|_r. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). Proposed declaration: Baker.norm_mDeriv_le.
+
+### DiophantineApproximationAndTranscendence:DT.3/truncated-taylor-interpolation
+
+Statement: Let 0 < r < R, T a positive integer and F entire on ℂ^n. Then |F|_r ≤ (1 + T)(r/R)^T|F|_R + Σ_{‖τ‖<T} |D^τF(0)|·r^{‖τ‖}/τ!. (The source has the factor 1 + √T, obtained with Parseval's formula; the factor 1 + T follows from Cauchy's inequalities and suffices for every use.) Proposed declaration: Baker.norm_le_truncatedTaylor.
+
+### DiophantineApproximationAndTranscendence:DT.3/auxiliary-function-small-on-polydisc
+
+Statement: Let L, n be positive integers, N, U, V, R, r positive reals and φ_1, …, φ_L entire on ℂ^n. Put W := N + U + V and assume W ≥ 12n², e ≤ R/r ≤ e^{W/6}, Σ_λ |φ_λ|_R ≤ e^U and (2W)^{n+1} ≤ L·N·(log(R/r))^n. Then there are p_1, …, p_L ∈ ℤ with 0 < max|p_λ| ≤ e^N such that F := Σ p_λφ_λ satisfies |F|_r ≤ e^{−V}. Proposed declaration: Baker.exists_auxiliary_small.
+
+### DiophantineApproximationAndTranscendence:DT.3/exponential-polynomial-identity-one-variable
+
+Statement: Let λ_1, …, λ_r ∈ ℂ be pairwise distinct and p_1, …, p_r ∈ ℂ[X]. If Σ_k p_k(s)e^{λ_k s} = 0 for all s ∈ ℂ, then p_1 = ⋯ = p_r = 0. Proposed declaration: Baker.eq_zero_of_sum_polynomial_mul_exp.
+
+### DiophantineApproximationAndTranscendence:DT.3/exponential-monomials-linearly-independent
+
+Statement: Let 0 ≤ d_0 ≤ n and x_1, …, x_{d_1} ∈ ℂ^n be linearly independent over ℚ. Then the functions z ↦ z_1^{τ_1}⋯z_{d_0}^{τ_{d_0}} e^{(t_1x_1+⋯+t_{d_1}x_{d_1})·z} on ℂ^n, for (τ, t) ∈ ℕ^{d_0} × ℕ^{d_1}, are linearly independent over ℂ. Proposed declaration: Baker.linearIndependent_monomial_exp.
+
+### DiophantineApproximationAndTranscendence:DT.3/schneider-lang-liouville-lower-bound
+
+Statement: Setting SL: integers 0 ≤ d_0 ≤ n < d := d_0 + d_1; x_1, …, x_{d_1} ∈ ℚ̄^n linearly independent over ℚ; (y_1, …, y_n) a basis of ℂ^n, y_j = (y_{1j}, …, y_{nj}); K ⊆ ℂ a number field containing all y_{hj} (1 ≤ h ≤ d_0), all e^{x_i·y_j} and all coordinates x_{νi}. For integers T_0, T_1 ≥ 2, L := (T_0 + 1)^{d_0}(T_1 + 1)^{d_1} and φ_1, …, φ_L the functions z^τ e^{(tx)·z} with 0 ≤ τ_h ≤ T_0 (h ≤ d_0, τ_h = 0 for h > d_0) and 0 ≤ t_i ≤ T_1; for s ∈ ℕ^n, sy := Σ s_jy_j. Constants c_i ≥ 1 depend only on (d_0, d_1, n, x, y, K). Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). There is c_1 ≥ 1 such that: if F = Σ_λ p_λφ_λ with p_λ ∈ ℤ, max|p_λ| ≤ e^N (N > 0), σ ∈ ℕ^n, s ∈ ℕ^n with |s| < S_1, and D^σF(sy) ≠ 0, then log|D^σF(sy)| ≥ −c_1(N + ‖σ‖ log T_1 + T_0 log(S_1 + ‖σ‖) + T_1S_1). Proposed declaration: Baker.schneiderLang_liouville_bound.
+
+### DiophantineApproximationAndTranscendence:DT.3/schneider-lang-auxiliary-function-vanishing
+
+Statement: Setting SL: integers 0 ≤ d_0 ≤ n < d := d_0 + d_1; x_1, …, x_{d_1} ∈ ℚ̄^n linearly independent over ℚ; (y_1, …, y_n) a basis of ℂ^n, y_j = (y_{1j}, …, y_{nj}); K ⊆ ℂ a number field containing all y_{hj} (1 ≤ h ≤ d_0), all e^{x_i·y_j} and all coordinates x_{νi}. For integers T_0, T_1 ≥ 2, L := (T_0 + 1)^{d_0}(T_1 + 1)^{d_1} and φ_1, …, φ_L the functions z^τ e^{(tx)·z} with 0 ≤ τ_h ≤ T_0 (h ≤ d_0, τ_h = 0 for h > d_0) and 0 ≤ t_i ≤ T_1; for s ∈ ℕ^n, sy := Σ s_jy_j. Constants c_i ≥ 1 depend only on (d_0, d_1, n, x, y, K). Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). There are constants c_2, …, c_8 such that the following holds for all integers S_0, S_1 ≥ 2 and reals E ≥ e with L ≥ 6^{2n+2}n^{2n}c_1, T_0 log(S_1E) + T_1S_1E ≤ c_5L^{1/n} log E (4.15), L^{1/n} log E > c_7(S_0 log(S_0T_1) + T_0 log(S_0S_1E) + T_1S_1E) (4.17) and S_0S_1 ≥ c_8L^{1/n} (4.18): putting U := c_3L^{1/n} log E and N := c_4U, there are p_λ ∈ ℤ, not all 0, |p_λ| ≤ e^N, such that F := Σ p_λφ_λ is not identically zero, |F|_{c_2S_1} ≤ e^{−U}, and D^σF(sy) = 0 for all σ ∈ ℕ^n with |σ| < S_0 and all s ∈ ℕ^n with |s| < S_1. Proposed declaration: Baker.schneiderLang_exists_vanishing.
+
+### DiophantineApproximationAndTranscendence:DT.3/schneider-lang-extrapolation-upper-bound
+
+Statement: Setting SL: integers 0 ≤ d_0 ≤ n < d := d_0 + d_1; x_1, …, x_{d_1} ∈ ℚ̄^n linearly independent over ℚ; (y_1, …, y_n) a basis of ℂ^n, y_j = (y_{1j}, …, y_{nj}); K ⊆ ℂ a number field containing all y_{hj} (1 ≤ h ≤ d_0), all e^{x_i·y_j} and all coordinates x_{νi}. For integers T_0, T_1 ≥ 2, L := (T_0 + 1)^{d_0}(T_1 + 1)^{d_1} and φ_1, …, φ_L the functions z^τ e^{(tx)·z} with 0 ≤ τ_h ≤ T_0 (h ≤ d_0, τ_h = 0 for h > d_0) and 0 ≤ t_i ≤ T_1; for s ∈ ℕ^n, sy := Σ s_jy_j. Constants c_i ≥ 1 depend only on (d_0, d_1, n, x, y, K). Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). Let F be as in DiophantineApproximationAndTranscendence:DT.3/schneider-lang-auxiliary-function-vanishing and let S_0' be the largest integer such that D^σF(sy) = 0 for all σ ∈ ℕ^n with ‖σ‖ < S_0' and all s ∈ ℕ^n with |s| < S_1 (so S_0' ≥ S_0, and S_0' < ∞ since F ≢ 0). Choose σ^0, s^0 with ‖σ^0‖ = S_0', |s^0| < S_1 and D^{σ^0}F(s^0y) ≠ 0. There are c_9, c_10 such that for every E' ≥ E: log|D^{σ^0}F(s^0y)| ≤ −(S_0'S_1/(2n)) log E' + c_9S_0' log S_0' + c_10(T_0 log(S_1E') + T_1S_1E'). Proposed declaration: Baker.schneiderLang_upper_bound.
+
+### DiophantineApproximationAndTranscendence:DT.3/schneider-lang-cartesian-products
+
+Statement: Let d_0, d_1, n be integers with 0 ≤ d_0 ≤ n < d_0 + d_1. Let x_1, …, x_{d_1} ∈ ℚ̄^n be linearly independent over ℚ and (y_1, …, y_n) a basis of ℂ^n over ℂ, y_j = (y_{1j}, …, y_{nj}). Then at least one of the (d_0 + d_1)n numbers y_{hj} (1 ≤ h ≤ d_0, 1 ≤ j ≤ n) and e^{x_i·y_j} (1 ≤ i ≤ d_1, 1 ≤ j ≤ n) is transcendental. Proposed declaration: Baker.schneiderLang_cartesian.
+
+### DiophantineApproximationAndTranscendence:DT.3/schneider-lang-homogeneous-corollary
+
+Statement: Let x_1, …, x_d ∈ ℚ̄^n generate a subgroup of rank ≥ n + 1 and let {y_1, …, y_ℓ} ⊆ ℂ^n contain a basis of ℂ^n. Then at least one of the dℓ numbers x_i·y_j (1 ≤ i ≤ d, 1 ≤ j ≤ ℓ) does not belong to 𝓛. Proposed declaration: Baker.schneiderLang_homogeneous.
+
+### DiophantineApproximationAndTranscendence:DT.3/schneider-lang-inhomogeneous-corollary
+
+Statement: Let x_1, …, x_d ∈ ℚ̄^d be linearly independent over ℚ and (y_1, …, y_d) a basis of ℂ^d with first coordinates y_{11}, …, y_{1d} algebraic. Then at least one of the d² numbers x_i·y_j does not belong to 𝓛. Proposed declaration: Baker.schneiderLang_inhomogeneous.
+
+### DiophantineApproximationAndTranscendence:DT.3/baker-theorem-number-field-basis
+
+Statement: Let K ⊆ ℂ be a number field of degree d, (β_1, …, β_d) a basis of K over ℚ, and ℓ_1, …, ℓ_d ∈ 𝓛 with β_1ℓ_1 + ⋯ + β_dℓ_d ∈ ℚ̄. Then ℓ_1 = ⋯ = ℓ_d = 0. Proposed declaration: Baker.eq_zero_of_isAlgebraic_sum_basis_mul.
+
+### DiophantineApproximationAndTranscendence:DT.3/baker-linear-independence-of-logarithms
+
+Statement: Let λ_1, …, λ_m ∈ 𝓛 be linearly independent over ℚ. Then 1, λ_1, …, λ_m are linearly independent over ℚ̄: if β_0, β_1, …, β_m are algebraic and β_0 + β_1λ_1 + ⋯ + β_mλ_m = 0 then β_0 = β_1 = ⋯ = β_m = 0. (Evertse Theorem 5.1: for α_i ∈ ℚ̄ \ {0, 1}, any logarithms log α_i that are ℚ-linearly independent, γ ∈ ℚ̄ and nonzero β_i ∈ ℚ̄: γ + β_1 log α_1 + ⋯ + β_m log α_m ≠ 0; DALAG Theorem 1.6.) Proposed declaration: Transcendence.linearIndependent_cons_one_of_linearIndependent_rat.
+
+### DiophantineApproximationAndTranscendence:DT.3/baker-transcendence-of-linear-form
+
+Statement: Let λ_1, …, λ_n ∈ 𝓛 be linearly independent over ℚ and β_1, …, β_n nonzero algebraic numbers. Then β_1λ_1 + ⋯ + β_nλ_n is transcendental. Proposed declaration: Transcendence.transcendental_sum_mul_of_linearIndependent.
+
+### DiophantineApproximationAndTranscendence:DT.3/baker-product-of-powers-transcendental
+
+Statement: Let α_1, …, α_n be nonzero algebraic numbers that are multiplicatively independent, λ_i any logarithms of α_i (λ_i ∈ 𝓛, e^{λ_i} = α_i), and β_1, …, β_n algebraic with (β_1, …, β_n) ∉ ℚ^n. Then α_1^{β_1}⋯α_n^{β_n} := e^{β_1λ_1+⋯+β_nλ_n} is transcendental. Proposed declaration: Transcendence.transcendental_exp_sum_mul.
+
+### DiophantineApproximationAndTranscendence:DT.3/waldschmidt-linear-independence-measure
+
+Statement: Let m ≥ 1 and C(m) := 2^{m+25}m^{3m+9}. Let λ_1, …, λ_m ∈ 𝓛 be linearly independent over ℚ, α_j := e^{λ_j}, and β_0, …, β_m algebraic numbers, not all zero; D := [ℚ(α_1, …, α_m, β_0, …, β_m) : ℚ]. Let B, E, E* ≥ e and A_1, …, A_m > 0 be reals with log A_j ≥ max{h(α_j), E|λ_j|/D, (log E)/D}, log E* ≥ max{(1/D) log E, log(D/log E)}, B ≥ E*, and either (i) B ≥ max_i (D log A_i)/(log E) and log B ≥ max_{0≤i≤m} h(β_i), or (ii) β_0 = 0, β_i = b_i ∈ ℤ, b_m ≠ 0 and B ≥ max_{1≤j<m}(|b_m|/log A_j + |b_j|/log A_m)(log E)/D. Then Λ := β_0 + β_1λ_1 + ⋯ + β_mλ_m ≠ 0 and |Λ| > exp{−C(m)D^{m+2}(log B)(log A_1)⋯(log A_m)(log E*)(log E)^{−m−1}}. Heights: h(α) is the absolute logarithmic Weil height (Mathlib NumberField.absLogHeight₁) and H_abs(α) = e^{h(α)} (NumberField.absMulHeight₁); for a rational x/y in lowest terms H_abs = max(|x|, |y|) (Rat.mulHeight₁_eq_max). Evertse's naive height H (DT.0/naive-height-of-algebraic-number) satisfies 2^{−d}H(α) ≤ H_abs(α)^d ≤ √(d+1)·H(α) for α of degree d (DT.0/height-comparisons). Proposed declaration: LogarithmicForms.waldschmidt_measure.
+
+### DiophantineApproximationAndTranscendence:DT.3/baker-lower-bounds-for-linear-forms-in-logarithms
+
+Statement: Let m ≥ 1, let λ_1, …, λ_m ∈ 𝓛 (arbitrary logarithms of nonzero algebraic numbers, not assumed ℚ-linearly independent) and D ≥ 1. There is C > 0, depending only on m, D and λ_1, …, λ_m, such that for all algebraic γ, β_1, …, β_m of degree ≤ D with Λ := γ + β_1λ_1 + ⋯ + β_mλ_m ≠ 0: |Λ| ≥ (eB)^{−C}, where B := max(H_abs(γ), H_abs(β_1), …, H_abs(β_m)). With Evertse's naive height H in place of H_abs the statement is equivalent (C changes by a factor depending only on D; DT.0/height-comparisons). C is effectively computable: the proof gives it explicitly from C(m) of DiophantineApproximationAndTranscendence:DT.3/waldschmidt-linear-independence-measure. Heights: h(α) is the absolute logarithmic Weil height (Mathlib NumberField.absLogHeight₁) and H_abs(α) = e^{h(α)} (NumberField.absMulHeight₁); for a rational x/y in lowest terms H_abs = max(|x|, |y|) (Rat.mulHeight₁_eq_max). Evertse's naive height H (DT.0/naive-height-of-algebraic-number) satisfies 2^{−d}H(α) ≤ H_abs(α)^d ≤ √(d+1)·H(α) for α of degree d (DT.0/height-comparisons). Proposed declaration: LogarithmicForms.baker_lower_bound.
+
+### DiophantineApproximationAndTranscendence:DT.3/baker-lower-bound-for-multiplicative-form
+
+Statement: Let α_1, …, α_m be nonzero algebraic numbers. There is C' > 0, depending only on m and α_1, …, α_m (through their degrees and heights), such that for all b ∈ ℤ^m with α_1^{b_1}⋯α_m^{b_m} ≠ 1: |α_1^{b_1}⋯α_m^{b_m} − 1| ≥ (eB)^{−C'}, B := max|b_i|. No choice of logarithm enters the statement; the proof uses the principal logarithm Complex.log. Proposed declaration: LogarithmicForms.baker_lower_bound_prod_sub_one.
+
+### DiophantineApproximationAndTranscendence:DT.3/matveev-corollary-linear-form-bound
+
+Statement: Let K ⊆ ℂ be a number field of degree D; κ := 1 if K ⊆ ℝ and κ := 2 otherwise. Let α_1, …, α_n ∈ K^×, λ_1, …, λ_n NONZERO logarithms of them (λ_j ∈ 𝓛 \ {0}, e^{λ_j} = α_j, arbitrary branches), b_1, …, b_n ∈ ℤ and Λ := b_1λ_1 + ⋯ + b_nλ_n ≠ 0. Let A_j ≥ max{D·h(α_j), |λ_j|, 0.16} and B* := max|b_j| (or B := max{1, max_j |b_j|A_j/A_n}). Then log|Λ| > −C_1(n)·D²·A_1⋯A_n·log(eD)·log(eB*), where C_1(n) = C_1(n, κ) = min{(1/κ)(en/2)^κ·30^{n+3}·n^{3.5}, 2^{6n+20}}. Heights: h(α) is the absolute logarithmic Weil height (Mathlib NumberField.absLogHeight₁) and H_abs(α) = e^{h(α)} (NumberField.absMulHeight₁); for a rational x/y in lowest terms H_abs = max(|x|, |y|) (Rat.mulHeight₁_eq_max). Evertse's naive height H (DT.0/naive-height-of-algebraic-number) satisfies 2^{−d}H(α) ≤ H_abs(α)^d ≤ √(d+1)·H(α) for α of degree d (DT.0/height-comparisons). Proposed declaration: LogarithmicForms.matveev.
+
+### DiophantineApproximationAndTranscendence:DT.3/matveev-explicit-lower-bound
+
+Statement: Let a_1, …, a_m be nonzero rational numbers and b ∈ ℤ^m with a_1^{b_1}⋯a_m^{b_m} ≠ 1; B := max|b_i|. Then |a_1^{b_1}⋯a_m^{b_m} − 1| ≥ (2/3)·(eB)^{−C'} with C' := (e/2)·m^{4.5}·30^{m+3}·∏_{j=1}^{m} max(1, log H(a_j)), where H(x/y) = max(|x|, |y|) in lowest terms. (Evertse prints |⋯ − 1| ≥ (eB)^{−C'}; the factor 2/3 is what the derivation from Matveev's Corollary 2.3 gives — see sourceIssues.) Proposed declaration: LogarithmicForms.matveev_rat.
+
+### DiophantineApproximationAndTranscendence:DT.3/matveev-multiplicative-form-number-field
+
+Statement: Let L ⊆ ℂ be a number field of degree D, α_1, …, α_n ∈ L^×, b ∈ ℤ^n, B := max|b_j| and Λ := α_1^{b_1}⋯α_n^{b_n} − 1 ≠ 0. Let A_j ≥ max{D·h(α_j), |log α_j|, 0.16} with log the principal logarithm. Then log|Λ| > −3·30^{n+4}(n + 1)^{5.5}D²(1 + log D)(1 + log(nB))A_1⋯A_n. If moreover L ⊆ ℝ, then log|Λ| > −1.4·30^{n+3}n^{4.5}D²(1 + log D)(1 + log B)A_1⋯A_n. Heights: h(α) is the absolute logarithmic Weil height (Mathlib NumberField.absLogHeight₁) and H_abs(α) = e^{h(α)} (NumberField.absMulHeight₁); for a rational x/y in lowest terms H_abs = max(|x|, |y|) (Rat.mulHeight₁_eq_max). Evertse's naive height H (DT.0/naive-height-of-algebraic-number) satisfies 2^{−d}H(α) ≤ H_abs(α)^d ≤ √(d+1)·H(α) for α of degree d (DT.0/height-comparisons). Proposed declaration: LogarithmicForms.matveev_prod_sub_one.
+
+### DiophantineApproximationAndTranscendence:DT.3/laurent-mignotte-nesterenko-two-logarithms
+
+Statement: Let a_1, a_2 be positive rational numbers ≠ 1, b_1, b_2 nonzero integers and Λ := b_1 log a_1 − b_2 log a_2 ≠ 0 (real logarithms). Then log|Λ| ≥ −24.34·(max{log(|b_1|/log H(a_2) + |b_2|/log H(a_1)) + 0.14, 21})²·log H(a_1)·log H(a_2). Proposed declaration: LogarithmicForms.laurent_mignotte_nesterenko.
+
+### DiophantineApproximationAndTranscendence:DT.3/yu-explicit-p-adic-bound
+
+Statement: Let n ≥ 2, α_1, …, α_n nonzero algebraic numbers, K := ℚ(α_1, …, α_n) of degree d, p a prime, 𝔭 a prime ideal of 𝓞_K above p with residue degree f_𝔭, and ord_𝔭 the exponent of 𝔭 in a nonzero fractional ideal. Let b ∈ ℤ^n \ {0} with α_1^{b_1}⋯α_n^{b_n} ≠ 1, and reals h_1, …, h_n with h_j ≥ max(h(α_j), |log α_j|/(10d), log p) (log α_j with imaginary part in (−π, π], i.e. Complex.log). Then ord_𝔭(α_1^{b_1}⋯α_n^{b_n} − 1) < Φ·log(dB), where B := max(|b_1|, …, |b_n|, 3), h' := max(h_1, …, h_n, 1) and Φ := 22000·(9.5(n + 1)d/√(log p))^{2(n+1)}·(p^{f_𝔭} − 1)·h_1⋯h_n·log(10ndh'). No p-adic logarithm occurs in the statement. Heights: h(α) is the absolute logarithmic Weil height (Mathlib NumberField.absLogHeight₁) and H_abs(α) = e^{h(α)} (NumberField.absMulHeight₁); for a rational x/y in lowest terms H_abs = max(|x|, |y|) (Rat.mulHeight₁_eq_max). Evertse's naive height H (DT.0/naive-height-of-algebraic-number) satisfies 2^{−d}H(α) ≤ H_abs(α)^d ≤ √(d+1)·H(α) for α of degree d (DT.0/height-comparisons). Proposed declaration: LogarithmicForms.yu.
+
+### DiophantineApproximationAndTranscendence:DT.3/p-adic-valuation-of-power-minus-one
+
+Statement: Let p be a prime and a ≠ 0 an integer with p | a if p is odd and 4 | a if p = 2. Then for every integer b ≥ 1: |(1 + a)^b − 1|_p = |ab|_p ≥ 1/|ab|; equivalently v_p((1 + a)^b − 1) = v_p(a) + v_p(b). Proposed declaration: LogarithmicForms.padicNorm_one_add_pow_sub_one.
+
+### DiophantineApproximationAndTranscendence:DT.3/p-adic-lower-bound-one-power
+
+Statement: Let p be a prime and a ∈ ℚ^× with |a|_p = 1. There is c ∈ (0, 1], depending only on a and p, such that for every b ∈ ℤ with a^b ≠ 1: |a^b − 1|_p ≥ c·|b|_p ≥ c/|b|. Proposed declaration: LogarithmicForms.padicNorm_pow_sub_one_ge.
+
+### DiophantineApproximationAndTranscendence:DT.3/yu-p-adic-lower-bound
+
+Statement: Let p be a prime, a_1, …, a_m nonzero rational numbers with |a_i|_p = 1, and b ∈ ℤ^m with a_1^{b_1}⋯a_m^{b_m} ≠ 1; B := max|b_i|. Then |a_1^{b_1}⋯a_m^{b_m} − 1|_p ≥ (eB)^{−C}, where C depends only on p, m and a_1, …, a_m; explicitly, for m ≥ 2 one may take C = 2Φ log p with Φ = 22000·(9.5(m + 1)/√(log p))^{2(m+1)}(p − 1)h_1⋯h_m log(10mh'), h_j := max(log H(a_j), |log a_j|/10, log p), h' := max(h_j, 1). The statement is multiplicative: no p-adic logarithm is chosen. Proposed declaration: LogarithmicForms.yu_rat.
+
+### DiophantineApproximationAndTranscendence:DT.4/rational-s-unit-group
+
+Statement: For a finite set S of natural numbers (in applications, of prime numbers), the group of rational S-units is the subgroup U_S := {x ∈ ℚ^× : v_p(x) = 0 for every prime p ∉ S} of ℚ^×, where v_p = padicValRat p. When every element of S is prime, U_S = {±∏_{p∈S} p^{z_p} : z ∈ ℤ^S} (Evertse §5.4), U_S ≅ {±1} × ℤ^S, and x ∈ U_S exactly when |num x| and den x are positive integers composed of primes of S (Nat.factoredNumbers S). The sign is part of U_S; −1 ∈ U_∅.
+
+API DiophantineApproximation.ratSUnits: U_S as a Subgroup ℚˣ for S : Finset ℕ.
+
+API DiophantineApproximation.mem_ratSUnits_iff: x ∈ U_S ↔ ∀ p prime, p ∉ S → padicValRat p x = 0.
+
+API DiophantineApproximation.mem_ratSUnits_iff_num_den: x ∈ U_S ↔ |num x| and den x lie in Nat.factoredNumbers S.
+
+API DiophantineApproximation.mem_ratSUnits_iff_eq_sign_mul_prod: If S consists of primes: x ∈ U_S ↔ x = ε·∏_{p∈S} p^{z_p} for some sign ε and z ∈ ℤ^S (Evertse's definition).
+
+API DiophantineApproximation.ratSUnits_mono: S ⊆ T implies U_S ≤ U_T.
+
+API DiophantineApproximation.ratSUnits_empty: x ∈ U_∅ ↔ x = ±1.
+
+API DiophantineApproximation.ratSUnits_mulEquiv: If S consists of primes, U_S ≃* ℤˣ × Multiplicative (S → ℤ) via x ↦ (sign x, (v_p(x))_p); in particular U_S is finitely generated of rank |S|.
+
+API DiophantineApproximation.ratSUnits_eq_setUnit: If S consists of primes, U_S = Set.unit S' ℚ where S' ⊆ HeightOneSpectrum (𝓞 ℚ) corresponds to S under Rat.HeightOneSpectrum.primesEquiv.
+
+API DiophantineApproximation.mulHeight₁_ratSUnits: For x ∈ U_S: H(x) = max(∏_{p∈S} p^{max(v_p x,0)}, ∏_{p∈S} p^{max(−v_p x,0)}), with H = Height.mulHeight₁ = max(|num|, den).
+
+Test ratSUnits.test_twelve_fifths: 12/5 ∈ U_{2,3,5}.
+
+Test ratSUnits.test_seven: 7 ∉ U_{2,3}; a definition that only asks the primes of S to divide num·den (and forgets the other primes) accepts it.
+
+Test ratSUnits.test_empty: x ∈ U_∅ ↔ x = 1 ∨ x = −1; a definition as the positive S-smooth rationals would lose −1.
+
+Test ratSUnits.test_setUnit: For S consisting of primes, x ∈ U_S ↔ x ∈ Set.unit S' ℚ (Mathlib's S-units for 𝓞 ℚ ⊂ ℚ).
+
+### DiophantineApproximationAndTranscendence:DT.4/bounded-divisor-representatives
+
+Statement: Let K be a number field of degree d, r = rank K its unit rank, u : Fin r → (𝓞 K)^× a family of units, and put c₁(u) := r·Σ_j ‖L(u_j)‖_∞, where L = logEmbedding K (so L(x)_w = m_w log w(x) for the infinite places w ≠ w₀). For α ∈ 𝓞 K define D_u(α) := {γ ∈ 𝓞 K : γ ∣ α and house(γ) ≤ e^{c₁(u)} |N_{K/ℚ}(α)|^{1/d}}. When u has maximal rank and α ≠ 0 this is a finite set containing a unit multiple of every divisor of α (Evertse, Corollary 5.11).
+
+API DiophantineApproximation.boundedDivisors: D_u(α) ⊆ 𝓞 K as above.
+
+API DiophantineApproximation.mem_boundedDivisors: γ ∈ D_u(α) ↔ γ ∣ α ∧ house γ ≤ e^{c₁(u)}|N(α)|^{1/d}.
+
+API DiophantineApproximation.boundedDivisors_finite: α ≠ 0 ⟹ D_u(α) is finite (promoted to the lemma node bounded-divisor-representatives-finite).
+
+API DiophantineApproximation.exists_mem_boundedDivisors_of_dvd: u of maximal rank, α ≠ 0, β ∣ α ⟹ β = ε·γ with γ ∈ D_u(α), ε a unit (promoted to divisors-up-to-units).
+
+API DiophantineApproximation.boundedDivisors_subset_dvd: D_u(α) ⊆ {γ : γ ∣ α}.
+
+API DiophantineApproximation.one_mem_boundedDivisors: α ≠ 0 ⟹ 1 ∈ D_u(α) (since |N(α)| ≥ 1 and house 1 = 1).
+
+API DiophantineApproximation.boundedDivisors_mul_unit: D_u(ηα) = D_u(α) for every unit η.
+
+Test boundedDivisors.test_rat: For K = ℚ and m ≠ 0: D(m) = {γ : γ ∣ m ∧ |γ| ≤ |m|}.
+
+Test boundedDivisors.test_six: For K = ℚ: D(6) = {±1, ±2, ±3, ±6}.
+
+Test boundedDivisors.test_unit: If α is a unit then every element of D_u(α) is a unit.
+
+Test boundedDivisors.test_all_divisors_infinite: If rank K ≥ 1 then {γ : γ ∣ 1} (all units) is infinite; a definition without the house bound would not give a finite set.
+
+### DiophantineApproximationAndTranscendence:DT.4/log-linear-inequality-bound
+
+Statement: Let a ∈ ℝ, b > 0 and x > 0 with x ≤ a + b·log x. Then x ≤ 2a + 2b(log(2b) − 1). In particular, if a = b > 0 then x ≤ 2b·log(2b).
+
+### DiophantineApproximationAndTranscendence:DT.4/conjugate-invariance-of-degree-and-height
+
+Statement: Let K be a number field, α ∈ K and σ : K →+* ℂ. Then minpoly_ℚ(σ(α)) = minpoly_ℚ(α). Consequently deg σ(α) = deg α, H(σ(α)) = H(α) for the naive height of DT.0 (the maximum of the coefficients of the primitive minimal polynomial) and M(σ(α)) = M(α). Hence every constant that depends only on the degrees and heights of α_1, …, α_m (as in Evertse's Theorem 5.2, Corollary 5.3, Theorem 5.4) takes the same value for (σ(α_1), …, σ(α_m)).
+
+### DiophantineApproximationAndTranscendence:DT.4/unit-conjugate-log-bound
+
+Statement: Let K be a number field of degree d and u ∈ (𝓞 K)^×. Then house(u) ≥ 1 and, for every embedding σ : K →+* ℂ, house(u)^{−(d−1)} ≤ |σ(u)| ≤ house(u); hence |log|σ(u)|| ≤ (d − 1)·log house(u).
+
+### DiophantineApproximationAndTranscendence:DT.4/small-conjugate-of-unit
+
+Statement: Let K be a number field of degree d ≥ 2 and y ∈ (𝓞 K)^×. There is an embedding σ : K →+* ℂ with |σ(y)| ≤ house(y)^{−1/(d−1)}.
+
+### DiophantineApproximationAndTranscendence:DT.4/unit-exponent-house-bound
+
+Statement: Let K be a number field of degree d, r = rank K, and u : Fin r → (𝓞 K)^× a family of maximal rank (IsMaxRank u: the vectors L(u_j) = logEmbedding(u_j) are ℝ-linearly independent). Let T_u : logSpace K → ℝ^r be the coordinate map of the basis basisOfIsMaxRank u and κ(u) := ‖T_u‖ its operator norm for the sup norms (equal to the maximal absolute row sum of the inverse of the r×r matrix (m_w log w(u_j))). If x ∈ (𝓞 K)^×, ζ ∈ torsion K and e ∈ ℤ^r satisfy x = ζ·∏_j u_j^{e_j}, then |e_j| ≤ 2(d − 1)·κ(u)·log house(x) for every j.
+
+### DiophantineApproximationAndTranscendence:DT.4/unit-lattice-covering-bound
+
+Statement: Let K be a number field and u : Fin r → (𝓞 K)^× of maximal rank. For every v ∈ logSpace K there is n ∈ ℤ^r with ‖v − L(∏_j u_j^{n_j})‖_∞ ≤ Σ_j ‖L(u_j)‖_∞.
+
+### DiophantineApproximationAndTranscendence:DT.4/balanced-unit-multiple
+
+Statement: Let K be a number field of degree d, u : Fin r → (𝓞 K)^× of maximal rank and c₁(u) := r·Σ_j ‖L(u_j)‖_∞. For every nonzero α ∈ 𝓞 K there is ε = ∏_j u_j^{n_j} such that |log w(εα) − (1/d)·log|N_{K/ℚ}(α)|| ≤ c₁(u) for every infinite place w. Consequently e^{−c₁}|N(α)|^{1/d} ≤ |σ(εα)| ≤ e^{c₁}|N(α)|^{1/d} for every embedding σ, and in particular house(εα) ≤ e^{c₁(u)}|N(α)|^{1/d}.
+
+### DiophantineApproximationAndTranscendence:DT.4/bounded-divisor-representatives-finite
+
+Statement: Let K be a number field, u : Fin r → (𝓞 K)^× and α ∈ 𝓞 K nonzero. Then D_u(α) (bounded-divisor-representatives) is finite.
+
+### DiophantineApproximationAndTranscendence:DT.4/divisors-up-to-units
+
+Statement: Let K be a number field, u : Fin r → (𝓞 K)^× of maximal rank and α ∈ 𝓞 K nonzero. For every β ∈ 𝓞 K with β ∣ α there are γ ∈ D_u(α) and ε ∈ (𝓞 K)^× with β = εγ.
+
+### DiophantineApproximationAndTranscendence:DT.4/prime-power-exponent-height-bound
+
+Statement: For a prime p and a positive integer n: v_p(n)·log p ≤ log n. Consequently, for x ∈ U_S written x = u/w in lowest terms, |v_p(x)|·log p ≤ log max(|u|, w) = log H(x) for every prime p, and |v_p(x)| ≤ log H(x)/log 2.
+
+### DiophantineApproximationAndTranscendence:DT.4/pillai-difference-lower-bound
+
+Statement: Let a, b ≥ 2 be integers and C₁ > 0 such that for all integers k, l with b^k a^{−l} ≠ 1: |b^k a^{−l} − 1| ≥ (e·max(1, |k|, |l|))^{−C₁} (this is Corollary 5.3, or Theorem 5.4, for the pair (b, a)). Then for all positive integers m, n with a^m ≠ b^n: |a^m − b^n| ≥ max(a^m, b^n)·(e·max(m, n))^{−C₁}.
+
+### DiophantineApproximationAndTranscendence:DT.4/pillai-equation-exponent-bound
+
+Statement: Let a, b ≥ 2, k ≠ 0 be integers and C₁ > 0 as in pillai-difference-lower-bound. Every pair of positive integers (m, n) with a^m − b^n = k satisfies max(m, n) ≤ 2(log|k| + C₁)/log 2 + 2(C₁/log 2)(log(2C₁/log 2) − 1).
+
+### DiophantineApproximationAndTranscendence:DT.4/pillai-equation-effective-finiteness
+
+Statement: For integers a, b ≥ 2 and k ≠ 0 the set {(m, n) ∈ ℤ_{>0}² : a^m − b^n = k} is finite, and each element satisfies max(m, n) ≤ 2(log|k| + C₁)/log 2 + 2(C₁/log 2)(log(2C₁/log 2) − 1) with C₁ = (e/2)·2^{4.5}·30^5·max(1, log a)·max(1, log b), Matveev's constant (Evertse, Theorem 5.4, with m = 2 and H(a) = a, H(b) = b).
+
+### DiophantineApproximationAndTranscendence:DT.4/gaps-between-s-integers-lower-bound
+
+Statement: Let S be a finite set of primes and C > 0 such that for every b ∈ ℤ^S with ∏_{p∈S} p^{b_p} ≠ 1: |∏_{p∈S} p^{b_p} − 1| ≥ (e·max_p|b_p|)^{−C} (Corollary 5.3 for the primes of S). Then for all positive integers x < y composed of primes of S (Nat.factoredNumbers S): y − x ≥ y·(e·log y/log 2)^{−C}.
+
+### DiophantineApproximationAndTranscendence:DT.4/tijdeman-gap-theorem
+
+Statement: Let S = {p₁, …, p_t} be a finite set of primes and a₀ < a₁ < a₂ < … the positive integers composed of primes of S. There are effectively computable c₁, c₂ > 0, depending only on S, with a_n − a_{n−1} ≥ a_n/(c₁(log a_n)^{c₂}) for all n ≥ 1; one may take c₂ = C and c₁ = (e/log 2)^C with C the Corollary 5.3 constant for (p₁, …, p_t). More generally y − x ≥ y/(c₁(log y)^{c₂}) for all S-integers x < y.
+
+### DiophantineApproximationAndTranscendence:DT.4/unit-equation-exponent-bound
+
+Statement: Let K be a number field of degree d with unit rank r ≥ 1, u : Fin r → (𝓞 K)^× of maximal rank, α, β ∈ K^×, and C′ > 0 such that for every embedding σ : K →+* ℂ, every γ ∈ {αζ, βζ : ζ ∈ torsion K} and every e ∈ ℤ^r with σ(γ∏_j u_j^{e_j}) ≠ 1: |σ(γ∏_j u_j^{e_j}) − 1| ≥ (e·max(1, max_j|e_j|))^{−C′}. Put κ := 2(d − 1)κ(u) (unit-exponent-house-bound), H := max(house α, house β), A := κ(d − 1)(log H + C′) and B₀ := κ(d − 1)C′. If x, y ∈ (𝓞 K)^× satisfy αx + βy = 1 and x = ζ_x∏u_j^{e_j}, y = ζ_y∏u_j^{f_j} with ζ_x, ζ_y ∈ torsion K, then max_j max(|e_j|, |f_j|) ≤ max(1, 2A + 2B₀(log(2B₀) − 1)).
+
+### DiophantineApproximationAndTranscendence:DT.4/effective-finiteness-for-unit-and-thue-equations
+
+Statement: Let K be a number field and α, β ∈ K^×. The set of (x, y) ∈ (𝓞 K)^× × (𝓞 K)^× with αx + βy = 1 is finite. Effectively: if rank K = 0 the unit group is the finite group torsion K; if rank K ≥ 1, let u = fundSystem K and C′ the maximum of the Corollary 5.3 constants for the finitely many tuples (γ, u_1, …, u_r) and (u_1, …, u_r), γ ∈ {αζ, βζ : ζ ∈ torsion K}, γ ≠ 1; then every solution has exponent vectors (with respect to u) bounded by the bound of unit-equation-exponent-bound, so the solutions lie in the explicit finite region {ζ∏u_j^{e_j} : ζ ∈ torsion K, max|e_j| ≤ B}².
+
+### DiophantineApproximationAndTranscendence:DT.4/siegel-identity
+
+Statement: In every commutative ring, (α₂ − α₃)(X − α₁Y) + (α₃ − α₁)(X − α₂Y) + (α₁ − α₂)(X − α₃Y) = 0. Consequently, in a field, if α₁, α₂, α₃ are pairwise distinct and X − α₃Y ≠ 0, then ((α₂ − α₃)/(α₂ − α₁))·(X − α₁Y)/(X − α₃Y) + ((α₃ − α₁)/(α₂ − α₁))·(X − α₂Y)/(X − α₃Y) = 1.
+
+### DiophantineApproximationAndTranscendence:DT.4/thue-equation-monic-reduction
+
+Statement: Let f ∈ ℤ[X] have degree d ≥ 1 and leading coefficient a₀, F := f.homogenize d (the binary form Σ a_i X^{d−i}Y^i with F(X, 1) = f), g := integralNormalization f (the monic polynomial a₀^{d−1}f(X/a₀)) and G := g.homogenize d. For all x, y, m ∈ ℤ: F(x, y) = m ⟺ G(a₀x, y) = a₀^{d−1}m. Hence (x, y) ↦ (a₀x, y) is a bijection from the solutions of F(x, y) = m onto the solutions (x′, y′) of G(x′, y′) = a₀^{d−1}m with a₀ ∣ x′, and the complex zeros of g are a₀ times those of f (so g has as many distinct zeros as f).
+
+### DiophantineApproximationAndTranscendence:DT.4/thue-form-factorisation
+
+Statement: Let g ∈ ℤ[X] be monic of degree d and K a number field with g = ∏_{i=1}^{d}(X − θ_i) in 𝓞 K[X] (roots listed with multiplicity; roots of a monic integer polynomial are algebraic integers). Then for all x, y ∈ ℤ: G(x, y) = ∏_i (x − θ_i y) in 𝓞 K, where G = g.homogenize d. Consequently, if G(x, y) = m ≠ 0 then every x − θ_i y is a nonzero divisor of m in 𝓞 K and |N_{K/ℚ}(x − θ_i y)| ≤ |m|^{[K:ℚ]}.
+
+### DiophantineApproximationAndTranscendence:DT.4/thue-equation-reduction-to-unit-equations
+
+Statement: Let g ∈ ℤ[X] be monic with three distinct zeros θ₀, θ₁, θ₂ in 𝓞 K (K a number field, u = fundSystem K), m ≠ 0 and D := D_u(m) (bounded-divisor-representatives). For every (x, y) ∈ ℤ² with G(x, y) = m there are μ₀, μ₁, μ₂ ∈ D and units ε₀, ε₁, ε₂ with x − θ_i y = μ_i ε_i, and (X, Y) := (ε₀/ε₂, ε₁/ε₂) solves the unit equation a(μ)X + b(μ)Y = 1 with a(μ) = ((θ₁ − θ₂)/(θ₁ − θ₀))(μ₀/μ₂), b(μ) = ((θ₂ − θ₀)/(θ₁ − θ₀))(μ₁/μ₂). Conversely, when y ≠ 0, λ := (x − θ₀y)/(x − θ₂y) = (μ₀/μ₂)X determines x/y = (θ₀ − λθ₂)/(1 − λ).
+
+### DiophantineApproximationAndTranscendence:DT.4/rational-height-in-number-field
+
+Statement: For every number field K and q ∈ ℚ: Height.mulHeight₁ (q : K) = (Height.mulHeight₁ q)^{[K:ℚ]} = max(|num q|, den q)^{[K:ℚ]}; equivalently logHeight₁_K(q) = [K:ℚ]·log max(|num q|, den q).
+
+### DiophantineApproximationAndTranscendence:DT.4/log-height-of-algebraic-integer-bound
+
+Statement: For a number field K of degree d and α ∈ 𝓞 K: logHeight₁(α) ≤ d·max(0, log house(α)).
+
+### DiophantineApproximationAndTranscendence:DT.4/thue-equation-effective-bound
+
+Statement: Let F ∈ ℤ[X, Y] be a binary form of degree d whose X^d-coefficient a₀ is nonzero and such that F(X, 1) has at least three distinct complex zeros, and let m ≠ 0. Then {(x, y) ∈ ℤ² : F(x, y) = m} is finite. Explicitly, with m′ := a₀^{d−1}m, g, G as in thue-equation-monic-reduction, θ₀, θ₁, θ₂ distinct zeros of g in the splitting field K of g (degree D), u = fundSystem K and B_T the maximum over (μ₀, μ₁, μ₂) ∈ D_u(m′)³ of the unit-equation exponent bound for (a(μ), b(μ)), every solution with y ≠ 0 satisfies log H(a₀x/y) ≤ h_T := 4·log⁺(e^{c₁(u)}|m′|) + 2B_T·Σ_j log house(u_j) + log⁺house(θ₀) + log⁺house(θ₂) + 2 log 2, and every solution satisfies max(|a₀x|, |y|) ≤ |m′|^{1/d}·e^{h_T}.
+
+### DiophantineApproximationAndTranscendence:DT.4/superelliptic-example-reduction
+
+Statement: Let A := {±2^k3^l : k, l ∈ {0, 1, 2}} (18 integers). For every (x, y) ∈ ℤ² with y³ = 2x(x − 3) there are a, b ∈ A and u, v ∈ ℤ with 2x = au³, x − 3 = bv³, and then au³ − 2bv³ = 6. Conversely, a solution (u, v) of au³ − 2bv³ = 6 with au³ even gives x := au³/2, and (x, y) solves y³ = 2x(x − 3) exactly when 2x(x − 3) is a cube. Hence the solution set of y³ = 2x(x − 3) is determined by the 324 Thue equations aU³ − 2bV³ = 6, each of which has finitely many solutions by thue-equation-effective-bound (aX³ − 2b has three distinct zeros).
+
+### DiophantineApproximationAndTranscendence:DT.4/baker-superelliptic-theorem
+
+Statement: Let b ≠ 0 be an integer, n ≥ 2 and f ∈ ℤ[X] without multiple zeros, with deg f ≥ 2 if n ≥ 3 and deg f ≥ 3 if n = 2. Then b·y^n = f(x) has only finitely many solutions (x, y) ∈ ℤ², and they can be determined effectively. Explicitly (Bérczes–Evertse–Győry 2013, Theorems 2.1 and 2.2 with K = ℚ, S = {∞}, N := deg f, ĥ := log max(1, |b|, |coefficients of f|)): every solution satisfies log max(1, |x|), log max(1, |y|) ≤ (6N)^{14n³N³}·e^{8n²N³ĥ} if n ≥ 3, and ≤ (4N)^{212N⁴}·e^{50N⁴ĥ} if n = 2.
+
+### DiophantineApproximationAndTranscendence:DT.4/schinzel-tijdeman-theorem
+
+Statement: Let b ≠ 0 be an integer and f ∈ ℤ[X] of degree N ≥ 2 without multiple zeros. There is an effectively computable C, depending on f and b, such that if b·y^n = f(x) has a solution (x, y) ∈ ℤ² with y ∉ {0, ±1}, then n ≤ C. Explicitly (Bérczes–Evertse–Győry 2013, Theorem 2.3 with K = ℚ, S = {∞}): n ≤ (10N²)^{40N}·e^{11Nĥ}, ĥ = log max(1, |b|, |coefficients of f|).
+
+### DiophantineApproximationAndTranscendence:DT.4/tijdeman-catalan-bound
+
+Statement: There is an effectively computable constant C such that every solution of x^m − y^n = 1 in integers x, y, m, n ≥ 2 satisfies x^m, y^n ≤ C.
+
+### DiophantineApproximationAndTranscendence:DT.4/one-term-p-adic-lower-bound
+
+Statement: Let p be prime and a ∈ ℤ nonzero with p ∣ a, and 4 ∣ a if p = 2. For every positive integer b: v_p((1 + a)^b − 1) = v_p(a) + v_p(b); equivalently |(1 + a)^b − 1|_p = |ab|_p ≥ 1/|ab|.
+
+### DiophantineApproximationAndTranscendence:DT.4/s-unit-equation-coprime-reduction
+
+Statement: Let S be a finite set of primes. For x, y ∈ U_S with x + y = 1 there are pairwise coprime integers u, v, w with w > 0, u + v = w, x = u/w, y = v/w, and |u|, |v|, w composed of primes of S. The map (x, y) ↦ (u, v, w) is a bijection from the solutions of x + y = 1 in U_S² onto such triples, and max_p max(|v_p(x)|, |v_p(y)|) = max_p max(v_p(u), v_p(v), v_p(w)); each prime divides at most one of u, v, w.
+
+### DiophantineApproximationAndTranscendence:DT.4/s-unit-equation-exponent-bound
+
+Statement: Let S be a finite set of primes and C > 0 such that for every p ∈ S, every sign ε ∈ {±1} and every b ∈ ℤ^S with b_p = 0 and ε∏_q q^{b_q} ≠ 1: |ε∏_q q^{b_q} − 1|_p ≥ (e·max(1, max_q|b_q|))^{−C} (this is Theorem 5.16 at p for the rationals −1 and q ∈ S∖{p}, all p-adic units). Then every solution (x, y) ∈ U_S² of x + y = 1 satisfies |v_p(x)|, |v_p(y)| ≤ max(1, (2C/log 2)·log(2C/log 2)) for every prime p.
+
+### DiophantineApproximationAndTranscendence:DT.4/s-unit-equation-effective-finiteness
+
+Statement: For every finite set S of primes, x + y = 1 has only finitely many solutions (x, y) ∈ U_S × U_S, and every solution satisfies |v_p(x)|, |v_p(y)| ≤ max(1, (2C_S/log 2)log(2C_S/log 2)) for all p, where C_S is the maximum over p ∈ S of the Theorem 5.16 constants C(p; −1, (q)_{q∈S∖{p}}). The solutions therefore lie in the explicit finite box {x ∈ U_S : |v_p(x)| ≤ B for p ∈ S}, of 2(2B + 1)^{|S|} elements.
+
+### DiophantineApproximationAndTranscendence:DT.4/s-unit-log-height-identity
+
+Statement: Let K be a number field, S a finite set of finite places and y ∈ K^× with |y|_v = 1 for every finite place v ∉ S. Put ℓ_w(y) := m_w log w(y) for infinite places w and ℓ_v(y) := log|y|_v for v ∈ S. Then Σ_w ℓ_w(y) + Σ_{v∈S} ℓ_v(y) = 0 and logHeight₁(y) = Σ max(0, ℓ(y)) = ½Σ|ℓ(y)| over all places of S ∪ S_∞; in particular max|ℓ(y)| ≤ 2·logHeight₁(y).
+
+### DiophantineApproximationAndTranscendence:DT.4/small-place-of-s-unit
+
+Statement: In the setting of s-unit-log-height-identity, with s := |S| + #(infinite places of K): there is a place v ∈ S ∪ S_∞ with ℓ_v(y) ≤ −logHeight₁(y)/s.
+
+### DiophantineApproximationAndTranscendence:DT.4/exponent-height-bound-for-finitely-generated-groups
+
+Statement: Let K be a number field and γ₁, …, γ_t ∈ K^× multiplicatively independent (∏γ_j^{z_j} a root of unity only for z = 0). Let S be the finite set of finite places where some γ_j is not a unit and ℓ = (ℓ_v)_{v∈S∪S_∞} the S-logarithmic map. Then ℓ(γ₁), …, ℓ(γ_t) are ℝ-linearly independent, and with T_γ a left inverse of z ↦ Σz_jℓ(γ_j) and κ(γ) := 2‖T_γ‖: for every root of unity ζ ∈ K and z ∈ ℤ^t, max_j|z_j| ≤ κ(γ)·logHeight₁(ζ∏_jγ_j^{z_j}).
+
+### DiophantineApproximationAndTranscendence:DT.4/gyory-equation-exponent-bound
+
+Statement: Let K, γ₁, …, γ_t, S, s and κ = κ(γ) be as in exponent-height-bound-for-finitely-generated-groups, a, b ∈ K^×, and C > 0 such that for every c ∈ {aζ, bζ : ζ root of unity in K} and every z ∈ ℤ^t with c∏γ_j^{z_j} ≠ 1: (i) |σ(c∏γ_j^{z_j}) − 1| ≥ (e·max(1, max|z_j|))^{−C} for every embedding σ : K →+* ℂ (Corollary 5.3), and (ii) |c∏γ_j^{z_j} − 1|_v ≥ (e·max(1, max|z_j|))^{−C} for every v ∈ S (Yu's theorem for algebraic numbers). Put M := max(house a, house b, max_{v∈S} max(|a|_v, |b|_v)), A := 2κs(log M + C), B₀ := 2κsC. Then every solution x = ζ_x∏γ_j^{z_j}, y = ζ_y∏γ_j^{w_j} of ax + by = 1 satisfies max_j max(|z_j|, |w_j|) ≤ max(1, 2A + 2B₀(log(2B₀) − 1)).
+
+### DiophantineApproximationAndTranscendence:DT.4/gyory-effective-finiteness
+
+Statement: Let K be a number field, Γ ⊆ K^× a finitely generated subgroup and a, b ∈ K^×. Then ax + by = 1 has only finitely many solutions (x, y) ∈ Γ², and they lie in the explicit finite region of gyory-equation-exponent-bound, where C is the maximum of the Corollary 5.3 constants and of the p-adic constants (Yu's theorem for algebraic numbers) for the finitely many relevant tuples. Theorems 5.12 (Γ = (𝓞 K)^×) and 5.17 (K = ℚ, Γ = U_S) are special cases.
+
+### DiophantineApproximationAndTranscendence:DT.4/s-integral-divisor-representation
+
+Statement: Let K be a number field with class number h, P a finite set of nonzero prime ideals of 𝓞 K, and for 𝔭 ∈ P let π_𝔭 ∈ 𝓞 K generate 𝔭^h. Let Γ_P ⊆ K^× be generated by (𝓞 K)^× and the π_𝔭 (finitely generated). For nonzero m ∈ 𝓞 K there is an explicit finite set M_P(m) ⊆ 𝓞 K∖{0}, one generator for each principal ideal of the form 𝔞·∏_{𝔭∈P}𝔭^{r_𝔭} with 𝔞 ∣ (m) supported outside P and 0 ≤ r_𝔭 < h, such that every nonzero β ∈ 𝓞 K with v_𝔮(β) ≤ v_𝔮(m) for all prime ideals 𝔮 ∉ P lies in μ·Γ_P for some μ ∈ M_P(m).
+
+### DiophantineApproximationAndTranscendence:DT.4/thue-mahler-effective-finiteness
+
+Statement: Let F ∈ ℤ[X, Y] be a binary form of degree d ≥ 3 with X^d-coefficient a₀ ≠ 0 such that F(X, 1) has at least three distinct complex zeros, m ≠ 0 an integer and p₁, …, p_s distinct primes. Then the set of (x, y, z₁, …, z_s) ∈ ℤ² × ℕ^s with gcd(x, y) = 1 and F(x, y) = m·p₁^{z₁}⋯p_s^{z_s} is finite, and its elements lie in an explicit region assembled from the bound of gyory-equation-exponent-bound (as in thue-equation-effective-bound).
+
+### DiophantineApproximationAndTranscendence:DT.5/d-finite-power-series
+
+Statement: Let k ⊆ ℂ be a subfield. A formal power series f ∈ ℂ[[z]] is D-finite over k if there are n ∈ ℕ and polynomials p₀, …, p_n ∈ k[z] with p_n ≠ 0 and Σ_{i=0}^{n} p_i(z)·f^{(i)} = 0, where f^{(i)} is the i-th formal derivative. Equivalently, the k(z)-span of f, f′, f″, … is finite-dimensional; equivalently (when the coefficients of f lie in k) the coefficient sequence is P-recursive: Σ_{i=0}^{r} q_i(n)·c_{n+i} = 0 for all n with q_i ∈ k[X], q_r ≠ 0.
+
+API DiophantineApproximation.IsDFinite: IsDFinite k f for k : Subfield ℂ and f : ℂ[[z]].
+
+API DiophantineApproximation.IsDFinite.add: Sums of D-finite series are D-finite.
+
+API DiophantineApproximation.IsDFinite.mul: Products of D-finite series are D-finite.
+
+API DiophantineApproximation.IsDFinite.derivative: The derivative of a D-finite series is D-finite.
+
+API DiophantineApproximation.IsDFinite.mono: k ≤ k′ and IsDFinite k f imply IsDFinite k′ f.
+
+API DiophantineApproximation.isDFinite_polynomial: A polynomial with coefficients in k is D-finite over k.
+
+API DiophantineApproximation.isDFinite_iff_pRecursive: For f with coefficients in k: D-finite over k iff the coefficient sequence is P-recursive with polynomial coefficients in k[X].
+
+Test IsDFinite.test_exp: PowerSeries.exp ℂ is D-finite over ℚ (f′ − f = 0).
+
+Test IsDFinite.test_polynomial: Every polynomial with coefficients in Q̄ is D-finite over Q̄ (p f′ − p′ f = 0).
+
+Test IsDFinite.test_geometric: Σ zⁿ is D-finite over ℚ ((1 − z) f′ − f = 0).
+
+Test IsDFinite.test_lacunary: Σ z^{2^n} is not D-finite even over ℂ; a definition allowing the coefficients p_i to be arbitrary power series (rather than polynomials) would accept it.
+
+### DiophantineApproximationAndTranscendence:DT.5/minimal-differential-equation
+
+Statement: For a D-finite f over k, its minimal order ord_k(f) is the least n for which an equation Σ_{i=0}^{n} p_i f^{(i)} = 0 with p_i ∈ k[z], p_n ≠ 0 exists (dfiniteOrder). The minimal equations are unique up to a common rational factor: two minimal equations p, p′ satisfy p′_n p_i = p_n p′_i for all i; the monic minimal operator L = ∂^n + Σ_{i<n} (p_i/p_n) ∂^i is Beukers' 'minimal differential equation of f'. A point ξ ∈ ℂ is a singular point of L if the leading coefficient of every minimal equation vanishes at ξ (IsMinimalSingularPoint); a singular point ξ is apparent if L has a basis of solutions holomorphic at ξ.
+
+API DiophantineApproximation.dfiniteOrder: The minimal order of a D-finite series.
+
+API DiophantineApproximation.exists_minimal_equation: There is an equation of order dfiniteOrder.
+
+API DiophantineApproximation.dfiniteOrder_le: Every equation has order ≥ dfiniteOrder.
+
+API DiophantineApproximation.minimal_equation_unique: Two minimal equations are proportional: p′_n p_i = p_n p′_i.
+
+API DiophantineApproximation.dfiniteOrder_eq_zero_iff: dfiniteOrder = 0 iff f = 0.
+
+API DiophantineApproximation.IsMinimalSingularPoint: ξ is a singular point of the minimal equation: the leading coefficient of every minimal equation vanishes at ξ.
+
+Test dfiniteOrder.test_exp: exp has minimal order 1.
+
+Test dfiniteOrder.test_apparent: (z − 1)eᶻ has order 1 and 1 is a singular point of its minimal equation (an apparent one).
+
+Test dfiniteOrder.test_zero: The zero series has order 0.
+
+Test dfiniteOrder.test_no_singularity_exp: exp has no finite singular point; a definition of 'singular point' using an arbitrary (non-minimal) equation such as (z − 1)(f′ − f) = 0 would wrongly report z = 1.
+
+### DiophantineApproximationAndTranscendence:DT.5/e-function
+
+Statement: A sequence a : ℕ → ℂ (the power series f(z) = Σ a_n zⁿ/n!) is an E-function if (i) every a_n is algebraic over ℚ; (ii) f is D-finite over Q̄; (iii) there is C > 0 with |σ(a_n)| ≤ C^{n+1} for every conjugate σ(a_n) (every root of the minimal polynomial of a_n); (iv) there are D > 0 and positive integers d_n ≤ D^{n+1} such that d_n a_m is an algebraic integer for all m ≤ n. The function eFun a : ℂ → ℂ, z ↦ Σ a_n zⁿ/n!, is entire. This is the geometric normalisation of Shidlovskii, André, Beukers and Fischler–Rivoal; Siegel's original definition allowed growth (n!)^ε and is not used.
+
+API DiophantineApproximation.IsEFunction: The structure-valued predicate on coefficient sequences.
+
+API DiophantineApproximation.ePowerSeries: The power series Σ a_n zⁿ/n!.
+
+API DiophantineApproximation.eFun: The entire function z ↦ Σ a_n zⁿ/n!.
+
+API DiophantineApproximation.hurwitzMul: The binomial convolution, so that ePowerSeries (hurwitzMul a b) = ePowerSeries a · ePowerSeries b.
+
+API DiophantineApproximation.ePowerSeries_hurwitzMul: ePowerSeries (hurwitzMul a b) = ePowerSeries a * ePowerSeries b.
+
+API DiophantineApproximation.IsEFunction.add: Sums of E-functions are E-functions.
+
+API DiophantineApproximation.IsEFunction.hurwitzMul: Products of E-functions are E-functions (promoted to e-functions-form-a-ring).
+
+API DiophantineApproximation.IsEFunction.shift: The derivative (shifted coefficients) of an E-function is an E-function.
+
+API DiophantineApproximation.IsEFunction.map_ringEquiv: Applying a ring automorphism σ of ℂ to the coefficients gives an E-function (the Galois conjugate f^σ).
+
+API DiophantineApproximation.IsEFunction.differentiable: eFun a is entire.
+
+API DiophantineApproximation.IsEFunction.hasSum: The series Σ a_n zⁿ/n! converges to eFun a z for every z.
+
+API DiophantineApproximation.IsEFunction.exists_numberField: All coefficients lie in one number field.
+
+Test IsEFunction.test_exp: The constant sequence 1 (the exponential) is an E-function.
+
+Test IsEFunction.test_linear_factor: a_n = n − 1 ((z − 1)eᶻ) is an E-function.
+
+Test IsEFunction.test_exp_sq: e^{z²} (a_{2k} = (2k)!/k!, a_{odd} = 0) is not an E-function in this normalisation; Siegel's (n!)^ε definition would also reject it, but a definition bounding |a_n/n!| instead of |a_n| would accept it.
+
+Test IsEFunction.test_geometric: a_n = n! (the series 1/(1 − z)) is not an E-function; forgetting the factorial normalisation would accept it.
+
+### DiophantineApproximationAndTranscendence:DT.5/g-function
+
+Statement: A sequence a : ℕ → ℂ (the power series Σ a_n zⁿ) is a G-function if its coefficients are algebraic, Σ a_n zⁿ is D-finite over Q̄, all conjugates satisfy |σ(a_n)| ≤ C^{n+1}, and there are positive integers d_n ≤ D^{n+1} with d_n a_m integral for m ≤ n. Equivalently (Fischler–Rivoal), Σ a_n zⁿ is a G-function iff Σ a_n zⁿ/n! is an E-function. G-functions have a positive radius of convergence.
+
+API DiophantineApproximation.IsGFunction: The predicate on coefficient sequences.
+
+API DiophantineApproximation.isGFunction_iff_isEFunction: IsGFunction a ↔ IsEFunction a (Borel transform).
+
+API DiophantineApproximation.IsGFunction.add: Sums of G-functions.
+
+API DiophantineApproximation.IsGFunction.mul: Cauchy products of G-functions.
+
+API DiophantineApproximation.IsGFunction.hasRadius: A G-function converges on a disc of positive radius.
+
+Test IsGFunction.test_log: Σ_{n≥1} zⁿ/n = −log(1 − z) is a G-function.
+
+Test IsGFunction.test_geometric: Σ zⁿ (a_n = 1) is a G-function.
+
+Test IsGFunction.test_exp: a_n = 1/n! is not a G-function (its denominators n! grow faster than Dⁿ); a definition without the denominator condition would accept exp.
+
+Test IsGFunction.test_borel: Σ zⁿ is a G-function exactly when Σ zⁿ/n! = eᶻ is an E-function.
+
+### DiophantineApproximationAndTranscendence:DT.5/mahler-function
+
+Statement: Let q ≥ 2 be an integer. A power series f ∈ ℂ[[z]] with algebraic coefficients is q-Mahler if there are polynomials p₀, …, p_n ∈ Q̄[z], not all zero, with p₀(z)f(z) + p₁(z)f(z^q) + ⋯ + p_n(z)f(z^{qⁿ}) = 0. Equivalently, f is a coordinate of a solution F = (f₁, …, f_m) of a Mahler system F(z) = A(z)F(z^q), A ∈ GL_m(Q̄(z)). The series f(z^r) is expandPow r f.
+
+API DiophantineApproximation.IsMahlerFunction: IsMahlerFunction q f.
+
+API DiophantineApproximation.expandPow: f(z^r) as a power series.
+
+API DiophantineApproximation.IsMahlerFunction.add: Sums of q-Mahler functions are q-Mahler.
+
+API DiophantineApproximation.IsMahlerFunction.mul: Products of q-Mahler functions are q-Mahler.
+
+API DiophantineApproximation.IsMahlerFunction.expandPow: f(z^q) is q-Mahler if f is.
+
+API DiophantineApproximation.isMahlerFunction_of_polynomial: Polynomials with algebraic coefficients are q-Mahler.
+
+API DiophantineApproximation.isMahlerFunction_iff_system: f is q-Mahler iff it is the first coordinate of a solution of F(z) = A(z)F(z^q) with A invertible over ℂ(z) (and algebraic entries).
+
+Test IsMahlerFunction.test_fredholm: Σ z^{2^n} is 2-Mahler.
+
+Test IsMahlerFunction.test_thue_morse: A series with f = (1 − z)f(z²) and algebraic coefficients is 2-Mahler.
+
+Test IsMahlerFunction.test_exp: exp is not q-Mahler for any q ≥ 2 (a transcendental Mahler function has the unit circle as natural boundary); a definition allowing transcendental-coefficient relations with p_i power series would accept it.
+
+Test IsMahlerFunction.test_polynomial: z is q-Mahler (z^q·z − z·z^q = 0 is trivial; use p₀ = z^q, p₁ = −z).
+
+### DiophantineApproximationAndTranscendence:DT.5/mahler-regular-point
+
+Statement: Let q ≥ 2 and A ∈ GL_n(ℂ(z)) (a Mahler system F(z) = A(z)F(z^q)). A point α with 0 < |α| < 1 is regular if for no ℓ ≥ 0 is α^{q^ℓ} a pole of an entry of A or of A⁻¹ (with rational functions in lowest terms, poles are zeros of the denominator RatFunc.denom). Otherwise α is a singularity; the singularities have no accumulation point in the open unit disc.
+
+API DiophantineApproximation.IsMahlerRegularPoint: IsMahlerRegularPoint q A α.
+
+API DiophantineApproximation.isMahlerRegularPoint_iff: Unfolding: 0 < |α| < 1 and no α^{q^ℓ} is a zero of the denominator of an entry of A or A⁻¹.
+
+API DiophantineApproximation.IsMahlerRegularPoint.pow: α regular implies α^q regular.
+
+API DiophantineApproximation.isMahlerRegularPoint_of_polynomial: For polynomial A with unit determinant every α in the punctured disc is regular.
+
+Test IsMahlerRegularPoint.test_fredholm: For A = [[1, 0], [z, 1]] every 0 < |α| < 1 is regular.
+
+Test IsMahlerRegularPoint.test_iterate: For A = (1 − 2z)⁻¹, α = 2^{−1/2} is not regular; a definition testing only ℓ = 0 would call it regular.
+
+Test IsMahlerRegularPoint.test_empty: For the 0 × 0 system every point of the punctured disc is regular.
+
+### DiophantineApproximationAndTranscendence:DT.5/schanuel-conjecture
+
+Statement: SchanuelConjecture is the proposition: for every n and every z₁, …, z_n ∈ ℂ linearly independent over ℚ, the transcendence degree over ℚ of ℚ(z₁, …, z_n, e^{z₁}, …, e^{z_n}) is at least n. It is a statement, not an assumption of the library: every consequence in DT.5 takes it as a hypothesis.
+
+API DiophantineApproximation.SchanuelConjecture: The proposition.
+
+API DiophantineApproximation.SchanuelConjecture.le_trdeg: Applying the hypothesis to a ℚ-linearly independent tuple.
+
+API DiophantineApproximation.schanuel_inequality_of_isAlgebraic: The Schanuel inequality holds unconditionally for algebraic arguments (Lindemann–Weierstrass, DT.3).
+
+API DiophantineApproximation.algebraicIndependent_e_pi_of_schanuel: SchanuelConjecture → e and π algebraically independent (promoted node).
+
+API DiophantineApproximation.logarithmsConjecture_of_schanuel: SchanuelConjecture → LogarithmsAlgebraicIndependenceConjecture (promoted node).
+
+Test SchanuelConjecture.test_hermite: For n = 1, z = 1 the inequality says e is transcendental, which holds unconditionally.
+
+Test SchanuelConjecture.test_dependent: For the ℚ-dependent z = (1, 2): trdeg ℚ(1, 2, e, e²) = 1 < 2; dropping linear independence makes the statement false.
+
+Test SchanuelConjecture.test_zero: n = 0: the inequality 0 ≤ trdeg is trivial.
+
+Test SchanuelConjecture.test_lindemann: For z = (iπ) the inequality reads trdeg ℚ(iπ, −1) ≥ 1, i.e. π is transcendental (true, Lindemann).
+
+### DiophantineApproximationAndTranscendence:DT.5/logarithms-algebraic-independence-conjecture
+
+Statement: LogarithmsAlgebraicIndependenceConjecture is the proposition: if ℓ₁, …, ℓ_n ∈ ℂ are logarithms of algebraic numbers (each e^{ℓ_i} algebraic) and are linearly independent over ℚ, then they are algebraically independent over ℚ.
+
+API DiophantineApproximation.LogarithmsAlgebraicIndependenceConjecture: The proposition.
+
+API DiophantineApproximation.logarithmsConjecture_one: The case n = 1 holds unconditionally (a nonzero logarithm of an algebraic number is transcendental).
+
+API DiophantineApproximation.LogarithmsAlgebraicIndependenceConjecture.transcendental_div: Under the conjecture, ℓ₁/ℓ₂ is transcendental for ℚ-independent logarithms; unconditionally this is Gelfond–Schneider (DT.3).
+
+API DiophantineApproximation.logarithmsConjecture_of_schanuel: Schanuel's conjecture implies it (promoted node).
+
+Test LogarithmsAlgebraicIndependenceConjecture.test_one: A nonzero ℓ with e^ℓ algebraic is transcendental (Hermite–Lindemann), unconditionally.
+
+Test LogarithmsAlgebraicIndependenceConjecture.test_dependent: log 2 and log 4 are algebraically dependent, so ℚ-linear independence cannot be dropped.
+
+Test LogarithmsAlgebraicIndependenceConjecture.test_log2_log3: The conjecture implies that log 2 and log 3 are algebraically independent.
+
+### DiophantineApproximationAndTranscendence:DT.5/holomorphic-solutions-of-linear-systems
+
+Statement: Let A = (A_{ij}) be an n × n matrix of functions holomorphic on the disc |z − z₀| < r. For every y₀ ∈ ℂⁿ there is a unique vector y of functions holomorphic on the whole disc with y(z₀) = y₀ and y′ = A y there. Consequently the holomorphic solutions on the disc form an n-dimensional ℂ-vector space, isomorphic to ℂⁿ by y ↦ y(z₀); the same holds for a scalar equation Σ_{i≤m} p_i y^{(i)} = 0 with p_i holomorphic and p_m nowhere zero on the disc (order m, dimension m).
+
+### DiophantineApproximationAndTranscendence:DT.5/kaehler-differentials-and-transcendence-degree
+
+Statement: Let E/C be a finitely generated field extension of characteristic 0. Then dim_E Ω_{E/C} = trdeg_C E, and for every transcendence basis x₁, …, x_t of E/C the differentials dx₁, …, dx_t form an E-basis of Ω_{E/C}.
+
+### DiophantineApproximationAndTranscendence:DT.5/fibre-dimension-over-the-affine-line
+
+Statement: Let K be a field and A a finitely generated K[z]-algebra which is a domain and torsion-free over K[z]. For ξ ∈ K with A/(z − ξ)A ≠ 0: dim A/(z − ξ)A = dim A − 1, and dim A = trdeg_K Frac(A) = 1 + trdeg_{K(z)} Frac(A). In particular, if A/(z − ξ)A is a domain its fraction field has transcendence degree trdeg_{K(z)} Frac(A) over K.
+
+### DiophantineApproximationAndTranscendence:DT.5/e-functions-form-a-ring
+
+Statement: If a and b are E-functions then so are a + b, the Hurwitz product hurwitzMul a b (the product of the power series Σ a_n zⁿ/n! and Σ b_n zⁿ/n!) and the shift n ↦ a_{n+1} (the derivative).
+
+### DiophantineApproximationAndTranscendence:DT.5/monomials-of-e-functions-solve-a-system
+
+Statement: If F = (f₁, …, f_n) satisfies T(z)F′ = M(z)F with T ∈ ℂ[z] and M ∈ M_n(ℂ[z]), then for every N the vector of monomials f^e = ∏ f_i^{e_i}, |e| = N, satisfies T(z)(f^e)′ = Σ_{e′} M′_{e,e′} f^{e′} for a matrix M′ with polynomial entries (in the entries of M); in particular its singularities lie among the zeros of T. If the f_i are E-functions so are the f^e.
+
+### DiophantineApproximationAndTranscendence:DT.5/rational-e-function-divided-by-vanishing-factor
+
+Statement: If a is an E-function with rational coefficients and f(1) = 0 (f = eFun a), then g(z) = f(z)/(1 − z) is an E-function; its coefficients are b_n = n!·Σ_{k≤n} a_k/k!.
+
+### DiophantineApproximationAndTranscendence:DT.5/shidlovskii-lemma
+
+Statement: Let f be a vector of power series solving f′ = A(z)f, A ∈ M_n(ℂ(z)), with f₁, …, f_n linearly independent over ℂ(z). Let 0 < ε < 1 and N, M positive integers, and let Q, P₁, …, P_n be polynomials of degree ≤ N, not all zero, with Qf − P = O(z^{N+M}). Let Δ(z) be the determinant of the vectors (D − A)^m P, m = 0, …, n − 1. If M > N(1 − ε)/n and N is sufficiently large (in terms of A, f and ε) then Δ ≢ 0. (Lemma I: if Σ P_i f_i has vanishing order ≥ (n − ε)N, the determinant of (D + Aᵗ)^i P, i < n, is nonzero for N large.)
+
+### DiophantineApproximationAndTranscendence:DT.5/chudnovsky-galochkin-condition
+
+Statement: Let (f₁, …, f_n) be a solution of y′ = G(z)y, G ∈ M_n(Q̄(z)), consisting of G-functions linearly independent over Q̄(z). Then the system satisfies Galochkin's condition: writing y^{(s)}/s! = G_s y and q_s for the least common denominator of the coefficients of T(z)^m G_m/m! (m ≤ s), there is C > 0 with q_s ≤ C^s for all s.
+
+### DiophantineApproximationAndTranscendence:DT.5/g-operator-regular-singularity-at-zero
+
+Statement: Let g be a nonzero G-function and L its minimal differential equation of order n. Then z = 0 is a regular point or a regular singular point of L: writing a minimal equation Σ p_i g^{(i)} = 0, ord₀(p_n) − ord₀(p_i) ≤ n − i for all i with p_i ≠ 0 (Fuchs' criterion).
+
+### DiophantineApproximationAndTranscendence:DT.5/laplace-transform-of-e-function
+
+Statement: Let a be an E-function, f = eFun a and g = Σ a_n zⁿ (a G-function). There is R > 0 such that for real x > R: ∫_0^∞ e^{−xt} f(t) dt = (1/x)·g(1/x). Moreover ∫_0^∞ e^{−xt}(d/dt)^k(t^m f(t)) dt = x^k(−d/dx)^m((1/x)g(1/x)), so a differential operator Σ A_{k,m}x^k(−d/dx)^m annihilating (1/x)g(1/x) transforms into Σ A_{k,m}(d/dz)^k z^m annihilating f.
+
+### DiophantineApproximationAndTranscendence:DT.5/andre-theorem-on-e-operators
+
+Statement: Every E-function f satisfies a differential equation z^m y^{(m)} + Σ_{k=0}^{m−1} z^k q_k(z) y^{(k)} = 0 with q_k ∈ Q̄[z] of degree ≤ m − k. In particular f satisfies a nonzero linear differential equation whose only singularities are 0 and ∞.
+
+### DiophantineApproximationAndTranscendence:DT.5/andre-holomorphic-solution-basis
+
+Statement: Let f be an E-function and L its minimal differential equation. At every point z₀ ≠ 0 the equation Ly = 0 has a basis of solutions holomorphic at z₀; hence every singularity of L other than 0 is apparent.
+
+### DiophantineApproximationAndTranscendence:DT.5/andre-vanishing-corollary
+
+Statement: Let f be an E-function with rational coefficients, L its minimal equation, and suppose f(1) = 0. Then every solution of Ly = 0 near z = 1 vanishes at 1; in particular z = 1 is an apparent singularity of L.
+
+### DiophantineApproximationAndTranscendence:DT.5/beukers-vanishing-theorem
+
+Statement: Let f be an E-function with minimal equation L of order n, and ξ ∈ Q̄^× with f(ξ) = 0. Then all solutions of Ly = 0 vanish at z = ξ; in particular ξ is an apparent singularity of L.
+
+### DiophantineApproximationAndTranscendence:DT.5/relation-module-basis-with-full-rank-specialisations
+
+Statement: Let f₁, …, f_n be power series whose K(z)-span has dimension m (K a subfield of ℂ). There is a K[z]-basis C₁, …, C_{n−m} of the module of polynomial relations {c ∈ K[z]ⁿ : Σ c_i f_i = 0} such that for every ξ the specialised vectors C_j(ξ) are linearly independent, i.e. the (n − m) × n matrix (C_{ji}(ξ)) has rank n − m.
+
+### DiophantineApproximationAndTranscendence:DT.5/beukers-linear-relations-theorem
+
+Statement: Let f₁, …, f_n be E-functions solving T(z)f′ = M(z)f with T ∈ Q̄[z], M ∈ M_n(Q̄[z]) (T the common denominator of A = M/T), and ξ ∈ Q̄ with ξT(ξ) ≠ 0. Every Q̄-linear relation Σ λ_i f_i(ξ) = 0 is the specialisation at ξ of a Q̄[z]-linear relation Σ c_i(z) f_i(z) = 0 with c_i(ξ) = λ_i. In particular (Corollary 1.4), if f₁, …, f_n are Q̄(z)-linearly independent then f₁(ξ), …, f_n(ξ) are Q̄-linearly independent.
+
+### DiophantineApproximationAndTranscendence:DT.5/beukers-refined-siegel-shidlovskii
+
+Statement: Let f₁, …, f_n be E-functions solving T(z)f′ = M(z)f with T ∈ Q̄[z], M ∈ M_n(Q̄[z]) (T the common denominator of A = M/T), and ξ ∈ Q̄ with ξT(ξ) ≠ 0. For every homogeneous polynomial P ∈ Q̄[X₁, …, X_n] with P(f₁(ξ), …, f_n(ξ)) = 0 there is Q ∈ Q̄[z][X₁, …, X_n], homogeneous in the X_i of the same degree, with Q(z, f₁(z), …, f_n(z)) ≡ 0 and Q(ξ, X) = P(X). (Adding f₀ = 1 removes the word 'homogeneous'.)
+
+### DiophantineApproximationAndTranscendence:DT.5/siegel-shidlovskii-theorem
+
+Statement: Let f₁, …, f_n be E-functions solving T(z)f′ = M(z)f with T ∈ Q̄[z], M ∈ M_n(Q̄[z]) (T the common denominator of A = M/T), and ξ ∈ Q̄ with ξT(ξ) ≠ 0. Then trdeg_Q̄ Q̄(f₁(ξ), …, f_n(ξ)) = trdeg_{Q̄(z)} Q̄(z)(f₁(z), …, f_n(z)) (equivalently over ℂ(z), by transcendence-over-algebraic-rational-functions).
+
+### DiophantineApproximationAndTranscendence:DT.5/e-function-division-by-vanishing-factor
+
+Statement: If f is an E-function and ξ ∈ Q̄^× with f(ξ) = 0, then f(z)/(z − ξ) is an E-function.
+
+### DiophantineApproximationAndTranscendence:DT.5/beukers-removal-of-nonzero-singularities
+
+Statement: Let f₁, …, f_n be Q̄(z)-linearly independent E-functions solving a first-order system over Q̄(z). There are E-functions e₁, …, e_n and a matrix B ∈ M_n(Q̄[z]) with det B ≠ 0 such that f = B·e and e solves a system with coefficients in Q̄[z, 1/z].
+
+### DiophantineApproximationAndTranscendence:DT.5/lindemann-weierstrass-via-e-functions
+
+Statement: For pairwise distinct algebraic β₁, …, β_n, the numbers e^{β₁}, …, e^{β_n} are linearly independent over Q̄.
+
+### DiophantineApproximationAndTranscendence:DT.5/galochkin-chudnovsky-linear-independence
+
+Statement: Let f₁, …, f_n be G-functions with rational coefficients solving y′ = Gy over Q̄(z) and linearly independent over Q̄(z). There is C > 0 such that f₁(a/b), …, f_n(a/b) are linearly independent over ℚ for all integers a ≠ 0, b > 0 with b > C|a|^{n+1}.
+
+### DiophantineApproximationAndTranscendence:DT.5/transcendence-over-algebraic-rational-functions
+
+Statement: Let f₁, …, f_n ∈ ℂ[[z]] have algebraic coefficients. Then f₁, …, f_n are algebraically independent over ℂ(z) iff no nonzero polynomial P ∈ Q̄[z][X₁, …, X_n] satisfies P(z, f₁, …, f_n) = 0. Hence transcendence degrees over ℂ(z) and over Q̄(z) coincide for such series.
+
+### DiophantineApproximationAndTranscendence:DT.5/nishioka-theorem
+
+Statement: Let q ≥ 2 and f₁, …, f_n power series with algebraic coefficients, convergent on |z| < ρ, solving the Mahler system f(z) = A(z)f(z^q) with A ∈ GL_n(Q̄(z)), and let α ∈ Q̄ with 0 < |α| < ρ be a regular point. Then trdeg_Q̄ Q̄(f₁(α), …, f_n(α)) = trdeg_{Q̄(z)} Q̄(z)(f₁(z), …, f_n(z)).
+
+### DiophantineApproximationAndTranscendence:DT.5/mahler-homogeneous-relations-lift
+
+Statement: Let q ≥ 2 and f₁, …, f_n power series with algebraic coefficients, convergent on the open unit disc, solving the Mahler system f(z) = A(z)f(z^q) with A ∈ GL_n(Q̄(z)), and let α ∈ Q̄ with 0 < |α| < 1 be a regular point. For every homogeneous P ∈ Q̄[X] with P(f(α)) = 0 there is Q ∈ Q̄[z][X], homogeneous of the same degree in X, with Q(z, f(z)) = 0 and Q(α, X) = P(X).
+
+### DiophantineApproximationAndTranscendence:DT.5/mahler-linear-relations-lift
+
+Statement: Let q ≥ 2 and f₁, …, f_n power series with algebraic coefficients, convergent on the open unit disc, solving the Mahler system f(z) = A(z)f(z^q) with A ∈ GL_n(Q̄(z)), and let α ∈ Q̄ with 0 < |α| < 1 be a regular point. Then Rel_Q̄(f₁(α), …, f_n(α)) = ev_α(Rel_{Q̄(z)}(f₁(z), …, f_n(z))); in particular, if f₁, …, f_n are Q̄(z)-linearly independent, f₁(α), …, f_n(α) are Q̄-linearly independent.
+
+### DiophantineApproximationAndTranscendence:DT.5/mahler-values-transcendence-dichotomy
+
+Statement: Let f be a q-Mahler function, α ∈ Q̄ with 0 < |α| < 1 not a pole of f, and k a number field containing α and the coefficients of f. Then f(α) is transcendental or f(α) ∈ k. More generally (Theorem 1.7), if f₁(α), …, f_n(α) are linearly dependent over Q̄ they are linearly dependent over k.
+
+### DiophantineApproximationAndTranscendence:DT.5/lacunary-series-not-rational
+
+Statement: There are no polynomials p, r with r ≠ 0 and r(z)·Σ_{n≥0} z^{2^n} = p(z) in ℂ[[z]].
+
+### DiophantineApproximationAndTranscendence:DT.5/mahler-fredholm-transcendence
+
+Statement: For every algebraic α with 0 < |α| < 1, the number Σ_{n≥0} α^{2^n} is transcendental.
+
+### DiophantineApproximationAndTranscendence:DT.5/nesterenko-theorem
+
+Statement: For every τ in the upper half-plane, with q = e^{2πiτ} (so 0 < |q| < 1), at least three of the four numbers q, P(q) = E₂(τ), Q(q) = E₄(τ), R(q) = E₆(τ) are algebraically independent over ℚ. Here E₂, E₄, E₆ are Mathlib's EisensteinSeries.E2, ModularForm.E₄, ModularForm.E₆ (normalised with constant term 1, P = 1 − 24Σσ₁(n)qⁿ, Q = 1 + 240Σσ₃(n)qⁿ, R = 1 − 504Σσ₅(n)qⁿ).
+
+### DiophantineApproximationAndTranscendence:DT.5/eisenstein-series-values-at-i
+
+Statement: At τ = i: E₂(i) = 3/π, E₆(i) = 0, and q(i) = e^{−2π}.
+
+### DiophantineApproximationAndTranscendence:DT.5/pi-and-exp-pi-algebraically-independent
+
+Statement: π and e^π are algebraically independent over ℚ.
+
+### DiophantineApproximationAndTranscendence:DT.5/ax-constant-coefficient-lemma
+
+Statement: Let F be a field of characteristic 0 with derivations D₁, …, D_k, C = ∩ ker D_j its constants, and x, y ∈ F^n with y_i ≠ 0 and D_j x_i = D_j y_i / y_i for all i, j; put ω_i := dy_i/y_i − dx_i ∈ Ω_{F/C}. If ω₁, …, ω_n are F-linearly dependent in Ω_{F/C}, then they are C-linearly dependent.
+
+### DiophantineApproximationAndTranscendence:DT.5/ax-integer-relation-lemma
+
+Statement: Let F be a field of characteristic 0 with derivations D₁, …, D_k, C = ∩ ker D_j its constants, and x, y ∈ F^n with y_i ≠ 0 and D_j x_i = D_j y_i / y_i for all i, j; put ω_i := dy_i/y_i − dx_i ∈ Ω_{F/C}. If Σ c_i ω_i = 0 with c ∈ Cⁿ nonzero, then there is a nonzero z ∈ ℤⁿ with Σ z_i x_i ∈ C.
+
+### DiophantineApproximationAndTranscendence:DT.5/ax-schanuel-theorem
+
+Statement: Let F be a field of characteristic 0 with derivations D₁, …, D_k, C = ∩ ker D_j its constants, and x, y ∈ F^n with y_i ≠ 0 and D_j x_i = D_j y_i / y_i for all i, j; put ω_i := dy_i/y_i − dx_i ∈ Ω_{F/C}. If x₁, …, x_n are ℚ-linearly independent modulo C, then trdeg_C C(x, y) ≥ n + rank(D_j x_i)_{j,i}. For one derivation with some D x_i ≠ 0: trdeg_C C(x, y) ≥ n + 1.
+
+### DiophantineApproximationAndTranscendence:DT.5/ax-schanuel-power-series
+
+Statement: Let f₁, …, f_n ∈ ℂ[[t₁, …, t_m]] be ℚ-linearly independent modulo ℂ. Then trdeg_ℂ ℂ(f₁, …, f_n, e^{f₁}, …, e^{f_n}) ≥ n + rk J(f), where J(f) = (∂f_i/∂t_j). In one variable, for f_i with zero constant term (n ≥ 1): trdeg ≥ n + 1.
+
+### DiophantineApproximationAndTranscendence:DT.5/weak-ax-schanuel
+
+Statement: In the setting of ax-schanuel-power-series: trdeg_ℂ ℂ(f) + trdeg_ℂ ℂ(e^f) ≥ n + rk J(f).
+
+### DiophantineApproximationAndTranscendence:DT.5/ax-lindemann-weierstrass
+
+Statement: In the setting of ax-schanuel-power-series, if moreover trdeg_ℂ ℂ(f) = rk J(f) (the germ f parametrises an algebraic variety), then e^{f₁}, …, e^{f_n} are algebraically independent over ℂ. Geometrically (with π : ℂⁿ → (ℂ^×)ⁿ the exponential): for an algebraic V ⊆ ℂⁿ, the Zariski closure of π(V) is a finite union of cosets of subtori; a maximal irreducible algebraic subvariety of π⁻¹(W), W ⊆ (ℂ^×)ⁿ algebraic, is a translate of a rational linear subspace.
+
+### DiophantineApproximationAndTranscendence:DT.5/schanuel-implies-e-pi-algebraically-independent
+
+Statement: If SchanuelConjecture holds, then e and π are algebraically independent over ℚ.
+
+### DiophantineApproximationAndTranscendence:DT.5/schanuel-implies-logarithms-conjecture
+
+Statement: SchanuelConjecture implies LogarithmsAlgebraicIndependenceConjecture.
+
+### DiophantineApproximationAndTranscendence:DT.2/grid-floor-capacity
+
+Statement: For s ∈ ℕ and B > 0 real, put a = ⌊B⌋ and b = ⌊s/B⌋. Then s < (2a + 1)(b + 1). These are nonnegative integer floors; the result includes s = 0 and 0 < B < 1.
+
+API DiophantineApproximation.grid_floor_capacity: s < (2⌊B⌋+1)(⌊s/B⌋+1) for s ∈ ℕ and B > 0.
+
+### DiophantineApproximationAndTranscendence:DT.2/univariate-integer-grid-jet
+
+Statement: Let R be a characteristic-zero integral domain, 0 ≠ P ∈ R[X], natDegree P ≤ s with s ∈ ℕ, and B > 0 real. There exist z ∈ ℤ and i ∈ ℕ with |z| ≤ B, i ≤ s/B and (DⁱP)(z) ≠ 0. Here Dⁱ is Mathlib's univariate Hasse derivative and z is cast into R.
+
+API Polynomial.exists_int_grid_hasseDeriv_ne_zero: A bounded integer point and order i ≤ s/B at which the Hasse derivative of a nonzero polynomial of degree ≤ s is nonzero.
+
+### DiophantineApproximationAndTranscendence:DT.2/partial-specialization-jet
+
+Statement: For a commutative semiring R, P ∈ R[X₀,…,Xₙ], a ∈ R, k ∈ ℕ and residual multi-index d ∈ ℕⁿ, let ev₀,a set X₀ = a and retain the other variables. Then Dᵈ(ev₀,a(D^{k e₀}P)) = ev₀,a(D^{(k,d)}P).
+
+API MvPolynomial.hasseDeriv_partial_specialization: A residual Hasse jet after first-coordinate specialization equals the specialization of the full jet.
+
+### DiophantineApproximationAndTranscendence:DT.2/nonzero-partial-grid-specialization
+
+Statement: Let R be a characteristic-zero integral domain, 0 ≠ P ∈ R[X₀,…,Xₙ], deg_{X₀}P ≤ s and B > 0. There exist z ∈ ℤ and k ∈ ℕ with |z| ≤ B and k ≤ s/B such that Q = ev₀,z(D^{k e₀}P) is nonzero and deg_{Xⱼ}Q ≤ deg_{X_{j+1}}P for every residual coordinate j.
+
+API MvPolynomial.exists_int_partial_grid_jet: A bounded first-coordinate point and jet leaving a nonzero residual polynomial with controlled coordinate degrees.
+
+### DiophantineApproximationAndTranscendence:DT.2/rectangular-integer-grid-jet
+
+Statement: Let R be a characteristic-zero integral domain, 0 ≠ P ∈ R[X₁,…,Xₙ], sⱼ ∈ ℕ with deg_{Xⱼ}P ≤ sⱼ and real Bⱼ > 0. There exist zⱼ ∈ ℤ and a nonnegative multi-index d such that |zⱼ| ≤ Bⱼ and dⱼ ≤ sⱼ/Bⱼ for every j, and DᵈP(z) ≠ 0. Constants and n = 0 are included.
+
+API MvPolynomial.exists_rectangular_int_grid_jet: A nonzero mixed Hasse jet with coordinatewise bounded integer point and derivative order.
+
+### DiophantineApproximationAndTranscendence:DT.1/block-linear-monomial-support
+
+Statement: Let R be a commutative semiring, m,N,r natural numbers, A_h an N-by-r matrix, e an X-multiindex and k a Y-multiindex. Set L_hl(T)=Σ_a A_hla T_ha and c_e,k=[T^k]∏_hl L_hl(T)^e_hl. If c_e,k ≠ 0, then Σ_a k_ha=Σ_l e_hl for every block h.
+
+### DiophantineApproximationAndTranscendence:DT.1/block-linear-hasse-chain-rule
+
+Statement: For R,m,N,r,A as in block-linear-monomial-support, any F∈R[X], X-multiindex i and Y-multiindex k satisfy D_Y^k((D_X^i F)(AY))=Σ_{e∈E(k)} c_e,k(A) b(i,e) (D_X^{i+e}F)(AY), as polynomials in Y. Here E(k)={e:Σ_l e_hl=Σ_a k_ha for every h}, c_e,k is the coefficient of T^k in ∏_hl(Σ_a A_hla T_ha)^e_hl, and b(i,e)=∏_hl binom(i_hl+e_hl,i_hl).
+
+### DiophantineApproximationAndTranscendence:DT.1/nonzero-block-linear-jet-extraction
+
+Statement: For R,m,N,r,A,F,i,k as above and y∈R^(mr), if D_Y^k((D_X^iF)(AY))(y)≠0, there is an X-multiindex e with Σ_l e_hl=Σ_a k_ha for each h and (D_X^{i+e}F)(Ay)≠0.
+
+### DiophantineApproximationAndTranscendence:DT.1/hasse-residual-block-degrees
+
+Statement: Let R be a commutative semiring and F∈R[X_hl] be block-homogeneous of natural degrees d_h, meaning every exponent μ in its support satisfies Σ_l μ_hl=d_h. If D^jF≠0, then Σ_l j_hl≤d_h for each h, and every exponent ν in the support of D^jF satisfies Σ_l ν_hl=d_h−Σ_l j_hl.
+
+### DiophantineApproximationAndTranscendence:DT.1/block-linear-degree-bound
+
+Statement: Let R be a commutative semiring, F∈R[X_hl], and d_h∈ℕ. Assume Σ_l μ_hl≤d_h for every μ in the support of F and every h. For any block-linear matrix A_h of size N-by-r, each individual Y_ha-degree of F(AY) is at most d_h.
+
+### DiophantineApproximationAndTranscendence:DT.1/zero-block-forces-degree-zero
+
+Statement: Let R be a commutative semiring and H∈R[X_hl] have block degrees δ_h. If H(x)≠0 and x_h is the zero vector, then δ_h=0.
+
+### DiophantineApproximationAndTranscendence:DT.1/zero-degree-block-independence
+
+Statement: Let R be a commutative semiring and H∈R[X_hl] have block degrees δ_h. If block vectors x,y agree on every block h with δ_h≠0, then H(x)=H(y). Thus all zero-degree blocks can be replaced simultaneously by arbitrary vectors.
+
+### DiophantineApproximationAndTranscendence:DT.2/block-linear-jet-weight-budget
+
+Statement: Let m≥1,N≥2,d_h>0 be natural numbers and ε>0 real. Put w_d(u)=Σ_h(Σ_l u_hl)/d_h. Let X-multiindices i,e and Y-multiindex k, with N−1 parameters per block, satisfy w_d(i)<mε, Σ_l e_hl=Σ_a k_ha and k_ha≤d_h ε/N. Then w_d(i+e)<(2−1/N)mε<2mε.
+
+### DiophantineApproximationAndTranscendence:DT.2/nonzero-block-grid-replacement
+
+Statement: Let K be a field, b_h1,…,b_hr linearly independent vectors of K^N in each of m blocks, choose a₀∈{1,…,r}, and let B≥1. Let H∈K[X_hl] have block degrees δ_h. Suppose z_ha∈ℤ, |z_ha|≤B, and H(x)≠0 for x_h=Σ_a z_ha b_ha. There exist z′_ha∈ℤ with the same bounds such that every x′_h=Σ_a z′_ha b_ha is nonzero and H(x′)=H(x).
+
+### DiophantineApproximationAndTranscendence:DT.2/conditional-nonzero-block-grid-jet
+
+Statement: Let K be a characteristic-zero field, m≥1,N≥2,d_h positive integers, and 0<ε≤1. Let F∈K[X_hl] have block degrees d_h, and for each h let b_h1,…,b_h,N−1 be linearly independent vectors of K^N. Suppose an X-multiindex i has w_d(i)<mε and the polynomial G(Y)=(D^iF)(Σ_a Y_1a b_1a,…,Σ_a Y_ma b_ma) is nonzero. There exist integers z_ha and an X-multiindex j with |z_ha|≤N/ε, every x_h=Σ_a z_ha b_ha nonzero, w_d(j)<(2−1/N)mε, and (D^jF)(x)≠0.
+
+### DiophantineApproximationAndTranscendence:DT.2/hyperplane-jet-restriction
+
+Statement: Under the hypotheses of hyperplane-nonvanishing, let a_(h,1),…,a_(h,N−1) be any basis of V_h. Then there is i with w_d(i)<mΘ such that (D^iF)(Σ_a Y_(1,a)a_(1,a),…,Σ_a Y_(m,a)a_(m,a)) is a nonzero polynomial. This is the precise input of conditional-nonzero-block-grid-jet.
+
+### DiophantineApproximationAndTranscendence:DT.2/block-homogenization
+
+Statement: Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Define H_d(f)=Σ_{e∈supp(f), ∀h t_h(e)≤d_h} coeff_e(f) X^{A_d(e)} in R[X_h0,Y_j], with variables B⊕S. The operation is total: it discards every monomial exceeding one of the block bounds. Under d-boundedness it is the usual product of X_h0^{d_h} times f(Y_j/X_b(j),0), expressed without localization.
