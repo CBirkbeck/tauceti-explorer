@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Fixed-band local-chart Hom-sheaf comparisons and choice-independent common-refinement cocycles: two constructions,12 lemmas,12 API items and8 typed tests; no stage closes. Actual canonical gerbe local covers and overlap refinements: four constructions,19 lemmas,19 API items and18 typed checks; no stage closes. General two-gerbe base-change coherence: six lemmas, six API additions and eight typed checks; no stage closes. Two-gerbe endpoint transport: three constructions, thirteen lemmas, fourteen API additions and nine typed checks; no stage closes. Self-gerbe Hom-sheaf coherence checkpoint:8 lemmas,8 API additions and6 typed checks; no stage or key-definition closure. Native local Hom-sheaf base restriction checkpoint:12 declarations,10 API items and7 typed tests; no stage or key-definition closure. Choice-independent native sheaf transport between local gerbe objects:20 new declarations,15 API items and12 typed tests, including the actual local-object functor and modification naturality. Separate proof evidence compiles without admissions; no stage closure or implementation is claimed. Actual slice Hom sheaves and a functor on fixed-band gerbe modifications, with local sections, compatible simply transitive band actions and transported Isom comparison:28 new declarations,21 API items and22 typed tests. Independent native proof evidence is checked without admissions; no implementation or stage closure is claimed. Native semilinear site restriction of fixed-band Isom actions, with actual modification naturality, pseudofunctor identity/composition comparisons, and restriction-compatible natural local-object transport:18 new declarations,13 API items and14 parameterized tests. The independent proof prototype has no admissions; the roadmap remains partial and every implementation status remains unchecked. Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
+  "summary": "Fixed-band Hom-sheaf chart refinement: one construction, ten lemmas, six API items and eight typed tests; all stages remain partial. Fixed-band local-chart Hom-sheaf comparisons and choice-independent common-refinement cocycles: two constructions,12 lemmas,12 API items and8 typed tests; no stage closes. Actual canonical gerbe local covers and overlap refinements: four constructions,19 lemmas,19 API items and18 typed checks; no stage closes. General two-gerbe base-change coherence: six lemmas, six API additions and eight typed checks; no stage closes. Two-gerbe endpoint transport: three constructions, thirteen lemmas, fourteen API additions and nine typed checks; no stage closes. Self-gerbe Hom-sheaf coherence checkpoint:8 lemmas,8 API additions and6 typed checks; no stage or key-definition closure. Native local Hom-sheaf base restriction checkpoint:12 declarations,10 API items and7 typed tests; no stage or key-definition closure. Choice-independent native sheaf transport between local gerbe objects:20 new declarations,15 API items and12 typed tests, including the actual local-object functor and modification naturality. Separate proof evidence compiles without admissions; no stage closure or implementation is claimed. Actual slice Hom sheaves and a functor on fixed-band gerbe modifications, with local sections, compatible simply transitive band actions and transported Isom comparison:28 new declarations,21 API items and22 typed tests. Independent native proof evidence is checked without admissions; no implementation or stage closure is claimed. Native semilinear site restriction of fixed-band Isom actions, with actual modification naturality, pseudofunctor identity/composition comparisons, and restriction-compatible natural local-object transport:18 new declarations,13 API items and14 parameterized tests. The independent proof prototype has no admissions; the roadmap remains partial and every implementation status remains unchecked. Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2838,6 +2838,18 @@
       "readSections": [
         "Whole displayed Section8.11: definitions, Lemmas8.11.2–8 with proofs and diagrams, both comments.",
         "Local-existence and independent-transition pattern only; exact fixed-band Hom-sheaf equations are authored deductions. Existing E6 and omitted varying-base/SF1 obligation retained."
+      ]
+    },
+    {
+      "id": "OG-chart-refinements-codex-7e92bd",
+      "title": "Fixed-band chart refinements and arbitrary-choice overlap compatibility",
+      "authors": "The Stacks Project Authors; fixed-band deductions by Codex — codex-7e92bd",
+      "edition": "Displayed Section 8.11 read 2026-10-04; exact Mathlib pin",
+      "url": "https://stacks.math.columbia.edu/tag/06NY",
+      "accessDate": "2026-10-04",
+      "readSections": [
+        "Whole displayed Section 8.11: definitions, Lemmas 8.11.2–8 and their proofs/diagrams, both comments.",
+        "Source gives local/canonical compatibility context; exact fixed-band Hom-sheaf refinement formulas are authored deductions. E6 and general varying-base/SF1 obligations remain."
       ]
     }
   ],
@@ -37573,6 +37585,638 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/transport-square",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Base change of diagonal endpoint transport",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportIso_baseChange",
+      "statement": "For q:S→T, X in HomCategory(b,b) and e:x≅y in F(T), native q-pullback of the actual diagonal transport isomorphism followed by BC_q(y,y) equals BC_q(x,x) followed by transport along F(q)(e). Both sides are actual sheaf isomorphisms on C/S.",
+      "hypotheses": [
+        "Work on an arbitrary site (C,J), with an actual Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an actual abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.",
+        "Use all native fixed-band self-transformations and modifications in HomCategory(b,b). The local objects may lie over different bases. Do not assume a global object, neutrality, strictness of F, nonempty section carriers, or a compatible system of overlap choices.",
+        "The overlap-cover lemma itself has no banding parameter. All map-independence and refinement-square statements are restricted to diagonal fixed-band Hom sheaves; arbitrary two-gerbe endpoints do not acquire this independence."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/object-square",
+        "mathlib:CategoryTheory.Iso.ext"
+      ],
+      "proofSteps": [
+        "Apply native Iso.ext to the existing sheaf-map transport/base-change square."
+      ],
+      "acceptance": [
+        "Retain actual native slice pullback comparisons and the independently chosen fibre isomorphisms. Do not identify a chosen isomorphism with a pseudofunctorial pullback merely because its induced fixed-band transport agrees.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply refinement-compatible local Hom-sheaf maps before actual global gluing and the existing supplier’s torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+          "how": "Extend existing diagonal chart comparisons to arbitrary further refinements, without duplicating generic sheaf descent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-refinements-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise fixed-band equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "Local-existence and canonical-transition context only. The exact Hom-sheaf refinement squares and proofs are authored from the explicit native prerequisites. This does not discharge general stack descent or intrinsic band descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/component-square",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Chart transition under an arbitrary refinement",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_pullback",
+      "statement": "For charts i:T→U,j:T→V with x∈F(U),y∈F(V), choose e:F(i)x≅F(j)y. For any q:S→T and independently chosen d:F(q≫i)x≅F(q≫j)y, pull back the chart transition for e and then apply native overMapPullbackComp(q,j); this equals overMapPullbackComp(q,i) followed by the chart transition for d, at every X in HomCategory(b,b). No equation relating e and d is assumed.",
+      "hypotheses": [
+        "Work on an arbitrary site (C,J), with an actual Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an actual abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.",
+        "Use all native fixed-band self-transformations and modifications in HomCategory(b,b). The local objects may lie over different bases. Do not assume a global object, neutrality, strictness of F, nonempty section carriers, or a compatible system of overlap choices.",
+        "The overlap-cover lemma itself has no banding parameter. All map-independence and refinement-square statements are restricted to diagonal fixed-band Hom sheaves; arbitrary two-gerbe endpoints do not acquire this independence."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/transport-square",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/composition",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/iso-independent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/composition",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/component",
+        "mathlib:CategoryTheory.GrothendieckTopology.overMapPullbackComp"
+      ],
+      "proofSteps": [
+        "Keep ci and cj, the two actual pseudofunctor composition isomorphisms. Apply existing base-change composition on both charts.",
+        "Compare d followed by cj with ci followed by F(q)(e) using fixed-band diagonal transport independence. Cancel only actual invertible sheaf maps and apply the transport square. The result retains both native pullback-composition comparisons."
+      ],
+      "acceptance": [
+        "Retain actual native slice pullback comparisons and the independently chosen fibre isomorphisms. Do not identify a chosen isomorphism with a pseudofunctorial pullback merely because its induced fixed-band transport agrees.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply refinement-compatible local Hom-sheaf maps before actual global gluing and the existing supplier’s torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+          "how": "Extend existing diagonal chart comparisons to arbitrary further refinements, without duplicating generic sheaf descent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-refinements-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise fixed-band equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "Local-existence and canonical-transition context only. The exact Hom-sheaf refinement squares and proofs are authored from the explicit native prerequisites. This does not discharge general stack descent or intrinsic band descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/refinement",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The actual Hom-sheaf chart refinement isomorphism",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartRefinement",
+      "statement": "Construct a natural isomorphism ((H_U(x,x;−)⋙i⁎)⋙q⁎)≅(H_U(x,x;−)⋙(q≫i)⁎) on the full fixed-band modification category HomCategory(b,b), with values actual sheaves on C/S. Its data are the native functor associator followed by isoWhiskerLeft of native overMapPullbackComp(q,i).",
+      "hypotheses": [
+        "Work on an arbitrary site (C,J), with an actual Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an actual abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.",
+        "Use all native fixed-band self-transformations and modifications in HomCategory(b,b). The local objects may lie over different bases. Do not assume a global object, neutrality, strictness of F, nonempty section carriers, or a compatible system of overlap choices.",
+        "The overlap-cover lemma itself has no banding parameter. All map-independence and refinement-square statements are restricted to diagonal fixed-band Hom sheaves; arbitrary two-gerbe endpoints do not acquire this independence."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.Functor.associator",
+        "mathlib:CategoryTheory.Functor.isoWhiskerLeft",
+        "mathlib:CategoryTheory.GrothendieckTopology.overMapPullbackComp",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/sheaf-functor"
+      ],
+      "proofSteps": [
+        "Specialize the existing native slice pullback composition to the actual Hom-sheaf functor, keeping the functor associator. No new generic sheaf descent construction is introduced."
+      ],
+      "acceptance": [
+        "Retain actual native slice pullback comparisons and the independently chosen fibre isomorphisms. Do not identify a chosen isomorphism with a pseudofunctorial pullback merely because its induced fixed-band transport agrees.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply refinement-compatible local Hom-sheaf maps before actual global gluing and the existing supplier’s torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+          "how": "Extend existing diagonal chart comparisons to arbitrary further refinements, without duplicating generic sheaf descent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-refinements-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise fixed-band equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "Local-existence and canonical-transition context only. The exact Hom-sheaf refinement squares and proofs are authored from the explicit native prerequisites. This does not discharge general stack descent or intrinsic band descent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartRefinement_app",
+          "role": "compatibility",
+          "statement": "At each X in HomCategory(b,b), the refinement isomorphism is exactly native overMapPullbackComp(q,i) evaluated at the actual fibreHomSheaf(b,b,U,x,x,X)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartRefinement_hom",
+          "role": "compatibility",
+          "statement": "The forward component at X of the Hom-sheaf refinement equals the hom of native overMapPullbackComp(q,i) at H_U(x,x;X), with its actual iterated and direct pullback endpoints."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartRefinement_inv",
+          "role": "compatibility",
+          "statement": "The inverse component at X of the Hom-sheaf refinement equals the inv of native overMapPullbackComp(q,i) at H_U(x,x;X), retaining the reversed endpoints."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_pullbackNatIso",
+          "role": "compatibility",
+          "statement": "Whisker the chart transition for e by q⁎ and follow it by the j-chart refinement. The resulting natural isomorphism equals the i-chart refinement followed by the chart transition for any independently chosen d over S. This equality holds on the entire native category HomCategory(b,b), not merely on selected objects or isomorphism classes."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_pullback_inverse",
+          "role": "compatibility",
+          "statement": "The inverse j-chart refinement followed by the inverse whiskered chart transition equals the inverse deep chart transition followed by the inverse i-chart refinement, for the same arbitrary independent e and d."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_pullback_section",
+          "role": "compatibility",
+          "statement": "For any L∈C/S and actual section p of q⁎i⁎H_U(x,x;X) on L, applying the transition for e on Over.map(q)(L), then the j-refinement, equals applying the i-refinement then the transition for arbitrary d on L. No section existence, faithfulness of restrictions, or global object is assumed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartRefinementTests.native_inverse",
+          "kind": "computation",
+          "statement": "The actual forward refinement followed by its inverse is identity, and the inverse component is exactly the native slice-pullback composition inverse."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartRefinementTests.empty_sections",
+          "kind": "degenerate",
+          "statement": "Empty sections of the iterated pullback force empty sections of the direct pullback via the actual inverse refinement; no section is chosen."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartRefinementTests.arbitrary_section",
+          "kind": "compatibility",
+          "statement": "An arbitrary section on an arbitrary object of C/S satisfies the refinement square with an independently chosen deep overlap map."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartRefinementTests.independent_choice",
+          "kind": "non-example",
+          "statement": "Retain a supplied witness d≠a for two deep fibre isomorphisms, while their induced chart transitions agree and either gives the full refinement square. This conditional test does not construct distinct isomorphisms in every gerbe."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartRefinementTests.covered_refinement",
+          "kind": "compatibility",
+          "statement": "Actual original overlap membership implies the next overlap sieve is maximal; for every r it supplies membership and the complete chosen-transition refinement square."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartRefinementTests.natural_modifications",
+          "kind": "compatibility",
+          "statement": "The refinement commutes with the composite of two arbitrary native fixed-band modifications, retaining all three actual pullback maps."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartRefinementTests.nonidentity_loop",
+          "kind": "non-example",
+          "statement": "Retain a supplied nonidentity chart automorphism while its pulled-back transition followed by refinement equals refinement. Existence of nonidentity automorphisms on every gerbe is not claimed."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartRefinementTests.refined_cocycle",
+          "kind": "compatibility",
+          "statement": "Pulling back the composite of two chart transitions and then refining the last chart equals refining the first chart and using an independently chosen direct deep transition."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/component",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The native refinement component",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartRefinement_app",
+      "statement": "At each X in HomCategory(b,b), the refinement isomorphism is exactly native overMapPullbackComp(q,i) evaluated at the actual fibreHomSheaf(b,b,U,x,x,X).",
+      "hypotheses": [
+        "Work on an arbitrary site (C,J), with an actual Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an actual abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.",
+        "Use all native fixed-band self-transformations and modifications in HomCategory(b,b). The local objects may lie over different bases. Do not assume a global object, neutrality, strictness of F, nonempty section carriers, or a compatible system of overlap choices.",
+        "The overlap-cover lemma itself has no banding parameter. All map-independence and refinement-square statements are restricted to diagonal fixed-band Hom sheaves; arbitrary two-gerbe endpoints do not acquire this independence."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/refinement",
+        "mathlib:CategoryTheory.Iso.app"
+      ],
+      "proofSteps": [
+        "Unfold the actual functor associator and whiskering at X, then use Iso.ext."
+      ],
+      "acceptance": [
+        "Retain actual native slice pullback comparisons and the independently chosen fibre isomorphisms. Do not identify a chosen isomorphism with a pseudofunctorial pullback merely because its induced fixed-band transport agrees.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply refinement-compatible local Hom-sheaf maps before actual global gluing and the existing supplier’s torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+          "how": "Extend existing diagonal chart comparisons to arbitrary further refinements, without duplicating generic sheaf descent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-refinements-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise fixed-band equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "Local-existence and canonical-transition context only. The exact Hom-sheaf refinement squares and proofs are authored from the explicit native prerequisites. This does not discharge general stack descent or intrinsic band descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/hom",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The forward native refinement map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartRefinement_hom",
+      "statement": "The forward component at X of the Hom-sheaf refinement equals the hom of native overMapPullbackComp(q,i) at H_U(x,x;X), with its actual iterated and direct pullback endpoints.",
+      "hypotheses": [
+        "Work on an arbitrary site (C,J), with an actual Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an actual abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.",
+        "Use all native fixed-band self-transformations and modifications in HomCategory(b,b). The local objects may lie over different bases. Do not assume a global object, neutrality, strictness of F, nonempty section carriers, or a compatible system of overlap choices.",
+        "The overlap-cover lemma itself has no banding parameter. All map-independence and refinement-square statements are restricted to diagonal fixed-band Hom sheaves; arbitrary two-gerbe endpoints do not acquire this independence."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/component"
+      ],
+      "proofSteps": [
+        "Apply congrArg Iso.hom to the component equality."
+      ],
+      "acceptance": [
+        "Retain actual native slice pullback comparisons and the independently chosen fibre isomorphisms. Do not identify a chosen isomorphism with a pseudofunctorial pullback merely because its induced fixed-band transport agrees.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply refinement-compatible local Hom-sheaf maps before actual global gluing and the existing supplier’s torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+          "how": "Extend existing diagonal chart comparisons to arbitrary further refinements, without duplicating generic sheaf descent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-refinements-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise fixed-band equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "Local-existence and canonical-transition context only. The exact Hom-sheaf refinement squares and proofs are authored from the explicit native prerequisites. This does not discharge general stack descent or intrinsic band descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/inv",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The inverse native refinement map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartRefinement_inv",
+      "statement": "The inverse component at X of the Hom-sheaf refinement equals the inv of native overMapPullbackComp(q,i) at H_U(x,x;X), retaining the reversed endpoints.",
+      "hypotheses": [
+        "Work on an arbitrary site (C,J), with an actual Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an actual abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.",
+        "Use all native fixed-band self-transformations and modifications in HomCategory(b,b). The local objects may lie over different bases. Do not assume a global object, neutrality, strictness of F, nonempty section carriers, or a compatible system of overlap choices.",
+        "The overlap-cover lemma itself has no banding parameter. All map-independence and refinement-square statements are restricted to diagonal fixed-band Hom sheaves; arbitrary two-gerbe endpoints do not acquire this independence."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/component"
+      ],
+      "proofSteps": [
+        "Apply congrArg Iso.inv to the component equality."
+      ],
+      "acceptance": [
+        "Retain actual native slice pullback comparisons and the independently chosen fibre isomorphisms. Do not identify a chosen isomorphism with a pseudofunctorial pullback merely because its induced fixed-band transport agrees.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply refinement-compatible local Hom-sheaf maps before actual global gluing and the existing supplier’s torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+          "how": "Extend existing diagonal chart comparisons to arbitrary further refinements, without duplicating generic sheaf descent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-refinements-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise fixed-band equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "Local-existence and canonical-transition context only. The exact Hom-sheaf refinement squares and proofs are authored from the explicit native prerequisites. This does not discharge general stack descent or intrinsic band descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/natural-square",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The refinement square on the modification category",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_pullbackNatIso",
+      "statement": "Whisker the chart transition for e by q⁎ and follow it by the j-chart refinement. The resulting natural isomorphism equals the i-chart refinement followed by the chart transition for any independently chosen d over S. This equality holds on the entire native category HomCategory(b,b), not merely on selected objects or isomorphism classes.",
+      "hypotheses": [
+        "Work on an arbitrary site (C,J), with an actual Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an actual abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.",
+        "Use all native fixed-band self-transformations and modifications in HomCategory(b,b). The local objects may lie over different bases. Do not assume a global object, neutrality, strictness of F, nonempty section carriers, or a compatible system of overlap choices.",
+        "The overlap-cover lemma itself has no banding parameter. All map-independence and refinement-square statements are restricted to diagonal fixed-band Hom sheaves; arbitrary two-gerbe endpoints do not acquire this independence."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/component-square",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/hom",
+        "mathlib:CategoryTheory.Functor.isoWhiskerRight"
+      ],
+      "proofSteps": [
+        "Use Iso.ext and NatTrans.ext. At every X the equality is exactly the established component square, after unfolding actual functor components."
+      ],
+      "acceptance": [
+        "Retain actual native slice pullback comparisons and the independently chosen fibre isomorphisms. Do not identify a chosen isomorphism with a pseudofunctorial pullback merely because its induced fixed-band transport agrees.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply refinement-compatible local Hom-sheaf maps before actual global gluing and the existing supplier’s torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+          "how": "Extend existing diagonal chart comparisons to arbitrary further refinements, without duplicating generic sheaf descent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-refinements-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise fixed-band equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "Local-existence and canonical-transition context only. The exact Hom-sheaf refinement squares and proofs are authored from the explicit native prerequisites. This does not discharge general stack descent or intrinsic band descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/inverse-square",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The reverse refinement square",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_pullback_inverse",
+      "statement": "The inverse j-chart refinement followed by the inverse whiskered chart transition equals the inverse deep chart transition followed by the inverse i-chart refinement, for the same arbitrary independent e and d.",
+      "hypotheses": [
+        "Work on an arbitrary site (C,J), with an actual Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an actual abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.",
+        "Use all native fixed-band self-transformations and modifications in HomCategory(b,b). The local objects may lie over different bases. Do not assume a global object, neutrality, strictness of F, nonempty section carriers, or a compatible system of overlap choices.",
+        "The overlap-cover lemma itself has no banding parameter. All map-independence and refinement-square statements are restricted to diagonal fixed-band Hom sheaves; arbitrary two-gerbe endpoints do not acquire this independence."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/natural-square",
+        "mathlib:CategoryTheory.Iso.symm"
+      ],
+      "proofSteps": [
+        "Apply congrArg Iso.symm to the full natural-isomorphism square; reversing the composite reverses the factor order."
+      ],
+      "acceptance": [
+        "Retain actual native slice pullback comparisons and the independently chosen fibre isomorphisms. Do not identify a chosen isomorphism with a pseudofunctorial pullback merely because its induced fixed-band transport agrees.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply refinement-compatible local Hom-sheaf maps before actual global gluing and the existing supplier’s torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+          "how": "Extend existing diagonal chart comparisons to arbitrary further refinements, without duplicating generic sheaf descent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-refinements-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise fixed-band equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "Local-existence and canonical-transition context only. The exact Hom-sheaf refinement squares and proofs are authored from the explicit native prerequisites. This does not discharge general stack descent or intrinsic band descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/section-square",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Refinement on actual sections",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_pullback_section",
+      "statement": "For any L∈C/S and actual section p of q⁎i⁎H_U(x,x;X) on L, applying the transition for e on Over.map(q)(L), then the j-refinement, equals applying the i-refinement then the transition for arbitrary d on L. No section existence, faithfulness of restrictions, or global object is assumed.",
+      "hypotheses": [
+        "Work on an arbitrary site (C,J), with an actual Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an actual abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.",
+        "Use all native fixed-band self-transformations and modifications in HomCategory(b,b). The local objects may lie over different bases. Do not assume a global object, neutrality, strictness of F, nonempty section carriers, or a compatible system of overlap choices.",
+        "The overlap-cover lemma itself has no banding parameter. All map-independence and refinement-square statements are restricted to diagonal fixed-band Hom sheaves; arbitrary two-gerbe endpoints do not acquire this independence."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/natural-square"
+      ],
+      "proofSteps": [
+        "Evaluate the equality of natural isomorphisms at X, take the hom of actual sheaves, evaluate on L and apply to p."
+      ],
+      "acceptance": [
+        "Retain actual native slice pullback comparisons and the independently chosen fibre isomorphisms. Do not identify a chosen isomorphism with a pseudofunctorial pullback merely because its induced fixed-band transport agrees.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply refinement-compatible local Hom-sheaf maps before actual global gluing and the existing supplier’s torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+          "how": "Extend existing diagonal chart comparisons to arbitrary further refinements, without duplicating generic sheaf descent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-refinements-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise fixed-band equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "Local-existence and canonical-transition context only. The exact Hom-sheaf refinement squares and proofs are authored from the explicit native prerequisites. This does not discharge general stack descent or intrinsic band descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/refined-cover",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Every further restriction of an overlap is available",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_refined_cover",
+      "statement": "If q:S→T belongs to the actual overlapCover(F,i,j,x,y), then overlapCover(F,q≫i,q≫j,x,y) is the maximal sieve on S. Thus every r:R→S has the membership needed for the next overlap comparison. This cover statement uses only the pseudofunctor and supplied membership; it does not require an abelian banding.",
+      "hypotheses": [
+        "Work on an arbitrary site (C,J), with an actual Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an actual abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.",
+        "Use all native fixed-band self-transformations and modifications in HomCategory(b,b). The local objects may lie over different bases. Do not assume a global object, neutrality, strictness of F, nonempty section carriers, or a compatible system of overlap choices.",
+        "The overlap-cover lemma itself has no banding parameter. All map-independence and refinement-square statements are restricted to diagonal fixed-band Hom sheaves; arbitrary two-gerbe endpoints do not acquire this independence."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-iso",
+        "mathlib:CategoryTheory.Sieve.ext",
+        "mathlib:CategoryTheory.Functor.mapIso"
+      ],
+      "proofSteps": [
+        "Use Sieve.ext. For every r, map the actual direct overlapIso at q by F(r) to produce an isomorphism of the iterated endpoints required by membership."
+      ],
+      "acceptance": [
+        "Retain actual native slice pullback comparisons and the independently chosen fibre isomorphisms. Do not identify a chosen isomorphism with a pseudofunctorial pullback merely because its induced fixed-band transport agrees.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply refinement-compatible local Hom-sheaf maps before actual global gluing and the existing supplier’s torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+          "how": "Extend existing diagonal chart comparisons to arbitrary further refinements, without duplicating generic sheaf descent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-refinements-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise fixed-band equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "Local-existence and canonical-transition context only. The exact Hom-sheaf refinement squares and proofs are authored from the explicit native prerequisites. This does not discharge general stack descent or intrinsic band descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/overlap-square",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Refining the independently chosen overlap transition",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_refinement",
+      "statement": "Given q in the original overlap cover and any r in the overlap cover for q≫i,q≫j, whisker the actual chosen overlap transition at q by r⁎ and then apply refinement of q≫j. This equals refinement of q≫i followed by the independently chosen next overlap transition. Its direct arrows are r≫(q≫i) and r≫(q≫j); no literal arrow-associativity transport or compatible choice system is silently assumed.",
+      "hypotheses": [
+        "Work on an arbitrary site (C,J), with an actual Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an actual abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.",
+        "Use all native fixed-band self-transformations and modifications in HomCategory(b,b). The local objects may lie over different bases. Do not assume a global object, neutrality, strictness of F, nonempty section carriers, or a compatible system of overlap choices.",
+        "The overlap-cover lemma itself has no banding parameter. All map-independence and refinement-square statements are restricted to diagonal fixed-band Hom sheaves; arbitrary two-gerbe endpoints do not acquire this independence."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/natural-square",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-refinements/refined-cover",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-iso"
+      ],
+      "proofSteps": [
+        "Apply the arbitrary-choice natural refinement square to the two actual direct overlapIso choices. The preceding cover lemma ensures the second membership for every r; no equality of these two chosen isomorphisms is needed."
+      ],
+      "acceptance": [
+        "Retain actual native slice pullback comparisons and the independently chosen fibre isomorphisms. Do not identify a chosen isomorphism with a pseudofunctorial pullback merely because its induced fixed-band transport agrees.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply refinement-compatible local Hom-sheaf maps before actual global gluing and the existing supplier’s torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+          "how": "Extend existing diagonal chart comparisons to arbitrary further refinements, without duplicating generic sheaf descent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-refinements-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise fixed-band equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "Local-existence and canonical-transition context only. The exact Hom-sheaf refinement squares and proofs are authored from the explicit native prerequisites. This does not discharge general stack descent or intrinsic band descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -37802,7 +38446,8 @@
         "The two-gerbe endpoint Hom-sheaf transport, inverse laws, coefficient action, native modification naturality and base-restriction square now have independently checked proof prototypes. General F-to-G base-change unit/composition coherence still requires its two distinct pseudofunctor endpoint comparisons. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added. Every inherited intrinsic descended-band, root-gerbe/H², fpqc-limit and other-stage/source obligation remains.",
         "The general F→G Hom-sheaf base-change unit and composition laws now have checked native proof prototypes, including the two distinct endpoint comparisons, their inverses and naturality on the actual modification category. This resolves the specifically named general-coherence frontier in earlier historical entries. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; stability under a third pullback does not assert a full descent pentagon. All inherited intrinsic descended-band/SF1, nonneutral root-gerbe/H², fpqc-limit and other-stage/source obligations remain.",
         "Canonical local-object and local-isomorphism sieves, actual overlap covering refinements and direct overlap isomorphisms now have checked native prototypes for arbitrary Cat-valued pseudofunctors and gerbes on an arbitrary site. Covering uses the genuine IsGerbe local-existence fields; direct overlap maps retain both F.mapComp endpoint factors. This resolves the explicitly named existence of local covers/refinements, but no compatibility cocycle for independent choices or gluing of Hom sheaves, actions and maps is claimed. D0 torsor packaging, full faithfulness and coherent inverse/unit/counit, intrinsic descended-band/SF1, nonneutral geometric/root-gerbe fixtures and derivedH², compatible fpqc limits and all other-stage/source obligations remain open.",
-        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open.",
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
       ]
     },
     {
