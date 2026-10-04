@@ -1,3 +1,133 @@
+# Nilpotent sections on actual conductor subschemes
+
+Let f:Y→P be finite and schematically dominant. Its full conductor ideal determines a native closed subscheme C_f. When P is affine, a global section a outside that ideal whose nth power vanishes gives a nonzero nilpotent section on C_f through the native quotient-section isomorphism. For a flat q:T→P with T affine, the full conductor comparison identifies the recomputed ideal with I_f.comap q. The section on the recomputed C_(f_q) stays nonzero under the section map of the inverse actual conductorTargetBaseChangeIso. That ring map also preserves its vanishing nth power.
+
+For the diagonal R→R×R, multiplication by (1,0) proves that the contracted full conductor is zero. The actual scheme morphism is finite by the native product finite-module instance and schematically dominant by injectivity, transported through ΓSpecIso. Native affine ideal-sheaf extensionality then proves the entire conductor ideal-sheaf datum is zero. No reducedness or nontriviality is assumed. This supplies actual conductor sections from every nonzero nilpotent element of R.
+
+The retained test over Z/4 now has a native proof with exactly its original header: both morphism hypotheses are derived, and a nonzero square-zero section lies on the actual recomputed conductor subscheme after identity base change and stays nonzero under the actual inverse comparison section map. Five new proved examples cover the zero ring, Z, the cubic nilpotent2 overZ/8, arbitrary universes and preservation of nilpotence by the actual section map. This supersedes the older admitted-only evidence note for that one test. The planning pass is complete under the current300-node budget, with all seven stage coverage statuses still partial and remaining obligations retained for review and follow-up jobs. The complete Tau-importing suggested file remains UNCOMPILED; the independent native and admitted Mathlib slices have their own exact checks. No whole-roadmap closure is asserted.
+
+The actual nonreduced conductor-section test overZ/4 now has a kernel-checked proof with its exact inherited statement. Nine new lemmas derive diagonal finiteness and schematic dominance over arbitrary commutative rings, compute its full conductor ideal, produce nonzero nilpotent sections on actual conductor subschemes, and retain them through the actual inverse base-change comparison. The existing subring-conductor membership API is promoted to one lemma node. Five additional proved examples includeZ/1,Z,Z/8, arbitrary universes and preservation of nilpotence by the actual comparison. All766 incoming node objects and539 baseline entries remain unchanged. Earlier frontier statements about admitted-only evidence for this test are superseded by this exact native recovery. Source and target two-step conductor-map coherence remains available; three-step coherence and geometric conductor-pushout transport remain required, together with generic Ferrand existence, the scheme affine-neighborhood criterion, small étale structure sheaves, projective/cohomological work, separateI2 and model/classification obligations. All18 gaps,23 requests,78 routes,27 findings and seven partial stages remain; implementationStatus stays unchecked and the whole Tau-importing suggested file is UNCOMPILED.
+
+## Membership in the full subring conductor
+
+**Subring.conductor_mem** — For any commutative ring B, subring A and b in B, b belongs to the full B-ideal c(A,B) if and only if bx belongs to A for every x in B.
+
+Hypotheses: All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed. Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor.
+
+Proof: Unfold the retained conductor definition. This promotes its existing API declaration without adding another carrier or another proof.
+
+## Finiteness of the diagonal test morphism
+
+**TauCeti.GenusOne.FerrandPushout.conductor_diagonal_isFinite** — For every commutative ring R in any universe, the actual morphism Spec(R×R)→Spec(R) induced by a↦(a,a) is finite.
+
+Hypotheses: All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed. Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported.
+
+Prerequisites: mathlib:AlgebraicGeometry.IsFinite.SpecMap_iff, mathlib:RingHom.Finite, mathlib:Module.Finite.prod.
+
+Proof: Use the native SpecMap criterion and the product finite-module instance. The algebra structure induced by the diagonal is the native coordinatewise R-module structure.
+
+## Schematic dominance of the diagonal test morphism
+
+**TauCeti.GenusOne.FerrandPushout.conductor_diagonal_schemeTheoreticallyDominant** — For every commutative ring R, including the zero ring and nonreduced rings, the actual diagonal Spec(R×R)→Spec(R) is schematically dominant.
+
+Hypotheses: All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed. Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported.
+
+Prerequisites: mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant, mathlib:AlgebraicGeometry.Scheme.ΓSpecIso_naturality, mathlib:AlgebraicGeometry.Scheme.ΓSpecIso, mathlib:AlgebraicGeometry.Scheme.ker_of_isAffine, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ext, mathlib:RingHom.injective_iff_ker_eq_bot.
+
+Proof: The diagonal ring homomorphism is injective by its first coordinate. Native global-section naturality transports injectivity to the actual scheme map. Its affine ideal-sheaf kernel is zero by the native injective-kernel criterion.
+
+## The contracted diagonal conductor is zero
+
+**TauCeti.GenusOne.FerrandPushout.conductor_diagonal_comap_eq_bot** — For every commutative ring R and diagonal d:R→R×R, the full conductor of im(d) contracted along d is the zero ideal of R.
+
+Hypotheses: All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed. Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-membership.
+
+Proof: If a lies in the contracted conductor, d(a)(1,0) lies in im(d). Its coordinates force its diagonal preimage to be both a and zero. The reverse containment is automatic. This does not replace the zero ideal by its radical.
+
+Typed examples:
+
+- **ConductorNilpotentChecked.arbitrary_universe_diagonal**: The full contracted diagonal conductor is zero for a commutative ring in an arbitrary universe, without a nontriviality assumption.
+
+## The actual diagonal conductor on the top affine open
+
+**TauCeti.GenusOne.FerrandPushout.conductor_diagonal_ideal_top** — For R a commutative ring, the global affine ideal of the actual conductorIdealSheaf of the diagonal Spec(R×R)→Spec(R) is zero, for its finite and schematically dominant instances.
+
+Hypotheses: All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed. Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-finite, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-dominance, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-zero-ideal, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-sheaf-spec-comparison, mathlib:AlgebraicGeometry.Scheme.ΓSpecIso, mathlib:RingHom.injective_iff_ker_eq_bot.
+
+Proof: The retained Spec comparison expresses this ideal as contraction of the ring conductor along the actual ΓSpecIso. Apply the diagonal computation and injectivity of that native section isomorphism.
+
+Typed examples:
+
+- **ConductorNilpotentChecked.reduced_diagonal**: For R=Z, derive the actual diagonal morphism hypotheses and prove its full conductor ideal-sheaf datum is zero.
+
+## The full diagonal conductor ideal-sheaf datum
+
+**TauCeti.GenusOne.FerrandPushout.conductor_diagonal_idealSheaf_eq_bot** — For every commutative ring R, the actual full conductor ideal-sheaf datum of Spec(R×R)→Spec(R) is the bottom ideal-sheaf datum.
+
+Hypotheses: All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed. Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-affine-ideal, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.ext_of_isAffine.
+
+Proof: Apply native affine ideal-sheaf extensionality to the zero global affine ideal. Thus the conductor subscheme retains the full target scheme structure, including nilpotents.
+
+Typed examples:
+
+- **ConductorNilpotentChecked.diagonal_zero_ring**: For R=Z/1, derive finiteness and schematic dominance of the actual diagonal and prove its full conductor ideal-sheaf datum is zero; no point-existence assumption is made.
+
+## A nilpotent section on the actual conductor subscheme
+
+**TauCeti.GenusOne.FerrandPushout.conductor_nilpotent_section** — Let f:Y→P be finite and schematically dominant with P affine. If a in Γ(P,top) is outside the full conductor ideal and a^n=0 for a natural number n, the actual conductor closed subscheme has a section z with z≠0 and z^n=0.
+
+Hypotheses: All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed. Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ideal-sheaf, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeObjIso, mathlib:Ideal.Quotient.eq_zero_iff_mem.
+
+Proof: The quotient class of a is nonzero by the native quotient membership criterion and has vanishing nth power. Transport it along the inverse of the native subschemeObjIso at the top affine open. The native quotient and section isomorphism remain imported.
+
+## Nonzero sections survive the actual conductor comparison
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_nonzero** — Let f:Y→P be finite and schematically dominant and q:T→P flat. Every nonzero global section z of the actual recomputed target conductor subscheme remains nonzero under the section map induced by the inverse of the actual conductorTargetBaseChangeIso(f,q).
+
+Hypotheses: All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed. Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-base-change-iso, mathlib:AlgebraicGeometry.Scheme.Γ, mathlib:CategoryTheory.Functor.mapIso.
+
+Proof: Apply the native global-section functor to the opposite of the symmetric actual scheme isomorphism. Cancel its inverse after an assumed zero image. A local proof fact about arbitrary scheme isomorphisms keeps the conductor construction opaque during kernel checking; it adds no generic public carrier.
+
+Typed examples:
+
+- **ConductorNilpotentChecked.comparison_retains_nilpotence**: For every actual target conductor comparison along a flat map, its inverse section map preserves both nonzeroness and the vanishing nth power of a global conductor section.
+
+## Nilpotent sections after actual flat conductor recomputation
+
+**TauCeti.GenusOne.FerrandPushout.conductorTargetBaseChangeIso_nilpotent_section** — Let f:Y→P be finite and schematically dominant, q:T→P flat and T affine. If a in Γ(T,top) lies outside the top ideal of I_f.comap q and a^n=0, there is a nonzero section z of the actual recomputed conductor subscheme with z^n=0 whose image under the inverse target-comparison section map is nonzero.
+
+Hypotheses: All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed. Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-nilpotent-section, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-comparison-nonzero-section, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-flat-comparison.
+
+Proof: Use the retained equality of the full recomputed and pulled-back conductor ideals. Apply the preceding quotient-section lemma and nonzero-comparison lemma. No nilpotence is inferred merely from a ring used as a surrogate for the actual subscheme.
+
+## Nonzero diagonal conductor sections from nilpotent ring elements
+
+**TauCeti.GenusOne.FerrandPushout.conductor_diagonal_nilpotent_section** — For every commutative ring R, n in the natural numbers and a≠0 in R with a^n=0, the diagonal Spec(R×R)→Spec(R), after identity base change, has an actual target conductor global section z≠0 with z^n=0, and the actual inverse target-comparison section map keeps z nonzero. Finiteness and schematic dominance are supplied by the preceding lemmas.
+
+Hypotheses: All schemes in a statement share an arbitrary universe. Rings are arbitrary commutative rings, including zero rings; no reducedness, Noetherianity or birationality is imposed. Finiteness, schematic dominance, flatness and affineness are required exactly where stated. The actual full conductor ideals and native closed-subscheme carriers are used. Generic quotient, section and pullback theories remain imported.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-flat-nilpotent-section, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-diagonal-affine-ideal, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id, mathlib:AlgebraicGeometry.Scheme.ΓSpecIso.
+
+Proof: Transport a into actual global sections by ΓSpecIso inverse. The full diagonal conductor ideal is zero, so injectivity proves nonmembership. Ring-map laws preserve the vanishing nth power, and the flat section theorem supplies the actual recomputed conductor section.
+
+Typed examples:
+
+- **ConductorNilpotentChecked.cubic_nilpotent**: For the actual diagonal over Z/8, derive its morphism hypotheses and use the nonzero element2 with cube zero to obtain a nonzero actual recomputed conductor section with cube zero and nonzero inverse-comparison image.
+
 # Source conductor coherence for successive flat base changes
 
 Let f:Y→P be finite and schematically dominant, q:T→P flat and r:Z→T flat. Write I_g for the full conductor ideal and J_g=I_g.comap g for the source ideal. The native ambient pasting isomorphism a identifies the twice-base-changed source with the direct one. The full twice-recomputed source ideal equals the pullback of the direct source ideal along a.hom. No radical replacement or reducedness assumption is made.

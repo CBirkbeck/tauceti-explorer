@@ -7971,3 +7971,131 @@ example :
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
+
+noncomputable section
+namespace TauCeti.GenusOne.FerrandPushout
+open _root_.CategoryTheory _root_.CategoryTheory.Limits _root_.AlgebraicGeometry
+universe conductorSectionLevel
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 1200000
+
+lemma conductor_diagonal_isFinite (R : Type conductorSectionLevel) [CommRing R] :
+    IsFinite (Spec.map (CommRingCat.ofHom ((RingHom.id R).prod (RingHom.id R)))) := by
+  sorry
+
+lemma conductor_diagonal_schemeTheoreticallyDominant
+    (R : Type conductorSectionLevel) [CommRing R] :
+    IsSchemeTheoreticallyDominant
+      (Spec.map (CommRingCat.ofHom ((RingHom.id R).prod (RingHom.id R)))) := by
+  sorry
+
+lemma conductor_diagonal_comap_eq_bot (R : Type conductorSectionLevel) [CommRing R] :
+    ((RingHom.id R).prod (RingHom.id R)).range.conductor.comap
+      ((RingHom.id R).prod (RingHom.id R)) = ⊥ := by
+  sorry
+
+lemma conductor_diagonal_ideal_top (R : Type conductorSectionLevel) [CommRing R]
+    [IsFinite (Spec.map (CommRingCat.ofHom ((RingHom.id R).prod (RingHom.id R))))]
+    [IsSchemeTheoreticallyDominant
+      (Spec.map (CommRingCat.ofHom ((RingHom.id R).prod (RingHom.id R))))] :
+    (conductorIdealSheaf (Spec.map (CommRingCat.ofHom
+      ((RingHom.id R).prod (RingHom.id R))))).ideal ⟨⊤,isAffineOpen_top _⟩ = ⊥ := by
+  sorry
+
+lemma conductor_diagonal_idealSheaf_eq_bot (R : Type conductorSectionLevel) [CommRing R]
+    [IsFinite (Spec.map (CommRingCat.ofHom ((RingHom.id R).prod (RingHom.id R))))]
+    [IsSchemeTheoreticallyDominant
+      (Spec.map (CommRingCat.ofHom ((RingHom.id R).prod (RingHom.id R))))] :
+    conductorIdealSheaf (Spec.map (CommRingCat.ofHom
+      ((RingHom.id R).prod (RingHom.id R)))) = ⊥ := by
+  sorry
+
+lemma conductor_nilpotent_section {Y P : Scheme.{conductorSectionLevel}}
+    (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] [IsAffine P]
+    (n : ℕ) (a : Γ(P,⊤))
+    (ha : a ∉ (conductorIdealSheaf f).ideal ⟨⊤,isAffineOpen_top P⟩)
+    (han : a ^ n = 0) :
+    ∃ z : Γ((conductorIdealSheaf f).subscheme,⊤), z ≠ 0 ∧ z ^ n = 0 := by
+  sorry
+
+lemma conductorTargetBaseChangeIso_nonzero {Y P T : Scheme.{conductorSectionLevel}}
+    (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q]
+    (z : Γ((conductorIdealSheaf (pullback.snd f q)).subscheme,⊤)) (hz : z ≠ 0) :
+    (conductorTargetBaseChangeIso f q).inv.appTop z ≠ 0 := by
+  sorry
+
+lemma conductorTargetBaseChangeIso_nilpotent_section {Y P T : Scheme.{conductorSectionLevel}}
+    (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] [IsAffine T] (n : ℕ) (a : Γ(T,⊤))
+    (ha : a ∉ ((conductorIdealSheaf f).comap q).ideal ⟨⊤,isAffineOpen_top T⟩)
+    (han : a ^ n = 0) :
+    ∃ z : Γ((conductorIdealSheaf (pullback.snd f q)).subscheme,⊤),
+      z ≠ 0 ∧ z ^ n = 0 ∧ (conductorTargetBaseChangeIso f q).inv.appTop z ≠ 0 := by
+  sorry
+
+lemma conductor_diagonal_nilpotent_section
+    (R : Type conductorSectionLevel) [CommRing R]
+    [IsFinite (Spec.map (CommRingCat.ofHom ((RingHom.id R).prod (RingHom.id R))))]
+    [IsSchemeTheoreticallyDominant
+      (Spec.map (CommRingCat.ofHom ((RingHom.id R).prod (RingHom.id R))))]
+    (n : ℕ) (a : R) (ha : a ≠ 0) (han : a ^ n = 0) :
+    let f := Spec.map (CommRingCat.ofHom ((RingHom.id R).prod (RingHom.id R)))
+    ∃ z : Γ((conductorIdealSheaf (pullback.snd f (𝟙 (Spec (.of R))))).subscheme,⊤),
+      z ≠ 0 ∧ z ^ n = 0 ∧
+      (conductorTargetBaseChangeIso f (𝟙 (Spec (.of R)))).inv.appTop z ≠ 0 := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+end
+
+noncomputable section
+namespace TauCeti.GenusOne.FerrandPushout
+open _root_.CategoryTheory _root_.CategoryTheory.Limits _root_.AlgebraicGeometry
+universe conductorTestLevel
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 1200000
+
+-- test: ConductorNilpotentChecked.diagonal_zero_ring
+example :
+    let f := Spec.map (CommRingCat.ofHom ((RingHom.id (ZMod 1)).prod (RingHom.id (ZMod 1))))
+    (IsFinite f ∧ IsSchemeTheoreticallyDominant f) ∧
+      (∀ (_ : IsFinite f) (_ : IsSchemeTheoreticallyDominant f), conductorIdealSheaf f = ⊥) := by
+  sorry
+
+-- test: ConductorNilpotentChecked.reduced_diagonal
+example :
+    let f := Spec.map (CommRingCat.ofHom ((RingHom.id ℤ).prod (RingHom.id ℤ)))
+    (IsFinite f ∧ IsSchemeTheoreticallyDominant f) ∧
+      (∀ (_ : IsFinite f) (_ : IsSchemeTheoreticallyDominant f), conductorIdealSheaf f = ⊥) := by
+  sorry
+
+-- test: ConductorNilpotentChecked.cubic_nilpotent
+example :
+    let f := Spec.map (CommRingCat.ofHom ((RingHom.id (ZMod 8)).prod (RingHom.id (ZMod 8))))
+    (IsFinite f ∧ IsSchemeTheoreticallyDominant f) ∧
+      (∀ (_ : IsFinite f) (_ : IsSchemeTheoreticallyDominant f),
+        ∃ z : Γ((conductorIdealSheaf (pullback.snd f (𝟙 (Spec (.of (ZMod 8)))))).subscheme,⊤),
+          z ≠ 0 ∧ z ^ 3 = 0 ∧
+          (conductorTargetBaseChangeIso f (𝟙 (Spec (.of (ZMod 8))))).inv.appTop z ≠ 0) := by
+  sorry
+
+-- test: ConductorNilpotentChecked.comparison_retains_nilpotence
+example {Y P T : Scheme.{conductorTestLevel}} (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q]
+    (z : Γ((conductorIdealSheaf (pullback.snd f q)).subscheme,⊤))
+    (n : ℕ) (hz : z ≠ 0) (hzn : z ^ n = 0) :
+    (conductorTargetBaseChangeIso f q).inv.appTop z ≠ 0 ∧
+      ((conductorTargetBaseChangeIso f q).inv.appTop z) ^ n = 0 := by
+  sorry
+
+-- test: ConductorNilpotentChecked.arbitrary_universe_diagonal
+example (R : Type conductorTestLevel) [CommRing R] :
+    ((RingHom.id R).prod (RingHom.id R)).range.conductor.comap
+      ((RingHom.id R).prod (RingHom.id R)) = ⊥ := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+end
