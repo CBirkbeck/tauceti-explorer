@@ -12860,7 +12860,8 @@
    "avoidAccountOf": "DESIGN-AbelianVarietiesIsogenousToNoJacobian",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5049"
   },
   {
    "id": "DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
@@ -14132,8 +14133,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3428"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3428",
+   "finishedAt": "2026-10-04T23:34:22Z"
   },
   {
    "id": "REV-DESIGN-InductionRestrictionPartII",
@@ -15509,7 +15511,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-QuiverRepresentationsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3462"
   },
   {
    "id": "REV-DESIGN-QuiverRepresentationsPartII",
@@ -15681,8 +15684,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ConformalMappingPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3466"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3466",
+   "finishedAt": "2026-10-04T23:34:23Z"
   },
   {
    "id": "REV-DESIGN-ConformalMappingPartII",
