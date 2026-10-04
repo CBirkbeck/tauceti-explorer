@@ -10,8 +10,8 @@
     "ArithmeticStatistics:ST.4",
     "ArithmeticStatistics:ST.5"
   ],
-  "status": "partial",
-  "summary": "Blueprint of Arithmetic statistics, counting fields and Selmer distributions, stages ST.0–ST.5, following the accepted restructuring RS-07 (which narrows ST.0–ST.4) and built on Bhargava–Shankar (arXiv:1006.1002), Bhargava–Shankar–Tsimerman (arXiv:1005.0672), Bhargava's Higher Composition Laws, and the maintainer-added Burungale–Tian (arXiv:2506.03465). ST.0 owns arithmetic families with their equivalence relations, height orderings, local conditions and weights, the binary-quartic invariants I and J with the eligible pairs and the height normalisation 27·H_E = 4·H', and Burungale–Tian's squareclass-height family of quadratic twists with its finiteness and density comparison; the elliptic-curve minimal-pair height is imported from Tau Ceti EllipticCurves layer 8. ST.1 proves the orbit parametrizations: 2-Selmer elements as locally soluble binary quartics with stabilizers and the comparison to the cohomological Selmer group, the embedding into pairs of ternary quadratic forms, and the Delone–Faddeev and Bhargava parametrizations of cubic and quartic rings (quintic at statement level). ST.2 counts integral orbits in fundamental domains, cuts off the cusp, bounds reducible forms and proves the uniformity estimate that passes to infinitely many local conditions, importing Davenport's lemma from GeometryOfNumbersAndQuadraticArithmetic GN.4. ST.3 proves Davenport–Heilbronn (cubic fields and the average 3-torsion of quadratic class groups) by the Bhargava–Shankar–Tsimerman route, states the quartic and quintic counts, and states the Cohen–Lenstra and Malle predictions only as explicit hypotheses. ST.4 decomposes Bhargava–Shankar §3: local masses, the Tamagawa number of PGL2, the average size 3 of the 2-Selmer group (with the positivity of every local mass made explicit) and the average-rank bound 1.5. ST.5 states the higher Selmer averages, the Poonen–Rains and Cohen–Lenstra models, function-field results, and Burungale–Tian's two distribution inputs: Smith's 2^∞ theorem as a stated input owned by the Part II ArithmeticStatisticsPartIISmithMethod (no dependency on it), and the BKLOS 3^∞ corank deduction in full. Open: the proofs of the quartic/quintic counts and several higher-moment theorems, BKLOS §§3–8, the requests to GN.4, AN.5, AN.8, SelmerIwasawaCohomology, CM and the Tau Ceti elliptic-curve layers, and the items of the other accepted paper routes to this roadmap, which a later queue will add. The finite-field symmetric rank count now has a complete recurrence decomposition: image obstruction, characteristic-free border ranks, exact fibers, and parity-explicit rational product verification. This closes the MacWilliams recursion gap; other listed gaps remain.",
+  "status": "complete",
+  "summary": "Blueprint of Arithmetic statistics, counting fields and Selmer distributions, stages ST.0–ST.5, following the accepted restructuring RS-07 (which narrows ST.0–ST.4) and built on Bhargava–Shankar (arXiv:1006.1002), Bhargava–Shankar–Tsimerman (arXiv:1005.0672), Bhargava's Higher Composition Laws, and the maintainer-added Burungale–Tian (arXiv:2506.03465). ST.0 owns arithmetic families with their equivalence relations, height orderings, local conditions and weights, the binary-quartic invariants I and J with the eligible pairs and the height normalisation 27·H_E = 4·H', and Burungale–Tian's squareclass-height family of quadratic twists with its finiteness and density comparison; the elliptic-curve minimal-pair height is imported from Tau Ceti EllipticCurves layer 8. ST.1 proves the orbit parametrizations: 2-Selmer elements as locally soluble binary quartics with stabilizers and the comparison to the cohomological Selmer group, the embedding into pairs of ternary quadratic forms, and the Delone–Faddeev and Bhargava parametrizations of cubic and quartic rings (quintic at statement level). ST.2 counts integral orbits in fundamental domains, cuts off the cusp, bounds reducible forms and proves the uniformity estimate that passes to infinitely many local conditions, importing Davenport's lemma from GeometryOfNumbersAndQuadraticArithmetic GN.4. ST.3 proves Davenport–Heilbronn (cubic fields and the average 3-torsion of quadratic class groups) by the Bhargava–Shankar–Tsimerman route, states the quartic and quintic counts, and states the Cohen–Lenstra and Malle predictions only as explicit hypotheses. ST.4 decomposes Bhargava–Shankar §3: local masses, the Tamagawa number of PGL2, the average size 3 of the 2-Selmer group (with the positivity of every local mass made explicit) and the average-rank bound 1.5. ST.5 states the higher Selmer averages, the Poonen–Rains and Cohen–Lenstra models, function-field results, and Burungale–Tian's two distribution inputs: Smith's 2^∞ theorem as a stated input owned by the Part II ArithmeticStatisticsPartIISmithMethod (no dependency on it), and the BKLOS 3^∞ corank deduction in full. Open: the proofs of the quartic/quintic counts and several higher-moment theorems, BKLOS §§3–8, the requests to GN.4, AN.5, AN.8, SelmerIwasawaCohomology, CM and the Tau Ceti elliptic-curve layers, and the items of the other accepted paper routes to this roadmap, which a later queue will add. The finite-field symmetric rank count now has a complete recurrence decomposition: image obstruction, characteristic-free border ranks, exact fibers, and parity-explicit rational product verification. This closes the MacWilliams recursion gap; other listed gaps remain. Planning pass complete under PROTOCOL section 0: the incoming 415-node packet exceeds the 300-node budget, so this continuation adds no nodes. All six stages remain partial, with the existing 47 gaps and 53 supplier requests retained. The current source-route register has 527 distinct extraction item IDs across 18 papers; it is a routing inventory, not a certificate that their targets or proofs are covered. The accepted September 30 review concerns its scoped matrix-law fix only; this planning continuation requires independent review.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -30024,10 +30024,11 @@
       "status": "partial",
       "remaining": [
         "ST.0 items routed by other paper extractions were not decomposed in this fragment (the general carriers here — arithmetic-family, relative-density, stabilizer-weighted-orbit-count, family-defined-by-local-conditions — are designed to host them): PAPER-BHARGAVA-GROSS-WANG-17 (items 1, 16–20, 25–36, 38–40), PAPER-BHARGAVA-SHANKAR-WANG-22 (items 1, 3–5, 11–33: V_n(ℤ) with its weighted height, Yamamura's density λ_n(p), Lenstra's 1 − 1/p², strong/weak p² | Δ, κ-acceptable specifications), PAPER-BHARGAVA-SHANKAR-WANG-25 (items 1–26: box heights, Stickelberger, densities ν₀, ν₁, α_n(p), β_n(p)), PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20 (field-count-carrier's Galois-group restriction N_n(G, X) and N_n(G, F, X); the degree and isomorphism conventions are ST.0/number-fields-ordered-by-discriminant), PAPER-BROWNING-LEBOUDEC-SAWIN-23 (family, density, primitive-residue, Floc), PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (items 71–84, 86–90, 94–110, 113–116, 121–123, 125, 134–135, the ST.0 part being probability/family normalisation), PAPER-KOYMANS-PAGANO (items 1, 6: the family 𝒟 and prior bounds), PAPER-LIPNOWSKI-TSIMERMAN-18 (unpolarized-count, ppav-count, polarization-fiber), PAPER-SHENDE-TSIMERMAN-17 (natural-measure, tail-mass, pic-quotient, joint-measure, joint-normalization, parity-limit, hecke-measure and the N3–N5 items), PAPER-SKOROBOGATOV-SOFOS-23 (item 2, whose definition is ST.0/relative-density but whose unit tests were not transferred), PAPER-WOOD-19 (items 2–12, 14–16, 28, 98).",
-        "COHEN-LENSTRA, the roadmap's second named source (LNM 1068, not public), was not acquired; the Cohen–Lenstra probability measure on finite abelian p-groups (weights 1/#Aut) is not planned here. It is a stabilizer-type weight in the sense of ST.0/stabilizer-weighted-orbit-count; its limiting-measure statements belong with ST.5's acceptance ('the measure on the limiting space').",
+        "The original Cohen–Lenstra LNM 1068 source was not acquired by the predecessor. The measure with inverse-automorphism weights, its mass formula and moment model are now planned once in ST.5 (cohen-lenstra-measure and its companions), so ST.0 must not introduce a second measure. ST.0 still needs source-specific arithmetic-family and weighting comparisons; ST.5's model is not a proof of a field-family distribution. Collate the original source or a precise accessible replacement before claiming its proof has been read.",
         "Bounded-height finiteness for the family of GL₂(ℤ)-classes of irreducible integral binary quartic forms ordered by H is not proved here. Bhargava–Shankar quote Borel–Harish-Chandra [10, Theorem 6.9] (not read); it also follows from the reduction theory of their §§2.1–2.2 (every irreducible class meets the part of F·h·L with t ≤ Cλ, where the coefficients are bounded), which is fundamental-domain material of ST.2. Until that lemma exists the orbit family is an input of ST.0/stabilizer-weighted-orbit-count (hypothesis 1), not a constructed family.",
         "The asymptotic count of squareclasses of bounded height of a general number field F with local conditions (Σ(X) ~ c·X, used implicitly by BKLOS §2 and by the ST.5 item bklos-density) is not planned: it needs the equidistribution of squarefree ideals in the classes of Cl(F)², i.e. ideal counting in ray classes with the Hecke-character input of AnalyticNumberTheory:AN.4 or Tau Ceti's ArithmeticDirichletSeries. Over ℚ it is ST.0/squarefree-integers-in-residue-classes.",
-        "The Galois-group type of a number field (the permutation group of the normal closure acting on the n embeddings, up to conjugacy) is not defined here, so the subfamilies N_n(G, X) of the field-count carrier are not planned."
+        "The Galois-group type of a number field (the permutation group of the normal closure acting on the n embeddings, up to conjugacy) is not defined here, so the subfamilies N_n(G, X) of the field-count carrier are not planned.",
+        "Stage follow-up: validate the named family, equivalence, height, local conditions and weights for every ST.0 entry in routedTargetInventory. In particular transfer Skorobogatov–Sofos relative-density denominator tests; define the principally polarized/unpolarized finite-field abelian-variety count and polarization fiber; and distinguish Wood's rigidified families from unweighted squareclass-height twist families. Existing generic family carriers do not establish these comparisons. The asymptotic denominator for general-number-field twist counts remains an explicit gap."
       ]
     },
     {
@@ -30039,7 +30040,8 @@
         "The ring-theoretic reading of the embedding (Bhargava-Shankar Remark 2.15; Wood, Theorem 1.1: PGL2(Z)-classes of binary quartics correspond to quartic rings with monogenized cubic resolvents) is not planned as a node; it needs the uniqueness of the SL3(Z)-class of integral ternary forms with 4 Det = -1 (a classification input of the GeometryOfNumbersAndQuadraticArithmetic roadmap) and is not used by ST.2-ST.4.",
         "The ST.1-routed items of the paper extractions PAPER-BHARGAVA-GROSS-WANG-17 (pencils of quadrics 2 tensor Sym^2(n), the order R_f, soluble and locally soluble orbits for hyperelliptic Jacobians, integral representatives with kappa = 4), PAPER-BHARGAVA-SHANKAR-WANG-22 and -25 (the representations 2 tensor Sym^2, the Q-invariant, the embeddings sigma_m, stabilizers as J[2]) and PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20 item 77 (cubic etale resolvent of a quartic field) are not decomposed here.",
         "The p-adic densities of U_p for cubic, quartic and quintic forms (BST Lemma 17-18, HCL III Lemmas 21 and 23, HCL IV Lemma 20 and (48)) are left to ST.3 (field counting); only the maximality criteria are planned here.",
-        "The Galois-equivariant (group-scheme) form of the stabilizer identification (Bhargava-Ho, Theorem 4.1) is not planned; the abstract isomorphism Stab_{PGL2(K)}(f) = E(K)[2] used by ST.2 and ST.4 is."
+        "The Galois-equivariant (group-scheme) form of the stabilizer identification (Bhargava-Ho, Theorem 4.1) is not planned; the abstract isomorphism Stab_{PGL2(K)}(f) = E(K)[2] used by ST.2 and ST.4 is.",
+        "Stage follow-up: the BGW even-hyperelliptic parametrization uses pairs of n-ary quadratic forms, SL_n versus SL_n/μ₂, the order R_f, ideal data, pencils and 2-coverings. Preserve its eight solubility conditions and the κ=4 orbit multiplicity; Sel_2(J¹), J¹(K)/2J(K) and Sel_2(J) are distinct. Import the Jacobian/Picard and descent carriers from their owners. The current binary quartic/cubic parametrizations do not supply this new orbit dictionary, nor the 3-, 4- and 5-Selmer representations."
       ]
     },
     {
@@ -30053,7 +30055,8 @@
         "Accepted paper route PAPER-KOYMANS-MILOVIC-21 route 2: item 19 (Bhargava's geometric sieve with k = 2) is covered by ArithmeticStatistics:ST.2/quantitative-ekedahl-geometric-sieve; items 25-28 (governing fields and the 16-rank of Q(√−4p)) are class-group statistics, left to ArithmeticStatistics:ST.3 and not planned here.",
         "Bhargava-Shankar-Tsimerman Sections 6, 7 and 9 (the slicing argument, Shintani's second main term in Theorem 5, Theorem 27, the second-order densities and the sieve preserving second-order terms) are not decomposed; they are needed only if ArithmeticStatistics:ST.3 states Roberts' conjecture (BST Theorems 3, 4 and 7), and would then be planned in this stage.",
         "Bhargava's geometric-sieve paper, Sections 2 and 4-5 (the axioms of Theorem 2.1, the squarefree-value theorems 1.5-1.6 for f_3, f_4, f_5 and g_2, …, g_5, the embedding sieve) are covered only for binary cubic and binary quartic forms.",
-        "Accepted paper route PAPER-BROWNING-LEBOUDEC-SAWIN-23 route 4 (items pv-density, conic-density, pv-density-ball) is not planned in this fragment. It needs the local-solubility density for forms ordered by Euclidean coefficient height, ρ^loc_{d,n} = c_∞^{ball} ∏_p c_p > 0 for n ≥ d ≥ 2 and (d, n) ≠ (2, 2) (the extraction's E19 repair of Poonen–Voloch Theorem 3.6, which is for boxes), and Serre's zero density for plane conics transferred to the ball. Suppliers of the proof route recorded in pv-density-ball's note: ArithmeticStatistics:ST.2/quantitative-ekedahl-geometric-sieve applied to the Euclidean coefficient ball (tail O(1/(M log M) + 1/A) in codimension two); the uniform Lang–Weil estimate FiniteFieldsAndCharacterSums FF.2 (planned there, with its upstream proof gaps as obligations) together with a uniform bound on the singular locus; Hensel lifting of a smooth F_p-point; the codimension ≥ 2 of the locus reducible over F̄_p, spread out over Z; the nullity of the real-soluble cone's boundary and of the finite-place boundaries; equidistribution of congruence conditions; and the primitive-vector and ± normalisation. The real factor is the ball fraction of the real-soluble cone, not the box factor (FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23). Review clarification: PV’s box theorem has the broader range n,d ≥ 2 except (2,2); the stated Euclidean target is the Fano range consumed by BLS. To prove positivity of the infinite product, show 1 − c_p = O_{d,n}(p^{−2}) outside finitely many primes from the codimension-two finite-field count, hence sum_p (1 − c_p) < ∞, as well as c_p > 0 at every exceptional prime. Positivity of each factor alone is insufficient. For local and real positivity use a coefficient neighborhood of a form with a smooth local point, e.g. X_0^{d−1}X_1 + X_2^d at (1:0:0:…); its X_1 derivative is 1 in every characteristic. For the primitive restriction justify the Möbius tail in coefficient dimension N = binom(n+d,d), local invariance under nonzero scalar multiplication and the cancellation of the ± factor after excluding the zero vector. These remain explicit proof obligations, not a closed theorem. The existing real-discriminant boundary-nullity input must be extended to the required range, including the separately treated conic case, rather than imported only in its present n ≥ 3 scope."
+        "Accepted paper route PAPER-BROWNING-LEBOUDEC-SAWIN-23 route 4 (items pv-density, conic-density, pv-density-ball) is not planned in this fragment. It needs the local-solubility density for forms ordered by Euclidean coefficient height, ρ^loc_{d,n} = c_∞^{ball} ∏_p c_p > 0 for n ≥ d ≥ 2 and (d, n) ≠ (2, 2) (the extraction's E19 repair of Poonen–Voloch Theorem 3.6, which is for boxes), and Serre's zero density for plane conics transferred to the ball. Suppliers of the proof route recorded in pv-density-ball's note: ArithmeticStatistics:ST.2/quantitative-ekedahl-geometric-sieve applied to the Euclidean coefficient ball (tail O(1/(M log M) + 1/A) in codimension two); the uniform Lang–Weil estimate FiniteFieldsAndCharacterSums FF.2 (planned there, with its upstream proof gaps as obligations) together with a uniform bound on the singular locus; Hensel lifting of a smooth F_p-point; the codimension ≥ 2 of the locus reducible over F̄_p, spread out over Z; the nullity of the real-soluble cone's boundary and of the finite-place boundaries; equidistribution of congruence conditions; and the primitive-vector and ± normalisation. The real factor is the ball fraction of the real-soluble cone, not the box factor (FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23). Review clarification: PV’s box theorem has the broader range n,d ≥ 2 except (2,2); the stated Euclidean target is the Fano range consumed by BLS. To prove positivity of the infinite product, show 1 − c_p = O_{d,n}(p^{−2}) outside finitely many primes from the codimension-two finite-field count, hence sum_p (1 − c_p) < ∞, as well as c_p > 0 at every exceptional prime. Positivity of each factor alone is insufficient. For local and real positivity use a coefficient neighborhood of a form with a smooth local point, e.g. X_0^{d−1}X_1 + X_2^d at (1:0:0:…); its X_1 derivative is 1 in every characteristic. For the primitive restriction justify the Möbius tail in coefficient dimension N = binom(n+d,d), local invariance under nonzero scalar multiplication and the cancellation of the ± factor after excluding the zero vector. These remain explicit proof obligations, not a closed theorem. The existing real-discriminant boundary-nullity input must be extended to the required range, including the separately treated conic case, rather than imported only in its present n ≥ 3 scope.",
+        "Stage follow-up: map the BSW22/BSW25 squarefree-discriminant routes and BGW Theorems 36/38 and Proposition 42 to named counting and uniform-tail nodes before marking them covered. For the BLS route retain the exceptional-prime hypotheses, polynomial-norm/local factors, positive denominator and uniform passage through local conditions recorded by the accepted E19 repair. Generic Davenport counting is imported from GN.4; it does not supply the moving-region cusp or tail estimates. Existing proposals concerning SV.2 remain proposals: do not remove the accepted RS-07 supplier edge in this packet."
       ]
     },
     {
@@ -30067,7 +30070,8 @@
         "Wright's theorem (Malle's conjecture for abelian groups) is quoted in the Kluners counterexample.",
         "The class-field-theory facts behind the uniformity for totally ramified primes (Hasse's conductor-discriminant relation for S3-cubic fields, the 3-rank bound for Pic of quadratic orders) need their own nodes; the non-maximal part of BST Proposition 29 for Y_p is left to ST.2's tail estimates.",
         "Interface with ST.1 and ST.2 by stage id: this stage consumes BST Theorem 14 (the Davenport-Heilbronn maximality criterion U_p) and Propositions 11-12 from ArithmeticStatistics:ST.1, and BST Theorems 20, 26, 6 (main terms), the p-adic density mu_p of congruence sets, and Proposition 29 for W_p from ArithmeticStatistics:ST.2; the stage-id prerequisites are replaced by those stages' node ids when the packet is merged.",
-        "Accepted source routes to ST.3 not decomposed in this fragment: PAPER-WOOD-19 route 2 (154 items: nonabelian Cohen-Lenstra moments, the Malle-Bhargava local model, admissible types), PAPER-LEMKEOLIVER-WANG-WOOD-25 route 1 (24 items: 3-torsion in 2-extensions, relative class groups, uniform S3 bounds), PAPER-KOYMANS-MILOVIC-21 route 2 (items /25-/28: 2^k-ranks, governing fields, the 16-rank criterion and Theorem 3), and PAPER-KOYMANS-PAGANO route 3 (items /6 and /205 for ST.3). Items that these routes also assign to ST.5 are being handled by the ST.5 writer."
+        "Accepted source routes to ST.3 not decomposed in this fragment: PAPER-WOOD-19 route 2 (154 items: nonabelian Cohen-Lenstra moments, the Malle-Bhargava local model, admissible types), PAPER-LEMKEOLIVER-WANG-WOOD-25 route 1 (24 items: 3-torsion in 2-extensions, relative class groups, uniform S3 bounds), PAPER-KOYMANS-MILOVIC-21 route 2 (items /25-/28: 2^k-ranks, governing fields, the 16-rank criterion and Theorem 3), and PAPER-KOYMANS-PAGANO route 3 (items /6 and /205 for ST.3). Items that these routes also assign to ST.5 are being handled by the ST.5 writer.",
+        "Current route PAPER-BHARGAVA-25/6,/32,/33,/34,/55,/68,/70 needs declaration-level mapping and source-proof decomposition: named F_n(G,X), admissible exponents and Malle's weak conjecture; Schmidt and Lemke Oliver–Thorne bounds; trace-zero small elements with the primitive-field hypothesis for a generator; quartic/quintic discriminant densities; cyclic prime-degree bounds; and the fixed-K,fixed-G Galois bound for |G|>4 with ε retained. Do not import an O(X^(1/2)) assertion for every group of order four: the Klein-four case has logarithmic factors. For Wood use the corrected generator-form conjecture /298 with the prime-to-characteristic domain, not the refuted printed /99; finite evidence for 95 embedded candidates /341 is not a universal theorem. These targets supplement, rather than close, the existing field/class-group gaps."
       ]
     },
     {
@@ -30076,7 +30080,8 @@
       "remaining": [
         "PAPER-BHARGAVA-GROSS-WANG-17 route 3 (accepted, routed to ST.4): items 7–13 and 46–56 — the average of #Sel_2(J¹) over locally soluble hyperelliptic curves (Theorems 6, 40, 41 with the local masses and τ(SL_n/μ_2) = 2), its consequences (Theorems 1, 2, 5, 7, 12, Corollaries 3, 8, Remark 4, Theorem 44, Definition 43) and the Dokchitsers' appendix (Theorems A.1–A.3, A.7, Proposition A.4, Lemma A.5, Corollary A.8, the Poonen–Stoll parity input); source arXiv:1310.7692v2 not yet decomposed here.",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23 route 8 (accepted): Bhargava's theorem that a positive proportion of integral ternary cubic forms ordered by coefficient size have a nontrivial rational zero (Bhargava, 'A positive proportion of plane cubics fail the Hasse principle', Theorem 2) — source not yet acquired.",
-        "PAPER-SKINNER-20 route 6 (accepted): Theorem D (Bhargava–Skinner, J. Ramanujan Math. Soc. 29 (2014)) — a positive proportion of elliptic curves over Q ordered by height have algebraic and analytic rank one; it consumes the 3-Selmer average of Bhargava–Shankar (arXiv:1007.1004) and the p-converse of RankOneConverse — sources not yet acquired or decomposed here."
+        "PAPER-SKINNER-20 route 6 (accepted): Theorem D (Bhargava–Skinner, J. Ramanujan Math. Soc. 29 (2014)) — a positive proportion of elliptic curves over Q ordered by height have algebraic and analytic rank one; it consumes the 3-Selmer average of Bhargava–Shankar (arXiv:1007.1004) and the p-converse of RankOneConverse — sources not yet acquired or decomposed here.",
+        "Stage follow-up: complete BGW's average for Sel_2(J¹) with its exact large family, local masses, Tamagawa factor and tail; do not replace it with the elliptic average or Sel_2(J). The BLS plane-cubic and Skinner positive-proportion rank-one routes also require their stated source proofs. Import the rank-one p-converse from its owner with all hypotheses. Average Selmer-size bounds control rank through descent; they do not identify Selmer rank with Mordell–Weil rank or assume finite Sha."
       ]
     },
     {
@@ -30096,7 +30101,8 @@
         "Import the finite-field abelian-variety inputs of the proposed Part II AbelianSchemesAndArithmeticModuliPartIIFiniteFields (gap 1) once it is designed.",
         "EVW Theorem 6.1/Corollary 6.2/Proposition 7.8 are consumed as a stated input (gap); ST.5 does not plan them.",
         "Wood 2019 items /90–/97 rely on ST.0 nodes for Wood's families and averages (PAPER-WOOD-19 /2–/16) and ST.3 nodes for the rigid-to-unrigid conversions (/13, /17); the ST.0/ST.3 stage prerequisites must be replaced by those node ids at merge.",
-        "The Lean prototypes omit statements that need étale cohomology, Hurwitz schemes, Jacobians of families or Galois groups of function fields (see the comments in the Lean part)."
+        "The Lean prototypes omit statements that need étale cohomology, Hurwitz schemes, Jacobians of families or Galois groups of function fields (see the comments in the Lean part).",
+        "Stage follow-up: reconcile every ST.5 route with existing nodes and supplier contracts, keeping the corrected convergence modes. LWZB /4–/5 gives lim_b limsup_q = lim_b liminf_q, not an established inner ordinary q-limit for each b; /29 retains its rigidified-extension multiplicity. Wood's non-good cases retain liminf and the unresolved boundary component remainder; /339 counts only the stable orthant. Lipnowski–Tsimerman's large-factor and spacing statements are conditional, with the common-p Weil family, eventual uniform g₀(p), corrected 0.495 threshold, elliptic-or-B₀ alternative, and odd-p enhanced-model failure; existence of enhanced limits remains a gap. BKLOS uses unweighted squareclass height and lower density, with CM order-to-maximal-order isogeny transfer; a whole-elliptic-family average does not prove a thin-twist-family law. Import Smith's method from its Part II; preserve the existing single-owner finite-field kernel law and the reviewed normalized-kernel-weight identity, including E675."
       ]
     }
   ],
@@ -31857,5 +31863,905 @@
       "read": "2026-09-30",
       "sha256": "0846df8149196dc7f778d92ed04fae453293fbb99ad38e534bda8bbc2f167528"
     }
-  ]
+  ],
+  "routedTargetInventory": {
+    "date": "2026-10-04",
+    "by": "Codex — codex-5ebb6f",
+    "scope": "Current source routes whose roadmap is exactly ArithmeticStatistics; Part II routes and incidental mentions are excluded. Item IDs are validated against the extraction register, without claiming a new read of every item or source proof. Multi-stage routes are retained as routed rather than assigned a guessed declaration owner.",
+    "papers": 18,
+    "routes": 31,
+    "distinctItems": 527,
+    "records": [
+      {
+        "paper": "PAPER-BHARGAVA-25",
+        "stages": [
+          "ArithmeticStatistics:ST.3"
+        ],
+        "items": [
+          "PAPER-BHARGAVA-25/6",
+          "PAPER-BHARGAVA-25/32",
+          "PAPER-BHARGAVA-25/33",
+          "PAPER-BHARGAVA-25/34",
+          "PAPER-BHARGAVA-25/55",
+          "PAPER-BHARGAVA-25/68",
+          "PAPER-BHARGAVA-25/70"
+        ],
+        "routingFileSha256": "5c9b95960631cdc9ec20ba948ea2fa6cdc340fa84646a9f5985888fafd27c57e"
+      },
+      {
+        "paper": "PAPER-BHARGAVA-GROSS-WANG-17",
+        "stages": [
+          "ArithmeticStatistics:ST.0",
+          "ArithmeticStatistics:ST.1"
+        ],
+        "items": [
+          "PAPER-BHARGAVA-GROSS-WANG-17/1",
+          "PAPER-BHARGAVA-GROSS-WANG-17/16",
+          "PAPER-BHARGAVA-GROSS-WANG-17/17",
+          "PAPER-BHARGAVA-GROSS-WANG-17/18",
+          "PAPER-BHARGAVA-GROSS-WANG-17/19",
+          "PAPER-BHARGAVA-GROSS-WANG-17/20",
+          "PAPER-BHARGAVA-GROSS-WANG-17/25",
+          "PAPER-BHARGAVA-GROSS-WANG-17/26",
+          "PAPER-BHARGAVA-GROSS-WANG-17/27",
+          "PAPER-BHARGAVA-GROSS-WANG-17/28",
+          "PAPER-BHARGAVA-GROSS-WANG-17/29",
+          "PAPER-BHARGAVA-GROSS-WANG-17/30",
+          "PAPER-BHARGAVA-GROSS-WANG-17/31",
+          "PAPER-BHARGAVA-GROSS-WANG-17/32",
+          "PAPER-BHARGAVA-GROSS-WANG-17/33",
+          "PAPER-BHARGAVA-GROSS-WANG-17/34",
+          "PAPER-BHARGAVA-GROSS-WANG-17/35",
+          "PAPER-BHARGAVA-GROSS-WANG-17/36",
+          "PAPER-BHARGAVA-GROSS-WANG-17/38",
+          "PAPER-BHARGAVA-GROSS-WANG-17/39",
+          "PAPER-BHARGAVA-GROSS-WANG-17/40"
+        ],
+        "routingFileSha256": "518210580ab1b0578afb2a16ec89bc8090ac53cf0cd8f907ec101b1ac61e6c04"
+      },
+      {
+        "paper": "PAPER-BHARGAVA-GROSS-WANG-17",
+        "stages": [
+          "ArithmeticStatistics:ST.2"
+        ],
+        "items": [
+          "PAPER-BHARGAVA-GROSS-WANG-17/42",
+          "PAPER-BHARGAVA-GROSS-WANG-17/43",
+          "PAPER-BHARGAVA-GROSS-WANG-17/44",
+          "PAPER-BHARGAVA-GROSS-WANG-17/45"
+        ],
+        "routingFileSha256": "518210580ab1b0578afb2a16ec89bc8090ac53cf0cd8f907ec101b1ac61e6c04"
+      },
+      {
+        "paper": "PAPER-BHARGAVA-GROSS-WANG-17",
+        "stages": [
+          "ArithmeticStatistics:ST.4"
+        ],
+        "items": [
+          "PAPER-BHARGAVA-GROSS-WANG-17/7",
+          "PAPER-BHARGAVA-GROSS-WANG-17/8",
+          "PAPER-BHARGAVA-GROSS-WANG-17/9",
+          "PAPER-BHARGAVA-GROSS-WANG-17/10",
+          "PAPER-BHARGAVA-GROSS-WANG-17/11",
+          "PAPER-BHARGAVA-GROSS-WANG-17/12",
+          "PAPER-BHARGAVA-GROSS-WANG-17/13",
+          "PAPER-BHARGAVA-GROSS-WANG-17/46",
+          "PAPER-BHARGAVA-GROSS-WANG-17/47",
+          "PAPER-BHARGAVA-GROSS-WANG-17/48",
+          "PAPER-BHARGAVA-GROSS-WANG-17/49",
+          "PAPER-BHARGAVA-GROSS-WANG-17/50",
+          "PAPER-BHARGAVA-GROSS-WANG-17/51",
+          "PAPER-BHARGAVA-GROSS-WANG-17/52",
+          "PAPER-BHARGAVA-GROSS-WANG-17/53",
+          "PAPER-BHARGAVA-GROSS-WANG-17/54",
+          "PAPER-BHARGAVA-GROSS-WANG-17/55",
+          "PAPER-BHARGAVA-GROSS-WANG-17/56"
+        ],
+        "routingFileSha256": "518210580ab1b0578afb2a16ec89bc8090ac53cf0cd8f907ec101b1ac61e6c04"
+      },
+      {
+        "paper": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+        "stages": [
+          "ArithmeticStatistics:ST.0",
+          "ArithmeticStatistics:ST.1",
+          "ArithmeticStatistics:ST.3"
+        ],
+        "items": [
+          "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/baily-weighted-count",
+          "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cyclic-cubic-count",
+          "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/fixed-resolvent-cubic-count",
+          "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/weighted-partial-summation",
+          "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/a4-quartic-count",
+          "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/fixed-resolvent-quartic-count",
+          "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/field-count-carrier"
+        ],
+        "routingFileSha256": "6aefc118079f198be03aaffb2eb23470bbcd02314c2b036b633c05c0e08cee94"
+      },
+      {
+        "paper": "PAPER-BHARGAVA-SHANKAR-WANG-22",
+        "stages": [
+          "ArithmeticStatistics:ST.0",
+          "ArithmeticStatistics:ST.1"
+        ],
+        "items": [
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/1",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/3",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/4",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/5",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/11",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/12",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/13",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/14",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/15",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/16",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/17",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/18",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/19",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/20",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/21",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/22",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/23",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/24",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/25",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/26",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/27",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/28",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/29",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/30",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/31",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/32",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/33"
+        ],
+        "routingFileSha256": "2a286f8acdb74e9246cd144dc704f7c0c30be24292b0f394c60e25cbbba22019"
+      },
+      {
+        "paper": "PAPER-BHARGAVA-SHANKAR-WANG-22",
+        "stages": [
+          "ArithmeticStatistics:ST.2"
+        ],
+        "items": [
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/34",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/36",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/37",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/38",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/39",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/40",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/41",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/42",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/44",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/45",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/46",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/47",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/48",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/49",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/50",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/51",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/52",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/54",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/55",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/56",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/57"
+        ],
+        "routingFileSha256": "2a286f8acdb74e9246cd144dc704f7c0c30be24292b0f394c60e25cbbba22019"
+      },
+      {
+        "paper": "PAPER-BHARGAVA-SHANKAR-WANG-22",
+        "stages": [
+          "ArithmeticStatistics:ST.3",
+          "ArithmeticStatistics:ST.5"
+        ],
+        "items": [
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/7",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/58",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/59",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/60",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/61",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/62",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/63",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/64",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/65",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/66",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/67",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/68",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/69",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/70",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/71",
+          "PAPER-BHARGAVA-SHANKAR-WANG-22/72"
+        ],
+        "routingFileSha256": "2a286f8acdb74e9246cd144dc704f7c0c30be24292b0f394c60e25cbbba22019"
+      },
+      {
+        "paper": "PAPER-BHARGAVA-SHANKAR-WANG-25",
+        "stages": [
+          "ArithmeticStatistics:ST.0",
+          "ArithmeticStatistics:ST.1"
+        ],
+        "items": [
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/1",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/2",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/3",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/4",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/5",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/6",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/7",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/8",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/9",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/10",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/11",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/12",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/13",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/14",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/15",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/16",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/17",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/18",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/19",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/20",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/21",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/22",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/23",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/24",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/25",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/26"
+        ],
+        "routingFileSha256": "76dbb8c657cdbc0636f6503a85c0d927963c378e11c145d9804e3f3f5c883af7"
+      },
+      {
+        "paper": "PAPER-BHARGAVA-SHANKAR-WANG-25",
+        "stages": [
+          "ArithmeticStatistics:ST.2"
+        ],
+        "items": [
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/30",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/33",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/34",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/35",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/36",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/37",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/38",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/44",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/45",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/46",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/47",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/48",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/49",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/50",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/51",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/52",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/53",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/54",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/55",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/56",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/57",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/58",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/59",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/60",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/61",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/62",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/63",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/64",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/65"
+        ],
+        "routingFileSha256": "76dbb8c657cdbc0636f6503a85c0d927963c378e11c145d9804e3f3f5c883af7"
+      },
+      {
+        "paper": "PAPER-BHARGAVA-SHANKAR-WANG-25",
+        "stages": [
+          "ArithmeticStatistics:ST.3"
+        ],
+        "items": [
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/66",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/67",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/68",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/69",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/71",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/72",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/73",
+          "PAPER-BHARGAVA-SHANKAR-WANG-25/75"
+        ],
+        "routingFileSha256": "76dbb8c657cdbc0636f6503a85c0d927963c378e11c145d9804e3f3f5c883af7"
+      },
+      {
+        "paper": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+        "stages": [
+          "ArithmeticStatistics:ST.0"
+        ],
+        "items": [
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/family",
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/density",
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/primitive-residue",
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/Floc"
+        ],
+        "routingFileSha256": "95aa32a173194f4c6456bf8397b05fa882584d754b25ba099587d4ff85c831bd"
+      },
+      {
+        "paper": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+        "stages": [
+          "ArithmeticStatistics:ST.2"
+        ],
+        "items": [
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density",
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/conic-density",
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density-ball"
+        ],
+        "routingFileSha256": "95aa32a173194f4c6456bf8397b05fa882584d754b25ba099587d4ff85c831bd"
+      },
+      {
+        "paper": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+        "stages": [
+          "ArithmeticStatistics:ST.5"
+        ],
+        "items": [
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-first",
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-variance",
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/gradient-strata",
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/gradient-count",
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-lower",
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/hensel-level-lift"
+        ],
+        "routingFileSha256": "95aa32a173194f4c6456bf8397b05fa882584d754b25ba099587d4ff85c831bd"
+      },
+      {
+        "paper": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+        "stages": [
+          "ArithmeticStatistics:ST.4"
+        ],
+        "items": [
+          "PAPER-BROWNING-LEBOUDEC-SAWIN-23/bhargava-plane-cubics"
+        ],
+        "routingFileSha256": "95aa32a173194f4c6456bf8397b05fa882584d754b25ba099587d4ff85c831bd"
+      },
+      {
+        "paper": "PAPER-BURUNGALE-TIAN-26",
+        "stages": [
+          "ArithmeticStatistics:ST.0",
+          "ArithmeticStatistics:ST.5"
+        ],
+        "items": [
+          "PAPER-BURUNGALE-TIAN-26/squarefree-density",
+          "PAPER-BURUNGALE-TIAN-26/number-field-twist-height",
+          "PAPER-BURUNGALE-TIAN-26/squarefree-half",
+          "PAPER-BURUNGALE-TIAN-26/bklos-density"
+        ],
+        "routingFileSha256": "48e647519c1b9d49e1d60f00f0b5a1cf2de659cd199b437f2626976df74ee32b"
+      },
+      {
+        "paper": "PAPER-CASTELLA-ETAL-22",
+        "stages": [
+          "ArithmeticStatistics:ST.5"
+        ],
+        "items": [
+          "PAPER-CASTELLA-ETAL-22/36"
+        ],
+        "routingFileSha256": "88fde5fc8758b7454347814a783ba10f1ca104174f3247810673386e03aa471e"
+      },
+      {
+        "paper": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+        "stages": [
+          "ArithmeticStatistics:ST.0",
+          "ArithmeticStatistics:ST.5"
+        ],
+        "items": [
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/71",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/72",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/73",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/74",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/75",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/76",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/77",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/78",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/79",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/80",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/81",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/82",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/83",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/84",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/86",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/87",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/88",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/89",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/90",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/94",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/95",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/96",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/katz-lang-abelian-covers",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/97",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/98",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/99",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/100",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/101",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/102",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/103",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/104",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/105",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/106",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/107",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/108",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/109",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/110",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/113",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/114",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/115",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/116",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/137",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/121",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/122",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/123",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/125",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/134",
+          "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/135"
+        ],
+        "routingFileSha256": "f57b6df63d274442fa89f75d9b1aa0abddb53b7f4d64c0c5e7e794c0c63b3a66"
+      },
+      {
+        "paper": "PAPER-KOYMANS-MILOVIC-21",
+        "stages": [
+          "ArithmeticStatistics:ST.2",
+          "ArithmeticStatistics:ST.3"
+        ],
+        "items": [
+          "PAPER-KOYMANS-MILOVIC-21/19",
+          "PAPER-KOYMANS-MILOVIC-21/25",
+          "PAPER-KOYMANS-MILOVIC-21/26",
+          "PAPER-KOYMANS-MILOVIC-21/27",
+          "PAPER-KOYMANS-MILOVIC-21/28"
+        ],
+        "routingFileSha256": "14ad30ba549d46340f3610bd5d069ab5eb7043bf15b184b9e4e6ab2635cb8c90"
+      },
+      {
+        "paper": "PAPER-KOYMANS-PAGANO",
+        "stages": [
+          "ArithmeticStatistics:ST.0",
+          "ArithmeticStatistics:ST.3",
+          "ArithmeticStatistics:ST.5"
+        ],
+        "items": [
+          "PAPER-KOYMANS-PAGANO/1",
+          "PAPER-KOYMANS-PAGANO/6",
+          "PAPER-KOYMANS-PAGANO/205",
+          "PAPER-KOYMANS-PAGANO/207",
+          "PAPER-KOYMANS-PAGANO/218",
+          "PAPER-KOYMANS-PAGANO/265"
+        ],
+        "routingFileSha256": "9ce83843e7e96a3f125f48e8cc898440bcd24c5c4fcdfde12b7ad891621afa28"
+      },
+      {
+        "paper": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+        "stages": [
+          "ArithmeticStatistics:ST.3",
+          "ArithmeticStatistics:ST.5"
+        ],
+        "items": [
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/1",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/2",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/3",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/7",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/8",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/9",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/10",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/11",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/12",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/15",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/21",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/22",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/23",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/24",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/26",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/27",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/28",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/29",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/30",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/31",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/32",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/33",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/34",
+          "PAPER-LEMKEOLIVER-WANG-WOOD-25/35"
+        ],
+        "routingFileSha256": "eec39f1763b55d3862c13e7e754651863d7096de3319e6b6b6a46fc1c46b627c"
+      },
+      {
+        "paper": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+        "stages": [
+          "ArithmeticStatistics:ST.0"
+        ],
+        "items": [
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/unpolarized-count",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/ppav-count",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/polarization-fiber"
+        ],
+        "routingFileSha256": "afe626cca9703cf932be5264e31ab90757250d366f5b20577f52050746e7a626"
+      },
+      {
+        "paper": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+        "stages": [
+          "ArithmeticStatistics:ST.5"
+        ],
+        "items": [
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/model-comparison-conjecture",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/convex-concentration",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/spacing-measure",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/cl-measure",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/friedman-washington",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/enhanced-cl",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/cl-two-prime",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/cl-odd-prime",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/enhanced-cl-conjecture",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/main-elliptic-source",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/model-concentration-source",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/spacing-source",
+          "PAPER-LIPNOWSKI-TSIMERMAN-18/enhanced-failure-source"
+        ],
+        "routingFileSha256": "afe626cca9703cf932be5264e31ab90757250d366f5b20577f52050746e7a626"
+      },
+      {
+        "paper": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+        "stages": [
+          "ArithmeticStatistics:ST.5"
+        ],
+        "items": [
+          "PAPER-LIU-WOOD-ZUREICKBROWN-24/4",
+          "PAPER-LIU-WOOD-ZUREICKBROWN-24/5",
+          "PAPER-LIU-WOOD-ZUREICKBROWN-24/29"
+        ],
+        "routingFileSha256": "45c329e1b5c42a6a58625d19eafe3d4373933b5415ff4390498c4d52a7e0e7b7"
+      },
+      {
+        "paper": "PAPER-SHENDE-TSIMERMAN-17",
+        "stages": [
+          "ArithmeticStatistics:ST.0"
+        ],
+        "items": [
+          "PAPER-SHENDE-TSIMERMAN-17/natural-measure",
+          "PAPER-SHENDE-TSIMERMAN-17/tail-mass",
+          "PAPER-SHENDE-TSIMERMAN-17/pic-quotient",
+          "PAPER-SHENDE-TSIMERMAN-17/joint-measure",
+          "PAPER-SHENDE-TSIMERMAN-17/joint-normalization",
+          "PAPER-SHENDE-TSIMERMAN-17/parity-limit",
+          "PAPER-SHENDE-TSIMERMAN-17/hecke-measure",
+          "PAPER-SHENDE-TSIMERMAN-17/picard-degree-representative",
+          "PAPER-SHENDE-TSIMERMAN-17/picard-parity-carry",
+          "PAPER-SHENDE-TSIMERMAN-17/one-tail-event-bijection",
+          "PAPER-SHENDE-TSIMERMAN-17/joint-tail-event-bijection",
+          "PAPER-SHENDE-TSIMERMAN-17/pointless-finite-bundle-law"
+        ],
+        "routingFileSha256": "1da5c93116afc092a54b543cb4418b9593f11b517867247854a9bd3131ba7f13"
+      },
+      {
+        "paper": "PAPER-SHENDE-TSIMERMAN-17",
+        "stages": [
+          "ArithmeticStatistics:ST.5"
+        ],
+        "items": [
+          "PAPER-SHENDE-TSIMERMAN-17/betti-conjecture",
+          "PAPER-SHENDE-TSIMERMAN-17/gonality-points",
+          "PAPER-SHENDE-TSIMERMAN-17/weil-measure",
+          "PAPER-SHENDE-TSIMERMAN-17/gonality-lindelof",
+          "PAPER-SHENDE-TSIMERMAN-17/class-asymptotic",
+          "PAPER-SHENDE-TSIMERMAN-17/reduced-coefficients",
+          "PAPER-SHENDE-TSIMERMAN-17/theta-density",
+          "PAPER-SHENDE-TSIMERMAN-17/single-limit",
+          "PAPER-SHENDE-TSIMERMAN-17/geometric-single-threshold",
+          "PAPER-SHENDE-TSIMERMAN-17/escape",
+          "PAPER-SHENDE-TSIMERMAN-17/large-ratio-error",
+          "PAPER-SHENDE-TSIMERMAN-17/joint-conditional",
+          "PAPER-SHENDE-TSIMERMAN-17/split-place",
+          "PAPER-SHENDE-TSIMERMAN-17/main-single-source",
+          "PAPER-SHENDE-TSIMERMAN-17/main-joint-source",
+          "PAPER-SHENDE-TSIMERMAN-17/main-hecke-source",
+          "PAPER-SHENDE-TSIMERMAN-17/linnik-transfer-source",
+          "PAPER-SHENDE-TSIMERMAN-17/hecke-mixing-source"
+        ],
+        "routingFileSha256": "1da5c93116afc092a54b543cb4418b9593f11b517867247854a9bd3131ba7f13"
+      },
+      {
+        "paper": "PAPER-SKINNER-20",
+        "stages": [
+          "ArithmeticStatistics:ST.4"
+        ],
+        "items": [
+          "PAPER-SKINNER-20/9"
+        ],
+        "routingFileSha256": "8ad7ebff072fea132221fab845c8ff5a81729fcb9e1d7e835e5c5a706a3ccd86"
+      },
+      {
+        "paper": "PAPER-SKOROBOGATOV-SOFOS-23",
+        "stages": [
+          "ArithmeticStatistics:ST.0"
+        ],
+        "items": [
+          "PAPER-SKOROBOGATOV-SOFOS-23/2"
+        ],
+        "routingFileSha256": "26eea65f61f1a165f45964f912063b0997ff15983e08e7574013739d1c81a522"
+      },
+      {
+        "paper": "PAPER-WOOD-19",
+        "stages": [
+          "ArithmeticStatistics:ST.0"
+        ],
+        "items": [
+          "PAPER-WOOD-19/2",
+          "PAPER-WOOD-19/3",
+          "PAPER-WOOD-19/4",
+          "PAPER-WOOD-19/5",
+          "PAPER-WOOD-19/6",
+          "PAPER-WOOD-19/7",
+          "PAPER-WOOD-19/8",
+          "PAPER-WOOD-19/9",
+          "PAPER-WOOD-19/10",
+          "PAPER-WOOD-19/11",
+          "PAPER-WOOD-19/12",
+          "PAPER-WOOD-19/14",
+          "PAPER-WOOD-19/15",
+          "PAPER-WOOD-19/16",
+          "PAPER-WOOD-19/28",
+          "PAPER-WOOD-19/98"
+        ],
+        "routingFileSha256": "c41745d70332d06a1b599f75ce14eed706fdf8b872dfdde98f5ee02ba25f35c0"
+      },
+      {
+        "paper": "PAPER-WOOD-19",
+        "stages": [
+          "ArithmeticStatistics:ST.3"
+        ],
+        "items": [
+          "PAPER-WOOD-19/13",
+          "PAPER-WOOD-19/17",
+          "PAPER-WOOD-19/18",
+          "PAPER-WOOD-19/29",
+          "PAPER-WOOD-19/30",
+          "PAPER-WOOD-19/31",
+          "PAPER-WOOD-19/32",
+          "PAPER-WOOD-19/33",
+          "PAPER-WOOD-19/100",
+          "PAPER-WOOD-19/101",
+          "PAPER-WOOD-19/102",
+          "PAPER-WOOD-19/103",
+          "PAPER-WOOD-19/104",
+          "PAPER-WOOD-19/105",
+          "PAPER-WOOD-19/106",
+          "PAPER-WOOD-19/108",
+          "PAPER-WOOD-19/109",
+          "PAPER-WOOD-19/110",
+          "PAPER-WOOD-19/111",
+          "PAPER-WOOD-19/112",
+          "PAPER-WOOD-19/113",
+          "PAPER-WOOD-19/114",
+          "PAPER-WOOD-19/115",
+          "PAPER-WOOD-19/116",
+          "PAPER-WOOD-19/117",
+          "PAPER-WOOD-19/118",
+          "PAPER-WOOD-19/119",
+          "PAPER-WOOD-19/121",
+          "PAPER-WOOD-19/122",
+          "PAPER-WOOD-19/124",
+          "PAPER-WOOD-19/125",
+          "PAPER-WOOD-19/126",
+          "PAPER-WOOD-19/127",
+          "PAPER-WOOD-19/128",
+          "PAPER-WOOD-19/145",
+          "PAPER-WOOD-19/147",
+          "PAPER-WOOD-19/148",
+          "PAPER-WOOD-19/149",
+          "PAPER-WOOD-19/150",
+          "PAPER-WOOD-19/151",
+          "PAPER-WOOD-19/152",
+          "PAPER-WOOD-19/153",
+          "PAPER-WOOD-19/154",
+          "PAPER-WOOD-19/155",
+          "PAPER-WOOD-19/156",
+          "PAPER-WOOD-19/157",
+          "PAPER-WOOD-19/158",
+          "PAPER-WOOD-19/159",
+          "PAPER-WOOD-19/160",
+          "PAPER-WOOD-19/161",
+          "PAPER-WOOD-19/162",
+          "PAPER-WOOD-19/163",
+          "PAPER-WOOD-19/164",
+          "PAPER-WOOD-19/165",
+          "PAPER-WOOD-19/166",
+          "PAPER-WOOD-19/167",
+          "PAPER-WOOD-19/168",
+          "PAPER-WOOD-19/169",
+          "PAPER-WOOD-19/170",
+          "PAPER-WOOD-19/171",
+          "PAPER-WOOD-19/172",
+          "PAPER-WOOD-19/173",
+          "PAPER-WOOD-19/174",
+          "PAPER-WOOD-19/175",
+          "PAPER-WOOD-19/176",
+          "PAPER-WOOD-19/177",
+          "PAPER-WOOD-19/178",
+          "PAPER-WOOD-19/179",
+          "PAPER-WOOD-19/180",
+          "PAPER-WOOD-19/181",
+          "PAPER-WOOD-19/182",
+          "PAPER-WOOD-19/183",
+          "PAPER-WOOD-19/184",
+          "PAPER-WOOD-19/185",
+          "PAPER-WOOD-19/186",
+          "PAPER-WOOD-19/187",
+          "PAPER-WOOD-19/189",
+          "PAPER-WOOD-19/191",
+          "PAPER-WOOD-19/193",
+          "PAPER-WOOD-19/195",
+          "PAPER-WOOD-19/197",
+          "PAPER-WOOD-19/199",
+          "PAPER-WOOD-19/201",
+          "PAPER-WOOD-19/203",
+          "PAPER-WOOD-19/205",
+          "PAPER-WOOD-19/207",
+          "PAPER-WOOD-19/209",
+          "PAPER-WOOD-19/211",
+          "PAPER-WOOD-19/213",
+          "PAPER-WOOD-19/215",
+          "PAPER-WOOD-19/217",
+          "PAPER-WOOD-19/219",
+          "PAPER-WOOD-19/221",
+          "PAPER-WOOD-19/223",
+          "PAPER-WOOD-19/225",
+          "PAPER-WOOD-19/227",
+          "PAPER-WOOD-19/229",
+          "PAPER-WOOD-19/231",
+          "PAPER-WOOD-19/233",
+          "PAPER-WOOD-19/235",
+          "PAPER-WOOD-19/237",
+          "PAPER-WOOD-19/239",
+          "PAPER-WOOD-19/241",
+          "PAPER-WOOD-19/243",
+          "PAPER-WOOD-19/245",
+          "PAPER-WOOD-19/247",
+          "PAPER-WOOD-19/249",
+          "PAPER-WOOD-19/137",
+          "PAPER-WOOD-19/139",
+          "PAPER-WOOD-19/146",
+          "PAPER-WOOD-19/260",
+          "PAPER-WOOD-19/261",
+          "PAPER-WOOD-19/262",
+          "PAPER-WOOD-19/263",
+          "PAPER-WOOD-19/264",
+          "PAPER-WOOD-19/265",
+          "PAPER-WOOD-19/266",
+          "PAPER-WOOD-19/267",
+          "PAPER-WOOD-19/268",
+          "PAPER-WOOD-19/269",
+          "PAPER-WOOD-19/270",
+          "PAPER-WOOD-19/271",
+          "PAPER-WOOD-19/272",
+          "PAPER-WOOD-19/273",
+          "PAPER-WOOD-19/274",
+          "PAPER-WOOD-19/275",
+          "PAPER-WOOD-19/276",
+          "PAPER-WOOD-19/277",
+          "PAPER-WOOD-19/278",
+          "PAPER-WOOD-19/279",
+          "PAPER-WOOD-19/280",
+          "PAPER-WOOD-19/281",
+          "PAPER-WOOD-19/282",
+          "PAPER-WOOD-19/283",
+          "PAPER-WOOD-19/284",
+          "PAPER-WOOD-19/285",
+          "PAPER-WOOD-19/288",
+          "PAPER-WOOD-19/289",
+          "PAPER-WOOD-19/290",
+          "PAPER-WOOD-19/291",
+          "PAPER-WOOD-19/292",
+          "PAPER-WOOD-19/293",
+          "PAPER-WOOD-19/294",
+          "PAPER-WOOD-19/295",
+          "PAPER-WOOD-19/296",
+          "PAPER-WOOD-19/99",
+          "PAPER-WOOD-19/298",
+          "PAPER-WOOD-19/299",
+          "PAPER-WOOD-19/321",
+          "PAPER-WOOD-19/322",
+          "PAPER-WOOD-19/323",
+          "PAPER-WOOD-19/325",
+          "PAPER-WOOD-19/326",
+          "PAPER-WOOD-19/341"
+        ],
+        "routingFileSha256": "c41745d70332d06a1b599f75ce14eed706fdf8b872dfdde98f5ee02ba25f35c0"
+      },
+      {
+        "paper": "PAPER-WOOD-19",
+        "stages": [
+          "ArithmeticStatistics:ST.5"
+        ],
+        "items": [
+          "PAPER-WOOD-19/89",
+          "PAPER-WOOD-19/90",
+          "PAPER-WOOD-19/91",
+          "PAPER-WOOD-19/92",
+          "PAPER-WOOD-19/93",
+          "PAPER-WOOD-19/94",
+          "PAPER-WOOD-19/95",
+          "PAPER-WOOD-19/96",
+          "PAPER-WOOD-19/97",
+          "PAPER-WOOD-19/140",
+          "PAPER-WOOD-19/141",
+          "PAPER-WOOD-19/143",
+          "PAPER-WOOD-19/305",
+          "PAPER-WOOD-19/306",
+          "PAPER-WOOD-19/307",
+          "PAPER-WOOD-19/308",
+          "PAPER-WOOD-19/309",
+          "PAPER-WOOD-19/310",
+          "PAPER-WOOD-19/313",
+          "PAPER-WOOD-19/339"
+        ],
+        "routingFileSha256": "c41745d70332d06a1b599f75ce14eed706fdf8b872dfdde98f5ee02ba25f35c0"
+      }
+    ]
+  },
+  "planningPass": {
+    "by": "Codex — codex-5ebb6f",
+    "date": "2026-10-04",
+    "protocolSection": "0",
+    "status": "complete",
+    "reason": "The incoming packet has 415 nodes, exceeding the 300-node planning budget. Preserve its declaration graph and record the current breadth frontier for review and stage follow-ups.",
+    "nodeBudget": 300,
+    "incomingNodes": 415,
+    "newNodes": 0,
+    "mathematicalClosure": false,
+    "stageNodeCounts": {
+      "ArithmeticStatistics:ST.0": 37,
+      "ArithmeticStatistics:ST.1": 57,
+      "ArithmeticStatistics:ST.2": 52,
+      "ArithmeticStatistics:ST.3": 33,
+      "ArithmeticStatistics:ST.4": 42,
+      "ArithmeticStatistics:ST.5": 194
+    },
+    "reviewBoundary": "The unchanged accepted review is independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO, a September 30 scoped fix review. It does not accept this continuation, the full roadmap, or mathematical closure. This pass requires independent review.",
+    "baselineRevalidation": "All inherited baseline declarations are preserved unchanged; no new baseline citations or full declaration-statement re-audit are claimed. The reviewed AUDIT-07 scope and current RS-07 ownership decisions were read.",
+    "sourceReading": "Read current stages, accepted ownership decisions, coverage and selected corrected extraction targets. The 527-ID register records routing, not proof coverage; predecessor proof readings, primary-source hashes and numerical tests remain historical. No new full primary-source or publication-version collation is claimed.",
+    "upstreamDocuments": [
+      {
+        "path": "content/tau-ceti/ArithmeticDirichletSeries/README.md",
+        "sha256": "f375fdc7ee7cfda441216b12da86773f5b94f3aea10bf94400a50562f422ea8a",
+        "reading": "Full document read by this worker in the preceding planning job; reused here."
+      },
+      {
+        "path": "content/tau-ceti/Completed/OrthogonalL2Bases/README.md",
+        "sha256": "1321cca3f2bad0a69afe200c8561c67aa9d2d641368824982fbbb7ebd3395202",
+        "reading": "Full document read by this worker in the preceding planning job; reused here."
+      }
+    ],
+    "coverageCorrections": [
+      {
+        "stageId": "ArithmeticStatistics:ST.0",
+        "priorRemaining": "COHEN-LENSTRA, the roadmap's second named source (LNM 1068, not public), was not acquired; the Cohen–Lenstra probability measure on finite abelian p-groups (weights 1/#Aut) is not planned here. It is a stabilizer-type weight in the sense of ST.0/stabilizer-weighted-orbit-count; its limiting-measure statements belong with ST.5's acceptance ('the measure on the limiting space').",
+        "correction": "The Cohen–Lenstra measure is already planned once in ST.5; source acquisition and actual arithmetic-family comparisons remain open."
+      }
+    ],
+    "suggestedFileCheck": {
+      "result": "Full Mathlib-only file elaborated, exit 0; 1137 admission warnings only. This checks signatures, not implementation, omitted foreign-carrier prototypes or source-proof validity.",
+      "fileSha256": "4dd92aabd3f3c7ebe280d37e11e14914634b33579dedc5fdb013941dc754e478",
+      "lines": 8960,
+      "imports": 122,
+      "availableGiB": 37,
+      "packages": {
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "plausible": "d9598f07b1bc701f1e3aae163d2681c1fd978793",
+        "LeanSearchClient": "ba67e212be1197b84c1f1f6299488a10a3002713",
+        "importGraph": "e6f3c9cd0408a0024ba182319984f6243752cf4d",
+        "proofwidgets": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+        "aesop": "18889deb9e83ea7420ef51c160d6f88552e744e3",
+        "Qq": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+        "batteries": "4cac2177c37f5530c4da76aa8e4307f3fc9e4dcb",
+        "Cli": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af"
+      },
+      "time": "2026-10-04T20:44:13.023180+00:00",
+      "timeoutSeconds": 1200,
+      "threadCount": 1,
+      "memoryMiB": 8192,
+      "MathlibPin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "TauCetiImports": 0,
+      "exit": 0,
+      "elapsedSeconds": 30.01,
+      "logSha256": "695eebd0892b1536ceed83857e6b7e3abeea03188d3d4c6cd1b7150493d9a4a5",
+      "errors": 0,
+      "warnings": 1137,
+      "sorryWarnings": 1137,
+      "otherWarnings": []
+    }
+  }
 }

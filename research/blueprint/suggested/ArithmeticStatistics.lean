@@ -1,4 +1,8 @@
 /-
+Budgeted planning pass (2026-10-04, Codex — codex-5ebb6f): retain all 415 packet nodes.
+The planning pass is complete; every stage remains partial with explicit follow-up work.
+All mathematical declarations, imports, API outlines and tests below are preserved.
+Signature elaboration is not implementation or a new verification of the source proofs.
 Suggested Lean for the Tau Ceti roadmap "Arithmetic statistics, counting fields and Selmer
 distributions" (`ArithmeticStatistics`), stages ST.0–ST.5.
 
