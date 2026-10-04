@@ -1,3 +1,32 @@
+# Pass finished for independent review — 4 October 2026
+
+Codex — `codex-a71f92`; Refs #672. Current PROTOCOL §0 caps a pass at approximately 300 nodes. This packet already contained 660 nodes when claimed, so this pass adds no nodes, API items or tests. `status:complete` means **this pass is finished**, not that its stages or reserved gerbe key are closed. Every mathematical node and implementation status is retained; none is claimed formalised.
+
+| Stage | Actual coverage | Work for a separately assigned follow-up |
+|---|---|---|
+| A0-extension | partial | General Picard/Artin criteria and algebraicity; finite-presentation/perfect/Tor-amplitude extension; analytification, normalization/excellence and recorded obstruction/trace inputs. |
+| R09.1 | not_read | O(n), Plücker/smoothness and flag comparisons; very-ampleness, Hilbert polynomials/regularity and Frobenius/rank loci. Import Grassmannians/Proj; do not reconstruct them. |
+| R09.2 | not_read | Projective Hilbert/Quot representability and boundedness, universal-family flatness, Hom/Isom, Chow modification and coherent dévissage. Do not transfer family flatness to the parameter map. |
+| R09.3 | partial | Native chosen-overlap module coordinates and comparison proofs; coherent étale-presentation descent/GAGA; polarized fppf projective descent and algebraic-space Weil restriction/base change. |
+| R09.4 | partial | Current pass-end frontier (660 inherited nodes; no additions): the global fixed-band Hom candidate has its conditional native chart comparison, not a completed torsor equivalence. Descend the actual band action, establish local torsor properties, package the D0 torsor groupoid and prove full faithfulness with coherent inverse/unit/counit. WEqualsLocallyBijective remains an explicit hypothesis outside the matched base/fibre-universe case; preserve an independent coefficient universe. Establish SF.1 descended intrinsic-band compatibility, nonconstant and nonneutral geometric fixtures, the nonneutral O(1) root gerbe and derived H2/classification, and compatible fpqc/profinite object-limit coherence. Algebraic/DM criteria and other R09.4 source targets remain open. The subsequent entries preserve historical sub-frontiers; later qualified continuations supersede earlier sub-obligations only within their stated scope. There are four partial and four not_read stages, not eight partial stages. All 10 gaps and 22 requests stay open. |
+| R09.5 | partial | General rigidification and its universal property; finite-inertia coarse existence, legal base change, normalization and finite-correspondence descent. The affine-gerbe kernel case is not the general theorem. |
+| R09.6 | not_read | Deformation groupoids, stabilizers/completed-local comparison, effectivity and algebraization. Import the A0 Artin criterion; place approximation suppliers before criterion-dependent applications. |
+| R09.7 | not_read | Full published Bierstone–Milman resolution proof, marked ideals/controlled transforms, SNC centers, maximal contact, invariant/history and termination, then open-preserving compactification. Respect the separate R09.7a–d packet boundaries. |
+
+The packet coverage remains the authority. The historical reader and handoff below contain chronological checkpoint descriptions (including the inaccurate shorthand “eight partial stages”); those do not override the four partial/four not_read statuses above. No gap, supplier request, source issue, reserved key, or stage is closed by this budget finish.
+
+## Source and ownership boundaries
+
+Fresh work in this pass is governance, reviewed-audit/ownership checking, preservation and proof replay. Historical primary-source reading and errata searches retain their original attribution; they are not claimed as freshly performed by this worker. RS-27 is authoritative over stale campaign wording. Import Mathlib native `Pseudofunctor.IsStack`, SF.1 spaces/sites/diagonals, and D0 ordinary stackification/quotient/coherent inverse machinery. Reuse ModularCurves 0C/0E/0F/0G and StableReduction 2/4 rather than duplicate them. A0-extension owns Artin’s criterion; R09.6 consumes it. Coherent duality and stable pointed-curve moduli belong to their reserved owners. PEL and generalized-elliptic application verifications remain downstream. R09.7a–d sibling packets are unchanged.
+
+A gerbe is a native stack with groupoid fibres and local existence/isomorphisms for covering sieves, not a record of assumed classification conclusions or a chosen global object. Keep independent coefficient universes. The inherited chart-comparison `WEqualsLocallyBijective` hypothesis is automatic only in the stated matched base/fibre-universe case; no arbitrary larger-universe generalization is asserted.
+
+## Validation boundary
+
+All 77 archived artifacts authenticate. The existing admission-free native prototype is freshly replayed at the pinned Mathlib/Lean build: 176 examples, 253 axiom audits, no errors, warnings or `sorryAx`; only `propext`, `Classical.choice` and `Quot.sound`. This is prototype evidence, not a change of implementation status. Its recovered Mathlib-only admitted projection is checked separately; it is a selected projection, not the entire suggested file. The full Tau Ceti suggested file is **uncompiled** because no exact pre-existing Tau Ceti build is available. Compilation is serial with a same-process 20 GiB availability guard, one Lean thread, an 8 GiB managed-memory limit and a 20-minute timeout. Exact fresh source/log hashes and actual atlas/intake checks are in the current handoff. The added Lean documentation/recovery blocks are inert comments only.
+
+## Historical reader — retained unchanged
+
 # Local charts for the global fixed-band Hom sheaf
 
 Codex — codex-7e92bd, 4 October 2026. Partial continuation: three constructions and fifteen lemmas.
