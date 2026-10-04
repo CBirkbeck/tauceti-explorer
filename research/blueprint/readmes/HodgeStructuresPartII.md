@@ -1,3 +1,321 @@
+# The affine category and the pullback functor
+
+Objects are native R-modules equipped with the existing actual additive λ-preconnection. Arrows are R-linear maps satisfying the existing horizontal equation. Identity and composition are the native linear maps, with their horizontal proofs. The faithful forgetful functor lands in native ModuleCat. A horizontal linear equivalence supplies a categorical isomorphism, including its inverse-horizontal proof and preservation/reflection of actual zero curvature.
+
+The calculus map m:Ω→Γ along R→S induces the actual functor (M,D)↦(S⊗_R M,D.affinePullback m) and h↦h.baseChange S. It preserves composition without assuming flatness or scalar-extension faithfulness. For refl Ω, the native left-unitor is a natural isomorphism to the identity functor. Naturality is checked on actual elementary tensors using linearity; it is not merely a list of objectwise isomorphisms.
+
+The fixed parameter λ may have nonzero derivative. Objects here are arbitrary modules with raw preconnections; no integrability or finite locally free hypothesis is built in. The reserved global finite locally free integrable sheaf key, relatively constant parameter and ringed-site calculus retain their original scope. These six constructions are affine categorical packaging of existing mathematics, not a replacement module-sheaf carrier or a replanning of native scalar extension.
+
+All368 incoming nodes remain whole, as do all227 baseline objects, six planets,149 routed items,35 omissions, five requests, eleven gaps and the inherited source issue/version envelope. This continuation adds23 declaration nodes,20 API references to17 distinct lemmas and18 test references to9 distinct typed examples; shared tests explicitly exercise the corresponding constructions. Every implementation status stays unchecked. Both the admission-free native certificate and the entire admitted Mathlib-only suggested file are checked at the pinned build; the certificate proves only its exact affine declarations and examples.
+
+Fresh reading of the displayed Stacks Section60.15, its Lemma60.15.1 proof and two comments supplies connection/extension conventions. The categorical deductions are authored from the existing affine proofs and actual pinned native APIs. No fresh full-paper, recursive citation closure, crystal equivalence or exhaustive errata audit is asserted. Exact own6027 governing/audit/supplier readings are reused at unchanged hashes and original scope; peer6032 evidence is independently publicly recovered and its actual verifier reproduced, with peer attribution retained.
+
+The affine ambient preconnections and horizontal native linear maps now form an actual category with faithful forgetful functor, horizontal linear-equivalence isomorphisms, actual scalar-extension functor and a natural isomorphism for identity pullback. Arbitrary modules and arbitrary λ are allowed. Still package the common-λ monoidal category, strong monoidal pullback and categorical tower coherence, universal exterior-power and dual comparisons. E1 actual sheaf restriction/tensor identification, equality detection and effective gluing remain required; the general finite locally free integrable ringed-site key is not this raw affine carrier. All149 routed obligations,35 omissions, five requests, eleven gaps, determinant/Tate/period adapters, arbitrary-Q tensor-valued shuffle and H.1–H.8 remain open. H.0 stays partial and H.1–H.8 stay not_read. Prior frontier prose is checkpoint history.
+
+## Affine parameter preconnections on native modules
+
+**AffineCategory** — For a supplied affine differential calculus Ω over k→R and fixed arbitrary λ∈R, define the object type as the dependent sum of native ModuleCat R objects M with an existing actual additive Preconnection Ω λ M. No finite generation, local freeness or zero-curvature predicate is imposed. This is the affine ambient category carrier, distinct from the reserved global finite locally free integrable sheaf key.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/intrinsic-preconnection, mathlib:ModuleCat.
+
+Proof: Use the native bundled module carrier and the existing additive λ-Leibniz structure as its dependent fiber.
+
+Consumed API:
+
+- **AffineCategory.hom_ext**: Two arrows h,j:X→Y in the affine category are equal whenever h.val=j.val as native R-linear maps. The horizontal witnesses do not add data.
+- **AffineCategory.id_linear**: For every affine object X, the underlying native linear map of its categorical identity is LinearMap.id.
+- **AffineCategory.comp_linear**: For h:X→Y and j:Y→Z, the underlying linear map of h≫j is j.val.comp h.val. This fixes categorical order.
+
+Typed examples:
+
+- **AffineCategoryTests.zero_morphism**: For any two actual affine objects and any compatible calculus map, construct a horizontal zero arrow whose forgotten linear map and scalar-extended linear map are both zero.
+- **AffineCategoryTests.reject_nonhorizontal_polynomial_map**: Over Z[x] with formal derivative and the unit λ=1 connection, no categorical endomorphism forgets to multiplication by x. At1 its claimed horizontality would force1=0. Thus the faithful forgetful functor is not generally full.
+- **AffineCategoryTests.nonconstant_identity_operator**: Construct the object over Z[x] with λ=x and dλ=1. Apply the actual identity-pullback functor, its actual unitor component and the pulled additive operator to1⊗x. The resulting coordinate is x; the category and functor do not require dλ=0.
+
+## The category of horizontal affine maps
+
+**AffineCategory.category** — For X=(M,D),Y=(N,C), let Hom(X,Y) be the subtype of actual R-linear maps h:M→N satisfying C(hx)=(h⊗id_W)D(x) for every x. Identity is the native identity map; composition is native linear composition in categorical order. Prove both unit laws and associativity as equalities of these subtypes.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-objects, mathlib:TensorProduct.map, mathlib:TensorProduct.map_map.
+
+Proof: The identity tensor map is identity. Compose the two horizontal equations and use TensorProduct.map_map; subtype extensionality reduces category laws to native linear-map laws.
+
+Consumed API:
+
+- **AffineCategory.hom_ext**: Two arrows h,j:X→Y in the affine category are equal whenever h.val=j.val as native R-linear maps. The horizontal witnesses do not add data.
+- **AffineCategory.id_linear**: For every affine object X, the underlying native linear map of its categorical identity is LinearMap.id.
+- **AffineCategory.comp_linear**: For h:X→Y and j:Y→Z, the underlying linear map of h≫j is j.val.comp h.val. This fixes categorical order.
+- **AffineCategory.hom_extend**: For h:X→Y and x∈X.1⊗_R W, Y.2.extend((h.val⊗id_W)x)=(h.val⊗id_Z)(X.2.extend x). Use the actual additive extensions at the same arbitrary λ.
+- **AffineCategory.hom_curvature**: For h:X→Y and x∈X.1, Y.2.curvature(h.val x)=(h.val⊗id_Z)(X.2.curvature x), with no d₀λ=0 premise.
+
+Typed examples:
+
+- **AffineCategoryTests.zero_morphism**: For any two actual affine objects and any compatible calculus map, construct a horizontal zero arrow whose forgotten linear map and scalar-extended linear map are both zero.
+- **AffineCategoryTests.composite_forget**: For actual composable horizontal arrows h,j and x, forgetting 𝟙≫h≫j evaluates to j(h(x)); this fixes categorical order and identity behavior.
+- **AffineCategoryTests.reject_nonhorizontal_polynomial_map**: Over Z[x] with formal derivative and the unit λ=1 connection, no categorical endomorphism forgets to multiplication by x. At1 its claimed horizontality would force1=0. Thus the faithful forgetful functor is not generally full.
+
+## Horizontal maps are determined by their linear maps
+
+**AffineCategory.hom_ext** — Two arrows h,j:X→Y in the affine category are equal whenever h.val=j.val as native R-linear maps. The horizontal witnesses do not add data.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-category.
+
+Proof: Apply subtype extensionality and proof irrelevance.
+
+## Underlying identity of an affine object
+
+**AffineCategory.id_linear** — For every affine object X, the underlying native linear map of its categorical identity is LinearMap.id.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-category.
+
+Proof: Reduce the actual category identity.
+
+## Underlying composition of horizontal maps
+
+**AffineCategory.comp_linear** — For h:X→Y and j:Y→Z, the underlying linear map of h≫j is j.val.comp h.val. This fixes categorical order.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-category.
+
+Proof: Reduce the actual category composition.
+
+## Forgetful functor to native modules
+
+**AffineCategory.forget** — Define AffineCategory Ω λ→ModuleCat R by (M,D)↦M and h↦ModuleCat.ofHom h.val, preserving actual identities and composition. The target is the existing native module category.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-category, mathlib:ModuleCat.ofHom.
+
+Proof: Use the underlying module and horizontal-map projection; functor laws reduce to native composition.
+
+Consumed API:
+
+- **AffineCategory.forget_obj**: The forgetful functor sends X to its first dependent-pair component X.1, with the exact existing module structure.
+- **AffineCategory.forget_map**: For every affine arrow h, the Hom.hom projection of forget.map h is h.val as a native R-linear map.
+- **AffineCategory.forget_faithful**: The affine forgetful functor is native CategoryTheory.Functor.Faithful: equality after forgetting implies equality of each pair of horizontal arrows. This does not assert fullness.
+
+Typed examples:
+
+- **AffineCategoryTests.zero_morphism**: For any two actual affine objects and any compatible calculus map, construct a horizontal zero arrow whose forgotten linear map and scalar-extended linear map are both zero.
+- **AffineCategoryTests.forget_detects_maps**: Two actual horizontal arrows agreeing pointwise after forgetting are equal in the affine category, so the horizontal proof field does not add hidden data.
+- **AffineCategoryTests.reject_nonhorizontal_polynomial_map**: Over Z[x] with formal derivative and the unit λ=1 connection, no categorical endomorphism forgets to multiplication by x. At1 its claimed horizontality would force1=0. Thus the faithful forgetful functor is not generally full.
+
+## Underlying module of an affine object
+
+**AffineCategory.forget_obj** — The forgetful functor sends X to its first dependent-pair component X.1, with the exact existing module structure.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-forget.
+
+Proof: Definitional reduction.
+
+## Underlying linear map of a forgotten arrow
+
+**AffineCategory.forget_map** — For every affine arrow h, the Hom.hom projection of forget.map h is h.val as a native R-linear map.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-forget, mathlib:ModuleCat.Hom.hom.
+
+Proof: Definitional reduction through ModuleCat.ofHom.
+
+## Faithfulness of the affine forgetful functor
+
+**AffineCategory.forget_faithful** — The affine forgetful functor is native CategoryTheory.Functor.Faithful: equality after forgetting implies equality of each pair of horizontal arrows. This does not assert fullness.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-forget, HodgeStructuresPartII:H.0/affine-category-hom-ext, mathlib:CategoryTheory.Functor.Faithful.
+
+Proof: Project equality of native module morphisms to their linear maps, then apply subtype extensionality.
+
+## Categorical arrows intertwine degree-one extensions
+
+**AffineCategory.hom_extend** — For h:X→Y and x∈X.1⊗_R W, Y.2.extend((h.val⊗id_W)x)=(h.val⊗id_Z)(X.2.extend x). Use the actual additive extensions at the same arbitrary λ.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-category, HodgeStructuresPartII:H.0/extension-horizontal.
+
+Proof: Apply the existing affine extension-horizontal theorem to h.val and its defining horizontal witness.
+
+## Categorical arrows intertwine actual curvature
+
+**AffineCategory.hom_curvature** — For h:X→Y and x∈X.1, Y.2.curvature(h.val x)=(h.val⊗id_Z)(X.2.curvature x), with no d₀λ=0 premise.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-category, HodgeStructuresPartII:H.0/curvature-horizontal.
+
+Proof: Apply the actual curvature-horizontal theorem to the subtype witness.
+
+## An affine isomorphism from a horizontal linear equivalence
+
+**AffineCategory.isoMk** — Given e:X.1≃_R Y.1 and the actual horizontal equation for e, construct a categorical isomorphism X≅Y with forward map e and inverse e⁻¹. No extra inverse-horizontal premise is requested.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-category, HodgeStructuresPartII:H.0/affine-parameter-horizontal-inverse.
+
+Proof: Use the existing inverse-horizontal theorem for e⁻¹. Both inverse identities follow by subtype extensionality from native linear-equivalence inverses.
+
+Consumed API:
+
+- **AffineCategory.isoMk_hom**: The underlying linear map of isoMk(e,he).hom is exactly e.toLinearMap.
+- **AffineCategory.isoMk_inv**: The underlying linear map of isoMk(e,he).inv is exactly e.symm.toLinearMap.
+- **AffineCategory.isoMk_flat_iff**: For a horizontal native linear equivalence e:X.1≃Y.1, curvature vanishes on every element of Y if and only if it vanishes on every element of X. This compares two objects over the same supplied calculus and arbitrary λ.
+
+Typed examples:
+
+- **AffineCategoryTests.transport_roundtrip**: For the actual coordinate-transported preconnection Dᵉ, isoMk(e,D.transport_horizontal) has inverse-forward composite equal to the identity on every source element.
+- **AffineCategoryTests.iso_reflects_actual_flatness**: If the target actual additive curvature vanishes and e is a horizontal native linear equivalence, the source actual curvature vanishes, by the constructed categorical isomorphism.
+- **AffineCategoryTests.nonreduced_identity_iso**: Construct the scalar Higgs operator1 over Z/4. Its actual identity-pullback operator at2⊗1, transported by the actual natural-isomorphism component, has coordinate2≠0 with square zero; the inverse-forward component also recovers2.
+
+## Forward linear map of the affine isomorphism
+
+**AffineCategory.isoMk_hom** — The underlying linear map of isoMk(e,he).hom is exactly e.toLinearMap.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-iso-mk.
+
+Proof: Reduce the isomorphism constructor.
+
+## Inverse linear map of the affine isomorphism
+
+**AffineCategory.isoMk_inv** — The underlying linear map of isoMk(e,he).inv is exactly e.symm.toLinearMap.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-iso-mk.
+
+Proof: Reduce the isomorphism constructor.
+
+## Actual flatness under an affine isomorphism
+
+**AffineCategory.isoMk_flat_iff** — For a horizontal native linear equivalence e:X.1≃Y.1, curvature vanishes on every element of Y if and only if it vanishes on every element of X. This compares two objects over the same supplied calculus and arbitrary λ.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-iso-mk, HodgeStructuresPartII:H.0/affine-category-hom-curvature.
+
+Proof: Use curvature horizontality for the forward and inverse arrows, evaluate at e(x) or a preimage of y, and map zero to zero.
+
+## Actual affine scalar extension as a functor
+
+**AffineCategory.pullback** — For a compatible calculus morphism m:Ω→Γ along algebraMap R S, define the functor from AffineCategory Ω λ to AffineCategory Γ f(λ). Send (M,D) to the native module S⊗_R M with D.affinePullback m, and send horizontal h to h.val.baseChange S. Prove identity and composition preservation. λ may have nonzero derivative, and S need not be flat or faithful.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-category, HodgeStructuresPartII:H.0/affine-pullback, HodgeStructuresPartII:H.0/affine-pullback-horizontal, mathlib:LinearMap.baseChange, mathlib:LinearMap.baseChange_id, mathlib:LinearMap.baseChange_comp.
+
+Proof: Existing actual pullback horizontality gives the arrow witness. Native baseChange_id and baseChange_comp give the functor equations by subtype extensionality.
+
+Consumed API:
+
+- **AffineCategory.pullback_obj_connection**: The second component of pullback(m).obj X is exactly X.2.affinePullback m on the actual S⊗_R X.1.
+- **AffineCategory.pullback_map_linear**: For a horizontal h:X→Y, the native linear map of pullback(m).map h is h.val.baseChange S.
+- **AffineCategory.pullback_map_tmul**: For s∈S and x∈X.1, pullback(m).map(h) sends s⊗x to s⊗h.val(x). The coefficients and parameter are those of the actual extension functor.
+
+Typed examples:
+
+- **AffineCategoryTests.zero_morphism**: For any two actual affine objects and any compatible calculus map, construct a horizontal zero arrow whose forgotten linear map and scalar-extended linear map are both zero.
+- **AffineCategoryTests.nonconstant_identity_operator**: Construct the object over Z[x] with λ=x and dλ=1. Apply the actual identity-pullback functor, its actual unitor component and the pulled additive operator to1⊗x. The resulting coordinate is x; the category and functor do not require dλ=0.
+- **AffineCategoryTests.nonreduced_identity_iso**: Construct the scalar Higgs operator1 over Z/4. Its actual identity-pullback operator at2⊗1, transported by the actual natural-isomorphism component, has coordinate2≠0 with square zero; the inverse-forward component also recovers2.
+
+## Operator in the pulled-back affine object
+
+**AffineCategory.pullback_obj_connection** — The second component of pullback(m).obj X is exactly X.2.affinePullback m on the actual S⊗_R X.1.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-pullback.
+
+Proof: Definitional reduction to the existing balanced operator.
+
+## Linear map of a pulled-back arrow
+
+**AffineCategory.pullback_map_linear** — For a horizontal h:X→Y, the native linear map of pullback(m).map h is h.val.baseChange S.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-pullback.
+
+Proof: Definitional reduction.
+
+## A pulled-back arrow on an elementary tensor
+
+**AffineCategory.pullback_map_tmul** — For s∈S and x∈X.1, pullback(m).map(h) sends s⊗x to s⊗h.val(x). The coefficients and parameter are those of the actual extension functor.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-pullback, mathlib:LinearMap.baseChange_tmul.
+
+Proof: Evaluate native scalar extension on a pure tensor.
+
+## Identity pullback as a natural isomorphism
+
+**AffineCategory.pullbackIdentityIso** — For the existing identity calculus morphism refl Ω, construct the native natural isomorphism pullback(refl Ω)≅𝟭(AffineCategory Ω λ). Its component is the actual left-unitor R⊗_R M≃M, made horizontal by the existing identity-pullback theorem. Verify naturality for every horizontal arrow.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-pullback, HodgeStructuresPartII:H.0/affine-category-iso-mk, HodgeStructuresPartII:H.0/affine-pullback-identity-horizontal, mathlib:TensorProduct.lid, mathlib:CategoryTheory.NatIso.ofComponents, mathlib:TensorProduct.ext'.
+
+Proof: Use isoMk on each native left-unitor. In the naturality square, subtype extensionality and tensor extensionality reduce both maps on r⊗x to h(r•x)=r•h(x).
+
+Consumed API:
+
+- **AffineCategory.pullbackIdentityIso_hom**: The underlying linear map of the identity-pullback natural isomorphism at X is the actual TensorProduct.lid R X.1.
+- **AffineCategory.pullbackIdentityIso_inv**: The inverse component of the identity-pullback natural isomorphism at X has underlying map (TensorProduct.lid R X.1).symm.
+- **AffineCategory.pullbackIdentityIso_naturality**: For h:X→Y, lid_Y ∘ h.val.baseChange R = h.val ∘ lid_X as native R-linear maps R⊗_R X.1→Y.1. These are the underlying maps of the naturality square for identity pullback.
+
+Typed examples:
+
+- **AffineCategoryTests.identity_naturality_on_tensor**: Evaluate the identity-pullback naturality square for an arbitrary actual horizontal arrow on r⊗x; the two specified composites agree.
+- **AffineCategoryTests.nonconstant_identity_operator**: Construct the object over Z[x] with λ=x and dλ=1. Apply the actual identity-pullback functor, its actual unitor component and the pulled additive operator to1⊗x. The resulting coordinate is x; the category and functor do not require dλ=0.
+- **AffineCategoryTests.nonreduced_identity_iso**: Construct the scalar Higgs operator1 over Z/4. Its actual identity-pullback operator at2⊗1, transported by the actual natural-isomorphism component, has coordinate2≠0 with square zero; the inverse-forward component also recovers2.
+
+## Forward component of identity pullback
+
+**AffineCategory.pullbackIdentityIso_hom** — The underlying linear map of the identity-pullback natural isomorphism at X is the actual TensorProduct.lid R X.1.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-pullback-identity-iso.
+
+Proof: Reduce NatIso.ofComponents and isoMk.
+
+## Inverse component of identity pullback
+
+**AffineCategory.pullbackIdentityIso_inv** — The inverse component of the identity-pullback natural isomorphism at X has underlying map (TensorProduct.lid R X.1).symm.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-pullback-identity-iso.
+
+Proof: Reduce NatIso.ofComponents and isoMk.
+
+## The actual linear naturality square
+
+**AffineCategory.pullbackIdentityIso_naturality** — For h:X→Y, lid_Y ∘ h.val.baseChange R = h.val ∘ lid_X as native R-linear maps R⊗_R X.1→Y.1. These are the underlying maps of the naturality square for identity pullback.
+
+Hypotheses: Supplied TwoForms Ω over commutative k→R with its specified native module structures; λ is arbitrary, including d₀λ≠0. Objects use ModuleCat in the chosen common universe for rings and module carriers. No field, smoothness, basis, finite generation, projectivity, flatness, integrability or local-freeness assumption is inserted. For changing rings, supply the existing calculus morphism along algebraMap R S and its target Γ; compatible scalar towers for degree-one forms are retained wherever the operator or inverse-horizontal proof uses them. Global sheaf restriction, universal forms and the reserved finite locally free integrable ringed-site carrier remain separate.
+
+Prerequisites: HodgeStructuresPartII:H.0/affine-category-pullback-identity-iso, mathlib:TensorProduct.ext'.
+
+Proof: Apply tensor extensionality and the R-linearity of h to r⊗x.
+
 # Actual coordinate transport and affine pullback
 
 Let m:Ω→Γ be the existing supplied affine differential-calculus morphism along R→S. Let D be the actual additive λ-preconnection on an arbitrary native R-module E and u:E≅F an actual R-linear equivalence. The coefficient parameter λ is arbitrary. Coordinate transport acts by conjugating the additive operator, so derivatives of a variable frame remain inside D(u⁻¹(f)). The scalar-extended equivalence u_S is the existing native LinearEquiv.baseChange; it exists without flatness of S.
