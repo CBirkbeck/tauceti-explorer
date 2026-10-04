@@ -12,7 +12,7 @@
     "SchemeAndStackFoundations:SF.6"
   ],
   "status": "partial",
-  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review. Flat-annihilator continuation: eight new lemma-sized supplier steps and seven tests, retaining the entire twenty-nine-node henselization strand. Quotient/cokernel continuation: thirteen native adapter declarations, three API items and eight tests, preserving all thirty-seven incoming whole nodes and every existing obligation. Affine ideal-pullback continuation: nine native adapters, three API items and five typed tests; all fifty incoming whole node objects and every prior obligation are preserved. Affine quotient naturality continuation: fourteen declaration-sized nodes, nine API items and nine typed tests. All59 incoming whole node objects and every prior obligation are preserved. Canonical quotient-to-closed-sections continuation: twelve declaration-sized nodes, nine API items and eight typed tests; all 73 incoming whole node objects and prior obligations are preserved. All-open kernel quotient continuation: twenty declaration-sized nodes, sixteen API items and nine distinct typed tests; all 85 incoming whole node objects and prior obligations are preserved.",
+  "summary": "Continuation of the existing SF.0 henselization strand: all twenty-five inherited IDs retained; four declaration-sized actual-section selector, kernel, product and localization adapters are added with native proofs, and the inherited etale-lift uniqueness statement now has a native proof. The generic unramified diagonal and idempotent/localization machinery are already built and imported. Lifted residue-selector localization, finite-data implementation, source criterion/universal cocone, ownership overlap, all other keys/stages/source routes and confirmed findings remain open; every implementation stays unchecked pending review. Flat-annihilator continuation: eight new lemma-sized supplier steps and seven tests, retaining the entire twenty-nine-node henselization strand. Quotient/cokernel continuation: thirteen native adapter declarations, three API items and eight tests, preserving all thirty-seven incoming whole nodes and every existing obligation. Affine ideal-pullback continuation: nine native adapters, three API items and five typed tests; all fifty incoming whole node objects and every prior obligation are preserved. Affine quotient naturality continuation: fourteen declaration-sized nodes, nine API items and nine typed tests. All59 incoming whole node objects and every prior obligation are preserved. Canonical quotient-to-closed-sections continuation: twelve declaration-sized nodes, nine API items and eight typed tests; all 73 incoming whole node objects and prior obligations are preserved. All-open kernel quotient continuation: twenty declaration-sized nodes, sixteen API items and nine distinct typed tests; all 85 incoming whole node objects and prior obligations are preserved. Quotient-comparison continuation:12 declarations(2 constructions,10 lemmas),10 API entries and7 typed tests; all105 incoming node objects preserved whole.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -983,6 +983,38 @@
         "line": 53,
         "provides": "theorem pushforward_sheaf_of_sheaf {F : X.Presheaf C} (h : F.IsSheaf) : (f _* F).IsSheaf :=",
         "checked": "Actual statement and ambient hypotheses read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-rtOQ9t on 2026-10-04. Bounded ranges and hashes in Reading.json; generic carriers and sheafification are imported, not re-planned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ConcreteCategory.isIso_iff_bijective",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/ConcreteCategory/EpiMono.lean",
+        "line": 186,
+        "provides": "theorem isIso_iff_bijective [(forget C).ReflectsIsomorphisms] Reuse the actual native quotient or categorical API.",
+        "checked": "Codex — codex-7e92bd read the declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.whiskerLeft",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Whiskering.lean",
+        "line": 46,
+        "provides": "def whiskerLeft (F : C ⥤ D) {G H : D ⥤ E} (α : G ⟶ H) : Reuse the actual native quotient or categorical API.",
+        "checked": "Codex — codex-7e92bd read the declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.NatIso.isIso_of_isIso_app",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/NatIso.lean",
+        "line": 202,
+        "provides": "theorem isIso_of_isIso_app (α : F ⟶ G) [∀ X : C, IsIso (α.app X)] : IsIso α := Reuse the actual native quotient or categorical API.",
+        "checked": "Codex — codex-7e92bd read the declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMap_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "line": 670,
+        "provides": "theorem quotientMap_surjective {J : Ideal R} {I : Ideal S} [I.IsTwoSided] [J.IsTwoSided] Reuse the actual native quotient or categorical API.",
+        "checked": "Codex — codex-7e92bd read the declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
       }
     ]
   },
@@ -1260,6 +1292,45 @@
       "readSections": [
         "Complete displayed Example 26.4.3, including its explicitly cited external proof leaves, which are not claimed recursively read",
         "No recursive chapter closure. All-open adapter formulas are authored deductions."
+      ]
+    },
+    {
+      "id": "STACKS-C9-7e92bd-01IN",
+      "title": "Quotient comparison context 01IN",
+      "authors": "The Stacks Project authors",
+      "edition": "Complete current displayed mathematical statement/proof read4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/01IN",
+      "sha256": "a285f245d0b5ee5bfae26e4bf59c4ddd3e6113072d6a729b6fd68cc081354326",
+      "accessed": "2026-10-04T04:56:57.244642+00:00",
+      "readSections": [
+        "Complete current displayed mathematical statement and proof, with current page comments.",
+        "No recursive source closure; exact comparison formulas are authored deductions."
+      ]
+    },
+    {
+      "id": "STACKS-C9-7e92bd-01IQ",
+      "title": "Quotient comparison context 01IQ",
+      "authors": "The Stacks Project authors",
+      "edition": "Complete current displayed mathematical statement/proof read4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/01IQ",
+      "sha256": "0329016aa00c3919201c5c9df902eedb920a7d955af6928522c5dd0f5afac4a8",
+      "accessed": "2026-10-04T04:56:57.573217+00:00",
+      "readSections": [
+        "Complete current displayed mathematical statement and proof, with current page comments.",
+        "No recursive source closure; exact comparison formulas are authored deductions."
+      ]
+    },
+    {
+      "id": "STACKS-C9-7e92bd-01JU",
+      "title": "Quotient comparison context 01JU",
+      "authors": "The Stacks Project authors",
+      "edition": "Complete current displayed mathematical statement/proof read4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/01JU",
+      "sha256": "56d2f17cbb293a8b66a122d3c923d6b3fdaf1a3c5d507a12536397ec3c98d308",
+      "accessed": "2026-10-04T04:56:58.023518+00:00",
+      "readSections": [
+        "Complete current displayed mathematical statement and proof, with current page comments.",
+        "No recursive source closure; exact comparison formulas are authored deductions."
       ]
     }
   ],
@@ -6244,6 +6315,596 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "construction",
+      "title": "Compare the image-ideal and section-kernel quotients",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel",
+      "statement": "For arbitrary f:X→Y, native ideal datum I on Y and affine open U⊆Y, put V=f⁻¹U, J=I.comap f, E=I(U).map(f.app U), and K=ker(J.ι.app V). Construct the actual ring map Γ(X,V)/E→Γ(X,V)/K induced by the identity on Γ(X,V). No affineness of V is required.",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/extended-ideal-kernel-inclusion",
+        "mathlib:Ideal.quotientMap"
+      ],
+      "proofSteps": [
+        "Use the existing unconditional inclusion E≤K and native Ideal.quotientMap for the identity ring map. Keep both actual ideals and quotient carriers."
+      ],
+      "acceptance": [
+        "For arbitrary f:X→Y, native ideal datum I on Y and affine open U⊆Y, put V=f⁻¹U, J=I.comap f, E=I(U).map(f.app U), and K=ker(J.ι.app V). Construct the actual ring map Γ(X,V)/E→Γ(X,V)/K induced by the identity on Γ(X,V). No affineness of V is required.",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_mk",
+          "role": "compatibility",
+          "statement": "The actual comparison sends the E-class of a section a∈Γ(X,f⁻¹U) to its K-class."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_surjective",
+          "role": "compatibility",
+          "statement": "For every arbitrary f and affine base open U, quotientToKernel I f U is surjective, including when f⁻¹U is nonaffine. This concerns the map between quotient rings, not surjectivity onto closed-subscheme sections."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_factor",
+          "role": "compatibility",
+          "statement": "The comparison Γ(X,V)/E→Γ(X,V)/K followed by the actual allOpenToClosed component at V equals quotientToClosed I f U as ring homomorphisms. This holds for arbitrary f and affine U."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_injective_iff",
+          "role": "compatibility",
+          "statement": "For arbitrary f and affine U, quotientToKernel I f U is injective if and only if quotientToClosed I f U is injective."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_bijective",
+          "role": "compatibility",
+          "statement": "If the single inverse image f⁻¹U is affine, quotientToKernel I f U is bijective. No global affineness of f is required."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_naturality",
+          "role": "compatibility",
+          "statement": "For affine U≤W in Y, the image-ideal quotient restriction followed by the comparison at U equals the comparison at W followed by the all-open kernel-quotient restriction along f⁻¹U≤f⁻¹W. Neither inverse image must be affine."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuotientToKernelChecked.affine_roundtrip",
+          "kind": "compatibility",
+          "statement": "For any single affine inverse image, the inverse of the actual bijective quotient ring map returns every original quotient class."
+        },
+        {
+          "name": "QuotientToKernelChecked.unit_ideal",
+          "kind": "degenerate",
+          "statement": "For the unit ideal datum and arbitrary f, every class maps to zero in the actual kernel quotient."
+        },
+        {
+          "name": "QuotientToKernelChecked.empty_open",
+          "kind": "degenerate",
+          "statement": "For the empty affine base open and arbitrary f, every class maps to zero in the empty-open kernel quotient."
+        },
+        {
+          "name": "QuotientToKernelChecked.strict_kernel_obstruction",
+          "kind": "non-example",
+          "statement": "A specified section in the actual immersion kernel but outside the extended ideal gives a nonzero class killed by the comparison; it proves noninjectivity and that the inverse image is nonaffine. This is a typed witness criterion, not a newly instantiated concrete nonaffine scheme."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-sheaf-factor",
+          "how": "Identify the two actual quotient presentations in the closed-subscheme ring-sheaf comparison, so generic pullback consumers can use the same section maps without strengthening affineness assumptions."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-representative",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "The comparison preserves every representative",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_mk",
+      "statement": "The actual comparison sends the E-class of a section a∈Γ(X,f⁻¹U) to its K-class.",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel"
+      ],
+      "proofSteps": [
+        "Definitional reduction of the native identity-induced quotient map."
+      ],
+      "acceptance": [
+        "The actual comparison sends the E-class of a section a∈Γ(X,f⁻¹U) to its K-class.",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-surjective",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "The comparison is always surjective",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_surjective",
+      "statement": "For every arbitrary f and affine base open U, quotientToKernel I f U is surjective, including when f⁻¹U is nonaffine. This concerns the map between quotient rings, not surjectivity onto closed-subscheme sections.",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel",
+        "mathlib:Ideal.quotientMap_surjective"
+      ],
+      "proofSteps": [
+        "Apply the native quotientMap surjectivity theorem to the identity ring map."
+      ],
+      "acceptance": [
+        "For every arbitrary f and affine base open U, quotientToKernel I f U is surjective, including when f⁻¹U is nonaffine. This concerns the map between quotient rings, not surjectivity onto closed-subscheme sections.",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-factor",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Factor the canonical closed-section map",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_factor",
+      "statement": "The comparison Γ(X,V)/E→Γ(X,V)/K followed by the actual allOpenToClosed component at V equals quotientToClosed I f U as ring homomorphisms. This holds for arbitrary f and affine U.",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel",
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed",
+        "SchemeAndStackFoundations:SF.0/quotient-to-closed-sections",
+        "mathlib:Ideal.Quotient.ringHom_ext"
+      ],
+      "proofSteps": [
+        "Use native quotient-map extensionality; both composites send a representative to J.ι.app V(a)."
+      ],
+      "acceptance": [
+        "The comparison Γ(X,V)/E→Γ(X,V)/K followed by the actual allOpenToClosed component at V equals quotientToClosed I f U as ring homomorphisms. This holds for arbitrary f and affine U.",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-injective-criterion",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Detect injectivity through the actual section map",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_injective_iff",
+      "statement": "For arbitrary f and affine U, quotientToKernel I f U is injective if and only if quotientToClosed I f U is injective.",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel-factor",
+        "SchemeAndStackFoundations:SF.0/all-open-to-closed-injective"
+      ],
+      "proofSteps": [
+        "Use the factorization and the unconditional injectivity of the kernel-quotient map into closed sections. Compose injections in one direction and cancel by evaluating the composite in the other."
+      ],
+      "acceptance": [
+        "For arbitrary f and affine U, quotientToKernel I f U is injective if and only if quotientToClosed I f U is injective.",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-affine-bijective",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "An affine inverse image gives a ring isomorphism",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_bijective",
+      "statement": "If the single inverse image f⁻¹U is affine, quotientToKernel I f U is bijective. No global affineness of f is required.",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel-injective-criterion",
+        "SchemeAndStackFoundations:SF.0/quotient-to-closed-injective",
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel-surjective"
+      ],
+      "proofSteps": [
+        "Combine the injectivity criterion with the existing closed-section affine comparison and unconditional quotient-map surjectivity."
+      ],
+      "acceptance": [
+        "If the single inverse image f⁻¹U is affine, quotientToKernel I f U is bijective. No global affineness of f is required.",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-naturality",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "The quotient comparison commutes with restriction",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_naturality",
+      "statement": "For affine U≤W in Y, the image-ideal quotient restriction followed by the comparison at U equals the comparison at W followed by the all-open kernel-quotient restriction along f⁻¹U≤f⁻¹W. Neither inverse image must be affine.",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel-representative",
+        "SchemeAndStackFoundations:SF.0/quotient-restriction-representative",
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-map",
+        "mathlib:Ideal.Quotient.ringHom_ext"
+      ],
+      "proofSteps": [
+        "Compare native ring homomorphisms on quotient representatives; both take the actual section restriction and its K-class."
+      ],
+      "acceptance": [
+        "For affine U≤W in Y, the image-ideal quotient restriction followed by the comparison at U equals the comparison at W followed by the all-open kernel-quotient restriction along f⁻¹U≤f⁻¹W. Neither inverse image must be affine.",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-transformation",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "construction",
+      "title": "Natural comparison of the two quotient presheaves",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans",
+      "statement": "For arbitrary f:X→Y and I, construct the actual natural transformation from quotientPresheaf I f on Y.affineOpens opposite to the precomposition of allOpenQuotient(I.comap f) by affine-open inclusion followed by inverse image along f. Its component at U is quotientToKernel I f U.",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf",
+        "SchemeAndStackFoundations:SF.0/all-open-quotient-presheaf",
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel-naturality"
+      ],
+      "proofSteps": [
+        "Use the existing actual functors and specified component ring maps; the preceding restriction equality supplies naturality. No new quotient or presheaf carrier is introduced."
+      ],
+      "acceptance": [
+        "For arbitrary f:X→Y and I, construct the actual natural transformation from quotientPresheaf I f on Y.affineOpens opposite to the precomposition of allOpenQuotient(I.comap f) by affine-open inclusion followed by inverse image along f. Its component at U is quotientToKernel I f U.",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_app",
+          "role": "compatibility",
+          "statement": "At every affine U, the component of quotientToKernelNatTrans I f is CommRingCat.ofHom(quotientToKernel I f U)."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_factor",
+          "role": "compatibility",
+          "statement": "The quotient-presheaf comparison followed by the whiskered allOpenToClosed(I.comap f) equals quotientToClosedNatTrans I f as actual natural transformations."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_isIso",
+          "role": "compatibility",
+          "statement": "For an affine morphism f, quotientToKernelNatTrans I f is an isomorphism in the native CommRingCat-valued functor category."
+        },
+        {
+          "name": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_sheaf_factor",
+          "role": "compatibility",
+          "statement": "For arbitrary f, the new natural comparison followed by the whiskered sheafification unit and allOpenSheafComparison(I.comap f) equals quotientToClosedNatTrans I f. This is equality of actual natural transformations on all affine base opens, without affine inverse-image or flatness assumptions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuotientToKernelNatChecked.two_step_restriction",
+          "kind": "compatibility",
+          "statement": "The actual natural component commutes with two successive affine-base restrictions and the corresponding single all-open restriction, with arbitrary inverse images."
+        },
+        {
+          "name": "QuotientToKernelNatChecked.nonreduced_identity",
+          "kind": "computation",
+          "statement": "On the identity of Spec(ZMod4) with zero ideal datum, the actual natural component preserves the nonzero square-zero class represented by2."
+        },
+        {
+          "name": "QuotientToKernelNatChecked.sheaf_factor_on_every_class",
+          "kind": "compatibility",
+          "statement": "For arbitrary f and every quotient class, applying the new natural component, native sheafification unit and actual sheaf comparison equals the existing quotientToClosed map."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-sheaf-factor",
+          "how": "Identify the two actual quotient presentations in the closed-subscheme ring-sheaf comparison, so generic pullback consumers can use the same section maps without strengthening affineness assumptions."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-component",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "The natural component is the canonical quotient map",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_app",
+      "statement": "At every affine U, the component of quotientToKernelNatTrans I f is CommRingCat.ofHom(quotientToKernel I f U).",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-transformation"
+      ],
+      "proofSteps": [
+        "Definitional equality of the specified components."
+      ],
+      "acceptance": [
+        "At every affine U, the component of quotientToKernelNatTrans I f is CommRingCat.ofHom(quotientToKernel I f U).",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-factor",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Factorization is equality of natural transformations",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_factor",
+      "statement": "The quotient-presheaf comparison followed by the whiskered allOpenToClosed(I.comap f) equals quotientToClosedNatTrans I f as actual natural transformations.",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-transformation",
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel-factor",
+        "SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-transformation",
+        "mathlib:CategoryTheory.Functor.whiskerLeft"
+      ],
+      "proofSteps": [
+        "Use native natural-transformation extensionality and the component ring factorization. Retain the actual preimage functor and its direction."
+      ],
+      "acceptance": [
+        "The quotient-presheaf comparison followed by the whiskered allOpenToClosed(I.comap f) equals quotientToClosedNatTrans I f as actual natural transformations.",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-isomorphism",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "Affine morphisms give a natural isomorphism",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_isIso",
+      "statement": "For an affine morphism f, quotientToKernelNatTrans I f is an isomorphism in the native CommRingCat-valued functor category.",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-component",
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel-affine-bijective",
+        "mathlib:CategoryTheory.ConcreteCategory.isIso_iff_bijective",
+        "mathlib:CategoryTheory.NatIso.isIso_of_isIso_app"
+      ],
+      "proofSteps": [
+        "Each affine base open has an affine inverse image. Convert the proved component bijectivity to native isomorphisms, then apply the native componentwise isomorphism criterion."
+      ],
+      "acceptance": [
+        "For an affine morphism f, quotientToKernelNatTrans I f is an isomorphism in the native CommRingCat-valued functor category.",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-sheaf-factor",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "kind": "lemma",
+      "title": "The two quotients give the same ring-sheaf comparison",
+      "leanName": "TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_sheaf_factor",
+      "statement": "For arbitrary f, the new natural comparison followed by the whiskered sheafification unit and allOpenSheafComparison(I.comap f) equals quotientToClosedNatTrans I f. This is equality of actual natural transformations on all affine base opens, without affine inverse-image or flatness assumptions.",
+      "hypotheses": [
+        "X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f.",
+        "No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-factor",
+        "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-factorization",
+        "mathlib:CategoryTheory.Functor.whiskerLeft"
+      ],
+      "proofSteps": [
+        "Replace the sheafification-unit/comparison composite by the already proved allOpenToClosed transformation, then apply the new natural factorization."
+      ],
+      "acceptance": [
+        "For arbitrary f, the new natural comparison followed by the whiskered sheafification unit and allOpenSheafComparison(I.comap f) equals quotientToClosedNatTrans I f. This is equality of actual natural transformations on all affine base opens, without affine inverse-image or flatness assumptions.",
+        "Retain actual ideals, quotient rings and restriction maps; preserve nilpotents and empty opens. Keep the global conductor specialization and flat recomputation in their existing consumer."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/IdealSheaf/QuotientComparison",
+        "namespace": "TauCeti.SchemeFoundations.IdealPullback"
+      },
+      "sources": [
+        {
+          "sourceId": "STACKS-C9-7e92bd-01JU",
+          "locator": "Lemma26.17.6 complete current statement/proof/comments; closed-section kernel context in Lemma26.10.1",
+          "match": "The source supplies the image-ideal convention for closed-immersion pullback. These quotient-to-kernel and natural factorization formulas are authored deductions from pinned native APIs and the preceding actual closed-section constructions."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [],
@@ -6260,7 +6921,8 @@
         "Nine generic affine ideal-pullback adapters now identify the full extended ideal and the actual quotient section map, without flatness or finiteness. The conductor-specialized consumer comparison in PR6023 remains separately owned. General ideal pullback is the image ideal, not an assertion that pullback preserves injectivity of its module inclusion. The remaining global conductor/sheaf and flat-recomputation consumer obligations, henselization coherence and source leaves, reserved keys,62 routed sources and all other-stage obligations remain open.",
         "Fourteen affine quotient-restriction and naturality declarations now compare the actual closed-subscheme section maps and construct an affine-indexed quotient presheaf and natural isomorphism. Restriction maps require arbitrary f; the natural isomorphism requires affine f to supply all affine preimages. This is not an all-open sheafification or global structure-sheaf comparison. The separately owned conductor/sheaf and flat-recomputation consumer obligations, henselization coherence and source leaves, six reserved-key boundaries,62 routed sources and all other-stage obligations remain open.",
         "Twelve canonical quotient-to-closed-sections declarations now supply the actual quotient lift and its natural transformation for arbitrary morphisms, without affine-preimage or quasi-compactness hypotheses. The map agrees with the existing inverse comparison on an affine preimage, and is an isomorphism of affine-indexed presheaves for affine f. No general nonaffine isomorphism or all-open sheafification/global structure-sheaf comparison is claimed. Both conductor/sheaf and flat-recomputation consumer requests, henselization coherence/source leaves, all six reserved-key boundaries, 62 source routes and the other stages remain open.",
-        "Twenty all-open declarations now construct Q_I(U)=Γ(X,U)/ker(ι.app U), its actual quotient restrictions, the injective natural map to closed-subscheme sections, local bijectivity and the native ring-sheafification isomorphism a(Q_I)≅ι_*O_Z. The comparison agrees with the native affine quotient map and with quotientToClosed on actual pullback representatives. The presheaf itself is not asserted to be a sheaf or globally surjective. All consumer conductor identification, flat recomputation, henselization/source leaves, six reserved-key boundaries, 62 routed sources and other-stage obligations remain open."
+        "Twenty all-open declarations now construct Q_I(U)=Γ(X,U)/ker(ι.app U), its actual quotient restrictions, the injective natural map to closed-subscheme sections, local bijectivity and the native ring-sheafification isomorphism a(Q_I)≅ι_*O_Z. The comparison agrees with the native affine quotient map and with quotientToClosed on actual pullback representatives. The presheaf itself is not asserted to be a sheaf or globally surjective. All consumer conductor identification, flat recomputation, henselization/source leaves, six reserved-key boundaries, 62 routed sources and other-stage obligations remain open.",
+        "Twelve actual quotient-comparison declarations now connect the earlier affine-indexed image-ideal quotients to the all-open immersion-kernel quotients by a native natural transformation. It is always componentwise surjective and factors the actual closed-section transformation and native ring-sheafification comparison. A single affine inverse image gives component bijectivity; affine f gives a natural isomorphism. No arbitrary nonaffine injectivity, closed-section surjectivity or quotient-presheaf sheaf condition is asserted. Consumer conductor/flat-recomputation, henselization/source leaves, all six reserved-key boundaries,62 source routes and other-stage obligations remain open."
       ]
     },
     {
@@ -6532,6 +7194,24 @@
       "url": "https://stacks.math.columbia.edu/tag/01HM",
       "read": "2026-10-04",
       "sha256": "69a45a981b2a0fec5c46015d76bc85cefbf1b28e41c2aa97c2ae432085f0e699"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/01IN",
+      "read": "2026-10-04",
+      "sha256": "a285f245d0b5ee5bfae26e4bf59c4ddd3e6113072d6a729b6fd68cc081354326"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/01IQ",
+      "read": "2026-10-04",
+      "sha256": "0329016aa00c3919201c5c9df902eedb920a7d955af6928522c5dd0f5afac4a8"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/01JU",
+      "read": "2026-10-04",
+      "sha256": "56d2f17cbb293a8b66a122d3c923d6b3fdaf1a3c5d507a12536397ec3c98d308"
     }
   ],
   "baselineCoverage": [
@@ -7016,13 +7696,13 @@
     }
   ],
   "validationBoundary": {
-    "agent": "Codex — codex-rtOQ9t",
+    "agent": "Codex — codex-7e92bd",
     "date": "2026-10-04",
     "issue": 642,
-    "implementation": "All 105 nodes remain unchecked. Separate native evidence checks twenty new declarations and nine examples, recompiling the authenticated unchanged 1169-line incoming prefix and its 56 audits. No whole-roadmap implementation claim.",
-    "sourceRead": "Complete issue before and after claim, current handoff, all eight gaps, SF.0 frontier and both complete consumer requests read. All twelve peer6035 declarations and eight tests freshly read, plus the previously authored own affine comparison scopes reused only at matching pins and control hashes. Own public6029 reading record recovered and authenticated; 27 external file guards unchanged, with four owned inputs and the consumer packet changed. Peer6035 recovered publicly and actual immutable verifier reproduced byte-for-byte. Complete displayed Stacks01IN statement/proof and01HM example freshly read. No fresh whole-paper, all85-node, all1169-line prefix, historical finding or inherited E1 erratum audit claimed.",
-    "elaboration": "Whole Mathlib-only canonical suggested file and separate native proof evidence checked at the exact pinned existing build. Native proof audits use only propext, Classical.choice and Quot.sound. Canonical warnings are admissions only. Sources, logs and actual immutable checker/graph receipts are publicly recoverable.",
-    "remaining": "Twenty all-open declarations now construct Q_I(U)=Γ(X,U)/ker(ι.app U), its actual quotient restrictions, the injective natural map to closed-subscheme sections, local bijectivity and the native ring-sheafification isomorphism a(Q_I)≅ι_*O_Z. The comparison agrees with the native affine quotient map and with quotientToClosed on actual pullback representatives. The presheaf itself is not asserted to be a sheaf or globally surjective. All consumer conductor identification, flat recomputation, henselization/source leaves, six reserved-key boundaries, 62 routed sources and other-stage obligations remain open."
+    "implementation": "All117 nodes remain unchecked. Native evidence checks twelve new declarations and seven examples with the whole authenticated1447-line prefix and its76 audits. No whole-roadmap implementation claim.",
+    "sourceRead": "Whole issue read and reread after confirmation; current handoff narrative/recovery, all eight gaps, complete SF.0 frontier and both complete consumer requests freshly read. Actual peer6040 public replay reproduced its verifier byte-for-byte; all twenty new proofs and nine tests read. Own6035 scopes reused only at27 unchanged controls. Complete current Stacks01IN,01IQ,01JU statements/proofs/comments read. No fresh whole105-node, historical finding, inherited E1 erratum or recursive source audit.",
+    "elaboration": "Complete Mathlib-only canonical suggested file and separate native proof evidence checked using the existing exact pinned build. Native audits have no admitted dependencies; canonical warnings are admissions only. Public hashes and actual immutable checker/intake/atlas receipts delimit the claims.",
+    "remaining": "Twelve actual quotient-comparison declarations now connect the earlier affine-indexed image-ideal quotients to the all-open immersion-kernel quotients by a native natural transformation. It is always componentwise surjective and factors the actual closed-section transformation and native ring-sheafification comparison. A single affine inverse image gives component bijectivity; affine f gives a natural isomorphism. No arbitrary nonaffine injectivity, closed-section surjectivity or quotient-presheaf sheaf condition is asserted. Consumer conductor/flat-recomputation, henselization/source leaves, all six reserved-key boundaries,62 source routes and other-stage obligations remain open."
   },
   "restructure": [
     {

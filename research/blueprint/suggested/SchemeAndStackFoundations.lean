@@ -1304,3 +1304,148 @@ example (I : X.IdealSheafData) (U : X.Opens)
   sorry
 
 end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X Y : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+def quotientToKernel (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens) :
+    (Γ(X, f ⁻¹ᵁ U) ⧸ (I.ideal U).map (f.app U).hom) →+*
+      (Γ(X, f ⁻¹ᵁ U) ⧸ RingHom.ker ((I.comap f).subschemeι.app (f ⁻¹ᵁ U)).hom) :=
+  Ideal.quotientMap _ (RingHom.id _) (extendedIdeal_le_ker I f U)
+
+lemma quotientToKernel_mk (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
+    (a : Γ(X, f ⁻¹ᵁ U)) :
+    quotientToKernel I f U (Ideal.Quotient.mk _ a) = Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma quotientToKernel_surjective (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) : Function.Surjective (quotientToKernel I f U) := by
+  sorry
+
+lemma quotientToKernel_factor (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens) :
+    ((allOpenToClosed (I.comap f)).app (op (f ⁻¹ᵁ U))).hom.comp
+      (quotientToKernel I f U) = quotientToClosed I f U := by
+  sorry
+
+lemma quotientToKernel_injective_iff (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) :
+    Function.Injective (quotientToKernel I f U) ↔ Function.Injective (quotientToClosed I f U) := by
+  sorry
+
+lemma quotientToKernel_bijective (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) (H : IsAffineOpen (f ⁻¹ᵁ U)) :
+    Function.Bijective (quotientToKernel I f U) := by
+  sorry
+
+lemma quotientToKernel_naturality (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V : Y.affineOpens} (h : U ≤ V) :
+    CommRingCat.ofHom (quotientRestriction I f h) ≫ CommRingCat.ofHom (quotientToKernel I f U) =
+      CommRingCat.ofHom (quotientToKernel I f V) ≫
+        (allOpenQuotient (I.comap f)).map
+          ((TopologicalSpace.Opens.map f.base).map (homOfLE h)).op := by
+  sorry
+
+def quotientToKernelNatTrans (I : Y.IdealSheafData) (f : X ⟶ Y) :
+    quotientPresheaf I f ⟶
+      ((show Monotone (fun U : Y.affineOpens => U.1) from fun _ _ h => h).functor ⋙
+        TopologicalSpace.Opens.map f.base).op ⋙ allOpenQuotient (I.comap f) where
+  app U := CommRingCat.ofHom (quotientToKernel I f U.unop)
+  naturality _ _ h := quotientToKernel_naturality I f h.unop.le
+
+lemma quotientToKernelNatTrans_app (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) :
+    (quotientToKernelNatTrans I f).app (op U) = CommRingCat.ofHom (quotientToKernel I f U) := by
+  sorry
+
+lemma quotientToKernelNatTrans_factor (I : Y.IdealSheafData) (f : X ⟶ Y) :
+    quotientToKernelNatTrans I f ≫
+      Functor.whiskerLeft ((show Monotone (fun U : Y.affineOpens => U.1) from fun _ _ h => h).functor ⋙
+        TopologicalSpace.Opens.map f.base).op (allOpenToClosed (I.comap f)) =
+      quotientToClosedNatTrans I f := by
+  sorry
+
+lemma quotientToKernelNatTrans_isIso (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f] :
+    IsIso (quotientToKernelNatTrans I f) := by
+  sorry
+
+lemma quotientToKernelNatTrans_sheaf_factor (I : Y.IdealSheafData) (f : X ⟶ Y) :
+    quotientToKernelNatTrans I f ≫
+      Functor.whiskerLeft ((show Monotone (fun U : Y.affineOpens => U.1) from fun _ _ h => h).functor ⋙
+        TopologicalSpace.Opens.map f.base).op
+        (toSheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap f)) ≫
+          allOpenSheafComparison (I.comap f)) = quotientToClosedNatTrans I f := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X Y : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: QuotientToKernelChecked.affine_roundtrip
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
+    (H : IsAffineOpen (f ⁻¹ᵁ U))
+    (a : Γ(X, f ⁻¹ᵁ U) ⧸ (I.ideal U).map (f.app U).hom) :
+    (RingEquiv.ofBijective (quotientToKernel I f U)
+      (quotientToKernel_bijective I f U H)).symm (quotientToKernel I f U a) = a := by
+  sorry
+
+-- test: QuotientToKernelChecked.unit_ideal
+example (f : X ⟶ Y) (U : Y.affineOpens)
+    (q : Γ(X, f ⁻¹ᵁ U) ⧸ ((⊤ : Y.IdealSheafData).ideal U).map (f.app U).hom) :
+    quotientToKernel (⊤ : Y.IdealSheafData) f U q = 0 := by
+  sorry
+
+-- test: QuotientToKernelChecked.empty_open
+example (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (q : Γ(X, f ⁻¹ᵁ (⊥ : Y.Opens)) ⧸
+      (I.ideal ⟨⊥, isAffineOpen_bot Y⟩).map (f.app (⊥ : Y.Opens)).hom) :
+    quotientToKernel I f ⟨⊥, isAffineOpen_bot Y⟩ q = 0 := by
+  sorry
+
+-- test: QuotientToKernelChecked.strict_kernel_obstruction
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
+    (a : Γ(X, f ⁻¹ᵁ U))
+    (ha : a ∈ RingHom.ker ((I.comap f).subschemeι.app (f ⁻¹ᵁ U)).hom)
+    (hn : a ∉ (I.ideal U).map (f.app U).hom) :
+    ¬ Function.Injective (quotientToKernel I f U) ∧ ¬ IsAffineOpen (f ⁻¹ᵁ U) := by
+  sorry
+
+-- test: QuotientToKernelNatChecked.two_step_restriction
+example (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {U V W : Y.affineOpens} (h : U ≤ V) (k : V ≤ W)
+    (q : Γ(X, f ⁻¹ᵁ W) ⧸ (I.ideal W).map (f.app W).hom) :
+    (quotientToKernelNatTrans I f).app (op U)
+      (quotientRestriction I f h (quotientRestriction I f k q)) =
+    (allOpenQuotient (I.comap f)).map
+      ((TopologicalSpace.Opens.map f.base).map (homOfLE (h.trans k))).op
+        ((quotientToKernelNatTrans I f).app (op W) q) := by
+  sorry
+
+-- test: QuotientToKernelNatChecked.nonreduced_identity
+example :
+    let X := Spec (.of (ZMod 4))
+    let I : X.IdealSheafData := ⊥
+    let U : X.affineOpens := ⟨⊤, isAffineOpen_top _⟩
+    let a := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    let q := (quotientToKernelNatTrans I (𝟙 X)).app (op U) (Ideal.Quotient.mk _ a)
+    q ≠ 0 ∧ q ^ 2 = 0 := by
+  sorry
+
+-- test: QuotientToKernelNatChecked.sheaf_factor_on_every_class
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
+    (q : Γ(X, f ⁻¹ᵁ U) ⧸ (I.ideal U).map (f.app U).hom) :
+    (allOpenSheafComparison (I.comap f)).app (op (f ⁻¹ᵁ U))
+      ((toSheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap f))).app
+        (op (f ⁻¹ᵁ U)) ((quotientToKernelNatTrans I f).app (op U) q)) =
+      quotientToClosed I f U q := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
