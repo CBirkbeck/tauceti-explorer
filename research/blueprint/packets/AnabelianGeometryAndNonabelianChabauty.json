@@ -11,8 +11,8 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.5",
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
-  "status": "partial",
-  "summary": "Actual invariant-orbit equivalences to the kernel inclusion image and neutral coefficient fibre. Actual kernel quotient-invariant action and ambient-fibre orbit criterion. Gauge stabilizer and kernel uniqueness continuation: native twisted-invariant/stabilizer comparison, actual gauge-witness spaces, sufficient invariant/stabilizer-lift criteria for kernel H¹ injectivity and unique repointed-fibre classes. Abstract embedded-kernel continuation: 19 declaration-sized nodes, 15 promoted API leaves and 14 typed tests. Partial anabelian checkpoint with 276 declaration-sized nodes. This continuation adds an actual native subgroup-to-twisted-kernel multiplicative identification, its jointly continuous transported inner action, a genuine continuous gauge-H¹ equivalence, and exact native ambient inclusion range criteria. Its explicit hypothesis is S≤U with x∈S iff f(x)=1; mapped-target and original-fibre converses also require f surjective. All 258 inherited mathematical contracts, seven stage statuses, nine gaps, seventeen supplier requests and eleven planets are preserved. NC.0 and NC.3 remain partial, other stages not_read, every node unchecked. The general abstract embedded-kernel adapter, central H², geometry, representability, local conditions, additive comparison, étale K(pi,1), Chen and BDMTV obligations are not closed.",
+  "status": "complete",
+  "summary": "Budget-complete planning pass under PROTOCOL section 0; open stages, gaps and requests remain explicit. Native inner-twisted kernel invariant action and actual orbit equivalence to the original coefficient fibre over [f∘c]. Actual invariant-orbit equivalences to the kernel inclusion image and neutral coefficient fibre. Actual kernel quotient-invariant action and ambient-fibre orbit criterion. Gauge stabilizer and kernel uniqueness continuation: native twisted-invariant/stabilizer comparison, actual gauge-witness spaces, sufficient invariant/stabilizer-lift criteria for kernel H¹ injectivity and unique repointed-fibre classes. Abstract embedded-kernel continuation: 19 declaration-sized nodes, 15 promoted API leaves and 14 typed tests. Partial anabelian checkpoint with 276 declaration-sized nodes. This continuation adds an actual native subgroup-to-twisted-kernel multiplicative identification, its jointly continuous transported inner action, a genuine continuous gauge-H¹ equivalence, and exact native ambient inclusion range criteria. Its explicit hypothesis is S≤U with x∈S iff f(x)=1; mapped-target and original-fibre converses also require f surjective. All 258 inherited mathematical contracts, seven stage statuses, nine gaps, seventeen supplier requests and eleven planets are preserved. NC.0 and NC.3 remain partial, other stages not_read, every node unchecked. The general abstract embedded-kernel adapter, central H², geometry, representability, local conditions, additive comparison, étale K(pi,1), Chen and BDMTV obligations are not closed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1112,6 +1112,13 @@
         "module": "Mathlib/Logic/Equiv/Set.lean",
         "provides": "Native equivalence between the subtypes of equal sets, preserving their underlying elements.",
         "checked": "Exact statement and implementation read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 44–51; native use elaborated."
+      },
+      {
+        "ref": "mathlib:Equiv.subtypeEquiv",
+        "kind": "def",
+        "module": "Mathlib/Logic/Equiv/Basic.lean",
+        "provides": "Restricts an actual equivalence to subtypes when the predicates correspond; both inverse identities are inherited.",
+        "checked": "Complete statement and implementation read at exact pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 258–268."
       }
     ]
   },
@@ -1459,6 +1466,18 @@
         "Fresh complete parsed printed pp.5–9, including both Proposition 1 and Proposition 2 proofs and subgroup paragraph. Downloaded exact PDF independently hashed. No whole-paper, visual or published-version collation."
       ],
       "readingExtent": "Actual orbit-quotient equivalences are authored abstract topological-group deductions from preserved proof contracts; this does not establish geometric representability."
+    },
+    {
+      "id": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+      "title": "The motivic fundamental group of P¹ minus {0,1,∞} and the theorem of Siegel",
+      "authors": "Minhyong Kim",
+      "edition": "Exact arXiv:math/0409456v1; selected printed pp.5–9, freshly parsed 2026-10-04",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+      "readSections": [
+        "§1 printed pp.5–9, continuous cocycle/gauge definitions, complete Proposition 1 and Proposition 2 proofs, subgroup paragraph; authored abstract inner-twisted kernel orbit deductions, not geometric representability"
+      ],
+      "read": "2026-10-04"
     }
   ],
   "nodes": [
@@ -20471,6 +20490,848 @@
         "name": "TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_inverse"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-equivalence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "construction",
+      "title": "Translation of the neutral coefficient fibre",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv",
+      "statement": "For every continuous equivariant f:U→V and continuous cocycle c, restrict the actual twisting equivalence T_c to an equivalence from the neutral fibre of (f_c)₁:H¹(G,U_c)→H¹(G,V_(f∘c)) to the actual original fibre {a∈H¹(G,U) : f₁(a)=[f∘c]}. The underlying map is T_c, with inverse T_c⁻¹, and its source neutral class maps to [c]. Surjectivity of f is not required.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Apply the pinned subtype-equivalence constructor to the existing T_c and the proved coefficient-fibre comparison. Its inverse restricts T_c⁻¹ and both inverse laws are inherited from T_c."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-fibre",
+        "mathlib:Equiv.subtypeEquiv"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_apply",
+          "role": "compatibility",
+          "statement": "For every element z of the actual twisted neutral coefficient fibre, the underlying original cohomology class of its translation is T_c(z)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_symm_apply",
+          "role": "compatibility",
+          "statement": "For every z in the original fibre over [f∘c], the underlying twisted cohomology class of the inverse translation is T_c⁻¹(z)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_basepoint",
+          "role": "compatibility",
+          "statement": "Translation sends the neutral twisted class, with its actual neutral coefficient-image proof, to [c] in the original fibre. It does not send it to the original neutral class unless [c]=1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "For every element z of the actual twisted neutral coefficient fibre, the underlying original cohomology class of its translation is T_c(z)."
+        },
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "For every z in the original fibre over [f∘c], the underlying twisted cohomology class of the inverse translation is T_c⁻¹(z)."
+        },
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "Translation sends the neutral twisted class, with its actual neutral coefficient-image proof, to [c] in the original fibre. It does not send it to the original neutral class unless [c]=1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "twist_fibre_translation_value",
+          "kind": "compatibility",
+          "statement": "The fibre translation sends every actual twisted neutral-fibre element z to T_c(z), with the same original cohomology value."
+        },
+        {
+          "name": "twist_fibre_translation_basepoint",
+          "kind": "degenerate",
+          "statement": "The twisted neutral class translates to [c], not necessarily to the original neutral class."
+        },
+        {
+          "name": "twist_fibre_translation_inverse",
+          "kind": "characterisation",
+          "statement": "For every element of the actual original fibre over [f∘c], the forward translation after its inverse is the same subtype element."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Fibre translation evaluation",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_apply",
+      "statement": "For every element z of the actual twisted neutral coefficient fibre, the underlying original cohomology class of its translation is T_c(z).",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Evaluate the native restricted equivalence forward map."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-equivalence"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_apply"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-inverse-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Inverse fibre translation evaluation",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_symm_apply",
+      "statement": "For every z in the original fibre over [f∘c], the underlying twisted cohomology class of the inverse translation is T_c⁻¹(z).",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Evaluate the native restricted equivalence inverse map."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-equivalence"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_symm_apply"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-basepoint",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "The translated fibre base point",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_basepoint",
+      "statement": "Translation sends the neutral twisted class, with its actual neutral coefficient-image proof, to [c] in the original fibre. It does not send it to the original neutral class unless [c]=1.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Evaluate T_c at the actual source neutral class using the existing twisting base-point identity."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_basepoint"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "construction",
+      "title": "Twisted kernel invariant action",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction",
+      "statement": "For surjective continuous equivariant f and a continuous cocycle c, construct the actual action of A_c=H⁰(G,V_(f∘c)) on H¹(G,K_c), where K_c=ker(f_c) is the native inner-twisted kernel with its restricted topology and G-action. A lift u∈U_c of v∈A_c acts on a kernel cocycle d by the class of g↦u d(g)(g⋆_c u)⁻¹. The kernel-valued cocycle is the existing native kernelGauge. Its class, not its representative, is independent of the lift.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Instantiate the existing kernel invariant action with the actual continuous equivariant f_c and its native kernel. Kernel membership and inclusion equivariance are definitional; the inherited construction already descends lift choices at class level."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-equivariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-action-continuity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-map-surjectivity"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_mk",
+          "role": "compatibility",
+          "statement": "For v∈A_c, any u∈U_c with f_c(u)=v and every actual continuous K_c-valued cocycle d, v·[d] equals the class of the native kernelGauge cocycle g↦u d(g)(g⋆_c u)⁻¹. No continuous family of lifts is required."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_inclusion",
+          "role": "compatibility",
+          "statement": "For every v∈A_c and a∈H¹(G,K_c), j_c(v·a)=j_c(a) in H¹(G,U_c), where j_c is the actual twisted-kernel inclusion. Thus T_c∘j_c is constant on these invariant orbits."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_fibre_iff",
+          "role": "characterisation",
+          "statement": "For a,b∈H¹(G,K_c), T_c(j_c(a))=T_c(j_c(b)) if and only if some v∈A_c satisfies v·a=b. This is an orbit criterion, not equality of kernel classes."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_injective_iff",
+          "role": "characterisation",
+          "statement": "The translated kernel-class map T_c∘j_c is injective exactly when the entire A_c-action on H¹(G,K_c) is trivial: v·a=a for every v and a. Triviality of A_c is sufficient but not necessary, and no unconditional unique kernel class is asserted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "For v∈A_c, any u∈U_c with f_c(u)=v and every actual continuous K_c-valued cocycle d, v·[d] equals the class of the native kernelGauge cocycle g↦u d(g)(g⋆_c u)⁻¹. No continuous family of lifts is required."
+        },
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "For every v∈A_c and a∈H¹(G,K_c), j_c(v·a)=j_c(a) in H¹(G,U_c), where j_c is the actual twisted-kernel inclusion. Thus T_c∘j_c is constant on these invariant orbits."
+        },
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "For a,b∈H¹(G,K_c), T_c(j_c(a))=T_c(j_c(b)) if and only if some v∈A_c satisfies v·a=b. This is an orbit criterion, not equality of kernel classes."
+        },
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "The translated kernel-class map T_c∘j_c is injective exactly when the entire A_c-action on H¹(G,K_c) is trivial: v·a=a for every v and a. Triviality of A_c is sufficient but not necessary, and no unconditional unique kernel class is asserted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "twisted_invariant_action_unit",
+          "kind": "degenerate",
+          "statement": "The identity element of the actual twisted invariant group A_c fixes every kernel cohomology class."
+        },
+        {
+          "name": "twisted_invariant_action_lift_value",
+          "kind": "compatibility",
+          "statement": "For every actual invariant v, every lift u with f_c(u)=v and every continuous kernel cocycle d, v·[d] is the gauge class of the native kernelGauge cocycle g↦u d(g)(g⋆_c u)⁻¹."
+        },
+        {
+          "name": "twisted_invariant_action_translated_constant",
+          "kind": "compatibility",
+          "statement": "For every v∈A_c and every kernel class a, the actual original class T_c(j_c(v·a)) equals T_c(j_c(a))."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Invariant action on representatives",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_mk",
+      "statement": "For v∈A_c, any u∈U_c with f_c(u)=v and every actual continuous K_c-valued cocycle d, v·[d] equals the class of the native kernelGauge cocycle g↦u d(g)(g⋆_c u)⁻¹. No continuous family of lifts is required.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Apply the existing representative formula to f_c and its actual native kernel; invariance of v supplies the kernelGauge membership witness."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-value"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_mk"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-inclusion",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Invariant action preserves inclusion",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_inclusion",
+      "statement": "For every v∈A_c and a∈H¹(G,K_c), j_c(v·a)=j_c(a) in H¹(G,U_c), where j_c is the actual twisted-kernel inclusion. Thus T_c∘j_c is constant on these invariant orbits.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Specialize the existing invariant-action inclusion identity, then apply the actual T_c when the translated equality is needed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-ambient-constant",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-inclusion"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_inclusion"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-fibre-orbit",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Twisted inclusion fibres are invariant orbits",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_fibre_iff",
+      "statement": "For a,b∈H¹(G,K_c), T_c(j_c(a))=T_c(j_c(b)) if and only if some v∈A_c satisfies v·a=b. This is an orbit criterion, not equality of kernel classes.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Reflect the translated equality through injectivity of T_c and specialize the existing kernel fibre-orbit criterion to f_c."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-fibre-orbit",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_fibre_iff"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-equivalence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "construction",
+      "title": "Twisted kernel orbits and the original fibre",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv",
+      "statement": "For surjective continuous equivariant f and continuous c, construct H¹(G,K_c)/A_c ≃ {a∈H¹(G,U) : f₁(a)=[f∘c]}, using the actual invariant-action orbit quotient. The forward value of the orbit of b is T_c(j_c(b)); the inverse returns an invariant orbit, independently of any kernel-class or gauge-lift witness. The orbit of the neutral kernel class is the source base point, and maps to [c].",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Apply the existing actual kernel-orbit neutral-fibre equivalence to f_c with its native kernel, then compose with the actual neutral-to-original fibre translation. Both constructions carry genuine inverse laws."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-fibre-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-continuity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-map-surjectivity"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_mk",
+          "role": "compatibility",
+          "statement": "For every b∈H¹(G,K_c), the underlying value of its invariant orbit under the original-fibre equivalence is T_c(j_c(b)). For a cocycle d this is represented by g↦d(g)c(g), with inclusion into U understood, in this order."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_symm_mk",
+          "role": "compatibility",
+          "statement": "The inverse original-fibre equivalence sends T_c(j_c(b)), with its actual fibre-membership proof, to the invariant orbit of b. It does not select b uniquely."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_left_inv",
+          "role": "compatibility",
+          "statement": "For every actual invariant orbit q, the inverse original-fibre equivalence applied after its forward map returns q."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_right_inv",
+          "role": "compatibility",
+          "statement": "For every actual original coefficient-fibre element z over [f∘c], mapping its inverse orbit forward returns exactly z as a subtype element, with the same cohomology value."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_basepoint",
+          "role": "compatibility",
+          "statement": "The orbit of the neutral kernel class maps to [c]. This is a statement about the quotient base point, not a claim that every v∈A_c fixes the neutral kernel class or that [c] is neutral."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_choice_independent",
+          "role": "characterisation",
+          "statement": "If T_c(j_c(a))=T_c(j_c(b)), the actual invariant orbits of a and b are equal. Consequently the inverse original-fibre classification does not depend on a chosen kernel-class witness, although a and b may be different."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "For every b∈H¹(G,K_c), the underlying value of its invariant orbit under the original-fibre equivalence is T_c(j_c(b)). For a cocycle d this is represented by g↦d(g)c(g), with inclusion into U understood, in this order."
+        },
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "The inverse original-fibre equivalence sends T_c(j_c(b)), with its actual fibre-membership proof, to the invariant orbit of b. It does not select b uniquely."
+        },
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "For every actual invariant orbit q, the inverse original-fibre equivalence applied after its forward map returns q."
+        },
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "For every actual original coefficient-fibre element z over [f∘c], mapping its inverse orbit forward returns exactly z as a subtype element, with the same cohomology value."
+        },
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "The orbit of the neutral kernel class maps to [c]. This is a statement about the quotient base point, not a claim that every v∈A_c fixes the neutral kernel class or that [c] is neutral."
+        },
+        {
+          "where": "NC.3 nonneutral coefficient fibres; subsequent named/abstract embedded-kernel orbit adapters",
+          "how": "If T_c(j_c(a))=T_c(j_c(b)), the actual invariant orbits of a and b are equal. Consequently the inverse original-fibre classification does not depend on a chosen kernel-class witness, although a and b may be different."
+        }
+      ],
+      "tests": [
+        {
+          "name": "twisted_orbit_actual_cocycle_value",
+          "kind": "computation",
+          "statement": "For an actual continuous K_c-valued cocycle d, the original-fibre equivalence sends the orbit of [d] to the class represented by g↦d(g)c(g), after native inclusion, in this order."
+        },
+        {
+          "name": "twisted_orbit_repointed_basepoint",
+          "kind": "degenerate",
+          "statement": "The invariant orbit of the neutral kernel class maps to [c] in the actual original coefficient fibre."
+        },
+        {
+          "name": "twisted_orbit_inverse_on_included_class",
+          "kind": "compatibility",
+          "statement": "The inverse at T_c(j_c(a)), with its actual original-fibre membership proof, is the invariant orbit of a, without selecting a uniquely."
+        },
+        {
+          "name": "twisted_orbit_quotient_roundtrip",
+          "kind": "characterisation",
+          "statement": "For every actual invariant orbit q, the forward original-fibre equivalence followed by its inverse returns q."
+        },
+        {
+          "name": "twisted_orbit_fibre_roundtrip",
+          "kind": "characterisation",
+          "statement": "For every original coefficient-fibre element z over [f∘c], applying the inverse orbit equivalence and then its forward map returns exactly z."
+        },
+        {
+          "name": "twisted_orbit_identity_fibre_nonneutral",
+          "kind": "non-example",
+          "statement": "Take discrete G=S₂ acting trivially on U=V=S₃, f=id and c(1)=1, c(g)=(01) for g≠1. The orbit of the neutral actual kernel class maps to [c], and [c]≠1: its value on the nonidentity element is a nonidentity transposition, whereas every coboundary for a trivial action has value 1. A replacement target neutral fibre or identity-valued forward map fails this test."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Original-fibre orbit evaluation",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_mk",
+      "statement": "For every b∈H¹(G,K_c), the underlying value of its invariant orbit under the original-fibre equivalence is T_c(j_c(b)). For a cocycle d this is represented by g↦d(g)c(g), with inclusion into U understood, in this order.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Evaluate the composite quotient map, inclusion and existing twist translation."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-equivalence"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_mk"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-inverse-value",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Inverse on a translated kernel image",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_symm_mk",
+      "statement": "The inverse original-fibre equivalence sends T_c(j_c(b)), with its actual fibre-membership proof, to the invariant orbit of b. It does not select b uniquely.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Apply the composite equivalence left inverse to the actual orbit of b; fibre-proof irrelevance identifies the subtype argument."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-repointed-fibre"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_symm_mk"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-left-inverse",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Complete orbit inverse law",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_left_inv",
+      "statement": "For every actual invariant orbit q, the inverse original-fibre equivalence applied after its forward map returns q.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Apply the actual composite equivalence left inverse to arbitrary q."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-equivalence"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_left_inv"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-right-inverse",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Complete original-fibre inverse law",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_right_inv",
+      "statement": "For every actual original coefficient-fibre element z over [f∘c], mapping its inverse orbit forward returns exactly z as a subtype element, with the same cohomology value.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Apply the actual composite equivalence right inverse."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-equivalence"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_right_inv"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-basepoint",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "The original-fibre orbit base point",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_basepoint",
+      "statement": "The orbit of the neutral kernel class maps to [c]. This is a statement about the quotient base point, not a claim that every v∈A_c fixes the neutral kernel class or that [c] is neutral.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Use the orbit evaluation, the existing inclusion neutral identity and the existing T_c neutral-to-[c] identity."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-h1-neutral",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_basepoint"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-choice-independent",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Independence of original-fibre witnesses",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_choice_independent",
+      "statement": "If T_c(j_c(a))=T_c(j_c(b)), the actual invariant orbits of a and b are equal. Consequently the inverse original-fibre classification does not depend on a chosen kernel-class witness, although a and b may be different.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Apply injectivity of the constructed orbit equivalence to equality of the actual subtype values and use its evaluation identity."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-value"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_choice_independent"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-injectivity-iff",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "kind": "lemma",
+      "title": "Twisted kernel injectivity criterion",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_injective_iff",
+      "statement": "The translated kernel-class map T_c∘j_c is injective exactly when the entire A_c-action on H¹(G,K_c) is trivial: v·a=a for every v and a. Triviality of A_c is sufficient but not necessary, and no unconditional unique kernel class is asserted.",
+      "hypotheses": [
+        "G is a group with an arbitrary topology. U and V are topological groups with jointly continuous G-actions by automorphisms. f:U→*V is continuous and G-equivariant, and c∈Z¹(G,U) is an actual continuous cocycle. No compactness, discreteness, finiteness, centrality, continuous section, quotient-map hypothesis or topology on H¹ is required.",
+        "Write U_c=Twist(c), V_(f∘c)=Twist(f∘c), f_c for the actual induced continuous equivariant homomorphism, K_c=ker(f_c) with inherited topology and restricted inner G-action, A_c=H⁰(G,V_(f∘c)), j_c:H¹(G,K_c)→H¹(G,U_c) for actual inclusion and T_c for the actual gauge-orbit twisting equivalence. The inner action is g⋆_c u=c(g)g(u)c(g)⁻¹. The cocycle translation is d(g)c(g), not c(g)d(g).",
+        "The neutral-fibre translation and its three API lemmas do not require surjectivity. The invariant-action and kernel-orbit declarations require f surjective. Every quotient is the native action-orbit quotient of actual continuous cocycles/gauge classes, not an assumed geometric torsor or Selmer variety."
+      ],
+      "proofSteps": [
+        "Injectivity of T_c reflects and preserves injectivity of j_c. Apply the existing necessary-and-sufficient trivial-action criterion to f_c."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-injectivity-characterisation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence"
+      ],
+      "acceptance": [
+        "Use the actual twisted invariant group and native kernel; the original fibre is over [f∘c]. No unique kernel class or original-neutral preservation is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "KimTwistedOrbitFibre-codex-a71f92-20261004",
+          "locator": "§1 printed pp.5–9, exact v1; cocycle/gauge conventions and both complete Proposition proofs",
+          "excerpt": "cocycles",
+          "match": "Authored abstract inner-twisted kernel orbit deduction from the source conventions and the previously specified native constructions. Kim does not print this abstract equivalence; his distinct central H¹ action and geometric representability are not established here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/TwistedKernelOrbits",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_injective_iff"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -20673,7 +21534,8 @@
         "The abstract embedded-kernel adapter is specified for a supplied topological embedding i:A→U with range(i)=ker(f), with two-way continuity, transported inner action, actual pointed H¹ comparison, inclusion comparison and all three image criteria. No ambient H¹ injectivity or unique kernel preimage is claimed. Arbitrary non-normal or merely G-stable subgroups, stabilizers/invariant hypotheses, central H²/cochain independence, genuine additive comparison, unipotent point topologies, representability, geometric torsors/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain open.",
         "Gauge stabilizers are identified with actual twisted invariants, and the space of witnesses is the right stabilizer translate x Stab(c), with both continuity directions. Kernel H¹ injectivity is supplied under the explicit all-cocycle stabilizer-lift condition, in particular under trivial quotient invariants. The twisted and abstract embedded-kernel inclusions are injective when H⁰(G,Twist(f∘c))=1; surjective f then gives a unique class in each actual original fibre over [f∘c]. These are sufficient conditions, not unconditional injectivity or unique cocycle/gauge representatives. Classification of general kernel fibres by an invariant action, arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent-point topologies, geometric torsors, representability/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain required.",
         "An actual H⁰(G,V)-action on native H¹(G,K) is specified for surjective equivariant f and the actual subgroup K=ker(f), with its compatible jointly continuous G-action. It descends ordinary ambient gauges through E=f⁻¹(H⁰(G,V)); lift independence holds at class level. Two kernel classes have equal ambient H¹ images exactly when they lie in one orbit of this action. Explicit orbit-quotient equivalences to the image/neutral fibre, specialized twisted and abstract embedded-kernel action adapters, their original repointed-fibre comparisons and stabilizer characterizations remain to be constructed. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions and every reserved-key/Chen/BDMTV/RT-A2/A6 obligation remain required.",
-        "The actual quotient H¹(G,K)/H⁰(G,V) is now equivalent to the inclusion image; for continuous surjective equivariant f between topological groups with jointly continuous actions it is equivalent to the actual neutral coefficient fibre. Both inverse laws, range-witness independence and injectivity iff trivial invariant action are specified. The inverse selects an orbit, not a unique kernel class. Specialize and transport the action and quotient equivalences to the native inner-twisted, named and abstract embedded kernels, then to the original fibre over [f∘c]; construct their inclusion squares, representative compatibility and stabilizer descriptions. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions and every reserved K(pi,1), Chen, BDMTV and RT-A2/A6 source/supplier obligation remain required."
+        "The actual quotient H¹(G,K)/H⁰(G,V) is now equivalent to the inclusion image; for continuous surjective equivariant f between topological groups with jointly continuous actions it is equivalent to the actual neutral coefficient fibre. Both inverse laws, range-witness independence and injectivity iff trivial invariant action are specified. The inverse selects an orbit, not a unique kernel class. Specialize and transport the action and quotient equivalences to the native inner-twisted, named and abstract embedded kernels, then to the original fibre over [f∘c]; construct their inclusion squares, representative compatibility and stabilizer descriptions. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions and every reserved K(pi,1), Chen, BDMTV and RT-A2/A6 source/supplier obligation remain required.",
+        "The native inner-twisted kernel now has its actual H⁰(G,V_(f∘c))-action and orbit equivalence to the original coefficient fibre over [f∘c], with both inverse laws, base point, actual representative formula, lift-independent orbit values and injectivity iff trivial action. Transport this action and quotient classification through the existing named and abstract embedded-kernel equivalences, proving orbit-equivariance and inclusion/representative squares. Establish orbit stabilizer descriptions and representative-change compatibility. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions, all-degree geometric K(pi,1), Chen, BDMTV and RT-A2/A6 source/supplier obligations remain required."
       ]
     },
     {
@@ -20933,6 +21795,13 @@
       "url": "https://arxiv.org/pdf/math/0409456v1",
       "citation": "Kim arXiv:math/0409456v1; actual H¹ inflation continuation, selected printed pp.5–6 cocycle/gauge definitions and Proposition1 statement.",
       "read": "2026-10-02",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "citation": "Kim exact arXiv:math/0409456v1, selected printed pp.5–9; native twisted kernel orbit continuation",
+      "read": "2026-10-04",
       "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941"
     }
   ],
@@ -23106,5 +23975,48 @@
         "axiomAudits": 0
       }
     }
+  },
+  "twistedKernelOrbitContinuation": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-10-04",
+    "base": "626583deb292902c5cb8b8749e908f9d342426b2",
+    "newNodes": 16,
+    "newApi": 13,
+    "newTypedTests": 12,
+    "preservedWholeNodes": 346,
+    "remaining": [
+      "The native inner-twisted kernel now has its actual H⁰(G,V_(f∘c))-action and orbit equivalence to the original coefficient fibre over [f∘c], with both inverse laws, base point, actual representative formula, lift-independent orbit values and injectivity iff trivial action. Transport this action and quotient classification through the existing named and abstract embedded-kernel equivalences, proving orbit-equivariance and inclusion/representative squares. Establish orbit stabilizer descriptions and representative-change compatibility. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions, all-degree geometric K(pi,1), Chen, BDMTV and RT-A2/A6 source/supplier obligations remain required."
+    ],
+    "execution": {
+      "Native": {
+        "sourceSha256": "b79201eb5589c2c450500d6eab408c590960bd06df20151f72d70544148e3991",
+        "logSha256": "5446b54c05b5d3d0a6300ba123b55a5a3bffff6c67d64dbd095c77f6a5cedcde",
+        "availableGiBBefore": 39,
+        "elapsedSeconds": 48.89,
+        "maxRssKiB": 3897672,
+        "exitStatus": 0,
+        "errors": 0,
+        "warnings": 0,
+        "admissionWarnings": 0,
+        "axiomAudits": 366,
+        "sorryAxReferences": 0,
+        "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
+      },
+      "AdmittedTyping": {
+        "sourceSha256": "7d156a911bf505b10848bc68d9ba450adde97db3b269306a4fc5b10c38261f39",
+        "logSha256": "cba98b2ec37f4e57582a899a2492c8f20ae465ae4b82870b9fc7f521af6e17b7",
+        "availableGiBBefore": 36,
+        "elapsedSeconds": 42.89,
+        "maxRssKiB": 3820092,
+        "exitStatus": 0,
+        "errors": 0,
+        "warnings": 652,
+        "admissionWarnings": 652,
+        "axiomAudits": 0,
+        "sorryAxReferences": 0,
+        "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
+      }
+    },
+    "fullCanonicalTauCetiCompiled": false
   }
 }

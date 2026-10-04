@@ -1,326 +1,229 @@
-# BP-AnabelianGeometryAndNonabelianChabauty — actual invariant orbits and neutral fibre
+# BP-AnabelianGeometryAndNonabelianChabauty — budget-complete planning pass
 
-Codex — codex-rtOQ9t. Refs #1020. Partial checkpoint. Winning claim [5970730421](https://github.com/CBirkbeck/tauceti-explorer/issues/1020#issuecomment-5970730421) was explicitly confirmed by [5970731665](https://github.com/CBirkbeck/tauceti-explorer/issues/1020#issuecomment-5970731665), and the entire issue was reread afterwards. Mathematical base 9d7e0ed5b1ebccd09e773dd07d9a821666ba6c49; publication base 1ed08e746433b8466fb1bcad4d5920dde7ff2f4f.
+Agent: Codex — codex-a71f92. Issue: #1020. Date: 2026-10-04.
 
-## Result and preservation
+## Result and coverage
 
-Twelve declaration-sized NC.3 nodes add two native constructions and ten lemmas, nine use-derived API items and seven typed tests. The actual invariant-action quotient H¹(G,K)/H⁰(G,V) is equivalent to the actual kernel inclusion image. For continuous surjective equivariant f between topological groups with jointly continuous automorphism actions, it is equivalent to the actual neutral coefficient fibre. Its inverse selects an orbit, independently of range witnesses; it does not select a unique kernel class.
+The pass is **complete**, not closed, under current PROTOCOL section 0 and its 300-node budget. The packet has 362 nodes: every one of the 346 incoming whole node objects is preserved, plus 16 native inner-twisted kernel fibre declarations (three constructions, 13 lemmas), 13 API items and 12 typed tests. This increment was completed and natively checked before this worker discovered the new budget rule in the publication-base protocol and refreshed issue; no further nodes are added after that discovery. Every implementation remains unchecked. All seven stage coverage records are honest; NC.0 and NC.3 remain partial, the other five remain not_read, with precise remaining lists. Nine gaps, all 17 supplier requests, all source issues/routes, prior source versions, all 11 planets and the reserved all-degree/all-coefficient étale K(pi,1) contract are preserved. No stage is closed. Current section 0 overrides the historical partial-pass statements in the inherited reader.
 
-The image equivalence requires arbitrary topology on G, a topological group U with jointly continuous action, the actual K=ker(f) with its inherited topology and supplied compatible jointly continuous action, and surjective equivariant f. V needs only a topology and automorphism action for that construction. The neutral-fibre construction additionally requires V to be a topological group with jointly continuous action and f continuous. No continuous section, quotient-map condition, centrality, H⁰-vanishing or topology on H¹ is assumed.
+For continuous equivariant f:U→V and continuous c, the actual translation T_c identifies the neutral f_c-coefficient fibre with the original fibre over [f∘c], without surjectivity. Under surjectivity, the actual A_c=H⁰(G,V_(f∘c))-action on H¹(G,ker(f_c)) descends to an equivalence of its orbit quotient with that original fibre. Both inverse laws, evaluation, base point [c], orbit independence and injectivity iff trivial action are specified. There is no unique kernel class or original-neutral preservation claim. No quotient-map, continuous-section, centrality, finiteness or topology on H¹ is needed. The discrete S₂/S₃ test constructs a nonneutral transposition class; the kernel-neutral orbit maps to it.
 
-The neutral-range converse represents an ambient class, extracts its actual image coboundary witness, lifts that single element and applies the inherited inverse-gauge normalization. The resulting continuous cocycle is restricted to the actual K; its inclusion represents the same class. The composite equivalence preserves the quotient base point, without requiring that every invariant fix the neutral kernel class. Injectivity of the original inclusion is equivalent to triviality of the entire invariant action, rather than triviality of the acting group.
+## Checks and compilation boundary
 
-The actual sign-kernel test, with discrete trivial C₃-actions, proves that the three-cycle and inverse cocycles give distinct kernel classes but the same invariant orbit through the odd transposition. This rejects an inverse landing in uniquely selected kernel classes. The six other typed examples check actual cocycle projection, range-witness inverse, arbitrary orbit roundtrip, neutral base point, actual neutral-image inverse and the complete inverse law for every neutral-fibre element.
+The exact existing pinned Mathlib build and Lean 4.34.0-rc2 were used, without Lake setup, dependency downloads, LSP or compilation of libraries. All checks are serial with a same-process free-memory guard of at least 20 GiB, Lean -j 1 -M 8192 and a 1200-second timeout. The managed-memory cap is not an RSS guarantee.
 
-All 334 incoming whole node objects and contracts, eleven planets, nine gaps, seventeen requests, source versions/issues, routes and reserved-key contracts are exactly preserved. All 346 implementations remain unchecked and no stage is closed. The entire incoming reader and canonical suggested file are retained as suffix/prefix respectively; the native source retains the entire incoming proof program as its prefix. No paper, library or repository snapshot is archived.
+Native proof/test source SHA-256: b79201eb5589c2c450500d6eab408c590960bd06df20151f72d70544148e3991. It passes with zero errors/warnings/admissions, 186 examples and 376 axiom audits (366 standard-axiom dependencies, ten axiom-free), with no sorryAx; elapsed 48.89 s, peak RSS 3897672 KiB, available memory before compile 39 GiB. All 28 new declaration/test headers match the admitted signatures exactly.
 
-Input [PR #6004](https://github.com/CBirkbeck/tauceti-explorer/pull/6004), head 69866b647e6dd019c6383b1e13450d08c54469f7, was recovered from its authenticated public archive: 36 artifacts and four deliverables. Its actual recovered verifier passed and exactly matched its original verification receipt. The 167 incoming native examples and 336 audits are preserved.
+The whole Mathlib-only admitted projection passes with zero errors and only its 652 expected sorry warnings, including 259 examples; elapsed 42.89 s, peak RSS 3820092 KiB. The exact published projection including both inert recovery archives is checked separately below. **The full canonical TauCeti file is UNCOMPILED**: no existing exact TauCeti build was available. Only TauCeti import lines and the whole delimited Abelian section are omitted from the checked projection; that section receives no elaboration certificate. Nothing is claimed formalised.
 
-## Reading and boundaries
+## Reading and required follow-up
 
-The whole issue, current WORKERS, latest handoff, recovered verifier, reviewed NC.0–NC.6 audit and REV-AUDIT-08, all seven native stage descriptions, exact reserved coefficient-class/all-degree étale K(pi,1) node and all seventeen requests were reread. Selected actual continuous cocycle, coefficient-map, inverse-gauge and kernel proof bodies were read. Upstream documents read earlier in this serial session remain hash guarded. Other routes and legacy reading claims are mechanically preserved and attributed to their earlier checkpoints; no fresh whole-world duplication survey is claimed.
+Kim exact arXiv math/0409456v1, freshly parsed printed pp.5–9 (both complete Proposition proofs and subgroup paragraph), motivates authored abstract deductions. This is not a fresh whole-paper reading, visual inspection, published-version collation, central H¹ action or geometric representability proof. PDF SHA-256: 00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941. The exact Equiv.subtypeEquiv statement and implementation was read in pinned Mathlib. The two upstream documents are JacobianChallenge (complete fresh reading) and HodgeStructures (complete reading by this same worker on the prior issue, whole-file unchanged confirmation). Reading receipts and bounded absence-search limits are archived; predecessor receipts are authenticated, not silently promoted to fresh reading or replay.
 
-[Kim’s exact arXiv v1](https://arxiv.org/pdf/math/0409456v1), printed pp.5–9, was freshly read in complete parsed form, including both entire Proposition proofs and the subgroup paragraph. Exact PDF SHA256: 00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941. These orbit/fibre equivalences are authored abstract topological-group deductions from continuous gauge conventions and existing native proofs. They are distinct from Kim’s central H¹ action, and do not establish geometric representability. No whole-paper, visual or published-version collation is claimed.
+### AnabelianGeometryAndNonabelianChabauty:NC.0 (partial)
 
-Pinned Mathlib orbitRel and its quotient, Equiv.ofBijective and Set.equivOfEq were read with their actual hypotheses and implementations. Their native carriers are reused. A fresh bounded search of Mathlib continuous/group cohomology and Tau Ceti continuous cohomology found the existing LowDegree nonabelian TODO, which was read in context. This is bounded evidence, not a whole-library absence certificate. The owned generic additive continuous-cohomology theory is not duplicated.
+Fundamental groupoids and sections: import the finite-étale fibre functor and Galois category from InverseGaloisAndArithmeticFundamentalGroups IG.0 and the arithmetic exact sequence from IG.1; construct path torsors (torsors in the sense of NC.3/torsor-classification) and the section of a rational point, base-point change and conjugacy independence; tangential base points on P¹ ∖ {0, 1, ∞} from PeriodsAndSpecialValues PS.9. Settle the path-torsor ownership overlap with IG.6.
 
-## Validation
+Close exact IG.0/SF.2/SF.3/ProfiniteCohomology inputs of the coefficient dictionary, canonical ε, finite direct image/base-change/ρ/Leray, all-degree class killing, coefficient long exact sequences, Kummer/Picard curve cohomology, degree/genus formulas and separable limit/property descent. The curve proof is now granular and cohomological; type all six new curve/descent declarations and six tests once genuine interfaces exist. Raw-homotopy comparison, products and elementary fibrations remain separately open.
 
-The actual pinned-index packet CLI checker reports zero errors and warnings: 346 nodes, 154 baseline declarations, 289 required API items and 233 required tests. Raw totals are 301 API items and 247 tests. Actual intake pure functions accept all four deliverables. Mathematical and publication-base atlas replays pass.
+Read/decompose Chen 2024 /57–58 tangential specialization ⟨γ_t⟩\Y_t ≅ Y_x, functorial in finite covers, and good/symmetric-path consumers, distinct from reconstruction.
 
-Stage DAG: 3018 vertices/8655 edges; own declaration DAG: 346/754; scoped DAG: 3353/9791, all acyclic. All 346 roots close to recorded leaves, with no external or unresolved declaration. All 37 required supplier pairs and five own accepted restructure pairs are reachable. The 45 unrelated pre-existing unreachable restructure pairs retain exact list hash 4101be60e5c05999c4e96d9a60d93f717851d100e0bf02c6b4bac42a630c4aa6. Whole foreign roadmap/stage objects and stage edges match the incoming control at both bases; own skipped and pending links are empty. Eighteen governing/supplier guards and the four owned inputs are unchanged between bases. Each replay reads 845 immutable paths.
+Supply and type the three product assembly nodes: pointed common refinements and projection-compatible geometric π₁ from IG.0, canonical prime-field external products with the generic field-complex bridge from SF.2, and all inherited separable descent/continuity. The finite-family proof includes degree one; no full geometric suggested signature is claimed.
 
-NativeFinal.lean: 174 examples, 348 axiom audits, 0 errors, 0 warnings, 0 admissions; source SHA256 7908efb887cd76323b921fc20d22d479728f533fce21c70e7533fb09bea045cf, normalized log SHA256 0a8abfb6180b7adab500d390d0b65b9bbeb0f5a8777936dbb7790da25376c497. Available memory 35 GiB, elapsed 35.22 seconds, timeout 1200 seconds with 30-second kill interval.
+### AnabelianGeometryAndNonabelianChabauty:NC.1 (not_read)
 
-Sketch.lean: 247 examples, 0 axiom audits, 0 errors, 624 warnings, 624 admissions; source SHA256 39338149245bf53f797aeb4c8f504bda4e9a7fe6ad3fa7fad595c939d8151b18, normalized log SHA256 d6b0e987d64eea43b89afea3b4e82029ff1c05999311d75d32200e26e180d64d. Available memory 34 GiB, elapsed 33.62 seconds, timeout 1200 seconds with 30-second kill interval.
+Source-qualified anabelian reconstruction: acquire and read Mochizuki's theorem and proof; decompose decomposition-group recovery, covers, linear systems and effectivity; state Isom and Hom versions separately.
 
-The native proof source has no admissions or warnings and every axiom audit allows only propext, Classical.choice and Quot.sound. The entire bounded Mathlib-only canonical projection has 624 admission warnings and no other warnings. All nineteen new proof/test headers exactly match their admitted planning headers, with nonoverlapping bodies and the needed hypotheses retained. Only exact TauCeti import lines and the entire delimited Abelian section are removed in this projection. All other canonical bytes are preserved.
+### AnabelianGeometryAndNonabelianChabauty:NC.2 (not_read)
 
-Both runs use existing pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Lean 4.34.0-rc2 commit 6a10ac8c22beadecabdbb0919c2b50214762f91d. They ran serially after checking free memory. No Lake setup, update, cache fetch, library build or language server was started, and no compile remains running.
+Unipotent fundamental groups: Tannakian construction of unipotent étale and de Rham fundamental groups, central series and finite quotients, path torsors with filtration, Frobenius and Galois structures (tensor-isomorphism torsors from MotivesAndAlgebraicCycles MC.6; rigid/de Rham input from ColemanIntegration L1), and the depth-one comparison with the Jacobian.
 
-**The full canonical Tau Ceti file is UNCOMPILED.** No existing exact Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 build is available. Its removed abelian comparisons receive no execution certificate. Everything remains planning signatures and native scratch prototypes.
+Read BDMTV 2019 Appendix A, Theorem 4.2, Lemma 4.3, Corollary 4.4, Hadian Theorem 4.5, Lemma 5.2 and nonabelian Berthelot–Ogus bridge; account individually for 17 routed items and E9/E10. Do not merge local iterated-integral word expansion /58(40) with global comparison /93(41).
 
-## Recovery and replay
+### AnabelianGeometryAndNonabelianChabauty:NC.3 (partial)
 
-The inert archive in the suggested-file-only ancestor d61e1c00f14f23370f93fae0223e937bb4ed2ba8 preserves 32 authenticated text artifacts. Payload SHA256: 30b13aa2f862debf9ecd367941f6efc3c950b4b550945ad7bb428d433089fb78. The final suggested file is the ordinary canonical planning file with that archive comment removed. The archive contains the complete native program, tests, matching admitted forms, exact normalized logs/receipts, incoming owned inputs, generators, verifier and immutable reader, never downloaded source texts.
+The native inner-twisted kernel now has its actual H⁰(G,V_(f∘c))-action and orbit equivalence to the original coefficient fibre over [f∘c], with both inverse laws, base point, actual representative formula, lift-independent orbit values and injectivity iff trivial action. Transport this action and quotient classification through the existing named and abstract embedded-kernel equivalences, proving orbit-equivariance and inclusion/representative squares. Establish orbit stabilizer descriptions and representative-change compatibility. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions, all-degree geometric K(pi,1), Chen, BDMTV and RT-A2/A6 source/supplier obligations remain required.
 
-Save the next three Python fences as recover.py, immutable_view.py and verify.py. Obtain FINAL_HEAD from this PR and recover outside an existing clone; no new clone or repository snapshot is needed.
+### AnabelianGeometryAndNonabelianChabauty:NC.4 (not_read)
 
-```sh
-python3 recover.py FINAL_HEAD RECOVERY_DIRECTORY EXISTING_CLONE
-TAUCETI_REPO=EXISTING_CLONE PYTHONDONTWRITEBYTECODE=1 python3 RECOVERY_DIRECTORY/verify.py RECOVERY_DIRECTORY PINNED_DECLARATIONS_TSV
-ROOT_ACTION_VALIDATE_BASE=1ed08e746433b8466fb1bcad4d5920dde7ff2f4f TAUCETI_REPO=EXISTING_CLONE PYTHONDONTWRITEBYTECODE=1 python3 RECOVERY_DIRECTORY/verify.py RECOVERY_DIRECTORY PINNED_DECLARATIONS_TSV
-```
+Unipotent Albanese maps and Chabauty–Kim loci: iterated integrals (ColemanIntegration L1), the global-to-local Selmer map and the finiteness theorem under its hypotheses; depth one recovers classical Chabauty.
 
-The two replay JSON outputs must exactly equal verification.json and publication-verification.json. Recovered verify-contracts.py checks all incoming contracts, the nineteen native/admitted signatures, mathematical test descriptions and source-bound execution receipts. To repeat elaboration, run compile.py EXISTING_EXACT_BUILD NativeFinal.lean, then Sketch.lean serially; it checks the pin and ≥20 GiB memory and invokes the already installed compiler directly with existing package library paths.
+### AnabelianGeometryAndNonabelianChabauty:NC.5 (not_read)
 
-## Resume
+Quadratic Chabauty: Balakrishnan–Dogra I and II, depth-two quotients, p-adic heights with all local terms, and a worked curve.
 
-The actual quotient H¹(G,K)/H⁰(G,V) is now equivalent to the inclusion image; for continuous surjective equivariant f between topological groups with jointly continuous actions it is equivalent to the actual neutral coefficient fibre. Both inverse laws, range-witness independence and injectivity iff trivial invariant action are specified. The inverse selects an orbit, not a unique kernel class. Specialize and transport the action and quotient equivalences to the native inner-twisted, named and abstract embedded kernels, then to the original fibre over [f∘c]; construct their inclusion squares, representative compatibility and stabilizer descriptions. Arbitrary stable/non-normal subgroup adapters, central H²/cochain independence, genuine additive comparison, unipotent point topologies, geometric torsors, representability/local conditions and every reserved K(pi,1), Chen, BDMTV and RT-A2/A6 source/supplier obligation remain required.
+Import NS=Pic/Pic⁰, injection into symmetric Hom and finite-generation/rank data from AbelianSchemesAndArithmeticModuli:A2; logically retarget BDMTV /9 to this owner without locally rebuilding it.
 
-### recover.py
+Read/decompose BDMTV 2019 §3 split-Cartan-level-13 pairs/determinants, nice correspondences and U_Z, A_Z twists/D_cris, specialized height (17), Lemmas 3.2/3.7, Corollary 3.8 and splitting/character independence. Preserve all 19 routed items including four applications; generic heights/mixed extensions/local terms come from the pending Part II owner, with no reverse NC.5 dependency.
+
+### AnabelianGeometryAndNonabelianChabauty:NC.6 (not_read)
+
+Reconstruction and rational-point handoff to EffectiveDiophantineMethods ED.6, keeping the section conjecture and eventual Chabauty–Kim completeness conjectural.
+
+Process-only handoff: propose removal in restructure, retaining actual reconstruction in NC.1 and rational-point outputs in NC.5/EffectiveDiophantineMethods:ED.6. No process nodes or unaccepted closed coverage.
+
+The remaining targets follow independent review via stage-specific follow-up jobs; do not keep extending this same over-budget pass. Generic heights remain imported from SelmerComplexesAndPadicHeightsPartII, and NS/Picard number from AbelianSchemesAndArithmeticModuli A2/A6; neither is rebuilt locally.
+
+## Public recovery and replay
+
+The suggested file ends with the inert TWISTED KERNEL ORBIT RECOVERY PAYLOAD, preserving prior and current native sources, tests, exact logs, source-bound receipts, guards and portable verifier/generator helpers. Source PDFs and copyrighted source text are excluded. Canonical source is an exact retained prefix plus the new admitted signatures. Recovery fetches only these four deliverables, checks every archived artifact SHA-256, and writes only to a new empty owned scratch directory through apply_patch. Save the following helper as recover.py using apply_patch, then run `python3 recover.py NEW_EMPTY_SCRATCH IMMUTABLE_PR_HEAD`.
 
 ```python
-"""Recover authenticated public native proof artifacts without a repository snapshot."""
+"""Recover only this job's public deliverables and authenticated proof artifacts."""
 from pathlib import Path
 import base64,hashlib,json,re,subprocess,sys,urllib.request,zlib
-REPOSITORY='CBirkbeck/tauceti-explorer'
-ARCHIVE='d61e1c00f14f23370f93fae0223e937bb4ed2ba8'
+S=Path(sys.argv[1]).resolve();REF=sys.argv[2]
+assert re.fullmatch(r'[0-9a-f]{40}',REF), 'Use the immutable PR-head or merged commit SHA.'
+assert S.is_dir() and not any(S.iterdir()), 'Use a new empty disk-backed scratch directory.'
 RID='AnabelianGeometryAndNonabelianChabauty'
-FILES=['research/blueprint/packets/'+RID+'.json','research/blueprint/readmes/'+RID+'.md','research/blueprint/suggested/'+RID+'.lean','research/blueprint/handoff/BP-'+RID+'.md']
-FINAL=sys.argv[1];OUT=Path(sys.argv[2]).resolve();CLONE=Path(sys.argv[3]).resolve() if len(sys.argv)>3 else None
-OUT.mkdir(parents=True,exist_ok=True)
-def read(ref,path):
- if CLONE:
-  try:return subprocess.check_output(['git','show',ref+':'+path],cwd=CLONE,stderr=subprocess.DEVNULL)
-  except subprocess.CalledProcessError:pass
- return urllib.request.urlopen('https://raw.githubusercontent.com/'+REPOSITORY+'/'+ref+'/'+path,timeout=60).read()
-raw=read(ARCHIVE,FILES[2]).decode()
-m=re.search(r'/- BEGIN ARCHIVED KERNEL ORBIT CLASSIFICATION PAYLOAD\n(.*?)\nEND ARCHIVED KERNEL ORBIT CLASSIFICATION PAYLOAD -/',raw,re.S)
-assert m,'Public archive comment missing'
-assert hashlib.sha256(m[1].encode()).hexdigest()=='30b13aa2f862debf9ecd367941f6efc3c950b4b550945ad7bb428d433089fb78'
-payload=json.loads(m[1]);manifest={}
+paths=['research/blueprint/packets/'+RID+'.json','research/blueprint/readmes/'+RID+'.md','research/blueprint/suggested/'+RID+'.lean','research/blueprint/handoff/BP-'+RID+'.md']
+def put(name,data):
+ assert Path(name).name==name
+ t=data.decode();p=S/name;assert not p.exists(),p
+ patch='*** Begin Patch\n*** Add File: '+str(p)+'\n'+''.join('+'+l+'\n' for l in t.splitlines())+'*** End Patch\n'
+ subprocess.run(['apply_patch'],input=patch,text=True,check=True,stdout=subprocess.DEVNULL)
+ assert p.read_bytes()==data,name
+downloaded={}
+for path,name in zip(paths,['Candidate.json','Reader.md','Suggested.lean','Handoff.md']):
+ url='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'+REF+'/'+path
+ data=urllib.request.urlopen(url,timeout=60).read();put(name,data);downloaded[name]=hashlib.sha256(data).hexdigest()
+suggested=(S/'Suggested.lean').read_text()
+m=re.search(r'/- BEGIN TWISTED KERNEL ORBIT RECOVERY PAYLOAD\n(.*?)\nEND TWISTED KERNEL ORBIT RECOVERY PAYLOAD -/',suggested,re.S);assert m
+payload=json.loads(m[1]);payloadSha=hashlib.sha256(m[1].encode()).hexdigest();assert payload['job']=='BP-'+RID and payload['agent']=='Codex — codex-a71f92'
 for name,item in payload['files'].items():
- path=Path(name);assert not path.is_absolute() and '..' not in path.parts
  data=zlib.decompress(base64.b64decode(item['data']));assert hashlib.sha256(data).hexdigest()==item['sha256'],name
- assert not re.search(r'/(?:home|tmp|Users)/|file'+r'://',data.decode()),name
- target=OUT/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data);manifest[name]=item['sha256']
-for file in FILES:
- data=read(FINAL,file);target=OUT/'proposal'/file;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
-for file,name in zip(FILES[:3],['packet.json','Reader.md','Canonical.lean']):assert (OUT/name).read_bytes()==(OUT/'proposal'/file).read_bytes()
-manifest['archive']=ARCHIVE;manifest['final']=FINAL
-manifest['finalDeliverables']={file:hashlib.sha256((OUT/'proposal'/file).read_bytes()).hexdigest() for file in FILES}
-(OUT/'recovery.json').write_text(json.dumps(manifest,indent=2)+'\n')
-print(json.dumps({'archive':ARCHIVE,'final':FINAL,'authenticatedArtifacts':len(payload['files']),'finalDeliverables':len(FILES)}))
+ put(name,data)
+assert suggested.startswith((S/'Canonical.lean').read_text()+'\n/- BEGIN TWISTED KERNEL ORBIT RECOVERY PAYLOAD\n')
+published=re.sub(r'^section Abelian\n[\s\S]*?^end Abelian\n','',re.sub(r'^import TauCeti\..*\n','',suggested,flags=re.M),flags=re.M)
+put('Published.lean',published.encode())
+handoff=(S/'Handoff.md').read_text()
+m=re.search(r'<!-- BEGIN SOURCE-BOUND PUBLISHED RECEIPT -->\n```json\n(.*?)\n```\n<!-- END SOURCE-BOUND PUBLISHED RECEIPT -->',handoff,re.S);assert m
+bundle=json.loads(m[1]);assert bundle['receipt']['sourceSha256']==hashlib.sha256(published.encode()).hexdigest()
+assert bundle['receipt']['logSha256']==hashlib.sha256(bundle['log'].encode()).hexdigest()
+put('Published.receipt.json',(json.dumps(bundle['receipt'],indent=2)+'\n').encode());put('Published.log',bundle['log'].encode())
+m=re.search(r'<!-- BEGIN ATLAS VALIDATION RECEIPT -->\n```json\n(.*?)\n```\n<!-- END ATLAS VALIDATION RECEIPT -->',handoff,re.S);assert m
+record=json.loads(m[1])
+for path,name in zip(paths[:3],['Candidate.json','Reader.md','Suggested.lean']):assert record['ownedArtifactHashes'][path]==downloaded[name],name
+put('publication-verification.json',(json.dumps(record,indent=2)+'\n').encode())
+print(json.dumps({'publicRef':REF,'deliverables':len(downloaded),'artifacts':len(payload['files']),'payloadSha256':payloadSha,'publishedReceiptMatchesSource':True}))
 ```
 
-### immutable_view.py
+With the already-existing read-only repository containing the mathematical/publication commits, run `python3 RECOVERED/validate.py RECOVERED READ_ONLY_REPO DECLARATION_INDEX PUBLICATION_BASE` to execute the actual pinned checker, intake guards, full atlas assembly, stage/own/scoped DAG checks, every required supplier route and exact foreign-object preservation. The helper never writes to the shared repository or creates its snapshot. Optional Lean replay uses `python3 RECOVERED/runcheck.py RECOVERED EXISTING_PINNED_MATHLIB EXISTING_PINNED_LEAN Native.lean`, then AdmittedTyping.lean and Published.lean, strictly one at a time with the memory guard. No build setup is permitted.
 
-```python
-"""Read the immutable audit tree without creating a repository snapshot."""
-import fnmatch
-import importlib.abc
-import importlib.util
-import io
-from pathlib import Path
-import subprocess
-import sys
+## Actual atlas validation
 
-import os
-REPO = Path(os.environ.get('TAUCETI_REPO', str(Path.cwd())))
-BASE = os.environ.get('ROOT_ACTION_VALIDATE_BASE', '9d7e0ed5b1ebccd09e773dd07d9a821666ba6c49')
-TRACKED = set(subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=REPO, text=True).splitlines())
-CACHE = {}
-READS = set()
-ORIGINAL = {name: getattr(Path, name) for name in ('read_text', 'read_bytes', 'exists', 'is_file', 'is_dir', 'glob', 'rglob', 'open', 'write_text', 'write_bytes')}
+Zero checker errors/warnings and no intake problems/refusals. Stage edges, all foreign roadmap/stage objects and all foreign skipped/pending links match the incoming control. All own required supplier routes are reachable, all three checked DAGs are acyclic, with no unresolved, own skipped or own pending dependencies. Unrelated preexisting unreachable restructure paths are recorded, not silently asserted fixed. Three exact changed guards were reviewed: the full new protocol, checker diff, and key-owner diff; all other mathematical guards and four owned incoming files are unchanged.
 
-def relative(path):
-    try:
-        return str(path.resolve().relative_to(REPO.resolve()))
-    except ValueError:
-        return None
-
-def blob(key):
-    if key not in TRACKED:
-        raise FileNotFoundError(key)
-    READS.add(key)
-    if key not in CACHE:
-        CACHE[key] = subprocess.check_output(['git', 'show', BASE + ':' + key], cwd=REPO)
-    return CACHE[key]
-
-def read_text(path, encoding=None, errors=None):
-    key = relative(path)
-    if key is None:
-        return ORIGINAL['read_text'](path, encoding=encoding, errors=errors)
-    return blob(key).decode('utf-8' if encoding in (None,'locale') else encoding, errors or 'strict')
-
-def read_bytes(path):
-    key = relative(path)
-    return ORIGINAL['read_bytes'](path) if key is None else blob(key)
-
-def is_file(path):
-    key = relative(path)
-    return ORIGINAL['is_file'](path) if key is None else key in TRACKED
-
-def is_dir(path):
-    key = relative(path)
-    return ORIGINAL['is_dir'](path) if key is None else any(s.startswith(key.rstrip('/') + '/') for s in TRACKED) or key == '.'
-
-def exists(path):
-    key = relative(path)
-    return ORIGINAL['exists'](path) if key is None else is_file(path) or is_dir(path)
-
-def glob(path, pattern, recursive=False):
-    key = relative(path)
-    if key is None:
-        yield from ORIGINAL['rglob' if recursive else 'glob'](path, pattern)
-        return
-    prefix = '' if key == '.' else key.rstrip('/') + '/'
-    for candidate in sorted(TRACKED):
-        if not candidate.startswith(prefix):
-            continue
-        tail = candidate[len(prefix):]
-        if fnmatch.fnmatch(tail, pattern) and (recursive or '/' not in tail):
-            yield REPO / candidate
-
-def open_path(path, mode='r', buffering=-1, encoding=None, errors=None, newline=None):
-    key = relative(path)
-    if key is None:
-        return ORIGINAL['open'](path, mode, buffering, encoding, errors, newline)
-    if mode not in ('r', 'rb'):
-        raise PermissionError('audit tree is read-only')
-    return io.BytesIO(blob(key)) if mode == 'rb' else io.StringIO(blob(key).decode('utf-8' if encoding in (None,'locale') else encoding, errors or 'strict'))
-
-def write_text(path, *args, **kwargs):
-    if relative(path) is not None:
-        raise PermissionError('audit tree is read-only')
-    return ORIGINAL['write_text'](path, *args, **kwargs)
-
-def write_bytes(path, *args, **kwargs):
-    if relative(path) is not None:
-        raise PermissionError('audit tree is read-only')
-    return ORIGINAL['write_bytes'](path, *args, **kwargs)
-
-class Loader(importlib.abc.Loader):
-    def __init__(self, key):
-        self.key = key
-    def create_module(self, spec):
-        return None
-    def exec_module(self, module):
-        module.__file__ = str(REPO / self.key)
-        exec(compile(blob(self.key), module.__file__, 'exec'), module.__dict__)
-
-class Finder(importlib.abc.MetaPathFinder):
-    def find_spec(self, fullname, path=None, target=None):
-        key = 'scripts/' + fullname + '.py'
-        if '.' not in fullname and key in TRACKED:
-            return importlib.util.spec_from_loader(fullname, Loader(key))
-
-def install():
-    for name, function in [('read_text', read_text), ('read_bytes', read_bytes), ('exists', exists), ('is_file', is_file), ('is_dir', is_dir), ('glob', glob), ('rglob', lambda path, pattern: glob(path, pattern, True)), ('open', open_path), ('write_text', write_text), ('write_bytes', write_bytes)]:
-        setattr(Path, name, function)
-    sys.meta_path.insert(0, Finder())
+<!-- BEGIN ATLAS VALIDATION RECEIPT -->
+```json
+{
+  "base": "98acf8c99309c803aa3dfd1ee28bd724101c7d6e",
+  "contracts": {
+    "preservedWholeNodes": 346,
+    "newNodes": 16,
+    "newApi": 13,
+    "newTypedTests": 12,
+    "matchedHeaders": 28,
+    "nativeAudits": 376,
+    "sourceBoundExecution": true,
+    "fullCanonicalTauCetiCompiled": false
+  },
+  "graph": {
+    "stageDAG": {
+      "vertices": 3018,
+      "edges": 8655,
+      "acyclic": true
+    },
+    "ownDeclarationDAG": {
+      "vertices": 362,
+      "edges": 792,
+      "acyclic": true
+    },
+    "scopedDAG": {
+      "vertices": 3369,
+      "edges": 9845,
+      "acyclic": true
+    },
+    "reachableDeclarations": 362,
+    "externalDeclarations": [],
+    "baselineLeaves": 139,
+    "requiredPairs": 37,
+    "restructurePairs": 3658,
+    "ownRestructurePairs": 5,
+    "otherPreexistingUnreachableRestructurePairs": 45,
+    "otherUnreachableRestructurePairListSha256": "4101be60e5c05999c4e96d9a60d93f717851d100e0bf02c6b4bac42a630c4aa6",
+    "unresolved": [],
+    "ownSkippedLinks": [],
+    "ownPendingLinks": [],
+    "otherSkipsMatch": true,
+    "stageEdgesUnchanged": true,
+    "wholeForeignRoadmapObjectsUnchanged": true,
+    "wholeForeignStageObjectsUnchanged": true
+  },
+  "checker": {
+    "roadmap": "AnabelianGeometryAndNonabelianChabauty",
+    "status": "complete",
+    "nodes": 362,
+    "kinds": {
+      "definition": 3,
+      "lemma": 265,
+      "comparison": 7,
+      "construction": 60,
+      "theorem": 27
+    },
+    "apiItems": 302,
+    "unitTests": 245,
+    "planets": 11,
+    "baselineDeclarations": 155,
+    "prerequisites": {
+      "baseline": 255,
+      "node (this packet)": 793,
+      "stage": 48
+    },
+    "gaps": 9,
+    "requests": 17,
+    "stagesInScope": 7,
+    "stagesClosed": 0,
+    "stagesPlanned": 0
+  },
+  "intakeProblems": [],
+  "intakeRefusals": [],
+  "guardsAndOwnedInputsUnchanged": 19,
+  "reviewedGuardChanges": [
+    "research/blueprint/PROTOCOL.md",
+    "research/blueprint/keydefs/owners.json",
+    "scripts/check_blueprint.py"
+  ],
+  "immutableReadPaths": 845,
+  "immutableReadPathListSha256": "058eeeb5e5c0bdfc5035fb51bc7ec615b0620060b78255e78566ae7f62f43681",
+  "ownedArtifactHashes": {
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json": "99d075860405dd866dc3fa297e1b542cc9a5ed3fbd4bb5b410c8cf2752d7bbd2",
+    "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty.md": "3ad5c0ff93d99a8b77fc00fc69720fdd0656fa43ca400863591beaf868a886b1",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean": "c4b9a2305357f925c29b1027654d2eec66c4244dfe64942e3a07465d332863b4"
+  },
+  "verifierSha256": "c25fc9eb2ce8aa2a4eabaebf45da44c6650a42805caf67af5fb354df05305d20"
+}
 ```
+<!-- END ATLAS VALIDATION RECEIPT -->
 
-### verify.py
-
-```python
-"""Replay actual pinned checker, intake and atlas at an immutable base."""
-from pathlib import Path
-import ast,collections,copy,hashlib,json,os,re,subprocess,sys
-R=Path(os.environ.get('TAUCETI_REPO',str(Path.cwd()))).resolve()
-S=Path(sys.argv[1]).resolve()
-RID='AnabelianGeometryAndNonabelianChabauty'
-MATH='9d7e0ed5b1ebccd09e773dd07d9a821666ba6c49'
-BASE=os.environ.get('ROOT_ACTION_VALIDATE_BASE',MATH)
-FILES=['research/blueprint/packets/'+RID+'.json','research/blueprint/readmes/'+RID+'.md','research/blueprint/suggested/'+RID+'.lean','research/blueprint/handoff/BP-'+RID+'.md']
-def readref(ref,path):return subprocess.check_output(['git','show',ref+':'+path],cwd=R,text=True)
-proposal={f:(S/'proposal'/f).read_text() for f in FILES}
-p=json.loads(proposal[FILES[0]]);old=json.loads(readref(MATH,FILES[0]));nodes={n['id']:n for n in p['nodes']}
-assert len(old['nodes'])==334 and len(nodes)==346
-for n in old['nodes']:assert nodes[n['id']]==n
-for f,filename in zip(FILES[:3],['packet.json','Reader.md','Canonical.lean']):assert proposal[f]==(S/filename).read_text()
-contracts=subprocess.check_output([sys.executable,str(S/'verify-contracts.py')],cwd=S,text=True)
-GUARDS=['research/blueprint/WORKERS.md','research/blueprint/PROTOCOL.md','research/expansion/PROTOCOL.md','research/blueprint/UPSTREAM_GUIDE.md','data/library-coverage.json','research/blueprint/reviews/REV-AUDIT-08.md','data/keydefs/KEYDEF-algebraicgeometry.json','research/blueprint/keydefs/owners.json','research/blueprint/reserved-ids.json','content/tau-ceti/JacobianChallenge/README.md','content/tau-ceti/AlgebraicCurves/README.md','scripts/check_blueprint.py','scripts/source_issues.py','scripts/build.py','scripts/blueprints.py','research/blueprint/intake.py','research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json','research/blueprint/atlas/roadmaps/AbelianSchemesAndArithmeticModuli.json']
-for f in GUARDS+FILES:assert readref(MATH,f)==readref(BASE,f),('input changed',f)
-linkpaths=[x for x in subprocess.check_output(['git','ls-tree','-r','--name-only',BASE],cwd=R,text=True).splitlines() if x.startswith('research/blueprint/links/') and x.endswith('.json')]
-linkmatches=[]
-for path in linkpaths:
- q=json.loads(readref(BASE,path))
- for key in ['links','overlaps','examined']:
-  for entry in q.get(key,[]):
-   if RID in json.dumps(entry):linkmatches.append({'path':path,'kind':key,'entry':entry})
-assert len(linkpaths)>=36 and sum(x['kind']=='examined' for x in linkmatches)>=29
-assert not any(x['kind'] in ('links','overlaps') for x in linkmatches)
-os.environ['ROOT_ACTION_VALIDATE_BASE']=BASE
-import immutable_view as gv
-gv.install();sys.path.insert(0,str(R/'scripts'))
-import check_blueprint,build,blueprints
-errors,warnings,checker=check_blueprint.check(S/'proposal'/FILES[0],check_blueprint.load_index(Path(sys.argv[2])),check_blueprint.world())
-assert not errors and not warnings,(errors,warnings)
-tree=ast.parse((R/'research/blueprint/intake.py').read_text());names={'file_problems','auto_refusals','own_files','independent_of'}
-picked=[n for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id in {'ALLOWED','PRIVATE'} for t in n.targets) or isinstance(n,ast.FunctionDef) and n.name in names]
-env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake', 'exec'),env)
-job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs'] if j['id']=='BP-'+RID)
-problems=[x for path,text in proposal.items() for x in env['file_problems'](path,text)]
-refusals=env['auto_refusals'](job,list(proposal),False,{'codex-rtOQ9t'},set())
-assert not problems and not refusals,(problems,refusals)
-packets,documents,definitions=blueprints.load_promoted(R)
-keep=[x for x in packets if x[0]!=RID];documents[RID]=FILES[1]
-def assemble(candidate):
- build.load_promoted=lambda *args:(copy.deepcopy(keep+[(RID,candidate)]),copy.deepcopy(documents),copy.deepcopy(definitions))
- return build.assemble(require_distances=False)[0]
-a=assemble(p);b=assemble(old)
-world={}
-for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
- for file in sorted((R/folder).glob('*.json')):
-  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
-world.update(nodes)
-listedstageids={x['id'] for x in a['stages']}
-stageids=listedstageids|set(check_blueprint.world()[1])
-se={(e['source'],e['target']) for e in a['stageEdges']}
-assert se=={(e['source'],e['target']) for e in b['stageEdges']}
-def dag(vertices,edges):
- vertices=set(vertices)|{v for e in edges for v in e}
- following=collections.defaultdict(set);indeg={v:0 for v in vertices}
- for s,t in edges:
-  if t not in following[s]:following[s].add(t);indeg[t]+=1
- todo=[v for v,k in indeg.items() if k==0];count=0
- while todo:
-  v=todo.pop();count+=1
-  for w in following[v]:
-   indeg[w]-=1
-   if indeg[w]==0:todo.append(w)
- assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
- return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
-ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
-todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
-while todo:
- nid=todo.pop()
- if nid in seen:continue
- seen.add(nid)
- for d in world[nid].get('prerequisites',[]):
-  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
-  de.add((d,nid))
-  if d in world:todo.append(d)
-  elif d not in stageids:unresolved.add(d)
-assert not unresolved,unresolved
-de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
-de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
-out=collections.defaultdict(set)
-for s,t in se:out[s].add(t)
-def reachable(source,target):
- todo=[source];seen=set()
- while todo:
-  v=todo.pop()
-  if v==target:return True
-  if v not in seen:seen.add(v);todo.extend(out[v])
- return False
-def stageof(v):
- checked=set()
- while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
- return v
-pairs={(d,s['id']) for s in a['stages'] if s['id'].startswith(RID+':') for d in s.get('requires',[])}
-pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
-pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
-rspairs=set()
-for file in (R/'research/blueprint/restructure').glob('*.result.json'):
- q=json.loads(file.read_text())
- if q.get('review',{}).get('status')!='accepted':continue
- rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source') in stageids and x.get('target') in stageids}
-assert all(reachable(s,t) for s,t in pairs),sorted((s,t) for s,t in pairs if not reachable(s,t))
-missing_restructures=sorted((s,t) for s,t in rspairs if not reachable(s,t))
-assert not any(s.startswith(RID+':') or t.startswith(RID+':') for s,t in missing_restructures),missing_restructures
-# Stage edges are identical to the incoming control, so these unrelated preexisting paths are unchanged.
-ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
-assert ar[RID]['blueprint']['declarations']==len(nodes)
-assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
-def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
-assert all(ar[x]==br[x] for x in br if x!=RID)
-astages={s['id']:s for s in a['stages']};bstages={s['id']:s for s in b['stages']}
-assert set(astages)==set(bstages)
-assert all(astages[x]==bstages[x] for x in bstages if not x.startswith(RID+':'))
-summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'ownRestructurePairs':sum(s.startswith(RID+':') or t.startswith(RID+':') for s,t in rspairs),'otherPreexistingUnreachableRestructurePairs':len(missing_restructures),'otherUnreachableRestructurePairListSha256':hashlib.sha256(json.dumps(missing_restructures).encode()).hexdigest(),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True,'wholeForeignRoadmapObjectsUnchanged':True,'wholeForeignStageObjectsUnchanged':True}
-
-print(json.dumps({'base':BASE,'contracts':json.loads(contracts),'graph':summary,'checker':{k:v for k,v in checker.items() if k!='packet'},'intakeProblems':problems,'intakeRefusals':refusals,'guardsUnchanged':len(GUARDS),'immutableReadPaths':len(gv.READS),'immutableReadPathListSha256':hashlib.sha256(json.dumps(sorted(gv.READS)).encode()).hexdigest(),'ownedArtifactHashes':{f:hashlib.sha256(proposal[f].encode()).hexdigest() for f in FILES[:3]},'verifierSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},indent=2),flush=True)
+<!-- BEGIN SOURCE-BOUND PUBLISHED RECEIPT -->
+```json
+{
+  "receipt": {
+    "sourceSha256": "a41643d723e26b2d28f326c6a666c86e2fcb6d806e44ce0207c8712a8e6d555d",
+    "logSha256": "9a0b096eff715588a2750a91609f64f9f395f4ee10fac0240d588e257a068edd",
+    "availableGiBBefore": 38,
+    "elapsedSeconds": 40.48,
+    "maxRssKiB": 3831800,
+    "exitStatus": 0,
+    "errors": 0,
+    "warnings": 652,
+    "admissionWarnings": 652,
+    "axiomAudits": 0,
+    "sorryAxReferences": 0,
+    "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
+  },
+  "log": "{\"preflight\": \"serial existing pinned build\", \"availableGiB\": 38, \"packages\": [\"plausible\", \"LeanSearchClient\", \"importGraph\", \"proofwidgets\", \"aesop\", \"Qq\", \"batteries\"], \"omitted\": [\"Cli: no compiled library directory; not in either checked import cone\"], \"leanVersion\": \"Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)\"}\n<SCRATCH>/Published.lean:57:15: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:64:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:66:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:68:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:73:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:76:9: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:81:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:84:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:100:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:102:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:107:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:120:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:124:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:127:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:130:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:132:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:137:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:154:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:159:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:164:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:170:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:177:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:185:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:193:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:199:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:205:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:211:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:221:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:228:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:236:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:243:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:255:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:262:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:269:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:273:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:278:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:285:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:291:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:298:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:302:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:309:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:314:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:320:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:325:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:332:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:338:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:343:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:348:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:363:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:368:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:375:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:398:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:404:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:432:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:435:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:436:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:438:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:442:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:444:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:446:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:473:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:477:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:479:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:482:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:490:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:497:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:511:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:513:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:515:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:519:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:523:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:528:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:532:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:536:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:540:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:546:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:558:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:561:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:564:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:567:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:571:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:578:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:582:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:585:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:594:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:597:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:606:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:609:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:612:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:616:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:618:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:621:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:624:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:627:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:630:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:633:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:635:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:638:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:641:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:644:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:647:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:653:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:655:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:658:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:661:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:672:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:676:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:680:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:686:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:689:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:693:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:697:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:701:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:705:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:718:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:722:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:728:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:730:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:733:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:735:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:738:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:743:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:746:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:750:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:756:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1186:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1187:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1188:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1263:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1264:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1265:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1266:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1267:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1270:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1272:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1273:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1274:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1275:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1276:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1277:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1311:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1315:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1318:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1321:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1328:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1336:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1343:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1350:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1355:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1359:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1363:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1379:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1381:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1383:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1387:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1390:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1399:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1401:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1403:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1405:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1407:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1418:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1425:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1428:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1431:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1443:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1446:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1449:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1453:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1456:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1459:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1462:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1468:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1482:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1507:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1523:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1527:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1531:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1535:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1539:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1544:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1547:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1551:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1555:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1559:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1563:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1582:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1585:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1589:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1593:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1596:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1600:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1603:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1612:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1615:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1618:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1621:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1624:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1628:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1631:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1647:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1656:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1662:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1666:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1670:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1674:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1678:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1680:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1694:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1699:18: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1703:8: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1706:18: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1709:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1714:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1719:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1735:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1738:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1742:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1749:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1752:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1757:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1768:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1772:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1778:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1783:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1788:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1793:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1806:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1810:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1815:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1820:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1827:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1857:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1862:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1867:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1870:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1882:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1887:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1902:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1906:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1909:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1925:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1929:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1935:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1941:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1945:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1951:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1961:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1965:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1970:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1976:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:1998:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2020:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2050:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2053:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2057:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2061:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2064:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2071:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2075:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2083:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2087:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2090:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2094:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2098:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2101:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2108:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2112:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2127:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2139:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2155:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2158:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2162:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2165:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2171:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2177:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2194:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2200:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2204:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2209:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2215:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2221:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2227:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2232:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2243:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2248:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2252:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2261:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2286:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2305:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2308:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2311:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2314:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2317:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2320:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2324:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2327:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2330:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2333:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2337:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2341:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2362:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2382:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2399:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2403:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2408:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2412:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2417:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2421:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2429:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2436:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2442:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2449:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2455:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2459:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2466:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2472:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2476:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2480:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2488:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2502:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2504:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2508:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2512:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2515:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2518:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2521:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2524:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2529:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2534:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2539:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2542:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2547:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2550:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2555:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2558:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2563:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2566:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2570:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2577:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2581:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2585:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2607:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2611:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2617:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2633:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2639:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2646:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2654:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2660:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2666:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2672:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2678:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2685:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2690:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2697:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2704:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2709:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2715:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2720:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2727:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2736:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2741:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2746:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2754:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2764:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2789:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2796:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2803:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2831:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2838:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2846:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2853:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2860:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2867:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2874:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2899:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2904:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2910:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2915:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2921:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2926:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2932:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2937:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2944:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2950:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2957:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2967:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2974:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2983:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2992:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:2997:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3003:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3009:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3015:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3021:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3027:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3034:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3041:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3050:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3068:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3075:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3081:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3089:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3096:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3103:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3130:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3138:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3148:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3158:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3166:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3174:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3180:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3189:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3197:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3218:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3222:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3228:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3233:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3241:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3249:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3254:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3259:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3264:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3272:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3278:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3285:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3291:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3298:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3306:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3314:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3320:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3331:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3341:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3349:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3358:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3367:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3374:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3384:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3393:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3404:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3426:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3432:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3439:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3445:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3452:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3458:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3466:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3475:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3482:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3490:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3500:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3508:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3517:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3523:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3532:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3539:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3560:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3568:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3576:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3584:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3594:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3601:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3613:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3623:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3636:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3648:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3662:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3674:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3698:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3706:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3716:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3723:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3733:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3745:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3753:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3761:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3774:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3785:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3795:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3804:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3833:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3837:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3840:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3844:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3847:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3851:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3860:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3864:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3870:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3874:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3883:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3894:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3909:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3916:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3931:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3943:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3957:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3971:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:3995:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4003:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4010:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4017:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4024:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4031:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4039:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4054:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4064:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4075:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4106:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4111:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4114:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4118:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4121:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4125:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4135:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4139:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4145:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4151:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4161:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4169:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4177:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4186:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4192:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4199:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4206:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4217:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4228:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4248:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4252:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4256:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4260:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4275:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4280:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4285:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4294:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4300:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4305:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4313:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4323:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4329:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4345:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4362:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4366:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4369:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4372:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4377:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4380:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4383:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4386:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4389:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4393:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4397:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4400:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4403:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4418:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4426:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4435:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4452:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4470:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4479:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4501:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4505:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4510:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4515:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4520:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4524:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4529:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4533:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4548:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4556:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4586:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4600:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4624:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4643:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4660:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4677:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4696:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4717:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4736:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4754:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4773:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4789:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4806:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4823:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4840:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4860:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4880:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4901:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4921:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4940:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4959:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:4979:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5002:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5005:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5010:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5014:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5020:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5024:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5028:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5031:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5035:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5039:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5043:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5085:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5118:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5123:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5128:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5133:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5139:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5146:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5154:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5159:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5164:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5170:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5177:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5181:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5204:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5210:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5216:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5224:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5229:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5236:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5279:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5312:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5318:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5324:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5329:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5334:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5339:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5351:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5359:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5368:4: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5376:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5384:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5393:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5402:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5410:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5417:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5428:6: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5452:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5458:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5462:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5466:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5474:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5486:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5495:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5505:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5513:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5523:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5533:0: warning: declaration uses `sorry`\n<SCRATCH>/Published.lean:5560:0: warning: declaration uses `sorry`\n\tCommand being timed: \"timeout 1200 <LEAN> -j 1 -M 8192 <SCRATCH>/Published.lean\"\n\tUser time (seconds): 39.97\n\tSystem time (seconds): 0.54\n\tPercent of CPU this job got: 100%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:40.42\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 3831800\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 98589\n\tVoluntary context switches: 34137\n\tInvoluntary context switches: 788\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 0\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n"
+}
 ```
+<!-- END SOURCE-BOUND PUBLISHED RECEIPT -->
