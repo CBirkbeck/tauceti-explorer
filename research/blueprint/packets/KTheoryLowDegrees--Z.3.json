@@ -2,14 +2,14 @@
   "roadmapId": "KTheoryLowDegrees",
   "protocol": "blueprint-v1",
   "part": "Z.3",
-  "status": "partial",
+  "status": "complete",
   "scope": [
     "KTheoryLowDegrees:Z.3",
     "KTheoryLowDegrees:Z.4",
     "KTheoryLowDegrees:Z.5",
     "KTheoryLowDegrees:Z.6"
   ],
-  "summary": "Part Z.3 of the roadmap KTheoryLowDegrees: stages Z.3–Z.6, continuing the merged checkpoint of an earlier worker (its node ids are kept). Every layer is planned within the scope the accepted restructuring RS-18 gives it. The companion part KTheoryLowDegrees--U.1 has Z.1, Z.2 and U.1–U.6. Sources: Weibel's K-book (September 2012 Chapters I–II, and the combined 2013 draft), Cohen's manuscript, Serre 1968, Soulé 1985, Milne's and Conrad's notes, and the Stacks Project.\n- Z.3: the K₀ ring of a commutative ring by tensor product; exterior powers with the canonical filtration of an extension; the pre-λ structure on virtual classes; and the special λ-structure by Serre's representation-ring route, whose remaining Serre inputs comprise integral comparison and arbitrary-field classification. It adds the abstract λ-ring algebra (moved here from SchemeKTheoryOperations S.6), Adams operations with their degree-zero normalisation, the componentwise determinant as a group homomorphism K₀ → Pic, rank ⊕ det as a ring homomorphism, and the γ-filtration with F¹ = augmentation, F²_γ = SK₀ and F¹/F² ≅ Pic.\n- Z.4: Steinitz with the zero module separate and I ⊕ J ≅ A ⊕ IJ. It covers (rank, det): K₀(A) ≅ ℤ ⊕ Pic(A) with its inverse, the multiplication law, and the comparison with Mathlib's ClassGroup.equivPic. It specialises to O_F and O_{F,S} (with the actual localisation and the class-group quotient), gives base change and the norm transfer det_R(Res Q) = N(det_S Q)·det_R(S)^{rank Q}, and has an actual nonprincipal ideal of ℤ[√−5].\n- Z.5: K₀ of vector bundles with the genuine exact structure and the determinant bundle. It proves K₀(X) ≅ ℤ ⊕ Pic(X) for a connected regular noetherian curve (any dimension-one regular noetherian scheme has the resolution property), the structure-sheaf, skyscraper and divisor class formulas through the K/G comparison, and Cl ≅ Pic. The origin-dependent elliptic expression is exported to EllipticKTheory E.2.\n- Z.6: agreement with π₀K, localisation and Euler classes, and the one Cartan map. Tests: fields, ℤ, F × F, ℤ[√−5], P¹_F with the change of basis (r, d) ↦ (r + d, −d) against the projective-bundle basis (1, [O(−1)]), an elliptic curve and a pointless conic.\nThe exterior-filtration and tensor-determinant exercise proofs are expanded, and locally constant Picard powers supply the rank–determinant target for arbitrary schemes. The packet remains partial: Serre’s remaining integral and field inputs and the recorded supplier requests remain open. Nothing is formalised; implementationStatus is unchecked throughout. Nine further declarations decompose Serre’s finite-free exact K₀ comparison over a PID under the explicit free-coalgebra hypothesis and identify it with the existing GL representation-group carrier. All 176 inherited ids and all 19 source-issue records are retained; no stage is certified closed. The codex-hjdg0j continuation decomposes the generic/residue-fibre argument into eleven further nodes, with Euler reduction distinguished from ordinary tensor reduction. It retains the explicit GL coefficient and arbitrary-field character gap. Eight additional nodes decompose the formal-character compatibility in Serre §3.7, retaining integer multiplicities over residue fields and the explicit GL coefficient and arbitrary-field hypotheses. Eight further nodes make the GL-product coefficient and diagonal-restriction base-change square explicit, reusing pinned single-factor results. The torus coefficient equivalence is also reused from the pinned library. Integral coefficient freeness, direct-model exact K₀/character transport and arbitrary-field character classification remain open.",
+  "summary": "Completed target-inventory pass for Z.3–Z.6 under RS-18: retains 212 incoming nodes, adds the signed graded Picard and coherent perfect/Witt-support determinant source route, restores genuine upstream Picard edges and records confirmed non-separated counterexample/graph corrections. Open Serre, Picard and homotopy/descent supplier boundaries remain explicit; every implementation is unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2596,6 +2596,27 @@
         "module": "Mathlib/RingTheory/Bialgebra/MonoidAlgebra.lean",
         "provides": "The induced map sends a single coefficient at x to that coefficient at the image of x.",
         "checked": "Statement and hypotheses read in source bytes verified against the pinned Git tree, 2026-09-28, Codex codex-hjdg0j."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "kind": "definition",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Matrix determinant over a commutative ring, by the Leibniz alternating formula.",
+        "checked": "Read statement in the exact pinned source on 2026-10-04; file byte equality with git show 082e2d37e8b0463410cdb532e111cd43d5a66174 verified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Core",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Core.lean",
+        "provides": "The maximal subgroupoid has the original objects and isomorphisms as morphisms.",
+        "checked": "Read statement in the exact pinned source on 2026-10-04; file byte equality with git show 082e2d37e8b0463410cdb532e111cd43d5a66174 verified."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.SymmetricCategory",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
+        "provides": "Two braidings compose to identity; self-braiding need not itself be identity.",
+        "checked": "Read statement in the exact pinned source on 2026-10-04; file byte equality with git show 082e2d37e8b0463410cdb532e111cd43d5a66174 verified."
       }
     ]
   },
@@ -2847,6 +2868,19 @@
       "readSections": [
         "Section 17.25: Definitions 17.25.1, 17.25.6 and Lemmas 17.25.2–17.25.5"
       ]
+    },
+    {
+      "id": "BS17.v3",
+      "title": "Projectivity of the Witt vector affine Grassmannian",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "arXiv:1507.06490v3 (21 February 2017), 61 pages; publication Inventiones mathematicae 209 (2017), 329–423. Publisher PDF attempt returned subscription landing page; no full published/preprint collation asserted.",
+      "url": "https://arxiv.org/pdf/1507.06490v3",
+      "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "§5 pp.18–20 in full; Lemma6.11 and both determinant/geometric proof explanations pp.24–25; §12 pp.54–59 in full. Source-matched scope review, not a fresh reading of the rest of the paper.",
+        "Source route accounted for by common graded/ring determinant nodes in Z.3 and geometric comparison nodes in Z.6; the original route’s U.3/U.6 K₁ items are supplier imports."
+      ]
     }
   ],
   "sourceVersions": [
@@ -2993,6 +3027,19 @@
       "url": "https://www.numdam.org/item/PMIHES_1968__34__37_0.pdf",
       "read": "2026-09-26",
       "sha256": "09bb5044332281b29d02116a0582e41d17651b929584e76e442d8135d39e60e2"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1507.06490v3",
+      "read": "2026-10-04",
+      "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "read": "2026-10-04",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "citation": "29 August 2013 author draft, fresh PDF pp.155,180,395 for the red-team counterexample; version of record not collated."
     }
   ],
   "nodes": [
@@ -12555,9 +12602,6 @@
         "KTheoryLowDegrees:Z.5"
       ],
       "title": "Picard classes on a disjoint open cover",
-      "unresolvedPrerequisites": [
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
-      ],
       "kind": "lemma",
       "statement": "Let (U_i) be a pairwise disjoint open cover of X. Restriction Pic(X) → ∏_i Pic(U_i) is injective: if L|U_i = M|U_i for every i, then L = M. Pic(X) uses the existing LineBundleClass X, with its group structure supplied by JacobianChallenge A; the prototype uses its unit group. No such injectivity is asserted for an arbitrary overlapping cover.",
       "hypotheses": [
@@ -12574,7 +12618,8 @@
       ],
       "prerequisites": [
         "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff",
-        "mathlib:AlgebraicGeometry.Scheme.Modules.restrictFunctor"
+        "mathlib:AlgebraicGeometry.Scheme.Modules.restrictFunctor",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/KTheory/PicardPower",
@@ -12597,9 +12642,6 @@
         "KTheoryLowDegrees:Z.5"
       ],
       "title": "Locally constant powers in the Picard group",
-      "unresolvedPrerequisites": [
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
-      ],
       "kind": "construction",
       "statement": "Equip Additive(Pic X) with a module structure over H⁰(X, ℤ) = LocallyConstant X ℤ. For a locally constant a and a line-bundle class L, a·L is the class of the invertible sheaf equal to (L|U_n)^{⊗n} on U_n = a⁻¹(n). Negative powers use the dual; zero gives O. The operation L^a is independent of the representative and agrees with ordinary integer powers for constant a. It is a structure on the existing Picard carrier, not a new quotient or a new Picard-group construction.",
       "hypotheses": [
@@ -12620,7 +12662,8 @@
         "mathlib:LocallyConstant",
         "mathlib:IsLocallyConstant.isClopen_fiber",
         "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff",
-        "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_tensorProduct"
+        "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_tensorProduct",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/KTheory/PicardPower",
@@ -12718,9 +12761,6 @@
         "KTheoryLowDegrees:Z.5"
       ],
       "title": "Pullback of locally constant Picard powers",
-      "unresolvedPrerequisites": [
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
-      ],
       "kind": "lemma",
       "statement": "For f:Y→X, L∈Pic(X) and a∈LocallyConstant X ℤ, f*(L^a)=(f*L)^{a∘f}. Thus Picard pullback is semilinear for H⁰(X,ℤ)→H⁰(Y,ℤ), a↦a∘f, and agrees with the module structure for identity and composed morphisms.",
       "hypotheses": [
@@ -12739,7 +12779,8 @@
         "KTheoryLowDegrees:Z.5/pic-locally-constant-module",
         "KTheoryLowDegrees:Z.5/pic-disjoint-cover-ext",
         "mathlib:LocallyConstant.comap",
-        "mathlib:AlgebraicGeometry.Scheme.Modules.pullback"
+        "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/KTheory/PicardPower",
@@ -16999,15 +17040,1759 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/graded-line-groupoid",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Graded line bundles",
+      "kind": "definition",
+      "statement": "Pic^Z(X) has objects (L,f), L an invertible O_X-module and f:X→ℤ locally constant. A morphism (L,f)→(M,g) consists of equality f=g and an O_X-linear isomorphism L≅M. Composition is composition of sheaf isomorphisms with transported grade equality. It is a groupoid, not the set Pic(X)×H⁰(X,ℤ).",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Use the existing invertible-sheaf category and its maximal subgroupoid; pair each object with a native locally constant integer function.",
+        "Define the hom set by grade equality and sheaf isomorphism, with identity and composition inherited. A grade equality has no extra automorphisms; every morphism is invertible."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "mathlib:CategoryTheory.Core",
+        "mathlib:LocallyConstant"
+      ],
+      "acceptance": [
+        "Over Spec ℚ the object (O,0) has automorphism −1, although its isomorphism class is one point."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Construction 5.1 p.18; Example 12.2(iii) p.55",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Bhatt–Scholze §5 and §12",
+          "how": "The signed determinant must retain automorphisms and coherent sums before spectrum group completion and geometric descent."
+        },
+        {
+          "where": "KTheoryLowDegrees:Z.3/determinant-hom; KTheoryLowDegrees:U.3 and U.6",
+          "how": "Components recover rank and determinant; loops recover the determinant on units without asserting SK₁ vanishes globally."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_groupoid_mk",
+          "role": "constructor",
+          "statement": "Construct (L,f) from an invertible sheaf and a locally constant grade."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_groupoid_line",
+          "role": "projection",
+          "statement": "The underlying line of (L,f) is L."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_groupoid_grade",
+          "role": "projection",
+          "statement": "The grade of (L,f) is f."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_groupoid_hom",
+          "role": "characterisation",
+          "statement": "Hom((L,f),(M,g)) is empty unless f=g, and then is Isom(L,M)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_groupoid_iso_ext",
+          "role": "extensionality",
+          "statement": "Two morphisms agree exactly when their sheaf isomorphisms agree after the unique grade transport."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_groupoid_point",
+          "kind": "example",
+          "statement": "Over Spec ℚ, (O,1) is a graded line."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_groupoid_empty",
+          "kind": "degenerate",
+          "statement": "Over the empty scheme the groupoid is contractible."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_groupoid_unequal",
+          "kind": "non-example",
+          "statement": "Over Spec ℚ there is no isomorphism (O,0)≅(O,1)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_groupoid_automorphism",
+          "kind": "compatibility",
+          "statement": "Aut((O,0)) over Spec ℚ is ℚˣ, not the trivial group."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/koszul-sign",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Koszul sign on integer grades",
+      "kind": "definition",
+      "statement": "For integers a,b and a commutative ring R set ε_R(a,b)=1 in Rˣ if ab is even, and ε_R(a,b)=−1 otherwise. This defines (−1)^{ab} without a negative natural exponent. Evaluate pointwise on locally constant grades.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "The parity map ℤ→ℤ/2 sends ab to the product of the parity classes. Lift its two values to the units 1 and −1.",
+        "Products of locally constant functions are locally constant; composition with this discrete two-valued function gives the sign section."
+      ],
+      "prerequisites": [
+        "mathlib:LocallyConstant"
+      ],
+      "acceptance": [
+        "Negative grades obey the same parity rule; zero-ring and characteristic-two signs may coincide."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Construction 5.1 p.18; Example 12.2(iii) p.55",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Bhatt–Scholze §5 and §12",
+          "how": "The signed determinant must retain automorphisms and coherent sums before spectrum group completion and geometric descent."
+        },
+        {
+          "where": "KTheoryLowDegrees:Z.3/determinant-hom; KTheoryLowDegrees:U.3 and U.6",
+          "how": "Components recover rank and determinant; loops recover the determinant on units without asserting SK₁ vanishes globally."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GradedDeterminant.koszul_sign_zero_left",
+          "role": "simp",
+          "statement": "ε_R(0,b)=1."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.koszul_sign_zero_right",
+          "role": "simp",
+          "statement": "ε_R(a,0)=1."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.koszul_sign_comm",
+          "role": "compatibility",
+          "statement": "ε_R(a,b)=ε_R(b,a)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.koszul_sign_add_left",
+          "role": "compatibility",
+          "statement": "ε_R(a+b,c)=ε_R(a,c)ε_R(b,c)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.koszul_sign_add_right",
+          "role": "compatibility",
+          "statement": "ε_R(a,b+c)=ε_R(a,b)ε_R(a,c)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.koszul_sign_base_change",
+          "role": "functoriality",
+          "statement": "A ring homomorphism maps ε_R(a,b) to ε_S(a,b)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GradedDeterminant.koszul_sign_odd",
+          "kind": "computation",
+          "statement": "ε_ℤ(1,1)=−1."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.koszul_sign_zero",
+          "kind": "degenerate",
+          "statement": "ε_ℤ(0,−3)=1."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.koszul_sign_negative",
+          "kind": "computation",
+          "statement": "ε_ℤ(−1,1)=−1."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.koszul_sign_char_two",
+          "kind": "compatibility",
+          "statement": "ε_{𝔽₂}(1,1)=1."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/graded-line-tensor",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Tensor product of graded lines",
+      "kind": "construction",
+      "statement": "Define (L,f)⊗(M,g)=(L⊗M,f+g), with unit (O_X,0), ordinary line-bundle associator and unit constraints. The braiding is ε(f,g) times the ordinary swap.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Tensor invertible sheaves and add grades; tensor morphisms through the sheaf tensor functor.",
+        "Keep the ordinary associator and unit constraints. The bilinearity of ε supplies both hexagons, and ε(f,g)ε(g,f)=1 supplies symmetry."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/graded-line-groupoid",
+        "KTheoryLowDegrees:Z.3/koszul-sign",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "mathlib:CategoryTheory.SymmetricCategory"
+      ],
+      "acceptance": [
+        "A symmetric braiding squares to identity; this does not require its self-braiding to be identity."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Construction 5.1 p.18; Example 12.2(iii) p.55",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Bhatt–Scholze §5 and §12",
+          "how": "The signed determinant must retain automorphisms and coherent sums before spectrum group completion and geometric descent."
+        },
+        {
+          "where": "KTheoryLowDegrees:Z.3/determinant-hom; KTheoryLowDegrees:U.3 and U.6",
+          "how": "Components recover rank and determinant; loops recover the determinant on units without asserting SK₁ vanishes globally."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_tensor_object",
+          "role": "characterisation",
+          "statement": "The tensor object is (L⊗M,f+g)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_tensor_unit",
+          "role": "constructor",
+          "statement": "The unit is (O_X,0)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_tensor_hom",
+          "role": "functoriality",
+          "statement": "Tensor isomorphisms tensor their underlying sheaf maps."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_tensor_braiding",
+          "role": "data",
+          "statement": "On local pure tensors, β(l⊗m)=ε(f,g)m⊗l."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_tensor_symmetry",
+          "role": "compatibility",
+          "statement": "β_{B,A}β_{A,B}=id."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_tensor_pullback",
+          "role": "compatibility",
+          "statement": "Pullback commutes with the tensor object and signed braiding."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_tensor_odd_swap",
+          "kind": "non-example",
+          "statement": "On (O,1)⊗(O,1) over Spec ℚ, self-braiding is −id."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_tensor_zero_grade",
+          "kind": "compatibility",
+          "statement": "In grade zero the ordinary line-bundle tensor and braiding are recovered."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_tensor_unit",
+          "kind": "degenerate",
+          "statement": "Tensoring with (O,0) preserves the object and unit constraint."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_tensor_mixed",
+          "kind": "example",
+          "statement": "Grades 1 and 2 exchange with sign +1."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/graded-line-inverse",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Dual of a graded line",
+      "kind": "construction",
+      "statement": "The inverse of (L,f) is (L^∨,−f). Evaluation and coevaluation identify its tensor product with (O_X,0), with order-specific signed symmetry retained. Thus Pic^Z(X) is a Picard groupoid.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Import the sheaf dual and invertible-line evaluation isomorphism. Tensor with the opposite integer grade.",
+        "Use ordinary evaluation in one fixed order; transport to the other order through the signed braiding rather than identifying both evaluations silently."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/graded-line-tensor",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
+      ],
+      "acceptance": [
+        "Negation applies to the grade as well as dualization to the line."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Definition 12.14 p.58; Construction 5.1 p.18",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Bhatt–Scholze §5 and §12",
+          "how": "The signed determinant must retain automorphisms and coherent sums before spectrum group completion and geometric descent."
+        },
+        {
+          "where": "KTheoryLowDegrees:Z.3/determinant-hom; KTheoryLowDegrees:U.3 and U.6",
+          "how": "Components recover rank and determinant; loops recover the determinant on units without asserting SK₁ vanishes globally."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_inverse_object",
+          "role": "characterisation",
+          "statement": "inv(L,f)=(L^∨,−f)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_inverse_eval",
+          "role": "equivalence",
+          "statement": "(L,f)⊗inv(L,f)≅(O,0)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_inverse_double_dual",
+          "role": "compatibility",
+          "statement": "inv(inv(L,f))≅(L,f)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_inverse_grade",
+          "role": "projection",
+          "statement": "grade(inv A)=−grade A."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_inverse_pullback",
+          "role": "functoriality",
+          "statement": "Pullback of the inverse is canonically the inverse of the pullback."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_inverse_odd",
+          "kind": "example",
+          "statement": "The inverse of (O,1) has grade −1."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_inverse_zero",
+          "kind": "degenerate",
+          "statement": "The unit is its own inverse."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_inverse_wrong_grade",
+          "kind": "non-example",
+          "statement": "(O,1)⊗(O,1) cannot be isomorphic to the unit over Spec ℚ."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_inverse_affine",
+          "kind": "compatibility",
+          "statement": "In grade zero affine duality agrees with Module.Invertible and CommRing.Pic inverse."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/graded-line-pullback",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Pullback of graded lines",
+      "kind": "construction",
+      "statement": "For a scheme morphism h:Y→X, pullback sends (L,f) to (h*L,f∘h), defines a symmetric monoidal functor Pic^Z(X)→Pic^Z(Y), and has coherent identity and composition isomorphisms.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Import invertible-sheaf pullback; compose the locally constant function with the continuous underlying map.",
+        "Scalar extension preserves −1 and hence ε. Combine ordinary sheaf pullback constraints with equality of composed grades; check coherence using the supplier pullback coherence."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/graded-line-tensor",
+        "KTheoryLowDegrees:Z.3/graded-line-inverse",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
+      ],
+      "acceptance": [
+        "Disconnected grades are pulled back componentwise."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Construction 5.1 p.18; Proposition 5.3 pp.18–19",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Bhatt–Scholze §5 and §12",
+          "how": "The signed determinant must retain automorphisms and coherent sums before spectrum group completion and geometric descent."
+        },
+        {
+          "where": "KTheoryLowDegrees:Z.3/determinant-hom; KTheoryLowDegrees:U.3 and U.6",
+          "how": "Components recover rank and determinant; loops recover the determinant on units without asserting SK₁ vanishes globally."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_pullback_object",
+          "role": "characterisation",
+          "statement": "h*(L,f)=(h*L,f∘h)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_pullback_id",
+          "role": "simp",
+          "statement": "Identity pullback is naturally isomorphic to identity."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_pullback_comp",
+          "role": "functoriality",
+          "statement": "(h∘g)*≅g*∘h* coherently."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_pullback_tensor",
+          "role": "compatibility",
+          "statement": "h*(A⊗B)≅h*A⊗h*B."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_pullback_braiding",
+          "role": "compatibility",
+          "statement": "The pullback constraint intertwines both signed braidings."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_pullback_point",
+          "kind": "example",
+          "statement": "Pullback to a point evaluates the grade at that point."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_pullback_empty",
+          "kind": "degenerate",
+          "statement": "Pullback to the empty scheme yields its unique object."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_pullback_product",
+          "kind": "non-example",
+          "statement": "On Spec(ℚ×ℚ), grades (0,1) remain distinct; there is no single global integer rank."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.graded_line_pullback_affine",
+          "kind": "compatibility",
+          "statement": "On affine grade-zero classes, pullback agrees with CommRing.Pic.mapRingHom."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/graded-line-components",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Components of the graded Picard groupoid",
+      "kind": "comparison",
+      "statement": "There is a natural abelian-group isomorphism π₀Pic^Z(X)≅Pic(X)×H⁰(X_et,ℤ), sending [(L,f)] to ([L],f); here H⁰ denotes locally constant functions, with its additive operation. This is not an equivalence of groupoids.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "An isomorphism fixes the grade and identifies precisely the ordinary line-bundle class.",
+        "Tensor becomes the product of the Picard operation and grade addition; the inverse is dual plus grade negation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/graded-line-inverse",
+        "KTheoryLowDegrees:Z.3/graded-line-pullback",
+        "StableHomotopyKTheory:H.4"
+      ],
+      "acceptance": [
+        "Over Spec ℚ this component calculation loses ℚˣ automorphisms."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Construction 5.1 p.18",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/graded-line-automorphisms",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Automorphisms of a graded line",
+      "kind": "lemma",
+      "statement": "For any (L,f), scalar multiplication identifies Aut((L,f))≅Γ(X,O_X)ˣ, naturally under pullback. In the connective spectrum of Pic^Z, π₁ is this unit group and π_i=0 for i>1.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Locally trivialize L; its endomorphism sheaf is O_X. Gluing identifies automorphisms with invertible global scalars.",
+        "A groupoid nerve is a 1-type; import the spectrum/nerve comparison to identify its homotopy groups, rather than treating an isoclass quotient as a 1-type."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/graded-line-groupoid",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "StableHomotopyKTheory:H.5:spectra",
+        "StableHomotopyKTheory:H.4"
+      ],
+      "acceptance": [
+        "Over Spec ℚ the automorphism −1 is nontrivial; over Spec 𝔽₂ the units are trivial."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Construction 5.1 p.18; pp.55–56,59",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/graded-line-fibre",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Grade fibre sequence",
+      "kind": "theorem",
+      "statement": "The inclusion L↦(L,0) and grade projection give a fibre sequence of connective spectra Pic(X)→Pic^Z(X)→H⁰(X_et,ℤ), and as X varies a fibre sequence of étale sheaves. The last term is the discrete connective spectrum.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "The homotopy fibre over zero consists of the grade-zero objects and their isomorphisms.",
+        "Both functors preserve the signed symmetric structure (sign is one on the inclusion and grade target). Import the Picard-groupoid/connective-spectrum correspondence and étale descent."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/graded-line-tensor",
+        "KTheoryLowDegrees:Z.3/graded-line-components",
+        "KTheoryLowDegrees:Z.3/graded-line-automorphisms",
+        "StableHomotopyKTheory:H.5:spectra",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "acceptance": [
+        "The sequence does not have a symmetric-monoidal retraction obtained by forgetting the grade."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Construction 5.1 p.18",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/forget-grade",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Forgetting the integer grade",
+      "kind": "construction",
+      "statement": "The functor η:Pic^Z(X)→Pic(X), (L,f)↦L, preserves tensor with ordinary monoidal constraints and retracts the grade-zero inclusion. It is generally not symmetric monoidal. It splits the fibre sequence as spaces and E₁-spaces; no splitting of spectra is claimed.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Keep sheaf isomorphisms and forget grade equality. Use the ordinary tensor and unit constraints.",
+        "The signed braiding on two odd lines maps to −swap, whereas the ordinary braiding is swap. Over Spec ℚ these differ; the functor is only monoidal."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/graded-line-tensor",
+        "KTheoryLowDegrees:Z.3/graded-line-fibre"
+      ],
+      "acceptance": [
+        "The distinction survives although π₀ is a product."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Construction 5.1 p.18; Remark 5.4 p.19",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Bhatt–Scholze §5 and §12",
+          "how": "The signed determinant must retain automorphisms and coherent sums before spectrum group completion and geometric descent."
+        },
+        {
+          "where": "KTheoryLowDegrees:Z.3/determinant-hom; KTheoryLowDegrees:U.3 and U.6",
+          "how": "Components recover rank and determinant; loops recover the determinant on units without asserting SK₁ vanishes globally."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GradedDeterminant.forget_grade_object",
+          "role": "projection",
+          "statement": "η(L,f)=L."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.forget_grade_tensor",
+          "role": "compatibility",
+          "statement": "η(A⊗B)≅ηA⊗ηB."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.forget_grade_unit",
+          "role": "simp",
+          "statement": "η(O,0)=O."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.forget_grade_retract",
+          "role": "compatibility",
+          "statement": "η composed with grade-zero inclusion is identity."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.forget_grade_space_split",
+          "role": "equivalence",
+          "statement": "The underlying E₁-space decomposes as Pic(X)×H⁰(X,ℤ)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GradedDeterminant.forget_grade_even",
+          "kind": "example",
+          "statement": "On grade-zero objects η preserves the braiding."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.forget_grade_odd",
+          "kind": "non-example",
+          "statement": "On (O,1) over Spec ℚ it sends self-braiding to −id, not ordinary +id."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.forget_grade_char_two",
+          "kind": "compatibility",
+          "statement": "The odd sign obstruction vanishes over Spec 𝔽₂; this does not imply a general symmetric retraction."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.forget_grade_empty",
+          "kind": "degenerate",
+          "statement": "Over the empty scheme forgetting grade is the unique functor."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/graded-self-braiding",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Self-braiding detects parity",
+      "kind": "lemma",
+      "statement": "For A=(L,f), β_{A,A} is scalar multiplication by (−1)^f on L⊗L. In BS17 Definition 12.1, “strict” means β_{A,A}=id for every A, not that the associator and unitors are identity. Pic^Z(Spec ℚ) fails this property.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "The ordinary self-swap of a line is identity, checked locally on a generator.",
+        "Use ε(f,f)=ε(f,1) since f²≡f mod 2. Apply to grade one over ℚ."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/graded-line-tensor",
+        "KTheoryLowDegrees:Z.3/koszul-sign"
+      ],
+      "acceptance": [
+        "SymmetricCategory only asserts two successive braidings are identity."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Definition 12.1 p.54; Example 12.2(iii) p.55",
+          "excerpt": "commutative ring",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/projective-block-swap",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Sign of exchanging projective summands",
+      "kind": "lemma",
+      "statement": "For finite projectives P,Q over R, with locally constant ranks r,s, the determinant of the swap P⊕Q≅Q⊕P, transported through the ordered determinant sum isomorphisms, is (−1)^{rs} times ordinary line swap.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Localize where both projectives are free, keeping their ordered bases.",
+        "The block permutation crosses r basis vectors past s others; its rs inversions give the sign. Local determinant identifications glue by naturality."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/determinant-sum",
+        "KTheoryLowDegrees:Z.3/determinant-base-change",
+        "KTheoryLowDegrees:Z.3/koszul-sign",
+        "mathlib:Matrix.det"
+      ],
+      "acceptance": [
+        "For P=Q=R over ℤ the exchange has determinant −1, disproving an unsigned symmetric determinant."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Proposition 12.3 p.55",
+          "excerpt": "commutativity constraint",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/projective-graded-det",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Graded determinant of finite projectives",
+      "kind": "construction",
+      "statement": "On the maximal subgroupoid of finite projective R-modules with direct sum, Det^Z(P)=(det_R P,rk P), and isomorphisms act by their top exterior powers componentwise. This is a natural symmetric monoidal functor to Pic^Z(Spec R).",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Use componentwise determinant-projective and rank from the companion packet; retain top-exterior maps on isomorphisms.",
+        "Use determinant-sum as the tensor comparison, determinant of zero as unit, and projective-block-swap for symmetry. Associativity follows from ordered exterior concatenation, not from equality of classes."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/graded-line-tensor",
+        "KTheoryLowDegrees:Z.3/projective-block-swap",
+        "KTheoryLowDegrees:Z.3/determinant-projective",
+        "KTheoryLowDegrees:Z.3/determinant-sum",
+        "KTheoryLowDegrees:Z.2/rank-hom",
+        "mathlib:CategoryTheory.Core"
+      ],
+      "acceptance": [
+        "The input monoidal operation is direct sum, not tensor product."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Proposition 12.3 p.55",
+          "excerpt": "commutativity constraint",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Bhatt–Scholze §5 and §12",
+          "how": "The signed determinant must retain automorphisms and coherent sums before spectrum group completion and geometric descent."
+        },
+        {
+          "where": "KTheoryLowDegrees:Z.3/determinant-hom; KTheoryLowDegrees:U.3 and U.6",
+          "how": "Components recover rank and determinant; loops recover the determinant on units without asserting SK₁ vanishes globally."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GradedDeterminant.projective_graded_det_object",
+          "role": "characterisation",
+          "statement": "Det^Z(P)=(det P,rk P)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.projective_graded_det_map",
+          "role": "functoriality",
+          "statement": "Det^Z(u) is the induced top-exterior isomorphism."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.projective_graded_det_zero",
+          "role": "simp",
+          "statement": "Det^Z(0)≅(R,0)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.projective_graded_det_sum",
+          "role": "compatibility",
+          "statement": "Det^Z(P⊕Q)≅Det^Z(P)⊗Det^Z(Q)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.projective_graded_det_symmetry",
+          "role": "compatibility",
+          "statement": "The direct-sum swap maps to signed Picard braiding."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.projective_graded_det_base_change",
+          "role": "functoriality",
+          "statement": "The functor commutes coherently with scalar extension."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GradedDeterminant.projective_graded_det_line",
+          "kind": "example",
+          "statement": "Det^Z(R)=(R,1)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.projective_graded_det_zero",
+          "kind": "degenerate",
+          "statement": "Det^Z(0)=(R,0)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.projective_graded_det_swap",
+          "kind": "non-example",
+          "statement": "Over ℤ, swapping two free rank-one summands maps to −1."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.projective_graded_det_product",
+          "kind": "compatibility",
+          "statement": "For R=F×F and P=e₁R, the grade is (1,0), agreeing with companion rank."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/ring-spectrum-det",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Determinant on the ring K-spectrum",
+      "kind": "construction",
+      "statement": "The graded determinant induces a natural connective-spectrum map Det_R:K(R)→Pic^Z(Spec R). Here K(R) is group completion of the nerve of the finite-projective isomorphism groupoid under direct sum, identified with the agreed algebraic K model.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Apply the H.4 group-completion universal property to projective-graded-det; Pic^Z is already grouplike.",
+        "Import the E∞-monoid/connective-spectrum correspondence and projective group-completion comparison. These are owner interfaces, not new generic K-theory nodes."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/projective-graded-det",
+        "KTheoryLowDegrees:Z.3/graded-line-inverse",
+        "StableHomotopyKTheory:H.4",
+        "StableHomotopyKTheory:H.5:spectra",
+        "GeneralAlgebraicKTheory:K.4:construction"
+      ],
+      "acceptance": [
+        "Functoriality is a coherent spectrum map, not a freely chosen homomorphism of π₀."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Corollary 12.17 p.59; Definition 12.13 p.58",
+          "excerpt": "Picard groupoid",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Bhatt–Scholze §5 and §12",
+          "how": "The signed determinant must retain automorphisms and coherent sums before spectrum group completion and geometric descent."
+        },
+        {
+          "where": "KTheoryLowDegrees:Z.3/determinant-hom; KTheoryLowDegrees:U.3 and U.6",
+          "how": "Components recover rank and determinant; loops recover the determinant on units without asserting SK₁ vanishes globally."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GradedDeterminant.ring_spectrum_det_object",
+          "role": "compatibility",
+          "statement": "[P] maps to (det P,rk P)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.ring_spectrum_det_natural",
+          "role": "functoriality",
+          "statement": "Scalar-extension K maps commute with graded determinant."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.ring_spectrum_det_sum",
+          "role": "compatibility",
+          "statement": "The map preserves coherently the direct-sum group law."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.ring_spectrum_det_pi_zero",
+          "role": "compatibility",
+          "statement": "On π₀ it is the existing rank and determinant pair."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.ring_spectrum_det_pi_one",
+          "role": "compatibility",
+          "statement": "On automorphism loops it is the determinant in Rˣ; arbitrary SK₁ may remain."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GradedDeterminant.ring_spectrum_det_field",
+          "kind": "compatibility",
+          "statement": "Over a field, π₀ is rank and π₁ is the usual determinant."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.ring_spectrum_det_negative",
+          "kind": "example",
+          "statement": "−[R] has grade −1 and the dual determinant line."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.ring_spectrum_det_zero",
+          "kind": "degenerate",
+          "statement": "The zero-ring K-spectrum and Pic^Z are contractible."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.ring_spectrum_det_not_ordinary_pic",
+          "kind": "non-example",
+          "statement": "[R] over ℚ cannot map into the grade-zero Pic inclusion because its grade is one."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/determinant-truncation",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Determinant through the first truncation",
+      "kind": "lemma",
+      "statement": "Since Pic^Z is 1-truncated, Det_R factors canonically through τ≤1K(R). The factor is unique in the homotopy-coherent mapping space; this does not make K(R) itself 1-truncated.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Apply the universal property of connective-spectrum truncation to the target whose π_i vanish for i>1."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/ring-spectrum-det",
+        "KTheoryLowDegrees:Z.3/graded-line-automorphisms",
+        "StableHomotopyKTheory:H.5:spectra"
+      ],
+      "acceptance": [
+        "Higher K-groups are not discarded from the source theory."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Paragraph preceding Proposition 12.18 p.59",
+          "excerpt": "presheaves of groupoids",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/local-det-equivalence",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Determinant on a local ring",
+      "kind": "comparison",
+      "statement": "For a nonzero commutative local ring R, Det_R induces isomorphisms on π₀ and π₁: K₀(R)≅ℤ and K₁(R)≅Rˣ. Consequently τ≤1K(R)→Pic^Z(Spec R) is an equivalence.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Import local freeness and the rank isomorphism from Z.2 and SK₁ vanishing for commutative local rings from U.3.",
+        "Pic(R) is trivial and Spec R is connected; identify the grade coordinate with ℤ and loops with Rˣ. Apply the 1-truncated Whitehead criterion supplied by H.5:spectra."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/determinant-truncation",
+        "KTheoryLowDegrees:Z.3/graded-line-components",
+        "KTheoryLowDegrees:Z.3/graded-line-automorphisms",
+        "KTheoryLowDegrees:Z.2",
+        "KTheoryLowDegrees:U.3",
+        "StableHomotopyKTheory:H.5:spectra"
+      ],
+      "acceptance": [
+        "No K₁(R)=Rˣ assertion for an arbitrary commutative ring; no zero-ring K₀=ℤ assertion."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Proposition 12.18 p.59",
+          "excerpt": "presheaves of groupoids",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/zariski-sheafified-det",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Sheafified first K-truncation",
+      "kind": "theorem",
+      "statement": "On affine schemes, Det:τ≤1K→Pic^Z is an equivalence after Zariski sheafification as presheaves of groupoids. It need not be an objectwise equivalence before sheafification.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Import sheafification of groupoid-valued presheaves and its local equivalence criterion.",
+        "At every local-ring stalk use local-det-equivalence; Pic^Z has effective line and grade descent. Stalkwise equivalences imply equivalence of the sheafified 1-types."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/local-det-equivalence",
+        "KTheoryLowDegrees:Z.3/graded-line-pullback",
+        "SchemeAndStackFoundations:SF.1",
+        "StableHomotopyKTheory:H.5:spectra"
+      ],
+      "acceptance": [
+        "The proof compares both π₀ and π₁; a π₀-only calculation is insufficient."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Proposition 12.18 p.59",
+          "excerpt": "presheaves of groupoids",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/scheme-spectrum-det",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Determinant of perfect complexes",
+      "kind": "construction",
+      "statement": "For each qcqs scheme X there is a natural connective-spectrum map Det_X:K(Perf X)→Pic^Z(X), whose affine restriction is ring-spectrum-det under the perfect/projective K comparison.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Import Perf, derived pullback, affine K comparison and K-theory Zariski descent from S.1/S.2 and the Waldhausen comparison.",
+        "Use Zariski-sheafified-det locally and Pic^Z Zariski descent to glue the compatible affine maps. Compare on overlaps through scalar-extension naturality."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/ring-spectrum-det",
+        "KTheoryLowDegrees:Z.3/zariski-sheafified-det",
+        "SchemeKTheoryOperations:S.1",
+        "SchemeKTheoryOperations:S.2",
+        "GeneralAlgebraicKTheory:K.4:construction",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "acceptance": [
+        "This works for singular qcqs schemes; it does not assert K(Vect X)=K(Perf X) without resolution property."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Proposition 5.3 pp.18–19",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Bhatt–Scholze §5 and §12",
+          "how": "The signed determinant must retain automorphisms and coherent sums before spectrum group completion and geometric descent."
+        },
+        {
+          "where": "KTheoryLowDegrees:Z.3/determinant-hom; KTheoryLowDegrees:U.3 and U.6",
+          "how": "Components recover rank and determinant; loops recover the determinant on units without asserting SK₁ vanishes globally."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GradedDeterminant.scheme_spectrum_det_affine",
+          "role": "compatibility",
+          "statement": "On Spec R the map agrees with Det_R under the specified affine comparison."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.scheme_spectrum_det_object",
+          "role": "compatibility",
+          "statement": "A vector bundle maps to (det E,rk E)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.scheme_spectrum_det_pullback",
+          "role": "functoriality",
+          "statement": "Derived pullback commutes coherently with Det_X."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.scheme_spectrum_det_shift",
+          "role": "compatibility",
+          "statement": "Det(C[1])≅Det(C) inverse."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.scheme_spectrum_det_triangle",
+          "role": "compatibility",
+          "statement": "Every distinguished triangle induces Det(C)≅Det(C′)⊗Det(C″) coherently."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GradedDeterminant.scheme_spectrum_det_line",
+          "kind": "example",
+          "statement": "An invertible sheaf in degree zero maps to itself with grade one."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.scheme_spectrum_det_zero",
+          "kind": "degenerate",
+          "statement": "The zero complex maps to (O,0)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.scheme_spectrum_det_shift",
+          "kind": "compatibility",
+          "statement": "O[1] has grade −1 and determinant O."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.scheme_spectrum_det_nonseparated",
+          "kind": "non-example",
+          "statement": "On the doubled plane do not replace Perf K by vector-bundle K; the Cartan groups differ."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/determinant-triangle",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Coherent determinant additivity",
+      "kind": "lemma",
+      "statement": "A distinguished triangle C′→C→C″→C′[1] in Perf(X) supplies a natural isomorphism Det(C)≅Det(C′)⊗Det(C″), compatible with maps of triangles and the octahedral refinement.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Import the additivity homotopy and filtered-object coherence from the construction owner.",
+        "Apply the connective-spectrum determinant; paths in the target 1-type give actual isomorphisms, with the homotopies of paths giving coherence."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/scheme-spectrum-det",
+        "GeneralAlgebraicKTheory:K.4:construction"
+      ],
+      "acceptance": [
+        "An equality of isomorphism classes alone does not determine this isomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Proposition 5.3 p.19; Theorem 5.7 p.20",
+          "excerpt": "connective spectra",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/bounded-complex-det",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Determinant of a bounded projective complex",
+      "kind": "comparison",
+      "statement": "For a bounded complex P• of finite projectives or vector bundles, Det(P•) identifies with the ordered tensor of det(P^i)^{(−1)^i} and grade Σ_i(−1)^i rk(P^i). This identifies the π₀ map with the existing Euler-class map.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Filter the complex by its stupid truncations. Each graded term is the shifted term P^i[−i].",
+        "Iterate determinant-triangle and the shift/inverse law, keeping increasing cohomological order and the signed interchange constraints. Compare its component with perfect-complex-euler-class."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/determinant-triangle",
+        "KTheoryLowDegrees:Z.3/graded-line-inverse",
+        "KTheoryLowDegrees:Z.6/perfect-complex-euler-class"
+      ],
+      "acceptance": [
+        "The two-term identity complex has trivial determinant; cancellation keeps the natural evaluation isomorphism."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Proposition 5.3 pp.18–19 (bounded-complex consequence)",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/graded-det-pi-zero",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Class determinant is the component map",
+      "kind": "comparison",
+      "statement": "On π₀, scheme-spectrum-det recovers rank and the existing vector-bundle determinant. Forgetting the integer grade at the level of component groups recovers det:K₀→Pic; this group homomorphism does not imply a symmetric-monoidal factorization through ordinary Pic.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Use the object formula and the universal property of the existing exact K₀ class map where the vector-bundle comparison is proved.",
+        "For a general perfect complex use bounded-complex-det locally and the agreed π₀ comparison, with resolution property only where needed."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/scheme-spectrum-det",
+        "KTheoryLowDegrees:Z.6/bounded-complex-det",
+        "KTheoryLowDegrees:Z.5/vector-bundle-determinant",
+        "KTheoryLowDegrees:Z.6/vector-bundle-k-zero-pi-zero"
+      ],
+      "acceptance": [
+        "The ring-level determinant-hom stays an additive-group homomorphism with the Picard tensor operation."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Remark 5.4 p.19; Proposition 12.3 p.55",
+          "excerpt": "commutativity constraint",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.3/graded-pic-v-descent",
+      "parentStageId": "KTheoryLowDegrees:Z.3",
+      "realises": [
+        "KTheoryLowDegrees:Z.3"
+      ],
+      "title": "Descent of graded lines on perfect schemes",
+      "kind": "theorem",
+      "statement": "On qcqs perfect F_p-schemes, X↦Pic^Z(X) is a v-stack. The grades form a v-sheaf; ordinary line bundles and their isomorphisms satisfy effective v-descent.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Import the perfect-scheme v-site and effective v-descent of line bundles from the assigned foundations source route.",
+        "Descend the locally constant integer grades and the lines, then their isomorphisms. The fibre sequence makes the homotopy-coherent Picard structure compatible with this descent."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/graded-line-fibre",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "acceptance": [
+        "Étale or fpqc descent alone is not v-descent; the requested stronger supplier is recorded as a gap."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Proposition 5.2 p.18; Theorem 4.1(ii) used there",
+          "excerpt": "graded line bundles",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/witt-supported-input",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Supported Witt perfect complexes",
+      "kind": "construction",
+      "statement": "For a qcqs perfect F_p-scheme X use the support category Perf(W(X) on X) of W(O_X)-perfect complexes acyclic after p is inverted. Its K-theory is K(W(X) on X). Import this category and its K-theory from S.1/S.3; the determinant-specific datum is the natural map α_X:K(X)→K(W(X) on X) induced by restriction of scalars along W(O_X)→O_X.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Perfection makes W(O_X) p-torsion-free; O_X has the two-term W(O_X)-resolution by multiplication by p. Thus restriction carries O_X-perfect complexes to supported W-perfect complexes.",
+        "Use the supplier exact/enhanced functor and support K functoriality. No comparison equivalence is asserted for arbitrary X at this step."
+      ],
+      "prerequisites": [
+        "SchemeKTheoryOperations:S.1",
+        "SchemeKTheoryOperations:S.3",
+        "GeneralAlgebraicKTheory:K.4:construction"
+      ],
+      "acceptance": [
+        "The support condition is acyclicity after p inversion, not merely an arbitrary Witt module."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Paragraph after Remark 5.4 p.19; Theorem 5.7 p.20",
+          "excerpt": "connective spectra",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Bhatt–Scholze §5 and §12",
+          "how": "The signed determinant must retain automorphisms and coherent sums before spectrum group completion and geometric descent."
+        },
+        {
+          "where": "KTheoryLowDegrees:Z.3/determinant-hom; KTheoryLowDegrees:U.3 and U.6",
+          "how": "Components recover rank and determinant; loops recover the determinant on units without asserting SK₁ vanishes globally."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_input_support",
+          "role": "characterisation",
+          "statement": "Every input C has C[1/p]≃0."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_input_alpha",
+          "role": "constructor",
+          "statement": "α_X is induced by O_X-perfect restriction to W(O_X)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_input_object",
+          "role": "compatibility",
+          "statement": "α sends C to the same supported restriction-of-scalars complex."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_input_natural",
+          "role": "functoriality",
+          "statement": "α is natural in perfect-scheme pullback through the specified derived comparison."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_input_zero",
+          "role": "simp",
+          "statement": "α sends the zero object and K basepoint to zero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_input_field",
+          "kind": "example",
+          "statement": "Over a perfect field k, k is represented by W(k) --p→ W(k)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_input_zero",
+          "kind": "degenerate",
+          "statement": "The zero complex satisfies the support condition."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_input_unsupported",
+          "kind": "non-example",
+          "statement": "W(k) in degree zero is excluded, since it remains nonzero after p inversion."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_input_filtration",
+          "kind": "compatibility",
+          "statement": "W(k)/p² has two k graded pieces in its p-adic filtration."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Witt support comparison on a regular perfection",
+      "kind": "comparison",
+      "statement": "For R the perfection of a regular noetherian F_p-algebra R₀, α_Spec R is an equivalence K(R)≃K(W(R) on R). The smooth affine case suffices for the alteration descent proving Theorem 5.7.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Import regular immersion dévissage and support localization from S.3/K.3. For smooth R₀, choose the deformation and Frobenius lift; compare supported perfect categories before and after p-completion, then take the compatible filtered K colimit.",
+        "For unrestricted regular R₀, the sentence identifying all obstructions with coherent cohomology requires the correction of extraction E31: use a smooth Popescu system and filtered support K continuity. This stronger extension is requested, not asserted proved by affine cohomology."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/witt-supported-input",
+        "SchemeKTheoryOperations:S.3",
+        "GeneralAlgebraicKTheory:K.3"
+      ],
+      "acceptance": [
+        "Determinant localization or flatness alone is not a proof of this equivalence."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Corollary 5.6 pp.19–20, corrected proof boundary E31",
+          "excerpt": "perfect complexes",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/v-sheafified-first-k",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "First K-truncation on the perfect site",
+      "kind": "theorem",
+      "statement": "On the perfect F_p v-site, both τ≤1K(X)→Pic^Z(X) and τ≤1K(X)→τ≤1K(W(X) on X) become equivalences after v-sheafification.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "For the first map, use the Zariski local calculation and graded-pic-v-descent.",
+        "For the supported comparison, import alteration v-covers by perfections of smooth schemes and the regular-perfection comparison. Descent is performed on presheaves of groupoids/1-types, keeping homotopies."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.3/zariski-sheafified-det",
+        "KTheoryLowDegrees:Z.3/graded-pic-v-descent",
+        "KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison",
+        "SchemeAndStackFoundations:SF.1",
+        "StableHomotopyKTheory:H.5:spectra"
+      ],
+      "acceptance": [
+        "No claim that the unsheafified support comparison is an equivalence for all perfect X."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Proof of Theorem 5.7 p.20",
+          "excerpt": "connective spectra",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/witt-supported-det",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Determinant with Witt support",
+      "kind": "construction",
+      "statement": "For X a qcqs perfect F_p-scheme, construct a natural connective-spectrum map Det~_X:K(W(X) on X)→Pic^Z(X) extending Det_X along α_X.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Map supported K to its 1-truncation and then its v-sheafification.",
+        "Use v-sheafified-first-k to identify that sheafification with Pic^Z, choosing the comparison compatible with the ordinary determinant. Sheafification universal properties provide naturality and coherent extension."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/witt-supported-input",
+        "KTheoryLowDegrees:Z.6/v-sheafified-first-k",
+        "KTheoryLowDegrees:Z.6/scheme-spectrum-det",
+        "StableHomotopyKTheory:H.5:spectra",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "acceptance": [
+        "The construction is on the supported perfect category and retains the integer grade."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Theorem 5.7 p.20",
+          "excerpt": "connective spectra",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Bhatt–Scholze §5 and §12",
+          "how": "The signed determinant must retain automorphisms and coherent sums before spectrum group completion and geometric descent."
+        },
+        {
+          "where": "KTheoryLowDegrees:Z.3/determinant-hom; KTheoryLowDegrees:U.3 and U.6",
+          "how": "Components recover rank and determinant; loops recover the determinant on units without asserting SK₁ vanishes globally."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_det_extension",
+          "role": "compatibility",
+          "statement": "Det~_X∘α_X≃Det_X coherently."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_det_pullback",
+          "role": "functoriality",
+          "statement": "Perfect-scheme pullback commutes with Det~."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_det_additivity",
+          "role": "compatibility",
+          "statement": "Supported distinguished triangles give tensor determinant isomorphisms."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_det_zero",
+          "role": "simp",
+          "statement": "The zero supported complex has determinant (O,0)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_det_unique",
+          "role": "universal-property",
+          "statement": "The space of natural extending maps with extension compatibility is contractible."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_det_residue",
+          "kind": "compatibility",
+          "statement": "The supported residue module k maps to (k,1)."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_det_length_two",
+          "kind": "example",
+          "statement": "Over a perfect field, W(k)/p² maps to (k,2) up to the canonical filtration identification."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_det_zero",
+          "kind": "degenerate",
+          "statement": "The zero supported object maps to the tensor unit."
+        },
+        {
+          "name": "TauCeti.GradedDeterminant.witt_supported_det_unsupported",
+          "kind": "non-example",
+          "statement": "No value on W(k)[1/p] is supplied by this supported determinant construction."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/witt-det-uniqueness",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Contractible determinant extension",
+      "kind": "theorem",
+      "statement": "The space of natural Det~ extending the ordinary determinant along α, including the specified extension homotopy, is contractible. This is stronger than equality of induced π₀ maps.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "A map to the v-sheaf Pic^Z factors uniquely through sheafification in the mapping-space sense.",
+        "The comparison α becomes an equivalence after 1-truncation and sheafification. Precomposition is therefore an equivalence of mapping spaces; its fibre over ordinary Det is contractible."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/witt-supported-det",
+        "KTheoryLowDegrees:Z.6/v-sheafified-first-k",
+        "StableHomotopyKTheory:H.5:spectra",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "acceptance": [
+        "Do not quantify over arbitrary maps for a single X without naturality and extension data."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Theorem 5.7 and proof p.20",
+          "excerpt": "connective spectra",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/witt-filtration-det",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Determinant through a supported filtration",
+      "kind": "comparison",
+      "statement": "If a supported perfect complex has a finite filtration with graded pieces from Perf(X) and specified cofiber triangles, Det~ identifies coherently with the ordered product of their ordinary graded determinants. It is independent of the chosen filtration through the supported K additivity comparison.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Iterate the specified filtered-object additivity homotopies, apply Det~, and use its extension compatibility on every graded piece.",
+        "Compare refinements and alternate filtrations through the common supported K class and its coherent additive paths; a π₀ equality alone is not the claimed canonical comparison."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/witt-supported-det",
+        "KTheoryLowDegrees:Z.6/witt-det-uniqueness",
+        "GeneralAlgebraicKTheory:K.4:construction"
+      ],
+      "acceptance": [
+        "Do not assume every arbitrary perfect-scheme object admits such a global filtration."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Theorem 5.7 explanatory paragraph p.20",
+          "excerpt": "connective spectra",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/finite-length-det-trivial",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Constant finite-length Witt determinant",
+      "kind": "theorem",
+      "statement": "Let k be a perfect field, Q a finite-length W(k)-module, and X a qcqs perfect k-scheme. For a finite exhaustive filtration of Q_X=Q⊗_{W(k)}W(O_X) whose graded pieces are finite projective O_X-modules, the ordinary line ⊗_i det(gr_i Q_X) is trivial. Its graded determinant has grade length_{W(k)}Q, which need not be zero.",
+      "hypotheses": [
+        "All schemes and categories are in fixed universes. R denotes a commutative unital ring; X is a scheme. A perfect F_p-scheme in the Witt-support results is qcqs, as in BS17 §1. Constructions on all schemes are distinguished from K(X), whose determinant statement assumes X qcqs."
+      ],
+      "proofSteps": [
+        "Use witt-filtration-det to identify the product with the underlying line of Det~(Q_X).",
+        "Naturality identifies it with the pullback of the k-line underlying Det~(Q), hence a trivializable line. This does not choose a canonical basis of that k-line. The direct geometric proof via flag varieties is not required by the determinant source route."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/witt-filtration-det",
+        "KTheoryLowDegrees:Z.3/forget-grade",
+        "KTheoryLowDegrees:Z.6/witt-supported-det"
+      ],
+      "acceptance": [
+        "For Q=k the line is trivial but grade is one; replacing the graded output by the unit would be false."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/GradedDeterminant",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "Lemma 6.11 pp.24–25 (K-theoretic proof at top of p.25)",
+          "excerpt": "finite length",
+          "match": "Source construction or consequence at this locator, retaining morphisms, signs and coherence; proof refinements are named as requested interfaces or recorded gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "coverage": [
     {
       "stageId": "KTheoryLowDegrees:Z.3",
-      "status": "partial",
-      "note": "All targets of the stage text are realised by nodes: the ring structure (finite-projective-monoidal, rank-ring-hom, map-ring-hom); exterior powers and the exterior filtration of an extension (projective-exterior-power, exterior-direct-sum, exterior-extension-filtration, exterior-extension-graded); the λ-ring identities on K₀ with their extension to virtual classes (total-lambda … lambda-add, ring-k0-pre-lambda, and the special identities ring-k0-special); the componentwise determinant and its comparison with Pic (determinant-projective … determinant-surjective, determinant-tensor, determinant-exterior-power, determinant-mul, rank-det-ring-hom, sk-zero); det as an additive-group homomorphism, not a ring homomorphism (determinant-hom and its non-example test); the augmentation and its relation with the γ-filtration (augmentation, ring-k0-augmented, gamma-filtration-one, gamma-filtration-two, gamma-first-graded, gamma-filtration-eq-span); and the degree-zero normalisation of the Adams operations (adams-operations, adams-first-graded, ring-k0-adams-line, ring-k0-adams-rank-det). The abstract λ-ring algebra that SchemeKTheoryOperations S.6 planned is owned here (restructure). The identities F²_γ = SK₀, det(ψ^k x) = det(x)^k and the determinant identities are proved without any splitting principle; the Sylvester–Franke identity (compound-matrix-determinant), the exterior filtration's graded pieces and the ideal/span comparison are proved from library facts, their statements being exercises or absent in the sources read. The open inputs to ring-k0-special are the integral coefficient-freeness, direct-model K₀/character transport and arbitrary-field character-image boundaries recorded below. This continuation adds eleven declaration-sized steps for Serre §§2.4–2.7 over ℤ and a free coefficient coalgebra. The generic-fibre isomorphism is conditional on surjective decomposition maps; the GL coefficient and character inputs remain as stated in the gap. The integral formal-character square and its conditional isomorphism consequence are now decomposed for a free C and specified coalgebra restriction to a split torus. The coefficient algebra and diagonal square for products are now decomposed using pinned single-factor inputs. Exact K₀/character transport and the arbitrary-field character image theorem remain open, as does integral coefficient freeness.",
+      "status": "planned",
+      "note": "All targets of the stage text are realised by nodes: the ring structure (finite-projective-monoidal, rank-ring-hom, map-ring-hom); exterior powers and the exterior filtration of an extension (projective-exterior-power, exterior-direct-sum, exterior-extension-filtration, exterior-extension-graded); the λ-ring identities on K₀ with their extension to virtual classes (total-lambda … lambda-add, ring-k0-pre-lambda, and the special identities ring-k0-special); the componentwise determinant and its comparison with Pic (determinant-projective … determinant-surjective, determinant-tensor, determinant-exterior-power, determinant-mul, rank-det-ring-hom, sk-zero); det as an additive-group homomorphism, not a ring homomorphism (determinant-hom and its non-example test); the augmentation and its relation with the γ-filtration (augmentation, ring-k0-augmented, gamma-filtration-one, gamma-filtration-two, gamma-first-graded, gamma-filtration-eq-span); and the degree-zero normalisation of the Adams operations (adams-operations, adams-first-graded, ring-k0-adams-line, ring-k0-adams-rank-det). The abstract λ-ring algebra that SchemeKTheoryOperations S.6 planned is owned here (restructure). The identities F²_γ = SK₀, det(ψ^k x) = det(x)^k and the determinant identities are proved without any splitting principle; the Sylvester–Franke identity (compound-matrix-determinant), the exterior filtration's graded pieces and the ideal/span comparison are proved from library facts, their statements being exercises or absent in the sources read. The open inputs to ring-k0-special are the integral coefficient-freeness, direct-model K₀/character transport and arbitrary-field character-image boundaries recorded below. This continuation adds eleven declaration-sized steps for Serre §§2.4–2.7 over ℤ and a free coefficient coalgebra. The generic-fibre isomorphism is conditional on surjective decomposition maps; the GL coefficient and character inputs remain as stated in the gap. The integral formal-character square and its conditional isomorphism consequence are now decomposed for a free C and specified coalgebra restriction to a split torus. The coefficient algebra and diagonal square for products are now decomposed using pinned single-factor inputs. Exact K₀/character transport and the arbitrary-field character image theorem remain open, as does integral coefficient freeness. BS17 source route is now inventoried in the graded-line, coherent determinant and supported Witt determinant nodes, with generic inputs requested once.",
       "remaining": [
-        "The finite-free comparison and generic/residue-fibre argument are decomposed over ℤ for a free coefficient coalgebra C. Eight further nodes now supply native torus weight exactness, coefficient and weight base-change comparisons, integral formal characters, restriction, Ch_𝔽p∘d_p=Ch_ℚ, and the conditional isomorphism from equal injective character images. This removes the generic formal-character compatibility subproblem for a specified r:C→ℤ[X], but not the GL application. Establish freeness of the pinned integral GL coordinate coalgebra using the big-cell embedding in Serre p. 51 Remark 1, or supply the general flat/noetherian finite-hull extension; localization at the determinant gives flatness but not by itself freeness. The pinned single-factor coefficient and diagonal-torus identifications are reused, and eight new nodes now give the finite-product coefficient algebra, factor inclusions, generator extensionality, coefficient base change, diagonal restriction and their commuting square. Package corestriction along this coefficient equivalence as an equivalence of the finite-comodule exact categories and the induced direct-model exact K₀ comparison; prove its formal-character compatibility with restrictedCharacter and the existing ofGL.character. The underlying coefficient square is now available, but these categorical and K₀ identifications are not asserted as completed by it. Supply Serre Lemma 5 over those fields, including absolute simplicity and descent, then finite dominance intervals and the unitriangular character proof that the images are exactly the same ℤ[X]^W. ClassicalGroups layers 3–4 provide only their complex comparison; the existing ReductiveGroups Part II proposal retains the missing owner direction without inventing a supplier stage. SchemeKTheoryOperations S.5 remains downstream."
+        "The finite-free comparison and generic/residue-fibre argument are decomposed over ℤ for a free coefficient coalgebra C. Eight further nodes now supply native torus weight exactness, coefficient and weight base-change comparisons, integral formal characters, restriction, Ch_𝔽p∘d_p=Ch_ℚ, and the conditional isomorphism from equal injective character images. This removes the generic formal-character compatibility subproblem for a specified r:C→ℤ[X], but not the GL application. Establish freeness of the pinned integral GL coordinate coalgebra using the big-cell embedding in Serre p. 51 Remark 1, or supply the general flat/noetherian finite-hull extension; localization at the determinant gives flatness but not by itself freeness. The pinned single-factor coefficient and diagonal-torus identifications are reused, and eight new nodes now give the finite-product coefficient algebra, factor inclusions, generator extensionality, coefficient base change, diagonal restriction and their commuting square. Package corestriction along this coefficient equivalence as an equivalence of the finite-comodule exact categories and the induced direct-model exact K₀ comparison; prove its formal-character compatibility with restrictedCharacter and the existing ofGL.character. The underlying coefficient square is now available, but these categorical and K₀ identifications are not asserted as completed by it. Supply Serre Lemma 5 over those fields, including absolute simplicity and descent, then finite dominance intervals and the unitriangular character proof that the images are exactly the same ℤ[X]^W. ClassicalGroups layers 3–4 provide only their complex comparison; the existing ReductiveGroups Part II proposal retains the missing owner direction without inventing a supplier stage. SchemeKTheoryOperations S.5 remains downstream.",
+        "Implement/check supplier coherences and perfect v-descent interfaces recorded in the new gap, and refine BS17 Cor.5.6 through smooth approximation where arbitrary regular R₀ is needed. This pass inventories the targets; it proves none of them in Lean."
       ]
     },
     {
@@ -17018,30 +18803,34 @@
     },
     {
       "stageId": "KTheoryLowDegrees:Z.5",
-      "status": "partial",
+      "status": "planned",
       "note": "RS-18 narrows Z.5 to the general regular-curve theorem with its vector-bundle realisation, class formulas and dictionaries; the elliptic formula K₀(E) ≅ ℤ² ⊕ E(F) is EllipticKTheory E.2's and is not planned here. Targets and nodes. (1) 'Apply the categorical construction to finite locally free sheaves': vector-bundle (the interface: Mathlib's IsLocallyFree with finite local bases, compatible with Tau Ceti's IsInvertible and FinitelyPresentedSheaf), vector-bundle-extension-closed (the genuine exact structure induced from X.Modules, not the split one), vector-bundle-essentially-small, vector-bundle-k-zero (Tau Ceti's ExactK0), vector-bundle-affine-comparison, vector-bundle-k-zero-pullback, vector-bundle-k-zero-ring, vector-bundle-rank; exterior powers and determinants of vector bundles: sheaf-exterior-power, exterior-power-vector-bundle, exterior-power-extension-filtration, determinant-bundle, determinant-bundle-extension, determinant-bundle-tensor, vector-bundle-determinant, rank-determinant-surjective (Weibel II.8.1), picard-affine-comparison. (2) 'For a connected regular noetherian curve prove rank and determinant give K₀(X) ≅ ℤ ⊕ Pic(X)': regular-curve-integral (the hypothesis package), regular-curve-resolution-property (every noetherian scheme of dimension ≤ 1 has affine diagonal, so a regular one has the resolution property, Stacks 09N9 + 0F8A; separatedness is not needed), regular-curve-finite-resolution, curve-rank-determinant-equivalence, curve-k-zero-ring, dedekind-curve-comparison (agreement with Z.4 on Spec of a Dedekind domain), doubled-line-example (the theorem for a non-separated curve). (3) 'the structure-sheaf and skyscraper-sheaf class formulas through the K/G comparison, so that a divisor class agrees with the line-bundle class': regular-curve-cartan-iso (through SchemeKTheoryOperations S.2's vector-bundle comparison and Poincaré duality), skyscraper-class, effective-divisor-class, principal-divisor-class-vanishes, generic-rank-kernel, point-class-map (det ∘ cl = Tau Ceti's classGroupToLineBundleClassHom), line-bundle-divisorial (Cl(X) ≅ Pic(X) for every regular noetherian curve, the general-curve dictionary RS-18 leaves to Z.5; JacobianChallenge layer A is its smooth proper case). (4) The elliptic paragraph: exported to EllipticKTheory E.2 by RS-18 (E.2 cites curve-rank-determinant-equivalence, skyscraper-class, curve-k-zero-ring, line-bundle-divisorial); the non-rational-origin gate is kept in the acceptance of curve-rank-determinant-equivalence and in KTheoryLowDegrees:Z.6/pointless-conic-test. Weibel's proof of II.8.2.1 passes through an affine complement X − P justified only for curves over a field; the plan uses the generic-point localisation sequence instead (source issue). Locally constant Picard powers are supplied by pic-disjoint-cover-ext, pic-locally-constant-module, pic-locally-constant-pullback and pic-locally-constant-affine. Exterior and tensor-determinant exercise arguments are explicitly expanded; rank-determinant uses the existing square-zero extension. This does not close the general Picard supplier request or the representation-theoretic gap.",
       "remaining": [
         "The group structure of Pic(X) for a general scheme (inverse by the dual) is requested from JacobianChallenge layer A; on regular curves line-bundle-divisorial supplies it independently.",
-        "The atlas places SchemeKTheoryOperations S.2, S.6 and S.7 upstream of Z.5 although their nodes use K₀(Vect X), Λᵏ and det of vector bundles planned here; the restructure entry proposes the sub-layer Z.5:vector-bundles upstream of them."
+        "Apply the confirmed S.6→Z.5/S.7→Z.6 edge removals and the early vector-bundle sub-layer proposal during assembly; the packet imports S.2/S.3 and Z.3 as mathematically required."
       ]
     },
     {
       "stageId": "KTheoryLowDegrees:Z.6",
-      "status": "source_decomposed",
-      "note": "RS-18 narrows Z.6 to map-level comparisons and tests. Targets and nodes. 'Prove that these definitions and maps agree with π₀K from K': ring-k-zero-pi-zero (ring K₀ = π₁BQP(A) = π₀ of the plus model, natural in ring maps, with products) and vector-bundle-k-zero-pi-zero (K₀(Vect X) = π₀K(X) under the resolution property, natural in pullback, affine square). 'localisation sends a projective class to its localised class and a perfect complex to its Euler class': localisation-projective-class and perfect-complex-euler-class (Weibel II.9.2.2, II.9.7.5, II.9.8; Tau Ceti's moduleEulerClassOf is the existing Euler class of GrothendieckEulerForms layer 3). 'Compare the Cartan map to G₀ with the existing general Cartan map': cartan-map-comparison (one map: Tau Ceti's cartanMap, π₀ of S.2's). Tests: field-test, integers-test, field-product-test (disconnected spectrum), nonprincipal-ideal-test (ℤ[√−5], I = (2, 1 + √−5), from Z.4/nonprincipal-ideal-class: order two, invisible to every localisation at a prime, skyscraper and Euler class), projective-line-regular-curve, projective-line-rank-pic, projective-line-change-of-basis ((r, d) ↦ (r + d, −d) against the basis (1, [O(−1)]) of S.5/projective-line-k-theory, which is imported, not reproved), elliptic-test (imports EllipticKTheory E.2 for the origin-dependent formula; rank-only and rank-and-degree implementations fail), pointless-conic-test (the rational-point hypothesis in genus zero). 'A rank-only implementation fails the nonprincipal-ideal and elliptic tests' is part of those two nodes.",
-      "remaining": []
+      "status": "planned",
+      "note": "RS-18 narrows Z.6 to map-level comparisons and tests. Targets and nodes. 'Prove that these definitions and maps agree with π₀K from K': ring-k-zero-pi-zero (ring K₀ = π₁BQP(A) = π₀ of the plus model, natural in ring maps, with products) and vector-bundle-k-zero-pi-zero (K₀(Vect X) = π₀K(X) under the resolution property, natural in pullback, affine square). 'localisation sends a projective class to its localised class and a perfect complex to its Euler class': localisation-projective-class and perfect-complex-euler-class (Weibel II.9.2.2, II.9.7.5, II.9.8; Tau Ceti's moduleEulerClassOf is the existing Euler class of GrothendieckEulerForms layer 3). 'Compare the Cartan map to G₀ with the existing general Cartan map': cartan-map-comparison (one map: Tau Ceti's cartanMap, π₀ of S.2's). Tests: field-test, integers-test, field-product-test (disconnected spectrum), nonprincipal-ideal-test (ℤ[√−5], I = (2, 1 + √−5), from Z.4/nonprincipal-ideal-class: order two, invisible to every localisation at a prime, skyscraper and Euler class), projective-line-regular-curve, projective-line-rank-pic, projective-line-change-of-basis ((r, d) ↦ (r + d, −d) against the basis (1, [O(−1)]) of S.5/projective-line-k-theory, which is imported, not reproved), elliptic-test (imports EllipticKTheory E.2 for the origin-dependent formula; rank-only and rank-and-degree implementations fail), pointless-conic-test (the rational-point hypothesis in genus zero). 'A rank-only implementation fails the nonprincipal-ideal and elliptic tests' is part of those two nodes. BS17 adds the downstream perfect-complex and Witt-support determinant comparisons, importing the early signed normalization from Z.3.",
+      "remaining": [
+        "Verify the homotopy-coherent perfect/support K and perfect v-descent interfaces in the common determinant gap; implement map-level compatibility with the existing Euler and rank/Pic maps. Native signatures for these unavailable enhanced carriers remain explicit omissions."
+      ]
     }
   ],
   "gaps": [
     {
       "title": "General Picard duality and pullback supplier boundary",
-      "detail": "The locally constant module construction is conditional on the existing request to tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree: duals and their evaluation isomorphisms, ordinary integer tensor powers, and Picard pullback preserving tensor, dual, identity and composition on arbitrary schemes. The pinned LineBundleClass is only a commutative monoid; the suggested file uses its units and names the missing pullback as a supplier interface. No baseline claim supplies the missing duality. The packet therefore remains partial. Encoding this exact upstream stage in prerequisites causes the current check_blueprint.py BASE_REF branch to misclassify it as a library declaration before checking atlas stages. Its three direct consumers keep the exact stage in unresolvedPrerequisites as well as this gap and the request; no fictitious declaration or substitute owner is introduced. When the validator distinguishes upstream stages, restore these three stage edges in prerequisites and recheck the combined graph. This schema boundary does not discharge the mathematical supplier request.",
+      "detail": "The native LineBundleClass is only a commutative monoid. General sheaf dual evaluation and coherent tensor/pullback on arbitrary schemes remain requested from JacobianChallenge layer A. The suggested units carrier does not prove every invertible sheaf class has these supplier interfaces. The current validator resolves the actual stage; its three previously unresolved stage edges have been restored. The mathematical request remains open.",
       "neededBy": [
         "KTheoryLowDegrees:Z.5/pic-disjoint-cover-ext",
         "KTheoryLowDegrees:Z.5/pic-locally-constant-module",
         "KTheoryLowDegrees:Z.5/pic-locally-constant-pullback",
         "KTheoryLowDegrees:Z.5/vector-bundle-determinant",
-        "KTheoryLowDegrees:Z.5/rank-determinant-surjective"
+        "KTheoryLowDegrees:Z.5/rank-determinant-surjective",
+        "KTheoryLowDegrees:Z.3/graded-line-groupoid",
+        "KTheoryLowDegrees:Z.3/graded-line-inverse"
       ]
     },
     {
@@ -17051,6 +18840,28 @@
         "KTheoryLowDegrees:Z.3/serre-representation-ring-theorem",
         "KTheoryLowDegrees:Z.3/ring-k0-special"
       ]
+    },
+    {
+      "title": "Homotopy-coherent determinant and perfect-site descent suppliers",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.3/graded-line-components",
+        "KTheoryLowDegrees:Z.3/graded-line-automorphisms",
+        "KTheoryLowDegrees:Z.3/graded-line-fibre",
+        "KTheoryLowDegrees:Z.3/ring-spectrum-det",
+        "KTheoryLowDegrees:Z.3/determinant-truncation",
+        "KTheoryLowDegrees:Z.3/local-det-equivalence",
+        "KTheoryLowDegrees:Z.3/zariski-sheafified-det",
+        "KTheoryLowDegrees:Z.6/scheme-spectrum-det",
+        "KTheoryLowDegrees:Z.6/determinant-triangle",
+        "KTheoryLowDegrees:Z.3/graded-pic-v-descent",
+        "KTheoryLowDegrees:Z.6/witt-supported-input",
+        "KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison",
+        "KTheoryLowDegrees:Z.6/v-sheafified-first-k",
+        "KTheoryLowDegrees:Z.6/witt-supported-det",
+        "KTheoryLowDegrees:Z.6/witt-det-uniqueness",
+        "KTheoryLowDegrees:Z.6/witt-filtration-det"
+      ],
+      "detail": "Native line sheaves, Core, SymmetricCategory, Pic class groups and locally constant functions do not supply a Picard-groupoid spectrum or the determinant functor coherences. Import H.4/H.5:spectra for connective spectrum mapping spaces, truncation, Picard 1-types and group completion; S.1/S.2/S.3 and K.4:construction for enhanced perfect complexes, support K, descent and coherent filtered additivity; SF.1 for the perfect v-site, line-bundle v-descent and alteration covers. These exact additions exceed SF.1’s current fpqc/fppf text and H.5’s homotopy-category-only surface; the rescope proposal records them. Corollary 5.6 for arbitrary regular R₀ also requires smooth approximation and supported K continuity, as extraction E31 explains. No opaque proposition-valued surrogate or fresh generic construction is introduced here. The geometric/source comparison nodes are placed in Z.6 because S.2/S.3 already depend on early Z.3; no S.2/S.3→Z.3 edge is proposed. Their mathematical source is the common determinant route in Z.3, specialized at the downstream perfect-complex comparison stage."
     }
   ],
   "requests": [
@@ -17100,6 +18911,79 @@
       "need": "R09.1: 'Construct projective bundles, Grassmannians and flag schemes with their quotient/subbundle universal properties, universal sheaves and base-change laws' — here only P¹_F = P(O^{⊕2}) = Proj F[T₀, T₁] over Spec F with its twisting sheaves O(m) and the standard affine cover, the convention SchemeKTheoryOperations S.5 uses.",
       "neededBy": [
         "KTheoryLowDegrees:Z.6/projective-line-regular-curve"
+      ]
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.5:spectra",
+      "need": "Connective-spectrum mapping spaces and truncation with universal properties; Picard groupoids as 1-truncated connective spectra, homotopy groups and discrete H⁰. Retain coherent, rather than only homotopy-category, maps in BS17 §5/§12.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.3/graded-line-fibre",
+        "KTheoryLowDegrees:Z.3/graded-line-automorphisms",
+        "KTheoryLowDegrees:Z.3/determinant-truncation",
+        "KTheoryLowDegrees:Z.6/witt-det-uniqueness"
+      ]
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.4",
+      "need": "BS17 §12 generic symmetric-monoidal groupoid group completion and its E∞ coherence. The Segal subset model must include the empty-family unit. Import π₀ as ordinary group completion from GrothendieckEulerForms, not a second K₀ owner; compare finite-projective completion with the agreed K model.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.3/ring-spectrum-det",
+        "KTheoryLowDegrees:Z.3/graded-line-components"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "Perfect F_p v-site, effective v-descent of line bundles and their isomorphisms (BS17 Theorem 4.1(ii)), locally constant integer v-sheaf (Prop.5.2), sheafification of 1-types and alteration covers by regular/smooth perfections. Existing fpqc/fppf descent does not imply these stronger statements; extend the foundations direction by the rescope below.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.3/graded-pic-v-descent",
+        "KTheoryLowDegrees:Z.6/v-sheafified-first-k",
+        "KTheoryLowDegrees:Z.6/witt-det-uniqueness"
+      ]
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.4:construction",
+      "need": "Map-level group-completion/Waldhausen projective comparison and additivity paths for perfect distinguished triangles and finite filtrations, including octahedral/refinement coherence. Generic construction and additivity stay with this owner.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.3/ring-spectrum-det",
+        "KTheoryLowDegrees:Z.6/determinant-triangle",
+        "KTheoryLowDegrees:Z.6/witt-filtration-det"
+      ]
+    },
+    {
+      "supplier": "SchemeKTheoryOperations:S.3",
+      "need": "Support Perf(W(X) on X), restriction α from Perf(X), regular immersion dévissage, supported p-completion comparison and filtered K continuity. For arbitrary regular R₀ in BS17 Cor.5.6 use smooth approximation; no general Frobenius lift follows from affine coherent cohomology without finite-projective cotangent input.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.6/witt-supported-input",
+        "KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison"
+      ]
+    },
+    {
+      "supplier": "KTheoryLowDegrees:U.3",
+      "need": "Local-ring K₁=units via determinant and SK₁ vanishing supplies BS17 Prop.12.18 π₁ calculation; U.6 compares this loop map with the agreed homotopy K model. This Z-part plans only the common graded determinant and imports the K₁ calculation.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.3/local-det-equivalence"
+      ]
+    },
+    {
+      "supplier": "SchemeKTheoryOperations:S.1",
+      "need": "Enhanced perfect complexes, derived pullback and affine comparison, including the p-torsion-free Witt restriction support case. No resolution-property equivalence is asserted for arbitrary schemes.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.6/scheme-spectrum-det",
+        "KTheoryLowDegrees:Z.6/witt-supported-input"
+      ]
+    },
+    {
+      "supplier": "SchemeKTheoryOperations:S.2",
+      "need": "K(Perf X), natural affine projective/perfect comparison and K-theory Zariski descent for qcqs schemes. Keep the one Cartan map and its actual regularity hypotheses.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.6/scheme-spectrum-det"
+      ]
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.3",
+      "need": "Regular immersion devissage and comparison with supported K via the specified Waldhausen/abelian localization interfaces. Replace the verified false doubled-line counterexample in the supplier acceptance by the doubled plane.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison"
       ]
     }
   ],
@@ -17157,7 +19041,7 @@
     {
       "kind": "sub-layer",
       "title": "Split Z.5 into Z.5:vector-bundles (upstream of SchemeKTheoryOperations S.1, S.2, S.6, S.7) and Z.5:curves",
-      "detail": "SchemeKTheoryOperations uses, without a node, exactly the objects the Z.5 stage text asks this layer to build ('Apply the categorical construction to finite locally free sheaves'): Vect(X) in S.1/vector-bundle-comparison, K(Vect X) in S.2/vector-bundle-k-theory-comparison, K₀(Vect X) and Λᵏ of vector bundles in S.6/vector-bundle-lambda-ring, and K₀(Vect X), the rank, det: K₀(Vect X) → Pic(X) and the ring map rank ⊕ det in S.7/scheme-gamma-filtration and S.7/gamma-first-graded-pieces. The atlas has S.6 → Z.5, S.7 → Z.6 and S.2 → Z.5, so those S nodes cannot cite the Z.5 ids. The nodes KTheoryLowDegrees:Z.5/vector-bundle, KTheoryLowDegrees:Z.5/vector-bundle-extension-closed, KTheoryLowDegrees:Z.5/vector-bundle-essentially-small, KTheoryLowDegrees:Z.5/vector-bundle-k-zero, KTheoryLowDegrees:Z.5/vector-bundle-affine-comparison, KTheoryLowDegrees:Z.5/vector-bundle-k-zero-pullback, KTheoryLowDegrees:Z.5/vector-bundle-k-zero-ring, KTheoryLowDegrees:Z.5/vector-bundle-rank, KTheoryLowDegrees:Z.5/sheaf-exterior-power, KTheoryLowDegrees:Z.5/exterior-power-vector-bundle, KTheoryLowDegrees:Z.5/exterior-power-extension-filtration, KTheoryLowDegrees:Z.5/determinant-bundle, KTheoryLowDegrees:Z.5/determinant-bundle-extension, KTheoryLowDegrees:Z.5/determinant-bundle-tensor, KTheoryLowDegrees:Z.5/vector-bundle-determinant, KTheoryLowDegrees:Z.5/rank-determinant-surjective, KTheoryLowDegrees:Z.5/picard-affine-comparison depend only on KTheoryLowDegrees Z.1–Z.3, Mathlib and Tau Ceti (none cites an S node). Proposal: make them the sub-layer 'KTheoryLowDegrees:Z.5:vector-bundles — Vector bundles and their K₀', with edges Z.5:vector-bundles → SchemeKTheoryOperations S.1, S.2, S.6, S.7 and S.6/S.7 citing these ids in place of their vocabulary; the remaining nodes KTheoryLowDegrees:Z.5/regular-curve-integral, KTheoryLowDegrees:Z.5/regular-curve-resolution-property, KTheoryLowDegrees:Z.5/regular-curve-finite-resolution, KTheoryLowDegrees:Z.5/regular-curve-cartan-iso, KTheoryLowDegrees:Z.5/skyscraper-class, KTheoryLowDegrees:Z.5/effective-divisor-class, KTheoryLowDegrees:Z.5/principal-divisor-class-vanishes, KTheoryLowDegrees:Z.5/generic-rank-kernel, KTheoryLowDegrees:Z.5/point-class-map, KTheoryLowDegrees:Z.5/line-bundle-divisorial, KTheoryLowDegrees:Z.5/curve-rank-determinant-equivalence, KTheoryLowDegrees:Z.5/curve-k-zero-ring, KTheoryLowDegrees:Z.5/dedekind-curve-comparison, KTheoryLowDegrees:Z.5/doubled-line-example form 'KTheoryLowDegrees:Z.5:curves — Regular curves', which keeps the incoming edges from S.2, S.3 and S.6 and the outgoing edges to Z.6 and EllipticKTheory E.2. The split creates no cycle: the foundation sub-layer has no prerequisite in S."
+      "detail": "SchemeKTheoryOperations uses, without a node, exactly the objects the Z.5 stage text asks this layer to build ('Apply the categorical construction to finite locally free sheaves'): Vect(X) in S.1/vector-bundle-comparison, K(Vect X) in S.2/vector-bundle-k-theory-comparison, K₀(Vect X) and Λᵏ of vector bundles in S.6/vector-bundle-lambda-ring, and K₀(Vect X), the rank, det: K₀(Vect X) → Pic(X) and the ring map rank ⊕ det in S.7/scheme-gamma-filtration and S.7/gamma-first-graded-pieces. The atlas has S.6 → Z.5, S.7 → Z.6 and S.2 → Z.5, so those S nodes cannot cite the Z.5 ids. The nodes KTheoryLowDegrees:Z.5/vector-bundle, KTheoryLowDegrees:Z.5/vector-bundle-extension-closed, KTheoryLowDegrees:Z.5/vector-bundle-essentially-small, KTheoryLowDegrees:Z.5/vector-bundle-k-zero, KTheoryLowDegrees:Z.5/vector-bundle-affine-comparison, KTheoryLowDegrees:Z.5/vector-bundle-k-zero-pullback, KTheoryLowDegrees:Z.5/vector-bundle-k-zero-ring, KTheoryLowDegrees:Z.5/vector-bundle-rank, KTheoryLowDegrees:Z.5/sheaf-exterior-power, KTheoryLowDegrees:Z.5/exterior-power-vector-bundle, KTheoryLowDegrees:Z.5/exterior-power-extension-filtration, KTheoryLowDegrees:Z.5/determinant-bundle, KTheoryLowDegrees:Z.5/determinant-bundle-extension, KTheoryLowDegrees:Z.5/determinant-bundle-tensor, KTheoryLowDegrees:Z.5/vector-bundle-determinant, KTheoryLowDegrees:Z.5/rank-determinant-surjective, KTheoryLowDegrees:Z.5/picard-affine-comparison depend only on KTheoryLowDegrees Z.1–Z.3, Mathlib and Tau Ceti (none cites an S node). Proposal: make them the sub-layer 'KTheoryLowDegrees:Z.5:vector-bundles — Vector bundles and their K₀', with edges Z.5:vector-bundles → SchemeKTheoryOperations S.1, S.2, S.6, S.7 and S.6/S.7 citing these ids in place of their vocabulary; the remaining nodes KTheoryLowDegrees:Z.5/regular-curve-integral, KTheoryLowDegrees:Z.5/regular-curve-resolution-property, KTheoryLowDegrees:Z.5/regular-curve-finite-resolution, KTheoryLowDegrees:Z.5/regular-curve-cartan-iso, KTheoryLowDegrees:Z.5/skyscraper-class, KTheoryLowDegrees:Z.5/effective-divisor-class, KTheoryLowDegrees:Z.5/principal-divisor-class-vanishes, KTheoryLowDegrees:Z.5/generic-rank-kernel, KTheoryLowDegrees:Z.5/point-class-map, KTheoryLowDegrees:Z.5/line-bundle-divisorial, KTheoryLowDegrees:Z.5/curve-rank-determinant-equivalence, KTheoryLowDegrees:Z.5/curve-k-zero-ring, KTheoryLowDegrees:Z.5/dedekind-curve-comparison, KTheoryLowDegrees:Z.5/doubled-line-example form 'KTheoryLowDegrees:Z.5:curves — Regular curves', which imports S.2 and S.3, removing the unnecessary S.6 edge as confirmed by RT-AREA-ktheory-2/41 and the outgoing edges to Z.6 and EllipticKTheory E.2. The split creates no cycle: the foundation sub-layer has no prerequisite in S."
     },
     {
       "kind": "interface",
@@ -17174,6 +19058,34 @@
       ],
       "detail": "The current ClassicalGroups supplier covers complex representations, whereas the Serre route requires characteristic-p algebraic representations and descent to split base fields. General flat integral-coalgebra finite hulls also exceed its scope. The pinned comodule carriers already belong to ReductiveGroups layer 1 and are reused.",
       "proposal": "Keep the present low-degree exact K₀ comparison in Z.3 and import all existing comodule carriers. Rescope the existing ReductiveGroupsPartII extension with a separate foundational representation-theory stage for the missing arbitrary-field highest-weight/descent theory and, if chosen, general flat integral-coalgebra finite hulls. Its current RG2.0–RG2.5 local-structure and arithmetic-model stages do not cover these statements. The added stage must retain ReductiveGroups as the first prerequisite and specify split GL products over ℚ and every 𝔽_p, absolute simplicity/descent and formal integral characters. Existing ReductiveGroups layer 1 and ClassicalGroups layer 4 are not asserted to cover the stronger inputs. No new roadmap or stage is created by this four-file job."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "KTheoryLowDegrees",
+        "SchemeAndStackFoundations",
+        "StableHomotopyKTheory"
+      ],
+      "detail": "BS17 determinant descent requires homotopy-coherent connective spectra and perfect v-descent, beyond the current stated supplier surfaces.",
+      "proposal": "Extend the foundations Part II direction with the perfect v-site and line-bundle descent/alteration interfaces of the SF.1 request. Add the Picard 1-type and coherent truncation interface to H.5:spectra, importing general enhanced categorical foundations once. Keep graded Picard signs and determinant functors in Z.3; keep Witt-support and generic K additivity with S.3/K.4:construction. These are proposals within the existing supplier directions, not newly created stages."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "KTheoryLowDegrees",
+        "SchemeKTheoryOperations"
+      ],
+      "detail": "Confirmed RT-AREA-ktheory-2/41: higher λ/Adams stages are not inputs to the curve rank/determinant theorem or degree-zero comparisons.",
+      "proposal": "Remove S.6→Z.5 and S.7→Z.6 inherited edges. Use Z.3→Z.5 and S.2→Z.5; for Z.6 retain S.2 and S.5 and the E.2 test. The packet has no S.6/S.7 prerequisite. Keep the early vector-bundle sub-layer proposal; its foundational nodes have no S prerequisites. Outside this four-stage job, route S.6→M.4 replacement by S.6→M.6b to the motivic owner. Promotion only adds edges; an assembly/maintainer action is required to remove the old ones."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "KTheoryLowDegrees",
+        "SchemeKTheoryOperations"
+      ],
+      "detail": "The BS17 source route names Z.3 for the shared determinant, but scheme/support K are downstream of Z.3 in the live atlas. Direct S.2/S.3→Z.3 imports were correctly skipped by the assembler.",
+      "proposal": "Keep graded Picard objects, signs, projective/ring determinant and local/sheafified normalization in Z.3; place scheme perfect-complex and Witt-supported determinant comparison nodes in Z.6, importing S.2/S.3. This refines the existing Z.6 map-level comparison target and keeps the supplier construction owners unchanged. Do not add the two cyclic edges. No source result is dropped."
     }
   ],
   "sourceIssues": [
@@ -17488,38 +19400,340 @@
         "the same passage in the draft read (the only version available; the published AMS GSM 145 text was not read)"
       ],
       "id": "KTheoryLowDegrees/E19"
+    },
+    {
+      "id": "KTheoryLowDegrees/E20",
+      "kind": "misprint",
+      "locator": "arXivv3 Remark12.11 p58",
+      "printed": "π0 ΩBX = π1 X",
+      "correction": "Use π0 ΩBX=π1 BX.",
+      "reason": "Freshly read the cited v3 passage; use the extraction correction for E20. For the discrete grouplike space Z, π1X=0 but π0ΩBZ=Z. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the objects named in the surrounding argument; the argument goes through with it.",
+      "affects": "nothing",
+      "known": "Previously recorded and independently confirmed as PAPER-BHATT-SCHOLZE-17/E20 by REV-PAPER-BHATT-SCHOLZE-17; scoped to arXiv v3, no published collation.",
+      "searched": [
+        "Existing reviewed PAPER-BHATT-SCHOLZE-17 sourceIssues and review, read 2026-10-04.",
+        "Publisher PDF URL checked 2026-10-04 returned subscription landing page; no full version-of-record text acquired."
+      ],
+      "source": "BS17.v3"
+    },
+    {
+      "id": "KTheoryLowDegrees/E21",
+      "kind": "gap",
+      "locator": "arXiv v3 p. 19, proof of Corollary 5.6",
+      "printed": "all obstructions live in (positive degree) coherent cohomology groups",
+      "correction": "Justify the lift as written only when Ω_{R_0/F_p} is finite projective, e.g. R_0 smooth, essentially of finite type, or F-finite. For general regular R_0, reduce to the smooth case: write R_0 = colim R_λ with R_λ smooth (Popescu), and use that both K(R) and K(W(R) on R) commute with this filtered colimit. For the latter, use the p-completion argument of the proof applied to colim W(R_{λ,perf}), together with TT90 Prop. 3.20.",
+      "reason": "Freshly read the cited v3 passage; use the extraction correction for E31. The obstructions to lifting R_0 over Z/p^{n+1} and to lifting Frobenius lie in Ext^2_{R_0}(L_{R_0/F_p}, R_0) and Ext^1_{R_0}(L_{R_0/F_p}, Frob_*R_0). F_p → R_0 is a regular morphism, so by André L_{R_0/F_p} ≃ Ω_{R_0/F_p}[0] with Ω flat. These Ext groups are coherent cohomology groups of an affine scheme only when Ω is finitely generated, hence finite projective. For a general (non-F-finite) regular noetherian F_p-algebra, Ω_{R_0/F_p} is flat but not finitely generated, and its Ext groups need not vanish in positive degrees. The paper gives no other argument. Corollary 5.6 is stated for every regular F_p-algebra. Case for the defence: the proof is correct in the case used later, and the general statement can be recovered as above. So only the proof, not a result, is affected.",
+      "affects": "the proof",
+      "known": "Previously recorded and independently confirmed as PAPER-BHATT-SCHOLZE-17/E31 by REV-PAPER-BHATT-SCHOLZE-17; scoped to arXiv v3, no published collation.",
+      "searched": [
+        "Existing reviewed PAPER-BHATT-SCHOLZE-17 sourceIssues and review, read 2026-10-04.",
+        "Publisher PDF URL checked 2026-10-04 returned subscription landing page; no full version-of-record text acquired."
+      ],
+      "source": "BS17.v3"
+    },
+    {
+      "id": "KTheoryLowDegrees/E22",
+      "kind": "gap",
+      "locator": "Construction 12.5, pp. 56–57",
+      "printed": "compatible isomorphisms",
+      "correction": "Add the nullary case: require an isomorphism X_∅ ≅ 1 such that X_{∅⊔T} ≅ X_∅⊗X_T ≅ 1⊗X_T is the unit constraint. Equivalently, index the family by nonempty T and set X_∅ = 1, as in the naive model of Remark 12.6, where an empty tensor product is 1. A property-only fix also works: require X_∅ to be isomorphic to 1. The groupoid of pairs (X_∅ ≅ 1, φ) satisfying the associativity condition is then contractible, and associativity for (∅,∅,T) forces unit compatibility. With either fix, N(C)([0]) ≃ * and N(C)([1]) ≃ N(C).",
+      "reason": "Freshly read the cited v3 passage; use the extraction correction for E54. Take S∖{s} = ∅. The data are then an object X_∅ with an isomorphism X_∅ ≅ X_∅ ⊗ X_∅ (from T = T′ = ∅), and nothing forces X_∅ ≅ 1. Counterexample: let C be the discrete symmetric monoidal groupoid of the commutative monoid {1, e}, e² = e, with all constraints identities. Both (1, id) and (e, id) satisfy every associativity and commutativity compatibility. So N(C)([0]) has two points, and the Segal condition for n = 0 (X([0]) contractible, which the paper uses on p. 56) fails. Likewise N(C)([1]) = {(1,1), (1,e), (e,e)}, which is not ≃ C. An associativity or commutativity condition on the given isomorphisms cannot repair this: stating unit compatibility needs a map X_∅ → 1, which is extra data. Segal's original version avoids the problem, because there families are functors on subsets that take disjoint unions to sums, and that forces X_∅ to be initial ([Seg74, §2, p. 299]). The case for the defence: the authors explicitly leave the compatibility to the first reading, and they present §12 as conveying meaning, not proofs. In both cases the paper uses, the literal definition already gives the right answer. For Vect(R) under ⊕, X ≅ X ⊕ X forces X = 0, uniquely. For a Picard groupoid, X_∅ is invertible, hence ≅ 1, and the groupoid of pairs (X_∅, φ) is contractible (φ corresponds to u ∈ Aut(1), and v acts by u ↦ vu). So it is an incomplete definition with a standard fix, and no result is affected.",
+      "affects": "nothing",
+      "known": "Previously recorded and independently confirmed as PAPER-BHATT-SCHOLZE-17/E54 by REV-PAPER-BHATT-SCHOLZE-17; scoped to arXiv v3, no published collation.",
+      "searched": [
+        "Existing reviewed PAPER-BHATT-SCHOLZE-17 sourceIssues and review, read 2026-10-04.",
+        "Publisher PDF URL checked 2026-10-04 returned subscription landing page; no full version-of-record text acquired."
+      ],
+      "source": "BS17.v3"
     }
   ],
   "continuationAudit": {
-    "agent": "Codex — codex-hjdg0j",
-    "date": "2026-09-28",
-    "claimComment": 5868448334,
-    "claimConfirmation": 5868450409,
-    "inputCommit": "78f60a3ba09116b78c0bb5cd513d59c43d7ddb2b",
-    "inheritedIdsPreserved": 204,
-    "inheritedNodesUnchanged": 199,
-    "newNodes": 8,
+    "agent": "Codex — codex-J6LwjP",
+    "date": "2026-10-04",
+    "claimComment": 5984853770,
+    "claimConfirmation": 5984855691,
+    "inputCommit": "6378682c6c5c0b8d11054f4a8cdad54555b7139f",
+    "inheritedIdsPreserved": 212,
+    "inheritedNodesUnchanged": 209,
+    "newNodes": 28,
     "sourceIssuesPreserved": 19,
-    "focus": "GL-product coefficient base change and diagonal restriction; reuse of pinned single-factor GL and monoid-algebra equivalences.",
+    "focus": "BS17 determinant source route and breadth completion; restored upstream stage references; exact red-team dispositions",
     "lean": {
-      "status": "compiled",
-      "version": "4.34.0-rc2",
-      "errors": 0,
-      "proofPlaceholderWarnings": 706,
-      "otherWarnings": 0,
-      "newLibraryBuilds": 0,
-      "mathlibSourcesMatched": 8483,
-      "taucetiSourcesMatched": 275,
-      "fileSha256": "eecefd344170b89b022e69bd586fdeaf7c6d648e41777556a5c359ebcae0724c"
+      "status": "not_compiled_full_file",
+      "reason": "No already-existing Tau Ceti build confirmed at f790474; inherited compile receipt retained separately. New Mathlib-only scalar-sign excerpt is checked separately.",
+      "nativeExcerpt": {
+        "exitCode": 0,
+        "sha256": "4c82bffa9666c689f7788a1b3cae626c6ce9b368526da3f10c5c60e86dc8bc66",
+        "admissionWarnings": 12,
+        "otherWarnings": 0,
+        "scope": "Mathlib-only native sign excerpt, NOT full TC-import suggested file",
+        "memoryAvailableGiB": 35,
+        "mathlibPin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
+      }
     },
+    "sourceScope": "Fresh BS17 indicated sections and Weibel counterexample passages only; inherited 369 baseline and 19 source findings are retained evidence, not a universal fresh audit. Two upstream readers fully read: GrothendieckEulerForms and SchurWeyl.",
+    "ownership": "Generic K₀, spectra, supports and descent stay with their suppliers; graded signs/determinants are owned here. The ten geometric perfect/Witt-support comparison nodes are Z.6 refinements, avoiding the S.2/S.3→Z.3 cycles discovered by actual assembly.",
     "internalGraph": {
-      "nodes": 212,
-      "edges": 606,
-      "acyclic": true,
-      "limitation": "Internal declaration edges only; inherited unresolved supplier boundaries and the full atlas graph are not recertified."
+      "readOnly": true,
+      "baseStageVertices": 2956,
+      "finalStageVertices": 2974,
+      "baseStageEdges": 8639,
+      "finalStageEdges": 8671,
+      "addedStageEdges": 32,
+      "removedStageEdges": 0,
+      "definedStageCycles": [],
+      "ownNodeVertices": 240,
+      "ownNodeEdges": 662,
+      "ownNodeCycles": [],
+      "skippedLinks": [],
+      "inheritedOrphanEdges": 76,
+      "newOrphanEdges": 0,
+      "promisedKeys": []
     },
-    "parity": "Eight new node targets, 15 API items and 12 tests agree across the packet, reader and suggested file. The torus coefficient helper now reuses the native equivalence.",
-    "sourceScope": "Published Serre scan printed pp. 50–52 freshly reread; full earlier pp. 37–52 reading retained. Forty unchanged inherited input files byte-compared with this worker's PR #3169 checkpoint. Twenty new baseline declarations read in pin-verified source files. This is not a fresh universal audit of inherited sources or findings.",
-    "ownership": "RS-18 and all six requests retained. Existing generic Hopf, tensor, single-factor GL, character-lattice and comodule carriers are reused. No existing single-factor coordinate theorem is replanned."
-  }
+    "parity": {
+      "nodes": 240,
+      "kinds": {
+        "theorem": 41,
+        "lemma": 106,
+        "construction": 50,
+        "definition": 15,
+        "application": 12,
+        "comparison": 16
+      },
+      "apiTotal": 435,
+      "testsTotal": 263,
+      "apiDefinitionConstruction": 430,
+      "testsDefinitionConstruction": 260,
+      "planets": 18,
+      "baseline": 372,
+      "gaps": 3,
+      "requests": 15,
+      "stageStatuses": {
+        "KTheoryLowDegrees:Z.3": "planned",
+        "KTheoryLowDegrees:Z.4": "source_decomposed",
+        "KTheoryLowDegrees:Z.5": "planned",
+        "KTheoryLowDegrees:Z.6": "planned"
+      },
+      "newNativeCoverage": {
+        "omitted": 26,
+        "native": 1,
+        "partial": 1
+      },
+      "newApiAndTestParity": 102,
+      "blockPermutationCases": 1089,
+      "integerCoherenceCases": 35937,
+      "limits": "Finite exact arithmetic regression only; not a proof of unbounded coherent determinant assertions.",
+      "sourceRouteItems": 21,
+      "fullLeanCompiled": false
+    }
+  },
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "GeneralAlgebraicKTheory",
+        "SchemeKTheoryOperations",
+        "KTheoryLowDegrees"
+      ],
+      "note": "Confirmed RT-AREA-ktheory-1/31 is already correctly represented by Z.5/doubled-line-example: doubled line K₀VB=G₀=ℤ², doubled plane K₀VB=ℤ but G₀=ℤ². Re-read author draft V.3.4.2 and II.8.2.4/Ex.II.9.10(d) on 2026-10-04. GeneralAlgebraicKTheory K.3 owner must replace its doubled-line acceptance claim by doubled plane; this four-file job cannot edit that packet. The author draft is not certified identical to the version of record."
+    }
+  ],
+  "determinantSourceInventory": [
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/D502",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/graded-line-groupoid",
+        "KTheoryLowDegrees:Z.3/graded-line-tensor",
+        "KTheoryLowDegrees:Z.3/graded-line-inverse",
+        "KTheoryLowDegrees:Z.3/graded-line-pullback"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/D503",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/graded-line-components"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/D504",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/graded-line-automorphisms"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/D505",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/graded-line-fibre"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/D506",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/forget-grade"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/D510",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.6/scheme-spectrum-det"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/D511",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.6/determinant-triangle",
+        "KTheoryLowDegrees:Z.6/bounded-complex-det"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/D520",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.6/witt-supported-det",
+        "KTheoryLowDegrees:Z.6/witt-det-uniqueness"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/D521",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.6/witt-filtration-det"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/F616",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.6/finite-length-det-trivial"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/A1201",
+      "disposition": "owner import",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/graded-self-braiding"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/A1203",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/projective-block-swap",
+        "KTheoryLowDegrees:Z.3/projective-graded-det"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/A1217",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/ring-spectrum-det"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/A1218",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/determinant-truncation",
+        "KTheoryLowDegrees:Z.3/local-det-equivalence",
+        "KTheoryLowDegrees:Z.3/zariski-sheafified-det"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/k-theory-functoriality",
+      "disposition": "owner import",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/ring-spectrum-det"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/k0-of-symmetric-monoidal-category",
+      "disposition": "owner import",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/graded-line-components"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/low-k-groups-of-local-rings",
+      "disposition": "U.3/U.6 import",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/local-det-equivalence"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/pic-z-etale-sheaf",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/graded-line-fibre"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/locally-constant-functions-v-sheaf",
+      "disposition": "owner import",
+      "nodes": [
+        "KTheoryLowDegrees:Z.3/graded-pic-v-descent"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/remark-5-4-det-not-in-pic",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.6/graded-det-pi-zero"
+      ]
+    },
+    {
+      "item": "PAPER-BHATT-SCHOLZE-17/pic-z-is-sheafified-tau1-k",
+      "disposition": "Z.3 determinant inventory",
+      "nodes": [
+        "KTheoryLowDegrees:Z.6/v-sheafified-first-k"
+      ]
+    }
+  ],
+  "sourceRouteDisposition": [
+    {
+      "source": "Calegari–Geraghty, Inventiones 2018",
+      "owner": "KTheoryLowDegrees:U.4",
+      "disposition": "The congruence subgroup property source addition lies outside this Z.3–Z.6 part; retain the U.4 arithmetic SK₁ construction owner. No CSP replan or claim of source reading here."
+    }
+  ],
+  "priorContinuationAudits": [
+    {
+      "agent": "Codex — codex-hjdg0j",
+      "date": "2026-09-28",
+      "claimComment": 5868448334,
+      "claimConfirmation": 5868450409,
+      "inputCommit": "78f60a3ba09116b78c0bb5cd513d59c43d7ddb2b",
+      "inheritedIdsPreserved": 204,
+      "inheritedNodesUnchanged": 199,
+      "newNodes": 8,
+      "sourceIssuesPreserved": 19,
+      "focus": "GL-product coefficient base change and diagonal restriction; reuse of pinned single-factor GL and monoid-algebra equivalences.",
+      "lean": {
+        "status": "compiled",
+        "version": "4.34.0-rc2",
+        "errors": 0,
+        "proofPlaceholderWarnings": 706,
+        "otherWarnings": 0,
+        "newLibraryBuilds": 0,
+        "mathlibSourcesMatched": 8483,
+        "taucetiSourcesMatched": 275,
+        "fileSha256": "eecefd344170b89b022e69bd586fdeaf7c6d648e41777556a5c359ebcae0724c"
+      },
+      "internalGraph": {
+        "nodes": 212,
+        "edges": 606,
+        "acyclic": true,
+        "limitation": "Internal declaration edges only; inherited unresolved supplier boundaries and the full atlas graph are not recertified."
+      },
+      "parity": "Eight new node targets, 15 API items and 12 tests agree across the packet, reader and suggested file. The torus coefficient helper now reuses the native equivalence.",
+      "sourceScope": "Published Serre scan printed pp. 50–52 freshly reread; full earlier pp. 37–52 reading retained. Forty unchanged inherited input files byte-compared with this worker's PR #3169 checkpoint. Twenty new baseline declarations read in pin-verified source files. This is not a fresh universal audit of inherited sources or findings.",
+      "ownership": "RS-18 and all six requests retained. Existing generic Hopf, tensor, single-factor GL, character-lattice and comodule carriers are reused. No existing single-factor coordinate theorem is replanned."
+    }
+  ]
 }

@@ -1,3 +1,5 @@
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import Mathlib.RingTheory.Spectrum.Prime.Topology
 import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.DiagonalTorus.Basic
 import TauCeti.Algebra.Bialgebra.TensorProduct
 import TauCeti.Algebra.Coalgebra.Comodule.Finite.Corestrict
@@ -6395,3 +6397,301 @@ theorem glDiagonal_baseChange (Ns : List ℕ) :
             (glDiagonal R Ns)) := by sorry
 
 end TauCeti.RepresentationRing
+
+/- Current BS17 determinant addition. Full current file not compiled; the native scalar excerpt
+was checked separately. Missing geometry/spectra are omitted, never opaque Prop substitutes. -/
+
+/- This excerpt contains only native scalar/component signatures. It is not a
+Picard groupoid or a spectrum implementation. Bodies are canonical admissions. -/
+namespace TauCeti.GradedDeterminant
+universe u v
+variable (R : Type u) [CommRing R]
+/-- Native signature for KTheoryLowDegrees:Z.3/koszul-sign. -/
+def koszulSign (a b : ℤ) : Rˣ := by sorry
+
+-- API TauCeti.GradedDeterminant.koszul_sign_zero_left
+theorem koszul_sign_zero_left (b : ℤ) : koszulSign R 0 b = 1 := by sorry
+-- API TauCeti.GradedDeterminant.koszul_sign_zero_right
+theorem koszul_sign_zero_right (a : ℤ) : koszulSign R a 0 = 1 := by sorry
+-- API TauCeti.GradedDeterminant.koszul_sign_comm
+theorem koszul_sign_comm (a b : ℤ) : koszulSign R a b = koszulSign R b a := by sorry
+-- API TauCeti.GradedDeterminant.koszul_sign_add_left
+theorem koszul_sign_add_left (a b c : ℤ) :
+    koszulSign R (a+b) c = koszulSign R a c * koszulSign R b c := by sorry
+-- API TauCeti.GradedDeterminant.koszul_sign_add_right
+theorem koszul_sign_add_right (a b c : ℤ) :
+    koszulSign R a (b+c) = koszulSign R a b * koszulSign R a c := by sorry
+-- API TauCeti.GradedDeterminant.koszul_sign_base_change
+theorem koszul_sign_base_change {S : Type v} [CommRing S] (f : R →+* S) (a b : ℤ) :
+    Units.map f.toMonoidHom (koszulSign R a b) = koszulSign S a b := by sorry
+
+-- test TauCeti.GradedDeterminant.koszul_sign_odd
+example : koszulSign ℤ 1 1 = (-1 : ℤˣ) := by sorry
+-- test TauCeti.GradedDeterminant.koszul_sign_zero
+example : koszulSign ℤ 0 (-3) = 1 := by sorry
+-- test TauCeti.GradedDeterminant.koszul_sign_negative
+example : koszulSign ℤ (-1) 1 = (-1 : ℤˣ) := by sorry
+-- test TauCeti.GradedDeterminant.koszul_sign_char_two
+example : koszulSign (ZMod 2) 1 1 = 1 := by sorry
+
+/-- Partial finite-free check for projective-block-swap; not its full projective signature. -/
+theorem exchange_two_lines_det :
+    Matrix.det (fun (i j : Fin 2) => if i = j then (0 : R) else 1) = (-1 : R) := by sorry
+
+/-- Native component-data carrier only, NOT a groupoid: it deliberately retains no automorphisms. -/
+abbrev AffineComponentData := CommRing.Pic R × LocallyConstant (PrimeSpectrum R) ℤ
+end TauCeti.GradedDeterminant
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-groupoid [omitted]
+Target: Pic^Z(X) has objects (L,f), L an invertible O_X-module and f:X→ℤ locally constant. A morphism (L,f)→(M,g) consists of equality f=g and an O_X-linear isomorphism L≅M. Composition is composition of sheaf isomorphisms with transported grade equality. It is a groupoid, not the set Pic(X)×H⁰(X,ℤ).
+Required prerequisites: tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree, mathlib:CategoryTheory.Core, mathlib:LocallyConstant
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.graded_line_groupoid_mk [constructor]: Construct (L,f) from an invertible sheaf and a locally constant grade.
+API TauCeti.GradedDeterminant.graded_line_groupoid_line [projection]: The underlying line of (L,f) is L.
+API TauCeti.GradedDeterminant.graded_line_groupoid_grade [projection]: The grade of (L,f) is f.
+API TauCeti.GradedDeterminant.graded_line_groupoid_hom [characterisation]: Hom((L,f),(M,g)) is empty unless f=g, and then is Isom(L,M).
+API TauCeti.GradedDeterminant.graded_line_groupoid_iso_ext [extensionality]: Two morphisms agree exactly when their sheaf isomorphisms agree after the unique grade transport.
+TEST TauCeti.GradedDeterminant.graded_line_groupoid_point [example]: Over Spec ℚ, (O,1) is a graded line.
+TEST TauCeti.GradedDeterminant.graded_line_groupoid_empty [degenerate]: Over the empty scheme the groupoid is contractible.
+TEST TauCeti.GradedDeterminant.graded_line_groupoid_unequal [non-example]: Over Spec ℚ there is no isomorphism (O,0)≅(O,1).
+TEST TauCeti.GradedDeterminant.graded_line_groupoid_automorphism [compatibility]: Aut((O,0)) over Spec ℚ is ℚˣ, not the trivial group.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-tensor [omitted]
+Target: Define (L,f)⊗(M,g)=(L⊗M,f+g), with unit (O_X,0), ordinary line-bundle associator and unit constraints. The braiding is ε(f,g) times the ordinary swap.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-groupoid, KTheoryLowDegrees:Z.3/koszul-sign, tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree, mathlib:CategoryTheory.SymmetricCategory
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.graded_line_tensor_object [characterisation]: The tensor object is (L⊗M,f+g).
+API TauCeti.GradedDeterminant.graded_line_tensor_unit [constructor]: The unit is (O_X,0).
+API TauCeti.GradedDeterminant.graded_line_tensor_hom [functoriality]: Tensor isomorphisms tensor their underlying sheaf maps.
+API TauCeti.GradedDeterminant.graded_line_tensor_braiding [data]: On local pure tensors, β(l⊗m)=ε(f,g)m⊗l.
+API TauCeti.GradedDeterminant.graded_line_tensor_symmetry [compatibility]: β_{B,A}β_{A,B}=id.
+API TauCeti.GradedDeterminant.graded_line_tensor_pullback [compatibility]: Pullback commutes with the tensor object and signed braiding.
+TEST TauCeti.GradedDeterminant.graded_line_tensor_odd_swap [non-example]: On (O,1)⊗(O,1) over Spec ℚ, self-braiding is −id.
+TEST TauCeti.GradedDeterminant.graded_line_tensor_zero_grade [compatibility]: In grade zero the ordinary line-bundle tensor and braiding are recovered.
+TEST TauCeti.GradedDeterminant.graded_line_tensor_unit [degenerate]: Tensoring with (O,0) preserves the object and unit constraint.
+TEST TauCeti.GradedDeterminant.graded_line_tensor_mixed [example]: Grades 1 and 2 exchange with sign +1.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-inverse [omitted]
+Target: The inverse of (L,f) is (L^∨,−f). Evaluation and coevaluation identify its tensor product with (O_X,0), with order-specific signed symmetry retained. Thus Pic^Z(X) is a Picard groupoid.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.graded_line_inverse_object [characterisation]: inv(L,f)=(L^∨,−f).
+API TauCeti.GradedDeterminant.graded_line_inverse_eval [equivalence]: (L,f)⊗inv(L,f)≅(O,0).
+API TauCeti.GradedDeterminant.graded_line_inverse_double_dual [compatibility]: inv(inv(L,f))≅(L,f).
+API TauCeti.GradedDeterminant.graded_line_inverse_grade [projection]: grade(inv A)=−grade A.
+API TauCeti.GradedDeterminant.graded_line_inverse_pullback [functoriality]: Pullback of the inverse is canonically the inverse of the pullback.
+TEST TauCeti.GradedDeterminant.graded_line_inverse_odd [example]: The inverse of (O,1) has grade −1.
+TEST TauCeti.GradedDeterminant.graded_line_inverse_zero [degenerate]: The unit is its own inverse.
+TEST TauCeti.GradedDeterminant.graded_line_inverse_wrong_grade [non-example]: (O,1)⊗(O,1) cannot be isomorphic to the unit over Spec ℚ.
+TEST TauCeti.GradedDeterminant.graded_line_inverse_affine [compatibility]: In grade zero affine duality agrees with Module.Invertible and CommRing.Pic inverse.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-pullback [omitted]
+Target: For a scheme morphism h:Y→X, pullback sends (L,f) to (h*L,f∘h), defines a symmetric monoidal functor Pic^Z(X)→Pic^Z(Y), and has coherent identity and composition isomorphisms.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, KTheoryLowDegrees:Z.3/graded-line-inverse, tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.graded_line_pullback_object [characterisation]: h*(L,f)=(h*L,f∘h).
+API TauCeti.GradedDeterminant.graded_line_pullback_id [simp]: Identity pullback is naturally isomorphic to identity.
+API TauCeti.GradedDeterminant.graded_line_pullback_comp [functoriality]: (h∘g)*≅g*∘h* coherently.
+API TauCeti.GradedDeterminant.graded_line_pullback_tensor [compatibility]: h*(A⊗B)≅h*A⊗h*B.
+API TauCeti.GradedDeterminant.graded_line_pullback_braiding [compatibility]: The pullback constraint intertwines both signed braidings.
+TEST TauCeti.GradedDeterminant.graded_line_pullback_point [example]: Pullback to a point evaluates the grade at that point.
+TEST TauCeti.GradedDeterminant.graded_line_pullback_empty [degenerate]: Pullback to the empty scheme yields its unique object.
+TEST TauCeti.GradedDeterminant.graded_line_pullback_product [non-example]: On Spec(ℚ×ℚ), grades (0,1) remain distinct; there is no single global integer rank.
+TEST TauCeti.GradedDeterminant.graded_line_pullback_affine [compatibility]: On affine grade-zero classes, pullback agrees with CommRing.Pic.mapRingHom.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-components [omitted]
+Target: There is a natural abelian-group isomorphism π₀Pic^Z(X)≅Pic(X)×H⁰(X_et,ℤ), sending [(L,f)] to ([L],f); here H⁰ denotes locally constant functions, with its additive operation. This is not an equivalence of groupoids.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-inverse, KTheoryLowDegrees:Z.3/graded-line-pullback, StableHomotopyKTheory:H.4
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-automorphisms [omitted]
+Target: For any (L,f), scalar multiplication identifies Aut((L,f))≅Γ(X,O_X)ˣ, naturally under pullback. In the connective spectrum of Pic^Z, π₁ is this unit group and π_i=0 for i>1.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-groupoid, tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree, StableHomotopyKTheory:H.5:spectra, StableHomotopyKTheory:H.4
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-line-fibre [omitted]
+Target: The inclusion L↦(L,0) and grade projection give a fibre sequence of connective spectra Pic(X)→Pic^Z(X)→H⁰(X_et,ℤ), and as X varies a fibre sequence of étale sheaves. The last term is the discrete connective spectrum.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, KTheoryLowDegrees:Z.3/graded-line-components, KTheoryLowDegrees:Z.3/graded-line-automorphisms, StableHomotopyKTheory:H.5:spectra, SchemeAndStackFoundations:SF.1
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/forget-grade [omitted]
+Target: The functor η:Pic^Z(X)→Pic(X), (L,f)↦L, preserves tensor with ordinary monoidal constraints and retracts the grade-zero inclusion. It is generally not symmetric monoidal. It splits the fibre sequence as spaces and E₁-spaces; no splitting of spectra is claimed.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, KTheoryLowDegrees:Z.3/graded-line-fibre
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.forget_grade_object [projection]: η(L,f)=L.
+API TauCeti.GradedDeterminant.forget_grade_tensor [compatibility]: η(A⊗B)≅ηA⊗ηB.
+API TauCeti.GradedDeterminant.forget_grade_unit [simp]: η(O,0)=O.
+API TauCeti.GradedDeterminant.forget_grade_retract [compatibility]: η composed with grade-zero inclusion is identity.
+API TauCeti.GradedDeterminant.forget_grade_space_split [equivalence]: The underlying E₁-space decomposes as Pic(X)×H⁰(X,ℤ).
+TEST TauCeti.GradedDeterminant.forget_grade_even [example]: On grade-zero objects η preserves the braiding.
+TEST TauCeti.GradedDeterminant.forget_grade_odd [non-example]: On (O,1) over Spec ℚ it sends self-braiding to −id, not ordinary +id.
+TEST TauCeti.GradedDeterminant.forget_grade_char_two [compatibility]: The odd sign obstruction vanishes over Spec 𝔽₂; this does not imply a general symmetric retraction.
+TEST TauCeti.GradedDeterminant.forget_grade_empty [degenerate]: Over the empty scheme forgetting grade is the unique functor.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-self-braiding [omitted]
+Target: For A=(L,f), β_{A,A} is scalar multiplication by (−1)^f on L⊗L. In BS17 Definition 12.1, “strict” means β_{A,A}=id for every A, not that the associator and unitors are identity. Pic^Z(Spec ℚ) fails this property.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, KTheoryLowDegrees:Z.3/koszul-sign
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/projective-block-swap [partial]
+Target: For finite projectives P,Q over R, with locally constant ranks r,s, the determinant of the swap P⊕Q≅Q⊕P, transported through the ordered determinant sum isomorphisms, is (−1)^{rs} times ordinary line swap.
+Required prerequisites: KTheoryLowDegrees:Z.3/determinant-sum, KTheoryLowDegrees:Z.3/determinant-base-change, KTheoryLowDegrees:Z.3/koszul-sign, mathlib:Matrix.det
+Reason: Only the rank-one free block-swap matrix is native; the arbitrary projective graded comparison is absent.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/projective-graded-det [omitted]
+Target: On the maximal subgroupoid of finite projective R-modules with direct sum, Det^Z(P)=(det_R P,rk P), and isomorphisms act by their top exterior powers componentwise. This is a natural symmetric monoidal functor to Pic^Z(Spec R).
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-tensor, KTheoryLowDegrees:Z.3/projective-block-swap, KTheoryLowDegrees:Z.3/determinant-projective, KTheoryLowDegrees:Z.3/determinant-sum, KTheoryLowDegrees:Z.2/rank-hom, mathlib:CategoryTheory.Core
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.projective_graded_det_object [characterisation]: Det^Z(P)=(det P,rk P).
+API TauCeti.GradedDeterminant.projective_graded_det_map [functoriality]: Det^Z(u) is the induced top-exterior isomorphism.
+API TauCeti.GradedDeterminant.projective_graded_det_zero [simp]: Det^Z(0)≅(R,0).
+API TauCeti.GradedDeterminant.projective_graded_det_sum [compatibility]: Det^Z(P⊕Q)≅Det^Z(P)⊗Det^Z(Q).
+API TauCeti.GradedDeterminant.projective_graded_det_symmetry [compatibility]: The direct-sum swap maps to signed Picard braiding.
+API TauCeti.GradedDeterminant.projective_graded_det_base_change [functoriality]: The functor commutes coherently with scalar extension.
+TEST TauCeti.GradedDeterminant.projective_graded_det_line [example]: Det^Z(R)=(R,1).
+TEST TauCeti.GradedDeterminant.projective_graded_det_zero [degenerate]: Det^Z(0)=(R,0).
+TEST TauCeti.GradedDeterminant.projective_graded_det_swap [non-example]: Over ℤ, swapping two free rank-one summands maps to −1.
+TEST TauCeti.GradedDeterminant.projective_graded_det_product [compatibility]: For R=F×F and P=e₁R, the grade is (1,0), agreeing with companion rank.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/ring-spectrum-det [omitted]
+Target: The graded determinant induces a natural connective-spectrum map Det_R:K(R)→Pic^Z(Spec R). Here K(R) is group completion of the nerve of the finite-projective isomorphism groupoid under direct sum, identified with the agreed algebraic K model.
+Required prerequisites: KTheoryLowDegrees:Z.3/projective-graded-det, KTheoryLowDegrees:Z.3/graded-line-inverse, StableHomotopyKTheory:H.4, StableHomotopyKTheory:H.5:spectra, GeneralAlgebraicKTheory:K.4:construction
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.ring_spectrum_det_object [compatibility]: [P] maps to (det P,rk P).
+API TauCeti.GradedDeterminant.ring_spectrum_det_natural [functoriality]: Scalar-extension K maps commute with graded determinant.
+API TauCeti.GradedDeterminant.ring_spectrum_det_sum [compatibility]: The map preserves coherently the direct-sum group law.
+API TauCeti.GradedDeterminant.ring_spectrum_det_pi_zero [compatibility]: On π₀ it is the existing rank and determinant pair.
+API TauCeti.GradedDeterminant.ring_spectrum_det_pi_one [compatibility]: On automorphism loops it is the determinant in Rˣ; arbitrary SK₁ may remain.
+TEST TauCeti.GradedDeterminant.ring_spectrum_det_field [compatibility]: Over a field, π₀ is rank and π₁ is the usual determinant.
+TEST TauCeti.GradedDeterminant.ring_spectrum_det_negative [example]: −[R] has grade −1 and the dual determinant line.
+TEST TauCeti.GradedDeterminant.ring_spectrum_det_zero [degenerate]: The zero-ring K-spectrum and Pic^Z are contractible.
+TEST TauCeti.GradedDeterminant.ring_spectrum_det_not_ordinary_pic [non-example]: [R] over ℚ cannot map into the grade-zero Pic inclusion because its grade is one.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/determinant-truncation [omitted]
+Target: Since Pic^Z is 1-truncated, Det_R factors canonically through τ≤1K(R). The factor is unique in the homotopy-coherent mapping space; this does not make K(R) itself 1-truncated.
+Required prerequisites: KTheoryLowDegrees:Z.3/ring-spectrum-det, KTheoryLowDegrees:Z.3/graded-line-automorphisms, StableHomotopyKTheory:H.5:spectra
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/local-det-equivalence [omitted]
+Target: For a nonzero commutative local ring R, Det_R induces isomorphisms on π₀ and π₁: K₀(R)≅ℤ and K₁(R)≅Rˣ. Consequently τ≤1K(R)→Pic^Z(Spec R) is an equivalence.
+Required prerequisites: KTheoryLowDegrees:Z.3/determinant-truncation, KTheoryLowDegrees:Z.3/graded-line-components, KTheoryLowDegrees:Z.3/graded-line-automorphisms, KTheoryLowDegrees:Z.2, KTheoryLowDegrees:U.3, StableHomotopyKTheory:H.5:spectra
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/zariski-sheafified-det [omitted]
+Target: On affine schemes, Det:τ≤1K→Pic^Z is an equivalence after Zariski sheafification as presheaves of groupoids. It need not be an objectwise equivalence before sheafification.
+Required prerequisites: KTheoryLowDegrees:Z.3/local-det-equivalence, KTheoryLowDegrees:Z.3/graded-line-pullback, SchemeAndStackFoundations:SF.1, StableHomotopyKTheory:H.5:spectra
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/scheme-spectrum-det [omitted]
+Target: For each qcqs scheme X there is a natural connective-spectrum map Det_X:K(Perf X)→Pic^Z(X), whose affine restriction is ring-spectrum-det under the perfect/projective K comparison.
+Required prerequisites: KTheoryLowDegrees:Z.3/ring-spectrum-det, KTheoryLowDegrees:Z.3/zariski-sheafified-det, SchemeKTheoryOperations:S.1, SchemeKTheoryOperations:S.2, GeneralAlgebraicKTheory:K.4:construction, SchemeAndStackFoundations:SF.1
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.scheme_spectrum_det_affine [compatibility]: On Spec R the map agrees with Det_R under the specified affine comparison.
+API TauCeti.GradedDeterminant.scheme_spectrum_det_object [compatibility]: A vector bundle maps to (det E,rk E).
+API TauCeti.GradedDeterminant.scheme_spectrum_det_pullback [functoriality]: Derived pullback commutes coherently with Det_X.
+API TauCeti.GradedDeterminant.scheme_spectrum_det_shift [compatibility]: Det(C[1])≅Det(C) inverse.
+API TauCeti.GradedDeterminant.scheme_spectrum_det_triangle [compatibility]: Every distinguished triangle induces Det(C)≅Det(C′)⊗Det(C″) coherently.
+TEST TauCeti.GradedDeterminant.scheme_spectrum_det_line [example]: An invertible sheaf in degree zero maps to itself with grade one.
+TEST TauCeti.GradedDeterminant.scheme_spectrum_det_zero [degenerate]: The zero complex maps to (O,0).
+TEST TauCeti.GradedDeterminant.scheme_spectrum_det_shift [compatibility]: O[1] has grade −1 and determinant O.
+TEST TauCeti.GradedDeterminant.scheme_spectrum_det_nonseparated [non-example]: On the doubled plane do not replace Perf K by vector-bundle K; the Cartan groups differ.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/determinant-triangle [omitted]
+Target: A distinguished triangle C′→C→C″→C′[1] in Perf(X) supplies a natural isomorphism Det(C)≅Det(C′)⊗Det(C″), compatible with maps of triangles and the octahedral refinement.
+Required prerequisites: KTheoryLowDegrees:Z.6/scheme-spectrum-det, GeneralAlgebraicKTheory:K.4:construction
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/bounded-complex-det [omitted]
+Target: For a bounded complex P• of finite projectives or vector bundles, Det(P•) identifies with the ordered tensor of det(P^i)^{(−1)^i} and grade Σ_i(−1)^i rk(P^i). This identifies the π₀ map with the existing Euler-class map.
+Required prerequisites: KTheoryLowDegrees:Z.6/determinant-triangle, KTheoryLowDegrees:Z.3/graded-line-inverse, KTheoryLowDegrees:Z.6/perfect-complex-euler-class
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/graded-det-pi-zero [omitted]
+Target: On π₀, scheme-spectrum-det recovers rank and the existing vector-bundle determinant. Forgetting the integer grade at the level of component groups recovers det:K₀→Pic; this group homomorphism does not imply a symmetric-monoidal factorization through ordinary Pic.
+Required prerequisites: KTheoryLowDegrees:Z.6/scheme-spectrum-det, KTheoryLowDegrees:Z.6/bounded-complex-det, KTheoryLowDegrees:Z.5/vector-bundle-determinant, KTheoryLowDegrees:Z.6/vector-bundle-k-zero-pi-zero
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.3/graded-pic-v-descent [omitted]
+Target: On qcqs perfect F_p-schemes, X↦Pic^Z(X) is a v-stack. The grades form a v-sheaf; ordinary line bundles and their isomorphisms satisfy effective v-descent.
+Required prerequisites: KTheoryLowDegrees:Z.3/graded-line-fibre, SchemeAndStackFoundations:SF.1
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/witt-supported-input [omitted]
+Target: For a qcqs perfect F_p-scheme X use the support category Perf(W(X) on X) of W(O_X)-perfect complexes acyclic after p is inverted. Its K-theory is K(W(X) on X). Import this category and its K-theory from S.1/S.3; the determinant-specific datum is the natural map α_X:K(X)→K(W(X) on X) induced by restriction of scalars along W(O_X)→O_X.
+Required prerequisites: SchemeKTheoryOperations:S.1, SchemeKTheoryOperations:S.3, GeneralAlgebraicKTheory:K.4:construction
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.witt_supported_input_support [characterisation]: Every input C has C[1/p]≃0.
+API TauCeti.GradedDeterminant.witt_supported_input_alpha [constructor]: α_X is induced by O_X-perfect restriction to W(O_X).
+API TauCeti.GradedDeterminant.witt_supported_input_object [compatibility]: α sends C to the same supported restriction-of-scalars complex.
+API TauCeti.GradedDeterminant.witt_supported_input_natural [functoriality]: α is natural in perfect-scheme pullback through the specified derived comparison.
+API TauCeti.GradedDeterminant.witt_supported_input_zero [simp]: α sends the zero object and K basepoint to zero.
+TEST TauCeti.GradedDeterminant.witt_supported_input_field [example]: Over a perfect field k, k is represented by W(k) --p→ W(k).
+TEST TauCeti.GradedDeterminant.witt_supported_input_zero [degenerate]: The zero complex satisfies the support condition.
+TEST TauCeti.GradedDeterminant.witt_supported_input_unsupported [non-example]: W(k) in degree zero is excluded, since it remains nonzero after p inversion.
+TEST TauCeti.GradedDeterminant.witt_supported_input_filtration [compatibility]: W(k)/p² has two k graded pieces in its p-adic filtration.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison [omitted]
+Target: For R the perfection of a regular noetherian F_p-algebra R₀, α_Spec R is an equivalence K(R)≃K(W(R) on R). The smooth affine case suffices for the alteration descent proving Theorem 5.7.
+Required prerequisites: KTheoryLowDegrees:Z.6/witt-supported-input, SchemeKTheoryOperations:S.3, GeneralAlgebraicKTheory:K.3
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/v-sheafified-first-k [omitted]
+Target: On the perfect F_p v-site, both τ≤1K(X)→Pic^Z(X) and τ≤1K(X)→τ≤1K(W(X) on X) become equivalences after v-sheafification.
+Required prerequisites: KTheoryLowDegrees:Z.3/zariski-sheafified-det, KTheoryLowDegrees:Z.3/graded-pic-v-descent, KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison, SchemeAndStackFoundations:SF.1, StableHomotopyKTheory:H.5:spectra
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/witt-supported-det [omitted]
+Target: For X a qcqs perfect F_p-scheme, construct a natural connective-spectrum map Det~_X:K(W(X) on X)→Pic^Z(X) extending Det_X along α_X.
+Required prerequisites: KTheoryLowDegrees:Z.6/witt-supported-input, KTheoryLowDegrees:Z.6/v-sheafified-first-k, KTheoryLowDegrees:Z.6/scheme-spectrum-det, StableHomotopyKTheory:H.5:spectra, SchemeAndStackFoundations:SF.1
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+API TauCeti.GradedDeterminant.witt_supported_det_extension [compatibility]: Det~_X∘α_X≃Det_X coherently.
+API TauCeti.GradedDeterminant.witt_supported_det_pullback [functoriality]: Perfect-scheme pullback commutes with Det~.
+API TauCeti.GradedDeterminant.witt_supported_det_additivity [compatibility]: Supported distinguished triangles give tensor determinant isomorphisms.
+API TauCeti.GradedDeterminant.witt_supported_det_zero [simp]: The zero supported complex has determinant (O,0).
+API TauCeti.GradedDeterminant.witt_supported_det_unique [universal-property]: The space of natural extending maps with extension compatibility is contractible.
+TEST TauCeti.GradedDeterminant.witt_supported_det_residue [compatibility]: The supported residue module k maps to (k,1).
+TEST TauCeti.GradedDeterminant.witt_supported_det_length_two [example]: Over a perfect field, W(k)/p² maps to (k,2) up to the canonical filtration identification.
+TEST TauCeti.GradedDeterminant.witt_supported_det_zero [degenerate]: The zero supported object maps to the tensor unit.
+TEST TauCeti.GradedDeterminant.witt_supported_det_unsupported [non-example]: No value on W(k)[1/p] is supplied by this supported determinant construction.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/witt-det-uniqueness [omitted]
+Target: The space of natural Det~ extending the ordinary determinant along α, including the specified extension homotopy, is contractible. This is stronger than equality of induced π₀ maps.
+Required prerequisites: KTheoryLowDegrees:Z.6/witt-supported-det, KTheoryLowDegrees:Z.6/v-sheafified-first-k, StableHomotopyKTheory:H.5:spectra, SchemeAndStackFoundations:SF.1
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/witt-filtration-det [omitted]
+Target: If a supported perfect complex has a finite filtration with graded pieces from Perf(X) and specified cofiber triangles, Det~ identifies coherently with the ordered product of their ordinary graded determinants. It is independent of the chosen filtration through the supported K additivity comparison.
+Required prerequisites: KTheoryLowDegrees:Z.6/witt-supported-det, KTheoryLowDegrees:Z.6/witt-det-uniqueness, GeneralAlgebraicKTheory:K.4:construction
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
+
+/- OMISSION KTheoryLowDegrees:Z.6/finite-length-det-trivial [omitted]
+Target: Let k be a perfect field, Q a finite-length W(k)-module, and X a qcqs perfect k-scheme. For a finite exhaustive filtration of Q_X=Q⊗_{W(k)}W(O_X) whose graded pieces are finite projective O_X-modules, the ordinary line ⊗_i det(gr_i Q_X) is trivial. Its graded determinant has grade length_{W(k)}Q, which need not be zero.
+Required prerequisites: KTheoryLowDegrees:Z.6/witt-filtration-det, KTheoryLowDegrees:Z.3/forget-grade, KTheoryLowDegrees:Z.6/witt-supported-det
+Reason: Missing enhanced graded-Picard/spectrum/support carrier and coherent supplier interface; precise mathematics remains in packet and reader.
+-/
