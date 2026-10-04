@@ -10246,8 +10246,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-JacobianChallengePartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3341",
-   "finishedAt": "2026-10-04T20:24:49Z"
+   "finishedAt": "2026-10-04T20:24:49Z",
+   "note": "deliverables arrived from an external worker on issue #3341"
   },
   {
    "id": "REV-DESIGN-JacobianChallengePartII",
@@ -10291,8 +10291,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-StableReductionPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3342",
-   "finishedAt": "2026-10-04T19:34:52Z"
+   "finishedAt": "2026-10-04T19:34:52Z",
+   "note": "deliverables arrived from an external worker on issue #3342"
   },
   {
    "id": "REV-DESIGN-StableReductionPartII",
@@ -10809,8 +10809,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3351",
-   "finishedAt": "2026-10-04T21:37:14Z"
+   "finishedAt": "2026-10-04T21:37:14Z",
+   "note": "deliverables arrived from an external worker on issue #3351"
   },
   {
    "id": "REV-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
@@ -11585,8 +11585,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-HodgeStructuresPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3371",
-   "finishedAt": "2026-10-04T19:19:59Z"
+   "finishedAt": "2026-10-04T19:19:59Z",
+   "note": "deliverables arrived from an external worker on issue #3371"
   },
   {
    "id": "REV-DESIGN-HodgeStructuresPartII",
@@ -11888,8 +11888,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3378",
-   "finishedAt": "2026-10-04T19:27:40Z"
+   "finishedAt": "2026-10-04T19:27:40Z",
+   "note": "deliverables arrived from an external worker on issue #3378"
   },
   {
    "id": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
@@ -13053,8 +13053,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-GenericDoublePointInterpolation.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1694",
-   "finishedAt": "2026-10-04T22:01:39Z"
+   "finishedAt": "2026-10-04T22:01:39Z",
+   "note": "deliverables arrived from an external worker on issue #1694"
   },
   {
    "id": "REV-DESIGN-GenericDoublePointInterpolation",
@@ -13141,8 +13141,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FunctionFieldArithmeticPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3403",
-   "finishedAt": "2026-10-04T20:00:38Z"
+   "finishedAt": "2026-10-04T20:00:38Z",
+   "note": "deliverables arrived from an external worker on issue #3403"
   },
   {
    "id": "REV-DESIGN-FunctionFieldArithmeticPartII",
@@ -15811,8 +15811,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-SemisimpleAlgebrasPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3469",
-   "finishedAt": "2026-10-04T21:08:09Z"
+   "finishedAt": "2026-10-04T21:08:09Z",
+   "note": "deliverables arrived from an external worker on issue #3469"
   },
   {
    "id": "REV-DESIGN-SemisimpleAlgebrasPartII",
@@ -20926,8 +20926,8 @@
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #551",
-   "finishedAt": "2026-10-04T19:44:57Z"
+   "finishedAt": "2026-10-04T19:44:57Z",
+   "note": "deliverables arrived from an external worker on issue #551"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--P7",
@@ -21124,8 +21124,8 @@
    "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #555",
-   "finishedAt": "2026-10-04T21:19:45Z"
+   "finishedAt": "2026-10-04T21:19:45Z",
+   "note": "deliverables arrived from an external worker on issue #555"
   },
   {
    "id": "REV-PadicMeasuresIwasawaAlgebras",
@@ -21227,8 +21227,8 @@
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "deliverables arrived from an external worker on issue #642",
-   "finishedAt": "2026-10-04T20:37:01Z"
+   "finishedAt": "2026-10-04T20:37:01Z",
+   "note": "deliverables arrived from an external worker on issue #642"
   },
   {
    "id": "REV-SchemeAndStackFoundations",
@@ -21676,8 +21676,8 @@
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #672",
-   "finishedAt": "2026-10-04T19:44:58Z"
+   "finishedAt": "2026-10-04T19:44:58Z",
+   "note": "deliverables arrived from an external worker on issue #672"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -23823,8 +23823,8 @@
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "deliverables arrived from an external worker on issue #5881",
-   "finishedAt": "2026-10-04T20:21:15Z"
+   "finishedAt": "2026-10-04T20:21:15Z",
+   "note": "deliverables arrived from an external worker on issue #5881"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L3",
@@ -23871,8 +23871,8 @@
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "deliverables arrived from an external worker on issue #5882",
-   "finishedAt": "2026-10-04T21:00:57Z"
+   "finishedAt": "2026-10-04T21:00:57Z",
+   "note": "deliverables arrived from an external worker on issue #5882"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L4",
@@ -27180,8 +27180,8 @@
    "prompt": "research/blueprint/prompts/BP-NeronModelsAndSemistableAbelianVarieties.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #960",
-   "finishedAt": "2026-10-04T22:01:41Z"
+   "finishedAt": "2026-10-04T22:01:41Z",
+   "note": "deliverables arrived from an external worker on issue #960"
   },
   {
    "id": "REV-NeronModelsAndSemistableAbelianVarieties",
@@ -30187,8 +30187,8 @@
     "BP-PadicHodgeTheory--R06.5",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "deliverables arrived from an external worker on issue #1020",
-   "finishedAt": "2026-10-04T19:17:05Z"
+   "finishedAt": "2026-10-04T19:17:05Z",
+   "note": "deliverables arrived from an external worker on issue #1020"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty",
@@ -30461,8 +30461,8 @@
     "BP-KTheoryLowDegrees--U.1",
     "BP-KTheoryLowDegrees--Z.3"
    ],
-   "note": "deliverables arrived from an external worker on issue #1025",
-   "finishedAt": "2026-10-04T22:03:57Z"
+   "finishedAt": "2026-10-04T22:03:57Z",
+   "note": "deliverables arrived from an external worker on issue #1025"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion",
@@ -30568,8 +30568,8 @@
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "deliverables arrived from an external worker on issue #1027",
-   "finishedAt": "2026-10-04T21:35:10Z"
+   "finishedAt": "2026-10-04T21:35:10Z",
+   "note": "deliverables arrived from an external worker on issue #1027"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence",
@@ -30678,8 +30678,8 @@
     "BP-WeilConjectures--WC.0",
     "BP-WeilConjectures--WC.6"
    ],
-   "note": "deliverables arrived from an external worker on issue #1029",
-   "finishedAt": "2026-10-04T20:24:51Z"
+   "finishedAt": "2026-10-04T20:24:51Z",
+   "note": "deliverables arrived from an external worker on issue #1029"
   },
   {
    "id": "REV-FiniteFieldsAndCharacterSums",
@@ -31190,8 +31190,8 @@
     "BP-SchemeAndStackFoundations",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "deliverables arrived from an external worker on issue #1038",
-   "finishedAt": "2026-10-04T20:52:39Z"
+   "finishedAt": "2026-10-04T20:52:39Z",
+   "note": "deliverables arrived from an external worker on issue #1038"
   },
   {
    "id": "REV-ArithmeticStatistics",
@@ -31357,8 +31357,8 @@
     "BP-ModularCurvesPartII--R13.3",
     "BP-ModularCurvesPartII--R14.3"
    ],
-   "note": "deliverables arrived from an external worker on issue #1042",
-   "finishedAt": "2026-10-04T20:37:02Z"
+   "finishedAt": "2026-10-04T20:37:02Z",
+   "note": "deliverables arrived from an external worker on issue #1042"
   },
   {
    "id": "REV-QSeriesPartitionsAndMockModularForms",
@@ -52809,6 +52809,52 @@
    "note": "deliverables arrived from an external worker on issue #3958"
   },
   {
+   "id": "FIX-RT-AREA-finitefields~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 331,
+   "name": "area: Finite fields (Elementary and computational number theory)",
+   "target": "area:finitefields",
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-finitefields.fixes-2.md",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+    "research/blueprint/readmes/FiniteFieldsAndCharacterSums.md",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-finitefields"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-finitefields~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-finitefields~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 331,
+   "name": "area: Finite fields (Elementary and computational number theory)",
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-finitefields~2.md",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-finitefields~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-finitefields~2",
+   "independentOf": [
+    "FIX-RT-AREA-finitefields~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-finitefields~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AREA-analytic",
    "kind": "redteam",
    "priority": 2,
@@ -53389,6 +53435,66 @@
    "note": "deliverables arrived from an external worker on issue #3963"
   },
   {
+   "id": "FIX-RT-AREA-automorphic-1~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 381,
+   "name": "area: Modular and automorphic forms (Algebraic number theory), part 1 of 2",
+   "target": "area:automorphic:1",
+   "roadmapIds": [
+    "AdelicAlgebraicGroups",
+    "ArithmeticLocallySymmetricSpaces",
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicSpectralTheory",
+    "CompletedCohomologyPartII",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "MetaplecticAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-automorphic-1.fixes-2.md",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-automorphic-1"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-automorphic-1~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 381,
+   "name": "area: Modular and automorphic forms (Algebraic number theory), part 1 of 2",
+   "roadmapIds": [
+    "AdelicAlgebraicGroups",
+    "ArithmeticLocallySymmetricSpaces",
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicSpectralTheory",
+    "CompletedCohomologyPartII",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "MetaplecticAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-automorphic-1~2.md",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-automorphic-1~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-automorphic-1~2",
+   "independentOf": [
+    "FIX-RT-AREA-automorphic-1~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-automorphic-1~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AREA-automorphic-2",
    "kind": "redteam",
    "priority": 2,
@@ -53619,6 +53725,71 @@
    "state": "done",
    "finishedAt": "2026-09-29T16:58:17Z",
    "note": "deliverables arrived from an external worker on issue #3965"
+  },
+  {
+   "id": "FIX-RT-AREA-iwasawa-2~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 392,
+   "name": "area: Iwasawa theory and special values (Algebraic number theory), part 2 of 3",
+   "target": "area:iwasawa:2",
+   "roadmapIds": [
+    "ColemanPowerSeries",
+    "DirichletPadicLFunctions",
+    "EulerSystemsCyclotomicMainConjecture",
+    "IntegralIwasawaTheory",
+    "LocallyAnalyticDistributions",
+    "PadicHodgeRegulators",
+    "PadicMeasuresIwasawaAlgebras",
+    "SpecialValuesBirchTate"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-iwasawa-2.fixes-2.md",
+    "research/blueprint/packets/DirichletPadicLFunctions--L3.json",
+    "research/blueprint/readmes/DirichletPadicLFunctions--L3.md",
+    "research/blueprint/suggested/DirichletPadicLFunctions--L3.lean",
+    "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+    "research/blueprint/readmes/PadicMeasuresIwasawaAlgebras.md",
+    "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-iwasawa-2"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-2~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-iwasawa-2~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 392,
+   "name": "area: Iwasawa theory and special values (Algebraic number theory), part 2 of 3",
+   "roadmapIds": [
+    "ColemanPowerSeries",
+    "DirichletPadicLFunctions",
+    "EulerSystemsCyclotomicMainConjecture",
+    "IntegralIwasawaTheory",
+    "LocallyAnalyticDistributions",
+    "PadicHodgeRegulators",
+    "PadicMeasuresIwasawaAlgebras",
+    "SpecialValuesBirchTate"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md",
+    "research/blueprint/packets/DirichletPadicLFunctions--L3.json",
+    "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+    "research/blueprint/suggested/DirichletPadicLFunctions--L3.lean",
+    "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-iwasawa-2~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-iwasawa-2~2",
+   "independentOf": [
+    "FIX-RT-AREA-iwasawa-2~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -54449,6 +54620,86 @@
    "note": "deliverables arrived from an external worker on issue #5148"
   },
   {
+   "id": "FIX-RT-AREA-algebraicgeometry~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 421,
+   "name": "area: Schemes, curves and moduli (Algebraic geometry)",
+   "target": "area:algebraicgeometry",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry",
+    "ComplexComparisonPartII",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/StableReduction"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-algebraicgeometry.fixes-2.md",
+    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/readmes/MotivesAndAlgebraicCycles.md",
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json",
+    "research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry--A0-extension.md",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean",
+    "research/blueprint/packets/SchemeAndStackFoundations.json",
+    "research/blueprint/readmes/SchemeAndStackFoundations.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean",
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json",
+    "research/blueprint/readmes/AnabelianGeometryAndNonabelianChabauty.md",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean",
+    "research/blueprint/packets/NeronModelsAndSemistableAbelianVarieties.json",
+    "research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md",
+    "research/blueprint/suggested/NeronModelsAndSemistableAbelianVarieties.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-algebraicgeometry"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicgeometry~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-algebraicgeometry~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 421,
+   "name": "area: Schemes, curves and moduli (Algebraic geometry)",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry",
+    "ComplexComparisonPartII",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/StableReduction"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md",
+    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json",
+    "research/blueprint/packets/SchemeAndStackFoundations.json",
+    "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json",
+    "research/blueprint/packets/NeronModelsAndSemistableAbelianVarieties.json",
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean",
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean",
+    "research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean",
+    "research/blueprint/suggested/NeronModelsAndSemistableAbelianVarieties.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-algebraicgeometry~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-algebraicgeometry~2",
+   "independentOf": [
+    "FIX-RT-AREA-algebraicgeometry~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AREA-padic-1",
    "kind": "redteam",
    "priority": 2,
@@ -55028,9 +55279,18 @@
    ],
    "outputs": [
     "research/blueprint/redteam/RT-AREA-etale.fixes-2.md",
+    "research/blueprint/packets/SchemeAndStackFoundations.json",
+    "research/blueprint/readmes/SchemeAndStackFoundations.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean",
     "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
     "research/blueprint/readmes/HabiroCohomologyFoundations--HQ.1.md",
     "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.1.lean",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+    "research/blueprint/readmes/FiniteFieldsAndCharacterSums.md",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json",
+    "research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry--A0-extension.md",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean",
     "research/blueprint/packets/HabiroRings.json",
     "research/blueprint/readmes/HabiroRings.md",
     "research/blueprint/suggested/HabiroRings.lean"
@@ -55061,9 +55321,15 @@
    ],
    "outputs": [
     "research/blueprint/reviews/REV-FIX-RT-AREA-etale~2.md",
+    "research/blueprint/packets/SchemeAndStackFoundations.json",
     "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums.json",
+    "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json",
     "research/blueprint/packets/HabiroRings.json",
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean",
     "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.1.lean",
+    "research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean",
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean",
     "research/blueprint/suggested/HabiroRings.lean"
    ],
    "after": [
@@ -55485,7 +55751,10 @@
     "research/blueprint/suggested/K2SymbolsBrauer--T.1.lean",
     "research/blueprint/packets/ArithmeticKTheory--N.1.json",
     "research/blueprint/readmes/ArithmeticKTheory--N.1.md",
-    "research/blueprint/suggested/ArithmeticKTheory--N.1.lean"
+    "research/blueprint/suggested/ArithmeticKTheory--N.1.lean",
+    "research/blueprint/packets/SchemeAndStackFoundations.json",
+    "research/blueprint/readmes/SchemeAndStackFoundations.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean"
    ],
    "after": [
     "FIX-RT-AREA-ktheory-2"
@@ -55519,13 +55788,15 @@
     "research/blueprint/packets/K3BlochGroups.json",
     "research/blueprint/packets/K2SymbolsBrauer--T.1.json",
     "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+    "research/blueprint/packets/SchemeAndStackFoundations.json",
     "research/blueprint/suggested/EllipticKTheory.lean",
     "research/blueprint/suggested/HabiroNumberFields.lean",
     "research/blueprint/suggested/EllipticRegulators.lean",
     "research/blueprint/suggested/Polylogarithms.lean",
     "research/blueprint/suggested/K3BlochGroups.lean",
     "research/blueprint/suggested/K2SymbolsBrauer--T.1.lean",
-    "research/blueprint/suggested/ArithmeticKTheory--N.1.lean"
+    "research/blueprint/suggested/ArithmeticKTheory--N.1.lean",
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean"
    ],
    "after": [
     "FIX-RT-AREA-ktheory-2~2"
@@ -55634,6 +55905,9 @@
    ],
    "outputs": [
     "research/blueprint/redteam/RT-AREA-geomlanglands.fixes-2.md",
+    "research/blueprint/packets/SchemeAndStackFoundations.json",
+    "research/blueprint/readmes/SchemeAndStackFoundations.md",
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean",
     "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
     "research/blueprint/readmes/MotivesAndAlgebraicCycles.md",
     "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
@@ -55662,7 +55936,9 @@
    ],
    "outputs": [
     "research/blueprint/reviews/REV-FIX-RT-AREA-geomlanglands~2.md",
+    "research/blueprint/packets/SchemeAndStackFoundations.json",
     "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/suggested/SchemeAndStackFoundations.lean",
     "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
    ],
    "after": [
@@ -56397,7 +56673,10 @@
     "research/blueprint/suggested/Polylogarithms.lean",
     "research/blueprint/packets/HabiroNahmSeries.json",
     "research/blueprint/readmes/HabiroNahmSeries.md",
-    "research/blueprint/suggested/HabiroNahmSeries.lean"
+    "research/blueprint/suggested/HabiroNahmSeries.lean",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
    ],
    "after": [
     "FIX-RT-AREA-topology"
@@ -56425,8 +56704,10 @@
     "research/blueprint/reviews/REV-FIX-RT-AREA-topology~2.md",
     "research/blueprint/packets/Polylogarithms.json",
     "research/blueprint/packets/HabiroNahmSeries.json",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
     "research/blueprint/suggested/Polylogarithms.lean",
-    "research/blueprint/suggested/HabiroNahmSeries.lean"
+    "research/blueprint/suggested/HabiroNahmSeries.lean",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
    ],
    "after": [
     "FIX-RT-AREA-topology~2"
@@ -58242,6 +58523,41 @@
    "note": "deliverables arrived from an external worker on issue #1883"
   },
   {
+   "id": "ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+   "kind": "errata",
+   "priority": 1,
+   "order": 743,
+   "name": "Abelian Schemes And Arithmetic Moduli, Part II",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/AbelianSchemesAndArithmeticModuliPartII.json",
+    "research/blueprint/errata/AbelianSchemesAndArithmeticModuliPartII.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+   "kind": "review",
+   "priority": 1,
+   "order": 743,
+   "name": "Abelian Schemes And Arithmetic Moduli, Part II",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
+    "research/blueprint/errata/AbelianSchemesAndArithmeticModuliPartII.json",
+    "research/blueprint/errata/AbelianSchemesAndArithmeticModuliPartII.md"
+   ],
+   "after": [
+    "ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII"
+   ],
+   "avoidAccountOf": "ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
+   "state": "pending"
+  },
+  {
    "id": "BP-DirichletPadicLFunctions",
    "kind": "blueprint",
    "priority": 3,
@@ -58292,66 +58608,6 @@
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions.md",
    "state": "superseded",
    "note": "Split on 2026-10-02 into one blueprint job per layer (BP-DirichletPadicLFunctions--L0 to --L4), each with its own review, and an assembly job. After six days and over 200 checkpoints the packet held 2,258 nodes, more than one review can check. The merged work carries over to the layer jobs."
-  },
-  {
-   "id": "FIX-RT-AREA-algebraicgeometry~2",
-   "kind": "fix",
-   "priority": 1,
-   "order": 421,
-   "name": "area: Schemes, curves and moduli (Algebraic geometry)",
-   "target": "area:algebraicgeometry",
-   "roadmapIds": [
-    "AlgebraicModuliForArithmeticGeometry",
-    "ComplexComparisonPartII",
-    "SchemeAndStackFoundations",
-    "tauceti:TauCetiRoadmap/AlgebraicCurves",
-    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
-    "tauceti:TauCetiRoadmap/HodgeStructures",
-    "tauceti:TauCetiRoadmap/JacobianChallenge",
-    "tauceti:TauCetiRoadmap/StableReduction"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-algebraicgeometry.fixes-2.md",
-    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
-    "research/blueprint/readmes/MotivesAndAlgebraicCycles.md",
-    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
-   ],
-   "after": [
-    "REV-FIX-RT-AREA-algebraicgeometry"
-   ],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-FIX-RT-AREA-algebraicgeometry~2",
-   "kind": "review",
-   "priority": 1,
-   "order": 421,
-   "name": "area: Schemes, curves and moduli (Algebraic geometry)",
-   "roadmapIds": [
-    "AlgebraicModuliForArithmeticGeometry",
-    "ComplexComparisonPartII",
-    "SchemeAndStackFoundations",
-    "tauceti:TauCetiRoadmap/AlgebraicCurves",
-    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
-    "tauceti:TauCetiRoadmap/HodgeStructures",
-    "tauceti:TauCetiRoadmap/JacobianChallenge",
-    "tauceti:TauCetiRoadmap/StableReduction"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
-    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
-   ],
-   "after": [
-    "FIX-RT-AREA-algebraicgeometry~2"
-   ],
-   "avoidAccountOf": "FIX-RT-AREA-algebraicgeometry~2",
-   "independentOf": [
-    "FIX-RT-AREA-algebraicgeometry~2"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending"
   },
   {
    "id": "FIX-RT-AREA-padic-2~3",
