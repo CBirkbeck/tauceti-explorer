@@ -13077,7 +13077,8 @@
    "avoidAccountOf": "DESIGN-GenericDoublePointInterpolation",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-GenericDoublePointInterpolation.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1724"
   },
   {
    "id": "DESIGN-EffectiveBoundsPartII",
@@ -15835,8 +15836,9 @@
    "avoidAccountOf": "DESIGN-SemisimpleAlgebrasPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-SemisimpleAlgebrasPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3610"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3610",
+   "finishedAt": "2026-10-04T23:25:33Z"
   },
   {
    "id": "DESIGN-RealSurfacePeriodIndex",
