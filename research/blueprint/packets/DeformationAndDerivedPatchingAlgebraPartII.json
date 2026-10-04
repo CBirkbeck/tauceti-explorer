@@ -1,0 +1,3691 @@
+{
+  "roadmapId": "DeformationAndDerivedPatchingAlgebraPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "DeformationAndDerivedPatchingAlgebraPartII:K0",
+    "DeformationAndDerivedPatchingAlgebraPartII:K1",
+    "DeformationAndDerivedPatchingAlgebraPartII:K2",
+    "DeformationAndDerivedPatchingAlgebraPartII:K3",
+    "DeformationAndDerivedPatchingAlgebraPartII:K4"
+  ],
+  "status": "partial",
+  "summary": "Source-faithful checkpoint for Kawasaki’s CM-secant sequence calculus and Cohen–Macaulay blowing-ups of finite modules. All fifteen accepted route items are inventoried and target statements are recorded across five stages. Native sequence predicates, annihilator products, prefix products and a Rees-module carrier have concrete Mathlib prototypes. Supplier-dependent geometric and duality signatures and several proof leaves remain explicit gaps; this is not a completed planning pass.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:Ideal.ofList",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+        "provides": "abbrev ofList (rs : List R) := span { r | r ∈ rs }",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 41"
+      },
+      {
+        "ref": "mathlib:Module.annihilator",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "def Module.annihilator : Ideal R := RingHom.ker (Module.toAddMonoidEnd R M)",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 860"
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "def mkQ : M →ₗ[R] M ⧸ p where",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 227"
+      },
+      {
+        "ref": "mathlib:Submodule.mapQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "def mapQ (f : M →ₛₗ[τ₁₂] M₂) (h : p ≤ comap f q) : M ⧸ p →ₛₗ[τ₁₂] M₂ ⧸ q :=",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 172"
+      },
+      {
+        "ref": "mathlib:Submodule.map",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
+        "provides": "def map (f : M →ₛₗ[σ₁₂] M₂) (p : Submodule R M) : Submodule R₂ M₂ :=",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 53"
+      },
+      {
+        "ref": "mathlib:Submodule.comap",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
+        "provides": "def comap (f : M →ₛₗ[σ₁₂] M₂) (p : Submodule R₂ M₂) : Submodule R M :=",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 172"
+      },
+      {
+        "ref": "mathlib:Module.supportDim",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+        "provides": "noncomputable def supportDim : WithBot ℕ∞ :=",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 32"
+      },
+      {
+        "ref": "mathlib:Module.supportDim_eq_bot_iff_subsingleton",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+        "provides": "lemma supportDim_eq_bot_iff_subsingleton : supportDim R M = ⊥ ↔ Subsingleton M := by",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 43"
+      },
+      {
+        "ref": "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+        "provides": "lemma supportDim_eq_ringKrullDim_quotient_annihilator [Module.Finite R M] :",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 49"
+      },
+      {
+        "ref": "mathlib:RingTheory.Sequence.IsWeaklyRegular",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+        "provides": "structure IsWeaklyRegular (rs : List R) : Prop where",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 135"
+      },
+      {
+        "ref": "mathlib:RingTheory.Sequence.IsRegular",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+        "provides": "structure IsRegular (rs : List R) : Prop extends IsWeaklyRegular M rs where",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 146"
+      },
+      {
+        "ref": "mathlib:IsSMulRegular",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Regular/SMul.lean",
+        "provides": "def IsSMulRegular [SMul R M] (c : R) :=",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 39"
+      },
+      {
+        "ref": "mathlib:PolynomialModule",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
+        "provides": "structure PolynomialModule (R M : Type*) [CommRing R] [AddCommGroup M] [Module R M] where",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 42"
+      },
+      {
+        "ref": "mathlib:PolynomialModule.smul_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
+        "provides": "theorem smul_apply (f : R[X]) (g : PolynomialModule R M) (n : ℕ) :",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 228"
+      },
+      {
+        "ref": "mathlib:PolynomialModule.equivPolynomialSelf",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
+        "provides": "def equivPolynomialSelf : PolynomialModule R R ≃ₗ[R[X]] R[X] where",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 238"
+      },
+      {
+        "ref": "mathlib:reesAlgebra",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/ReesAlgebra.lean",
+        "provides": "def reesAlgebra : Subalgebra R R[X] where",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 39"
+      },
+      {
+        "ref": "mathlib:mem_reesAlgebra_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/ReesAlgebra.lean",
+        "provides": "theorem mem_reesAlgebra_iff (f : R[X]) : f ∈ reesAlgebra I ↔ ∀ i, f.coeff i ∈ I ^ i :=",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 64"
+      },
+      {
+        "ref": "mathlib:reesAlgebra.fg",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/ReesAlgebra.lean",
+        "provides": "theorem reesAlgebra.fg (hI : I.FG) : (reesAlgebra I).FG := by",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 107"
+      },
+      {
+        "ref": "mathlib:localCohomology",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/LocalCohomology.lean",
+        "provides": "def localCohomology (J : Ideal R) (i : ℕ) : ModuleCat.{u} R ⥤ ModuleCat.{u} R :=",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 175"
+      },
+      {
+        "ref": "mathlib:localCohomology.isoOfSameRadical",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/LocalCohomology.lean",
+        "provides": "def isoOfSameRadical [IsNoetherian R R] (hJK : J.radical = K.radical) (i : ℕ) :",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 263"
+      },
+      {
+        "ref": "mathlib:Ideal.smul_top_eq_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "theorem smul_top_eq_map {R S : Type*} [CommSemiring R] [CommSemiring S] [Algebra R S]",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 286"
+      },
+      {
+        "ref": "mathlib:IsLocalRing.maximalIdeal",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Defs.lean",
+        "provides": "def maximalIdeal : Ideal R where",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 30"
+      },
+      {
+        "ref": "mathlib:Module.supportDim_eq_of_equiv",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+        "provides": "lemma supportDim_eq_of_equiv (e : M ≃ₗ[R] N) :",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 79"
+      },
+      {
+        "ref": "mathlib:Submodule.smul_mem_smul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Operations.lean",
+        "provides": "theorem smul_mem_smul {r} {n} (hr : r ∈ I) (hn : n ∈ N) : r • n ∈ I • N :=",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 120"
+      },
+      {
+        "ref": "mathlib:Submodule.mul_smul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "protected theorem mul_smul : (I * J) • N = I • J • N :=",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 88"
+      },
+      {
+        "ref": "mathlib:PolynomialModule.coeff_add",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
+        "provides": "@[simp] lemma coeff_add (x y : PolynomialModule R M) : coeff (x + y) = coeff x + coeff y := rfl",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 109"
+      },
+      {
+        "ref": "mathlib:PolynomialModule.coeff_zero",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
+        "provides": "@[simp] lemma coeff_zero : coeff (0 : PolynomialModule R M) = 0 := rfl",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 103"
+      },
+      {
+        "ref": "mathlib:PowerSeries.maximalIdeal_eq_span_X",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "theorem maximalIdeal_eq_span_X : IsLocalRing.maximalIdeal (k⟦X⟧) = Ideal.span {X} := by",
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 294"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "CES21",
+      "title": "Macaulayfication of Noetherian schemes",
+      "authors": "Kęstutis Česnavičius",
+      "edition": "arXiv:1810.04493v2, deposited 3 September 2020; not the Duke version of record",
+      "url": "https://arxiv.org/abs/1810.04493v2",
+      "sha256": "a07d62e6ef1e4c2126c172426391e97031d28006b92ccb6c5f3afd9c2ddb07b9",
+      "readSections": [
+        "§3 in full, including the proof of Theorem 3.14; readable ar5iv conversion cross-checked against accepted extraction and errata"
+      ],
+      "accessDate": "2026-10-04",
+      "conversion": {
+        "url": "https://ar5iv.labs.arxiv.org/html/1810.04493",
+        "sha256": "b7eb46583b8346479567b494d02107533d066e888f8cf65a771ae2f2c41da9d5",
+        "note": "Conversion has generated date August 8, 2026; that is not an author revision date. The PDF edition and the conversion are separate artifacts."
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "Local-cohomology annihilator product",
+      "kind": "definition",
+      "statement": "For a commutative R, ideal J and R-module M, define a_J(M,d) = product over 0 ≤ j < d of Ann_R H^j_J(M). This is a finite product of ideals in R, not an intersection or the preimage of a product in R/Ann M. For the paper’s a(M), take J=m and d=dim Supp M when M≠0; the zero module uses the empty product, the unit ideal. The explicit finite cutoff avoids converting infinite or bottom dimension to a natural number.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Use the existing localCohomology J j functor on ModuleCat.of R M.",
+        "Take the finite ideal product; a dimension witness is supplied only when interpreting the paper’s notation."
+      ],
+      "prerequisites": [
+        "mathlib:localCohomology",
+        "mathlib:Module.annihilator"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1(ii), Remark 3.3 and Lemma 3.6",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For every J and M, a_J(M,0)=1.",
+        "The cutoff-one product is exactly Ann_R H^0_J(M), not its radical.",
+        "All local cohomology of the zero module vanishes; every finite-cutoff product is 1."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.annihilator_product",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Local-cohomology annihilator product"
+      },
+      "uses": [
+        {
+          "where": "Definition 3.1(ii)",
+          "how": "Membership controls the next element on the actual prefix quotient."
+        },
+        {
+          "where": "Lemma 3.6(b)",
+          "how": "Equidimensional support turns its zero locus into the non-CM locus."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Kawasaki.annihilator_product_zero",
+          "role": "simp",
+          "statement": "a_J(M,0) is the unit ideal, including when M=0."
+        },
+        {
+          "name": "TauCeti.Kawasaki.annihilator_product_succ",
+          "role": "simp",
+          "statement": "a_J(M,d+1)=a_J(M,d)·Ann_R H^d_J(M)."
+        },
+        {
+          "name": "TauCeti.Kawasaki.annihilator_product_le_factor",
+          "role": "relation",
+          "statement": "For j<d the product is contained in Ann_R H^j_J(M)."
+        },
+        {
+          "name": "TauCeti.Kawasaki.annihilator_product_eq_top_of_vanishing",
+          "role": "characterisation",
+          "statement": "If every H^j_J(M) for j<d is zero, then the product is the unit ideal."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Kawasaki.ann_product_empty",
+          "kind": "degenerate",
+          "statement": "For every J and M, a_J(M,0)=1."
+        },
+        {
+          "name": "TauCeti.Kawasaki.ann_product_single",
+          "kind": "computation",
+          "statement": "The cutoff-one product is exactly Ann_R H^0_J(M), not its radical."
+        },
+        {
+          "name": "TauCeti.Kawasaki.ann_product_zero_module",
+          "kind": "degenerate",
+          "statement": "All local cohomology of the zero module vanishes; every finite-cutoff product is 1."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product-zero",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "annihilator_product_zero",
+      "kind": "lemma",
+      "statement": "a_J(M,0) is the unit ideal, including when M=0.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; a_J(M,0) is the unit ideal, including when M=0."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1(ii), Remark 3.3 and Lemma 3.6",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "a_J(M,0) is the unit ideal, including when M=0."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.annihilator_product_zero",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product-succ",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "annihilator_product_succ",
+      "kind": "lemma",
+      "statement": "a_J(M,d+1)=a_J(M,d)·Ann_R H^d_J(M).",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; a_J(M,d+1)=a_J(M,d)·Ann_R H^d_J(M)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1(ii), Remark 3.3 and Lemma 3.6",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "a_J(M,d+1)=a_J(M,d)·Ann_R H^d_J(M)."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.annihilator_product_succ",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product-le-factor",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "annihilator_product_le_factor",
+      "kind": "lemma",
+      "statement": "For j<d the product is contained in Ann_R H^j_J(M).",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; For j<d the product is contained in Ann_R H^j_J(M)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1(ii), Remark 3.3 and Lemma 3.6",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For j<d the product is contained in Ann_R H^j_J(M)."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.annihilator_product_le_factor",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product-eq-top-of-vanishing",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "annihilator_product_eq_top_of_vanishing",
+      "kind": "lemma",
+      "statement": "If every H^j_J(M) for j<d is zero, then the product is the unit ideal.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; If every H^j_J(M) for j<d is zero, then the product is the unit ideal."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1(ii), Remark 3.3 and Lemma 3.6",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "If every H^j_J(M) for j<d is zero, then the product is the unit ideal."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.annihilator_product_eq_top_of_vanishing",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "CM-secant sequences",
+      "kind": "definition",
+      "statement": "For finite M over Noetherian local (R,m), an ordered list rs is CM-secant iff every term lies in m; every successive prefix quotient strictly lowers support dimension; the final quotient is Cohen–Macaulay; and for each index i the element rs_i belongs to a_m(M/(rs before i)M,dim Supp(M/(rs before i)M)). Empty rs is allowed and is CM-secant exactly when M is CM. The zero module admits only the empty list. Terminal CM is required only for the final quotient, so prefixes are not asserted CM-secant.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Expand the requested R03.3 secant predicate on native quotients by Ideal.ofList prefixes.",
+        "Express terminal CM by the requested Grothendieck vanishing criterion in terms of the native localCohomology functor; this is an expanded condition, not a competing generic CM definition.",
+        "Each nonempty prefix before a step has a finite natural support-dimension witness by Noetherian locality and Nakayama; record that finiteness comparison as a supplier need."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product",
+        "mathlib:Ideal.ofList",
+        "mathlib:Module.supportDim",
+        "mathlib:IsLocalRing.maximalIdeal",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1(ii)",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "The empty list is CM-secant on the one-dimensional vector space over Q; its support has dimension zero.",
+        "[0] is not CM-secant on Q: the support dimension does not decrease.",
+        "The empty list is CM-secant on the zero module.",
+        "A nonempty list is never CM-secant on the zero module.",
+        "For R=M=Q[[X]], the singleton [X] is CM-secant: support dimension drops from one to zero and H^0_m(R)=0.",
+        "The singleton [X²] is also CM-secant on Q[[X]]; secancy is not restricted to a chosen uniformizer."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.is_cm_secant",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "CM-secant sequences"
+      },
+      "uses": [
+        {
+          "where": "Proposition 3.11",
+          "how": "Its initial prefixes satisfy three special sequence properties."
+        },
+        {
+          "where": "Theorem 3.14",
+          "how": "The full ordered list defines the prefix-product blowing-up ideal."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Kawasaki.cm_sect_mem_maximal",
+          "role": "projection",
+          "statement": "Every element of a CM-secant sequence belongs to m."
+        },
+        {
+          "name": "TauCeti.Kawasaki.cm_sect_dimension_drop",
+          "role": "projection",
+          "statement": "Every step strictly decreases the dimension of the actual support of its prefix quotient."
+        },
+        {
+          "name": "TauCeti.Kawasaki.cm_sect_terminal_vanishing",
+          "role": "projection",
+          "statement": "The terminal quotient has zero local cohomology below its support dimension. Comparison with R03.3 identifies this with terminal CM."
+        },
+        {
+          "name": "TauCeti.Kawasaki.cm_sect_ann_membership",
+          "role": "projection",
+          "statement": "At every step there is a finite support-dimension witness d and the next term belongs to the product of local-cohomology annihilators on that prefix quotient."
+        },
+        {
+          "name": "TauCeti.Kawasaki.cm_sect_empty_iff",
+          "role": "characterisation",
+          "statement": "The empty list is CM-secant iff H^j_m(M)=0 for every j<dim Supp M, with zero M included."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Kawasaki.cm_sect_field_empty",
+          "kind": "computation",
+          "statement": "The empty list is CM-secant on the one-dimensional vector space over Q; its support has dimension zero."
+        },
+        {
+          "name": "TauCeti.Kawasaki.cm_sect_field_zero_not",
+          "kind": "non-example",
+          "statement": "[0] is not CM-secant on Q: the support dimension does not decrease."
+        },
+        {
+          "name": "TauCeti.Kawasaki.cm_sect_zero_empty",
+          "kind": "degenerate",
+          "statement": "The empty list is CM-secant on the zero module."
+        },
+        {
+          "name": "TauCeti.Kawasaki.cm_sect_zero_nonempty_not",
+          "kind": "non-example",
+          "statement": "A nonempty list is never CM-secant on the zero module."
+        },
+        {
+          "name": "TauCeti.Kawasaki.cm_sect_dvr_parameter",
+          "kind": "computation",
+          "statement": "For R=M=Q[[X]], the singleton [X] is CM-secant: support dimension drops from one to zero and H^0_m(R)=0."
+        },
+        {
+          "name": "TauCeti.Kawasaki.cm_sect_dvr_square",
+          "kind": "computation",
+          "statement": "The singleton [X²] is also CM-secant on Q[[X]]; secancy is not restricted to a chosen uniformizer."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-sect-mem-maximal",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "cm_sect_mem_maximal",
+      "kind": "lemma",
+      "statement": "Every element of a CM-secant sequence belongs to m.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; Every element of a CM-secant sequence belongs to m."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1(ii)",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Every element of a CM-secant sequence belongs to m."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.cm_sect_mem_maximal",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-sect-dimension-drop",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "cm_sect_dimension_drop",
+      "kind": "lemma",
+      "statement": "Every step strictly decreases the dimension of the actual support of its prefix quotient.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; Every step strictly decreases the dimension of the actual support of its prefix quotient."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1(ii)",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Every step strictly decreases the dimension of the actual support of its prefix quotient."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.cm_sect_dimension_drop",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-sect-terminal-vanishing",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "cm_sect_terminal_vanishing",
+      "kind": "lemma",
+      "statement": "The terminal quotient has zero local cohomology below its support dimension. Comparison with R03.3 identifies this with terminal CM.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; The terminal quotient has zero local cohomology below its support dimension. Comparison with R03.3 identifies this with terminal CM."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1(ii)",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "The terminal quotient has zero local cohomology below its support dimension. Comparison with R03.3 identifies this with terminal CM."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.cm_sect_terminal_vanishing",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-sect-ann-membership",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "cm_sect_ann_membership",
+      "kind": "lemma",
+      "statement": "At every step there is a finite support-dimension witness d and the next term belongs to the product of local-cohomology annihilators on that prefix quotient.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; At every step there is a finite support-dimension witness d and the next term belongs to the product of local-cohomology annihilators on that prefix quotient."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1(ii)",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "At every step there is a finite support-dimension witness d and the next term belongs to the product of local-cohomology annihilators on that prefix quotient."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.cm_sect_ann_membership",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-sect-empty-iff",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "cm_sect_empty_iff",
+      "kind": "lemma",
+      "statement": "The empty list is CM-secant iff H^j_m(M)=0 for every j<dim Supp M, with zero M included.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; The empty list is CM-secant iff H^j_m(M)=0 for every j<dim Supp M, with zero M included."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1(ii)",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "The empty list is CM-secant iff H^j_m(M)=0 for every j<dim Supp M, with zero M included."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.cm_sect_empty_iff",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-owner-comparison",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "Comparison with the imported CM and secant predicates",
+      "kind": "comparison",
+      "statement": "For finite M over Noetherian local R, the native expanded CM-secant condition agrees with Definition 3.1(ii) using the R03.3 secant and CM predicates. Zero M has empty support and vacuous local-cohomology vanishing; the comparison must use E4’s support-restricted CM convention. Every nonzero prefix quotient has finite natural support dimension.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the requested R03.3 local-cohomology criterion for CM and finite dimension of finite modules over a Noetherian local ring.",
+        "Use Nakayama for proper prefix ideals to rule out a zero quotient when M is nonzero."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "mathlib:Module.supportDim_eq_bot_iff_subsingleton"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.1 and §1.14, corrected E4",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For finite M over Noetherian local R, the native expanded CM-secant condition agrees with Definition 3.1(ii) using the R03.3 secant and CM predicates. Zero M has empty support and vacuous local-cohomology vanishing; the comparison must use E4’s support-restricted CM convention. Every nonzero prefix quotient has finite natural support dimension."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.cm_secant_owner_comparison",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/schenzel-torsion-bound",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "Schenzel’s secant torsion bound",
+      "kind": "theorem",
+      "statement": "If r1,…,rs is a nonempty secant sequence for finite M over Noetherian local (R,m), then a_m(M,dim Supp M) kills the rs-torsion of M/(r1,…,r{s−1})M. No terminal-CM or dualizing-complex hypothesis is added.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Use Schenzel 2.4.2, quoted in Remark 3.3. Its proof remains a precise primary-source gap; this checkpoint does not claim that the citation is a one-page proof."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Remark 3.3",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For CM M the annihilator product is the unit ideal, so the last secant torsion is zero, recovering regular parameters."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.schenzel_torsion_bound",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Schenzel’s torsion bound"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-extend-parameters",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "Extending CM-secant sequences to parameters",
+      "kind": "theorem",
+      "statement": "Every CM-secant sequence for nonzero finite M over Noetherian local R extends to a CM-secant system of parameters. Choose regular parameters of the CM terminal quotient, whose low-degree annihilator product is the unit ideal.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Use imported existence of systems of parameters and CM regular-parameter equivalence.",
+        "Lift the terminal parameters and use the unit annihilator-product calculation on their successive CM quotients."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product-eq-top-of-vanishing",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Remark 3.4",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Every CM-secant sequence for nonzero finite M over Noetherian local R extends to a CM-secant system of parameters. Choose regular parameters of the CM terminal quotient, whose low-degree annihilator product is the unit ideal."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.cm_secant_extend_parameters",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/p-standard-reversal",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "Reversal and p-standard parameters",
+      "kind": "comparison",
+      "statement": "For a system of parameters r1,…,rs of finite M, the list is CM-secant iff rs,…,r1 is a p-standard system of parameters of type s−1 in Kawasaki 2.6. This is an ordered reversal, not a claim of permutation invariance of CM-secant sequences.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Match the annihilator conditions with the primary p-standard definition NTC95 2.4 / Kaw00 2.6. Reading and transcribing that definition is an explicit source gap."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Remark 3.4",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Match the type s−1 parameters only after reversing all s terms; the empty-parameter case is governed separately by CM and empty-support conventions."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.p_standard_reversal",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/matlis-annihilator",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "Annihilator preserved by the injective-hull dual",
+      "kind": "lemma",
+      "statement": "For finite N over Noetherian local R and E the injective hull of the residue field, Ann_R N = Ann_R Hom_R(N,E).",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "The residue field is a quotient of every nonzero finite N by Nakayama and is a submodule of E.",
+        "Thus Hom(-,E) detects zero on finite modules; exactness of Hom(-,E) detects the zero multiplication map for each scalar."
+      ],
+      "prerequisites": [
+        "mathlib:Module.annihilator",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Lemma 3.6(a), proof",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For N=k the annihilator on either side is m, and for N=0 it is the unit ideal."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.matlis_annihilator",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "Local-duality annihilator identity",
+      "kind": "theorem",
+      "statement": "For finite M over Noetherian local R with a normalized dualizing complex ω, and every integer j, Ann_R H^j_m(M)=Ann_R H^{-j}(RHom_R(M,ω)). Negative local-cohomology degrees are zero. The normalization is essential.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply imported AS.1 local duality and exactness of Hom into the injective hull.",
+        "Apply the Matlis annihilator lemma to the finite dual cohomology module."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/matlis-annihilator",
+        "AnalyticStacks:AS.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Lemma 3.6(a)",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For a field R=k, normalized ω=k in degree zero and M=k: both degree-zero annihilators are zero and all other-degree annihilators are the unit ideal."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.duality_annihilator",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Local-duality annihilator identity"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-locus-annihilator",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "The annihilator product and the CM locus",
+      "kind": "theorem",
+      "statement": "For finite M with equidimensional support over Noetherian local R with normalized dualizing complex, V(a_m(M,dim Supp M)) is exactly the non-CM locus. The empty-support case gives the empty closed subset. Without equidimensionality this assertion is not made.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Replace local cohomology annihilators by finite dual-cohomology annihilators.",
+        "Localize these finite annihilators; normalize ω at p by shift −dim(R/p).",
+        "Use catenarity and equidimensional support to identify dim Supp M_p = dim Supp M − dim(R/p).",
+        "Apply the imported local-cohomology CM criterion."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator",
+        "AnalyticStacks:AS.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Lemma 3.6(b)",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For M=R with R a CM local ring admitting ω, the product is the unit ideal and the non-CM locus is empty; require equidimensional support in the general statement."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.cm_locus_annihilator",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Annihilator description of the CM locus"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/nonequidimensional-defect",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0"
+      ],
+      "title": "The defect set for arbitrary support",
+      "kind": "theorem",
+      "statement": "Without equidimensionality, under the hypotheses of Lemma 3.6, V(a_m(M,dim Supp M)) equals {p in Supp M : depth_{R_p} M_p + dim(R/p) < dim Supp M}. It contains every irreducible component of nonmaximal dimension.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply Schenzel 2.4.6 as cited in Remark 3.7; the primary proof is an explicit source gap.",
+        "At the generic point of a lower-dimensional support component, depth is zero."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "AnalyticStacks:AS.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Remark 3.7",
+          "excerpt": "CM-secant",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For R=k[[x,y,z]]/((x)∩(y,z)) and M=R, the generic point (y,z) of the one-dimensional support component satisfies 0+1<2 and belongs to the defect set."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.nonequidimensional_defect",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K1",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1"
+      ],
+      "title": "Huneke d-sequences",
+      "kind": "definition",
+      "statement": "For any R-module M over any commutative ring, an ordered list rs is a d-sequence iff each rs_i is injective on (Ideal(rs)M)/(Ideal(rs before i)M), viewed as an actual submodule of M/(Ideal(rs before i)M). Equivalently use Ideal(rs) times the top submodule of this actual quotient. There is no properness, localness, finiteness or nonzero-module assumption.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Use native Ideal.ofList and quotient modules.",
+        "Restrict scalar multiplication to the ideal-generated submodule of each actual prefix quotient and apply native IsSMulRegular."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.ofList",
+        "mathlib:IsSMulRegular",
+        "mathlib:Submodule.mkQ"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.8",
+          "excerpt": "d-sequence",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Every module admits the empty d-sequence.",
+        "[0] is a d-sequence on nonzero Q, but it is not weakly regular there.",
+        "[1] is a d-sequence on Q, but it is not a native regular sequence because its final quotient is zero.",
+        "[2,0] is a d-sequence on Z.",
+        "[0,2] is not a d-sequence on Z: zero multiplication on 2Z is not injective."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.is_d_sequence",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Huneke d-sequences"
+      },
+      "uses": [
+        {
+          "where": "Remark 3.10",
+          "how": "Its injectivity on the ideal-generated image is the n=1 colon-intersection equality."
+        },
+        {
+          "where": "Proposition 3.11(i)",
+          "how": "The reversal of every selected CM-secant prefix is a d-sequence after the specified auxiliary quotient."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Kawasaki.dseq_empty",
+          "role": "simp",
+          "statement": "The empty list is a d-sequence for every module."
+        },
+        {
+          "name": "TauCeti.Kawasaki.dseq_zero_module",
+          "role": "example",
+          "statement": "Every list is a d-sequence on a zero module."
+        },
+        {
+          "name": "TauCeti.Kawasaki.dseq_of_weakly_regular",
+          "role": "compatibility",
+          "statement": "Every native weakly regular sequence is a d-sequence by restriction of injectivity. No properness is required."
+        },
+        {
+          "name": "TauCeti.Kawasaki.dseq_singleton_iff",
+          "role": "characterisation",
+          "statement": "[r] is a d-sequence iff multiplication by r is injective on rM."
+        },
+        {
+          "name": "TauCeti.Kawasaki.dseq_linear_equiv",
+          "role": "functoriality",
+          "statement": "An R-linear equivalence of actual modules preserves the d-sequence predicate."
+        },
+        {
+          "name": "TauCeti.Kawasaki.dseq_colon_iff",
+          "role": "characterisation",
+          "statement": "A list rs is a d-sequence iff for every i≤j, the rs_j-torsion and rs_i·rs_j-torsion in M/(rs before i)M agree. This corrects E5; replacing rs_j by rs_i is false."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Kawasaki.dseq_empty_test",
+          "kind": "degenerate",
+          "statement": "Every module admits the empty d-sequence."
+        },
+        {
+          "name": "TauCeti.Kawasaki.dseq_zero_singleton",
+          "kind": "non-example",
+          "statement": "[0] is a d-sequence on nonzero Q, but it is not weakly regular there."
+        },
+        {
+          "name": "TauCeti.Kawasaki.dseq_one_singleton",
+          "kind": "non-example",
+          "statement": "[1] is a d-sequence on Q, but it is not a native regular sequence because its final quotient is zero."
+        },
+        {
+          "name": "TauCeti.Kawasaki.dseq_order_forward",
+          "kind": "computation",
+          "statement": "[2,0] is a d-sequence on Z."
+        },
+        {
+          "name": "TauCeti.Kawasaki.dseq_order_reverse_not",
+          "kind": "non-example",
+          "statement": "[0,2] is not a d-sequence on Z: zero multiplication on 2Z is not injective."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-empty",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K1",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1"
+      ],
+      "title": "dseq_empty",
+      "kind": "lemma",
+      "statement": "The empty list is a d-sequence for every module.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; The empty list is a d-sequence for every module."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.8",
+          "excerpt": "d-sequence",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "The empty list is a d-sequence for every module."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.dseq_empty",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-zero-module",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K1",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1"
+      ],
+      "title": "dseq_zero_module",
+      "kind": "lemma",
+      "statement": "Every list is a d-sequence on a zero module.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; Every list is a d-sequence on a zero module."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.8",
+          "excerpt": "d-sequence",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Every list is a d-sequence on a zero module."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.dseq_zero_module",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-of-weakly-regular",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K1",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1"
+      ],
+      "title": "dseq_of_weakly_regular",
+      "kind": "lemma",
+      "statement": "Every native weakly regular sequence is a d-sequence by restriction of injectivity. No properness is required.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; Every native weakly regular sequence is a d-sequence by restriction of injectivity. No properness is required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence",
+        "mathlib:RingTheory.Sequence.IsWeaklyRegular"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.8",
+          "excerpt": "d-sequence",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Every native weakly regular sequence is a d-sequence by restriction of injectivity. No properness is required."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.dseq_of_weakly_regular",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-singleton-iff",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K1",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1"
+      ],
+      "title": "dseq_singleton_iff",
+      "kind": "lemma",
+      "statement": "[r] is a d-sequence iff multiplication by r is injective on rM.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; [r] is a d-sequence iff multiplication by r is injective on rM."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.8",
+          "excerpt": "d-sequence",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "[r] is a d-sequence iff multiplication by r is injective on rM."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.dseq_singleton_iff",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-linear-equiv",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K1",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1"
+      ],
+      "title": "dseq_linear_equiv",
+      "kind": "lemma",
+      "statement": "An R-linear equivalence of actual modules preserves the d-sequence predicate.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; An R-linear equivalence of actual modules preserves the d-sequence predicate."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence",
+        "mathlib:Submodule.mapQ"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.8",
+          "excerpt": "d-sequence",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "An R-linear equivalence of actual modules preserves the d-sequence predicate."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.dseq_linear_equiv",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-colon-iff",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K1",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1"
+      ],
+      "title": "dseq_colon_iff",
+      "kind": "lemma",
+      "statement": "A list rs is a d-sequence iff for every i≤j, the rs_j-torsion and rs_i·rs_j-torsion in M/(rs before i)M agree. This corrects E5; replacing rs_j by rs_i is false.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; A list rs is a d-sequence iff for every i≤j, the rs_j-torsion and rs_i·rs_j-torsion in M/(rs before i)M agree. This corrects E5; replacing rs_j by rs_i is false."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Definition 3.8",
+          "excerpt": "d-sequence",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "A list rs is a d-sequence iff for every i≤j, the rs_j-torsion and rs_i·rs_j-torsion in M/(rs before i)M agree. This corrects E5; replacing rs_j by rs_i is false."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.dseq_colon_iff",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K1/goto-yamagishi-colon",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K1",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1"
+      ],
+      "title": "Goto–Yamagishi colon intersection",
+      "kind": "theorem",
+      "statement": "For a d-sequence rs on M, let Q_i=(r1,…,r{i−1})M and J=(rs). For n≥1 and 1≤i≤s, (Q_i :_M r_i) ∩ J^nM = Q_i ∩ J^nM.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "The n=1 case follows from the d-sequence injectivity on JM/Q_i.",
+        "For any n≥1, J^nM⊆JM, so the same injectivity proves the equality."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence",
+        "mathlib:Submodule.comap"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Remark 3.10, first equality",
+          "excerpt": "d-sequence",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For a d-sequence rs on M, let Q_i=(r1,…,r{i−1})M and J=(rs). For n≥1 and 1≤i≤s, (Q_i :_M r_i) ∩ J^nM = Q_i ∩ J^nM."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.goto_yamagishi_colon",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Goto–Yamagishi colon intersection"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K1/goto-yamagishi-intersection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K1",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1"
+      ],
+      "title": "Goto–Yamagishi power intersection",
+      "kind": "theorem",
+      "statement": "With the same hypotheses, Q_i ∩ J^nM = (r1,…,r{i−1})J^{n−1}M for n≥1, 1≤i≤s.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Induct increasingly on n and decreasingly on i, with the auxiliary terminal case i=s+1.",
+        "For i=s+1 use J^nM=J·J^{n−1}M; for n=1 use Q_i⊆JM.",
+        "Write x∈Q_i∩J^nM as x=y+r_i z with y∈Q_i J^{n−1}M using the descending i induction. Then z belongs to (Q_i:r_i)∩J^{n−1}M; apply the colon equality and the increasing n induction.",
+        "At n=1 use the base case rather than referring to the n=0 colon identity."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/goto-yamagishi-colon",
+        "mathlib:Ideal.ofList"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Remark 3.10, second equality and proof",
+          "excerpt": "d-sequence",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "With the same hypotheses, Q_i ∩ J^nM = (r1,…,r{i−1})J^{n−1}M for n≥1, 1≤i≤s."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.goto_yamagishi_intersection",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Goto–Yamagishi power intersection"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2"
+      ],
+      "title": "Products of successive prefix ideals",
+      "kind": "definition",
+      "statement": "For an ordered list rs define I_s = product_{0≤i<s} Ideal.ofList(rs.take(i+1)). For 0≤s≤length rs this is exactly product_{i=1}^s (r1,…,ri). I_0 is the unit ideal; I_s is not the s-th power of the whole prefix ideal. The definition is total for all natural s but uses with s beyond the length are not part of the theorem.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Take a finite product of the native prefix ideals; the empty product is top."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.ofList"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Proposition 3.11, definition of I_j; proof of Theorem 3.14 corrected E7",
+          "excerpt": "I",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "The empty-stage product is the unit ideal.",
+        "I_2 for [a,b] equals (a)(a,b).",
+        "For R=Z and rs=[2,3], I_2=(2) while (2,3)^2=Z, so these ideals differ.",
+        "A zero first term makes every positive prefix product zero, even when later terms generate the unit ideal."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.prefix_product",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Kawasaki’s prefix-product ideals"
+      },
+      "uses": [
+        {
+          "where": "Proposition 3.11(ii),(iii)",
+          "how": "The actual product powers govern torsion and regularity."
+        },
+        {
+          "where": "Theorem 3.14",
+          "how": "The recurrence supplies the iterated blowing-up centre."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Kawasaki.prefix_product_zero",
+          "role": "simp",
+          "statement": "I_0=1."
+        },
+        {
+          "name": "TauCeti.Kawasaki.prefix_product_succ",
+          "role": "relation",
+          "statement": "I_{s+1}=I_s·(r1,…,r{s+1})."
+        },
+        {
+          "name": "TauCeti.Kawasaki.prefix_product_one",
+          "role": "simp",
+          "statement": "I_1=(r1) for a nonempty list."
+        },
+        {
+          "name": "TauCeti.Kawasaki.prefix_product_take",
+          "role": "compatibility",
+          "statement": "For s≤length rs, computing I_s from rs.take s gives the same ideal."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Kawasaki.prefix_product_empty_test",
+          "kind": "degenerate",
+          "statement": "The empty-stage product is the unit ideal."
+        },
+        {
+          "name": "TauCeti.Kawasaki.prefix_product_two_test",
+          "kind": "computation",
+          "statement": "I_2 for [a,b] equals (a)(a,b)."
+        },
+        {
+          "name": "TauCeti.Kawasaki.prefix_product_wrong_power",
+          "kind": "non-example",
+          "statement": "For R=Z and rs=[2,3], I_2=(2) while (2,3)^2=Z, so these ideals differ."
+        },
+        {
+          "name": "TauCeti.Kawasaki.prefix_product_zero_first",
+          "kind": "computation",
+          "statement": "A zero first term makes every positive prefix product zero, even when later terms generate the unit ideal."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product-zero",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2"
+      ],
+      "title": "prefix_product_zero",
+      "kind": "lemma",
+      "statement": "I_0=1.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; I_0=1."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Proposition 3.11, definition of I_j; proof of Theorem 3.14 corrected E7",
+          "excerpt": "I",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "I_0=1."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.prefix_product_zero",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product-succ",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2"
+      ],
+      "title": "prefix_product_succ",
+      "kind": "lemma",
+      "statement": "I_{s+1}=I_s·(r1,…,r{s+1}).",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; I_{s+1}=I_s·(r1,…,r{s+1})."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Proposition 3.11, definition of I_j; proof of Theorem 3.14 corrected E7",
+          "excerpt": "I",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "I_{s+1}=I_s·(r1,…,r{s+1})."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.prefix_product_succ",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product-one",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2"
+      ],
+      "title": "prefix_product_one",
+      "kind": "lemma",
+      "statement": "I_1=(r1) for a nonempty list.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; I_1=(r1) for a nonempty list."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Proposition 3.11, definition of I_j; proof of Theorem 3.14 corrected E7",
+          "excerpt": "I",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "I_1=(r1) for a nonempty list."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.prefix_product_one",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product-take",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2"
+      ],
+      "title": "prefix_product_take",
+      "kind": "lemma",
+      "statement": "For s≤length rs, computing I_s from rs.take s gives the same ideal.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; For s≤length rs, computing I_s from rs.take s gives the same ideal."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Proposition 3.11, definition of I_j; proof of Theorem 3.14 corrected E7",
+          "excerpt": "I",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For s≤length rs, computing I_s from rs.take s gives the same ideal."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.prefix_product_take",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2"
+      ],
+      "title": "Reversed prefixes after auxiliary secant quotients",
+      "kind": "theorem",
+      "statement": "Let r1,…,rt be CM-secant for M and 0≤s≤t. Let a1,…,au∈m be secant for M/(r1,…,rs)M, and set M′=M/(a1,…,au)M. Then rs,…,r1 is a d-sequence for M′. The reversal and the ambient module quotient are essential.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the corrected module form of Kawasaki Proposition 3.11(i).",
+        "The reduction through Kaw00 2.9, 2.10, 3.1 and Kaw02 3.6 is a source gap, not an opaque baseline fact."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant",
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Proposition 3.11(i)",
+          "excerpt": "I",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "With no auxiliary parameters, the theorem still produces the reversed selected prefix on the original M; it does not assert unreversed d-regularity."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.kawasaki_reversed_dseq",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Kawasaki’s reversed d-sequences"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-torsion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2"
+      ],
+      "title": "Torsion in prefix-product-power quotients",
+      "kind": "theorem",
+      "statement": "With r, s, auxiliary a and M′ as above, for s≥2 and m,n>0, the r_s^m-torsion of M′/I_{s−1}^nM′ equals its (r1,…,rs)-torsion. Powers and auxiliary secant hypotheses are retained.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply Proposition 3.11(ii); its cited primary induction remains a source gap."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Proposition 3.11(ii)",
+          "excerpt": "I",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "The test of the clause retains s≥2 and both m,n positive; its torsion ideal is the full selected prefix, not only the previous prefix."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.kawasaki_torsion",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Kawasaki’s torsion identity"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2"
+      ],
+      "title": "Lifting the last auxiliary regular element",
+      "kind": "theorem",
+      "statement": "For a nonempty auxiliary secant list a1,…,au on M/(r1,…,rs)M, put M′=M/(a1,…,a{u−1})M. If a_u is regular on M′/(r1,…,rs)M′, then a_u is regular on M′ and on M′/I_s^nM′ for every n>0. The element is a_u, not r_u (E6).",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the corrected Proposition 3.11(iii) and the injectivity, not properness, part of regularity.",
+        "Track the auxiliary quotient before its last term; do not replace it by the quotient by all a terms."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-torsion",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "mathlib:IsSMulRegular"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Proposition 3.11(iii), corrected E6",
+          "excerpt": "I",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For a one-term auxiliary list [a], the conclusion concerns regularity of a on M and the product-power quotients, not the first original parameter."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.kawasaki_aux_regular",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Kawasaki’s regularity lifting"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-robustness",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2"
+      ],
+      "title": "Robustness under auxiliary secant quotients",
+      "kind": "theorem",
+      "statement": "For a selected prefix of a CM-secant sequence, conditions (i),(ii),(iii) of Proposition 3.11 continue to hold after quotienting M by an auxiliary secant sequence on its terminal prefix quotient. This preserves the three conditions, not a blanket assertion that every prefix is CM-secant.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Concatenate any further auxiliary secant list with the one already divided out.",
+        "Apply each of the three preceding clauses to the concatenated list and use canonical quotient-by-sum equivalences from R03.3."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-torsion",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Remark 3.12",
+          "excerpt": "I",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For a selected prefix of a CM-secant sequence, conditions (i),(ii),(iii) of Proposition 3.11 continue to hold after quotienting M by an auxiliary secant sequence on its terminal prefix quotient. This preserves the three conditions, not a blanket assertion that every prefix is CM-secant."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.kawasaki_robustness",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "The graded Rees module",
+      "kind": "construction",
+      "statement": "For an ideal I and arbitrary R-module M, the Rees module is the native polynomial-module submodule whose coefficient of degree n belongs to I^nM. It is a module over the existing reesAlgebra I by convolution. Its degree n is I^nM, including degree zero M; it is not M tensored with the Rees algebra, which can carry extra torsion.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Use PolynomialModule R M as ambient carrier and restrict scalar action from R[X] to reesAlgebra I.",
+        "Define coefficientwise membership and prove closure using PolynomialModule.smul_apply, the ideal-power convolution and finite sums."
+      ],
+      "prerequisites": [
+        "mathlib:PolynomialModule",
+        "mathlib:PolynomialModule.smul_apply",
+        "mathlib:reesAlgebra",
+        "mathlib:Submodule.smul_mem_smul",
+        "mathlib:Submodule.mul_smul",
+        "mathlib:PolynomialModule.coeff_add",
+        "mathlib:PolynomialModule.coeff_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13, the graded module ⊕ I^nM",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Every singleton in degree zero belongs, even for I=0.",
+        "For R=M=Z and I=0, the singleton 1 in degree one does not belong.",
+        "For unit ideal the carrier is the entire polynomial module.",
+        "For I=(2) in Z and M=Z/2, the degree-one singleton 1 is excluded although tensoring M with the polynomial Rees algebra would retain a degree-one generator."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.rees_module",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Rees modules"
+      },
+      "uses": [
+        {
+          "where": "§3.13",
+          "how": "Sheafification over Proj gives the module blowing-up."
+        },
+        {
+          "where": "Theorem 3.14, regular-terminal-element reduction",
+          "how": "Comparison with the quotient graded module has a degreewise snake-lemma kernel."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Kawasaki.rees_module_mem",
+          "role": "characterisation",
+          "statement": "Membership is coefficientwise membership in the actual powers I^nM."
+        },
+        {
+          "name": "TauCeti.Kawasaki.rees_module_single",
+          "role": "constructor",
+          "statement": "A degree-n singleton belongs iff its coefficient belongs to I^nM."
+        },
+        {
+          "name": "TauCeti.Kawasaki.rees_module_unit",
+          "role": "simp",
+          "statement": "For I=1 the Rees module is the whole polynomial module."
+        },
+        {
+          "name": "TauCeti.Kawasaki.rees_module_zero_ideal",
+          "role": "simp",
+          "statement": "For I=0 only degree-zero coefficients may be nonzero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Kawasaki.rees_module_degree_zero",
+          "kind": "computation",
+          "statement": "Every singleton in degree zero belongs, even for I=0."
+        },
+        {
+          "name": "TauCeti.Kawasaki.rees_module_zero_ideal_nonexample",
+          "kind": "non-example",
+          "statement": "For R=M=Z and I=0, the singleton 1 in degree one does not belong."
+        },
+        {
+          "name": "TauCeti.Kawasaki.rees_module_unit_test",
+          "kind": "degenerate",
+          "statement": "For unit ideal the carrier is the entire polynomial module."
+        },
+        {
+          "name": "TauCeti.Kawasaki.rees_module_torsion_test",
+          "kind": "non-example",
+          "statement": "For I=(2) in Z and M=Z/2, the degree-one singleton 1 is excluded although tensoring M with the polynomial Rees algebra would retain a degree-one generator."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module-mem",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "rees_module_mem",
+      "kind": "lemma",
+      "statement": "Membership is coefficientwise membership in the actual powers I^nM.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; Membership is coefficientwise membership in the actual powers I^nM."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13, the graded module ⊕ I^nM",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Membership is coefficientwise membership in the actual powers I^nM."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.rees_module_mem",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module-single",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "rees_module_single",
+      "kind": "lemma",
+      "statement": "A degree-n singleton belongs iff its coefficient belongs to I^nM.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; A degree-n singleton belongs iff its coefficient belongs to I^nM."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13, the graded module ⊕ I^nM",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "A degree-n singleton belongs iff its coefficient belongs to I^nM."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.rees_module_single",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module-unit",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "rees_module_unit",
+      "kind": "lemma",
+      "statement": "For I=1 the Rees module is the whole polynomial module.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; For I=1 the Rees module is the whole polynomial module."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13, the graded module ⊕ I^nM",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For I=1 the Rees module is the whole polynomial module."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.rees_module_unit",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module-zero-ideal",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "rees_module_zero_ideal",
+      "kind": "lemma",
+      "statement": "For I=0 only degree-zero coefficients may be nonzero.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; For I=0 only degree-zero coefficients may be nonzero."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13, the graded module ⊕ I^nM",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For I=0 only degree-zero coefficients may be nonzero."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.rees_module_zero_ideal",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "Blowing up a module",
+      "kind": "construction",
+      "statement": "For finite M over Noetherian R and ideal I, Bl_I(M) is the sheaf on Bl_I(R)=Proj(Rees_R(I)) associated to the graded Rees module ⊕I^nM. On the i-chart for i∈I, its module is the R_(i)-submodule of M[1/i] generated by the image of M, where R_(i)⊂R[1/i] is the imported blow-up chart. It is the image construction, not the full tensor product.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Import the actual relative Proj, blowup scheme and affine chart carriers from StableReduction Layer 4.",
+        "Sheafify the graded Rees module by degree-zero homogeneous localization and glue via the imported Proj chart overlap maps.",
+        "Identify the localized graded module with the submodule generated by the image of M in M[1/i]."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "AdicCoefficientsAndComparisons:L5"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For I=R, Bl_I(R)=Spec R and Bl_I(M) is the ordinary affine sheaf associated to M.",
+        "For a principal ideal (r), Bl_(r)(M) is the sheaf of M/M⟨r^∞⟩ on the principal blowup scheme; do not assert M is unchanged when r is a zero divisor.",
+        "For R=Z, I=(2), M=Z/2, the module blowing-up is zero on Bl_(2)(Z)=Spec Z, while the ordinary pullback of M is nonzero."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_blowup",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Blowing up a module"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate.",
+      "uses": [
+        {
+          "where": "Theorem 3.14",
+          "how": "The final theorem concerns this actual coherent sheaf."
+        },
+        {
+          "where": "§3.13",
+          "how": "The image chart proves the strict-transform comparison and exceptional torsion control."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Kawasaki.module_blowup_chart",
+          "role": "data",
+          "statement": "On the imported i-chart, sections are the submodule M_(i) of M[1/i] generated by M over R_(i)."
+        },
+        {
+          "name": "TauCeti.Kawasaki.module_blowup_off_center",
+          "role": "compatibility",
+          "statement": "Restriction over Spec R minus V(I) is canonically the original sheaf of M."
+        },
+        {
+          "name": "TauCeti.Kawasaki.module_blowup_map",
+          "role": "functoriality",
+          "statement": "Every R-linear map M→N induces Bl_I(M)→Bl_I(N) by its actual maps on the Rees-module coefficients."
+        },
+        {
+          "name": "TauCeti.Kawasaki.module_blowup_map_id",
+          "role": "simp",
+          "statement": "The induced blowing-up map of the identity M→M is the identity sheaf morphism."
+        },
+        {
+          "name": "TauCeti.Kawasaki.module_blowup_map_comp",
+          "role": "functoriality",
+          "statement": "For R-linear maps f:M→N and g:N→P, the blowing-up map of g composed with f equals the composite of their sheaf maps."
+        },
+        {
+          "name": "TauCeti.Kawasaki.module_blowup_zero",
+          "role": "simp",
+          "statement": "Bl_I(0) is the zero sheaf on Bl_I(R)."
+        },
+        {
+          "name": "TauCeti.Kawasaki.module_blowup_self",
+          "role": "compatibility",
+          "statement": "Bl_I(R), as a module blowing-up of R itself, is the structure sheaf of the blowup scheme."
+        },
+        {
+          "name": "TauCeti.Kawasaki.module_blowup_chart_surjection",
+          "role": "projection",
+          "statement": "The natural tensor pullback M⊗_R R_(i)→M_(i) is surjective, with kernel supported on the exceptional divisor."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Kawasaki.module_blowup_unit",
+          "kind": "degenerate",
+          "statement": "For I=R, Bl_I(R)=Spec R and Bl_I(M) is the ordinary affine sheaf associated to M."
+        },
+        {
+          "name": "TauCeti.Kawasaki.module_blowup_principal",
+          "kind": "compatibility",
+          "statement": "For a principal ideal (r), Bl_(r)(M) is the sheaf of M/M⟨r^∞⟩ on the principal blowup scheme; do not assert M is unchanged when r is a zero divisor."
+        },
+        {
+          "name": "TauCeti.Kawasaki.module_blowup_zmod_two",
+          "kind": "non-example",
+          "statement": "For R=Z, I=(2), M=Z/2, the module blowing-up is zero on Bl_(2)(Z)=Spec Z, while the ordinary pullback of M is nonzero."
+        }
+      ],
+      "untypedTests": [
+        "TauCeti.Kawasaki.module_blowup_unit",
+        "TauCeti.Kawasaki.module_blowup_principal",
+        "TauCeti.Kawasaki.module_blowup_zmod_two"
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "module_blowup_chart",
+      "kind": "lemma",
+      "statement": "On the imported i-chart, sections are the submodule M_(i) of M[1/i] generated by M over R_(i).",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; On the imported i-chart, sections are the submodule M_(i) of M[1/i] generated by M over R_(i)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "On the imported i-chart, sections are the submodule M_(i) of M[1/i] generated by M over R_(i)."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_blowup_chart",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-off-center",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "module_blowup_off_center",
+      "kind": "lemma",
+      "statement": "Restriction over Spec R minus V(I) is canonically the original sheaf of M.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; Restriction over Spec R minus V(I) is canonically the original sheaf of M."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Restriction over Spec R minus V(I) is canonically the original sheaf of M."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_blowup_off_center",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "module_blowup_map",
+      "kind": "lemma",
+      "statement": "Every R-linear map M→N induces Bl_I(M)→Bl_I(N) by its actual maps on the Rees-module coefficients.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; Every R-linear map M→N induces Bl_I(M)→Bl_I(N) by its actual maps on the Rees-module coefficients."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Every R-linear map M→N induces Bl_I(M)→Bl_I(N) by its actual maps on the Rees-module coefficients."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_blowup_map",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-id",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "module_blowup_map_id",
+      "kind": "lemma",
+      "statement": "The induced blowing-up map of the identity M→M is the identity sheaf morphism.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; The induced blowing-up map of the identity M→M is the identity sheaf morphism."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "The induced blowing-up map of the identity M→M is the identity sheaf morphism."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_blowup_map_id",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-comp",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "module_blowup_map_comp",
+      "kind": "lemma",
+      "statement": "For R-linear maps f:M→N and g:N→P, the blowing-up map of g composed with f equals the composite of their sheaf maps.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; For R-linear maps f:M→N and g:N→P, the blowing-up map of g composed with f equals the composite of their sheaf maps."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For R-linear maps f:M→N and g:N→P, the blowing-up map of g composed with f equals the composite of their sheaf maps."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_blowup_map_comp",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-zero",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "module_blowup_zero",
+      "kind": "lemma",
+      "statement": "Bl_I(0) is the zero sheaf on Bl_I(R).",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; Bl_I(0) is the zero sheaf on Bl_I(R)."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Bl_I(0) is the zero sheaf on Bl_I(R)."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_blowup_zero",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-self",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "module_blowup_self",
+      "kind": "lemma",
+      "statement": "Bl_I(R), as a module blowing-up of R itself, is the structure sheaf of the blowup scheme.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; Bl_I(R), as a module blowing-up of R itself, is the structure sheaf of the blowup scheme."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Bl_I(R), as a module blowing-up of R itself, is the structure sheaf of the blowup scheme."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_blowup_self",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart-surjection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "module_blowup_chart_surjection",
+      "kind": "lemma",
+      "statement": "The natural tensor pullback M⊗_R R_(i)→M_(i) is surjective, with kernel supported on the exceptional divisor.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the defining formula and the indicated prerequisites; The natural tensor pullback M⊗_R R_(i)→M_(i) is surjective, with kernel supported on the exceptional divisor."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "The natural tensor pullback M⊗_R R_(i)→M_(i) is surjective, with kernel supported on the exceptional divisor."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_blowup_chart_surjection",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-strict-transform",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "Comparison with Raynaud–Gruson strict transform",
+      "kind": "comparison",
+      "statement": "Under the identification of the imported scheme blowup, Bl_I(M) is canonically the Raynaud–Gruson strict transform: quotient of the pullback sheaf by sections supported on the exceptional divisor. On each chart this is the map to the image submodule in M[1/i].",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the chart surjection and identify its kernel with sections killed by some power of the exceptional generator.",
+        "Glue the resulting chart isomorphisms and compare with the L5 module strict-transform definition."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart-surjection",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "AdicCoefficientsAndComparisons:L5"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For R=Z, I=(2), M=Z/2, both sides are zero while the unreduced pullback is nonzero."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_strict_transform",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-two-ideal",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "Two-ideal module blowing-up identity",
+      "kind": "theorem",
+      "statement": "For ideals I,J in Noetherian R, over the imported scheme isomorphism Bl_IJ(R)≅Bl_I(Bl_J(R)), the corresponding module Bl_IJ(M) is canonically the iterated module blowing-up Bl_I(Bl_J(M)). The second centre is the pulled-back ideal, and the isomorphism is tracked on the actual charts.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Import the scheme two-ideal identity from StableReduction Layer 4, not as a new scheme theorem here.",
+        "Identify the module images after the successive homogeneous localizations with the direct IJ-chart image in M[1/(ij)].",
+        "Glue these module identifications over the scheme isomorphism."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "AdicCoefficientsAndComparisons:L5"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13, final paragraph",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For ideals I,J in Noetherian R, over the imported scheme isomorphism Bl_IJ(R)≅Bl_I(Bl_J(R)), the corresponding module Bl_IJ(M) is canonically the iterated module blowing-up Bl_I(Bl_J(M)). The second centre is the pulled-back ideal, and the isomorphism is tracked on the actual charts."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_two_ideal",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "Support of a module blowing-up",
+      "kind": "comparison",
+      "statement": "For finite M and A=R/Ann_R M, the support of Bl_I(M) is the closed blowup Bl_{IA}(Spec A) inside Bl_I(Spec R). This is the scheme-support comparison required before applying the Rees dimension argument.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Use imported finite-module support and strict-transform support comparison (Stacks 080E as cited by accepted item 86).",
+        "Check the actual closed immersion and support topology, rather than only an abstract ring quotient."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "AdicCoefficientsAndComparisons:L5",
+        "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Theorem 3.14 dimension reduction; accepted extraction item 86",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For finite M and A=R/Ann_R M, the support of Bl_I(M) is the closed blowup Bl_{IA}(Spec A) inside Bl_I(Spec R). This is the scheme-support comparison required before applying the Rees dimension argument."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.blowup_support",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-dimension-bound",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "Dimension of the Rees algebra",
+      "kind": "lemma",
+      "statement": "For a finite-dimensional Noetherian ring A and ideal J, dim A[Jt]≤dim A+1. Reduction to minimal primes and a finitely generated domain algebra of transcendence degree at most one gives the inequality. No equality is asserted for J=0.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Read the precise HIO 12.14 statement and supply the dimension inequality for finite-type domain extensions over a general Noetherian base.",
+        "This is a named missing input; a field-only transcendence-degree theorem is not sufficient."
+      ],
+      "prerequisites": [
+        "mathlib:reesAlgebra.fg",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Accepted extraction item 86, HIO88 12.14 cited there",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For J=0 the Rees ring is A itself, and only the inequality is asserted."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.rees_dimension_bound",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/proj-prime-chain",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "Appending the irrelevant homogeneous prime",
+      "kind": "lemma",
+      "statement": "For S=A[Jt], every chain of homogeneous primes corresponding to points of Proj S can be enlarged by the homogeneous prime (P_last∩A)⊕S_+. Hence dim Proj S≤dim S−1 whenever Proj S is nonempty; for empty Proj use dimension bottom.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Use the imported Proj homogeneous-prime model.",
+        "The appended prime contains S_+, so it is strictly above the last prime, which does not contain S_+."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Accepted extraction item 86",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For a unit centre S=A[t], Proj S=Spec A and the homogeneous-prime chain is extended by its irrelevant prime."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.proj_prime_chain",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support-dimension",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "Dimension bound for the blowing-up support",
+      "kind": "theorem",
+      "statement": "For finite M over Noetherian local R, dim Supp Bl_I(M)≤dim Supp M, including the zero-module empty-support case. Apply the Rees bound to A=R/Ann M and the projective prime-chain bound to the support blowup.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply support identification with Bl_{IA}(Spec A).",
+        "Combine dim Proj A[IAt]≤dim A[IAt]−1≤dim A.",
+        "Use the existing supportDim quotient-annihilator identity; handle empty support separately."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-dimension-bound",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/proj-prime-chain",
+        "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Accepted extraction item 86",
+          "excerpt": "blowing",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For the unit ideal the support-dimension inequality is equality; for the zero module both sides have empty-support dimension bottom."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.blowup_support_dimension",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Dimension bound for module blowing-ups"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K4/regular-terminal-quotient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4"
+      ],
+      "title": "Regular terminal-element reduction",
+      "kind": "lemma",
+      "statement": "Assume the weaker hypothesis of Theorem 3.14: every initial prefix satisfies Proposition 3.11(i)–(iii), and the final quotient is CM. If its dimension is positive, choose r′∈m regular on it. Then r′ is regular on M and on M/I_s^nM for every s and n>0, and Bl_{I_s}(M)/r′ equals Bl_{I_s}(M/r′M) under the imported scheme base-change identification.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply corrected Proposition 3.11(iii) with the one-element auxiliary list [r′].",
+        "The degreewise comparison I_s^nM/r′I_s^nM→I_s^n(M/r′M) is an isomorphism by the multiplication snake lemma and regularity on M/I_s^nM.",
+        "Sheafify the actual graded comparison; use robustness for the quotient and descend the induction by a regular element."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-robustness",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Theorem 3.14, first reduction",
+          "excerpt": "Cohen–Macaulay",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "Assume the weaker hypothesis of Theorem 3.14: every initial prefix satisfies Proposition 3.11(i)–(iii), and the final quotient is CM. If its dimension is positive, choose r′∈m regular on it. Then r′ is regular on M and on M/I_s^nM for every s and n>0, and Bl_{I_s}(M)/r′ equals Bl_{I_s}(M/r′M) under the imported scheme base-change identification."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.regular_terminal_quotient",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K4/principal-stage",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4"
+      ],
+      "title": "The empty and principal blowing-up stages",
+      "kind": "lemma",
+      "statement": "In Theorem 3.14’s dimension-zero-terminal reduction, the s=0 stage has unit ideal and is the original module, and the s=1 stage has Bl_(r1)(M)=M/M⟨r1^∞⟩ with r1 regular on this quotient. These are the base cases for the depth induction.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Use the unit and principal chart comparisons for module blowing-ups.",
+        "Use the imported local-cohomology depth criterion and principal torsion quotient."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product-zero",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Theorem 3.14, s=0 and s=1 cases",
+          "excerpt": "Cohen–Macaulay",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "In Theorem 3.14’s dimension-zero-terminal reduction, the s=0 stage has unit ideal and is the original module, and the s=1 stage has Bl_(r1)(M)=M/M⟨r1^∞⟩ with r1 regular on this quotient. These are the base cases for the depth induction."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.principal_stage",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K4/two-generator-chart",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4"
+      ],
+      "title": "The two-generator chart presentation",
+      "kind": "lemma",
+      "statement": "For s≥2, at a point of the previous prefix-product blowing-up choose a generator r_i of the previous prefix ideal. It is regular on the local chart ring R′ and module M′. For {a,b}={i,s}, the current chart module at a closed point is (M′⊗R′[T])/(r_bT−r_a), divided by r_b-power torsion and localized at (m′,f), where f is a monic lift of the residual closed-point polynomial.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Use the scheme chart presentation from SR Layer 4 for a two-generated ideal and the corresponding module image chart.",
+        "Identify the actual polynomial relation r_bT−r_a and track the saturation quotient.",
+        "Use the support-dimension bound and imported local cohomology to reduce CM to the required chart-depth lower bound."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-two-ideal",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support-dimension",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Theorem 3.14, (3.14.1)–(3.14.8)",
+          "excerpt": "Cohen–Macaulay",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For s≥2, at a point of the previous prefix-product blowing-up choose a generator r_i of the previous prefix ideal. It is regular on the local chart ring R′ and module M′. For {a,b}={i,s}, the current chart module at a closed point is (M′⊗R′[T])/(r_bT−r_a), divided by r_b-power torsion and localized at (m′,f), where f is a monic lift of the residual closed-point polynomial."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.two_generator_chart",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-annihilation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4"
+      ],
+      "title": "The first local-cohomology claim",
+      "kind": "theorem",
+      "statement": "In the inductive setup of Theorem 3.14, with local previous-stage chart (R′,M′), r_i and r_s both kill H^1_{(r_i,r_s)}(R′,M′).",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "The reversed d-sequence gives regularity of r_s on the relevant positive-degree localized graded modules.",
+        "Compute principal local cohomology by the directed system M′/r_s^mM′ with transitions multiplication by r_s.",
+        "Use the exact degreewise comparison (3.14.13), whose kernel is (I_{s−1}^nM:r_s^m)/(I_{s−1}^nM+(0:r_s^m)); Kawasaki(ii) implies both selected elements kill this kernel.",
+        "Pass through homogeneous localization and the relevant colimit. The exact comparison and the colimit maps still require separate proof-leaf signatures."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-torsion",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Claim 3.14.5 and (3.14.13)",
+          "excerpt": "Cohen–Macaulay",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "In the inductive setup of Theorem 3.14, with local previous-stage chart (R′,M′), r_i and r_s both kill H^1_{(r_i,r_s)}(R′,M′)."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.claim_annihilation",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Kawasaki’s annihilation claim"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-vanishing",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4"
+      ],
+      "title": "The second local-cohomology claim",
+      "kind": "theorem",
+      "statement": "In the same setup, H^j_{m′}(R′,H^{j′}_{(r_i,r_s)}(R′,M′))=0 for j<s−2 and every j′. In a natural-degree formulation, only j′=1,2 remain: degree zero vanishes by regularity of r_i and degrees above two vanish by the two-generator Čech model.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Use the imported iterated local-cohomology spectral sequence and the inductive depth bound s−1.",
+        "For M/r_s^mM apply the robust inductive hypothesis and identify the kernel comparison in (3.14.15).",
+        "The double directed colimit in (3.14.16) vanishes for j<s−2, giving the two remaining rows. These comparison maps and filtration arguments remain explicit proof-refinement gaps."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-annihilation",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-robustness",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Claim 3.14.6 and (3.14.14)–(3.14.16)",
+          "excerpt": "Cohen–Macaulay",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "In the same setup, H^j_{m′}(R′,H^{j′}_{(r_i,r_s)}(R′,M′))=0 for j<s−2 and every j′. In a natural-degree formulation, only j′=1,2 remain: degree zero vanishes by regularity of r_i and degrees above two vanish by the two-generator Čech model."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.claim_vanishing",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Kawasaki’s vanishing claim"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K4/chart-polynomial-annihilation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4"
+      ],
+      "title": "The corrected chart relation kills cohomology",
+      "kind": "lemma",
+      "statement": "After polynomial flat base change in the two-generator chart setup, multiplication by the actual relation r_bT−r_a is zero on H^1_{(r_a,r_b)}(R′[T],M′⊗R′[T]). This is E8’s corrected relation used in the preceding exact sequence, even though the printed swapped relation also kills the module.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Apply the first claim to show both r_a and r_b act by zero.",
+        "Use imported flat base change for local cohomology and linearity of multiplication."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-annihilation",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/two-generator-chart",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Theorem 3.14, (3.14.10), corrected E8",
+          "excerpt": "Cohen–Macaulay",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "The map identified as zero is multiplication by r_bT−r_a, exactly the relation in the chart exact sequence."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.chart_polynomial_annihilation",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K4/chart-depth-induction",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4"
+      ],
+      "title": "Depth induction on prefix-product charts",
+      "kind": "lemma",
+      "statement": "With the weaker hypotheses and a zero-dimensional terminal quotient, for every 0≤s≤t, Bl_{I_s}(M) has depth at least s at its support points over the closed point. Together with the support-dimension bound and the source’s localization reduction, this proves the needed CM assertion.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Use empty/principal base cases and induction on s.",
+        "For s≥2 use the chart presentation and the two claims; the exact sequences (3.14.7),(3.14.9),(3.14.11) give the vanishing below s after the monic f step.",
+        "Use the imported local-cohomology depth criterion. The torsion-removal and monic-polynomial regularity arguments need separate proof leaves before closure."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/principal-stage",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/two-generator-chart",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-annihilation",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-vanishing",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/chart-polynomial-annihilation",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Theorem 3.14, induction and (3.14.1)–(3.14.11)",
+          "excerpt": "Cohen–Macaulay",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "With the weaker hypotheses and a zero-dimensional terminal quotient, for every 0≤s≤t, Bl_{I_s}(M) has depth at least s at its support points over the closed point. Together with the support-dimension bound and the source’s localization reduction, this proves the needed CM assertion."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.chart_depth_induction",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K4/weaker-hypothesis-cm-blowup",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4"
+      ],
+      "title": "CM blowing-ups under the weaker sequence hypotheses",
+      "kind": "theorem",
+      "statement": "Let finite M over Noetherian local (R,m) and an ordered list r1,…,rt∈m have CM terminal quotient. Suppose every initial subsequence satisfies all three conditions of Proposition 3.11, with their auxiliary secant quantifiers, reversed d-sequence and corrected last auxiliary element. Then Bl_{I_t}(M) is CM on Bl_{I_t}(R), where I_t is the product of successive prefix ideals.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Reduce terminal dimension by regular elements and use the graded quotient comparison.",
+        "For zero-dimensional terminal quotient apply the chart-depth induction and support-dimension bound.",
+        "Apply the support-restricted CM convention, including the zero sheaf."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/regular-terminal-quotient",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/chart-depth-induction",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support-dimension",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Theorem 3.14, proof’s explicitly weaker hypothesis",
+          "excerpt": "Cohen–Macaulay",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "The implication uses all three conditions for every initial prefix, including their auxiliary lists; it does not assume those prefixes are CM-secant."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.weaker_hypothesis_cm_blowup",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Kawasaki’s weaker-hypothesis theorem"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K4/kawasaki-cm-blowup",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4"
+      ],
+      "title": "Kawasaki’s Cohen–Macaulay blowing-up theorem",
+      "kind": "theorem",
+      "statement": "For a finite module M over a Noetherian local ring (R,m) and CM-secant r1,…,rt∈m, set I=product_{i=1}^t(r1,…,ri). Then Bl_I(M) is a Cohen–Macaulay module on Bl_I(R). This includes the empty sequence, when M itself is CM and I=1; zero M gives the zero sheaf.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Obtain each of the three prefix conditions from Proposition 3.11.",
+        "Apply the weaker-hypothesis theorem to the actual Rees-module blowing-up, not a sheaf with an assumed CM field."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-torsion",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/weaker-hypothesis-cm-blowup"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "Theorem 3.14",
+          "excerpt": "Cohen–Macaulay",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "For R=M=k[[t]] and the one-term CM-secant list [t], the module blowing-up is unchanged and CM; for empty rs the ideal is the unit ideal."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.kawasaki_cm_blowup",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "planet": {
+        "name": "Kawasaki’s Cohen–Macaulay blowing-ups"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K4/arbitrary-blowup-nonexample",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4"
+      ],
+      "title": "A CM ring whose maximal-ideal blowing-up is not CM",
+      "kind": "application",
+      "statement": "There exists a Noetherian local Cohen–Macaulay ring whose blowing-up at its maximal ideal is not Cohen–Macaulay. The statement is the warning cited at the start of §3; a concrete ring, charts and failing depth witness from HIO88 14.11 are not yet supplied.",
+      "hypotheses": [
+        "For sequence results, R is a Noetherian local commutative ring with maximal ideal m and M is a finite R-module. d-sequences and Rees modules need only a commutative ring and an arbitrary module unless stated otherwise. Support dimension of the zero module is bottom, not zero."
+      ],
+      "proofSteps": [
+        "Read HIO88 14.11 or a verifiable primary substitute and record its explicit construction.",
+        "Check the CM ring and exhibit a non-CM blowup chart; neither part is inferred merely from the existence sentence in Česnavičius."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3 opening paragraph, HIO88 14.11",
+          "excerpt": "Cohen–Macaulay",
+          "match": "The precise statement and use at this locator; corrections E4–E8 are applied where relevant."
+        }
+      ],
+      "acceptance": [
+        "A valid example must specify a ring, prove it is CM and give a non-CM blowup chart; the source existence sentence alone does not complete the test."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.arbitrary_blowup_nonexample",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "suggestedBoundary": "Mathematical target recorded; typed signature is an explicit unfinished obligation in this checkpoint, not an admitted proposition surrogate."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "need": "Secant sequences and systems of parameters of finite modules; depth/CM with zero and empty-support conventions; finite support dimension over Noetherian local rings; Nakayama and regular parameters; quotient-by-sum identifications; injective hull of the residue field; local-cohomology depth criterion, Čech models, long exact sequences, flat base change, filtered colimits and iterated local-cohomology spectral sequences. The parent description has only part of this scope: accepted CES21/André/Bhatt routes justify the extra ownership, but exact typed nodes are still requested.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-owner-comparison",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/schenzel-torsion-bound",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-extend-parameters",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/p-standard-reversal",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/matlis-annihilator",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-locus-annihilator",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/nonequidimensional-defect",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-torsion",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-robustness",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-dimension-bound",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/regular-terminal-quotient",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/principal-stage",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/two-generator-chart",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-annihilation",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-vanishing",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/chart-polynomial-annihilation",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/chart-depth-induction",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/weaker-hypothesis-cm-blowup",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/arbitrary-blowup-nonexample"
+      ]
+    },
+    {
+      "supplier": "AnalyticStacks:AS.1",
+      "need": "Normalized dualizing complexes for ordinary Noetherian local rings, coherent RHom cohomology, local duality with the residue-field injective hull, localization with coheight normalization shift and resulting catenarity. Accepted route correction assigns these to AS.1; its current stage description does not explicitly supply the ordinary-ring package. Request the exact finite-module forms, not the unrelated perverse-sheaf dualizing object.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-locus-annihilator",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/nonequidimensional-defect"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "need": "Actual Rees/relative-Proj blowup scheme, homogeneous affine charts and their overlap maps, two-ideal scheme identity, principal and unit centres, homogeneous-prime chains and support closed-immersion comparison. Import this existing upstream geometry without replanning it.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-off-center",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-id",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-comp",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-zero",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-self",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart-surjection",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-strict-transform",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-two-ideal",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/proj-prime-chain",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/regular-terminal-quotient",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/principal-stage",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/two-generator-chart",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/arbitrary-blowup-nonexample"
+      ]
+    },
+    {
+      "supplier": "AdicCoefficientsAndComparisons:L5",
+      "need": "Raynaud–Gruson strict transform of a finite module along a blowup, defined as pullback modulo exceptional-supported sections, together with chartwise kernel and support identification. L5 owns this flattening/strict-transform direction; exact module-level nodes are requested.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-strict-transform",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-two-ideal",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Schenzel primary proof leaves",
+      "detail": "Remark 3.3 quotes Sche82 2.4.2 and Remark 3.7 quotes 2.4.6. The Springer book was located but its text has not been read. Obtain the actual proofs, retain all module hypotheses, and split non-routine steps into declarations.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/schenzel-torsion-bound",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/nonequidimensional-defect"
+      ]
+    },
+    {
+      "title": "Kawasaki primary definition and induction",
+      "detail": "Kaw00 2.6, 2.9, 2.10, 3.1–3.3 and Kaw02 3.6 are cited by §3.11. The author publications page confirms bibliography but supplies no PDF of Kaw00. Read the A_ij–E_ij induction with the five corrections described in Česnavičius before declaring proof closure. NTC95 2.4 is the other p-standard definition source.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/p-standard-reversal",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-torsion",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular"
+      ]
+    },
+    {
+      "title": "Ordinary duality supplier scope and typed signatures",
+      "detail": "AS.1 is the accepted owner, but the currently visible stage description concerns coherent six-functor formalisms and does not provide typed ordinary-ring normalized dualizing complexes. Bind the annihilator and CM-locus comparisons to actual supplier objects; no arbitrary cohomology families or proposition fields stand in for them.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-locus-annihilator"
+      ]
+    },
+    {
+      "title": "Module blowing-up signature and its API tests",
+      "detail": "The actual SR4 blowup carrier and graded sheafification input are not yet available as typed declarations at the baseline. The module-blowup definition, eight promoted API items and three concrete tests remain mathematical statements in the suggested-file boundary section, not elaborated signatures. Implement those bindings once the supplier interface is known; a random Scheme plus an assumed CM field is not acceptable.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-strict-transform",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-two-ideal"
+      ]
+    },
+    {
+      "title": "Rees dimension source and explicit CM blowup counterexample",
+      "detail": "HIO88 12.14 and 14.11 have not been read. The accepted item 86 supplies the dimension outline but not a verified primary-proof decomposition. Read the finite-type dimension inequality over a Noetherian base and construct a concrete CM ring with a non-CM maximal-ideal blowup chart.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-dimension-bound",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/arbitrary-blowup-nonexample"
+      ]
+    },
+    {
+      "title": "Theorem 3.14 proof-leaf worklist",
+      "detail": "The entire proof has been read, but Claims 3.14.5 and 3.14.6 still aggregate the degreewise snake-lemma sequence (3.14.13), homogeneous-localization/colimit maps, kernel isomorphism (3.14.15), double-colimit vanishing (3.14.16), monic f regularity and torsion-removal exact sequences. Split and type each leaf, including degrees, shifts, maps and positivity bounds. Until then K4 is partial and no one-page closure claim is made.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/regular-terminal-quotient",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-annihilation",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-vanishing",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/chart-depth-induction"
+      ]
+    },
+    {
+      "title": "Unfinished supplier-dependent suggested signatures",
+      "detail": "This checkpoint elaborates only concrete native carrier signatures. Every other named target has its exact mathematical statement and name in the suggested boundary register, but still needs a typed signature and all omitted supplier conditions. This is why the packet is partial despite its target inventory.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-owner-comparison",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-extend-parameters",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support-dimension",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/kawasaki-cm-blowup"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
+      "status": "partial",
+      "remaining": [
+        "Read Sche82 2.4.2/2.4.6 and Kaw00 2.6 / NTC95 2.4.",
+        "Bind the R03.3 CM/secant and AS.1 duality comparisons to supplier definitions and elaborate their signatures."
+      ]
+    },
+    {
+      "stageId": "DeformationAndDerivedPatchingAlgebraPartII:K1",
+      "status": "planned",
+      "remaining": [
+        "Split the two inductions of the Goto–Yamagishi intersection proof into separately typed leaves if their implementation exceeds the source-size bound; typed statements and corrected colon condition are present."
+      ]
+    },
+    {
+      "stageId": "DeformationAndDerivedPatchingAlgebraPartII:K2",
+      "status": "partial",
+      "remaining": [
+        "Read and split the corrected Kaw00/Kaw02 induction; type auxiliary secant quantifiers and Proposition 3.11(i)–(iii) and robustness against the owner’s secant predicate."
+      ]
+    },
+    {
+      "stageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "status": "partial",
+      "remaining": [
+        "Bind module blowing-up, all eight API items and three tests to actual SR4/L5 carriers.",
+        "Read HIO88 12.14; type the support and projective-prime-chain comparisons."
+      ]
+    },
+    {
+      "stageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
+      "status": "partial",
+      "remaining": [
+        "Split (3.14.13),(3.14.15),(3.14.16), chart-depth and regular-element comparisons into the recorded proof leaves; type them and the final two theorems.",
+        "Read HIO88 14.11 and provide an explicit CM ring/non-CM chart counterexample."
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII/E4",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "§1.14 (Notation and conventions), first paragraph, the displayed Cohen–Macaulay condition (page 4; TeX l. 893) of the author's manuscript dated 28 July 2020; the same in arXiv:1810.04493v2",
+      "printed": "𝓜 is Cohen–Macaulay if it is (S_n) for every n, that is, if depth_{O_x}(𝓜_x) = dim(Supp(𝓜_x)) for all x ∈ X.",
+      "correction": "'… for all x ∈ Supp(𝓜)'.",
+      "reason": "For x ∉ Supp(𝓜) the stalk is 0, whose depth is +∞, while dim(Supp(𝓜_x)) = dim(∅) = −∞ by the convention just recalled; so the equality fails there although '(S_n) for every n' holds. Read literally, only modules with full support could be Cohen–Macaulay, which contradicts Definition 3.1(ii), where M/(r_1,…,r_s)M has proper support, and Remark 1.4, which states Supp(𝓜) = X as a separate hypothesis.",
+      "known": "new",
+      "searched": [
+        "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
+        "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
+        "the author's publications page, which lists the Duke reference and no corrigendum",
+        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-CESNAVICIUS-21",
+        "reason": "found by the review (checker of §§1–2); the coordinator checked the TeX (ll. 887–893)"
+      },
+      "inheritedFindingId": "PAPER-CESNAVICIUS-21/E4"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII/E5",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Remark 3.9 (page 12; TeX l. 1387) of the author's manuscript dated 28 July 2020; the same in arXiv:1810.04493v2",
+      "printed": "The definition implies that the r_i-torsion and the r_ir_{i'}-torsion submodules of M/(r_1,…,r_{i−1})M agree for every 1 ≤ i ≤ i' ≤ s",
+      "correction": "'the r_{i'}-torsion and the r_ir_{i'}-torsion submodules … agree', i.e. ((r_1,…,r_{i−1})M : r_ir_{i'}) = ((r_1,…,r_{i−1})M : r_{i'}), which is Huneke's condition.",
+      "reason": "The corrected form follows from Definition 3.8: if r_ir_{i'}x = 0 in M̄ := M/(r_1,…,r_{i−1})M then y := r_{i'}x ∈ 𝔯M̄ is r_i-torsion, so y = 0. The printed form fails: over R = k[[t,u]] take M = R/(u) ⊕ R and (r_1, r_2) = (t, u), a d-sequence for M (t is injective on 𝔯M = tk[[t]] ⊕ (t,u)R, and u on 𝔯(M/tM) = 0 ⊕ uk[[u]]); for i = 1, i' = 2 the t-torsion of M is 0 but its tu-torsion is R/(u) ⊕ 0, which is the u-torsion.",
+      "known": "new",
+      "searched": [
+        "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
+        "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
+        "the author's publications page, which lists the Duke reference and no corrigendum",
+        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-CESNAVICIUS-21",
+        "reason": "found by the review (checker of §§3–5); the coordinator re-checked the example by hand"
+      },
+      "inheritedFindingId": "PAPER-CESNAVICIUS-21/E5"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII/E6",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Proposition 3.11(iii) (page 13; TeX l. 1443) of the author's manuscript dated 28 July 2020; the same in arXiv:1810.04493v2",
+      "printed": "with M' := M/(r'_1,…,r'_{s'−1})M, if r_{s'} is (M'/(r_1,…,r_s)M')-regular, then it is M'-regular and (M'/I_s^nM')-regular for n > 0.",
+      "correction": "'if r'_{s'} is (M'/(r_1,…,r_s)M')-regular'.",
+      "reason": "s' indexes the auxiliary secant sequence, whose first s' − 1 terms define M'; the next term is r'_{s'}. As printed, for s' ≤ s the element r_{s'} kills M'/(r_1,…,r_s)M', and for s' > s̃ it is undefined. The proof of Theorem 3.14 applies (iii) with s' = 1, M' = M and an M̄-regular r' (TeX l. 1541).",
+      "known": "new",
+      "searched": [
+        "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
+        "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
+        "the author's publications page, which lists the Duke reference and no corrigendum",
+        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-CESNAVICIUS-21",
+        "reason": "found by the review (checker of §§3–5); the coordinator checked the TeX (ll. 1436–1443, 1540–1544)"
+      },
+      "inheritedFindingId": "PAPER-CESNAVICIUS-21/E6"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII/E7",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "The proof of Theorem 3.14, the definition of I_s (page 15; TeX l. 1550) of the author's manuscript dated 28 July 2020; the same in arXiv:1810.04493v2",
+      "printed": "I_s := ∏_{i=1}^s (r_1,…,r_s) for 0 ≤ s ≤ s̃",
+      "correction": "I_s := ∏_{i=1}^s (r_1,…,r_i)",
+      "reason": "Proposition 3.11 defines I_j := ∏_{i=1}^j (r_1,…,r_i) (TeX l. 1421) and the theorem's I is I_{s̃}; the proof needs I_{s̃} = I and uses Bl_{I_s}(R) ≅ Bl_{(r_1,…,r_s)}(Bl_{I_{s−1}}(R)) from §3.13, which needs I_s = (r_1,…,r_s)·I_{s−1}. The printed ideal is (r_1,…,r_s)^s, which satisfies neither.",
+      "known": "new",
+      "searched": [
+        "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
+        "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
+        "the author's publications page, which lists the Duke reference and no corrigendum",
+        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-CESNAVICIUS-21",
+        "reason": "found by the review (checker of §§3–5); the coordinator checked the TeX (ll. 1421, 1550)"
+      },
+      "inheritedFindingId": "PAPER-CESNAVICIUS-21/E7"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII/E8",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "The proof of Theorem 3.14, display (3.14.10) (page 16; TeX l. 1628) of the author's manuscript dated 28 July 2020; the same in arXiv:1810.04493v2",
+      "printed": "multiplication by r_aT − r_b is the zero map on H^1_{(r_a,r_b)}(R'[T], M' ⊗_{R'} R'[T])",
+      "correction": "'multiplication by r_bT − r_a'",
+      "reason": "The exact sequence (3.14.7) that the argument feeds into is multiplication by r_bT − r_a, and (3.14.11) uses r_bT − r_a. The printed statement is also true (by Claim 3.14.5 and (3.14.8) both r_a and r_b act by zero), so nothing is lost.",
+      "known": "new",
+      "searched": [
+        "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
+        "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
+        "the author's publications page, which lists the Duke reference and no corrigendum",
+        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-CESNAVICIUS-21",
+        "reason": "found by the review (checker of §§3–5); the coordinator checked the TeX (ll. 1612–1632)"
+      },
+      "inheritedFindingId": "PAPER-CESNAVICIUS-21/E8"
+    }
+  ],
+  "targetInventory": [
+    {
+      "item": "PAPER-CESNAVICIUS-21/34",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/36",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/schenzel-torsion-bound"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/37",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/p-standard-reversal",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-extend-parameters"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/40",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/41",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-locus-annihilator"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/42",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/nonequidimensional-defect"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/43",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/44",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-colon-iff"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/45",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/goto-yamagishi-colon",
+        "DeformationAndDerivedPatchingAlgebraPartII:K1/goto-yamagishi-intersection"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/46",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-torsion",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/47",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-robustness"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/48",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-strict-transform",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-two-ideal"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/49",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/kawasaki-cm-blowup",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-annihilation",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-vanishing"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/50",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/arbitrary-blowup-nonexample"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    },
+    {
+      "item": "PAPER-CESNAVICIUS-21/86",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support-dimension"
+      ],
+      "sourceRead": "CES21 §3; item 86 primary HIO proof is not read"
+    }
+  ],
+  "ownershipBoundary": {
+    "parent": "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "duality": "AnalyticStacks:AS.1",
+    "schemeBlowups": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+    "moduleStrictTransform": "AdicCoefficientsAndComparisons:L5",
+    "correction": "Accepted route.reason overrides the stale brief sentence assigning dualizing complexes to R03.3.",
+    "noDuplication": "Generic secant/depth/CM/local-cohomology calculus, dualizing objects, Rees algebras, derived categories and scheme blowups are imported rather than created as new nodes."
+  },
+  "baselineCoverage": {
+    "auditRead": "Full reviewed parent R03.3 row (AUDIT-17) from data/library-coverage.json; no integrated audit row for this new Part II exists.",
+    "search": "Both pinned source trees searched for CM-secant, d-sequence, CohenMacaulay, p-standard and module-blowup variants. Broad sequence hits were unrelated; no claim is made that textual absence proves nonexistence. The actual native declarations recorded in baseline were read.",
+    "drafts": "No integrated decomposition, expansion draft or external draft for this new id; no link entry mentions it. Reserved ids inspected; coherent-duality reservation in SchemeAndStackFoundations is a distinct geometric direction and is not a substitute for the accepted AS.1 ordinary-ring owner."
+  }
+}
