@@ -6,6 +6,11 @@ jet, matrix and polynomial-minor interfaces are suggested here; no proxy geometr
 carrier substitutes for projective sections or actual flat Hilbert families.
 The packet and handoff list exact omitted geometric signatures and proof gaps.
 Context abbreviations below reuse native carriers and do not define new objects.
+Independent review: cubic certificates establish existence/general configurations.
+The omitted differential Horace targets require the three induction hypotheses
+and successful Step2 residual setup. The overfilled argument uses only its
+selected independent partial trace, never the full remainder trace. These
+source-level geometric contracts are not implemented by this admitted file.
 -/
 import Mathlib.RingTheory.MvPolynomial.Basic
 import Mathlib.RingTheory.MvPolynomial.Homogeneous

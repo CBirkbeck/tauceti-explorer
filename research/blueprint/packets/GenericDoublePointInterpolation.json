@@ -21,168 +21,168 @@
         "kind": "declaration",
         "module": "Mathlib/RingTheory/MvPolynomial/Basic.lean",
         "provides": "Native submodule of polynomials of total degree at most d, with finite generation for a finite variable type.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.basisRestrictSupport",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/MvPolynomial/Basic.lean",
         "provides": "Native Basis indexed by admissible Finsupp exponents; use it rather than planning a replacement monomial basis.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.mem_restrictTotalDegree",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/MvPolynomial/Basic.lean",
         "provides": "Membership iff totalDegree≤d.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.monomial_mem_restrictSupport",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/MvPolynomial/Basic.lean",
         "provides": "Monomial membership iff exponent admissible or coefficient zero.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.pderiv",
         "kind": "declaration",
         "module": "Mathlib/Algebra/MvPolynomial/PDeriv.lean",
         "provides": "Native R-linear derivation for each variable.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.pderiv_monomial",
         "kind": "declaration",
         "module": "Mathlib/Algebra/MvPolynomial/PDeriv.lean",
         "provides": "Derivative coefficient a·α_j with exponent α−e_j; zero when α_j=0.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.pderiv_X",
         "kind": "declaration",
         "module": "Mathlib/Algebra/MvPolynomial/PDeriv.lean",
         "provides": "Derivative of a variable is the Kronecker delta.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.pderiv_mul",
         "kind": "declaration",
         "module": "Mathlib/Algebra/MvPolynomial/PDeriv.lean",
         "provides": "Leibniz identity for native multivariate derivatives.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.eval",
         "kind": "declaration",
         "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
         "provides": "Native ring homomorphism obtained by evaluation in R.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.aeval",
         "kind": "declaration",
         "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
         "provides": "Native algebra homomorphism into any commutative R-algebra.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.eval_monomial",
         "kind": "declaration",
         "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
         "provides": "Monomial evaluates to its coefficient times the finite product of coordinate powers.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.aeval_monomial",
         "kind": "declaration",
         "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
         "provides": "Algebra evaluation of a monomial with the canonical scalar map.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.homogeneousSubmodule",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
         "provides": "Native degree-d homogeneous submodule; variable type Option(Fin r) supplies the extra homogenizing coordinate.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.lcoeff",
         "kind": "declaration",
         "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
         "provides": "Native coefficient projection as a linear map, using the polynomial’s actual AddMonoidAlgebra.coeff accessor.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:Sym.equivNatSum",
         "kind": "declaration",
         "module": "Mathlib/Data/Finsupp/Multiset.lean",
         "provides": "Native equivalence from Sym α d to finitely supported exponent maps of total mass d; only the bounded slack-coordinate adapter is new.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:Sym.card_sym_eq_choose",
         "kind": "declaration",
         "module": "Mathlib/Data/Sym/Card.lean",
         "provides": "For finite α, card(Sym α d)=choose(card α+d−1,d); needs an explicit slack-coordinate bijection to the bounded exponent set.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:TrivSqZeroExt",
         "kind": "declaration",
         "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
         "provides": "Native algebra k⊕M, with square-zero multiplication on M.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:TrivSqZeroExt.inr_mul_inr",
         "kind": "declaration",
         "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
         "provides": "Product of two elements from M is zero, with stated left/right module hypotheses.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:Ideal.quotientInfRingEquivPiQuotient",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
         "provides": "Finite pairwise coprime ideals give the existing ring quotient/product equivalence. Upgrade k-linearity from evaluation on scalars.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:Matrix.rank_eq_finrank_range_toLin",
         "kind": "declaration",
         "module": "Mathlib/LinearAlgebra/Matrix/Rank.lean",
         "provides": "Native matrix rank equals finrank of the range of its linear map in any specified bases.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.eq_zero_of_eval_zero_at_prod_finset",
         "kind": "declaration",
         "module": "Mathlib/Combinatorics/Nullstellensatz.lean",
         "provides": "Finite variable type, domain, and degreeOf i<card(S i): zero on the box implies zero polynomial. Use the contrapositive.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:MvPolynomial.degreeOf_le_totalDegree",
         "kind": "declaration",
         "module": "Mathlib/Algebra/MvPolynomial/Degrees.lean",
         "provides": "Every per-variable degree is at most total degree.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:PrimeSpectrum.basicOpen",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
         "provides": "Actual open subset of the prime spectrum, complement of the zero locus of one element.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       },
       {
         "ref": "mathlib:PrimeSpectrum.mem_basicOpen",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
         "provides": "Membership iff that element is not in the prime ideal.",
-        "checked": "Actual declaration and ambient hypotheses read at pinned082e2d3, 2026-10-04; the declaration index is only an additional name check."
+        "checked": "Actual pinned declaration, full statement and ambient hypotheses independently read by REV-DESIGN-GenericDoublePointInterpolation on2026-10-04. The native statement supplies the cited routine baseline only, not the recorded geometric/adapter proof gaps."
       }
     ]
   },
@@ -194,7 +194,7 @@
       "edition": "arXiv:math/0701409v2, 10 September 2007",
       "url": "https://arxiv.org/pdf/math/0701409v2",
       "readSections": [
-        "Sections1–6, pp1–19, including all cubic and quartic inputs and the differential Horace proof; Section7 is outside this route"
+        "Sections1–6, printed pp1–19, independently read in full; additionally the opening univariate paragraph of §7.1 p19 only. Other historical/Waring material is outside this route."
       ],
       "accessed": "2026-10-04",
       "sha256": "7d3dd9e6268431f4be53740bbf57ebf46d9a76b13c3472d6911d7f6deb530aa7"
@@ -278,9 +278,9 @@
       ],
       "sources": [
         {
-          "sourceId": "BO",
-          "locator": "COU §3 p491",
-          "excerpt": "double points",
+          "sourceId": "COU",
+          "locator": "§3, printed p491, bounded polynomial dimension",
+          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -526,8 +526,8 @@
       "sources": [
         {
           "sourceId": "COU",
-          "locator": "COU §3 p493",
-          "excerpt": "well poised",
+          "locator": "§3, printed p493, monomial coefficient metric",
+          "excerpt": "orthonormal basis",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -736,9 +736,9 @@
       ],
       "sources": [
         {
-          "sourceId": "BO",
-          "locator": "COU §3 p491",
-          "excerpt": "double points",
+          "sourceId": "COU",
+          "locator": "§3, printed p491, distinct-point squared ideal decomposition",
+          "excerpt": "well poised",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -1926,7 +1926,7 @@
       "sources": [
         {
           "sourceId": "BO",
-          "locator": "§6 Theorem6.4 Steps3–4",
+          "locator": "§6 Theorem6.4, cases after Step3, printed pp17–19",
           "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
@@ -2079,7 +2079,7 @@
       "sources": [
         {
           "sourceId": "BO",
-          "locator": "§2 Terracini first lemma pp2–3",
+          "locator": "§2 Lemma2.2, printed pp3–4",
           "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
@@ -2118,7 +2118,7 @@
       "sources": [
         {
           "sourceId": "BO",
-          "locator": "§2 Terracini second lemma and Theorem2.4 pp3–5",
+          "locator": "§2 Lemma2.3 p5 and Theorem2.4 p6",
           "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
@@ -2156,7 +2156,7 @@
       "sources": [
         {
           "sourceId": "BO",
-          "locator": "§2 Theorem2.4 pp4–5",
+          "locator": "§2 Theorem2.4 proof, printed p6",
           "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
@@ -2194,7 +2194,7 @@
       "sources": [
         {
           "sourceId": "BO",
-          "locator": "§2 Theorem2.4 d=6",
+          "locator": "§2 Theorem2.4 proof, printed p6; authored sextic certificate replacement",
           "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
@@ -2334,7 +2334,7 @@
       ],
       "title": "Two-subspace cubic base certificates",
       "kind": "lemma",
-      "statement": "BO5.3 holds in r=5,7: two codimension3 spaces, r−2 double points on each and three outside points leave no cubic containing both spaces. Certificate ranks are56 and120.",
+      "statement": "For r=5,7 there exist two suitably chosen codimension3 spaces in general position, r−2 distinct double supports on each and three distinct ambient double supports outside them, with no nonzero cubic containing both spaces and singular at those supports. The integer certificate ranks are56 and120; openness gives the corresponding general configurations.",
       "hypotheses": [
         "Conventions in the reader apply: k is algebraically closed of characteristic zero for geometric genericity; algebraic affine identities state their weaker hypotheses individually."
       ],
@@ -2344,7 +2344,7 @@
         "A full-column-rank necessary-condition matrix rules out every nonzero form satisfying the exact conditions. A maximal jet-rank witness establishes the generic rank by openness. No random floating calculation is accepted and no formal certificate proof is claimed."
       ],
       "acceptance": [
-        "BO5.3 holds in r=5,7: two codimension3 spaces, r−2 double points on each and three outside points leave no cubic containing both spaces. Certificate ranks are56 and120."
+        "For r=5,7 there exist two suitably chosen codimension3 spaces in general position, r−2 distinct double supports on each and three distinct ambient double supports outside them, with no nonzero cubic containing both spaces and singular at those supports. The integer certificate ranks are56 and120; openness gives the corresponding general configurations."
       ],
       "prerequisites": [
         "GenericDoublePointInterpolation:GI.3/modular-rank-lift",
@@ -2411,7 +2411,7 @@
       ],
       "title": "One-subspace cubic base certificates",
       "kind": "lemma",
-      "statement": "BO5.4 holds for r=5,7: one codimension3 L, the prescribed points on L and r+1 ambient points, plus the length2 transverse scheme when r=5, leave no containing cubic. Certificate ranks are56 and120.",
+      "statement": "For r=5,7 there exist a codimension3 L, suitably chosen distinct double supports on L and r+1 distinct ambient double supports outside L, and a transverse length2 scheme at a further support on L when r=5, with no nonzero cubic containing L and satisfying these conditions. Certificate ranks are56 and120; openness gives the corresponding general configurations.",
       "hypotheses": [
         "Conventions in the reader apply: k is algebraically closed of characteristic zero for geometric genericity; algebraic affine identities state their weaker hypotheses individually."
       ],
@@ -2421,7 +2421,7 @@
         "A full-column-rank necessary-condition matrix rules out every nonzero form satisfying the exact conditions. A maximal jet-rank witness establishes the generic rank by openness. No random floating calculation is accepted and no formal certificate proof is claimed."
       ],
       "acceptance": [
-        "BO5.4 holds for r=5,7: one codimension3 L, the prescribed points on L and r+1 ambient points, plus the length2 transverse scheme when r=5, leave no containing cubic. Certificate ranks are56 and120."
+        "For r=5,7 there exist a codimension3 L, suitably chosen distinct double supports on L and r+1 distinct ambient double supports outside L, and a transverse length2 scheme at a further support on L when r=5, with no nonzero cubic containing L and satisfying these conditions. Certificate ranks are56 and120; openness gives the corresponding general configurations."
       ],
       "prerequisites": [
         "GenericDoublePointInterpolation:GI.3/modular-rank-lift",
@@ -2449,7 +2449,7 @@
       ],
       "title": "One-subspace cubic recursion",
       "kind": "lemma",
-      "statement": "For r≥3,r≠4, let L have codimension3. If r≠2 mod3, prescribe r(r−1)/6 double points on L and r+1 ambient double points. If r≡2 mod3, prescribe (r+1)(r−2)/6 on L, r+1 ambient, and a general η⊂2Q at Q∈L of lengthδ_r=(r+1)/3 and trace lengthδ_r−1. No cubic containing L satisfies these conditions.",
+      "statement": "For r≥3,r≠4, let L have codimension3. If r≠2 mod3, prescribe r(r−1)/6 general distinct double supports on L and r+1 general ambient double supports outside L. If r≡2 mod3, prescribe (r+1)(r−2)/6 general distinct double supports on L, r+1 general ambient double supports outside L, and a general η⊂2Q at a further general Q∈L of lengthδ_r=(r+1)/3 and trace lengthδ_r−1. No nonzero cubic containing L satisfies these conditions.",
       "hypotheses": [
         "Conventions in the reader apply: k is algebraically closed of characteristic zero for geometric genericity; algebraic affine identities state their weaker hypotheses individually."
       ],
@@ -2459,7 +2459,7 @@
         "Move r−2 ambient points to M. The trace is the r−3 one-space assertion and the kernel the two-space assertion. Native control of the η family is requested; it is not an arbitrary thick scheme."
       ],
       "acceptance": [
-        "For r≥3,r≠4, let L have codimension3. If r≠2 mod3, prescribe r(r−1)/6 double points on L and r+1 ambient double points. If r≡2 mod3, prescribe (r+1)(r−2)/6 on L, r+1 ambient, and a general η⊂2Q at Q∈L of lengthδ_r=(r+1)/3 and trace lengthδ_r−1. No cubic containing L satisfies these conditions."
+        "For r≥3,r≠4, let L have codimension3. If r≠2 mod3, prescribe r(r−1)/6 general distinct double supports on L and r+1 general ambient double supports outside L. If r≡2 mod3, prescribe (r+1)(r−2)/6 general distinct double supports on L, r+1 general ambient double supports outside L, and a general η⊂2Q at a further general Q∈L of lengthδ_r=(r+1)/3 and trace lengthδ_r−1. No nonzero cubic containing L satisfies these conditions."
       ],
       "prerequisites": [
         "GenericDoublePointInterpolation:GI.3/one-cubic-bases",
@@ -2747,8 +2747,8 @@
       "sources": [
         {
           "sourceId": "BO",
-          "locator": "§6 Lemma6.3(i) pp14–15",
-          "excerpt": "double points",
+          "locator": "§6 Lemma6.3(i), printed pp15–16",
+          "excerpt": "Then we have",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2784,8 +2784,8 @@
       "sources": [
         {
           "sourceId": "BO",
-          "locator": "§6 Lemma6.3(ii)",
-          "excerpt": "double points",
+          "locator": "§6 Lemma6.3(ii), printed pp15–16",
+          "excerpt": "Then we have",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -2821,8 +2821,8 @@
       "sources": [
         {
           "sourceId": "BO",
-          "locator": "§6 Lemma6.3(iii)",
-          "excerpt": "double points",
+          "locator": "§6 Lemma6.3(iii), printed pp15–16",
+          "excerpt": "Then we have",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
       ],
@@ -3054,7 +3054,7 @@
       "sources": [
         {
           "sourceId": "BO",
-          "locator": "§6 Theorem6.4 Step4 pp17–18",
+          "locator": "§6 Theorem6.4, moving families in the first and second cases, printed pp17–18",
           "excerpt": "double points",
           "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
         }
@@ -3117,23 +3117,24 @@
       ],
       "title": "Transverse curvilinear limit rank",
       "kind": "lemma",
-      "statement": "For f moving length2 directions whose limits are transverse to H, the special trace retains one simple support per direction and the residual contributes one reduced point per direction. The resulting trace rank is ru+f and the residual contribution is f.",
+      "statement": "Assume the chosen partial trace Φ²|H∪Γ₀ is d-independent, with F⊆Γ₀ a set of f moving length2 directions whose limits are transverse to H. Their special traces retain one reduced support each, so h(Φ²|H∪F,d)=ru+f. Their local residuals have length1 each; these are independent residual conditions when added to the successful Step2 residual setup.",
       "hypotheses": [
         "Conventions in the reader apply: k is algebraically closed of characteristic zero for geometric genericity; algebraic affine identities state their weaker hypotheses individually."
       ],
       "proofSteps": [
-        "Compute the ideal of a length2 line-direction scheme in coordinates with H=(x_r).",
-        "For a transverse direction its trace is reduced length1 and its residual is reduced length1.",
-        "Apply independent simple-point trace and residual evaluations. Proper flat limits justify these local ideals and preserve the total length."
+        "Compute the length2 line-direction ideal in coordinates with H=(x_r): a transverse trace and its residual are each reduced of length1.",
+        "Use the assumed independent partial trace Φ²|H∪Γ₀ and subset independence to obtain trace rank ru+f. In the underfilled branch Γ₀=Γ; in the overfilled branch Γ₀ consists only of the selected ν supports.",
+        "The successful Step2 residual system supplies independence for the reduced residual supports. Proper finite-flat limit control and the mixed-parameter incidence interface remain explicit geometric gaps."
       ],
       "acceptance": [
-        "For f moving length2 directions whose limits are transverse to H, the special trace retains one simple support per direction and the residual contributes one reduced point per direction. The resulting trace rank is ru+f and the residual contribution is f."
+        "Assume the chosen partial trace Φ²|H∪Γ₀ is d-independent, with F⊆Γ₀ a set of f moving length2 directions whose limits are transverse to H. Their special traces retain one reduced support each, so h(Φ²|H∪F,d)=ru+f. Their local residuals have length1 each; these are independent residual conditions when added to the successful Step2 residual setup."
       ],
       "prerequisites": [
         "GenericDoublePointInterpolation:GI.4/moving-supports",
-        "GenericDoublePointInterpolation:GI.4/trace-simple-rank",
         "GenericDoublePointInterpolation:GI.2/residual-trace",
-        "GenericDoublePointInterpolation:GI.2/curvilinear-limits"
+        "GenericDoublePointInterpolation:GI.2/curvilinear-limits",
+        "GenericDoublePointInterpolation:GI.2/subscheme-independence",
+        "GenericDoublePointInterpolation:GI.4/residual-simple-points"
       ],
       "sources": [
         {
@@ -3157,7 +3158,7 @@
       ],
       "title": "Tangent directions in the moving residual",
       "kind": "lemma",
-      "statement": "For g bad curvilinear directions whose limits lie in H, keep their supports at a general nonzero parameter during the residual estimate. They contribute2g independent residual conditions; combined residual rank is at least u+(r+1)(q−u−e)+f+2g.",
+      "statement": "In the critical Horace setup with the successful Step2 (d−1)-independent residual system Φ∪Σ²∪Γ²|H, take g bad curvilinear directions whose limits lie in H and f transverse indices, with f+g=e. Keep the tangent supports at a general nonzero parameter during the mixed residual estimate. They contribute2g independent residual conditions; combined residual rank is at least u+(r+1)(q−u−e)+f+2g.",
       "hypotheses": [
         "Conventions in the reader apply: k is algebraically closed of characteristic zero for geometric genericity; algebraic affine identities state their weaker hypotheses individually."
       ],
@@ -3167,7 +3168,7 @@
         "Use the Step2 residual independence, subset independence and semicontinuity to obtain the displayed lower bound. This mixed-parameter incidence step is not replaced by a claim that all special fibres are independent."
       ],
       "acceptance": [
-        "For g bad curvilinear directions whose limits lie in H, keep their supports at a general nonzero parameter during the residual estimate. They contribute2g independent residual conditions; combined residual rank is at least u+(r+1)(q−u−e)+f+2g."
+        "In the critical Horace setup with the successful Step2 (d−1)-independent residual system Φ∪Σ²∪Γ²|H, take g bad curvilinear directions whose limits lie in H and f transverse indices, with f+g=e. Keep the tangent supports at a general nonzero parameter during the mixed residual estimate. They contribute2g independent residual conditions; combined residual rank is at least u+(r+1)(q−u−e)+f+2g."
       ],
       "prerequisites": [
         "GenericDoublePointInterpolation:GI.4/residual-simple-points",
@@ -3197,7 +3198,7 @@
       ],
       "title": "Underfilled differential Horace contradiction",
       "kind": "lemma",
-      "statement": "In the underfilled critical case, a curvilinear failure at the e moved supports would have rank below (r+1)(q−e)+2e, while the mixed specialization has rank at least that same number. Hence a nonempty open set of moves is independent.",
+      "statement": "For r≥2,d≥4 and critical q with q(r+1)≤N(r,d), assume AH(r−1,d,u), AH(r,d−1,q−u), AH(r,d−2,q−u−e), and the simultaneous residual/trace setup above. A curvilinear failure at the e moved supports would have rank below (r+1)(q−e)+2e, while the mixed specialization has rank at least that number. Hence a nonempty open set of moves is independent.",
       "hypotheses": [
         "Conventions in the reader apply: k is algebraically closed of characteristic zero for geometric genericity; algebraic affine identities state their weaker hypotheses individually."
       ],
@@ -3207,14 +3208,15 @@
         "Use f+g=e to obtain (r+1)(q−e)+2e, contradicting the closed upper-rank condition of the failure family. Then apply curvilinear reduction to recover the full moving double schemes."
       ],
       "acceptance": [
-        "In the underfilled critical case, a curvilinear failure at the e moved supports would have rank below (r+1)(q−e)+2e, while the mixed specialization has rank at least that same number. Hence a nonempty open set of moves is independent."
+        "For r≥2,d≥4 and critical q with q(r+1)≤N(r,d), assume AH(r−1,d,u), AH(r,d−1,q−u), AH(r,d−2,q−u−e), and the simultaneous residual/trace setup above. A curvilinear failure at the e moved supports would have rank below (r+1)(q−e)+2e, while the mixed specialization has rank at least that number. Hence a nonempty open set of moves is independent."
       ],
       "prerequisites": [
         "GenericDoublePointInterpolation:GI.4/transverse-limit-rank",
         "GenericDoublePointInterpolation:GI.4/tangent-moving-rank",
         "GenericDoublePointInterpolation:GI.2/castelnuovo-bound",
         "GenericDoublePointInterpolation:GI.2/curvilinear-global",
-        "GenericDoublePointInterpolation:GI.2/rank-open"
+        "GenericDoublePointInterpolation:GI.2/rank-open",
+        "GenericDoublePointInterpolation:GI.4/trace-simple-rank"
       ],
       "sources": [
         {
@@ -3238,24 +3240,27 @@
       ],
       "title": "Overfilled partial-length reduction",
       "kind": "lemma",
-      "statement": "In the overfilled critical case put ν=N(r−1,d)−ru. If ν<0 ordinary Horace applies. Otherwise 0≤ν<e, and replacing the moved e doubles by ν full doubles and e−ν hyperplane-restricted doubles gives a subscheme of length exactly N(r,d).",
+      "statement": "For r≥2,d≥4 and critical q with q(r+1)>N(r,d), assume AH(r−1,d,u), AH(r,d−1,q−u), AH(r,d−2,q−u−e), and the successful simultaneous residual/trace setup. Put ν=N(r−1,d)−ru. If ν<0 ordinary Horace applies. Otherwise 0≤ν<e; choose Γ₀⊆Γ with ν supports so Φ²|H∪Γ₀ is independent. Replacing the moved e doubles by ν full doubles and e−ν hyperplane-restricted doubles gives a subscheme of length exactly N(r,d).",
       "hypotheses": [
         "Conventions in the reader apply: k is algebraically closed of characteristic zero for geometric genericity; algebraic affine identities state their weaker hypotheses individually."
       ],
       "proofSteps": [
         "Use q(r+1)>N(r,d) to obtain ν<e.",
-        "If ν≥0 the retained partial length is (q−e)(r+1)+ν(r+1)+(e−ν)r=(r+1)q−e+ν=N(r,d).",
-        "The trace Φ²",
-        "H plus ν simple Γ points fills N(r−1,d); apply curvilinear reduction to this independent partial trace. Restricted double directions for indices>ν are forced into the tangent set G."
+        "If ν<0, AH(r−1,d,u) makes the trace injective, and the successful Step2 residual is independent; apply ordinary Horace to these two ranks.",
+        "If ν≥0, the partial length is (q−e)(r+1)+ν(r+1)+(e−ν)r=(r+1)q−e+ν=N(r,d).",
+        "The trace Φ²|H plus ν selected simple Γ₀ points fills N(r−1,d). Use the trace induction and simultaneous general choices to establish its independence. Restricted moving doubles at the remaining indices have curvilinear directions forced into the tangent set G."
       ],
       "acceptance": [
-        "In the overfilled critical case put ν=N(r−1,d)−ru. If ν<0 ordinary Horace applies. Otherwise 0≤ν<e, and replacing the moved e doubles by ν full doubles and e−ν hyperplane-restricted doubles gives a subscheme of length exactly N(r,d)."
+        "For r≥2,d≥4 and critical q with q(r+1)>N(r,d), assume AH(r−1,d,u), AH(r,d−1,q−u), AH(r,d−2,q−u−e), and the successful simultaneous residual/trace setup. Put ν=N(r−1,d)−ru. If ν<0 ordinary Horace applies. Otherwise 0≤ν<e; choose Γ₀⊆Γ with ν supports so Φ²|H∪Γ₀ is independent. Replacing the moved e doubles by ν full doubles and e−ν hyperplane-restricted doubles gives a subscheme of length exactly N(r,d)."
       ],
       "prerequisites": [
         "GenericDoublePointInterpolation:GI.4/critical-division",
         "GenericDoublePointInterpolation:GI.4/numerical-residual-bound",
         "GenericDoublePointInterpolation:GI.2/ordinary-horace",
-        "GenericDoublePointInterpolation:GI.4/moving-supports"
+        "GenericDoublePointInterpolation:GI.4/moving-supports",
+        "GenericDoublePointInterpolation:GI.4/residual-simple-points",
+        "GenericDoublePointInterpolation:GI.2/subscheme-independence",
+        "GenericDoublePointInterpolation:GI.2/rank-open"
       ],
       "sources": [
         {
@@ -3279,7 +3284,7 @@
       ],
       "title": "Overfilled differential Horace contradiction",
       "kind": "lemma",
-      "statement": "With ν≥0 as above, the same mixed-parameter transverse/tangent rank argument makes the partial-length subscheme independent, and therefore makes the full q-double-point system injective in degree d.",
+      "statement": "Under the overfilled critical-case hypotheses and successful setup of overfilled-partial-scheme, with ν≥0, apply the mixed-parameter transverse/tangent argument to its independent selected trace Φ²|H∪Γ₀, not to the full Γ trace. This makes the partial-length subscheme independent and therefore makes the full q-double-point system injective in degree d.",
       "hypotheses": [
         "Conventions in the reader apply: k is algebraically closed of characteristic zero for geometric genericity; algebraic affine identities state their weaker hypotheses individually."
       ],
@@ -3289,7 +3294,7 @@
         "Reuse the mixed residual estimate and the same contradiction. Independence at length N means injectivity on the full source, and adding the omitted conditions preserves it."
       ],
       "acceptance": [
-        "With ν≥0 as above, the same mixed-parameter transverse/tangent rank argument makes the partial-length subscheme independent, and therefore makes the full q-double-point system injective in degree d."
+        "Under the overfilled critical-case hypotheses and successful setup of overfilled-partial-scheme, with ν≥0, apply the mixed-parameter transverse/tangent argument to its independent selected trace Φ²|H∪Γ₀, not to the full Γ trace. This makes the partial-length subscheme independent and therefore makes the full q-double-point system injective in degree d."
       ],
       "prerequisites": [
         "GenericDoublePointInterpolation:GI.4/overfilled-partial-scheme",
@@ -3382,9 +3387,9 @@
       "sources": [
         {
           "sourceId": "BO",
-          "locator": "§1; §7.1 beginning p19",
+          "locator": "§1 univariate remark p1; §7.1 opening paragraph p19",
           "excerpt": "double points",
-          "match": "Exact mathematical transcription where stated; authored affine/native reformulations, computational replacements and missing proof interfaces are identified in the steps."
+          "match": "The source gives the arbitrary-distinct univariate dimension assertion; the packet supplies its explicit field-valued CRT/Hermite proof. Only the opening paragraph of §7.1 is used, not the subsequent Waring classification."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4098,17 +4103,45 @@
       "id": "GenericDoublePointInterpolation/E1",
       "source": "BO",
       "kind": "misprint",
-      "locator": "arXiv v2, Proposition5.3 proof, p10, r=7 base case",
+      "locator": "arXiv v2 Proposition5.3 proof p10; also official-author journal-layout PDF, printed p1237, r=7 base case",
       "printed": "three general points on P5",
       "correction": "Use three general ambient points on P⁷ in the r=7 base. The two codimension3 spaces and five points on each are already in P⁷.",
       "reason": "The proposition and surrounding r=7 containing-form system are in P⁷; P⁵ belongs to the preceding r=5 case. The independent r=7 matrix here uses eight homogeneous coordinates and has full rank120.",
       "affects": "nothing",
-      "known": "No correction found in the checked arXiv version history or primary repository listing; not asserted to be a new published error. The accessible text is v2 only.",
+      "known": "The same typo persists in the journal-layout PDF served by the official author page. No separate correction located in the checked primary listings; novelty is not asserted.",
       "searched": [
-        "arXiv abstract and full version history (v1 January2007, v2 September2007), read2026-10-04",
-        "FLORE primary institutional listing2158/256967 and linked author PDF: fetch403; publisher DOI10.1016/j.jpaa.2007.09.014 not accessible",
-        "Public title/authors/erratum query, 2026-10-04: no primary correction located"
-      ]
+        "arXiv abstract/history: v1 January2007 and v2 September2007; no later listed revision",
+        "Official Ottaviani publication list and its linked journal-layout PDF, accessed2026-10-04; Proposition5.3 and proof read on pp1236–1237",
+        "FLORE institutional author-copy endpoint still HTTP403; DOI resolves to an HTML landing page, not paper text",
+        "Primary-source title/authors/erratum search2026-10-04: no separate correction located; novelty is not asserted"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read both exact passages: the r=7 calculation uses P⁷ throughout but the last ambient-point occurrence retains P⁵. The integer rank120 witness uses eight homogeneous coordinates.",
+        "by": "REV-DESIGN-GenericDoublePointInterpolation"
+      }
+    },
+    {
+      "id": "GenericDoublePointInterpolation/E2",
+      "source": "BO",
+      "kind": "error",
+      "locator": "Proposition5.3 statement, arXiv v2 p10 and official-author journal-layout PDF p1236: literal quantification over L,M",
+      "printed": "subspaces of codimension three",
+      "correction": "State that the pair L,M is general (or satisfies the general-position hypotheses actually used in the proof). This is a clarification of the intended generic theorem, not a counterexample to Alexander–Hirschowitz.",
+      "reason": "The literal arbitrary-pair reading permits L=M=P² in P⁵, with six distinct general supports on this plane and three general ambient supports. Homogeneous cubics in I_L² form a28-dimensional space: normal-degree2 contributes6·3=18 monomials, normal-degree3 contributes10. They are singular along L. The three ambient singularities impose at most18 linear derivative conditions, leaving dimension at least10, so the printed no-cubic conclusion fails for that pair. The proof dimension36 for I_(L∪M)(3) also assumes the generic pair.",
+      "affects": "a stated result",
+      "known": "No separate correction located in the checked primary listings or journal-layout PDF. Novelty is not asserted; the intended generic-pair assertion is preserved by the packet.",
+      "searched": [
+        "arXiv abstract/history: v1 January2007 and v2 September2007; no later listed revision",
+        "Official Ottaviani publication list and its linked journal-layout PDF, accessed2026-10-04; Proposition5.3 and proof read on pp1236–1237",
+        "FLORE institutional author-copy endpoint still HTTP403; DOI resolves to an HTML landing page, not paper text",
+        "Primary-source title/authors/erratum search2026-10-04: no separate correction located; novelty is not asserted"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The28-minus18 dimension obstruction is valid in characteristic zero and allows six distinct on-plane supports. The source proof and the packet recursion use general pairs; only the literal unqualified statement is contradicted.",
+        "by": "REV-DESIGN-GenericDoublePointInterpolation"
+      }
     }
   ],
   "restructure": [
@@ -4140,7 +4173,14 @@
     {
       "kind": "published",
       "url": "https://doi.org/10.1016/j.jpaa.2007.09.014",
-      "read": "2026-10-04: access attempt failed; version-of-record text NOT read"
+      "read": "2026-10-04: DOI resolves to an HTML landing response only; publisher-endpoint paper text NOT served. The journal-layout PDF from the official author page was read separately at the exact locators below."
+    },
+    {
+      "kind": "published",
+      "url": "https://people.dimai.unifi.it/ottaviani/pubblic/ahfinale.pdf",
+      "citation": "Journal of Pure and Applied Algebra212 (2008),1229–1251, journal-layout PDF served by the official author page; not conflated with arXiv pagination",
+      "read": "2026-10-04: first page and §§5.2–5.4, printed pp1236–1237 only, including both source-issue locators",
+      "sha256": "a458098b6f01b2670fab7ee16ad04f93ca92e6e81239ce38d7845904ad6ca05e"
     }
   ],
   "certificateEvidence": {
@@ -4416,7 +4456,7 @@
   "suggestedFile": {
     "path": "research/blueprint/suggested/GenericDoublePointInterpolation.lean",
     "wholeFileElaborated": true,
-    "sourceSha256": "3f15aef8de9282cc985cfbda9ef713a4455a119e786b0ef478eca0c282ee6ca5",
+    "sourceSha256": "9384a928726206f1e67c4883620906b193755b1ed84c17f63cde757a46a251aa",
     "mathlibPin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "leanRevision": "6a10ac8c22beadecabdbb0919c2b50214762f91d",
     "errors": 0,
@@ -4838,7 +4878,7 @@
         "nodeId": "GenericDoublePointInterpolation:GI.3/two-cubic-bases",
         "status": "unrepresented",
         "signatures": [],
-        "exactTarget": "BO5.3 holds in r=5,7: two codimension3 spaces, r−2 double points on each and three outside points leave no cubic containing both spaces. Certificate ranks are56 and120.",
+        "exactTarget": "For r=5,7 there exist two suitably chosen codimension3 spaces in general position, r−2 distinct double supports on each and three distinct ambient double supports outside them, with no nonzero cubic containing both spaces and singular at those supports. The integer certificate ranks are56 and120; openness gives the corresponding general configurations.",
         "api": [],
         "tests": [],
         "reason": "The source-level target is inventoried in the definitive reader. No native signature was certified for it in this nonexhaustive suggestion. Formal finite-certificate replay"
@@ -4856,7 +4896,7 @@
         "nodeId": "GenericDoublePointInterpolation:GI.3/one-cubic-bases",
         "status": "unrepresented",
         "signatures": [],
-        "exactTarget": "BO5.4 holds for r=5,7: one codimension3 L, the prescribed points on L and r+1 ambient points, plus the length2 transverse scheme when r=5, leave no containing cubic. Certificate ranks are56 and120.",
+        "exactTarget": "For r=5,7 there exist a codimension3 L, suitably chosen distinct double supports on L and r+1 distinct ambient double supports outside L, and a transverse length2 scheme at a further support on L when r=5, with no nonzero cubic containing L and satisfying these conditions. Certificate ranks are56 and120; openness gives the corresponding general configurations.",
         "api": [],
         "tests": [],
         "reason": "The source-level target is inventoried in the definitive reader. No native signature was certified for it in this nonexhaustive suggestion. Formal finite-certificate replay"
@@ -4865,7 +4905,7 @@
         "nodeId": "GenericDoublePointInterpolation:GI.3/one-cubic-recursion",
         "status": "unrepresented",
         "signatures": [],
-        "exactTarget": "For r≥3,r≠4, let L have codimension3. If r≠2 mod3, prescribe r(r−1)/6 double points on L and r+1 ambient double points. If r≡2 mod3, prescribe (r+1)(r−2)/6 on L, r+1 ambient, and a general η⊂2Q at Q∈L of lengthδ_r=(r+1)/3 and trace lengthδ_r−1. No cubic containing L satisfies these conditions.",
+        "exactTarget": "For r≥3,r≠4, let L have codimension3. If r≠2 mod3, prescribe r(r−1)/6 general distinct double supports on L and r+1 general ambient double supports outside L. If r≡2 mod3, prescribe (r+1)(r−2)/6 general distinct double supports on L, r+1 general ambient double supports outside L, and a general η⊂2Q at a further general Q∈L of lengthδ_r=(r+1)/3 and trace lengthδ_r−1. No nonzero cubic containing L satisfies these conditions.",
         "api": [],
         "tests": [],
         "reason": "The source-level target is inventoried in the definitive reader. No native signature was certified for it in this nonexhaustive suggestion. Codimension-three restriction and remainder families"
@@ -5041,7 +5081,7 @@
         "nodeId": "GenericDoublePointInterpolation:GI.4/transverse-limit-rank",
         "status": "unrepresented",
         "signatures": [],
-        "exactTarget": "For f moving length2 directions whose limits are transverse to H, the special trace retains one simple support per direction and the residual contributes one reduced point per direction. The resulting trace rank is ru+f and the residual contribution is f.",
+        "exactTarget": "Assume the chosen partial trace Φ²|H∪Γ₀ is d-independent, with F⊆Γ₀ a set of f moving length2 directions whose limits are transverse to H. Their special traces retain one reduced support each, so h(Φ²|H∪F,d)=ru+f. Their local residuals have length1 each; these are independent residual conditions when added to the successful Step2 residual setup.",
         "api": [],
         "tests": [],
         "reason": "The source-level target is inventoried in the definitive reader. No native signature was certified for it in this nonexhaustive suggestion. Geometric curvilinear proper-limit interface"
@@ -5050,7 +5090,7 @@
         "nodeId": "GenericDoublePointInterpolation:GI.4/tangent-moving-rank",
         "status": "unrepresented",
         "signatures": [],
-        "exactTarget": "For g bad curvilinear directions whose limits lie in H, keep their supports at a general nonzero parameter during the residual estimate. They contribute2g independent residual conditions; combined residual rank is at least u+(r+1)(q−u−e)+f+2g.",
+        "exactTarget": "In the critical Horace setup with the successful Step2 (d−1)-independent residual system Φ∪Σ²∪Γ²|H, take g bad curvilinear directions whose limits lie in H and f transverse indices, with f+g=e. Keep the tangent supports at a general nonzero parameter during the mixed residual estimate. They contribute2g independent residual conditions; combined residual rank is at least u+(r+1)(q−u−e)+f+2g.",
         "api": [],
         "tests": [],
         "reason": "The source-level target is inventoried in the definitive reader. No native signature was certified for it in this nonexhaustive suggestion. Geometric curvilinear proper-limit interface"
@@ -5059,7 +5099,7 @@
         "nodeId": "GenericDoublePointInterpolation:GI.4/underfilled-contradiction",
         "status": "unrepresented",
         "signatures": [],
-        "exactTarget": "In the underfilled critical case, a curvilinear failure at the e moved supports would have rank below (r+1)(q−e)+2e, while the mixed specialization has rank at least that same number. Hence a nonempty open set of moves is independent.",
+        "exactTarget": "For r≥2,d≥4 and critical q with q(r+1)≤N(r,d), assume AH(r−1,d,u), AH(r,d−1,q−u), AH(r,d−2,q−u−e), and the simultaneous residual/trace setup above. A curvilinear failure at the e moved supports would have rank below (r+1)(q−e)+2e, while the mixed specialization has rank at least that number. Hence a nonempty open set of moves is independent.",
         "api": [],
         "tests": [],
         "reason": "The source-level target is inventoried in the definitive reader. No native signature was certified for it in this nonexhaustive suggestion. Differential Horace rank refinements"
@@ -5068,7 +5108,7 @@
         "nodeId": "GenericDoublePointInterpolation:GI.4/overfilled-partial-scheme",
         "status": "unrepresented",
         "signatures": [],
-        "exactTarget": "In the overfilled critical case put ν=N(r−1,d)−ru. If ν<0 ordinary Horace applies. Otherwise 0≤ν<e, and replacing the moved e doubles by ν full doubles and e−ν hyperplane-restricted doubles gives a subscheme of length exactly N(r,d).",
+        "exactTarget": "For r≥2,d≥4 and critical q with q(r+1)>N(r,d), assume AH(r−1,d,u), AH(r,d−1,q−u), AH(r,d−2,q−u−e), and the successful simultaneous residual/trace setup. Put ν=N(r−1,d)−ru. If ν<0 ordinary Horace applies. Otherwise 0≤ν<e; choose Γ₀⊆Γ with ν supports so Φ²|H∪Γ₀ is independent. Replacing the moved e doubles by ν full doubles and e−ν hyperplane-restricted doubles gives a subscheme of length exactly N(r,d).",
         "api": [],
         "tests": [],
         "reason": "The source-level target is inventoried in the definitive reader. No native signature was certified for it in this nonexhaustive suggestion. Its required geometric/system/induction carriers remain in the named prerequisite chain. No proxy carrier is introduced."
@@ -5077,7 +5117,7 @@
         "nodeId": "GenericDoublePointInterpolation:GI.4/overfilled-contradiction",
         "status": "unrepresented",
         "signatures": [],
-        "exactTarget": "With ν≥0 as above, the same mixed-parameter transverse/tangent rank argument makes the partial-length subscheme independent, and therefore makes the full q-double-point system injective in degree d.",
+        "exactTarget": "Under the overfilled critical-case hypotheses and successful setup of overfilled-partial-scheme, with ν≥0, apply the mixed-parameter transverse/tangent argument to its independent selected trace Φ²|H∪Γ₀, not to the full Γ trace. This makes the partial-length subscheme independent and therefore makes the full q-double-point system injective in degree d.",
         "api": [],
         "tests": [],
         "reason": "The source-level target is inventoried in the definitive reader. No native signature was certified for it in this nonexhaustive suggestion. Differential Horace rank refinements"
@@ -5250,5 +5290,398 @@
       }
     ],
     "scope": "Supplemental finite arithmetic evidence only. The symbolic inequalities and unbounded exception-avoidance proof remain open."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-GenericDoublePointInterpolation",
+    "date": "2026-10-04",
+    "notes": "All77 target-level nodes and their locators, proof contracts, API/tests and planets checked; all24 actual pinned baseline statements confirmed. Corrected source attribution/pagination, generic cubic hypotheses, and the conditional partial-trace Horace dependency chain. Replayed22 modular certificates plus429 exact rational incidences and the finite arithmetic sweep. Six planned stages remain not closed, with10 gaps and4 supplier requests; implementation remains unchecked. Two source issues confirmed at their exact preprint and official-author journal-layout locators. The nonexhaustive whole Lean file is admitted-signature evidence only.",
+    "checked": [
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.0/monomial-count",
+        "verdict": "verified",
+        "note": "Slack-variable exponent count agrees with the built symmetric-power equivalence; the exact native adapter remains a gap."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.0/bounded-finrank",
+        "verdict": "corrected",
+        "note": "Restricted monomial basis gives the field finrank after the corrected Couveignes source attribution."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.0/coefficient-coordinates",
+        "verdict": "verified",
+        "note": "Coefficient linear equivalence uses the existing native basis; its inverse and extensionality tests discriminate the carrier."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.0/fixed-homogenization",
+        "verdict": "verified",
+        "note": "Fixed-degree homogenization is a linear equivalence; multiplication lands in summed degree, not a false fixed-degree algebra equivalence."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.0/sections-comparison",
+        "verdict": "verified",
+        "note": "Homogeneous-form/global-section comparison is a precise R09.1 request, not an assumed native projective carrier."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.0/coefficient-gram",
+        "verdict": "corrected",
+        "note": "Coefficient metric is transported from real monomial coordinates; no point-evaluation metric or unbuilt inner-product instance is certified."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/jet-algebra",
+        "verdict": "verified",
+        "note": "The square-zero jet algebra uses multiplication (a,v)(b,w)=(ab,aw+bv) over commutative rings."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/jet-kernel",
+        "verdict": "verified",
+        "note": "Translation isolates the constant and linear coefficients; the squared evaluation ideal is the jet kernel over any field."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/point-comaximal",
+        "verdict": "corrected",
+        "note": "Distinct supports give comaximal squared ideals; corrected the source-id mismatch, retaining the weaker field hypothesis."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/double-ideal",
+        "verdict": "verified",
+        "note": "Finite squared-ideal intersection is the actual double ideal; repetitions are not allowed in the CRT theorem."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/double-quotient",
+        "verdict": "verified",
+        "note": "Finite CRT followed by local square-zero quotients gives the product algebra; no reduced-product substitution."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/double-length",
+        "verdict": "verified",
+        "note": "Square-zero/product finrank gives n(r+1), including n=0; the projective finite-section comparison remains partial-native."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/first-jet-map",
+        "verdict": "verified",
+        "note": "The linear first-jet map stacks each value with all formal derivatives, not only values."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/value-map",
+        "verdict": "verified",
+        "note": "The value projection is the actual bounded evaluation map, over the specified field."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/derivative-on-kernel",
+        "verdict": "verified",
+        "note": "Derivative restriction to the value kernel keeps its inherited linear structure; it is not the full first-jet map."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/jet-kernel-split",
+        "verdict": "verified",
+        "note": "Surjectivity splits into value surjectivity and derivative surjectivity on its kernel by lifting and subtracting values."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/jet-matrix",
+        "verdict": "verified",
+        "note": "Monomial matrix entries agree with value/derivative evaluation, including zero-exponent cases."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/jet-rank",
+        "verdict": "verified",
+        "note": "Rank equals range finrank in the chosen native bases; target cardinality yields the surjectivity criterion."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/well-poised",
+        "verdict": "verified",
+        "note": "Well-poised means full jet surjectivity, with permutation/subtuple tests; no arbitrary-tuple interpolation claim."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.1/projective-jet-comparison",
+        "verdict": "verified",
+        "note": "Affine-chart quotient-to-projective restriction compatibility is requested from the native section/finite-scheme suppliers."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.2/restriction-rank",
+        "verdict": "verified",
+        "note": "Restriction rank uses the image of the actual section restriction map, not dimension of an ideal tensor proxy."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.2/rank-disjoint",
+        "verdict": "verified",
+        "note": "Disjoint-union rank identity follows by taking the kernel of the first restriction and its image in the second."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.2/residual-trace",
+        "verdict": "verified",
+        "note": "Residual/trace sequence is sheaf-exact; global sections are only left exact and all twisting/restriction arrows are retained."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.2/castelnuovo-bound",
+        "verdict": "verified",
+        "note": "The resulting dimension inequality is a lower bound for imposed conditions, not a falsely surjective section sequence."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.2/ordinary-horace",
+        "verdict": "verified",
+        "note": "Ordinary Horace has separate underfilled and overfilled inequalities; its conclusions concern generic maximal rank."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.2/subscheme-independence",
+        "verdict": "verified",
+        "note": "An independent restriction remains so on a subscheme; injectivity survives adding conditions. The two directions are not conflated."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.2/curvilinear-one-point",
+        "verdict": "verified",
+        "note": "A local square-zero quotient is tested by length2 directions; the induction cuts by a nonzero linear section."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.2/curvilinear-global",
+        "verdict": "verified",
+        "note": "The global curvilinear reduction uses the actual disjoint restriction identity and residual section kernels."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.2/rank-open",
+        "verdict": "verified",
+        "note": "Rank openness requires an actual finite-flat family and locally free pushforward, an honest R09.2 gap."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.2/curvilinear-limits",
+        "verdict": "corrected",
+        "note": "Bad curvilinear witnesses must extend in the proper incidence family after allowed base change; fixed pointwise choices are insufficient."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/modular-rank-lift",
+        "verdict": "verified",
+        "note": "Mod101 full minors lift through integer determinants; Euler comparison is used only when the degree is invertible."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/quadric-kernel",
+        "verdict": "verified",
+        "note": "Quadrics singular at independent vectors descend to their quotient; all low-degree exceptions stay outside the main endpoint."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/veronese-tangent",
+        "verdict": "verified",
+        "note": "The Veronese differential and affine homogeneous-jet comparison retain characteristic-zero hypotheses."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/terracini-span",
+        "verdict": "corrected",
+        "note": "First Terracini uses general smooth supports and span dimension; its exact page locator is corrected."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/terracini-contact",
+        "verdict": "corrected",
+        "note": "Second Terracini supplies the generic contact locus; double-curve and incidence arguments remain supplier refinements."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/plane-numerics",
+        "verdict": "corrected",
+        "note": "Plane inequalities follow the source-scoped contact route, not a universal statement about arbitrary plane curves."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/plane-sextic-base",
+        "verdict": "corrected",
+        "note": "Nine and ten sextic support certificates replace the unread unique-double-cubic argument; both ranks independently reproduced."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/plane-interpolation",
+        "verdict": "verified",
+        "note": "The plane induction keeps the quartic exception and near-exception rank bases; the sextic bridge is witnessed explicitly."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/three-cubic-bases",
+        "verdict": "verified",
+        "note": "All three-space base matrices reconstruct at full column rank; rational on-space incidences additionally verified."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/three-cubic-recursion",
+        "verdict": "verified",
+        "note": "Three-space recursion has a general-position no-quadric residual calculation, honestly left as a native proof refinement."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/two-cubic-bases",
+        "verdict": "corrected",
+        "note": "Two-space finite matrices prove existence and generic rank only; corrected the formerly unqualified space/support wording."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/two-cubic-recursion",
+        "verdict": "verified",
+        "note": "Two-space induction uses the r−3 trace and the three-space kernel; its general-pair hypothesis is explicit."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/one-cubic-bases",
+        "verdict": "corrected",
+        "note": "One-space bases are existential witnesses with a transverse length2 remainder, not statements for every tuple."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/one-cubic-recursion",
+        "verdict": "corrected",
+        "note": "One-space induction restores general distinct supports and preserves η⊂2Q and trace lengthδ_r−1."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/low-rank-bases",
+        "verdict": "verified",
+        "note": "Every listed cubic/quartic near-exception rank is reconstructed; no certificate asserts maximal rank at an excluded exception."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/cubic-remainder",
+        "verdict": "verified",
+        "note": "Cubic remainder is a subscheme of a double point with the exact trace length, not a long curvilinear scheme."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/cubic-maximal-rank",
+        "verdict": "verified",
+        "note": "Critical cubic counts and the remainder induction exclude r=4 at its exceptional count; subset/superset rank handles other counts."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.3/quartic-five",
+        "verdict": "verified",
+        "note": "The quartic r=5 base has rank126 for21 doubles; independently reconstructed, not inferred from the exceptional r=4 trace."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/quartic-seven",
+        "verdict": "verified",
+        "note": "Quartic r=7 uses ordinary Horace and the r=6 trace with30 supports; cubic residual counts avoid the exception."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/quartic-induction",
+        "verdict": "verified",
+        "note": "Quartic r=6,8,9 data and the large-r residual inequality agree with the source; finite arithmetic is not the unbounded proof."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/numerical-trace-bound",
+        "verdict": "corrected",
+        "note": "Trace inequality retains integer u for small q; the exact Lemma6.3 page range is repaired."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/numerical-residual-bound",
+        "verdict": "corrected",
+        "note": "Residual inequality follows from the division identity and Pascal; it also proves q−u−e≥0."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/numerical-quartic-bound",
+        "verdict": "corrected",
+        "note": "The sharper quartic lower bound is a source-level target; its native symbolic derivation is an explicit gap."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/critical-division",
+        "verdict": "verified",
+        "note": "Critical division gives u≥0 and u≤q; no truncated-natural subtraction silently changes the relation."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/partial-residual-rank",
+        "verdict": "verified",
+        "note": "Partial residual rank deletes only normal conditions from a suitable generic double configuration; Step1 closure remains open."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/residual-restrict-injective",
+        "verdict": "verified",
+        "note": "Vanishing in degree d−2 makes restriction to H injective on the residual system; it is not sheaf-right-exactness."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/residual-simple-points",
+        "verdict": "verified",
+        "note": "Step2 fills the injectively restricted residual system with u simultaneous general simple evaluations."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/trace-simple-rank",
+        "verdict": "verified",
+        "note": "Only the underfilled branch uses the entire Γ trace; simultaneous open choices are required."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/moving-supports",
+        "verdict": "corrected",
+        "note": "Moving supports and hyperplanes define actual finite-flat squared-ideal families over a distinct-support open; locator corrected."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/transverse-limit-rank",
+        "verdict": "corrected",
+        "note": "Transverse local lengths are one plus one; trace rank is now explicitly conditional on the selected independent partial trace."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/tangent-moving-rank",
+        "verdict": "corrected",
+        "note": "The mixed tangent residual estimate now carries successful Step2 independence and retains the proper-family gap."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/underfilled-contradiction",
+        "verdict": "corrected",
+        "note": "Underfilled contradiction explicitly imports the full-trace lemma and all three AH induction hypotheses."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/overfilled-partial-scheme",
+        "verdict": "corrected",
+        "note": "Overfilled branch selects onlyν trace supports; corrected the notation and direct prerequisites for the ν<0 ordinary branch."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/overfilled-contradiction",
+        "verdict": "corrected",
+        "note": "Overfilled contradiction discharges the generic transverse lemma with the selectedν trace, never with the nonindependent fullΓ trace."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/differential-horace",
+        "verdict": "verified",
+        "note": "The differential Horace theorem has exactly the three source induction hypotheses and both critical-count branches."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/univariate-hermite",
+        "verdict": "corrected",
+        "note": "Univariate Hermite/CRT rankmin(d+1,2n) holds at arbitrary distinct field-valued supports; only the opening historical paragraph is used."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/exception-scheduler",
+        "verdict": "verified",
+        "note": "The exception-avoiding scheduler is inventoried with an honest symbolic-proof gap; the2585-case sweep does not close it."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.4/generic-projective",
+        "verdict": "verified",
+        "note": "Generic projective maximal rank in degree≥5 follows the source route and excludes no hidden low-degree cases."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.5/affine-dense",
+        "verdict": "verified",
+        "note": "Dense affine/distinct opens intersect the projective generic locus over an infinite algebraically closed field."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.5/universal-jet-matrix",
+        "verdict": "verified",
+        "note": "Universal integral jet entries are value/derivative monomials; specialization commutes with the bounded first-jet matrix."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.5/maximal-minor",
+        "verdict": "verified",
+        "note": "A chosen full-row minor is nonzero because of a good geometric witness; no arbitrary minor is promised nonzero."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.5/minor-degree",
+        "verdict": "verified",
+        "note": "Each determinant term has at most md total degree and therefore at most md degree in each coordinate."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.5/principal-open",
+        "verdict": "verified",
+        "note": "The true Spec principal open is compared with k-valued maximal rank; the geometric comparison remains partial-native."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.5/generic-affine",
+        "verdict": "verified",
+        "note": "The affine endpoint is a nonempty open of ordered distinct tuples with n(r+1)≤choose(r+d,d), not an all-tuples theorem."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.5/integer-grid",
+        "verdict": "verified",
+        "note": "The built product-finset polynomial nonvanishing theorem gives an integer box of B+1 entries with distinct images in characteristic zero."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.5/parameter-pullback",
+        "verdict": "verified",
+        "note": "Polynomial parameter substitution must preserve nonzeroness; the consumer, not this generic theorem, supplies that obligation."
+      },
+      {
+        "nodeId": "GenericDoublePointInterpolation:GI.5/collinear-boundary",
+        "verdict": "verified",
+        "note": "Seven collinear points in Q² at degree5 have independently reconstructed rank11 of21, rejecting universal interpolation."
+      }
+    ]
   }
 }
