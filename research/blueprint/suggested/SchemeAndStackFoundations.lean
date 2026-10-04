@@ -1449,3 +1449,199 @@ example (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
   sorry
 
 end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X Y Z : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 200000
+
+lemma extendedIdeal_comp (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : Z.affineOpens) (H : g ⁻¹ᵁ U ∈ Y.affineOpens) :
+    (I.ideal U).map ((f ≫ g).app U).hom =
+      ((I.comap g).ideal ⟨g ⁻¹ᵁ U, H⟩).map (f.app (g ⁻¹ᵁ U)).hom := by
+  sorry
+
+def quotientCompIso (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : Z.affineOpens) (H : g ⁻¹ᵁ U ∈ Y.affineOpens) :
+    (Γ(X, (f ≫ g) ⁻¹ᵁ U) ⧸ (I.ideal U).map ((f ≫ g).app U).hom) ≃+*
+      (Γ(X, f ⁻¹ᵁ (g ⁻¹ᵁ U)) ⧸
+        ((I.comap g).ideal ⟨g ⁻¹ᵁ U, H⟩).map (f.app (g ⁻¹ᵁ U)).hom) :=
+  Ideal.quotEquivOfEq (extendedIdeal_comp I f g U H)
+
+lemma quotientCompIso_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : Z.affineOpens) (H : g ⁻¹ᵁ U ∈ Y.affineOpens) (a : Γ(X, (f ≫ g) ⁻¹ᵁ U)) :
+    quotientCompIso I f g U H (Ideal.Quotient.mk _ a) = Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma quotientCompIso_inv_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : Z.affineOpens) (H : g ⁻¹ᵁ U ∈ Y.affineOpens) (a : Γ(X, (f ≫ g) ⁻¹ᵁ U)) :
+    (quotientCompIso I f g U H).symm (Ideal.Quotient.mk _ a) = Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma quotientCompIso_naturality (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    {U V : Z.affineOpens} (h : U ≤ V)
+    (HU : g ⁻¹ᵁ U ∈ Y.affineOpens) (HV : g ⁻¹ᵁ V ∈ Y.affineOpens) :
+    CommRingCat.ofHom (quotientRestriction I (f ≫ g) h) ≫
+      (quotientCompIso I f g U HU).toCommRingCatIso.hom =
+    (quotientCompIso I f g V HV).toCommRingCatIso.hom ≫
+      CommRingCat.ofHom (quotientRestriction (I.comap g) f
+        (show (⟨g ⁻¹ᵁ U, HU⟩ : Y.affineOpens) ≤ ⟨g ⁻¹ᵁ V, HV⟩ from g.preimage_mono h)) := by
+  sorry
+
+def kernelCompIso (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (V : X.Opens) :
+    (Γ(X, V) ⧸ RingHom.ker ((I.comap (f ≫ g)).subschemeι.app V).hom) ≃+*
+      (Γ(X, V) ⧸ RingHom.ker (((I.comap g).comap f).subschemeι.app V).hom) :=
+  Ideal.quotEquivOfEq (congrArg (fun J : X.IdealSheafData =>
+    RingHom.ker (J.subschemeι.app V).hom) (I.comap_comp f g))
+
+lemma kernelCompIso_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (V : X.Opens) (a : Γ(X, V)) :
+    kernelCompIso I f g V (Ideal.Quotient.mk _ a) = Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma kernelCompIso_inv_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (V : X.Opens) (a : Γ(X, V)) :
+    (kernelCompIso I f g V).symm (Ideal.Quotient.mk _ a) = Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma quotientCompIso_kernel_factor (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : Z.affineOpens) (H : g ⁻¹ᵁ U ∈ Y.affineOpens) :
+    (kernelCompIso I f g ((f ≫ g) ⁻¹ᵁ U)).toRingHom.comp
+      (quotientToKernel I (f ≫ g) U) =
+    (quotientToKernel (I.comap g) f ⟨g ⁻¹ᵁ U, H⟩).comp
+      (quotientCompIso I f g U H).toRingHom := by
+  sorry
+
+lemma kernelCompIso_naturality (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    {U V : X.Opens} (h : U ≤ V) :
+    CommRingCat.ofHom (allOpenRestriction (I.comap (f ≫ g)) h) ≫
+      (kernelCompIso I f g U).toCommRingCatIso.hom =
+    (kernelCompIso I f g V).toCommRingCatIso.hom ≫
+      CommRingCat.ofHom (allOpenRestriction ((I.comap g).comap f) h) := by
+  sorry
+
+def quotientCompNatIso (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    [IsAffineHom g] :
+    quotientPresheaf I (f ≫ g) ≅
+      (show Monotone (fun U : Z.affineOpens =>
+        (⟨g ⁻¹ᵁ U, U.2.preimage g⟩ : Y.affineOpens))
+        from fun _ _ h => g.preimage_mono h).functor.op ⋙ quotientPresheaf (I.comap g) f :=
+  NatIso.ofComponents (fun U =>
+    (quotientCompIso I f g U.unop (U.unop.2.preimage g)).toCommRingCatIso)
+    (fun h => quotientCompIso_naturality I f g h.unop.le _ _)
+
+lemma quotientCompNatIso_app (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    [IsAffineHom g] (U : Z.affineOpens) :
+    (quotientCompNatIso I f g).hom.app (op U) =
+      (quotientCompIso I f g U (U.2.preimage g)).toCommRingCatIso.hom := by
+  sorry
+
+lemma quotientCompNatIso_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    [IsAffineHom g] (U : Z.affineOpens) (a : Γ(X, (f ≫ g) ⁻¹ᵁ U)) :
+    (quotientCompNatIso I f g).hom.app (op U) (Ideal.Quotient.mk _ a) =
+      Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma quotientCompNatIso_inv_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    [IsAffineHom g] (U : Z.affineOpens) (a : Γ(X, (f ≫ g) ⁻¹ᵁ U)) :
+    (quotientCompNatIso I f g).inv.app (op U) (Ideal.Quotient.mk _ a) =
+      Ideal.Quotient.mk _ a := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X Y Z : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: QuotientCompChecked.roundtrip
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : Z.affineOpens) (H : g ⁻¹ᵁ U ∈ Y.affineOpens)
+    (q : Γ(X, (f ≫ g) ⁻¹ᵁ U) ⧸ (I.ideal U).map ((f ≫ g).app U).hom) :
+    (quotientCompIso I f g U H).symm (quotientCompIso I f g U H q) = q := by
+  sorry
+
+-- test: QuotientCompChecked.unit_ideal
+example (f : X ⟶ Y) (g : Y ⟶ Z) (U : Z.affineOpens)
+    (H : g ⁻¹ᵁ U ∈ Y.affineOpens)
+    (q : Γ(X, (f ≫ g) ⁻¹ᵁ U) ⧸
+      ((⊤ : Z.IdealSheafData).ideal U).map ((f ≫ g).app U).hom) :
+    quotientCompIso (⊤ : Z.IdealSheafData) f g U H q = 0 := by
+  sorry
+
+-- test: QuotientCompChecked.empty_open
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (H : g ⁻¹ᵁ (⊥ : Z.Opens) ∈ Y.affineOpens)
+    (q : Γ(X, (f ≫ g) ⁻¹ᵁ (⊥ : Z.Opens)) ⧸
+      (I.ideal ⟨⊥, isAffineOpen_bot Z⟩).map ((f ≫ g).app (⊥ : Z.Opens)).hom) :
+    quotientCompIso I f g ⟨⊥, isAffineOpen_bot Z⟩ H q = 0 := by
+  sorry
+
+-- test: QuotientCompChecked.nonreduced_identity
+example :
+    let X := Spec (.of (ZMod 4))
+    let I : X.IdealSheafData := ⊥
+    let U : X.affineOpens := ⟨⊤, isAffineOpen_top _⟩
+    let a := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    let q := quotientCompIso I (𝟙 X) (𝟙 X) U U.2 (Ideal.Quotient.mk _ a)
+    q ≠ 0 ∧ q ^ 2 = 0 := by
+  sorry
+
+-- test: KernelCompChecked.roundtrip
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) (V : X.Opens)
+    (q : Γ(X, V) ⧸ RingHom.ker ((I.comap (f ≫ g)).subschemeι.app V).hom) :
+    (kernelCompIso I f g V).symm (kernelCompIso I f g V q) = q := by
+  sorry
+
+-- test: KernelCompChecked.empty_open
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (q : Γ(X, (⊥ : X.Opens)) ⧸
+      RingHom.ker ((I.comap (f ≫ g)).subschemeι.app (⊥ : X.Opens)).hom) :
+    kernelCompIso I f g ⊥ q = 0 := by
+  sorry
+
+-- test: KernelCompChecked.comparison_on_every_class
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : Z.affineOpens) (H : g ⁻¹ᵁ U ∈ Y.affineOpens)
+    (q : Γ(X, (f ≫ g) ⁻¹ᵁ U) ⧸ (I.ideal U).map ((f ≫ g).app U).hom) :
+    kernelCompIso I f g ((f ≫ g) ⁻¹ᵁ U) (quotientToKernel I (f ≫ g) U q) =
+    quotientToKernel (I.comap g) f ⟨g ⁻¹ᵁ U, H⟩ (quotientCompIso I f g U H q) := by
+  sorry
+
+-- test: QuotientCompNatChecked.two_step_restriction
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) [IsAffineHom g]
+    {U V W : Z.affineOpens} (h : U ≤ V) (k : V ≤ W)
+    (q : Γ(X, (f ≫ g) ⁻¹ᵁ W) ⧸ (I.ideal W).map ((f ≫ g).app W).hom) :
+    (quotientCompNatIso I f g).hom.app (op U)
+      (quotientRestriction I (f ≫ g) h (quotientRestriction I (f ≫ g) k q)) =
+    quotientRestriction (I.comap g) f
+      (show (⟨g ⁻¹ᵁ U, U.2.preimage g⟩ : Y.affineOpens) ≤
+        ⟨g ⁻¹ᵁ W, W.2.preimage g⟩ from g.preimage_mono (h.trans k))
+      ((quotientCompNatIso I f g).hom.app (op W) q) := by
+  sorry
+
+-- test: QuotientCompNatChecked.inverse_on_every_class
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) [IsAffineHom g]
+    (U : Z.affineOpens)
+    (q : Γ(X, (f ≫ g) ⁻¹ᵁ U) ⧸ (I.ideal U).map ((f ≫ g).app U).hom) :
+    (quotientCompNatIso I f g).inv.app (op U)
+      ((quotientCompNatIso I f g).hom.app (op U) q) = q := by
+  sorry
+
+-- test: QuotientCompNatChecked.kernel_square_on_every_class
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) [IsAffineHom g]
+    (U : Z.affineOpens)
+    (q : Γ(X, (f ≫ g) ⁻¹ᵁ U) ⧸ (I.ideal U).map ((f ≫ g).app U).hom) :
+    kernelCompIso I f g ((f ≫ g) ⁻¹ᵁ U) ((quotientToKernelNatTrans I (f ≫ g)).app (op U) q) =
+    (quotientToKernelNatTrans (I.comap g) f).app (op ⟨g ⁻¹ᵁ U, U.2.preimage g⟩)
+      ((quotientCompNatIso I f g).hom.app (op U) q) := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback

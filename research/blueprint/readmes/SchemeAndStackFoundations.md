@@ -1,3 +1,197 @@
+# Quotients under composite scheme ideal pullback
+
+For f:X→Y, g:Y→Z, native ideal datum I on Z and affine U⊆Z, the direct extended ideal is E=I(U).map((f≫g).app U). If the single intermediate open g⁻¹U is affine, native ideal pullback on that open identifies E with the iterated extended ideal E′=(I.comap g)(g⁻¹U).map(f.app(g⁻¹U)). The direct and iterated rings of sections are definitionally the same through native scheme composition. Their actual quotient rings are therefore canonically isomorphic by the identity on section representatives. The inverse preserves those representatives too.
+
+This ring equivalence commutes with restriction whenever both intermediate inverse images are affine. If g is affine globally, native inverse image is an actual functor between the two affine-open categories. The component equivalences form a natural isomorphism from the direct quotientPresheaf to the reindexed iterated quotientPresheaf. The first morphism f remains arbitrary; its inverse images need not be affine. No flatness, Noetherianity, reducedness or finiteness assumption is imposed.
+
+Independently of affineness, native comap_comp identifies the two actual pulled-back ideal data on X. Applying their immersion-section kernels on any open V and native quotient equivalence gives kernelCompIso. It preserves representatives in both directions and commutes with every open restriction. The direct image-ideal quotient comparison to the kernel quotient followed by this transport equals the iterated comparison after quotientCompIso. The square is equality of actual ring homomorphisms, not just the assertion that some isomorphism exists. It also holds on every class for the actual quotientToKernelNatTrans components when g is affine.
+
+Ten typed tests cover every-class inverse roundtrips, the unit ideal and empty-open boundaries, two successive restrictions and both forms of the kernel square. The concrete identity-composition test on Spec(ZMod4) keeps the class2 nonzero and square-zero. A reduction to a radical quotient or the zero ring fails that test. The dependent intermediate affine hypothesis remains visible in the component contract; kernel transport needs no such hypothesis.
+
+All117 incoming whole nodes, five planets, eight gaps,62 routed sources, twelve confirmed findings, inherited source issueE1 and six reserved-key boundaries remain. Fourteen nodes append three constructions with ten consumed API entries and ten tests. The four additional baseline APIs are native ring quotient equivalence, its representative law, affine-preimage preservation and ring-equivalence inverse cancellation. Every implementation stays unchecked and all seven stages retain their partial/not_read status. These formulas do not prove arbitrary closed-section surjectivity, arbitrary nonaffine image-ideal equality, a naive quotient sheaf condition or threefold coherence.
+
+Fresh source reading covers the complete current displayed Stacks01JU statement, proof and page comments, which supplies the image-ideal pullback convention. The precise composition and kernel-square formulas are authored deductions from pinned native APIs and the preceding actual constructions. No new finding was identified in this bounded passage. Own6040 and its original same-session6029 reading scopes remain scoped to29 unchanged external controls, with their original attribution. Peer6049 was independently authenticated and replayed; its reading attribution is not borrowed. Historical sources, E1 and all twelve finding contracts remain unchanged.
+
+Fourteen composite quotient declarations give an identity-induced ring equivalence under a single affine intermediate-open hypothesis, native comap_comp transport of immersion-kernel quotients on every open, the actual commuting quotient-to-kernel square and a natural isomorphism when the second morphism is affine and the first remains arbitrary. Remaining work includes identity/threefold coherence and compatibility with actual closed-subscheme and sheafification comparisons, keeping their dependent inverse-image functors explicit. No arbitrary nonaffine image-ideal equality, closed-section surjectivity or naive quotient sheaf condition is asserted. The conductor and flat-recomputation consumer obligations, eight gaps, all six reserved-key boundaries,62 source routes and other-stage obligations remain open.
+
+## Composite and iterated extended ideals
+
+**TauCeti.SchemeFoundations.IdealPullback.extendedIdeal_comp** — For arbitrary f:X→Y and g:Y→Z, native ideal datum I on Z and affine U⊆Z whose inverse image g⁻¹U is affine, the ideal I(U).map((f≫g).app U) equals (I.comap g)(g⁻¹U).map(f.app(g⁻¹U)) in the same actual ring Γ(X,f⁻¹g⁻¹U). No affineness of f or f⁻¹g⁻¹U is required.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/ideal-comap-affine-open, mathlib:Ideal.map_map.
+
+Proof: Use the existing affine-open formula for native ideal pullback, then native ideal-map composition and the native composite section map.
+
+## Composite pullback quotient isomorphism
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientCompIso** — Under the single affine intermediate-open hypothesis g⁻¹U affine, construct the actual ring equivalence between Γ(X,(f≫g)⁻¹U)/I(U).map((f≫g).app U) and Γ(X,f⁻¹g⁻¹U)/(I.comap g)(g⁻¹U).map(f.app(g⁻¹U)), induced by the identity on their common ring of sections.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-extended-ideal, mathlib:Ideal.quotEquivOfEq, mathlib:RingEquiv.symm_apply_apply.
+
+Proof: Apply the native ring quotient equivalence to the preceding equality of the actual extended ideals. Do not introduce a new quotient carrier.
+
+Consumed API:
+
+- **TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_mk**: The forward composite quotient equivalence takes the class of every actual section a to its class in the iterated extended-ideal quotient.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_inv_mk**: The inverse composite quotient equivalence takes every section class in the iterated extended-ideal quotient to the same section class in the composite quotient.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_naturality**: For affine U≤V in Z with both g⁻¹U and g⁻¹V affine, direct quotient restriction followed by the comparison at U equals comparison at V followed by iterated quotient restriction along g⁻¹U≤g⁻¹V, as actual CommRingCat morphisms.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_kernel_factor**: For affine U⊆Z with g⁻¹U affine, quotientToKernel for f≫g followed by kernelCompIso at f⁻¹g⁻¹U equals quotientCompIso followed by quotientToKernel for f and I.comap g, as actual ring homomorphisms. The final inverse image and f may be nonaffine.
+
+Typed tests:
+
+- **QuotientCompChecked.roundtrip**: For any single affine intermediate inverse image and every quotient class, the inverse composite quotient equivalence returns the original class.
+- **QuotientCompChecked.unit_ideal**: For the unit ideal datum, arbitrary f,g and a single affine intermediate inverse image, every direct quotient class compares to zero.
+- **QuotientCompChecked.empty_open**: For the empty affine open in Z, arbitrary f,g and the affine intermediate witness, every class compares to zero in the actual iterated quotient.
+- **QuotientCompChecked.nonreduced_identity**: For two identity morphisms of Spec(ZMod4) and zero ideal datum, the comparison preserves the nonzero square-zero class of the global section corresponding to2.
+
+## Composite quotient comparison on representatives
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_mk** — The forward composite quotient equivalence takes the class of every actual section a to its class in the iterated extended-ideal quotient.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-isomorphism, mathlib:Ideal.quotEquivOfEq_mk.
+
+Proof: Use the native quotient equivalence representative formula.
+
+## Inverse composite quotient comparison on representatives
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_inv_mk** — The inverse composite quotient equivalence takes every section class in the iterated extended-ideal quotient to the same section class in the composite quotient.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-isomorphism.
+
+Proof: Definitional reduction of the inverse native quotient equivalence.
+
+## Composite quotient comparison commutes with restriction
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_naturality** — For affine U≤V in Z with both g⁻¹U and g⁻¹V affine, direct quotient restriction followed by the comparison at U equals comparison at V followed by iterated quotient restriction along g⁻¹U≤g⁻¹V, as actual CommRingCat morphisms.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-isomorphism, SchemeAndStackFoundations:SF.0/quotient-restriction-representative, mathlib:Ideal.Quotient.ringHom_ext.
+
+Proof: Compare the actual native quotient ring maps on section representatives; both take the same restriction and its quotient class.
+
+## Canonical transport of pullback kernel quotients
+
+**TauCeti.SchemeFoundations.IdealPullback.kernelCompIso** — For arbitrary f:X→Y, g:Y→Z, native I on Z and every open V⊆X, use the native equality I.comap(f≫g)=(I.comap g).comap f to construct the actual identity-induced ring equivalence Γ(X,V)/ker((I.comap(f≫g)).ι.app V) ≃ Γ(X,V)/ker(((I.comap g).comap f).ι.app V). No open or morphism must be affine.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp, mathlib:Ideal.quotEquivOfEq, mathlib:RingEquiv.symm_apply_apply.
+
+Proof: Apply congruence of the actual immersion-section kernel to native comap_comp, and then native quotEquivOfEq. Reuse comap_comp rather than planning it again.
+
+Consumed API:
+
+- **TauCeti.SchemeFoundations.IdealPullback.kernelCompIso_mk**: On every open V⊆X, the canonical forward transport between the native composite and iterated immersion-kernel quotients preserves the class of each section a.
+- **TauCeti.SchemeFoundations.IdealPullback.kernelCompIso_inv_mk**: On every open V⊆X, inverse native pullback-composition transport of the kernel quotient preserves every section class.
+- **TauCeti.SchemeFoundations.IdealPullback.kernelCompIso_naturality**: For all opens U≤V in X, allOpenRestriction for I.comap(f≫g) followed by kernelCompIso at U equals kernelCompIso at V followed by allOpenRestriction for (I.comap g).comap f, as actual CommRingCat morphisms. No affineness is assumed.
+
+Typed tests:
+
+- **KernelCompChecked.roundtrip**: For arbitrary f,g and every open V⊆X, inverse native pullback-composition kernel transport returns every original quotient class.
+- **KernelCompChecked.empty_open**: For arbitrary f,g and the empty open of X, every actual immersion-kernel quotient class transports to zero.
+- **KernelCompChecked.comparison_on_every_class**: For a single affine intermediate open, the direct quotient-to-kernel map followed by native composite kernel transport equals the iterated quotient-to-kernel map after quotientCompIso on every quotient class.
+
+## Kernel quotient transport preserves representatives
+
+**TauCeti.SchemeFoundations.IdealPullback.kernelCompIso_mk** — On every open V⊆X, the canonical forward transport between the native composite and iterated immersion-kernel quotients preserves the class of each section a.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-kernel-quotient-isomorphism, mathlib:Ideal.quotEquivOfEq_mk.
+
+Proof: Use the native representative formula for quotient equivalence.
+
+## Inverse kernel quotient transport preserves representatives
+
+**TauCeti.SchemeFoundations.IdealPullback.kernelCompIso_inv_mk** — On every open V⊆X, inverse native pullback-composition transport of the kernel quotient preserves every section class.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-kernel-quotient-isomorphism.
+
+Proof: Definitional reduction of the inverse native quotient equivalence.
+
+## Composite comparison commutes with the kernel quotient bridge
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_kernel_factor** — For affine U⊆Z with g⁻¹U affine, quotientToKernel for f≫g followed by kernelCompIso at f⁻¹g⁻¹U equals quotientCompIso followed by quotientToKernel for f and I.comap g, as actual ring homomorphisms. The final inverse image and f may be nonaffine.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-representative, SchemeAndStackFoundations:SF.0/composite-kernel-representative, SchemeAndStackFoundations:SF.0/quotient-to-kernel-representative, mathlib:Ideal.Quotient.ringHom_ext.
+
+Proof: Prove equality of actual native ring maps on every quotient representative, using the two representative formulas and the existing quotientToKernel formula.
+
+## Canonical kernel transport commutes with every open restriction
+
+**TauCeti.SchemeFoundations.IdealPullback.kernelCompIso_naturality** — For all opens U≤V in X, allOpenRestriction for I.comap(f≫g) followed by kernelCompIso at U equals kernelCompIso at V followed by allOpenRestriction for (I.comap g).comap f, as actual CommRingCat morphisms. No affineness is assumed.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-kernel-quotient-isomorphism, SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-representative, mathlib:Ideal.Quotient.ringHom_ext.
+
+Proof: Compare native ring maps on representatives; they induce exactly the same section restriction.
+
+## Natural composite pullback quotient isomorphism
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso** — For arbitrary f:X→Y and affine g:Y→Z, construct a native natural isomorphism from quotientPresheaf I (f≫g) on Z.affineOpens opposite to quotientPresheaf (I.comap g) f precomposed by the actual affine inverse-image functor U↦g⁻¹U. Its components are quotientCompIso. No affineness of f is assumed.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/affine-quotient-presheaf, SchemeAndStackFoundations:SF.0/composite-quotient-isomorphism, SchemeAndStackFoundations:SF.0/composite-quotient-restriction, mathlib:AlgebraicGeometry.IsAffineOpen.preimage, mathlib:Monotone.functor, mathlib:CategoryTheory.NatIso.ofComponents.
+
+Proof: Native affine-preimage preservation makes the monotone inverse-image assignment an actual functor. Package the preceding ring equivalences with their proved restriction equality by native NatIso.ofComponents.
+
+Consumed API:
+
+- **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_app**: For affine g and every affine U in Z, the forward component of quotientCompNatIso at U is the CommRingCat map underlying quotientCompIso with the native affine-preimage witness.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_mk**: For affine g and every affine U⊆Z, the forward natural component sends each section class in the direct quotient to the same section class in the iterated quotient.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_inv_mk**: For affine g and every affine U⊆Z, the inverse natural component sends each iterated quotient section class to the same section class in the direct quotient.
+
+Typed tests:
+
+- **QuotientCompNatChecked.two_step_restriction**: For affine g, arbitrary f and affine U≤V≤W in Z, the natural component commutes with two successive direct quotient restrictions and the single corresponding iterated quotient restriction.
+- **QuotientCompNatChecked.inverse_on_every_class**: For affine g, arbitrary f and any affine U⊆Z, inverse and forward components of the natural isomorphism return every quotient class.
+- **QuotientCompNatChecked.kernel_square_on_every_class**: For affine g and arbitrary f, the actual direct quotientToKernelNatTrans component followed by kernelCompIso equals the iterated quotientToKernelNatTrans component after quotientCompNatIso, on every quotient class.
+
+## The natural component is the composite quotient comparison
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_app** — For affine g and every affine U in Z, the forward component of quotientCompNatIso at U is the CommRingCat map underlying quotientCompIso with the native affine-preimage witness.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-natural-isomorphism.
+
+Proof: Definitional equality of the actual specified components.
+
+## The natural isomorphism preserves each section representative
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_mk** — For affine g and every affine U⊆Z, the forward natural component sends each section class in the direct quotient to the same section class in the iterated quotient.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-natural-component, SchemeAndStackFoundations:SF.0/composite-quotient-representative.
+
+Proof: Apply the component representative law.
+
+## The inverse natural isomorphism preserves section representatives
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_inv_mk** — For affine g and every affine U⊆Z, the inverse natural component sends each iterated quotient section class to the same section class in the direct quotient.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are actual scheme morphisms, and I is native IdealSheafData on Z. Each affine intermediate-open or affine-g hypothesis is explicit in the statement. No flatness, reducedness, Noetherianity, finite presentation or affineness of f is assumed. Kernel transport works on every open. Image-ideal comparison requires the named intermediate inverse images to be affine.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-natural-isomorphism, SchemeAndStackFoundations:SF.0/composite-quotient-inverse-representative.
+
+Proof: Apply the inverse component representative law.
+
 # Natural comparison of the two quotient presentations
 
 For an arbitrary scheme morphism f:X→Y, ideal datum I on Y and affine open U⊆Y, write V=f⁻¹U, E=I(U).map(f.app U), and K=ker((I.comap f).ι.app V). The existing inclusion E≤K gives an actual identity-induced ring map Γ(X,V)/E→Γ(X,V)/K. It is always surjective and sends every representative to the same section's class. It is injective exactly when the existing quotient-to-closed-sections map is injective, because the kernel quotient embeds in those sections.
