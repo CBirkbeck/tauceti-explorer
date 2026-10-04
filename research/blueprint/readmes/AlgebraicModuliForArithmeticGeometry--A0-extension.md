@@ -1,3 +1,413 @@
+# Actual gerbe local covers and overlap refinements
+
+Codex — codex-rtOQ9t, 4 October2026. Partial continuation: four actual constructions and19 API lemmas; all572 incoming nodes remain completely unchanged.
+
+Canonical local-object and local-isomorphism sieves, actual overlap covering refinements and direct overlap isomorphisms now have checked native prototypes for arbitrary Cat-valued pseudofunctors and gerbes on an arbitrary site. Covering uses the genuine IsGerbe local-existence fields; direct overlap maps retain both F.mapComp endpoint factors. This resolves the explicitly named existence of local covers/refinements, but no compatibility cocycle for independent choices or gluing of Hom sheaves, actions and maps is claimed. D0 torsor packaging, full faithfulness and coherent inverse/unit/counit, intrinsic descended-band/SF1, nonneutral geometric/root-gerbe fixtures and derivedH², compatible fpqc limits and all other-stage/source obligations remain open.
+
+The object sieve contains f:V→U exactly when F(V) has an object. Its equality under native sieve pullback is literal; covering follows by enlarging the gerbe local-existence sieve. The isomorphism sieve uses actual restricted objects and transports both endpoints with native mapComp. Its pullback equality explicitly conjugates by these comparisons, without making F strict. Any supplied cover can be intersected with these canonical covers. The overlap construction compares two supplied local objects on an arbitrary common refinement; no fibre product or terminal object is needed. Its chosen direct isomorphism is the i-side composition map, an explicitly supplied nonempty iterated isomorphism selected by Classical.choice, and the inverse j-side composition map. Independent choices are not equated and their descent cocycles remain open.
+
+This is separate from the inherited localImageSieve of a transformation into a supplied target object and its lifted coherent object-descent route. That existing machinery is preserved and imported; these canonical covers supply arbitrary local objects and overlap existence for the Hom-sheaf/torsor-gluing frontier. Native Sieve, topology axioms, isomorphism inverses and functor restriction are reused. The coefficient universe w of inherited bandings is untouched; the new local-existence constructions do not require any banding.
+
+## Canonical local-object sieve
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object**.
+
+For any native Cat-valued pseudofunctor F and U∈C, construct the native Sieve U whose arrows f:V→U satisfy Nonempty F(V). Downward closure sends an actual object x to F(g)x under every g:W→V; it imposes no gerbe, covering or global-object hypothesis.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Use the existing native Sieve carrier and the actual restriction functor on objects.
+
+Prerequisites: mathlib:CategoryTheory.Sieve.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_mem**: Membership of f:V→U in objectCover(F,U) is exactly Nonempty F(V), independently of f.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_pullback**: For every f:V→U, the native pullback of objectCover(F,U) is exactly objectCover(F,V), as native sieves.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_covering**: If F is a gerbe on (C,J), objectCover(F,U) belongs to J(U). This assertion does not produce an object over U.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_refinement_covering**: For F a gerbe and any native covering sieve R on U, R∩objectCover(F,U) is J-covering. Each member has an actual nonempty source fibre.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_identity_empty**: If F(U) is empty, the identity of U is not in objectCover(F,U). Even with IsGerbe F J, the covering conclusion cannot select a global object.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.object_refined_member** (compatibility): A member of the common refinement of an arbitrary covering sieve and objectCover supplies an actual object in its source fibre, and this refinement is covering.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.object_empty_global_fibre** (degenerate): With a gerbe and an explicitly empty fibre F(U), objectCover still covers U but its identity arrow is absent. This is a parameterized assertion, not a constructed nonneutral geometric fixture.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.object_iterated_restriction** (compatibility): Pulling the actual canonical object sieve back along two arbitrary arrows equals the canonical object sieve at the final base.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.constant_empty_objects** (non-example): For the actual constant pseudofunctor with fibre Discrete PEmpty on Discrete PUnit, objectCover is the empty native sieve. No gerbe or covering hypothesis is asserted for this fixture.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.constant_inhabited_objects** (computation): For the actual constant pseudofunctor with fibre Discrete Bool on Discrete PUnit, objectCover is maximal, using a concrete local object.
+
+## Local-object sieve membership
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_mem**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object-membership**.
+
+Membership of f:V→U in objectCover(F,U) is exactly Nonempty F(V), independently of f.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Unfold the native predicate.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Canonical object covers under pullback
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_pullback**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object-pullback**.
+
+For every f:V→U, the native pullback of objectCover(F,U) is exactly objectCover(F,V), as native sieves.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Both native predicates test nonemptiness of the fibre at the domain of the next arrow.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object, mathlib:CategoryTheory.Sieve.pullback.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## The local-object sieve covers a gerbe
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_covering**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object-covering**.
+
+If F is a gerbe on (C,J), objectCover(F,U) belongs to J(U). This assertion does not produce an object over U.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Take the covering sieve supplied by IsGerbe.locallyNonempty and enlarge it by native superset_covering.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object, AlgebraicModuliForArithmeticGeometry:key/gerbes, mathlib:CategoryTheory.GrothendieckTopology.superset_covering.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Refine any cover by local objects
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_refinement_covering**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object-refinement**.
+
+For F a gerbe and any native covering sieve R on U, R∩objectCover(F,U) is J-covering. Each member has an actual nonempty source fibre.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Apply native intersection_covering to the two actual covering sieves.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object-covering, mathlib:CategoryTheory.GrothendieckTopology.intersection_covering.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## An empty global fibre has no identity member
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_identity_empty**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object-empty**.
+
+If F(U) is empty, the identity of U is not in objectCover(F,U). Even with IsGerbe F J, the covering conclusion cannot select a global object.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Eliminate the alleged inhabitant of F(U).
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object-membership.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Canonical local-isomorphism sieve
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom**.
+
+For x,y∈F(U), construct the native sieve of f:V→U admitting an actual isomorphism F(f)x≅F(f)y. Its downward closure along g:W→V composes F.mapComp(f,g)(x), F(g) of the supplied isomorphism, and F.mapComp(f,g)(y) inverse.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Use the existing native Sieve and native Cat.Hom.toNatIso; retain both pseudofunctor comparison components.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/object, mathlib:CategoryTheory.Sieve.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_mem**: An arrow f:V→U belongs to isomCover(F,x,y) exactly when the actual fibre isomorphism type F(f)x≅F(f)y is nonempty.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_covering**: For a gerbe F and supplied x,y∈F(U), isomCover(F,x,y) is J-covering; a global isomorphism is not assumed.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_symm**: The actual native sieves isomCover(F,x,y) and isomCover(F,y,x) are equal.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_refl**: For every actual x∈F(U), isomCover(F,x,x) is the maximal native sieve, without a gerbe hypothesis.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_pullback**: For f:V→U, the native pullback of isomCover(F,x,y) equals isomCover(F,F(f)x,F(f)y). The two directions transport supplied isomorphisms with both native F.mapComp(f,g) endpoint components; F need not be strict.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_refinement_covering**: For a gerbe F, x,y∈F(U) and every covering sieve R on U, R∩isomCover(F,x,y) is covering.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.distinct_discrete_objects** (non-example): For the actual constant Discrete Bool fibre, the isomorphism sieve between false and true is empty. A nonempty fibre does not imply local connectedness; this fixture is not claimed to be a gerbe.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.equal_discrete_objects** (degenerate): For the actual constant Discrete Bool fibre, the isomorphism sieve of false with itself is maximal.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.isom_iterated_refinement** (compatibility): For a gerbe, the actual local-isomorphism cover remains covering after two arbitrary base restrictions.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.isom_native_comparison** (compatibility): A supplied isomorphism between iterated restrictions gives an actual isomorphism between direct composite restrictions, with both native composition comparisons retained.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.isom_common_cover** (compatibility): The common refinement of an arbitrary covering sieve and the actual local-isomorphism sieve is covering.
+
+## Local-isomorphism membership
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_mem**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom-membership**.
+
+An arrow f:V→U belongs to isomCover(F,x,y) exactly when the actual fibre isomorphism type F(f)x≅F(f)y is nonempty.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Unfold the native predicate.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## The local-isomorphism sieve covers
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_covering**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom-covering**.
+
+For a gerbe F and supplied x,y∈F(U), isomCover(F,x,y) is J-covering; a global isomorphism is not assumed.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Take the sieve from IsGerbe.locallyIsomorphic and use native superset_covering.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom, AlgebraicModuliForArithmeticGeometry:key/gerbes, mathlib:CategoryTheory.GrothendieckTopology.superset_covering.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Symmetry of the local-isomorphism locus
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_symm**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom-symmetry**.
+
+The actual native sieves isomCover(F,x,y) and isomCover(F,y,x) are equal.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Apply native Sieve.ext and take inverses of actual isomorphisms.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom-membership, mathlib:CategoryTheory.Sieve.ext.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## The reflexive isomorphism locus is maximal
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_refl**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom-reflexivity**.
+
+For every actual x∈F(U), isomCover(F,x,x) is the maximal native sieve, without a gerbe hypothesis.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: The native identity isomorphism supplies every member.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom-membership, mathlib:CategoryTheory.Sieve.ext.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Local-isomorphism covers under restriction
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_pullback**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom-pullback**.
+
+For f:V→U, the native pullback of isomCover(F,x,y) equals isomCover(F,F(f)x,F(f)y). The two directions transport supplied isomorphisms with both native F.mapComp(f,g) endpoint components; F need not be strict.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Apply Sieve.ext. Conjugate by the two actual composition-comparison isomorphisms, in opposite directions for the two implications.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom, mathlib:CategoryTheory.Sieve.ext, mathlib:CategoryTheory.Sieve.pullback.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Refine arbitrary covers by isomorphisms
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_refinement_covering**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom-refinement**.
+
+For a gerbe F, x,y∈F(U) and every covering sieve R on U, R∩isomCover(F,x,y) is covering.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Apply native intersection_covering.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom-covering, mathlib:CategoryTheory.GrothendieckTopology.intersection_covering.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Isomorphism refinements on actual overlaps
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap**.
+
+For i:T→V, j:T→W and actual local objects x∈F(V), y∈F(W), construct the native sieve on T on which F(i)x and F(j)y become isomorphic. The construction needs neither fibre products nor a terminal object.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Specialize the canonical isomorphism sieve to the two actual restricted objects.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom, mathlib:CategoryTheory.Sieve.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover_mem**: Membership of q:S→T in overlapCover(F,i,j,x,y) is exactly nonemptiness of F(q)F(i)x≅F(q)F(j)y, in the actual fibre F(S).
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover_covering**: For a gerbe F, every overlapCover(F,i,j,x,y) is J-covering on T. The supplied local objects may belong to different source fibres.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover_swap**: Swapping i,x with j,y leaves the native overlap sieve equal.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover_pullback_covering**: For a gerbe F and every q:S→T, the actual native pullback of overlapCover(F,i,j,x,y) is J-covering on S.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.overlap_member_maximal_pullback** (computation): Pulling the overlap sieve back along a member makes it maximal, by native sieve closure.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.overlap_swap_refinement** (compatibility): After any further restriction, exchanging the local charts preserves the exact native overlap sieve.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.overlap_further_cover** (compatibility): The common refinement of any cover on S and a restricted overlap cover is covering, without a fibre-product hypothesis.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.overlap_direct_endpoints** (compatibility): An overlap member supplies an actual isomorphism between direct F(q≫i)x and F(q≫j)y endpoints.
+
+## Actual overlap membership
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover_mem**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap-membership**.
+
+Membership of q:S→T in overlapCover(F,i,j,x,y) is exactly nonemptiness of F(q)F(i)x≅F(q)F(j)y, in the actual fibre F(S).
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Unfold the canonical isomorphism sieve.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## The overlap refinement covers
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover_covering**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap-covering**.
+
+For a gerbe F, every overlapCover(F,i,j,x,y) is J-covering on T. The supplied local objects may belong to different source fibres.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Apply the gerbe local-isomorphism covering lemma to the two restricted objects.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap, AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom-covering.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Swapping the two local charts
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover_swap**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap-swap**.
+
+Swapping i,x with j,y leaves the native overlap sieve equal.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Use equality of the underlying isomorphism sieves under inversion.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap, AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/isom-symmetry.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Further restriction of overlap covers
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover_pullback_covering**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap-pullback**.
+
+For a gerbe F and every q:S→T, the actual native pullback of overlapCover(F,i,j,x,y) is J-covering on S.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Reuse native pullback_stable on this actual covering sieve.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap-covering, mathlib:CategoryTheory.GrothendieckTopology.pullback_stable.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Actual direct overlap isomorphism
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-iso**.
+
+For a member q:S→T of overlapCover(F,i,j,x,y), construct an actual isomorphism F(q≫i)x≅F(q≫j)y. Choose the supplied nonempty iterated isomorphism, and compose the native F.mapComp(i,q)(x), that chosen isomorphism, and the inverse F.mapComp(j,q)(y). No compatibility of independent choices or descent cocycle is assumed or proved.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Apply Classical.choice only to the explicit membership evidence, then compose the native comparison isomorphisms.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap-membership.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_hom**: The forward arrow of overlapIso is the hom of the i-side composition comparison, then the chosen iterated isomorphism hom, then the inverse arrow of the j-side comparison.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_inv**: The inverse arrow of overlapIso is the hom of the j-side comparison, then the inverse of the chosen iterated isomorphism, then the inverse arrow of the i-side comparison. All factors occur in reversed order.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_hom_inv**: The actual overlapIso hom followed by its inverse equals the native identity of F(q≫i)x.
+
+API **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_inv_hom**: The actual overlapIso inverse followed by its hom equals the native identity of F(q≫j)y.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.overlap_iso_round_trip** (computation): Postcomposing any actual arrow into the source endpoint by the chosen overlap hom and its inverse returns that arrow.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.overlap_iso_inverse_round_trip** (computation): Postcomposing any actual arrow into the target endpoint by the chosen overlap inverse and hom returns that arrow.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.overlap_iso_restriction** (compatibility): Every further native restriction of the actual chosen overlap isomorphism still satisfies the hom/inverse round-trip equation.
+
+Test **TauCeti.AlgebraicGeometry.LocalCoverTests.overlap_same_base_path** (compatibility): If i≫f=j≫g describes an actual overlap over U, the two deeper paths (q≫i)≫f and (q≫j)≫g remain equal. This does not assert a descent cocycle for chosen isomorphisms.
+
+## Forward direct overlap formula
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_hom**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-hom**.
+
+The forward arrow of overlapIso is the hom of the i-side composition comparison, then the chosen iterated isomorphism hom, then the inverse arrow of the j-side comparison.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Unfold the actual composite isomorphism.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-iso.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Inverse direct overlap formula
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_inv**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-inverse**.
+
+The inverse arrow of overlapIso is the hom of the j-side comparison, then the inverse of the chosen iterated isomorphism, then the inverse arrow of the i-side comparison. All factors occur in reversed order.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Unfold the composite inverse and use native category associativity.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-iso.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Forward overlap round trip
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_hom_inv**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-round-trip**.
+
+The actual overlapIso hom followed by its inverse equals the native identity of F(q≫i)x.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Use the native isomorphism hom_inv_id field.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-iso.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+## Inverse overlap round trip
+
+Declaration: **TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_inv_hom**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-inverse-round-trip**.
+
+The actual overlapIso inverse followed by its hom equals the native identity of F(q≫j)y.
+
+Hypotheses: Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf. Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.
+
+Proof plan: Use the native isomorphism inv_hom_id field.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-iso.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons. AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor: Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Retain local-existence hypotheses and native carriers in the global fixed-band comparison.
+
+All572 complete incoming node objects, all ten gaps,22 requests,eight source issues,ten planets and eight partial stages are preserved. Every implementation status remains unchecked. Four constant-pseudofunctor tests use actual Discrete PEmpty or Discrete Bool fibres; the distinct-object case is deliberately not asserted to be a gerbe. The empty-global-fibre gerbe test is parameterized, not a constructed nonneutral geometric example. The other tests use arbitrary real native sites, fibres, arrows and isomorphisms. No nonconstant or nonneutral geometric fixture is added. The entire full Tau-dependent suggested file remains uncompiled; the exact retained incoming prefix is preceded only by the native Functor/LocallyDiscrete import needed by the concrete constant tests.
+
+Source context: [Stacks Section8.11](https://stacks.math.columbia.edu/tag/06NY). The exact construction formulas and proofs are authored deductions. The inherited E6 projection-label correction and the omitted general base-compatibility/SF1 obligations are retained. The complete previous reader follows verbatim.
+
 # General two-gerbe Hom-sheaf base-change coherence
 
 Codex — codex-7e92bd, 4 October 2026. Partial continuation; six lemmas complete the unit and composition API of the existing comparison.

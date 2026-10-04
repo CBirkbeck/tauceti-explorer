@@ -1,3 +1,4 @@
+import Mathlib.CategoryTheory.Bicategory.Functor.LocallyDiscrete
 import Mathlib.CategoryTheory.Core
 import Mathlib.CategoryTheory.Action.Basic
 import Mathlib.CategoryTheory.ObjectProperty.FullSubcategory
@@ -8267,3 +8268,265 @@ example (X : HomCategory b b) (f : V ⟶ U) (g : W ⟶ V)
   sorry
 
 end TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests
+
+namespace TauCeti.AlgebraicGeometry.GerbeLocalCovers
+
+variable {C : Type u} [Category.{v} C]
+    (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+    {J : GrothendieckTopology C} {U V W T S : C}
+
+/-- The actual sieve of arrows into U whose domain fibre has an object. -/
+def objectCover (U : C) : Sieve U where
+  arrows := fun {V} _ => Nonempty (F.obj (.mk (op V)))
+  downward_closed := by
+    rintro V W f ⟨x⟩ g
+    exact ⟨(F.map g.op.toLoc).toFunctor.obj x⟩
+
+lemma objectCover_mem (f : V ⟶ U) :
+    objectCover F U f ↔ Nonempty (F.obj (.mk (op V))) := by
+  sorry
+
+lemma objectCover_pullback (f : V ⟶ U) :
+    (objectCover F U).pullback f = objectCover F V := by
+  sorry
+
+lemma objectCover_covering [IsGerbe F J] (U : C) : objectCover F U ∈ J U := by
+  sorry
+
+lemma objectCover_refinement_covering [IsGerbe F J] (R : Sieve U) (hR : R ∈ J U) :
+    R ⊓ objectCover F U ∈ J U := by
+  sorry
+
+lemma objectCover_identity_empty [IsEmpty (F.obj (.mk (op U)))] :
+    ¬ objectCover F U (𝟙 U) := by
+  sorry
+
+/-- The actual locally-isomorphic locus; mapComp transports direct restrictions. -/
+def isomCover {U : C} (x y : F.obj (.mk (op U))) : Sieve U where
+  arrows := fun {V} f => Nonempty ((F.map f.op.toLoc).toFunctor.obj x ≅
+    (F.map f.op.toLoc).toFunctor.obj y)
+  downward_closed := by
+    rintro V W f ⟨e⟩ g
+    let c := Cat.Hom.toNatIso (F.mapComp f.op.toLoc g.op.toLoc)
+    exact ⟨c.app x ≪≫ (F.map g.op.toLoc).toFunctor.mapIso e ≪≫ (c.app y).symm⟩
+
+lemma isomCover_mem (x y : F.obj (.mk (op U))) (f : V ⟶ U) :
+    isomCover F x y f ↔ Nonempty ((F.map f.op.toLoc).toFunctor.obj x ≅
+      (F.map f.op.toLoc).toFunctor.obj y) := by
+  sorry
+
+lemma isomCover_covering [IsGerbe F J] (x y : F.obj (.mk (op U))) :
+    isomCover F x y ∈ J U := by
+  sorry
+
+lemma isomCover_symm (x y : F.obj (.mk (op U))) :
+    isomCover F x y = isomCover F y x := by
+  sorry
+
+lemma isomCover_refl (x : F.obj (.mk (op U))) : isomCover F x x = ⊤ := by
+  sorry
+
+lemma isomCover_pullback (x y : F.obj (.mk (op U))) (f : V ⟶ U) :
+    (isomCover F x y).pullback f =
+      isomCover F ((F.map f.op.toLoc).toFunctor.obj x)
+        ((F.map f.op.toLoc).toFunctor.obj y) := by
+  sorry
+
+lemma isomCover_refinement_covering [IsGerbe F J]
+    (x y : F.obj (.mk (op U))) (R : Sieve U) (hR : R ∈ J U) :
+    R ⊓ isomCover F x y ∈ J U := by
+  sorry
+
+/-- Compare two actual local objects on an arbitrary common refinement T. -/
+def overlapCover (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W))) : Sieve T :=
+  isomCover F ((F.map i.op.toLoc).toFunctor.obj x)
+    ((F.map j.op.toLoc).toFunctor.obj y)
+
+lemma overlapCover_mem (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W))) (q : S ⟶ T) :
+    overlapCover F i j x y q ↔
+      Nonempty ((F.map q.op.toLoc).toFunctor.obj ((F.map i.op.toLoc).toFunctor.obj x) ≅
+        (F.map q.op.toLoc).toFunctor.obj ((F.map j.op.toLoc).toFunctor.obj y)) := by
+  sorry
+
+lemma overlapCover_covering [IsGerbe F J] (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W))) :
+    overlapCover F i j x y ∈ J T := by
+  sorry
+
+lemma overlapCover_swap (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W))) :
+    overlapCover F i j x y = overlapCover F j i y x := by
+  sorry
+
+lemma overlapCover_pullback_covering [IsGerbe F J] (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W))) (q : S ⟶ T) :
+    (overlapCover F i j x y).pullback q ∈ J S := by
+  sorry
+
+/-- Choose an actual overlap isomorphism, with both native composition comparisons. -/
+noncomputable def overlapIso (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
+    (q : S ⟶ T) (h : overlapCover F i j x y q) :
+    (F.map (q ≫ i).op.toLoc).toFunctor.obj x ≅
+      (F.map (q ≫ j).op.toLoc).toFunctor.obj y :=
+  (Cat.Hom.toNatIso (F.mapComp i.op.toLoc q.op.toLoc)).app x ≪≫
+    Classical.choice h ≪≫
+      ((Cat.Hom.toNatIso (F.mapComp j.op.toLoc q.op.toLoc)).app y).symm
+
+lemma overlapIso_hom (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
+    (q : S ⟶ T) (h : overlapCover F i j x y q) :
+    (overlapIso F i j x y q h).hom =
+      ((Cat.Hom.toNatIso (F.mapComp i.op.toLoc q.op.toLoc)).app x).hom ≫
+        (Classical.choice h).hom ≫
+          ((Cat.Hom.toNatIso (F.mapComp j.op.toLoc q.op.toLoc)).app y).inv := by
+  sorry
+
+lemma overlapIso_inv (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
+    (q : S ⟶ T) (h : overlapCover F i j x y q) :
+    (overlapIso F i j x y q h).inv =
+      ((Cat.Hom.toNatIso (F.mapComp j.op.toLoc q.op.toLoc)).app y).hom ≫
+        (Classical.choice h).inv ≫
+          ((Cat.Hom.toNatIso (F.mapComp i.op.toLoc q.op.toLoc)).app x).inv := by
+  sorry
+
+lemma overlapIso_hom_inv (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
+    (q : S ⟶ T) (h : overlapCover F i j x y q) :
+    (overlapIso F i j x y q h).hom ≫ (overlapIso F i j x y q h).inv = 𝟙 _ := by
+  sorry
+
+lemma overlapIso_inv_hom (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
+    (q : S ⟶ T) (h : overlapCover F i j x y q) :
+    (overlapIso F i j x y q h).inv ≫ (overlapIso F i j x y q h).hom = 𝟙 _ := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.GerbeLocalCovers
+
+namespace TauCeti.AlgebraicGeometry.LocalCoverTests
+open GerbeLocalCovers
+variable {C : Type u} [Category.{v} C]
+    (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+    {J : GrothendieckTopology C} {U V W T S R : C}
+
+-- test: LocalCoverTests.object_refined_member
+example [IsGerbe F J] (D : Sieve U) (hD : D ∈ J U)
+    (f : V ⟶ U) (h : (D ⊓ objectCover F U) f) :
+    D ⊓ objectCover F U ∈ J U ∧ Nonempty (F.obj (.mk (op V))) := by
+  sorry
+
+-- test: LocalCoverTests.object_empty_global_fibre
+example [IsGerbe F J] [IsEmpty (F.obj (.mk (op U)))] :
+    objectCover F U ∈ J U ∧ ¬ objectCover F U (𝟙 U) := by
+  sorry
+
+-- test: LocalCoverTests.object_iterated_restriction
+example (f : V ⟶ U) (g : W ⟶ V) :
+    ((objectCover F U).pullback f).pullback g = objectCover F W := by
+  sorry
+
+-- test: LocalCoverTests.constant_empty_objects
+example :
+    let F := ((Functor.const (Discrete PUnit)ᵒᵖ).obj (Cat.of (Discrete PEmpty))).toPseudofunctor'
+    objectCover F (Discrete.mk PUnit.unit) = ⊥ := by
+  sorry
+
+-- test: LocalCoverTests.constant_inhabited_objects
+example :
+    let F := ((Functor.const (Discrete PUnit)ᵒᵖ).obj (Cat.of (Discrete Bool))).toPseudofunctor'
+    objectCover F (Discrete.mk PUnit.unit) = ⊤ := by
+  sorry
+
+-- test: LocalCoverTests.distinct_discrete_objects
+example :
+    let F := ((Functor.const (Discrete PUnit)ᵒᵖ).obj (Cat.of (Discrete Bool))).toPseudofunctor'
+    isomCover F (U := Discrete.mk PUnit.unit) (Discrete.mk false) (Discrete.mk true) = ⊥ := by
+  sorry
+
+-- test: LocalCoverTests.equal_discrete_objects
+example :
+    let F := ((Functor.const (Discrete PUnit)ᵒᵖ).obj (Cat.of (Discrete Bool))).toPseudofunctor'
+    isomCover F (U := Discrete.mk PUnit.unit) (Discrete.mk false) (Discrete.mk false) = ⊤ := by
+  sorry
+
+-- test: LocalCoverTests.isom_iterated_refinement
+example [IsGerbe F J] (x y : F.obj (.mk (op U)))
+    (f : V ⟶ U) (g : W ⟶ V) :
+    ((isomCover F x y).pullback f).pullback g ∈ J W := by
+  sorry
+
+-- test: LocalCoverTests.isom_native_comparison
+example (x y : F.obj (.mk (op U))) (f : V ⟶ U) (g : W ⟶ V)
+    (h : isomCover F ((F.map f.op.toLoc).toFunctor.obj x)
+      ((F.map f.op.toLoc).toFunctor.obj y) g) :
+    Nonempty ((F.map (g ≫ f).op.toLoc).toFunctor.obj x ≅
+      (F.map (g ≫ f).op.toLoc).toFunctor.obj y) := by
+  sorry
+
+-- test: LocalCoverTests.isom_common_cover
+example [IsGerbe F J] (x y : F.obj (.mk (op U)))
+    (D : Sieve U) (hD : D ∈ J U) : D ⊓ isomCover F x y ∈ J U := by
+  sorry
+
+-- test: LocalCoverTests.overlap_member_maximal_pullback
+example (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
+    (q : S ⟶ T) (h : overlapCover F i j x y q) :
+    (overlapCover F i j x y).pullback q = ⊤ := by
+  sorry
+
+-- test: LocalCoverTests.overlap_swap_refinement
+example (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W))) (q : S ⟶ T) :
+    (overlapCover F i j x y).pullback q = (overlapCover F j i y x).pullback q := by
+  sorry
+
+-- test: LocalCoverTests.overlap_further_cover
+example [IsGerbe F J] (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
+    (q : S ⟶ T) (D : Sieve S) (hD : D ∈ J S) :
+    D ⊓ (overlapCover F i j x y).pullback q ∈ J S := by
+  sorry
+
+-- test: LocalCoverTests.overlap_direct_endpoints
+example (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
+    (q : S ⟶ T) (h : overlapCover F i j x y q) :
+    Nonempty ((F.map (q ≫ i).op.toLoc).toFunctor.obj x ≅
+      (F.map (q ≫ j).op.toLoc).toFunctor.obj y) := by
+  sorry
+
+-- test: LocalCoverTests.overlap_iso_round_trip
+example (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
+    (q : S ⟶ T) (h : overlapCover F i j x y q)
+    (z : F.obj (.mk (op S))) (a : z ⟶ (F.map (q ≫ i).op.toLoc).toFunctor.obj x) :
+    (a ≫ (overlapIso F i j x y q h).hom) ≫ (overlapIso F i j x y q h).inv = a := by
+  sorry
+
+-- test: LocalCoverTests.overlap_iso_inverse_round_trip
+example (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
+    (q : S ⟶ T) (h : overlapCover F i j x y q)
+    (z : F.obj (.mk (op S))) (a : z ⟶ (F.map (q ≫ j).op.toLoc).toFunctor.obj y) :
+    (a ≫ (overlapIso F i j x y q h).inv) ≫ (overlapIso F i j x y q h).hom = a := by
+  sorry
+
+-- test: LocalCoverTests.overlap_iso_restriction
+example (i : T ⟶ V) (j : T ⟶ W)
+    (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
+    (q : S ⟶ T) (h : overlapCover F i j x y q) (r : R ⟶ S) :
+    ((F.map r.op.toLoc).toFunctor.mapIso (overlapIso F i j x y q h)).hom ≫
+      ((F.map r.op.toLoc).toFunctor.mapIso (overlapIso F i j x y q h)).inv = 𝟙 _ := by
+  sorry
+
+-- test: LocalCoverTests.overlap_same_base_path
+example (f : V ⟶ U) (g : W ⟶ U) (i : T ⟶ V) (j : T ⟶ W)
+    (hs : i ≫ f = j ≫ g) (q : S ⟶ T) : (q ≫ i) ≫ f = (q ≫ j) ≫ g := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.LocalCoverTests
