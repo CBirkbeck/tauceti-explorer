@@ -1,3 +1,179 @@
+# p-adic measures and Iwasawa algebras: completed budget pass
+
+Budgeted planning pass complete under PROTOCOL section 0: preserve all 369 inherited unchecked nodes and add none above the 300-node budget. L0, L1, L2, L3 and L4 remain partial; L0a, L5 and L6 remain not_read at the source-decomposition level. Reconcile all 59 issue-routed extraction records, retain the 15 historical source findings, and state the unresolved character-order, determinant, scalar-family and completed-algebra frontiers. This is not mathematical closure: the inherited L4 resolution formula has a concrete counterexample, and the compiled suggested file lacks 42 explicitly named L4 signatures.
+
+All mathematical node objects, APIs, tests, planets, baseline citations and historical findings below are inherited unchanged. The counterexample and correspondence gaps in this front matter override any older assertion of completion. Nothing is claimed formalised.
+
+## Coverage and next work
+
+### PadicMeasuresIwasawaAlgebras:L0 — partial
+
+Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied, with weak continuity and closed embeddings and field-valued strong/norm comparisons, on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the general profinite integral-lattice/field-valued comparisons (the Z_p-domain, Q_p-coefficient case now has exact L2 nodes). The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted.
+
+Read and decompose finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases and completed coefficient tensors. Native weak and field-valued strong topologies, clopen comparisons and Dirac weak/norm separation are supplied. The infinite-domain ultrametric unit ball is not norm compact; native Banach–Alaoglu supplies weak compactness over proper fields. The Z_p-domain, Q_p-coefficient extension has its integral weak topology identified with the weakly compact unit ball in L2. General profinite coefficient extension, finite-extension lattices, and qualified completeness statements remain.
+
+Routed RJW 67–68, 74, 83–84: retain surjectivity in the definition of an orthonormal basis and the value-group hypothesis for its existence; separate weak-dual reflexivity from strong reflexivity, bounded field-valued clopen data from unrestricted additive data, and the unbounded p-adic Haar distribution from bounded measures.
+
+Pilloni §2.3 widens the coefficient setting: for R complete Noetherian local with finite residue field and M flat, complete and separated, lifts of a residue-field basis identify M with the m-adic completion of a direct sum of copies of R (coefficients tend to zero), not the unrestricted product. Prove the finite-level flat/free comparison and passage to the limit. A semilocal Iwasawa algebra needs a factorwise argument; it is not thereby a DVR.
+
+### PadicMeasuresIwasawaAlgebras:L0a — not_read
+
+Read and decompose the continuous character functor and its parameter spaces using the existing partial ℤ_p-character library. Keep family distribution actions at LocallyAnalyticDistributions:L4 under accepted RS-16; do not add a reverse prerequisite.
+
+RJW 166, 242 and 294 require the scalar continuous-character functor and its rigid representation (p−1 open discs for odd p). This packet has no L0a nodes. Ordinary continuous evaluation in prescribed families at L3 does not prove representability or analyticity. LocallyAnalyticDistributions:L3 owns analytic Mellin evaluation, L4 the family action; Dirichlet owns the Eisenstein arithmetic and its x^(k−1) normalization, and PadicFamilies owns modular geometry.
+
+### PadicMeasuresIwasawaAlgebras:L1 — partial
+
+The actual unit-measure inverse and its weak topology are decomposed: integral coordinate image is exactly the compatible families, the integral and joint finite coordinate maps are closed embeddings, arbitrary-filter convergence is eventual equality at each joint finite level, and joint/diagonal kernels form a neighborhood basis. The existing convolution ring is compact, topological and linearly topologized. Compare these exact interfaces with the ProfiniteProPGroups Layer9 completedGroupAlgebra anchor using actual unit-kernel cofinality and quotient equivalences; establish the algebra homeomorphism and Dirac/projection compatibility on that existing carrier. Do not define a second completed carrier. General adic coefficients, finite-extension lattices, continuous completed actions and complete source coverage remain separate targets.
+
+Fu finite-group-ring-coefficients: prove O_K ⊗_Zp Z_p[[G]] ≅ O_K[[G]] with its finite-module topology, then invert p. Retain bounded denominators in K[[G]]; it is not lim_U K[G/U]. Finite free coefficient extension includes ramified K and does not repair the unrelated Ore argument in Fu.
+
+Rubin IV Lemma 3.3(i)–(ii), routed by PAPER-KOLYVAGIN-90: for finite-index H in profinite abelian G construct the coefficient-projection Hom restriction/coinduction isomorphism; derive Ext¹ vanishing under freeness over R[[H]]. Complete the finite-index norm/action projection formulas on the owned carrier.
+
+RJW 369: for odd p identify the plus corner of the completed group algebra with the quotient by complex conjugation. Its identity is e+, not ambient 1; the finite orbit basis maps to twice the quotient basis. Never divide by 2 integrally at p=2. Construct continuous twisting and inversion automorphisms before L4 consumes them.
+
+### PadicMeasuresIwasawaAlgebras:L2 — partial
+
+Residue restrictions P_(n,a), their evaluation, coset identification, orthogonal partition, depth-zero identity, refinement, finite-coordinate and mass laws, translation covariance, intrinsic-clopen comparison, weak continuity and coefficient-algebra Amice coefficients are supplied by the residue-restriction nodes. The full prime-power Fourier formula (3-5), multiplication by z^x, root-translation convergence and integral descent remain; the preceding order-p root-average theorem alone does not supply them.
+
+The coordinate-weighting, iterated Mahler derivative, ordinary-moment and formal exponential comparison are now supplied on the actual native coefficient-algebra measure carrier by algebra-amice-weight, algebra-amice-iterate-weight, algebra-ordinary-moment and algebra-ordinary-moment-exp. Only a normed commutative ℤ_p-algebra with continuous scalar action is needed before adding a rational algebra for formal exp. This supplies the Dirichlet coefficient-field moment request. General coefficient-lattice/finite-extension comparisons, convolution and multivariable theory, the remaining coefficient-general phi/psi/roots-of-unity comparisons, the root-of-unity expression for residue restrictions and multiplication by z^x with convergence hypotheses remain. The concrete unit-coordinate inverse is supplied by the L1 unit-coordinate nodes; the actual completed-algebra comparison remains a separate target.
+
+The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons. The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted.
+
+The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. The actual dilation pushforward/formal-binomial-substitution comparison, coefficientwise continuity, unit-support preservation and inverse-Mahler covariance now have exact L2 nodes. Import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward comparison does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes.
+
+The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; prove the prime-power Fourier expression for arbitrary residue restrictions and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Reduction of the actual integral psi is now identified with the explicit continuous weighted Cartier operator on native F_p power series. Its semilinearity and pole-cancelled fixed-error vanishing are supplied. This does not close the coefficient-general comparisons or the Coleman-owned characteristic-p logarithmic-derivative/Euler-product image argument.
+
+Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes.
+
+RJW 102 requires the additive-convolution multiplicativity of Amice, beyond its existing linear/isometric signatures. RJW 132 gives a linear unit-support inclusion, not a subalgebra: δ_1 * δ_(-1)=δ_0. Preserve that counterexample in every completed-algebra comparison.
+
+### PadicMeasuresIwasawaAlgebras:L3 — partial
+
+The actual Dirac homomorphism and character-integral algebra maps on the existing convolution ring are supplied, and the generic pseudomeasure module and admissible evaluations are instantiated on M=D(ℤ_pˣ,ℤ_p) with Q=FractionRing M. Compare this same ring and its exact Dirac/projection maps with the owned completed-group-algebra carrier. General finite-extension coefficient lattices and character-valued scalar extensions remain to be supplied.
+
+Compare the R-span of all Dirac differences with the completed augmentation kernel, with the required closure and topology stated; do not silently identify algebraic span with a closed ideal.
+
+Lemma3.36(i)–(iii) now has exact actual-measure nodes for integral ℤ_p coefficients and positive moments in ℚ_p, including regularity, numerator identities and the concrete infinite-order clearing element p+1. Extend these comparisons to the stipulated finite-extension coefficient lattices and the owned completed algebra; no unrestricted coefficient or whole-source closure is claimed.
+
+Decompose the procyclic augmentation-kernel/principal-generator argument and prove the chosen denominator regular before forming the Lemma 3.38 fraction. Keep the dyadic ℤ₂ˣ ≅ C₂ × ℤ₂ case separate; ℤ₂[C₂] is not an integral product of character components.
+
+Actual nontrivial native Z_p-valued continuous characters now have choice-independent Q_p-valued pseudomeasure evaluation, its scalar and numerator laws, uniqueness, positive-moment comparison and separation, and continuity for a fixed pseudomeasure in any prescribed compact-open-continuous character family on its nontrivial locus. Finite-extension/C_p coefficient-valued integral tests require explicit scalar extension and lattice data. Joint varying-pseudomeasure topology, rigid character-space representability, analytic/meromorphic families and behavior at the trivial character remain distinct targets of the specified owners. The elementary topological family result closes none of those targets.
+
+RJW 145, 148–149 and 373: compare completed augmentation with the compatible finite kernels, prove procyclic principality using compact lifts, and supply a genuine integer topological generator with its hypotheses. The existing regular clearing element p+1 need not generate all units. The finite cyclic augmentation lemma (RJW 147) is already a library input according to the accepted extraction; it does not by itself prove the completed statement.
+
+RJW 370: combine positive-moment separation with the sign involution to identify plus measures by vanishing odd moments. Use the corrected plus/minus convention. Handle finite-extension coefficients and p=2 separately; current native positive-moment nodes alone do not assert this parity theorem.
+
+### PadicMeasuresIwasawaAlgebras:L4 — partial
+
+Multivariable algebras O⟦T₁, …, T_d⟧ = O⟦ℤ_p^d⟧: their noetherianity, normality (regular local, hence factorial) and dimension d + 1, so that torsion-structure-normal-domain and characteristic-ideal apply with height-one divisors; pseudo-null there means codimension ≥ 2, not finite.
+
+NSW (5.3.10) (finite generation from finite coinvariants or finite M/𝔪M for compact modules) needs topological Nakayama, which the L5 description owns although L5 comes after L4; it is not planned here.
+
+The twisting operators themselves (γ ↦ κ(γ)γ, the involution γ ↦ γ^{−1}) are consumed as ring automorphisms of Λ; their construction on Λ(Γ) belongs with L1 and the ProfiniteProPGroups coordinate.
+
+Add the continuity assertions for the imported Weierstrass division/preparation operations with the precise adic topology and completeness assumptions. Mathlib already supplies algebraic existence and uniqueness, noetherianity and the one-variable UFD input; do not re-plan those results.
+
+The Castella et al. Lemma 1.1.2 freeness criterion is the (ii) clause of projective-dimension-and-resolution: X[T]=0 and X/TX free over Z_p imply X free over Λ, with rank read after reduction. Its independent source proof and rank interface still require review. The separate resolution-rank clause of that same inherited node has the counterexample recorded below and must not be reused.
+
+Dasgupta–Kakde 42–44 supply integral prime-to-p character components while retaining the p-Sylow group ring. The existing character-decomposition node is nearby, but the local O[G_p] component and image-order comparisons are not decomposed; arbitrary character quotients are not products of coefficient rings and need not be Gorenstein.
+
+Inherited node L4/projective-dimension-and-resolution writes d₀=dim_Fp H⁰(Γ,M)/p for the number of generators in its minimal free resolution. With the usual continuous-cohomology convention and M=Λ=Z_p[[T]], invariants are ker(T)=0, whereas M/(p,T)M=F_p and M requires one generator. The displayed resolution therefore cannot be correct as written. Re-read NSW 5.3.20 and fix the cohomological indexing and all three ranks together before reuse. This is a packet-statement defect identified by a counterexample, not a newly verified erratum in NSW; its freeness criterion is a separate clause. The inherited mathematical object is preserved for independent review and stays unchecked.
+
+The existing suggested file compiles, but compilation does not cover every planned declaration: 42 explicit TauCeti.Iwasawa L4 declaration/API names have no command in it. Four further indexed names refer to generic imported API. There are 57 node records without an explicit library.declaration field; those are not automatically missing signatures. Preserve the source and attach the exact name index; complete the L4 signatures only after checking their carriers and the resolution defect, and reconcile the 260 packet test records with the 258 Lean example commands. These counts do not establish a one-to-one test mapping.
+
+### PadicMeasuresIwasawaAlgebras:L5 — not_read
+
+Read/decompose determinant functors and compact inverse-limit exactness with their hypotheses. Import generic perfect-complex theory from SchemeKTheoryOperations:S.1 and complete-local input from DeformationAndDerivedPatchingAlgebra:P7; plan only the remaining Iwasawa-specific structures. For the compact inverse-limit step, reject the finite-generation-to-Mittag–Leffler implication in RJW Proposition13.13 (E6): prove the compact Hausdorff exactness argument or the actual tower hypothesis. Reading that local passage does not decompose this layer.
+
+Read and decompose the Iwasawa-specific determinant/base-change, Tor-error and specialization formulas after importing the perfect-complex carrier from SchemeKTheoryOperations:S.1 and the exact complete-local input from DeformationAndDerivedPatchingAlgebra:P7. State finite-presentation/perfectness and actual flatness/Tor hypotheses at every step.
+
+RJW 451 and 457: compact Hausdorff inverse-limit exactness is not finite generation implying Mittag–Leffler. Topological Nakayama must prove finite generation from the compact module and residue quotient, not assume it via algebraic Nakayama. Resolve the L4-use/L5-owner ordering at the stage architecture level before adding a prerequisite; no reverse cycle is introduced here.
+
+### PadicMeasuresIwasawaAlgebras:L6 — not_read
+
+Read/decompose Gorenstein order duality, exterior biduals and their integral comparison and base-change maps; retain this ownership under RS-16. Import Fitting facts; Euler/Kolyvagin system contractions remain at their separate ES6–8 owners.
+
+Confirmed RT-AREA-iwasawa-2/4 remains open: decompose R_Ψ as the image of O[G] in the selected character product (often a nonmaximal order), its local finite p-adic algebra comparisons, square and locally quadratic presentations, regular determinants and cardinality, Fitting base change/extensions/fibre products, exterior-bidual integrality, higher minors and transpose identities. Import the basic Fitting-ideal carrier from StableReduction:L1 under accepted RS-16, not from the obsolete IHG pointer in older extraction notes.
+
+For # use R_Ψ ≅ R_(Ψ inverse), an endomorphism only when Ψ is inversion-stable. Distinguish O-linear, R-linear and contragredient/derived duals; state the Gorenstein hypothesis where needed rather than assume every image order has it. Finite Artinian group rings can be self-injective; the infinite completed group ring is not automatically so (Rubin IV Remark 3.5).
+
+Reuse native abstract Auslander–Reiten transpose machinery where its hypotheses apply. Stable independence of arbitrary finite projective presentations over orders is a separate contract; a theorem about minimal presentations over a semiprimary algebra does not supply it. For the higher-adjugate image argument use C_r(A′) adj_r(A′)=det(A′) I on the right of the rectangular compound matrix; the left identity quoted in the source argument alone does not prove preservation of its image.
+
+Generic algebra belongs here; the trivial-zero character choice, Ritter–Weiss modules, Selmer/class-group comparisons and arithmetic specializations remain IntegralIwasawaTheory:I.6/I.7. The confirmed missing L6→I.6/I.7 supplier paths require an accepted graph amendment (I.7 may receive transitively through I.6). Recording this gap does not apply that amendment or resolve the red-team finding. Euler/Kolyvagin system operations remain at ES6–8.
+
+## Source-route register
+
+These are dispositions of all 59 records named by issue #555, checked against their accepted extraction routes. This pass read those records, not the complete source papers anew. A route marked open or partial is a follow-up obligation, not a new declaration. The confirmed RT-AREA-iwasawa-2/4 algebra/graph finding remains unresolved as specified in L6.
+
+- **PAPER-FU-24/finite-group-ring-coefficients** (PadicMeasuresIwasawaAlgebras:L1; open): Fu finite-group-ring-coefficients: prove O_K ⊗_Zp Z_p[[G]] ≅ O_K[[G]] with its finite-module topology, then invert p. Retain bounded denominators in K[[G]]; it is not lim_U K[G/U]. Finite free coefficient extension includes ramified K and does not repair the unrelated Ore argument in Fu.
+- **PAPER-DASGUPTA-KAKDE-23/19** (PadicMeasuresIwasawaAlgebras:L6; upstream_import): Import the basic Fitting carrier from StableReduction:L1; prove/use Fitt(M)⊆Ann(M).
+- **PAPER-DASGUPTA-KAKDE-23/20** (PadicMeasuresIwasawaAlgebras:L6; open): Pontryagin-dual annihilator under the contragredient # convention; retain finite-module hypotheses.
+- **PAPER-DASGUPTA-KAKDE-23/31** (PadicMeasuresIwasawaAlgebras:L6; open): Exterior-bidual integrality lattice; Euler-system contractions remain ES-owned.
+- **PAPER-DASGUPTA-KAKDE-23/42** (PadicMeasuresIwasawaAlgebras:L4; open): Character components require enough coefficient roots and the stated odd-prime scope.
+- **PAPER-DASGUPTA-KAKDE-23/43** (PadicMeasuresIwasawaAlgebras:L6; open): R_Ψ is an image order, not the full character product.
+- **PAPER-DASGUPTA-KAKDE-23/44** (PadicMeasuresIwasawaAlgebras:L4; open): Keep O[G_p] inside prime-to-p character factors; localness needs proof.
+- **PAPER-DASGUPTA-KAKDE-23/46** (PadicMeasuresIwasawaAlgebras:L6; open): Kernel of the selected-character quotient is the subgroup norm ideal, via invariant coefficients.
+- **PAPER-DASGUPTA-KAKDE-23/47** (PadicMeasuresIwasawaAlgebras:L6; open): Apply the subgroup-norm comparison on a character component with the exact selected set.
+- **PAPER-DASGUPTA-KAKDE-23/48** (PadicMeasuresIwasawaAlgebras:L6; open): Square presentations by finite free modules; record ranks and exactness.
+- **PAPER-DASGUPTA-KAKDE-23/49** (PadicMeasuresIwasawaAlgebras:L6; upstream_import): Fitt of a square presentation is the determinant ideal, using the imported carrier.
+- **PAPER-DASGUPTA-KAKDE-23/50** (PadicMeasuresIwasawaAlgebras:L6; open): Finite-index order in a product of PIDs; nonzerodivisor determinant and finite quotient are essential to cardinality.
+- **PAPER-DASGUPTA-KAKDE-23/52** (PadicMeasuresIwasawaAlgebras:L6; open): Product of character determinant values computes quotient cardinality under regularity/finiteness.
+- **PAPER-DASGUPTA-KAKDE-23/54** (PadicMeasuresIwasawaAlgebras:L6; open): Fitting multiplicativity for the exact sequence uses a quadratically presented quotient and the appropriate finite-presentation hypotheses.
+- **PAPER-DASGUPTA-KAKDE-23/55** (PadicMeasuresIwasawaAlgebras:L6; open): Construct square presentations for extensions of square-presented modules.
+- **PAPER-DASGUPTA-KAKDE-23/56** (PadicMeasuresIwasawaAlgebras:L6; open): Fibre-product comparison of two extensions of the common quotient; retain both square-presentation assumptions.
+- **PAPER-DASGUPTA-KAKDE-23/65** (PadicMeasuresIwasawaAlgebras:L6; upstream_import): Import Fitting base change; use injective selected-character evaluation only on its image order.
+- **PAPER-DASGUPTA-KAKDE-23/78** (PadicMeasuresIwasawaAlgebras:L6; upstream_import): Fitting monotonicity under surjections, over the imported basic carrier.
+- **PAPER-DASGUPTA-KAKDE-23/79** (PadicMeasuresIwasawaAlgebras:L6; open): Fitt(M/N) annihilates the exterior-power cokernel; repair the compound-adjugate proof using the right identity.
+- **PAPER-DASGUPTA-KAKDE-23/81** (PadicMeasuresIwasawaAlgebras:L6; open): Rectangular compound matrices and higher adjugates; the right identity is needed for image preservation.
+- **PAPER-DASGUPTA-KAKDE-23/92** (PadicMeasuresIwasawaAlgebras:L6; owner_boundary): Only supply the generic O[G_p]_χ algebra; arithmetic Σ/Σ′ and their choices belong to I.6/I.7.
+- **PAPER-DASGUPTA-KAKDE-23/100** (PadicMeasuresIwasawaAlgebras:L6; open): Unit detection uses a nonempty selected character set and the proved local image ring; it is not generic character evaluation.
+- **PAPER-DASGUPTA-KAKDE-23/109** (PadicMeasuresIwasawaAlgebras:L6; open): Contragredient R#-dual versus ordinary R-dual; extend from finite group rings to the stated coefficient orders.
+- **PAPER-DASGUPTA-KAKDE-23/111** (PadicMeasuresIwasawaAlgebras:L6; open): Reuse native transpose where applicable; arbitrary projective presentations over orders require stable independence, beyond minimal semiprimary presentations.
+- **PAPER-DASGUPTA-KAKDE-23/112** (PadicMeasuresIwasawaAlgebras:L6; open): R_Ψ → R_(Ψ inverse) is the # isomorphism; only inverse-stable Ψ gives an endomorphism.
+- **PAPER-DASGUPTA-KAKDE-23/113** (PadicMeasuresIwasawaAlgebras:L6; open): The #-transpose of a square matrix yields the Fitting involution comparison over R#.
+- **PAPER-DASGUPTA-KAKDE-23/168** (PadicMeasuresIwasawaAlgebras:L6; owner_boundary): Supply the generic selected-character image ring; arithmetic trivial-zero selection is I.7-owned.
+- **PAPER-DASGUPTA-KAKDE-23/202** (PadicMeasuresIwasawaAlgebras:L6; open): Prove the finite selected-character quotient is complete local, using p-group-ring localness and coefficient completeness.
+- **PAPER-DASGUPTA-KAKDE-23/317** (PadicMeasuresIwasawaAlgebras:L6; upstream_import): Import higher determinantal Fitting ideals from the basic owner, then the order/exterior interfaces here.
+- **PAPER-DASGUPTA-KAKDE-23/318** (PadicMeasuresIwasawaAlgebras:L6; owner_boundary): Supply generic higher-Fitting transpose comparison; Ritter–Weiss, Selmer and class-group identifications belong to I.6.
+- **PAPER-DASGUPTA-KAKDE-23/325** (PadicMeasuresIwasawaAlgebras:L6; upstream_import): The zeroth Fitting definition has an upstream owner StableReduction:L1; obsolete IHG attribution is not reused.
+- **PAPER-DASGUPTA-KAKDE-23/326** (PadicMeasuresIwasawaAlgebras:L6; open): Equal constant-rank projective presentations; semilocal freeness and arithmetic realizations require their respective hypotheses/owners.
+- **PAPER-DASGUPTA-KAKDE-23/332** (PadicMeasuresIwasawaAlgebras:L6; open): Rectangular presentation with s excess generators: Fitt⁰(M^tr)=(Fittˢ(M))# via maximal minors, with R# coefficient transport; arithmetic applications stay I.6/I.7.
+- **PAPER-CASTELLA-ETAL-22/7** (PadicMeasuresIwasawaAlgebras:L4; existing_clause_with_review_gap): The Castella et al. Lemma 1.1.2 freeness criterion is the (ii) clause of projective-dimension-and-resolution: X[T]=0 and X/TX free over Z_p imply X free over Λ, with rank read after reduction. Its independent source proof and rank interface still require review. The separate resolution-rank clause of that same inherited node has the counterexample recorded below and must not be reused.
+- **PAPER-PILLONI-20/topological-basis-flat-complete-module** (PadicMeasuresIwasawaAlgebras:L0; open): Pilloni §2.3 widens the coefficient setting: for R complete Noetherian local with finite residue field and M flat, complete and separated, lifts of a residue-field basis identify M with the m-adic completion of a direct sum of copies of R (coefficients tend to zero), not the unrestricted product. Prove the finite-level flat/free comparison and passage to the limit. A semilocal Iwasawa algebra needs a factorwise argument; it is not thereby a DVR.
+- **PAPER-KOLYVAGIN-90/r4-lem-3.3i-hom-restriction** (PadicMeasuresIwasawaAlgebras:L1; open): Finite-index coefficient projection identifies the two completed Hom modules; do not replace the carrier.
+- **PAPER-KOLYVAGIN-90/r4-lem-3.3ii-ext-vanishing** (PadicMeasuresIwasawaAlgebras:L6; open): Use the finite-index Hom/coinduction isomorphism and the stated freeness over R[[H]] to prove Ext¹ vanishing.
+- **PAPER-KOLYVAGIN-90/r4-rem-3.5-not-injective** (PadicMeasuresIwasawaAlgebras:L6; open): Self-injectivity is the finite Artinian group-ring statement, not an automatic property of the infinite completed ring.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/67** (PadicMeasuresIwasawaAlgebras:L0; open): Surjective orthonormal isometry, not only a norm equality.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/68** (PadicMeasuresIwasawaAlgebras:L0; open): Basis existence retains the norm value-group condition.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/74** (PadicMeasuresIwasawaAlgebras:L0; open): Weak-dual reflexivity and point separation; no strong-reflexivity claim.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/83** (PadicMeasuresIwasawaAlgebras:L0; partial_input): Bounded clopen data and native locally constant approximation; general comparison still open.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/84** (PadicMeasuresIwasawaAlgebras:L0; open): Haar masses p^(-n) are unbounded p-adically.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/89** (PadicMeasuresIwasawaAlgebras:L1; partial_input): Native unit-coordinate inverse exists; identify it with the owned completed algebra.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/91** (PadicMeasuresIwasawaAlgebras:L1; upstream_import): Basic Z_p completed group carrier and procyclic coordinates belong to ProfiniteProPGroups Layer9; PMIA supplies coefficient generality.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/102** (PadicMeasuresIwasawaAlgebras:L2; open): Convolution multiplicativity is stronger than the existing linear Amice equivalence.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/132** (PadicMeasuresIwasawaAlgebras:L2; partial_input): Unit inclusion is linear and not an additive-convolution subalgebra; δ_1*δ_(-1)=δ_0.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/145** (PadicMeasuresIwasawaAlgebras:L3; open): Completed augmentation kernel equals the compatible finite kernels; closure is essential.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/147** (PadicMeasuresIwasawaAlgebras:L3; reported_library_input): Accepted extraction identifies the finite-cyclic library input; no new baseline citation or fresh statement verification is claimed here.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/148** (PadicMeasuresIwasawaAlgebras:L3; open): Odd-prime integer topological generator requires mod-p and mod-p² conditions; p+1 is only a regular clearing element.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/149** (PadicMeasuresIwasawaAlgebras:L3; open): Procyclic principal augmentation, compact lifts and regular denominator precede the fraction.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/166** (PadicMeasuresIwasawaAlgebras:L0a; open): Representable scalar character space, p−1 discs for odd p.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/242** (PadicMeasuresIwasawaAlgebras:L0a; owner_boundary): Scalar components here; analytic Mellin branches at LocallyAnalyticDistributions:L3.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/294** (PadicMeasuresIwasawaAlgebras:L0a; owner_boundary): Supply the space only; corrected x^(k−1) Eisenstein arithmetic is Dirichlet-owned and family geometry is PadicFamilies-owned.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/369** (PadicMeasuresIwasawaAlgebras:L1; open): Odd-prime plus corner has unit e+ and identifies with the quotient by conjugation; no integral dyadic halving.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/370** (PadicMeasuresIwasawaAlgebras:L3; partial_input): Existing positive-moment separation needs the corrected plus/odd-moment parity comparison.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/373** (PadicMeasuresIwasawaAlgebras:L3; open): Procyclic augmentation requires completed principality, not algebraic span alone.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/451** (PadicMeasuresIwasawaAlgebras:L5; open): Use compact Hausdorff exactness, not finite generation implying Mittag–Leffler.
+- **PAPER-RODRIGUES-JACINTO-WILLIAMS-23/457** (PadicMeasuresIwasawaAlgebras:L5; open): Compact Nakayama proves finite generation; resolve the L4/L5 ordering before adding edges.
+
+## Validation boundary
+
+The full existing suggested file plus a planning comment compiled at the pinned sources with 740 expected admission warnings and no errors. Its 495 named commands and 258 examples do not cover all 369 node/API/test contracts. The existing suggested file compiles, but compilation does not cover every planned declaration: 42 explicit TauCeti.Iwasawa L4 declaration/API names have no command in it. Four further indexed names refer to generic imported API. There are 57 node records without an explicit library.declaration field; those are not automatically missing signatures. Preserve the source and attach the exact name index; complete the L4 signatures only after checking their carriers and the resolution defect, and reconcile the 260 packet test records with the 258 Lean example commands. These counts do not establish a one-to-one test mapping.
+
+## Inherited reader, preserved verbatim
+
+The following checkpoint text is historical; current status and limitations are above.
+
 # L4: the structure theory of Iwasawa modules (checkpoint L4-1)
 
 **Current checkpoint:** 369 unchecked nodes (21 new, all in L4). The 348 preceding nodes and 14 source findings are
@@ -9577,3 +9753,291 @@ At publication main 9b5a58905b564df16b77149a70e64b1d416ab4d6, all 51 captured in
 and all four predecessor output blobs are unchanged. The whole issue body
 and the bot’s exact fresh claim confirmation were checked again. Exactly four
 authorized files are submitted from the worker’s own job branch.
+
+## Exact inherited contracts supplement
+
+The following clauses retain the packet wording wherever the inherited reader used a paraphrase. They are unchecked, including the defective resolution clause identified above.
+
+### PadicMeasuresIwasawaAlgebras:L1/unit-measures-weak-compact
+
+Statement: M with its actual weak topology is compact.
+
+### PadicMeasuresIwasawaAlgebras:L1/unit-coordinates-weak-closed-embedding
+
+Statement: The map μ↦(n↦(a↦π_n(μ)(a))) is a closed embedding from M into the native product of the functions A_n→ℤ_p.
+
+Test UnitCoordinateTopologyTests.dirac_parameter: The native Dirac map U→M is continuous for this same weak topology.
+
+### PadicMeasuresIwasawaAlgebras:L1/unit-coordinates-range
+
+Statement: The image of μ↦(n,a↦π_n(μ)(a)) is exactly the set of families c_n:A_n→ℤ_p whose finite-support forms are compatible under native transition pushforward t_(m,n):A_n→A_m for every m≤n. Equivalently, c_m(a) is the sum of c_n(b) over t_(m,n)(b)=a.
+
+Test UnitCoordinateTopologyTests.incompatible_mass: No actual measure has depth-zero coordinate single(1,1) and depth-one coordinate zero.
+
+### PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-inverse-continuous
+
+Statement: Let X be any topological space and c(x)_n:A_n→₀ℤ_p be a compatible family for each x. If x↦c(x)_n(a) is continuous for every n,a, then x↦ofUnitCoordinates(c(x)) is weakly continuous.
+
+### PadicMeasuresIwasawaAlgebras:L1/unit-joint-coordinates-weak-closed-embedding
+
+Statement: The map μ↦(r,n,a↦π_(r,n)(μ)(a)) is a closed embedding from M into the native product of the discrete rings ZMod(p^r), indexed by r,n and a∈A_n.
+
+Test UnitCoordinateTopologyTests.independent_precisions: For p=2 and μ=2(δ_1−δ_(−1)), coordinates (r,n)=(1,2) and (2,1) vanish, but (2,2) does not.
+
+### PadicMeasuresIwasawaAlgebras:L1/unit-joint-weak-convergence
+
+Statement: For any filter l on any index type and family μ_i∈M, μ_i tends weakly to ν if and only if, for every r,n, π_(r,n)(μ_i)=π_(r,n)(ν) eventually along l.
+
+Test UnitCoordinateTopologyTests.scaled_atoms: For every prime p, p^kδ_1 tends weakly to0 as k tends to infinity.
+
+Test UnitCoordinateTopologyTests.constant_atom: The constant sequence δ_1 does not tend weakly to0, although every coefficient-precision-zero projection vanishes.
+
+### PadicMeasuresIwasawaAlgebras:L1/unit-joint-zero-basis
+
+Statement: The sets N_(r,n)={μ∈M:π_(r,n)(μ)=0}, for all r,n≥0, form a native neighborhood basis of zero in the weak topology.
+
+Test UnitCoordinateTopologyTests.zero_precision: For every n, N_(0,n) is the entire measure space.
+
+### PadicMeasuresIwasawaAlgebras:L1/unit-diagonal-zero-basis
+
+Statement: The diagonal kernels N_(k,k), k≥0, form a neighborhood basis of zero in M.
+
+### PadicMeasuresIwasawaAlgebras:L1/unit-measures-weak-topological-ring
+
+Statement: The existing convolution ring on M is a topological ring for its native weak topology.
+
+Test UnitCoordinateTopologyTests.convolution_limits: Convolution is jointly continuous as a map M×M→M.
+
+Test UnitCoordinateTopologyTests.dyadic_square: At p=2, μ=δ_(−1)−δ_1 satisfies μ²=−2μ in the actual convolution ring.
+
+### PadicMeasuresIwasawaAlgebras:L1/unit-measures-weak-linear-topology
+
+Statement: The existing convolution ring M with its weak topology satisfies native IsLinearTopology M M.
+
+### PadicMeasuresIwasawaAlgebras:L3/actual-mass-fraction-obstruction
+
+Statement: There is no ring homomorphism Q→Z whose restriction to M is the actual total-mass character integral.
+
+### PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-integral
+
+Statement: For κ≠1 and μ∈M, Eκ(iμ)=fκ(μ).
+
+### PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-numerator
+
+Statement: For κ≠1, every g∈U and z∈P, fκ(n_g(z))=(κ(g)−1)Eκ(z), including g in kerκ.
+
+### PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-uniqueness
+
+Statement: Eκ is the unique additive map L:P→ℚ_p satisfying L(μ·z)=fκ(μ)L(z) and L(iμ)=fκ(μ).
+
+### PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-separation
+
+Statement: If Eκ(z)=Eκ(η) for every nontrivial native Z-valued continuous character κ of U, then z=η.
+
+### PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-norm-bound
+
+Statement: For κ≠1 and κ(g)≠1, ‖Eκ(z)‖≤‖κ(g)−1‖⁻¹, for every z∈P.
+
+### PadicMeasuresIwasawaAlgebras:L3/unit-character-evaluation-continuity
+
+Statement: For fixed z∈P, the function s↦E_(κ_s)(z) is continuous on the native subtype {s:S | κ_s≠1}.
+
+### PadicMeasuresIwasawaAlgebras:L4/bidual-intersection
+
+Statement: Let M be a finitely generated torsion-free A-module, V = M ⊗_A K and V^∧ = Hom_K(V, K), and write M⁺ = Hom_A(M, A). Inside V^∧ and V: M⁺ = ⋂_{𝔭∈P(A)} M⁺_𝔭 and M⁺⁺ = ⋂_{𝔭∈P(A)} M_𝔭, and M is reflexive (the bidual map M → M⁺⁺ is an isomorphism) if and only if M = ⋂_{𝔭∈P(A)} M_𝔭 (Lemma 5.1.2). For every finitely generated M the dual M⁺ is reflexive (Corollary 5.1.3), and reflexive modules are torsion-free (Definition 5.1.1, Remark).
+
+### PadicMeasuresIwasawaAlgebras:L4/pseudo-null
+
+Statement: A finitely generated A-module M is pseudo-null if M_𝔭 = 0 for every prime 𝔭 of height at most one, equivalently if every prime containing ann_A(M) has height at least two (Definition 5.1.4). Pseudo-null modules are torsion; over a Dedekind domain only 0 is pseudo-null; over a two-dimensional noetherian integrally closed local domain with finite residue field a module is pseudo-null if and only if it is finite (Remarks 1–4). Submodules, quotients and extensions of pseudo-null modules are pseudo-null.
+
+API TauCeti.Iwasawa.IsPseudoNull: Module.Finite A M and M_𝔭 = 0 for every prime of height ≤ 1.
+
+API TauCeti.Iwasawa.isPseudoNull_iff_annihilator: Every prime containing ann_A(M) has height ≥ 2.
+
+API TauCeti.Iwasawa.IsPseudoNull.isTorsion: Pseudo-null modules are torsion (Remark 2).
+
+API TauCeti.Iwasawa.isPseudoNull_iff_eq_zero: Over a Dedekind domain only 0 is pseudo-null (Remark 3).
+
+API TauCeti.Iwasawa.isPseudoNull_iff_finite: Over a two-dimensional noetherian integrally closed local domain with finite residue field, pseudo-null ⇔ finite (Remark 4).
+
+API TauCeti.Iwasawa.IsPseudoNull.of_exact: Submodules, quotients and extensions of pseudo-null modules are pseudo-null.
+
+Test L4Tests.residue_field: Over Λ = ℤ_p⟦T⟧, Λ/(p, T) = 𝔽_p is pseudo-null (finite).
+
+Test L4Tests.mu_part: Λ/(p) is not pseudo-null: its support contains the height-one prime (p).
+
+Test L4Tests.dedekind: Over A = ℤ_p, ℤ/p is not pseudo-null, since (p) has height one; only 0 is.
+
+Test L4Tests.two_variables: Over ℤ_p⟦T₁, T₂⟧, the quotient by (T₁, T₂) is ℤ_p: pseudo-null but infinite.
+
+### PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism
+
+Statement: A homomorphism f : M → N of finitely generated A-modules is a pseudo-isomorphism, written M ≈ N, if ker f and coker f are pseudo-null, equivalently if f_𝔭 is an isomorphism for every prime 𝔭 of height at most one (Definition 5.1.5). For M torsion and α ≠ 0 with supp(A/αA) disjoint from supp(M) ∩ P(A), multiplication by α is a pseudo-isomorphism (Lemma 5.1.6). Between finitely generated torsion modules a pseudo-isomorphism M → N gives one N → M, so ≈ is an equivalence relation there (Remark 1 after 5.1.7). For general finitely generated modules it is not: over Λ = ℤ_p⟦T⟧ the maximal ideal 𝔪 = ker(Λ → 𝔽_p) is torsion-free of rank one and not free, the inclusion 𝔪 → Λ is a pseudo-isomorphism, and there is no pseudo-isomorphism Λ → 𝔪 (§3, Exercise 1). Over O⟦T⟧ the pseudo-isomorphisms are the maps with finite kernel and cokernel, RJW §13.1's definition.
+
+API TauCeti.Iwasawa.IsPseudoIsomorphism: ker f and coker f are pseudo-null.
+
+API TauCeti.Iwasawa.isPseudoIsomorphism_iff_localization: f_𝔭 is an isomorphism at every prime of height ≤ 1.
+
+API TauCeti.Iwasawa.isPseudoIsomorphism_mul: Lemma 5.1.6: multiplication by α with supp(A/α) ∩ supp(M) ∩ P(A) = ∅.
+
+API TauCeti.Iwasawa.IsPseudoIsomorphism.comp: Composites of pseudo-isomorphisms are pseudo-isomorphisms.
+
+API TauCeti.Iwasawa.IsPseudoIsomorphism.exists_symm: For finitely generated torsion modules a pseudo-isomorphism exists in the reverse direction.
+
+API TauCeti.Iwasawa.isPseudoIsomorphism_iff_finite: Over O⟦T⟧: finite kernel and cokernel.
+
+Test L4Tests.mul_p_on_cyclic: M = Λ/(T) ≅ ℤ_p and α = p: multiplication by p is injective with cokernel 𝔽_p, a pseudo-isomorphism, since supp(Λ/p) ∩ supp(M) ∩ P(Λ) = {(p)} ∩ {(T)} = ∅.
+
+Test L4Tests.maximal_ideal: 𝔪 → Λ is a pseudo-isomorphism, but no pseudo-isomorphism Λ → 𝔪 exists (NSW §3, Exercise 1).
+
+Test L4Tests.dedekind: Over a Dedekind domain pseudo-isomorphisms are isomorphisms.
+
+Test L4Tests.rjw_agreement: Over O⟦T⟧ the definition agrees with RJW's 'finite kernel and cokernel'.
+
+### PadicMeasuresIwasawaAlgebras:L4/torsion-structure-normal-domain
+
+Statement: Let M be a finitely generated A-module with torsion submodule T_A(M) and F_A(M) = M/T_A(M). (i) There is a pseudo-isomorphism M → T_A(M) ⊕ F_A(M). (ii) There are finitely many height-one primes 𝔭_i and integers n_i ≥ 1 with a pseudo-isomorphism T_A(M) → ⊕_i A/𝔭_i^{n_i}, and the families (𝔭_i), (n_i) are determined by T_A(M) up to renumbering (Proposition 5.1.7). An extension of finitely generated torsion modules whose height-one supports are disjoint is pseudo-isomorphic to their direct sum (Remark 2).
+
+### PadicMeasuresIwasawaAlgebras:L4/reflexive-hull
+
+Statement: For a finitely generated torsion-free A-module M, the bidual map φ_M : M → M⁺⁺ is an injective pseudo-isomorphism into a reflexive module (Proposition 5.1.8).
+
+### PadicMeasuresIwasawaAlgebras:L4/reflexive-free-over-regular-local
+
+Statement: Let A be an n-dimensional regular local ring, 2 ≤ n < ∞, with a regular system of parameters p₁, …, p_n generating the maximal ideal, and p₀ = 0. A finitely generated A-module M is free if and only if M/(p₀, …, p_i)M is a reflexive A/(p₀, …, p_i)-module for i = 0, …, n − 2. In particular every reflexive module over a two-dimensional regular local ring is free (Proposition 5.1.9, following Diekert).
+
+### PadicMeasuresIwasawaAlgebras:L4/structure-theorem-regular-dimension-two
+
+Statement: Let A be a two-dimensional regular local ring and M a finitely generated A-module. There are finitely many height-one primes 𝔭_i, an integer r ≥ 0, integers n_i ≥ 1 and a pseudo-isomorphism M → A^r ⊕ ⊕_i A/𝔭_i^{n_i}. The data are determined by M: r = dim_K M ⊗_A K, {𝔭_i} = supp(M) ∩ P(A), and the n_i are unique (Theorem 5.1.10).
+
+### PadicMeasuresIwasawaAlgebras:L4/iwasawa-algebra-regular-local
+
+Statement: For O a complete discrete valuation ring with uniformizer ϖ and finite residue field k, Λ = O⟦T⟧ is a noetherian, factorial, two-dimensional regular local ring with maximal ideal (ϖ, T), residue field k, complete for the (ϖ, T)-adic topology.
+
+### PadicMeasuresIwasawaAlgebras:L4/height-one-primes
+
+Statement: The height-one primes of Λ = O⟦T⟧ are (ϖ) and (F) for F an irreducible distinguished (Weierstraß) polynomial; a distinguished polynomial is irreducible in O⟦T⟧ if and only if it is irreducible in O[T] (Lemma 5.3.7, stated there for O = ℤ_p).
+
+### PadicMeasuresIwasawaAlgebras:L4/weierstrass-adapter
+
+Statement: For f ∈ O⟦T⟧ of finite reduced degree s (the least n with a_n ∉ 𝔪_O), NSW's division lemma (5.3.1), Corollary 5.3.3 and preparation theorem (5.3.4) are Mathlib's Weierstrass division and factorisation at the maximal ideal: s is the order of f mod 𝔪_O (IsWeierstrassFactorization.natDegree_eq_toNat_order_map); a Weierstraß polynomial is Polynomial.IsDistinguishedAt 𝔪_O; O[T]/(F) ≅ O⟦T⟧/(F) is IsWeierstrassFactorizationAt.algEquivQuotient; existence and uniqueness are exists_isWeierstrassFactorization and IsWeierstrassFactorization.unique. The one statement Mathlib lacks is the last clause of (5.3.4): the distinguished factor F is the characteristic polynomial of multiplication by T on the free O-module O⟦T⟧/(f) of rank s.
+
+### PadicMeasuresIwasawaAlgebras:L4/nonzero-power-series-factorization
+
+Statement: Every nonzero f ∈ O⟦T⟧ factors uniquely as f = ϖ^μ·F·u with μ ≥ 0, F a distinguished polynomial and u ∈ O⟦T⟧^×; μ is the least ϖ-adic valuation of a coefficient and deg F is the reduced degree of ϖ^{−μ}f. Consequently f has at most deg F zeros in the open unit disc of any complete valued field extending Frac O (for instance ℂ_p), and power series agreeing at infinitely many points of that disc are equal. The zero series is excluded: it vanishes everywhere.
+
+### PadicMeasuresIwasawaAlgebras:L4/cyclotomic-weierstrass-polynomials
+
+Statement: For n ≥ 0 put ω_n = (1 + T)^{p^n} − 1, ω_{−1} = 1, and ξ_n = ω_n/ω_{n−1}. Then ω_n and ξ_n are distinguished polynomials over O (ω_n ≡ T^{p^n} and ξ_n ≡ T^{p^n − p^{n−1}} mod p for n ≥ 1), ω_n = ξ₀ξ₁⋯ξ_n with ξ₀ = T and ξ_k = Σ_{i<p}(1 + T)^{ip^{k−1}}, ω_n ∈ (𝔪_O, T)^{n+1}, and ⋂_n ω_nO⟦T⟧ = 0, so O⟦T⟧ = lim O⟦T⟧/(ω_n) (Definition 5.3.13 and the proof of Proposition 5.3.5). For a topological generator γ of Γ ≅ ℤ_p, O⟦T⟧/(ω_n) ≅ O[Γ/Γ_n] by T ↦ γ − 1; the resulting O⟦T⟧ ≅ O⟦Γ⟧ is requested from ProfiniteProPGroups Layer 9.
+
+### PadicMeasuresIwasawaAlgebras:L4/iwasawa-module-structure-theorem
+
+Statement: Let M be a finitely generated module over Λ = O⟦T⟧. There are r ≥ 0, integers m_i ≥ 1, irreducible distinguished polynomials F_j and integers n_j ≥ 1, and a homomorphism M → E = Λ^r ⊕ ⊕_i Λ/(ϖ^{m_i}) ⊕ ⊕_j Λ/(F_j^{n_j}) with finite kernel and cokernel. The number r, the multisets (m_i) and (n_j) and the ideals (F_j) are determined by M (Theorem 5.3.8 for O = ℤ_p). The μ-part is built from powers of the uniformizer ϖ, not of p: RJW Theorem 13.1 writes Λ/(p^{n_i}) over O_L⟦T⟧, which fails when L/ℚ_p is ramified (source finding E15).
+
+### PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants
+
+Statement: For M as in the structure theorem: the Λ-rank r(M) = r, the μ-invariant μ(M) = Σ_i m_i (counted in powers of ϖ), the λ-invariant λ(M) = Σ_j n_j deg F_j, and the characteristic polynomial F_{M,γ} = ∏_j F_j^{n_j} (Definition 5.3.9 for O = ℤ_p). They depend only on the pseudo-isomorphism class of M; r, μ and λ do not depend on the generator γ, but F_{M,γ} does; F_M = F_{T_Λ(M)}; μ and λ are additive and F_M multiplicative in short exact sequences of finitely generated torsion modules; a finitely generated torsion module is finite if and only if μ = λ = 0; and λ(M) = dim_{Frac O} M ⊗_O Frac O, with F_M the characteristic polynomial of T on that space (Remarks 1–3).
+
+API TauCeti.Iwasawa.muInvariant: μ(M), the length of M_{(ϖ)}.
+
+API TauCeti.Iwasawa.lambdaInvariant: λ(M) = Σ n_j deg F_j.
+
+API TauCeti.Iwasawa.charPoly: F_{M,γ} = ∏ F_j^{n_j}, a distinguished polynomial.
+
+API TauCeti.Iwasawa.lambdaInvariant_eq_finrank: λ(M) = dim_{Frac O} M ⊗_O Frac O for torsion M.
+
+API TauCeti.Iwasawa.charPoly_eq_charpoly: F_M is LinearMap.charpoly of T on M ⊗_O Frac O.
+
+API TauCeti.Iwasawa.muInvariant_add: μ is additive in short exact sequences of torsion modules; likewise lambdaInvariant_add.
+
+API TauCeti.Iwasawa.charPoly_mul: F_M is multiplicative in short exact sequences of torsion modules.
+
+API TauCeti.Iwasawa.finite_iff_mu_lambda: A finitely generated torsion M is finite iff μ = λ = 0.
+
+API TauCeti.Iwasawa.invariants_generator_indep: r, μ and λ do not depend on γ.
+
+Test L4Tests.mu_part: M = Λ/(p): μ = 1, λ = 0, F_M = 1.
+
+Test L4Tests.eisenstein: M = Λ/(T² + pT + p): μ = 0, λ = 2 and F_M = T² + pT + p (Eisenstein, hence irreducible).
+
+Test L4Tests.finite: M = Λ/(p, T) = 𝔽_p: μ = λ = 0 and F_M = 1.
+
+Test L4Tests.generator_dependence: M = Λ/(T − p), with γ acting by 1 + p: F_{M,γ} = T − p, but F_{M,γ²} = T − (2p + p²) (suggested file); λ = 1 for both.
+
+Test L4Tests.ramified_normalisation: O = ℤ_p[√p], ϖ = √p: μ(Λ/(ϖ)) = 1 in the ϖ-normalisation, where counting powers of p would give 1/2.
+
+### PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal
+
+Statement: For A a noetherian integrally closed domain and M a finitely generated torsion A-module, the characteristic divisor is div_A(M) = Σ_{𝔭∈P(A)} length_{A_𝔭}(M_𝔭)·[𝔭], a finite sum; when A is factorial, char_A(M) = ∏_{𝔭∈P(A)} 𝔭^{length_{A_𝔭}(M_𝔭)} is a principal ideal. It is multiplicative in short exact sequences, invariant under pseudo-isomorphism, equal to (f) on A/(f) for f ≠ 0, and equal to A exactly when M is pseudo-null. For Λ = O⟦T⟧, char_Λ(M) = (ϖ^{μ(M)}·F_{M,γ}), which is RJW Definition 13.3 with p^n read as ϖ^n (E15). It transforms under ring automorphisms of Λ (twisting by a character, inversion γ ↦ γ^{−1}, change of generator) by the inverse automorphism; under finite flat O → O′ it extends to Λ′ = O′⟦T⟧; and for O finite over ℤ_p, restricting scalars to ℤ_p⟦T⟧ takes the norm. A finite module has char = A while its initial Fitting ideal can be proper: Fitt₀(Λ/(p, T)) = (p, T).
+
+API TauCeti.Iwasawa.charDivisor: div_A(M) = Σ_𝔭 length_{A_𝔭}(M_𝔭)[𝔭] over height-one primes.
+
+API TauCeti.Iwasawa.charIdeal: The principal ideal ∏𝔭^{length} when A is factorial.
+
+API TauCeti.Iwasawa.charIdeal_mul_of_exact: Multiplicative in short exact sequences.
+
+API TauCeti.Iwasawa.charIdeal_eq_of_pseudoIso: Invariant under pseudo-isomorphism.
+
+API TauCeti.Iwasawa.charIdeal_quotient_span: char_A(A/(f)) = (f) for f ≠ 0.
+
+API TauCeti.Iwasawa.charIdeal_eq_top_iff: char_A(M) = A iff M is pseudo-null.
+
+API TauCeti.Iwasawa.charIdeal_eq_span_mu_charPoly: On Λ = O⟦T⟧: char_Λ(M) = (ϖ^μ F_{M,γ}).
+
+API TauCeti.Iwasawa.charIdeal_comap_ringEquiv: Twisting, inversion and change of generator act through the inverse automorphism.
+
+API TauCeti.Iwasawa.charIdeal_baseChange: char_{Λ′}(Λ′ ⊗ M) = char_Λ(M)Λ′ for finite flat O → O′.
+
+API TauCeti.Iwasawa.charIdeal_restrictScalars: char_{ℤ_p⟦T⟧}(M) = (N_{Λ_O/ℤ_p⟦T⟧}(f)) when char_{Λ_O}(M) = (f).
+
+Test L4Tests.cyclic: char(Λ/(T² − p)) = (T² − p).
+
+Test L4Tests.finite_vs_fitting: char(Λ/(p, T)) = Λ, while Fitt₀(Λ/(p, T)) = (p, T).
+
+Test L4Tests.not_complete_invariant: Λ/(T²) and Λ/(T) ⊕ Λ/(T) both have characteristic ideal (T²) but are not pseudo-isomorphic.
+
+Test L4Tests.norm_formula: p ≡ 3 mod 4, O = ℤ_p[i], M = O⟦T⟧/(T − ip): as a ℤ_p⟦T⟧-module, char(M) = ((T − ip)(T + ip)) = (T² + p²).
+
+### PadicMeasuresIwasawaAlgebras:L4/character-decomposition
+
+Statement: Let Γ = H × Γ′ with H finite abelian of order prime to p and Γ′ ≅ ℤ_p, so Λ(Γ) ≅ O[H] ⊗ Λ, and let O contain the values of the characters of H. The idempotents e_ω = (1/#H)Σ_{a∈H} ω^{−1}(a)[a] ∈ O[H] are orthogonal with Σ_ω e_ω = 1, Λ(Γ) ≅ ⊕_ω Λ, and every Λ(Γ)-module decomposes as M = ⊕_ω M^{(ω)} with M^{(ω)} = e_ωM, on which H acts through ω; M is finitely generated torsion over Λ(Γ) if and only if each M^{(ω)} is over Λ (RJW Lemma 13.4). The characteristic ideal is char_{Λ(Γ)}(M) = ⊕_ω char_Λ(M^{(ω)}) (Definition 13.5), multiplicative in exact sequences (Lemma 13.6). Without enlarging O, the Galois-orbit idempotents e_{[ω]} ∈ O[H] give O[H] ≅ ⊕_{[ω]} O(ω).
+
+API TauCeti.Iwasawa.charIdempotent: e_ω = (1/#H)Σ ω^{−1}(a)[a].
+
+API TauCeti.Iwasawa.charIdempotent_mul: e_ωe_ω′ = δ_{ωω′}e_ω.
+
+API TauCeti.Iwasawa.sum_charIdempotent: Σ_ω e_ω = 1.
+
+API TauCeti.Iwasawa.isotypicComponent: M^{(ω)} = e_ωM.
+
+API TauCeti.Iwasawa.isotypicDecomposition: M ≃ ⊕_ω M^{(ω)} as Λ(Γ)-modules.
+
+API TauCeti.Iwasawa.charIdealProduct: char_{Λ(Γ)}(M) = ⊕_ω char_Λ(M^{(ω)}).
+
+Test L4Tests.order_two: H = {1, h}, p odd: e_± = (1 ± h)/2 are orthogonal idempotents summing to 1 (suggested file).
+
+Test L4Tests.teichmuller: Γ = ℤ_p^× = μ_{p−1} × (1 + pℤ_p), p odd: the characters ω^i take values in μ_{p−1} ⊂ ℤ_p, so O = ℤ_p suffices.
+
+Test L4Tests.p_divides: H = C_p: 1/p ∉ O and O[C_p] is local, with no nontrivial idempotents.
+
+Test L4Tests.trivial_group: H = 1: e₁ = 1 and M^{(1)} = M.
+
+### PadicMeasuresIwasawaAlgebras:L4/delta-and-cyclotomic-submodules
+
+Statement: Let M be a finitely generated Λ-module. For a short exact sequence 0 → M₁ → M₂ → M₃ → 0 there is an exact sequence 0 → M₁^Γ → M₂^Γ → M₃^Γ → (M₁)_Γ → (M₂)_Γ → (M₃)_Γ → 0 (Lemma 5.3.11). M_δ = ⋃_n M^{Γ_n} is Λ-torsion and finitely generated over ℤ_p, so d(M) < ∞; M₀ = tor_{ℤ_p}M_δ is the maximal finite Λ-submodule; supp(M_δ) ∩ P(Λ) ⊆ {(ξ_n)} and M_δ ≈ ⊕Λ/ξ_{n_i} with n_i ≤ d(M); (M/M_δ)_δ is ℤ_p-torsion-free; for torsion M, M^{Γ_n} is finite for all n iff d(M) = −1 (Lemma 5.3.14). The iterated M_cycl ⊇ M_δ is Λ-torsion, finitely generated over ℤ_p, pseudo-isomorphic to ⊕_k Λ/(ξ_{n_k})^{t_k}, and supp(M/M_cycl) ∩ P(Λ) avoids every (ξ_n) (Lemma 5.3.16).
+
+### PadicMeasuresIwasawaAlgebras:L4/iwasawa-growth-formula
+
+Statement: Let M be a finitely generated torsion Λ-module and n₀ ≥ d(M). Then #(M/(ω_n/ω_{n₀})M) = p^{μp^n + λn + ν} for all sufficiently large n, where μ = μ(M), λ = λ(M) and ν does not depend on n (Proposition 5.3.17). The key lemma: if M is free of rank λ over ℤ_p, then (ω_{n+1}/ω_n)M = pM for n > λ(λ − 1)/2 (Lemma 5.3.18). When d(M) = −1, taking n₀ = −1 (ω_{−1} = 1) gives #M_{Γ_n} = #M/ω_nM = p^{μp^n+λn+ν}.
+
+### PadicMeasuresIwasawaAlgebras:L4/projective-dimension-and-resolution
+
+Statement: For a finitely generated Λ-module M: (i) pd_Λ M ≤ 1 ⇔ M^{Γ_n} is ℤ_p-free for some (equivalently every) n ⇔ M has no nontrivial finite Λ-submodule; (ii) M is free if and only if M^Γ = 0 and M_Γ is ℤ_p-free (Proposition 5.3.19). With d₀ = dim_{𝔽_p} H⁰(Γ, M)/p, d₁ = dim_{𝔽_p} ₚH⁰(Γ, M) + dim_{𝔽_p} H¹(Γ, M)/p and d₂ = dim_{𝔽_p} ₚH¹(Γ, M), there is an exact sequence 0 → Λ^{d₂} → Λ^{d₁} → Λ^{d₀} → M → 0, and rank_Λ M = d₀ − d₁ + d₂ = rank_{ℤ_p} M_Γ − rank_{ℤ_p} M^Γ (Proposition 5.3.20).
+
+### PadicMeasuresIwasawaAlgebras:L4/finite-coinvariants-euler-characteristic
+
+Statement: For a finitely generated torsion Λ-module M and n ≥ 0 the following are equivalent: (i) M_{Γ_n} is finite; (ii) M^{Γ_n} is finite; (iii) F_{M,γ}(ζ − 1) ≠ 0 for every ζ with ζ^{p^n} = 1, a condition independent of γ. When they hold, #M^{Γ_n}/#M_{Γ_n} = p^{−μ(M)p^n}·∏_{ζ^{p^n}=1}|F_{M,γ}(ζ − 1)|_p (§3, Exercise 3).
+
+### PadicMeasuresIwasawaAlgebras:L4/finite-quotient-criterion
+
+Statement: A finitely generated Λ = O⟦T⟧-module Q killed by ϖ^k and by a distinguished polynomial F (more generally by any F of finite reduced degree) is finite, with #Q ≤ (#(O/ϖ^k))^{g·deg F} for g generators, and hence pseudo-null. In particular, if N ⊆ M are finitely generated Λ-modules with N[1/ϖ] = M[1/ϖ] and FM ⊆ N for a distinguished F, then M/N is finite, of finite O-length, and N → M is a pseudo-isomorphism.
