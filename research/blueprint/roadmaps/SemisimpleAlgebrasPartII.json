@@ -47,7 +47,7 @@
     {
       "key": "SA.3",
       "title": "Characteristic invariants by Morita descent",
-      "description": "For an A-linear endomorphism on an Azumaya module whose inverse Morita module is locally free, define its characteristic polynomial on splitting covers. Compare splitting modules by an invertible sheaf with specified evaluation and prove line-twist invariance; descend coefficient sections over nonreduced schemes. Use the explicit finite spectral pushforward, spectral-cover line twist, overlap and full commuting-Higgs coefficient nodes for EG2.17 and its rank/power relation; import the H.0 carrier once. The Frobenius-root uniqueness shortcut is false and is excluded.",
+      "description": "For an A-linear endomorphism on an Azumaya module whose inverse Morita module is locally free, define its characteristic polynomial on splitting covers. Compare splitting modules by an invertible sheaf with specified evaluation and prove line-twist invariance; descend coefficient sections over nonreduced schemes. Use the explicit finite spectral pushforward, spectral-cover line twist, overlap and full commuting-Higgs coefficient nodes for EG2.17 and its rank/power relation; import the H.0 carrier once. The Frobenius-root uniqueness shortcut is false and is excluded. The rank/n-th-power formula requires one fixed matrix degree on the whole spectral inverse image of each base chart; degrees on components of V that map to the same base component cannot be conflated.",
       "requires": [
         "SemisimpleAlgebrasPartII:SA.2",
         "SchemeAndStackFoundations:SF.0",
@@ -58,7 +58,7 @@
     {
       "key": "SA.4",
       "title": "Cartier forms and relative Brauer comparison",
-      "description": "Apply the Cartier-specific four-term units/closed-form exact sequence to obtain the two-step Brauer boundary, with additivity and relative base-change naturality. Import [D]=Φ(θ) and chosen W₂ splittings from the Cartier-flow owner. For perfect characteristic-p smooth projective Z and the spectral cover V, compare m*D and r*D on V×Spec k[t]/(t−1)^p; identify the missing relative class-vanishing input in EG AppendixA.2 and the coherent categorical refinement in A.3. All target interfaces are planned with the exact relative class-vanishing gap and lift-dependent OV/BB supplier obligations; the stage is not closed.",
+      "description": "Apply the Cartier-specific four-term units/closed-form exact sequence to obtain the two-step Brauer boundary, with additivity and relative base-change naturality. Import [D]=Φ(θ) and chosen W₂ splittings from the Cartier-flow owner. For perfect characteristic-p smooth projective Z and the spectral cover V, compare m*D and r*D on V×Spec k[t]/(t−1)^p; identify the missing relative class-vanishing input in EG AppendixA.2 and the coherent categorical refinement in A.3. All target interfaces are planned with the exact relative class-vanishing gap and lift-dependent OV/BB supplier obligations; the stage is not closed. In the Appendix A.2 target, a is χ_dR(E,∇) for an actual integrable connection on Z, not an arbitrary spectral parameter.",
       "requires": [
         "SemisimpleAlgebrasPartII:SA.2",
         "SemisimpleAlgebrasPartII:SA.3",
