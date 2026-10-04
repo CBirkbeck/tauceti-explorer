@@ -10,8 +10,8 @@
     "DiophantineApproximationAndTranscendence:DT.4",
     "DiophantineApproximationAndTranscendence:DT.5"
   ],
-  "status": "partial",
-  "summary": "Blueprint of Diophantine approximation and transcendence, stages DT.0–DT.5, built on Evertse's Leiden notes (chapters 1–8) and public primary sources, with Mathlib 082e2d3 as the baseline for heights, the product formula, continued fractions, Dirichlet's theorem, Liouville numbers, Mahler measure, Siegel's lemma, Minkowski's theorem, the unit theorem and part of Lindemann–Weierstrass. DT.0 fixes the height conventions (naive height, Mahler measure, Mathlib's absolute Weil height and their comparisons, with the field-extension formula missing at the pin), the house, Siegel's lemma over number fields with rational-integer unknowns, simultaneous Dirichlet approximation and the approximation exponents. DT.1 proves Liouville's inequality with explicit constant, Thue's theorem by the auxiliary-polynomial method and Roth's theorem in full (weighted index, divided derivatives, Wronskians, Roth's lemma, the auxiliary polynomial), with the finiteness of Thue equations. DT.2 states and applies the Subspace Theorem and its p-adic form (Roth from Subspace, Schmidt's approximation by algebraic numbers, norm form equations, Mahler's theorem, S-unit equations in fields of characteristic 0) and decomposes the Evertse–Ferretti proof to the level of its numbered results, with Evertse's rectangular-grid jet lemma decomposed through root multiplicities, degree-preserving partial specialization and induction, and the conditional hyperplane-grid jet through a finite block-linear Hasse chain rule, its weight budget and simultaneous replacement of zero blocks. The hyperplane-height reduction of Evertse Lemma 24 is decomposed into H₂ pair bounds, nonzero coefficient slicing and binary degree restoration, conditional on the explicit sharp Roth node whose proof remains open. DT.3 proves Hermite, Lindemann–Weierstrass in Baker's form, Gelfond–Schneider (real case by Evertse's route, complex case by Gelfond's method) and Baker's linear independence of logarithms by the Schneider–Lang method of Waldschmidt, and states Baker's, Matveev's and Yu's quantitative bounds exactly. DT.4 derives effective finiteness for unit, Thue, superelliptic, Catalan-type and S-unit equations from those bounds, with the height, degree and branch conversion lemmas, and exports the bound theorems to EffectiveDiophantineMethods ED.2. DT.5 defines Mahler functions, E- and G-functions and states Siegel–Shidlovskii (Beukers' refinement), André, Nishioka, Nesterenko, Ax–Schanuel and Schanuel's and the period conjectures as explicit hypotheses. Open: the proofs of the quantitative linear-form bounds, the imported inputs of the Subspace Theorem's proof, several DT.4 and DT.5 proofs without public sources, part of the absolute-height API, and the requests to GeometryOfNumbersAndQuadraticArithmetic and ClassicalArithmeticCompletion. The block-homogenization continuation supplies the affine chart, coefficient-support and H₂ comparison, centered Taylor expansion, triangular Hasse-jet formula and equality of weighted indices over a commutative ring, correcting Evertse 1995’s coordinatewise derivative bound. The arithmetic intersection proof of sharp Roth remains a gap.",
+  "status": "complete",
+  "summary": "Budgeted planning pass complete: 392 inherited unchecked nodes and no new nodes above the 300-node budget. Four prerequisite lists now use exact existing suppliers, matching three former mathematical requests while retaining a GN.1 promotion bridge and preserving every node statement, proof outline, API, test and planet. Three freshly read Tau Ceti dimension declarations correct a stale baseline-absence claim. DT.1 retains its inherited closed planning coverage; the other five stages remain partial. The CDT G-function/global-monodromy route, inherited Chudnovsky factorial-normalization defect and all remaining proof gaps are explicit; compilation does not establish their correctness.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2955,6 +2955,27 @@
         "module": "Mathlib/Data/Nat/Choose/Sum.lean",
         "provides": "The binomial expansion over a commutative semiring.",
         "checked": "Statement read on 2026-09-27 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 76; source blob b1b469609209eb7594fb95666840280536e5a58f verified against the pinned tree."
+      },
+      {
+        "ref": "tauceti:TauCeti.ringKrullDim_eq_of_isIntegral_of_faithfulSMul",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/KrullDimension/Integral.lean",
+        "provides": "For commutative R-algebra S, Algebra.IsIntegral R S and FaithfulSMul R S imply ringKrullDim S = ringKrullDim R. This supplies the injective integral-extension part of the inherited dimension gap.",
+        "checked": "Full statement, surrounding hypotheses and proof read at pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; line 76."
+      },
+      {
+        "ref": "tauceti:TauCeti.ringKrullDim_eq_of_injective_of_isIntegral_mvPolynomial",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/KrullDimension/FiniteType.lean",
+        "provides": "For a field k and a finite variable type, an injective integral k-algebra map from the polynomial ring to A gives ringKrullDim A equal to the number of variables. No domain hypothesis on A is added.",
+        "checked": "Full statement, surrounding hypotheses and proof read at pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; line 54."
+      },
+      {
+        "ref": "tauceti:TauCeti.ringKrullDim_tensorProduct_field_of_finiteType",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/KrullDimension/FiniteType.lean",
+        "provides": "For a field extension K/k and any finite-type commutative k-algebra A, scalar extension K tensor_k A preserves ringKrullDim. This does not by itself prove a flat-family fibre dimension theorem.",
+        "checked": "Full statement, surrounding hypotheses and proof read at pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; line 97."
       }
     ]
   },
@@ -5884,6 +5905,7 @@
         "Mathlib's pigeonhole Dirichlet Real.exists_int_int_abs_mul_sub_le is the case m = n = 1 with the sharper bound 1/(Q + 1) for integer Q; this node is the geometry-of-numbers route and the general system."
       ],
       "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-linear-forms",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
       ],
       "sources": [
@@ -10688,6 +10710,7 @@
         "n = 2, α = (1, −√2): infinitely many (x_1, x_2) with |x_1 − √2 x_2| ≤ 2√2 ‖x‖^{−1} (Dirichlet)."
       ],
       "prerequisites": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-linear-forms",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
       ],
       "library": {
@@ -12020,7 +12043,7 @@
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.2/s-unit-equation-finiteness",
         "DiophantineApproximationAndTranscendence:DT.2/nondegenerate-linear-recurrence",
-        "ClassicalArithmeticCompletion:CA.2",
+        "ClassicalArithmeticCompletion:CA.2/closed-form-of-a-complex-linear-recurrence",
         "mathlib:IsOfFinOrder",
         "mathlib:LinearRecurrence.IsSolution"
       ],
@@ -12845,6 +12868,10 @@
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.2/successive-infima-of-twisted-height",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-is-least",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-lower",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
       ],
       "library": {
@@ -24496,14 +24523,6 @@
   ],
   "requests": [
     {
-      "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
-      "need": "Minkowski's linear forms theorem in the boundary form (Evertse, Corollary 2.6): for every n ≥ 1, every real n × n matrix L with det L ≠ 0 (linear forms l_1, …, l_n) and all positive reals A_1, …, A_n with A_1⋯A_n ≥ |det L|, there is x ∈ ℤ^n \\ {0} with |l_i(x)| ≤ A_i for every i (non-strict inequalities throughout). It is the specialisation of Mathlib's MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_le_measure to the compact parallelepiped {y : |l_i(y)| ≤ A_i} (volume 2^n A_1⋯A_n/|det L|) and the lattice ℤ^n; GN.1 owns it as the 'actual inequalities and existence witnesses' export of Minkowski's first theorem.",
-      "neededBy": [
-        "DiophantineApproximationAndTranscendence:DT.0/dirichlet-approximation-from-minkowski",
-        "DiophantineApproximationAndTranscendence:DT.2/linear-form-dirichlet-exponent"
-      ]
-    },
-    {
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
       "need": "The polar-lattice covering bound (Evertse, Theorem 2.20 and Corollary 2.21): there is c(n) > 0 depending only on n such that for every invertible real n × n matrix B (lattice L = Bℤ^n, polar lattice L* = (Bᵀ)^{-1}ℤ^n) and every R > 0, if every nonzero vector of L* has maximum norm at least R, then every b ∈ ℝ^n lies within maximum-norm distance c(n)/R of a point of L. (Evertse states it with Euclidean norms and the constant n·c(n)/2; the maximum-norm form follows since ‖·‖∞ ≤ ‖·‖₂.) GN.4 owns transference and covering results for lattices.",
       "neededBy": [
@@ -24512,16 +24531,11 @@
     },
     {
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
-      "need": "Successive minima and Minkowski's second convex body theorem (Evertse, Diophantine Approximation, Theorem 2.9): for a lattice Λ ⊂ ℝ^N and a compact convex symmetric body C with non-empty interior, the successive minima λ_i := inf{λ > 0 : λC contains i linearly independent points of Λ} are attained and satisfy (2^N/N!)·det Λ ≤ λ_1 ⋯ λ_N · vol(C) ≤ 2^N · det Λ. This is the input generalised by the adelic (Bombieri–Vaaler) and absolute (Roy–Thunder) Minkowski theorems behind Evertse–Ferretti Proposition 9.2.",
+      "need": "Promotion bridge only: the exact boundary-linear-forms, attained-minima and lower/upper-product node contracts now exist in the GN packet and are imported by id. The GN packet has not been promoted, so the current atlas assembler cannot resolve its node ids to stages. Retain this existing supplier-stage anchor and its prerequisites to preserve GN.1→DT.0/DT.2 until those exact nodes are promoted; this requests no duplicate mathematical construction.",
       "neededBy": [
+        "DiophantineApproximationAndTranscendence:DT.0/dirichlet-approximation-from-minkowski",
+        "DiophantineApproximationAndTranscendence:DT.2/linear-form-dirichlet-exponent",
         "DiophantineApproximationAndTranscendence:DT.2/absolute-minkowski-for-twisted-heights"
-      ]
-    },
-    {
-      "supplier": "ClassicalArithmeticCompletion:CA.2",
-      "need": "Closed form of complex linear recurrence sequences (Evertse, Diophantine Approximation, Theorem 8.17): if u : ℕ → ℂ satisfies a linear recurrence E (Mathlib LinearRecurrence ℂ) whose characteristic polynomial E.charPoly = ∏_{i=1}^m (X − θ_i)^{e_i} has non-zero constant term, then u(h) = Σ_i g_i(h)θ_i^h for h ≥ 0 with polynomials g_i ∈ ℂ[X] of degree < e_i, uniquely determined by u; conversely every such sequence satisfies a linear recurrence. At least the simple-root case (all e_i = 1: u(h) = Σ g_iθ_i^h with constants g_i, u = 0 iff all g_i = 0) is needed.",
-      "neededBy": [
-        "DiophantineApproximationAndTranscendence:DT.2/skolem-mahler-lech-simple-roots"
       ]
     }
   ],
@@ -24530,14 +24544,15 @@
       "stageId": "DiophantineApproximationAndTranscendence:DT.0",
       "status": "partial",
       "remaining": [
-        "Open request to GeometryOfNumbersAndQuadraticArithmetic:GN.1: Minkowski's linear forms theorem in the boundary form (consumed by DT.0/dirichlet-approximation-from-minkowski and hence by every Dirichlet-type node).",
         "Open request to GeometryOfNumbersAndQuadraticArithmetic:GN.4: the polar-lattice covering bound (consumed by DT.0/kronecker-approximation-theorem)."
-      ]
+      ],
+      "notes": "Boundary linear forms are now imported by exact node id from GN.1; the polar-lattice covering request to GN.4 remains. All node statements and quantitative conventions are unchanged."
     },
     {
       "stageId": "DiophantineApproximationAndTranscendence:DT.1",
       "status": "closed",
-      "remaining": []
+      "remaining": [],
+      "notes": "Inherited closed planning coverage retained: the ordinary Roth proof chain is distinct from the still-open sharp Roth/Product Theorem needed by DT.2. No fresh complete Roth-source audit or formalisation is claimed by this budget pass."
     },
     {
       "stageId": "DiophantineApproximationAndTranscendence:DT.2",
@@ -24550,7 +24565,7 @@
         "Read and decompose Evertse–Schlickewei–Schmidt §§6–12 (their Theorem 2.1).",
         "Find and decompose a public proof of Schmidt's norm form theorem ((i) ⇒ (ii) of Evertse Theorem 7.13); candidate: Evertse, 'The number of solutions of decomposable form equations' (preprint 95-decforms.pdf).",
         "Schmidt's bound for the zero multiplicity of non-degenerate (not necessarily simple) recurrences (Evertse Theorem 8.19, Schmidt, Acta Math. 182 (1999)) and the refined counts of Amoroso–Viada quoted after Evertse Theorem 8.13: stated in the source without proof; no public full proof was read.",
-        "Receive GeometryOfNumbersAndQuadraticArithmetic:GN.1's nodes for Minkowski's linear forms theorem and Minkowski's second theorem, and ClassicalArithmeticCompletion:CA.2's closed form of linear recurrences, and replace the stage-id prerequisites by those node ids."
+        "The classical boundary linear-forms theorem, attained successive minima, both Minkowski product inequalities and the complex-recurrence closed form now have exact supplier node prerequisites. These match three former requests at the planning-interface level; a GN.1 promotion bridge stays in requests until the assembler can see its unpromoted supplier nodes; they do not prove the absolute/adelic twisted-height theorem, the sharp-Roth boundary case, or the S-unit theorem that consumes them."
       ]
     },
     {
@@ -24560,7 +24575,8 @@
         "Decompose the proof of Waldschmidt's Theorem 9.1 (DALAG §9.2-9.3 and its inputs from Chapters 3, 5-8, listed in the gap) or of Matveev's Corollary 2.3 (Izv. Math. 64 (2000) §§3-9) into nodes; either one closes DiophantineApproximationAndTranscendence:DT.3/baker-lower-bounds-for-linear-forms-in-logarithms and its consumers.",
         "Decompose Yu's proof of the bound of DiophantineApproximationAndTranscendence:DT.3/yu-explicit-p-adic-bound (Compositio 74 (1990) §§1-5 and 91 (1994) §§1-6), including the p-adic exponential and logarithm on 𝔭-adic units of valuation > 1/(p−1) that the proof uses internally.",
         "Obtain a public source for the Laurent-Mignotte-Nesterenko estimate (J. Number Theory 55 (1995) 285-321) or replace the node by the corresponding case of DiophantineApproximationAndTranscendence:DT.3/matveev-corollary-linear-form-bound.",
-        "Supply the absolute-height lemmas still listed in the gap 'Absolute Weil height API for NumberField.absLogHeight₁' (inverse, product, sum, integer values and the size bound; upstream owner) and then close the five derivation nodes that use them."
+        "Supply the absolute-height lemmas still listed in the gap 'Absolute Weil height API for NumberField.absLogHeight₁' (inverse, product, sum, integer values and the size bound; upstream owner) and then close the five derivation nodes that use them.",
+        "Keep the qualitative algebraic-coefficient and inhomogeneous logarithmic independence interfaces separate from quantitative integer-coefficient bounds. Complex branch choices and nonzero linear forms travel with each bound; p-adic deep-unit convergence and the chosen logarithm branch are distinct from arbitrary normed-space log series. The native absolute-height API gap remains; no new implementation is inferred from compilation."
       ]
     },
     {
@@ -24570,7 +24586,8 @@
         "Decompose the proof of Theorem 5.14 from Bérczes–Evertse–Győry 2013, sections 3–5 (see gaps), including the relative discriminant estimates and the effective Thue equations over O_S that it uses.",
         "Decompose the proof of Theorem 5.15 (Schinzel–Tijdeman 1976 or Bérczes–Evertse–Győry section 6).",
         "Obtain and decompose Tijdeman's 1976 proof of the Catalan bound.",
-        "DT.3 must supply Yu's p-adic bound for algebraic numbers (gap) for Theorem 5.18 and the Thue–Mahler theorem to rest on a node rather than on the DT.3 stage."
+        "DT.3 must supply Yu's p-adic bound for algebraic numbers (gap) for Theorem 5.18 and the Thue–Mahler theorem to rest on a node rather than on the DT.3 stage.",
+        "RS-03 keeps equation-specific height/degree conversions and proven explicit bounds here. ED.2 owns certified numerical evaluation, lattice reduction and exhaustive residual enumeration. The accepted DT.4→ED.2 and forwarded ED.5 paths must survive promotion; ineffective Roth/Subspace finiteness is never used as a search cutoff."
       ]
     },
     {
@@ -24582,7 +24599,11 @@
         "Obtain proofs of Shidlovskii's Lemma II and Galochkin's theorem (Shidlovskii's book; André, Annals 2000) or an alternative public source.",
         "Nesterenko's theorem: acquire a public proof source (none found) and decompose the multiplicity estimate and Philippon's criterion.",
         "Functional transcendence: decompose Chevalley's indecomposability theorem and the algebraic-subgroup step (gap), and the geometric forms of Ax–Lindemann (Bakker–Tsimerman Theorem 1.2.11 and Corollaries 1.2.13–1.2.15).",
-        "Differential Galois theory (gap) must be supplied before Beukers' Theorem 2.5 rests on nodes."
+        "Differential Galois theory (gap) must be supplied before Beukers' Theorem 2.5 rests on nodes.",
+        "CDT Theorem 7.3.3 routes four DT.5 inputs. The existing g-function node supplies the arithmetic growth/D-finiteness definition but needs its finite-coefficient-field and minimal-system comparisons checked. chudnovsky-galochkin-condition is a nearby system theorem, conditional on the recorded Shidlovskii proof gap; connect its denominator convention to finite global operator height for the minimal connection. Bombieri–André (Galochkin condition ⇒ Bombieri generic-radius condition ⇒ global nilpotence) and Katz (global nilpotence ⇒ regular singularities and quasi-unipotent local monodromy at every singular point, including infinity) have no exact nodes in this packet. The at-zero G-operator statement alone is not this global chain. Read DGS94 VIII.1.5, VII.2.1 and III.2.3(ii), and Katz 1970, at their full hypotheses and proof scope in a follow-up. Generic connection/differential-equation infrastructure must be imported if an owner supplies it; the modular-form application belongs to the CDT modular owner, and quantitative holonomy/algebraization belongs to its separate Part II.",
+        "Inherited chudnovsky-galochkin-condition first defines G_s by y^(s)/s! = G_s y, then uses T^m G_m/m! in its denominator condition. These conventions insert the factorial twice: for the stated test y′=y/(1−z), normalized G_m=(1−z)^(−m), T=1−z, so the displayed quotient is 1/m!, contradicting the acceptance claim q_s=1 and its exponential bound. Reconcile normalized versus unnormalized iterated connection matrices against the original source before reuse. This is an inherited packet-normalization defect, not a newly verified erratum in Beukers or DGS. The source and proposed signatures are preserved and remain unchecked.",
+        "The old absence claim is superseded by three freshly read pinned Tau Ceti declarations: injective integral extensions preserve Krull dimension; an injective integral map from a finite polynomial algebra computes dimension by the variable count; finite-type dimension is invariant under field extension. These are baseline inputs, not new nodes. What remains is their exact comparison with the fraction-field transcendence-degree interface and the torsion-free/flat finite-type family over the affine line used by fibre-dimension-over-the-affine-line and Siegel–Shidlovskii. Confirm the generic scheme/algebra owner before assigning new work; the inherited proposal must not re-plan the native integral-extension or field-base-change results.",
+        "Schanuel and period conjectures remain explicit conditional hypotheses. Exponential functional transcendence here is distinct from o-minimal modular/Shimura inputs at LD.6, arithmetic unlikely intersections at RP.5 and dynamical endpoints at DY.6. The old broad Picard–Vessiot request is still not supplied by a generic owner found in this pass; RD.1 only has a cyclic-vector theorem with its own proof gap."
       ]
     }
   ],
@@ -24599,7 +24620,7 @@
       "neededBy": [
         "DiophantineApproximationAndTranscendence:DT.2/absolute-minkowski-for-twisted-heights"
       ],
-      "detail": "Evertse–Ferretti prove Proposition 9.2 by citing Evertse–Schlickewei 2002, Corollary 7.2, which rests on the absolute Siegel lemma / absolute Minkowski theorem of Roy and Thunder (J. reine angew. Math. 476 (1996), 1–26; not public). The Evertse–Schlickewei preprint (public) §7 was not read. Beneath it lie the adelic Minkowski second theorem of Bombieri–Vaaler and the classical Minkowski second theorem (requested from GN.1)."
+      "detail": "Evertse–Ferretti prove Proposition 9.2 by citing Evertse–Schlickewei 2002, Corollary 7.2, which rests on the absolute Siegel lemma / absolute Minkowski theorem of Roy and Thunder (J. reine angew. Math. 476 (1996), 1–26; not public). The Evertse–Schlickewei preprint (public) §7 was not read. Beneath it lie the adelic Minkowski second theorem of Bombieri–Vaaler and the classical Minkowski second theorem (requested from GN.1). The classical attained-minima and lower/upper product inputs are now imported by exact GN.1 node ids. This does not close the absolute/adelic step."
     },
     {
       "title": "Davenport's lemma for twisted heights: proof of Evertse–Schlickewei Lemma 9.2 not decomposed",
@@ -24694,12 +24715,12 @@
       "detail": "Evertse reports the result in prose only. Tijdeman, 'On the equation of Catalan', Acta Arith. 29 (1976) 197–209, is the source; it was not obtained (the archive URL tried returned 404)."
     },
     {
-      "title": "Integral extensions preserve Krull dimension (dimension of finitely generated domains)",
+      "title": "Remaining dimension and affine-family comparison after native integral-extension inputs",
       "neededBy": [
         "DiophantineApproximationAndTranscendence:DT.5/fibre-dimension-over-the-affine-line",
         "DiophantineApproximationAndTranscendence:DT.5/siegel-shidlovskii-theorem"
       ],
-      "detail": "fibre-dimension-over-the-affine-line needs dim B = dim A for an integral extension A ⊆ B of domains (going up and incomparability), hence dim A = trdeg for finitely generated K-domains via Noether normalization. Mathlib has Noether normalization, going down for flat maps, Krull's height theorem and dim K[x₁..x_n] = n, but no statement that integral extensions preserve ringKrullDim was found in the index. No roadmap plans it; its natural owner is the scheme-foundations roadmap (SchemeAndStackFoundations:SF.0), see restructure."
+      "detail": "The old absence claim is superseded by three freshly read pinned Tau Ceti declarations: injective integral extensions preserve Krull dimension; an injective integral map from a finite polynomial algebra computes dimension by the variable count; finite-type dimension is invariant under field extension. These are baseline inputs, not new nodes. What remains is their exact comparison with the fraction-field transcendence-degree interface and the torsion-free/flat finite-type family over the affine line used by fibre-dimension-over-the-affine-line and Siegel–Shidlovskii. Confirm the generic scheme/algebra owner before assigning new work; the inherited proposal must not re-plan the native integral-extension or field-base-change results."
     },
     {
       "title": "Differential Galois theory (Picard–Vessiot) is planned by no roadmap",
@@ -24751,6 +24772,18 @@
         "DiophantineApproximationAndTranscendence:DT.5/galochkin-chudnovsky-linear-independence"
       ],
       "detail": "Beukers' AWS notes §6.3 sketch Siegel's method for G-functions and end 'To be finished'; Galochkin's original paper (Mat. Zametki 1974) is not public."
+    },
+    {
+      "title": "CDT G-function to global monodromy chain remains incomplete",
+      "neededBy": [],
+      "detail": "CDT Theorem 7.3.3 routes four DT.5 inputs. The existing g-function node supplies the arithmetic growth/D-finiteness definition but needs its finite-coefficient-field and minimal-system comparisons checked. chudnovsky-galochkin-condition is a nearby system theorem, conditional on the recorded Shidlovskii proof gap; connect its denominator convention to finite global operator height for the minimal connection. Bombieri–André (Galochkin condition ⇒ Bombieri generic-radius condition ⇒ global nilpotence) and Katz (global nilpotence ⇒ regular singularities and quasi-unipotent local monodromy at every singular point, including infinity) have no exact nodes in this packet. The at-zero G-operator statement alone is not this global chain. Read DGS94 VIII.1.5, VII.2.1 and III.2.3(ii), and Katz 1970, at their full hypotheses and proof scope in a follow-up. Generic connection/differential-equation infrastructure must be imported if an owner supplies it; the modular-form application belongs to the CDT modular owner, and quantitative holonomy/algebraization belongs to its separate Part II."
+    },
+    {
+      "title": "Inherited Chudnovsky matrix normalization needs correction",
+      "neededBy": [
+        "DiophantineApproximationAndTranscendence:DT.5/chudnovsky-galochkin-condition"
+      ],
+      "detail": "Inherited chudnovsky-galochkin-condition first defines G_s by y^(s)/s! = G_s y, then uses T^m G_m/m! in its denominator condition. These conventions insert the factorial twice: for the stated test y′=y/(1−z), normalized G_m=(1−z)^(−m), T=1−z, so the displayed quotient is 1/m!, contradicting the acceptance claim q_s=1 and its exponential bound. Reconcile normalized versus unnormalized iterated connection matrices against the original source before reuse. This is an inherited packet-normalization defect, not a newly verified erratum in Beukers or DGS. The source and proposed signatures are preserved and remain unchecked."
     }
   ],
   "sourceIssues": [
@@ -26078,8 +26111,8 @@
         "DiophantineApproximationAndTranscendence",
         "SchemeAndStackFoundations"
       ],
-      "detail": "DT.5 needs the dimension theory of finitely generated algebras over a field (dim = transcendence degree; integral extensions preserve dimension; fibre dimension of torsion-free families over the affine line) for the Siegel–Shidlovskii theorem. SchemeAndStackFoundations:SF.0 names flat morphisms but no dimension theorems; no other roadmap plans them.",
-      "proposal": "Add to SchemeAndStackFoundations:SF.0 the dimension theory of finitely generated algebras (Noether normalization consequences, dimension formula, fibre dimension for flat morphisms); the node DT.5/fibre-dimension-over-the-affine-line then cites it."
+      "detail": "The old absence claim is superseded by three freshly read pinned Tau Ceti declarations: injective integral extensions preserve Krull dimension; an injective integral map from a finite polynomial algebra computes dimension by the variable count; finite-type dimension is invariant under field extension. These are baseline inputs, not new nodes. What remains is their exact comparison with the fraction-field transcendence-degree interface and the torsion-free/flat finite-type family over the affine line used by fibre-dimension-over-the-affine-line and Siegel–Shidlovskii. Confirm the generic scheme/algebra owner before assigning new work; the inherited proposal must not re-plan the native integral-extension or field-base-change results.",
+      "proposal": "Retain only the generic finite-type affine-family dimension/flatness comparison after importing the pinned Tau Ceti integral-extension and field-base-change theorems. Coordinate the exact remaining interface with SchemeAndStackFoundations:SF.0; no scope amendment is applied in this pass."
     }
   ],
   "sourceVersions": [
@@ -26115,5 +26148,27 @@
       "read": "2026-09-27",
       "sha256": "94a89d838a199cce195bba2aaba31084d1dafb9b376b4a579b2cd2968c115a62"
     }
-  ]
+  ],
+  "checks": {
+    "agent": "Codex — codex-7e92bd",
+    "date": "2026-10-04",
+    "newNodes": 0,
+    "preservedStatements": 392,
+    "dependencyListsUpdated": 4,
+    "requestsMatched": 3,
+    "promotionBridges": 1,
+    "newBaselineDeclarations": 3,
+    "compile": "Full suggested file compiled at the exact pinned Mathlib with zero errors, 820 expected admission warnings and no other warnings. All 3832 imported Mathlib sources and dependency pins matched the existing build. No Tau Ceti module is imported; the new native dimension citations are planning inputs read at the pinned source.",
+    "signatureBoundary": "The file has 675 named commands and 232 examples. All 376 distinct indexed API names resolve, including relative names under their packet namespace; all 392 nodes lack explicit declaration metadata, so the API index alone is not a complete node-to-signature correspondence proof."
+  },
+  "provenance": {
+    "agent": "Codex — codex-7e92bd",
+    "issue": 1027,
+    "claim": 5984468504,
+    "confirmation": 5984469909,
+    "freshReading": "Six reviewed AUDIT-07 layer records, current target document and atlas edges, RS-03 report/review and DT.0 narrowing, all 52 touching link records (27 distinct bodies), four routed CDT extraction records and review, incoming handoff/coverage/gaps and selected supplier/consumer nodes, two native Tau Ceti dimension source files. No fresh full-source review of all 392 nodes is claimed.",
+    "priorReading": "Two nearby upstream documents (LocalFieldsRamification and Multiquadratic) reuse the same worker’s earlier complete reading, authenticated by unchanged file hashes. Historical source/proof evidence in the preceding packet is preserved and attributed to its authors.",
+    "preservation": "Node identifiers and all fields except four prerequisite lists are byte-equivalent as JSON objects. All 76 source findings, 33 sources and source-version records are preserved. The inherited Chudnovsky ambiguity is a packet defect, not a new source finding.",
+    "evidence": "Exact dependencies, supplier snapshots, native source excerpts/hashes, compilation receipt, immutable repository checks and public recovery are attached through the handoff."
+  }
 }

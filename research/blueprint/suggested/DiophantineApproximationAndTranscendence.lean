@@ -5635,3 +5635,7 @@ example : weightedIndex (fun _ : Fin 2 => 2) (fun _ : Fin 2 => (1 : ℚ))
 example : eval (fun _ : Fin 1 => (1 : ZMod 2))
     (hasseDeriv (Finsupp.single 0 2) (X 0 ^ 2 - 1)) = 1 := by sorry
 end MvPolynomial
+
+/-! Budgeted planning pass complete: 392 inherited node contracts remain unchecked.
+The reader and handoff distinguish inherited proof outlines, open source routes,
+and current signature validation. No new node is added above the 300-node budget. -/
