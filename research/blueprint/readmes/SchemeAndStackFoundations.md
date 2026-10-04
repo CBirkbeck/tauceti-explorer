@@ -1,3 +1,150 @@
+# Scheme foundations: canonical maps to closed-subscheme sections
+
+Codex — codex-7e92bd · 4 October 2026 · Refs #642 · partial.
+
+The quotient presheaf now maps canonically to the actual closed-subscheme sections for every morphism. Its components are native quotient lifts of the actual closed-immersion section maps, and commute with restriction without affine-preimage assumptions. A component agrees with the existing inverse comparison when its preimage is affine; for affine morphisms the entire transformation is the inverse of the existing natural isomorphism.
+
+[Stacks 01JU](https://stacks.math.columbia.edu/tag/01JU) supplies the inverse-image closed-subscheme image-ideal context, and [01IN](https://stacks.math.columbia.edu/tag/01IN) the affine quotient context. Their complete displayed mathematical statements and proofs were read. The twelve contracts below are authored deductions from the pinned native API. No recursive chapter closure is claimed.
+
+Twelve canonical quotient-to-closed-sections declarations now supply the actual quotient lift and its natural transformation for arbitrary morphisms, without affine-preimage or quasi-compactness hypotheses. The map agrees with the existing inverse comparison on an affine preimage, and is an isomorphism of affine-indexed presheaves for affine f. No general nonaffine isomorphism or all-open sheafification/global structure-sheaf comparison is claimed. Both conductor/sheaf and flat-recomputation consumer requests, henselization coherence/source leaves, all six reserved-key boundaries, 62 source routes and the other stages remain open.
+
+All 73 incoming whole nodes, 29 API items, 41 raw tests, eight gaps, 62 routes, twelve confirmed findings and six reserved-key boundaries remain intact. Peer PR6029 and its 930-line native proof prefix were authenticated by public recovery and exact verifier replay. Only the fourteen new peer declarations, nine tests and consumed earlier comparison maps were freshly read; the whole prefix is recompiled, not newly claimed as fully read. Own prior reading scopes are reused only where control hashes match. Historical prose below keeps its original attribution.
+
+## Extended ideals vanish on the actual closed subscheme
+
+**TauCeti.SchemeFoundations.IdealPullback.extendedIdeal_le_ker** — For an arbitrary scheme morphism f:X→Y, native ideal data I on Y and affine U in Y, the full extended ideal I(U).map(f.app U) is contained in the kernel of the actual closed immersion section map Γ(X,f⁻¹U)→Γ(Z,ι⁻¹(f⁻¹U)), where Z is the native subscheme of I.comap f and ι:Z→X. No affineness of f⁻¹U or quasi-compactness of f is assumed.
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: mathlib:AlgebraicGeometry.Scheme.IdealSheafData.le_map_comap, mathlib:AlgebraicGeometry.Scheme.Hom.ideal_ker_le, mathlib:AlgebraicGeometry.Scheme.Hom.comp_app.
+
+Proof: Apply the native Galois unit I≤map f(comap f I). Use the unconditional native ideal_ker_le for ι≫f, then identify its section map with the composite of f.app and ι.app. The map/comap ideal adjunction gives the desired kernel inclusion. Do not substitute ker_apply, whose equality requires quasi-compactness.
+
+## Canonical quotient-to-closed-sections map
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToClosed** — For arbitrary f:X→Y, I and affine U, construct the ring homomorphism q_U:Q(U)→Γ(Z,ι⁻¹(f⁻¹U)), with Q(U)=Γ(X,f⁻¹U)/I(U).map(f.app U), Z the actual subscheme of I.comap f and ι its native closed immersion. The map is the quotient lift of ι.app(f⁻¹U), without affine-preimage, quasi-compactness, flatness, finiteness or Noetherian assumptions.
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/extended-ideal-kernel-inclusion, mathlib:Ideal.Quotient.lift.
+
+Proof: Retain the native quotient carrier and apply Ideal.Quotient.lift to the actual immersion section map and the preceding kernel inclusion.
+
+API: TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_mk, TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_unique, TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_naturality, TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_eq_inv, TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_injective, TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_surjective. Each uses the exact hypotheses of its displayed contract.
+
+## Image of a quotient representative
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_mk** — The canonical map q_U sends the quotient class of any section a of X over f⁻¹U to the actual section ι.app(f⁻¹U)(a) on Z.
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-closed-sections.
+
+Proof: Unfold the native quotient lift on a representative; the equality is reflexive.
+
+## Unique factorization through the quotient
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_unique** — Any ring homomorphism Q(U)→Γ(Z,ι⁻¹(f⁻¹U)) whose composite with the quotient projection equals the actual immersion section map is equal to q_U. This applies to arbitrary f and affine U.
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-closed-representative, mathlib:Ideal.Quotient.ringHom_ext.
+
+Proof: Use native quotient ring-homomorphism extensionality; the supplied factorization agrees with the concrete lift on every representative.
+
+## Naturality without affine preimages
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_naturality** — For arbitrary f and affine U≤V, quotientRestriction:Q(V)→Q(U) followed by q_U equals q_V followed by the actual restriction Γ(Z,ι⁻¹(f⁻¹V))→Γ(Z,ι⁻¹(f⁻¹U)), as CommRingCat morphisms. Neither inverse image needs to be affine.
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-closed-representative, SchemeAndStackFoundations:SF.0/quotient-restriction-representative, mathlib:AlgebraicGeometry.Scheme.Hom.naturality, mathlib:Ideal.Quotient.ringHom_ext.
+
+Proof: Reduce the two ring maps to quotient representatives and apply the native naturality square for ι at the actual preimage inclusion.
+
+## Agreement with the local affine comparison
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_eq_inv** — If the single inverse image f⁻¹U is affine, CommRingCat.ofHom(q_U) equals the inverse of the existing comapObjIso I f U. No global affineness of f is required.
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-closed-representative, SchemeAndStackFoundations:SF.0/ideal-comap-quotient-inverse, mathlib:Ideal.Quotient.ringHom_ext.
+
+Proof: Use quotient extensionality and the previously proved comapObjIso_inv_mk formula for the actual closed-immersion section map.
+
+## Injectivity on an affine preimage
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_injective** — If f⁻¹U is affine, the canonical ring homomorphism q_U is injective.
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-closed-affine-comparison, mathlib:CategoryTheory.ConcreteCategory.bijective_of_isIso.
+
+Proof: Identify q_U with the inverse component of the existing isomorphism, then use the native concrete-category bijectivity theorem.
+
+## Surjectivity on an affine preimage
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToClosed_surjective** — If f⁻¹U is affine, the canonical ring homomorphism q_U is surjective.
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-closed-affine-comparison, mathlib:CategoryTheory.ConcreteCategory.bijective_of_isIso.
+
+Proof: Identify q_U with the inverse component of the existing isomorphism, then use the native concrete-category bijectivity theorem.
+
+## Canonical natural transformation for arbitrary morphisms
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToClosedNatTrans** — For arbitrary f:X→Y and native I, construct a natural transformation from quotientPresheaf I f to the actual closed-subscheme section presheaf indexed by Y.affineOpens opposite, via the affine-open forgetful functor and the two native preimage functors. Its component at U is CommRingCat.ofHom(q_U). No inverse-image affineness is assumed, and no general isomorphism is asserted.
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/affine-quotient-presheaf, SchemeAndStackFoundations:SF.0/quotient-to-closed-sections, SchemeAndStackFoundations:SF.0/quotient-to-closed-naturality.
+
+Proof: Specify the actual component ring homomorphisms in the existing native NatTrans structure and supply the proved naturality square. Keep the native presheaf carriers and maps.
+
+API: TauCeti.SchemeFoundations.IdealPullback.quotientToClosedNatTrans_app, TauCeti.SchemeFoundations.IdealPullback.quotientToClosedNatTrans_affine, TauCeti.SchemeFoundations.IdealPullback.quotientToClosedNatTrans_isIso. Each uses the exact hypotheses of its displayed contract.
+
+## Canonical natural transformation components
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToClosedNatTrans_app** — For every affine U and arbitrary f, the U component of quotientToClosedNatTrans is exactly CommRingCat.ofHom(q_U).
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-transformation.
+
+Proof: Unfold the specified component field; the equality is reflexive.
+
+## Agreement with the affine natural isomorphism
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToClosedNatTrans_affine** — If f is an affine morphism, quotientToClosedNatTrans I f equals the inverse natural transformation of the existing comapObjNatIso I f. This is equality of actual natural transformations.
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-transformation, SchemeAndStackFoundations:SF.0/quotient-to-closed-affine-comparison, SchemeAndStackFoundations:SF.0/closed-subscheme-quotient-natural-isomorphism.
+
+Proof: Use natural-transformation extensionality and the local comparison at each target affine open, with its native affine-preimage witness.
+
+## The canonical transformation is invertible for affine morphisms
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToClosedNatTrans_isIso** — For affine f, the canonical quotientToClosedNatTrans I f is an isomorphism in the native functor category.
+
+Hypotheses: X and Y are native schemes in the same universe; I is native IdealSheafData. Only the affineness hypotheses explicitly stated are used; zero rings, nilpotents and nonflat maps are allowed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-affine.
+
+Proof: Rewrite as the inverse of the existing comapObjNatIso and use its native IsIso instance.
+
+## Typed boundary tests
+
+- **QuotientToClosedChecked.actual_factorization**: For arbitrary f and affine U, q_U composed with the actual quotient projection equals the actual immersion section map as ring homomorphisms.
+- **QuotientToClosedChecked.top_ideal**: For the unit ideal datum, arbitrary f and every quotient class on an affine U, the canonical map sends that class to zero.
+- **QuotientToClosedChecked.nonreduced_section**: On Spec(Z/4), for the zero ideal datum and identity morphism, the image under q_U of the class of the actual section 2 is nonzero and has square zero. Full ideals and the actual closed-subscheme sections preserve this nilpotent.
+- **QuotientToClosedChecked.nonflat_surviving_unit**: For the nonflat Spec(Z/2)→Spec(Z) and the ideal datum generated by 2, the image of the quotient unit under q_U is nonzero. The full extended ideal is zero; flatness is not required.
+- **QuotientToClosedNatTransChecked.basic_open**: For arbitrary f and a native affine basic open D(s)≤V, first restricting a quotient representative and then applying the natural transformation gives the actual immersion section map applied to its restriction.
+- **QuotientToClosedNatTransChecked.two_step_overlap**: For arbitrary f and affine U≤V≤W, two successive quotient-presheaf restrictions followed by q_U equal q_W followed by the actual closed-subscheme restriction for U≤W.
+- **QuotientToClosedNatTransChecked.affine_roundtrip**: For affine f, the canonical natural transformation followed by the forward existing comapObjNatIso equals the identity natural transformation.
+- **QuotientToClosedNatTransChecked.nonaffine_obstruction**: Given a failure of surjectivity of one component of the canonical natural transformation, f cannot be affine. This is a parameterized obstruction test; it does not instantiate a concrete nonaffine counterexample.
+
 # Scheme foundations: actual affine quotient restrictions
 
 Codex — codex-rtOQ9t · 3 October2026 · Refs #642 · partial.
