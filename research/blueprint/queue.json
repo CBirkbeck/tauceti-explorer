@@ -16188,7 +16188,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-DeformationAndDerivedPatchingAlgebraPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3476"
   },
   {
    "id": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
@@ -20912,9 +20913,10 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P7.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #551"
+   "note": "deliverables arrived from an external worker on issue #551",
+   "finishedAt": "2026-10-04T19:44:57Z"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--P7",
@@ -21659,9 +21661,10 @@
     "REV-RS-27"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #672"
+   "note": "deliverables arrived from an external worker on issue #672",
+   "finishedAt": "2026-10-04T19:44:58Z"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -23802,11 +23805,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions--L3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #5881"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L3",
