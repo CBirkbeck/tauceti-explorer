@@ -1,3 +1,125 @@
+# Global conductor topology
+
+For every finite schematically dominant morphism of actual schemes f:Y→P, the actual conductor square is a topological pushout. A compatible pair of continuous maps from Y and the conductor subscheme C_f to any topological target descends to a specified continuous map from P. Both triangles, uniqueness and continuous postcomposition have native proofs. Targets can have independent universes and need no separation axioms.
+
+The local prime-fiber theorem transports through the canonical affine scheme isomorphisms. Restriction to an affine neighborhood of the common image proves global singleton fibers outside the pulled-back conductor. Inside its support, the actual closed inclusions and conductor square identify compatible values. The finite schematically dominant map is closed and surjective, so the native continuous quotient-lift API constructs the descent. No Noetherian, reduced, separated, birational or nonempty hypothesis is added.
+
+Combining this actual global topology with the inherited every-open structure-sheaf pullback gives a separately checked native proof of the exact existing conductor_global_geometric theorem. The native replay also supplies the exact existing GeometricPushout structure with both section-domain inequalities proved from composition and commutativity; it adds no weaker substitute carrier. The categorical Scheme universal property remains a separate obligation.
+
+All666 incoming whole node objects,29 planets,78 routes,18 gaps,23 requests and26 source findings are preserved. Nine nodes, four consumed API entries and eight tests are appended. All seven stages remain partial and all implementations unchecked. The full Tau-importing suggested file remains UNCOMPILED; its bounded Mathlib planning projection and complete native counterpart have separate serial compiler receipts.
+
+Fresh source reading is the complete displayed Stacks37.14.1 statement and proof, with its comments boundary, SHA256 and access time. The global finite-conductor extension is an authored deduction; it is not attributed verbatim to that affine source. Original own bounded readings are reused only at unchanged byte hashes. Incoming peer6047 was publicly authenticated and its actual verifier reproduced exactly; that recovery does not turn its worker’s reading into this worker’s fresh reading.
+
+The actual global conductor square for every finite schematically dominant map now has a specified continuous descent, both triangles, uniqueness, continuous postcomposition and an actual TopCat IsPushout, obtained by affine-local off-conductor fibers and actual closed-subscheme supports. Combined with the inherited every-open structure-sheaf pullback, the exact existing GeometricPushout predicate also has a separately checked native proof. No affine, Noetherian, reduced, separated, birational or nonempty hypothesis is imposed. The categorical Scheme universal property, recomputed flat-conductor integration, algebraic-space existence, P¹/Proj, projectivity/properness, coherent cohomology, separate I₂ and later classification/model work remain required. All18 gaps,23 requests,26 source findings,78 routes and seven partial stages remain; every implementation is unchecked and the full Tau-importing suggested file is UNCOMPILED.
+
+## Affine scheme fibers outside the conductor
+
+**TauCeti.GenusOne.FerrandPushout.conductor_affine_fiber_eq** — For a finite schematically dominant morphism of affine schemes f:Y→P, if x,x′∈Y have f(x)=f(x′) and x lies outside the support of the actual pulled-back conductor ideal J, then x=x′.
+
+Hypotheses: Y and P are arbitrary actual schemes in a common universe, f is finite and schematically dominant, I=conductorIdealSheaf f and J=I.comap f. Only the first lemma additionally assumes affine Y and P. Continuous targets may have independent universes, with no separation axioms. Retain nilpotents, empty schemes and the zero ring; use the actual native closed subschemes, conductorMap, ContinuousMap and TopCat.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-prime-off-locus, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-ideal-affine, mathlib:AlgebraicGeometry.Scheme.isoSpec_hom_naturality, mathlib:AlgebraicGeometry.Scheme.toSpecΓ_preimage_zeroLocus, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.mem_support_iff_of_mem, mathlib:CategoryTheory.ConcreteCategory.bijective_of_isIso.
+
+Proof: Transport the actual points through the canonical affine scheme isomorphisms. The native ideal-support/zero-locus comparison and the proved source-conductor ideal computation give the off-conductor prime hypothesis. Apply the existing prime-fiber lemma and injectivity of the actual affine isomorphism.
+
+## Global scheme fibers outside the conductor
+
+**TauCeti.GenusOne.FerrandPushout.conductor_fiber_eq** — For any finite schematically dominant f:Y→P, points x,x′ with equal images are equal if x is outside the support of J=(conductorIdealSheaf f).comap f. Neither scheme is required to be affine.
+
+Hypotheses: Y and P are arbitrary actual schemes in a common universe, f is finite and schematically dominant, I=conductorIdealSheaf f and J=I.comap f. Only the first lemma additionally assumes affine Y and P. Continuous targets may have independent universes, with no separation axioms. Retain nilpotents, empty schemes and the zero ring; use the actual native closed subschemes, conductorMap, ContinuousMap and TopCat.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-scheme-fiber, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-ideal-open-restriction, mathlib:AlgebraicGeometry.exists_isAffineOpen_mem_and_subset, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.support_comap, mathlib:AlgebraicGeometry.morphismRestrict_base_coe, mathlib:AlgebraicGeometry.IsSchemeTheoreticallyDominant.of_isPullback, mathlib:AlgebraicGeometry.isPullback_morphismRestrict.
+
+Proof: Choose an affine neighborhood of the common image. Finiteness makes its inverse image affine; native flat base change gives schematic dominance of the restriction. The actual conductor restriction identity and support_comap transport the off-conductor hypothesis. Apply the affine scheme-fiber lemma and take underlying points.
+
+## Compatible maps are constant on global conductor fibers
+
+**TauCeti.GenusOne.FerrandPushout.conductor_global_factorsThrough** — For any topological target T and compatible continuous y:Y→T and z:C_f→T, y is constant on the fibers of f. Compatibility is with the actual inclusion D_f→Y and actual conductorMap f:D_f→C_f.
+
+Hypotheses: Y and P are arbitrary actual schemes in a common universe, f is finite and schematically dominant, I=conductorIdealSheaf f and J=I.comap f. Only the first lemma additionally assumes affine Y and P. Continuous targets may have independent universes, with no separation axioms. Retain nilpotents, empty schemes and the zero ring; use the actual native closed subschemes, conductorMap, ContinuousMap and TopCat.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-scheme-fiber, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.support_comap, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.range_subschemeι.
+
+Proof: Outside J use the global singleton-fiber theorem. Inside J, support_comap puts both points in the same actual closed support; lift them through the native subscheme inclusions. The actual conductor square and the closed target inclusion identify their conductorMap images. Evaluate compatibility on those lifts.
+
+## Continuous descent through the global conductor
+
+**TauCeti.GenusOne.FerrandPushout.conductorGlobalDesc** — Every compatible pair y:Y→T and z:C_f→T has a specified native ContinuousMap P→T for a finite schematically dominant f:Y→P. T may live in an independent universe and has no separation requirement.
+
+Hypotheses: Y and P are arbitrary actual schemes in a common universe, f is finite and schematically dominant, I=conductorIdealSheaf f and J=I.comap f. Only the first lemma additionally assumes affine Y and P. Continuous targets may have independent universes, with no separation axioms. Retain nilpotents, empty schemes and the zero ring; use the actual native closed subschemes, conductorMap, ContinuousMap and TopCat.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-factors, mathlib:AlgebraicGeometry.Scheme.Hom.isClosedMap, mathlib:AlgebraicGeometry.surjective_of_isDominant_of_isClosed_range, mathlib:Topology.IsClosedMap.isQuotientMap, mathlib:Topology.IsQuotientMap.lift.
+
+Proof: Finiteness gives a closed underlying map; schematic dominance gives dense range, hence surjectivity. Use the native closed-map quotient criterion and continuous quotient lift with the actual proved fiber constancy. No new topology or scheme carrier is introduced.
+
+Consumed API:
+
+- **TauCeti.GenusOne.FerrandPushout.conductorGlobalDesc_source**: For every p∈Y, conductorGlobalDesc f y z hc(f(p))=y(p).
+- **TauCeti.GenusOne.FerrandPushout.conductorGlobalDesc_closed**: For every q∈C_f, the global descent at the actual conductor closed inclusion of q equals z(q).
+- **TauCeti.GenusOne.FerrandPushout.conductorGlobalDesc_unique**: Any continuous m:P→T satisfying m(f(p))=y(p) for every p∈Y equals the specified global descent. The source triangle alone suffices.
+- **TauCeti.GenusOne.FerrandPushout.conductorGlobalDesc_natural**: For every continuous m:T→T′, m composed with the specified global descent equals the specified descent for m∘y and m∘z and their transported compatibility. T′ also has an independent universe.
+
+Typed examples:
+
+- **GlobalConductorTopologyChecked.identity_descent**: For any scheme P and any compatible closed-side map, descent through id_P is the original continuous map on P, including nonaffine schemes.
+- **GlobalConductorTopologyChecked.two_actual_triangles**: For every compatible pair, composition of the actual descent with f and with the actual conductor closed inclusion recovers both continuous maps.
+- **GlobalConductorTopologyChecked.cusp_geometric**: The actual globally glued quadratic cusp normalization with a=b=0 over every field gives the existing geometric conductor predicate; its nonreduced conductor is retained.
+- **GlobalConductorTopologyChecked.inseparable_geometric**: The actual global quadratic curve with q=t²−s over F₂(s) gives the geometric conductor predicate, without a separability or rational-branch hypothesis.
+- **GlobalConductorTopologyChecked.empty_scheme**: The identity of Spec(ZMod1), an empty scheme, has the actual global conductor TopCat pushout.
+- **GlobalConductorTopologyChecked.nonreduced_identity**: The identity of Spec(ZMod4) has the global topological conductor pushout while2 remains nonzero and square-zero in its ring.
+- **GlobalConductorTopologyChecked.arbitrary_target_unique**: Two continuous maps to an arbitrary topological target that agree after f are equal; no target separation axiom is required.
+- **GlobalConductorTopologyChecked.identity_conductor_empty**: For every scheme P, the actual identity conductor subscheme is empty and its square satisfies the existing geometric predicate.
+
+## Global descent recovers the source map
+
+**TauCeti.GenusOne.FerrandPushout.conductorGlobalDesc_source** — For every p∈Y, conductorGlobalDesc f y z hc(f(p))=y(p).
+
+Hypotheses: Y and P are arbitrary actual schemes in a common universe, f is finite and schematically dominant, I=conductorIdealSheaf f and J=I.comap f. Only the first lemma additionally assumes affine Y and P. Continuous targets may have independent universes, with no separation axioms. Retain nilpotents, empty schemes and the zero ring; use the actual native closed subschemes, conductorMap, ContinuousMap and TopCat.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-descent, mathlib:Topology.IsQuotientMap.lift_comp.
+
+Proof: Evaluate the native quotient-lift composition identity at p.
+
+## Global descent recovers the closed conductor map
+
+**TauCeti.GenusOne.FerrandPushout.conductorGlobalDesc_closed** — For every q∈C_f, the global descent at the actual conductor closed inclusion of q equals z(q).
+
+Hypotheses: Y and P are arbitrary actual schemes in a common universe, f is finite and schematically dominant, I=conductorIdealSheaf f and J=I.comap f. Only the first lemma additionally assumes affine Y and P. Continuous targets may have independent universes, with no separation axioms. Retain nilpotents, empty schemes and the zero ring; use the actual native closed subschemes, conductorMap, ContinuousMap and TopCat.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.support_comap, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.range_subschemeι, mathlib:AlgebraicGeometry.surjective_of_isDominant_of_isClosed_range.
+
+Proof: Lift the included point q through the finite surjective f. The native support pullback puts the lift in D_f. The actual conductor square and injectivity of C_f→P identify its conductorMap image with q. Apply the source triangle and the original compatibility.
+
+## The source triangle determines global descent
+
+**TauCeti.GenusOne.FerrandPushout.conductorGlobalDesc_unique** — Any continuous m:P→T satisfying m(f(p))=y(p) for every p∈Y equals the specified global descent. The source triangle alone suffices.
+
+Hypotheses: Y and P are arbitrary actual schemes in a common universe, f is finite and schematically dominant, I=conductorIdealSheaf f and J=I.comap f. Only the first lemma additionally assumes affine Y and P. Continuous targets may have independent universes, with no separation axioms. Retain nilpotents, empty schemes and the zero ring; use the actual native closed subschemes, conductorMap, ContinuousMap and TopCat.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-source, mathlib:AlgebraicGeometry.surjective_of_isDominant_of_isClosed_range.
+
+Proof: Use the actual surjective f to choose a preimage of each target point and compare the source-triangle values.
+
+## Global descent commutes with continuous postcomposition
+
+**TauCeti.GenusOne.FerrandPushout.conductorGlobalDesc_natural** — For every continuous m:T→T′, m composed with the specified global descent equals the specified descent for m∘y and m∘z and their transported compatibility. T′ also has an independent universe.
+
+Hypotheses: Y and P are arbitrary actual schemes in a common universe, f is finite and schematically dominant, I=conductorIdealSheaf f and J=I.comap f. Only the first lemma additionally assumes affine Y and P. Continuous targets may have independent universes, with no separation axioms. Retain nilpotents, empty schemes and the zero ring; use the actual native closed subschemes, conductorMap, ContinuousMap and TopCat.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-unique, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-source.
+
+Proof: Apply uniqueness to the postcomposed continuous map after checking the actual source triangle.
+
+## The actual global conductor topology is a pushout
+
+**TauCeti.GenusOne.FerrandPushout.conductor_global_topological** — For every finite schematically dominant f:Y→P, Scheme.forgetToTop sends the actual conductor square D_f→Y, D_f→C_f, Y→P and C_f→P to an IsPushout square in TopCat. No affine, Noetherian, reduced, separated, birational or nonempty hypothesis is added.
+
+Hypotheses: Y and P are arbitrary actual schemes in a common universe, f is finite and schematically dominant, I=conductorIdealSheaf f and J=I.comap f. Only the first lemma additionally assumes affine Y and P. Continuous targets may have independent universes, with no separation axioms. Retain nilpotents, empty schemes and the zero ring; use the actual native closed subschemes, conductorMap, ContinuousMap and TopCat.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-descent, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-closed, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-unique, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map, mathlib:CategoryTheory.IsPushout, mathlib:CategoryTheory.Limits.PushoutCocone.isColimitAux'.
+
+Proof: Map the actual conductor commutativity identity to TopCat. For each compatible cocone use the specified continuous descent, both triangles and uniqueness to construct its colimit. Combine this separately with the already proved actual every-open sheaf pullback to obtain the existing geometric predicate; the categorical Scheme universal property is still a distinct obligation.
+
 # Affine conductor topology
 
 For an injective integral ring map φ:A→B, set K=φ.range.conductor and I=K.comap φ. The square of actual spectra Spec(B/K)→Spec B and Spec(A/I)→Spec A is a pushout of topological spaces. A compatible pair of continuous maps to any topological target descends to a specified continuous map from Spec A. Both triangles, uniqueness and compatibility with continuous postcomposition have native proofs.

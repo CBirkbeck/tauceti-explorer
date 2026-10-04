@@ -1,3 +1,6 @@
+import Mathlib.AlgebraicGeometry.Morphisms.UnderlyingMap
+import Mathlib.AlgebraicGeometry.IdealSheaf.Functorial
+import Mathlib.AlgebraicGeometry.AffineScheme
 import Mathlib.Topology.ContinuousMap.Basic
 import Mathlib.RingTheory.Spectrum.Prime.Topology
 import Mathlib.CategoryTheory.Limits.Shapes.Pullback.PullbackCone
@@ -6423,6 +6426,162 @@ example :
     Function.Bijective (PrimeSpectrum.comap
       (Ideal.Quotient.mk (nilradical (ZMod 4)))) ∧
       (2 : ZMod 4) ≠ 0 ∧ (2 : ZMod 4) ^ 2 = 0 := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry TopologicalSpace
+
+namespace TauCeti.GenusOne.FerrandPushout
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {Y P : Scheme.{u}}
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-affine-scheme-fiber
+lemma conductor_affine_fiber_eq (f : Y ⟶ P) [IsFinite f]
+    [IsSchemeTheoreticallyDominant f] [IsAffine Y] [IsAffine P]
+    (x x' : Y) (h : f x = f x')
+    (hx : x ∉ ((conductorIdealSheaf f).comap f).support) : x = x' := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-scheme-fiber
+lemma conductor_fiber_eq (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (x x' : Y) (h : f x = f x')
+    (hx : x ∉ ((conductorIdealSheaf f).comap f).support) : x = x' := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-factors
+lemma conductor_global_factorsThrough (f : Y ⟶ P) [IsFinite f]
+    [IsSchemeTheoreticallyDominant f] {T : Type v} [TopologicalSpace T]
+    (y : C(Y, T)) (z : C((conductorIdealSheaf f).subscheme, T))
+    (hc : ∀ q : ((conductorIdealSheaf f).comap f).subscheme,
+      y (((conductorIdealSheaf f).comap f).subschemeι q) = z (conductorMap f q)) :
+    Function.FactorsThrough y f := by
+  sorry
+
+section Desc
+variable (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+  {T : Type v} [TopologicalSpace T]
+  (y : C(Y, T)) (z : C((conductorIdealSheaf f).subscheme, T))
+  (hc : ∀ q : ((conductorIdealSheaf f).comap f).subscheme,
+    y (((conductorIdealSheaf f).comap f).subschemeι q) = z (conductorMap f q))
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-descent
+noncomputable def conductorGlobalDesc : C(P, T) :=
+  Topology.IsQuotientMap.lift (f := f.base.hom)
+    (f.isClosedMap.isQuotientMap f.continuous
+      (surjective_of_isDominant_of_isClosed_range f f.isClosedMap.isClosed_range).surj)
+    y (conductor_global_factorsThrough f y z hc)
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-source
+lemma conductorGlobalDesc_source (p : Y) :
+    conductorGlobalDesc f y z hc (f p) = y p := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-closed
+lemma conductorGlobalDesc_closed (q : (conductorIdealSheaf f).subscheme) :
+    conductorGlobalDesc f y z hc ((conductorIdealSheaf f).subschemeι q) = z q := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-unique
+lemma conductorGlobalDesc_unique (m : C(P, T)) (hm : ∀ p : Y, m (f p) = y p) :
+    m = conductorGlobalDesc f y z hc := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-natural
+lemma conductorGlobalDesc_natural {T' : Type w} [TopologicalSpace T'] (m : C(T, T')) :
+    m.comp (conductorGlobalDesc f y z hc) =
+      conductorGlobalDesc f (m.comp y) (m.comp z) (fun q => congrArg m (hc q)) := by
+  sorry
+
+end Desc
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-topological-pushout
+lemma conductor_global_topological (f : Y ⟶ P) [IsFinite f]
+    [IsSchemeTheoreticallyDominant f] :
+    IsPushout (Scheme.forgetToTop.map ((conductorIdealSheaf f).comap f).subschemeι)
+      (Scheme.forgetToTop.map (conductorMap f)) (Scheme.forgetToTop.map f)
+      (Scheme.forgetToTop.map (conductorIdealSheaf f).subschemeι) := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+namespace TauCeti.GenusOne.FerrandPushout
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry TopologicalSpace
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: GlobalConductorTopologyChecked.identity_descent
+example (P : Scheme.{u}) {T : Type v} [TopologicalSpace T] (y : C(P, T))
+    (z : C((conductorIdealSheaf (𝟙 P)).subscheme, T))
+    (hc : ∀ q : ((conductorIdealSheaf (𝟙 P)).comap (𝟙 P)).subscheme,
+      y (((conductorIdealSheaf (𝟙 P)).comap (𝟙 P)).subschemeι q) =
+        z (conductorMap (𝟙 P) q)) :
+    conductorGlobalDesc (𝟙 P) y z hc = y := by
+  sorry
+
+-- test: GlobalConductorTopologyChecked.two_actual_triangles
+example {Y P : Scheme.{u}} (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    {T : Type v} [TopologicalSpace T] (y : C(Y, T))
+    (z : C((conductorIdealSheaf f).subscheme, T))
+    (hc : ∀ q : ((conductorIdealSheaf f).comap f).subscheme,
+      y (((conductorIdealSheaf f).comap f).subschemeι q) = z (conductorMap f q)) :
+    (conductorGlobalDesc f y z hc).comp f.base.hom = y ∧
+      (conductorGlobalDesc f y z hc).comp (conductorIdealSheaf f).subschemeι.base.hom = z := by
+  sorry
+
+-- test: GlobalConductorTopologyChecked.cusp_geometric
+example {k : Type u} [Field k] :
+    let f := QuadraticPinch.Global.normalization (0 : k) 0
+    letI : IsFinite f := QuadraticPinch.Global.normalization_isFinite 0 0
+    letI : IsSchemeTheoreticallyDominant f :=
+      QuadraticPinch.Global.normalization_schemeTheoreticallyDominant 0 0
+    GeometricPushout ((conductorIdealSheaf f).comap f).subschemeι (conductorMap f)
+      f (conductorIdealSheaf f).subschemeι := by
+  sorry
+
+-- test: GlobalConductorTopologyChecked.inseparable_geometric
+example :
+    let f := QuadraticPinch.Global.normalization (0 : RatFunc (ZMod 2)) (-RatFunc.X)
+    letI : IsFinite f := QuadraticPinch.Global.normalization_isFinite _ _
+    letI : IsSchemeTheoreticallyDominant f :=
+      QuadraticPinch.Global.normalization_schemeTheoreticallyDominant _ _
+    GeometricPushout ((conductorIdealSheaf f).comap f).subschemeι (conductorMap f)
+      f (conductorIdealSheaf f).subschemeι := by
+  sorry
+
+-- test: GlobalConductorTopologyChecked.empty_scheme
+example :
+    let P := Spec (CommRingCat.of (ZMod 1))
+    IsPushout
+      (Scheme.forgetToTop.map ((conductorIdealSheaf (𝟙 P)).comap (𝟙 P)).subschemeι)
+      (Scheme.forgetToTop.map (conductorMap (𝟙 P)))
+      (Scheme.forgetToTop.map (𝟙 P))
+      (Scheme.forgetToTop.map (conductorIdealSheaf (𝟙 P)).subschemeι) := by
+  sorry
+
+-- test: GlobalConductorTopologyChecked.nonreduced_identity
+example :
+    let P := Spec (CommRingCat.of (ZMod 4))
+    IsPushout
+      (Scheme.forgetToTop.map ((conductorIdealSheaf (𝟙 P)).comap (𝟙 P)).subschemeι)
+      (Scheme.forgetToTop.map (conductorMap (𝟙 P)))
+      (Scheme.forgetToTop.map (𝟙 P))
+      (Scheme.forgetToTop.map (conductorIdealSheaf (𝟙 P)).subschemeι) ∧
+        (2 : ZMod 4) ≠ 0 ∧ (2 : ZMod 4) ^ 2 = 0 := by
+  sorry
+
+-- test: GlobalConductorTopologyChecked.arbitrary_target_unique
+example {Y P : Scheme.{u}} (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    {T : Type v} [TopologicalSpace T] (a b : C(P, T))
+    (h : a.comp f.base.hom = b.comp f.base.hom) : a = b := by
+  sorry
+
+-- test: GlobalConductorTopologyChecked.identity_conductor_empty
+example (P : Scheme.{u}) :
+    IsEmpty (conductorIdealSheaf (𝟙 P)).subscheme ∧
+      GeometricPushout ((conductorIdealSheaf (𝟙 P)).comap (𝟙 P)).subschemeι
+        (conductorMap (𝟙 P)) (𝟙 P) (conductorIdealSheaf (𝟙 P)).subschemeι := by
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
