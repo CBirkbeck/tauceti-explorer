@@ -31357,7 +31357,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra.md",
-    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra.lean"
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra.lean",
+    "research/blueprint/handoff/ASM-DeformationAndDerivedPatchingAlgebra.md"
    ],
    "after": [
     "REV-DeformationAndDerivedPatchingAlgebra--P7",
@@ -31376,7 +31377,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/AInfCohomology.md",
-    "research/blueprint/suggested/AInfCohomology.lean"
+    "research/blueprint/suggested/AInfCohomology.lean",
+    "research/blueprint/handoff/ASM-AInfCohomology.md"
    ],
    "after": [
     "REV-AInfCohomology--AI.0",
@@ -31395,7 +31397,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md",
-    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry.lean"
+    "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry.lean",
+    "research/blueprint/handoff/ASM-AlgebraicModuliForArithmeticGeometry.md"
    ],
    "after": [
     "REV-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -31414,7 +31417,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/ArithmeticKTheory.md",
-    "research/blueprint/suggested/ArithmeticKTheory.lean"
+    "research/blueprint/suggested/ArithmeticKTheory.lean",
+    "research/blueprint/handoff/ASM-ArithmeticKTheory.md"
    ],
    "after": [
     "REV-ArithmeticKTheory--N.1",
@@ -31433,7 +31437,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/AutomorphicBundles.md",
-    "research/blueprint/suggested/AutomorphicBundles.lean"
+    "research/blueprint/suggested/AutomorphicBundles.lean",
+    "research/blueprint/handoff/ASM-AutomorphicBundles.md"
    ],
    "after": [
     "REV-AutomorphicBundles--B0",
@@ -31452,7 +31457,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/AutomorphicCongruences.md",
-    "research/blueprint/suggested/AutomorphicCongruences.lean"
+    "research/blueprint/suggested/AutomorphicCongruences.lean",
+    "research/blueprint/handoff/ASM-AutomorphicCongruences.md"
    ],
    "after": [
     "REV-AutomorphicCongruences--L0",
@@ -31471,7 +31477,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/AutomorphicGaloisRepresentationsPartII.md",
-    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII.lean"
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII.lean",
+    "research/blueprint/handoff/ASM-AutomorphicGaloisRepresentationsPartII.md"
    ],
    "after": [
     "REV-AutomorphicGaloisRepresentationsPartII--AG2.0",
@@ -31490,7 +31497,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/ClassicalAdicEtaleCohomology.md",
-    "research/blueprint/suggested/ClassicalAdicEtaleCohomology.lean"
+    "research/blueprint/suggested/ClassicalAdicEtaleCohomology.lean",
+    "research/blueprint/handoff/ASM-ClassicalAdicEtaleCohomology.md"
    ],
    "after": [
     "REV-ClassicalAdicEtaleCohomology--H0",
@@ -31509,7 +31517,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/ClassicalSerreModularity.md",
-    "research/blueprint/suggested/ClassicalSerreModularity.lean"
+    "research/blueprint/suggested/ClassicalSerreModularity.lean",
+    "research/blueprint/handoff/ASM-ClassicalSerreModularity.md"
    ],
    "after": [
     "REV-ClassicalSerreModularity--R26.1",
@@ -31529,7 +31538,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/CompletedCohomologyPartII.md",
-    "research/blueprint/suggested/CompletedCohomologyPartII.lean"
+    "research/blueprint/suggested/CompletedCohomologyPartII.lean",
+    "research/blueprint/handoff/ASM-CompletedCohomologyPartII.md"
    ],
    "after": [
     "REV-CompletedCohomologyPartII--CC.0",
@@ -31548,7 +31558,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/CrystallineCohomology.md",
-    "research/blueprint/suggested/CrystallineCohomology.lean"
+    "research/blueprint/suggested/CrystallineCohomology.lean",
+    "research/blueprint/handoff/ASM-CrystallineCohomology.md"
    ],
    "after": [
     "REV-CrystallineCohomology--CR.0",
@@ -31567,7 +31578,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/DeligneWeightsAndPurity.md",
-    "research/blueprint/suggested/DeligneWeightsAndPurity.lean"
+    "research/blueprint/suggested/DeligneWeightsAndPurity.lean",
+    "research/blueprint/handoff/ASM-DeligneWeightsAndPurity.md"
    ],
    "after": [
     "REV-DeligneWeightsAndPurity--DWP.0",
@@ -31586,7 +31598,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/DiamondEtaleCohomology.md",
-    "research/blueprint/suggested/DiamondEtaleCohomology.lean"
+    "research/blueprint/suggested/DiamondEtaleCohomology.lean",
+    "research/blueprint/handoff/ASM-DiamondEtaleCohomology.md"
    ],
    "after": [
     "REV-DiamondEtaleCohomology--C0",
@@ -31605,7 +31618,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/DirichletPadicLFunctions.md",
-    "research/blueprint/suggested/DirichletPadicLFunctions.lean"
+    "research/blueprint/suggested/DirichletPadicLFunctions.lean",
+    "research/blueprint/handoff/ASM-DirichletPadicLFunctions.md"
    ],
    "after": [
     "REV-DirichletPadicLFunctions--L0",
@@ -31627,7 +31641,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparison.md",
-    "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison.lean"
+    "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison.lean",
+    "research/blueprint/handoff/ASM-EndoscopicTransferAndUnitaryTraceComparison.md"
    ],
    "after": [
     "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
@@ -31646,7 +31661,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/EnhancedDerivedSheaves.md",
-    "research/blueprint/suggested/EnhancedDerivedSheaves.lean"
+    "research/blueprint/suggested/EnhancedDerivedSheaves.lean",
+    "research/blueprint/handoff/ASM-EnhancedDerivedSheaves.md"
    ],
    "after": [
     "REV-EnhancedDerivedSheaves--E0",
@@ -31665,7 +31681,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/EtaleDualityAndPerverseSheaves.md",
-    "research/blueprint/suggested/EtaleDualityAndPerverseSheaves.lean"
+    "research/blueprint/suggested/EtaleDualityAndPerverseSheaves.lean",
+    "research/blueprint/handoff/ASM-EtaleDualityAndPerverseSheaves.md"
    ],
    "after": [
     "REV-EtaleDualityAndPerverseSheaves--EDC.0",
@@ -31684,7 +31701,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/EulerSystemsAndKolyvaginSystems.md",
-    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems.lean"
+    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems.lean",
+    "research/blueprint/handoff/ASM-EulerSystemsAndKolyvaginSystems.md"
    ],
    "after": [
     "REV-EulerSystemsAndKolyvaginSystems--ES.0",
@@ -31703,7 +31721,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/ExcursionOperatorsAndSpectralAction.md",
-    "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction.lean"
+    "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction.lean",
+    "research/blueprint/handoff/ASM-ExcursionOperatorsAndSpectralAction.md"
    ],
    "after": [
     "REV-ExcursionOperatorsAndSpectralAction--ES0",
@@ -31723,7 +31742,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/GL2AutomorphicRepresentationsAndTransfer.md",
-    "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer.lean"
+    "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer.lean",
+    "research/blueprint/handoff/ASM-GL2AutomorphicRepresentationsAndTransfer.md"
    ],
    "after": [
     "REV-GL2AutomorphicRepresentationsAndTransfer--R16.1",
@@ -31742,7 +31762,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/GL2ModularityLifting.md",
-    "research/blueprint/suggested/GL2ModularityLifting.lean"
+    "research/blueprint/suggested/GL2ModularityLifting.lean",
+    "research/blueprint/handoff/ASM-GL2ModularityLifting.md"
    ],
    "after": [
     "REV-GL2ModularityLifting--R22.1",
@@ -31761,7 +31782,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/GeneralAlgebraicKTheory.md",
-    "research/blueprint/suggested/GeneralAlgebraicKTheory.lean"
+    "research/blueprint/suggested/GeneralAlgebraicKTheory.lean",
+    "research/blueprint/handoff/ASM-GeneralAlgebraicKTheory.md"
    ],
    "after": [
     "REV-GeneralAlgebraicKTheory--K.1",
@@ -31780,7 +31802,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/GeneralizedHeegnerCycles.md",
-    "research/blueprint/suggested/GeneralizedHeegnerCycles.lean"
+    "research/blueprint/suggested/GeneralizedHeegnerCycles.lean",
+    "research/blueprint/handoff/ASM-GeneralizedHeegnerCycles.md"
    ],
    "after": [
     "REV-GeneralizedHeegnerCycles--GH.0",
@@ -31799,7 +31822,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/GeometricSatakeAndFusion.md",
-    "research/blueprint/suggested/GeometricSatakeAndFusion.lean"
+    "research/blueprint/suggested/GeometricSatakeAndFusion.lean",
+    "research/blueprint/handoff/ASM-GeometricSatakeAndFusion.md"
    ],
    "after": [
     "REV-GeometricSatakeAndFusion--GS0",
@@ -31818,7 +31842,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/GrossZagierAndArithmeticHeights.md",
-    "research/blueprint/suggested/GrossZagierAndArithmeticHeights.lean"
+    "research/blueprint/suggested/GrossZagierAndArithmeticHeights.lean",
+    "research/blueprint/handoff/ASM-GrossZagierAndArithmeticHeights.md"
    ],
    "after": [
     "REV-GrossZagierAndArithmeticHeights--GZ.0",
@@ -31837,7 +31862,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/HabiroCohomologyFoundations.md",
-    "research/blueprint/suggested/HabiroCohomologyFoundations.lean"
+    "research/blueprint/suggested/HabiroCohomologyFoundations.lean",
+    "research/blueprint/handoff/ASM-HabiroCohomologyFoundations.md"
    ],
    "after": [
     "REV-HabiroCohomologyFoundations--HQ.1",
@@ -31858,7 +31884,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/HeegnerPointEulerSystems.md",
-    "research/blueprint/suggested/HeegnerPointEulerSystems.lean"
+    "research/blueprint/suggested/HeegnerPointEulerSystems.lean",
+    "research/blueprint/handoff/ASM-HeegnerPointEulerSystems.md"
    ],
    "after": [
     "REV-HeegnerPointEulerSystems--HE.0",
@@ -31877,7 +31904,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves.md",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves.lean"
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves.lean",
+    "research/blueprint/handoff/ASM-HilbertModularVarietiesAndShimuraCurves.md"
    ],
    "after": [
     "REV-HilbertModularVarietiesAndShimuraCurves--H0",
@@ -31896,7 +31924,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/HodgeTateAndCanonicalSubgroups.md",
-    "research/blueprint/suggested/HodgeTateAndCanonicalSubgroups.lean"
+    "research/blueprint/suggested/HodgeTateAndCanonicalSubgroups.lean",
+    "research/blueprint/handoff/ASM-HodgeTateAndCanonicalSubgroups.md"
    ],
    "after": [
     "REV-HodgeTateAndCanonicalSubgroups--T0",
@@ -31915,7 +31944,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/IntegralIwasawaTheory.md",
-    "research/blueprint/suggested/IntegralIwasawaTheory.lean"
+    "research/blueprint/suggested/IntegralIwasawaTheory.lean",
+    "research/blueprint/handoff/ASM-IntegralIwasawaTheory.md"
    ],
    "after": [
     "REV-IntegralIwasawaTheory--I.1",
@@ -31934,7 +31964,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/K2SymbolsBrauer.md",
-    "research/blueprint/suggested/K2SymbolsBrauer.lean"
+    "research/blueprint/suggested/K2SymbolsBrauer.lean",
+    "research/blueprint/handoff/ASM-K2SymbolsBrauer.md"
    ],
    "after": [
     "REV-K2SymbolsBrauer--T.1",
@@ -31953,7 +31984,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/KTheoryLowDegrees.md",
-    "research/blueprint/suggested/KTheoryLowDegrees.lean"
+    "research/blueprint/suggested/KTheoryLowDegrees.lean",
+    "research/blueprint/handoff/ASM-KTheoryLowDegrees.md"
    ],
    "after": [
     "REV-KTheoryLowDegrees--U.1",
@@ -31972,7 +32004,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/LefschetzPencilsAndVanishingCycles.md",
-    "research/blueprint/suggested/LefschetzPencilsAndVanishingCycles.lean"
+    "research/blueprint/suggested/LefschetzPencilsAndVanishingCycles.lean",
+    "research/blueprint/handoff/ASM-LefschetzPencilsAndVanishingCycles.md"
    ],
    "after": [
     "REV-LefschetzPencilsAndVanishingCycles--LPV.0",
@@ -31991,7 +32024,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/MetaplecticAutomorphicForms.md",
-    "research/blueprint/suggested/MetaplecticAutomorphicForms.lean"
+    "research/blueprint/suggested/MetaplecticAutomorphicForms.lean",
+    "research/blueprint/handoff/ASM-MetaplecticAutomorphicForms.md"
    ],
    "after": [
     "REV-MetaplecticAutomorphicForms--MP.0",
@@ -32010,7 +32044,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/ModularCurvesPartII.md",
-    "research/blueprint/suggested/ModularCurvesPartII.lean"
+    "research/blueprint/suggested/ModularCurvesPartII.lean",
+    "research/blueprint/handoff/ASM-ModularCurvesPartII.md"
    ],
    "after": [
     "REV-ModularCurvesPartII--R12.1",
@@ -32030,7 +32065,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/MotivicEtaleKTheory.md",
-    "research/blueprint/suggested/MotivicEtaleKTheory.lean"
+    "research/blueprint/suggested/MotivicEtaleKTheory.lean",
+    "research/blueprint/handoff/ASM-MotivicEtaleKTheory.md"
    ],
    "after": [
     "REV-MotivicEtaleKTheory--M.1",
@@ -32049,7 +32085,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/PadicHodgeRegulators.md",
-    "research/blueprint/suggested/PadicHodgeRegulators.lean"
+    "research/blueprint/suggested/PadicHodgeRegulators.lean",
+    "research/blueprint/handoff/ASM-PadicHodgeRegulators.md"
    ],
    "after": [
     "REV-PadicHodgeRegulators--D.1",
@@ -32068,7 +32105,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/PadicHodgeTheory.md",
-    "research/blueprint/suggested/PadicHodgeTheory.lean"
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
+    "research/blueprint/handoff/ASM-PadicHodgeTheory.md"
    ],
    "after": [
     "REV-PadicHodgeTheory--P7",
@@ -32087,7 +32125,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/PerfectoidSpaces.md",
-    "research/blueprint/suggested/PerfectoidSpaces.lean"
+    "research/blueprint/suggested/PerfectoidSpaces.lean",
+    "research/blueprint/handoff/ASM-PerfectoidSpaces.md"
    ],
    "after": [
     "REV-PerfectoidSpaces--P0",
@@ -32106,7 +32145,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/PotentialModularityAndCompatibleSystems.md",
-    "research/blueprint/suggested/PotentialModularityAndCompatibleSystems.lean"
+    "research/blueprint/suggested/PotentialModularityAndCompatibleSystems.lean",
+    "research/blueprint/handoff/ASM-PotentialModularityAndCompatibleSystems.md"
    ],
    "after": [
     "REV-PotentialModularityAndCompatibleSystems--R23.1",
@@ -32125,7 +32165,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/PrismaticCohomology.md",
-    "research/blueprint/suggested/PrismaticCohomology.lean"
+    "research/blueprint/suggested/PrismaticCohomology.lean",
+    "research/blueprint/handoff/ASM-PrismaticCohomology.md"
    ],
    "after": [
     "REV-PrismaticCohomology--PR.0",
@@ -32144,7 +32185,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/RankZeroOneBSD.md",
-    "research/blueprint/suggested/RankZeroOneBSD.lean"
+    "research/blueprint/suggested/RankZeroOneBSD.lean",
+    "research/blueprint/handoff/ASM-RankZeroOneBSD.md"
    ],
    "after": [
     "REV-RankZeroOneBSD--BSD.0",
@@ -32163,7 +32205,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/RefinedTraceMethods.md",
-    "research/blueprint/suggested/RefinedTraceMethods.lean"
+    "research/blueprint/suggested/RefinedTraceMethods.lean",
+    "research/blueprint/handoff/ASM-RefinedTraceMethods.md"
    ],
    "after": [
     "REV-RefinedTraceMethods--RT.1",
@@ -32182,7 +32225,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/RelativeFarguesFontaine.md",
-    "research/blueprint/suggested/RelativeFarguesFontaine.lean"
+    "research/blueprint/suggested/RelativeFarguesFontaine.lean",
+    "research/blueprint/handoff/ASM-RelativeFarguesFontaine.md"
    ],
    "after": [
     "REV-RelativeFarguesFontaine--RF0",
@@ -32201,7 +32245,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/ShimuraCompactifications.md",
-    "research/blueprint/suggested/ShimuraCompactifications.lean"
+    "research/blueprint/suggested/ShimuraCompactifications.lean",
+    "research/blueprint/handoff/ASM-ShimuraCompactifications.md"
    ],
    "after": [
     "REV-ShimuraCompactifications--C0",
@@ -32220,7 +32265,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/ShimuraVarieties.md",
-    "research/blueprint/suggested/ShimuraVarieties.lean"
+    "research/blueprint/suggested/ShimuraVarieties.lean",
+    "research/blueprint/handoff/ASM-ShimuraVarieties.md"
    ],
    "after": [
     "REV-ShimuraVarieties--V0",
@@ -32239,7 +32285,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/SmoothRepresentationsOfLocalGroups.md",
-    "research/blueprint/suggested/SmoothRepresentationsOfLocalGroups.lean"
+    "research/blueprint/suggested/SmoothRepresentationsOfLocalGroups.lean",
+    "research/blueprint/handoff/ASM-SmoothRepresentationsOfLocalGroups.md"
    ],
    "after": [
     "REV-SmoothRepresentationsOfLocalGroups--SR.0",
@@ -32258,7 +32305,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/VectorBundlesAndIsocrystals.md",
-    "research/blueprint/suggested/VectorBundlesAndIsocrystals.lean"
+    "research/blueprint/suggested/VectorBundlesAndIsocrystals.lean",
+    "research/blueprint/handoff/ASM-VectorBundlesAndIsocrystals.md"
    ],
    "after": [
     "REV-VectorBundlesAndIsocrystals--VB0",
@@ -32277,7 +32325,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/WeilConjectures.md",
-    "research/blueprint/suggested/WeilConjectures.lean"
+    "research/blueprint/suggested/WeilConjectures.lean",
+    "research/blueprint/handoff/ASM-WeilConjectures.md"
    ],
    "after": [
     "REV-WeilConjectures--WC.0",
@@ -32296,7 +32345,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/DrinfeldModulesAndTModules.md",
-    "research/blueprint/suggested/DrinfeldModulesAndTModules.lean"
+    "research/blueprint/suggested/DrinfeldModulesAndTModules.lean",
+    "research/blueprint/handoff/ASM-DrinfeldModulesAndTModules.md"
    ],
    "after": [
     "REV-DrinfeldModulesAndTModules--DM.0",
@@ -32315,7 +32365,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/OverconvergentAutomorphicForms.md",
-    "research/blueprint/suggested/OverconvergentAutomorphicForms.lean"
+    "research/blueprint/suggested/OverconvergentAutomorphicForms.lean",
+    "research/blueprint/handoff/ASM-OverconvergentAutomorphicForms.md"
    ],
    "after": [
     "REV-OverconvergentAutomorphicForms--O0",
@@ -32334,7 +32385,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/AnalyticNumberTheory.md",
-    "research/blueprint/suggested/AnalyticNumberTheory.lean"
+    "research/blueprint/suggested/AnalyticNumberTheory.lean",
+    "research/blueprint/handoff/ASM-AnalyticNumberTheory.md"
    ],
    "after": [
     "REV-AnalyticNumberTheory--AN.0",
@@ -32353,7 +32405,8 @@
    ],
    "outputs": [
     "research/blueprint/readmes/PeriodsAndSpecialValues.md",
-    "research/blueprint/suggested/PeriodsAndSpecialValues.lean"
+    "research/blueprint/suggested/PeriodsAndSpecialValues.lean",
+    "research/blueprint/handoff/ASM-PeriodsAndSpecialValues.md"
    ],
    "after": [
     "REV-PeriodsAndSpecialValues--PS.0",
