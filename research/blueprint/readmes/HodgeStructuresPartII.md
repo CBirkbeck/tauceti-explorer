@@ -1,3 +1,126 @@
+# Monoidal three-step affine pullback comparisons
+
+The existing actual three-step pullback now carries the native composite monoidal structure. Its unit, tensor, reverse tensor and counit maps retain their actual native scalar-extension modules and parameter transport. The outer-first comparison satisfies whole categorical unit and tensor equations. The inherited equality of the actual forward comparison transformations gives inner-first monoidality; native inverse-isomorphism monoidality proves both inverse directions. The actual parameterChange/pullback comparison is also monoidal in both directions.
+
+The actual triple pullback now carries the native monoidal structure on the existing four-factor composite. All four underlying structure maps are explicit native base-change/distribution compositions. Both actual outer-first and inner-first comparison forward and inverse natural transformations are monoidal for this structure, and the parameterChange/pullback natural isomorphism is monoidal in both directions. Native whole categorical unit/tensor equations, together with inherited equality of the actual paths, prove these statements. Generator computations retain arbitrary coefficients, a nonconstant polynomial parameter with derivative1, nonreduced Z/4 and the zero ring. Universal exterior-power and finite-projective dual comparisons, and actual E1 sheaf tensor/restriction/equality detection/effective gluing remain open. The reserved global finite locally free integrable key retains relatively constant λ. All149 routes,35 omissions,five requests,eleven gaps,six planets and later determinant/Tate/period and arbitrary-Q tensor-valued-shuffle obligations remain. H.0 stays partial and H.1–H.8 not_read; earlier frontier prose remains checkpoint history. Every implementation remains unchecked.
+
+## Declarations and tests
+
+### Monoidal parameter/pullback comparison
+
+`AffineCategory.pullbackParameterChangeIso_isMonoidal` — For an explicit h:λ=μ and a calculus map m:R→S, the forward natural transformation of the actual pullbackParameterChangeIso(h,m) satisfies native NatTrans.IsMonoidal for the existing composite monoidal structures.
+
+Proof plan: Eliminate h only for the proof. Prove the native unit and tensor equations by horizontal-arrow subtype extensionality; the tensor equation is equality of base-changed identity and native tensor of identities on every tensor element.
+
+### Monoidal inverse parameter comparison
+
+`AffineCategory.pullbackParameterChangeIso_inv_isMonoidal` — The inverse natural transformation of the same actual pullbackParameterChangeIso(h,m) is monoidal for the same existing structures.
+
+Proof plan: Use the native inverse-isomorphism monoidality instance after the actual forward proof.
+
+### Actual composite monoidal triple pullback
+
+`AffineCategory.pullbackTripleMonoidal` — Give the existing pullbackTriple(p,n,m) its native Functor.Monoidal structure obtained by composing the existing monoidal pullback(m), pullback(n), pullback(p), and the explicit final parameterChange. Preserve the actual functor, parameter equality, additive operators and horizontal arrows.
+
+Proof plan: Reuse the native monoidal structure on the exact four-factor composite through inferInstanceAs. The given triple functor unfolds to that same composite; no new generic monoidal class or transport along a different functor is introduced.
+
+API:
+
+- `AffineCategory.pullbackTripleMonoidal_unit`: The underlying U-linear map of ε for the actual monoidal pullbackTriple is the U-base change of the T-base change of rid(R,S).symm, after the U-base change of rid(S,T).symm, after rid(T,U).symm.
+- `AffineCategory.pullbackTripleMonoidal_tensor`: For actual X,Y, the underlying U-linear map of μ is the U-base change of the T-base change of distribBaseChange(R,S).symm, after the U-base change of distribBaseChange(S,T).symm, after distribBaseChange(T,U).symm, on the actual nested scalar-extension modules.
+- `AffineCategory.pullbackTripleMonoidal_cotensor`: For actual X,Y, the underlying U-linear map of δ is distribBaseChange(T,U), after the U-base change of distribBaseChange(S,T), after the U-base change of the T-base change of distribBaseChange(R,S).
+- `AffineCategory.pullbackTripleMonoidal_counit`: The underlying U-linear map of η is rid(T,U), after the U-base change of rid(S,T), after the U-base change of the T-base change of rid(R,S).
+- `AffineCategory.pullbackTripleMonoidal_tensor_tmul`: For arbitrary u,v:U, t,r:T, s,q:S and x:X,y:Y, actual μ(triple) sends (u⊗(t⊗(s⊗x)))⊗(v⊗(r⊗(q⊗y))) to (uv)⊗((tr)⊗((sq)⊗(x⊗y))).
+- `AffineCategory.pullbackTripleMonoidal_cotensor_tmul`: For arbitrary u:U,t:T,s:S,x:X,y:Y, actual δ(triple) sends u⊗(t⊗(s⊗(x⊗y))) to (u⊗(t⊗(s⊗x)))⊗(1⊗(1⊗(1⊗y))).
+
+TESTS:
+
+- `AffineTripleMonoidalTests.unit_value`: For arbitrary u:U, the actual triple ε sends u to u⊗1⊗1⊗1.
+- `AffineTripleMonoidalTests.tensor_value`: For six arbitrary scalar coefficients and actual X,Y, triple μ multiplies corresponding scalar factors and retains x⊗y, exactly as the stated generator formula.
+- `AffineTripleMonoidalTests.cotensor_value`: The actual triple δ on u⊗t⊗s⊗(x⊗y) gives (u⊗t⊗s⊗x)⊗(1⊗1⊗1⊗y).
+- `AffineTripleMonoidalTests.comparisons`: The actual outer and inner comparison forward and inverse natural transformations all satisfy native NatTrans.IsMonoidal for the same actual triple composite.
+- `AffineTripleMonoidalTests.nonconstant_parameter`: Over Z[x] with d₀x=1 and λ=x, the actual triple ε sends x to x⊗1⊗1⊗1 and the actual outer comparison is monoidal.
+- `AffineTripleMonoidalTests.nonreduced_tensor`: Over Z/4 with zero calculus and λ=2, actual triple μ on a=1⊗1⊗1⊗2 and b=1⊗1⊗1⊗1, followed by the actual outer comparison at the tensor of unit objects and two native left-unit maps, has value2, nonzero and square-zero.
+- `AffineTripleMonoidalTests.zero_ring`: Over Z/1 with zero calculus and λ=0, the actual triple ε and η both send zero to zero.
+
+### Triple unit structure map
+
+`AffineCategory.pullbackTripleMonoidal_unit` — The underlying U-linear map of ε for the actual monoidal pullbackTriple is the U-base change of the T-base change of rid(R,S).symm, after the U-base change of rid(S,T).symm, after rid(T,U).symm.
+
+Proof plan: Unfold the native composite unit; remove the final actual parameterChange unit using its existing identity-map formula.
+
+### Triple tensor structure map
+
+`AffineCategory.pullbackTripleMonoidal_tensor` — For actual X,Y, the underlying U-linear map of μ is the U-base change of the T-base change of distribBaseChange(R,S).symm, after the U-base change of distribBaseChange(S,T).symm, after distribBaseChange(T,U).symm, on the actual nested scalar-extension modules.
+
+Proof plan: Unfold the native composite μ and remove the final parameterChange identity tensor map. Retain the explicit native modules and composition order.
+
+### Triple reverse tensor structure map
+
+`AffineCategory.pullbackTripleMonoidal_cotensor` — For actual X,Y, the underlying U-linear map of δ is distribBaseChange(T,U), after the U-base change of distribBaseChange(S,T), after the U-base change of the T-base change of distribBaseChange(R,S).
+
+Proof plan: Unfold the native oplax composite δ and remove the final parameterChange identity cotensor map.
+
+### Triple reverse unit structure map
+
+`AffineCategory.pullbackTripleMonoidal_counit` — The underlying U-linear map of η is rid(T,U), after the U-base change of rid(S,T), after the U-base change of the T-base change of rid(R,S).
+
+Proof plan: Unfold the native composite counit and remove the final parameterChange identity counit map.
+
+### Outer comparison unit equation
+
+`AffineCategory.pullbackTripleOuterIso_unit` — ε(triple) followed by the actual outer comparison at the unit object equals ε(direct pullback along (p.towerComp n).towerComp m), as actual horizontal categorical arrows.
+
+Proof plan: Apply horizontal-arrow and linear-map extensionality. Evaluate the actual two cancellation maps on u⊗1⊗1⊗1 to obtain u⊗1.
+
+### Outer comparison tensor equation
+
+`AffineCategory.pullbackTripleOuterIso_tensor` — μ(triple,X,Y) followed by the actual outer comparison at X⊗Y equals the tensor of the actual outer comparisons at X and Y followed by μ(direct,X,Y), as actual horizontal arrows for arbitrary objects.
+
+Proof plan: Cancel the actual invertible triple δ using the native δμ law. Apply horizontal-arrow subtype extensionality, three native curry extensionalities and tensor extensionality. Native distribution and cancellation formulas prove the equation on generators; extensionality proves the whole-arrow equation.
+
+### Outer comparison is monoidal
+
+`AffineCategory.pullbackTripleOuterIso_isMonoidal` — The forward natural transformation of the existing actual outer-first triple comparison satisfies native NatTrans.IsMonoidal for the actual composite triple and direct pullback structures.
+
+Proof plan: Package the proved whole categorical unit and tensor equations in the native class.
+
+### Outer inverse is monoidal
+
+`AffineCategory.pullbackTripleOuterIso_inv_isMonoidal` — The inverse natural transformation of the same actual outer-first triple comparison satisfies native NatTrans.IsMonoidal.
+
+Proof plan: Use native inverse-isomorphism monoidality, preserving the actual two functors and structures.
+
+### Inner comparison is monoidal
+
+`AffineCategory.pullbackTripleInnerIso_isMonoidal` — The forward natural transformation of the existing actual inner-first triple comparison satisfies native NatTrans.IsMonoidal for the same actual triple structure and the definitionally associated direct calculus map.
+
+Proof plan: Rewrite by the inherited equality of actual forward natural transformations; reuse the outer monoidality proof.
+
+### Inner inverse is monoidal
+
+`AffineCategory.pullbackTripleInnerIso_inv_isMonoidal` — The inverse natural transformation of the actual inner-first triple comparison satisfies native NatTrans.IsMonoidal.
+
+Proof plan: Use the native inverse-isomorphism monoidality instance.
+
+### Triple tensor generator formula
+
+`AffineCategory.pullbackTripleMonoidal_tensor_tmul` — For arbitrary u,v:U, t,r:T, s,q:S and x:X,y:Y, actual μ(triple) sends (u⊗(t⊗(s⊗x)))⊗(v⊗(r⊗(q⊗y))) to (uv)⊗((tr)⊗((sq)⊗(x⊗y))).
+
+Proof plan: Apply the whole structure-map equation, native baseChange_tmul and distribution inverse formulas, normalizing linear-equivalence coercions.
+
+### Triple reverse tensor generator formula
+
+`AffineCategory.pullbackTripleMonoidal_cotensor_tmul` — For arbitrary u:U,t:T,s:S,x:X,y:Y, actual δ(triple) sends u⊗(t⊗(s⊗(x⊗y))) to (u⊗(t⊗(s⊗x)))⊗(1⊗(1⊗(1⊗y))).
+
+Proof plan: Apply the whole structure-map equation, native baseChange_tmul and distribution formulas, normalizing linear-equivalence coercions.
+
+## Historical source correction
+
+The complete current Stacks07J5 display and its two public comments, together with the complete authors correction patch linked there, show an acknowledged historical diagonal-reference misprint. The patch replaces Delta by i in one proof reference. This is recorded as an already corrected proof misprint; no stated-result error or whole historical-version collation is claimed. [Current section](https://stacks.math.columbia.edu/tag/07J5), [authors correction](https://github.com/stacks/stacks-project/commit/d90e73b0eb86c47faa4724d04a3f06a810a83d36).
+
+## Earlier checkpoint reader (preserved verbatim)
+
 # Categorical three-step pullback coherence
 
 The actual three-step affine pullback now has two natural-isomorphism comparisons to direct pullback. The outer-first path compares the last two pullbacks and then the first. The inner-first path moves the intermediate parameter equality through the final pullback, compares the first two pullbacks, and then the last. Their forward and inverse natural transformations, and therefore the natural isomorphisms, agree. Both are assembled from the actual existing two-step comparisons; the underlying module associativity equation proves their equality after horizontal-arrow extensionality.
