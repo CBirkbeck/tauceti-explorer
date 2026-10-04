@@ -1,8 +1,8 @@
 {
-  "roadmaps": 220,
-  "stages": 3014,
-  "originalStages": 2020,
-  "sourceRefinements": 994,
+  "roadmaps": 221,
+  "stages": 3029,
+  "originalStages": 2025,
+  "sourceRefinements": 1004,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -327,7 +327,7 @@
       "deferredLinks": 0
     }
   ],
-  "terminalTargets": 1948,
+  "terminalTargets": 1953,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -336,6 +336,7 @@
   "estimatedRoadmaps": 0,
   "distanceBases": {
     "judged": 203,
+    "measured": 1,
     "built": 7,
     "children": 1
   },
@@ -343,18 +344,18 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 27,
   "additionalRegions": 0,
-  "mathematicalSummaries": 220,
+  "mathematicalSummaries": 221,
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 2913,
+  "mathematicalStars": 2928,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 35,
   "bibliographicSources": 46,
-  "roadmapEdges": 1768,
-  "stageEdges": 8688,
+  "roadmapEdges": 1773,
+  "stageEdges": 8712,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -496,6 +497,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~3"
     },
     {
+      "file": "SemisimpleAlgebrasPartII",
+      "roadmap": "SemisimpleAlgebrasPartII",
+      "nodes": 55,
+      "reviewer": "independent-review-REV-DESIGN-SemisimpleAlgebrasPartII"
+    },
+    {
       "file": "SmallRamificationAndAbelianVarietyBaseCases",
       "roadmap": "SmallRamificationAndAbelianVarietyBaseCases",
       "nodes": 59,
@@ -503,8 +510,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30723119,
-  "htmlSha256": "3c25abad7a7f4b0f460a29e34c769694e4141829abd018973c1e67a783fd47db",
+  "htmlBytes": 30757991,
+  "htmlSha256": "8b0ea6c2f5c0f2d596171261078d33af7e68447f0c6148200fd90d93f87a59a4",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -535,8 +542,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "962a7a3ade665fdb69d88beccd624230f92351be6d606423475f736f4a3d3603",
-    "data/galaxy-layout.json": "a563f8a5fc810abe4d604487d77f6222bf89822fde7830c1c1b5df064208a132",
+    "data/roadmap-distances.json": "31a64a5a50d03300a83ba66a93cec8e7c0fcf1016600d650a4ccd5adbdd8f01c",
+    "data/galaxy-layout.json": "1abc1f32e084ffc02cdc02f94d83b21a4b84c75913451e0cae64b81a8e6e8d5f",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -639,8 +646,11 @@
     "data/blueprints/K3BlochGroups.md": "165b68c2bffead7bf468a831b3900aa954e06bbea3e85878621915d056c4c05f",
     "data/blueprints/Polylogarithms.json": "c9068486dd97c07d99f56c54ed6af8d7bd29607a0f6069817ec95927f968bb86",
     "data/blueprints/Polylogarithms.md": "1d28e812ddc1cdf712e71814d4ba70a913d2107cd694003639dd5cc7ea08cf43",
+    "data/blueprints/SemisimpleAlgebrasPartII.json": "a22b0e4cf4bb7405cfb80d792b3057900910ae92a18c3716175c0e1fe8299f05",
+    "data/blueprints/SemisimpleAlgebrasPartII.md": "7d72aa9a82427470a96a523a502fdd12fee1268a581dd08fd02e94d143bec247",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.json": "fb0daca4a0b888dfad1d7bb862a800af846fc2f9553abe9f9cd2e61567e6d3a7",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
+    "data/blueprints/roadmaps/SemisimpleAlgebrasPartII.json": "deab3aab287fec5e5304f5ca49ea05c149e532c66341477eff5c83ea6ac9d4fc",
     "data/links/tauceti_Completed_EffectiveBounds.json": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805",
     "data/links/tauceti_Completed_OrthogonalL2Bases.json": "34ad7cad18dde976767ba8df3183e3b3ec9586ddb040ecff1654dbdd2bec5a46",
     "data/links/tauceti_TauCetiRoadmap_AdicSpaces.json": "43ec8b83183c85b01f454cb423613b9dcf2ddfbeb56731f6502fc7479392a425",

@@ -10,6 +10,7 @@
  },
  "bases": {
   "judged": 203,
+  "measured": 1,
   "built": 7,
   "children": 1
  },
@@ -67,7 +68,7 @@
   },
   "splitHalfShiftSpearman": 0.483,
   "splitHalfRoadmaps": 136,
-  "distanceVsClassification": 0.864,
+  "distanceVsClassification": 0.862,
   "distanceVsMissingTargets": 0.959,
   "distanceVsMissingLayers": 0.961,
   "distanceVsDepth": 0.944,
@@ -77,7 +78,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.089
+  "declarationsVsDistance": -0.103
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -2490,12 +2491,12 @@
    "basis": "judged",
    "usedBy": [
     {
-     "galaxy": "iwasawa",
+     "galaxy": "algebraicnt",
      "roadmaps": 2
     },
     {
-     "galaxy": "algebraicnt",
-     "roadmaps": 1
+     "galaxy": "iwasawa",
+     "roadmaps": 2
     }
    ]
   },
@@ -4447,12 +4448,12 @@
      "roadmaps": 3
     },
     {
-     "galaxy": "padic",
+     "galaxy": "algebraicnt",
      "roadmaps": 2
     },
     {
-     "galaxy": "algebraicnt",
-     "roadmaps": 1
+     "galaxy": "padic",
+     "roadmaps": 2
     },
     {
      "galaxy": "analytic",
@@ -4541,6 +4542,34 @@
      "roadmaps": 1
     }
    ]
+  },
+  "SemisimpleAlgebrasPartII": {
+   "classification": 8,
+   "structure": {
+    "layers": 5,
+    "missingOwn": 5.0,
+    "missingLayers": 29.5,
+    "missingTargets": 136.1,
+    "depth": 13,
+    "suppliers": 12,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 55,
+     "missingDeclarations": 55,
+     "depth": 9,
+     "layersCovered": 5,
+     "layers": 5,
+     "sourcePages": 0
+    }
+   },
+   "measurement": 3.98,
+   "judgements": 0,
+   "distance": 3.98,
+   "low": 2.82,
+   "high": 5.13,
+   "basis": "measured",
+   "usedBy": []
   },
   "SerreWeightAndLevelOptimisation": {
    "classification": 9,
@@ -6109,12 +6138,12 @@
      "roadmaps": 4
     },
     {
-     "galaxy": "etale",
+     "galaxy": "algebraicnt",
      "roadmaps": 3
     },
     {
-     "galaxy": "algebraicnt",
-     "roadmaps": 2
+     "galaxy": "etale",
+     "roadmaps": 3
     },
     {
      "galaxy": "automorphic",
@@ -6491,7 +6520,12 @@
    "low": 0.4,
    "high": 1.78,
    "basis": "judged",
-   "usedBy": []
+   "usedBy": [
+    {
+     "galaxy": "algebraicnt",
+     "roadmaps": 1
+    }
+   ]
   },
   "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations": {
    "classification": 2,
@@ -6795,11 +6829,15 @@
     },
     {
      "galaxy": "algebraicnt",
-     "links": 2,
+     "links": 3,
      "examples": [
       {
        "supplier": "SchemeAndStackFoundations",
        "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
+      },
+      {
+       "supplier": "SchemeAndStackFoundations",
+       "consumer": "SemisimpleAlgebrasPartII"
       },
       {
        "supplier": "tauceti:TauCetiRoadmap/StableReduction",
@@ -6910,8 +6948,8 @@
    "upstreamOnly": false
   },
   "algebraicnt": {
-   "distance": 2.59,
-   "roadmaps": 14,
+   "distance": 2.68,
+   "roadmaps": 15,
    "supplies": [
     {
      "galaxy": "iwasawa",
@@ -8823,6 +8861,24 @@
      ]
     },
     {
+     "galaxy": "algebraicnt",
+     "links": 3,
+     "examples": [
+      {
+       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+       "consumer": "ArithmeticGaloisDuality"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+       "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
+      },
+      {
+       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+       "consumer": "SemisimpleAlgebrasPartII"
+      }
+     ]
+    },
+    {
      "galaxy": "automorphic",
      "links": 3,
      "examples": [
@@ -8837,20 +8893,6 @@
       {
        "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
        "consumer": "GL2AutomorphicRepresentationsAndTransfer"
-      }
-     ]
-    },
-    {
-     "galaxy": "algebraicnt",
-     "links": 2,
-     "examples": [
-      {
-       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
-       "consumer": "ArithmeticGaloisDuality"
-      },
-      {
-       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
-       "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
       }
      ]
     },
@@ -9076,18 +9118,18 @@
     },
     {
      "galaxy": "algebraicnt",
-     "links": 4,
+     "links": 5,
      "examples": [
       {
        "supplier": "GeneralAlgebraicKTheory",
        "consumer": "GeometryOfNumbersAndQuadraticArithmetic"
       },
       {
-       "supplier": "K2SymbolsBrauer",
-       "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
+       "supplier": "GeneralAlgebraicKTheory",
+       "consumer": "SemisimpleAlgebrasPartII"
       },
       {
-       "supplier": "KTheoryFiniteLocalFields",
+       "supplier": "K2SymbolsBrauer",
        "consumer": "HigherLocalFieldsAndHigherClassFieldTheory"
       }
      ]
@@ -9823,6 +9865,16 @@
       {
        "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
        "consumer": "DeligneWeightsAndPurity"
+      }
+     ]
+    },
+    {
+     "galaxy": "algebraicnt",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+       "consumer": "SemisimpleAlgebrasPartII"
       }
      ]
     },

@@ -1,0 +1,146 @@
+{
+  "id": "SemisimpleAlgebrasPartII",
+  "title": "Semisimple algebras, Artin-Wedderburn, and the structure of their modules, Part II",
+  "area": "algebraicnt",
+  "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+  "summary": "This continuation joins general Brauer period-index arithmetic to geometric Azumaya module descent. It starts from existing central simple algebras, division representatives, algebra index, scalar extension and matrix Morita equivalences, then plans class invariants, finite splitting-degree divisibility, separable cohomological transfer, scheme-theoretic support and characteristic invariants. Relative Cartier applications retain their exact source and supplier gaps. All five stage targets are planned under the breadth-first protocol, with precise remaining supplier and source gaps; no stage is closed and no implementation is claimed.",
+  "readme": "See research/blueprint/readmes/SemisimpleAlgebrasPartII.md for conventions, five layer contracts, source corrections, API/tests, ownership and unresolved inputs.",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "SchemeAndStackFoundations",
+    "GeneralAlgebraicKTheory",
+    "HodgeStructuresPartII"
+  ],
+  "stages": [
+    {
+      "key": "SA.0",
+      "title": "Class index and finite splitting degrees",
+      "description": "Using the parent Layer6 CSA quotient, unique division representative, existing algebra index and scalar extension, descend the index to Brauer classes. Prove divisibility of all finite splitting degrees using the division-column module dimension calculation, including inseparable extensions. Identify the minimum and gcd of all finite splitting degrees and prove ind(α_L)|ind(α) for arbitrary extensions and ind(α)|[L:K]ind(α_L) for finite ones. The index-degree splitter is reused, not reconstructed.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields"
+      ]
+    },
+    {
+      "key": "SA.1",
+      "title": "Period and prime support",
+      "description": "Use the full units-coefficient Brauer/H² comparison and chosen-embedding open subgroup bridge to transport corestriction for finite separable extensions. Prove cor∘res=[L:K], then α^ind(α)=1 using a separable index-degree splitter. Deduce positive finite period, per|ind, and equality of prime supports via a p-Sylow fixed field and relative p-group H². No general period=index theorem; the all-class comparison naturality and units coefficient transport remain explicit obligations.",
+      "requires": [
+        "SemisimpleAlgebrasPartII:SA.0",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+      ]
+    },
+    {
+      "key": "SA.2",
+      "title": "Geometric Morita and scheme support",
+      "description": "Import the one shared scheme-Azumaya/Brauer key and generic affine projective-generator Morita structure. Construct restriction-compatible sheaf tensor/Hom equivalences and their unit/counit, restrict to coherent objects under stated finiteness hypotheses, and prove equality of O_X-annihilator ideal sheaves. Scheme support means I_Y M=0, not topological containment. Reuse the built matrix equivalence and require nonempty local rank; use the Z/4 example to detect nilpotent support mistakes. Étale-local and strict-henselian splitting come from the shared key; ordinary henselianity alone is insufficient.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2",
+        "GeneralAlgebraicKTheory:K.7"
+      ]
+    },
+    {
+      "key": "SA.3",
+      "title": "Characteristic invariants by Morita descent",
+      "description": "For an A-linear endomorphism on an Azumaya module whose inverse Morita module is locally free, define its characteristic polynomial on splitting covers. Compare splitting modules by an invertible sheaf with specified evaluation and prove line-twist invariance; descend coefficient sections over nonreduced schemes. Use the explicit finite spectral pushforward, spectral-cover line twist, overlap and full commuting-Higgs coefficient nodes for EG2.17 and its rank/power relation; import the H.0 carrier once. The Frobenius-root uniqueness shortcut is false and is excluded. The rank/n-th-power formula requires one fixed matrix degree on the whole spectral inverse image of each base chart; degrees on components of V that map to the same base component cannot be conflated.",
+      "requires": [
+        "SemisimpleAlgebrasPartII:SA.2",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2",
+        "HodgeStructuresPartII:H.0"
+      ]
+    },
+    {
+      "key": "SA.4",
+      "title": "Cartier forms and relative Brauer comparison",
+      "description": "Apply the Cartier-specific four-term units/closed-form exact sequence to obtain the two-step Brauer boundary, with additivity and relative base-change naturality. Import [D]=Φ(θ) and chosen W₂ splittings from the Cartier-flow owner. For perfect characteristic-p smooth projective Z and the spectral cover V, compare m*D and r*D on V×Spec k[t]/(t−1)^p; identify the missing relative class-vanishing input in EG AppendixA.2 and the coherent categorical refinement in A.3. All target interfaces are planned with the exact relative class-vanishing gap and lift-dependent OV/BB supplier obligations; the stage is not closed. In the Appendix A.2 target, a is χ_dR(E,∇) for an actual integrable connection on Z, not an arbitrary spectral parameter.",
+      "requires": [
+        "SemisimpleAlgebrasPartII:SA.2",
+        "SemisimpleAlgebrasPartII:SA.3",
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "GS",
+      "title": "Central Simple Algebras and Galois Cohomology",
+      "authors": "Philippe Gille and Tamás Szamuely",
+      "url": "https://www.math.ens.psl.eu/~benoist/refs/Gille-Szamuely.pdf",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "2006 §4.5 pp100–106, including complete proof4.5.16; selected §4.4 comparison statements. Primary decomposition is out of the target dependency chain and is not newly planned."
+      ],
+      "sha256": "3697582f57a11547addeb8d5d63764d788b9d670e2bd76bd7401b9f3994f1e63",
+      "edition": "Cambridge Studies in Advanced Mathematics101, 2006"
+    },
+    {
+      "id": "GS-ERR",
+      "title": "Errata and additional comments",
+      "authors": "Tamás Szamuely",
+      "url": "https://pagine.dm.unipi.it/tamas/erratams.pdf",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "December 4, 2020: p101 correction and p105 Saltman correction"
+      ],
+      "sha256": "db7cea507d8aa13060aeff424845bbfd74e12fd71faceb4c374dbc7e815f3d04",
+      "edition": "Author errata dated December4, 2020"
+    },
+    {
+      "id": "BENOIST",
+      "title": "The period-index problem for real surfaces",
+      "authors": "Olivier Benoist",
+      "url": "https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "§0.1, printed p63: definitions and general divisibility; the surface theorems are outside this continuation"
+      ],
+      "sha256": "8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b",
+      "edition": "Publications Mathématiques de l’IHÉS130 (2019), 63–110"
+    },
+    {
+      "id": "EG",
+      "title": "Rigid connections and F-isocrystals",
+      "authors": "Hélène Esnault and Michael Groechenig",
+      "url": "https://arxiv.org/pdf/1707.00752v4",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "v4 Theorem2.17/Remark2.18 pp13–14, including complete local Morita proof; AppendixA.2–A.3 pp40–41."
+      ],
+      "sha256": "bcc435b58bb2b1c06869413c1cd96018676d15da8003d21e5b507b114a63c4eb",
+      "edition": "arXiv:1707.00752v4, June1, 2020",
+      "fetchedUrl": "https://arxiv.org/pdf/1707.00752v4",
+      "versionVerified": "PDF page1 footer identifies arXiv:1707.00752v4, 1 Jun2020."
+    },
+    {
+      "id": "OV07",
+      "title": "Nonabelian Hodge theory in characteristic p",
+      "authors": "Arthur Ogus and Vadim Vologodsky",
+      "url": "https://www.numdam.org/item/10.1007/s10240-007-0010-z.pdf",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "Published Corollary2.9, Theorem2.8 context pp33–34; §4.2 exact sequence and Proposition4.2/4.4 pp85–88; no full-paper reading."
+      ],
+      "sha256": "2266595d31d3ee482d7fffefaf86ad8f50767804059bbde9ccaaf3b27c4f1035",
+      "edition": "Publications Mathématiques de l’IHÉS106(2007),1–138"
+    },
+    {
+      "id": "BBv2",
+      "title": "Geometric Langlands correspondence for D-modules in prime characteristic: the GL(n) case",
+      "authors": "Roman Bezrukavnikov and Alexander Braverman",
+      "url": "https://arxiv.org/pdf/math/0602255v2",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "arXiv math/0602255v2, 4Dec2006; §2.2 and §3.10–3.12, pp3,11; no published/preprint identity certification."
+      ],
+      "sha256": "a94800bee9fcbb4ea99b6d945b4e8c24b99a80fd957021d6f5ca530ca38b0b1c",
+      "edition": "arXiv:math/0602255v2,4Dec2006"
+    }
+  ],
+  "status": "draft"
+}
