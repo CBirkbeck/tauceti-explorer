@@ -1,3 +1,8 @@
+import Mathlib.NumberTheory.NumberField.DedekindZeta
+import Mathlib.Analysis.Meromorphic.Order
+import Mathlib.NumberTheory.LSeries.Nonvanishing
+import Mathlib.NumberTheory.DirichletCharacter.GaussSum
+import Mathlib.FieldTheory.AlgebraicClosure
 import Mathlib.Analysis.MellinTransform
 import Mathlib.Analysis.SpecialFunctions.Gamma.Beta
 import Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas
@@ -11,9 +16,15 @@ import Mathlib.RingTheory.PowerSeries.Derivative
 import Mathlib.Tactic
 
 /-!
+This file is not the roadmap and is not exhaustive. The roadmap document is
+definitive. These statements suggest Lean forms so contributors and reviewers
+can converge on names and signatures. Every proposed body is admitted; nothing
+here claims an implementation. Mathlib 082e2d3 / Tau Ceti f790474.
+-/
+/-!
 # Dirichlet L0: normalized Mellin continuation and smoothing
 Suggested declarations only, at Mathlib 082e2d3 / Tau Ceti f790474.
-All 57 inherited node contracts and their 34 tests remain represented.
+All 63 inherited node contracts, 51 API entries and 42 tests remain represented.
 The two L1 arithmetic suppliers and PMIA's Mahler operator are expressed by
 local notation for their exact native formulas at the final interface below.
 Those notations export no definition and make no second ownership claim.
@@ -536,3 +547,112 @@ example : normalizedMellinContinuation (fun t => (smoothedMellinKernel 6 t : ℂ
 example : normalizedMellinContinuation (fun t => (smoothedMellinKernel 6 t : ℂ)) 1 ≠
     (1-(6:ℂ)^((1:ℂ)-1))*riemannZeta 1 := by sorry
 end DirichletPadic
+
+namespace DirichletPadic
+open Filter Set
+open scoped Topology
+
+/- The canonical generalized Bernoulli export is not available. These two
+embedding signatures type the native conclusions only; constructing b and the
+value identity uses G-Bernoulli-carrier. No arbitrary Bernoulli function is used. -/
+-- DirichletPadicLFunctions:L0/normalized-value-complex-embedding
+theorem normalized_value_complex_embedding
+    {E : Type*} [Field E] [NumberField E] (b : E) (ι : E →ₐ[ℚ] ℂ)
+    {D : ℕ} [NeZero D] (χ : DirichletCharacter ℂ D) (n : ℕ)
+    (_hn : 1 ≤ n) (hvalue : χ.LFunction (1 - (n : ℂ)) = ι b) :
+    IsAlgebraic ℚ (χ.LFunction (1 - (n : ℂ))) := sorry
+
+-- DirichletPadicLFunctions:L0/normalized-value-padic-embedding
+theorem normalized_value_padic_embedding
+    {E K K' : Type*} [Field E] [NumberField E]
+    [Field K] [CharZero K] [Algebra ℚ K]
+    [Field K'] [CharZero K'] [Algebra ℚ K']
+    (b : E) (ι : E →ₐ[ℚ] K) (j : K →ₐ[ℚ] K') :
+    IsAlgebraic ℚ (ι b) ∧ j (ι b) = (j.comp ι) b := sorry
+
+section Dedekind
+variable (K : Type*) [Field K] [NumberField K]
+
+-- DirichletPadicLFunctions:L0/dedekind-real-residue-limit
+theorem dedekind_real_residue_limit (F : ℂ → ℂ)
+    (hseries : ∀ s : ℂ, 1 < s.re → F s = NumberField.dedekindZeta K s) :
+    Tendsto (fun x : ℝ => ((x : ℂ) - 1) * F x)
+      (𝓝[>] (1 : ℝ)) (𝓝 (NumberField.dedekindZeta_residue K : ℂ)) := sorry
+
+-- DirichletPadicLFunctions:L0/dedekind-cleared-value
+theorem dedekind_cleared_value (F G : ℂ → ℂ)
+    (hseries : ∀ s : ℂ, 1 < s.re → F s = NumberField.dedekindZeta K s)
+    (hG : AnalyticAt ℂ G 1)
+    (hclear : ∀ᶠ s in 𝓝[≠] (1 : ℂ), G s = (s - 1) * F s) :
+    G 1 = (NumberField.dedekindZeta_residue K : ℂ) := sorry
+
+-- DirichletPadicLFunctions:L0/dedekind-simple-pole
+theorem dedekind_simple_pole (F G : ℂ → ℂ)
+    (hseries : ∀ s : ℂ, 1 < s.re → F s = NumberField.dedekindZeta K s)
+    (hF : MeromorphicAt F 1) (hG : AnalyticAt ℂ G 1)
+    (hclear : ∀ᶠ s in 𝓝[≠] (1 : ℂ), G s = (s - 1) * F s) :
+    meromorphicOrderAt F 1 = (-1 : ℤ) := sorry
+
+-- DirichletPadicLFunctions:L0/dedekind-complex-residue
+theorem dedekind_complex_residue (F G : ℂ → ℂ)
+    (hseries : ∀ s : ℂ, 1 < s.re → F s = NumberField.dedekindZeta K s)
+    (hG : AnalyticAt ℂ G 1)
+    (hclear : ∀ᶠ s in 𝓝[≠] (1 : ℂ), G s = (s - 1) * F s) :
+    Tendsto (fun s : ℂ => (s - 1) * F s)
+      (𝓝[≠] (1 : ℂ)) (𝓝 (NumberField.dedekindZeta_residue K : ℂ)) := sorry
+end Dedekind
+
+section Cyclotomic
+variable {N : ℕ} [NeZero N]
+
+-- DirichletPadicLFunctions:L0/cyclotomic-log-algebraic-inputs
+theorem cyclotomic_log_algebraic_inputs (χ : DirichletCharacter ℂ N)
+    (hN : 1 < N) (_hχ : χ.IsPrimitive) (_hne : χ ≠ 1)
+    {ζ : ℂ} (hζ : IsPrimitiveRoot ζ N)
+    (_hG : gaussSum χ⁻¹ (AddChar.zmodChar N hζ.pow_eq_one) ≠ 0) :
+    ∀ c : (ZMod N)ˣ,
+      (1 - ζ ^ (c : ZMod N).val ≠ 0) ∧
+      IsAlgebraic ℚ (1 - ζ ^ (c : ZMod N).val) ∧
+      IsAlgebraic ℚ (-(gaussSum χ⁻¹ (AddChar.zmodChar N hζ.pow_eq_one))⁻¹ *
+        χ⁻¹ (c : ZMod N)) := sorry
+
+-- DirichletPadicLFunctions:L0/cyclotomic-log-baker-application
+theorem cyclotomic_log_baker_application (χ : DirichletCharacter ℂ N)
+    (hN : 1 < N) (_hχ : χ.IsPrimitive) (_hne : χ ≠ 1)
+    {ζ : ℂ} (hζ : IsPrimitiveRoot ζ N)
+    (_hG : gaussSum χ⁻¹ (AddChar.zmodChar N hζ.pow_eq_one) ≠ 0)
+    (hS : (∑ c : (ZMod N)ˣ,
+      -(gaussSum χ⁻¹ (AddChar.zmodChar N hζ.pow_eq_one))⁻¹ * χ⁻¹ (c : ZMod N) *
+        Complex.log (1 - ζ ^ (c : ZMod N).val)) ≠ 0) :
+    Transcendental ℚ (∑ c : (ZMod N)ˣ,
+      -(gaussSum χ⁻¹ (AddChar.zmodChar N hζ.pow_eq_one))⁻¹ * χ⁻¹ (c : ZMod N) *
+        Complex.log (1 - ζ ^ (c : ZMod N).val)) := sorry
+
+-- DirichletPadicLFunctions:L0/dirichlet-one-transcendental
+-- G-terminal-placement remains unresolved; this is an unconditional target,
+-- not a proof or an import of the existing L3 logarithm formula.
+theorem dirichlet_one_transcendental (χ : DirichletCharacter ℂ N)
+    (hN : 1 < N) (hχ : χ.IsPrimitive) (hne : χ ≠ 1) :
+    Transcendental ℚ (χ.LFunction 1) := sorry
+end Cyclotomic
+end DirichletPadic
+
+/- Shared supplier carriers unavailable at the pins; these eight comparisons
++are deliberately not replaced by fabricated Prop fields or new object types:
++  DirichletPadicLFunctions:L0/generalized-bernoulli-nonprincipal
+  G-Bernoulli-carrier: ModularForms Layer0 owns the canonical generalized Bernoulli data, but no named native carrier/export with the requested finite-sum normalization was found at either pin. Do not substitute an arbitrary function for that carrier.
+  DirichletPadicLFunctions:L0/generalized-bernoulli-principal
+  G-Bernoulli-carrier: ModularForms Layer0 owns the canonical generalized Bernoulli data, but no named native carrier/export with the requested finite-sum normalization was found at either pin. Do not substitute an arbitrary function for that carrier.
+  DirichletPadicLFunctions:L0/dedekind-series-comparison
+  G-Tate-instance: the exact pinned AL.1 uncompleted function and native series-comparison export are planned, not available to import in the existing build.
+  DirichletPadicLFunctions:L0/dedekind-pole-clearing
+  G-Tate-instance: exact standard-test-function / archimedean-factor adapter is requested from AL.1; no stand-in Tate carrier is introduced.
+  DirichletPadicLFunctions:L0/rational-idele-finite-normalization
+  G-rational-dictionary: the shared GN rational normal-form equivalence and its component evaluation exports are planned, not pinned native declarations; no duplicate idele or Hecke-character type is inserted in Lean.
+  DirichletPadicLFunctions:L0/rational-idele-norm-power
+  G-rational-dictionary: the shared GN rational normal-form equivalence and its component evaluation exports are planned, not pinned native declarations; no duplicate idele or Hecke-character type is inserted in Lean.
+  DirichletPadicLFunctions:L0/rational-idele-parity
+  G-rational-dictionary: the shared GN rational normal-form equivalence and its component evaluation exports are planned, not pinned native declarations; no duplicate idele or Hecke-character type is inserted in Lean.
+  DirichletPadicLFunctions:L0/rational-idele-euler-normalization
+  G-rational-dictionary: the shared GN rational normal-form equivalence and its component evaluation exports are planned, not pinned native declarations; no duplicate idele or Hecke-character type is inserted in Lean.
+-/
