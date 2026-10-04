@@ -1,3 +1,371 @@
+# The global fixed-band Hom sheaf candidate
+
+Codex — codex-7e92bd, 4 October 2026. Partial continuation: six constructions and sixteen lemmas.
+
+An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open.
+
+Over U, take pairs consisting of an object x of F(U) and an isomorphism from x to X(x). Identify pairs by the previously proved fixed-band diagonal transport. This is an actual equivalence relation; transport along every loop is identity, so different arrows at a fixed chart remain different in the quotient. Restrictions use the actual StrongTrans comparison. Their identity and composition laws hold in the quotient using F.mapId and F.mapComp as witnesses. Modifications act by postcomposition and commute with restriction. The resulting presheaf and its functor on the full Hom category therefore have actual data and proved laws.
+
+Lift its section universe explicitly and apply the existing native sheafification functor. This produces a global candidate with actual modification maps, unit naturality, inverse compatibility, extensionality and a unique extension property into every sheaf. Native concrete-type sheafification supplies the instance; no additional existence axiom, global object, or strictification is assumed. The coefficient universe remains independent. This construction does not yet identify the candidate on a chart with the existing local Hom sheaf. Proving that comparison and descending the band action are the next mathematical steps. Empty raw sections need not remain empty after sheafification, and injectivity or surjectivity of the unit is not asserted.
+
+This is a gerbe-specific application of existing quotient and sheafification machinery. General stacks, stackification and torsor-groupoid interfaces remain owned by D0; algebraic-space carriers, diagonals and atlases remain owned by SF1 under the accepted RS27 boundary. All previous source routes and unresolved targets remain.
+
+## The relation on fixed-band Hom chart pairs
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitSetoid**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/orbit**.
+
+For U in C and X in HomCategory(b,b), put the native Setoid on pairs (x,p), where x belongs to F(U) and p:x≅X_U(x). Relate (x,p) and (y,q) precisely when there exists e:x≅y such that the actual diagonal transport sends p to q. Its equivalence laws are proved, rather than imposed as additional data.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Reflexivity uses identity transport; symmetry uses the inverse fibre isomorphism and cancellation; transitivity uses transport along the composite. The native Quotient is used throughout.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-id, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-comp.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_eq**: The classes of arbitrary pairs (x,p) and (y,q) in the native quotient are equal if and only if some e:x≅y transports p to q. This is an existence statement and chooses no isomorphism.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_injective**: For each actual x in F(U), the function p↦[(x,p)] from isomorphisms x≅X_U(x) to chart-pair classes is injective. No global object of the gerbe is required.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_transport**: For every e:x≅y in F(U), the class represented by (x,p) equals the class represented by (y,transport_e(p)). The witness is the supplied e itself.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.transport_chain** (compatibility): Two consecutive actual transports give the same quotient class as the initial representative.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.unequal_arrows** (non-example): A supplied pair of distinct isomorphisms at the same chart remains distinct in the raw quotient; existence of such a pair on every gerbe is not asserted.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.empty_fibre** (degenerate): An empty fibre forces an empty raw presheaf section carrier. No emptiness of its sheafification is asserted.
+
+## Equality of chart-pair classes
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_eq**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/equality**.
+
+The classes of arbitrary pairs (x,p) and (y,q) in the native quotient are equal if and only if some e:x≅y transports p to q. This is an existence statement and chooses no isomorphism.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Specialize the native quotient equality criterion to the proved setoid.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/orbit, mathlib:Quotient.eq.
+
+## A fixed chart retains distinct arrows
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_injective**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/injective**.
+
+For each actual x in F(U), the function p↦[(x,p)] from isomorphisms x≅X_U(x) to chart-pair classes is injective. No global object of the gerbe is required.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: An equality gives a loop e at x. Fixed-band transport independence identifies its action with identity transport, so the two arrows are equal.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/equality, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-independent, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-id.
+
+## Restriction of chart-pair classes
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction**.
+
+For f:V→U send [(x,p)] to [(F(f)x,res_f(p))], with res_f the actual StrongTrans fibre-isomorphism restriction. The map has codomain the quotient for F(V), without identifying F with a strict functor.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Apply native Quotient.map. If e witnesses equivalent representatives, F(f)(e) witnesses their restricted equivalence by the actual transport/restriction square.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/orbit, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-action-iso-restriction, mathlib:Quotient.map.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_mk**: Restriction of the class represented by (x,p) is exactly the class represented by (F(f)x,res_f(p)); the StrongTrans comparison in res_f is retained.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_id**: Restriction along the identity of U is the identity function on all chart-pair classes, even when the pseudofunctor identity comparison is not a definitional equality.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_comp**: For f:V→U and g:W→V, restriction along g followed by f equals restriction along f and then along g, on every chart-pair class. The equivalence witness is the actual component of F.mapComp.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.two_restrictions** (compatibility): The actual presheaf restriction through two arrows agrees with restriction along their composite on arbitrary quotient sections.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.change_representative** (compatibility): Restrict two representatives related by an arbitrary fibre isomorphism; their explicit restricted representatives define the same class.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.identity_comparison** (computation): The explicitly restricted pair over the identity gives the original class although its object is F(id)(x), retaining the actual pseudofunctor identity comparison.
+
+## Restriction on a represented class
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_mk**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction-mk**.
+
+Restriction of the class represented by (x,p) is exactly the class represented by (F(f)x,res_f(p)); the StrongTrans comparison in res_f is retained.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Evaluate the native quotient map.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction.
+
+## Identity restriction after quotienting
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_id**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction-id**.
+
+Restriction along the identity of U is the identity function on all chart-pair classes, even when the pseudofunctor identity comparison is not a definitional equality.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Induct on a representative. Use the actual component of F.mapId as the equivalence witness, then cancel the corresponding endpoint transport.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-id, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso.
+
+## Composition of restrictions after quotienting
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_comp**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction-comp**.
+
+For f:V→U and g:W→V, restriction along g followed by f equals restriction along f and then along g, on every chart-pair class. The equivalence witness is the actual component of F.mapComp.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Induct on a representative, keep the actual pseudofunctor composition isomorphism, and use the established restriction composition formula.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-comp, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso.
+
+## The global presheaf of Hom chart-pair classes
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitPresheaf**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/presheaf**.
+
+Construct the actual functor P_X:Cᵒᵖ→Type(max(u′,v′)) whose sections over U are the native chart-pair quotient and whose restriction maps are the proved quotient restrictions. A fibre with no object gives no raw sections; no sheaf condition is asserted here.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Use the exact quotient carriers and restrictions as native functor data. The preceding identity and composition lemmas supply the two functor laws.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction-id, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction-comp.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_mk**: Restriction of the class represented by (x,p) is exactly the class represented by (F(f)x,res_f(p)); the StrongTrans comparison in res_f is retained.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_id**: Restriction along the identity of U is the identity function on all chart-pair classes, even when the pseudofunctor identity comparison is not a definitional equality.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_comp**: For f:V→U and g:W→V, restriction along g followed by f equals restriction along f and then along g, on every chart-pair class. The equivalence witness is the actual component of F.mapComp.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.empty_fibre** (degenerate): An empty fibre forces an empty raw presheaf section carrier. No emptiness of its sheafification is asserted.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.two_restrictions** (compatibility): The actual presheaf restriction through two arrows agrees with restriction along their composite on arbitrary quotient sections.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.change_representative** (compatibility): Restrict two representatives related by an arbitrary fibre isomorphism; their explicit restricted representatives define the same class.
+
+## Modification maps on chart-pair classes
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map**.
+
+For any native fixed-band modification m:X→Y, send [(x,p)] over U to [(x,p followed by m_x)], using the actual component isomorphism. This defines a function between the two chart-pair quotients.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Apply native Quotient.map. Naturality of the existing diagonal transport natural isomorphism in m supplies representative independence with the same fibre isomorphism e.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/orbit, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso, mathlib:Quotient.map.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_mk**: The map for m:X→Y sends the represented class (x,p) exactly to the class (x,p followed by componentIso(m,U,x)).
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_id**: The quotient map induced by the identity modification of X fixes every class over every U.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_comp**: For m:X→Y and n:Y→Z, the quotient map for m followed by n equals the map for m then the map for n, on every class over U.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_restrict**: For m:X→Y and f:V→U, restriction of the m-image of any class equals the m-image over V of its restriction from U.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_inverse**: Applying the map of m:X→Y and then its native inverse modification recovers every quotient section over U.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.inverse_modification** (compatibility): The actual orbit-presheaf natural transformation for a modification followed by its native inverse recovers each section.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.modification_restriction** (compatibility): Two arbitrary modifications interleaved with two restrictions agree with the composite modification after composite restriction.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.nonidentity_modification** (non-example): If an actual modification changes a supplied fibre isomorphism by postcomposition, its raw quotient map changes that represented class; it is not silently collapsed to identity.
+
+## Modification on a represented class
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_mk**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-mk**.
+
+The map for m:X→Y sends the represented class (x,p) exactly to the class (x,p followed by componentIso(m,U,x)).
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Evaluate the native quotient map.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map.
+
+## Identity modification on classes
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_id**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-id**.
+
+The quotient map induced by the identity modification of X fixes every class over every U.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Induct on a representative and use the actual identity-component formula.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-mk, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-id.
+
+## Composite modification on classes
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_comp**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-comp**.
+
+For m:X→Y and n:Y→Z, the quotient map for m followed by n equals the map for m then the map for n, on every class over U.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Induct on and destruct a pair representative, then use component composition and associativity of isomorphisms.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-mk, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-comp.
+
+## Modification maps commute with restriction
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_restrict**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-restrict**.
+
+For m:X→Y and f:V→U, restriction of the m-image of any class equals the m-image over V of its restriction from U.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Induct on a pair. The two restricted pairs have exactly the same object; congruence reduces to the actual StrongTrans modification/restriction identity.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-modification, mathlib:CategoryTheory.Functor.mapIso_trans.
+
+## The Hom-category functor to orbit presheaves
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitFunctor**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/functor**.
+
+Construct a native functor HomCategory(b,b)→(Cᵒᵖ→Type(max(u′,v′))) sending X to P_X and every native modification to its quotient natural transformation. It is defined on all morphisms of the supplied category.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Use the restriction square for naturality and the quotient identity/composition laws for functoriality.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/presheaf, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-restrict, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-id, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-comp.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_restrict**: For m:X→Y and f:V→U, restriction of the m-image of any class equals the m-image over V of its restriction from U.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_id**: The quotient map induced by the identity modification of X fixes every class over every U.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_comp**: For m:X→Y and n:Y→Z, the quotient map for m followed by n equals the map for m then the map for n, on every class over U.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_inverse**: Applying the map of m:X→Y and then its native inverse modification recovers every quotient section over U.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.inverse_modification** (compatibility): The actual orbit-presheaf natural transformation for a modification followed by its native inverse recovers each section.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.modification_restriction** (compatibility): Two arbitrary modifications interleaved with two restrictions agree with the composite modification after composite restriction.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.global_composition** (compatibility): Composition holds as equality of actual presheaf natural transformations and of actual global sheaf morphisms.
+
+## A global sheaf from the Hom chart-pair presheaf
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-functor**.
+
+Construct a native functor HomCategory(b,b)→Sheaf(J,Type(max(u,v,u′,v′))) by composing the orbit-presheaf functor, postcomposition with native ULift, and Mathlib presheafToSheaf. The universe lift makes native type-valued sheafification available; the coefficient universe w remains independent. No global neutral object or extra HasSheafify assumption is supplied.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Use native functor composition and whiskering. The actual existing concrete-type instance from Sites.LeftExact supplies sheafification in the enlarged universe. This gives a globally defined candidate and its maps; identification with the earlier local Hom sheaves is a separate remaining theorem.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/functor, mathlib:CategoryTheory.Functor.whiskeringRight, mathlib:CategoryTheory.uliftFunctor, mathlib:CategoryTheory.HasSheafify, mathlib:CategoryTheory.presheafToSheaf.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_obj**: The global candidate at X is exactly the native sheafification of P_X postcomposed with ULift to Type(max(u,v,u′,v′)).
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_map_inverse**: For any m:X→Y, its global sheaf map followed by the map for the native inverse modification is the identity of the global sheaf at X.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_unit_naturality**: The ULift-whiskered presheaf map induced by m followed by the sheafification unit at Y equals the unit at X followed by the underlying global sheaf map of m.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_hom_ext**: For any sheaf Q in the stated type universe, two sheaf morphisms from the global candidate at X to Q are equal if their underlying presheaf maps agree after precomposition with the actual sheafification unit of ULift(P_X).
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_universal**: For every target sheaf Q and presheaf morphism ULift(P_X)→Q, there exists a unique sheaf morphism from the global candidate at X to Q whose underlying map restricts to the given morphism along the actual sheafification unit.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.unit_restriction** (compatibility): On arbitrary raw quotient sections, the actual global sheaf restriction commutes with the ULift sheafification unit.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.unit_modification** (computation): The global sheaf map on the image of an explicit pair under the unit is the unit image of postcomposition by the actual modification component.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.universal_target** (compatibility): For an arbitrary sheaf target, every map out of the lifted orbit presheaf has a unique actual sheaf-morphism extension along the unit.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.generator_ext** (compatibility): Agreement on the unit images of every represented pair at every U implies equality of actual sheaf morphisms to any target sheaf, by quotient induction and the native universal property.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.global_inverse** (compatibility): Apply the inverse global map and then the forward map to an arbitrary sheafified section; it returns the section, without assuming a representative or unit surjectivity.
+
+Test **TauCeti.AlgebraicGeometry.GlobalHomTests.global_composition** (compatibility): Composition holds as equality of actual presheaf natural transformations and of actual global sheaf morphisms.
+
+## The exact sheafification object
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_obj**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-object**.
+
+The global candidate at X is exactly the native sheafification of P_X postcomposed with ULift to Type(max(u,v,u′,v′)).
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Unfold the composite functors and native postcomposition on objects.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-functor.
+
+## Global maps respect modification inverses
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_map_inverse**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-inverse**.
+
+For any m:X→Y, its global sheaf map followed by the map for the native inverse modification is the identity of the global sheaf at X.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Combine the two maps using functoriality, then use the actual hom-inverse identity in HomCategory(b,b).
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-functor, AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso.
+
+## Naturality of the sheafification unit
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_unit_naturality**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-unit**.
+
+The ULift-whiskered presheaf map induced by m followed by the sheafification unit at Y equals the unit at X followed by the underlying global sheaf map of m.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Specialize naturality of the native sheafification unit to the actual whiskered quotient natural transformation.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-functor, mathlib:CategoryTheory.toSheafify_naturality.
+
+## Transport preserves the represented class
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_transport**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/transport**.
+
+For every e:x≅y in F(U), the class represented by (x,p) equals the class represented by (y,transport_e(p)). The witness is the supplied e itself.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Apply native quotient soundness to the defining relation with witness e.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/orbit.
+
+## Modification inverse on all quotient sections
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_inverse**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-inverse**.
+
+Applying the map of m:X→Y and then its native inverse modification recovers every quotient section over U.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Combine the maps, use the native hom-inverse identity, and apply the proved identity-modification formula.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-comp, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-id, AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso.
+
+## Global sheaf maps are determined before sheafification
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_hom_ext**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-ext**.
+
+For any sheaf Q in the stated type universe, two sheaf morphisms from the global candidate at X to Q are equal if their underlying presheaf maps agree after precomposition with the actual sheafification unit of ULift(P_X).
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Apply native sheaf morphism extensionality and native sheafification hom extensionality using the target sheaf property.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-object, mathlib:CategoryTheory.Sheaf.hom_ext, mathlib:CategoryTheory.sheafify_hom_ext.
+
+## The universal property of the global candidate
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_universal**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-universal**.
+
+For every target sheaf Q and presheaf morphism ULift(P_X)→Q, there exists a unique sheaf morphism from the global candidate at X to Q whose underlying map restricts to the given morphism along the actual sheafification unit.
+
+Hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J. b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed. Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions.
+
+Proof plan: Package the native sheafifyLift as a sheaf morphism. Its factorization and uniqueness follow from the actual native lemmas and sheaf hom extensionality.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-object, mathlib:CategoryTheory.sheafifyLift, mathlib:CategoryTheory.toSheafify_sheafifyLift, mathlib:CategoryTheory.sheafifyLift_unique, mathlib:CategoryTheory.Sheaf.hom_ext.
+
+All 620 prior node objects, ten gaps, 22 requests, eight source issues, ten planets and eight partial stages are preserved. Every implementation status remains unchecked. The fifteen new parameterized native tests have 21 references across the six constructions. Conditional unequal-arrow and nonidentity-modification tests retain supplied witnesses; no new nonconstant-site or nonneutral geometric fixture is claimed. The full Tau-dependent suggested file remains uncompiled.
+
+Sources: [Stacks Section 8.11](https://stacks.math.columbia.edu/tag/06NY) supplies gerbe context; [Stacks Section 7.49](https://stacks.math.columbia.edu/tag/00ZG) supplies sheafification context. Displayed proofs were read with their stated omissions; the actual generic formal statements were read at the pinned Mathlib source. Exact fixed-band formulas are authored deductions. The complete prior reader follows verbatim.
+
 # Fixed-band Hom-sheaf charts under further refinement
 
 Codex — codex-7e92bd, 4 October 2026. Partial continuation: one construction and ten lemmas.
