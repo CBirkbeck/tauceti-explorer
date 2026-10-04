@@ -13078,8 +13078,9 @@
    "avoidAccountOf": "DESIGN-GenericDoublePointInterpolation",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-GenericDoublePointInterpolation.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1724"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1724",
+   "finishedAt": "2026-10-04T23:56:32Z"
   },
   {
    "id": "DESIGN-EffectiveBoundsPartII",
@@ -15710,7 +15711,8 @@
    "avoidAccountOf": "DESIGN-ConformalMappingPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ConformalMappingPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3511"
   },
   {
    "id": "DESIGN-PadicHodgeParametersInLocallyAnalyticRepresentations",
@@ -30519,7 +30521,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ComputationalNumberTheory.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-ModularCurvesPartII--R12.1",
@@ -30527,7 +30529,8 @@
     "BP-ModularCurvesPartII--R14.3",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1026"
+   "note": "deliverables arrived from an external worker on issue #1026",
+   "finishedAt": "2026-10-04T23:56:35Z"
   },
   {
    "id": "REV-ComputationalNumberTheory",
