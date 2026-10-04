@@ -14131,7 +14131,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-InductionRestrictionPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3428"
   },
   {
    "id": "REV-DESIGN-InductionRestrictionPartII",
@@ -26440,9 +26441,10 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #765"
+   "note": "deliverables arrived from an external worker on issue #765",
+   "finishedAt": "2026-10-04T22:34:52Z"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.3",
