@@ -74588,4 +74588,3 @@ At an original unit x, the product of original prime-kernel sums over s has coef
 **Sources**
 
 - Kubert-1979, Published 198–199, proof of Proposition 4.13: the displayed products of the prime-kernel sums generate the product of local lattices; on 198 the prime kernel consists of units with every other primary coordinate equal to one.. Expands the actual primary kernels and their products, proving the unique primary-tuple decomposition and the coefficient-one formula needed for the displayed lattice-product generators. The subsequent identification with admissible distinguished values is not assumed.
-

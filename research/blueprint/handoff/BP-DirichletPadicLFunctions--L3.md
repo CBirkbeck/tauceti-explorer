@@ -109,6 +109,7 @@ for n in p['nodes']:
   if n.get(k):intro+='**'+label+'**\n\n'+'\n'.join('- '+x['name']+': '+x['statement']for x in n[k])+'\n\n'
  if n.get('uses'):intro+='**Uses**\n\n'+'\n'.join('- '+x['where']+': '+x['how']for x in n['uses'])+'\n\n'
  if n.get('sources'):intro+='**Sources**\n\n'+'\n'.join('- '+x['sourceId']+', '+x['locator']+('. '+x['match']if x.get('match')else'')for x in n['sources'])+'\n\n'
+intro=intro.rstrip()+'\n'
 (S/'Reader.md').write_text(intro)
 for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean')]:
  (R/'research/blueprint'/folder/(STEM+'.'+ext)).write_bytes((S/name).read_bytes())
@@ -254,7 +255,7 @@ finishes a planning pass; L3 remains partial with explicit mathematical gaps.
 -/
 '''
 notation='\n-- The L4 inverse-character shorthand expands to its existing L2/native formula.\n-- This local notation exports no declaration and imports no later layer.\nlocal notation "eisensteinInverseCharacter" =>\n  (fun (p : ℕ) [Fact p.Prime] =>\n    (DirichletPadic.primePowerArithmeticCharacter p 0\n      (1 : DirichletCharacter ℤ_[p] (p ^ 0)) 1).comp\n      (ContinuousMonoidHom.inv (ℤ_[p])ˣ))\n\n'
-out=imports+note+notation+body
+out=(imports+note+notation+body).rstrip()+'\n'
 (S/'Suggested.lean').write_text(out)
 report={'inheritedSha256':hashlib.sha256(t.encode()).hexdigest(),'selectedCommandIndices':kept,'declarationAndAPINames':sorted(names),'testNames':sorted(tests),'ownedNodes':len(p['nodes']),'namedSignatures':len(names),'testCount':len(tests),'exampleCount':len(re.findall(r'^example\b',out,re.M)),'lines':len(out.splitlines()),'sha256':hashlib.sha256(out.encode()).hexdigest(),'compiled':False,'localSupplierNotation':'eisensteinInverseCharacter: exact existing L2 arithmetic-character/native inversion composite; no exported definition or L4 import','plannedSiblingImports':['L0','L1','L2'],'unavailableSiblingFiles':['L1','L2']}
 (S/'Projection.json').write_text(json.dumps(report,indent=2)+'\n')
@@ -317,6 +318,7 @@ assert contracts[0]==contracts[1]
 if(S/'artifact-manifest.json').exists():
  for n,m in data('artifact-manifest.json').items():
   b=(S/n).read_bytes();assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],n
+for path,t in contents.items():assert t.endswith('\n')and not t.endswith('\n\n'),path
 for path,t in contents.items():assert not re.search(r'/(?:home|tmp|Users)/|file'+'://|[ \t]+$',t,re.M),path
 os.environ['ROOT_ACTION_VALIDATE_BASE']=BASE
 import immutable_view;assert immutable_view.BASE==BASE
