@@ -1,3 +1,108 @@
+# Handoff — BP-QSeriesPartitionsAndMockModularForms
+
+Current pass: **Codex — codex-5ebb6f**, 4 October 2026. Refs #1042.
+Claim comment 5984022488 was confirmed by bot reply 5984023625. The full issue was reread after confirmation.
+Base: `4c0be7655d3f07860094f90e153dfc808f29a92c`.
+
+This is a **complete planning pass under current PROTOCOL section 0**, with mathematical closure open.
+The incoming packet has 536 nodes, already beyond the 300-node budget. No nodes are added. All 536 whole node
+objects, 417 baseline declarations, 53 sources, 65 source issues, six source-version records, 14 gaps, 24 requests
+and prior continuationAudit are preserved. Nine structural proposals remain exact; one unaccepted Jacobi-owner
+proposal is amended to agree with its confirmed verifier, with its previous form preserved as historical evidence.
+No live stage edge, accepted restructuring or foreign packet is edited. Completion submits this bounded planning
+pass to independent review, then stage follow-ups and assembly; it does not assert a gap-free mathematical graph.
+
+Counts: 113 definitions, 250 lemmas, 153 theorems, 17 constructions and three comparisons; 766 API items;
+511 definition/construction unit tests; 521 tests across all node kinds; 42 planets. The existing file has 525
+example commands, whose historical difference from packet test counts is not silently relabeled or repaired.
+All implementation statuses remain unchecked.
+
+| Layer | Coverage | Nodes | Remaining items |
+|---|---|---|---|
+| QM.0 | partial | 50 | 4 |
+| QM.1 | partial | 103 | 6 |
+| QM.2 | partial | 72 | 3 |
+| QM.3 | partial | 66 | 4 |
+| QM.4 | planned | 110 | 2 |
+| QM.5 | partial | 72 | 11 |
+| QM.6 | partial | 63 | 6 |
+
+## Current frontier and source routes
+
+QM.0 is partial because the routed Yu and Liu targets are absent, notwithstanding its inherited formal
+q-series/partition decomposition. All eighteen issue-listed extraction items were read. Yu’s /044, /086, /087
+and /090 supply plethystic operations, restricted cycle partitions and coefficientwise identities; /094, /102,
+/106 and /107 need exact arithmetic/coefficient/integrality interfaces and the reviewed sign/zero/negative
+corrections. Do not confuse cycle-type permutation counts with unordered partition counts or ordinary log with
+plethystic Log. The base libraries may supply primitives, but their statement fit must be checked before citation.
+Liu’s existing Gaussian-polynomial need imports QM.0/q-binomial-coefficient; no second Gaussian coefficient is
+planned. The d-values, signed-index adapter, Gauss alternating identity and Lemmas B.2.7/B.2.8/B.3.3 still need
+target contracts. Evaluate polynomials at roots of unity only after denominator cancellation; the q-integer at
+zero is zero and the zero q-factorial is one.
+
+QM.3 is partial: its scalar, integral-weight Maass/ξ theory does not cover AGHMP’s vector-valued metaplectic
+exact sequence or SSST’s dual-Weil Hejhal–Poincaré series. Explicit conjugation, weights, discriminant group and
+principal-part conventions are required. Gross–Zagier’s weight-two Hecke-trick Poincaré family and E_{2,s}, their
+continuation, unfolding, cusp-form orthogonality and s-derivative remain absent. The scalar even-k≥4 Poincaré
+series and the single E₂* value are not those families. These precise omissions now appear in coverage.
+
+QM.4 remains target-planned, with the inherited Hickerson identification and growth-free torsion-specialization
+gaps explicit in remaining work. No coefficient test is elevated to an identity proof. QM.1’s 22-declaration heat
+and fourteen-declaration index-raising developments and QM.2’s finite phase/Fischer reductions are preserved;
+do not replan them while working on the still-open Taylor/Hecke or Dedekind-to-Selberg endpoints.
+
+QM.5 preserves distinct formal Habiro evaluation, analytic radial limit and Eichler-integral statements. QM.6
+preserves the FLM/Monster gaps and the unresolved ACT-R06 Leech-lattice ownership request. Plain binary-code
+Construction A contains a norm-two vector 2e_i; the extra rootless rank-24 construction is not thereby supplied.
+Accepted RS-06’s restricted modular-curve comparison/application inputs and RS-10’s QT.4/HC.3/HC.4 exports stay
+binding. The inherited analytic-input replacement suggestion is an unaccepted proposal, not an applied change.
+
+## Both issue-listed confirmed findings
+
+| Finding | Disposition and unfinished migration |
+|---|---|
+| RT-AREA-automorphic-1/20 | Amend the previous unaccepted QM.1-generic-owner proposal to the verifier’s single reusable MetaplecticAutomorphicForms service before MP.7: symplectic/unitary Jacobi groups, Schrödinger–Weil representation, weight/index/multiplier forms, Fourier–Jacobi coefficients and theta decomposition. QM.1 keeps q-series/eta/theta applications and exact comparison laws; MP.8 keeps its GSp4 cover. Preserve current local node IDs until reviewed supplier imports/comparisons are available. The verifier corrects the L2 allegation: L2s’s embedded paragraph is not a separate L2 contract; an L2 edge requires evidence of L2’s own Fouquet–Wan use. No edge reversal is applied here. |
+| RT-AREA-topology/13 | The existing QM.5 quantum-modular-form, Kontsevich and Lawrence–Zagier examples and owner-split proposal remain. QT.7 keeps knot-specific statements and conjectures and consumes the common QM.5 service. The proposed QM.5→QT.7 edge and foreign import edits remain pending exact contract comparison and accepted application. No radial-limit equality or knot theorem is inferred from formal evaluation. |
+
+These are continuation dispositions, not independent review verdicts.
+
+## Reading and validation limits
+
+Freshly read: all seven reviewed AUDIT-15 layer entries; current seven-stage targets and touching edges; all
+touching link/overlap/request records; accepted RS-06 and RS-10 QSeries slices; both confirmed findings and
+verifier reasons; eighteen routed extraction items; selected exact q-integer/Gaussian/Jacobi/scalar Maass/ξ/
+Poincaré/E₂*/quantum definition contracts; and the current handoff prefix. The two upstream style documents read
+in full are ArithmeticDirichletSeries and Completed/OrthogonalL2Bases. This is not a fresh full reading of the
+536-node packet, its reader, all 53 source files, all 417 baseline declarations or the older handoff suffix.
+Historical source readings and prototype/regression claims below remain attributed to their original workers;
+they are not independently rerun or recertified by this pass. Six source-version receipts and 65 source findings
+are retained unchanged, with publication collation not newly asserted.
+
+The **entire suggested file** was freshly elaborated using an existing build at exact Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Lean `v4.34.0-rc2`. All 88 direct import source files match the pin,
+all their existing compiled artifacts are present, the Mathlib checkout has no tracked changes, and dependency
+package commits match the existing manifest. The file imports no Tau Ceti module. After checking 38 GiB available,
+the invocation used one thread, an 8,192 MiB limit and a 1,200-second timeout. It exited 0 after 26.12 seconds:
+**0 errors, 1,467 warnings, all admission warnings, 0 other warnings**. This validates signatures, not proofs.
+
+- File: 9,265 lines; SHA-256 `d897945f0f8fe635a2cb993f307fe5c9ee565eef5364702ebaa9f7a2b2a96274`.
+- Compile log: SHA-256 `e3a48c2d1489e75b02d760f6d34109c727b124c1a3b0f70f4f90f8f533a6664a`; started 2026-10-04T20:24:13.624972+00:00.
+- Replay with the existing pinned build: elaborate the issue’s suggested file with `lake env lean`, one thread
+  and an 8,192 MiB limit. No library build or cache fetch is needed.
+- Only four planning-boundary comment lines change in Lean; every import and declaration body is preserved.
+- Validation passed: indexed blueprint checker 0 errors and 0 warnings; source-issue/version
+  validators 0 errors; actual intake file checks 4 files and 0 problems; automatic intake rules
+  no refusals; whole-object preservation and whitespace checks passed. No fresh atlas-wide graph
+  assembly is claimed for this metadata and unaccepted-proposal amendment.
+
+The private compile log is deleted after the pull request opens; this handoff retains the result and hashes,
+without relying on private scratch paths. Independent review should assess the inherited statements and this
+frontier. Each stage follow-up starts with its precise missing target or proof input and reads the exact primary
+source passage before adding nodes. The predecessor’s partial pass status and QM.0/QM.3 source-decomposition
+labels are superseded by the current coverage; its mathematical objects and historical evidence remain below.
+
+## Predecessor handoff (historical continuation evidence)
+
 # BP-QSeriesPartitionsAndMockModularForms — index-raising checkpoint
 
 Agent: Codex, session `codex-hjdg0j`, 27 September 2026. Refs #1042.
