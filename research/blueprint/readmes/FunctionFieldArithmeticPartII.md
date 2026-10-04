@@ -1,3 +1,253 @@
+# Actual groupoid diagrams of affine roots
+
+The finite chart power and test-algebra change laws now hold as equalities of whole functors, including every unit-labelled arrow. They define a native positive-divisibility diagram in Grpd, contravariant in root indices. At positive n the diagram is the actual root-point action groupoid. A test-algebra map gives a natural transformation of these diagrams, and identity and composition hold as equalities of natural transformations. The entire construction is a native functor from CommAlgCat A to the groupoid-diagram category.
+
+The construction retains nilpotents and all stabilizers for arbitrary commutative algebras and positive exponents, without invertibility or flatness premises. Seven typed examples check the direction of divisibility, a nonfactorial12→6→2 composite as a whole functor, the nonzero sixth-root2 over Z/4 becoming zero under6→2, a nonidentity stabilizer becoming the identity under4→2, the nonflat quotient Z/4→Z/2 collapsing a nilpotent point, and naturality/composition under test-algebra change. These are actual categorical objects and arrows, not orbit-set tests.
+
+All538 inherited mathematical contracts remain;535 whole node objects are unchanged and three receive only appended API references. This continuation adds20 nodes,three constructions,17 API references and7 typed tests. All40 planets,ten partial stages,eight gaps,thirteen requests,source routes/versions/issues and the omission ledger are preserved. Every implementation remains unchecked.
+
+This finite chart diagram does not give the general line-bundle root-object comparison, infinite coherent reindexing or a 2-limit equivalence. Frame torsor existence, fppf stackification, effective fpqc quotient/descent and higher-universe adapters remain explicit. The reserved root-stack key still permits scheme/stack bases, arbitrary line bundles with section, every positive exponent and fppf scope. Full Tau-dependent canonical execution remains UNCOMPILED; native and bounded Mathlib evidence is reported separately.
+
+The actual finite root-point power and test-algebra change functors now satisfy identity, composition and interchange as equalities of full functors. They give a native positive-divisibility diagram valued in Grpd and natural transformations for arbitrary test-algebra maps, packaged into a functor from native CommAlgCat to the groupoid-diagram category. All stabilizers and nilpotent points are retained. This provides finite chart categorical coherence only: the general line-bundle root-object comparison, coherent infinite groupoid reindexing and 2-limit comparison, frame-torsor existence, fppf stackification, effective infinite fpqc quotient/descent and higher-universe adapters remain open. All ten partial stages,eight gaps,thirteen requests,forty planets,both paper routes,the full omission ledger and source issue/version envelopes retain their scope.
+
+## Identity label for equality transport
+
+**TauCeti.RootStack.affineRootPointGroupoid.eqToHom_label** — For an equality p=q of actual n-root points, the categorical eqToHom arrow has roots-of-unity label1.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-point-groupoid.
+
+Proof: Induct on the equality and reduce the actual groupoid identity.
+
+## Extensionality of functors into root-point groupoids
+
+**TauCeti.RootStack.affineRootPointGroupoid.functor_ext** — Two actual functors into the same finite root-point groupoid are equal if their object maps agree and their maps of every arrow have equal underlying unit labels. The source is any category; equality transport between equal target objects has label1.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-transport-label, FunctionFieldArithmeticPartII:RS.2/root-point-compose-label, mathlib:CategoryTheory.Functor.ext.
+
+Proof: Apply native categorical Functor.ext. For the conjugated arrow equation, use twice subtype extensionality and the equality-transport label1 law.
+
+## Equal-index power as the identity functor
+
+**TauCeti.RootStack.affineRootPointPower.identity** — For every positive n, the actual n→n power functor equals the identity functor on the entire root-point groupoid, including all stabilizer arrows.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-functor-ext, FunctionFieldArithmeticPartII:RS.2/root-point-power-id-object, FunctionFieldArithmeticPartII:RS.2/root-point-power-id-label.
+
+Proof: Use the already proved object and label laws with the specialized functor extensionality theorem.
+
+## Composition of power functors
+
+**TauCeti.RootStack.affineRootPointPower.composition** — For positive n|N|K, the actual K→N power functor followed by N→n equals K→n as a functor between the full groupoids.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-functor-ext, FunctionFieldArithmeticPartII:RS.2/root-point-power-compose-object, FunctionFieldArithmeticPartII:RS.2/root-point-power-compose-label.
+
+Proof: Apply functor extensionality to the inherited object composition and unit-label power composition equations.
+
+## Identity test-algebra change as a functor
+
+**TauCeti.RootStack.affineRootPointChange.identity** — Changing the test algebra by id_B gives the actual identity functor on the n-root point groupoid.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-functor-ext, FunctionFieldArithmeticPartII:RS.2/root-point-change.
+
+Proof: Postcomposition by id fixes the actual algebra point. Unit extensionality gives equality of the native roots-of-unity labels.
+
+## Composition of test-algebra change functors
+
+**TauCeti.RootStack.affineRootPointChange.composition** — For A-algebra maps φ:B→C and ψ:C→D, change(φ) followed by change(ψ) equals change(ψ∘φ) as actual functors.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-functor-ext, FunctionFieldArithmeticPartII:RS.2/root-point-change.
+
+Proof: The object equation is native algebra-map associativity. The label equation follows by unit extensionality and reduction of the restriction homomorphisms.
+
+## The full functor square for change and powers
+
+**TauCeti.RootStack.affineRootPointChange.power** — For positive n|N and arbitrary A-algebra φ:B→C, power_B(N→n) followed by change_n(φ) equals change_N(φ) followed by power_C(N→n), as actual functors including stabilizer maps.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-functor-ext, FunctionFieldArithmeticPartII:RS.2/root-point-change-power-object, FunctionFieldArithmeticPartII:RS.2/root-point-change-power-label.
+
+Proof: Apply specialized functor extensionality to the inherited object and label squares.
+
+## The positive-divisibility diagram of root-point groupoids
+
+**TauCeti.RootStack.rootPointDiagram** — For arbitrary f∈A and A-algebra B, construct a native functor RootDivIndexᵒᵖ→Grpd. Its object at positive n is the actual finite n-root chart action groupoid; the reversed arrow from N to n uses the actual power functor for n|N. Identity and composition hold as equalities of functors.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-divisibility-index, FunctionFieldArithmeticPartII:RS.2/root-point-groupoid, FunctionFieldArithmeticPartII:RS.2/root-point-power, FunctionFieldArithmeticPartII:RS.2/root-diagram-power-identity, FunctionFieldArithmeticPartII:RS.2/root-diagram-power-composition, mathlib:CategoryTheory.Grpd.of, mathlib:CategoryTheory.Grpd.category.
+
+Proof: Bundle the existing actual groupoids using native Grpd.of and use the reversed positive-divisibility arrows. The new whole-functor laws discharge the diagram axioms.
+
+Consumed API:
+
+- **TauCeti.RootStack.rootPointDiagram.obj**: At op(n), rootPointDiagram(f,B) is exactly Grpd.of of the existing actual n-root point groupoid. All unit-labelled arrows are retained.
+- **TauCeti.RootStack.rootPointDiagram.map_root**: For positive n|N and actual N-root point p, the diagram transition sends its root image to p(t_N)^(N/n).
+- **TauCeti.RootStack.rootPointDiagram.map_label**: For positive n|N and an actual labelled arrow a, the transition sends the underlying unit label to a.label^(N/n). This need not be injective.
+
+Typed examples:
+
+- **TauCeti.RootStack.rootDiagramTests.divisibility_direction**: There is no index arrow from op(3) to op(2): such an arrow would require2|3. This detects use of numerical order or reversal in the wrong direction.
+- **TauCeti.RootStack.rootDiagramTests.nonfactorial_functor_composition**: The actual diagram functors12→6 and6→2 compose to the full12→2 power functor, not merely equal functions on root images.
+- **TauCeti.RootStack.rootDiagramTests.nilpotent_power**: Over Z/4 at f=0, the actual sixth-root point with root2 is nonzero at the root, while its6→2 diagram image has root2 cubed=0.
+- **TauCeti.RootStack.rootDiagramTests.power_not_faithful**: Over Z/4 at f=0, construct a nonidentity stabilizer arrow labelled−1 at the zero fourth-root point. The actual4→2 diagram functor maps that arrow to the categorical identity.
+
+## The actual groupoid at a positive index
+
+**TauCeti.RootStack.rootPointDiagram.obj** — At op(n), rootPointDiagram(f,B) is exactly Grpd.of of the existing actual n-root point groupoid. All unit-labelled arrows are retained.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-diagram.
+
+Proof: Reduce the object field of the native diagram.
+
+## A diagram transition on root images
+
+**TauCeti.RootStack.rootPointDiagram.map_root** — For positive n|N and actual N-root point p, the diagram transition sends its root image to p(t_N)^(N/n).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-diagram, FunctionFieldArithmeticPartII:RS.2/root-point-power-root.
+
+Proof: Reduce the map field and use the existing power root formula.
+
+## A diagram transition on stabilizer labels
+
+**TauCeti.RootStack.rootPointDiagram.map_label** — For positive n|N and an actual labelled arrow a, the transition sends the underlying unit label to a.label^(N/n). This need not be injective.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-diagram, FunctionFieldArithmeticPartII:RS.2/root-point-power-label.
+
+Proof: Reduce the exact groupoid functor and its native unit-power map.
+
+## Natural transformations for arbitrary test-algebra change
+
+**TauCeti.RootStack.rootPointChangeNatTrans** — For any A-algebra map φ:B→C, construct a native natural transformation rootPointDiagram(f,B)→rootPointDiagram(f,C), with component the actual finite change-of-test-algebra functor. Its naturality square is equality of full groupoid functors.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-diagram, FunctionFieldArithmeticPartII:RS.2/root-point-change, FunctionFieldArithmeticPartII:RS.2/root-diagram-change-power.
+
+Proof: Use the actual change functor at each positive index. The whole-functor power square proves naturality in Grpd; no flatness assumption is needed.
+
+Consumed API:
+
+- **TauCeti.RootStack.rootPointChangeNatTrans.app_root**: At every positive n, the component of rootPointChangeNatTrans(f,φ) sends p(t_n) to φ(p(t_n)).
+- **TauCeti.RootStack.rootPointChangeNatTrans.app_label**: At every positive n, the component maps each arrow label by native restrictRootsOfUnity φ n.
+- **TauCeti.RootStack.rootPointChangeNatTrans.identity**: rootPointChangeNatTrans(f,id_B) is the identity natural transformation of the whole positive-divisibility groupoid diagram.
+- **TauCeti.RootStack.rootPointChangeNatTrans.composition**: For φ:B→C and ψ:C→D, the composite of their natural transformations is rootPointChangeNatTrans(f,ψ∘φ).
+
+Typed examples:
+
+- **TauCeti.RootStack.rootDiagramTests.nonflat_natural_change**: The actual algebra-functor natural transformation for the Z-algebra quotient Z/4→Z/2 sends the nonzero nilpotent second-root point2 to the zero-root point. Neither source roots nor their distinctions are replaced by reduced data before applying the map.
+- **TauCeti.RootStack.rootDiagramTests.change_power_square**: For arbitrary A-algebra φ:B→C, the naturality square of its actual natural transformation and the6→2 diagram transition is equality of full groupoid functors.
+- **TauCeti.RootStack.rootDiagramTests.three_algebra_changes**: For three test algebras B,C,D, the actual algebra-functor maps of φ:B→C andψ:C→D compose to the map ofψ∘φ, and the identity algebra map gives the identity natural transformation.
+
+## Natural change on each root image
+
+**TauCeti.RootStack.rootPointChangeNatTrans.app_root** — At every positive n, the component of rootPointChangeNatTrans(f,φ) sends p(t_n) to φ(p(t_n)).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-change-natural, FunctionFieldArithmeticPartII:RS.2/root-point-change-root.
+
+Proof: Reduce the actual component and algebra-map postcomposition.
+
+## Natural change on each arrow label
+
+**TauCeti.RootStack.rootPointChangeNatTrans.app_label** — At every positive n, the component maps each arrow label by native restrictRootsOfUnity φ n.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-change-natural, FunctionFieldArithmeticPartII:RS.2/root-point-change-label.
+
+Proof: Reduce the actual component map on the full groupoid arrows.
+
+## Identity algebra change as a natural transformation
+
+**TauCeti.RootStack.rootPointChangeNatTrans.identity** — rootPointChangeNatTrans(f,id_B) is the identity natural transformation of the whole positive-divisibility groupoid diagram.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-change-natural, FunctionFieldArithmeticPartII:RS.2/root-diagram-change-identity.
+
+Proof: Apply native natural-transformation extensionality and the actual component functor identity.
+
+## Composition of natural algebra changes
+
+**TauCeti.RootStack.rootPointChangeNatTrans.composition** — For φ:B→C and ψ:C→D, the composite of their natural transformations is rootPointChangeNatTrans(f,ψ∘φ).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-change-natural, FunctionFieldArithmeticPartII:RS.2/root-diagram-change-composition.
+
+Proof: Apply native natural-transformation extensionality to the component whole-functor composition law.
+
+## The root-point diagram as a functor of test algebras
+
+**TauCeti.RootStack.rootPointFunctor** — For arbitrary f∈A, construct a native functor CommAlgCat A→(RootDivIndexᵒᵖ→Grpd). It sends the actual test algebra B to rootPointDiagram(f,B) and a native algebra morphism to its actual change natural transformation. Prove identity and composition at the natural-transformation level.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-diagram, FunctionFieldArithmeticPartII:RS.2/root-diagram-change-natural, FunctionFieldArithmeticPartII:RS.2/root-diagram-change-natural-identity, FunctionFieldArithmeticPartII:RS.2/root-diagram-change-natural-composition, mathlib:CommAlgCat, mathlib:CommAlgCat.Hom.hom.
+
+Proof: Reuse the existing native algebra category and functor category. The two whole-natural-transformation laws give the functor axioms.
+
+Consumed API:
+
+- **TauCeti.RootStack.rootPointFunctor.obj**: For every native A-algebra object B, rootPointFunctor(f).obj(B) equals rootPointDiagram(f,B).
+- **TauCeti.RootStack.rootPointFunctor.map_root**: For an actual algebra map φ and positive index n, the corresponding component of rootPointFunctor(f).map(ofHom φ) sends p(t_n) to φ(p(t_n)).
+- **TauCeti.RootStack.rootPointFunctor.map_label**: For any algebra map φ, positive index n and actual arrow a, the corresponding component sends a.label to native restrictRootsOfUnity φ n a.label.
+
+Typed examples:
+
+- **TauCeti.RootStack.rootDiagramTests.nonflat_natural_change**: The actual algebra-functor natural transformation for the Z-algebra quotient Z/4→Z/2 sends the nonzero nilpotent second-root point2 to the zero-root point. Neither source roots nor their distinctions are replaced by reduced data before applying the map.
+- **TauCeti.RootStack.rootDiagramTests.change_power_square**: For arbitrary A-algebra φ:B→C, the naturality square of its actual natural transformation and the6→2 diagram transition is equality of full groupoid functors.
+- **TauCeti.RootStack.rootDiagramTests.three_algebra_changes**: For three test algebras B,C,D, the actual algebra-functor maps of φ:B→C andψ:C→D compose to the map ofψ∘φ, and the identity algebra map gives the identity natural transformation.
+
+## The functor returns the actual diagram
+
+**TauCeti.RootStack.rootPointFunctor.obj** — For every native A-algebra object B, rootPointFunctor(f).obj(B) equals rootPointDiagram(f,B).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-algebra-functor.
+
+Proof: Reduce the functor object field.
+
+## The algebra functor maps actual root images
+
+**TauCeti.RootStack.rootPointFunctor.map_root** — For an actual algebra map φ and positive index n, the corresponding component of rootPointFunctor(f).map(ofHom φ) sends p(t_n) to φ(p(t_n)).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-algebra-functor, FunctionFieldArithmeticPartII:RS.2/root-diagram-change-natural-root, mathlib:CommAlgCat.ofHom.
+
+Proof: Reduce the chosen natural transformation and its actual algebra-valued point map.
+
+## The algebra functor maps all stabilizer labels
+
+**TauCeti.RootStack.rootPointFunctor.map_label** — For any algebra map φ, positive index n and actual arrow a, the corresponding component sends a.label to native restrictRootsOfUnity φ n a.label.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C,D in a common universe; f∈A arbitrary; every root index positive. Divisibility, not numerical order, determines index arrows, and the groupoid diagram is contravariant in those indices. No exponent-invertibility, reducedness, nontriviality, regularity, unit-section, finite-generation, flatness or injectivity assumption. Only the existing finite affine chart action groupoids are packaged. No equivalence with general line-bundle root groupoids, fppf stackification, 2-limit, effective infinite fpqc quotient/descent or higher-universe adapter follows from this strict diagram.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/root-diagram-algebra-functor, FunctionFieldArithmeticPartII:RS.2/root-diagram-change-natural-label, mathlib:CommAlgCat.ofHom.
+
+Proof: Reduce the selected natural-transformation component and label map.
+
 # Actual affine root-point action groupoids
 
 For every positive exponent n, the objects are actual A-algebra maps A[t]/(t^n−f)→B. An arrow p→q carries a unit ζ with ζ^n=1 and q(t)=ζp(t). Identity, composition and inverse make these points a native Groupoid. This retains the full chart algebra and all stabilizer labels, over arbitrary commutative rings and arbitrary parameters.
