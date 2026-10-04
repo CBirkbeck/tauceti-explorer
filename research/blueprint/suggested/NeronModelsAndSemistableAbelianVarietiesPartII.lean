@@ -7287,3 +7287,197 @@ example :
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
+
+noncomputable section
+namespace TauCeti.GenusOne.FerrandPushout
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 1200000
+variable {Y P T : Scheme.{u}}
+
+def conductorTargetBaseChangeIso (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    (conductorIdealSheaf (pullback.snd f q)).subscheme ≅
+      pullback q (conductorIdealSheaf f).subschemeι :=
+  eqToIso (congrArg Scheme.IdealSheafData.subscheme
+    (conductor_global_flat_comparison f q)) ≪≫ (conductorIdealSheaf f).comapIso q
+
+@[reassoc (attr := simp)]
+lemma conductorTargetBaseChangeIso_hom_fst (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    (conductorTargetBaseChangeIso f q).hom ≫ pullback.fst _ _ =
+      (conductorIdealSheaf (pullback.snd f q)).subschemeι := by
+  sorry
+
+@[reassoc (attr := simp)]
+lemma conductorTargetBaseChangeIso_hom_snd_inclusion (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    (conductorTargetBaseChangeIso f q).hom ≫ pullback.snd _ _ ≫
+      (conductorIdealSheaf f).subschemeι =
+        (conductorIdealSheaf (pullback.snd f q)).subschemeι ≫ q := by
+  sorry
+
+@[reassoc (attr := simp)]
+lemma conductorTargetBaseChangeIso_inv_inclusion (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    (conductorTargetBaseChangeIso f q).inv ≫
+      (conductorIdealSheaf (pullback.snd f q)).subschemeι = pullback.fst _ _ := by
+  sorry
+
+lemma conductorTargetBaseChangeIso_isPullback (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    IsPullback (conductorIdealSheaf (pullback.snd f q)).subschemeι
+      ((conductorTargetBaseChangeIso f q).hom ≫ pullback.snd _ _) q
+        (conductorIdealSheaf f).subschemeι := by
+  sorry
+
+def conductorSourceBaseChangeIso (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    ((conductorIdealSheaf (pullback.snd f q)).comap (pullback.snd f q)).subscheme ≅
+      pullback (pullback.fst f q) ((conductorIdealSheaf f).comap f).subschemeι :=
+  eqToIso (congrArg Scheme.IdealSheafData.subscheme
+    (conductorSourceIdeal_flat f q)) ≪≫
+      ((conductorIdealSheaf f).comap f).comapIso (pullback.fst f q)
+
+@[reassoc (attr := simp)]
+lemma conductorSourceBaseChangeIso_hom_fst (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    (conductorSourceBaseChangeIso f q).hom ≫ pullback.fst _ _ =
+      ((conductorIdealSheaf (pullback.snd f q)).comap (pullback.snd f q)).subschemeι := by
+  sorry
+
+@[reassoc (attr := simp)]
+lemma conductorSourceBaseChangeIso_hom_snd_inclusion (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    (conductorSourceBaseChangeIso f q).hom ≫ pullback.snd _ _ ≫
+      ((conductorIdealSheaf f).comap f).subschemeι =
+        ((conductorIdealSheaf (pullback.snd f q)).comap (pullback.snd f q)).subschemeι ≫
+          pullback.fst f q := by
+  sorry
+
+@[reassoc (attr := simp)]
+lemma conductorSourceBaseChangeIso_inv_inclusion (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    (conductorSourceBaseChangeIso f q).inv ≫
+      ((conductorIdealSheaf (pullback.snd f q)).comap (pullback.snd f q)).subschemeι =
+        pullback.fst _ _ := by
+  sorry
+
+lemma conductorSourceBaseChangeIso_isPullback (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    IsPullback ((conductorIdealSheaf (pullback.snd f q)).comap (pullback.snd f q)).subschemeι
+      ((conductorSourceBaseChangeIso f q).hom ≫ pullback.snd _ _) (pullback.fst f q)
+        ((conductorIdealSheaf f).comap f).subschemeι := by
+  sorry
+
+lemma conductorMap_baseChange_square (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    conductorMap (pullback.snd f q) ≫ (conductorTargetBaseChangeIso f q).hom =
+      (conductorSourceBaseChangeIso f q).hom ≫
+        pullback.map (pullback.fst f q) ((conductorIdealSheaf f).comap f).subschemeι
+          q (conductorIdealSheaf f).subschemeι (pullback.snd f q) (conductorMap f) f
+            pullback.condition (conductorMap_square f) := by
+  sorry
+
+lemma conductorMap_baseChange_inverse_square (f : Y ⟶ P)
+    [IsFinite f] [IsSchemeTheoreticallyDominant f] (q : T ⟶ P) [Flat q] :
+    (conductorSourceBaseChangeIso f q).inv ≫ conductorMap (pullback.snd f q) =
+      pullback.map (pullback.fst f q) ((conductorIdealSheaf f).comap f).subschemeι
+        q (conductorIdealSheaf f).subschemeι (pullback.snd f q) (conductorMap f) f
+          pullback.condition (conductorMap_square f) ≫
+            (conductorTargetBaseChangeIso f q).inv := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+end
+
+namespace TauCeti.GenusOne.FerrandPushout
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 1200000
+variable {Y P T : Scheme.{u}}
+
+-- test: ConductorSubschemeChecked.target_projection_roundtrip
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] :
+    (conductorTargetBaseChangeIso f q).hom ≫ (conductorTargetBaseChangeIso f q).inv = 𝟙 _ ∧
+    (conductorTargetBaseChangeIso f q).hom ≫ pullback.fst _ _ =
+      (conductorIdealSheaf (pullback.snd f q)).subschemeι ∧
+    IsPullback (conductorIdealSheaf (pullback.snd f q)).subschemeι
+      ((conductorTargetBaseChangeIso f q).hom ≫ pullback.snd _ _) q
+        (conductorIdealSheaf f).subschemeι := by
+  sorry
+
+-- test: ConductorSubschemeChecked.source_projection_roundtrip
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] :
+    (conductorSourceBaseChangeIso f q).inv ≫ (conductorSourceBaseChangeIso f q).hom = 𝟙 _ ∧
+    (conductorSourceBaseChangeIso f q).hom ≫ pullback.fst _ _ =
+      ((conductorIdealSheaf (pullback.snd f q)).comap (pullback.snd f q)).subschemeι ∧
+    IsPullback ((conductorIdealSheaf (pullback.snd f q)).comap (pullback.snd f q)).subschemeι
+      ((conductorSourceBaseChangeIso f q).hom ≫ pullback.snd _ _) (pullback.fst f q)
+        ((conductorIdealSheaf f).comap f).subschemeι := by
+  sorry
+
+-- test: ConductorSubschemeChecked.actual_conductor_map
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+    (q : T ⟶ P) [Flat q] :
+    conductorMap (pullback.snd f q) ≫ (conductorTargetBaseChangeIso f q).hom =
+      (conductorSourceBaseChangeIso f q).hom ≫
+        pullback.map (pullback.fst f q) ((conductorIdealSheaf f).comap f).subschemeι
+          q (conductorIdealSheaf f).subschemeι (pullback.snd f q) (conductorMap f) f
+            pullback.condition (conductorMap_square f) := by
+  sorry
+
+-- test: ConductorSubschemeChecked.identity_morphism_empty
+example (q : T ⟶ P) [Flat q] :
+    IsEmpty (conductorIdealSheaf (pullback.snd (𝟙 P) q)).subscheme ∧
+    IsEmpty ((conductorIdealSheaf (pullback.snd (𝟙 P) q)).comap
+      (pullback.snd (𝟙 P) q)).subscheme := by
+  sorry
+
+-- test: ConductorSubschemeChecked.identity_base
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] :
+    (conductorTargetBaseChangeIso f (𝟙 P)).hom ≫ pullback.snd _ _ ≫
+      (conductorIdealSheaf f).subschemeι =
+        (conductorIdealSheaf (pullback.snd f (𝟙 P))).subschemeι ∧
+    (conductorSourceBaseChangeIso f (𝟙 P)).inv ≫
+      ((conductorIdealSheaf (pullback.snd f (𝟙 P))).comap (pullback.snd f (𝟙 P))).subschemeι =
+        pullback.fst _ _ := by
+  sorry
+
+-- test: ConductorSubschemeChecked.open_restriction
+example (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f] (U : P.Opens) :
+    IsPullback (conductorIdealSheaf (pullback.snd f U.ι)).subschemeι
+      ((conductorTargetBaseChangeIso f U.ι).hom ≫ pullback.snd _ _) U.ι
+        (conductorIdealSheaf f).subschemeι ∧
+    IsPullback ((conductorIdealSheaf (pullback.snd f U.ι)).comap (pullback.snd f U.ι)).subschemeι
+      ((conductorSourceBaseChangeIso f U.ι).hom ≫ pullback.snd _ _) (pullback.fst f U.ι)
+        ((conductorIdealSheaf f).comap f).subschemeι := by
+  sorry
+
+-- test: ConductorSubschemeChecked.zero_ring
+example :
+    let P := Spec (CommRingCat.of (ZMod 1))
+    (conductorTargetBaseChangeIso (𝟙 P) (𝟙 P)).inv ≫
+      (conductorIdealSheaf (pullback.snd (𝟙 P) (𝟙 P))).subschemeι = pullback.fst _ _ ∧
+    (conductorSourceBaseChangeIso (𝟙 P) (𝟙 P)).hom ≫
+      (conductorSourceBaseChangeIso (𝟙 P) (𝟙 P)).inv = 𝟙 _ := by
+  sorry
+
+-- test: ConductorSubschemeChecked.nonreduced_conductor_section
+set_option diagnostics true in
+example :
+    let A := CommRingCat.of (ZMod 4)
+    let B := CommRingCat.of (ZMod 4 × ZMod 4)
+    let d : A ⟶ B := CommRingCat.ofHom ((RingHom.id (ZMod 4)).prod (RingHom.id (ZMod 4)))
+    let f := Spec.map d
+    (IsFinite f ∧ IsSchemeTheoreticallyDominant f) ∧
+      (∀ (_ : IsFinite f) (_ : IsSchemeTheoreticallyDominant f), ∃ z : Γ((conductorIdealSheaf (pullback.snd f (𝟙 (Spec A)))).subscheme,⊤),
+        z ≠ 0 ∧ z ^ 2 = 0 ∧
+        ((conductorTargetBaseChangeIso f (𝟙 (Spec A))).inv).appTop z ≠ 0) := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
