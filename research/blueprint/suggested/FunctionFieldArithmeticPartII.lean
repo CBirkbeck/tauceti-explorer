@@ -1,3 +1,5 @@
+import Mathlib.AlgebraicGeometry.Sites.Fpqc
+
 import Mathlib.CategoryTheory.Functor.FullyFaithful
 
 import Mathlib.CategoryTheory.Groupoid.Grpd.Basic
@@ -6907,6 +6909,177 @@ example (n : ℕ) [NeZero n] (u : Bˣ) :
     p.normalizationPoint (AdjoinRoot.root _) = 0 ∧
     p.normalizationIso.hom.1 = p.normalizationUnit ∧
     ((rootChartEmbedding (0 : A) n).obj p.normalizationPoint).coefficient = 1 := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory AlgebraicGeometry
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option linter.style.haveILetI false
+variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
+variable {f : A} {n : ℕ}
+
+def FramedRoot.normalizationSpecMap (p : FramedRoot f n B) :
+    Spec (CommRingCat.of (AffineRing (p.coefficient : B) n)) ⟶
+      Spec (CommRingCat.of B) :=
+  Spec.algebraMap B (AffineRing (p.coefficient : B) n)
+
+lemma FramedRoot.normalizationSpecMap_finitePresentation (p : FramedRoot f n B) :
+    LocallyOfFinitePresentation p.normalizationSpecMap := by
+  sorry
+
+variable [NeZero n]
+
+lemma FramedRoot.normalizationSpecMap_flat (p : FramedRoot f n B) :
+    Flat p.normalizationSpecMap := by
+  sorry
+
+lemma FramedRoot.normalizationSpecMap_surjective (p : FramedRoot f n B) :
+    Surjective p.normalizationSpecMap := by
+  sorry
+
+def FramedRoot.normalizationCover (p : FramedRoot f n B) :
+    Scheme.Cover.{0} Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) := by
+  letI := p.normalizationSpecMap_surjective
+  exact p.normalizationSpecMap.cover
+    (P := @Flat ⊓ @LocallyOfFinitePresentation)
+    ⟨p.normalizationSpecMap_flat,p.normalizationSpecMap_finitePresentation⟩
+
+lemma FramedRoot.normalizationCover_source (p : FramedRoot f n B) :
+    p.normalizationCover.X PUnit.unit =
+      Spec (CommRingCat.of (AffineRing (p.coefficient : B) n)) := by
+  sorry
+
+lemma FramedRoot.normalizationCover_map (p : FramedRoot f n B) :
+    p.normalizationCover.f PUnit.unit = p.normalizationSpecMap := by
+  sorry
+
+lemma FramedRoot.normalizationCover_presieve (p : FramedRoot f n B) :
+    p.normalizationCover.presieve₀ = Presieve.singleton p.normalizationSpecMap := by
+  sorry
+
+lemma FramedRoot.normalizationCover_covers (p : FramedRoot f n B)
+    (x : Spec (CommRingCat.of B)) :
+    ∃ y : Spec (CommRingCat.of (AffineRing (p.coefficient : B) n)),
+      p.normalizationCover.f PUnit.unit y = x := by
+  sorry
+
+lemma FramedRoot.normalizationCover_mem (p : FramedRoot f n B) :
+    Presieve.singleton p.normalizationSpecMap ∈
+      Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) := by
+  sorry
+
+def FramedRoot.normalizationChartMap (p : FramedRoot f n B) :
+    Spec (CommRingCat.of (AffineRing (p.coefficient : B) n)) ⟶
+      Spec (CommRingCat.of (AffineRing f n)) :=
+  Spec.map (CommRingCat.ofHom p.normalizationPoint.toRingHom)
+
+lemma FramedRoot.normalizationChartMap_appTop (p : FramedRoot f n B) :
+    (Scheme.ΓSpecIso (CommRingCat.of (AffineRing f n))).inv ≫
+      p.normalizationChartMap.appTop ≫
+        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) n))).hom =
+          CommRingCat.ofHom p.normalizationPoint.toRingHom := by
+  sorry
+
+lemma FramedRoot.normalizationChartMap_root (p : FramedRoot f n B) :
+    ((Scheme.ΓSpecIso (CommRingCat.of (AffineRing f n))).inv ≫
+      p.normalizationChartMap.appTop ≫
+        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) n))).hom).hom
+          (AdjoinRoot.root _) =
+      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (p.coefficient : B)) *
+        algebraMap B (AffineRing (p.coefficient : B) n) p.root := by
+  sorry
+
+lemma FramedRoot.normalizationChartMap_overBase (p : FramedRoot f n B) :
+    p.normalizationChartMap ≫ Spec.algebraMap A (AffineRing f n) =
+      p.normalizationCover.f PUnit.unit ≫ Spec.algebraMap A B := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory AlgebraicGeometry
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option linter.style.haveILetI false
+variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
+
+-- test: framedCoverTests.actual_singleton_cover
+example {f : A} {n : ℕ} [NeZero n] (p : FramedRoot f n B)
+    (x : Spec (CommRingCat.of B)) :
+    Flat p.normalizationSpecMap ∧ Surjective p.normalizationSpecMap ∧
+    LocallyOfFinitePresentation p.normalizationSpecMap ∧
+    p.normalizationCover.presieve₀ = Presieve.singleton p.normalizationSpecMap ∧
+    ∃ y : Spec (CommRingCat.of (AffineRing (p.coefficient : B) n)),
+      p.normalizationCover.f PUnit.unit y = x := by
+  sorry
+
+-- test: framedCoverTests.actual_chart_triangle
+example {f : A} {n : ℕ} [NeZero n] (p : FramedRoot f n B) :
+    p.normalizationChartMap ≫ Spec.algebraMap A (AffineRing f n) =
+      p.normalizationCover.f PUnit.unit ≫ Spec.algebraMap A B ∧
+    (Scheme.ΓSpecIso (CommRingCat.of (AffineRing f n))).inv ≫
+      p.normalizationChartMap.appTop ≫
+        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) n))).hom =
+          CommRingCat.ofHom p.normalizationPoint.toRingHom := by
+  sorry
+
+-- test: framedCoverTests.wild_cover_without_original_chart
+example :
+    let p : FramedRoot (3 : ZMod 4) 2 (ZMod 4) := ⟨-1,1,by decide⟩
+    (¬Nonempty (affineRootPointGroupoid (3 : ZMod 4) 2 (ZMod 4))) ∧
+    Presieve.singleton p.normalizationSpecMap ∈
+      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 4))) ∧
+    ((Scheme.ΓSpecIso (CommRingCat.of (AffineRing (3 : ZMod 4) 2))).inv ≫
+      p.normalizationChartMap.appTop ≫
+        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : ZMod 4) 2))).hom).hom
+          (AdjoinRoot.root _) = AdjoinRoot.root _ := by
+  sorry
+
+-- test: framedCoverTests.nilpotent_chart_section
+example :
+    let p : FramedRoot (0 : ZMod 9) 2 (ZMod 9) := ⟨1,3,by decide⟩
+    let z := ((Scheme.ΓSpecIso (CommRingCat.of (AffineRing (0 : ZMod 9) 2))).inv ≫
+      p.normalizationChartMap.appTop ≫
+        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : ZMod 9) 2))).hom).hom
+          (AdjoinRoot.root _)
+    z ≠ 0 ∧ z ^ 2 = 0 ∧
+    Presieve.singleton p.normalizationSpecMap ∈
+      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 9))) := by
+  sorry
+
+-- test: framedCoverTests.exponent_one
+example (f : A) (p : FramedRoot f 1 B) :
+    Presieve.singleton p.normalizationSpecMap ∈
+      Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) ∧
+    ((Scheme.ΓSpecIso (CommRingCat.of (AffineRing f 1))).inv ≫
+      p.normalizationChartMap.appTop ≫
+        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) 1))).hom).hom
+          (AdjoinRoot.root _) = algebraMap A (AffineRing (p.coefficient : B) 1) f := by
+  sorry
+
+-- test: framedCoverTests.zero_ring
+example :
+    let p : FramedRoot (0 : ZMod 1) 3 (ZMod 1) := ⟨1,0,by decide⟩
+    Presieve.singleton p.normalizationSpecMap ∈
+      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 1))) ∧
+    p.normalizationCover.X PUnit.unit =
+      Spec (CommRingCat.of (AffineRing (p.coefficient : ZMod 1) 3)) ∧
+    p.normalizationChartMap ≫ Spec.algebraMap (ZMod 1) (AffineRing (0 : ZMod 1) 3) =
+      p.normalizationCover.f PUnit.unit ≫ Spec.algebraMap (ZMod 1) (ZMod 1) := by
+  sorry
+
+-- test: framedCoverTests.exponent_zero_finite_presentation
+example (f : A) (p : FramedRoot f 0 B) :
+    LocallyOfFinitePresentation p.normalizationSpecMap := by
   sorry
 
 end TauCeti.RootStack

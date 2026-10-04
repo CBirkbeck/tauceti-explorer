@@ -1,3 +1,198 @@
+# The actual affine fppf normalization cover
+
+For an actual chosen-frame root p=(u,y), use the already constructed algebra D=B[T]/(T^n-u). For every positive exponent its actual spectrum map to Spec B is flat, surjective and locally of finite presentation. It gives an actual singleton cover in Mathlib's existing scheme fppf precoverage, with exact source, covering arrow and presieve, and actual point lifting. The generic spectrum and cover constructions are imported from the pinned baseline.
+
+The existing normalization-point algebra homomorphism now gives an actual arrow from Spec D to the affine root chart Spec(A[Z]/(Z^n-f)). Its global-section map, after the native spectrum identifications, sends Z to T times the image of y. Its composite to Spec A equals the actual covering arrow to Spec B followed by the original projection to Spec A. This packages the affine algebraic normalization as the scheme diagram needed for later native root-object comparison.
+
+The Z/4 wild-exponent example has a covering normalization despite the absence of an original normalized chart point. The actual chart-section image over Z/9 is nonzero and square-zero. Tests also check arbitrary base-point lifting, the actual global-section triangle, exponent1, the empty zero-ring spectrum and finite presentation at exponent0. The cover statement requires positive exponent, with no exponent-invertibility, section-regularity, nontriviality or reducedness premise.
+
+All602 incoming node objects and299 baseline objects are unchanged. This continuation adds14 nodes,11 API references and14 references to7 distinct typed examples. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,the complete omission ledger,all eleven source findings and every version receipt retain their scope. Every implementation remains unchecked. The complete Tau-dependent suggested file remains UNCOMPILED; the separate full native certificate and bounded Mathlib sketch are reported precisely in the handoff.
+
+For every positive exponent and actual chosen-frame root p=(u,y), the existing normalization extension D=B[T]/(T^n-u) now gives an actual singleton cover of Spec B in the native scheme fppf precoverage. Its actual coefficient spectrum map is flat, surjective and locally of finite presentation; its unique source, arrow and presieve are computed and every actual base point lifts. The actual normalized chart arrow Spec D to Spec(A[Z]/(Z^n-f)) induces the existing normalization-point map on global sections, pulls the root section to T times the image of y, and has the proved coefficient triangle to Spec A. Wild exponents, nonzero nilpotents and the empty zero-ring spectrum are retained. Finite presentation of the scheme map also holds for n=0; the cover assertion uses positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, as do all existing source, supplier and geometric obligations.
+
+## The affine normalization scheme map
+
+**TauCeti.RootStack.FramedRoot.normalizationSpecMap** — For the actual framed coordinates p=(u,y), form the scheme morphism Spec D to Spec B induced by the existing coefficient map B to D, where D is the existing root algebra B[T]/(T^n-u). The morphism is defined for every natural exponent.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The morphism and its finite-presentation statement allow every natural n, including zero. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-object, mathlib:AlgebraicGeometry.Spec.algebraMap.
+
+Proof: Apply the existing native contravariant spectrum to the coefficient homomorphism of the existing normalization algebra.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationSpecMap_flat**: For positive exponent, the actual morphism Spec D to Spec B is flat.
+- **TauCeti.RootStack.FramedRoot.normalizationSpecMap_surjective**: For positive exponent, the actual morphism Spec D to Spec B is surjective on its scheme points.
+- **TauCeti.RootStack.FramedRoot.normalizationSpecMap_finitePresentation**: For every natural exponent, the actual normalization scheme morphism is locally of finite presentation.
+
+Typed examples:
+
+- **TauCeti.RootStack.framedCoverTests.actual_singleton_cover**: For arbitrary positive exponent, the actual normalization scheme morphism is flat, surjective and locally of finite presentation; the native cover has its exact singleton presieve and every actual base point lifts through its actual covering arrow.
+- **TauCeti.RootStack.framedCoverTests.wild_cover_without_original_chart**: Over Z/4 with n=2,u=3,y=1,f=3, no original normalized affine chart point exists, while the actual normalization singleton belongs to the native fppf precoverage and its actual chart-section pullback sends the chart root to T.
+- **TauCeti.RootStack.framedCoverTests.exponent_one**: For n=1, the actual normalization singleton is fppf covering and the actual chart-section pullback of the root equals the image of f.
+- **TauCeti.RootStack.framedCoverTests.zero_ring**: Over Z/1 at n=3, the actual normalization singleton belongs to the native fppf precoverage, its source is exactly the actual spectrum of D and the actual chart triangle to Spec(Z/1) commutes, without assuming any point exists.
+- **TauCeti.RootStack.framedCoverTests.exponent_zero_finite_presentation**: For n=0, the actual normalization scheme morphism is still locally of finite presentation. This test makes no positive-exponent cover, normalization or faithful-flatness assertion.
+
+## Finite presentation of the normalization scheme map
+
+**TauCeti.RootStack.FramedRoot.normalizationSpecMap_finitePresentation** — For every natural exponent, the actual normalization scheme morphism is locally of finite presentation.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The morphism and its finite-presentation statement allow every natural n, including zero. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-map, FunctionFieldArithmeticPartII:RS.0/framed-normalization-finite-presentation, mathlib:AlgebraicGeometry.LocallyOfFinitePresentation.SpecMap_iff, mathlib:RingHom.finitePresentation_algebraMap.
+
+Proof: Translate the existing finite-presentation result for the actual normalization algebra into the ring-map predicate, then use the native affine scheme characterization.
+
+## Flatness of the normalization scheme map
+
+**TauCeti.RootStack.FramedRoot.normalizationSpecMap_flat** — For positive exponent, the actual morphism Spec D to Spec B is flat.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-map, FunctionFieldArithmeticPartII:RS.0/framed-normalization-faithfully-flat, mathlib:AlgebraicGeometry.flat_and_surjective_SpecMap_iff, mathlib:RingHom.faithfullyFlat_algebraMap_iff.
+
+Proof: Translate the existing faithful flatness of D over B to the coefficient ring map. Take the flatness component of the native spectrum characterization.
+
+## Surjectivity of the normalization scheme map
+
+**TauCeti.RootStack.FramedRoot.normalizationSpecMap_surjective** — For positive exponent, the actual morphism Spec D to Spec B is surjective on its scheme points.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-map, FunctionFieldArithmeticPartII:RS.0/framed-normalization-faithfully-flat, mathlib:AlgebraicGeometry.flat_and_surjective_SpecMap_iff, mathlib:RingHom.faithfullyFlat_algebraMap_iff.
+
+Proof: Take the surjectivity component of the same native characterization, without a reducedness or nontriviality premise.
+
+## The singleton fppf normalization cover
+
+**TauCeti.RootStack.FramedRoot.normalizationCover** — For positive exponent, construct the actual native singleton cover of Spec B in the existing scheme fppf precoverage, with source Spec D and covering morphism the actual normalization scheme map. Its index is the native singleton type.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-flat, FunctionFieldArithmeticPartII:RS.0/framed-fppf-surjective, FunctionFieldArithmeticPartII:RS.0/framed-fppf-finite-presentation, mathlib:AlgebraicGeometry.Scheme.Hom.cover, mathlib:AlgebraicGeometry.Scheme.fppfPrecoverage.
+
+Proof: Use the existing scheme singleton-cover constructor with the two native morphism properties and actual surjectivity. Reuse the native precoverage and cover carrier.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationCover_source**: The unique source scheme in the normalization cover is exactly Spec D for the existing adjoined unit-root algebra.
+- **TauCeti.RootStack.FramedRoot.normalizationCover_map**: The unique covering arrow is exactly the constructed coefficient spectrum map Spec D to Spec B.
+- **TauCeti.RootStack.FramedRoot.normalizationCover_presieve**: The presieve of the actual normalization cover equals the singleton presieve of its actual normalization scheme map.
+- **TauCeti.RootStack.FramedRoot.normalizationCover_covers**: Every actual point x of Spec B has a point y of Spec D mapping to x along the unique normalization covering arrow. This includes the vacuous empty-spectrum case.
+- **TauCeti.RootStack.FramedRoot.normalizationCover_mem**: The singleton presieve of the actual normalization scheme map belongs to the native fppf precoverage of Spec B.
+
+Typed examples:
+
+- **TauCeti.RootStack.framedCoverTests.actual_singleton_cover**: For arbitrary positive exponent, the actual normalization scheme morphism is flat, surjective and locally of finite presentation; the native cover has its exact singleton presieve and every actual base point lifts through its actual covering arrow.
+- **TauCeti.RootStack.framedCoverTests.wild_cover_without_original_chart**: Over Z/4 with n=2,u=3,y=1,f=3, no original normalized affine chart point exists, while the actual normalization singleton belongs to the native fppf precoverage and its actual chart-section pullback sends the chart root to T.
+- **TauCeti.RootStack.framedCoverTests.exponent_one**: For n=1, the actual normalization singleton is fppf covering and the actual chart-section pullback of the root equals the image of f.
+- **TauCeti.RootStack.framedCoverTests.zero_ring**: Over Z/1 at n=3, the actual normalization singleton belongs to the native fppf precoverage, its source is exactly the actual spectrum of D and the actual chart triangle to Spec(Z/1) commutes, without assuming any point exists.
+
+## The actual cover source
+
+**TauCeti.RootStack.FramedRoot.normalizationCover_source** — The unique source scheme in the normalization cover is exactly Spec D for the existing adjoined unit-root algebra.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-cover.
+
+Proof: Reduce the singleton-cover source field.
+
+## The actual covering arrow
+
+**TauCeti.RootStack.FramedRoot.normalizationCover_map** — The unique covering arrow is exactly the constructed coefficient spectrum map Spec D to Spec B.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-cover, FunctionFieldArithmeticPartII:RS.0/framed-fppf-map.
+
+Proof: Reduce the singleton-cover arrow field.
+
+## The normalization covering presieve
+
+**TauCeti.RootStack.FramedRoot.normalizationCover_presieve** — The presieve of the actual normalization cover equals the singleton presieve of its actual normalization scheme map.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-cover, FunctionFieldArithmeticPartII:RS.0/framed-fppf-surjective, mathlib:AlgebraicGeometry.Scheme.Hom.presieve₀_cover.
+
+Proof: Apply the native presieve computation for the actual singleton cover.
+
+## Every base point lifts to the cover
+
+**TauCeti.RootStack.FramedRoot.normalizationCover_covers** — Every actual point x of Spec B has a point y of Spec D mapping to x along the unique normalization covering arrow. This includes the vacuous empty-spectrum case.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-cover-map, FunctionFieldArithmeticPartII:RS.0/framed-fppf-surjective.
+
+Proof: Use the actual surjectivity witness of the actual normalization morphism; no arbitrary point or nonempty-spectrum assumption is introduced.
+
+## The actual singleton is fppf covering
+
+**TauCeti.RootStack.FramedRoot.normalizationCover_mem** — The singleton presieve of the actual normalization scheme map belongs to the native fppf precoverage of Spec B.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-cover, FunctionFieldArithmeticPartII:RS.0/framed-fppf-cover-presieve.
+
+Proof: Transport the native cover membership field along the exact presieve equality.
+
+## The normalized affine root chart map
+
+**TauCeti.RootStack.FramedRoot.normalizationChartMap** — For positive exponent, construct the scheme morphism from Spec D to the actual affine root chart Spec(A[Z]/(Z^n-f)) using the existing normalization-point A-algebra map.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-point, mathlib:AlgebraicGeometry.Spec.map.
+
+Proof: Apply the existing native contravariant spectrum to the actual normalization-point homomorphism.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationChartMap_appTop**: After conjugation by the two native spectrum global-section isomorphisms, the global-section homomorphism of the actual chart arrow is precisely the existing normalization-point ring homomorphism.
+- **TauCeti.RootStack.FramedRoot.normalizationChartMap_root**: The conjugated global-section homomorphism of the actual chart arrow sends the chart root Z to the actual adjoined unit-root T multiplied by the image of the original section y in D.
+- **TauCeti.RootStack.FramedRoot.normalizationChartMap_overBase**: Composing the actual chart arrow Spec D to Spec(A[Z]/(Z^n-f)) with its coefficient projection to Spec A equals the unique normalization covering arrow to Spec B followed by its original coefficient projection to Spec A.
+
+Typed examples:
+
+- **TauCeti.RootStack.framedCoverTests.actual_chart_triangle**: For arbitrary positive exponent, the two actual scheme composites to Spec A agree, and the actual chart arrow induces the existing normalization-point homomorphism after the native global-section identifications.
+- **TauCeti.RootStack.framedCoverTests.wild_cover_without_original_chart**: Over Z/4 with n=2,u=3,y=1,f=3, no original normalized affine chart point exists, while the actual normalization singleton belongs to the native fppf precoverage and its actual chart-section pullback sends the chart root to T.
+- **TauCeti.RootStack.framedCoverTests.nilpotent_chart_section**: Over Z/9 with n=2,u=1,y=3,f=0, the actual chart-section pullback of the root remains nonzero and has square zero; the actual normalization singleton is fppf covering.
+- **TauCeti.RootStack.framedCoverTests.exponent_one**: For n=1, the actual normalization singleton is fppf covering and the actual chart-section pullback of the root equals the image of f.
+- **TauCeti.RootStack.framedCoverTests.zero_ring**: Over Z/1 at n=3, the actual normalization singleton belongs to the native fppf precoverage, its source is exactly the actual spectrum of D and the actual chart triangle to Spec(Z/1) commutes, without assuming any point exists.
+
+## The actual global-section map of the chart arrow
+
+**TauCeti.RootStack.FramedRoot.normalizationChartMap_appTop** — After conjugation by the two native spectrum global-section isomorphisms, the global-section homomorphism of the actual chart arrow is precisely the existing normalization-point ring homomorphism.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-chart, mathlib:AlgebraicGeometry.Scheme.ΓSpecIso, mathlib:AlgebraicGeometry.Scheme.ΓSpecIso_naturality.
+
+Proof: Use native global-section naturality and the native inverse-hom identity. This is a statement about the actual scheme arrow.
+
+## The chart arrow pulls the root section to the normalized root
+
+**TauCeti.RootStack.FramedRoot.normalizationChartMap_root** — The conjugated global-section homomorphism of the actual chart arrow sends the chart root Z to the actual adjoined unit-root T multiplied by the image of the original section y in D.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-chart-sections, FunctionFieldArithmeticPartII:RS.0/framed-normalization-point-root.
+
+Proof: Rewrite the actual global-section map using its proved identification, then use the existing normalization-point root equation.
+
+## The normalized chart triangle over the original base
+
+**TauCeti.RootStack.FramedRoot.normalizationChartMap_overBase** — Composing the actual chart arrow Spec D to Spec(A[Z]/(Z^n-f)) with its coefficient projection to Spec A equals the unique normalization covering arrow to Spec B followed by its original coefficient projection to Spec A.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; arbitrary section f and actual framed coordinates p=(u,y), with bundled unit u and u times y to the n equals the image of f. The exponent n is positive, expressed by the native nonzero-natural instance. No exponent-invertibility, reducedness, nontriviality, regularity of the section or injectivity of the original coefficient map is assumed. No cancellation of the root section is used. This result packages an already proved affine normalization of chosen-frame coordinates. Native sheaf RootObject comparison, local line-frame existence, stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-fppf-chart, FunctionFieldArithmeticPartII:RS.0/framed-fppf-cover-map, mathlib:AlgebraicGeometry.Spec.map_comp, mathlib:IsScalarTower.algebraMap_apply.
+
+Proof: Use contravariance of the native spectrum. Compare the actual composite coefficient ring maps pointwise by the normalization-point algebra law and the native scalar-tower coefficient identity.
+
 # Faithfully flat normalization of framed root coordinates
 
 Given an actual framed root (u,y), adjoin an n-th root T of its bundled coefficient unit u using the existing algebra D=B[T]/(T^n-u). For positive n, T is an actual unit with inverse u inverse times T^(n-1). The normalized point is the actual A-algebra map with root image T*y. The framed object changed to D is isomorphic to its embedded normalized chart point by the actual arrow labelled T. The extension has a Fin n basis, is faithfully flat, and is finitely presented; exponent invertibility is unnecessary. Finite presentation also holds for exponent zero, although this checkpoint asserts normalization and faithful flatness only for positive exponents.
