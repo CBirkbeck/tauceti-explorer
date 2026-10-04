@@ -1,3 +1,137 @@
+# Actual categorical affine pullback towers
+
+The iterated functor is the composition of the two existing affine pullbacks, followed by equality transport of the target parameter from g(f(λ)) to h(λ). This transport retains the native module, actual additive operator and horizontal linear maps. Its reflexivity and composition laws hold as equalities of functors.
+
+The inherited horizontal cancelBaseChange comparison now gives a natural isomorphism from that actual composed functor to direct pullback. Its inverse is the native tensor inverse, and naturality holds for every horizontal arrow. The two target connections have equivalent zero-curvature conditions. These statements allow arbitrary modules and arbitrary λ, including d₀λ≠0; no flatness or injectivity of scalar extension is assumed or inferred.
+
+Strong monoidal pullback packaging and categorical three-step/monoidal coherence remain open. The global finite locally free integrable ringed-site key still requires relatively constant λ and actual sheaf restriction/tensor/gluing. All149 source routes,35 omissions,five supplier requests,eleven gaps,six planets and later stages are preserved. This is a partial planning checkpoint with every implementation unchecked.
+
+## Declarations and tests in this continuation
+
+### Equality transport of the affine parameter
+
+`AffineCategory.parameterChange` — For an equality h:λ=μ in R, construct the functor AffineCategory Ω λ→AffineCategory Ω μ that keeps the actual native module, additive operator and horizontal linear map unchanged. Only the Leibniz parameter proof is rewritten.
+
+Proof plan: Keep the same data and rewrite h in the existing Leibniz equality; identities and composition are definitionally the same.
+
+API:
+
+- `AffineCategory.parameterChange_operator`: For h:λ=μ and X, the additive map of parameterChange(h)(X) is exactly X.connection.toAddHom.
+- `AffineCategory.parameterChange_map`: For h:λ=μ and an actual horizontal f:X→Y, the native linear map of parameterChange(h).map(f) is f.val.
+- `AffineCategory.parameterChange_refl`: Transport along λ=λ is equal to the actual identity functor on AffineCategory Ω λ.
+- `AffineCategory.parameterChange_trans`: For h:λ=μ and j:μ=ν, parameterChange(h) followed by parameterChange(j) equals parameterChange(h.trans j) as actual functors.
+
+TESTS:
+
+- `AffineTowerTests.parameter_roundtrip`: Transport an arbitrary actual operator along h and h.symm; the operator is retained at each element and the composed functor is the actual identity.
+- `AffineTowerTests.parameter_nonconstant`: Over Z[x], rewrite the parameter x+0 to x while d₀x=1. The actual transported unit operator at x has tensor coordinate x, preserving its nonconstant parameter and derivative term.
+- `AffineTowerTests.zero_arrow`: Construct an actual horizontal zero arrow, extend it twice and rewrite its parameter. Both its twice-extended map and its composite with the actual comparison are zero.
+
+### Equality transport retains the additive operator
+
+`AffineCategory.parameterChange_operator` — For h:λ=μ and X, the additive map of parameterChange(h)(X) is exactly X.connection.toAddHom.
+
+Proof plan: Reduce the explicit data-preserving construction.
+
+### Equality transport retains each horizontal map
+
+`AffineCategory.parameterChange_map` — For h:λ=μ and an actual horizontal f:X→Y, the native linear map of parameterChange(h).map(f) is f.val.
+
+Proof plan: Reduce the map field; its horizontal witness uses the unchanged operators.
+
+### Identity parameter transport as a functor
+
+`AffineCategory.parameterChange_refl` — Transport along λ=λ is equal to the actual identity functor on AffineCategory Ω λ.
+
+Proof plan: Use definitional equality, including proof irrelevance for the Leibniz witness.
+
+### Composition of parameter transports
+
+`AffineCategory.parameterChange_trans` — For h:λ=μ and j:μ=ν, parameterChange(h) followed by parameterChange(j) equals parameterChange(h.trans j) as actual functors.
+
+Proof plan: Both sides retain the same module, additive map and horizontal arrows; proof fields are irrelevant.
+
+### The actual composed affine pullback functor
+
+`AffineCategory.pullbackTower` — For compatible calculus maps m:Ω_R→Γ_S and n:Γ_S→Δ_T over R→S→T, compose pullback(m), pullback(n), then parameterChange along g(f(λ))=h(λ). Its target is AffineCategory Δ (h(λ)) and its object module is T⊗_S(S⊗_R E).
+
+Proof plan: Use the existing functors and the reversed native scalar-tower parameter equality. This is actual functor composition, not a new independently chosen operator.
+
+API:
+
+- `AffineCategory.pullbackTower_operator`: For every X, the additive operator of pullbackTower(n,m)(X) is exactly (X.connection.affinePullback(m)).affinePullback(n).toAddHom.
+- `AffineCategory.pullbackTower_map`: For horizontal f:X→X′, the linear map of pullbackTower(n,m).map(f) is exactly (f.val.baseChange S).baseChange T.
+- `AffineCategory.pullbackTower_map_tmul`: For f:X→X′, t∈T,s∈S,x∈X, pullbackTower(n,m).map(f) sends t⊗(s⊗x) to t⊗(s⊗f(x)).
+
+TESTS:
+
+- `AffineTowerTests.naturality_generator`: Evaluate both actual categorical naturality composites on t⊗(s⊗x) for arbitrary horizontal f. Both are (s•t)⊗f(x), fixing the scalar action and comparison direction.
+- `AffineTowerTests.zero_arrow`: Construct an actual horizontal zero arrow, extend it twice and rewrite its parameter. Both its twice-extended map and its composite with the actual comparison are zero.
+- `AffineTowerTests.nonreduced_operator`: Over Z/4 with a nonzero scalar Higgs operator, compare the actual double tensor1⊗(1⊗2) through the categorical tower isomorphism. Its final coordinate2 is nonzero with square zero, and the original operator on2 is nonzero.
+
+### Operator of the composed functor
+
+`AffineCategory.pullbackTower_operator` — For every X, the additive operator of pullbackTower(n,m)(X) is exactly (X.connection.affinePullback(m)).affinePullback(n).toAddHom.
+
+Proof plan: Reduce both pullback functors and data-preserving parameterChange.
+
+### Arrow of the composed functor
+
+`AffineCategory.pullbackTower_map` — For horizontal f:X→X′, the linear map of pullbackTower(n,m).map(f) is exactly (f.val.baseChange S).baseChange T.
+
+Proof plan: Reduce native functor composition; equality transport changes no linear map.
+
+### Composed pullback on double elementary tensors
+
+`AffineCategory.pullbackTower_map_tmul` — For f:X→X′, t∈T,s∈S,x∈X, pullbackTower(n,m).map(f) sends t⊗(s⊗x) to t⊗(s⊗f(x)).
+
+Proof plan: Reduce the two native baseChange maps.
+
+### Natural isomorphism from iterated to direct pullback
+
+`AffineCategory.pullbackTowerIso` — Construct pullbackTower(n,m)≅pullback(n.towerComp m). Its forward component is native cancelBaseChange R S T T E, its inverse is the native inverse, and both are horizontal for the actual twice-pulled and direct operators. Verify naturality for every actual horizontal arrow.
+
+Proof plan: Apply isoMk to the existing tower-horizontal proof. The native baseChange_baseChange conjugation equation and inverse cancellation prove naturality; on t⊗(s⊗x) both composites are (s•t)⊗f(x). NatIso.ofComponents supplies the inverse naturality and inverse laws.
+
+API:
+
+- `AffineCategory.pullbackTowerIso_hom`: For every X, the native linear map of pullbackTowerIso(n,m).hom.app(X) is exactly cancelBaseChange R S T T X.module.
+- `AffineCategory.pullbackTowerIso_inv`: For every X, the native linear map of pullbackTowerIso(n,m).inv.app(X) is the inverse of cancelBaseChange; it sends t⊗x to t⊗(1⊗x).
+- `AffineCategory.pullbackTowerIso_naturality`: For horizontal f:X→X′, pullbackTower(f) followed by comparison at X′ equals comparison at X followed by directPullback(f), as actual arrows in AffineCategory Δ h(λ).
+- `AffineCategory.pullbackTowerIso_flat_iff`: For every X, the direct T-pullback has zero curvature at every element if and only if the composed T-pullback does. This compares two target objects and does not reflect zero curvature back to the source over R.
+
+TESTS:
+
+- `AffineTowerTests.naturality_generator`: Evaluate both actual categorical naturality composites on t⊗(s⊗x) for arbitrary horizontal f. Both are (s•t)⊗f(x), fixing the scalar action and comparison direction.
+- `AffineTowerTests.inverse_generator`: The actual inverse natural component sends t⊗x to t⊗(1⊗x), and applying its forward component returns t⊗x.
+- `AffineTowerTests.nonreduced_operator`: Over Z/4 with a nonzero scalar Higgs operator, compare the actual double tensor1⊗(1⊗2) through the categorical tower isomorphism. Its final coordinate2 is nonzero with square zero, and the original operator on2 is nonzero.
+
+### Forward component of the tower isomorphism
+
+`AffineCategory.pullbackTowerIso_hom` — For every X, the native linear map of pullbackTowerIso(n,m).hom.app(X) is exactly cancelBaseChange R S T T X.module.
+
+Proof plan: Reduce NatIso.ofComponents and isoMk.
+
+### Inverse component of the tower isomorphism
+
+`AffineCategory.pullbackTowerIso_inv` — For every X, the native linear map of pullbackTowerIso(n,m).inv.app(X) is the inverse of cancelBaseChange; it sends t⊗x to t⊗(1⊗x).
+
+Proof plan: Reduce the actual inverse component chosen by isoMk.
+
+### Naturality as horizontal categorical arrows
+
+`AffineCategory.pullbackTowerIso_naturality` — For horizontal f:X→X′, pullbackTower(f) followed by comparison at X′ equals comparison at X followed by directPullback(f), as actual arrows in AffineCategory Δ h(λ).
+
+Proof plan: Project the naturality law of the constructed natural isomorphism.
+
+### Flatness equivalence between the two target objects
+
+`AffineCategory.pullbackTowerIso_flat_iff` — For every X, the direct T-pullback has zero curvature at every element if and only if the composed T-pullback does. This compares two target objects and does not reflect zero curvature back to the source over R.
+
+Proof plan: Use isoMk_flat_iff with the actual native cancelBaseChange and established tower-horizontal witness.
+
+## Earlier checkpoint reader (preserved verbatim)
+
 # The affine symmetric monoidal category
 
 The existing affine category now tensors actual native modules with the existing balanced additive same-parameter connection. Tensoring horizontal arrows uses the native tensor map and its established horizontal equation. The unit carries λd₀, and the native associator, both unitors and swap are made into horizontal categorical isomorphisms by the existing inverse-horizontal constructor.
