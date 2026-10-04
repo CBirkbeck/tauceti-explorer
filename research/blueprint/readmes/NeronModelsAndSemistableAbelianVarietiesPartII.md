@@ -1,3 +1,181 @@
+# Actual scalar extension of the conductor cokernel
+
+Thirteen conductor-specific declarations now identify the actual F-linear scalar-extension cokernel, its representative and inverse formulas, algebra-image vanishing, full recomputed-conductor annihilator and naturality for actual algebra morphisms. Two native constructions reuse the existing unit spans, quotient carriers and tensor equivalence; no flatness, injectivity or finiteness is needed for these comparisons. SF.0 continues to own its already proven generic finite-flat annihilator/quotient exports. Explicit transport to the inherited right-oriented B⊗_A F conductor theorem and global ideal-sheaf flat recomputation remain open, together with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, P¹/Proj, projectivity/properness, coherent cohomology/genus, separate I₂ and later model/classification obligations. All18 gaps,23 requests,78 routes and seven partial stages remain; implementations stay unchecked. The full Tau-dependent suggested file remains UNCOMPILED.
+
+The comparison uses F⊗_A B with its native F-algebra structure. Tensor right exactness, rather than flatness, identifies its quotient by the actual unit span. The actual F-linear equivalence compares annihilators of these two quotients, retaining the full ideals. It identifies the recomputed conductor but does not yet compare it with the extension of the original conductor. Import the generic SF.0 finite-module flat-annihilator export for that step, and explicitly account for the inherited theorem’s opposite tensor orientation. Global ideal-sheaf and restriction-map comparisons remain required.
+
+The two constructions have10 consumed API references and9 distinct typed examples. A nonzero nilpotent diagonal quotient class over Z/4 becomes zero under the actual quotient algebra to Z/2, while the quotient comparison itself still exists. Naturality uses actual tensor-algebra morphisms on all elements, including the product projection.
+
+All696 inherited contracts are preserved; only one flat-conductor node receives appended proof/dependency instructions. The current Stacks right-exactness proof is used. Its authors’ July2025 correction patch supplies a known historical proof-reference finding, scoped to the read fragment and current page comments; this is not a whole historical version or whole-paper correction audit. Own previous reading is reused only at its original unchanged controls, and incoming peer recovery supplies provenance without transferring personal reading.
+
+## The extended algebra image is the unit span
+
+**TauCeti.GenusOne.FerrandPushout.conductorUnitSpan_baseChange** — For any commutative A-algebra B and A-algebra F, (span_A{1_B}).baseChange F equals span_F{1_(F⊗_A B)} as actual F-submodules. No flatness, injectivity or finiteness is required.
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: mathlib:Submodule.baseChange_span, mathlib:Algebra.TensorProduct.one_def.
+
+Proof: Apply the native singleton-span base-change formula and identify 1⊗1 with the actual tensor-algebra unit.
+
+## Scalar extension of the conductor cokernel
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange** — Construct the actual F-linear equivalence F⊗_A(B/span_A{1}) ≃ (F⊗_A B)/span_F{1} by the existing tensorQuotientEquiv followed by quotient transport through conductorUnitSpan_baseChange. Both carriers are native module quotients.
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-span-base-change, mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv, mathlib:Submodule.quotEquivOfEq.
+
+Proof: Compose the existing F-linear tensor quotient equivalence with the native quotient equivalence for equal submodules. This is the conductor specialization, not a new generic tensor quotient construction.
+
+Consumed API:
+
+- **TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_tmul**: The conductor cokernel comparison sends s⊗[b] to [s⊗b] for all s∈F and b∈B.
+- **TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_symm_tmul**: The inverse comparison sends [s⊗b] to s⊗[b].
+- **TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_scalar_zero**: The comparison sends s⊗[algebraMap A B(a)] to zero for every s∈F and a∈A.
+- **TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_annihilator**: Ann_F(F⊗_A(B/span_A{1})) equals the inverse image under algebraMap F (F⊗_A B) of the actual conductor of its image subring. This unconditional equality identifies the recomputed conductor; it does not assert equality with the extension of Ann_A(B/span_A{1}).
+- **TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_natural**: For every h:B→D and x∈F⊗_A(B/span_A{1}), compare then apply the cokernel map of the actual tensor algebra map id_F⊗h equals extend conductorCokernelMap(h) then compare. The equality is on all tensors, with F-linearity retained.
+- **TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_natural_map**: The naturality equality is an equality of actual F-linear maps: E_D ∘ (id_F⊗conductorCokernelMap(h)) = conductorCokernelMap(id_F⊗h) ∘ E_B.
+
+Typed examples:
+
+- **ConductorCokernelChecked.pure_tensor_sum**: The comparison sends s⊗[b]+t⊗[c] to the class of s⊗b+t⊗c in the actual quotient.
+- **ConductorCokernelChecked.inverse_tensor**: Its inverse sends the actual class of s⊗b to s⊗[b].
+- **ConductorCokernelChecked.scalar_image_zero**: The actual algebra image class s⊗[algebraMap(a)] maps to zero for all scalars.
+- **ConductorCokernelChecked.nonreduced_diagonal_class**: The class of (2,0) is nonzero in (Z/4×Z/4)/span_(Z/4){(1,1)}; nilpotent elements are retained.
+- **ConductorCokernelChecked.nonflat_quotient_tensor**: Under the actual quotient algebra Z/4→Z/2, the comparison sends 1⊗[(2,0)] to zero. Together with the preceding nonzero source class this records a class killed by nonflat scalar extension, while the quotient comparison itself still exists.
+- **ConductorCokernelChecked.natural_projection**: For the actual algebra projection B×D→B, the F-linear comparison square commutes on every extended quotient element.
+
+## The comparison on actual tensor representatives
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_tmul** — The conductor cokernel comparison sends s⊗[b] to [s⊗b] for all s∈F and b∈B.
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change.
+
+Proof: Reduce the two actual native equivalence components on representatives.
+
+## Inverse comparison on actual representatives
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_symm_tmul** — The inverse comparison sends [s⊗b] to s⊗[b].
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-tensor.
+
+Proof: Apply injectivity of the actual comparison and its inverse law.
+
+## The actual algebra image vanishes in the quotient
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_scalar_zero** — The comparison sends s⊗[algebraMap A B(a)] to zero for every s∈F and a∈A.
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change, mathlib:Submodule.mem_span_singleton.
+
+Proof: The class of algebraMap(a)=a•1 is zero in the native quotient before tensoring; use the actual equivalence map-zero law.
+
+## The recomputed conductor annihilates the extended cokernel
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_annihilator** — Ann_F(F⊗_A(B/span_A{1})) equals the inverse image under algebraMap F (F⊗_A B) of the actual conductor of its image subring. This unconditional equality identifies the recomputed conductor; it does not assert equality with the extension of Ann_A(B/span_A{1}).
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change, mathlib:LinearEquiv.annihilator_eq, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator.
+
+Proof: Transport the annihilator through the actual F-linear comparison. The existing conductor-annihilator proof is repeated only inside this conductor specialization at independent universes because its inherited standalone header uses a common universe. Retain the full ideals and nilpotent elements.
+
+## The conductor cokernel map of an algebra morphism
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelMap** — For an actual A-algebra morphism h:B→D, construct the A-linear map B/span_A{1}→D/span_A{1} by native mapQ and the fact that h preserves the unit. No injectivity or surjectivity is assumed.
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: mathlib:Submodule.mapQ.
+
+Proof: Use the native quotient map after proving that the actual algebra homomorphism carries the unit span into the target unit span. No new quotient carrier is introduced.
+
+Consumed API:
+
+- **TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_mk**: The actual cokernel map of h sends [b] to [h(b)].
+- **TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_id**: For the identity A-algebra morphism on B, conductorCokernelMap equals the native identity linear map on B/span_A{1}.
+- **TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_comp**: For h:B→D and g:D→E, the conductor cokernel map of g∘h equals conductorCokernelMap(g) composed with conductorCokernelMap(h), as actual A-linear maps.
+- **TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_surjective**: If an actual A-algebra morphism h:B→D is surjective, its conductor cokernel map is surjective. No claim is made for injective h.
+
+Typed examples:
+
+- **ConductorCokernelChecked.map_representative**: For an actual algebra morphism h, the cokernel map sends [b+c] to [h(b)+h(c)].
+- **ConductorCokernelChecked.map_identity**: The cokernel map of the actual identity algebra morphism fixes every actual quotient class.
+- **ConductorCokernelChecked.map_composition**: The cokernel map of g∘h equals the composite of the two actual cokernel maps on every quotient class.
+- **ConductorCokernelChecked.natural_projection**: For the actual algebra projection B×D→B, the F-linear comparison square commutes on every extended quotient element.
+
+## The cokernel map on representatives
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_mk** — The actual cokernel map of h sends [b] to [h(b)].
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map.
+
+Proof: Reduce the native mapQ component on a quotient representative.
+
+## Identity algebra maps induce identity cokernel maps
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_id** — For the identity A-algebra morphism on B, conductorCokernelMap equals the native identity linear map on B/span_A{1}.
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map.
+
+Proof: Use quotient-linear-map extensionality and the actual identity algebra map.
+
+## Composition of actual algebra maps
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_comp** — For h:B→D and g:D→E, the conductor cokernel map of g∘h equals conductorCokernelMap(g) composed with conductorCokernelMap(h), as actual A-linear maps.
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map.
+
+Proof: Use native quotient-map extensionality and the actual composed algebra morphism on representatives.
+
+## Surjective algebra maps induce surjective cokernel maps
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_surjective** — If an actual A-algebra morphism h:B→D is surjective, its conductor cokernel map is surjective. No claim is made for injective h.
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map, mathlib:Submodule.Quotient.mk_surjective.
+
+Proof: Lift an actual target quotient class to D and then lift its representative along the supplied surjective algebra morphism.
+
+## Naturality for actual algebra morphisms
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_natural** — For every h:B→D and x∈F⊗_A(B/span_A{1}), compare then apply the cokernel map of the actual tensor algebra map id_F⊗h equals extend conductorCokernelMap(h) then compare. The equality is on all tensors, with F-linearity retained.
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map, mathlib:TensorProduct.AlgebraTensorModule.map, mathlib:Algebra.TensorProduct.map, mathlib:Submodule.Quotient.mk_surjective.
+
+Proof: Use native tensor induction; zero and addition use the actual linear maps. On pure tensors lift the quotient representative and reduce both actual paths to the same class [s⊗h(b)].
+
+## The F-linear comparison square
+
+**TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_natural_map** — The naturality equality is an equality of actual F-linear maps: E_D ∘ (id_F⊗conductorCokernelMap(h)) = conductorCokernelMap(id_F⊗h) ∘ E_B.
+
+Hypotheses: A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated. Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-naturality.
+
+Proof: Apply native linear-map extensionality to the all-tensor equality.
+
+## Known corrected source reference
+
+Historical proof-reference fragment in the complete public correction patch aee70b2c90b64dc043aa7740e0d9c9346aa4323f; current Lemma10.12.10 page comments10136/10607. Patch SHA256 464eb5213ac6a5ed1937db69a06c4dc109f85c6dea0dfe80884ab3342f441d86. Only this patch and the complete current displayed lemma/comments were read, not the whole historical source version.
+
+Use the exactness characterization by Hom into every R-module P, citing Lemma10.10.1(1) for both uses; quantify over P explicitly. Corrected24July2025 by Stacks authors commit aee70b2c90b64dc043aa7740e0d9c9346aa4323f, acknowledged in current page comment10607; no new error in the current statement is alleged.
+
 # Scheme morphisms descend through the actual conductor square
 
 For every finite schematically dominant f:Y→P and compatible scheme maps y:Y→T and z:C_f→T, there is a specified scheme morphism P→T with both triangles and uniqueness. The target T is arbitrary in the same universe; it need not be affine or separated. The actual conductor closed subschemes and the existing schemes are retained, including nilpotents and empty schemes.
