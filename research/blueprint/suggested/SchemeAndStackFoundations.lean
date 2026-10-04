@@ -2045,3 +2045,237 @@ example :
   sorry
 
 end TauCeti.SchemeFoundations.IdealPullback
+
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+universe sqU
+variable {X Y Z : Scheme.{sqU}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 800000
+
+noncomputable def quotientToSheafNatTrans (I : Y.IdealSheafData) (f : X ⟶ Y) :
+    quotientPresheaf I f ⟶
+      ((show Monotone (fun U : Y.affineOpens => U.1) from fun _ _ h => h).functor ⋙
+        TopologicalSpace.Opens.map f.base).op ⋙
+          sheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap f)) :=
+  quotientToKernelNatTrans I f ≫
+    Functor.whiskerLeft ((show Monotone (fun U : Y.affineOpens => U.1)
+      from fun _ _ h => h).functor ⋙ TopologicalSpace.Opens.map f.base).op
+      (toSheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap f)))
+
+lemma quotientToSheafNatTrans_mk (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) (a : Γ(X, f ⁻¹ᵁ U)) :
+    (quotientToSheafNatTrans I f).app (op U) (Ideal.Quotient.mk _ a) =
+      (toSheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap f))).app
+        (op (f ⁻¹ᵁ U)) (Ideal.Quotient.mk _ a) := by
+  sorry
+
+lemma quotientToSheafNatTrans_factor (I : Y.IdealSheafData) (f : X ⟶ Y) :
+    quotientToSheafNatTrans I f ≫
+      Functor.whiskerLeft ((show Monotone (fun U : Y.affineOpens => U.1)
+        from fun _ _ h => h).functor ⋙ TopologicalSpace.Opens.map f.base).op
+        (allOpenSheafComparison (I.comap f)) = quotientToClosedNatTrans I f := by
+  sorry
+
+lemma quotientToSheafNatTrans_unique (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (q : quotientPresheaf I f ⟶
+      ((show Monotone (fun U : Y.affineOpens => U.1) from fun _ _ h => h).functor ⋙
+        TopologicalSpace.Opens.map f.base).op ⋙
+          sheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap f)))
+    (hq : q ≫ Functor.whiskerLeft ((show Monotone (fun U : Y.affineOpens => U.1)
+      from fun _ _ h => h).functor ⋙ TopologicalSpace.Opens.map f.base).op
+      (allOpenSheafComparison (I.comap f)) = quotientToClosedNatTrans I f) :
+    q = quotientToSheafNatTrans I f := by
+  sorry
+
+lemma quotientToSheafNatTrans_app_isIso (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) (H : IsAffineOpen (f ⁻¹ᵁ U)) :
+    IsIso ((quotientToSheafNatTrans I f).app (op U)) := by
+  sorry
+
+lemma quotientToSheafNatTrans_isIso (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f] :
+    IsIso (quotientToSheafNatTrans I f) := by
+  sorry
+
+lemma quotientCompNatIso_kernel (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    [IsAffineHom g] :
+    quotientToKernelNatTrans I (f ≫ g) ≫
+      Functor.whiskerLeft ((show Monotone (fun U : Z.affineOpens => U.1)
+        from fun _ _ h => h).functor ⋙ TopologicalSpace.Opens.map (f ≫ g).base).op
+        (kernelCompNatIso I f g).hom =
+    (quotientCompNatIso I f g).hom ≫
+      Functor.whiskerLeft (show Monotone (fun U : Z.affineOpens =>
+        (⟨g ⁻¹ᵁ U, U.2.preimage g⟩ : Y.affineOpens))
+        from fun _ _ h => g.preimage_mono h).functor.op
+        (quotientToKernelNatTrans (I.comap g) f) := by
+  sorry
+
+lemma quotientCompNatIso_closed (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    [IsAffineHom g] :
+    quotientToClosedNatTrans I (f ≫ g) ≫
+      Functor.whiskerLeft ((show Monotone (fun U : Z.affineOpens => U.1)
+        from fun _ _ h => h).functor ⋙ TopologicalSpace.Opens.map (f ≫ g).base).op
+        (closedCompNatIso I f g).hom =
+    (quotientCompNatIso I f g).hom ≫
+      Functor.whiskerLeft (show Monotone (fun U : Z.affineOpens =>
+        (⟨g ⁻¹ᵁ U, U.2.preimage g⟩ : Y.affineOpens))
+        from fun _ _ h => g.preimage_mono h).functor.op
+        (quotientToClosedNatTrans (I.comap g) f) := by
+  sorry
+
+lemma quotientCompNatIso_sheaf (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    [IsAffineHom g] :
+    quotientToSheafNatTrans I (f ≫ g) ≫
+      Functor.whiskerLeft ((show Monotone (fun U : Z.affineOpens => U.1)
+        from fun _ _ h => h).functor ⋙ TopologicalSpace.Opens.map (f ≫ g).base).op
+        (sheafCompNatIso I f g).hom =
+    (quotientCompNatIso I f g).hom ≫
+      Functor.whiskerLeft (show Monotone (fun U : Z.affineOpens =>
+        (⟨g ⁻¹ᵁ U, U.2.preimage g⟩ : Y.affineOpens))
+        from fun _ _ h => g.preimage_mono h).functor.op
+        (quotientToSheafNatTrans (I.comap g) f) := by
+  sorry
+
+lemma quotientCompNatIso_kernel_inverse (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    [IsAffineHom g] :
+    Functor.whiskerLeft (show Monotone (fun U : Z.affineOpens =>
+      (⟨g ⁻¹ᵁ U, U.2.preimage g⟩ : Y.affineOpens))
+      from fun _ _ h => g.preimage_mono h).functor.op
+      (quotientToKernelNatTrans (I.comap g) f) ≫
+      Functor.whiskerLeft ((show Monotone (fun U : Z.affineOpens => U.1)
+        from fun _ _ h => h).functor ⋙ TopologicalSpace.Opens.map (f ≫ g).base).op
+        (kernelCompNatIso I f g).inv =
+    (quotientCompNatIso I f g).inv ≫ quotientToKernelNatTrans I (f ≫ g) := by
+  sorry
+
+lemma quotientCompNatIso_closed_inverse (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    [IsAffineHom g] :
+    Functor.whiskerLeft (show Monotone (fun U : Z.affineOpens =>
+      (⟨g ⁻¹ᵁ U, U.2.preimage g⟩ : Y.affineOpens))
+      from fun _ _ h => g.preimage_mono h).functor.op
+      (quotientToClosedNatTrans (I.comap g) f) ≫
+      Functor.whiskerLeft ((show Monotone (fun U : Z.affineOpens => U.1)
+        from fun _ _ h => h).functor ⋙ TopologicalSpace.Opens.map (f ≫ g).base).op
+        (closedCompNatIso I f g).inv =
+    (quotientCompNatIso I f g).inv ≫ quotientToClosedNatTrans I (f ≫ g) := by
+  sorry
+
+lemma quotientCompNatIso_sheaf_inverse (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    [IsAffineHom g] :
+    Functor.whiskerLeft (show Monotone (fun U : Z.affineOpens =>
+      (⟨g ⁻¹ᵁ U, U.2.preimage g⟩ : Y.affineOpens))
+      from fun _ _ h => g.preimage_mono h).functor.op
+      (quotientToSheafNatTrans (I.comap g) f) ≫
+      Functor.whiskerLeft ((show Monotone (fun U : Z.affineOpens => U.1)
+        from fun _ _ h => h).functor ⋙ TopologicalSpace.Opens.map (f ≫ g).base).op
+        (sheafCompNatIso I f g).inv =
+    (quotientCompNatIso I f g).inv ≫ quotientToSheafNatTrans I (f ≫ g) := by
+  sorry
+
+lemma quotientCompIso_closed_factor (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : Z.affineOpens) (H : g ⁻¹ᵁ U ∈ Y.affineOpens) :
+    CommRingCat.ofHom (quotientToClosed I (f ≫ g) U) ≫
+      (closedCompNatIso I f g).hom.app (op ((f ≫ g) ⁻¹ᵁ U)) =
+    (quotientCompIso I f g U H).toCommRingCatIso.hom ≫
+      CommRingCat.ofHom (quotientToClosed (I.comap g) f ⟨g ⁻¹ᵁ U, H⟩) := by
+  sorry
+
+lemma quotientCompIso_sheaf_factor (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : Z.affineOpens) (H : g ⁻¹ᵁ U ∈ Y.affineOpens) :
+    (quotientToSheafNatTrans I (f ≫ g)).app (op U) ≫
+      (sheafCompNatIso I f g).hom.app (op ((f ≫ g) ⁻¹ᵁ U)) =
+    (quotientCompIso I f g U H).toCommRingCatIso.hom ≫
+      (quotientToSheafNatTrans (I.comap g) f).app (op ⟨g ⁻¹ᵁ U, H⟩) := by
+  sorry
+
+lemma quotientToSheafNatTrans_injective_iff (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) :
+    Function.Injective ((quotientToSheafNatTrans I f).app (op U)) ↔
+      Function.Injective (quotientToClosed I f U) := by
+  sorry
+
+lemma quotientToSheafNatTrans_surjective_iff (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (U : Y.affineOpens) :
+    Function.Surjective ((quotientToSheafNatTrans I f).app (op U)) ↔
+      Function.Surjective (quotientToClosed I f U) := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
+
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+universe sqU
+variable {X Y Z : Scheme.{sqU}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 800000
+
+-- test: QuotientComparisonSquaresChecked.identity_bijective
+example (I : X.IdealSheafData) (U : X.affineOpens) :
+    Function.Bijective ((quotientToSheafNatTrans I (𝟙 X)).app (op U)) := by
+  sorry
+
+-- test: QuotientComparisonSquaresChecked.empty_open
+example (I : Y.IdealSheafData) (f : X ⟶ Y)
+    (q : (quotientPresheaf I f).obj (op ⟨⊥, isAffineOpen_bot Y⟩)) :
+    (quotientToSheafNatTrans I f).app (op ⟨⊥, isAffineOpen_bot Y⟩) q = 0 := by
+  sorry
+
+-- test: QuotientComparisonSquaresChecked.surjectivity_obstruction
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
+    (h : ¬ Function.Surjective (quotientToClosed I f U)) :
+    ¬ Function.Surjective ((quotientToSheafNatTrans I f).app (op U)) := by
+  sorry
+
+-- test: QuotientComparisonSquaresChecked.single_affine_preimage
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : Z.affineOpens) (H : IsAffineOpen (g ⁻¹ᵁ U))
+    (q : (quotientPresheaf I (f ≫ g)).obj (op U)) :
+    (sheafCompNatIso I f g).hom.app (op ((f ≫ g) ⁻¹ᵁ U))
+      ((quotientToSheafNatTrans I (f ≫ g)).app (op U) q) =
+    (quotientToSheafNatTrans (I.comap g) f).app (op ⟨g ⁻¹ᵁ U, H⟩)
+      (quotientCompIso I f g U H q) := by
+  sorry
+
+-- test: QuotientComparisonSquaresChecked.kernel_inverse_sections
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) [IsAffineHom g]
+    (U : Z.affineOpens)
+    (q : (quotientPresheaf (I.comap g) f).obj (op ⟨g ⁻¹ᵁ U, U.2.preimage g⟩)) :
+    (kernelCompNatIso I f g).inv.app (op ((f ≫ g) ⁻¹ᵁ U))
+      ((quotientToKernelNatTrans (I.comap g) f).app (op ⟨g ⁻¹ᵁ U, U.2.preimage g⟩) q) =
+    (quotientToKernelNatTrans I (f ≫ g)).app (op U)
+      ((quotientCompNatIso I f g).inv.app (op U) q) := by
+  sorry
+
+-- test: QuotientComparisonSquaresChecked.closed_inverse_sections
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) [IsAffineHom g]
+    (U : Z.affineOpens)
+    (q : (quotientPresheaf (I.comap g) f).obj (op ⟨g ⁻¹ᵁ U, U.2.preimage g⟩)) :
+    (closedCompNatIso I f g).inv.app (op ((f ≫ g) ⁻¹ᵁ U))
+      ((quotientToClosedNatTrans (I.comap g) f).app (op ⟨g ⁻¹ᵁ U, U.2.preimage g⟩) q) =
+    (quotientToClosedNatTrans I (f ≫ g)).app (op U)
+      ((quotientCompNatIso I f g).inv.app (op U) q) := by
+  sorry
+
+-- test: QuotientComparisonSquaresChecked.sheaf_inverse_sections
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) [IsAffineHom g]
+    (U : Z.affineOpens)
+    (q : (quotientPresheaf (I.comap g) f).obj (op ⟨g ⁻¹ᵁ U, U.2.preimage g⟩)) :
+    (sheafCompNatIso I f g).inv.app (op ((f ≫ g) ⁻¹ᵁ U))
+      ((quotientToSheafNatTrans (I.comap g) f).app (op ⟨g ⁻¹ᵁ U, U.2.preimage g⟩) q) =
+    (quotientToSheafNatTrans I (f ≫ g)).app (op U)
+      ((quotientCompNatIso I f g).inv.app (op U) q) := by
+  sorry
+
+-- test: QuotientComparisonSquaresChecked.nonreduced_identity
+example :
+    let X := Spec (.of (ZMod 4))
+    let I : X.IdealSheafData := ⊥
+    let U : X.affineOpens := ⟨⊤, isAffineOpen_top _⟩
+    let a := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    let q := (quotientToSheafNatTrans I (𝟙 X)).app (op U) (Ideal.Quotient.mk _ a)
+    q ≠ 0 ∧ q ^ 2 = 0 := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback

@@ -1,3 +1,259 @@
+# Reindexed quotient comparison squares
+
+Codex — codex-7e92bd,4October2026. Partial checkpoint: one construction and fifteen lemmas.
+
+The actual image-ideal quotient now maps naturally to the native all-open quotient sheafification, with representative, factorization, uniqueness and precise affine isomorphism criteria. Whole direct/iterated kernel, closed-section and sheafification comparison squares commute in both directions with explicit reindexing, for arbitrary first morphism and affine second morphism; single-open closed/sheaf variants require only that intermediate preimage affine. Explicit identity/three-morphism coherence for the image-ideal quotient reindexing itself remains, as do conductor-specific identification/coherence in the consumer. No arbitrary nonaffine image-ideal equality, global closed-section surjectivity or naive quotient sheaf condition is asserted. Both current consumer request objects, all eight gaps, six reserved-key boundaries,62 source routes and all other-stage obligations remain unchanged.
+
+The new map is the actual quotient-to-kernel natural transformation followed by the native sheafification unit. Its composite with the existing all-open sheaf comparison is the quotient-to-closed natural transformation; cancelling that comparison proves uniqueness and transfers injectivity and surjectivity exactly. A single affine inverse image makes the component invertible, and an affine morphism makes the entire transformation invertible.
+
+For f:X→Y,g:Y→Z, the whole composite image-ideal quotient isomorphism uses affine g to reindex affine opens of Z as affine opens of Y. The other functor remembers those base opens as all opens of X via the composite inverse image. The kernel, closed-section and sheafification squares commute with these actual functors, in both directions. The inverse square uses the inverses of the two composition comparisons, without inverting the vertical quotient-to-closed/sheaf maps. The single-open variants retain only the required affine intermediate-open witness.
+
+## Image-ideal quotient to the actual quotient sheaf
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-map**.
+
+For arbitrary f:X→Y and native ideal datum I on Y, construct the natural transformation from quotientPresheaf I f on affine opens of Y to the actual all-open sheafification of allOpenQuotient(I.comap f), precomposed with affine-open inclusion and inverse image along f. It is the existing quotientToKernelNatTrans followed by the whiskered native sheafification unit.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Compose the existing natural quotient-to-kernel map with the native sheafification unit after the actual inverse-image functor. No new quotient carrier or generic sheafification is planned.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-transformation, SchemeAndStackFoundations:SF.0/all-open-quotient-presheaf, mathlib:CategoryTheory.Functor.whiskerLeft, mathlib:CategoryTheory.toSheafify.
+
+## Actual representative of the quotient-to-sheaf map
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_mk**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/representative**.
+
+At every affine U in Y and section a of X above U, the new natural component sends the image-ideal quotient class of a to the native sheafification-unit image of the class of a in the actual immersion-kernel quotient at f⁻¹U.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Unfold the actual composition and the preceding quotient-to-kernel representative map.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-map.
+
+## Factorization through the closed-section comparison
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_factor**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/factor**.
+
+For arbitrary f, the new natural transformation followed by allOpenSheafComparison(I.comap f), whiskered by affine-open inclusion and inverse image along f, equals the existing quotientToClosedNatTrans I f as whole natural transformations.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Associate composition, combine the two whiskered maps and use the existing actual sheaf factorization.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-map, SchemeAndStackFoundations:SF.0/quotient-to-kernel-sheaf-factor, mathlib:CategoryTheory.Functor.whiskerLeft_comp.
+
+## Uniqueness of the actual quotient-to-sheaf factor
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_unique**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/unique**.
+
+Any natural transformation with the same source and target as quotientToSheafNatTrans whose composite with the whiskered allOpenSheafComparison is quotientToClosedNatTrans equals quotientToSheafNatTrans. This is uniqueness of the whole natural transformation, for arbitrary f.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: The actual all-open sheaf comparison is an isomorphism. Cancel its whiskering as a monomorphism using the native dual of cancel_epi.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-comparison-squares/factor, SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism, mathlib:CategoryTheory.cancel_epi.
+
+## Isomorphism over a single affine inverse image
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_app_isIso**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/component-iso**.
+
+For affine U in Y, if f⁻¹U is affine, the component of quotientToSheafNatTrans at U is an isomorphism of actual commutative rings. Only this single affine inverse image is required.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: The actual closed-section comparison is an isomorphism and the old quotient-to-closed component is bijective under the stated affine hypothesis. Apply the generated native right-cancellation isomorphism criterion to the factorization.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-comparison-squares/factor, SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism, SchemeAndStackFoundations:SF.0/quotient-to-closed-injective, SchemeAndStackFoundations:SF.0/quotient-to-closed-surjective, mathlib:CategoryTheory.isIso_comp_left_iff.
+
+## Isomorphism for an affine scheme morphism
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_isIso**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/natural-iso**.
+
+For an affine scheme morphism f, quotientToSheafNatTrans I f is an isomorphism in the native functor category. Every component uses the native affine inverse-image theorem.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Apply the preceding single-open result at every affine base open, then the native componentwise isomorphism criterion.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-comparison-squares/component-iso, mathlib:CategoryTheory.NatIso.isIso_of_isIso_app, mathlib:AlgebraicGeometry.IsAffineOpen.preimage.
+
+## Reindexed immersion-kernel quotient comparison square
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_kernel**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/kernel-forward**.
+
+For arbitrary f:X→Y and affine g:Y→Z, first apply quotientToKernelNatTrans for f followed by g and then the existing kernelCompNatIso, whiskered by affine-open inclusion and the composite inverse image. This equals first applying quotientCompNatIso and then quotientToKernelNatTrans for f and I.comap g, reindexed by the actual affine inverse-image functor U↦g⁻¹U. Equality holds for entire natural transformations, with both reindexing functors explicit.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Use natural-transformation and concrete-morphism extensionality. For kernel quotients use the existing component factorization; for closed sections and sheafification use quotient-ring extensionality and the actual representative formulas. There is no assumption that arbitrary closed or sheafified sections lift to ambient sections.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-natural-isomorphism, SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-isomorphism, SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-transformation.
+
+## Reindexed closed-subscheme section comparison square
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_closed**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/closed-forward**.
+
+For arbitrary f:X→Y and affine g:Y→Z, first apply quotientToClosedNatTrans for f followed by g and then the existing closedCompNatIso, whiskered by affine-open inclusion and the composite inverse image. This equals first applying quotientCompNatIso and then quotientToClosedNatTrans for f and I.comap g, reindexed by the actual affine inverse-image functor U↦g⁻¹U. Equality holds for entire natural transformations, with both reindexing functors explicit.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Use natural-transformation and concrete-morphism extensionality. For kernel quotients use the existing component factorization; for closed sections and sheafification use quotient-ring extensionality and the actual representative formulas. There is no assumption that arbitrary closed or sheafified sections lift to ambient sections.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-natural-isomorphism, SchemeAndStackFoundations:SF.0/composite-closed-presheaf-isomorphism, SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-transformation.
+
+## Reindexed native all-open quotient sheafification comparison square
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_sheaf**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-forward**.
+
+For arbitrary f:X→Y and affine g:Y→Z, first apply quotientToSheafNatTrans for f followed by g and then the existing sheafCompNatIso, whiskered by affine-open inclusion and the composite inverse image. This equals first applying quotientCompNatIso and then quotientToSheafNatTrans for f and I.comap g, reindexed by the actual affine inverse-image functor U↦g⁻¹U. Equality holds for entire natural transformations, with both reindexing functors explicit.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Use natural-transformation and concrete-morphism extensionality. For kernel quotients use the existing component factorization; for closed sections and sheafification use quotient-ring extensionality and the actual representative formulas. There is no assumption that arbitrary closed or sheafified sections lift to ambient sections.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-natural-isomorphism, SchemeAndStackFoundations:SF.0/composite-sheafification-isomorphism, SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-map.
+
+## Inverse reindexed immersion-kernel quotient comparison square
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_kernel_inverse**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/kernel-inverse**.
+
+With f arbitrary and g affine, the reindexed iterated quotientToKernelNatTrans followed by the whiskered inverse kernelCompNatIso equals inverse quotientCompNatIso followed by the direct quotientToKernelNatTrans for f followed by g. This is equality of whole natural transformations with the same explicit reindexing functors as the forward square.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Cancel the forward quotient natural isomorphism. Substitute the proved forward square, combine whiskered composites and use the actual inverse identities. No inverse of the quotient-to-closed or quotient-to-sheaf map is assumed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-comparison-squares/kernel-forward, mathlib:CategoryTheory.cancel_epi, mathlib:CategoryTheory.Functor.whiskerLeft_comp, mathlib:CategoryTheory.Functor.whiskerLeft_id'.
+
+## Inverse reindexed closed-subscheme section comparison square
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_closed_inverse**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/closed-inverse**.
+
+With f arbitrary and g affine, the reindexed iterated quotientToClosedNatTrans followed by the whiskered inverse closedCompNatIso equals inverse quotientCompNatIso followed by the direct quotientToClosedNatTrans for f followed by g. This is equality of whole natural transformations with the same explicit reindexing functors as the forward square.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Cancel the forward quotient natural isomorphism. Substitute the proved forward square, combine whiskered composites and use the actual inverse identities. No inverse of the quotient-to-closed or quotient-to-sheaf map is assumed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-comparison-squares/closed-forward, mathlib:CategoryTheory.cancel_epi, mathlib:CategoryTheory.Functor.whiskerLeft_comp, mathlib:CategoryTheory.Functor.whiskerLeft_id'.
+
+## Inverse reindexed native all-open quotient sheafification comparison square
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_sheaf_inverse**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-inverse**.
+
+With f arbitrary and g affine, the reindexed iterated quotientToSheafNatTrans followed by the whiskered inverse sheafCompNatIso equals inverse quotientCompNatIso followed by the direct quotientToSheafNatTrans for f followed by g. This is equality of whole natural transformations with the same explicit reindexing functors as the forward square.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Cancel the forward quotient natural isomorphism. Substitute the proved forward square, combine whiskered composites and use the actual inverse identities. No inverse of the quotient-to-closed or quotient-to-sheaf map is assumed.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-forward, mathlib:CategoryTheory.cancel_epi, mathlib:CategoryTheory.Functor.whiskerLeft_comp, mathlib:CategoryTheory.Functor.whiskerLeft_id'.
+
+## Single-open closed-subscheme section factorization
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_closed_factor**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/closed-component**.
+
+For arbitrary f:X→Y,g:Y→Z, affine U in Z and only the single hypothesis g⁻¹U affine, the direct quotientToClosedNatTrans component followed by closedCompNatIso at (f followed by g)⁻¹U equals quotientCompIso at U followed by the iterated quotientToClosedNatTrans component at g⁻¹U. Neither f nor g is required to be an affine morphism.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Use quotient-ring extensionality and the actual representative laws. The single affine intermediate-open witness defines the iterated image-ideal quotient.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-isomorphism, SchemeAndStackFoundations:SF.0/composite-closed-presheaf-isomorphism, SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-transformation.
+
+## Single-open native all-open quotient sheafification factorization
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_sheaf_factor**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-component**.
+
+For arbitrary f:X→Y,g:Y→Z, affine U in Z and only the single hypothesis g⁻¹U affine, the direct quotientToSheafNatTrans component followed by sheafCompNatIso at (f followed by g)⁻¹U equals quotientCompIso at U followed by the iterated quotientToSheafNatTrans component at g⁻¹U. Neither f nor g is required to be an affine morphism.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Use quotient-ring extensionality and the actual representative laws. The single affine intermediate-open witness defines the iterated image-ideal quotient.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-isomorphism, SchemeAndStackFoundations:SF.0/composite-sheafification-isomorphism, SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-map.
+
+## Exact injective boundary for the quotient-to-sheaf map
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_injective_iff**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/injective-iff**.
+
+For arbitrary f:X→Y and affine U in Y, the component of quotientToSheafNatTrans is injective if and only if the existing quotientToClosed I f U is injective. This does not assert either property on a general nonaffine inverse image.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Evaluate the natural factorization at U. Its second factor is bijective because the actual all-open sheaf comparison is an isomorphism; transfer the stated function property in both directions.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-comparison-squares/factor, SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism, mathlib:CategoryTheory.ConcreteCategory.bijective_of_isIso.
+
+## Exact surjective boundary for the quotient-to-sheaf map
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_surjective_iff**. Node: **SchemeAndStackFoundations:SF.0/quotient-comparison-squares/surjective-iff**.
+
+For arbitrary f:X→Y and affine U in Y, the component of quotientToSheafNatTrans is surjective if and only if the existing quotientToClosed I f U is surjective. This does not assert either property on a general nonaffine inverse image.
+
+Hypotheses: X,Y,Z are native schemes in one universe and I is native IdealSheafData. Use the actual image-ideal quotient, immersion-kernel quotient, closed-subscheme direct-image presheaf and all-open ring-valued sheafification. Affineness is required only where explicitly stated: g for the whole reindexed composition squares, a single intermediate inverse image for their component variants, or f/preimage for isomorphism results. No flatness, reducedness, Noetherianity, finiteness, quasi-compactness or nontriviality hypothesis is imposed.
+
+Proof plan: Evaluate the natural factorization at U. Its second factor is bijective because the actual all-open sheaf comparison is an isomorphism; transfer the stated function property in both directions.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-comparison-squares/factor, SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism, mathlib:CategoryTheory.ConcreteCategory.bijective_of_isIso.
+
+## API and tests: SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-map
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_mk**: At every affine U in Y and section a of X above U, the new natural component sends the image-ideal quotient class of a to the native sheafification-unit image of the class of a in the actual immersion-kernel quotient at f⁻¹U.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_factor**: For arbitrary f, the new natural transformation followed by allOpenSheafComparison(I.comap f), whiskered by affine-open inclusion and inverse image along f, equals the existing quotientToClosedNatTrans I f as whole natural transformations.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_unique**: Any natural transformation with the same source and target as quotientToSheafNatTrans whose composite with the whiskered allOpenSheafComparison is quotientToClosedNatTrans equals quotientToSheafNatTrans. This is uniqueness of the whole natural transformation, for arbitrary f.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_app_isIso**: For affine U in Y, if f⁻¹U is affine, the component of quotientToSheafNatTrans at U is an isomorphism of actual commutative rings. Only this single affine inverse image is required.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_isIso**: For an affine scheme morphism f, quotientToSheafNatTrans I f is an isomorphism in the native functor category. Every component uses the native affine inverse-image theorem.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_injective_iff**: For arbitrary f:X→Y and affine U in Y, the component of quotientToSheafNatTrans is injective if and only if the existing quotientToClosed I f U is injective. This does not assert either property on a general nonaffine inverse image.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientToSheafNatTrans_surjective_iff**: For arbitrary f:X→Y and affine U in Y, the component of quotientToSheafNatTrans is surjective if and only if the existing quotientToClosed I f U is surjective. This does not assert either property on a general nonaffine inverse image.
+
+Test **QuotientComparisonSquaresChecked.identity_bijective** (computation): For the identity morphism of every scheme and every affine U, the actual quotient-to-sheaf component is bijective, including zero rings.
+
+Test **QuotientComparisonSquaresChecked.empty_open** (degenerate): For arbitrary f and I, every image-ideal quotient class on the empty affine base open maps to zero in the actual sheafification. The proof uses the closed-section factorization and its invertible second factor.
+
+Test **QuotientComparisonSquaresChecked.surjectivity_obstruction** (non-example): A supplied failure of surjectivity of quotientToClosed at a single affine base open implies failure for the new quotient-to-sheaf component there. This is a parameterized obstruction, not a concrete nonaffine counterexample.
+
+Test **QuotientComparisonSquaresChecked.nonreduced_identity** (computation): For the identity of Spec(ZMod4) with zero ideal datum, the actual quotient-to-sheaf component sends the section2 to a nonzero square-zero element; nilpotents survive the comparison.
+
+## API and tests: SchemeAndStackFoundations:SF.0/composite-quotient-isomorphism
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_closed_factor**: For arbitrary f:X→Y,g:Y→Z, affine U in Z and only the single hypothesis g⁻¹U affine, the direct quotientToClosedNatTrans component followed by closedCompNatIso at (f followed by g)⁻¹U equals quotientCompIso at U followed by the iterated quotientToClosedNatTrans component at g⁻¹U. Neither f nor g is required to be an affine morphism.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompIso_sheaf_factor**: For arbitrary f:X→Y,g:Y→Z, affine U in Z and only the single hypothesis g⁻¹U affine, the direct quotientToSheafNatTrans component followed by sheafCompNatIso at (f followed by g)⁻¹U equals quotientCompIso at U followed by the iterated quotientToSheafNatTrans component at g⁻¹U. Neither f nor g is required to be an affine morphism.
+
+Test **QuotientComparisonSquaresChecked.single_affine_preimage** (compatibility): For arbitrary f,g and one affine intermediate inverse image, evaluate the actual sheafification factorization on every direct image-ideal quotient class. No global affine-morphism instance is supplied.
+
+## API and tests: SchemeAndStackFoundations:SF.0/composite-quotient-natural-isomorphism
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_kernel**: For arbitrary f:X→Y and affine g:Y→Z, first apply quotientToKernelNatTrans for f followed by g and then the existing kernelCompNatIso, whiskered by affine-open inclusion and the composite inverse image. This equals first applying quotientCompNatIso and then quotientToKernelNatTrans for f and I.comap g, reindexed by the actual affine inverse-image functor U↦g⁻¹U. Equality holds for entire natural transformations, with both reindexing functors explicit.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_kernel_inverse**: With f arbitrary and g affine, the reindexed iterated quotientToKernelNatTrans followed by the whiskered inverse kernelCompNatIso equals inverse quotientCompNatIso followed by the direct quotientToKernelNatTrans for f followed by g. This is equality of whole natural transformations with the same explicit reindexing functors as the forward square.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_closed**: For arbitrary f:X→Y and affine g:Y→Z, first apply quotientToClosedNatTrans for f followed by g and then the existing closedCompNatIso, whiskered by affine-open inclusion and the composite inverse image. This equals first applying quotientCompNatIso and then quotientToClosedNatTrans for f and I.comap g, reindexed by the actual affine inverse-image functor U↦g⁻¹U. Equality holds for entire natural transformations, with both reindexing functors explicit.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_closed_inverse**: With f arbitrary and g affine, the reindexed iterated quotientToClosedNatTrans followed by the whiskered inverse closedCompNatIso equals inverse quotientCompNatIso followed by the direct quotientToClosedNatTrans for f followed by g. This is equality of whole natural transformations with the same explicit reindexing functors as the forward square.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_sheaf**: For arbitrary f:X→Y and affine g:Y→Z, first apply quotientToSheafNatTrans for f followed by g and then the existing sheafCompNatIso, whiskered by affine-open inclusion and the composite inverse image. This equals first applying quotientCompNatIso and then quotientToSheafNatTrans for f and I.comap g, reindexed by the actual affine inverse-image functor U↦g⁻¹U. Equality holds for entire natural transformations, with both reindexing functors explicit.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_sheaf_inverse**: With f arbitrary and g affine, the reindexed iterated quotientToSheafNatTrans followed by the whiskered inverse sheafCompNatIso equals inverse quotientCompNatIso followed by the direct quotientToSheafNatTrans for f followed by g. This is equality of whole natural transformations with the same explicit reindexing functors as the forward square.
+
+Test **QuotientComparisonSquaresChecked.kernel_inverse_sections** (compatibility): For arbitrary f, affine g and every iterated image-ideal quotient class, the inverse immersion-kernel quotient square agrees on its actual section. The test exercises inverse quotientCompNatIso and inverse kernelCompNatIso without assuming the comparison quotientToKernelNatTrans is invertible.
+
+Test **QuotientComparisonSquaresChecked.closed_inverse_sections** (compatibility): For arbitrary f, affine g and every iterated image-ideal quotient class, the inverse closed-subscheme section square agrees on its actual section. The test exercises inverse quotientCompNatIso and inverse closedCompNatIso without assuming the comparison quotientToClosedNatTrans is invertible.
+
+Test **QuotientComparisonSquaresChecked.sheaf_inverse_sections** (compatibility): For arbitrary f, affine g and every iterated image-ideal quotient class, the inverse native all-open quotient sheafification square agrees on its actual section. The test exercises inverse quotientCompNatIso and inverse sheafCompNatIso without assuming the comparison quotientToSheafNatTrans is invertible.
+
+All160 incoming mathematical contracts remain unchanged;158 whole node objects are untouched and only two existing API/test lists are extended. Eight gaps,62 routes,twelve confirmed findings,six reserved-key boundaries,five planets and E1 remain unchanged. All seven stages retain their partial/not_read status. The complete Mathlib-only suggested file and separate native proof file are checked; all implementation statuses remain unchecked. The nonaffine obstruction is conditional; no concrete nonsurjective scheme example is supplied here. Source context: [Stacks01JU](https://stacks.math.columbia.edu/tag/01JU); exact equations are authored deductions, with no new source issue. The complete prior reader follows verbatim.
+
 # Native transport and coherence of composite ideal pullback
 
 Codex — codex-7e92bd, 4 October 2026. Partial checkpoint: fifteen lemmas extend three existing comparison APIs.
