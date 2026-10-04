@@ -15803,8 +15803,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-SemisimpleAlgebrasPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3469"
+   "state": "external",
+   "note": "claimed on GitHub issue #3469"
   },
   {
    "id": "REV-DESIGN-SemisimpleAlgebrasPartII",
@@ -16191,8 +16191,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-DeformationAndDerivedPatchingAlgebraPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3476"
+   "state": "pending",
+   "note": "released on GitHub issue #3476"
   },
   {
    "id": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
