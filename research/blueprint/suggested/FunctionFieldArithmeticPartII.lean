@@ -1,3 +1,5 @@
+import Mathlib.CategoryTheory.Groupoid.Grpd.Basic
+
 import Mathlib.CategoryTheory.Groupoid
 
 import Mathlib.AlgebraicGeometry.Pullbacks
@@ -6267,6 +6269,195 @@ example (f : A) (φ : B →ₐ[A] C) (p : affineRootPointGroupoid f 3 B) :
 
 -- test: rootPointTests.zero_test_ring
 example (p q : affineRootPointGroupoid (0 : ℤ) 2 (ZMod 1)) : p = q := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory Opposite
+variable {A B C D : Type uPoint} [CommRing A] [CommRing B] [CommRing C] [CommRing D]
+variable [Algebra A B] [Algebra A C] [Algebra A D]
+
+lemma affineRootPointGroupoid.eqToHom_label {f : A} {n : ℕ} [NeZero n]
+    {p q : affineRootPointGroupoid f n B} (h : p = q) :
+    (eqToHom h).1 = 1 := by
+  sorry
+
+lemma affineRootPointGroupoid.functor_ext {E : Type*} [Category* E]
+    {f : A} {n : ℕ} [NeZero n] {F G : E ⥤ affineRootPointGroupoid f n B}
+    (ho : ∀ p, F.obj p = G.obj p)
+    (ha : ∀ {p q} (h : p ⟶ q), ((F.map h).1 : Bˣ) = ((G.map h).1 : Bˣ)) : F = G := by
+  sorry
+
+lemma affineRootPointPower.identity (f : A) (n : ℕ) [NeZero n] :
+    affineRootPointPower (B := B) f n n (dvd_refl n) = 𝟭 _ := by
+  sorry
+
+lemma affineRootPointPower.composition (f : A) (n N K : ℕ)
+    [NeZero n] [NeZero N] [NeZero K] (h : n ∣ N) (j : N ∣ K) :
+    affineRootPointPower (B := B) f N K j ⋙ affineRootPointPower f n N h =
+      affineRootPointPower f n K (dvd_trans h j) := by
+  sorry
+
+lemma affineRootPointChange.identity (f : A) (n : ℕ) [NeZero n] :
+    affineRootPointChange f n (AlgHom.id A B) = 𝟭 _ := by
+  sorry
+
+lemma affineRootPointChange.composition (f : A) (n : ℕ) [NeZero n]
+    (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) :
+    affineRootPointChange f n φ ⋙ affineRootPointChange f n ψ =
+      affineRootPointChange f n (ψ.comp φ) := by
+  sorry
+
+lemma affineRootPointChange.power (f : A) (n N : ℕ) [NeZero n] [NeZero N]
+    (hn : n ∣ N) (φ : B →ₐ[A] C) :
+    affineRootPointPower f n N hn ⋙ affineRootPointChange f n φ =
+      affineRootPointChange f N φ ⋙ affineRootPointPower f n N hn := by
+  sorry
+
+@[reducible]
+def rootPointDiagram (f : A) (B : Type uPoint) [CommRing B] [Algebra A B] :
+    RootDivIndexᵒᵖ ⥤ Grpd.{uPoint, uPoint} where
+  obj n := Grpd.of (affineRootPointGroupoid f n.unop.exponent B)
+  map {n N} h := affineRootPointPower f N.unop.exponent n.unop.exponent (leOfHom h.unop)
+  map_id n := affineRootPointPower.identity f n.unop.exponent
+  map_comp h j := (affineRootPointPower.composition f _ _ _ (leOfHom j.unop)
+    (leOfHom h.unop)).symm
+
+lemma rootPointDiagram.obj (f : A) (n : RootDivIndex) :
+    (rootPointDiagram f B).obj (op n) =
+      Grpd.of (affineRootPointGroupoid f n.exponent B) := by
+  sorry
+
+lemma rootPointDiagram.map_root (f : A) {n N : RootDivIndex} (h : n ≤ N)
+    (p : affineRootPointGroupoid f N.exponent B) :
+    (show AffineRing f n.exponent →ₐ[A] B from
+      ((rootPointDiagram f B).map (homOfLE h).op).obj p) (AdjoinRoot.root _) =
+      p (AdjoinRoot.root _) ^ (N.exponent / n.exponent) := by
+  sorry
+
+lemma rootPointDiagram.map_label (f : A) {n N : RootDivIndex} (h : n ≤ N)
+    {p q : affineRootPointGroupoid f N.exponent B} (a : p ⟶ q) :
+    ((((rootPointDiagram f B).map (homOfLE h).op).map a).1 : Bˣ) =
+      (a.1 : Bˣ) ^ (N.exponent / n.exponent) := by
+  sorry
+
+def rootPointChangeNatTrans (f : A) (φ : B →ₐ[A] C) :
+    rootPointDiagram f B ⟶ rootPointDiagram f C where
+  app n := affineRootPointChange f n.unop.exponent φ
+  naturality _ _ h := affineRootPointChange.power f _ _ (leOfHom h.unop) φ
+
+lemma rootPointChangeNatTrans.app_root (f : A) (φ : B →ₐ[A] C) (n : RootDivIndex)
+    (p : affineRootPointGroupoid f n.exponent B) :
+    (show AffineRing f n.exponent →ₐ[A] C from
+      ((rootPointChangeNatTrans f φ).app (op n)).obj p) (AdjoinRoot.root _) =
+      φ (p (AdjoinRoot.root _)) := by
+  sorry
+
+lemma rootPointChangeNatTrans.app_label (f : A) (φ : B →ₐ[A] C) (n : RootDivIndex)
+    {p q : affineRootPointGroupoid f n.exponent B} (a : p ⟶ q) :
+    ((((rootPointChangeNatTrans f φ).app (op n)).map a).1) =
+      restrictRootsOfUnity φ n.exponent a.1 := by
+  sorry
+
+lemma rootPointChangeNatTrans.identity (f : A) :
+    rootPointChangeNatTrans f (AlgHom.id A B) = 𝟙 (rootPointDiagram f B) := by
+  sorry
+
+lemma rootPointChangeNatTrans.composition (f : A) (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) :
+    rootPointChangeNatTrans f φ ≫ rootPointChangeNatTrans f ψ =
+      rootPointChangeNatTrans f (ψ.comp φ) := by
+  sorry
+
+@[reducible]
+def rootPointFunctor (f : A) :
+    CommAlgCat.{uPoint} A ⥤ (RootDivIndexᵒᵖ ⥤ Grpd.{uPoint, uPoint}) where
+  obj B := rootPointDiagram f B
+  map φ := rootPointChangeNatTrans f φ.hom
+  map_id _ := rootPointChangeNatTrans.identity f
+  map_comp φ ψ := (rootPointChangeNatTrans.composition f φ.hom ψ.hom).symm
+
+lemma rootPointFunctor.obj (f : A) (B : CommAlgCat.{uPoint} A) :
+    (rootPointFunctor f).obj B = rootPointDiagram f B := by
+  sorry
+
+lemma rootPointFunctor.map_root (f : A) (φ : B →ₐ[A] C) (n : RootDivIndex)
+    (p : affineRootPointGroupoid f n.exponent B) :
+    (show AffineRing f n.exponent →ₐ[A] C from
+      (((rootPointFunctor f).map (CommAlgCat.ofHom φ)).app (op n)).obj p)
+      (AdjoinRoot.root _) = φ (p (AdjoinRoot.root _)) := by
+  sorry
+
+lemma rootPointFunctor.map_label (f : A) (φ : B →ₐ[A] C) (n : RootDivIndex)
+    {p q : affineRootPointGroupoid f n.exponent B} (a : p ⟶ q) :
+    (((((rootPointFunctor f).map (CommAlgCat.ofHom φ)).app (op n)).map a).1) =
+      restrictRootsOfUnity φ n.exponent a.1 := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory Opposite
+variable {A B C D : Type uPoint} [CommRing A] [CommRing B] [CommRing C] [CommRing D]
+variable [Algebra A B] [Algebra A C] [Algebra A D]
+
+-- test: rootDiagramTests.divisibility_direction
+example : ¬Nonempty ((op ⟨3, by decide⟩ : RootDivIndexᵒᵖ) ⟶ op ⟨2, by decide⟩) := by
+  sorry
+
+-- test: rootDiagramTests.nonfactorial_functor_composition
+example (f : A) :
+    (rootPointDiagram f B).map (homOfLE (show (⟨6, by decide⟩ : RootDivIndex) ≤ ⟨12, by decide⟩ from by decide)).op ≫
+      (rootPointDiagram f B).map (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide)).op =
+        affineRootPointPower f 2 12 (by decide) := by
+  sorry
+
+-- test: rootDiagramTests.nilpotent_power
+example :
+    let p := affineRootPoint (0 : ZMod 4) 6 (2 : ZMod 4) (by exact (by decide : (2 : ZMod 4)^6 = 0))
+    p (AdjoinRoot.root _) ≠ 0 ∧
+    (show AffineRing (0 : ZMod 4) 2 →ₐ[ZMod 4] ZMod 4 from
+      ((rootPointDiagram (0 : ZMod 4) (ZMod 4)).map
+        (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide)).op).obj p)
+        (AdjoinRoot.root _) = 0 := by
+  sorry
+
+-- test: rootDiagramTests.power_not_faithful
+example :
+    let p := affineRootPoint (0 : ZMod 4) 4 (0 : ZMod 4) (by decide)
+    let F := (rootPointDiagram (0 : ZMod 4) (ZMod 4)).map
+      (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨4, by decide⟩ from by decide)).op
+    ∃ h : p ⟶ p, h ≠ 𝟙 p ∧ F.map h = 𝟙 (F.obj p) := by
+  sorry
+
+-- test: rootDiagramTests.nonflat_natural_change
+example :
+    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 :=
+      { __ := ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2), commutes' z := by simp }
+    let p := affineRootPoint (0 : ℤ) 2 (2 : ZMod 4) (by decide)
+    p (AdjoinRoot.root _) ≠ 0 ∧
+      (((rootPointFunctor (0 : ℤ)).map (CommAlgCat.ofHom φ)).app (op ⟨2, by decide⟩)).obj p =
+        affineRootPoint (0 : ℤ) 2 (0 : ZMod 2) (by decide) := by
+  sorry
+
+-- test: rootDiagramTests.change_power_square
+example (f : A) (φ : B →ₐ[A] C) :
+    (rootPointDiagram f B).map (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide)).op ≫
+        ((rootPointFunctor f).map (CommAlgCat.ofHom φ)).app (op ⟨2, by decide⟩) =
+      ((rootPointFunctor f).map (CommAlgCat.ofHom φ)).app (op ⟨6, by decide⟩) ≫
+        (rootPointDiagram f C).map (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide)).op := by
+  sorry
+
+-- test: rootDiagramTests.three_algebra_changes
+example (f : A) (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) :
+    (rootPointFunctor f).map (CommAlgCat.ofHom φ) ≫
+        (rootPointFunctor f).map (CommAlgCat.ofHom ψ) =
+      (rootPointFunctor f).map (CommAlgCat.ofHom (ψ.comp φ)) ∧
+    (rootPointFunctor f).map (𝟙 (CommAlgCat.of A B)) = 𝟙 _ := by
   sorry
 
 end TauCeti.RootStack
