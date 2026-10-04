@@ -1,5 +1,7 @@
 
 
+import Mathlib.Algebra.Category.ModuleCat.Monoidal.Adjunction
+
 import Mathlib.Algebra.Category.ModuleCat.Monoidal.Symmetric
 
 import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
@@ -5988,6 +5990,304 @@ example :
       TensorProduct.lid (ZMod 4) (ZMod 4) v ≠ 0 ∧
       (TensorProduct.lid (ZMod 4) (ZMod 4) v)^2 = 0 ∧
       X.2.toAddHom 2 ≠ 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+open CategoryTheory MonoidalCategory
+open scoped TensorProduct
+universe u w z p q
+variable {k R S : Type u} [CommRing k] [CommRing R] [CommRing S]
+variable [Algebra k R] [Algebra k S] [Algebra R S]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z] [IsScalarTower k R W]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V]
+variable {Q : Type q} [AddCommGroup Q] [Module S Q] [IsScalarTower k S V]
+variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Q} {lam : R}
+
+def AffineCategory.pullbackTensorIso (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (X Y : AffineCategory Ω lam) :
+    (AffineCategory.pullback m).obj X ⊗ (AffineCategory.pullback m).obj Y ≅
+      (AffineCategory.pullback m).obj (X ⊗ Y) :=
+  AffineCategory.isoMk (TensorProduct.AlgebraTensorModule.distribBaseChange R S X.1 Y.1).symm
+    (X.2.affinePullback_tensor_horizontal_inv m Y.2)
+
+def AffineCategory.pullbackUnitIso (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    𝟙_ (AffineCategory Γ (algebraMap R S lam)) ≅
+      (AffineCategory.pullback (lam := lam) m).obj (𝟙_ (AffineCategory Ω lam)) :=
+  AffineCategory.isoMk (TensorProduct.AlgebraTensorModule.rid R S S).symm
+    (Preconnection.affinePullback_unitConnection_horizontal_inv m)
+
+def AffineCategory.pullbackCoreMonoidal (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    (AffineCategory.pullback (lam := lam) m).CoreMonoidal :=
+  Functor.CoreMonoidal.mk'
+    (AffineCategory.pullbackUnitIso m) (AffineCategory.pullbackTensorIso m)
+    (μIso_inv_natural_left := fun {X Y} f X' => by
+      let : Module R ((AffineCategory.pullback m).obj Y ⊗ (AffineCategory.pullback m).obj X').1 := Module.compHom ((AffineCategory.pullback m).obj Y ⊗ (AffineCategory.pullback m).obj X').1 (algebraMap R S)
+      let : IsScalarTower R S ((AffineCategory.pullback m).obj Y ⊗ (AffineCategory.pullback m).obj X').1 := IsScalarTower.of_compHom R S ((AffineCategory.pullback m).obj Y ⊗ (AffineCategory.pullback m).obj X').1
+      apply Subtype.ext
+      apply TensorProduct.AlgebraTensorModule.curry_injective
+      apply LinearMap.ext
+      intro s
+      apply TensorProduct.ext'
+      intro x y
+      rfl)
+    (μIso_inv_natural_right := fun {X Y} X' f => by
+      let : Module R ((AffineCategory.pullback m).obj X' ⊗ (AffineCategory.pullback m).obj Y).1 := Module.compHom ((AffineCategory.pullback m).obj X' ⊗ (AffineCategory.pullback m).obj Y).1 (algebraMap R S)
+      let : IsScalarTower R S ((AffineCategory.pullback m).obj X' ⊗ (AffineCategory.pullback m).obj Y).1 := IsScalarTower.of_compHom R S ((AffineCategory.pullback m).obj X' ⊗ (AffineCategory.pullback m).obj Y).1
+      apply Subtype.ext
+      apply TensorProduct.AlgebraTensorModule.curry_injective
+      apply LinearMap.ext
+      intro s
+      apply TensorProduct.ext'
+      intro x y
+      rfl)
+    (oplax_associativity := fun X Y Z => by
+      let : Module R ((AffineCategory.pullback m).obj X ⊗ ((AffineCategory.pullback m).obj Y ⊗ (AffineCategory.pullback m).obj Z)).1 := Module.compHom ((AffineCategory.pullback m).obj X ⊗ ((AffineCategory.pullback m).obj Y ⊗ (AffineCategory.pullback m).obj Z)).1 (algebraMap R S)
+      let : IsScalarTower R S ((AffineCategory.pullback m).obj X ⊗ ((AffineCategory.pullback m).obj Y ⊗ (AffineCategory.pullback m).obj Z)).1 := IsScalarTower.of_compHom R S ((AffineCategory.pullback m).obj X ⊗ ((AffineCategory.pullback m).obj Y ⊗ (AffineCategory.pullback m).obj Z)).1
+      apply Subtype.ext
+      apply TensorProduct.AlgebraTensorModule.curry_injective
+      apply LinearMap.ext
+      intro s
+      apply TensorProduct.ext_threefold
+      intro x y z
+      rfl)
+    (oplax_left_unitality := fun X => by
+      let : Module R (𝟙_ (AffineCategory Γ (algebraMap R S lam)) ⊗ (AffineCategory.pullback m).obj X).1 := Module.compHom (𝟙_ (AffineCategory Γ (algebraMap R S lam)) ⊗ (AffineCategory.pullback m).obj X).1 (algebraMap R S)
+      let : IsScalarTower R S (𝟙_ (AffineCategory Γ (algebraMap R S lam)) ⊗ (AffineCategory.pullback m).obj X).1 := IsScalarTower.of_compHom R S (𝟙_ (AffineCategory Γ (algebraMap R S lam)) ⊗ (AffineCategory.pullback m).obj X).1
+      apply Subtype.ext
+      apply TensorProduct.AlgebraTensorModule.ext
+      intro s x
+      change (1 : S) ⊗ₜ[S] (s ⊗ₜ[R] x) =
+        TensorProduct.map (TensorProduct.AlgebraTensorModule.rid R S S).toLinearMap
+          LinearMap.id (TensorProduct.AlgebraTensorModule.distribBaseChange R S R X.1
+            (s ⊗ₜ[R] ((1 : R) ⊗ₜ[R] x)))
+      rw [TensorProduct.AlgebraTensorModule.distribBaseChange_tmul, TensorProduct.map_tmul]
+      simp only [LinearEquiv.coe_toLinearMap, TensorProduct.AlgebraTensorModule.rid_tmul,
+        one_smul, LinearMap.id_apply]
+      change (1 : S) ⊗ₜ[S] (s ⊗ₜ[R] x) = s ⊗ₜ[S] ((1 : S) ⊗ₜ[R] x)
+      simpa only [TensorProduct.smul_tmul', smul_eq_mul, mul_one] using
+        (TensorProduct.tmul_smul (R := S) s (1 : S) ((1 : S) ⊗ₜ[R] x)))
+    (oplax_right_unitality := fun X => by
+      let : Module R ((AffineCategory.pullback m).obj X ⊗ 𝟙_ (AffineCategory Γ (algebraMap R S lam))).1 := Module.compHom ((AffineCategory.pullback m).obj X ⊗ 𝟙_ (AffineCategory Γ (algebraMap R S lam))).1 (algebraMap R S)
+      let : IsScalarTower R S ((AffineCategory.pullback m).obj X ⊗ 𝟙_ (AffineCategory Γ (algebraMap R S lam))).1 := IsScalarTower.of_compHom R S ((AffineCategory.pullback m).obj X ⊗ 𝟙_ (AffineCategory Γ (algebraMap R S lam))).1
+      apply Subtype.ext
+      apply TensorProduct.AlgebraTensorModule.ext
+      intro s x
+      change (s ⊗ₜ[R] x) ⊗ₜ[S] (1 : S) =
+        TensorProduct.map LinearMap.id (TensorProduct.AlgebraTensorModule.rid R S S).toLinearMap
+          (TensorProduct.AlgebraTensorModule.distribBaseChange R S X.1 R
+            (s ⊗ₜ[R] (x ⊗ₜ[R] (1 : R))))
+      rw [TensorProduct.AlgebraTensorModule.distribBaseChange_tmul, TensorProduct.map_tmul]
+      simp only [LinearEquiv.coe_toLinearMap, TensorProduct.AlgebraTensorModule.rid_tmul,
+        one_smul, LinearMap.id_apply])
+
+@[instance_reducible]
+def AffineCategory.pullbackMonoidal (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    (AffineCategory.pullback (lam := lam) m).Monoidal :=
+  (AffineCategory.pullbackCoreMonoidal m).toMonoidal
+
+attribute [instance] AffineCategory.pullbackMonoidal
+
+lemma AffineCategory.pullbackTensorIso_hom (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (X Y : AffineCategory Ω lam) :
+    (AffineCategory.pullbackTensorIso m X Y).hom.1 =
+      (TensorProduct.AlgebraTensorModule.distribBaseChange R S X.1 Y.1).symm.toLinearMap := by
+  sorry
+
+lemma AffineCategory.pullbackTensorIso_inv (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (X Y : AffineCategory Ω lam) :
+    (AffineCategory.pullbackTensorIso m X Y).inv.1 =
+      (TensorProduct.AlgebraTensorModule.distribBaseChange R S X.1 Y.1).toLinearMap := by
+  sorry
+
+lemma AffineCategory.pullbackTensorIso_naturality
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    {X X' Y Y' : AffineCategory Ω lam} (f : X ⟶ X') (g : Y ⟶ Y') :
+    ((AffineCategory.pullback m).map f ⊗ₘ (AffineCategory.pullback m).map g) ≫
+      (AffineCategory.pullbackTensorIso m X' Y').hom =
+    (AffineCategory.pullbackTensorIso m X Y).hom ≫ (AffineCategory.pullback m).map (f ⊗ₘ g) := by
+  sorry
+
+lemma AffineCategory.pullbackTensorIso_flat_iff
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
+    (∀ x, ((AffineCategory.pullback m).obj (X ⊗ Y)).2.curvature x = 0) ↔
+      ∀ x, (((AffineCategory.pullback m).obj X) ⊗ ((AffineCategory.pullback m).obj Y)).2.curvature x = 0 := by
+  sorry
+
+lemma AffineCategory.pullbackUnitIso_hom (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    (AffineCategory.pullbackUnitIso (lam := lam) m).hom.1 =
+      (TensorProduct.AlgebraTensorModule.rid R S S).symm.toLinearMap := by
+  sorry
+
+lemma AffineCategory.pullbackUnitIso_inv (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    (AffineCategory.pullbackUnitIso (lam := lam) m).inv.1 =
+      (TensorProduct.AlgebraTensorModule.rid R S S).toLinearMap := by
+  sorry
+
+lemma AffineCategory.pullbackUnitIso_curvature
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (s : S) :
+    ((AffineCategory.pullback (lam := lam) m).obj (𝟙_ (AffineCategory Ω lam))).2.curvature
+      ((AffineCategory.pullbackUnitIso m).hom.1 s) =
+    TensorProduct.map (AffineCategory.pullbackUnitIso m).hom.1 LinearMap.id
+      ((𝟙_ (AffineCategory Γ (algebraMap R S lam))).2.curvature s) := by
+  sorry
+
+lemma AffineCategory.pullbackCoreMonoidal_tensor
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
+    (AffineCategory.pullbackCoreMonoidal m).μIso X Y = AffineCategory.pullbackTensorIso m X Y := by
+  sorry
+
+lemma AffineCategory.pullbackCoreMonoidal_unit
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    (AffineCategory.pullbackCoreMonoidal (lam := lam) m).εIso = AffineCategory.pullbackUnitIso m := by
+  sorry
+
+lemma AffineCategory.pullbackCoreMonoidal_associativity
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y Z : AffineCategory Ω lam) :
+    (AffineCategory.pullbackTensorIso m X Y).hom ▷ (AffineCategory.pullback m).obj Z ≫
+      (AffineCategory.pullbackTensorIso m (X ⊗ Y) Z).hom ≫
+        (AffineCategory.pullback m).map (α_ X Y Z).hom =
+    (α_ ((AffineCategory.pullback m).obj X) ((AffineCategory.pullback m).obj Y)
+      ((AffineCategory.pullback m).obj Z)).hom ≫
+        (AffineCategory.pullback m).obj X ◁ (AffineCategory.pullbackTensorIso m Y Z).hom ≫
+          (AffineCategory.pullbackTensorIso m X (Y ⊗ Z)).hom := by
+  sorry
+
+lemma AffineCategory.pullbackCoreMonoidal_left_unitality
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam) :
+    (λ_ ((AffineCategory.pullback m).obj X)).hom =
+      (AffineCategory.pullbackUnitIso m).hom ▷ (AffineCategory.pullback m).obj X ≫
+        (AffineCategory.pullbackTensorIso m (𝟙_ (AffineCategory Ω lam)) X).hom ≫
+          (AffineCategory.pullback m).map (λ_ X).hom := by
+  sorry
+
+lemma AffineCategory.pullbackCoreMonoidal_right_unitality
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam) :
+    (ρ_ ((AffineCategory.pullback m).obj X)).hom =
+      (AffineCategory.pullback m).obj X ◁ (AffineCategory.pullbackUnitIso m).hom ≫
+        (AffineCategory.pullbackTensorIso m X (𝟙_ (AffineCategory Ω lam))).hom ≫
+          (AffineCategory.pullback m).map (ρ_ X).hom := by
+  sorry
+
+lemma AffineCategory.pullbackMonoidal_μ
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
+    Functor.LaxMonoidal.μ (AffineCategory.pullback m) X Y =
+      (AffineCategory.pullbackTensorIso m X Y).hom := by
+  sorry
+
+lemma AffineCategory.pullbackMonoidal_δ
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
+    Functor.OplaxMonoidal.δ (AffineCategory.pullback m) X Y =
+      (AffineCategory.pullbackTensorIso m X Y).inv := by
+  sorry
+
+lemma AffineCategory.pullbackMonoidal_ε
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    Functor.LaxMonoidal.ε (AffineCategory.pullback (lam := lam) m) =
+      (AffineCategory.pullbackUnitIso m).hom := by
+  sorry
+
+lemma AffineCategory.pullbackMonoidal_η
+    (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    Functor.OplaxMonoidal.η (AffineCategory.pullback (lam := lam) m) =
+      (AffineCategory.pullbackUnitIso m).inv := by
+  sorry
+
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open CategoryTheory MonoidalCategory
+open scoped TensorProduct
+universe u w z p q
+variable {k R S : Type u} [CommRing k] [CommRing R] [CommRing S]
+variable [Algebra k R] [Algebra k S] [Algebra R S]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z] [IsScalarTower k R W]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V]
+variable {Q : Type q} [AddCommGroup Q] [Module S Q] [IsScalarTower k S V]
+variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Q} {lam : R}
+
+-- test: StrongMonoidalPullbackTests.tensor_generators
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam)
+    (s t : S) (x : X.1) (y : Y.1) :
+    (AffineCategory.pullbackTensorIso m X Y).hom.1 ((s ⊗ₜ[R] x) ⊗ₜ[S] (t ⊗ₜ[R] y)) =
+      (s * t) ⊗ₜ[R] (x ⊗ₜ[R] y) ∧
+    (AffineCategory.pullbackTensorIso m X Y).inv.1 (s ⊗ₜ[R] (x ⊗ₜ[R] y)) =
+      (s ⊗ₜ[R] x) ⊗ₜ[S] ((1 : S) ⊗ₜ[R] y) := by
+  sorry
+
+-- test: StrongMonoidalPullbackTests.tensor_naturality
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    {X X' Y Y' : AffineCategory Ω lam} (f : X ⟶ X') (g : Y ⟶ Y')
+    (s t : S) (x : X.1) (y : Y.1) :
+    (((AffineCategory.pullback m).map f ⊗ₘ (AffineCategory.pullback m).map g) ≫
+      (AffineCategory.pullbackTensorIso m X' Y').hom).1
+        ((s ⊗ₜ[R] x) ⊗ₜ[S] (t ⊗ₜ[R] y)) =
+    ((AffineCategory.pullbackTensorIso m X Y).hom ≫
+      (AffineCategory.pullback m).map (f ⊗ₘ g)).1
+        ((s ⊗ₜ[R] x) ⊗ₜ[S] (t ⊗ₜ[R] y)) := by
+  sorry
+
+-- test: StrongMonoidalPullbackTests.coherence
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y Z : AffineCategory Ω lam) :
+    (AffineCategory.pullbackCoreMonoidal m).μIso X Y = AffineCategory.pullbackTensorIso m X Y ∧
+    (AffineCategory.pullbackCoreMonoidal (lam := lam) m).εIso =
+      AffineCategory.pullbackUnitIso (lam := lam) m ∧
+    (λ_ ((AffineCategory.pullback m).obj X)).hom =
+      Functor.LaxMonoidal.ε (AffineCategory.pullback m) ▷ (AffineCategory.pullback m).obj X ≫
+        Functor.LaxMonoidal.μ (AffineCategory.pullback m) (𝟙_ (AffineCategory Ω lam)) X ≫
+          (AffineCategory.pullback m).map (λ_ X).hom ∧
+    (ρ_ ((AffineCategory.pullback m).obj X)).hom =
+      (AffineCategory.pullback m).obj X ◁ Functor.LaxMonoidal.ε (AffineCategory.pullback m) ≫
+        Functor.LaxMonoidal.μ (AffineCategory.pullback m) X (𝟙_ (AffineCategory Ω lam)) ≫
+          (AffineCategory.pullback m).map (ρ_ X).hom ∧
+    (AffineCategory.pullbackTensorIso m X Y).hom ▷ (AffineCategory.pullback m).obj Z ≫
+      (AffineCategory.pullbackTensorIso m (X ⊗ Y) Z).hom ≫
+        (AffineCategory.pullback m).map (α_ X Y Z).hom =
+    (α_ ((AffineCategory.pullback m).obj X) ((AffineCategory.pullback m).obj Y)
+      ((AffineCategory.pullback m).obj Z)).hom ≫
+        (AffineCategory.pullback m).obj X ◁ (AffineCategory.pullbackTensorIso m Y Z).hom ≫
+          (AffineCategory.pullbackTensorIso m X (Y ⊗ Z)).hom := by
+  sorry
+
+-- test: StrongMonoidalPullbackTests.unit_generators
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (s : S) :
+    (AffineCategory.pullbackUnitIso (lam := lam) m).hom.1 s = s ⊗ₜ[R] (1 : R) ∧
+    (AffineCategory.pullbackUnitIso (lam := lam) m).inv.1 (s ⊗ₜ[R] (1 : R)) = s ∧
+    (AffineCategory.pullbackUnitIso (lam := lam) m).inv.1
+      ((AffineCategory.pullbackUnitIso (lam := lam) m).hom.1 s) = s := by
+  sorry
+
+-- test: StrongMonoidalPullbackTests.nonconstant_parameter
+example :
+    ∃ Ω : TwoForms ℤ (Polynomial ℤ) (Polynomial ℤ) (Fin 0 → Polynomial ℤ),
+      Ω.d0 Polynomial.X = 1 ∧
+      let m := TwoForms.Morphism.refl Ω
+      let U := 𝟙_ (AffineCategory Ω Polynomial.X)
+      let i := AffineCategory.pullbackUnitIso (lam := Polynomial.X) m
+      TensorProduct.lid (Polynomial ℤ) (Polynomial ℤ)
+        (TensorProduct.map i.inv.1 LinearMap.id
+          (((AffineCategory.pullback m).obj U).2.toAddHom (i.hom.1 Polynomial.X))) =
+        Polynomial.X := by
+  sorry
+
+-- test: StrongMonoidalPullbackTests.nonreduced_tensor
+example :
+    ∃ Ω : TwoForms (ZMod 4) (ZMod 4) (ZMod 4) (Fin 0 → ZMod 4),
+      let U := 𝟙_ (AffineCategory Ω (0 : ZMod 4))
+      let m := TwoForms.Morphism.refl Ω
+      let i := AffineCategory.pullbackTensorIso m U U
+      let e := (TensorProduct.AlgebraTensorModule.rid (ZMod 4) (ZMod 4) (ZMod 4)).toLinearMap.comp
+        ((TensorProduct.lid (ZMod 4) (ZMod 4)).toLinearMap.baseChange (ZMod 4))
+      let value := e (i.hom.1 (((2 : ZMod 4) ⊗ₜ[ZMod 4] (1 : ZMod 4)) ⊗ₜ[ZMod 4]
+        ((1 : ZMod 4) ⊗ₜ[ZMod 4] (1 : ZMod 4))))
+      value = 2 ∧ value ≠ 0 ∧ value * value = 0 ∧
+      (AffineCategory.pullbackUnitIso (lam := (0 : ZMod 4)) m).inv.1
+        ((AffineCategory.pullbackUnitIso m).hom.1 (2 : ZMod 4)) = (2 : ZMod 4) := by
   sorry
 
 end
