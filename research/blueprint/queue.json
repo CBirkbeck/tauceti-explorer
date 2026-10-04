@@ -23679,12 +23679,13 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions--L0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #5878"
+   "note": "deliverables arrived from an external worker on issue #5878",
+   "finishedAt": "2026-10-04T22:48:02Z"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L0",
@@ -28996,9 +28997,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-SpecialValuesBirchTate.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #998"
+   "note": "claimed on GitHub issue #998"
   },
   {
    "id": "REV-SpecialValuesBirchTate",
@@ -30725,13 +30726,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-GeneralAlgebraicKTheory--K.1",
     "BP-GeneralAlgebraicKTheory--K.6"
    ],
-   "note": "claimed on GitHub issue #1030"
+   "note": "deliverables arrived from an external worker on issue #1030",
+   "finishedAt": "2026-10-04T22:48:04Z"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic",
@@ -31291,14 +31293,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ProbabilisticAndMetricNumberTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
     "BP-ExponentialSumsAndCircleMethod",
     "BP-GeometryOfNumbersAndQuadraticArithmetic"
    ],
-   "note": "released on GitHub issue #1041"
+   "note": "claimed on GitHub issue #1041"
   },
   {
    "id": "REV-ProbabilisticAndMetricNumberTheory",
