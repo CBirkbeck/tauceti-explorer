@@ -1,3 +1,185 @@
+# Strong monoidal affine pullback
+
+The actual affine pullback now has a native strong monoidal structure. Its tensorator is the inverse of native distribBaseChange and its unit is the inverse of native rid. Both maps and their inverses are horizontal for the actual pulled operators. The CoreMonoidal constructor verifies both naturality laws, associativity and both unit laws; the resulting Monoidal instance supplies precisely those lax and oplax maps.
+
+This allows arbitrary modules and arbitrary λ, including d₀λ≠0, without flatness or injectivity of scalar extension. The two tensorator objects have equivalent flatness over S; no reflection back to R is asserted. Monoidal coherence of the identity/tower natural isomorphisms, braided-functor packaging and universal exterior/dual comparisons remain open, as do genuine sheaf tensor/restriction/equality detection/gluing. The reserved global finite locally free integrable ringed-site key retains relatively constant λ. All149 routes,35 omissions,five requests,eleven gaps,six planets and later stages are preserved; every implementation remains unchecked.
+
+## Declarations and tests
+
+### Horizontal tensorator for affine pullback
+
+`AffineCategory.pullbackTensorIso` — For calculus morphism m over R→S and actual affine objects X,Y of common parameter λ, construct F(X)⊗_S F(Y)≅F(X⊗_R Y), where F=pullback(m). Its hom is native distribBaseChange.symm and its inverse is distribBaseChange; both are horizontal for the actual operators.
+
+Proof plan: Use isoMk with the existing horizontal inverse comparison and native distribBaseChange.symm.
+
+API:
+
+- `AffineCategory.pullbackTensorIso_hom`: The tensorator hom is exactly distribBaseChange R S X.module Y.module inverse as an S-linear map.
+- `AffineCategory.pullbackTensorIso_inv`: The tensorator inverse is exactly native distribBaseChange as an S-linear map.
+- `AffineCategory.pullbackTensorIso_naturality`: For horizontal f:X→X′ and g:Y→Y′, (F(f)⊗F(g)) followed by the tensorator at X′,Y′ equals the tensorator at X,Y followed by F(f⊗g), as actual categorical arrows.
+- `AffineCategory.pullbackTensorIso_flat_iff`: The pulled tensor object has zero curvature everywhere iff the tensor of pulled objects does. This compares two S-connections and makes no reflection assertion back to R.
+
+TESTS:
+
+- `StrongMonoidalPullbackTests.tensor_generators`: Evaluate the actual tensorator and inverse on arbitrary elementary scalar tensors; forward scalar coefficients multiply and the inverse splits one scalar to the first factor.
+- `StrongMonoidalPullbackTests.tensor_naturality`: Evaluate both actual categorical tensorator naturality composites for arbitrary horizontal f,g on elementary base-changed factors.
+- `StrongMonoidalPullbackTests.nonreduced_tensor`: Over Z/4, the actual tensorator on (2⊗1)⊗(1⊗1) has native coordinate2, nonzero and square-zero; the actual unit comparison at2 has the same coordinate. No reducedness or field hypothesis enters.
+
+### Horizontal unit comparison for affine pullback
+
+`AffineCategory.pullbackUnitIso` — Construct 1_S≅F(1_R) at target parameter f(λ), with hom rid.symm and inverse rid for the actual unit connection.
+
+Proof plan: Use isoMk with the proved unit horizontal comparison; the target unit keeps its λ d₀ term.
+
+API:
+
+- `AffineCategory.pullbackUnitIso_hom`: The unit comparison hom is exactly rid R S S inverse as an S-linear map.
+- `AffineCategory.pullbackUnitIso_inv`: The unit comparison inverse is exactly native rid R S S as an S-linear map.
+- `AffineCategory.pullbackUnitIso_curvature`: For s in S, the curvature at the image of s under the actual unit comparison equals the tensor of its hom with the identity degree-two map applied to the target unit curvature at s.
+
+TESTS:
+
+- `StrongMonoidalPullbackTests.unit_generators`: At arbitrary s in S, the actual unit comparison sends s to s⊗1, its inverse returns s, and the forward-inverse composite is identity.
+- `StrongMonoidalPullbackTests.nonconstant_parameter`: Over Z[x] and parameter x with d₀x=1, the actual pulled unit at the image of x has derivative coordinate x after rid. No d₀λ=0 is imposed on the raw affine functor.
+- `StrongMonoidalPullbackTests.nonreduced_tensor`: Over Z/4, the actual tensorator on (2⊗1)⊗(1⊗1) has native coordinate2, nonzero and square-zero; the actual unit comparison at2 has the same coordinate. No reducedness or field hypothesis enters.
+
+### Coherent tensor and unit isomorphisms
+
+`AffineCategory.pullbackCoreMonoidal` — Package the actual pullback tensor/unit isomorphisms into native Functor.CoreMonoidal, proving both naturality laws, associativity and both unit laws as actual horizontal-arrow equalities.
+
+Proof plan: Use the inverse-law constructor. Restrict the target scalar action by Module.compHom to apply native heterobasic tensor extensionality; naturality and associativity reduce on elementary tensors, and the unit law uses tensor balancing. No scalar-extension flatness or injectivity enters.
+
+API:
+
+- `AffineCategory.pullbackCoreMonoidal_tensor`: The CoreMonoidal tensorator is exactly pullbackTensorIso at every pair of actual objects.
+- `AffineCategory.pullbackCoreMonoidal_unit`: The CoreMonoidal unit isomorphism is exactly pullbackUnitIso.
+- `AffineCategory.pullbackCoreMonoidal_associativity`: For actual objects X,Y,Z, tensorator on X,Y then on X⊗Y,Z followed by pulled associator equals the target associator followed by the two right-associated tensorators, as actual horizontal-arrow composites.
+- `AffineCategory.pullbackCoreMonoidal_left_unitality`: For every X, the target left unitor equals unit comparison tensor identity, followed by tensorator and pulled source left unitor.
+- `AffineCategory.pullbackCoreMonoidal_right_unitality`: For every X, the target right unitor equals identity tensor unit comparison, followed by tensorator and pulled source right unitor.
+
+TESTS:
+
+- `StrongMonoidalPullbackTests.coherence`: Instantiate associativity and both unit laws of the actual native strong monoidal pullback for arbitrary actual objects.
+- `StrongMonoidalPullbackTests.tensor_naturality`: Evaluate both actual categorical tensorator naturality composites for arbitrary horizontal f,g on elementary base-changed factors.
+- `StrongMonoidalPullbackTests.unit_generators`: At arbitrary s in S, the actual unit comparison sends s to s⊗1, its inverse returns s, and the forward-inverse composite is identity.
+
+### Native strong monoidal affine pullback
+
+`AffineCategory.pullbackMonoidal` — Equip the actual functor pullback(m) with native Functor.Monoidal, using the coherent invertible tensor and unit comparisons, with target parameter f(λ).
+
+Proof plan: Use CoreMonoidal.toMonoidal; its lax and oplax maps are the actual horizontal comparison and inverse maps.
+
+API:
+
+- `AffineCategory.pullbackMonoidal_μ`: Functor.LaxMonoidal.μ for actual pullback is exactly the hom of pullbackTensorIso.
+- `AffineCategory.pullbackMonoidal_δ`: Functor.OplaxMonoidal.δ for actual pullback is exactly the inverse of pullbackTensorIso.
+- `AffineCategory.pullbackMonoidal_ε`: Functor.LaxMonoidal.ε for actual pullback is exactly the hom of pullbackUnitIso.
+- `AffineCategory.pullbackMonoidal_η`: Functor.OplaxMonoidal.η for actual pullback is exactly the inverse of pullbackUnitIso.
+
+TESTS:
+
+- `StrongMonoidalPullbackTests.coherence`: Instantiate associativity and both unit laws of the actual native strong monoidal pullback for arbitrary actual objects.
+- `StrongMonoidalPullbackTests.nonconstant_parameter`: Over Z[x] and parameter x with d₀x=1, the actual pulled unit at the image of x has derivative coordinate x after rid. No d₀λ=0 is imposed on the raw affine functor.
+- `StrongMonoidalPullbackTests.nonreduced_tensor`: Over Z/4, the actual tensorator on (2⊗1)⊗(1⊗1) has native coordinate2, nonzero and square-zero; the actual unit comparison at2 has the same coordinate. No reducedness or field hypothesis enters.
+
+### Tensorator forward linear map
+
+`AffineCategory.pullbackTensorIso_hom` — The tensorator hom is exactly distribBaseChange R S X.module Y.module inverse as an S-linear map.
+
+Proof plan: Reduce isoMk.
+
+### Tensorator inverse linear map
+
+`AffineCategory.pullbackTensorIso_inv` — The tensorator inverse is exactly native distribBaseChange as an S-linear map.
+
+Proof plan: Reduce isoMk and the inverse equivalence.
+
+### Tensorator naturality for two horizontal arrows
+
+`AffineCategory.pullbackTensorIso_naturality` — For horizontal f:X→X′ and g:Y→Y′, (F(f)⊗F(g)) followed by the tensorator at X′,Y′ equals the tensorator at X,Y followed by F(f⊗g), as actual categorical arrows.
+
+Proof plan: Apply the native lax monoidal tensor naturality law to the constructed instance.
+
+### Flatness of tensorator target objects
+
+`AffineCategory.pullbackTensorIso_flat_iff` — The pulled tensor object has zero curvature everywhere iff the tensor of pulled objects does. This compares two S-connections and makes no reflection assertion back to R.
+
+Proof plan: Apply isoMk_flat_iff to the native inverse distribBaseChange and its actual horizontal witness.
+
+### Unit comparison forward linear map
+
+`AffineCategory.pullbackUnitIso_hom` — The unit comparison hom is exactly rid R S S inverse as an S-linear map.
+
+Proof plan: Reduce isoMk.
+
+### Unit comparison inverse linear map
+
+`AffineCategory.pullbackUnitIso_inv` — The unit comparison inverse is exactly native rid R S S as an S-linear map.
+
+Proof plan: Reduce isoMk.
+
+### Unit comparison preserves actual curvature
+
+`AffineCategory.pullbackUnitIso_curvature` — For s in S, the curvature at the image of s under the actual unit comparison equals the tensor of its hom with the identity degree-two map applied to the target unit curvature at s.
+
+Proof plan: Use curvature naturality of the actual horizontal categorical hom; no constancy of λ is presumed.
+
+### Core tensorator data
+
+`AffineCategory.pullbackCoreMonoidal_tensor` — The CoreMonoidal tensorator is exactly pullbackTensorIso at every pair of actual objects.
+
+Proof plan: Reduce the inverse-law constructor.
+
+### Core unit data
+
+`AffineCategory.pullbackCoreMonoidal_unit` — The CoreMonoidal unit isomorphism is exactly pullbackUnitIso.
+
+Proof plan: Reduce the inverse-law constructor.
+
+### Tensorator associativity coherence
+
+`AffineCategory.pullbackCoreMonoidal_associativity` — For actual objects X,Y,Z, tensorator on X,Y then on X⊗Y,Z followed by pulled associator equals the target associator followed by the two right-associated tensorators, as actual horizontal-arrow composites.
+
+Proof plan: Project the proved CoreMonoidal associativity law.
+
+### Left unit coherence
+
+`AffineCategory.pullbackCoreMonoidal_left_unitality` — For every X, the target left unitor equals unit comparison tensor identity, followed by tensorator and pulled source left unitor.
+
+Proof plan: Project the proved CoreMonoidal left-unit law.
+
+### Right unit coherence
+
+`AffineCategory.pullbackCoreMonoidal_right_unitality` — For every X, the target right unitor equals identity tensor unit comparison, followed by tensorator and pulled source right unitor.
+
+Proof plan: Project the proved CoreMonoidal right-unit law.
+
+### Native lax tensor map
+
+`AffineCategory.pullbackMonoidal_μ` — Functor.LaxMonoidal.μ for actual pullback is exactly the hom of pullbackTensorIso.
+
+Proof plan: Reduce CoreMonoidal.toMonoidal.
+
+### Native oplax tensor map
+
+`AffineCategory.pullbackMonoidal_δ` — Functor.OplaxMonoidal.δ for actual pullback is exactly the inverse of pullbackTensorIso.
+
+Proof plan: Reduce CoreMonoidal.toMonoidal.
+
+### Native lax unit map
+
+`AffineCategory.pullbackMonoidal_ε` — Functor.LaxMonoidal.ε for actual pullback is exactly the hom of pullbackUnitIso.
+
+Proof plan: Reduce CoreMonoidal.toMonoidal.
+
+### Native oplax unit map
+
+`AffineCategory.pullbackMonoidal_η` — Functor.OplaxMonoidal.η for actual pullback is exactly the inverse of pullbackUnitIso.
+
+Proof plan: Reduce CoreMonoidal.toMonoidal.
+
+## Earlier checkpoint reader (preserved verbatim)
+
 # Actual categorical affine pullback towers
 
 The iterated functor is the composition of the two existing affine pullbacks, followed by equality transport of the target parameter from g(f(λ)) to h(λ). This transport retains the native module, actual additive operator and horizontal linear maps. Its reflexivity and composition laws hold as equalities of functors.
