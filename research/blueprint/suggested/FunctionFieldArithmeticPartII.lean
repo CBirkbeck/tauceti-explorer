@@ -37,6 +37,10 @@ This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These signatures suggest Lean forms so that contributors and
 reviewers converge on names and signatures. No implementation is claimed.
 
+The planning pass is complete at the protocol node budget; every stage remains
+partial. All declaration bodies and the geometric omission ledger are retained.
+Complete planning status does not certify this file or close its geometric gaps.
+
 The native fragment uses the pinned invertible-sheaf and quotient-ring types.
 The omission ledger below records signatures needing actual geometric types
 from other roadmap owners. It does not replace them with assumed predicates.

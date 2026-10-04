@@ -1,3 +1,26 @@
+# Global function fields, reciprocity and automorphic foundations, Part II
+
+The root-stack direction extends FunctionFieldArithmetic: it imports the parent's arithmetic objects and develops root ramification, root Picard groupoids and multiplicative rank-one sheaves. Finite roots use arbitrary positive exponents on the fppf site. Infinite roots retain their compatible objects, arrows and cocycles on the fpqc site. For the geometric class-field-theory layers, the curve is smooth, projective and geometrically connected over a finite field of odd characteristic; the reduced ramification divisor may be empty, and rank-one coefficients are rational ell-adic with ell different from the characteristic.
+
+Every declaration remains a specification. The affine coaction, coefficient invariant algebra, native affine scheme limits, tensor base change and chosen-frame normalization comparisons provide inputs to the geometric root-stack construction. The general line-bundle root-object comparison, local frames, effective descent and genuine infinite two-limit remain distinct targets. Root-stack fibres retain nilpotents and stabilizers; coefficient changes need not be faithful. The canonical owner is `FunctionFieldArithmeticPartII:key/root-stacks`, including scheme and stack bases, Cartier pairs and arbitrary positive exponents.
+
+The coverage table gives the current mathematical frontier. Each layer is partial; the packet's complete planning pass does not close these obligations. The exact declarations, APIs, examples and source passages follow this table.
+
+| Layer | Declarations | Status | Remaining mathematical work |
+|---|---:|---|---|
+| RS.0 | 235 | partial | Native tensor-section supplier comparisons; sheaf root objects to framed coordinates; local frames, stackification and higher coherence/universes. |
+| RS.1 | 11 | partial | Global root stack and two-pullback carriers; effective fpqc descent; finite quotient algebraicity, coarse universality and geometric typing. |
+| RS.2 | 409 | partial | Coherent line-bundle root two-limits; fpqc frame torsors and quotient; DVR/Kummer class comparison and higher-universe typing. |
+| GC.0 | 3 | partial | Relative Picard geometry, square-action quotient and root-section carriers in every integer degree. |
+| GC.1 | 10 | partial | Evaluation/incidence family geometry, symmetric coarse spaces and both Abel-Jacobi maps with nonrepresentable ordered maps. |
+| GC.2 | 3 | partial | Function-field idele gluing with the actual modified-unit action, degrees and stabilizers. |
+| GC.3 | 12 | partial | Tame-DM lisse and sheaf operations, collision descent, graded exterior-power comparison and coherent multiplicativity. |
+| GC.4 | 8 | partial | Family evaluation at the exact degree bound, weighted ramification and effective high-degree descent, including empty ramification. |
+| GC.5 | 13 | partial | Supplier typing for all-degree extension, choice cocycles, hat pullback, unit and multiplication coherence. |
+| GC.6 | 13 | partial | Root norm carriers, Picard obstruction data, support-moving approximation and arithmetic trace comparison. |
+
+The symplectic L-function direction has a separate target and proof closure. Its existing split proposal retains all 38 extracted contracts, assigned to the proposed SL.0–SL.5 layers. Those proposed sibling stages are not established suppliers, and the root-stack coverage table does not certify their planning or accept the split. Both routes and their source findings remain part of the specification until the ownership proposal is resolved.
+
 # Native normalization base-change comparison over the changed base
 
 For every positive exponent and arbitrary change of test A-algebra, the actual chosen-frame normalization functor now has a native natural isomorphism over Spec C with the native Over.pullback of the normalization functor over Spec B. Its components use the existing chosen scheme comparison followed by native symmetry; both forward and inverse projections and actual framed-arrow naturality are specified. The actual native adjunction counit, specialized to normalization, recovers the previous normalizationChangeNatTrans through this isomorphism, and the whole normalized-chart natural transformation transports in both directions. The nonflat Z/4 to Z/2 tests kill a nonzero square-zero section and collapse a nonidentity minus-one stabilizer; no faithfulness of coefficient change or pullback is asserted. Wild exponents and zero rings are retained. General native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes, the full omission ledger and inherited source findings retain their scope.
