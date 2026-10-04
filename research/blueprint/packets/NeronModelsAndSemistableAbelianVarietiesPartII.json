@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts. Affine conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and6 typed examples;657 incoming node objects retained whole. Global conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and8 typed examples;666 incoming whole node objects preserved. The existing geometric conductor theorem receives a separate native counterpart proof. Actual conductor Scheme descent continuation:21 declarations(5 constructions,16 lemmas),18 API references and15 distinct typed examples(17 references). All675 incoming node contracts are preserved;674 whole objects are unchanged, and the existing Scheme pushout node gains only appended prerequisites/proof steps. Conductor cokernel scalar-extension continuation:13 declarations(2 constructions,11 lemmas),10 API references and9 distinct typed tests(10 references). All696 incoming contracts remain;695 whole node objects are unchanged and one existing flat-conductor node gains appended prerequisites/proof steps. One known corrected historical Stacks proof-reference finding is appended with its narrow version scope. Right-oriented conductor continuation:12 new declarations(2 constructions,10 lemmas),7 API references and11 typed tests. All709 incoming contracts remain;708 whole nodes are unchanged and only the existing flat-conductor node gains appended prerequisites/proof steps. Its exact inherited suggested header now has native proof evidence; generic supplier definitions are consumed, never replanned. Scheme flat-conductor continuation:five conductor-specific lemmas, four API references and eight typed tests; the exact inherited global ideal-sheaf equality has native evidence. All721 incoming contracts remain, with719 whole node objects unchanged; only the conductor ideal-sheaf API/tests and global comparison proof dependencies are appended. Conductor subscheme comparison continuation:13 nodes (2 constructions,10 authored lemmas and1 promotion of the retained conductorMap_square API),8 API references and13 references to8 distinct typed tests. All726 incoming node objects are unchanged. Target conductor tower continuation:12 nodes (2 constructions,10 lemmas),13 API references and13 references to8 distinct proved typed examples; all739 incoming node objects unchanged.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts. Affine conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and6 typed examples;657 incoming node objects retained whole. Global conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and8 typed examples;666 incoming whole node objects preserved. The existing geometric conductor theorem receives a separate native counterpart proof. Actual conductor Scheme descent continuation:21 declarations(5 constructions,16 lemmas),18 API references and15 distinct typed examples(17 references). All675 incoming node contracts are preserved;674 whole objects are unchanged, and the existing Scheme pushout node gains only appended prerequisites/proof steps. Conductor cokernel scalar-extension continuation:13 declarations(2 constructions,11 lemmas),10 API references and9 distinct typed tests(10 references). All696 incoming contracts remain;695 whole node objects are unchanged and one existing flat-conductor node gains appended prerequisites/proof steps. One known corrected historical Stacks proof-reference finding is appended with its narrow version scope. Right-oriented conductor continuation:12 new declarations(2 constructions,10 lemmas),7 API references and11 typed tests. All709 incoming contracts remain;708 whole nodes are unchanged and only the existing flat-conductor node gains appended prerequisites/proof steps. Its exact inherited suggested header now has native proof evidence; generic supplier definitions are consumed, never replanned. Scheme flat-conductor continuation:five conductor-specific lemmas, four API references and eight typed tests; the exact inherited global ideal-sheaf equality has native evidence. All721 incoming contracts remain, with719 whole node objects unchanged; only the conductor ideal-sheaf API/tests and global comparison proof dependencies are appended. Conductor subscheme comparison continuation:13 nodes (2 constructions,10 authored lemmas and1 promotion of the retained conductorMap_square API),8 API references and13 references to8 distinct typed tests. All726 incoming node objects are unchanged. Target conductor tower continuation:12 nodes (2 constructions,10 lemmas),13 API references and13 references to8 distinct proved typed examples; all739 incoming node objects unchanged. Source conductor tower continuation:15 nodes (2 constructions,13 lemmas),15 API references and12 references to9 distinct proved typed examples; all751 incoming node objects unchanged.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -4354,6 +4354,30 @@
         "line": 475,
         "provides": "theorem pullbackRightPullbackFstIso_hom_snd : Native carrier/projection API for the conductor-specific tower.",
         "checked": "Codex — codex-7e92bd read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Pasting.lean",
+        "line": 529,
+        "provides": "def pullbackLeftPullbackSndIso : Actual ambient source and conductor pullback tower API.",
+        "checked": "Codex — codex-rtOQ9t read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_fst",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Pasting.lean",
+        "line": 536,
+        "provides": "theorem pullbackLeftPullbackSndIso_hom_fst : Actual ambient source and conductor pullback tower API.",
+        "checked": "Codex — codex-rtOQ9t read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_snd",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Pasting.lean",
+        "line": 542,
+        "provides": "theorem pullbackLeftPullbackSndIso_hom_snd : Actual ambient source and conductor pullback tower API.",
+        "checked": "Codex — codex-rtOQ9t read the exact statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
       }
     ]
   },
@@ -5197,6 +5221,18 @@
       "accessed": "2026-10-04",
       "readSections": [
         "Whole current displayed Section26.17: both definitions, all five lemmas and their proofs/diagrams, and all eight direct comments; no linked historical patches or external proofs."
+      ]
+    },
+    {
+      "id": "ConductorSourceTower-codex-rtOQ9t",
+      "title": "Scheme fibre products and authored source conductor tower comparisons",
+      "authors": "The Stacks Project authors; conductor specialization by Codex — codex-rtOQ9t",
+      "edition": "Current displayed Section26.17, accessed4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/01JO",
+      "sha256": "63f6e1836712f7c2a70a444047a6fca99ff6a7ad72eb55c001f7821c3b5d2724",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "Whole displayed Section26.17, both definitions, five lemmas with displayed proofs/diagrams and eight direct comments. Linked histories, correction patches and recursive dependencies not read."
       ]
     }
   ],
@@ -42928,6 +42964,786 @@
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-ideal-tower",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The full source ideal along the actual ambient tower comparison",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourceIdeal_tower",
+      "statement": "For finite schematically dominant f:Y→P and flat q:T→P, r:Z→T, the full source conductor ideal of (f_q)_r equals the inverse image of the full source conductor ideal of f_(r∘q) along the actual ambient isomorphism a: (Y×_P T)×_T Z ≅ Y×_P Z given by native pullbackLeftPullbackSndIso.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-flat-comparison",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp",
+        "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_fst"
+      ],
+      "proofSteps": [
+        "Apply the retained source flat comparison three times. Combine inverse-image ideals with native comap_comp. The exact first-projection formula for a identifies the two composites to Y. Compare full ideal data, including nilpotents."
+      ],
+      "acceptance": [
+        "For finite schematically dominant f:Y→P and flat q:T→P, r:Z→T, the full source conductor ideal of (f_q)_r equals the inverse image of the full source conductor ideal of f_(r∘q) along the actual ambient isomorphism a: (Y×_P T)×_T Z ≅ Y×_P Z given by native pullbackLeftPullbackSndIso.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-iso",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "Flattening actual source conductor pullbacks",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourcePullbackTowerIso",
+      "statement": "Construct the actual scheme isomorphism h from the pullback of the intermediate source conductor inclusion along the second source projection to the pullback of the original source conductor inclusion along the direct source projection. It uses the existing source comparison, right pullback pasting, and the actual ambient a via native pullback.map.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-base-change-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-base-change-fst",
+        "mathlib:CategoryTheory.Limits.pullback.map",
+        "mathlib:CategoryTheory.Limits.pullback.map_isIso",
+        "mathlib:CategoryTheory.asIso",
+        "mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso",
+        "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso",
+        "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_fst"
+      ],
+      "proofSteps": [
+        "First use pullback.map with the existing intermediate source comparison and identity ambient components. Flatten by the native right-pasting isomorphism. Use a.hom on the ambient source and identities on the original conductor and Y to change to the direct source projection. Each native map has three isomorphism components; convert it with asIso."
+      ],
+      "acceptance": [
+        "Construct the actual scheme isomorphism h from the pullback of the intermediate source conductor inclusion along the second source projection to the pullback of the original source conductor inclusion along the direct source projection. It uses the existing source comparison, right pullback pasting, and the actual ambient a via native pullback.map.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourcePullbackTowerIso_hom_fst",
+          "role": "compatibility",
+          "statement": "The forward flattening h.hom followed by the direct first projection equals the iterated first projection followed by a.hom."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourcePullbackTowerIso_hom_snd",
+          "role": "compatibility",
+          "statement": "The forward flattening h.hom followed by the direct second projection to the original source conductor equals the iterated second projection followed by the intermediate source comparison and its second projection."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourcePullbackTowerIso_inv_fst",
+          "role": "compatibility",
+          "statement": "The inverse h.inv followed by the iterated first projection equals the direct first projection followed by a.inv."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourcePullbackTowerIso_inv_snd",
+          "role": "compatibility",
+          "statement": "The inverse h.inv followed by the iterated second projection, intermediate source comparison and old-source second projection equals the direct second projection."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourceBaseChangeIso_tower",
+          "role": "compatibility",
+          "statement": "As whole native scheme isomorphisms, the source comparison for (f_q,r) followed by h equals s followed by the direct source comparison for (f,r∘q). All corners are actual recomputed conductor carriers and native pullbacks."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourceBaseChangeIso_tower_inverse",
+          "role": "compatibility",
+          "statement": "The inverse h.inv followed by the inverse source comparison for (f_q,r) equals the inverse direct source comparison followed by s.inv."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourceBaseChangeIso_tower_snd",
+          "role": "compatibility",
+          "statement": "The route from the twice-recomputed source conductor through the successive source comparisons and second projections to the original source conductor equals the route through s, the direct source comparison and its second projection."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorSourceTowerChecked.native_inverse_projections",
+          "kind": "compatibility",
+          "statement": "Both inverse flattening projections hold on actual source pullbacks; the first explicitly retains a.inv and the second retains the intermediate conductor comparison."
+        },
+        {
+          "name": "ConductorSourceTowerChecked.whole_inverse",
+          "kind": "compatibility",
+          "statement": "The inverses of the whole successive and direct source-comparison composite isomorphisms agree."
+        },
+        {
+          "name": "ConductorSourceTowerChecked.identity_base",
+          "kind": "degenerate",
+          "statement": "Two identity base changes satisfy the whole source tower comparison on the actual native carriers, retaining their ambient pasting maps."
+        },
+        {
+          "name": "ConductorSourceTowerChecked.zero_ring",
+          "kind": "degenerate",
+          "statement": "Over Spec(Z/1), both source carrier and source pullback flattening isomorphisms have their native forward-inverse roundtrips."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-map-tower-square",
+          "how": "Compare the actual twice/direct conductor maps on their source and target carriers."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts",
+          "how": "Supply source-side tower compatibility for transporting actual conductor squares; geometric pushout transport remains a separate obligation."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-hom-fst",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Source flattening follows the ambient comparison",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourcePullbackTowerIso_hom_fst",
+      "statement": "The forward flattening h.hom followed by the direct first projection equals the iterated first projection followed by a.hom.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-iso",
+        "mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_fst"
+      ],
+      "proofSteps": [
+        "Compute the first projections of both actual pullback.map factors and the intervening native pasting isomorphism. Retain a.hom in the final formula."
+      ],
+      "acceptance": [
+        "The forward flattening h.hom followed by the direct first projection equals the iterated first projection followed by a.hom.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-hom-snd",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Source flattening retains the old conductor projection",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourcePullbackTowerIso_hom_snd",
+      "statement": "The forward flattening h.hom followed by the direct second projection to the original source conductor equals the iterated second projection followed by the intermediate source comparison and its second projection.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-iso",
+        "mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_snd"
+      ],
+      "proofSteps": [
+        "Compute the native map and pasting second projections; the final ambient map has the identity conductor component."
+      ],
+      "acceptance": [
+        "The forward flattening h.hom followed by the direct second projection to the original source conductor equals the iterated second projection followed by the intermediate source comparison and its second projection.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-inv-fst",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Inverse source flattening follows the inverse ambient map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourcePullbackTowerIso_inv_fst",
+      "statement": "The inverse h.inv followed by the iterated first projection equals the direct first projection followed by a.inv.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-hom-fst"
+      ],
+      "proofSteps": [
+        "Cancel the isomorphism a.hom after postcomposition. Substitute the forward first-projection formula and cancel h.inv followed by h.hom."
+      ],
+      "acceptance": [
+        "The inverse h.inv followed by the iterated first projection equals the direct first projection followed by a.inv.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-inv-snd",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Inverse source flattening preserves the original conductor",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourcePullbackTowerIso_inv_snd",
+      "statement": "The inverse h.inv followed by the iterated second projection, intermediate source comparison and old-source second projection equals the direct second projection.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-hom-snd"
+      ],
+      "proofSteps": [
+        "Precompose the full forward second-projection formula with h.inv and cancel the inverse-forward pair."
+      ],
+      "acceptance": [
+        "The inverse h.inv followed by the iterated second projection, intermediate source comparison and old-source second projection equals the direct second projection.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-tower-iso",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "The actual source conductor carrier tower comparison",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourceTowerIso",
+      "statement": "Construct the actual scheme isomorphism s from the twice-recomputed source conductor carrier to the directly recomputed source conductor carrier. Compose the existing source comparison for (f_q,r), h, and the inverse of the existing direct source comparison for (f,r∘q). Its ambient morphism is the actual a, not an equality identification of the source schemes.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-base-change-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-iso"
+      ],
+      "proofSteps": [
+        "Compose actual native scheme isomorphisms. The intermediate pullbacks and the two distinct source ambient schemes are retained in the types. The forward inclusion law then determines this comparison uniquely."
+      ],
+      "acceptance": [
+        "Construct the actual scheme isomorphism s from the twice-recomputed source conductor carrier to the directly recomputed source conductor carrier. Compose the existing source comparison for (f_q,r), h, and the inverse of the existing direct source comparison for (f,r∘q). Its ambient morphism is the actual a, not an equality identification of the source schemes.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourceTowerIso_hom_inclusion",
+          "role": "compatibility",
+          "statement": "The forward s.hom followed by the direct source conductor inclusion equals the twice-recomputed source inclusion followed by a.hom."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourceTowerIso_inv_inclusion",
+          "role": "compatibility",
+          "statement": "The inverse s.inv followed by the twice-recomputed source inclusion equals the direct source inclusion followed by a.inv."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourceTowerIso_unique",
+          "role": "compatibility",
+          "statement": "Every actual morphism between the specified source conductor carriers whose composite with the direct inclusion is the twice-recomputed inclusion followed by a.hom equals s.hom."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourceBaseChangeIso_tower",
+          "role": "compatibility",
+          "statement": "As whole native scheme isomorphisms, the source comparison for (f_q,r) followed by h equals s followed by the direct source comparison for (f,r∘q). All corners are actual recomputed conductor carriers and native pullbacks."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourceBaseChangeIso_tower_inverse",
+          "role": "compatibility",
+          "statement": "The inverse h.inv followed by the inverse source comparison for (f_q,r) equals the inverse direct source comparison followed by s.inv."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSourceBaseChangeIso_tower_snd",
+          "role": "compatibility",
+          "statement": "The route from the twice-recomputed source conductor through the successive source comparisons and second projections to the original source conductor equals the route through s, the direct source comparison and its second projection."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorMap_tower_square",
+          "role": "compatibility",
+          "statement": "The source carrier comparison s.hom followed by the actual directly recomputed conductorMap equals the actual twice-recomputed conductorMap followed by the retained target carrier comparison t.hom. This is the full source-target conductor-map square."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorMap_tower_inverse_square",
+          "role": "compatibility",
+          "statement": "The inverse s.inv followed by the actual twice-recomputed conductorMap equals the actual directly recomputed conductorMap followed by t.inv."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorSourceTowerChecked.carrier_roundtrip",
+          "kind": "compatibility",
+          "statement": "The actual source carrier comparison has its native forward-inverse roundtrip and its inverse inclusion follows the actual inverse ambient pasting isomorphism."
+        },
+        {
+          "name": "ConductorSourceTowerChecked.uniqueness",
+          "kind": "compatibility",
+          "statement": "Every whole scheme isomorphism between the two specified source conductor carriers preserving the ambient inclusion equals the constructed s."
+        },
+        {
+          "name": "ConductorSourceTowerChecked.whole_inverse",
+          "kind": "compatibility",
+          "statement": "The inverses of the whole successive and direct source-comparison composite isomorphisms agree."
+        },
+        {
+          "name": "ConductorSourceTowerChecked.actual_conductor_maps",
+          "kind": "compatibility",
+          "statement": "The forward and inverse squares of the actual twice/direct conductor maps and actual source/target tower carrier comparisons both commute."
+        },
+        {
+          "name": "ConductorSourceTowerChecked.identity_base",
+          "kind": "degenerate",
+          "statement": "Two identity base changes satisfy the whole source tower comparison on the actual native carriers, retaining their ambient pasting maps."
+        },
+        {
+          "name": "ConductorSourceTowerChecked.nested_open_restriction",
+          "kind": "compatibility",
+          "statement": "For every open U of P and every open V of U, without affineness assumptions, the actual conductor maps commute with source and target carrier comparisons along V→U→P."
+        },
+        {
+          "name": "ConductorSourceTowerChecked.zero_ring",
+          "kind": "degenerate",
+          "statement": "Over Spec(Z/1), both source carrier and source pullback flattening isomorphisms have their native forward-inverse roundtrips."
+        },
+        {
+          "name": "ConductorSourceTowerChecked.nonreduced_diagonal",
+          "kind": "non-example",
+          "statement": "For the actual diagonal Spec(Z/4×Z/4)→Spec(Z/4), prove finiteness and schematic dominance from the native maps, exhibit nonzero square-zero2 in the base ring, and prove the actual source-target conductor-map tower square for two identity base changes. This does not certify the retained admitted conductor-section test."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-map-tower-square",
+          "how": "Compare the actual twice/direct conductor maps on their source and target carriers."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts",
+          "how": "Supply source-side tower compatibility for transporting actual conductor squares; geometric pushout transport remains a separate obligation."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-tower-hom-inclusion",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The source carrier comparison preserves its ambient inclusion",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourceTowerIso_hom_inclusion",
+      "statement": "The forward s.hom followed by the direct source conductor inclusion equals the twice-recomputed source inclusion followed by a.hom.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-tower-iso",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-hom-fst",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-base-change-fst",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-base-change-inverse"
+      ],
+      "proofSteps": [
+        "Use the inverse direct comparison inclusion formula, the flattening first-projection formula and the iterated source comparison first-projection formula."
+      ],
+      "acceptance": [
+        "The forward s.hom followed by the direct source conductor inclusion equals the twice-recomputed source inclusion followed by a.hom.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-tower-inv-inclusion",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The inverse source carrier comparison preserves inclusion",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourceTowerIso_inv_inclusion",
+      "statement": "The inverse s.inv followed by the twice-recomputed source inclusion equals the direct source inclusion followed by a.inv.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-tower-hom-inclusion"
+      ],
+      "proofSteps": [
+        "Cancel a.hom, substitute the forward inclusion equation and cancel s.inv followed by s.hom."
+      ],
+      "acceptance": [
+        "The inverse s.inv followed by the twice-recomputed source inclusion equals the direct source inclusion followed by a.inv.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-tower-unique",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Uniqueness of the actual source carrier comparison",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourceTowerIso_unique",
+      "statement": "Every actual morphism between the specified source conductor carriers whose composite with the direct inclusion is the twice-recomputed inclusion followed by a.hom equals s.hom.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-tower-hom-inclusion",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.subschemeι"
+      ],
+      "proofSteps": [
+        "Cancel the actual direct closed inclusion, a native monomorphism, and use the proved forward inclusion law."
+      ],
+      "acceptance": [
+        "Every actual morphism between the specified source conductor carriers whose composite with the direct inclusion is the twice-recomputed inclusion followed by a.hom equals s.hom.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-base-change-tower",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Successive and direct source comparisons agree as whole isomorphisms",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourceBaseChangeIso_tower",
+      "statement": "As whole native scheme isomorphisms, the source comparison for (f_q,r) followed by h equals s followed by the direct source comparison for (f,r∘q). All corners are actual recomputed conductor carriers and native pullbacks.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-tower-iso",
+        "mathlib:CategoryTheory.Iso.ext"
+      ],
+      "proofSteps": [
+        "Expand the actual construction of s and cancel the direct comparison inverse-forward pair; Iso.ext gives equality of the whole isomorphisms."
+      ],
+      "acceptance": [
+        "As whole native scheme isomorphisms, the source comparison for (f_q,r) followed by h equals s followed by the direct source comparison for (f,r∘q). All corners are actual recomputed conductor carriers and native pullbacks.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-base-change-tower-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Inverse successive and direct source comparisons agree",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourceBaseChangeIso_tower_inverse",
+      "statement": "The inverse h.inv followed by the inverse source comparison for (f_q,r) equals the inverse direct source comparison followed by s.inv.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-base-change-tower"
+      ],
+      "proofSteps": [
+        "Apply congruence to the inverse field of the proved whole-isomorphism equality; retain the reversed composite order."
+      ],
+      "acceptance": [
+        "The inverse h.inv followed by the inverse source comparison for (f_q,r) equals the inverse direct source comparison followed by s.inv.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-base-change-tower-snd",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Both source routes give the same original-conductor morphism",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSourceBaseChangeIso_tower_snd",
+      "statement": "The route from the twice-recomputed source conductor through the successive source comparisons and second projections to the original source conductor equals the route through s, the direct source comparison and its second projection.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-base-change-tower",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-pullback-tower-hom-snd"
+      ],
+      "proofSteps": [
+        "Postcompose the whole-isomorphism equality with the actual direct second projection and substitute the flattening second-projection formula."
+      ],
+      "acceptance": [
+        "The route from the twice-recomputed source conductor through the successive source comparisons and second projections to the original source conductor equals the route through s, the direct source comparison and its second projection.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-map-tower-square",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The actual conductor map commutes with the tower comparisons",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorMap_tower_square",
+      "statement": "The source carrier comparison s.hom followed by the actual directly recomputed conductorMap equals the actual twice-recomputed conductorMap followed by the retained target carrier comparison t.hom. This is the full source-target conductor-map square.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-source-tower-hom-inclusion",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map-square",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-target-tower-hom-inclusion",
+        "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_snd"
+      ],
+      "proofSteps": [
+        "Cancel the direct target closed inclusion. The retained conductorMap_square contracts both vertical composites to their actual ambient finite morphisms. The source inclusion law and native ambient second-projection formula make the two sides equal; the target inclusion law identifies the other route."
+      ],
+      "acceptance": [
+        "The source carrier comparison s.hom followed by the actual directly recomputed conductorMap equals the actual twice-recomputed conductorMap followed by the retained target carrier comparison t.hom. This is the full source-target conductor-map square.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-map-tower-inverse-square",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The inverse conductor-map tower square",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorMap_tower_inverse_square",
+      "statement": "The inverse s.inv followed by the actual twice-recomputed conductorMap equals the actual directly recomputed conductorMap followed by t.inv.",
+      "hypotheses": [
+        "Schemes in one universe. f:Y→P is finite and schematically dominant; q:T→P and r:Z→T are flat. f_q means native pullback.snd f q. Native composition and base-change instances supply the corresponding hypotheses.",
+        "I_g is the full target conductor ideal, J_g=I_g.comap g the full source ideal. a is native pullbackLeftPullbackSndIso(f,q,r); t is the retained conductorTargetTowerIso. Traversal order is used for composition.",
+        "No reduced, affine, Noetherian, separated, birational, faithfully-flat or nonempty assumption is added. Generic ideal/pullback carriers remain native or supplied by SF.0; geometric pushout transport and three-step coherence are separate obligations."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-map-tower-square"
+      ],
+      "proofSteps": [
+        "Precompose the forward square with s.inv and postcompose with t.inv, then cancel both inverse-forward pairs and reverse the resulting equality."
+      ],
+      "acceptance": [
+        "The inverse s.inv followed by the actual twice-recomputed conductorMap equals the actual directly recomputed conductorMap followed by t.inv.",
+        "Use the actual source ambient isomorphism and full conductor ideals; retain exact forward and inverse morphisms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "ConductorSourceTower-codex-rtOQ9t",
+          "locator": "Section26.17 Definition26.17.1 and Lemma26.17.6(1); authored source-conductor specialization of native pullback pasting",
+          "match": "The source supplies the fibre-product universal property and full inverse-image ideal context. The precise conductor tower comparisons and map-square identities are authored deductions from retained conductor contracts and pinned native APIs, not verbatim claims from Stacks."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -43298,7 +44114,8 @@
         "Twelve conductor-specific declarations(2 constructions,10 lemmas) now transport the actual unit-image quotient to B⊗_A F with its native right F-action. The exact existing conductor_flat_baseChange header has native proof evidence using SF.0’s finite-module flat-annihilator export and pinned native includeRight injectivity, with no extra Noetherian/reduced assumptions. Seven consumed API references and11 typed examples retain nilpotents, zero rings and the nonflat quotient distinction. Global conductor ideal-sheaf flat recomputation and restriction maps remain open, together with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, P¹/Proj, projectivity/properness, coherent cohomology/genus, separate I₂ and later model/classification obligations. All18 gaps,23 requests,78 routes and seven partial stages remain; implementationStatus stays unchecked and the full Tau-dependent suggested file remains UNCOMPILED.",
         "The exact existing conductor_global_flat_comparison header now has native proof evidence for every finite schematically dominant f and arbitrary flat q. Five new lemmas connect the actual ring pushout to refined affine charts, compare the source ideal and handle a two-step flat tower. Four API entries and eight typed examples include actual chart restrictions, empty charts, zero rings and a nonzero nilpotent excluded from the full diagonal conductor overZ/4. No affine, Noetherian, reduced, separated or quasi-compact-target hypothesis is added. Explicit subscheme comparison isomorphisms and conductorMap coherence remain, together with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, projective/cohomological work, separateI2 and later models/classification. All18 gap records,23 requests,78 routes,27 findings and seven partial stages remain; every implementation stays unchecked and the full Tau-dependent suggested file is UNCOMPILED.",
         "The recomputed target and source conductor closed subschemes now have actual native scheme isomorphisms to the pullbacks of the original conductor inclusions. Eight API lemmas compute their forward and inverse inclusion/projection maps and supply exact native IsPullback squares. Two further lemmas identify the actual recomputed conductorMap with the native pullback.map of the original conductor map, in both forward and inverse comparison diagrams. The existing conductorMap_square API is promoted to its own dependency node without duplicating its retained Lean declaration. Two concrete constructions and eight distinct typed tests preserve arbitrary flat base change, open restrictions, identity/empty conductors, zero rings and a nonzero square-zero actual conductor global section overZ/4. All726 incoming node objects and528 baseline objects are retained whole. Iterated conductor subscheme isomorphism/carrier coherence, geometric conductor pushout transport, generic Ferrand algebraic-space existence and the scheme affine-neighborhood criterion remain open, together with projective/cohomological work, separateI2 and remaining model/classification obligations. All18 gaps,23 requests,78 routes,27 source findings and seven partial stages remain; implementations stay unchecked and the complete Tau-dependent suggested file remains UNCOMPILED.",
-        "Two actual conductor-specific isomorphisms now identify the twice-recomputed target conductor carrier with the direct one and flatten the intermediate native target conductor pullback. Ten lemmas give forward/inverse projection laws, uniqueness by the closed inclusion, equality of the whole successive and direct comparison isomorphisms, the inverse equality and the induced map to the old conductor. Eight proved typed examples include nested nonaffine open restrictions, identity base changes and the zero ring. All739 incoming node objects and530 baseline entries are retained. Target-side two-step coherence is supplied; source-carrier tower coherence, three-step coherence and geometric conductor pushout transport remain required, as do generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, projective/cohomological work, separateI2 and the other model/classification obligations. The incoming nonreduced_conductor_section has admitted typing evidence only: its attempted native proof again hit a kernel timeout, so no new proof certificate is claimed for it. All18 gaps,23 requests,78 routes,27 findings and seven partial stages remain; implementations stay unchecked and the whole Tau-dependent suggested file is UNCOMPILED."
+        "Two actual conductor-specific isomorphisms now identify the twice-recomputed target conductor carrier with the direct one and flatten the intermediate native target conductor pullback. Ten lemmas give forward/inverse projection laws, uniqueness by the closed inclusion, equality of the whole successive and direct comparison isomorphisms, the inverse equality and the induced map to the old conductor. Eight proved typed examples include nested nonaffine open restrictions, identity base changes and the zero ring. All739 incoming node objects and530 baseline entries are retained. Target-side two-step coherence is supplied; source-carrier tower coherence, three-step coherence and geometric conductor pushout transport remain required, as do generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, projective/cohomological work, separateI2 and the other model/classification obligations. The incoming nonreduced_conductor_section has admitted typing evidence only: its attempted native proof again hit a kernel timeout, so no new proof certificate is claimed for it. All18 gaps,23 requests,78 routes,27 findings and seven partial stages remain; implementations stay unchecked and the whole Tau-dependent suggested file is UNCOMPILED.",
+        "Two actual source conductor isomorphisms now flatten the source pullbacks along the native ambient pullbackLeftPullbackSndIso and compare the twice/direct recomputed source carriers. Thirteen lemmas give full source-ideal transport, four flattening projection laws, forward/inverse inclusion laws, uniqueness, equality of the whole successive/direct source comparison isomorphisms and their inverses, the induced old-source-conductor morphism, and both actual conductorMap tower squares with the retained target comparison. Nine proved typed examples include nested nonaffine opens, identity bases, the zero ring and the actual nonreduced diagonal overZ/4. All751 incoming nodes and536 baselines remain whole. Source and target two-step conductor-map compatibility is supplied; three-step coherence and transport of the geometric conductor pushout predicate remain required, along with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, small étale structure sheaves, projective/cohomological work, separateI2 and model/classification obligations. The retained nonreduced_conductor_section statement still has admitted-only evidence with its inherited kernel-timeout source/log/receipt; this job makes no recovery claim for it. All18 gaps,23 requests,78 routes,27 findings and seven partial stages remain; implementations stay unchecked and the whole Tau-importing suggested file is UNCOMPILED."
       ]
     },
     {
