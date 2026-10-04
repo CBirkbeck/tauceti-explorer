@@ -9,8 +9,8 @@
     "SemisimpleAlgebrasPartII:SA.3",
     "SemisimpleAlgebrasPartII:SA.4"
   ],
-  "status": "partial",
-  "summary": "Initial source-checked checkpoint: class-index descent and arbitrary-finite-extension degree arithmetic, separable period transfer, and geometric Morita support and invariant descent. Both routed tranches remain partial; unresolved inputs are explicit and no implementation is certified.",
+  "status": "complete",
+  "summary": "Completed target-level breadth pass: preserve all35 incoming declaration IDs and add20 declaration-sized arithmetic, finite-spectral-Higgs and relative-Cartier adapters. All five stages are planned with explicit supplier/gap leaves; none is closed and every implementation stays unchecked. A separate Mathlib-only proof checks actual division-column action/tower/finiteness/dimension/cancellation and distinct monic Frobenius roots without admissions. Full Tau Ceti sketch is uncompiled. The plan does not claim period=index or repair EGAppendixA.2.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -266,6 +266,90 @@
         "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
         "provides": "Base change for K/K is the identity homomorphism.",
         "checked": "Actual statement read at the pinned commit, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Module.compHom",
+        "kind": "declaration",
+        "module": "Mathlib/Algebra/Module/RingHom.lean",
+        "provides": "Restriction of an existing module along a ring homomorphism.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit,2026-10-04."
+      },
+      {
+        "ref": "mathlib:Matrix.Module.matrixModule",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/Matrix/Module.lean",
+        "provides": "Scoped matrix-column module instance with rows acting on columns.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit,2026-10-04."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.includeRight",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "Actual K-algebra inclusion of the right tensor factor.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit,2026-10-04."
+      },
+      {
+        "ref": "mathlib:IsScalarTower.of_algebraMap_smul",
+        "kind": "declaration",
+        "module": "Mathlib/Algebra/Algebra/Tower.lean",
+        "provides": "Build a scalar tower from compatibility of base scalar action.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit,2026-10-04."
+      },
+      {
+        "ref": "mathlib:Module.Finite.of_restrictScalars_finite",
+        "kind": "declaration",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "provides": "A module finite over the smaller scalar ring is finite over the larger compatible one.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit,2026-10-04."
+      },
+      {
+        "ref": "mathlib:Module.Basis.ofVectorSpace",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/Basis/VectorSpace.lean",
+        "provides": "Basis of every module over a division ring; the adjacent actual Module.Free.of_divisionRing instance was read, but anonymous/instance declarations are absent from the index.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit,2026-10-04."
+      },
+      {
+        "ref": "mathlib:Module.finrank_pi_fintype",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+        "provides": "Finite product rank is the sum of component ranks.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit,2026-10-04."
+      },
+      {
+        "ref": "mathlib:mul_left_cancel₀",
+        "kind": "declaration",
+        "module": "Mathlib/Algebra/GroupWithZero/Defs.lean",
+        "provides": "Cancel a nonzero factor in a cancellative monoid with zero, including a positive natural number. The prototype uses the Lean core Nat cancellation lemma.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit,2026-10-04."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.IsSplittingField.nonempty_algEquiv_matrix_deg",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/CentralSimple/Splitting.lean",
+        "provides": "A splitter of a finite-dimensional CSA gives a matrix presentation of its exact degree.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit,2026-10-04."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.baseChange_comp",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
+        "provides": "Scalar-extension homomorphisms compose in an actual algebra tower.",
+        "checked": "Actual statement and ambient hypotheses read at the pinned commit,2026-10-04."
+      },
+      {
+        "ref": "mathlib:Matrix.det_blockDiagonal",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Determinant of a finite block-diagonal matrix is the product of block determinants.",
+        "checked": "Statement and finite/decidable-index commutative-ring hypotheses read at the pin,2026-10-04."
+      },
+      {
+        "ref": "tauceti:TauCeti.Quaternion.orderOf_mk_eq_two",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/BrauerGroup/Quaternion.lean",
+        "provides": "The Hamilton quaternion class in Br(ℝ) has order exactly2; the same module contains an actual complexification-to-identity example.",
+        "checked": "Statement, same-universe class convention and adjacent complexification example read at f790474,2026-10-04."
       }
     ]
   },
@@ -275,9 +359,9 @@
       "title": "Central Simple Algebras and Galois Cohomology",
       "authors": "Philippe Gille and Tamás Szamuely",
       "url": "https://www.math.ens.psl.eu/~benoist/refs/Gille-Szamuely.pdf",
-      "accessed": "2026-10-02",
+      "accessed": "2026-10-04",
       "readSections": [
-        "2006 edition §4.5, printed pp100–105; proof of 4.5.16 not completely read"
+        "2006 §4.5 pp100–106, including complete proof4.5.16; selected §4.4 comparison statements. Primary decomposition is out of the target dependency chain and is not newly planned."
       ],
       "sha256": "3697582f57a11547addeb8d5d63764d788b9d670e2bd76bd7401b9f3994f1e63",
       "edition": "Cambridge Studies in Advanced Mathematics101, 2006"
@@ -287,7 +371,7 @@
       "title": "Errata and additional comments",
       "authors": "Tamás Szamuely",
       "url": "https://pagine.dm.unipi.it/tamas/erratams.pdf",
-      "accessed": "2026-10-02",
+      "accessed": "2026-10-04",
       "readSections": [
         "December 4, 2020: p101 correction and p105 Saltman correction"
       ],
@@ -311,14 +395,38 @@
       "title": "Rigid connections and F-isocrystals",
       "authors": "Hélène Esnault and Michael Groechenig",
       "url": "https://arxiv.org/pdf/1707.00752v4",
-      "accessed": "2026-10-02",
+      "accessed": "2026-10-04",
       "readSections": [
-        "arXiv v4, June 1, 2020; Theorem2.17 and Remark2.18, pp13–14; Appendix A.2–A.3, pp40–41"
+        "v4 Theorem2.17/Remark2.18 pp13–14, including complete local Morita proof; AppendixA.2–A.3 pp40–41."
       ],
       "sha256": "bcc435b58bb2b1c06869413c1cd96018676d15da8003d21e5b507b114a63c4eb",
       "edition": "arXiv:1707.00752v4, June1, 2020",
-      "fetchedUrl": "https://arxiv.org/pdf/1707.00752",
+      "fetchedUrl": "https://arxiv.org/pdf/1707.00752v4",
       "versionVerified": "PDF page1 footer identifies arXiv:1707.00752v4, 1 Jun2020."
+    },
+    {
+      "id": "OV07",
+      "title": "Nonabelian Hodge theory in characteristic p",
+      "authors": "Arthur Ogus and Vadim Vologodsky",
+      "url": "https://www.numdam.org/item/10.1007/s10240-007-0010-z.pdf",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "Published Corollary2.9, Theorem2.8 context pp33–34; §4.2 exact sequence and Proposition4.2/4.4 pp85–88; no full-paper reading."
+      ],
+      "sha256": "2266595d31d3ee482d7fffefaf86ad8f50767804059bbde9ccaaf3b27c4f1035",
+      "edition": "Publications Mathématiques de l’IHÉS106(2007),1–138"
+    },
+    {
+      "id": "BBv2",
+      "title": "Geometric Langlands correspondence for D-modules in prime characteristic: the GL(n) case",
+      "authors": "Roman Bezrukavnikov and Alexander Braverman",
+      "url": "https://arxiv.org/pdf/math/0602255v2",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "arXiv math/0602255v2, 4Dec2006; §2.2 and §3.10–3.12, pp3,11; no published/preprint identity certification."
+      ],
+      "sha256": "a94800bee9fcbb4ea99b6d945b4e8c24b99a80fd957021d6f5ca530ca38b0b1c",
+      "edition": "arXiv:math/0602255v2,4Dec2006"
     }
   ],
   "nodes": [
@@ -381,7 +489,8 @@
         "SemisimpleAlgebrasPartII:SA.0/index-brauer-congr",
         "tauceti:TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing",
         "tauceti:TauCeti.BrauerGroup.nonempty_algEquiv_of_mk_eq_mk",
-        "tauceti:TauCeti.Algebra.index_eq_deg_of_divisionRing"
+        "tauceti:TauCeti.Algebra.index_eq_deg_of_divisionRing",
+        "tauceti:TauCeti.Quaternion.orderOf_mk_eq_two"
       ],
       "sources": [
         {
@@ -446,6 +555,16 @@
           "name": "zero_excluded",
           "kind": "non-example",
           "statement": "No Brauer class has index0; the zero-dimensional matrix ring is not a CSA."
+        },
+        {
+          "name": "hamilton_period_index",
+          "kind": "computation",
+          "statement": "For the Hamilton quaternion class h=[ℍ[ℝ]], classIndex(h)=2 and orderOf(h)=2; the built order-of-class theorem supplies the period computation."
+        },
+        {
+          "name": "complexification_lowers_index",
+          "kind": "computation",
+          "statement": "For h=[ℍ[ℝ]], classIndex(baseChange ℝ ℂ h)=1 < classIndex(h)=2. This is a finite quadratic extension that strictly lowers the index."
         }
       ]
     },
@@ -650,9 +769,9 @@
       "statement": "Let D be a central division K-algebra of degree d>0 and L/K finite with L⊗_K D≃ₐ[L]M_d(L). The column module V=L^d admits a finite-dimensional left D-module structure compatible with its K-action, and dim_K V=d²·dim_D V.",
       "hypotheses": [],
       "proofSteps": [
-        "Restrict the matrix column action along D→L⊗D and the chosen matrix equivalence; explicitly verify scalar-tower compatibility.",
-        "A K-spanning set also D-spans V, so V is finite-dimensional over the division ring D. The module structure and its finite/free instances are a genuine construction obligation.",
-        "Use the free-module tower law and dim_K D=d². This is an authored proof for inseparable extensions as well, rather than an attribution of that strengthening to GS4.5.11."
+        "Choose the matrix presentation of exact degree through the built nonempty_algEquiv_matrix_deg; no new parent existence result.",
+        "Set ρ=(e restricted to K)∘includeRight and take divisionColumnModule with this actual homomorphism. Apply column-scalar-tower, column-finite and column-tower-dimension.",
+        "Rewrite dim_K D=d² using the built deg_sq in its stated direction. The Mathlib-only action, tower, finiteness and cancellation now have separate admission-free proof receipts; the Tau Ceti signature remains uncompiled."
       ],
       "acceptance": [
         "Let D be a central division K-algebra of degree d>0 and L/K finite with L⊗_K D≃ₐ[L]M_d(L). The column module V=L^d admits a finite-dimensional left D-module structure compatible with its K-action, and dim_K V=d²·dim_D V."
@@ -661,7 +780,10 @@
         "mathlib:Module.finrank_mul_finrank",
         "tauceti:TauCeti.Algebra.index_eq_deg_of_divisionRing",
         "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
-        "tauceti:TauCeti.Algebra.deg_sq"
+        "tauceti:TauCeti.Algebra.deg_sq",
+        "SemisimpleAlgebrasPartII:SA.0/division-column-action",
+        "SemisimpleAlgebrasPartII:SA.0/column-tower-dimension",
+        "tauceti:TauCeti.Algebra.IsSplittingField.nonempty_algEquiv_matrix_deg"
       ],
       "sources": [
         {
@@ -687,9 +809,9 @@
       "statement": "For every field K, α∈Br(K), and finite extension L/K with α_L=1, classIndex α divides dim_K L. No separability hypothesis.",
       "hypotheses": [],
       "proofSteps": [
-        "Choose the existing central division representative D. The class-kernel theorem gives a splitting matrix equivalence after scalar extension.",
-        "Apply division-module-dimension to obtain [L:K]·d=r·d².",
-        "Cancel the positive d to obtain [L:K]=r·d. Do not cancel the square first and infer a false divisibility."
+        "Choose the existing central division representative D and use the built class-kernel and exact-degree matrix-presentation exports.",
+        "Instantiate column-splitting-degree at n=deg_K D, using deg_pos and deg_sq.",
+        "Translate the representative degree through class-index-mk and index_eq_deg_of_divisionRing. This final Tau Ceti adapter remains uncompiled."
       ],
       "acceptance": [
         "For every field K, α∈Br(K), and finite extension L/K with α_L=1, classIndex α divides dim_K L. No separability hypothesis."
@@ -699,7 +821,8 @@
         "SemisimpleAlgebrasPartII:SA.0/class-index-positive",
         "SemisimpleAlgebrasPartII:SA.0/division-module-dimension",
         "tauceti:TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing",
-        "tauceti:TauCeti.BrauerGroup.mk_mem_ker_baseChange_iff_isSplittingField"
+        "tauceti:TauCeti.BrauerGroup.mk_mem_ker_baseChange_iff_isSplittingField",
+        "SemisimpleAlgebrasPartII:SA.0/column-splitting-degree"
       ],
       "sources": [
         {
@@ -767,9 +890,9 @@
       "statement": "For every finite extension L/K, classIndex α divides [L:K]·classIndex(α_L). No separability hypothesis.",
       "hypotheses": [],
       "proofSteps": [
-        "Apply the existing index-degree attainment theorem to a representative of α_L to choose M/L of degree classIndex(α_L).",
-        "Composition of native algebra instances gives M/K finite; the existing splitting-field tower law makes M split α.",
-        "Use index-divides-splitting-degree and the field tower degree formula."
+        "Choose the built index-degree finite splitter M/L of a representative of α_L.",
+        "Install the native K/L/M algebra tower and finiteness. Evaluate the existing baseChange_comp at α to see that M kills α; this is a supplied group law, not a new splitting ascent theorem.",
+        "Apply all-finite splitting-degree divisibility and the field tower dimension formula."
       ],
       "acceptance": [
         "For every finite extension L/K, classIndex α divides [L:K]·classIndex(α_L). No separability hypothesis."
@@ -779,7 +902,8 @@
         "tauceti:TauCeti.Algebra.exists_isSplittingField_finrank_eq_index",
         "mathlib:Module.finrank_mul_finrank",
         "tauceti:TauCeti.BrauerGroup.baseChange",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields"
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+        "tauceti:TauCeti.BrauerGroup.baseChange_comp"
       ],
       "sources": [
         {
@@ -1767,7 +1891,7 @@
       "proofSteps": [
         "Use the native TrivSqZeroExt(F₂,F₂) model and its pure nilpotent element.",
         "Verify nonzero by its second projection and square zero by inr_mul_inr.",
-        "Compute (T+ε)²=T² in characteristic2. The compiled native tests check the two ring facts; the polynomial equality still needs its own native example."
+        "The separate native proof verifies distinctness by constant coefficients, monicity and the polynomial square equality, as well as the two ring facts. It uses the native dual-number ring; no reducedness hypothesis is inserted."
       ],
       "acceptance": [
         "In R=F₂[ε]/ε², ε≠0 and ε²=0. Thus the distinct monic polynomials T and T+ε have the same square; a monic Frobenius root is not unique on a nonreduced base."
@@ -1808,12 +1932,15 @@
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.2",
-        "SchemeAndStackFoundations:key/scheme-brauer"
+        "SchemeAndStackFoundations:key/scheme-brauer",
+        "SemisimpleAlgebrasPartII:SA.4/cartier-middle-image",
+        "SemisimpleAlgebrasPartII:SA.4/cartier-boundary-additivity",
+        "SemisimpleAlgebrasPartII:SA.4/cartier-boundary-naturality"
       ],
       "sources": [
         {
           "sourceId": "EG",
-          "locator": "AppendixA.2, equation(A.3); OV07 Proposition4.4 not freshly acquired",
+          "locator": "EGAppendixA.2 equation(A.3); freshly read published OV07 Proposition4.4 pp87–88",
           "match": "Mathematical transcription; authored strengthening and missing supplier steps are identified explicitly in the proof outline."
         }
       ],
@@ -1844,7 +1971,9 @@
       "prerequisites": [
         "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
         "SchemeAndStackFoundations:key/scheme-brauer",
-        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita"
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SemisimpleAlgebrasPartII:SA.4/relative-class-vanishing-input",
+        "SemisimpleAlgebrasPartII:SA.4/relative-morita-refinement"
       ],
       "sources": [
         {
@@ -1858,15 +1987,811 @@
         "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
         "namespace": "SemisimpleAlgebrasPartII"
       }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/division-column-action",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Restricted division-column action",
+      "kind": "construction",
+      "statement": "For a division K-algebra D, extension field L and a specified K-algebra homomorphism ρ:D→M_n(L), divisionColumnModule n ρ is the left D-action on L^n obtained from the existing matrix column module by Module.compHom. For a chosen splitting equivalence take ρ=e∘includeRight with scalars restricted to K. This assembles built operations for the arithmetic proof; it does not reconstruct their general theory.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the scoped matrix module instance and compose its scalar action with the actual ring homomorphism underlying ρ.",
+        "For the splitting input, compose the existing tensor includeRight with the K-restriction of e. The column action retains its original K-vector-space structure."
+      ],
+      "acceptance": [
+        "For a division K-algebra D, extension field L and a specified K-algebra homomorphism ρ:D→M_n(L), divisionColumnModule n ρ is the left D-action on L^n obtained from the existing matrix column module by Module.compHom. For a chosen splitting equivalence take ρ=e∘includeRight with scalars restricted to K. This assembles built operations for the arithmetic proof; it does not reconstruct their general theory."
+      ],
+      "prerequisites": [
+        "mathlib:Module.compHom",
+        "mathlib:Matrix.Module.matrixModule",
+        "mathlib:Algebra.TensorProduct.includeRight"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.3; authored all-finite column-action argument",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "uses": [
+        {
+          "where": "SemisimpleAlgebrasPartII:SA.0/division-module-dimension",
+          "how": "Supplies the actual noncommutative scalar action used in the dimension tower; no arithmetic proposition is assumed."
+        }
+      ],
+      "api": [
+        {
+          "name": "divisionColumnAction",
+          "role": "characterisation",
+          "statement": "At coordinate i, a acts by the sum of ρ(a)_ij times v_j."
+        },
+        {
+          "name": "divisionColumnTower",
+          "role": "compatibility",
+          "statement": "The restricted D-action has IsScalarTower K D L^n with the original K-action."
+        },
+        {
+          "name": "divisionColumnFinite",
+          "role": "instance",
+          "statement": "If L/K is finite, L^n is a finite D-module for this action."
+        },
+        {
+          "name": "divisionColumnDimension",
+          "role": "data",
+          "statement": "Its K-dimension is dim_K(D) times its D-dimension."
+        }
+      ],
+      "tests": [
+        {
+          "name": "column_rank_one",
+          "kind": "computation",
+          "statement": "For n=1, a acts by multiplication by the single entry ρ(a)_00."
+        },
+        {
+          "name": "column_rank_two",
+          "kind": "computation",
+          "statement": "The zeroth coordinate is ρ(a)_00 v_0+ρ(a)_01 v_1; this distinguishes rows from transposed columns."
+        },
+        {
+          "name": "column_empty",
+          "kind": "degenerate",
+          "statement": "For n=0 the column module is finite and has dimension zero; positivity is separately required for cancellation."
+        },
+        {
+          "name": "column_degree_boundary",
+          "kind": "non-example",
+          "statement": "A degree-two division algebra acting on a splitting column module forces an even extension degree; odd degree contradicts the proved tower identity."
+        }
+      ]
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/column-action-coordinate",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Column-action coordinates",
+      "kind": "lemma",
+      "statement": "At coordinate i, a acts by the sum of ρ(a)_ij times v_j.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Unfold the built restricted action once and use Matrix.Module.smul_apply."
+      ],
+      "acceptance": [
+        "At coordinate i, a acts by the sum of ρ(a)_ij times v_j."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/division-column-action"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.3; authored all-finite division-column refinement",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/column-scalar-tower",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Compatible scalar tower",
+      "kind": "lemma",
+      "statement": "The restricted D-action has IsScalarTower K D L^n with the original K-action.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use ρ.commutes to identify the image of a base-field scalar with the matrix algebra scalar.",
+        "Use IsScalarTower.of_algebraMap_smul and the built matrix scalar-tower instance."
+      ],
+      "acceptance": [
+        "The restricted D-action has IsScalarTower K D L^n with the original K-action."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/division-column-action",
+        "mathlib:IsScalarTower.of_algebraMap_smul"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.3; authored all-finite division-column refinement",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/column-finite",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Finiteness over the division algebra",
+      "kind": "lemma",
+      "statement": "If L/K is finite, L^n is a finite D-module for this action.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The original K-module is finite as a finite product of finite K-modules.",
+        "Apply Module.Finite.of_restrictScalars_finite with the constructed scalar tower; no separate spanning-set proof is planned."
+      ],
+      "acceptance": [
+        "If L/K is finite, L^n is a finite D-module for this action."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/column-scalar-tower",
+        "mathlib:Module.Finite.of_restrictScalars_finite"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.3; authored all-finite division-column refinement",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/column-tower-dimension",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Column dimension tower",
+      "kind": "lemma",
+      "statement": "Its K-dimension is dim_K(D) times its D-dimension.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Every module over a division ring is free; import this instance for both K and D.",
+        "Apply Module.finrank_mul_finrank with the constructed tower."
+      ],
+      "acceptance": [
+        "Its K-dimension is dim_K(D) times its D-dimension."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/column-scalar-tower",
+        "SemisimpleAlgebrasPartII:SA.0/column-finite",
+        "mathlib:Module.Basis.ofVectorSpace",
+        "mathlib:Module.finrank_mul_finrank"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.3; authored all-finite division-column refinement",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.0/column-splitting-degree",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.0",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.0"
+      ],
+      "title": "Column splitting-degree divisibility",
+      "kind": "lemma",
+      "statement": "If n>0, dim_K D=n² and ρ:D→M_n(L) is a K-algebra homomorphism, with D and L finite-dimensional over K, then n divides dim_K L. No separability assumption.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The same K-column module has dimension n·dim_K L by the finite-product rank theorem.",
+        "The tower identity gives n·dim_K L=n²·dim_D L^n. Reassociate the right side and cancel the positive n.",
+        "The explicit quotient is dim_D L^n. The dimension hypothesis is the built CSA square-dimension identity in the application, not the desired divisibility assumed as an input."
+      ],
+      "acceptance": [
+        "If n>0, dim_K D=n² and ρ:D→M_n(L) is a K-algebra homomorphism, with D and L finite-dimensional over K, then n divides dim_K L. No separability assumption."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.0/column-tower-dimension",
+        "mathlib:Module.finrank_pi_fintype",
+        "mathlib:mul_left_cancel₀"
+      ],
+      "sources": [
+        {
+          "sourceId": "GS",
+          "locator": "4.5.3; authored all-finite division-column refinement",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/BrauerGroup/PeriodIndex",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/finite-pushforward-morita",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Finite pushforward of a matrix Morita module",
+      "kind": "lemma",
+      "statement": "Let q:V→B be finite, A split by a free generator of positive rank n, and M=P⊗F. Then q_*M≅(q_*F)^⊕n, respecting every commuting function action from V. If q_*M is finite locally free, q_*F is finite locally free and its componentwise rank is rank(q_*M)/n.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Restriction of scalars along a finite algebra map preserves finite direct sums.",
+        "The inverse summand is a finite direct summand of q_*M, hence finite projective; descend the affine finite-projective description.",
+        "The rank identity uses the actual nonempty finite product, and n may vary on components."
+      ],
+      "acceptance": [
+        "Let q:V→B be finite, A split by a free generator of positive rank n, and M=P⊗F. Then q_*M≅(q_*F)^⊕n, respecting every commuting function action from V. If q_*M is finite locally free, q_*F is finite locally free and its componentwise rank is rank(q_*M)/n."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SchemeAndStackFoundations:SF.0",
+        "mathlib:ModuleCat.matrixEquivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 proof, pp13–14; authored repair of the overlap argument",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/spectral-line-trivialization",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Line trivialization over a finite cover",
+      "kind": "lemma",
+      "statement": "For a finite morphism q:V→B and invertible sheaf L on V, after passage to a strictly henselian local base at a point of B, L is free on the resulting semilocal finite algebra. With finite-presentation data this trivialization descends to an étale neighbourhood of that point.",
+      "hypotheses": [],
+      "proofSteps": [
+        "A finite algebra over a local ring is semilocal; an invertible module over a semilocal ring is free of rank one.",
+        "Use finite presentation of L, its inverse and the evaluation maps to descend a chosen basis and its inverse from the filtered étale neighbourhoods.",
+        "Request the generic semilocal and finite-presentation descent exports from SF.0; strict-henselian splitting of A remains the shared key."
+      ],
+      "acceptance": [
+        "For a finite morphism q:V→B and invertible sheaf L on V, after passage to a strictly henselian local base at a point of B, L is free on the resulting semilocal finite algebra. With finite-presentation data this trivialization descends to an étale neighbourhood of that point."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:key/scheme-brauer"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 proof, pp13–14; authored repair of the overlap argument",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/finite-pushforward-line-invariant",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Spectral line twists preserve characteristic coefficients",
+      "kind": "lemma",
+      "statement": "For finite q:V→B, F with q_*F finite locally free, and an invertible sheaf L on V, tensoring F by L preserves the characteristic polynomial of every universal commuting function action after q_*. The line is on V and need not be a pullback from B.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use spectral-line-trivialization on a covering family of étale base neighbourhoods.",
+        "A chosen V-linear basis of L identifies the two pushed-forward modules and intertwines all function actions, so their universal matrices are conjugate.",
+        "Import matrix conjugation invariance and descend equality of coefficient sections; no Frobenius root cancellation and no reduction of B."
+      ],
+      "acceptance": [
+        "For finite q:V→B, F with q_*F finite locally free, and an invertible sheaf L on V, tensoring F by L preserves the characteristic polynomial of every universal commuting function action after q_*. The line is on V and need not be a pullback from B."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.3/spectral-line-trivialization",
+        "mathlib:Matrix.charpoly_units_conj",
+        "SchemeAndStackFoundations:SF.0",
+        "HodgeStructuresPartII:H.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 proof, pp13–14; authored repair of the overlap argument",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/morita-higgs-overlap",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Morita Higgs coefficients agree on overlaps",
+      "kind": "lemma",
+      "statement": "For a finite spectral morphism V→B and two étale splitting generators of A, the characteristic coefficients of the finite locally free inverse Morita pushforwards agree, including their full symmetric differential coefficients.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the specified splitting-transition-line evaluation to compare inverse modules by an invertible V-sheaf.",
+        "Apply finite-pushforward-line-invariant to the universal commuting action; the base one-endomorphism line lemma alone does not supply this step."
+      ],
+      "acceptance": [
+        "For a finite spectral morphism V→B and two étale splitting generators of A, the characteristic coefficients of the finite locally free inverse Morita pushforwards agree, including their full symmetric differential coefficients."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.3/splitting-transition-line",
+        "SemisimpleAlgebrasPartII:SA.3/finite-pushforward-line-invariant",
+        "HodgeStructuresPartII:H.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 proof, pp13–14; authored repair of the overlap argument",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Morita Higgs characteristic coefficients",
+      "kind": "construction",
+      "statement": "Given a finite spectral morphism V→B, sheaf Azumaya A on V and A-module M, suppose on étale splitting neighbourhoods the inverse Morita pushforward is finite locally free of rank r with the imported integrable coefficient-valued Higgs action. Construct degree-r monic symmetric characteristic coefficients on B by descent of these actual inverse-module coefficients, without choosing a Frobenius root.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the imported H.0 integrable Higgs/symmetric-action carrier and request its universal determinant coefficients.",
+        "Use morita-higgs-overlap to glue all coefficient sections through SF.0 descent.",
+        "Keep the evaluation maps fixed; invariance of coefficients does not assert uniqueness of the modules."
+      ],
+      "acceptance": [
+        "Given a finite spectral morphism V→B, sheaf Azumaya A on V and A-module M, suppose on étale splitting neighbourhoods the inverse Morita pushforward is finite locally free of rank r with the imported integrable coefficient-valued Higgs action. Construct degree-r monic symmetric characteristic coefficients on B by descent of these actual inverse-module coefficients, without choosing a Frobenius root."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.3/morita-higgs-overlap",
+        "SemisimpleAlgebrasPartII:SA.3/finite-pushforward-morita",
+        "HodgeStructuresPartII:H.0",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 proof, pp13–14; authored repair of the overlap argument",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      },
+      "uses": [
+        {
+          "where": "EG2.17 local Morita step and Cartier successor BNR support comparison",
+          "how": "Provides the degree-r invariant with coefficients in all symmetric differential degrees over nonreduced parameter bases."
+        }
+      ],
+      "api": [
+        {
+          "name": "moritaHiggsInvariant_local",
+          "role": "compatibility",
+          "statement": "On a splitting chart the descended coefficients equal the universal Higgs determinant of the actual inverse-module pushforward."
+        },
+        {
+          "name": "moritaHiggsInvariant_changeSplitting",
+          "role": "extensionality",
+          "statement": "A compatible change of splitting generator leaves every symmetric coefficient unchanged."
+        },
+        {
+          "name": "moritaHiggsInvariant_baseChange",
+          "role": "functoriality",
+          "statement": "Compatible base change preserving the stated local freeness pulls back all coefficients."
+        },
+        {
+          "name": "moritaHiggsInvariant_power",
+          "role": "data",
+          "statement": "For local matrix rank n the original pushforward has characteristic polynomial equal to the n-th power of the Morita polynomial and rank nr."
+        }
+      ],
+      "tests": [
+        {
+          "name": "higgs_scalar_rank_one",
+          "kind": "computation",
+          "statement": "For one commuting scalar b the polynomial is λ−b; in several coefficient directions retain each linear coefficient."
+        },
+        {
+          "name": "higgs_zero_module",
+          "kind": "degenerate",
+          "statement": "The zero module has invariant1 and rank0."
+        },
+        {
+          "name": "higgs_spectral_line",
+          "kind": "compatibility",
+          "statement": "An invertible sheaf on the finite spectral cover, even one not pulled back from the base, preserves all pushed-forward coefficients."
+        },
+        {
+          "name": "higgs_nonreduced_root",
+          "kind": "non-example",
+          "statement": "Over the characteristic-two dual numbers, λ and λ+ε have the same square but different coefficients; the action, rather than its square, selects the invariant."
+        }
+      ]
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/higgs-invariant-local",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Local Morita Higgs invariant",
+      "kind": "lemma",
+      "statement": "On a splitting chart the descended coefficients equal the universal Higgs determinant of the actual inverse-module pushforward.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Evaluate the descended section on its defining covering chart."
+      ],
+      "acceptance": [
+        "On a splitting chart the descended coefficients equal the universal Higgs determinant of the actual inverse-module pushforward."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 proof, pp13–14; authored repair of the overlap argument",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/higgs-invariant-change",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Change of Morita Higgs splitting",
+      "kind": "lemma",
+      "statement": "A compatible change of splitting generator leaves every symmetric coefficient unchanged.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the overlap equality and sheaf section extensionality."
+      ],
+      "acceptance": [
+        "A compatible change of splitting generator leaves every symmetric coefficient unchanged."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.3/morita-higgs-overlap",
+        "SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 proof, pp13–14; authored repair of the overlap argument",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/higgs-invariant-basechange",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Base change of Morita Higgs coefficients",
+      "kind": "lemma",
+      "statement": "Compatible base change preserving the stated local freeness pulls back all coefficients.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import coefficient pullback for the universal determinant and finite flat base change or the explicitly supplied pushforward comparison.",
+        "Compare on splitting charts and descend. Arbitrary base change requires that comparison and the stated finite local freeness."
+      ],
+      "acceptance": [
+        "Compatible base change preserving the stated local freeness pulls back all coefficients."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant",
+        "HodgeStructuresPartII:H.0",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 proof, pp13–14; authored repair of the overlap argument",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.3/higgs-invariant-power",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.3",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.3"
+      ],
+      "title": "Matrix multiplicity of Morita Higgs coefficients",
+      "kind": "lemma",
+      "statement": "For local matrix rank n the original pushforward has characteristic polynomial equal to the n-th power of the Morita polynomial and rank nr.",
+      "hypotheses": [],
+      "proofSteps": [
+        "In a coefficient basis, each universal commuting-action matrix is n identical diagonal blocks.",
+        "The determinant of block diagonal matrices is the product of block determinants; this does not depend on the characteristic.",
+        "Descend coefficient equality and the local rank identity, including n=p^d in the differential-operator application."
+      ],
+      "acceptance": [
+        "For local matrix rank n the original pushforward has characteristic polynomial equal to the n-th power of the Morita polynomial and rank nr."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.3/finite-pushforward-morita",
+        "SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant",
+        "HodgeStructuresPartII:H.0",
+        "mathlib:Matrix.det_blockDiagonal"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "Theorem2.17 proof, pp13–14; authored repair of the overlap argument",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.4/cartier-middle-image",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.4",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.4"
+      ],
+      "title": "Middle image in the Cartier boundary",
+      "kind": "comparison",
+      "statement": "In the supplied relative four-term sequence, the image of dlog identifies with J=(F_*O_Y^×)/O_Y′^× and yields two short exact sequences: 0→O_Y′^×→F_*O_Y^×→J→0 and 0→J→F_*Z¹_Y/S→Ω¹_Y′/S→0.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use exactness to identify the quotient by the first kernel with the middle image, retaining the actual image and quotient maps.",
+        "Import the Cartier-flow exactness and SF.2 abelian-sheaf cokernel/image comparison. No independent sheaf-of-forms carrier is introduced."
+      ],
+      "acceptance": [
+        "In the supplied relative four-term sequence, the image of dlog identifies with J=(F_*O_Y^×)/O_Y′^× and yields two short exact sequences: 0→O_Y′^×→F_*O_Y^×→J→0 and 0→J→F_*Z¹_Y/S→Ω¹_Y′/S→0."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "OV07",
+          "locator": "§4.2 equation(4.1.1), Proposition4.2, pp85–86",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.4/cartier-boundary-additivity",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.4",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.4"
+      ],
+      "title": "Additivity of the Cartier Brauer boundary",
+      "kind": "lemma",
+      "statement": "For the supplied relative exact sequence and Φ=δ₁∘δ₀ through J, Φ(ω₁+ω₂)=Φ(ω₁)+Φ(ω₂) and Φ(0)=0 in H²_ét(O^×), corresponding to tensor-product Brauer classes under the shared comparison.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Both connecting maps are homomorphisms of abelian groups.",
+        "Transport addition through the shared scheme-Brauer comparison; field BrauerGroup is not used here."
+      ],
+      "acceptance": [
+        "For the supplied relative exact sequence and Φ=δ₁∘δ₀ through J, Φ(ω₁+ω₂)=Φ(ω₁)+Φ(ω₂) and Φ(0)=0 in H²_ét(O^×), corresponding to tensor-product Brauer classes under the shared comparison."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.4/cartier-middle-image",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:key/scheme-brauer"
+      ],
+      "sources": [
+        {
+          "sourceId": "OV07",
+          "locator": "§4.2 two-step morphism after(4.1.1), pp85–86",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.4/cartier-boundary-naturality",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.4",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.4"
+      ],
+      "title": "Relative naturality of the Cartier Brauer boundary",
+      "kind": "lemma",
+      "statement": "A supplied morphism of the full relative Cartier exact sequences, including the units and closed-form maps, commutes with Φ. Base change to a nonreduced parameter scheme requires this exact relative diagram; restriction to a reduced fibre alone is insufficient.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use functoriality of the actual middle image map and both supplied short exact sequences.",
+        "Apply naturality of each connecting homomorphism and compose the two squares.",
+        "Request the relative sequence for smooth Y/S and its base changes from the Cartier owner; never apply an absolute sequence to a singular thickening as if it were smooth over k."
+      ],
+      "acceptance": [
+        "A supplied morphism of the full relative Cartier exact sequences, including the units and closed-form maps, commutes with Φ. Base change to a nonreduced parameter scheme requires this exact relative diagram; restriction to a reduced fibre alone is insufficient."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.4/cartier-middle-image",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "OV07",
+          "locator": "§4.2 relative sequence; EGAppendixA.2 relative-base passage",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.4/relative-class-vanishing-input",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.4",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.4"
+      ],
+      "title": "Relative Cartier class vanishing obligation",
+      "kind": "theorem",
+      "statement": "In EGAppendixA.2, with perfect characteristic-p k, a smooth projective W₂-liftable Z, V=Z′_a and T=Spec k[t]/(t−1)^p, prove Φ(m*θ−r*θ)=0 on V×T using a valid relative argument. This is a target with the recorded source gap, not an assumed established theorem.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The difference restricts to zero at t=1, but that does not locate its support on the cotangent zero-section.",
+        "Supply a valid cohomological vanishing or an actual splitting bimodule on all V×T. The OV bounded zero-section splitting is only an input after a valid restriction/transport argument.",
+        "The relative exact-sequence comparison is a separate prerequisite; singular V×T does not inherit smooth exactness without the supplied ambient restriction diagram."
+      ],
+      "acceptance": [
+        "In EGAppendixA.2, with perfect characteristic-p k, a smooth projective W₂-liftable Z, V=Z′_a and T=Spec k[t]/(t−1)^p, prove Φ(m*θ−r*θ)=0 on V×T using a valid relative argument. This is a target with the recorded source gap, not an assumed established theorem."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.4/cartier-boundary-naturality",
+        "SchemeAndStackFoundations:key/scheme-brauer"
+      ],
+      "sources": [
+        {
+          "sourceId": "EG",
+          "locator": "PropositionA.2 proof, pp40–41; invalid support implication remains a gap",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII:SA.4/relative-morita-refinement",
+      "parentStageId": "SemisimpleAlgebrasPartII:SA.4",
+      "realises": [
+        "SemisimpleAlgebrasPartII:SA.4"
+      ],
+      "title": "Chosen relative Morita equivalence",
+      "kind": "comparison",
+      "statement": "With a W₂-lift and an actual compatible splitting of m*D⊗(r*D)^op on V×T, construct the O-linear equivalence between their module categories, carrying its chosen evaluation and identity-fibre comparison. Bare equality of Brauer classes does not choose this splitting or coherence.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import the OV2.9 lift-dependent bounded splitting and BB3.11/3.12 explicit bimodule comparisons from the Cartier successor.",
+        "Transport the splitting through the proven relative class-vanishing comparison and retain the chosen bimodule.",
+        "Apply the geometric Morita unit/counit and verify restriction at t=1 and composition coherence. These transport/coherence steps remain supplier obligations."
+      ],
+      "acceptance": [
+        "With a W₂-lift and an actual compatible splitting of m*D⊗(r*D)^op on V×T, construct the O-linear equivalence between their module categories, carrying its chosen evaluation and identity-fibre comparison. Bare equality of Brauer classes does not choose this splitting or coherence."
+      ],
+      "prerequisites": [
+        "SemisimpleAlgebrasPartII:SA.4/relative-class-vanishing-input",
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SchemeAndStackFoundations:key/scheme-brauer"
+      ],
+      "sources": [
+        {
+          "sourceId": "BBv2",
+          "locator": "§2.2 equivalence as splitting of A⊗B^op; Proposition3.11/Corollary3.12, p11; EGRemarkA.3",
+          "match": "Assembly or authored refinement of the cited argument; the exact supplier boundary is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/GeometricMorita",
+        "namespace": "SemisimpleAlgebrasPartII"
+      }
     }
   ],
   "requests": [
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
-      "need": "Compatible CSA scalar-extension splitting matrix presentation and splitting ascent through field towers; separable splitting field of index degree over an infinite field. The two pinned existence exports separately provide index-degree and separability, not their conjunction.",
+      "need": "The exact-degree splitting matrix presentation and Brauer baseChange_comp are now found and imported at the pin. The remaining parent-owned request is a finite separable splitting field of index degree over an infinite field; two separate existing existence theorems do not provide their conjunction.",
       "neededBy": [
-        "SemisimpleAlgebrasPartII:SA.0/division-module-dimension",
-        "SemisimpleAlgebrasPartII:SA.0/index-divides-degree-index",
         "SemisimpleAlgebrasPartII:SA.1/class-power-index"
       ]
     },
@@ -1899,7 +2824,7 @@
     },
     {
       "supplier": "GeneralAlgebraicKTheory:K.7",
-      "need": "Split the existing moritaStructure API into native projective-generator tensor/Hom equivalence with unit/counit, R-linearity, restriction to finite presentation and compatible localization. Existing K-theory invariance node is too coarse to supply these signatures directly.",
+      "need": "Refine the current K.7/invariance-products-and-colimits Morita supplier into actual projective-generator tensor/Hom, unit/counit, base-linearity, finite-presentation and localization interfaces. The incoming moritaStructure locator was not found in the current node; retain stage-level ownership.",
       "neededBy": [
         "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
         "SemisimpleAlgebrasPartII:SA.2/coherent-morita"
@@ -1937,42 +2862,60 @@
         "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality"
       ],
       "reservedNode": "SchemeAndStackFoundations:key/scheme-brauer"
+    },
+    {
+      "supplier": "HodgeStructuresPartII:H.0",
+      "need": "Import the single integrable Higgs/symmetric-action carrier and expose its universal symmetric determinant coefficients, frame/base-change invariance and block-direct-sum characteristic polynomial law. No duplicate Higgs definition is proposed.",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.3/finite-pushforward-line-invariant",
+        "SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant",
+        "SemisimpleAlgebrasPartII:SA.3/higgs-invariant-power"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "Finite-algebra semilocal invertible-module trivialization, finite-presentation descent from strict localizations, finite-pushforward/direct-sum and finite-projective local-freeness comparisons; equality detection for every symmetric coefficient.",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.3/finite-pushforward-morita",
+        "SemisimpleAlgebrasPartII:SA.3/spectral-line-trivialization",
+        "SemisimpleAlgebrasPartII:SA.3/finite-pushforward-line-invariant"
+      ]
     }
   ],
   "coverage": [
     {
       "stageId": "SemisimpleAlgebrasPartII:SA.0",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Elaborate division-column module instances and all native field signatures; complete supplier splitting tower checks and all-finite proof."
+        "Independently review the all-finite quotient/CSA adapter and elaborate it when the pinned Tau Ceti compiled imports exist."
       ]
     },
     {
       "stageId": "SemisimpleAlgebrasPartII:SA.1",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Close separable index-degree, all-class comparison naturality, units coefficient transfer, Sylow fixed-field and relative p-group chain."
+        "Implement the requested separable index-degree conjunction, all-class H² naturality/transfer and Sylow fixed-field relative chain."
       ]
     },
     {
       "stageId": "SemisimpleAlgebrasPartII:SA.2",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Import native generic projective-generator theory and shared scheme-Brauer/QCoh carriers; elaborate coherent and support descent."
+        "Implement the single shared scheme-Brauer carrier and generic projective-generator/QCoh localization interfaces, then coherent and ideal-support descent."
       ]
     },
     {
       "stageId": "SemisimpleAlgebrasPartII:SA.3",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Supply étale Picard transitions, coefficient descent and Higgs tuple refinement; prove native polynomial nilpotent example."
+        "Implement finite spectral pushforward, semilocal line trivialization, symmetric Higgs determinant and coefficient descent with the supplied carrier; the polynomial boundary has separate checked evidence."
       ]
     },
     {
       "stageId": "SemisimpleAlgebrasPartII:SA.4",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Freshly read OV07 and BB07, decompose the relative Cartier sequence and repair A.2 class vanishing with coherent categorical data."
+        "Supply the exact relative Cartier interfaces and chosen OV/BB bimodules, prove relative-class-vanishing-input through a valid argument, and verify lift-dependent restriction/coherence."
       ]
     }
   ],
@@ -1984,7 +2927,7 @@
         "SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree",
         "SemisimpleAlgebrasPartII:SA.0/index-divides-degree-index"
       ],
-      "detail": "The restricted noncommutative D-action, finite-dimensional/free instances, deg² identity and splitting ascent are not yet elaborated. The all-finite argument is authored and must be checked independently."
+      "detail": "Actual ρ-column action, compatible K-tower, D-finiteness/free instances, dimension equality and positive cancellation now have a separate Mathlib-only admission-free proof. Exact-degree splitting presentation and Brauer tower composition are built. The quotient/CSA adapters in the full Tau Ceti sketch remain uncompiled; independent review must check the authored inseparable extension application."
     },
     {
       "title": "Separable index-degree conjunction",
@@ -2023,14 +2966,14 @@
         "SemisimpleAlgebrasPartII:SA.3/splitting-transition-line",
         "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial"
       ],
-      "detail": "GeneralAlgebraicKTheory:K.7/morita-invariance includes moritaStructure but not the native granularity needed. Import the generic result; shared scheme-Brauer key is still promised, not an implemented node."
+      "detail": "The current GeneralAlgebraicKTheory:K.7/invariance-products-and-colimits node cites generic Morita equivalences coarsely. The incoming morita-invariance/moritaStructure locator is stale; no exact node with that identifier was found. Request the native tensor/Hom, finite-presentation and localization interfaces from stage K.7, keeping the generic ownership there."
     },
     {
       "title": "Multi-endomorphism Higgs invariant",
       "neededBy": [
         "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial"
       ],
-      "detail": "Single A-linear endomorphism is decomposed here. The commuting Higgs tuple, symmetric differentials and the exact rank-p^d characteristic-polynomial power relation need further declaration-sized nodes; no coefficient-root uniqueness argument is valid over nilpotents."
+      "detail": "The full commuting-Higgs target is now represented by the finite spectral pushforward, spectral line, overlap and invariant/power nodes. The dual-number polynomial counterexample has an admission-free proof. Native sheaf and Higgs/determinant supplier interfaces still need implementation."
     },
     {
       "title": "Cartier-specific relative exact sequence and OV comparison",
@@ -2038,7 +2981,7 @@
         "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
         "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality"
       ],
-      "detail": "Fresh reading covers EG(A.3), not OV07 Proposition4.4 or BB07 Proposition3.11. The exact relative closed-form sequence and [D]=Φ(θ) belong to the promised Cartier-flow continuation, not generic Crystalline CR.1. No exact reserved node exists yet; ownership addition is proposed in restructure."
+      "detail": "Published OV07 Corollary2.9 and Proposition4.4 and BBv2 Proposition3.11/Corollary3.12 are now freshly read. Their exact relative closed-form and lift-dependent bimodule interfaces remain in the proposed Cartier successor. Restriction of the ambient relative sequence to singular V×T and transport of the bounded zero-section splitting are not supplied automatically; no generic CR.1 export establishes them."
     },
     {
       "title": "Appendix A.2 relative vanishing gap",
@@ -2062,14 +3005,23 @@
       "detail": "Full field signatures use native pinned Tau Ceti imports whose oleans are unavailable in the existing build. Geometric signatures needing unresolved carriers are explicitly unrepresented; the Mathlib-only affine extraction is checked separately. Whole-file elaboration is not claimed."
     },
     {
-      "title": "Source coverage incomplete",
+      "title": "Source edition reconciliation",
       "neededBy": [
         "SemisimpleAlgebrasPartII:SA.1/prime-to-p-splitting",
         "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial",
         "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
         "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality"
       ],
-      "detail": "GS4.5.16 full proof, source passages underlying the relative crossed-product and Higgs refinements, OV07 and BB07 remain unread. No complete-paper or closed-stage coverage is asserted."
+      "detail": "Selected target passages were read freshly in GS2006, published OV07, EGv4 and BBv2. The complete papers/book were not read. The EG published PDF remains uncertified against v4; BB published/preprint identity is not certified. Source-sensitive future refinements must retain these exact version boundaries."
+    },
+    {
+      "title": "Finite-pushforward spectral line and Higgs coefficient interfaces",
+      "neededBy": [
+        "SemisimpleAlgebrasPartII:SA.3/spectral-line-trivialization",
+        "SemisimpleAlgebrasPartII:SA.3/finite-pushforward-line-invariant",
+        "SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant"
+      ],
+      "detail": "Need native finite-algebra semilocal line trivialization, finite-presentation descent, universal commuting Higgs determinant and compatible finite pushforward/base-change interfaces. The invertible sheaf is on V; the older base-line endomorphism lemma alone does not prove the required coefficient equality."
     }
   ],
   "sourceIssues": [
@@ -2147,6 +3099,44 @@
       ],
       "affectedNodes": [],
       "scope": "Outside this continuation’s generic period-index arithmetic; recorded because the read source contains the mistake."
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII/E5",
+      "source": "BBv2",
+      "kind": "misprint",
+      "locator": "Proposition3.11 statement,arXiv math/0602255v2,p11; finding scoped to preprint",
+      "printed": "The source gives the rank as 2d.",
+      "correction": "The rank of D_Y is p^(2d), where d=dim Y.",
+      "reason": "Its splitting module has rank p^d; an Azumaya endomorphism algebra has the square of that rank. For d=1 and p=3, rank is9 rather than2.",
+      "affects": "nothing",
+      "known": "No correction located in the searched materials; version-of-record text not acquired, so no claim about its printing.",
+      "searched": [
+        "arXiv abstract/version history: v2 is the last listed version,4Dec2006",
+        "Targeted public correction search,2026-10-04: no correction located",
+        "Publisher version-of-record PDF access: HTTP Error 403: Forbidden"
+      ],
+      "affectedNodes": [
+        "SemisimpleAlgebrasPartII:SA.4/relative-morita-refinement"
+      ]
+    },
+    {
+      "id": "SemisimpleAlgebrasPartII/E6",
+      "source": "BBv2",
+      "kind": "misprint",
+      "locator": "Proposition3.11 proof,arXiv math/0602255v2,p11; finding scoped to preprint",
+      "printed": "θ = δ ◦ η",
+      "correction": "The typed composition is θ=η∘δ.",
+      "reason": "δ maps T*Y^(1) to the fibre product, and η maps that fibre product to T*(T*Y)^(1). The next displayed pullback δ*η* uses the corrected composition.",
+      "affects": "nothing",
+      "known": "No correction located in the searched materials; version-of-record text not acquired, so no claim about its printing.",
+      "searched": [
+        "arXiv abstract/version history: v2 is the last listed version,4Dec2006",
+        "Targeted public correction search,2026-10-04: no correction located",
+        "Publisher version-of-record PDF access: HTTP Error 403: Forbidden"
+      ],
+      "affectedNodes": [
+        "SemisimpleAlgebrasPartII:SA.4/relative-morita-refinement"
+      ]
     }
   ],
   "restructure": [
@@ -2218,19 +3208,22 @@
       "url": "https://arxiv.org/pdf/1707.00752v4",
       "version": "arXiv v4, June1, 2020",
       "read": "Theorem2.17/Remark2.18 and AppendixA.2–A.3",
-      "sha256": "bcc435b58bb2b1c06869413c1cd96018676d15da8003d21e5b507b114a63c4eb"
+      "sha256": "bcc435b58bb2b1c06869413c1cd96018676d15da8003d21e5b507b114a63c4eb",
+      "historyNote": "This version receipt is inherited from the initial checkpoint; current fresh-source records are in sources and the public handoff receipts."
     },
     {
       "kind": "published",
       "sourceId": "EG",
       "url": "https://intlpress.com/site/pub/files/_fulltext/journals/acta/2020/0225/0001/ACTA-2020-0225-0001-a002.pdf",
-      "read": "Not freshly acquired: both public attempts returned403. Published/preprint differences are not certified."
+      "read": "Not freshly acquired: both public attempts returned403. Published/preprint differences are not certified.",
+      "historyNote": "This version receipt is inherited from the initial checkpoint; current fresh-source records are in sources and the public handoff receipts."
     },
     {
       "kind": "author copy",
       "sourceId": "GS",
       "url": "https://www.math.ens.psl.eu/~benoist/refs/Gille-Szamuely.pdf",
-      "read": "2006 edition §4.5 pp100–105, author errata separately checked."
+      "read": "2006 edition §4.5 pp100–105, author errata separately checked.",
+      "historyNote": "This version receipt is inherited from the initial checkpoint; current fresh-source records are in sources and the public handoff receipts."
     },
     {
       "kind": "author copy",
@@ -2238,13 +3231,29 @@
       "url": "https://pagine.dm.unipi.it/tamas/erratams.pdf",
       "version": "December4,2020",
       "sha256": "db7cea507d8aa13060aeff424845bbfd74e12fd71faceb4c374dbc7e815f3d04",
-      "read": "Correction to p101 and p105, p3."
+      "read": "Correction to p101 and p105, p3.",
+      "historyNote": "This version receipt is inherited from the initial checkpoint; current fresh-source records are in sources and the public handoff receipts."
+    },
+    {
+      "kind": "preprint",
+      "sourceId": "BBv2",
+      "url": "https://arxiv.org/pdf/math/0602255v2",
+      "read": "2026-10-04",
+      "sha256": "a94800bee9fcbb4ea99b6d945b4e8c24b99a80fd957021d6f5ca530ca38b0b1c",
+      "scope": "§2.2,§3.10–3.12; misprints E5/E6 are scoped to this preprint."
+    },
+    {
+      "kind": "published",
+      "sourceId": "BBv2",
+      "url": "https://intlpress.com/site/pub/files/_fulltext/journals/pamq/2007/0003/0001/PAMQ-2007-0003-0001-a005.pdf",
+      "read": "2026-10-04",
+      "scope": "Version-of-record acquisition attempted; HTTP Error 403: Forbidden; no published/preprint identity claim."
     }
   ],
   "suggestedFile": {
     "wholeFileCompiled": false,
-    "reason": "All four imported Tau Ceti compiled modules are absent from the existing pinned build; no build was started.",
-    "sourceSha256": "ede604416dcbb01f5589527004d2dfda3c768eb210387a50a5f5725e89041f9c",
+    "reason": "The existing Mathlib build is pinned correctly. Its Tau Ceti source revision differs from the requested pin, so it cannot check the five full-file imports; no dependency build was started. Canonical Mathlib-only signatures are checked separately.",
+    "sourceSha256": "0bfa0a250474b3a6ae73a7e7ac73d984495ff65f7c89ff5f161270bbab982cc6",
     "coverage": [
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/index-brauer-congr",
@@ -2520,10 +3529,11 @@
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.3/frobenius-root-boundary",
-        "status": "partial-native-examples",
+        "status": "native-signature",
         "detail": "The concrete ZMod4 / pure TrivSqZeroExt ring computations are checked; the global support / polynomial conclusions are not separate compiled declarations.",
-        "compiled": false,
-        "currentBody": "admitted prototype under PROTOCOL13"
+        "compiled": true,
+        "currentBody": "admitted prototype, checked in Mathlib-only extraction; separate proof receipt",
+        "declaration": "SemisimpleAlgebrasPartII.distinctMonicFrobeniusRoots"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
@@ -2542,6 +3552,184 @@
         "tests": [],
         "compiled": false,
         "currentBody": "admitted prototype under PROTOCOL13"
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/division-column-action",
+        "status": "native-signature",
+        "compiled": true,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "declaration": "SemisimpleAlgebrasPartII.divisionColumnModule"
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/column-action-coordinate",
+        "status": "native-signature",
+        "compiled": true,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "declaration": "SemisimpleAlgebrasPartII.divisionColumnAction"
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/column-scalar-tower",
+        "status": "native-signature",
+        "compiled": true,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "declaration": "SemisimpleAlgebrasPartII.divisionColumnTower"
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/column-finite",
+        "status": "native-signature",
+        "compiled": true,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "declaration": "SemisimpleAlgebrasPartII.divisionColumnFinite"
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/column-tower-dimension",
+        "status": "native-signature",
+        "compiled": true,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "declaration": "SemisimpleAlgebrasPartII.divisionColumnDimension"
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.0/column-splitting-degree",
+        "status": "native-signature",
+        "compiled": true,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "declaration": "SemisimpleAlgebrasPartII.splittingDegreeDvd"
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/finite-pushforward-morita",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/spectral-line-trivialization",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/finite-pushforward-line-invariant",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/morita-higgs-overlap",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [
+          "moritaHiggsInvariant_local",
+          "moritaHiggsInvariant_changeSplitting",
+          "moritaHiggsInvariant_baseChange",
+          "moritaHiggsInvariant_power"
+        ],
+        "tests": [
+          "higgs_scalar_rank_one",
+          "higgs_zero_module",
+          "higgs_spectral_line",
+          "higgs_nonreduced_root"
+        ]
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/higgs-invariant-local",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/higgs-invariant-change",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/higgs-invariant-basechange",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.3/higgs-invariant-power",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.4/cartier-middle-image",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.4/cartier-boundary-additivity",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.4/cartier-boundary-naturality",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.4/relative-class-vanishing-input",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
+      },
+      {
+        "node": "SemisimpleAlgebrasPartII:SA.4/relative-morita-refinement",
+        "status": "unrepresented",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13",
+        "detail": "The actual native sheaf/Higgs/Cartier supplier interface is not available; precise mathematical statement and owner requests are recorded. No proxy carrier is introduced.",
+        "api": [],
+        "tests": []
       }
     ],
     "separateProofPrototype": {
@@ -2567,7 +3755,7 @@
       }
     },
     "formatCorrection": "PROTOCOL13: current suggested bodies are admitted. Earlier affine proof bodies and axiom receipt are preserved at the immutable initial commit; their receipt does not certify this sketch.",
-    "admittedAffineReceipt": {
+    "historicalAdmittedAffineReceipt": {
       "exitCode": 0,
       "seconds": 0.89,
       "errors": 0,
@@ -2576,9 +3764,115 @@
       "examples": 7,
       "sourceSha256": "efec63abfe36866b6deb0e22b26297c155f11788d4aff96ae9e29afda0e896fa",
       "logSha256": "38fc361871c64d1cfc3f6462cfbba1813603adc59c945165d84b81100058e8d5"
+    },
+    "currentProofReceipt": {
+      "exit": 0,
+      "availableGiB": 37,
+      "elapsedSeconds": 1.4,
+      "sourceSHA256": "9f45409eca9941b6015790fd1df15302bee44e1c9a903e8b3b3f550bffcf6538",
+      "logSHA256": "76bf5702d7715411e795cee405759cba680292cb3877707f22df1f0029d624fc",
+      "errors": 0,
+      "admissionWarnings": 0,
+      "otherWarnings": 0,
+      "axiomReports": 8,
+      "containsAdmissionAxiom": false,
+      "examples": 4,
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "leanRevision": "6a10ac8c22beadecabdbb0919c2b50214762f91d",
+      "commandLimits": {
+        "threads": 1,
+        "memoryMiB": 8192,
+        "timeoutSeconds": 1200
+      },
+      "normalizedLogSHA256": "2ce572fbc48eb33a16c34060318b2ecb64da25e438b0697b9b214e11fd1ffe8d",
+      "axiomAuditPerformed": true
+    },
+    "canonicalMathlibReceipt": {
+      "exit": 0,
+      "availableGiB": 37,
+      "elapsedSeconds": 1.2,
+      "sourceSHA256": "33f861bfba5c76dbd1bf655e85651ba0a200fa9e3dba1ff95df7b597d790c375",
+      "logSHA256": "57e8d9ecc11e540302dba89b1bb38cca3cb6828e27297f6a18116e99edfe0f98",
+      "errors": 0,
+      "admissionWarnings": 26,
+      "otherWarnings": 0,
+      "axiomReports": 0,
+      "containsAdmissionAxiom": null,
+      "examples": 14,
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "leanRevision": "6a10ac8c22beadecabdbb0919c2b50214762f91d",
+      "commandLimits": {
+        "threads": 1,
+        "memoryMiB": 8192,
+        "timeoutSeconds": 1200
+      },
+      "normalizedLogSHA256": "e6ab4e28e69034c015feeb9428320fcb539cdefde0131a1b61ae7c89cea8006f",
+      "axiomAuditPerformed": false
+    },
+    "coverageSummary": {
+      "nodes": 55,
+      "unrepresentedNodes": 25,
+      "nativeSignatures": 29,
+      "partialNativeExamples": 1
     }
   },
-  "atlasCheck": {
+  "completion": {
+    "criterion": "Every stage target has an inventoried node chain terminating in read baseline, an owner-stage request or a precise gap. Stopping rule is breadth completion under PROTOCOL0, not mathematical closure.",
+    "nodeBudget": 300,
+    "stagesClosed": 0,
+    "independentReviewRequired": true
+  },
+  "targetInventory": [
+    {
+      "stage": "SemisimpleAlgebrasPartII:SA.0",
+      "targets": [
+        "SemisimpleAlgebrasPartII:SA.0/class-index",
+        "SemisimpleAlgebrasPartII:SA.0/splitting-degrees",
+        "SemisimpleAlgebrasPartII:SA.0/division-module-dimension",
+        "SemisimpleAlgebrasPartII:SA.0/minimum-splitting-degree",
+        "SemisimpleAlgebrasPartII:SA.0/gcd-splitting-degrees",
+        "SemisimpleAlgebrasPartII:SA.0/index-basechange-divides",
+        "SemisimpleAlgebrasPartII:SA.0/index-divides-degree-index"
+      ]
+    },
+    {
+      "stage": "SemisimpleAlgebrasPartII:SA.1",
+      "targets": [
+        "SemisimpleAlgebrasPartII:SA.1/brauer-corestriction",
+        "SemisimpleAlgebrasPartII:SA.1/corestriction-restriction-degree",
+        "SemisimpleAlgebrasPartII:SA.1/class-power-index",
+        "SemisimpleAlgebrasPartII:SA.1/period-divides-index",
+        "SemisimpleAlgebrasPartII:SA.1/same-prime-divisors"
+      ]
+    },
+    {
+      "stage": "SemisimpleAlgebrasPartII:SA.2",
+      "targets": [
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
+        "SemisimpleAlgebrasPartII:SA.2/coherent-morita",
+        "SemisimpleAlgebrasPartII:SA.2/sheaf-support-morita"
+      ]
+    },
+    {
+      "stage": "SemisimpleAlgebrasPartII:SA.3",
+      "targets": [
+        "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial",
+        "SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant",
+        "SemisimpleAlgebrasPartII:SA.3/higgs-invariant-power",
+        "SemisimpleAlgebrasPartII:SA.3/frobenius-root-boundary"
+      ]
+    },
+    {
+      "stage": "SemisimpleAlgebrasPartII:SA.4",
+      "targets": [
+        "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
+        "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality",
+        "SemisimpleAlgebrasPartII:SA.4/relative-class-vanishing-input",
+        "SemisimpleAlgebrasPartII:SA.4/relative-morita-refinement"
+      ]
+    }
+  ],
+  "priorAtlasCheck": {
     "readOnly": true,
     "stageVertices": 3022,
     "stageEdges": 8663,
@@ -2597,5 +3891,25 @@
     "pendingLinks": [],
     "removedExistingStageEdges": 0,
     "scope": "Read-only provisional overlay: rendered layer/planet graph plus this packet’s own declaration prerequisites; no certification of all external declaration graphs. Reserved key is an explicit unresolved virtual supplier reference."
+  },
+  "atlasCheck": {
+    "readOnly": true,
+    "baseStageVertices": 2956,
+    "finalStageVertices": 2971,
+    "baseStageEdges": 8639,
+    "finalStageEdges": 8663,
+    "addedStageEdges": 24,
+    "removedStageEdges": 0,
+    "definedStageCycles": [],
+    "ownNodeVertices": 55,
+    "ownNodeEdges": 74,
+    "ownNodeCycles": [],
+    "skippedLinks": [],
+    "inheritedOrphanEdges": 76,
+    "newOrphanEdges": 0,
+    "promisedKeys": [
+      "SchemeAndStackFoundations:key/scheme-brauer"
+    ],
+    "scope": "Actual read-only scripts/build.py assembly with an in-memory provisional packet/roadmap overlay; checks defined stage and own declaration cycles only. Inherited orphan edges and the shared reserved key remain explicit."
   }
 }
