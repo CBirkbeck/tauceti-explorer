@@ -1,3 +1,166 @@
+# Natural comparison of the two quotient presentations
+
+For an arbitrary scheme morphism f:X→Y, ideal datum I on Y and affine open U⊆Y, write V=f⁻¹U, E=I(U).map(f.app U), and K=ker((I.comap f).ι.app V). The existing inclusion E≤K gives an actual identity-induced ring map Γ(X,V)/E→Γ(X,V)/K. It is always surjective and sends every representative to the same section's class. It is injective exactly when the existing quotient-to-closed-sections map is injective, because the kernel quotient embeds in those sections.
+
+These maps commute with actual restriction and form a natural transformation on affine opens of Y. Composing it with the reindexed all-open closed-section map gives the earlier quotientToClosedNatTrans exactly. The same natural equality holds after the native sheafification unit and ring-sheaf comparison. If one inverse image is affine its component is bijective; if f is affine the entire natural transformation is an isomorphism. No flatness, quasi-compactness, Noetherianity, reducedness or finiteness assumption is imposed.
+
+Seven typed tests check an affine inverse roundtrip, the unit ideal, empty opens, a strict-kernel witness to noninjectivity and nonaffineness, two-step restriction, the preserved nonzero square-zero class2 on Spec(ZMod4), and the sheaf factorization on every quotient class. The strict-kernel test is a parameterized criterion; it does not instantiate a concrete new nonaffine counterexample. Surjectivity of the quotient comparison does not assert surjectivity of the following closed-section map.
+
+All105 incoming whole nodes, five planets, eight gaps,62 routed sources, twelve confirmed findings, inherited source issueE1 and six reserved-key boundaries remain. Twelve nodes add two constructions with ten consumed API entries and seven tests. Every implementation stays unchecked; all seven stages retain their partial/not_read status. Both the whole Mathlib-only planning file and separate native proof evidence have pinned compilation receipts.
+
+Fresh source reading covers the complete current statements/proofs and page comments for Stacks01IN,01IQ and01JU. The image-ideal pullback convention and closed-immersion kernel supply context; the exact natural comparison formulas are authored deductions from native APIs and the preceding actual constructions. No new finding was identified in this bounded reading. Historical source and review attribution, including E1, is retained. Own6035 reading scopes are reused only at unchanged controls, and peer6040 evidence was independently recovered and replayed without borrowing its reading attribution.
+
+Twelve actual quotient-comparison declarations now connect the earlier affine-indexed image-ideal quotients to the all-open immersion-kernel quotients by a native natural transformation. It is always componentwise surjective and factors the actual closed-section transformation and native ring-sheafification comparison. A single affine inverse image gives component bijectivity; affine f gives a natural isomorphism. No arbitrary nonaffine injectivity, closed-section surjectivity or quotient-presheaf sheaf condition is asserted. Consumer conductor/flat-recomputation, henselization/source leaves, all six reserved-key boundaries,62 source routes and other-stage obligations remain open.
+
+## Compare the image-ideal and section-kernel quotients
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernel** — For arbitrary f:X→Y, native ideal datum I on Y and affine open U⊆Y, put V=f⁻¹U, J=I.comap f, E=I(U).map(f.app U), and K=ker(J.ι.app V). Construct the actual ring map Γ(X,V)/E→Γ(X,V)/K induced by the identity on Γ(X,V). No affineness of V is required.
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/extended-ideal-kernel-inclusion, mathlib:Ideal.quotientMap.
+
+Proof: Use the existing unconditional inclusion E≤K and native Ideal.quotientMap for the identity ring map. Keep both actual ideals and quotient carriers.
+
+Consumed API:
+
+- **TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_mk**: The actual comparison sends the E-class of a section a∈Γ(X,f⁻¹U) to its K-class.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_surjective**: For every arbitrary f and affine base open U, quotientToKernel I f U is surjective, including when f⁻¹U is nonaffine. This concerns the map between quotient rings, not surjectivity onto closed-subscheme sections.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_factor**: The comparison Γ(X,V)/E→Γ(X,V)/K followed by the actual allOpenToClosed component at V equals quotientToClosed I f U as ring homomorphisms. This holds for arbitrary f and affine U.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_injective_iff**: For arbitrary f and affine U, quotientToKernel I f U is injective if and only if quotientToClosed I f U is injective.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_bijective**: If the single inverse image f⁻¹U is affine, quotientToKernel I f U is bijective. No global affineness of f is required.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_naturality**: For affine U≤W in Y, the image-ideal quotient restriction followed by the comparison at U equals the comparison at W followed by the all-open kernel-quotient restriction along f⁻¹U≤f⁻¹W. Neither inverse image must be affine.
+
+Typed tests:
+
+- **QuotientToKernelChecked.affine_roundtrip**: For any single affine inverse image, the inverse of the actual bijective quotient ring map returns every original quotient class.
+- **QuotientToKernelChecked.unit_ideal**: For the unit ideal datum and arbitrary f, every class maps to zero in the actual kernel quotient.
+- **QuotientToKernelChecked.empty_open**: For the empty affine base open and arbitrary f, every class maps to zero in the empty-open kernel quotient.
+- **QuotientToKernelChecked.strict_kernel_obstruction**: A specified section in the actual immersion kernel but outside the extended ideal gives a nonzero class killed by the comparison; it proves noninjectivity and that the inverse image is nonaffine. This is a typed witness criterion, not a newly instantiated concrete nonaffine scheme.
+
+## The comparison preserves every representative
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_mk** — The actual comparison sends the E-class of a section a∈Γ(X,f⁻¹U) to its K-class.
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-kernel.
+
+Proof: Definitional reduction of the native identity-induced quotient map.
+
+## The comparison is always surjective
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_surjective** — For every arbitrary f and affine base open U, quotientToKernel I f U is surjective, including when f⁻¹U is nonaffine. This concerns the map between quotient rings, not surjectivity onto closed-subscheme sections.
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-kernel, mathlib:Ideal.quotientMap_surjective.
+
+Proof: Apply the native quotientMap surjectivity theorem to the identity ring map.
+
+## Factor the canonical closed-section map
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_factor** — The comparison Γ(X,V)/E→Γ(X,V)/K followed by the actual allOpenToClosed component at V equals quotientToClosed I f U as ring homomorphisms. This holds for arbitrary f and affine U.
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-kernel, SchemeAndStackFoundations:SF.0/all-open-to-closed, SchemeAndStackFoundations:SF.0/quotient-to-closed-sections, mathlib:Ideal.Quotient.ringHom_ext.
+
+Proof: Use native quotient-map extensionality; both composites send a representative to J.ι.app V(a).
+
+## Detect injectivity through the actual section map
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_injective_iff** — For arbitrary f and affine U, quotientToKernel I f U is injective if and only if quotientToClosed I f U is injective.
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-kernel-factor, SchemeAndStackFoundations:SF.0/all-open-to-closed-injective.
+
+Proof: Use the factorization and the unconditional injectivity of the kernel-quotient map into closed sections. Compose injections in one direction and cancel by evaluating the composite in the other.
+
+## An affine inverse image gives a ring isomorphism
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_bijective** — If the single inverse image f⁻¹U is affine, quotientToKernel I f U is bijective. No global affineness of f is required.
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-kernel-injective-criterion, SchemeAndStackFoundations:SF.0/quotient-to-closed-injective, SchemeAndStackFoundations:SF.0/quotient-to-kernel-surjective.
+
+Proof: Combine the injectivity criterion with the existing closed-section affine comparison and unconditional quotient-map surjectivity.
+
+## The quotient comparison commutes with restriction
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernel_naturality** — For affine U≤W in Y, the image-ideal quotient restriction followed by the comparison at U equals the comparison at W followed by the all-open kernel-quotient restriction along f⁻¹U≤f⁻¹W. Neither inverse image must be affine.
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-kernel-representative, SchemeAndStackFoundations:SF.0/quotient-restriction-representative, SchemeAndStackFoundations:SF.0/all-open-quotient-map, mathlib:Ideal.Quotient.ringHom_ext.
+
+Proof: Compare native ring homomorphisms on quotient representatives; both take the actual section restriction and its K-class.
+
+## Natural comparison of the two quotient presheaves
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans** — For arbitrary f:X→Y and I, construct the actual natural transformation from quotientPresheaf I f on Y.affineOpens opposite to the precomposition of allOpenQuotient(I.comap f) by affine-open inclusion followed by inverse image along f. Its component at U is quotientToKernel I f U.
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/affine-quotient-presheaf, SchemeAndStackFoundations:SF.0/all-open-quotient-presheaf, SchemeAndStackFoundations:SF.0/quotient-to-kernel-naturality.
+
+Proof: Use the existing actual functors and specified component ring maps; the preceding restriction equality supplies naturality. No new quotient or presheaf carrier is introduced.
+
+Consumed API:
+
+- **TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_app**: At every affine U, the component of quotientToKernelNatTrans I f is CommRingCat.ofHom(quotientToKernel I f U).
+- **TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_factor**: The quotient-presheaf comparison followed by the whiskered allOpenToClosed(I.comap f) equals quotientToClosedNatTrans I f as actual natural transformations.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_isIso**: For an affine morphism f, quotientToKernelNatTrans I f is an isomorphism in the native CommRingCat-valued functor category.
+- **TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_sheaf_factor**: For arbitrary f, the new natural comparison followed by the whiskered sheafification unit and allOpenSheafComparison(I.comap f) equals quotientToClosedNatTrans I f. This is equality of actual natural transformations on all affine base opens, without affine inverse-image or flatness assumptions.
+
+Typed tests:
+
+- **QuotientToKernelNatChecked.two_step_restriction**: The actual natural component commutes with two successive affine-base restrictions and the corresponding single all-open restriction, with arbitrary inverse images.
+- **QuotientToKernelNatChecked.nonreduced_identity**: On the identity of Spec(ZMod4) with zero ideal datum, the actual natural component preserves the nonzero square-zero class represented by2.
+- **QuotientToKernelNatChecked.sheaf_factor_on_every_class**: For arbitrary f and every quotient class, applying the new natural component, native sheafification unit and actual sheaf comparison equals the existing quotientToClosed map.
+
+## The natural component is the canonical quotient map
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_app** — At every affine U, the component of quotientToKernelNatTrans I f is CommRingCat.ofHom(quotientToKernel I f U).
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-transformation.
+
+Proof: Definitional equality of the specified components.
+
+## Factorization is equality of natural transformations
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_factor** — The quotient-presheaf comparison followed by the whiskered allOpenToClosed(I.comap f) equals quotientToClosedNatTrans I f as actual natural transformations.
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-transformation, SchemeAndStackFoundations:SF.0/quotient-to-kernel-factor, SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-transformation, mathlib:CategoryTheory.Functor.whiskerLeft.
+
+Proof: Use native natural-transformation extensionality and the component ring factorization. Retain the actual preimage functor and its direction.
+
+## Affine morphisms give a natural isomorphism
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_isIso** — For an affine morphism f, quotientToKernelNatTrans I f is an isomorphism in the native CommRingCat-valued functor category.
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-component, SchemeAndStackFoundations:SF.0/quotient-to-kernel-affine-bijective, mathlib:CategoryTheory.ConcreteCategory.isIso_iff_bijective, mathlib:CategoryTheory.NatIso.isIso_of_isIso_app.
+
+Proof: Each affine base open has an affine inverse image. Convert the proved component bijectivity to native isomorphisms, then apply the native componentwise isomorphism criterion.
+
+## The two quotients give the same ring-sheaf comparison
+
+**TauCeti.SchemeFoundations.IdealPullback.quotientToKernelNatTrans_sheaf_factor** — For arbitrary f, the new natural comparison followed by the whiskered sheafification unit and allOpenSheafComparison(I.comap f) equals quotientToClosedNatTrans I f. This is equality of actual natural transformations on all affine base opens, without affine inverse-image or flatness assumptions.
+
+Hypotheses: X,Y are arbitrary native schemes, f:X→Y is any morphism, I is native IdealSheafData on Y, and U is affine in Y. Only the explicitly stated bijectivity results require an affine inverse image or affine f. No flatness, quasi-compactness, Noetherianity, finite-presentation, reducedness or nontriviality assumption is imposed. The comparison is between the actual extended-ideal and immersion-kernel quotients; it does not assert that arbitrary closed-section maps are surjective.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-factor, SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-factorization, mathlib:CategoryTheory.Functor.whiskerLeft.
+
+Proof: Replace the sheafification-unit/comparison composite by the already proved allOpenToClosed transformation, then apply the new natural factorization.
+
 # Scheme foundations: all-open kernel quotients and ring sheafification
 
 Codex — codex-rtOQ9t · 4 October 2026 · Refs #642 · partial.
