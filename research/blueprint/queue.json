@@ -12835,7 +12835,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AbelianVarietiesIsogenousToNoJacobian.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4969"
   },
   {
    "id": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian",
@@ -13050,8 +13051,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-GenericDoublePointInterpolation.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1694"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1694",
+   "finishedAt": "2026-10-04T22:01:39Z"
   },
   {
    "id": "REV-DESIGN-GenericDoublePointInterpolation",
@@ -26436,9 +26438,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #765"
+   "note": "claimed on GitHub issue #765"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.3",
@@ -27172,9 +27174,10 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/BP-NeronModelsAndSemistableAbelianVarieties.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #960"
+   "note": "deliverables arrived from an external worker on issue #960",
+   "finishedAt": "2026-10-04T22:01:41Z"
   },
   {
    "id": "REV-NeronModelsAndSemistableAbelianVarieties",
