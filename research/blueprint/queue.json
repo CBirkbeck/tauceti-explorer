@@ -12835,8 +12835,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AbelianVarietiesIsogenousToNoJacobian.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4969"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4969",
+   "finishedAt": "2026-10-04T22:32:12Z"
   },
   {
    "id": "REV-DESIGN-AbelianVarietiesIsogenousToNoJacobian",
@@ -15678,7 +15679,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ConformalMappingPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3466"
   },
   {
    "id": "REV-DESIGN-ConformalMappingPartII",
@@ -30505,7 +30507,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ComputationalNumberTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-ModularCurvesPartII--R12.1",
