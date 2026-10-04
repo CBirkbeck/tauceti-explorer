@@ -14158,7 +14158,8 @@
    "avoidAccountOf": "DESIGN-InductionRestrictionPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-InductionRestrictionPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3550"
   },
   {
    "id": "DESIGN-ArithmeticStatisticsPartII",
@@ -26472,7 +26473,8 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--Z.3",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--Z.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #442"
   },
   {
    "id": "BP-KatoEulerSystems",
