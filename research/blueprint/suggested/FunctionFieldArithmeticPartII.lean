@@ -6698,3 +6698,216 @@ example :
 
 end TauCeti.RootStack
 end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory
+set_option maxHeartbeats 1200000
+set_option synthInstance.maxHeartbeats 200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option linter.style.haveILetI false
+variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
+variable [Algebra A B] [Algebra A C]
+
+def framedRootChange (f : A) (n : ℕ) (φ : B →ₐ[A] C) :
+    FramedRoot f n B ⥤ FramedRoot f n C where
+  obj p := ⟨Units.map φ.toMonoidHom p.coefficient, φ p.root, by
+    change φ (p.coefficient : B) * φ p.root ^ n = algebraMap A C f
+    rw [← map_pow, ← map_mul, p.equation, φ.commutes]⟩
+  map h := ⟨Units.map φ.toMonoidHom h.1, by
+    constructor
+    · exact (congrArg φ h.2.1).trans (map_mul φ _ _)
+    · simpa only [map_mul,map_pow] using congrArg (Units.map φ.toMonoidHom) h.2.2⟩
+  map_id _ := by apply Subtype.ext; exact (Units.map φ.toMonoidHom).map_one
+  map_comp _ _ := by apply Subtype.ext; exact (Units.map φ.toMonoidHom).map_mul _ _
+
+lemma framedRootChange.obj_coefficient (f : A) (n : ℕ) (φ : B →ₐ[A] C)
+    (p : FramedRoot f n B) :
+    ((framedRootChange f n φ).obj p).coefficient = Units.map φ.toMonoidHom p.coefficient := by
+  sorry
+
+lemma framedRootChange.obj_root (f : A) (n : ℕ) (φ : B →ₐ[A] C)
+    (p : FramedRoot f n B) :
+    ((framedRootChange f n φ).obj p).root = φ p.root := by
+  sorry
+
+lemma framedRootChange.map_label (f : A) (n : ℕ) (φ : B →ₐ[A] C)
+    {p q : FramedRoot f n B} (h : p ⟶ q) :
+    ((framedRootChange f n φ).map h).1 = Units.map φ.toMonoidHom h.1 := by
+  sorry
+
+variable {f : A} {n : ℕ} [NeZero n]
+
+def FramedRoot.normalizationUnit (p : FramedRoot f n B) :
+    (AffineRing (p.coefficient : B) n)ˣ :=
+  Units.mkOfMulEqOne (AdjoinRoot.root _)
+    (algebraMap B (AffineRing (p.coefficient : B) n) ((p.coefficient⁻¹ : Bˣ) : B) *
+      AdjoinRoot.root _ ^ (n-1)) (affineRoot.unit_mul_inverse p.coefficient n)
+
+lemma FramedRoot.normalizationUnit_coe (p : FramedRoot f n B) :
+    (p.normalizationUnit : AffineRing (p.coefficient : B) n) = AdjoinRoot.root _ := by
+  sorry
+
+lemma FramedRoot.normalizationUnit_inv (p : FramedRoot f n B) :
+    ((p.normalizationUnit⁻¹ : (AffineRing (p.coefficient : B) n)ˣ) :
+      AffineRing (p.coefficient : B) n) =
+      algebraMap B (AffineRing (p.coefficient : B) n) ((p.coefficient⁻¹ : Bˣ) : B) *
+        AdjoinRoot.root _ ^ (n-1) := by
+  sorry
+
+lemma FramedRoot.normalizationUnit_pow (p : FramedRoot f n B) :
+    p.normalizationUnit ^ n =
+      Units.map (algebraMap B (AffineRing (p.coefficient : B) n)).toMonoidHom p.coefficient := by
+  sorry
+
+def FramedRoot.normalizationPoint (p : FramedRoot f n B) :
+    affineRootPointGroupoid f n (AffineRing (p.coefficient : B) n) :=
+  affineRootPoint f n
+    ((p.normalizationUnit : AffineRing (p.coefficient : B) n) *
+      algebraMap B (AffineRing (p.coefficient : B) n) p.root)
+    (((framedRootChange f n (IsScalarTower.toAlgHom A B
+      (AffineRing (p.coefficient : B) n))).obj p).normalized_section_pow
+        p.normalizationUnit p.normalizationUnit_pow)
+
+lemma FramedRoot.normalizationPoint_root (p : FramedRoot f n B) :
+    p.normalizationPoint (AdjoinRoot.root _) =
+      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (p.coefficient : B)) *
+        algebraMap B (AffineRing (p.coefficient : B) n) p.root := by
+  sorry
+
+lemma FramedRoot.normalizationPoint_coefficients (p : FramedRoot f n B) (a : A) :
+    p.normalizationPoint (algebraMap A (AffineRing f n) a) =
+      algebraMap A (AffineRing (p.coefficient : B) n) a := by
+  sorry
+
+lemma FramedRoot.normalizationPoint_unique (p : FramedRoot f n B)
+    (q : affineRootPointGroupoid f n (AffineRing (p.coefficient : B) n))
+    (h : q (AdjoinRoot.root _) =
+      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (p.coefficient : B)) *
+        algebraMap B (AffineRing (p.coefficient : B) n) p.root) :
+    q = p.normalizationPoint := by
+  sorry
+
+def FramedRoot.normalizationIso (p : FramedRoot f n B) :
+    (framedRootChange f n (IsScalarTower.toAlgHom A B
+      (AffineRing (p.coefficient : B) n))).obj p ≅
+        (rootChartEmbedding f n).obj p.normalizationPoint :=
+  (Groupoid.isoEquivHom _ _).symm ⟨p.normalizationUnit, by
+    constructor
+    · exact p.normalizationPoint_root
+    · change 1 * p.normalizationUnit ^ n = _
+      rw [one_mul]
+      apply Units.ext
+      exact affineRoot.pow_eq (p.coefficient : B) n⟩
+
+lemma FramedRoot.normalizationIso_hom_label (p : FramedRoot f n B) :
+    p.normalizationIso.hom.1 = p.normalizationUnit := by
+  sorry
+
+lemma FramedRoot.normalizationIso_inv_label (p : FramedRoot f n B) :
+    p.normalizationIso.inv.1 = p.normalizationUnit⁻¹ := by
+  sorry
+
+lemma FramedRoot.normalizationIso_section (p : FramedRoot f n B) :
+    ((rootChartEmbedding f n).obj p.normalizationPoint).root =
+      (p.normalizationIso.hom.1 : AffineRing (p.coefficient : B) n) *
+        ((framedRootChange f n (IsScalarTower.toAlgHom A B
+          (AffineRing (p.coefficient : B) n))).obj p).root := by
+  sorry
+
+lemma FramedRoot.normalization_finite_basis (p : FramedRoot f n B) :
+    Nonempty (Module.Basis (Fin n) B (AffineRing (p.coefficient : B) n)) := by
+  sorry
+
+lemma FramedRoot.normalization_faithfullyFlat (p : FramedRoot f n B) :
+    Module.FaithfullyFlat B (AffineRing (p.coefficient : B) n) := by
+  sorry
+
+omit [NeZero n] in
+lemma FramedRoot.normalization_finitePresentation (p : FramedRoot f n B) :
+    Algebra.FinitePresentation B (AffineRing (p.coefficient : B) n) := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option linter.style.haveILetI false
+variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
+variable [Algebra A B] [Algebra A C]
+
+-- test: framedNormalizationTests.actual_arrow_change
+example (f : A) (n : ℕ) (φ : B →ₐ[A] C) {p q : FramedRoot f n B} (h : p ⟶ q) :
+    ((framedRootChange f n φ).obj p).root = φ p.root ∧
+    ((framedRootChange f n φ).obj q).coefficient *
+      ((framedRootChange f n φ).map h).1 ^ n = ((framedRootChange f n φ).obj p).coefficient ∧
+    ((framedRootChange f n φ).map h).1 = Units.map φ.toMonoidHom h.1 := by
+  sorry
+
+-- test: framedNormalizationTests.nonfaithful_change
+example :
+    letI : Algebra (ZMod 4) (ZMod 2) := (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).toAlgebra
+    let φ := Algebra.ofId (ZMod 4) (ZMod 2)
+    let p : FramedRoot (0 : ZMod 4) 2 (ZMod 4) := ⟨1,0,by decide⟩
+    ∃ h : p ⟶ p, h ≠ 𝟙 p ∧ (framedRootChange (0 : ZMod 4) 2 φ).map h = 𝟙 _ := by
+  sorry
+
+-- test: framedNormalizationTests.unit_and_inverse
+example {f : A} {n : ℕ} [NeZero n] (p : FramedRoot f n B) :
+    p.normalizationUnit ^ n =
+      Units.map (algebraMap B (AffineRing (p.coefficient : B) n)).toMonoidHom p.coefficient ∧
+    p.normalizationIso.hom.1 = p.normalizationUnit ∧
+    p.normalizationIso.inv.1 = p.normalizationUnit⁻¹ ∧
+    p.normalizationIso.hom ≫ p.normalizationIso.inv = 𝟙 _ := by
+  sorry
+
+-- test: framedNormalizationTests.wild_obstruction_removed
+example :
+    let p : FramedRoot (3 : ZMod 4) 2 (ZMod 4) := ⟨-1,1,by decide⟩
+    (¬Nonempty (affineRootPointGroupoid (3 : ZMod 4) 2 (ZMod 4))) ∧
+    Nonempty ((framedRootChange (3 : ZMod 4) 2 (IsScalarTower.toAlgHom (ZMod 4) (ZMod 4)
+      (AffineRing (p.coefficient : ZMod 4) 2))).obj p ≅
+        (rootChartEmbedding (3 : ZMod 4) 2).obj p.normalizationPoint) ∧
+    Module.FaithfullyFlat (ZMod 4) (AffineRing (p.coefficient : ZMod 4) 2) ∧
+    Algebra.FinitePresentation (ZMod 4) (AffineRing (p.coefficient : ZMod 4) 2) := by
+  sorry
+
+-- test: framedNormalizationTests.nilpotent_section_retained
+example :
+    let p : FramedRoot (0 : ZMod 9) 2 (ZMod 9) := ⟨1,3,by decide⟩
+    p.normalizationPoint (AdjoinRoot.root _) ≠ 0 ∧
+      p.normalizationPoint (AdjoinRoot.root _) ^ 2 = 0 := by
+  sorry
+
+-- test: framedNormalizationTests.exponent_one
+example (f : A) (p : FramedRoot f 1 B) :
+    p.normalizationPoint (AdjoinRoot.root _) = algebraMap A (AffineRing (p.coefficient : B) 1) f ∧
+    p.normalizationIso.hom.1 =
+      Units.map (algebraMap B (AffineRing (p.coefficient : B) 1)).toMonoidHom p.coefficient := by
+  sorry
+
+-- test: framedNormalizationTests.zero_ring
+example :
+    let p : FramedRoot (0 : ZMod 1) 3 (ZMod 1) := ⟨1,0,by decide⟩
+    (p.normalizationUnit : AffineRing (p.coefficient : ZMod 1) 3) = 0 ∧
+    p.normalizationPoint (AdjoinRoot.root _) = 0 ∧
+    Nonempty (Module.Basis (Fin 3) (ZMod 1) (AffineRing (p.coefficient : ZMod 1) 3)) ∧
+    Module.FaithfullyFlat (ZMod 1) (AffineRing (p.coefficient : ZMod 1) 3) := by
+  sorry
+
+-- test: framedNormalizationTests.zero_section
+example (n : ℕ) [NeZero n] (u : Bˣ) :
+    let p : FramedRoot (0 : A) n B := ⟨u,0,by simp [NeZero.ne n]⟩
+    p.normalizationPoint (AdjoinRoot.root _) = 0 ∧
+    p.normalizationIso.hom.1 = p.normalizationUnit ∧
+    ((rootChartEmbedding (0 : A) n).obj p.normalizationPoint).coefficient = 1 := by
+  sorry
+
+end TauCeti.RootStack
+end
