@@ -1,3 +1,102 @@
+# Geometry of numbers and quadratic arithmetic: complete target-planning pass
+
+All seven stages now have target-to-declaration chains. There are 157 planned
+declarations, of which 77 are preserved from the incoming packet. “Complete”
+means that this breadth pass is ready for independent review; it does not mean
+that the mathematics is formalised, that original proofs have all been read,
+or that the remaining gaps have disappeared. Every declaration remains
+unchecked. The inherited reader below remains the detailed foundation for
+Gram, covolume, primitive-orthogonal lattices, Henk counting and both sharp
+Minkowski inequalities. The subsequent sections add the missing stage targets.
+
+The reviewed audit already supplies the ordinary real lattice and covolume
+foundations. Field quadratic invariants and Hasse–Minkowski remain with their
+existing Tau Ceti owners, ordinary integral lattice duality with IntegralLattices,
+adelic Haar/reduction foundations with AdelicAlgebraicGroups, theta with
+MetaplecticAutomorphicForms, and Construction A with AlgebraicCodingTheory.
+The accepted RS-03 decision leaves generic certified LLL here; its arithmetic
+exclusion and height applications belong to their consumers. These are
+contracts to import, not permission to create replacement carriers.
+
+Integral lattices use finitely generated full native submodules over a Dedekind
+domain and its fraction field. They are projective and need not have a global
+basis. A quadratic map taking integral values is distinct from a perfect polar
+pairing: over the integers, x² is integral but its polar pairing is 2xy.
+Localization at a prime is distinct from completion. Rational equivalence,
+integral isometry, genus and proper spinor genus are kept separate, with the
+actual image of Spin on adelic points rather than an assumed surjective cover.
+
+The local-density branch uses the base residue cardinality q; an unramified
+quadratic residue extension has q² elements. Finite representation counts
+include all form-preserving maps. The finite-field formula quoted by Li–Zhang
+counts injective isometries, including when the source has a radical. This
+difference matters: a zero rank-one source can have one representation and
+zero embeddings into an anisotropic rank-one target. The Cho–Yamauchi weight
+has its negative-q sign and its rank-zero derivative convention. Its original
+Kitaoka/Hironaka/Gan–Yu smooth-density inputs remain named proof gaps.
+
+Mass is a sum of reciprocal finite stabilizer orders. The proper SO adelic
+volume identity and the ordinary O mass are distinguished. A separate maximal
+integral mass endpoint records the source’s degree/dimension restrictions,
+positive-integer zeta factors, archimedean normalization and dyadic local factors.
+The theorem is not transferred to arbitrary nonmaximal or indefinite lattices.
+The original mass theorem, local-model factors and convergence proof remain
+explicit refinements; the hermitian density polynomial is not an orthogonal
+mass factor.
+
+The dynamics branch specifies connected groups, finite-volume quotients and
+invariant probability measures. Howe–Moore mixing, unipotent nondivergence,
+Ratner orbit closure, measure classification and time averages have separate
+endpoints and proof gaps. Oppenheim retains nondegeneracy, indefiniteness,
+dimension at least three and failure to be proportional to a rational form.
+Duke’s spherical application retains square-free three-square restrictions.
+Neither qualitative endpoint supplies a quantitative error term. Euclidean
+packing, covering, nonconvex star bodies and transference are independent
+contracts. The chosen covering transference endpoint uses the weaker uniform
+constant n of Regev’s stated theorem; an asymptotic improved constant is not
+silently used in small dimension.
+
+LLL reduction uses the native ordered Gram–Schmidt construction, exact size
+and Lovász inequalities, and integer two-sided change-of-basis certificates.
+An integer prefix-Gram potential decreases under a failing adjacent swap.
+The short-vector guarantee is checked in the original lattice, with squared
+factor 2^(n−1); it supplies neither exact shortest-vector nor closest-vector
+solutions. Finite scratch regressions cover 496 nonsingular two-dimensional
+integer bases with entries between −2 and 2, their certificates, 256 swaps and
+48 original-lattice vectors per basis. Eight finite-field embedding cases and
+18 polynomial-weight cases were checked exactly. These are finite evidence,
+not universal proofs or a Lean implementation.
+
+The exact-category hermitian branch starts from strong coherent contravariant
+duality and the native intrinsic exact structure, not a private exact-category
+type. Symmetric spaces have pairing isomorphisms; separating integral forms
+need not be perfect. Lagrangians are admissible exact sequences. The exact GW
+presentation imposes the metabolic-to-hyperbolic relation, while Witt kills
+metabolic classes. The forgetful–hyperbolic composite is 1+D, not automatically
+twice the identity. Higher GW is a homotopy fibre, not the ordinary K space.
+
+Hermitian suspension and its idempotent completion give a separate
+nonconnective spectrum. The Qʰ-space sequence alone is generally not an
+Ω-spectrum. Schlichting’s exact-category construction does not assume that two
+is invertible; his classical dg Bott comparison does. Period four refers to
+duality shifts, not all higher homotopy degrees. For Dedekind localization the
+canonical residue duality line is (p⁻¹M/M)[−1]; its M/p identification depends
+on a chosen uniformizer and is not naturally valid under arbitrary ramification.
+Symmetric devissage at dyadic places does not imply quadratic devissage.
+Number-ring comparison retains 2-completion, while inversion of two supplies
+2-local connected covers and injectivity in degree zero, not an unrestricted
+degree-zero isomorphism.
+
+The stable Poincaré framework from Calmes et al. belongs to the separately
+routed HermitianKTheoryOfPoincareCategories owner. Its exact supplier stages
+are not yet available here and remain gaps. The generic framework is not
+defined again in GN.6. The 295 routed item IDs from 31 papers and 36 routes
+are a source-routing inventory, not a full proof-coverage certificate. Source
+receipts below distinguish freshly read passages from inherited extraction
+evidence and from original proofs still to acquire.
+
+## Inherited detailed foundation
+
 # Geometry of numbers: minima, finite counts and sharp product bounds
 
 Issue [#1030](https://github.com/CBirkbeck/tauceti-explorer/issues/1030). Codex — codex-a71f92, continuing the codex-hjdg0j checkpoint, 2026-09-27. **Partial blueprint; all declarations remain unchecked.**
@@ -2171,3 +2270,2175 @@ Exact rational checks cover 45 anisotropic polygon families; 270 row factorizati
 All 63 inherited statements, hypotheses, proof steps, API items and tests remain exact. Metadata changes are the planet-slot reassignment and two consumer-use status notes on the minimum definition, now pointing to both product bounds. All 132 prior baseline objects, E1–E9 and sourceVersions remain exact. Henk gains one reading-scope entry; the Couveignes note now points to the supplied product-proof chain. Other sources and every non-GN.1 coverage record are unchanged. The native covolume coordinate identity is imported rather than replanned.
 
 Continuation must address the full GN.1 bibliography and the Hermite/John branches, reconcile the minimum API with the inspected upstream design before implementation, and develop the precisely owned GN.2–GN.6 gaps. Generic two-sided product bounds now have plans; arithmetic normalization, transference, quantitative counting and certified reduction are not silently supplied. Final packet, errata, preservation, intake and fresh-main guard results are recorded in the handoff.
+
+
+## Stage target inventory for this pass
+
+### GeometryOfNumbersAndQuadraticArithmetic:GN.0 — planned
+
+**Discrete real lattices, fundamental domains, covolumes and absolute-determinant changes.** `GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-orthonormal-coordinates`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-adapted-projection`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-det-biorthogonal`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-projection`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-dual`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/primitive-orthogonal-covolume`. Imports: `mathlib:ZLattice.covolume`, `mathlib:ZLattice.covolume_eq_det_mul_measureReal`, `mathlib:ZSpan.isAddFundamentalDomain'`.
+
+**Complex embeddings and number-field factors.** `GeometryOfNumbersAndQuadraticArithmetic:GN.0/mixed-embedding-normalization`.
+
+Remaining refinement: Canonical lattice/fundamental-domain/covolume foundations are existing library imports. Refine the inherited primitive-orthogonal/Gram adapters and reconcile arbitrary consumer weighted embedding coordinates with their own determinant and norm contracts.
+
+### GeometryOfNumbersAndQuadraticArithmetic:GN.1 — planned
+
+**Blichfeldt and first Minkowski with boundary conventions.** `GeometryOfNumbersAndQuadraticArithmetic:GN.1/blichfeldt-native-interface`, `GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-first-native-interface`.
+
+**Both sharp second Minkowski inequalities and attained witnesses.** `GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-lower`, `GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper`.
+
+**Ideal-class and unit applications through existing owners.** `GeometryOfNumbersAndQuadraticArithmetic:GN.1/ideal-class-application-import`, `GeometryOfNumbersAndQuadraticArithmetic:GN.1/unit-application-import`.
+
+Remaining refinement: Resolve the inherited Fin/real-valued minima prototype with the Nat/NNReal upstream proposal before implementation. Full source proofs of Evertse Hermite-basis and John ellipsoid refinements are not read; they do not replace either planned sharp product inequality.
+
+### GeometryOfNumbersAndQuadraticArithmetic:GN.2 — planned
+
+**Field Witt/discriminant/Clifford/Hasse classification, real/dyadic places and Hasse–Minkowski.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus`. Imports: `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field`, `tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry`.
+
+**Integral lattices, localization, genus and proper spinor genus.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-quadratic-lattice`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-localization`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-intersection-localizations`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/completed-lattice-descent`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/proper-spinor-genus`.
+
+**Dyadic, hermitian and quaternionic variants.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-hermitian-lattice`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-dual-lattice`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-lattice-invariants`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/dyadic-atomic-form`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-normalized-form`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/quaternionic-integral-hermitian-data`.
+
+Remaining refinement: Read and split the original dyadic normalization algorithm, proper spinor-genus/classification and quaternionic integral classification sources. Build native localization/completion and nonfree Dedekind-module adapters; field classification and ordinary integral Z-lattice foundations remain imported.
+
+### GeometryOfNumbersAndQuadraticArithmetic:GN.3 — planned
+
+**Arithmetic quotients and reduction domains.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-genus-class-finite`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/adelic-mass-identity`. Imports: `AdelicAlgebraicGroups:AA.2`, `AdelicAlgebraicGroups:AA.3`.
+
+**Local representation densities and their normalization.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-representation-count`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-embedding-count`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/finite-hermitian-isometry-formula`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-hermitian-count`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-local-density`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-siegel-polynomial`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/cho-yamauchi-weight`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/cho-yamauchi-overlattice-formula`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/siegel-polynomial-functional-equation`.
+
+**Finite stabilizers, weighted mass and a source-scoped mass formula.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-integral-isometry-finite`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/genus-mass`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/adelic-mass-identity`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/maximal-integral-mass-formula`.
+
+**Theta coefficient interface.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/theta-lattice-coefficient-interface`. Imports: `MetaplecticAutomorphicForms:MP.5`.
+
+Remaining refinement: Read original Hironaka, Kitaoka, Cho–Yamauchi/Gan–Yu density inputs and the original Shimura/Gan–Hanke–Yu maximal mass proof. Refine smoothness, residue-cardinality normalization, class finiteness, local factor tables, convergence and archimedean constants; do not substitute the hermitian density polynomial for an orthogonal mass factor.
+
+### GeometryOfNumbersAndQuadraticArithmetic:GN.4 — planned
+
+**Lattice-point estimates, uniform semialgebraic multiset error and Henk counting.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/henk-sublattice-count`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/henk-successive-minima-count`.
+
+**Mixing, ergodicity, unipotent recurrence, closure, measure and time averages.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/howe-moore-mixing`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/homogeneous-ergodicity`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/unipotent-nondivergence`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-orbit-closure`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-measure-classification`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-unipotent-equidistribution`.
+
+**Oppenheim and Duke applications with actual hypotheses.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/oppenheim-values`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/duke-spherical-equidistribution`.
+
+**Packing, covering, nonconvex star bodies and reciprocal transference.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/packing-radius`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/covering-radius`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/compact-star-body`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/dual-transference-lower`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/dual-transference-upper`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/covering-dual-transference`.
+
+**Mahler compactness and integrable Siegel mean value.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/mahler-compactness`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/siegel-mean-value`.
+
+**Coding-lattice real metric and covolume adapter.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/construction-a-real-lattice-interface`. Imports: `tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses`.
+
+Remaining refinement: Acquire original Davenport/corrigendum/Rogers, Howe–Moore, Dani–Margulis, Ratner, Duke and Siegel proof inputs. Refine Gaussian upper transference, homogeneous quotient/L² interfaces, nonescape/time-average selection, star-body critical-lattice problems and coding metric adapters. No quantitative Oppenheim/Duke error bound or arbitrary-body n transference constant is asserted.
+
+### GeometryOfNumbersAndQuadraticArithmetic:GN.5 — planned
+
+**Exact Gram–Schmidt/LLL reduction with integer change-of-basis certificates.** `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-coefficient`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-reduced`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/unimodular-basis-certificate`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-integer-potential`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-exact-reduction`.
+
+**Proved factor and verification in the original lattice.** `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-gram-schmidt-growth`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-short-vector-factor`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-original-lattice-verification`.
+
+**Height/count/local representation handoff to arithmetic consumers.** `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-original-lattice-verification`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-exact-reduction`.
+
+Remaining refinement: Split exact nearest-integer/Gram–Schmidt update, prefix-potential and termination transitions. The 1982 complexity proof beyond the beginning of Proposition 1.26 was not read, so no bit-complexity endpoint is supplied. Arithmetic heights, exclusion and local representation algorithms remain their consumers’ work using the exported certificate and factor.
+
+### GeometryOfNumbersAndQuadraticArithmetic:GN.6 — planned
+
+**Strong exact duality, symmetric/alternating spaces and exact Lagrangians.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/strong-category-duality`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-category-duality`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/symmetric-space`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-lagrangian`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-space`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/isotropic-reduction`.
+
+**Exact GW/W presentations and forgetful/hyperbolic comparisons.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-grothendieck-witt-group`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-witt-group`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-forgetful-relations`.
+
+**Higher hermitian fibre spaces and component comparison.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-q-construction`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/higher-grothendieck-witt-groups`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space-components`.
+
+**Exact filtering and symmetric Dedekind localization with residue shifts.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/schlichting-filtering-localization`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization`.
+
+**Source-scoped shifted periodicity and number-ring comparisons.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/shifted-karoubi-periodicity`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/number-ring-homotopy-limit`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/number-ring-invert-two-comparison`.
+
+**Selected full nonconnective hermitian branch.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension-delooping`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/nonconnective-hermitian-spectrum`. Imports: `GeneralAlgebraicKTheory:K.6`.
+
+Remaining refinement: Refine exact-conflation/opposite/quotient adapters, formations, cofinality and the cone setup; import genuine nerve realization, pointed homotopy groups and spectra. Classical dg Bott periodicity requires unique 2-divisibility; symmetric Dedekind devissage is not quadratic dyadic devissage. The new stable Poincaré framework belongs to HermitianKTheoryOfPoincareCategories, whose precise stage/node interfaces remain to be designed. Calmes integer tables and quadratic/skew variants require separate source-scoped refinement rather than an unqualified ordinary-K or cyclic-group substitution.
+
+## Additional declaration contracts
+
+### GN.0
+
+#### Mixed embedding covolume normalization
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.0/mixed-embedding-normalization` — comparison.
+
+For a number field K and an invertible fractional O_K-ideal I, use the existing mixed real/complex embedding and its real Haar measure. Its lattice covolume is absNorm(I)·2^(−r₂)·√|disc K|, and its real ambient dimension is [K:Q]. A complex coordinate contributes two real dimensions; replacing the metric or embedding coordinates requires the actual real determinant factor.
+
+**Hypotheses and conventions.** The displayed formula uses the native mixed embedding, not a freely chosen weighted arithmetic metric.
+
+**Construction or proof.** 1. Import the two pinned declarations without re-planning the embedding or ideal-lattice carrier. 2. When a consumer chooses a weighted metric, apply the native absolute-real-determinant covolume formula to that specific map.
+
+**Prerequisites.** `mathlib:NumberField.mixedEmbedding.finrank`, `mathlib:NumberField.mixedEmbedding.covolume_idealLattice`, `mathlib:ZLattice.covolume_eq_det_mul_measureReal`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.mixed_embedding_normalization_test_1`: The complex-place factor is 2^(-r₂), not 2^(r₂).
+- `TauCeti.GeometryOfNumbersPlan.mixed_embedding_normalization_test_2`: Real dimension is r₁+2r₂, not r₁+r₂.
+
+**Source.** MathlibPin, CanonicalEmbedding/Basic.lean:213 and Discriminant/Basic.lean:134. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Consumer weighted arithmetic metric adapter: EffectiveBoundsCompactModels owns its chosen coefficient metric; a complete named weighted-number-field embedding comparison must specify the exact determinant and the lower norm estimate in that consumer. This packet supplies only the canonical mixed-embedding normalization, not a new consumer metric.
+
+### GN.1
+
+#### Blichfeldt native interface
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.1/blichfeldt-native-interface` — comparison.
+
+Under the pinned countable additive action, invariant measure and actual fundamental-domain hypotheses, a null-measurable S with μ(F)<μ(S) has two distinct lattice translates that intersect. For a subgroup acting by translations this gives distinct points of S whose difference is a nonzero lattice element.
+
+**Hypotheses and conventions.** Retain null measurability and the additive fundamental-domain hypothesis; no full-rank lattice is inferred from a bare subgroup.
+
+**Construction or proof.** 1. Call the existing Blichfeldt declaration. 2. Unpack an intersection point and subtract the two subgroup translations.
+
+**Prerequisites.** `mathlib:MeasureTheory.exists_pair_mem_lattice_not_disjoint_vadd`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.blichfeldt_native_interface_test_1`: The strict volume comparison is retained.
+- `TauCeti.GeometryOfNumbersPlan.blichfeldt_native_interface_test_2`: Two distinct lattice translations produce a nonzero difference.
+
+**Source.** MathlibPin, MeasureTheory/Group/GeometryOfNumbers.lean:52. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Minkowski first theorem boundary interface
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-first-native-interface` — comparison.
+
+For a countable additive lattice subgroup L of a finite-dimensional real normed space, a convex symmetric set S with μ(F)·2^dim<μ(S) contains a nonzero lattice point. For a compact S and discrete L, in a nontrivial ambient space, the non-strict ≥ threshold suffices. Dimension zero does not satisfy the compact theorem’s nontrivial-space hypothesis.
+
+**Hypotheses and conventions.** Use the native Haar measure and actual additive fundamental domain.
+
+**Construction or proof.** 1. Import the strict theorem. 2. For the equality-boundary variant import the compact/discrete theorem with its additional nontrivial ambient hypothesis.
+
+**Prerequisites.** `mathlib:MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure`, `mathlib:MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_le_measure`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.minkowski_first_native_interface_test_1`: For Z in R and S=[−1,1], the non-strict theorem finds ±1.
+- `TauCeti.GeometryOfNumbersPlan.minkowski_first_native_interface_test_2`: The open interval (−1,1) at equality cannot use the compact variant.
+- `TauCeti.GeometryOfNumbersPlan.minkowski_first_native_interface_test_3`: No nonzero vector is asserted in zero dimension.
+
+**Source.** MathlibPin, MeasureTheory/Group/GeometryOfNumbers.lean:65,91. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Bounded ideal-class representatives
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.1/ideal-class-application-import` — comparison.
+
+For a number field K of degree d, every ideal class of O_K has a nonzero integral representative I with N(I)≤(4/π)^r₂·d!/d^d·√|disc K|. The ideal class group is already finite in Mathlib. Geometry supplies this bound; no new class-group carrier is planned here.
+
+**Hypotheses and conventions.** Full ring of integers and its native class group; orders with noninvertible proper ideals are a separate GlobalNumberFields problem.
+
+**Construction or proof.** 1. Import the existing finite class-group instance and bounded-representative theorem. 2. Check that the native mixed-embedding covolume and r₂ factor are the ones used by the imported theorem.
+
+**Prerequisites.** `mathlib:NumberField.RingOfIntegers.instFintypeClassGroup`, `mathlib:NumberField.exists_ideal_in_class_of_norm_le`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/mixed-embedding-normalization`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.ideal_class_application_import_test_1`: The representative is nonzero integral, not an arbitrary fractional-ideal placeholder.
+- `TauCeti.GeometryOfNumbersPlan.ideal_class_application_import_test_2`: The factor d!/d^d and complex-place factor are retained.
+
+**Source.** MathlibPin, NumberTheory/NumberField/ClassNumber.lean:59,77. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Dirichlet unit rank import
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.1/unit-application-import` — comparison.
+
+The native quotient of O_K^× by its torsion subgroup is a finitely generated free abelian group of rank r₁+r₂−1; use the existing NumberField.Units Dirichlet API, not a new logarithmic unit lattice carrier.
+
+**Hypotheses and conventions.** Use the native NumberField.Units.rank and torsion subgroup.
+
+**Construction or proof.** 1. Import finrank_modTorsion with its existing logEmbedding/unitLattice proof and native module instances. 2. Keep the arithmetic regulator and ray-unit fundamental domains with their number-field owners.
+
+**Prerequisites.** `mathlib:NumberField.Units.finrank_modTorsion`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.unit_application_import_test_1`: For Q the unit rank is zero.
+- `TauCeti.GeometryOfNumbersPlan.unit_application_import_test_2`: A complex place contributes one logarithmic unit coordinate even though it contributes two real embedding dimensions.
+
+**Source.** MathlibPin, NumberTheory/NumberField/Units/DirichletTheorem.lean:457. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+### GN.2
+
+#### Integral quadratic lattices over a Dedekind domain
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-quadratic-lattice` — definition.
+
+For a Dedekind domain R with fraction field K, a finite-dimensional K-space V and native q:V→K quadratic, an integral quadratic lattice is L:Submodule R V with Submodule.IsLattice K L and q(L)⊆R. Nondegeneracy of q and unimodularity of its integral polar pairing are separate predicates. There is no global free-basis field.
+
+**Hypotheses and conventions.** K has characteristic different from 2 for the field-classification interface; the native integral quadratic-map definition itself does not require 2 to be a unit in R. The embedding R→K and scalar tower are fixed. Invariant-factor and genus work uses a nondegenerate generic fibre.
+
+**Construction or proof.** 1. Bundle the existing submodule and IsLattice certificate with the existing QuadraticForm and the exact image-in-R condition. 2. Restrict q to L using injectivity of R→K; obtain a native R-valued QuadraticMap. 3. Compare the rational symmetric bilinear carrier with completed IntegralLattices only under its stated integrality/evenness convention; do not replace q by half a bilinear diagonal over a dyadic ring.
+
+**Prerequisites.** `mathlib:Submodule.IsLattice`, `mathlib:QuadraticMap`, `mathlib:QuadraticForm`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.ofCarrier` (constructor): Bundle a native full finite submodule and q with q(L)⊆R.
+- `TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.carrier` (projection): Return the original R-submodule, preserving its IsLattice instance.
+- `TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.quadraticMap` (compatibility): The restricted native R-quadratic map extends back to q on the K-span.
+- `TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.ext` (extensionality): For fixed q, equal carriers yield equal bundled integral-lattice data.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.integral_quadratic_lattice_test_1`: R=Z, K=Q, L=Z and q(x)=x² give an integral lattice whose polar pairing is 2xy and is not unimodular.
+- `TauCeti.GeometryOfNumbersPlan.integral_quadratic_lattice_test_2`: The integral symmetric pairing B(x,y)=xy on Z does not make q(x)=B(x,x)/2 integral.
+- `TauCeti.GeometryOfNumbersPlan.integral_quadratic_lattice_test_3`: A nonprincipal fractional ideal is allowed as an R-lattice; no constructor asks for an R-basis.
+
+**Source.** Voight2026, §9.3 Definition 9.3.1 and §9.7 Definitions 9.7.1–9.7.8, printed pp.137,144–145. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Localization of an integral quadratic lattice
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-localization` — construction.
+
+For a nonzero prime p of R, extend L to L_(p)=L⊗R R_(p), viewed as the span of L in the same K-space; extend its quadratic map and coefficient line by scalar change. Integral values and full finite generation are preserved.
+
+**Hypotheses and conventions.** Use localization R_(p), not completion R_p; the latter changes the ambient field. No global freeness is assumed.
+
+**Construction or proof.** 1. Construct scalar extension with the existing localization/tensor API. 2. Identify the tensor with its image in V by torsion-freeness and flat localization. 3. Clear denominators in a finite generating family to establish the native lattice and integrality properties. The exact tensor-image adapter is a recorded proof input.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-quadratic-lattice`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.localize` (constructor): Return the R_(p)-lattice and restricted quadratic form.
+- `TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.localize_mem_iff` (characterisation): x lies in L_(p) iff s x lies in L for some s∈R\p.
+- `TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.localize_map` (functoriality): An integral isometry localizes, preserving identity and composition.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.lattice_localization_test_1`: Z_(2) contains 1/3 and excludes 1/2; this is not Z₂.
+- `TauCeti.GeometryOfNumbersPlan.lattice_localization_test_2`: Localizing a nonprincipal coefficient ideal makes it principal at a nonzero prime of a Dedekind domain.
+- `TauCeti.GeometryOfNumbersPlan.lattice_localization_test_3`: Localizing the zero-dimensional lattice still gives the zero-dimensional lattice.
+
+**Source.** Voight2026, §9.4, (9.4.1)–(9.4.5), printed pp.139–140. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Localization image adapter: Identify L⊗R R_(p) with its span in V, prove injectivity, and produce exact local integral quadratic-map instances without imposing global freeness. Existing localization/tensor notions are imported, not re-planned.
+
+#### Recover a lattice from its localizations
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-intersection-localizations` — theorem.
+
+For full R-lattices L,M in a fixed K-space, L=⋂p L_(p), and L⊆M iff L_(p)⊆M_(p) for every maximal ideal p. Consequently equality of localized submodules detects equality of global submodules.
+
+**Hypotheses and conventions.** R is a Dedekind domain; intersections are in the fixed K-space. This detects embedded submodule equality, not the existence of a compatible family of integral isometries.
+
+**Construction or proof.** 1. For x in every localization let a={r∈R:r x∈L}. Clear a denominator using fullness to show a is nonzero. 2. Membership in each localization supplies an element of a outside each maximal ideal; hence a=R and x∈L. 3. Apply the intersection equality to both lattices for the inclusion criterion.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-localization`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.lattice_intersection_localizations_test_1`: 2Z and Z differ at the prime 2, though their Q-spans coincide.
+- `TauCeti.GeometryOfNumbersPlan.lattice_intersection_localizations_test_2`: For equal embedded localizations the conclusion is L=M; independent local isometries do not supply a single global integral isometry.
+
+**Source.** Voight2026, Lemma 9.4.6 and Corollary 9.4.7, printed p.140. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Descent of a lattice from a DVR completion
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/completed-lattice-descent` — theorem.
+
+If R is a DVR with fraction field K and completion R̂ with fraction field K̂, extension L↦L⊗R R̂ and intersection N↦N∩V are inverse bijections between full R-lattices in finite-dimensional V and full R̂-lattices in V⊗K K̂.
+
+**Hypotheses and conventions.** Intersection uses the canonical injection V→V⊗K K̂. Finite-generation and torsion-free hypotheses are retained; a torsion R-module is not declared free.
+
+**Construction or proof.** 1. Choose a basis for the torsion-free finite R-lattice; R̂∩K=R identifies the intersection after extension. 2. For a completed lattice, sandwich it between r times and r inverse times a reference free lattice, with r∈R chosen to match valuation. 3. Use the finite quotient comparison modulo r to lift representatives, proving the reverse inclusion after extension. 4. The residue-quotient and completion embedding comparisons are recorded inputs, not silently new definitions.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-localization`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.completed_lattice_descent_test_1`: The descent of 2Z₂⊂Q₂ is 2Z_(2)⊂Q, not 2Z as a global lattice.
+- `TauCeti.GeometryOfNumbersPlan.completed_lattice_descent_test_2`: The finite quotient comparison R/p^e≅R̂/p^e for e≥1 is essential to lifting completed generators.
+
+**Source.** Voight2026, §9.5 (9.5.1)–(9.5.4), Lemma 9.5.3 and full proof, printed pp.142–143. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Completion and finite-quotient adapters: Supply the exact injections, scalar-extension embeddings and R/p^e→R̂/p^e isomorphism for the imported adic/local-field substrate; the source proof is read, but these adapters have not been matched to declarations at the pin.
+
+#### Integral genus inside a rational quadratic space
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus` — definition.
+
+Within a fixed nondegenerate quadratic K-space (V,q), two integral R-lattices belong to the same genus when their completed lattices are isometric under O(q_v)(K_v) at every nonzero prime v. If quadratic spaces themselves vary, also require the archimedean signature data and the rational-space identification from GlobalQuadraticForms. Genus classes are integral isometry classes inside this equivalence class.
+
+**Hypotheses and conventions.** R is the ring of integers of a number field, or a specified localization with exactly its retained places. Genus, rational isometry and global integral isometry have separate types and separate quotient relations.
+
+**Construction or proof.** 1. Use completed-lattice scalar change and the imported local orthogonal groups. 2. Prove reflexivity, symmetry and transitivity by composing local isometries. 3. Take the setoid quotient by global integral isometry inside the genus; do not quotient by unrelated local choices.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-quadratic-lattice`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/completed-lattice-descent`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field`, `tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.IntegralGenus.localIsometry` (data): A local isometry at each retained finite place, with archimedean data when spaces vary.
+- `TauCeti.GeometryOfNumbersPlan.IntegralGenus.equivalence` (structure): The genus relation is an equivalence relation.
+- `TauCeti.GeometryOfNumbersPlan.IntegralGenus.ofIntegralIsometry` (compatibility): A global integral isometry determines a genus relation.
+- `TauCeti.GeometryOfNumbersPlan.IntegralGenus.classSet` (constructor): Integral-isometry classes of lattices in the fixed genus.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.integral_genus_test_1`: In fixed (Q,x²), Z and 2Z are rationally in the same ambient space but not in one integral genus.
+- `TauCeti.GeometryOfNumbersPlan.integral_genus_test_2`: A global integral isometry yields local isometries at every place.
+- `TauCeti.GeometryOfNumbersPlan.integral_genus_test_3`: Opposite real signatures cannot be identified when ambient spaces vary.
+
+**Source.** Voight2026, Definition 9.7.13, printed p.146; completion comparison §9.5. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Proper spinor genus
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/proper-spinor-genus` — definition.
+
+For nondegenerate q in characteristic different from 2, proper spinor genus is the orbit of an integral lattice under SO(q)(K) times the image of Spin(q)(A_f)→SO(q)(A_f), acting on its finite adelic completion. Proper genus uses SO instead of O. Their forgetful maps to ordinary genus are separate.
+
+**Hypotheses and conventions.** Use the actual local-field image of the spin covering; no blanket surjectivity on local rational points. Dyadic spinor-norm images and signatures are supplied by their owners or left as precise gaps.
+
+**Construction or proof.** 1. Import the spin covering and spinor norm from SpinRepresentations; import finite adeles from AdelicAlgebraicGroups. 2. Define the orbit relation from those actual groups and prove equivalence by group laws. 3. The spin image is contained in SO, so construct maps to proper genus and ordinary genus. 4. The adelic/local integral stabilizer and spinor-norm comparison proof is still a recorded input.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus`, `tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-2-the-pin-and-spin-groups-and-the-double-covers`, `AdelicAlgebraicGroups:AA.1`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.ProperSpinorGenus.orbit` (constructor): Use global SO and the finite adelic spin image.
+- `TauCeti.GeometryOfNumbersPlan.ProperSpinorGenus.equivalence` (structure): Orbit relation is reflexive, symmetric and transitive.
+- `TauCeti.GeometryOfNumbersPlan.ProperSpinorGenus.toGenus` (compatibility): Forget orientation and the spin-image restriction.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.proper_spinor_genus_test_1`: At a place where a nontrivial spinor-norm class occurs, an SO-point with that norm cannot be inserted into the spin image merely by asserting surjectivity.
+- `TauCeti.GeometryOfNumbersPlan.proper_spinor_genus_test_2`: A proper spinor-genus relation implies genus; the converse is not an API lemma.
+- `TauCeti.GeometryOfNumbersPlan.proper_spinor_genus_test_3`: For rank one the proper orthogonal group is trivial; no higher-rank spin-image claim is inferred from that case.
+
+**Source.** Voight2026, §9.7 genus convention; worker extension to the spin-cover target, with missing source classification stated explicitly. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Spinor-genus source and adelic image comparison: Acquire the exact O’Meara/spinor-genus passage and prove the integral adelic stabilizer comparison and dyadic spinor-norm images. The orbit definition is a worker specification of the staged target; no spinor-genus classification proof has been read or supplied.
+
+#### Integral hermitian lattices
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-hermitian-lattice` — definition.
+
+Let K be a field with involution, R⊂K a stable integral subring and V a finite K-space. A hermitian integral lattice consists of native L:Submodule R V, Submodule.IsLattice K L and a native sesquilinear H, conjugate-linear in its first argument and linear in its second, with H(y,x)=star H(x,y) and H(L,L)⊆R. Generic nondegeneracy is distinct from integral self-duality.
+
+**Hypotheses and conventions.** Commutative K/R in this declaration; the quaternionic right-module variant is a separate target. For Li–Zhang density the extension is unramified quadratic F/F₀ and F₀ has characteristic different from 2; dyadic residue fields are allowed in §3 except its explicitly geometric branch.
+
+**Construction or proof.** 1. Reuse Submodule.IsLattice and the pinned star-sesquilinear form rather than introducing a new bilinear carrier. 2. Bundle the actual symmetry and integral image conditions. 3. Transport along a K-linear isometry carrying the R-lattice onto the target; retain the coefficient involution.
+
+**Prerequisites.** `mathlib:Submodule.IsLattice`, `mathlib:LinearMap.IsSymm`, `mathlib:LinearMap.Nondegenerate`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.ofCarrier` (constructor): Bundle the existing full finite submodule and actual integral star-sesquilinear form.
+- `TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.carrier` (projection): The native R-submodule, with its IsLattice certificate.
+- `TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.ext` (extensionality): For fixed H, equality of native carriers identifies bundled lattice data.
+- `TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.map` (functoriality): Transport along a hermitian isometry; identity and composition laws.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.integral_hermitian_lattice_test_1`: For rank one over an unramified quadratic extension, H(x,y)=star(x)y on O_F is integral and self-dual.
+- `TauCeti.GeometryOfNumbersPlan.integral_hermitian_lattice_test_2`: Replacing conjugate transpose by ordinary transpose on the complex vector (i) changes its Gram value from 1 to −1.
+- `TauCeti.GeometryOfNumbersPlan.integral_hermitian_lattice_test_3`: An integral hermitian lattice with nonunit Gram determinant is nondegenerate over F but not self-dual over O_F.
+
+**Source.** LiZhangDensity, §1.7, physical p.8; §3 hypotheses, physical p.15. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Hermitian dual lattice
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-dual-lattice` — construction.
+
+For a nondegenerate integral hermitian lattice L in V, define L∨={x∈V : H(x,L)⊆R}; under the stable involution this equals the right-dual condition H(L,x)⊆R. This is a full finite R-lattice over a Dedekind domain; integrality is equivalent to L⊆L∨. Self-duality means equality, not just equality of generic spans.
+
+**Hypotheses and conventions.** R is Dedekind and stable under the involution; H is nondegenerate on the generic fibre. No finiteness of residue fields is needed until cardinalities are used.
+
+**Construction or proof.** 1. Show the defining set is an R-submodule using sesquilinearity and stability of R under star. 2. Use a local free basis to express the dual by the inverse hermitian Gram matrix; descend the finite lattice property. 3. Use symmetry to compare the two pairing directions and prove the inclusion characterization. 4. Local inverse-Gram and descent adapters remain explicit proof gaps.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-hermitian-lattice`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/completed-lattice-descent`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.dual` (constructor): The native submodule defined by integral pairings.
+- `TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.mem_dual_iff` (characterisation): Membership is equivalent to all pairings with L lying in R.
+- `TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.dual_dual` (relation): The double dual equals L under the stated Dedekind/nondegeneracy hypotheses.
+- `TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.integral_iff_le_dual` (characterisation): Integrality is exactly L⊆L∨.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitian_dual_lattice_test_1`: For rank-one Gram π^a over an unramified extension, the dual of O_F e is π^−a O_F e.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_dual_lattice_test_2`: The Gram-1 lattice is self-dual; Gram-π lattice is integral but not self-dual.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_dual_lattice_test_3`: The zero-dimensional lattice equals its dual and has zero discriminant length.
+
+**Source.** LiZhangDensity, §1.7, physical pp.8–9. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Hermitian inverse-Gram and scalar-change proof: Prove the local full finite inverse-Gram description, dual localization/completion compatibility and double-dual descent. Completed rational symmetric duality is imported only for its matching specialization, not asserted to provide all star-hermitian Dedekind adapters.
+
+#### Fundamental invariants of a local hermitian lattice
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-lattice-invariants` — construction.
+
+For an integral nondegenerate O_F-hermitian lattice L of rank n over a DVR, attach the unique ordered a₁≤…≤a_n with a_i≥0 and L∨/L≅⊕O_F/π^{a_i}; define val(L)=Σa_i and t(L)=#{i:a_i>0}. Vertex means a_i∈{0,1}; self-dual means all a_i=0.
+
+**Hypotheses and conventions.** The quotient is measured by O_F-length; q is the size of the residue field of F₀ when F/F₀ is unramified quadratic. A_i=0 contributes the zero summand; n=0 has length/type 0.
+
+**Construction or proof.** 1. Apply imported Smith normal form locally to the inclusion L→L∨; do not plan Smith normal form again. 2. Read off ordered exponents and prove independence of chosen bases and uniformizer. 3. Define valuation and type by finite sums/counts; identify vertex and self-dual cases.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-dual-lattice`, `mathlib:Submodule.exists_smith_normal_form_of_le`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.HermitianLatticeInvariants.ofDualQuotient` (constructor): The ordered DVR elementary-divisor exponents.
+- `TauCeti.GeometryOfNumbersPlan.HermitianLatticeInvariants.valuation` (data): Sum of the exponents, equal to O_F-length.
+- `TauCeti.GeometryOfNumbersPlan.HermitianLatticeInvariants.type` (data): Number of positive exponents.
+- `TauCeti.GeometryOfNumbersPlan.HermitianLatticeInvariants.selfDual_iff` (characterisation): Self-duality iff valuation is zero.
+- `TauCeti.GeometryOfNumbersPlan.HermitianLatticeInvariants.vertex_iff` (characterisation): Vertex iff every exponent is 0 or 1.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitian_lattice_invariants_test_1`: Rank one with Gram π³ has val=3 and type=1; it is not a vertex lattice.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_lattice_invariants_test_2`: Invariants (0,1,1) give val=2, type=2 and a vertex lattice.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_lattice_invariants_test_3`: The cardinality of L∨/L is q^{2 val(L)} in an unramified quadratic extension, not q^{val(L)}.
+
+**Source.** LiZhangDensity, §1.7, physical p.8. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Quaternionic integral hermitian lattices
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/quaternionic-integral-hermitian-data` — construction.
+
+For a quaternion algebra B over a characteristic-not-two number field K, a fixed star-stable R-order O⊂B, a finite right B-module V and nondegenerate hermitian H:V×V→B satisfying H(xa,yb)=star(a)H(x,y)b, specify a full finite R-lattice L stable under right O with H(L,L)⊆O. The integral-isometry and local-genus data retain O, its involution and the hermitian sign.
+
+**Hypotheses and conventions.** The quaternion algebra and standard involution are imported. The centre lattice is finite projective over Dedekind R; global right O-freeness is not assumed. This is a quaternionic right-module interface, not a commutative star-linear form with B incorrectly treated as a commutative field.
+
+**Construction or proof.** 1. Import B and its standard involution and reuse the native full finite R-submodule. 2. Add actual right O-stability and the noncommutative sesquilinear pairing conditions. 3. Localize the order, lattice and pairing together and compare only within those fixed local orders. The order/module localization and source-specific quaternionic classification remain named gaps.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-quadratic-lattice`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.QuaternionicIntegralHermitianLattice.ofOrderStableCarrier` (constructor): The actual O-stable native R-lattice and quaternionic pairing.
+- `TauCeti.GeometryOfNumbersPlan.QuaternionicIntegralHermitianLattice.order` (projection): Retain the coefficient order and its involution.
+- `TauCeti.GeometryOfNumbersPlan.QuaternionicIntegralHermitianLattice.localize` (functoriality): Localize order, lattice and pairing simultaneously.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.quaternionic_integral_hermitian_data_test_1`: For a star-stable quaternion order O, H(x,y)=star(x)y on O satisfies the integral pairing condition.
+- `TauCeti.GeometryOfNumbersPlan.quaternionic_integral_hermitian_data_test_2`: Taking reduced trace of H(1,1)=1 gives 2, so reduced-trace metric normalization is a separate comparison.
+- `TauCeti.GeometryOfNumbersPlan.quaternionic_integral_hermitian_data_test_3`: Changing the order changes the integral-isometry problem even when the ambient quaternion algebra is unchanged.
+
+**Source.** Voight2026, §9.3–9.7 full lattice and quadratic-module conventions; worker extension to the staged quaternionic hermitian target. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Quaternionic integral module and classification source: Acquire the exact quaternionic/hermitian local-lattice passages, including the routed Kurinczuk–Skodlerack–Stevens source restrictions. Prove order-module scalar change and noncommutative duality; do not infer them from commutative unramified hermitian density formulas.
+
+#### Atomic integral quadratic forms over a local PID
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/dyadic-atomic-form` — definition.
+
+Over a local PID R with valuation v and uniformizer π, an atomic quadratic form is either ⟨a⟩ with a a unit, or, when 2 is not a unit, a binary [a,b,c] satisfying v(b)<v(2a)≤v(2c) and v(a)v(b)=0. These are integral quadratic maps; the polar pairing is not divided by two.
+
+**Hypotheses and conventions.** Valuation may take infinity for zero; the stated strict inequality excludes the unwanted zero terms. Field cases use the source’s trivial-valuation convention separately.
+
+**Construction or proof.** 1. Use the native rank-one/rank-two quadratic map, with actual local-ring valuation conditions. 2. Record the two alternatives and transport them along integral isometry. 3. Keep the binary dyadic alternative distinct from field diagonalization.
+
+**Prerequisites.** `mathlib:QuadraticMap`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.IsAtomicIntegralQuadraticForm` (constructor): The exact unary or dyadic binary valuation predicate.
+- `TauCeti.GeometryOfNumbersPlan.IsAtomicIntegralQuadraticForm.unary` (characterisation): Unary atomic forms have unit coefficient.
+- `TauCeti.GeometryOfNumbersPlan.IsAtomicIntegralQuadraticForm.binary` (characterisation): The binary alternative includes 2 nonunit and all valuation inequalities.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.dyadic_atomic_form_test_1`: Over Z₂ the hyperbolic quadratic form xy is an atomic binary form.
+- `TauCeti.GeometryOfNumbersPlan.dyadic_atomic_form_test_2`: Over a ring with 2 invertible only the rank-one unit alternative occurs.
+- `TauCeti.GeometryOfNumbersPlan.dyadic_atomic_form_test_3`: A field diagonal basis need not be an integral diagonal basis over Z₂.
+
+**Source.** Voight2026, Definition 9.8.1 and Example 9.8.2, printed p.147. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Normalized integral quadratic form
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-normalized-form` — theorem.
+
+Every finite-projective quadratic form over a local PID has an integral basis giving an orthogonal sum π^{e₁}Q₁⊥…⊥π^{e_s}Q_s of atomic unary/binary forms, with ordered exponents e_i≥0, allowing the zero blocks specified by the source infinity convention. This normalized form is not asserted unique.
+
+**Hypotheses and conventions.** Over a local PID the finite-projective underlying module is free. No uniform diagonalization theorem is exported for dyadic rings.
+
+**Construction or proof.** 1. Choose a least-valuation coefficient or cross coefficient. 2. Split the corresponding unary or dyadic binary block by integral basis operations and iterate on the orthogonal complement. 3. The exact algorithm and division-validity proof are cited to Voight Algorithm 3.12 and remain a primary-source gap.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/dyadic-atomic-form`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.integral_normalized_form_test_1`: The binary hyperbolic dyadic block cannot be discarded in favour of an unsupported integral diagonalization.
+- `TauCeti.GeometryOfNumbersPlan.integral_normalized_form_test_2`: The zero quadratic map requires the specified zero-block convention.
+
+**Source.** Voight2026, Proposition 9.8.4 and proof reference, printed pp.147–148. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Integral atomic splitting algorithm: Acquire Voight’s 2013 Algorithm 3.12 and its proof, match actual discrete valuation and integral quadratic-map APIs, and split unary/binary pivot, orthogonal complement and termination lemmas. Book Proposition 9.8.4 cites this external proof rather than supplying it.
+
+### GN.3
+
+#### Finite hermitian representation counts
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-representation-count` — definition.
+
+For a finite commutative star ring A and hermitian Gram matrices G of size m and B of size n, count all m×n matrices X with XᴴGX=B. This is a finite count of form-preserving maps, including noninjective maps when the source form is degenerate.
+
+**Hypotheses and conventions.** m,n may be zero; star is part of the input. The target space is rank m and the represented/source lattice is rank n.
+
+**Construction or proof.** 1. Enumerate native finite matrices and filter by the actual conjugate-transpose Gram equation. 2. Change coordinates with integral invertible matrices to obtain bijections of solutions. 3. Distinguish injective embeddings in a separate declaration; equality with embeddings requires a nonsingular source over a field.
+
+**Prerequisites.** `mathlib:Matrix.conjTranspose`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitianRepresentationCount` (constructor): Finite cardinality of XᴴGX=B.
+- `TauCeti.GeometryOfNumbersPlan.hermitianRepresentationCount_empty` (simp): The empty source has count 1.
+- `TauCeti.GeometryOfNumbersPlan.hermitianRepresentationCount_basisChange` (functoriality): Invertible source/target coordinate changes induce a bijection of representation sets.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitian_representation_count_test_1`: Over Z/3 with trivial star, m=n=1, G=B=1 gives 2 maps.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_representation_count_test_2`: With G=1,B=0 over Z/3 the count is 1: the zero map.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_representation_count_test_3`: For n=0 there is one empty-column representation, for every ambient rank.
+
+**Source.** LiZhangDensity, §3.1, definition of Rep_{M,L}, physical p.15. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Finite hermitian embedding counts
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-embedding-count` — definition.
+
+For the same finite matrices, count solutions XᴴGX=B whose associated A-linear map A^n→A^m is injective. Over finite fields this is equivalent to column rank n; with a degenerate source it is stronger than the representation equation.
+
+**Hypotheses and conventions.** The finite-field formula uses the extension F_{q²}/F_q with its nontrivial involution. Injectivity is not substituted by invertibility unless m=n.
+
+**Construction or proof.** 1. Filter the representation set by injectivity of the native matrix linear map. 2. Use a nondegenerate source pairing over a field to prove automatic injectivity. 3. Under basis changes, transport the kernel condition as well as the Gram equation.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-representation-count`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitianEmbeddingCount` (constructor): Finite count with the actual injectivity condition.
+- `TauCeti.GeometryOfNumbersPlan.hermitianEmbeddingCount_empty` (simp): Count is 1 for n=0.
+- `TauCeti.GeometryOfNumbersPlan.hermitianEmbeddingCount_le` (relation): Embedding count is at most representation count.
+- `TauCeti.GeometryOfNumbersPlan.hermitianEmbeddingCount_eq_of_nonsingular` (compatibility): Over a field with nonsingular source, every representation is injective.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitian_embedding_count_test_1`: Over Z/3, G=1,B=0 at rank one gives 0 embeddings but 1 representation.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_embedding_count_test_2`: For an empty source the unique map is injective and the count is 1.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_embedding_count_test_3`: When n>m over a field the embedding count is zero.
+
+**Source.** LiZhangDensity, Proof of Theorem 3.5.1, physical p.18, finite hermitian isometries. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Finite-field hermitian isometry formula
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/finite-hermitian-isometry-formula` — theorem.
+
+For an n-dimensional F_{q²}/F_q-hermitian source with radical dimension a and a nondegenerate m-dimensional target, m≥n, the number of injective isometries is q^{n(2m−n)} ∏_{i=0}^{n+a−1}(1−(−q)^{i−m}).
+
+**Hypotheses and conventions.** q is a prime power ≥2; the involution is x↦x^q. Count embeddings, not all maps from a degenerate source.
+
+**Construction or proof.** 1. Choose the nondegenerate quotient of the source and its radical separately. 2. Count successive isometric vectors in the target and then injective isotropic radical lifts. 3. The exact finite hermitian counting argument is cited to Kitaoka by the source and remains an explicit proof acquisition gap.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-embedding-count`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.finite_hermitian_isometry_formula_test_1`: n=m=1,a=0 gives q+1 norm-one elements.
+- `TauCeti.GeometryOfNumbersPlan.finite_hermitian_isometry_formula_test_2`: n=m=1,a=1 gives 0 embeddings.
+- `TauCeti.GeometryOfNumbersPlan.finite_hermitian_isometry_formula_test_3`: n=0,a=0 gives the empty product 1.
+
+**Source.** LiZhangDensity, Proof of Theorem 3.5.1, physical p.18. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Finite hermitian vector counting proof: Acquire and decompose the hermitian analogue of Kitaoka §5.6 Exercise 4 used in Li–Zhang p.18, including degenerate radical lifts. The source gives the formula but not this counting proof.
+
+#### Normalized finite-level hermitian counts
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-hermitian-count` — definition.
+
+Given quotient rings A_N=O_F/π^N, Gram matrices reduced from fixed integral source/target lattices of ranks n≤m, and q=#k_{F₀}, set a_N=#Rep_{M,L}(A_N)/q^{N n(2m−n)} for N≥1. The denominator uses q, not q².
+
+**Hypotheses and conventions.** F/F₀ is unramified quadratic and F₀ is a nonarchimedean local field of characteristic different from 2. The generic representation scheme is nonempty with dimension n(2m−n). This sequence does not by itself assert convergence.
+
+**Construction or proof.** 1. Reduce the integral Gram matrices to each quotient ring. 2. Use the finite representation count, with all maps as in the representation scheme. 3. Normalize by the base-field residue size to the stated dimension; prove coordinate-change independence at every level.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-representation-count`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-hermitian-lattice`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.normalizedHermitianCount` (constructor): Finite count divided by q^{N n(2m−n)}.
+- `TauCeti.GeometryOfNumbersPlan.normalizedHermitianCount_empty` (simp): The empty-source count is 1.
+- `TauCeti.GeometryOfNumbersPlan.normalizedHermitianCount_basisChange` (compatibility): Integral invertible basis changes preserve every normalized count.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.normalized_hermitian_count_test_1`: For n=0 the normalized count is 1 at every level.
+- `TauCeti.GeometryOfNumbersPlan.normalized_hermitian_count_test_2`: For m=n=1 the exponent is N, not 2N.
+- `TauCeti.GeometryOfNumbersPlan.normalized_hermitian_count_test_3`: A generic empty representation problem is not treated as a smooth nonempty scheme of the stated dimension.
+
+**Source.** LiZhangDensity, §3.1 local density definition, physical p.15. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Hermitian local representation density
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-local-density` — construction.
+
+Under the preceding local-field hypotheses, Den(M,L) is the limit of normalized finite-level counts. Its existence, finite value and basis independence are part of the construction, with the specified nonempty generic-fibre assumptions. The statement is separate from the geometric intersection identity.
+
+**Hypotheses and conventions.** The unramified analytic density branch allows residue characteristic 2; geometric §3.4 hypotheses are not imported into all of §3. Haar measures on lattice coordinates assign volume 1 to the integral coordinate lattice before any self-dual Fourier normalization is applied.
+
+**Construction or proof.** 1. Prove stabilization or convergence of the normalized finite-level sequence by local representation-density theory. 2. Identify the limit with the representation-scheme measure under the fixed normalization. 3. The existence and measure comparison proof from Hironaka/Gan–Yu is an explicit source gap.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-hermitian-count`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-lattice-invariants`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitianLocalDensity` (constructor): The proved limit of normalized counts.
+- `TauCeti.GeometryOfNumbersPlan.hermitianLocalDensity_tendsto` (characterisation): The normalized sequence tends to the stated density.
+- `TauCeti.GeometryOfNumbersPlan.hermitianLocalDensity_basisChange` (compatibility): Integral isometries preserve the density.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitian_local_density_test_1`: Density of the empty source is 1.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_local_density_test_2`: The denominator and measure use q=#k_{F₀}; substituting q² changes the limit.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_local_density_test_3`: A ramified quadratic extension cannot reuse the unramified formula without a new theorem.
+
+**Source.** LiZhangDensity, §§3.1–3.2, physical pp.15–16. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Hermitian density existence and normalization proof: Acquire Hironaka 1998/2012 and Gan–Yu 2000 at the exact passages used in Li–Zhang §§3.1–3.2. Prove existence, the generic fibre dimension, dyadic unramified smoothness and the finite-count/Haar comparison. These results are statement-read through Li–Zhang, not proof-read in their original sources.
+
+#### Normalized hermitian Siegel polynomial
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-siegel-polynomial` — construction.
+
+For an integral nondegenerate unramified hermitian lattice L of rank n, construct the unique D_L∈Z[X] such that D_L((−q)^−k)=Den(⟨1⟩_{n+k},L)/Den(⟨1⟩_{n+k},⟨1⟩_n) for every integer k≥0. The denominator is ∏_{i=1}^n(1−(−q)^−i(−q)^−k).
+
+**Hypotheses and conventions.** q≥2 and the extension is unramified quadratic. The interpolating polynomial and its integral coefficients require a proof, not a generic choice of a function through finitely many values.
+
+**Construction or proof.** 1. Import the density and the standard self-dual target normalization. 2. Use the source Siegel-series existence theorem to obtain an integral polynomial. 3. Uniqueness follows from infinitely many distinct interpolation points over Q; the original existence proof remains a gap.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-local-density`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-lattice-invariants`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial` (constructor): The integral normalized density polynomial.
+- `TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial_eval` (characterisation): Evaluate at (−q)^−k to recover the specified density ratio.
+- `TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial_selfDual` (simp): Polynomial equals 1 for a self-dual lattice.
+- `TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial_isometry` (functoriality): Integral hermitian isometries preserve the polynomial.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.normalized_siegel_polynomial_test_1`: For a rank-one lattice with valuation a, D_L(X)=Σ_{i=0}^a(−X)^i.
+- `TauCeti.GeometryOfNumbersPlan.normalized_siegel_polynomial_test_2`: A self-dual lattice has polynomial 1.
+- `TauCeti.GeometryOfNumbersPlan.normalized_siegel_polynomial_test_3`: Using q^−k instead of (−q)^−k loses the alternating sign.
+
+**Source.** LiZhangDensity, §3.2, physical p.16. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Integral Siegel polynomial existence: Prove the interpolation and integrality theorem cited in Li–Zhang §3.2 from the exact Hironaka source. Finite interpolation alone is not a proof of this construction.
+
+#### Cho–Yamauchi weight polynomial
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/cho-yamauchi-weight` — definition.
+
+For q≥2 and a∈N define m_q(a;X)=∏_{i=0}^{a−1}(1−(−q)^i X) in Z[X], with empty product m_q(0;X)=1. The derivative weight is −m_q(a;X)′ at X=1; for a=0 it is 0, and for a≥1 it is ∏_{i=1}^{a−1}(1−(−q)^i).
+
+**Hypotheses and conventions.** The negative base is in Z before taking powers. Polynomial empty weight 1 and derivative empty weight 0 are distinct.
+
+**Construction or proof.** 1. Form the native polynomial finite product. 2. Differentiate at 1; for a≥1 only the differentiated i=0 factor survives. 3. Use the recurrence to support finite overlattice sums.
+
+**Prerequisites.** `mathlib:Polynomial`, `mathlib:Polynomial.derivative`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.choYamauchiWeight` (constructor): The native integral polynomial finite product.
+- `TauCeti.GeometryOfNumbersPlan.choYamauchiWeight_zero` (simp): Empty polynomial weight is 1.
+- `TauCeti.GeometryOfNumbersPlan.choYamauchiWeight_succ` (relation): m(a+1;X)=m(a;X)(1−(−q)^a X).
+- `TauCeti.GeometryOfNumbersPlan.choYamauchiWeight_derivative` (relation): The negative derivative at 1 is 0 for a=0 and the stated product for a>0.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.cho_yamauchi_weight_test_1`: m_q(0;X)=1, derivative weight 0.
+- `TauCeti.GeometryOfNumbersPlan.cho_yamauchi_weight_test_2`: m_q(1;X)=1−X, derivative weight 1.
+- `TauCeti.GeometryOfNumbersPlan.cho_yamauchi_weight_test_3`: m_q(2;X)=(1−X)(1+qX), derivative weight 1+q.
+
+**Source.** LiZhangDensity, §3.5 before Theorem 3.5.1, physical p.17. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Cho–Yamauchi hermitian density formula
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/cho-yamauchi-overlattice-formula` — theorem.
+
+D_L(X)=Σ_{L⊆L′⊆(L′)∨} X^{2 length_{O_F}(L′/L)} m_q(t(L′);X), summing over integral overlattices of L. The sum is finite because every such L′ lies between L and L∨.
+
+**Hypotheses and conventions.** Unramified quadratic extension of a local field of characteristic different from 2, including dyadic residue characteristic in this analytic statement. Length is over O_F; t is the number of positive fundamental invariants.
+
+**Construction or proof.** 1. Classify a representation by its saturated overlattice and the residual hermitian radical. 2. Apply the finite-field embedding formula and the source smoothness/lifting result to each stratum. 3. Use polynomial interpolation to identify the finite sum with D_L. The smoothness and stratum-count comparison from Cho–Yamauchi/Gan–Yu remains explicit.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-siegel-polynomial`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/cho-yamauchi-weight`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-dual-lattice`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-lattice-invariants`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/finite-hermitian-isometry-formula`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.cho_yamauchi_overlattice_formula_test_1`: For valuation-one rank one, D=1−X and the negative derivative is 1.
+- `TauCeti.GeometryOfNumbersPlan.cho_yamauchi_overlattice_formula_test_2`: For valuation-three rank one, D=1−X+X²−X³ and the negative derivative is 2.
+- `TauCeti.GeometryOfNumbersPlan.cho_yamauchi_overlattice_formula_test_3`: A self-dual L contributes just L with type 0 and polynomial 1.
+
+**Source.** LiZhangDensity, Theorem 3.5.1 and proof, physical pp.17–18. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Overlattice stratum lifting and smoothness: Acquire Cho–Yamauchi Corollary 3.11/Theorem 3.9 and Gan–Yu Lemma 5.5.2/§9, including the unramified dyadic case, and prove the representation-to-overlattice stratification with the exact q-exponent.
+
+#### Hermitian Siegel polynomial functional equation
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/siegel-polynomial-functional-equation` — theorem.
+
+For integral nondegenerate L, D_L(X)=(−X)^{val(L)}D_L(X^−1), interpreted in the Laurent polynomial ring. If val(L) is odd then D_L(1)=0.
+
+**Hypotheses and conventions.** The val(L) parity and the negative sign are retained.
+
+**Construction or proof.** 1. Apply the exact source Siegel-series functional equation with its discriminant parity. 2. Regard both sides as Laurent polynomials so inversion is meaningful. 3. Evaluate at 1; over Z, odd valuation gives D_L(1)=−D_L(1), hence zero.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-siegel-polynomial`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-lattice-invariants`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.siegel_polynomial_functional_equation_test_1`: Rank-one D=1−X at valuation 1 satisfies D(X)=−X D(X^−1).
+- `TauCeti.GeometryOfNumbersPlan.siegel_polynomial_functional_equation_test_2`: At valuation 2, D=1−X+X² and D(1)=1, so the odd-valuation vanishing does not extend to even valuation.
+
+**Source.** LiZhangDensity, §3.2 (3.2.0.2), physical p.16. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Siegel-series functional-equation proof: Acquire and decompose Hironaka’s exact functional equation used at (3.2.0.2); the source states it but the original proof is not read.
+
+#### Finite integral isometry stabilizers
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-integral-isometry-finite` — theorem.
+
+For a full Z-lattice in a positive-definite real Euclidean space, its integral isometry group is finite. For a totally positive number-field quadratic lattice, restriction through all real embeddings gives the corresponding finite stabilizer.
+
+**Hypotheses and conventions.** Definiteness and full finite generation are essential; indefinite lattices can have infinite isometry groups.
+
+**Construction or proof.** 1. Fix a lattice basis. An isometry sends each basis vector into the finite lattice set on its fixed norm sphere. 2. Inject an isometry into its finite tuple of basis images. 3. For a totally positive number-field form, use the imported embedding and trace-metric comparison to reduce to a real Z-lattice.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus`, `GeometryOfNumbersAndQuadraticArithmetic:GN.1/finite-gauge-sublevel`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.definite_integral_isometry_finite_test_1`: For (Z,x²) the isometry group is {±1}, so its mass weight is 1/2.
+- `TauCeti.GeometryOfNumbersPlan.definite_integral_isometry_finite_test_2`: Positive definiteness cannot be dropped: Pell-type indefinite rank-two lattices have infinite stabilizers.
+
+**Source.** Voight2026, Definition 9.7.13; worker proof from finite lattice points, not a claimed source proof of the general mass theorem. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Totally positive restriction-of-scalars metric: Match the arithmetic embedding/trace metric and its normalization to the existing number-field/EffectiveBoundsCompactModels owner; do not create a second number-field metric here.
+
+#### Finiteness of a positive-definite genus class set
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-genus-class-finite` — theorem.
+
+The integral-isometry class set of a fixed positive-definite quadratic genus over Z, and of a fixed totally positive genus over a number ring, is finite.
+
+**Hypotheses and conventions.** A fixed determinant/discriminant ideal and archimedean signatures belong to the genus data. This is finiteness of classes, not finiteness of all embedded lattices.
+
+**Construction or proof.** 1. Apply the imported reduction-domain theorem to bound representative Gram data within the fixed discriminant genus. 2. Use finite integral coefficient enumeration and identify duplicates by integral isometry. 3. The exact reduction-to-finite-Gram and number-field coefficient-ideal argument remains a named proof gap.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus`, `AdelicAlgebraicGroups:AA.3`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.definite_genus_class_finite_test_1`: Infinitely many embedded coordinate changes can represent one integral-isometry class.
+- `TauCeti.GeometryOfNumbersPlan.definite_genus_class_finite_test_2`: The rank-one positive unimodular Z-genus has one class, though its isometry group has two elements.
+
+**Source.** Voight2026, Definition 9.7.13 and local-global finite-support lattice conventions, printed pp.141,146. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Definite genus finite representative theorem: Read and decompose the precise reduction bound for a fixed positive genus, including coefficient ideals over number rings. Adelic reduction supplies the domain framework, not this finite integral Gram enumeration by itself.
+
+#### Weighted genus mass
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/genus-mass` — definition.
+
+For a positive-definite genus with its proved finite class set, mass(L)=Σ_[M] 1/|O(M)| as a positive rational number. Proper mass uses proper classes and SO(M) separately; neither is substituted for the other without an index comparison.
+
+**Hypotheses and conventions.** Finite automorphism groups and a finite class set are supplied before summing. Unweighted class number and mass are different invariants.
+
+**Construction or proof.** 1. Sum reciprocal stabilizer orders on a finite integral-isometry quotient. 2. Use isometry-conjugacy to prove the weight independent of the representative. 3. Keep O and SO versions distinguished by their class sets and stabilizers.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-integral-isometry-finite`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-genus-class-finite`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.genusMass` (constructor): Finite sum of rational reciprocal integral-isometry stabilizer orders.
+- `TauCeti.GeometryOfNumbersPlan.genusMass_representative` (compatibility): The summand is independent of the chosen representative.
+- `TauCeti.GeometryOfNumbersPlan.genusMass_singleton` (simp): A singleton class set has mass the reciprocal stabilizer order.
+- `TauCeti.GeometryOfNumbersPlan.genusMass_pos` (relation): A nonempty finite positive genus has strictly positive mass.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.genus_mass_test_1`: The rank-one positive unimodular genus has ordinary mass 1/2, not class number 1.
+- `TauCeti.GeometryOfNumbersPlan.genus_mass_test_2`: For proper rank-one classes the stabilizer is trivial and proper mass is 1.
+- `TauCeti.GeometryOfNumbersPlan.genus_mass_test_3`: Changing representatives cannot change the stabilizer cardinality.
+
+**Source.** Voight2026, §9.7 genus class set; worker weighted measure interface for GN.3. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Adelic weighted mass identity
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/adelic-mass-identity` — theorem.
+
+Let q be totally positive over a totally real number field, G=SO(q), and K_f the integral stabilizer of a fixed lattice in its finite adelic genus. For compatible product Haar measures with convergent product vol(K_f), proper mass equals vol(G(K)\G(A))/(vol(G(K∞))·vol(K_f)). Every double-coset contribution is the reciprocal order of the proper integral stabilizer.
+
+**Hypotheses and conventions.** Use proper SO classes and weights consistently. Local measures, archimedean measure and the convergent product are fixed before numerical evaluation. The numerator is not replaced by 2 until a separate Tamagawa-number theorem is supplied; low-rank tori have separate behavior.
+
+**Construction or proof.** 1. Identify proper genus classes with G(K)\G(A_f)/K_f. 2. Decompose the adelic quotient over these finitely many double cosets. 3. Integrate each compact archimedean/stabilizer piece, dividing by its finite rational stabilizer. 4. Sum the contributions and divide by the actual positive local-volume product; the Tamagawa comparison and explicit densities remain precise gaps.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/genus-mass`, `AdelicAlgebraicGroups:AA.2`, `AdelicAlgebraicGroups:AA.3`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.adelic_mass_identity_test_1`: Rescaling one local Haar measure changes the numerator and local factor compatibly.
+- `TauCeti.GeometryOfNumbersPlan.adelic_mass_identity_test_2`: Replacing the weighted sum by the class number gives the wrong rank-one value.
+- `TauCeti.GeometryOfNumbersPlan.adelic_mass_identity_test_3`: The numerical constant 2 is not an assumption-free formula for SO of rank 1 or 2.
+
+**Source.** Benoist2019, Quotient/Haar convention on physical pp.5–7; worker adelic genus decomposition, not an attributed proof of a numerical Siegel mass formula. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Tamagawa normalization and explicit mass factors: Acquire the exact Smith–Minkowski–Siegel/Weil mass theorem, identify O versus SO indices and archimedean constants, prove the local-density factor comparison and the convergent Euler product, and prove the relevant Tamagawa number before assigning a numerical constant. The decomposition here gives an honest measure identity, not an unproved numerical mass formula.
+
+#### Integral lattice theta coefficient interface
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/theta-lattice-coefficient-interface` — comparison.
+
+For a positive-definite even integral Z-lattice, the imported convergent theta kernel specializes to the lattice theta series whose coefficient at m is #{x∈L:q(x)=m}, with q(x)=B(x,x)/2. Scalar weight, level and Weil-representation/discriminant conventions are inherited from the theta owner.
+
+**Hypotheses and conventions.** Do not identify an odd lattice’s half-norm with an integral q-expansion. The supplied analytic theta theorem includes its Schwartz function, Haar normalization and convergence hypotheses.
+
+**Construction or proof.** 1. Specialize the existing Metaplectic theta kernel to the lattice indicator/Gaussian data. 2. Use positive definiteness and finite norm sublevels to identify each coefficient. 3. Prove the metric/discriminant and q-exponent adapter without defining a second theta representation.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-quadratic-lattice`, `GeometryOfNumbersAndQuadraticArithmetic:GN.1/finite-gauge-sublevel`, `MetaplecticAutomorphicForms:MP.5`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.theta_lattice_coefficient_interface_test_1`: For an even lattice q=B(x,x)/2 is integer valued.
+- `TauCeti.GeometryOfNumbersPlan.theta_lattice_coefficient_interface_test_2`: For an odd rank-one Gram-1 lattice the half-norm is not integral, so its level/exponent conventions require a different specialization.
+
+**Source.** Duke1988, Introduction theta/Weyl-sum correspondence, printed p.74; worker even-lattice specialization. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Theta-kernel integral lattice adapter: Supply the exact Schwartz/Gaussian specialization, coefficient exponent, discriminant Weil module, level and weight from MP.5; this node imports that theory rather than asserting a scalar modularity theorem without its hypotheses.
+
+#### Mass formula for maximal integral lattices
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.3/maximal-integral-mass-formula` — theorem.
+
+Let K be totally real of degree d≥2, Q a totally positive nondegenerate m-dimensional form, m≥3, and Λ the genus of maximal integral O_K-lattices. With ordinary O-isometry mass, r=floor(m/2), G=SO(Q), 2 mass(Λ)=2 γ_G^d |disc K|^(dim G/2) L(G) ∏_p λ_p(Q). Here dim G=r(2r−(−1)^m); γ_G=∏_(i=1)^r(2i−1)!/(2π)^(r(r+1)) for odd m and (r−1)!∏_(i=1)^(r−1)(2i−1)!/(2π)^(r²) for even m. L(G)=∏_(i=1)^r ζ_K(2i) for odd m; ζ_K(r)∏_(i=1)^(r−1)ζ_K(2i) for even m with square discriminant; otherwise [ζ_E(r)/ζ_K(r)] N(d_E/K)^(r−1/2)∏_(i=1)^(r−1)ζ_K(2i), E=K(√disc Q). The local λ_p are exactly the table in Definition 3.1, not the hermitian normalized density polynomial of GN.3.
+
+**Hypotheses and conventions.** Maximal integrality is essential. Do not apply this formula to arbitrary lattices or indefinite forms. The leading two multiplies the ordinary O mass; τ(SO)=2 has a separate original-source proof obligation. The finite exceptional product and convergent positive-integer zeta Euler products are required.
+
+**Construction or proof.** 1. Import rational field invariants and local classification from their existing owners. 2. Use the maximal-lattice single-genus result and local-type table. 3. Apply the Shimura/Gan–Hanke–Yu mass theorem with its archimedean and Tamagawa normalizations. 4. Separate the ordinary O mass from the proper SO adelic measure identity; identify every local factor, including dyadic places.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/genus-mass`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/adelic-mass-identity`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.maximal_integral_mass_formula_test_1`: Class number one implies mass=1/|Aut L|; it is not an unweighted class count.
+- `TauCeti.GeometryOfNumbersPlan.maximal_integral_mass_formula_test_2`: The formula is restricted to m≥3; binary zeta-at-one substitution is excluded.
+- `TauCeti.GeometryOfNumbersPlan.maximal_integral_mass_formula_test_3`: A dyadic exceptional factor is retained rather than set to one.
+
+**Source.** Kirschmer2013, pp.3–4, Definition 3.1, Proposition 3.2 and Theorem 3.3. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Original maximal mass theorem and complete local table: Acquire Shimura 1999 Theorem 5.8 / Gan–Hanke–Yu 2001 Proposition 2.13, prove τ(SO)=2, maximal-lattice single genus, local-model comparison and finite bad-prime support. Definition 3.1/Table 1 are read, but the complete invariant-to-factor adapter and original mass proof require refinement. Mass zeta and archimedean normalization imports: Attach exact number-field Dedekind-zeta Euler product and special-value supplier declarations, and the gamma/local Haar conversion. Do not infer these from the theta or adelic measure stage alone.
+
+### GN.4
+
+#### Davenport semialgebraic multiset estimate
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count` — theorem.
+
+For n≥1, a bounded semialgebraic multiset R⊂R^n with maximum multiplicity m, given by at most k polynomial inequalities of degrees≤ell, and an upper or lower triangular unipotent image R′, the multiplicity-weighted integer count differs from vol(R) by at most C(n,m,k,ell)·max(1,max_{1≤d<n}vol_d(proj_d R)). Projections are coordinate projections of the original region R.
+
+**Hypotheses and conventions.** The n=1 inner projection maximum is empty and the error bound uses 1. The complexity and multiplicity control the uniform constant; boundedness alone is not enough. General linear transformations are not silently treated as the triangular-unipotent variant.
+
+**Construction or proof.** 1. Prove the coordinate-line interval bound for the region and every coordinate projection. 2. Iterate one-dimensional count/length comparisons to reduce to projection volumes. 3. For semialgebraic regions, use the corrected algebraic-cell argument rather than the false claim that every projection is a basic conjunction of polynomial inequalities. 4. The original Davenport proof, 1964 corrigendum and Rogers bounded-cell proof must be acquired and decomposed; only the precise modern statement is read.
+
+**Prerequisites.** `mathlib:ZLattice.covolume`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.davenport_semialgebraic_count_test_1`: For an interval [0,N] with N integral, count−length=1.
+- `TauCeti.GeometryOfNumbersPlan.davenport_semialgebraic_count_test_2`: Counting a region twice multiplies both volume and point count; ignoring multiset multiplicity is wrong.
+- `TauCeti.GeometryOfNumbersPlan.davenport_semialgebraic_count_test_3`: The projection error for a triangular image refers to the original region as in Proposition 2.5.
+
+**Source.** BhargavaShankar2010, Proposition 2.5, physical p.14; Davenport 1951 plus 1964 corrigendum identified separately. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Corrected Davenport/Rogers proof and semialgebraic carrier: Acquire Davenport 1951 pp.179–183, its 1964 corrigendum p.580 and Rogers Theorem 9; decompose interval/projection induction and the bounded algebraic-cell complexity theorem. The corrigendum is identified via DOI 10.1112/jlms/s1-39.1.580-t and its indexed text, not represented as an acquired proof. Match the semialgebraic multiset carrier to its actual owner before a full Lean signature.
+
+#### Howe–Moore matrix-coefficient decay
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/howe-moore-mixing` — theorem.
+
+For a connected noncompact almost-simple real Lie group G with finite centre and a strongly continuous unitary representation on a Hilbert space with no nonzero G-invariant vector, every matrix coefficient tends to 0 as g leaves all compact subsets of G.
+
+**Hypotheses and conventions.** Strong continuity, unitarity, finite centre and almost simplicity are retained. For a semisimple product one must specify escape in every noncompact factor or the appropriate factor-invariant exclusions.
+
+**Construction or proof.** 1. Apply the exact Howe–Moore unitary-representation theorem, keeping its group and invariant-vector hypotheses. 2. For homogeneous quotient applications, construct the unitary action on the zero-mean L² subspace. 3. The full decay proof and the L² continuity/unitarity adapter remain explicit inputs.
+
+**Prerequisites.** `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem`, `AdelicAlgebraicGroups:AA.2`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.howe_moore_mixing_test_1`: A constant vector in the full L² quotient space has a nondecaying coefficient; remove constants before applying the theorem.
+- `TauCeti.GeometryOfNumbersPlan.howe_moore_mixing_test_2`: Escaping only one factor of a product does not justify the unqualified product theorem.
+
+**Source.** Benoist2019, Fact 3.3, physical p.20. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Howe–Moore source proof and unitary representation adapter: Acquire the original Howe–Moore proof or the cited complete exposition, split the Cartan/weak-limit/invariant-vector arguments, and match the strongly continuous L² action on G/Γ. The read Benoist source explicitly omits this proof.
+
+#### Ergodicity of a noncompact subgroup action
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/homogeneous-ergodicity` — theorem.
+
+Let G be connected noncompact almost-simple with finite centre, Γ a lattice and μ the invariant probability measure on G/Γ. Every closed noncompact subgroup H acts ergodically on (G/Γ,μ).
+
+**Hypotheses and conventions.** Finite quotient volume is used to normalize μ; G is almost-simple, not an arbitrary product.
+
+**Construction or proof.** 1. Construct the strongly continuous unitary action on zero-mean L²(G/Γ,μ). 2. If an H-invariant vector existed, its matrix coefficient would stay constant along an H-sequence leaving compact sets. 3. Apply Howe–Moore to force that vector to vanish and use the L² characterization of ergodicity.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/howe-moore-mixing`, `AdelicAlgebraicGroups:AA.2`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.homogeneous_ergodicity_test_1`: A compact subgroup does not meet the noncompactness hypothesis.
+- `TauCeti.GeometryOfNumbersPlan.homogeneous_ergodicity_test_2`: For a semisimple product, a lattice quotient with factor-invariant functions requires an irreducibility/factor version instead.
+
+**Source.** MorrisArithmetic, Moore-ergodicity conventions in the standing setting, §4.10 (not proof-read here); consequence derived from the preceding matrix-coefficient target. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** L² ergodicity characterization and quotient action: Match the actual invariant-probability quotient action, L² strong continuity and invariant-function characterization to the measure-theory baseline; no private ergodic-action predicate is introduced.
+
+#### Dani–Margulis recurrence in the lattice space
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/unipotent-nondivergence` — theorem.
+
+For d≥2, X=SL_d(R)/SL_d(Z), a one-parameter unipotent subgroup u_t, x∈X and epsilon>0, there exists a compact K⊂X such that for every T>0, Leb{t∈[0,T]:u_t x∈K}/T≥1−epsilon.
+
+**Hypotheses and conventions.** K depends on x, epsilon and the flow. This is qualitative recurrence; no spectral rate or uniform compact set over all x is asserted.
+
+**Construction or proof.** 1. Use Mahler compactness to describe cusp escape by short lattice vectors. 2. Apply the original Dani–Margulis polynomial/unipotent nondivergence estimate to construct K. 3. The estimate and its finite-interval uniformity are explicit proof acquisition gaps.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.unipotent_nondivergence_test_1`: A diagonal flow can diverge and cannot replace the unipotent flow.
+- `TauCeti.GeometryOfNumbersPlan.unipotent_nondivergence_test_2`: The statement controls every T>0 with a compact set containing the necessary initial trajectory segment.
+
+**Source.** Benoist2019, Fact 3.4, physical p.20. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Dani–Margulis nondivergence proof: Acquire the original recurrence proof cited by Benoist [11], including Mahler short-vector control and polynomial trajectory estimates. Record any quantitative strengthening as a separate theorem with its own good-function, covolume and uniformity hypotheses.
+
+#### Ratner orbit-closure theorem
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-orbit-closure` — theorem.
+
+For a connected linear semisimple real Lie group G, a lattice Γ, a connected subgroup U generated by one-parameter unipotent subgroups and x=gΓ, the closure of Ux is Lx for a connected closed subgroup L containing U, with L∩gΓg^−1 a lattice in L.
+
+**Hypotheses and conventions.** The homogeneous orbit has finite invariant volume; the subgroup is generated by unipotent flows. A general diagonal orbit does not satisfy this conclusion.
+
+**Construction or proof.** 1. Apply the original Ratner orbit-closure argument using unipotent recurrence and invariant-measure rigidity. 2. Identify the stabilizer as L∩gΓg^−1 and the orbit with its quotient. 3. The measure-rigidity and linearization proof chain is a recorded substantial gap, separate from Minkowski.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/unipotent-nondivergence`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.ratner_orbit_closure_test_1`: The orbit closure carries a finite L-invariant measure, not just an unspecified closed set.
+- `TauCeti.GeometryOfNumbersPlan.ratner_orbit_closure_test_2`: Diagonal-flow fractal orbit closures show why the unipotent-generation hypothesis is retained.
+
+**Source.** MorrisArithmetic, Theorem 20.1.3 and Remarks 20.1.4–20.1.5, printed pp.406–407; connected specialization. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Ratner orbit and measure rigidity proof: Acquire the original Ratner measure-classification/orbit-closure sources and decompose recurrence, shearing, linearization, invariant-subgroup construction and finite-volume orbit arguments. The Morris source explicitly states that these proofs are long and does not supply them in the selected slice.
+
+#### Ratner invariant-measure classification
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-measure-classification` — theorem.
+
+In the preceding homogeneous setting, every ergodic U-invariant probability measure on G/Γ is the unique normalized L-invariant measure on a closed finite-volume orbit Lx for a closed subgroup L containing U.
+
+**Hypotheses and conventions.** U is connected and generated by one-parameter unipotent subgroups. Probability, invariance and ergodicity are separate hypotheses.
+
+**Construction or proof.** 1. Prove the measure-rigidity theorem with its actual unipotent-flow hypotheses. 2. Identify support and invariant stabilizer, then normalize the homogeneous orbit measure. 3. This is a separate substantial source proof gap; orbit closure alone does not classify invariant measures.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/unipotent-nondivergence`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.ratner_measure_classification_test_1`: A convex combination of different homogeneous orbit measures need not be ergodic.
+- `TauCeti.GeometryOfNumbersPlan.ratner_measure_classification_test_2`: Replacing probability by an arbitrary infinite invariant measure is outside the statement.
+
+**Source.** MorrisArithmetic, Theorem 20.3.4, printed p.413. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Ratner ergodic measure proof: Acquire the original classification proof and record its measurable shearing/entropy-free rigidity inputs at declaration granularity. Do not infer this theorem solely from topological orbit closure.
+
+#### Equidistribution of a unipotent orbit
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-unipotent-equidistribution` — theorem.
+
+For a one-parameter unipotent flow u_t and x∈G/Γ, there is a closed finite-volume homogeneous orbit Lx containing u_t x and a normalized invariant probability μ_L such that T^−1∫_0^T f(u_t x)dt→∫f dμ_L for every continuous compactly supported f.
+
+**Hypotheses and conventions.** The orbit measure is on the actual orbit closure, not necessarily all of G/Γ. No quantitative rate is inferred.
+
+**Construction or proof.** 1. Use nondivergence to avoid escape of mass in empirical measures. 2. Apply the original unipotent measure-selection/rigidity argument to identify every subsequential limit. 3. Use uniqueness to obtain convergence against compactly supported continuous tests. The selection and linearization inputs are gaps.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/unipotent-nondivergence`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-orbit-closure`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-measure-classification`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.ratner_unipotent_equidistribution_test_1`: A closed periodic unipotent orbit equidistributes on itself, not on the full quotient.
+- `TauCeti.GeometryOfNumbersPlan.ratner_unipotent_equidistribution_test_2`: The limiting measure has mass 1; vague convergence with escaped mass would not satisfy the statement.
+
+**Source.** MorrisArithmetic, Definition 20.3.2 and Theorem 20.3.3, printed pp.412–413. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Ratner time-average selection and escape control: Measure classification plus qualitative recurrence does not by itself identify every time-average limit. Acquire the original equidistribution proof, its nonescape estimates and selection argument, retaining the stated one-parameter unipotent hypothesis.
+
+#### Margulis’s theorem on irrational quadratic values
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/oppenheim-values` — theorem.
+
+For n≥3, a real nondegenerate indefinite quadratic form q on R^n that is not proportional to a form with rational coefficients has q(Z^n) dense in R.
+
+**Hypotheses and conventions.** Nondegeneracy, indefiniteness, dimension≥3 and irrationality up to scalar are all retained.
+
+**Construction or proof.** 1. For n=3 use G=SL_3(R) and H=SO(q)° generated by unipotents. 2. Use Ratner orbit closure and the H-to-G intermediate subgroup classification. 3. A closed finite-volume H-orbit forces a rational defining form by Borel density, contradicting the scalar-irrationality assumption. 4. The dense orbit then gives dense quadratic values by continuity and q(R³)=R. The intermediate subgroup, rationality and higher-dimensional restriction arguments are precise gaps.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-orbit-closure`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.oppenheim_values_test_1`: An integral form has discrete values and is excluded.
+- `TauCeti.GeometryOfNumbersPlan.oppenheim_values_test_2`: Positive-definite forms do not have values dense in all R.
+- `TauCeti.GeometryOfNumbersPlan.oppenheim_values_test_3`: The n=2 form x²−(3+2√2)y² shows why dimension≥3 is required.
+
+**Source.** MorrisArithmetic, Corollary 20.2.5 and three-variable proof, printed pp.410–411. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Oppenheim auxiliary Lie and arithmetic lemmas: Supply the SO(1,2) intermediate-subgroup classification, Borel-density rationality of its invariant quadratic line and reduction from n≥3 to an appropriate irrational indefinite ternary restriction. The selected Morris proof treats n=3 and explicitly omits some Lie calculations.
+
+#### Duke spherical lattice-point equidistribution
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/duke-spherical-equidistribution` — theorem.
+
+As n→∞ through positive square-free integers n not congruent to 7 modulo 8, the normalized counting measure on {v/√n:v∈Z³,‖v‖²=n} converges to normalized rotation-invariant surface measure on S².
+
+**Hypotheses and conventions.** The representation set is nonempty on the stated admissible sequence. No effective constant is claimed: the representation-number lower bound is ineffective.
+
+**Construction or proof.** 1. For each positive-degree spherical harmonic, identify its normalized Weyl sum with a coefficient of the corresponding half-integral-weight theta cusp form. 2. Use the exact Iwaniec coefficient estimate and Siegel representation-number lower bound to force that Weyl sum to zero. 3. Approximate continuous functions by spherical harmonics to obtain weak convergence; the analytic estimates and theta/harmonic adapters are explicit inputs.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.3/theta-lattice-coefficient-interface`, `MetaplecticAutomorphicForms:MP.7`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.duke_spherical_equidistribution_test_1`: n≡7 mod8 has no three-square representations and is excluded.
+- `TauCeti.GeometryOfNumbersPlan.duke_spherical_equidistribution_test_2`: A measure on primitive representations for nonsquare-free n is a different theorem.
+
+**Source.** Duke1988, Introduction, printed p.74, before Theorem 1. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Duke theta and coefficient estimates: Acquire Iwaniec’s exact half-integral coefficient bound and Siegel’s ineffective r₃(n) lower bound; match spherical-harmonic theta lifting and density of harmonic polynomials. Duke p.74 gives the deduction, not the original proofs of those inputs.
+
+#### Euclidean lattice packing radius
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/packing-radius` — definition.
+
+For a positive-dimensional full Euclidean lattice L, its packing radius is half the attained shortest nonzero norm. In dimension zero set it to zero.
+
+**Hypotheses and conventions.** Full rank and positive dimension are retained; zero dimension has a separate radius-0 convention.
+
+**Construction or proof.** 1. Reuse the attained first Euclidean minimum in positive dimension. 2. Divide that minimum by two; handle the zero-dimensional convention separately.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-first`, `mathlib:ZLattice.covolume`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.latticePackingRadius` (constructor): Half the attained first Euclidean minimum, zero in rank zero.
+- `TauCeti.GeometryOfNumbersPlan.latticePackingRadius_eq_half` (characterisation): In positive rank it is half the first Euclidean minimum.
+- `TauCeti.GeometryOfNumbersPlan.latticePackingRadius_smul` (functoriality): Positive scalar multiplication multiplies the packing radius by that scalar.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.packing_radius_test_1`: For aZ in R, a>0, the packing radius is a/2.
+- `TauCeti.GeometryOfNumbersPlan.packing_radius_test_2`: For Z² the packing radius is 1/2.
+- `TauCeti.GeometryOfNumbersPlan.packing_radius_test_3`: In dimension zero the packing radius is zero.
+
+**Source.** Benoist2019, Physical pp.5–7 quotient/lattice conventions; worker Euclidean packing/covering construction. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Compact star bodies from homogeneous gauges
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/compact-star-body` — definition.
+
+A compact star body is specified by a continuous positive homogeneous function p:V→R_{≥0} with p(x)=0 iff x=0, p(t x)=t p(x) for t≥0, and compact unit sublevel K={p≤1}. Convexity is not assumed. Nonzero lattice avoidance and critical determinants use this body, rather than the convex-body API without its hypotheses.
+
+**Hypotheses and conventions.** Finite-dimensional real V; the compactness/properness condition is explicit. The body contains a neighborhood of zero.
+
+**Construction or proof.** 1. Use an actual continuous homogeneous gauge and its sublevel set. 2. Prove star-shapedness, boundedness and positive radial scaling. 3. State lattice admissibility as no nonzero point in the interior and build critical-determinant problems with their own compactness inputs.
+
+**Prerequisites.** `mathlib:ConvexBody.isCompact`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.CompactStarBody.ofGauge` (constructor): The actual continuous definite homogeneous gauge and compact unit sublevel.
+- `TauCeti.GeometryOfNumbersPlan.CompactStarBody.radial` (characterisation): Positive radial scaling is governed by p(tx)=t p(x).
+- `TauCeti.GeometryOfNumbersPlan.CompactStarBody.admissible` (data): No nonzero lattice point in the interior.
+- `TauCeti.GeometryOfNumbersPlan.CompactStarBody.convexComparison` (compatibility): When the unit sublevel is convex, compare to the native ConvexBody.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.compact_star_body_test_1`: The Euclidean norm gives a convex star body.
+- `TauCeti.GeometryOfNumbersPlan.compact_star_body_test_2`: p(x,y)=(√|x|+√|y|)² gives a compact nonconvex star body: (1,0),(0,1) lie in it but their midpoint does not.
+- `TauCeti.GeometryOfNumbersPlan.compact_star_body_test_3`: A gauge vanishing along a nonzero ray fails the stated definiteness/compactness conditions.
+
+**Source.** Benoist2019, Mahler statement physical p.7 motivates compactness; worker extension for the staged nonconvex star-body target. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Star-body critical determinant and compactness source: Acquire Mahler/Rogers star-body passages and prove the critical-lattice existence/extremal determinant claims under their exact boundedness and boundary hypotheses. The definition here is a worker construction; no convex-body theorem is applied to a nonconvex sublevel.
+
+#### Polar-body transference lower inequality
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/dual-transference-lower` — theorem.
+
+For a full real Euclidean lattice L and symmetric convex body K with nonempty interior, λ_i(K,L)·λ_{n+1−i}(K°,L*)≥1 for 1≤i≤n, where K° is the inner-product polar and L* the pairing-integral dual.
+
+**Hypotheses and conventions.** Use the same inner-product and intrinsic dimension on both sides. The sharp upper transference and covering bounds require separate source theorems; they are not exported by this elementary lower bound.
+
+**Construction or proof.** 1. Choose attained independent families at the two indicated minima. 2. The two spans have dimensions summing to n+1, so the dual family cannot pair to zero with the entire primal span. 3. A nonzero integral pairing has absolute value at least 1; the polar inequality bounds it above by the product of the two minima.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-dual`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.dual_transference_lower_test_1`: For rectangular lattices and reciprocal coordinate boxes the paired products equal 1.
+- `TauCeti.GeometryOfNumbersPlan.dual_transference_lower_test_2`: An arbitrary real pairing has no integer ≥1 floor.
+
+**Source.** LLL1982, Proposition 1.11 uses the same integral-coefficient norm floor; transference is a separate worker polar-pairing deduction, not an attributed LLL theorem. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Polar-body carrier and upper transference theorem: Match the actual inner-product polar to a library definition, prove compact convex interior properties and the attained-minima comparison, then acquire the chosen classical/Banaszczyk upper transference theorem and covering constant. The present declaration proves only the lower inequality.
+
+#### Mahler compactness criterion
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/mahler-compactness` — theorem.
+
+For n≥2 and X_n=SL_n(R)/SL_n(Z), the closed set of covolume-one lattices whose shortest nonzero norm is at least epsilon>0 is compact. A subset is relatively compact iff its first minimum is uniformly bounded below away from zero.
+
+**Hypotheses and conventions.** Covolume normalization and closedness for compactness are explicit. Relative compactness does not require the subset itself to be closed.
+
+**Construction or proof.** 1. Use a reduced-basis bound from successive minima and fixed covolume to obtain uniformly bounded representative bases. 2. Extract a convergent matrix subsequence; determinant 1 prevents rank collapse. 3. The converse follows from continuity and positivity of the shortest-vector function. Source proof-local reduced-basis/quotient-topology adapters remain gaps.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper`, `AdelicAlgebraicGroups:AA.3`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.mahler_compactness_test_1`: diag(t,t^−1)Z² escapes compact sets as t→∞ because its first minimum tends to 0.
+- `TauCeti.GeometryOfNumbersPlan.mahler_compactness_test_2`: A nonclosed subset with a uniform first-minimum bound is relatively compact, but need not be compact.
+
+**Source.** Benoist2019, Fact 1.5, physical p.7. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Mahler bounded basis and quotient topology: Acquire the complete chosen Mahler proof, refine the Hermite/reduced-basis uniform bound already listed in the inherited GN.1 frontier, and prove continuity/compactness in the exact SL quotient topology imported from the group owners.
+
+#### Siegel lattice mean-value theorem
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/siegel-mean-value` — theorem.
+
+For n≥2, invariant probability μ on X_n=SL_n(R)/SL_n(Z), and integrable f:R^n→R, its lattice transform Σ_{v∈L\{0}}f(v) is integrable on X_n and its μ-integral equals the Lebesgue integral of f. For nonnegative measurable f the Tonelli version permits infinity.
+
+**Hypotheses and conventions.** Zero vectors are excluded; μ has total mass 1 and lattices have covolume 1. n=1 is excluded. Integrability of the lattice transform is a theorem, not an assumption silently imported from integrability of f.
+
+**Construction or proof.** 1. Unfold the primitive-vector orbit using quotient Haar measures. 2. Determine the primitive normalization constant and sum over integer multiples of primitive vectors. 3. Use Tonelli then positive/negative parts to obtain the stated L¹ result. The Siegel unfolding/constant/integrability proof is an explicit source gap.
+
+**Prerequisites.** `AdelicAlgebraicGroups:AA.2`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/mahler-compactness`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.siegel_mean_value_test_1`: Including v=0 adds f(0) and changes the formula.
+- `TauCeti.GeometryOfNumbersPlan.siegel_mean_value_test_2`: In dimension one the single lattice Z does not give the Lebesgue mean-value formula.
+
+**Source.** Benoist2019, Physical pp.5–7 invariant lattice-space measure conventions; exact Siegel source remains a recorded acquisition gap. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Original Siegel mean-value proof: Acquire Siegel’s A mean value theorem in geometry of numbers and decompose primitive unfolding, Haar normalization, arithmetic constant and L¹ justification. The current notes supply only the lattice-space/measure input, not that proof.
+
+#### Construction A real-lattice comparison
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/construction-a-real-lattice-interface` — comparison.
+
+For a linear code C⊂F_p^n, import the completed Construction A lattice and identify its unscaled real realization {x∈Z^n:x mod p∈C} with covolume p^{n−dim C}. The rescaled realization p^−1/2L has covolume p^{n/2−dim C}; unimodularity/integrality/evenness require the supplier’s exact self-duality and parity hypotheses.
+
+**Hypotheses and conventions.** p is prime and C is linear; no code-distance statement alone supplies integral Gram conditions. Construction A itself is owned by AlgebraicCodingTheory layer 6.
+
+**Construction or proof.** 1. Import the existing code-to-rational-lattice constructor. 2. Use the exact index p^{n−dim C} and native real scalar extension/covolume comparison. 3. Expose the metric and rescaling adapter; do not define another Construction A carrier.
+
+**Prerequisites.** `tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses`, `mathlib:ZLattice.covolume`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.construction_a_real_lattice_interface_test_1`: For the zero code, the unscaled lattice is pZ^n and has covolume p^n.
+- `TauCeti.GeometryOfNumbersPlan.construction_a_real_lattice_interface_test_2`: For the whole code it is Z^n with covolume 1.
+
+**Source.** Benoist2019, Covolume-one lattice convention physical p.6; mathematical constructor is imported from AlgebraicCodingTheory. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Coding edge and real metric adapter: Resolve the current FF.4 routing against the actual AlgebraicCodingTheory layer-6 constructor. Supply rational-to-real carrier, index/covolume and norm/parity comparisons before deriving an atlas edge from the word code.
+
+#### Euclidean lattice covering radius
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/covering-radius` — definition.
+
+For a full Euclidean lattice L, μ(L)=sup_x inf_{v∈L} ‖x−v‖. It is the maximum of the continuous periodic distance-to-L function on the compact quotient; dimension zero gives zero.
+
+**Hypotheses and conventions.** Finite-dimensional real Euclidean ambient space; L is discrete and spans the ambient space.
+
+**Construction or proof.** 1. Use the native metric distance to the nonempty lattice. 2. Prove periodicity and 1-Lipschitz continuity. 3. Use a compact fundamental domain to obtain boundedness and attainment.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-first`, `mathlib:ZLattice.covolume`, `mathlib:Metric.infEDist`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.latticeCoveringRadius` (constructor): Supremum of the native distance-to-lattice function.
+- `TauCeti.GeometryOfNumbersPlan.latticeCoveringRadius_attained` (relation): A point in a compact fundamental domain attains the radius.
+- `TauCeti.GeometryOfNumbersPlan.latticeCoveringRadius_smul` (functoriality): Positive scalar multiplication multiplies μ by the same scalar.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.covering_radius_test_1`: For aZ in R with a>0, μ=a/2.
+- `TauCeti.GeometryOfNumbersPlan.covering_radius_test_2`: For Z², μ=√2/2, larger than its packing radius 1/2.
+- `TauCeti.GeometryOfNumbersPlan.covering_radius_test_3`: In dimension zero μ=0; a non-full-rank subgroup in positive dimension can have infinite ambient covering radius.
+
+**Source.** RegevTransference, p.2, Definition 2 and Example 1. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Euclidean successive-minima transference
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/dual-transference-upper` — theorem.
+
+For a full rank-n Euclidean lattice L, n≥1, and 1≤i≤n, λ_i(L)λ_(n+1−i)(L*)≤n, where L* is defined by integral inner products and both bodies are the Euclidean unit ball.
+
+**Hypotheses and conventions.** The n constant here is Euclidean; it is not asserted for arbitrary polar convex bodies.
+
+**Construction or proof.** 1. Use the original Gaussian/Fourier transference estimate of Banaszczyk; this proof remains an explicit source gap. 2. Transport its ordered minima and reciprocal-lattice conventions to the native finite index and dual-lattice API.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/dual-transference-lower`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.dual_transference_upper_test_1`: For aZ in R, the product is one.
+- `TauCeti.GeometryOfNumbersPlan.dual_transference_upper_test_2`: For Zⁿ, each product is one and is at most n.
+- `TauCeti.GeometryOfNumbersPlan.dual_transference_upper_test_3`: No dimension-independent upper bound is claimed.
+
+**Source.** RegevTransference, p.1, Theorem 1 and Remark 1, citing Banaszczyk 1993. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Original upper transference proof: Acquire Banaszczyk, Math. Ann. 296 (1993), 625–635, and decompose its Gaussian Fourier/Poisson and subspace estimates. The lecture statement has been read; the original full proof has not.
+
+#### Covering radius and reciprocal shortest vector
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4/covering-dual-transference` — theorem.
+
+For a full rank-n Euclidean lattice L, n≥1, 1/2≤μ(L)λ_1(L*)≤n. This pass chooses Regev’s weaker uniform upper constant n; it does not claim that the scanned original proof of the sharper n/2 bound has been checked.
+
+**Hypotheses and conventions.** Full rank, positive dimension and the actual Euclidean reciprocal lattice.
+
+**Construction or proof.** 1. For the lower bound use μ(L)≥λ_n(L)/2 (Claim 3) and the reciprocal lower transference theorem. 2. For the upper bound use the Gaussian shifted-lattice mass proof of Theorem 4; its proof remains the named gap.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.4/covering-radius`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/dual-transference-lower`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.covering_dual_transference_test_1`: For aZ in R the product is 1/2.
+- `TauCeti.GeometryOfNumbersPlan.covering_dual_transference_test_2`: For Zⁿ the product is √n/2.
+- `TauCeti.GeometryOfNumbersPlan.covering_dual_transference_test_3`: An asymptotic 0.1275+o(1) constant from Aggarwal–Stephens-Davidowitz is not a uniform small-rank constant.
+
+**Source.** RegevTransference, p.2, Claim 3 and Theorem 4. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Covering transference Gaussian proof: Read and split Regev Lecture 11 pp.3–6, including shifted Gaussian sum, tail, Poisson summation and final scale choice. The proved Claim 3 is already read; the upper-bound proof is not.
+
+### GN.5
+
+#### Gram–Schmidt reduction coefficients
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-coefficient` — definition.
+
+For a real inner-product space and a family b:Fin n→V, set μ_{ij}=⟨b_i,b*_j⟩/‖b*_j‖² using the native ordered gramSchmidt b. Reduced-basis theorems require linear independence so denominators for relevant j are nonzero; the total function still uses the native zero-division convention.
+
+**Hypotheses and conventions.** Indices are zero based; size reduction concerns j<i only. Exact rational Gram data is retained for certified arithmetic; floating approximations do not discharge inequalities.
+
+**Construction or proof.** 1. Call the pinned Gram–Schmidt construction directly. 2. Define the scalar coefficient by the displayed inner-product ratio, consistent with its real-valued convention. 3. Use gramSchmidt_ne_zero to justify denominators for independent input.
+
+**Prerequisites.** `mathlib:InnerProductSpace.gramSchmidt`, `mathlib:InnerProductSpace.gramSchmidt_ne_zero`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.lllCoefficient` (constructor): The native Gram–Schmidt inner-product ratio.
+- `TauCeti.GeometryOfNumbersPlan.lllCoefficient_eq` (simp): Evaluation equals the stated ratio.
+- `TauCeti.GeometryOfNumbersPlan.lllCoefficient_orthogonal` (relation): Off-diagonal coefficient is zero for an orthogonal family.
+- `TauCeti.GeometryOfNumbersPlan.lllCoefficient_denominator_pos` (relation): Independent input gives a strictly positive squared denominator.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.lll_coefficient_test_1`: For b=((1,0),(1/2,1)) the coefficient μ₁₀ is 1/2.
+- `TauCeti.GeometryOfNumbersPlan.lll_coefficient_test_2`: For an orthogonal family, off-diagonal reduction coefficients vanish.
+- `TauCeti.GeometryOfNumbersPlan.lll_coefficient_test_3`: For dependent input b*_j can be zero; the total coefficient does not certify a reduced basis.
+
+**Source.** LLL1982, §1, (1.2)–(1.3), physical p.2. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### LLL-reduced independent families
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-reduced` — definition.
+
+An LLL-reduced family at δ=3/4 is linearly independent, has |μ_{ij}|≤1/2 for j<i, and for each adjacent j<i with i=j+1 satisfies ‖b*_i‖²≥(3/4−μ_{ij}²)‖b*_j‖². A basis of the input lattice is required separately by output certificates.
+
+**Hypotheses and conventions.** The equality boundary is accepted; swaps occur for strict failure. The empty family is reduced by vacuity; positive-rank approximation statements assume n≥1.
+
+**Construction or proof.** 1. Package the actual linear-independence, size and adjacent Lovász conditions as a concrete predicate. 2. Use orthogonality of adjacent Gram–Schmidt vectors to compare with the source norm inequality (1.5). 3. Expose each component without weakening independence or omitting the Lovász test.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-coefficient`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.IsLLLReduced` (constructor): The concrete independence, size and Lovász predicate.
+- `TauCeti.GeometryOfNumbersPlan.IsLLLReduced.linearIndependent` (projection): Return independence.
+- `TauCeti.GeometryOfNumbersPlan.IsLLLReduced.size` (projection): Return |μ_{ij}|≤1/2 for j<i.
+- `TauCeti.GeometryOfNumbersPlan.IsLLLReduced.lovasz` (projection): Return the adjacent δ=3/4 inequality.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.lll_reduced_test_1`: The standard orthonormal basis is reduced.
+- `TauCeti.GeometryOfNumbersPlan.lll_reduced_test_2`: The basis ((2,0),(0,1)) has size coefficients zero but fails the Lovász condition.
+- `TauCeti.GeometryOfNumbersPlan.lll_reduced_test_3`: The dependent family ((1,0),(2,0)) is not reduced even when a zero-denominator convention makes some inequalities vacuous.
+
+**Source.** LLL1982, §1, (1.4)–(1.5), physical pp.2–3. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Exact integer change-of-basis certificates
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.5/unimodular-basis-certificate` — definition.
+
+A certificate for input b and output c consists of U,V∈Mat_n(Z), UV=VU=I, and c_i=Σ_j U_{ji}b_j. Columns are output coordinates in the input family. This proves equality of integer spans and determinant ±1; determinant −1 is allowed.
+
+**Hypotheses and conventions.** Input and output families have the same dimension; an input real basis gives an output basis. The certificate matrices are integral, not arbitrary rational or real inverses.
+
+**Construction or proof.** 1. Store the two integer matrices and exact inverse equations with the coordinate identity. 2. Use the reverse matrix to express every b_j in the output span. 3. Use det_mul for the determinant-unit conclusion; real injectivity and rank pass through the inverse maps.
+
+**Prerequisites.** `mathlib:Matrix.det_mul`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.UnimodularBasisCertificate.ofMatrices` (constructor): Supply actual integral inverse matrices and the exact output coordinates.
+- `TauCeti.GeometryOfNumbersPlan.UnimodularBasisCertificate.span_eq` (relation): The input and output Z-spans are equal.
+- `TauCeti.GeometryOfNumbersPlan.UnimodularBasisCertificate.det_unit` (relation): det U is 1 or −1.
+- `TauCeti.GeometryOfNumbersPlan.UnimodularBasisCertificate.trans` (functoriality): Compose certificates by matrix multiplication with the correct column order.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.unimodular_basis_certificate_test_1`: The coordinate swap [[0,1],[1,0]] has determinant −1 and is a valid certificate.
+- `TauCeti.GeometryOfNumbersPlan.unimodular_basis_certificate_test_2`: diag(2,1) is not an integer-invertible basis change.
+- `TauCeti.GeometryOfNumbersPlan.unimodular_basis_certificate_test_3`: A floating matrix approximately inverting U does not inhabit this certificate.
+
+**Source.** LLL1982, Algorithm (1.15), size reductions and adjacent swaps, physical pp.5–7; certificate format is a worker verification interface. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Growth bound for reduced orthogonal lengths
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-gram-schmidt-growth` — lemma.
+
+For an LLL-reduced family and j<i, ‖b*_j‖²≤2^{i−j}‖b*_i‖².
+
+**Hypotheses and conventions.** Fin-index differences are ordinary nonnegative integer differences.
+
+**Construction or proof.** 1. Size reduction gives μ²≤1/4; substitute into Lovász to get ‖b*_{k+1}‖²≥(1/2)‖b*_k‖². 2. Iterate this nonnegative adjacent inequality along the finite interval.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-reduced`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.lll_gram_schmidt_growth_test_1`: For orthonormal input the right-hand side is at least the left-hand side.
+- `TauCeti.GeometryOfNumbersPlan.lll_gram_schmidt_growth_test_2`: The exponent is an index difference, not the full ambient dimension.
+
+**Source.** LLL1982, Proof of Proposition 1.6, physical p.3. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### LLL shortest-vector approximation bound
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-short-vector-factor` — theorem.
+
+For n≥1 and an LLL-reduced basis b of a full real Euclidean Z-lattice L, every nonzero x∈L satisfies ‖b₀‖²≤2^{n−1}‖x‖². Equivalently b₀ is within factor 2^{(n−1)/2} of the shortest nonzero vector.
+
+**Hypotheses and conventions.** L-membership is in the exact integer span of b, not the real span. This is an approximation bound; it does not assert exact SVP or CVP.
+
+**Construction or proof.** 1. Expand x with integer coordinates and choose its largest nonzero coordinate index k. Its absolute coefficient is at least one. 2. Project to b*_k to obtain ‖x‖²≥‖b*_k‖². 3. Apply the reduced orthogonal-length growth bound from k to the first vector and enlarge 2^k to 2^{n−1}.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-reduced`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-gram-schmidt-growth`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.lll_short_vector_factor_test_1`: For n=1 the factor is 1 and the basis vector is shortest.
+- `TauCeti.GeometryOfNumbersPlan.lll_short_vector_factor_test_2`: Replacing integer coordinates by real coefficients destroys the lower bound on the last nonzero coefficient.
+
+**Source.** LLL1982, Proposition 1.11 and its proof, physical p.4. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Integer Gram-prefix potential
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-integer-potential` — definition.
+
+For independent integer-column input in Euclidean R^n, let d_i be the determinant of the Gram matrix of the first i vectors, d₀=1, and D=∏_{1≤i<n} d_i. Each d_i is a positive integer; in ranks 0 and 1 the empty potential is 1.
+
+**Hypotheses and conventions.** The metric is the standard integral Gram metric, or a specified positive-definite rational Gram metric cleared by a common denominator. For arbitrary real Gram data integrality of the potential is not claimed.
+
+**Construction or proof.** 1. Use the native Gram matrix and determinant on each prefix. 2. Gram nondegeneracy makes each determinant positive; integral input gives an integer determinant. 3. Form the finite product and expose the size-reduction/swap transformation laws.
+
+**Prerequisites.** `mathlib:Matrix.gram`, `mathlib:Matrix.det_mul`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.lllIntegerPotential` (constructor): Product of positive integral Gram-prefix determinants.
+- `TauCeti.GeometryOfNumbersPlan.lllIntegerPotential_pos` (relation): The potential is a positive integer for independent integral input.
+- `TauCeti.GeometryOfNumbersPlan.lllIntegerPotential_sizeReduce` (compatibility): An integer shear within the relevant prefix preserves the potential.
+- `TauCeti.GeometryOfNumbersPlan.lllIntegerPotential_swap` (relation): A strict Lovász-failing adjacent swap decreases the potential by a factor strictly below 3/4.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.lll_integer_potential_test_1`: The standard basis has all prefix determinants and potential equal to 1.
+- `TauCeti.GeometryOfNumbersPlan.lll_integer_potential_test_2`: A rational metric with denominator 2 needs a fixed rescaling; its original determinants are not asserted to be integers.
+- `TauCeti.GeometryOfNumbersPlan.lll_integer_potential_test_3`: In ranks 0 and 1 the empty potential is 1, and no adjacent swap exists.
+
+**Source.** LLL1982, (1.23)–(1.25), physical pp.7–8. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Exact terminating LLL reduction
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-exact-reduction` — construction.
+
+Given a nonsingular integer basis matrix (or rational input cleared by a common denominator) in the standard Euclidean metric, compute a reduced output basis together with an exact unimodular-basis certificate. Use nearest-integer size reduction and strict Lovász-failing adjacent swaps at δ=3/4.
+
+**Hypotheses and conventions.** Rank 0 and rank 1 return immediately with the identity certificate. Rounding ties use a fixed nearest-integer rule satisfying distance≤1/2. The polynomial complexity theorem is not supplied here; its proof continues beyond the selected p.8 source slice.
+
+**Construction or proof.** 1. Use the source prefix invariant and exact Gram–Schmidt update equations to specify one shear/swap transition. 2. Every update is an integer shear or permutation, so compose its certificate. 3. Strict swaps decrease the positive integer potential; between swaps the index advances through a finite interval. This gives termination via a lexicographic potential/index measure. 4. The complete executable transition and invariant-preservation proof remains an explicit refinement gap; it is not replaced by an oracle that assumes a reduced output exists.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-reduced`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/unimodular-basis-certificate`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-integer-potential`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.exactLLL` (constructor): Return output coordinates, reducedness and the exact integer inverse certificate.
+- `TauCeti.GeometryOfNumbersPlan.exactLLL_certificate` (projection): Recover the original-lattice certificate.
+- `TauCeti.GeometryOfNumbersPlan.exactLLL_reduced` (projection): Recover the exact size and Lovász tests.
+- `TauCeti.GeometryOfNumbersPlan.exactLLL_shortVector` (relation): For positive rank, the first vector satisfies the proven approximation inequality in the original lattice.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.lll_exact_reduction_test_1`: Input columns (2,0),(0,1) require a swap; the returned certificate may have determinant −1.
+- `TauCeti.GeometryOfNumbersPlan.lll_exact_reduction_test_2`: Rank zero returns an empty reduced basis and empty identity matrices.
+- `TauCeti.GeometryOfNumbersPlan.lll_exact_reduction_test_3`: An output without a proven Lovász condition is rejected even if short in floating-point arithmetic.
+
+**Source.** LLL1982, Algorithm (1.15), updates (1.22), Figure 1, termination proof, physical pp.5–8. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** LLL transition and invariant refinements: Separate nearest-integer shear, adjacent-swap Gram updates, prefix invariant preservation, positive integer potential and lexicographic termination into proof-local declarations. The source pp.5–8 is read, but these algorithm invariants are not yet decomposed at implementation granularity. Complexity Proposition 1.26 is only statement-read; no complexity guarantee is exported.
+
+#### Verify the short output in the original lattice
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-original-lattice-verification` — theorem.
+
+If a certified output c is LLL-reduced and b is an independent input basis of L, then c₀∈L is nonzero and for every nonzero x∈L, ‖c₀‖²≤2^{n−1}‖x‖², for n≥1.
+
+**Hypotheses and conventions.** The metric used by reduction and verification is the same exact Euclidean or specified rational Gram metric. Arithmetic height, relation exclusion and representation conditions are consumer-owned inputs.
+
+**Construction or proof.** 1. Use the unimodular certificate to identify the two integer spans. 2. Independence gives c₀≠0. 3. Apply the preceding LLL bound to c and transport x-membership back through span equality.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.5/unimodular-basis-certificate`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-reduced`, `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-short-vector-factor`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.lll_original_lattice_verification_test_1`: A verified certificate includes both original membership and the approximation factor.
+- `TauCeti.GeometryOfNumbersPlan.lll_original_lattice_verification_test_2`: A short vector in the real span but outside the integer span cannot pass verification.
+
+**Source.** LLL1982, Proposition 1.11 plus exact shear/swap lattice preservation, physical pp.4–8. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+### GN.6
+
+#### Strong duality on a category
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/strong-category-duality` — definition.
+
+A strong duality on a category C is a functor D:Cᵒᵖ→C and a natural isomorphism η:Id_C→D D with D(η_X)∘η_{DX}=id_{DX}. This is classical categorical duality, distinct from a stable Poincaré infinity-category.
+
+**Hypotheses and conventions.** C uses its existing category structure; opposite functors have the pinned map direction. Exactness and additivity are extra properties, not empty proposition fields standing in for them.
+
+**Construction or proof.** 1. Use the native opposite category, functor and natural isomorphism. 2. State and retain the double-dual coherence equation. 3. Use coherence and η to recover the contravariant equivalence; do not replace the category by an untyped involution on objects.
+
+**Prerequisites.** `mathlib:CategoryTheory.Functor.rightOp`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.StrongCategoryDuality` (constructor): The actual contravariant functor, natural isomorphism and coherence equation.
+- `TauCeti.GeometryOfNumbersPlan.StrongCategoryDuality.dual` (projection): Return D:Cᵒᵖ→C.
+- `TauCeti.GeometryOfNumbersPlan.StrongCategoryDuality.biddual` (projection): Return the natural double-dual isomorphism.
+- `TauCeti.GeometryOfNumbersPlan.StrongCategoryDuality.coherence` (relation): D(η_X)η_{DX}=id_{DX}.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.strong_category_duality_test_1`: Identity double-dual data on a discrete one-object category is a strong duality.
+- `TauCeti.GeometryOfNumbersPlan.strong_category_duality_test_2`: The functor reverses morphism composition.
+- `TauCeti.GeometryOfNumbersPlan.strong_category_duality_test_3`: A natural transformation that is not invertible gives the source’s weak duality, not this strong-duality structure.
+
+**Source.** Schlichting2010, Definition 2.1 and Definition 3.1, printed pp.109,113. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Exact category with strong duality
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-category-duality` — construction.
+
+On an existing TauCeti.ExactStructure on a preadditive category E, equip a strong duality D that is additive and sends each conflation X→Y→Z to the reversed dual conflation DZ→DY→DX. The coefficient sign −η gives the alternating variant when D is additive.
+
+**Hypotheses and conventions.** Use the completed intrinsic ExactStructure carrier and conflation-exact functors. No assumption 2 is invertible is required for this classical exact-category construction.
+
+**Construction or proof.** 1. Import the exact structure rather than duplicating Quillen axioms. 2. Prove the dual functor preserves the actual conflation class with its contravariant order. 3. Use additivity to verify the coherence of −η and the skew/symmetric conversion.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/strong-category-duality`, `tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.ExactCategoryDuality.ofExactFunctor` (constructor): An additive conflation-exact strong duality on the existing exact category.
+- `TauCeti.GeometryOfNumbersPlan.ExactCategoryDuality.dualConflation` (functoriality): Reverse a conflation to its dual conflation.
+- `TauCeti.GeometryOfNumbersPlan.ExactCategoryDuality.signTwist` (constructor): The sign-twisted duality with double dual −η.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.exact_category_duality_test_1`: Finite projective R-modules with Hom_R(−,R) form the split exact example; arbitrary finite modules need not have invertible biduality.
+- `TauCeti.GeometryOfNumbersPlan.exact_category_duality_test_2`: Over Z the hyperbolic symmetric plane is available without 1/2.
+- `TauCeti.GeometryOfNumbersPlan.exact_category_duality_test_3`: Changing η to −η changes the symmetry equation and does not identify symmetric and quadratic refinements at 2.
+
+**Source.** Schlichting2010, Definition 2.1, Example 2.2 and §2.4, printed pp.109–110. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Nondegenerate symmetric spaces
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/symmetric-space` — definition.
+
+For strong duality (D,η), a symmetric space is (X,φ) with an isomorphism φ:X→DX satisfying D(φ)η_X=φ. A form-preserving map f:X→Y satisfies φ_X=D(f)φ_Y f; an isometry is such a map whose underlying morphism is an isomorphism.
+
+**Hypotheses and conventions.** Nondegeneracy is an isomorphism, not merely a separating form over a ring. Symplectic spaces use the sign-twisted duality; a quadratic refinement is additional data at dyadic coefficients.
+
+**Construction or proof.** 1. Bundle the object and actual pairing isomorphism with its typed coherence equation. 2. Define form-preserving morphisms using native categorical composition. 3. Use identity/composition and inverses to form the isometry groupoid.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/strong-category-duality`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.SymmetricSpace` (constructor): Object, pairing isomorphism and typed symmetry equation.
+- `TauCeti.GeometryOfNumbersPlan.SymmetricSpace.pairing` (projection): The actual map X≅DX.
+- `TauCeti.GeometryOfNumbersPlan.SymmetricSpace.preserves` (characterisation): Form-preservation is the displayed categorical equation.
+- `TauCeti.GeometryOfNumbersPlan.SymmetricSpace.preserves_id` (simp): Identity preserves a symmetric space.
+- `TauCeti.GeometryOfNumbersPlan.SymmetricSpace.preserves_comp` (functoriality): The composite of form-preserving maps preserves the forms.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.symmetric_space_test_1`: The rank-one pairing xy on Z is nondegenerate; 2xy is separating but not a pairing isomorphism over Z.
+- `TauCeti.GeometryOfNumbersPlan.symmetric_space_test_2`: The identity map preserves every symmetric space.
+- `TauCeti.GeometryOfNumbersPlan.symmetric_space_test_3`: A noninvertible form-preserving map is not called an isometry.
+
+**Source.** Schlichting2010, Definition 2.4 and §3.1, printed pp.110,113. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Admissible Lagrangians
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-lagrangian` — definition.
+
+A Lagrangian of (X,φ) is an admissible inflation i:L→X such that L→X→DL, with second map D(i)φ, is a conflation. Thus L is its own orthogonal, in the actual exact structure. A space is metabolic when a Lagrangian exists.
+
+**Hypotheses and conventions.** An arbitrary isotropic submodule is not automatically admissible. An exact Lagrangian specifies the quotient and conflation, not only a rank equality.
+
+**Construction or proof.** 1. Use the native conflation class and duality map to specify the short exact sequence. 2. Recover isotropy from composition zero and orthogonal equality from kernel exactness. 3. Transport the conflation through an isometry.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/symmetric-space`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-category-duality`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.ExactLagrangian.ofConflation` (constructor): A conflation L→X→DL with the displayed second map.
+- `TauCeti.GeometryOfNumbersPlan.ExactLagrangian.isotropic` (relation): D(i)φi=0.
+- `TauCeti.GeometryOfNumbersPlan.ExactLagrangian.mapIsometry` (functoriality): An isometry transports the admissible Lagrangian.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.exact_lagrangian_test_1`: The first summand of the hyperbolic plane is a Lagrangian.
+- `TauCeti.GeometryOfNumbersPlan.exact_lagrangian_test_2`: 2Z⊂Z is not an admissible summand in the split exact category of projectives.
+- `TauCeti.GeometryOfNumbersPlan.exact_lagrangian_test_3`: An isotropic subobject of too small a rank is not a Lagrangian.
+
+**Source.** Schlichting2010, Definition 2.5, printed p.110. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Hyperbolic symmetric space
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-space` — construction.
+
+For X in an exact category with duality, H(X) has underlying object X⊕DX and pairing matrix [[0,1],[η_X,0]] to DX⊕DDX, with its actual biproduct identifications. The inclusion of X is an admissible Lagrangian.
+
+**Hypotheses and conventions.** No division by 2 is used. The exact category’s split biproduct conflation is imported.
+
+**Construction or proof.** 1. Form the native biproduct and the off-diagonal pairing. 2. Use η coherence to prove symmetry and invertibility. 3. Identify the standard biproduct conflation as the Lagrangian sequence.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-category-duality`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/symmetric-space`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-lagrangian`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.hyperbolicSpace` (constructor): The native biproduct with the off-diagonal perfect pairing.
+- `TauCeti.GeometryOfNumbersPlan.hyperbolicSpace_lagrangian` (projection): The first summand is an admissible Lagrangian.
+- `TauCeti.GeometryOfNumbersPlan.hyperbolicSpace_sum` (compatibility): Hyperbolic construction carries sums to orthogonal sums.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.hyperbolic_space_test_1`: Over Z, H(Z) has Gram [[0,1],[1,0]] and is even unimodular.
+- `TauCeti.GeometryOfNumbersPlan.hyperbolic_space_test_2`: H(0) is the zero symmetric space.
+- `TauCeti.GeometryOfNumbersPlan.hyperbolic_space_test_3`: H(X⊕Y) is isometric to H(X)⊥H(Y).
+
+**Source.** Schlichting2010, After Definition 2.5, printed p.110. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Isotropic reduction of a symmetric space
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/isotropic-reduction` — construction.
+
+For an admissible totally isotropic L⊂X with L⊂L⊥ also an inflation, there is a unique nondegenerate symmetric form on L⊥/L pulling back to the restricted form. X⊥−(L⊥/L) is metabolic with Lagrangian L⊥.
+
+**Hypotheses and conventions.** Both admissibility conditions are retained. The quotient is the exact-category quotient of the specified conflation.
+
+**Construction or proof.** 1. Use kernel/cokernel universal properties to factor the restricted pairing through the quotient in both arguments. 2. Use epimorphism cancellation to prove symmetry. 3. Build the source conflation into X⊕(L⊥/L) and apply the exact five-lemma to prove nondegeneracy and metabolicity.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-lagrangian`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/symmetric-space`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-category-duality`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.isotropicReduction` (constructor): The unique induced perfect symmetric quotient form.
+- `TauCeti.GeometryOfNumbersPlan.isotropicReduction_pullback` (characterisation): Its pullback is the restricted pairing.
+- `TauCeti.GeometryOfNumbersPlan.isotropicReduction_metabolic` (relation): X⊥−reduction is metabolic.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.isotropic_reduction_test_1`: For L=0 the quotient is X and X⊥−X is metabolic.
+- `TauCeti.GeometryOfNumbersPlan.isotropic_reduction_test_2`: For a Lagrangian L the quotient L⊥/L is zero.
+- `TauCeti.GeometryOfNumbersPlan.isotropic_reduction_test_3`: For a nonadmissible inclusion the quotient construction cannot be invoked.
+
+**Source.** Schlichting2010, Lemma 2.6 and complete proof, printed pp.110–111. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Exact quotient and five-lemma adapters: Match the native exact subobject quotient, induced dual quotient map and exact five-lemma to the pinned completed ExactStructure API. The source proof is read; no private exact-category carrier is substituted.
+
+#### Degree-zero Grothendieck–Witt group of an exact category
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-grothendieck-witt-group` — construction.
+
+GW₀(E) is the group completion of isometry classes of nondegenerate symmetric spaces modulo [M]=[H(L)] for every metabolic M with an admissible Lagrangian L. Orthogonal sum is addition. This extra relation is essential in a nonsplit exact category.
+
+**Hypotheses and conventions.** E is essentially small with its intrinsic exact structure and strong exact duality. Degree-zero field Witt/GW theory is imported from QuadraticFormInvariants; this declaration supplies the general exact-category extension and the comparison.
+
+**Construction or proof.** 1. Take a small skeleton of symmetric spaces and the native free abelian group on its isometry classes. 2. Quotient by orthogonal-sum and metabolic/hyperbolic relations. 3. Prove choice independence and the universal property for additive invariants satisfying the metabolic relation.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/symmetric-space`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-lagrangian`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-space`, `mathlib:FreeAbelianGroup`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.ExactGrothendieckWittGroup` (constructor): The presented additive group.
+- `TauCeti.GeometryOfNumbersPlan.ExactGrothendieckWittGroup.ofSpace` (constructor): The generator class of a symmetric space.
+- `TauCeti.GeometryOfNumbersPlan.ExactGrothendieckWittGroup.orthogonalSum` (simp): Orthogonal sum becomes addition.
+- `TauCeti.GeometryOfNumbersPlan.ExactGrothendieckWittGroup.metabolic` (relation): [M]=[H(L)] for an admissible Lagrangian.
+- `TauCeti.GeometryOfNumbersPlan.ExactGrothendieckWittGroup.lift` (universal-property): Descend exactly the additive invariants satisfying the metabolic relation.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.exact_grothendieck_witt_group_test_1`: A metabolic space with Lagrangian L has the same GW class as H(L).
+- `TauCeti.GeometryOfNumbersPlan.exact_grothendieck_witt_group_test_2`: Over a split exact projective category, stable metabolic cancellation yields the usual group completion.
+- `TauCeti.GeometryOfNumbersPlan.exact_grothendieck_witt_group_test_3`: Over Z the symmetric and quadratic-refined group presentations are not conflated.
+
+**Source.** Schlichting2010, §2.2, printed p.111. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Witt group of an exact category
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-witt-group` — construction.
+
+W₀(E) is the monoid of symmetric-space isometry classes modulo metabolic spaces. It is a group because X⊥−X has the diagonal as an admissible Lagrangian. Equivalently it is the quotient of GW₀(E) by hyperbolic classes.
+
+**Hypotheses and conventions.** The diagonal Lagrangian proof uses the actual perfect pairing and split exactness of its short sequence.
+
+**Construction or proof.** 1. Define the metabolic quotient using actual symmetric spaces. 2. Use X⊥−X to exhibit the inverse class. 3. Compare the quotient presentation with GW₀ modulo the image of the hyperbolic map.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-grothendieck-witt-group`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-lagrangian`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-space`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.ExactWittGroup` (constructor): The metabolic quotient group.
+- `TauCeti.GeometryOfNumbersPlan.ExactWittGroup.ofSpace` (constructor): The Witt class of a symmetric space.
+- `TauCeti.GeometryOfNumbersPlan.ExactWittGroup.metabolic_eq_zero` (simp): Metabolic spaces have zero class.
+- `TauCeti.GeometryOfNumbersPlan.ExactWittGroup.neg` (relation): Negating the pairing gives the additive inverse.
+- `TauCeti.GeometryOfNumbersPlan.ExactWittGroup.fieldComparison` (compatibility): For fields in the existing owner’s scope, recover its Witt group.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.exact_witt_group_test_1`: A hyperbolic plane has zero Witt class.
+- `TauCeti.GeometryOfNumbersPlan.exact_witt_group_test_2`: The inverse of [X,φ] is [X,−φ].
+- `TauCeti.GeometryOfNumbersPlan.exact_witt_group_test_3`: W=GW is false: over R the hyperbolic plane has nonzero rank in GW but zero Witt class.
+
+**Source.** Schlichting2010, §2.2 and Lemma 2.8, printed pp.111–112. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Hyperbolic and forgetful maps in degree zero
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-forgetful-relations` — theorem.
+
+Forgetting gives F:GW₀(E)→K₀(E), and H:K₀(E)→GW₀(E) is induced by X↦H(X). Their composite F H sends [X] to [X]+[DX], rather than universally to 2[X]. The sequence K₀(E)→GW₀(E)→W₀(E)→0 is exact.
+
+**Hypotheses and conventions.** K₀ is the imported exact Grothendieck group. The duality involution can act nontrivially on K₀; multiplication by two is only a specialization when it acts trivially.
+
+**Construction or proof.** 1. The underlying metabolic conflation has class [L]+[DL], so F respects the relation. 2. Lemma 2.8(b) makes H respect conflations. 3. Compute F H on generators and identify the Witt presentation as the cokernel of H.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-grothendieck-witt-group`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-witt-group`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-space`, `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.hyperbolic_forgetful_relations_test_1`: Over a field with trivial rank-duality action, F H doubles rank.
+- `TauCeti.GeometryOfNumbersPlan.hyperbolic_forgetful_relations_test_2`: The hyperbolic image maps to zero in W₀.
+- `TauCeti.GeometryOfNumbersPlan.hyperbolic_forgetful_relations_test_3`: For a nontrivial K₀ involution, the equation is 1+D and cannot be simplified without proof.
+
+**Source.** Schlichting2010, Lemma 2.8 and proof, printed p.112. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Hermitian Q-construction
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-q-construction` — construction.
+
+Qʰ(E) has symmetric spaces as objects. A morphism X→Y is an isomorphism class of spans X←p U→i Y with p an admissible deflation and i an admissible inflation, satisfying the matching restricted pairings and ker p≅ker(D(i)φ_Y). Equivalently the corresponding pairing square is bicartesian. Composition is the imported Q pullback composition.
+
+**Hypotheses and conventions.** Use the actual pairing square and exact-category quotient data; not every ordinary Q-span lifts.
+
+**Construction or proof.** 1. Import Quillen Q and its span equivalence and pullback composition. 2. Restrict to the hermitian bicartesian pairing condition. 3. Prove the condition survives composition and equivalence of representatives; expose the forgetful functor to Q(E).
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/symmetric-space`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-category-duality`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/isotropic-reduction`, `GeneralAlgebraicKTheory:K.1/exact-categories-and-Q-construction`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.HermitianQ` (constructor): The native category of hermitian Q-spans.
+- `TauCeti.GeometryOfNumbersPlan.HermitianQ.ofSpan` (constructor): A span with its actual bicartesian pairing condition.
+- `TauCeti.GeometryOfNumbersPlan.HermitianQ.forget` (functoriality): Forget the pairings to the existing Q-construction.
+- `TauCeti.GeometryOfNumbersPlan.HermitianQ.identity` (simp): Identity is the identity span.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitian_q_construction_test_1`: A Lagrangian gives a Qʰ path from zero to its metabolic space.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_q_construction_test_2`: The identity span gives the identity morphism.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_q_construction_test_3`: A Q-span with incompatible pairing or wrong kernel is not a hermitian morphism.
+
+**Source.** Schlichting2010, Definition 4.1 and §4.1, printed pp.116–117. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Hermitian span composition refinements: Decompose bicartesian-square equivalence, pullback closure, representative independence and category laws using the supplier Q-construction and completed exact structure. Definition 4.1 is read, but this construction has not been refined to all proof-local lemmas.
+
+#### Grothendieck–Witt space of an exact category
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space` — construction.
+
+GW(E) is the pointed homotopy fibre over the zero object of |Qʰ(E)|→|Q(E)|.
+
+**Hypotheses and conventions.** Use actual nerve realization, homotopy fibre and homotopy groups from the topology owners. No assumption 2 is invertible is needed for Schlichting’s exact-category model.
+
+**Construction or proof.** 1. Realize the nerves of the typed forgetful functor. 2. Take its pointed homotopy fibre with the zero-space base point. 3. Transport orthogonal sum to the homotopy groups and prove naturality for nonsingular exact form functors.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-q-construction`, `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.grothendieckWittSpace` (constructor): The specified pointed homotopy fibre.
+- `TauCeti.GeometryOfNumbersPlan.grothendieckWittSpace_fibration` (relation): GW(E)→|QʰE|→|QE| is the defining fibre sequence.
+- `TauCeti.GeometryOfNumbersPlan.grothendieckWittSpace_map` (functoriality): Nonsingular exact form functors induce pointed maps.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_test_1`: The base point is the zero object, not an arbitrary unrecorded form.
+- `TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_test_2`: For the hyperbolic category HE, GW(HE)≃K(E).
+- `TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_test_3`: GW_i is a homotopy degree; a four-periodic shifted-duality statement does not say GW_i≅GW_{i+4}.
+
+**Source.** Schlichting2010, Definition 4.4 and Definition 4.12, printed pp.117–118,122. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Classical hermitian homotopy-fibre carrier: Match small nerve realization, pointed homotopy fibre and orthogonal-sum H-space structures to topology/K-theory supplier nodes before prototyping this construction. No spectrum or homotopy fibre is represented by an empty Prop-valued field.
+
+#### Degree-zero comparison for the GW space
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space-components` — comparison.
+
+There is a natural additive isomorphism π₀GW(E)≅GW₀(E) with the previously defined metabolic presentation, compatible with forgetful and hyperbolic maps.
+
+**Hypotheses and conventions.** Essentially small exact category with strong exact duality; no 1/2 assumption.
+
+**Construction or proof.** 1. Use formations to identify π₁|QʰE| and W₀(E) to identify π₀|QʰE|. 2. Compare the fibre long exact sequence with GW_form→K₀→GW₀→W₀→0. 3. Apply the source five-lemma argument; the formation presentation and its path-loop proof are recorded refinements.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-grothendieck-witt-group`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-witt-group`, `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_components_test_1`: The comparison respects the hyperbolic image of an actual exact object.
+- `TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_components_test_2`: The degree-zero class is the metabolic GW presentation, not just unconstrained free isometry classes.
+
+**Source.** Schlichting2010, Proposition 4.11 and full proof, printed pp.121–122. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Formation and low-homotopy refinement: Split Schlichting §4.3 formation generators/relations, Proposition 4.9’s path-loop isomorphism, Lemma 4.10 and the exact five-lemma into proof-local nodes. Their source pp.119–122 is read; this pass records the precise comparison inputs rather than asserting they are implemented.
+
+#### Canonical residue duality coefficient
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line` — comparison.
+
+For a Dedekind ring R, nonzero prime p and line bundle M with involution, the right adjoint residue dual coefficient RHom_R(R/p,M) is canonically (p^−1M/M)[−1]. A choice of uniformizer identifies p^−1M/M with M/pM; this last identification is not canonically natural under ramified base change.
+
+**Hypotheses and conventions.** Use derived Hom with its actual shift and residue-module structure. A uniformizer choice is recorded when replacing the canonical coefficient by the unshifted residue line.
+
+**Construction or proof.** 1. Resolve R/p by [p→R] and apply derived Hom into M. 2. Use invertibility of p and M to identify the cofiber M→p^−1M and the shift. 3. Multiply by a chosen local uniformizer for the optional residue-line identification.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space`, `GeneralAlgebraicKTheory:K.6`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.dedekind_residue_duality_line_test_1`: The residue term has a −1 duality shift, not degree zero.
+- `TauCeti.GeometryOfNumbersPlan.dedekind_residue_duality_line_test_2`: For Z→Z[i] at 2, the integer 2 does not become a uniformizer at (1+i), so the naive residue-field identity is not the induced map.
+
+**Source.** CalmesIII, Lemma 2.2.2 and proof, physical p.37. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Derived duality carrier owned by HermitianKTheoryOfPoincareCategories: Import the routed stable Poincaré/flavour and derived-duality framework from the new HermitianKTheoryOfPoincareCategories design. No packet/stage yet exists at this base, so no fictitious supplier node is invented. Match its actual derived Hom and line-with-involution types before prototyping this comparison.
+
+#### Symmetric Grothendieck–Witt localization for Dedekind rings
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization` — theorem.
+
+For R,M as above, a set S of nonzero primes and every duality shift r, there is a canonical fibre sequence ⊕_{p∈S}GW(R/p;Q^s_{RHom_R(R/p,M)}[r])→GW(R;Q^s_M[r])→GW(R_S;Q^s_{M_S}[r]). With chosen uniformizers the left coefficient is (M/pM)[r−1].
+
+**Hypotheses and conventions.** This is the symmetric Poincaré flavour at the spectrum level. No 2-unit assumption is imposed for this theorem; the analogous quadratic spectrum sequence fails at dyadic primes without additional restrictions.
+
+**Construction or proof.** 1. Use the residue-duality-line comparison. 2. Apply the source symmetric dévissage equivalence on torsion perfect complexes and its canonical localization. 3. For infinite S pass through finite subsets using the imported filtered-colimit compatibility. Source generic surgery/Poincaré localization and Witt dévissage remain exact inputs.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line`, `GeneralAlgebraicKTheory:K.6`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.dedekind_symmetric_localization_test_1`: The left shift is r−1 after a uniformizer choice.
+- `TauCeti.GeometryOfNumbersPlan.dedekind_symmetric_localization_test_2`: Quadratic L-theory at the prime 2 cannot simply replace symmetric L-theory in this sequence.
+
+**Source.** CalmesIII, Theorem 2.2.4, Corollary 2.2.5 and Remark 2.2.6, physical pp.38–39. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Symmetric dévissage framework and original inputs: Import generic GW/L fibre and localization from HermitianKTheoryOfPoincareCategories once its design has named nodes; import Quillen/Barwick ordinary K inputs from their owners. Acquire QSS79 symmetric Witt dévissage and refine the exact comparison; Calmes pp.38–39 proves the reduction using these inputs, not their proofs.
+
+#### Hermitian filtering localization
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/schlichting-filtering-localization` — theorem.
+
+For a duality-preserving s-filtering inclusion A⊂U of exact categories with strong duality, with A idempotent complete, |QʰA|→|QʰU|→|Qʰ(U/A)| is a pointed homotopy fibre sequence over zero.
+
+**Hypotheses and conventions.** The four source s-filtering conditions and idempotent completeness are retained. The map W₀(U)→W₀(U/A) need not be surjective.
+
+**Construction or proof.** 1. Import the actual exact quotient by weak isomorphisms from ordinary exact K-theory. 2. Descend the exact duality and pairing square to the quotient. 3. Apply the source hermitian localization proof, with its zero-component/base-point control; the full §8 proof is a gap.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-q-construction`, `GeneralAlgebraicKTheory:K.6`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.schlichting_filtering_localization_test_1`: A fully exact inclusion without the four s-filtering conditions is not enough.
+- `TauCeti.GeometryOfNumbersPlan.schlichting_filtering_localization_test_2`: Idempotent completeness of A is an explicit hypothesis.
+
+**Source.** Schlichting2010, §8.1, Theorem 8.2 and Remark 8.3, printed pp.140–141. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** s-filtering quotient and full Schlichting localization proof: Match each of the four filtering/special inflation/deflation conditions and the exact quotient to GeneralAlgebraicKTheory, then read and decompose Schlichting §8 pp.141–149. Only its statement and setup were read here; no characteristic restriction is invented.
+
+#### Source-scoped shifted Karoubi periodicity
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/shifted-karoubi-periodicity` — comparison.
+
+For a dg category with weak equivalences and duality whose mapping complexes are uniquely 2-divisible, the shifted classical GW spectra satisfy GW^[r+4](A)≃GW^[r](A), and the forgetful/hyperbolic Bott triangle is GW^[r](A)→K(A)→GW^[r+1](A)→ΣGW^[r](A). This shifts the duality index, not the higher homotopy degree.
+
+**Hypotheses and conventions.** The dg model, weak equivalences and pretriangulated/smallness conventions are those of Schlichting. This theorem does not assert integral four-periodicity for genuine symmetric GW at dyadic coefficients.
+
+**Construction or proof.** 1. Import ordinary K and the routed generic hermitian Bott/periodicity framework. 2. Prove the classical dg versus stable-Poincaré comparison under unique 2-divisibility. 3. Transport the source Bott triangle and shifted-duality equivalence through that comparison; full §6 source proofs are explicit gaps.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space`, `GeneralAlgebraicKTheory:K.4:construction`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.shifted_karoubi_periodicity_test_1`: The equality relates shift r with r+4 while keeping homotopy degree fixed.
+- `TauCeti.GeometryOfNumbersPlan.shifted_karoubi_periodicity_test_2`: The hypothesis 2 invertible cannot be removed by citing the characteristic-free exact-category definitions.
+
+**Source.** SchlichtingDerived, Introduction, physical pp.2–4; Theorems 6.1–6.2 are announced here. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Classical dg comparison and Karoubi proof: Read Schlichting §6 and the precise dg duality construction, then import the generic Poincaré Bott/Genauer theory from its routed owner rather than duplicating it. Unique 2-divisibility remains an explicit theorem hypothesis.
+
+#### Number-ring homotopy-limit comparison
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/number-ring-homotopy-limit` — theorem.
+
+For a Dedekind ring R whose fraction field is a number field, a line bundle M with involution ±1 and any duality shift r, GW(R;Q^s_M[r])→K(R;Q^s_M[r])^{hC₂} is a 2-adic equivalence. Its classical symmetric connective-cover specialization is an equivalence in nonnegative degrees after 2-completion.
+
+**Hypotheses and conventions.** Do not replace 2-adic completion by localization at 2 or claim an integral equivalence in the presence of real embeddings. The generic spectrum/homotopy-fixed-point carrier is imported from the new hermitian owner.
+
+**Construction or proof.** 1. Invert 2 in R and use the imported finite-vcd₂ homotopy-limit theorem. 2. Compare the finite sum of dyadic residue terms using the even-finite-field theorem. 3. Use symmetric localization and the fibre-sequence comparison to recover the middle 2-adic equivalence.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.number_ring_homotopy_limit_test_1`: A number ring with real places requires 2-completion; the rational signature contribution prevents the unqualified integral statement.
+- `TauCeti.GeometryOfNumbersPlan.number_ring_homotopy_limit_test_2`: Classical connective groups give the nonnegative-degree specialization.
+
+**Source.** CalmesIII, Theorem 3.1.7 and full proof, physical pp.51–52. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Even finite-field comparison and finite-vcd₂ theorem: Import the original finite-vcd₂ BKSØ homotopy-limit theorem, Quillen finite-field K calculation and the generic hermitian pullback from their owners; refine Calmes Proposition 3.1.4’s even-field L/Tate comparison. The selected Calmes source reduction is proof-read, but those foundational proofs remain imports/gaps.
+
+#### Berrick–Karoubi comparison after inverting two
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/number-ring-invert-two-comparison` — theorem.
+
+For a Dedekind ring R with number-field fraction field and epsilon=±1, GW^s(R;epsilon)→GW^s(R[1/2];epsilon) is a 2-local equivalence on connected covers, hence in strictly positive homotopy degrees, and is injective in degree zero.
+
+**Hypotheses and conventions.** A degree-zero isomorphism is not asserted. 2-local equivalence is distinct from the preceding 2-adic homotopy-limit comparison.
+
+**Construction or proof.** 1. Identify the fibre by the dyadic residue localization terms with duality shift −1. 2. Use the even finite-field comparison and odd-torsion positive K-groups to make that fibre 2-locally (−1)-truncated with zero π₀. 3. Read the fibre long exact sequence to obtain the stated positive-degree isomorphisms and π₀ injectivity.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/number-ring-homotopy-limit`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.number_ring_invert_two_comparison_test_1`: The map on π₀ is injective; it need not be surjective.
+- `TauCeti.GeometryOfNumbersPlan.number_ring_invert_two_comparison_test_2`: The theorem compares R with R[1/2], not GW with ordinary K without duality.
+
+**Source.** CalmesIII, Proposition 3.1.11 and proof, physical p.53. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Higher Grothendieck–Witt groups
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/higher-grothendieck-witt-groups` — definition.
+
+For i≥0, GW_i(E)=π_i of the pointed Grothendieck–Witt fibre space; in degree zero use its canonical abelian H-space component group, not a shifted-duality index.
+
+**Hypotheses and conventions.** Use actual pointed homotopy groups and orthogonal sum.
+
+**Construction or proof.** 1. Take the native pointed homotopy groups of the fibre. 2. Use orthogonal sum for the degree-zero group law and naturality.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.higherGrothendieckWittGroup` (constructor): Pointed homotopy group of the Grothendieck–Witt fibre.
+- `TauCeti.GeometryOfNumbersPlan.higherGrothendieckWittGroup_map` (functoriality): Nonsingular exact form functors induce group maps.
+- `TauCeti.GeometryOfNumbersPlan.higherGrothendieckWittGroup_zero` (compatibility): The component group agrees with exact-category GW_0.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.higher_grothendieck_witt_groups_test_1`: GW_0 agrees with the exact presentation, including metabolic relations.
+- `TauCeti.GeometryOfNumbersPlan.higher_grothendieck_witt_groups_test_2`: For HE the higher groups agree with ordinary K_i(E).
+- `TauCeti.GeometryOfNumbersPlan.higher_grothendieck_witt_groups_test_3`: Four-periodicity of duality shifts does not imply four-periodicity of i.
+
+**Source.** Schlichting2010, printed pp.121–122, Proposition 4.11 and Definition 4.12. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+#### Hermitian suspension of an exact category
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension` — construction.
+
+For idempotent-complete exact E with strong exact duality, S_h E=C(E,E)/E is Schlichting’s hermitian suspension, using the actual cone category and filtering exact quotient, with induced duality. The cone has its duality-preserving Eilenberg swindle.
+
+**Hypotheses and conventions.** C(E,E) is the filtered diagram/cone category of §9, not a ring of dummy symbols. Do not replace a hermitian cone by the ordinary K-theory cone without a duality comparison.
+
+**Construction or proof.** 1. Build §9.1 diagram category and localize the shift maps compatibly with duality. 2. Use the s-filtering inclusion and Lemma 9.5 swindle. 3. Form the exact quotient with its induced duality.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-category-duality`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/schlichting-filtering-localization`, `GeneralAlgebraicKTheory:K.6`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitianSuspension` (constructor): The specified exact quotient with induced strong duality.
+- `TauCeti.GeometryOfNumbersPlan.hermitianSuspension_map` (functoriality): Compatible exact form functors induce suspension form functors.
+- `TauCeti.GeometryOfNumbersPlan.hermitianCone_contractible` (relation): The duality-preserving cone swindle contracts its GW space.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitian_suspension_test_1`: The cone GW space is contractible by id⊥T≅T.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_suspension_test_2`: The quotient is by the embedded E and retains exact duality.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_suspension_test_3`: No ordinary K carrier is asserted to equal this hermitian suspension.
+
+**Source.** Schlichting2010, printed pp.159–162, Lemma 9.5, Corollary 9.6, Definition 9.10. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Hermitian cone diagram and filtering refinement: Physical pp.55,57–58 and the tail of p.56 were read; complete §9.1 cone object/morphism/shift definitions and Lemmas 9.2–9.4 proofs must be read and split. These are hermitian adapters, while generic exact quotients and idempotent completion remain K.6 imports.
+
+#### Hermitian suspension delooping
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension-delooping` — theorem.
+
+For idempotent-complete exact E with strong exact duality, GW(E)≃ΩGW(S_h E). The idempotent-completion map ΩGW(S_h E)→ΩGW(˜S_h E) is an equivalence by cofinality.
+
+**Hypotheses and conventions.** No invertibility of two is imposed on this exact-category model.
+
+**Construction or proof.** 1. Use the s-filtering GW fibration and contractibility of the cone. 2. Use the GW cofinality theorem for the loop-space idempotent-completion map.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/schlichting-filtering-localization`.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.hermitian_suspension_delooping_test_1`: Idempotent completion is explicitly retained before iteration.
+- `TauCeti.GeometryOfNumbersPlan.hermitian_suspension_delooping_test_2`: The analogous Ω|Qʰ(S_h E)| completion map is not always a π_0 isomorphism.
+
+**Source.** Schlichting2010, printed p.162, Theorem 9.11 and Remark 9.12. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Hermitian cofinality input: Read and split §5 Theorem 5.2 at the exact GW-space level; its use in Remark 9.12 is read, but its full proof is not. Do not import ordinary K cofinality as if it proved this statement.
+
+#### Nonconnective hermitian spectrum
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.6/nonconnective-hermitian-spectrum` — construction.
+
+Iterating idempotent-completed hermitian suspension gives the Ω-spectrum with levels GW(E), GW(˜S_h E), GW(˜S_h² E), … and structure equivalences from delooping. Its homotopy groups in all integer degrees are nonconnective hermitian groups. For the hyperbolic exact category HE this spectrum agrees with the imported nonconnective K spectrum of E.
+
+**Hypotheses and conventions.** Keep hermitian structure maps and all idempotent completions. The sequence of |Qʰ(˜S_hⁿ E)| spaces alone is generally not an Ω-spectrum.
+
+**Construction or proof.** 1. Iterate the actual suspension and completion functors. 2. Use the proved GW delooping equivalences as spectrum structure maps. 3. Prove the hyperbolic comparison at each level and check compatibility with the ordinary K.6 structure maps.
+
+**Prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension-delooping`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/higher-grothendieck-witt-groups`, `GeneralAlgebraicKTheory:K.6`.
+
+**Planning API.**
+
+- `TauCeti.GeometryOfNumbersPlan.nonconnectiveHermitianSpectrum` (constructor): The completed hermitian-suspension Ω-spectrum.
+- `TauCeti.GeometryOfNumbersPlan.nonconnectiveHermitianSpectrum_loop` (relation): Each adjacent structure map is a loop equivalence.
+- `TauCeti.GeometryOfNumbersPlan.nonconnectiveHermitianSpectrum_hyperbolic` (compatibility): Comparison with the imported nonconnective K spectrum for HE.
+
+**Checks.**
+
+- `TauCeti.GeometryOfNumbersPlan.nonconnective_hermitian_spectrum_test_1`: Degree-zero recovery does not require this construction.
+- `TauCeti.GeometryOfNumbersPlan.nonconnective_hermitian_spectrum_test_2`: For HE negative groups recover nonconnective K groups.
+- `TauCeti.GeometryOfNumbersPlan.nonconnective_hermitian_spectrum_test_3`: Qʰ-only levels can fail the Ω-spectrum condition when negative K groups are nonzero.
+
+**Source.** Schlichting2010, printed p.162, Remark 9.12. The stated scope is the source slice read here. Worker adapters and unresolved proof inputs are identified in proofSteps and gaps; this is an unchecked plan.
+
+**Unresolved inputs.** Native spectrum and hyperbolic suspension comparison: Obtain the genuine spectrum/loop/idempotent-completion interfaces from their owners and verify the hermitian hyperbolic functor’s compatibility with K.6 suspension. This construction is not represented by an opaque invented carrier in the suggested file.
+
+## Source receipts and read frontier
+
+**LLL1982 — Factoring polynomials with rational coefficients.** Math. Ann. 261 (1982), 515–534; scanned academic mirror with reprint folios 27–46; locators below use physical PDF pages and equation numbers, not the reprint folio as journal pagination. [A. K. Lenstra, H. W. Lenstra, Jr., L. Lovász](https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Lovasz/LovaszLenstrafactor.pdf). SHA-256 `dabefb8bcfb5dbb8b36a43745081f8ab6f18aadc85b1e252fd7c85abefc5f704`, acquired 4 October 2026. Physical pp.1–8 visually read in full: introduction and §1 through termination and the statement of Proposition 1.26; complexity proof on p.9 and polynomial factoring sections not read.
+
+**Voight2026 — Quaternion algebras.** Author post-publication v.1.0.7u, 5 August 2026; 883 physical pages; not represented as the unchanged 2021 publisher text. [John Voight](https://jvoight.github.io/quat-book.pdf). SHA-256 `a9316b834dbd500c52cd3a981c3205c9f4145b217042b213d23f696aee84b0f0`, acquired 4 October 2026. Physical pp.157–168 / printed pp.137–148: §9.3–9.8, including full local-global lattice proofs and completion descent; the normalized-form proof cites an external algorithm, recorded as a gap. No whole-book reading or publisher collation is claimed.
+
+**LiZhangDensity — Kudla–Rapoport cycles and derivatives of local densities.** arXiv:1908.01701v3, 92 pages; version used by the routed extraction. [Chao Li, Wei Zhang](https://arxiv.org/pdf/1908.01701v3). SHA-256 `7db1843f90c3e79741f8d58d92b6bb42b0a3b7ae001c8f9419f43b08c2119d49`, acquired 4 October 2026. Physical pp.2–4, 8–9, 14–19, 20–24 read: intro hypotheses; §1.7 hermitian lattices and measure normalization; §3 representation densities, normalized polynomial and Cho–Yamauchi formula including the p.18 proof. Geometric intersection sections are contextual reading, not mathematical claims owned by GN. Hironaka, Cho–Yamauchi, Kitaoka and Gan–Yu proofs cited by §3 were not acquired.
+
+**Schlichting2010 — Hermitian K-theory of exact categories.** Published-layout academic copy, J. K-Theory 5 (2010), 105–165, DOI 10.1017/is009010017jkt075, 61 pages. [Marco Schlichting](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlicht.pdf). SHA-256 `fdcf61c0e9e41550b7aaf8d34f2e9deb3276b0a6f8e59f9fb3262018b7052f0e`, acquired 4 October 2026. Physical pp.1–19 / printed pp.105–123: exact duality, symmetric spaces, Lagrangians, isotropic reduction, degree-zero GW/W, form functors, hermitian Q, GW space, formations and degree-zero comparison, with selected proofs in full. Physical pp.36–37 / printed 140–141: s-filtering conditions, exact quotient and localization statement; the remaining localization proof is not read. Physical p.55, pp.57–58, and tail of p.56 read: cone swindle, filtering consequence, hermitian suspension, delooping and nonconnective Ω-spectrum warning. Full §9.1 cone setup and §5 cofinality proof not read.
+
+**SchlichtingDerived — Hermitian K-theory, derived equivalences and Karoubi’s Fundamental Theorem.** arXiv:1209.0848v3, 7 September 2016; PDF acquired through unversioned URL and version established from its first page, 119 pages. [Marco Schlichting](https://arxiv.org/pdf/1209.0848v3). SHA-256 `f18bf8e3950871bfc00ef1e51a11e17c2c9107b473f1ff7a5c36e2fac53e4dc0`, acquired 4 October 2026. Physical pp.1–4 introduction read: uniquely 2-divisible mapping-complex hypothesis, derived invariance, Bott triangle and shifted rather than homotopy-degree periodicity. Full §6 proofs remain precise gaps.
+
+**CalmesIII — Hermitian K-theory for stable infinity-categories III: Grothendieck–Witt groups of rings.** arXiv:2009.07225v4, 63 pages; exact version of the current extraction. [Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus, Wolfgang Steimle](https://arxiv.org/pdf/2009.07225v4). SHA-256 `1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c`, acquired 4 October 2026. Physical pp.1–8 read: introduction and Recollection R.1–R.5. Physical pp.49–57 read: §3.1 homotopy-limit results and proofs; §3.2 symmetric/symplectic integral groups and their proof, duality action and low-degree table. Generic stable Poincaré/flavour theory belongs to the routed HermitianKTheoryOfPoincareCategories owner, not a second GN definition. Physical pp.36–40 read in full: linking duality, canonical residue dualizing line, Corollary 2.2.5, ramified-uniformizer warning and symmetric-only dyadic devissage. The p.41 continuation of the explicit residue-boundary proof was not read.
+
+**BhargavaShankar2010 — Binary quartic forms having bounded invariants, and the boundedness of the average rank of elliptic curves.** arXiv:1006.1002v2, 50 pages. [Manjul Bhargava, Arul Shankar](https://arxiv.org/pdf/1006.1002v2). SHA-256 `c9dfd70eff16e6898bc034b9f6d3d77e0c4afe40753894dc34a20c588d640a07`, acquired 4 October 2026. Physical p.14 in full: Proposition 2.5 bounded semialgebraic multiset estimate and triangular-unipotent variant; its Davenport/Rogers proof inputs have not been acquired. No whole-paper claim.
+
+**Duke1988 — Hyperbolic distribution problems and half-integral weight Maass forms.** Published-layout author copy, Invent. Math. 92 (1988), 73–90. [W. Duke](https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf). SHA-256 `3c468d0c0d79ec2ab29f96dcdda6094a4ceb6603a4caaae947c0bef443f9005f`, acquired 4 October 2026. Physical pp.1–3 / printed pp.73–75 read in full: spherical lattice-point application, theta/Weyl sum identity, square-free restrictions and Theorem 1. Full analytic coefficient proof and §§3–6 not read.
+
+**Benoist2019 — Arithmeticity of discrete subgroups.** Author notes for 2018/2019 lectures, 43 pages. [Yves Benoist](https://www.imo.universite-paris-saclay.fr/~yves.benoist/prepubli/19ArithmeticityLectures.pdf). SHA-256 `d5e8b727b09c39ca74be90009e1e0e15430ed6611799d696a812acaf4ef68d6b`, acquired 4 October 2026. Physical pp.1–7 and19–21 read: actual quotient measure/lattice conventions, Mahler statement, Howe–Moore and Dani–Margulis recurrence statements, closed semisimple orbit finite-volume proof. Original mixing/recurrence proofs are cited but omitted by these notes, so remain gaps.
+
+**MorrisArithmetic — Introduction to Arithmetic Groups.** arXiv:math/0106063v6, 7 May 2015, 491 physical pages. [Dave Witte Morris](https://arxiv.org/pdf/math/0106063v6). SHA-256 `4c0936b5321dc09338730b411ef62e6fffc9060d0146f30a24e65a5ada47df77`, acquired 4 October 2026. First page and physical p.59 / printed p.43 standing hypotheses; physical pp.412–415 / printed pp.396–399 reduction-theory context; physical pp.420–423 and426–429 / printed pp.404–407,410–413: Ratner orbit/measure/equidistribution statements and Margulis quadratic-value proof for three variables. Full Ratner proofs, higher-dimensional Oppenheim reduction and the rest of the book not read.
+
+**RegevTransference — Transference Theorems, Lattices in Computer Science, Lecture 11.** Fall 2004, author-hosted lecture notes [Oded Regev; scribe Elad Verbin](https://cims.nyu.edu/~regev/teaching/lattices_fall_2004/ln/transference.pdf). SHA-256 `11986af4502c60d4d53ad4db111d51b039845943af013fc54d2154e8396b0cf2`, acquired 4 October 2026. Physical pp.1–2 read in full: Theorem 1 and Remark 1, covering radius, cubic-lattice example and Claim 3 proof. Theorem 4 is stated with the weaker constant n; its pp.3–6 proof and the original 1993 proof were not read.
+
+**StephensDavidowitz2019 — An improved constant in Banaszczyk’s transference theorem.** arXiv:1907.09020v1, 21 July 2019 [Divesh Aggarwal; Noah Stephens-Davidowitz](https://arxiv.org/pdf/1907.09020). SHA-256 `58e81f63fa837e02dfcfcea417b0c2411a53128d935c95a43ea146628194c39e`, acquired 4 October 2026. Physical pp.1–2 read in full: actual Euclidean dual/radius conventions and Theorems 1.1–1.2. The asymptotic improved constant is not exported as a uniform finite-dimensional bound; pp.3–6 proof not read.
+
+**Kirschmer2013 — One-class genera of maximal integral quadratic forms.** Author preprint, June 2013 [Markus Kirschmer](https://www.math.rwth-aachen.de/~Markus.Kirschmer/papers/maxgen.pdf). SHA-256 `d128be3ded05632cfad338ce627ec62093d6b7d18e0f47d13b1f61a46847f2e7`, acquired 4 October 2026. Physical pp.1–5 read in full: integral/maximal lattice and genus definitions, local-type table, local mass factor table, Theorem 3.3 and beginning of Proposition 3.4 proof. Original Shimura/Gan–Hanke–Yu mass proof not acquired; remainder of classification not read.
+
+## Suggested signatures and remaining interface work
+
+The suggested file elaborates only against the verified pinned Mathlib import graph; there are no Tau Ceti imports. Native quadratic/hermitian carriers, counts, polynomial weights, exact LLL contracts, category duality, packing/covering, star bodies and finite weighted sums have real signatures. The catalogue at its end retains every new API/test name with its mathematical contract. A catalogue entry is not an executable declaration. Foreign exact-conflation, completed-field/adelic, theta, homogeneous and stable homotopy conditions that cannot yet be stated in that context are omitted explicitly under protocol section 13, rather than replaced with invented proposition fields or dummy carriers.
+
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-localization`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-intersection-localizations`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.2/completed-lattice-descent`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.2/proper-spinor-genus`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-lattice-invariants`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.3/finite-hermitian-isometry-formula`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-local-density`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-siegel-polynomial`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.3/cho-yamauchi-overlattice-formula`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.3/siegel-polynomial-functional-equation`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-category-duality`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-lagrangian`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-space`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/isotropic-reduction`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-grothendieck-witt-group`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-witt-group`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-forgetful-relations`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-q-construction`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space-components`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.2/quaternionic-integral-hermitian-data`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.2/dyadic-atomic-form`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-normalized-form`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-integral-isometry-finite`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-genus-class-finite`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.3/adelic-mass-identity`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.3/theta-lattice-coefficient-interface`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/howe-moore-mixing`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/homogeneous-ergodicity`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/unipotent-nondivergence`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-orbit-closure`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-measure-classification`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-unipotent-equidistribution`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/duke-spherical-equidistribution`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/dual-transference-lower`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/mahler-compactness`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/siegel-mean-value`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4/construction-a-real-lattice-interface`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/schlichting-filtering-localization`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/shifted-karoubi-periodicity`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/number-ring-homotopy-limit`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/number-ring-invert-two-comparison`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.3/maximal-integral-mass-formula`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/higher-grothendieck-witt-groups`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension-delooping`: The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.6/nonconnective-hermitian-spectrum`: The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+
+## Remaining proof gaps and supplier requests
+
+- **Number-field metric comparison and integer-vector norm floor.** Consumer-owned normalization warning (not a request to duplicate it here): the Couveignes extraction routes the weighted/unweighted metric, discriminant normalization and integer-family applications to proposed EffectiveBoundsCompactModels. Couveignes uses twice the complex squared modulus; audited Mathlib mixed-embedding basis (1,i) is unweighted. The consumer must derive the 2^r2 measure factor, not identify unequal covolumes. Nonzero relation-lattice integer vectors have norm≥1; the initial number-field minima instead need the arithmetic norm/product argument. A general lattice does not have the ≥1 floor. Needed by .
+- **Full GN.1 source coverage and upstream minimum compatibility.** The generic two-sided Minkowski product contract and independent attained witnesses are now supplied as unchecked plans. Remaining source work includes the complete original GN.1 bibliography and source-scoped applications, Evertse Theorem 2.11's Hermite-basis proof, John's ellipsoid theorem and their consequences. Reconcile the inherited real-valued Fin-indexed minimum plan with the inspected upstream NNReal/Nat design before implementation. EffectiveBoundsCompactModels still owns weighted number-field metric/discriminant conversion and arithmetic norm floors; the generic volume theorem does not supply those consumer-specific hypotheses. Needed by .
+- **GN.2 primary-source and proof decomposition.** Import field invariants/Witt theory from QuadraticFormInvariants and Hasse–Minkowski/isotropy/representation from GlobalQuadraticForms; rational integral lattice duality/discriminant/gluing is completed IntegralLattices. New work: O_K/Z_p integral lattices, localization, genera/spinor genera, dyadic and quaternionic/hermitian variants, with source-specific restrictions. Needed by .
+- **GN.3 primary-source and proof decomposition.** AdelicAlgebraicGroups owns quotient/measure and reduction-domain foundations; MetaplecticAutomorphicForms owns theta. GN still needs local representation densities, finite stabilizers, genus classes, weighted mass, local normalization and convergence proofs. Needed by .
+- **GN.4 primary-source and proof decomposition.** Existing null-frontier asymptotic lattice counting is an import. GN.4 retains Davenport's bounded semialgebraic MULTISET/projection-volume estimate with uniform dimension/multiplicity/complexity dependence (accepted RS-07), plus independent mixing/nondivergence/Oppenheim/Duke branches, packing/covering, transference, star bodies, Mahler compactness and Siegel mean value. Coding Construction A is AlgebraicCodingTheory layer 6; fixed-domain Lipschitz estimates are GlobalNumberFields. Henk Lemma 2.1, inequality (1.3) and Theorem 1.5 are now decomposed through native integral flags, compatible rounding and diagonal-span avoidance. Theorem 1.5 retains d≥2 and the strict factor 2^(d−1). The dimension-one result is the separate non-strict first-minimum estimate. Conjecture 1.4 is not supplied as a theorem. These counting results do not supply the sharp upper Minkowski volume inequality or any quantitative lattice-counting error term. Needed by .
+- **GN.5 primary-source and proof decomposition.** GN.5 owns generic verified LLL (accepted RS-03): exact Gram–Schmidt/rational comparisons, unimodular update certificates, termination, Lovasz and size reduction, approximation guarantees and original-lattice verification. ED.1/ED.2 own their arithmetic reduction/exclusion applications. No unrestricted exact SVP/CVP follows from LLL. Needed by .
+- **GN.6 primary-source and proof decomposition.** GN.6 requires an exact category with duality, coherent double dual, forms/isometries, exact-category GW/W, hyperbolic/forgetful maps and higher hermitian K. Degree-zero field Witt/GW belongs to QuadraticFormInvariants. Source-scoped localization/periodicity needs precise invertibility-of-two/regularity assumptions; K.6 only the nonconnective subbranch. Needed by .
+- **Proof execution.** All 77 nodes remain unchecked planning declarations. The suggested file checks signatures and tests only. Six general scratch proofs (gauge transport, cross-cluster null intersection, finite integer-box cardinality, the strict interior-difference gauge bound, integral flag coordinates and the large-box limit) and six concrete statements compile without placeholders or diagnostics. These are selected checks, not an implementation of all fourteen new nodes or the full theorem. Exact rational polygon/box/covolume regressions are finite evidence, not universal proofs. Earlier scratch and regression evidence remains historical and is not claimed rerun. Needed by .
+- **Localization image adapter.** Identify L⊗R R_(p) with its span in V, prove injectivity, and produce exact local integral quadratic-map instances without imposing global freeness. Existing localization/tensor notions are imported, not re-planned. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-localization`.
+- **Completion and finite-quotient adapters.** Supply the exact injections, scalar-extension embeddings and R/p^e→R̂/p^e isomorphism for the imported adic/local-field substrate; the source proof is read, but these adapters have not been matched to declarations at the pin. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.2/completed-lattice-descent`.
+- **Spinor-genus source and adelic image comparison.** Acquire the exact O’Meara/spinor-genus passage and prove the integral adelic stabilizer comparison and dyadic spinor-norm images. The orbit definition is a worker specification of the staged target; no spinor-genus classification proof has been read or supplied. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.2/proper-spinor-genus`.
+- **Hermitian inverse-Gram and scalar-change proof.** Prove the local full finite inverse-Gram description, dual localization/completion compatibility and double-dual descent. Completed rational symmetric duality is imported only for its matching specialization, not asserted to provide all star-hermitian Dedekind adapters. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-dual-lattice`.
+- **LLL transition and invariant refinements.** Separate nearest-integer shear, adjacent-swap Gram updates, prefix invariant preservation, positive integer potential and lexicographic termination into proof-local declarations. The source pp.5–8 is read, but these algorithm invariants are not yet decomposed at implementation granularity. Complexity Proposition 1.26 is only statement-read; no complexity guarantee is exported. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-exact-reduction`.
+- **Finite hermitian vector counting proof.** Acquire and decompose the hermitian analogue of Kitaoka §5.6 Exercise 4 used in Li–Zhang p.18, including degenerate radical lifts. The source gives the formula but not this counting proof. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.3/finite-hermitian-isometry-formula`.
+- **Hermitian density existence and normalization proof.** Acquire Hironaka 1998/2012 and Gan–Yu 2000 at the exact passages used in Li–Zhang §§3.1–3.2. Prove existence, the generic fibre dimension, dyadic unramified smoothness and the finite-count/Haar comparison. These results are statement-read through Li–Zhang, not proof-read in their original sources. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-local-density`.
+- **Integral Siegel polynomial existence.** Prove the interpolation and integrality theorem cited in Li–Zhang §3.2 from the exact Hironaka source. Finite interpolation alone is not a proof of this construction. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-siegel-polynomial`.
+- **Overlattice stratum lifting and smoothness.** Acquire Cho–Yamauchi Corollary 3.11/Theorem 3.9 and Gan–Yu Lemma 5.5.2/§9, including the unramified dyadic case, and prove the representation-to-overlattice stratification with the exact q-exponent. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.3/cho-yamauchi-overlattice-formula`.
+- **Siegel-series functional-equation proof.** Acquire and decompose Hironaka’s exact functional equation used at (3.2.0.2); the source states it but the original proof is not read. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.3/siegel-polynomial-functional-equation`.
+- **Exact quotient and five-lemma adapters.** Match the native exact subobject quotient, induced dual quotient map and exact five-lemma to the pinned completed ExactStructure API. The source proof is read; no private exact-category carrier is substituted. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/isotropic-reduction`.
+- **Hermitian span composition refinements.** Decompose bicartesian-square equivalence, pullback closure, representative independence and category laws using the supplier Q-construction and completed exact structure. Definition 4.1 is read, but this construction has not been refined to all proof-local lemmas. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-q-construction`.
+- **Classical hermitian homotopy-fibre carrier.** Match small nerve realization, pointed homotopy fibre and orthogonal-sum H-space structures to topology/K-theory supplier nodes before prototyping this construction. No spectrum or homotopy fibre is represented by an empty Prop-valued field. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space`.
+- **Formation and low-homotopy refinement.** Split Schlichting §4.3 formation generators/relations, Proposition 4.9’s path-loop isomorphism, Lemma 4.10 and the exact five-lemma into proof-local nodes. Their source pp.119–122 is read; this pass records the precise comparison inputs rather than asserting they are implemented. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space-components`.
+- **Quaternionic integral module and classification source.** Acquire the exact quaternionic/hermitian local-lattice passages, including the routed Kurinczuk–Skodlerack–Stevens source restrictions. Prove order-module scalar change and noncommutative duality; do not infer them from commutative unramified hermitian density formulas. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.2/quaternionic-integral-hermitian-data`.
+- **Integral atomic splitting algorithm.** Acquire Voight’s 2013 Algorithm 3.12 and its proof, match actual discrete valuation and integral quadratic-map APIs, and split unary/binary pivot, orthogonal complement and termination lemmas. Book Proposition 9.8.4 cites this external proof rather than supplying it. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-normalized-form`.
+- **Totally positive restriction-of-scalars metric.** Match the arithmetic embedding/trace metric and its normalization to the existing number-field/EffectiveBoundsCompactModels owner; do not create a second number-field metric here. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-integral-isometry-finite`.
+- **Definite genus finite representative theorem.** Read and decompose the precise reduction bound for a fixed positive genus, including coefficient ideals over number rings. Adelic reduction supplies the domain framework, not this finite integral Gram enumeration by itself. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-genus-class-finite`.
+- **Tamagawa normalization and explicit mass factors.** Acquire the exact Smith–Minkowski–Siegel/Weil mass theorem, identify O versus SO indices and archimedean constants, prove the local-density factor comparison and the convergent Euler product, and prove the relevant Tamagawa number before assigning a numerical constant. The decomposition here gives an honest measure identity, not an unproved numerical mass formula. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.3/adelic-mass-identity`.
+- **Theta-kernel integral lattice adapter.** Supply the exact Schwartz/Gaussian specialization, coefficient exponent, discriminant Weil module, level and weight from MP.5; this node imports that theory rather than asserting a scalar modularity theorem without its hypotheses. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.3/theta-lattice-coefficient-interface`.
+- **Corrected Davenport/Rogers proof and semialgebraic carrier.** Acquire Davenport 1951 pp.179–183, its 1964 corrigendum p.580 and Rogers Theorem 9; decompose interval/projection induction and the bounded algebraic-cell complexity theorem. The corrigendum is identified via DOI 10.1112/jlms/s1-39.1.580-t and its indexed text, not represented as an acquired proof. Match the semialgebraic multiset carrier to its actual owner before a full Lean signature. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count`.
+- **Howe–Moore source proof and unitary representation adapter.** Acquire the original Howe–Moore proof or the cited complete exposition, split the Cartan/weak-limit/invariant-vector arguments, and match the strongly continuous L² action on G/Γ. The read Benoist source explicitly omits this proof. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/howe-moore-mixing`.
+- **L² ergodicity characterization and quotient action.** Match the actual invariant-probability quotient action, L² strong continuity and invariant-function characterization to the measure-theory baseline; no private ergodic-action predicate is introduced. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/homogeneous-ergodicity`.
+- **Dani–Margulis nondivergence proof.** Acquire the original recurrence proof cited by Benoist [11], including Mahler short-vector control and polynomial trajectory estimates. Record any quantitative strengthening as a separate theorem with its own good-function, covolume and uniformity hypotheses. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/unipotent-nondivergence`.
+- **Ratner orbit and measure rigidity proof.** Acquire the original Ratner measure-classification/orbit-closure sources and decompose recurrence, shearing, linearization, invariant-subgroup construction and finite-volume orbit arguments. The Morris source explicitly states that these proofs are long and does not supply them in the selected slice. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-orbit-closure`.
+- **Ratner ergodic measure proof.** Acquire the original classification proof and record its measurable shearing/entropy-free rigidity inputs at declaration granularity. Do not infer this theorem solely from topological orbit closure. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-measure-classification`.
+- **Oppenheim auxiliary Lie and arithmetic lemmas.** Supply the SO(1,2) intermediate-subgroup classification, Borel-density rationality of its invariant quadratic line and reduction from n≥3 to an appropriate irrational indefinite ternary restriction. The selected Morris proof treats n=3 and explicitly omits some Lie calculations. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/oppenheim-values`.
+- **Duke theta and coefficient estimates.** Acquire Iwaniec’s exact half-integral coefficient bound and Siegel’s ineffective r₃(n) lower bound; match spherical-harmonic theta lifting and density of harmonic polynomials. Duke p.74 gives the deduction, not the original proofs of those inputs. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/duke-spherical-equidistribution`.
+- **Star-body critical determinant and compactness source.** Acquire Mahler/Rogers star-body passages and prove the critical-lattice existence/extremal determinant claims under their exact boundedness and boundary hypotheses. The definition here is a worker construction; no convex-body theorem is applied to a nonconvex sublevel. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/compact-star-body`.
+- **Polar-body carrier and upper transference theorem.** Match the actual inner-product polar to a library definition, prove compact convex interior properties and the attained-minima comparison, then acquire the chosen classical/Banaszczyk upper transference theorem and covering constant. The present declaration proves only the lower inequality. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/dual-transference-lower`.
+- **Mahler bounded basis and quotient topology.** Acquire the complete chosen Mahler proof, refine the Hermite/reduced-basis uniform bound already listed in the inherited GN.1 frontier, and prove continuity/compactness in the exact SL quotient topology imported from the group owners. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/mahler-compactness`.
+- **Original Siegel mean-value proof.** Acquire Siegel’s A mean value theorem in geometry of numbers and decompose primitive unfolding, Haar normalization, arithmetic constant and L¹ justification. The current notes supply only the lattice-space/measure input, not that proof. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/siegel-mean-value`.
+- **Coding edge and real metric adapter.** Resolve the current FF.4 routing against the actual AlgebraicCodingTheory layer-6 constructor. Supply rational-to-real carrier, index/covolume and norm/parity comparisons before deriving an atlas edge from the word code. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/construction-a-real-lattice-interface`.
+- **Derived duality carrier owned by HermitianKTheoryOfPoincareCategories.** Import the routed stable Poincaré/flavour and derived-duality framework from the new HermitianKTheoryOfPoincareCategories design. No packet/stage yet exists at this base, so no fictitious supplier node is invented. Match its actual derived Hom and line-with-involution types before prototyping this comparison. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line`.
+- **Symmetric dévissage framework and original inputs.** Import generic GW/L fibre and localization from HermitianKTheoryOfPoincareCategories once its design has named nodes; import Quillen/Barwick ordinary K inputs from their owners. Acquire QSS79 symmetric Witt dévissage and refine the exact comparison; Calmes pp.38–39 proves the reduction using these inputs, not their proofs. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization`.
+- **s-filtering quotient and full Schlichting localization proof.** Match each of the four filtering/special inflation/deflation conditions and the exact quotient to GeneralAlgebraicKTheory, then read and decompose Schlichting §8 pp.141–149. Only its statement and setup were read here; no characteristic restriction is invented. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/schlichting-filtering-localization`.
+- **Classical dg comparison and Karoubi proof.** Read Schlichting §6 and the precise dg duality construction, then import the generic Poincaré Bott/Genauer theory from its routed owner rather than duplicating it. Unique 2-divisibility remains an explicit theorem hypothesis. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/shifted-karoubi-periodicity`.
+- **Even finite-field comparison and finite-vcd₂ theorem.** Import the original finite-vcd₂ BKSØ homotopy-limit theorem, Quillen finite-field K calculation and the generic hermitian pullback from their owners; refine Calmes Proposition 3.1.4’s even-field L/Tate comparison. The selected Calmes source reduction is proof-read, but those foundational proofs remain imports/gaps. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/number-ring-homotopy-limit`.
+- **Original upper transference proof.** Acquire Banaszczyk, Math. Ann. 296 (1993), 625–635, and decompose its Gaussian Fourier/Poisson and subspace estimates. The lecture statement has been read; the original full proof has not. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/dual-transference-upper`.
+- **Covering transference Gaussian proof.** Read and split Regev Lecture 11 pp.3–6, including shifted Gaussian sum, tail, Poisson summation and final scale choice. The proved Claim 3 is already read; the upper-bound proof is not. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/covering-dual-transference`.
+- **Original maximal mass theorem and complete local table.** Acquire Shimura 1999 Theorem 5.8 / Gan–Hanke–Yu 2001 Proposition 2.13, prove τ(SO)=2, maximal-lattice single genus, local-model comparison and finite bad-prime support. Definition 3.1/Table 1 are read, but the complete invariant-to-factor adapter and original mass proof require refinement. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.3/maximal-integral-mass-formula`.
+- **Mass zeta and archimedean normalization imports.** Attach exact number-field Dedekind-zeta Euler product and special-value supplier declarations, and the gamma/local Haar conversion. Do not infer these from the theta or adelic measure stage alone. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.3/maximal-integral-mass-formula`.
+- **Hermitian cone diagram and filtering refinement.** Physical pp.55,57–58 and the tail of p.56 were read; complete §9.1 cone object/morphism/shift definitions and Lemmas 9.2–9.4 proofs must be read and split. These are hermitian adapters, while generic exact quotients and idempotent completion remain K.6 imports. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension`.
+- **Hermitian cofinality input.** Read and split §5 Theorem 5.2 at the exact GW-space level; its use in Remark 9.12 is read, but its full proof is not. Do not import ordinary K cofinality as if it proved this statement. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension-delooping`.
+- **Native spectrum and hyperbolic suspension comparison.** Obtain the genuine spectrum/loop/idempotent-completion interfaces from their owners and verify the hermitian hyperbolic functor’s compatibility with K.6 suspension. This construction is not represented by an opaque invented carrier in the suggested file. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.6/nonconnective-hermitian-spectrum`.
+- **Ratner time-average selection and escape control.** Measure classification plus qualitative recurrence does not by itself identify every time-average limit. Acquire the original equidistribution proof, its nonescape estimates and selection argument, retaining the stated one-parameter unipotent hypothesis. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-unipotent-equidistribution`.
+- **Consumer weighted arithmetic metric adapter.** EffectiveBoundsCompactModels owns its chosen coefficient metric; a complete named weighted-number-field embedding comparison must specify the exact determinant and the lower norm estimate in that consumer. This packet supplies only the canonical mixed-embedding normalization, not a new consumer metric. Needed by `GeometryOfNumbersAndQuadraticArithmetic:GN.0/mixed-embedding-normalization`.
+
+- **tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field.** Local field quadratic classification with actual dyadic discriminant/Hasse/sign conventions; only the field input, not integral genus. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus`.
+- **tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry.** Rational isometry from matching local field forms with all real signatures and finite invariants retained; no integral isometry conclusion. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus`.
+- **tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-2-the-pin-and-spin-groups-and-the-double-covers.** Actual spin-cover map to SO on general characteristic-not-two field points and its spinor-norm kernel; no unsupported local surjectivity. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.2/proper-spinor-genus`.
+- **AdelicAlgebraicGroups:AA.1.** Finite adelic points and functorial induced spin-cover maps, with their actual restricted-product topology. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.2/proper-spinor-genus`.
+- **tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors.** Use the completed intrinsic exact structure, actual conflation-exact functors and biproduct conflations; supply the duality adapter without defining a private Quillen carrier. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-category-duality`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-lagrangian`.
+- **tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory.** Compare the general exact-category degree-zero Witt/GW presentations with the existing field theory under its exact characteristic and form conventions. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-witt-group`.
+- **tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion.** Quaternion algebras and the standard involution in characteristic different from two; no commutative-field replacement of the right quaternion module. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.2/quaternionic-integral-hermitian-data`.
+- **AdelicAlgebraicGroups:AA.2.** Compatible quotient/product Haar measures, finite-volume quotient and integration normalization; no numerical Tamagawa constant asserted without its separate proof. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.3/adelic-mass-identity`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/howe-moore-mixing`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/homogeneous-ergodicity`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/siegel-mean-value`.
+- **AdelicAlgebraicGroups:AA.3.** Reduction domains for the indicated arithmetic groups, with actual coarse/fundamental-domain and quotient-topology hypotheses. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-genus-class-finite`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3/adelic-mass-identity`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/mahler-compactness`.
+- **MetaplecticAutomorphicForms:MP.5.** Convergent theta kernel and the lattice Schwartz/Gaussian coefficient specialization, including its discriminant, level and measure conventions. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.3/theta-lattice-coefficient-interface`.
+- **MetaplecticAutomorphicForms:MP.7.** The harmonic half-integral theta coefficient interface for Duke’s spherical Weyl sums; the analytic coefficient estimate remains a separate original-source gap. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.4/duke-spherical-equidistribution`.
+- **tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem.** Actual finite-dimensional matrix Lie groups and their closed subgroup structures; general homogeneous quotient manifolds are supplied by Lie groups Part II, not redefined here. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.4/howe-moore-mixing`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-orbit-closure`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-measure-classification`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/oppenheim-values`.
+- **tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses.** Use the completed Construction A constructor, exact index and self-dual/parity hypotheses; supply the real metric/covolume adapter for the current unresolved FF.4 consumer routing. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.4/construction-a-real-lattice-interface`.
+- **GeneralAlgebraicKTheory:K.6.** Exact filtering quotients and the selected nonconnective/localization substrate only; ordinary K does not supply hermitian spectra or shifted residue duality. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.6/schlichting-filtering-localization`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/nonconnective-hermitian-spectrum`.
+- **GeneralAlgebraicKTheory:K.4:construction.** Imported ordinary S-construction and K spectrum for the classical dg Bott comparison; not a substitute for the hermitian spectrum. Consumers: `GeometryOfNumbersAndQuadraticArithmetic:GN.6/shifted-karoubi-periodicity`.
+
+## Additional source finding awaiting verification
+
+**GeometryOfNumbersAndQuadraticArithmetic/E10.** §9.4.5: publisher version of record (2021), printed p.144 / physical p.160; also post-publication v1.0.7u (5 August 2026), printed p.140 / physical p.160. Both passages read; updated passage visually verified. The printed assertion is “every finitely generated module over a DVR is free.” Every finitely generated torsion-free module over a DVR is free. The lattice applications have that torsion-free hypothesis because their carriers are submodules of a fraction-field vector space. For a DVR A with nonzero uniformizer π, the nonzero cyclic module A/πA is finitely generated and has π-torsion, whereas every free module over the domain A is torsion-free. This is a counterexample to the unrestricted printed assertion. Localized lattices remain torsion-free, so the correction does not invalidate the lattice descent target. The [publisher PDF](https://link.springer.com/content/pdf/10.1007/978-3-030-56694-4.pdf) has SHA-256 `f6c56f6ca7b4bee139b88865a3cf045f899da59d0217618c4dc81daf19ef1ad4`; the [author errata](https://jvoight.github.io/quat-errata.pdf) has SHA-256 `42987c03960d3c5d36e5920243e6defc587710cd7e106e79b3a688d1e3bf3232`. No correction was found in the dated author errata. This is an unchecked finding for the independent reviewer, not a confirmed verdict.
+
+## Validation receipt
+
+The indexed packet checker reports zero errors and zero warnings, with all seven stages planned. Source-issue and source-version checks report no errors. All 77 incoming whole node objects, 156 baseline entries, nine source findings, five source-version records and the inherited reader body are preserved. The suggested file has 2479 lines and 33 individual Mathlib imports. It elaborated at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` in 9.81 seconds, with 364 admission warnings, zero errors and zero other warnings. It imports no Tau Ceti module; the available build’s Tau Ceti root was not the pinned source commit, so this is a Mathlib-only elaboration check. No production-library implementation, exhaustive prototype coverage or mathematical closure is claimed.
