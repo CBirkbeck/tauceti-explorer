@@ -1,3 +1,131 @@
+# General two-gerbe Hom-sheaf base-change coherence
+
+Codex — codex-7e92bd, 4 October 2026. Partial continuation; six lemmas complete the unit and composition API of the existing comparison.
+
+The general F→G Hom-sheaf base-change unit and composition laws now have checked native proof prototypes, including the two distinct endpoint comparisons, their inverses and naturality on the actual modification category. This resolves the specifically named general-coherence frontier in earlier historical entries. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; stability under a third pullback does not assert a full descent pentagon. All inherited intrinsic descended-band/SF1, nonneutral root-gerbe/H², fpqc-limit and other-stage/source obligations remain.
+
+The identity and composition equations retain separate F and G endpoint comparisons. The proofs expand actual native section maps and use the pinned pseudofunctor unit/associativity identities and strong-transformation laws. Equality-transport 2-cells are composed explicitly. No self-gerbe independence shortcut or strict-pseudofunctor assumption is used. The natural equations retain all modifications, functor associators, unitors and whiskering. The inverse equations reverse all factors.
+
+## General two-gerbe identity comparison
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_id**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/unit**.
+
+For X:F→G in HomCategory(bF,bG), x∈F(U), y∈G(U), compose fibreHomBaseChangeIso(X,𝟙_U,x,y) with endpoint transport along the distinct F.mapId(x) and G.mapId(y). This actual sheaf isomorphism equals the component of native overMapPullbackId at H_U(x,y;X). Neither endpoint comparison is suppressed.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w. Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed. Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict.
+
+Proof plan: Evaluate the actual native sheaf maps on an arbitrary section over T→U. Use the endpoint and base-change formulas and strong-transformation identity law. Cancel the F-unit factors after mapping them, retain both G comparison factors, and use the native pseudofunctor left/right unit equations. Combine the remaining equality-transport 2-cells using map₂_comp and map₂_id; the real Over.mapId restriction remains on the other side.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso, AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/iso, AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/apply, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/formula, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-id, mathlib:CategoryTheory.GrothendieckTopology.overMapPullbackId, mathlib:CategoryTheory.Pseudofunctor.mapComp_id_left_hom, mathlib:CategoryTheory.Pseudofunctor.mapComp_id_left_inv, mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_hom, mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_inv, mathlib:CategoryTheory.PrelaxFunctor, mathlib:CategoryTheory.Bicategory.Strict, mathlib:CategoryTheory.Cat.Hom₂.comp_app.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Complete the named unit/composition API of this existing native comparison. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence.
+
+## General two-gerbe composition comparison
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_comp**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/composition**.
+
+For f:V→U and g:W→V, start at g⁎f⁎H_U(x,y;X). The native overMapPullbackComp(g,f), followed by base comparison along g≫f and endpoint transport along F.mapComp(f,g)(x) and G.mapComp(f,g)(y), equals g⁎ of comparison along f followed by comparison along g at the pair F(f)x,G(f)y. This is equality of actual sheaf isomorphisms.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w. Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed. Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict.
+
+Proof plan: Expand all three base-comparison components, native Over.mapComp and the two-endpoint section formula. Use the strong-transformation composition law to cancel the F-mapComp factors. Apply the native G associativity identities, combine the equality-transport 2-cells and use naturality of G.mapComp(g,t) at the actual restriction isomorphism.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso, AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/iso, AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/apply, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/formula, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-comp, mathlib:CategoryTheory.GrothendieckTopology.overMapPullbackComp, mathlib:CategoryTheory.Pseudofunctor.mapComp_assoc_left_hom, mathlib:CategoryTheory.Pseudofunctor.mapComp_assoc_left_inv, mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_hom, mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_inv, mathlib:CategoryTheory.PrelaxFunctor, mathlib:CategoryTheory.Bicategory.Strict, mathlib:CategoryTheory.Cat.Hom₂.comp_app.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Complete the named unit/composition API of this existing native comparison. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence.
+
+## Identity natural in every fixed-band modification
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_id**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/natural-unit**.
+
+The composite of the general base-change natural isomorphism at 𝟙_U and the endpoint natural isomorphism at F.mapId(x),G.mapId(y) equals left whiskering of native overMapPullbackId by H_U(x,y;−), followed by that functor’s right unitor. The domain is the actual HomCategory(bF,bG), with all native modifications.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w. Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed. Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict.
+
+Proof plan: Apply native isomorphism and natural-transformation extensionality. At every X, use the proved general sheaf identity law; the right-unitor component is the native identity.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/unit, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso, AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/natural-iso, mathlib:CategoryTheory.Functor.isoWhiskerLeft, mathlib:CategoryTheory.Functor.rightUnitor.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso: Complete the named unit/composition API of this existing native comparison. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence.
+
+## Composition natural in every fixed-band modification
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_comp**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/natural-composition**.
+
+On HomCategory(bF,bG), retain the functor associator from (H_U⋙f⁎)⋙g⁎, then left-whiskered overMapPullbackComp(g,f), comparison along g≫f and endpoint natural transport along both pseudofunctor composition maps. This equals right whiskering of comparison along f by g⁎ followed by comparison along g at F(f)x,G(f)y.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w. Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed. Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict.
+
+Proof plan: Apply natural-transformation extensionality, retaining the native functor associator and whiskering maps. Reduce each component to the proved general sheaf composition law.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/composition, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso, AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/natural-iso, mathlib:CategoryTheory.Functor.associator, mathlib:CategoryTheory.Functor.isoWhiskerLeft, mathlib:CategoryTheory.Functor.isoWhiskerRight.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso: Complete the named unit/composition API of this existing native comparison. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence.
+
+## The reversed two-endpoint identity map
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_id_inv**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/unit-inverse**.
+
+The inverse endpoint comparison at F.mapId(x),G.mapId(y), followed by the inverse base-change comparison at 𝟙_U, equals the inverse component of native overMapPullbackId. The order of the two actual maps is reversed.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w. Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed. Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict.
+
+Proof plan: Apply Iso.inv to the general identity equality; keep the reversed factors.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/unit.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Complete the named unit/composition API of this existing native comparison. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence.
+
+## The reversed general composition map
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_comp_inv**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/composition-inverse**.
+
+The inverse endpoint map at F.mapComp(f,g)(x),G.mapComp(f,g)(y), then inverse comparison along g≫f, then inverse native overMapPullbackComp(g,f), equals inverse comparison along g followed by g⁎ of inverse comparison along f.
+
+Hypotheses: Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w. Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed. Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict.
+
+Proof plan: Apply Iso.inv to the general composition equality, use mapIso_inv and associate the three inverse factors.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/composition.
+
+Uses: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso: Complete the named unit/composition API of this existing native comparison. AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence: Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence.
+
+## Appended API and tests for AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_id**: For X:F→G in HomCategory(bF,bG), x∈F(U), y∈G(U), compose fibreHomBaseChangeIso(X,𝟙_U,x,y) with endpoint transport along the distinct F.mapId(x) and G.mapId(y). This actual sheaf isomorphism equals the component of native overMapPullbackId at H_U(x,y;X). Neither endpoint comparison is suppressed.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_comp**: For f:V→U and g:W→V, start at g⁎f⁎H_U(x,y;X). The native overMapPullbackComp(g,f), followed by base comparison along g≫f and endpoint transport along F.mapComp(f,g)(x) and G.mapComp(f,g)(y), equals g⁎ of comparison along f followed by comparison along g at the pair F(f)x,G(f)y. This is equality of actual sheaf isomorphisms.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_id_inv**: The inverse endpoint comparison at F.mapId(x),G.mapId(y), followed by the inverse base-change comparison at 𝟙_U, equals the inverse component of native overMapPullbackId. The order of the two actual maps is reversed.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_comp_inv**: The inverse endpoint map at F.mapComp(f,g)(x),G.mapComp(f,g)(y), then inverse comparison along g≫f, then inverse native overMapPullbackComp(g,f), equals inverse comparison along g followed by g⁎ of inverse comparison along f.
+
+Test **TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.unit_inverse_order** (computation): For every actual section, the inverse endpoint map is applied before the inverse identity-base map, and their value equals the native Over identity inverse.
+
+Test **TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.composition_inverse_round_trip** (compatibility): The iterated forward map followed by the three reversed coherent factors is the identity actual sheaf map.
+
+Test **TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.same_actual_coefficient** (compatibility): Two successive comparisons preserve the same supplied a∈Multiplicative A(T), using the actual native section actions.
+
+Test **TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.unbalanced_unit_endpoint** (non-example): After the correctly endpoint-adjusted identity-base comparison, an independently added target-endpoint automorphism that remains nonidentity under G(t) changes every supplied section. It cannot be erased from the general two-object formula.
+
+Test **TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.empty_iterated_sections** (degenerate): If the original section carrier over the twice-mapped Over object is empty, the twice-restricted carrier is empty by the actual inverse maps; no section is selected.
+
+Test **TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.diagonal_composition** (compatibility): Specializing F=G, bF=bG and y=x recovers exactly the existing selfHomSheafTransportIso composition equality.
+
+## Appended API and tests for AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_id**: The composite of the general base-change natural isomorphism at 𝟙_U and the endpoint natural isomorphism at F.mapId(x),G.mapId(y) equals left whiskering of native overMapPullbackId by H_U(x,y;−), followed by that functor’s right unitor. The domain is the actual HomCategory(bF,bG), with all native modifications.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_comp**: On HomCategory(bF,bG), retain the functor associator from (H_U⋙f⁎)⋙g⁎, then left-whiskered overMapPullbackComp(g,f), comparison along g≫f and endpoint natural transport along both pseudofunctor composition maps. This equals right whiskering of comparison along f by g⁎ followed by comparison along g at F(f)x,G(f)y.
+
+Test **TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.iterated_modifications** (compatibility): Every actual modification commutes with the iterated natural comparison over f and g.
+
+Test **TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.third_pullback_stability** (compatibility): The complete two-arrow comparison equality remains equal after a third arbitrary native pullback; this check does not claim the full descent pentagon.
+
+All 566 incoming mathematical contracts are retained; 564 complete nodes are unchanged. Two existing comparison nodes receive only appended API/tests. Every implementation status remains unchecked. All ten gaps,22 requests,eight source issues,ten planets and eight partial stages remain. The eight tests are parameterized native checks, not newly constructed geometric fixtures. Historical statements of open general coherence below describe earlier checkpoints; the precise unit/composition portion is resolved by this addition. Full Tau-dependent suggested-file compilation, actual cover/refinement gluing and the full classification remain unclaimed.
+
+Source context: [Stacks Section8.11](https://stacks.math.columbia.edu/tag/06NY). The exact native proofs are authored here; the existing projection-label correction E6 is retained, and no new source error is asserted. The complete prior reader follows verbatim.
+
 # Two-gerbe endpoint transport on native Hom sheaves
 
 Codex — codex-rtOQ9t,4 October2026. Partial continuation; every incoming mathematical contract is retained.

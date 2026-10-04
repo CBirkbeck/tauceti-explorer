@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Two-gerbe endpoint transport: three constructions, thirteen lemmas, fourteen API additions and nine typed checks; no stage closes. Self-gerbe Hom-sheaf coherence checkpoint:8 lemmas,8 API additions and6 typed checks; no stage or key-definition closure. Native local Hom-sheaf base restriction checkpoint:12 declarations,10 API items and7 typed tests; no stage or key-definition closure. Choice-independent native sheaf transport between local gerbe objects:20 new declarations,15 API items and12 typed tests, including the actual local-object functor and modification naturality. Separate proof evidence compiles without admissions; no stage closure or implementation is claimed. Actual slice Hom sheaves and a functor on fixed-band gerbe modifications, with local sections, compatible simply transitive band actions and transported Isom comparison:28 new declarations,21 API items and22 typed tests. Independent native proof evidence is checked without admissions; no implementation or stage closure is claimed. Native semilinear site restriction of fixed-band Isom actions, with actual modification naturality, pseudofunctor identity/composition comparisons, and restriction-compatible natural local-object transport:18 new declarations,13 API items and14 parameterized tests. The independent proof prototype has no admissions; the roadmap remains partial and every implementation status remains unchecked. Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
+  "summary": "General two-gerbe base-change coherence: six lemmas, six API additions and eight typed checks; no stage closes. Two-gerbe endpoint transport: three constructions, thirteen lemmas, fourteen API additions and nine typed checks; no stage closes. Self-gerbe Hom-sheaf coherence checkpoint:8 lemmas,8 API additions and6 typed checks; no stage or key-definition closure. Native local Hom-sheaf base restriction checkpoint:12 declarations,10 API items and7 typed tests; no stage or key-definition closure. Choice-independent native sheaf transport between local gerbe objects:20 new declarations,15 API items and12 typed tests, including the actual local-object functor and modification naturality. Separate proof evidence compiles without admissions; no stage closure or implementation is claimed. Actual slice Hom sheaves and a functor on fixed-band gerbe modifications, with local sections, compatible simply transitive band actions and transported Isom comparison:28 new declarations,21 API items and22 typed tests. Independent native proof evidence is checked without admissions; no implementation or stage closure is claimed. Native semilinear site restriction of fixed-band Isom actions, with actual modification naturality, pseudofunctor identity/composition comparisons, and restriction-compatible natural local-object transport:18 new declarations,13 API items and14 parameterized tests. The independent proof prototype has no admissions; the roadmap remains partial and every implementation status remains unchecked. Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1740,6 +1740,87 @@
         "sourceSha256": "57b58238a105bac2f8beaa429212a3b463e815d40a37e086fdd0073a44e4bbcd",
         "provides": "The native functor associator with identity components.",
         "checked": "Complete declaration and relevant native data freshly read at exact pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174,2026-10-03, Codex codex-7e92bd."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Bicategory.Strict",
+        "kind": "definition",
+        "module": "Mathlib/CategoryTheory/Bicategory/Strict/Basic.lean",
+        "sourceLine": 40,
+        "sourceSha256": "88b8106f5be53226fa1252745ffa494716212c633dde0a37f3a6cac91281108c",
+        "provides": "Existing strictness data for the source LocallyDiscrete bicategory, including unitors/associator as eqToIso; this does not impose strictness on F or G.",
+        "checked": "Complete declaration, ambient hypotheses and proof/data freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-04, Codex — codex-7e92bd. Generated component names are used without inventing separate library declarations."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Cat.Hom₂.comp_app",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Category/Cat.lean",
+        "sourceLine": 267,
+        "sourceSha256": "9e0a731c46c8986adc4395a43e7cf14616db47ca16882b1f868bc85934beaa72",
+        "provides": "Native declaration used in the general Hom-sheaf coherence proof; the exact component/reassociated equations are generated by the declaration’s to_app or reassoc attributes where present.",
+        "checked": "Complete declaration, ambient hypotheses and proof/data freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-04, Codex — codex-7e92bd. Generated component names are used without inventing separate library declarations."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.PrelaxFunctor",
+        "kind": "definition",
+        "module": "Mathlib/CategoryTheory/Bicategory/Functor/Prelax.lean",
+        "sourceLine": 101,
+        "sourceSha256": "76e964068c709ac63d35d0f86e332e8b0268493abd5e30f3d18650ed41e26ede",
+        "provides": "Existing 2-cell functor data, including map₂_id and map₂_comp fields and their reassociated equations; used to combine actual equality transports.",
+        "checked": "Complete declaration, ambient hypotheses and proof/data freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-04, Codex — codex-7e92bd. Generated component names are used without inventing separate library declarations."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.mapComp_assoc_left_hom",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean",
+        "sourceLine": 176,
+        "sourceSha256": "d5ef476a4cbde70668b9be30cf9d8c09dd4478b17a9625abe2b9a12210e8fe1b",
+        "provides": "Native declaration used in the general Hom-sheaf coherence proof; the exact component/reassociated equations are generated by the declaration’s to_app or reassoc attributes where present.",
+        "checked": "Complete declaration, ambient hypotheses and proof/data freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-04, Codex — codex-7e92bd. Generated component names are used without inventing separate library declarations."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.mapComp_assoc_left_inv",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean",
+        "sourceLine": 190,
+        "sourceSha256": "d5ef476a4cbde70668b9be30cf9d8c09dd4478b17a9625abe2b9a12210e8fe1b",
+        "provides": "Native declaration used in the general Hom-sheaf coherence proof; the exact component/reassociated equations are generated by the declaration’s to_app or reassoc attributes where present.",
+        "checked": "Complete declaration, ambient hypotheses and proof/data freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-04, Codex — codex-7e92bd. Generated component names are used without inventing separate library declarations."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.mapComp_id_left_hom",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean",
+        "sourceLine": 200,
+        "sourceSha256": "d5ef476a4cbde70668b9be30cf9d8c09dd4478b17a9625abe2b9a12210e8fe1b",
+        "provides": "Native declaration used in the general Hom-sheaf coherence proof; the exact component/reassociated equations are generated by the declaration’s to_app or reassoc attributes where present.",
+        "checked": "Complete declaration, ambient hypotheses and proof/data freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-04, Codex — codex-7e92bd. Generated component names are used without inventing separate library declarations."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.mapComp_id_left_inv",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean",
+        "sourceLine": 212,
+        "sourceSha256": "d5ef476a4cbde70668b9be30cf9d8c09dd4478b17a9625abe2b9a12210e8fe1b",
+        "provides": "Native declaration used in the general Hom-sheaf coherence proof; the exact component/reassociated equations are generated by the declaration’s to_app or reassoc attributes where present.",
+        "checked": "Complete declaration, ambient hypotheses and proof/data freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-04, Codex — codex-7e92bd. Generated component names are used without inventing separate library declarations."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_hom",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean",
+        "sourceLine": 240,
+        "sourceSha256": "d5ef476a4cbde70668b9be30cf9d8c09dd4478b17a9625abe2b9a12210e8fe1b",
+        "provides": "Native declaration used in the general Hom-sheaf coherence proof; the exact component/reassociated equations are generated by the declaration’s to_app or reassoc attributes where present.",
+        "checked": "Complete declaration, ambient hypotheses and proof/data freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-04, Codex — codex-7e92bd. Generated component names are used without inventing separate library declarations."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_inv",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean",
+        "sourceLine": 252,
+        "sourceSha256": "d5ef476a4cbde70668b9be30cf9d8c09dd4478b17a9625abe2b9a12210e8fe1b",
+        "provides": "Native declaration used in the general Hom-sheaf coherence proof; the exact component/reassociated equations are generated by the declaration’s to_app or reassoc attributes where present.",
+        "checked": "Complete declaration, ambient hypotheses and proof/data freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-04, Codex — codex-7e92bd. Generated component names are used without inventing separate library declarations."
       }
     ]
   },
@@ -2676,6 +2757,18 @@
       "readSections": [
         "Complete displayed Lemmas31.3/31.4 and proofs and Remark31.5, printed122–123; beginning and warning31.6 only.",
         "These exact native endpoint maps, equations and proofs are authored deductions. Full source/classification completeness remains unclaimed."
+      ]
+    },
+    {
+      "id": "OG-general-base-coherence-codex-7e92bd",
+      "title": "General two-gerbe Hom-sheaf base-change coherence",
+      "authors": "The Stacks Project Authors; exact native deductions by Codex — codex-7e92bd",
+      "edition": "Displayed Section8.11 freshly read 2026-10-04; exact Mathlib pin",
+      "url": "https://stacks.math.columbia.edu/tag/06NY",
+      "accessDate": "2026-10-04",
+      "readSections": [
+        "Complete displayed Section8.11: definitions, Lemmas8.11.2–8.11.8 and proofs/diagrams, and both comments.",
+        "Gerbe conventions and local compatibility context only; the exact native equations and proofs are authored deductions. The existing projection-label issue E6 is still visible and retained; the omitted general base-compatibility argument does not close SF1."
       ]
     }
   ],
@@ -32781,6 +32874,26 @@
           "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomEndpointBaseChange_square",
           "role": "compatibility",
           "statement": "For f:V→U, pull back T_X(e,d) by the native slice-sheaf functor and then apply fibreHomBaseChangeIso at (x′,y′). This equals the comparison at (x,y), followed by T_X(F(f)e,G(f)d). The equality is of actual sheaf morphisms over V, retaining the native Over functor and both strong/pseudofunctor comparison maps."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_id",
+          "role": "compatibility",
+          "statement": "For X:F→G in HomCategory(bF,bG), x∈F(U), y∈G(U), compose fibreHomBaseChangeIso(X,𝟙_U,x,y) with endpoint transport along the distinct F.mapId(x) and G.mapId(y). This actual sheaf isomorphism equals the component of native overMapPullbackId at H_U(x,y;X). Neither endpoint comparison is suppressed."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_comp",
+          "role": "compatibility",
+          "statement": "For f:V→U and g:W→V, start at g⁎f⁎H_U(x,y;X). The native overMapPullbackComp(g,f), followed by base comparison along g≫f and endpoint transport along F.mapComp(f,g)(x) and G.mapComp(f,g)(y), equals g⁎ of comparison along f followed by comparison along g at the pair F(f)x,G(f)y. This is equality of actual sheaf isomorphisms."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_id_inv",
+          "role": "compatibility",
+          "statement": "The inverse endpoint comparison at F.mapId(x),G.mapId(y), followed by the inverse base-change comparison at 𝟙_U, equals the inverse component of native overMapPullbackId. The order of the two actual maps is reversed."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_comp_inv",
+          "role": "compatibility",
+          "statement": "The inverse endpoint map at F.mapComp(f,g)(x),G.mapComp(f,g)(y), then inverse comparison along g≫f, then inverse native overMapPullbackComp(g,f), equals inverse comparison along g followed by g⁎ of inverse comparison along f."
         }
       ],
       "tests": [
@@ -32823,6 +32936,36 @@
           "name": "TauCeti.AlgebraicGeometry.SheafCoherenceTests.coefficient_composite",
           "kind": "compatibility",
           "statement": "Two successive restriction comparisons preserve the same arbitrary coefficient a∈Multiplicative A(T); no incorrect restriction of a along f or g is inserted."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.unit_inverse_order",
+          "kind": "computation",
+          "statement": "For every actual section, the inverse endpoint map is applied before the inverse identity-base map, and their value equals the native Over identity inverse."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.composition_inverse_round_trip",
+          "kind": "compatibility",
+          "statement": "The iterated forward map followed by the three reversed coherent factors is the identity actual sheaf map."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.same_actual_coefficient",
+          "kind": "compatibility",
+          "statement": "Two successive comparisons preserve the same supplied a∈Multiplicative A(T), using the actual native section actions."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.unbalanced_unit_endpoint",
+          "kind": "non-example",
+          "statement": "After the correctly endpoint-adjusted identity-base comparison, an independently added target-endpoint automorphism that remains nonidentity under G(t) changes every supplied section. It cannot be erased from the general two-object formula."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.empty_iterated_sections",
+          "kind": "degenerate",
+          "statement": "If the original section carrier over the twice-mapped Over object is empty, the twice-restricted carrier is empty by the actual inverse maps; no section is selected."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.diagonal_composition",
+          "kind": "compatibility",
+          "statement": "Specializing F=G, bF=bG and y=x recovers exactly the existing selfHomSheafTransportIso composition equality."
         }
       ]
     },
@@ -33108,6 +33251,16 @@
           "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomBaseChangeNatIso_comp",
           "role": "compatibility",
           "statement": "The native functor associator, whiskered overMapPullbackComp(g,f), comparison for g≫f and target local-object transport compose to the same natural isomorphism as right-whiskering the comparison for f by g⁎ and then comparing along g at F(f)x. All functors have domain HomCategory(b,b); the equality is of native natural isomorphisms, not only of their isomorphism classes."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_id",
+          "role": "compatibility",
+          "statement": "The composite of the general base-change natural isomorphism at 𝟙_U and the endpoint natural isomorphism at F.mapId(x),G.mapId(y) equals left whiskering of native overMapPullbackId by H_U(x,y;−), followed by that functor’s right unitor. The domain is the actual HomCategory(bF,bG), with all native modifications."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_comp",
+          "role": "compatibility",
+          "statement": "On HomCategory(bF,bG), retain the functor associator from (H_U⋙f⁎)⋙g⁎, then left-whiskered overMapPullbackComp(g,f), comparison along g≫f and endpoint natural transport along both pseudofunctor composition maps. This equals right whiskering of comparison along f by g⁎ followed by comparison along g at F(f)x,G(f)y."
         }
       ],
       "tests": [
@@ -33135,6 +33288,16 @@
           "name": "TauCeti.AlgebraicGeometry.SheafCoherenceTests.third_pullback",
           "kind": "compatibility",
           "statement": "The complete two-step coherence equality remains valid after applying the native sheaf pullback along a third arbitrary arrow. This checks stability under a third pullback, not a separately established full descent pentagon."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.iterated_modifications",
+          "kind": "compatibility",
+          "statement": "Every actual modification commutes with the iterated natural comparison over f and g."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests.third_pullback_stability",
+          "kind": "compatibility",
+          "statement": "The complete two-arrow comparison equality remains equal after a third arbitrary native pullback; this check does not claim the full descent pentagon."
         }
       ]
     },
@@ -34784,6 +34947,337 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/unit",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "General two-gerbe identity comparison",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_id",
+      "statement": "For X:F→G in HomCategory(bF,bG), x∈F(U), y∈G(U), compose fibreHomBaseChangeIso(X,𝟙_U,x,y) with endpoint transport along the distinct F.mapId(x) and G.mapId(y). This actual sheaf isomorphism equals the component of native overMapPullbackId at H_U(x,y;X). Neither endpoint comparison is suppressed.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w.",
+        "Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed.",
+        "Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/apply",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/formula",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-id",
+        "mathlib:CategoryTheory.GrothendieckTopology.overMapPullbackId",
+        "mathlib:CategoryTheory.Pseudofunctor.mapComp_id_left_hom",
+        "mathlib:CategoryTheory.Pseudofunctor.mapComp_id_left_inv",
+        "mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_hom",
+        "mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_inv",
+        "mathlib:CategoryTheory.PrelaxFunctor",
+        "mathlib:CategoryTheory.Bicategory.Strict",
+        "mathlib:CategoryTheory.Cat.Hom₂.comp_app"
+      ],
+      "proofSteps": [
+        "Evaluate the actual native sheaf maps on an arbitrary section over T→U. Use the endpoint and base-change formulas and strong-transformation identity law.",
+        "Cancel the F-unit factors after mapping them, retain both G comparison factors, and use the native pseudofunctor left/right unit equations. Combine the remaining equality-transport 2-cells using map₂_comp and map₂_id; the real Over.mapId restriction remains on the other side."
+      ],
+      "acceptance": [
+        "Keep both endpoint and native Over comparison maps, actual strong transformations and all modifications.",
+        "The general F→G Hom-sheaf base-change unit and composition laws now have checked native proof prototypes, including the two distinct endpoint comparisons, their inverses and naturality on the actual modification category. This resolves the specifically named general-coherence frontier in earlier historical entries. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; stability under a third pullback does not assert a full descent pentagon. All inherited intrinsic descended-band/SF1, nonneutral root-gerbe/H², fpqc-limit and other-stage/source obligations remain."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso",
+          "how": "Complete the named unit/composition API of this existing native comparison."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-general-base-coherence-codex-7e92bd",
+          "locator": "Stacks Section8.11, tag06NY, gerbe conventions; exact native coherence equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies gerbe and local compatibility context. It does not state these Lean-specific equations or complete the remaining gluing and classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/composition",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "General two-gerbe composition comparison",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_comp",
+      "statement": "For f:V→U and g:W→V, start at g⁎f⁎H_U(x,y;X). The native overMapPullbackComp(g,f), followed by base comparison along g≫f and endpoint transport along F.mapComp(f,g)(x) and G.mapComp(f,g)(y), equals g⁎ of comparison along f followed by comparison along g at the pair F(f)x,G(f)y. This is equality of actual sheaf isomorphisms.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w.",
+        "Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed.",
+        "Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/apply",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/formula",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-comp",
+        "mathlib:CategoryTheory.GrothendieckTopology.overMapPullbackComp",
+        "mathlib:CategoryTheory.Pseudofunctor.mapComp_assoc_left_hom",
+        "mathlib:CategoryTheory.Pseudofunctor.mapComp_assoc_left_inv",
+        "mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_hom",
+        "mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_inv",
+        "mathlib:CategoryTheory.PrelaxFunctor",
+        "mathlib:CategoryTheory.Bicategory.Strict",
+        "mathlib:CategoryTheory.Cat.Hom₂.comp_app"
+      ],
+      "proofSteps": [
+        "Expand all three base-comparison components, native Over.mapComp and the two-endpoint section formula.",
+        "Use the strong-transformation composition law to cancel the F-mapComp factors. Apply the native G associativity identities, combine the equality-transport 2-cells and use naturality of G.mapComp(g,t) at the actual restriction isomorphism."
+      ],
+      "acceptance": [
+        "Keep both endpoint and native Over comparison maps, actual strong transformations and all modifications.",
+        "The general F→G Hom-sheaf base-change unit and composition laws now have checked native proof prototypes, including the two distinct endpoint comparisons, their inverses and naturality on the actual modification category. This resolves the specifically named general-coherence frontier in earlier historical entries. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; stability under a third pullback does not assert a full descent pentagon. All inherited intrinsic descended-band/SF1, nonneutral root-gerbe/H², fpqc-limit and other-stage/source obligations remain."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso",
+          "how": "Complete the named unit/composition API of this existing native comparison."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-general-base-coherence-codex-7e92bd",
+          "locator": "Stacks Section8.11, tag06NY, gerbe conventions; exact native coherence equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies gerbe and local compatibility context. It does not state these Lean-specific equations or complete the remaining gluing and classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/natural-unit",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Identity natural in every fixed-band modification",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_id",
+      "statement": "The composite of the general base-change natural isomorphism at 𝟙_U and the endpoint natural isomorphism at F.mapId(x),G.mapId(y) equals left whiskering of native overMapPullbackId by H_U(x,y;−), followed by that functor’s right unitor. The domain is the actual HomCategory(bF,bG), with all native modifications.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w.",
+        "Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed.",
+        "Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/unit",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/natural-iso",
+        "mathlib:CategoryTheory.Functor.isoWhiskerLeft",
+        "mathlib:CategoryTheory.Functor.rightUnitor"
+      ],
+      "proofSteps": [
+        "Apply native isomorphism and natural-transformation extensionality.",
+        "At every X, use the proved general sheaf identity law; the right-unitor component is the native identity."
+      ],
+      "acceptance": [
+        "Keep both endpoint and native Over comparison maps, actual strong transformations and all modifications.",
+        "The general F→G Hom-sheaf base-change unit and composition laws now have checked native proof prototypes, including the two distinct endpoint comparisons, their inverses and naturality on the actual modification category. This resolves the specifically named general-coherence frontier in earlier historical entries. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; stability under a third pullback does not assert a full descent pentagon. All inherited intrinsic descended-band/SF1, nonneutral root-gerbe/H², fpqc-limit and other-stage/source obligations remain."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso",
+          "how": "Complete the named unit/composition API of this existing native comparison."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-general-base-coherence-codex-7e92bd",
+          "locator": "Stacks Section8.11, tag06NY, gerbe conventions; exact native coherence equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies gerbe and local compatibility context. It does not state these Lean-specific equations or complete the remaining gluing and classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/natural-composition",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Composition natural in every fixed-band modification",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_comp",
+      "statement": "On HomCategory(bF,bG), retain the functor associator from (H_U⋙f⁎)⋙g⁎, then left-whiskered overMapPullbackComp(g,f), comparison along g≫f and endpoint natural transport along both pseudofunctor composition maps. This equals right whiskering of comparison along f by g⁎ followed by comparison along g at F(f)x,G(f)y.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w.",
+        "Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed.",
+        "Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/composition",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/endpoint-transport/natural-iso",
+        "mathlib:CategoryTheory.Functor.associator",
+        "mathlib:CategoryTheory.Functor.isoWhiskerLeft",
+        "mathlib:CategoryTheory.Functor.isoWhiskerRight"
+      ],
+      "proofSteps": [
+        "Apply natural-transformation extensionality, retaining the native functor associator and whiskering maps.",
+        "Reduce each component to the proved general sheaf composition law."
+      ],
+      "acceptance": [
+        "Keep both endpoint and native Over comparison maps, actual strong transformations and all modifications.",
+        "The general F→G Hom-sheaf base-change unit and composition laws now have checked native proof prototypes, including the two distinct endpoint comparisons, their inverses and naturality on the actual modification category. This resolves the specifically named general-coherence frontier in earlier historical entries. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; stability under a third pullback does not assert a full descent pentagon. All inherited intrinsic descended-band/SF1, nonneutral root-gerbe/H², fpqc-limit and other-stage/source obligations remain."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso",
+          "how": "Complete the named unit/composition API of this existing native comparison."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-general-base-coherence-codex-7e92bd",
+          "locator": "Stacks Section8.11, tag06NY, gerbe conventions; exact native coherence equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies gerbe and local compatibility context. It does not state these Lean-specific equations or complete the remaining gluing and classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/unit-inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The reversed two-endpoint identity map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_id_inv",
+      "statement": "The inverse endpoint comparison at F.mapId(x),G.mapId(y), followed by the inverse base-change comparison at 𝟙_U, equals the inverse component of native overMapPullbackId. The order of the two actual maps is reversed.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w.",
+        "Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed.",
+        "Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/unit"
+      ],
+      "proofSteps": [
+        "Apply Iso.inv to the general identity equality; keep the reversed factors."
+      ],
+      "acceptance": [
+        "Keep both endpoint and native Over comparison maps, actual strong transformations and all modifications.",
+        "The general F→G Hom-sheaf base-change unit and composition laws now have checked native proof prototypes, including the two distinct endpoint comparisons, their inverses and naturality on the actual modification category. This resolves the specifically named general-coherence frontier in earlier historical entries. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; stability under a third pullback does not assert a full descent pentagon. All inherited intrinsic descended-band/SF1, nonneutral root-gerbe/H², fpqc-limit and other-stage/source obligations remain."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso",
+          "how": "Complete the named unit/composition API of this existing native comparison."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-general-base-coherence-codex-7e92bd",
+          "locator": "Stacks Section8.11, tag06NY, gerbe conventions; exact native coherence equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies gerbe and local compatibility context. It does not state these Lean-specific equations or complete the remaining gluing and classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/composition-inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The reversed general composition map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_comp_inv",
+      "statement": "The inverse endpoint map at F.mapComp(f,g)(x),G.mapComp(f,g)(y), then inverse comparison along g≫f, then inverse native overMapPullbackComp(g,f), equals inverse comparison along g followed by g⁎ of inverse comparison along f.",
+      "hypotheses": [
+        "Fix a site (C,J), native Cat-valued pseudofunctors F,G and IsGerbe F J, IsGerbe G J. Fix the actual abelian bandings bF,bG by a sheaf A with independent coefficient universe w.",
+        "Use X in the actual HomCategory(bF,bG), separate local objects x∈F(U),y∈G(U), and the stated base arrows. No terminal object, neutrality, global section, nonempty section carrier or strictness of F or G is assumed.",
+        "Native slice pullbacks, sheafHom restrictions, StrongTrans comparisons and modification arrows are retained. The base bicategory LocallyDiscrete Cᵒᵖ is strict; the pseudofunctors are not assumed strict."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/general-base-coherence/composition"
+      ],
+      "proofSteps": [
+        "Apply Iso.inv to the general composition equality, use mapIso_inv and associate the three inverse factors."
+      ],
+      "acceptance": [
+        "Keep both endpoint and native Over comparison maps, actual strong transformations and all modifications.",
+        "The general F→G Hom-sheaf base-change unit and composition laws now have checked native proof prototypes, including the two distinct endpoint comparisons, their inverses and naturality on the actual modification category. This resolves the specifically named general-coherence frontier in earlier historical entries. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; stability under a third pullback does not assert a full descent pentagon. All inherited intrinsic descended-band/SF1, nonneutral root-gerbe/H², fpqc-limit and other-stage/source obligations remain."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/iso",
+          "how": "Complete the named unit/composition API of this existing native comparison."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/band-morphism-equivalence",
+          "how": "Use the coherent local Hom-sheaf maps when supplying the still-open cover/refinement descent and global equivalence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-general-base-coherence-codex-7e92bd",
+          "locator": "Stacks Section8.11, tag06NY, gerbe conventions; exact native coherence equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies gerbe and local compatibility context. It does not state these Lean-specific equations or complete the remaining gluing and classification proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -35010,7 +35504,8 @@
         "Actual sheaf-level transport between supplied local gerbe objects now has identity, composition, inverse, choice-independence, coefficient-equivariance and modification-naturality laws, packaged as a native functor from Core(F(U)). This advances the gluing input only. Construct actual local object covers and overlap refinements, descend the sheaves/actions/maps for a nonneutral gerbe, package them in D0’s supplied torsor groupoid, and prove full faithfulness and coherent inverse/unit/counit. The12 tests are parameterized; concrete nonconstant-site instantiation remains. All10 inherited gaps,22requests,8sourceIssues and8partial stages remain; SF1 descended-band comparison, nonneutral O(1) roots, derived H2 and compatible fpqc limits remain open.",
         "Prove unit/composition coherence for the native sheaf base-change comparison family, including the Over pullback comparison isomorphisms and object endpoint comparisons. Supply actual local-object covers/refinements; glue the local sheaves/actions/maps and package them in the supplied D0 torsor groupoid; prove full faithfulness and coherent inverse/unit/counit. Instantiate nonconstant-site and nonneutral geometric fixtures. The native section comparisons alone do not discharge these obligations.",
         "The native identity/composition laws are now supplied for the self-gerbe Hom-sheaf comparison, natural in all native modifications. The general F-to-G family still needs its two-object endpoint transport and coherence. Actual covers, overlap refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and a coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; the intrinsic descended band, root-gerbe/H² and fpqc stack obligations are unchanged.",
-        "The two-gerbe endpoint Hom-sheaf transport, inverse laws, coefficient action, native modification naturality and base-restriction square now have independently checked proof prototypes. General F-to-G base-change unit/composition coherence still requires its two distinct pseudofunctor endpoint comparisons. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added. Every inherited intrinsic descended-band, root-gerbe/H², fpqc-limit and other-stage/source obligation remains."
+        "The two-gerbe endpoint Hom-sheaf transport, inverse laws, coefficient action, native modification naturality and base-restriction square now have independently checked proof prototypes. General F-to-G base-change unit/composition coherence still requires its two distinct pseudofunctor endpoint comparisons. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added. Every inherited intrinsic descended-band, root-gerbe/H², fpqc-limit and other-stage/source obligation remains.",
+        "The general F→G Hom-sheaf base-change unit and composition laws now have checked native proof prototypes, including the two distinct endpoint comparisons, their inverses and naturality on the actual modification category. This resolves the specifically named general-coherence frontier in earlier historical entries. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; stability under a third pullback does not assert a full descent pentagon. All inherited intrinsic descended-band/SF1, nonneutral root-gerbe/H², fpqc-limit and other-stage/source obligations remain."
       ]
     },
     {
