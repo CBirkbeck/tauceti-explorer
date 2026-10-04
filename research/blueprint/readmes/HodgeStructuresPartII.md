@@ -1,3 +1,178 @@
+# Finite projective dual parameter connections
+
+The actual affine dual now exists for finite projective E, arbitrary form modules and arbitrary λ, using the native tensor-Hom equivalence and no global basis. The covector pairing is R-linear in e by Leibniz cancellation and gives the same-λ dual operator. Its evaluation characterization is unique; native contraction is horizontal; curvature evaluation includes the exact λ(d₀λ∧d₀(φ(e))) correction. For d₀λ=0 the usual negative dual curvature formula holds and flatness is preserved and reflected. Native dual maps of horizontal maps and both directions of the native bidual equivalence are horizontal. Polynomial λ=x, nonreduced Z/4 sign and zero-module tests are explicit. Dual base-change comparison with the existing actual affine pullback, coevaluation/rigidity, universal exterior-power comparisons, and genuine E1 sheaf tensor/restriction/equality detection/effective gluing remain open. The global finite locally free integrable key still requires relatively constant λ. All149 routed obligations,35 omissions,five requests,eleven gaps,six planets and later determinant/Tate/period and arbitrary-Q tensor-valued-shuffle obligations remain; H.0 stays partial and H.1–H.8 not_read. Earlier frontier prose is checkpoint history. Every implementation remains unchecked.
+
+The covector pairing is defined before imposing finite projectivity. Its derivative and contraction terms separately have scalar corrections in e, which cancel. The inverse native tensor-Hom equivalence then produces an additive operator on the dual. It retains the same parameter, including its derivative when the parameter varies. The curvature proof uses the inherited tensor formula and horizontal contraction into the actual unit connection; this exposes the parameter correction without assuming it away. Bidual evaluation gives flatness reflection.
+
+The generic tensor-Hom equivalence, module dual, contraction and bidual equivalence are already Mathlib and are not planned again. The explicit fixtures use free modules; the construction itself assumes only finite projectivity. No example of a projective module without a global basis or a nonzero two-form correction is constructed in this checkpoint.
+
+## Declarations and tests
+
+### Covector derivative pairing
+
+`Preconnection.dualPair` — Construct the additive map dualPair(D):E∨→Hom_R(E,W) with dualPair(D)(φ)(e)=λd₀(φ(e))−lid((φ⊗id_W)D(e)). The result is R-linear in e even when d₀λ is nonzero; it is additive in φ.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction.
+
+Proof plan: For scalar multiplication in e, expand the derivation and D Leibniz rules; their matching λφ(e)d₀a terms cancel. Additivity follows from the native tensor-map sum formula.
+
+API:
+
+- `Preconnection.dualPair_apply`: For arbitrary φ,e, dualPair(D)(φ)(e)=λd₀(φ(e))−lid((φ⊗id_W)D(e)).
+- `Preconnection.dualPair_smul`: For a∈R and φ∈E∨, dualPair(D)(aφ)=a dualPair(D)(φ)+λ(φ.smulRight(d₀a)), as actual R-linear maps E→W.
+- `Preconnection.dualPair_zero_parameter`: For D with parameter0, dualPair(D)(φ)(e)=−lid((φ⊗id_W)D(e)). No projectivity hypothesis is needed.
+
+TESTS:
+
+- `AffineDualTests.linear_evaluation`: For arbitrary E, the covector pairing is R-linear in its E argument; this detects failure to cancel the two Leibniz corrections.
+- `AffineDualTests.add_functionals`: For arbitrary E, evaluating dualPair(D) at φ+ψ gives the sum of its values at φ and ψ.
+- `AffineDualTests.zero_parameter_linear`: For parameter0 and arbitrary E, dualPair(D)(aφ)=a dualPair(D)(φ); the scalar derivative correction is exactly zero.
+- `AffineDualTests.nonconstant_unit`: Over Z[x], use d₀=derivative, zero two-forms and λ=x. For D=λd and φ=x·id_R, both dualPair(D)(φ)(1) and evaluation of D∨φ at1 are x, while d₀λ=1.
+- `AffineDualTests.nonreduced_sign`: Over Z/4 with zero calculus, λ=0 and actual D(r)=r⊗3, take φ=id_R. Both dualPair(D)(φ)(1) and evaluation of D∨φ at1 are1, distinct from3; the base retains2≠0 and2²=0.
+
+### Covector derivative evaluation
+
+`Preconnection.dualPair_apply` — For arbitrary φ,e, dualPair(D)(φ)(e)=λd₀(φ(e))−lid((φ⊗id_W)D(e)).
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction.
+
+Proof plan: Unfold the actual additive map and its linear-map value.
+
+### Covector derivative scalar correction
+
+`Preconnection.dualPair_smul` — For a∈R and φ∈E∨, dualPair(D)(aφ)=a dualPair(D)(φ)+λ(φ.smulRight(d₀a)), as actual R-linear maps E→W.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction.
+
+Proof plan: Evaluate both maps on e, use the derivation Leibniz rule and tensor-map scalar formula, and cancel terms.
+
+### Zero-parameter covector sign
+
+`Preconnection.dualPair_zero_parameter` — For D with parameter0, dualPair(D)(φ)(e)=−lid((φ⊗id_W)D(e)). No projectivity hypothesis is needed.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction.
+
+Proof plan: Set λ=0 in the evaluation formula.
+
+### Finite projective affine dual connection
+
+`Preconnection.affineDual` — Construct the same-λ additive preconnection D∨ on the native dual E∨. Its additive operator is the inverse of the native finite-projective dualTensorHomEquiv applied to dualPair(D). Its λ-Leibniz equation is proved, not supplied as extra data.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction. E is finite projective over R; a global basis is neither chosen nor assumed. The native dual is also finite projective. The pairing construction alone does not require these hypotheses.
+
+Proof plan: Apply the inverse native linear equivalence to the additive pairing. Check the Leibniz equation after the injective forward equivalence, using the scalar correction and its pure-tensor evaluation formula.
+
+API:
+
+- `Preconnection.affineDual_eval`: For every φ∈E∨ and e∈E, dualTensorHom(D∨φ)(e)=λd₀(φ(e))−lid((φ⊗id_W)D(e)).
+- `Preconnection.affineDual_unique`: If C is a same-λ preconnection on E∨ satisfying the displayed dual evaluation equation for all φ,e, then C=D∨ as full preconnection structures.
+- `Preconnection.affineDual_evaluation`: For every x∈E∨⊗_R E, unit(Ω,λ)(contractLeft(x))=(contractLeft⊗id_W)((D∨⊗_λ D)(x)). This is horizontality of the actual native evaluation map.
+- `Preconnection.affineDual_curvature_pair`: For every φ,e, dualTensorHom(κ_D∨(φ))(e)+lid((φ⊗id_Z)κ_D(e))=λ(d₀λ∧d₀(φ(e))). Keep the order d₀λ first. The formula holds for arbitrary λ.
+- `Preconnection.affineDual_curvature`: Assume d₀λ=0. Then dualTensorHom(κ_D∨(φ))(e)=−lid((φ⊗id_Z)κ_D(e)) for every φ,e.
+- `Preconnection.affineDual_flat`: If d₀λ=0 and κ_D(e)=0 for every e, then κ_D∨(φ)=0 for every φ.
+- `Preconnection.affineDual_horizontal`: Let E,F be finite projective and f:E→F an actual R-linear map horizontal from D to C. Then f∨:F∨→E∨ is horizontal from C∨ to D∨: D∨(f∨φ)=(f∨⊗id_W)C∨(φ).
+- `Preconnection.affineDual_bidual`: For every e, (D∨)∨(evalEquiv(e))=(evalEquiv⊗id_W)D(e), using the native finite-projective bidual equivalence E≃E∨∨. No d₀λ=0 assumption is required.
+- `Preconnection.affineDual_bidual_inverse`: The inverse native bidual equivalence is horizontal from (D∨)∨ to D, on every element of E∨∨.
+- `Preconnection.affineDual_flat_iff`: If d₀λ=0, D∨ is flat if and only if D is flat.
+
+TESTS:
+
+- `AffineDualTests.leibniz`: The actual finite-projective dual operator satisfies D∨(aφ)=aD∨(φ)+λ(φ⊗d₀a) as equality in E∨⊗W.
+- `AffineDualTests.higgs_sign`: For parameter0, evaluation of the actual dual Higgs operator is the negative of contraction with D(e).
+- `AffineDualTests.pairing`: On φ⊗e, applying actual tensor connection and contraction equals λ(1⊗d₀(φ(e))).
+- `AffineDualTests.variable_curvature_correction`: If λ(d₀λ∧d₀(φ(e))) is nonzero, dual curvature evaluation cannot equal the negative primal curvature contraction. This is a conditional general test, not a constructed nonzero two-form fixture.
+- `AffineDualTests.bidual_roundtrip`: Applying the inverse bidual tensor map to the double-dual operator at evalEquiv(e) recovers D(e), for arbitrary λ.
+- `AffineDualTests.flat_equivalence`: For parameter0, the actual dual Higgs preconnection is flat if and only if the original is flat.
+- `AffineDualTests.nonconstant_unit`: Over Z[x], use d₀=derivative, zero two-forms and λ=x. For D=λd and φ=x·id_R, both dualPair(D)(φ)(1) and evaluation of D∨φ at1 are x, while d₀λ=1.
+- `AffineDualTests.nonreduced_sign`: Over Z/4 with zero calculus, λ=0 and actual D(r)=r⊗3, take φ=id_R. Both dualPair(D)(φ)(1) and evaluation of D∨φ at1 are1, distinct from3; the base retains2≠0 and2²=0.
+- `AffineDualTests.zero_module`: For E=Fin0→R, the actual dual operator vanishes on every covector for arbitrary calculus and λ.
+
+### Dual connection evaluation
+
+`Preconnection.affineDual_eval` — For every φ∈E∨ and e∈E, dualTensorHom(D∨φ)(e)=λd₀(φ(e))−lid((φ⊗id_W)D(e)).
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction. E is finite projective over R; a global basis is neither chosen nor assumed. The native dual is also finite projective. The pairing construction alone does not require these hypotheses.
+
+Proof plan: Use the native inverse/forward tensor-Hom identity on dualPair(D).
+
+### Dual connection uniqueness
+
+`Preconnection.affineDual_unique` — If C is a same-λ preconnection on E∨ satisfying the displayed dual evaluation equation for all φ,e, then C=D∨ as full preconnection structures.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction. E is finite projective over R; a global basis is neither chosen nor assumed. The native dual is also finite projective. The pairing construction alone does not require these hypotheses.
+
+Proof plan: The native tensor-Hom equivalence and linear-map extensionality identify each operator value; additive-map extensionality and proof irrelevance identify the structures.
+
+### Horizontal evaluation pairing
+
+`Preconnection.affineDual_evaluation` — For every x∈E∨⊗_R E, unit(Ω,λ)(contractLeft(x))=(contractLeft⊗id_W)((D∨⊗_λ D)(x)). This is horizontality of the actual native evaluation map.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction. E is finite projective over R; a global basis is neither chosen nor assumed. The native dual is also finite projective. The pairing construction alone does not require these hypotheses. The degree-one actions satisfy IsScalarTower k R W, as required by the inherited unit/curvature/horizontal transport APIs.
+
+Proof plan: Induct on the native tensor x. For φ⊗e, contract the actual right-commutor and inverse-associator terms by tensor induction, substitute the dual evaluation formula and cancel.
+
+### Dual curvature with parameter correction
+
+`Preconnection.affineDual_curvature_pair` — For every φ,e, dualTensorHom(κ_D∨(φ))(e)+lid((φ⊗id_Z)κ_D(e))=λ(d₀λ∧d₀(φ(e))). Keep the order d₀λ first. The formula holds for arbitrary λ.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction. E is finite projective over R; a global basis is neither chosen nor assumed. The native dual is also finite projective. The pairing construction alone does not require these hypotheses. The degree-one actions satisfy IsScalarTower k R W, as required by the inherited unit/curvature/horizontal transport APIs.
+
+Proof plan: Apply curvature transport through the actual horizontal evaluation map to φ⊗e. Substitute the inherited tensor and unit curvature formulas, then contract both summands by native tensor induction.
+
+### Relatively constant dual curvature
+
+`Preconnection.affineDual_curvature` — Assume d₀λ=0. Then dualTensorHom(κ_D∨(φ))(e)=−lid((φ⊗id_Z)κ_D(e)) for every φ,e.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction. E is finite projective over R; a global basis is neither chosen nor assumed. The native dual is also finite projective. The pairing construction alone does not require these hypotheses. The degree-one actions satisfy IsScalarTower k R W, as required by the inherited unit/curvature/horizontal transport APIs. The explicit relatively constant parameter equation d₀λ=0 is required.
+
+Proof plan: The explicit correction vanishes. Move the second term to the other side.
+
+### Dual preserves flatness
+
+`Preconnection.affineDual_flat` — If d₀λ=0 and κ_D(e)=0 for every e, then κ_D∨(φ)=0 for every φ.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction. E is finite projective over R; a global basis is neither chosen nor assumed. The native dual is also finite projective. The pairing construction alone does not require these hypotheses. The degree-one actions satisfy IsScalarTower k R W, as required by the inherited unit/curvature/horizontal transport APIs. The explicit relatively constant parameter equation d₀λ=0 is required.
+
+Proof plan: Test dual curvature through the injective native equivalence for coefficient module Z; every evaluation is zero.
+
+### Contravariant horizontal dual maps
+
+`Preconnection.affineDual_horizontal` — Let E,F be finite projective and f:E→F an actual R-linear map horizontal from D to C. Then f∨:F∨→E∨ is horizontal from C∨ to D∨: D∨(f∨φ)=(f∨⊗id_W)C∨(φ).
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction. E is finite projective over R; a global basis is neither chosen nor assumed. The native dual is also finite projective. The pairing construction alone does not require these hypotheses. F is also a finite projective R-module and C has the same supplied calculus and parameter.
+
+Proof plan: Apply the injective tensor-Hom equivalence. Tensor induction identifies evaluation of the mapped covector tensor with evaluation at f(e). Substitute both dual formulas and the horizontal equation for f.
+
+### Horizontal native bidual evaluation
+
+`Preconnection.affineDual_bidual` — For every e, (D∨)∨(evalEquiv(e))=(evalEquiv⊗id_W)D(e), using the native finite-projective bidual equivalence E≃E∨∨. No d₀λ=0 assumption is required.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction. E is finite projective over R; a global basis is neither chosen nor assumed. The native dual is also finite projective. The pairing construction alone does not require these hypotheses.
+
+Proof plan: Apply the injective tensor-Hom equivalence for E∨. Native tensor induction identifies both evaluation contractions. Substitute the dual formula twice; the two λd₀(φ(e)) terms cancel.
+
+### Horizontal inverse bidual evaluation
+
+`Preconnection.affineDual_bidual_inverse` — The inverse native bidual equivalence is horizontal from (D∨)∨ to D, on every element of E∨∨.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction. E is finite projective over R; a global basis is neither chosen nor assumed. The native dual is also finite projective. The pairing construction alone does not require these hypotheses. The degree-one actions satisfy IsScalarTower k R W, as required by the inherited unit/curvature/horizontal transport APIs.
+
+Proof plan: Apply the inherited horizontal-inverse theorem to the actual native bidual equivalence.
+
+### Dual detects flatness
+
+`Preconnection.affineDual_flat_iff` — If d₀λ=0, D∨ is flat if and only if D is flat.
+
+Hypotheses: Commutative rings k,R with an actual k-algebra structure on R; independent module universes for E,W,Z. The supplied existing TwoForms calculus has d₀:Derivation k R W, additive d₁:W→Z, alternating R-bilinear wedge, d₁(aω)=d₀a∧ω+a d₁ω and d₁d₀=0. All modules have additive commutative groups; W has its specified k-action. D:E→E⊗_R W is the actual additive preconnection with parameter λ∈R. No field, characteristic, smoothness, reducedness, flatness of W or Z, basis or integrability assumption is built into the construction. E is finite projective over R; a global basis is neither chosen nor assumed. The native dual is also finite projective. The pairing construction alone does not require these hypotheses. The degree-one actions satisfy IsScalarTower k R W, as required by the inherited unit/curvature/horizontal transport APIs. The explicit relatively constant parameter equation d₀λ=0 is required.
+
+Proof plan: One direction is preservation. For reflection, dualize the flat dual, transport its zero curvature through the horizontal bidual equivalence and use injectivity of its native tensor equivalence.
+
+## Sources and ownership
+
+The complete current [ordinary connection section](https://stacks.math.columbia.edu/tag/07J5) fixes the ordinary convention. The complete current [finite-projective duality lemma](https://stacks.math.columbia.edu/tag/0FNJ) fixes the evaluation convention and finite-projective context. These affine parameter identities are authored deductions, not quotations of a printed λ-duality theorem. Linked categorical proofs and whole-paper versions were not recursively read. Both incoming source issues are preserved with no new finding. The existing E1 supplier retains generic sheaf modules, tensor, restriction and descent; this checkpoint supplies only the connection-specific affine component.
+
+## Earlier checkpoint reader (preserved verbatim)
+
 # Monoidal three-step affine pullback comparisons
 
 The existing actual three-step pullback now carries the native composite monoidal structure. Its unit, tensor, reverse tensor and counit maps retain their actual native scalar-extension modules and parameter transport. The outer-first comparison satisfies whole categorical unit and tensor equations. The inherited equality of the actual forward comparison transformations gives inner-first monoidality; native inverse-isomorphism monoidality proves both inverse directions. The actual parameterChange/pullback comparison is also monoidal in both directions.

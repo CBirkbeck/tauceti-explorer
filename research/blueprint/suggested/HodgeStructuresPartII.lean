@@ -4,6 +4,8 @@
 
 -- Actual native monoidal composition and monoidal natural-transformation interfaces.
 
+import Mathlib.LinearAlgebra.Contraction
+
 import Mathlib.CategoryTheory.Monoidal.NaturalTransformation
 
 import Mathlib.Algebra.Category.ModuleCat.Monoidal.Adjunction
@@ -7266,6 +7268,226 @@ example :
       let m := TwoForms.Morphism.refl Ω
       (Functor.LaxMonoidal.ε (AffineCategory.pullbackTriple (lam := (0 : ZMod 1)) m m m)).1 0 = 0 ∧
       (Functor.OplaxMonoidal.η (AffineCategory.pullbackTriple (lam := (0 : ZMod 1)) m m m)).1 0 = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open scoped TensorProduct
+universe u v w z
+variable {k R : Type u} [CommRing k] [CommRing R] [Algebra k R]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z]
+variable {E : Type v} [AddCommGroup E] [Module R E]
+variable {Ω : TwoForms k R W Z} {lam : R}
+
+def Preconnection.dualPair (D : Preconnection Ω lam E) :
+    Module.Dual R E →+ (E →ₗ[R] W) where
+  toFun f :=
+    { toFun := fun e => lam • Ω.d0 (f e) -
+        TensorProduct.lid R W (TensorProduct.map f LinearMap.id (D.toAddHom e))
+      map_add' := by intros; simp [smul_add]; abel
+      map_smul' := by
+        intro a e
+        simp only [map_smul, smul_eq_mul, Derivation.leibniz, D.leibniz, map_add,
+          TensorProduct.map_tmul, LinearMap.id_apply, TensorProduct.lid_tmul,
+          smul_add, smul_sub, smul_smul]
+        simp only [mul_comm lam a]
+        abel }
+  map_zero' := by ext e; simp
+  map_add' := by
+    intro f g
+    ext e
+    simp only [LinearMap.coe_mk, AddHom.coe_mk, LinearMap.add_apply, map_add, smul_add,
+      TensorProduct.map_add_left]
+    abel
+
+lemma Preconnection.dualPair_apply (D : Preconnection Ω lam E) (f : Module.Dual R E) (e : E) :
+    D.dualPair f e = lam • Ω.d0 (f e) -
+      TensorProduct.lid R W (TensorProduct.map f LinearMap.id (D.toAddHom e)) := by
+  sorry
+
+lemma Preconnection.dualPair_smul (D : Preconnection Ω lam E) (a : R) (f : Module.Dual R E) :
+    D.dualPair (a • f) = a • D.dualPair f + lam • f.smulRight (Ω.d0 a) := by
+  sorry
+
+lemma Preconnection.dualPair_zero_parameter (D : Preconnection Ω 0 E)
+    (f : Module.Dual R E) (e : E) :
+    D.dualPair f e = -TensorProduct.lid R W
+      (TensorProduct.map f LinearMap.id (D.toAddHom e)) := by
+  sorry
+
+variable [Module.Finite R E] [Module.Projective R E]
+
+def Preconnection.affineDual (D : Preconnection Ω lam E) :
+    Preconnection Ω lam (Module.Dual R E) where
+  toAddHom := (dualTensorHomEquiv R E W).symm.toLinearMap.toAddMonoidHom.comp D.dualPair
+  leibniz a f := by
+    apply (dualTensorHomEquiv R E W).injective
+    change (dualTensorHomEquiv R E W)
+      ((dualTensorHomEquiv R E W).symm (D.dualPair (a • f))) = _
+    rw [LinearEquiv.apply_symm_apply, D.dualPair_smul]
+    ext e
+    simp
+
+lemma Preconnection.affineDual_eval (D : Preconnection Ω lam E) (f : Module.Dual R E) (e : E) :
+    dualTensorHom R E W (D.affineDual.toAddHom f) e = lam • Ω.d0 (f e) -
+      TensorProduct.lid R W (TensorProduct.map f LinearMap.id (D.toAddHom e)) := by
+  sorry
+
+lemma Preconnection.affineDual_unique (D : Preconnection Ω lam E)
+    (C : Preconnection Ω lam (Module.Dual R E))
+    (h : ∀ (f : Module.Dual R E) (e : E),
+      dualTensorHom R E W (C.toAddHom f) e = lam • Ω.d0 (f e) -
+        TensorProduct.lid R W (TensorProduct.map f LinearMap.id (D.toAddHom e))) :
+    C = D.affineDual := by
+  sorry
+
+lemma Preconnection.affineDual_evaluation [IsScalarTower k R W]
+    (D : Preconnection Ω lam E) (x : Module.Dual R E ⊗[R] E) :
+    (Preconnection.unit Ω lam).toAddHom (contractLeft R E x) =
+      TensorProduct.map (contractLeft R E) LinearMap.id
+        ((D.affineDual.affineTensor D).toAddHom x) := by
+  sorry
+
+lemma Preconnection.affineDual_curvature_pair [IsScalarTower k R W]
+    (D : Preconnection Ω lam E) (f : Module.Dual R E) (e : E) :
+    dualTensorHom R E Z (D.affineDual.curvature f) e +
+      TensorProduct.lid R Z (TensorProduct.map f LinearMap.id (D.curvature e)) =
+      lam • Ω.wedge (Ω.d0 lam) (Ω.d0 (f e)) := by
+  sorry
+
+lemma Preconnection.affineDual_curvature [IsScalarTower k R W]
+    (D : Preconnection Ω lam E) (hlam : Ω.d0 lam = 0)
+    (f : Module.Dual R E) (e : E) :
+    dualTensorHom R E Z (D.affineDual.curvature f) e =
+      -TensorProduct.lid R Z (TensorProduct.map f LinearMap.id (D.curvature e)) := by
+  sorry
+
+lemma Preconnection.affineDual_flat [IsScalarTower k R W]
+    (D : Preconnection Ω lam E) (hlam : Ω.d0 lam = 0)
+    (hD : ∀ e, D.curvature e = 0) (f : Module.Dual R E) : D.affineDual.curvature f = 0 := by
+  sorry
+
+lemma Preconnection.affineDual_horizontal {F : Type*} [AddCommGroup F] [Module R F]
+    [Module.Finite R F] [Module.Projective R F]
+    (D : Preconnection Ω lam E) (C : Preconnection Ω lam F) (f : E →ₗ[R] F)
+    (hf : ∀ e, C.toAddHom (f e) = TensorProduct.map f LinearMap.id (D.toAddHom e))
+    (g : Module.Dual R F) :
+    D.affineDual.toAddHom (f.dualMap g) =
+      TensorProduct.map f.dualMap LinearMap.id (C.affineDual.toAddHom g) := by
+  sorry
+
+lemma Preconnection.affineDual_bidual (D : Preconnection Ω lam E) (e : E) :
+    D.affineDual.affineDual.toAddHom (Module.evalEquiv R E e) =
+      TensorProduct.map (Module.evalEquiv R E).toLinearMap LinearMap.id (D.toAddHom e) := by
+  sorry
+
+lemma Preconnection.affineDual_bidual_inverse [IsScalarTower k R W]
+    (D : Preconnection Ω lam E) (e : Module.Dual R (Module.Dual R E)) :
+    D.toAddHom ((Module.evalEquiv R E).symm e) =
+      TensorProduct.map (Module.evalEquiv R E).symm.toLinearMap LinearMap.id
+        (D.affineDual.affineDual.toAddHom e) := by
+  sorry
+
+lemma Preconnection.affineDual_flat_iff [IsScalarTower k R W]
+    (D : Preconnection Ω lam E) (hlam : Ω.d0 lam = 0) :
+    (∀ f, D.affineDual.curvature f = 0) ↔ (∀ e, D.curvature e = 0) := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open scoped TensorProduct
+universe u v w z
+variable {k R : Type u} [CommRing k] [CommRing R] [Algebra k R]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z]
+variable {E : Type v} [AddCommGroup E] [Module R E]
+variable {Ω : TwoForms k R W Z} {lam : R}
+
+-- test: AffineDualTests.linear_evaluation
+example (D : Preconnection Ω lam E) (f : Module.Dual R E) (a : R) (e : E) :
+    D.dualPair f (a • e) = a • D.dualPair f e := by
+  sorry
+
+-- test: AffineDualTests.add_functionals
+example (D : Preconnection Ω lam E) (f g : Module.Dual R E) (e : E) :
+    D.dualPair (f + g) e = D.dualPair f e + D.dualPair g e := by
+  sorry
+
+-- test: AffineDualTests.zero_parameter_linear
+example (D : Preconnection Ω 0 E) (a : R) (f : Module.Dual R E) :
+    D.dualPair (a • f) = a • D.dualPair f := by
+  sorry
+
+variable [Module.Finite R E] [Module.Projective R E]
+
+-- test: AffineDualTests.leibniz
+example (D : Preconnection Ω lam E) (a : R) (f : Module.Dual R E) :
+    D.affineDual.toAddHom (a • f) = a • D.affineDual.toAddHom f +
+      lam • (f ⊗ₜ[R] Ω.d0 a) := by
+  sorry
+
+-- test: AffineDualTests.higgs_sign
+example (D : Preconnection Ω 0 E) (f : Module.Dual R E) (e : E) :
+    dualTensorHom R E W (D.affineDual.toAddHom f) e =
+      -TensorProduct.lid R W (TensorProduct.map f LinearMap.id (D.toAddHom e)) := by
+  sorry
+
+-- test: AffineDualTests.pairing
+example [IsScalarTower k R W] (D : Preconnection Ω lam E) (f : Module.Dual R E) (e : E) :
+    TensorProduct.map (contractLeft R E) LinearMap.id
+      ((D.affineDual.affineTensor D).toAddHom (f ⊗ₜ[R] e)) =
+      lam • ((1 : R) ⊗ₜ[R] Ω.d0 (f e)) := by
+  sorry
+
+-- test: AffineDualTests.variable_curvature_correction
+example [IsScalarTower k R W] (D : Preconnection Ω lam E) (f : Module.Dual R E) (e : E)
+    (h : lam • Ω.wedge (Ω.d0 lam) (Ω.d0 (f e)) ≠ 0) :
+    dualTensorHom R E Z (D.affineDual.curvature f) e ≠
+      -TensorProduct.lid R Z (TensorProduct.map f LinearMap.id (D.curvature e)) := by
+  sorry
+
+-- test: AffineDualTests.bidual_roundtrip
+example [IsScalarTower k R W] (D : Preconnection Ω lam E) (e : E) :
+    TensorProduct.map (Module.evalEquiv R E).symm.toLinearMap LinearMap.id
+      (D.affineDual.affineDual.toAddHom (Module.evalEquiv R E e)) = D.toAddHom e := by
+  sorry
+
+-- test: AffineDualTests.flat_equivalence
+example [IsScalarTower k R W] (D : Preconnection Ω 0 E) :
+    (∀ f, D.affineDual.curvature f = 0) ↔ (∀ e, D.curvature e = 0) := by
+  sorry
+
+-- test: AffineDualTests.nonconstant_unit
+example :
+    ∃ Ω : TwoForms ℤ (Polynomial ℤ) (Polynomial ℤ) (Fin 0 → Polynomial ℤ),
+      Ω.d0 Polynomial.X = 1 ∧
+      let D := Preconnection.unit Ω Polynomial.X
+      let f : Module.Dual (Polynomial ℤ) (Polynomial ℤ) := (Polynomial.X : Polynomial ℤ) • LinearMap.id
+      D.dualPair f 1 = Polynomial.X ∧
+      dualTensorHom (Polynomial ℤ) (Polynomial ℤ) (Polynomial ℤ)
+        (D.affineDual.toAddHom f) 1 = Polynomial.X := by
+  sorry
+
+-- test: AffineDualTests.nonreduced_sign
+example :
+    ∃ Ω : TwoForms (ZMod 4) (ZMod 4) (ZMod 4) (Fin 0 → ZMod 4),
+      ∃ D : Preconnection Ω 0 (ZMod 4),
+        let f : Module.Dual (ZMod 4) (ZMod 4) := LinearMap.id
+        D.dualPair f 1 = 1 ∧
+        dualTensorHom (ZMod 4) (ZMod 4) (ZMod 4) (D.affineDual.toAddHom f) 1 = 1 ∧
+        (1 : ZMod 4) ≠ 3 ∧ (2 : ZMod 4) ≠ 0 ∧ (2 : ZMod 4) * 2 = 0 := by
+  sorry
+
+-- test: AffineDualTests.zero_module
+example (D : Preconnection Ω lam (Fin 0 → R)) (f : Module.Dual R (Fin 0 → R)) :
+    D.affineDual.toAddHom f = 0 := by
   sorry
 
 end
