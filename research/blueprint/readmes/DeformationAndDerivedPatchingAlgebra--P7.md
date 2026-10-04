@@ -1,3 +1,225 @@
+# Internal gradings of the actual adic kernel and range
+
+A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+The kernel and range retain their native S-submodule carriers. Their degree-n components are inverse images of the original L_n under the subtype. The original ambient projections preserve these submodules; the existing Tau restriction theorem supplies the native finite direct-sum decomposition. Projection agreement and reconstruction hold on the same actual elements.
+
+## Native kernel image components
+
+TauCeti.HilbertSamuel.adicModuleKernelComponents
+
+Define K_n as the A-submodule of the actual K obtained by comapping L_n along the scalar-restricted native subtype K→L. Thus membership means precisely that the original ambient value belongs to L_n. The defining native graded scalar instance has S_i·K_j⊆K_(i+j), with the original inherited S action.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Use the native comap of the original component, not a new quotient or direct-sum carrier. Reduce the scalar membership goal and hypothesis to the ambient L; apply its existing native graded scalar action. The actual S-submodule supplies closure of the original S action.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action, mathlib:Submodule.comap, mathlib:LinearMap.restrictScalars.
+
+API TauCeti.HilbertSamuel.adicModuleKernelComponents_mem: For every actual x in K and n≥0, x∈K_n if and only if its native subtype value in L lies in L_n.
+
+API TauCeti.HilbertSamuel.adicModuleKernelComponents_smul: For every b∈S_i and actual x∈K_j, the inherited S-scalar product b·x lies in K_(i+j). The original ambient value is the original scalar product in L.
+
+API TauCeti.HilbertSamuel.adicModuleKernelGradedSMul: The defining native SetLike.GradedSMul instance uses the inherited S action and has S_i·K_j⊆K_(i+j).
+
+## Ambient membership for kernel components
+
+TauCeti.HilbertSamuel.adicModuleKernelComponents_mem
+
+For every actual x in K and n≥0, x∈K_n if and only if its native subtype value in L lies in L_n.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Unfold the native comap and the scalar-restricted subtype; membership is definitionally identical.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components, mathlib:Submodule.comap.
+
+## Inherited homogeneous scalar action on kernel components
+
+TauCeti.HilbertSamuel.adicModuleKernelComponents_smul
+
+For every b∈S_i and actual x∈K_j, the inherited S-scalar product b·x lies in K_(i+j). The original ambient value is the original scalar product in L.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Express both component memberships in the ambient L by the comap criterion. Apply native ambient graded scalar multiplication; the native subtype scalar action has the same ambient value.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components-membership, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action, mathlib:SetLike.GradedSMul.
+
+## Internal grading of the actual kernel
+
+TauCeti.HilbertSamuel.adicModuleKernelDecomposition
+
+Construct a native DirectSum.Decomposition of (K_n) on the same actual K. Its canonical recomposition is the finite sum of the native component inclusions. The data are obtained from the existing Tau restriction theorem applied to the original ambient decomposition and the injective scalar-restricted subtype.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: The comap family has exactly the membership condition of the existing restriction theorem. Use the inherited homogeneous-kernel theorem to exhibit every ambient homogeneous projection in the actual subtype range. Apply the existing Tau native restriction construction; its canonical finite recomposition is unchanged.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration, DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-homogeneous-kernel, tauceti:TauCeti.DirectSum.Decomposition.restrict, tauceti:TauCeti.DirectSum.isInternal_comap, mathlib:Submodule.subtype_injective.
+
+API TauCeti.HilbertSamuel.adicModuleKernelDecomposition_coe: With the restricted decomposition installed, the ambient subtype value of the n-th native projection of every actual x∈K equals the inherited adicModuleProjection π_n(x) in L.
+
+API TauCeti.HilbertSamuel.adicModuleKernelDecomposition_recompose: With the restricted decomposition installed, native canonical finite recomposition of the full native decomposition of any actual x∈K equals x in K, not merely after inclusion into L.
+
+API TauCeti.HilbertSamuel.adicModuleKernelDecomposition_of_mem: With the restricted decomposition installed, if actual x belongs to K_n then the n-th native projection, as an element of K, equals x.
+
+## Ambient projection agreement for the kernel
+
+TauCeti.HilbertSamuel.adicModuleKernelDecomposition_coe
+
+With the restricted decomposition installed, the ambient subtype value of the n-th native projection of every actual x∈K equals the inherited adicModuleProjection π_n(x) in L.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Apply the existing Tau map_decompose_restrict theorem to the scalar-restricted subtype and the exact comap membership condition. The ambient projection is the original native adic projection.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-decomposition, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration, tauceti:TauCeti.DirectSum.map_decompose_restrict.
+
+## Finite recomposition in the actual kernel
+
+TauCeti.HilbertSamuel.adicModuleKernelDecomposition_recompose
+
+With the restricted decomposition installed, native canonical finite recomposition of the full native decomposition of any actual x∈K equals x in K, not merely after inclusion into L.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Use the left inverse field of native DirectSum.Decomposition on this actual carrier and its canonical component inclusions.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-decomposition, mathlib:DirectSum.Decomposition.
+
+## Homogeneous elements fixed in the actual kernel
+
+TauCeti.HilbertSamuel.adicModuleKernelDecomposition_of_mem
+
+With the restricted decomposition installed, if actual x belongs to K_n then the n-th native projection, as an element of K, equals x.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Apply the native same-degree projection theorem to the actual restricted component family and its decomposition.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-decomposition, DeformationAndDerivedPatchingAlgebra:R03.3/adic-kernel-components-membership, mathlib:DirectSum.decompose_of_mem_same.
+
+## Native range image components
+
+TauCeti.HilbertSamuel.adicModuleRangeComponents
+
+Define R_n as the A-submodule of the actual R obtained by comapping L_n along the scalar-restricted native subtype R→L. Thus membership means precisely that the original ambient value belongs to L_n. The defining native graded scalar instance has S_i·R_j⊆R_(i+j), with the original inherited S action.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Use the native comap of the original component, not a new quotient or direct-sum carrier. Reduce the scalar membership goal and hypothesis to the ambient L; apply its existing native graded scalar action. The actual S-submodule supplies closure of the original S action.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action, mathlib:Submodule.comap, mathlib:LinearMap.restrictScalars.
+
+API TauCeti.HilbertSamuel.adicModuleRangeComponents_mem: For every actual x in R and n≥0, x∈R_n if and only if its native subtype value in L lies in L_n.
+
+API TauCeti.HilbertSamuel.adicModuleRangeComponents_smul: For every b∈S_i and actual x∈R_j, the inherited S-scalar product b·x lies in R_(i+j). The original ambient value is the original scalar product in L.
+
+API TauCeti.HilbertSamuel.adicModuleRangeGradedSMul: The defining native SetLike.GradedSMul instance uses the inherited S action and has S_i·R_j⊆R_(i+j).
+
+## Ambient membership for range components
+
+TauCeti.HilbertSamuel.adicModuleRangeComponents_mem
+
+For every actual x in R and n≥0, x∈R_n if and only if its native subtype value in L lies in L_n.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Unfold the native comap and the scalar-restricted subtype; membership is definitionally identical.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components, mathlib:Submodule.comap.
+
+## Inherited homogeneous scalar action on range components
+
+TauCeti.HilbertSamuel.adicModuleRangeComponents_smul
+
+For every b∈S_i and actual x∈R_j, the inherited S-scalar product b·x lies in R_(i+j). The original ambient value is the original scalar product in L.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Express both component memberships in the ambient L by the comap criterion. Apply native ambient graded scalar multiplication; the native subtype scalar action has the same ambient value.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components-membership, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action, mathlib:SetLike.GradedSMul.
+
+## Internal grading of the actual range
+
+TauCeti.HilbertSamuel.adicModuleRangeDecomposition
+
+Construct a native DirectSum.Decomposition of (R_n) on the same actual R. Its canonical recomposition is the finite sum of the native component inclusions. The data are obtained from the existing Tau restriction theorem applied to the original ambient decomposition and the injective scalar-restricted subtype.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: The comap family has exactly the membership condition of the existing restriction theorem. Use the inherited homogeneous-range theorem to exhibit every ambient homogeneous projection in the actual subtype range. Apply the existing Tau native restriction construction; its canonical finite recomposition is unchanged.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration, DeformationAndDerivedPatchingAlgebra:R03.3/adic-multiplication-homogeneous-range, tauceti:TauCeti.DirectSum.Decomposition.restrict, tauceti:TauCeti.DirectSum.isInternal_comap, mathlib:Submodule.subtype_injective.
+
+API TauCeti.HilbertSamuel.adicModuleRangeDecomposition_coe: With the restricted decomposition installed, the ambient subtype value of the n-th native projection of every actual x∈R equals the inherited adicModuleProjection π_n(x) in L.
+
+API TauCeti.HilbertSamuel.adicModuleRangeDecomposition_recompose: With the restricted decomposition installed, native canonical finite recomposition of the full native decomposition of any actual x∈R equals x in R, not merely after inclusion into L.
+
+API TauCeti.HilbertSamuel.adicModuleRangeDecomposition_of_mem: With the restricted decomposition installed, if actual x belongs to R_n then the n-th native projection, as an element of R, equals x.
+
+## Ambient projection agreement for the range
+
+TauCeti.HilbertSamuel.adicModuleRangeDecomposition_coe
+
+With the restricted decomposition installed, the ambient subtype value of the n-th native projection of every actual x∈R equals the inherited adicModuleProjection π_n(x) in L.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Apply the existing Tau map_decompose_restrict theorem to the scalar-restricted subtype and the exact comap membership condition. The ambient projection is the original native adic projection.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-decomposition, DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration, tauceti:TauCeti.DirectSum.map_decompose_restrict.
+
+## Finite recomposition in the actual range
+
+TauCeti.HilbertSamuel.adicModuleRangeDecomposition_recompose
+
+With the restricted decomposition installed, native canonical finite recomposition of the full native decomposition of any actual x∈R equals x in R, not merely after inclusion into L.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Use the left inverse field of native DirectSum.Decomposition on this actual carrier and its canonical component inclusions.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-decomposition, mathlib:DirectSum.Decomposition.
+
+## Homogeneous elements fixed in the actual range
+
+TauCeti.HilbertSamuel.adicModuleRangeDecomposition_of_mem
+
+With the restricted decomposition installed, if actual x belongs to R_n then the n-th native projection, as an element of R, equals x.
+
+Hypotheses: A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients with their ordinary natural-number grading. Fix a in the actual degree-one component S_1, let mu_a:L→L be the native S-linear multiplication map, K=ker(mu_a), and R=range(mu_a)=aL. These are the actual S-submodules with their inherited S actions and restricted A actions. No locality, Noetherianity, finite generation, reducedness, freeness, injectivity or non-zero-divisor hypothesis is imposed.
+
+Proof: Apply the native same-degree projection theorem to the actual restricted component family and its decomposition.
+
+Prerequisites: DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-decomposition, DeformationAndDerivedPatchingAlgebra:R03.3/adic-range-components-membership, mathlib:DirectSum.decompose_of_mem_same.
+
+## Boundary tests
+
+AdicRestrictionTests.zero_multiplier_kernel (compatibility): For a=0, every y in the actual L_n defines x in the full native kernel K with ambient value y; x lies in K_n and its degree-n restricted projection equals x.
+
+AdicRestrictionTests.kernel_wrong_degree (non-example): For every actual x in K_n and m≠n, the degree-m restricted kernel projection is zero. Copying the same kernel into every degree fails this test.
+
+AdicRestrictionTests.nilpotent_nonzero_kernel (non-example): For A=M=Z/4 and q=(2), the nonzero degree-one class a of2 has a nonzero x in the actual K_1. Its restricted degree-one projection fixes x and finite native recomposition recovers x. The kernel cannot be replaced by zero or restricted to regular multipliers.
+
+AdicRestrictionTests.zero_multiplier_range (degenerate): For a=0, every element of the actual range is zero, belongs to every range component as zero, and its native finite recomposition is zero.
+
+AdicRestrictionTests.range_degree_zero (non-example): For every degree-one a, an actual range element lying in degree zero is zero; its restricted degree-zero projection is zero. Treating the range grading as an unshifted copy of L fails this boundary.
+
+AdicRestrictionTests.range_successor (compatibility): For every actual y in L_n, the element a·y of R lies in R_(n+1), has exactly that ambient value, and is fixed by its restricted degree-(n+1) projection.
+
+AdicRestrictionTests.range_finite_reconstruction (characterisation): For every possibly inhomogeneous actual x in R, native finite recomposition recovers x and each restricted coordinate, included into L, equals the original native ambient projection of x.
+
+## Continuation boundary
+
+Fourteen new nodes and two defining native instances give actual internally graded kernel and range modules for degree-one multiplication on the existing ordinary adic module: literal comap components, inherited S scalar degree addition, native restricted decompositions, ambient projection agreement, finite reconstruction and fixed homogeneous projections. The generic restriction and projection theorems are existing pinned Tau imports. This supersedes only the kernel/range internal-decomposition frontier; the actual cokernel decomposition, smaller-ring graded scalar action and remaining-generator Hilbert–Serre induction remain open. Retain the previous finite-length bounds and signed recurrence with its kernel correction. Polynomial existence, support/degree, completion, localization, associativity, intrinsic/ambient multiplicity, all eight stages and routed-source obligations remain open; all nodes unchecked.
+
+All422 incoming whole node objects are preserved, together with every source/version/erratum, gap, request, planet and earlier stage obligation. The incoming reader follows unchanged; only the explicit kernel/range decomposition frontier above is superseded. The full Tau-importing suggested file remains uncompiled. Isolated Mathlib evidence replays the exact pinned shifted-projection and restriction declarations without building Tau.
+
+---
+
 # Finite component lengths and the signed Hilbert–Serre recurrence
 
 A is any commutative ring, q any ideal and M any A-module. S=gr_q(A) and L=gr_q(M) are the existing native Rees quotients. L_n is the actual image component, a∈S_1, f_n:L_n→L_(n+1) is multiplication by a, K_n=ker(f_n), I_(n+1)=range(f_n), and C_n is the actual image of L_n in L/aL with its surjective component map p_n. All lengths are native Module.length over A, initially valued in ENat. No locality, freeness, reducedness, regularity or injectivity of a is assumed.
