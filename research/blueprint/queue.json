@@ -30447,13 +30447,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-KTheoryLowDegrees--U.1",
     "BP-KTheoryLowDegrees--Z.3"
    ],
-   "note": "released on GitHub issue #1025"
+   "note": "claimed on GitHub issue #1025"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion",
@@ -30555,11 +30555,12 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #1027"
+   "note": "deliverables arrived from an external worker on issue #1027",
+   "finishedAt": "2026-10-04T21:35:10Z"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence",
