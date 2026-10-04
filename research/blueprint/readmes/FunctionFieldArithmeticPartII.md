@@ -1,3 +1,154 @@
+# Tensor base change and the universal root action
+
+Let A be any commutative ring, f∈A and B an arbitrary A-algebra, with coefficient map φ:A→B. Let D_A(f) be the direct limit of A[t_n]/(t_n^n−f) over all positive exponents ordered by divisibility. Write δ_A for the existing LEFT rational-character coaction, F_φ for its coefficient map and F_target for the corresponding map of coaction targets. The native tensor comparison is E:B⊗_A D_A(f)≃ₐ[B]D_B(φ(f)).
+
+Extend F_target∘δ_A using the native tensor adjunction to a B-algebra map β:B⊗_A D_A(f)→B[Q/Z]⊗_B D_B(φ(f)). Its pure-tensor formula is β(b⊗x)=b·F_target(δ_A(x)). Inherited coefficient naturality and pure-tensor extensionality prove β=δ_B∘E. This proves the algebraic equivariance equation for the actual comparison; the target identifies the chart through E. A separate intrinsic action on a tensor carrier or a general stack carrier is not introduced.
+
+The native equalizer of β and includeRight∘E is precisely the actual B-coefficient image. It is a B-algebra isomorphic to B. Every invariant tensor has a unique coefficient, the inverse equivalence recovers it, and E identifies these coefficients with the existing chart invariant coordinates. These statements hold without flatness, injectivity, reducedness, nontriviality or invertibility of exponents.
+
+Eight typed tests cover nonfactorial index3 over the nonflat quotient Z→Z/4, actual tensor comparison, zero rings and invariant inverse coordinates. The coefficient2 over Z/4 remains nonzero and square-zero. Over Z/2 at f=0, the actual second root transported into the tensor product is nonzero and square-zero but fails universal coinvariance; scalar-point fixedness cannot replace the Hopf coaction equation.
+
+The equivariance convention is Stacks §39.10 Definition39.10.1. The root-specific tensor/equalizer formulas are deductions from the pinned tensor adjunction and the existing rational-character root action. Talpo–Vistoli §3.1 motivates the action. General root-object groupoids, higher-universe adapters, finite-projection coherence for stack base change, fpqc frame torsors and quotient/descent remain explicit obligations.
+
+## Tensor extension of the root coaction
+
+**TauCeti.RootStack.divisibilityBaseChangeCoaction** — Construct the B-algebra map β:B⊗_A D_A(f)→B[Q/Z]⊗_B D_B(φ(f)) by extending F_target∘δ_A along the native tensor adjunction. The target retains the actual base-changed chart, and β is an action comparison map, not a new geometric stack carrier.
+
+Hypotheses: A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included. D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence. Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coaction, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-map, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-tensor-coefficient-constant, mathlib:AlgHom.liftEquiv, mathlib:IsScalarTower.algebraMap_apply.
+
+Proof: Give the target the A-algebra structure through A→B. The coaction and coefficient-map coefficient formulas prove that F_target∘δ_A is an A-algebra map. Extend it by the pinned AlgHom.liftEquiv, which directly yields a B-algebra map.
+
+API:
+
+- **TauCeti.RootStack.divisibilityBaseChangeCoaction.tmul**: For every b∈B and x∈D_A(f), β(b⊗x)=b·F_target(δ_A(x)).
+- **TauCeti.RootStack.divisibilityBaseChangeCoaction.compare**: As actual B-algebra maps, β=δ_B∘E, where E:B⊗_A D_A(f)≃ₐ[B]D_B(φ(f)) is the inherited arbitrary-base-change equivalence.
+- **TauCeti.RootStack.divisibilityBaseChangeCoaction.root**: For every positive n, β(1⊗κ_n(t_n))=e_[1/n]⊗κ_n(t_n), with the right root over B and the normalized rational character in B[Q/Z].
+- **TauCeti.RootStack.divisibilityBaseChangeCoaction.coefficient**: For b∈B included into B⊗_A D_A(f), β(b)=1⊗b under the actual coefficient inclusion into D_B(φ(f)).
+- **TauCeti.RootStack.divisibilityBaseChangeCoaction.coinvariant_iff**: For z∈B⊗_A D_A(f), β(z)=1⊗E(z) if and only if z is the coefficient image of some b∈B. The equation is universal coaction equality in B[Q/Z]⊗_B D_B(φ(f)).
+- **TauCeti.RootStack.divisibilityBaseChangeCoaction.invariants_unique**: Every z satisfying β(z)=1⊗E(z) is the image of a unique b∈B.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityBaseChangeCoaction.test_nonflat_third_root**: For Z→Z/4, f=2 and positive index3, the tensor root has actual rational character [1/3] and maps to the third root over Z/4.
+- **TauCeti.RootStack.divisibilityBaseChangeCoaction.test_tensor_formula**: For arbitrary f,b,x, the actual tensor action comparison on b⊗x agrees with δ_B evaluated after the native tensor equivalence E.
+- **TauCeti.RootStack.divisibilityBaseChangeCoaction.test_zero_ring**: For Z→Z/1 and f=2, every actual tensor element satisfies the universal coinvariance equation.
+- **TauCeti.RootStack.divisibilityBaseChangeCoaction.test_wild_not_coinvariant**: For Z→Z/2 and f=0, the inverse E-image of the actual second root is nonzero and square-zero and fails universal coinvariance. Wild nilpotents survive the actual tensor and action comparison.
+
+## Pure-tensor action formula
+
+**TauCeti.RootStack.divisibilityBaseChangeCoaction.tmul** — For every b∈B and x∈D_A(f), β(b⊗x)=b·F_target(δ_A(x)).
+
+Hypotheses: A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included. D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence. Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction, mathlib:AlgHom.liftEquiv_tmul.
+
+Proof: Evaluate the actual tensor-adjunction map on a pure tensor; this is the native liftEquiv_tmul law.
+
+## Equivariance of the tensor base-change comparison
+
+**TauCeti.RootStack.divisibilityBaseChangeCoaction.compare** — As actual B-algebra maps, β=δ_B∘E, where E:B⊗_A D_A(f)≃ₐ[B]D_B(φ(f)) is the inherited arbitrary-base-change equivalence.
+
+Hypotheses: A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included. D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence. Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-tensor, FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-pure, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-coefficient-naturality, mathlib:Algebra.TensorProduct.ext'.
+
+Proof: Use native pure-tensor extensionality. The new formula gives b·F_target(δ_A(x)); inherited coefficient naturality gives F_target(δ_A(x))=δ_B(F_φ(x)); B-linearity and the actual E pure-tensor formula identify the other side. No cancellation or flatness is used.
+
+## Base-changed rational root weight
+
+**TauCeti.RootStack.divisibilityBaseChangeCoaction.root** — For every positive n, β(1⊗κ_n(t_n))=e_[1/n]⊗κ_n(t_n), with the right root over B and the normalized rational character in B[Q/Z].
+
+Hypotheses: A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included. D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence. Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-comparison, FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-right, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-root, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-root.
+
+Proof: Evaluate the comparison identity on the original n-th root and apply the inherited coefficient and root-coaction formulas. This includes nonfactorial positive indices.
+
+## Base-changed coefficient coinvariance
+
+**TauCeti.RootStack.divisibilityBaseChangeCoaction.coefficient** — For b∈B included into B⊗_A D_A(f), β(b)=1⊗b under the actual coefficient inclusion into D_B(φ(f)).
+
+Hypotheses: A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included. D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence. Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-comparison, FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-constant.
+
+Proof: Use the B-algebra compatibility of E and the inherited δ_B coefficient equation.
+
+## Tensor coinvariants are exactly new coefficients
+
+**TauCeti.RootStack.divisibilityBaseChangeCoaction.coinvariant_iff** — For z∈B⊗_A D_A(f), β(z)=1⊗E(z) if and only if z is the coefficient image of some b∈B. The equation is universal coaction equality in B[Q/Z]⊗_B D_B(φ(f)).
+
+Hypotheses: A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included. D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence. Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-comparison, FunctionFieldArithmeticPartII:RS.2/divisibility-qz-invariants, FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence.
+
+Proof: Rewrite β as δ_B∘E and use the inherited arbitrary-ring invariant theorem. Transport coefficient equality through the actual B-algebra equivalence E, using its injectivity and coefficient compatibility in both directions.
+
+## Tensor invariant algebra
+
+**TauCeti.RootStack.divisibilityTensorInvariantEquiv** — Construct B≃ₐ[B]I_tensor, where I_tensor is the actual AlgHom.equalizer of β and includeRight∘E inside B⊗_A D_A(f). Its forward map is the actual B-coefficient inclusion.
+
+Hypotheses: A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included. D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence. Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/tensor-action-coaction-coefficient, FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-coinvariants, FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-injective, mathlib:AlgHom.equalizer, mathlib:AlgHom.codRestrict, mathlib:AlgEquiv.ofBijective.
+
+Proof: Restrict the native coefficient algebra map to the native equalizer. Prove injectivity by applying E and coefficient injectivity in D_B; prove surjectivity using the tensor coinvariant characterization. Apply the native algebra-equivalence constructor to this actual bijection.
+
+API:
+
+- **TauCeti.RootStack.divisibilityTensorInvariantEquiv.apply_coe**: The underlying tensor element of divisibilityTensorInvariantEquiv(f)(b) is algebraMap_B(b).
+- **TauCeti.RootStack.divisibilityTensorInvariantEquiv.chart**: For b∈B, E((divisibilityTensorInvariantEquiv(f)(b)).val)=(divisibilityInvariantEquiv(φ(f))(b)).val.
+- **TauCeti.RootStack.divisibilityTensorInvariantEquiv.inverse_coe**: For z in the native tensor equalizer, the coefficient image of divisibilityTensorInvariantEquiv(f)⁻¹(z) equals z.val in the actual tensor algebra.
+
+TESTS:
+
+- **TauCeti.RootStack.divisibilityTensorInvariantEquiv.test_nilpotent_coefficient**: For Z→Z/4 and f=2, the invariant tensor coefficient2 is nonzero and has square zero.
+- **TauCeti.RootStack.divisibilityTensorInvariantEquiv.test_inverse**: For arbitrary A,B,f and b∈B, the actual tensor-invariant equivalence followed by its inverse recovers b.
+- **TauCeti.RootStack.divisibilityTensorInvariantEquiv.test_chart**: For the nonflat quotient Z→Z/4 at f=2, every invariant tensor coefficient agrees under E with the native chart-invariant coefficient.
+- **TauCeti.RootStack.divisibilityTensorInvariantEquiv.test_zero_ring**: For Z→Z/1 and f=2, the invariant image of the unique coefficient is zero in the actual tensor algebra.
+
+## Invariant coefficient in the tensor algebra
+
+**TauCeti.RootStack.divisibilityTensorInvariantEquiv.apply_coe** — The underlying tensor element of divisibilityTensorInvariantEquiv(f)(b) is algebraMap_B(b).
+
+Hypotheses: A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included. D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence. Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-equivalence.
+
+Proof: Unfold the forward codomain restriction of the actual coefficient map.
+
+## Agreement of tensor and chart invariant coordinates
+
+**TauCeti.RootStack.divisibilityTensorInvariantEquiv.chart** — For b∈B, E((divisibilityTensorInvariantEquiv(f)(b)).val)=(divisibilityInvariantEquiv(φ(f))(b)).val.
+
+Hypotheses: A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included. D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence. Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-coefficient, FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence, FunctionFieldArithmeticPartII:RS.2/divisibility-invariant-forward.
+
+Proof: Both sides are the coefficient image b in D_B(φ(f)), by B-algebra compatibility of E and the inherited chart-invariant coefficient formula.
+
+## Inverse tensor invariant coefficient
+
+**TauCeti.RootStack.divisibilityTensorInvariantEquiv.inverse_coe** — For z in the native tensor equalizer, the coefficient image of divisibilityTensorInvariantEquiv(f)⁻¹(z) equals z.val in the actual tensor algebra.
+
+Hypotheses: A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included. D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence. Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-invariant-coefficient.
+
+Proof: Apply the forward coefficient formula to the inverse image and then the inverse law of the native algebra equivalence.
+
+## Uniqueness of base-changed invariant coefficients
+
+**TauCeti.RootStack.divisibilityBaseChangeCoaction.invariants_unique** — Every z satisfying β(z)=1⊗E(z) is the image of a unique b∈B.
+
+Hypotheses: A and B are arbitrary commutative rings in a common arbitrary universe, B is an actual A-algebra, φ=algebraMap A B and f∈A. Nonflat and noninjective coefficient maps, zero rings, nonunits, nilpotents and wild characteristic are included. D_A(f) is the inherited actual colimit of A[t_n]/(t_n^n−f) over every positive exponent under divisibility. δ_A is its existing LEFT rational-character coaction; F_φ and F_target are the actual inherited coefficient maps. E is the actual native tensor base-change algebra equivalence. Universal invariance means β(z)=1⊗E(z) in the actual target B[Q/Z]⊗_B D_B(φ(f)); it does not mean fixedness under B-valued points. General root-object groupoids, higher-universe transports, fpqc torsor/descent and coarse-stack universal properties remain separate obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/tensor-action-tensor-coinvariants, FunctionFieldArithmeticPartII:RS.2/native-base-change-tensor-equivalence, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-injective.
+
+Proof: Existence is the tensor coinvariant characterization. For uniqueness, apply E to equality of coefficient images and use actual coefficient injectivity in D_B. The coefficient map A→B need not itself be injective.
+
 # Arbitrary base change of infinite affine root charts
 
 Fix any commutative ring A, f∈A and a unital ring map φ:A→B. Write D_A(f) for the inherited direct limit of A[t_n]/(t_n^n−f) over all positive exponents, ordered by divisibility. The existing coefficient map F_φ sends every coefficient and every compatible root to its counterpart over B.
