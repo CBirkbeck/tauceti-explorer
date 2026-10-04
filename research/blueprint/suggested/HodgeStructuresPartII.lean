@@ -1,3 +1,6 @@
+import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
+
+
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Algebra.Polynomial.Derivation
 import Mathlib.RingTheory.Finiteness.Projective
@@ -5226,6 +5229,278 @@ example :
           (((D.affinePullback m).affinePullback m).toAddHom
             ((2 : ZMod 4) ⊗ₜ[ZMod 4] ((1 : ZMod 4) ⊗ₜ[ZMod 4] (1 : ZMod 4)))))
       y = 2 ∧ y ≠ 0 ∧ y ^ 2 = 0 := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open CategoryTheory
+open scoped TensorProduct
+universe u w z p q
+variable {k R : Type u} [CommRing k] [CommRing R] [Algebra k R]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z] [IsScalarTower k R W]
+
+@[reducible]
+def AffineCategory (Ω : TwoForms k R W Z) (lam : R) :=
+  Σ M : ModuleCat.{u} R, Preconnection Ω lam M
+
+variable {Ω : TwoForms k R W Z} {lam : R}
+
+@[instance_reducible]
+def AffineCategory.category : Category (AffineCategory Ω lam) where
+  Hom X Y := {h : X.1 →ₗ[R] Y.1 //
+    ∀ x, Y.2.toAddHom (h x) = TensorProduct.map h LinearMap.id (X.2.toAddHom x)}
+  id X := ⟨LinearMap.id, by intro x; simp⟩
+  comp h j := ⟨j.1.comp h.1, by
+    intro x
+    rw [LinearMap.comp_apply, j.2, h.2, TensorProduct.map_map]
+    rfl⟩
+  id_comp _ := by apply Subtype.ext; rfl
+  comp_id _ := by apply Subtype.ext; rfl
+  assoc _ _ _ := by apply Subtype.ext; rfl
+
+attribute [instance] AffineCategory.category
+
+omit [IsScalarTower k R W] in
+lemma AffineCategory.hom_ext {X Y : AffineCategory Ω lam} (h j : X ⟶ Y)
+    (he : h.1 = j.1) : h = j := by
+  sorry
+
+omit [IsScalarTower k R W] in
+lemma AffineCategory.id_linear (X : AffineCategory Ω lam) :
+    (𝟙 X : X ⟶ X).1 = LinearMap.id := by
+  sorry
+
+omit [IsScalarTower k R W] in
+lemma AffineCategory.comp_linear {X Y Z : AffineCategory Ω lam} (h : X ⟶ Y) (j : Y ⟶ Z) :
+    (h ≫ j).1 = j.1.comp h.1 := by
+  sorry
+
+def AffineCategory.forget : AffineCategory Ω lam ⥤ ModuleCat.{u} R where
+  obj X := X.1
+  map h := ModuleCat.ofHom h.1
+
+omit [IsScalarTower k R W] in
+lemma AffineCategory.forget_obj (X : AffineCategory Ω lam) :
+    (AffineCategory.forget (Ω := Ω) (lam := lam)).obj X = X.1 := by
+  sorry
+
+omit [IsScalarTower k R W] in
+lemma AffineCategory.forget_map {X Y : AffineCategory Ω lam} (h : X ⟶ Y) :
+    ((AffineCategory.forget (Ω := Ω) (lam := lam)).map h).hom = h.1 := by
+  sorry
+
+omit [IsScalarTower k R W] in
+lemma AffineCategory.forget_faithful :
+    (AffineCategory.forget (Ω := Ω) (lam := lam)).Faithful := by
+  sorry
+
+lemma AffineCategory.hom_extend {X Y : AffineCategory Ω lam} (h : X ⟶ Y)
+    (x : X.1 ⊗[R] W) :
+    Y.2.extend (TensorProduct.map h.1 LinearMap.id x) =
+      TensorProduct.map h.1 LinearMap.id (X.2.extend x) := by
+  sorry
+
+lemma AffineCategory.hom_curvature {X Y : AffineCategory Ω lam} (h : X ⟶ Y)
+    (x : X.1) :
+    Y.2.curvature (h.1 x) = TensorProduct.map h.1 LinearMap.id (X.2.curvature x) := by
+  sorry
+
+def AffineCategory.isoMk {X Y : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] Y.1)
+    (he : ∀ x, Y.2.toAddHom (e x) =
+      TensorProduct.map e.toLinearMap LinearMap.id (X.2.toAddHom x)) : X ≅ Y where
+  hom := ⟨e.toLinearMap, he⟩
+  inv := ⟨e.symm.toLinearMap, X.2.horizontal_symm Y.2 e he⟩
+  hom_inv_id := by
+    apply Subtype.ext
+    ext x
+    exact e.symm_apply_apply x
+  inv_hom_id := by
+    apply Subtype.ext
+    ext x
+    exact e.apply_symm_apply x
+
+omit [IsScalarTower k R W] in
+lemma AffineCategory.isoMk_hom {X Y : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] Y.1)
+    (he : ∀ x, Y.2.toAddHom (e x) =
+      TensorProduct.map e.toLinearMap LinearMap.id (X.2.toAddHom x)) :
+    (AffineCategory.isoMk e he).hom.1 = e.toLinearMap := by
+  sorry
+
+omit [IsScalarTower k R W] in
+lemma AffineCategory.isoMk_inv {X Y : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] Y.1)
+    (he : ∀ x, Y.2.toAddHom (e x) =
+      TensorProduct.map e.toLinearMap LinearMap.id (X.2.toAddHom x)) :
+    (AffineCategory.isoMk e he).inv.1 = e.symm.toLinearMap := by
+  sorry
+
+lemma AffineCategory.isoMk_flat_iff {X Y : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] Y.1)
+    (he : ∀ x, Y.2.toAddHom (e x) =
+      TensorProduct.map e.toLinearMap LinearMap.id (X.2.toAddHom x)) :
+    (∀ y, Y.2.curvature y = 0) ↔ ∀ x, X.2.curvature x = 0 := by
+  sorry
+
+variable {S : Type u} [CommRing S] [Algebra k S] [Algebra R S]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V]
+variable {Y : Type q} [AddCommGroup Y] [Module S Y] [IsScalarTower k S V]
+variable {Γ : TwoForms k S V Y}
+
+def AffineCategory.pullback (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+    AffineCategory Ω lam ⥤ AffineCategory Γ (algebraMap R S lam) where
+  obj X := ⟨ModuleCat.of S (S ⊗[R] X.1), X.2.affinePullback m⟩
+  map {X X'} h := ⟨h.1.baseChange S, X.2.affinePullback_horizontal m X'.2 h.1 h.2⟩
+  map_id X := by
+    apply Subtype.ext
+    exact LinearMap.baseChange_id
+  map_comp h j := by
+    apply Subtype.ext
+    exact LinearMap.baseChange_comp _ _
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] in
+lemma AffineCategory.pullback_obj_connection (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    (X : AffineCategory Ω lam) :
+    ((AffineCategory.pullback m).obj X).2 = X.2.affinePullback m := by
+  sorry
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] in
+lemma AffineCategory.pullback_map_linear (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    {X X' : AffineCategory Ω lam} (h : X ⟶ X') :
+    ((AffineCategory.pullback m).map h).1 = h.1.baseChange S := by
+  sorry
+
+omit [IsScalarTower k R W] [IsScalarTower k S V] in
+lemma AffineCategory.pullback_map_tmul (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+    {X X' : AffineCategory Ω lam} (h : X ⟶ X') (s : S) (x : X.1) :
+    ((AffineCategory.pullback m).map h).1 (s ⊗ₜ[R] x) = s ⊗ₜ[R] h.1 x := by
+  sorry
+
+def AffineCategory.pullbackIdentityIso :
+    AffineCategory.pullback (lam := lam) (TwoForms.Morphism.refl Ω) ≅
+      𝟭 (AffineCategory Ω lam) :=
+  NatIso.ofComponents (fun X => AffineCategory.isoMk (TensorProduct.lid R X.1)
+    X.2.affinePullback_refl_horizontal) (by
+    intro X X' h
+    apply Subtype.ext
+    apply TensorProduct.ext'
+    intro r x
+    change r • h.1 x = h.1 (r • x)
+    exact (h.1.map_smul r x).symm)
+
+lemma AffineCategory.pullbackIdentityIso_hom (X : AffineCategory Ω lam) :
+    ((AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := lam)).hom.app X).1 =
+      (TensorProduct.lid R X.1).toLinearMap := by
+  sorry
+
+lemma AffineCategory.pullbackIdentityIso_inv (X : AffineCategory Ω lam) :
+    ((AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := lam)).inv.app X).1 =
+      (TensorProduct.lid R X.1).symm.toLinearMap := by
+  sorry
+
+omit [IsScalarTower k R W] in
+lemma AffineCategory.pullbackIdentityIso_naturality {X X' : AffineCategory Ω lam}
+    (h : X ⟶ X') :
+    (TensorProduct.lid R X'.1).toLinearMap.comp (h.1.baseChange R) =
+      h.1.comp (TensorProduct.lid R X.1).toLinearMap := by
+  sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.Intrinsic
+
+namespace TauCeti.Hodge.ParameterConnection.Intrinsic
+noncomputable section
+open CategoryTheory
+open scoped TensorProduct
+universe u w z p q
+variable {k R : Type u} [CommRing k] [CommRing R] [Algebra k R]
+variable {W : Type w} [AddCommGroup W] [Module R W] [Module k W]
+variable {Z : Type z} [AddCommGroup Z] [Module R Z] [IsScalarTower k R W]
+variable {Ω : TwoForms k R W Z} {lam : R}
+variable {S : Type u} [CommRing S] [Algebra k S] [Algebra R S]
+variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V]
+variable {Y : Type q} [AddCommGroup Y] [Module S Y] [IsScalarTower k S V]
+variable {Γ : TwoForms k S V Y}
+
+-- test: AffineCategoryTests.zero_morphism
+omit [IsScalarTower k R W] [IsScalarTower k S V] in
+example (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X X' : AffineCategory Ω lam) :
+    ∃ h : X ⟶ X', (AffineCategory.forget.map h).hom = 0 ∧
+      ((AffineCategory.pullback m).map h).1 = 0 := by
+  sorry
+
+-- test: AffineCategoryTests.composite_forget
+omit [IsScalarTower k R W] in
+example {X X' X'' : AffineCategory Ω lam} (h : X ⟶ X') (j : X' ⟶ X'') (x : X.1) :
+    (AffineCategory.forget.map (𝟙 X ≫ h ≫ j)).hom x = j.1 (h.1 x) := by
+  sorry
+
+-- test: AffineCategoryTests.forget_detects_maps
+omit [IsScalarTower k R W] in
+example {X X' : AffineCategory Ω lam} (h j : X ⟶ X')
+    (he : ∀ x, (AffineCategory.forget.map h).hom x = (AffineCategory.forget.map j).hom x) :
+    h = j := by
+  sorry
+
+-- test: AffineCategoryTests.transport_roundtrip
+example (M N : ModuleCat.{u} R) (D : Preconnection Ω lam M) (e : M ≃ₗ[R] N) (x : M) :
+    let X : AffineCategory Ω lam := ⟨M, D⟩
+    let X' : AffineCategory Ω lam := ⟨N, D.transport e⟩
+    let i : X ≅ X' := AffineCategory.isoMk e (D.transport_horizontal e)
+    i.inv.1 (i.hom.1 x) = x := by
+  sorry
+
+-- test: AffineCategoryTests.iso_reflects_actual_flatness
+example {X X' : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] X'.1)
+    (he : ∀ x, X'.2.toAddHom (e x) =
+      TensorProduct.map e.toLinearMap LinearMap.id (X.2.toAddHom x))
+    (hz : ∀ y, X'.2.curvature y = 0) : ∀ x, X.2.curvature x = 0 := by
+  sorry
+
+-- test: AffineCategoryTests.identity_naturality_on_tensor
+example {X X' : AffineCategory Ω lam} (h : X ⟶ X') (r : R) (x : X.1) :
+    ((AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := lam)).hom.app X').1
+      (((AffineCategory.pullback (TwoForms.Morphism.refl Ω)).map h).1 (r ⊗ₜ[R] x)) =
+    h.1 (((AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := lam)).hom.app X).1
+      (r ⊗ₜ[R] x)) := by
+  sorry
+
+-- test: AffineCategoryTests.reject_nonhorizontal_polynomial_map
+example :
+    ∃ Ω : TwoForms ℤ (Polynomial ℤ) (Polynomial ℤ) (Fin 0 → Polynomial ℤ),
+      let X : AffineCategory Ω (1 : Polynomial ℤ) :=
+        ⟨ModuleCat.of (Polynomial ℤ) (Polynomial ℤ), Preconnection.unit Ω 1⟩
+      ¬ ∃ h : X ⟶ X, ∀ x : Polynomial ℤ,
+        (show Polynomial ℤ from (AffineCategory.forget.map h).hom x) = Polynomial.X * x := by
+  sorry
+
+-- test: AffineCategoryTests.nonconstant_identity_operator
+example :
+    ∃ Ω : TwoForms ℤ (Polynomial ℤ) (Polynomial ℤ) (Fin 0 → Polynomial ℤ),
+      Ω.d0 Polynomial.X = 1 ∧
+      let X : AffineCategory Ω Polynomial.X :=
+        ⟨ModuleCat.of (Polynomial ℤ) (Polynomial ℤ), Preconnection.unit Ω Polynomial.X⟩
+      let F := AffineCategory.pullback (TwoForms.Morphism.refl Ω)
+      let i := (AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := Polynomial.X)).hom.app X
+      TensorProduct.lid (Polynomial ℤ) (Polynomial ℤ)
+        (TensorProduct.map i.1 LinearMap.id
+          ((F.obj X).2.toAddHom ((1 : Polynomial ℤ) ⊗ₜ[Polynomial ℤ] Polynomial.X))) =
+        Polynomial.X := by
+  sorry
+
+-- test: AffineCategoryTests.nonreduced_identity_iso
+example :
+    ∃ Ω : TwoForms (ZMod 4) (ZMod 4) (ZMod 4) (Fin 0 → ZMod 4),
+      let X : AffineCategory Ω (0 : ZMod 4) :=
+        ⟨ModuleCat.of (ZMod 4) (ZMod 4),
+          Preconnection.ofLinear (TensorProduct.lid (ZMod 4) (ZMod 4)).symm.toLinearMap⟩
+      let F := AffineCategory.pullback (TwoForms.Morphism.refl Ω)
+      let i := (AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := (0 : ZMod 4))).app X
+      let y := TensorProduct.lid (ZMod 4) (ZMod 4)
+        (TensorProduct.map i.hom.1 LinearMap.id
+          ((F.obj X).2.toAddHom ((2 : ZMod 4) ⊗ₜ[ZMod 4] (1 : ZMod 4))))
+      y = 2 ∧ y ≠ 0 ∧ y ^ 2 = 0 ∧ i.hom.1 (i.inv.1 (2 : ZMod 4)) = (2 : ZMod 4) := by
   sorry
 
 end
