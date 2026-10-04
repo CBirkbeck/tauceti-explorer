@@ -351,7 +351,7 @@
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
-  "libraryAuditStatuses": 26,
+  "libraryAuditStatuses": 35,
   "bibliographicSources": 46,
   "roadmapEdges": 1768,
   "stageEdges": 8688,
@@ -503,8 +503,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30671398,
-  "htmlSha256": "b9dbf2c0c6fc0c3bf0e79dbea73b0ca40c3ed0ec06c777ce21bd918e9490500b",
+  "htmlBytes": 30723116,
+  "htmlSha256": "506435ce472d849e3e59e14b35f7ad7387e0f5d5d7ec901a4b62d67c7b93b776",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -523,8 +523,8 @@
     "src/app.js": "2edab54d4b58f8061ad287d88e17074ca69ec6967f4d3c05263b95ca688f6945",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "a55847673574bf4a47dd89300ce5b7f1f6d2a81e0895d9e6566fdd7bf9e2df87",
-    "data/tauceti-new-roadmaps.json": "b5886e144aa30e52901a3aede786b672637f7bf2824a8327ac8e37c7fb151581",
+    "data/tauceti-progress.json": "53f8939dba51f7b20ad39a7517afb42b205ff6253a7d9e3f9ce4af8484f2caa1",
+    "data/tauceti-new-roadmaps.json": "3e835f30fa5a79a1c330723f39fe01accce0879dfa8d5cfa65397c16fe2e9f18",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
     "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
@@ -734,14 +734,14 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-04T06:09:14Z",
+    "exportedAt": "2026-10-04T12:40:05Z",
     "roadmaps": 69,
     "unplaced": 0,
     "layers": {
-      "done": 245,
-      "partial": 235,
-      "untouched": 88,
-      "unassessed": 11,
+      "done": 240,
+      "partial": 217,
+      "untouched": 77,
+      "unassessed": 45,
       "total": 579
     },
     "added": [

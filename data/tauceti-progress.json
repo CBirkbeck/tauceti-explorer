@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-04T06:09:14Z",
- "exported_at": "2026-10-04T06:09:14Z",
+ "cutoff": "2026-10-04T12:40:05Z",
+ "exported_at": "2026-10-04T12:40:05Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 123,
-  "recent": 5583,
-  "total": 10531,
+  "open": 125,
+  "recent": 5686,
+  "total": 10653,
   "unattributed": {
-   "no_label": 1163,
+   "no_label": 1165,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    659,
    1080,
    1649,
-   1939
+   2061
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "4bc934369e62d49f4073b18af2cadd89f309167c",
+ "roadmap_head": "ce57cca0e3bb6a449a7e320b0844bf750b20969c",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-04T01:41:20Z",
+    "last": "2026-10-04T11:45:30Z",
     "open": 1,
     "recent": 173,
-    "since_report": 17,
-    "total": 411,
+    "since_report": 18,
+    "total": 412,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      31,
      19,
      42,
-     59
+     60
     ]
    },
    "assessment": {
@@ -255,11 +255,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T04:43:16Z",
+    "last": "2026-10-04T11:18:25Z",
     "open": 1,
-    "recent": 101,
-    "since_report": 24,
-    "total": 154,
+    "recent": 105,
+    "since_report": 28,
+    "total": 158,
     "weekly": [
      0,
      0,
@@ -276,7 +276,7 @@
      10,
      22,
      25,
-     42
+     46
     ]
    },
    "assessment": {
@@ -398,11 +398,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T21:34:39Z",
-    "open": 2,
-    "recent": 76,
-    "since_report": 24,
-    "total": 76,
+    "last": "2026-10-04T11:36:02Z",
+    "open": 1,
+    "recent": 80,
+    "since_report": 28,
+    "total": 80,
     "weekly": [
      0,
      0,
@@ -419,7 +419,7 @@
      2,
      18,
      22,
-     34
+     38
     ]
    },
    "assessment": {
@@ -522,7 +522,7 @@
   {
    "activity": {
     "last": "2026-10-03T20:43:23Z",
-    "open": 1,
+    "open": 3,
     "recent": 43,
     "since_report": 11,
     "total": 43,
@@ -636,11 +636,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T12:14:31Z",
-    "open": 0,
-    "recent": 71,
-    "since_report": 18,
-    "total": 71,
+    "last": "2026-10-04T12:04:57Z",
+    "open": 1,
+    "recent": 72,
+    "since_report": 19,
+    "total": 72,
     "weekly": [
      0,
      0,
@@ -657,7 +657,7 @@
      9,
      14,
      21,
-     25
+     26
     ]
    },
    "assessment": {
@@ -756,11 +756,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-02T15:26:03Z",
+    "last": "2026-10-04T12:04:23Z",
     "open": 0,
-    "recent": 93,
-    "since_report": 7,
-    "total": 121,
+    "recent": 94,
+    "since_report": 8,
+    "total": 122,
     "weekly": [
      0,
      0,
@@ -777,7 +777,7 @@
      23,
      27,
      32,
-     10
+     11
     ]
    },
    "assessment": {
@@ -882,11 +882,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T03:23:47Z",
-    "open": 1,
-    "recent": 92,
-    "since_report": 17,
-    "total": 92,
+    "last": "2026-10-04T11:13:28Z",
+    "open": 2,
+    "recent": 93,
+    "since_report": 18,
+    "total": 93,
     "weekly": [
      0,
      0,
@@ -903,7 +903,7 @@
      5,
      24,
      18,
-     45
+     46
     ]
    },
    "assessment": {
@@ -1149,7 +1149,7 @@
    "activity": {
     "last": "2026-10-03T05:47:39Z",
     "open": 0,
-    "recent": 88,
+    "recent": 86,
     "since_report": 2,
     "total": 97,
     "weekly": [
@@ -1279,11 +1279,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T03:53:12Z",
+    "last": "2026-10-04T11:56:16Z",
     "open": 3,
-    "recent": 202,
-    "since_report": 48,
-    "total": 202,
+    "recent": 208,
+    "since_report": 54,
+    "total": 208,
     "weekly": [
      0,
      0,
@@ -1300,22 +1300,15 @@
      8,
      23,
      84,
-     83
+     89
     ]
    },
    "assessment": {
-    "detail": null,
+    "detail": "marker assessed a different README than the one the layers were read from",
     "notes": {},
-    "reason": "ok",
-    "remaining": {
-     "Layer 0": "graded commutativity, restriction compatibility in remaining bidegrees, projection formula, Tate–Nakayama generalization",
-     "Layer 3": "tateIso compatibility with restriction, corestriction, towers, conjugation and scaled inflation",
-     "Layer 4": "the four Artin–Tate diagrams, the character formula, and uniqueness",
-     "Layer 5": "invMap on the full Brauer group, brRes/brCor squares, H2(mu_n) = Z/n, local Tate duality",
-     "Layer 6": "the local class formation itself, localArtinEquiv, and the Frobenius normalization",
-     "Layer 7": "the absolute local Artin map, its unramified and cyclotomic normalizations, and conductors"
-    },
-    "source": "marker"
+    "reason": "invalid-marker",
+    "remaining": {},
+    "source": null
    },
    "completed": false,
    "id": "TauCetiRoadmap/ClassFieldTheory",
@@ -1337,21 +1330,21 @@
     "Layer 14"
    ],
    "layer_lines": [
-    589,
-    628,
-    693,
-    719,
-    750,
-    797,
-    863,
-    913,
-    934,
-    1006,
-    1053,
-    1140,
-    1180,
-    1255,
-    1328
+    634,
+    673,
+    741,
+    772,
+    804,
+    854,
+    1154,
+    1246,
+    1309,
+    1381,
+    1428,
+    1517,
+    1597,
+    1672,
+    1745
    ],
    "layers": [
     "Layer 0: audit and complete the cohomology suppliers",
@@ -1375,24 +1368,24 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/ClassFieldTheory/README.md",
-   "readme_sha": "c7539775413fe42c462cefef2ffea4385853c0629cefd2a16dbfafa76084a134",
+   "readme_sha": "f158bba211981f9bf72a840353411dc7806f074a702d622c8f1495ca585321de",
    "retired": null,
    "states": [
-    "partial",
-    "done",
-    "done",
-    "partial",
-    "partial",
-    "partial",
-    "partial",
-    "partial",
-    "untouched",
-    "untouched",
-    "untouched",
-    "untouched",
-    "untouched",
-    "untouched",
-    "untouched"
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
    ],
    "status": {
     "frontier": [
@@ -1430,11 +1423,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T21:08:52Z",
-    "open": 0,
-    "recent": 103,
-    "since_report": 19,
-    "total": 194,
+    "last": "2026-10-04T09:27:46Z",
+    "open": 1,
+    "recent": 105,
+    "since_report": 21,
+    "total": 196,
     "weekly": [
      8,
      21,
@@ -1451,7 +1444,7 @@
      5,
      21,
      19,
-     57
+     59
     ]
    },
    "assessment": {
@@ -1540,11 +1533,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T17:11:37Z",
-    "open": 1,
+    "last": "2026-10-04T11:14:04Z",
+    "open": 2,
     "recent": 85,
-    "since_report": 10,
-    "total": 262,
+    "since_report": 11,
+    "total": 263,
     "weekly": [
      0,
      0,
@@ -1561,7 +1554,7 @@
      9,
      21,
      30,
-     23
+     24
     ]
    },
    "assessment": {
@@ -1650,11 +1643,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T21:05:25Z",
+    "last": "2026-10-04T12:14:17Z",
     "open": 0,
-    "recent": 81,
-    "since_report": 11,
-    "total": 101,
+    "recent": 83,
+    "since_report": 14,
+    "total": 104,
     "weekly": [
      0,
      0,
@@ -1671,7 +1664,7 @@
      5,
      19,
      25,
-     28
+     31
     ]
    },
    "assessment": {
@@ -1788,11 +1781,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T12:16:09Z",
-    "open": 0,
-    "recent": 73,
-    "since_report": 11,
-    "total": 108,
+    "last": "2026-10-04T10:30:31Z",
+    "open": 1,
+    "recent": 74,
+    "since_report": 12,
+    "total": 109,
     "weekly": [
      0,
      0,
@@ -1809,7 +1802,7 @@
      11,
      11,
      32,
-     16
+     17
     ]
    },
    "assessment": {
@@ -1916,11 +1909,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T23:38:36Z",
+    "last": "2026-10-04T10:02:46Z",
     "open": 1,
-    "recent": 190,
-    "since_report": 19,
-    "total": 438,
+    "recent": 187,
+    "since_report": 21,
+    "total": 440,
     "weekly": [
      0,
      0,
@@ -1937,7 +1930,7 @@
      62,
      24,
      36,
-     38
+     40
     ]
    },
    "assessment": {
@@ -2166,11 +2159,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T18:26:51Z",
+    "last": "2026-10-04T11:53:31Z",
     "open": 3,
-    "recent": 83,
-    "since_report": 21,
-    "total": 83,
+    "recent": 84,
+    "since_report": 22,
+    "total": 84,
     "weekly": [
      0,
      0,
@@ -2187,7 +2180,7 @@
      2,
      16,
      24,
-     41
+     42
     ]
    },
    "assessment": {
@@ -2285,11 +2278,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T05:30:15Z",
-    "open": 7,
-    "recent": 120,
-    "since_report": 27,
-    "total": 196,
+    "last": "2026-10-04T11:53:31Z",
+    "open": 4,
+    "recent": 134,
+    "since_report": 41,
+    "total": 210,
     "weekly": [
      5,
      11,
@@ -2306,7 +2299,7 @@
      19,
      24,
      19,
-     56
+     70
     ]
    },
    "assessment": {
@@ -2428,11 +2421,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T01:48:51Z",
-    "open": 2,
-    "recent": 93,
-    "since_report": 24,
-    "total": 96,
+    "last": "2026-10-04T09:48:24Z",
+    "open": 1,
+    "recent": 95,
+    "since_report": 26,
+    "total": 98,
     "weekly": [
      0,
      0,
@@ -2449,7 +2442,7 @@
      8,
      12,
      41,
-     32
+     34
     ]
    },
    "assessment": {
@@ -2703,11 +2696,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T00:50:10Z",
+    "last": "2026-10-04T12:04:22Z",
     "open": 0,
-    "recent": 74,
-    "since_report": 14,
-    "total": 108,
+    "recent": 76,
+    "since_report": 16,
+    "total": 110,
     "weekly": [
      0,
      0,
@@ -2724,7 +2717,7 @@
      5,
      19,
      20,
-     29
+     31
     ]
    },
    "assessment": {
@@ -2826,11 +2819,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T03:36:08Z",
-    "open": 2,
-    "recent": 76,
-    "since_report": 10,
-    "total": 194,
+    "last": "2026-10-04T09:32:31Z",
+    "open": 0,
+    "recent": 78,
+    "since_report": 13,
+    "total": 197,
     "weekly": [
      23,
      11,
@@ -2847,7 +2840,7 @@
      6,
      11,
      33,
-     23
+     26
     ]
    },
    "assessment": {
@@ -3133,11 +3126,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T00:44:35Z",
+    "last": "2026-10-04T12:05:33Z",
     "open": 0,
-    "recent": 42,
-    "since_report": 14,
-    "total": 98,
+    "recent": 45,
+    "since_report": 17,
+    "total": 101,
     "weekly": [
      0,
      0,
@@ -3154,7 +3147,7 @@
      4,
      1,
      0,
-     35
+     38
     ]
    },
    "assessment": {
@@ -3269,11 +3262,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T04:43:16Z",
-    "open": 4,
-    "recent": 83,
-    "since_report": 23,
-    "total": 158,
+    "last": "2026-10-04T10:38:05Z",
+    "open": 3,
+    "recent": 85,
+    "since_report": 25,
+    "total": 160,
     "weekly": [
      3,
      11,
@@ -3290,7 +3283,7 @@
      7,
      18,
      28,
-     27
+     29
     ]
    },
    "assessment": {
@@ -3381,11 +3374,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T03:51:57Z",
+    "last": "2026-10-04T10:39:57Z",
     "open": 1,
-    "recent": 115,
-    "since_report": 21,
-    "total": 115,
+    "recent": 117,
+    "since_report": 23,
+    "total": 117,
     "weekly": [
      0,
      0,
@@ -3402,7 +3395,7 @@
      6,
      19,
      33,
-     57
+     59
     ]
    },
    "assessment": {
@@ -3491,11 +3484,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T03:48:46Z",
-    "open": 1,
-    "recent": 47,
-    "since_report": 28,
-    "total": 47,
+    "last": "2026-10-04T11:45:29Z",
+    "open": 0,
+    "recent": 49,
+    "since_report": 30,
+    "total": 49,
     "weekly": [
      0,
      0,
@@ -3512,24 +3505,15 @@
      0,
      0,
      1,
-     46
+     48
     ]
    },
    "assessment": {
-    "detail": null,
+    "detail": "marker assessed a different README than the one the layers were read from",
     "notes": {},
-    "reason": "ok",
-    "remaining": {
-     "Layer 1": "H0, H1, H2 finiteness and dimensions, H2 vanishing or one-dimensionality, Euler characteristic count, cup nondegeneracy",
-     "Layer 2": "degree-two inflation surjectivity and transport of dimensions and cup nondegeneracy to G_K(p)",
-     "Layer 3": "finite generation of G_K(p) and the ranks N+2 and N+1",
-     "Layer 4": "free case via cd_p at most 1 and the Demushkin structure when mu_p is in K",
-     "Layer 5": "demushkinQ, demushkinRank and demushkinCharacter for G_K(p), the Artin-map evaluations, and the general image of the character",
-     "Layer 6": "odd-p case uniqueness, even-degree image computations, and all marked presentation theorems",
-     "Layer 7": "reciprocity identification of A(L), free quotient, rational detection and Tate module, tame frame and Frattini reduction, and the rank theorem",
-     "Layer 8": "the Q_2, Q_2(sqrt -2) and Q_p(mu_p) marked acceptance instances"
-    },
-    "source": "marker"
+    "reason": "invalid-marker",
+    "remaining": {},
+    "source": null
    },
    "completed": false,
    "id": "TauCetiRoadmap/LocalGaloisGroups",
@@ -3545,15 +3529,15 @@
     "Layer 8"
    ],
    "layer_lines": [
-    165,
-    196,
-    218,
-    243,
-    258,
-    273,
-    351,
-    434,
-    762
+    230,
+    296,
+    364,
+    414,
+    429,
+    444,
+    566,
+    656,
+    1091
    ],
    "layers": [
     "Layer 0: the arithmetic carrier and intrinsic invariants",
@@ -3571,18 +3555,18 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/LocalGaloisGroups/README.md",
-   "readme_sha": "1e3d77ed533bccc2f02bb47f688f9abe309103c0ee4912290130d153590be3ab",
+   "readme_sha": "016a3e87853f4918657da7291be3e7d13e3c2b9c651631a8eb66253eca851ffe",
    "retired": null,
    "states": [
-    "done",
-    "untouched",
-    "partial",
-    "untouched",
-    "untouched",
-    "partial",
-    "partial",
-    "partial",
-    "untouched"
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
    ],
    "status": {
     "frontier": [
@@ -3620,11 +3604,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T18:24:33Z",
+    "last": "2026-10-04T10:49:47Z",
     "open": 1,
-    "recent": 2,
+    "recent": 3,
     "since_report": null,
-    "total": 2,
+    "total": 3,
     "weekly": [
      0,
      0,
@@ -3641,7 +3625,7 @@
      0,
      0,
      0,
-     2
+     3
     ]
    },
    "assessment": {
@@ -3718,11 +3702,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T00:35:49Z",
-    "open": 2,
-    "recent": 224,
-    "since_report": 15,
-    "total": 504,
+    "last": "2026-10-04T11:26:36Z",
+    "open": 1,
+    "recent": 226,
+    "since_report": 18,
+    "total": 507,
     "weekly": [
      0,
      0,
@@ -3739,7 +3723,7 @@
      59,
      53,
      48,
-     34
+     37
     ]
    },
    "assessment": {
@@ -3959,8 +3943,8 @@
   {
    "activity": {
     "last": "2026-10-02T21:24:26Z",
-    "open": 0,
-    "recent": 124,
+    "open": 2,
+    "recent": 123,
     "since_report": 7,
     "total": 128,
     "weekly": [
@@ -4156,11 +4140,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T02:44:00Z",
-    "open": 1,
-    "recent": 70,
-    "since_report": 8,
-    "total": 100,
+    "last": "2026-10-04T12:04:22Z",
+    "open": 0,
+    "recent": 72,
+    "since_report": 10,
+    "total": 102,
     "weekly": [
      0,
      0,
@@ -4177,7 +4161,7 @@
      4,
      18,
      18,
-     25
+     27
     ]
    },
    "assessment": {
@@ -4315,11 +4299,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T04:35:32Z",
-    "open": 5,
-    "recent": 61,
-    "since_report": 18,
-    "total": 61,
+    "last": "2026-10-04T12:14:16Z",
+    "open": 3,
+    "recent": 68,
+    "since_report": 25,
+    "total": 68,
     "weekly": [
      0,
      0,
@@ -4336,7 +4320,7 @@
      0,
      0,
      33,
-     28
+     35
     ]
    },
    "assessment": {
@@ -4420,11 +4404,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T00:09:12Z",
+    "last": "2026-10-04T09:58:46Z",
     "open": 1,
-    "recent": 98,
-    "since_report": 10,
-    "total": 189,
+    "recent": 99,
+    "since_report": 11,
+    "total": 190,
     "weekly": [
      1,
      13,
@@ -4441,7 +4425,7 @@
      10,
      18,
      34,
-     33
+     34
     ]
    },
    "assessment": {
@@ -4628,11 +4612,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T19:27:07Z",
-    "open": 1,
-    "recent": 86,
-    "since_report": 12,
-    "total": 91,
+    "last": "2026-10-04T06:10:25Z",
+    "open": 0,
+    "recent": 87,
+    "since_report": 13,
+    "total": 92,
     "weekly": [
      0,
      0,
@@ -4649,7 +4633,7 @@
      8,
      23,
      18,
-     34
+     35
     ]
    },
    "assessment": {
@@ -4835,7 +4819,7 @@
   {
    "activity": {
     "last": "2026-10-03T22:43:43Z",
-    "open": 2,
+    "open": 4,
     "recent": 135,
     "since_report": 29,
     "total": 169,
@@ -4988,11 +4972,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T08:51:03Z",
+    "last": "2026-10-04T10:48:31Z",
     "open": 0,
-    "recent": 246,
-    "since_report": 12,
-    "total": 250,
+    "recent": 247,
+    "since_report": 13,
+    "total": 251,
     "weekly": [
      0,
      0,
@@ -5009,7 +4993,7 @@
      10,
      16,
      96,
-     121
+     122
     ]
    },
    "assessment": {
@@ -5127,11 +5111,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T20:54:30Z",
-    "open": 3,
-    "recent": 112,
-    "since_report": 18,
-    "total": 112,
+    "last": "2026-10-04T11:36:02Z",
+    "open": 2,
+    "recent": 114,
+    "since_report": 20,
+    "total": 114,
     "weekly": [
      0,
      0,
@@ -5148,24 +5132,15 @@
      8,
      18,
      40,
-     45
+     47
     ]
    },
    "assessment": {
-    "detail": null,
+    "detail": "marker assessed a different README than the one the layers were read from",
     "notes": {},
-    "reason": "ok",
-    "remaining": {
-     "Layer 0": "the comparison of diagonal chains with Serre's contiguous orthogonal bases (Serre IV Thm 5)",
-     "Layer 1": "Witt decomposition for forms with a radical, and the Witt index as the dimension of a maximal totally isotropic subspace (Lam I.4.4)",
-     "Layer 3": "a second construction of discr through the descent principle with its agreement lemma; Lam's c and the Wall caution in the invariant dictionary",
-     "Layer 5": "centrality of the odd-dimensional even Clifford algebra, cliffordInvariant with the Lam V.3.20 comparison, and the homomorphism from I2 to Br(K)[2] killing I3",
-     "Layer 6": "6D classification beyond dimension two, realization, unique anisotropic quaternary form; Q_2 formula and table; cohomological comparison and product formula; 6E",
-     "Layer 7": "the comparison isomorphism Br(K) = H2 with its crossed-product equation, iota on 2-torsion, iota of (a,b) as a cup product, and 7C",
-     "Layer 8": "w2 isometry invariance and the descended w1, w2 on classes; orthogonal-sum identities; w2 as the image of the Hasse invariant; the Clifford comparison",
-     "Layer 9": "the carrier wrappers and the Evens norm along L/K, then the relative Stiefel-Whitney formula, which needs Layer 8"
-    },
-    "source": "marker"
+    "reason": "invalid-marker",
+    "remaining": {},
+    "source": null
    },
    "completed": false,
    "id": "TauCetiRoadmap/QuadraticFormInvariants",
@@ -5182,16 +5157,16 @@
     "Layer 9"
    ],
    "layer_lines": [
-    605,
-    707,
-    765,
-    838,
-    904,
-    981,
-    1112,
-    1751,
-    2129,
-    2215
+    731,
+    868,
+    951,
+    1048,
+    1140,
+    1263,
+    1400,
+    2048,
+    2431,
+    2532
    ],
    "layers": [
     "Layer 0: square classes, diagonal calculus, and chain equivalence",
@@ -5210,19 +5185,19 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/QuadraticFormInvariants/README.md",
-   "readme_sha": "9cf19bcdbccf3c40b721ebe327da78c0cb301cca3ec02fb4237c4730b4d60d63",
+   "readme_sha": "6aab4e3951deec6f2399252beafa261f5bd115e6efc058010a99965e4c14a805",
    "retired": null,
    "states": [
-    "partial",
-    "partial",
-    "done",
-    "partial",
-    "done",
-    "partial",
-    "partial",
-    "partial",
-    "partial",
-    "partial"
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
    ],
    "status": {
     "frontier": [
@@ -5260,11 +5235,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T02:30:56Z",
-    "open": 1,
-    "recent": 34,
-    "since_report": 11,
-    "total": 34,
+    "last": "2026-10-04T11:02:04Z",
+    "open": 5,
+    "recent": 43,
+    "since_report": 20,
+    "total": 43,
     "weekly": [
      0,
      0,
@@ -5281,7 +5256,7 @@
      0,
      0,
      5,
-     29
+     38
     ]
    },
    "assessment": {
@@ -5381,11 +5356,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T05:23:59Z",
-    "open": 6,
-    "recent": 335,
-    "since_report": 25,
-    "total": 1053,
+    "last": "2026-10-04T10:59:41Z",
+    "open": 2,
+    "recent": 346,
+    "since_report": 36,
+    "total": 1064,
     "weekly": [
      22,
      19,
@@ -5402,7 +5377,7 @@
      65,
      73,
      69,
-     110
+     121
     ]
    },
    "assessment": {
@@ -5511,11 +5486,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T05:03:55Z",
-    "open": 43,
-    "recent": 501,
-    "since_report": 115,
-    "total": 1224,
+    "last": "2026-10-04T11:52:55Z",
+    "open": 40,
+    "recent": 521,
+    "since_report": 135,
+    "total": 1244,
     "weekly": [
      0,
      0,
@@ -5532,7 +5507,7 @@
      69,
      62,
      150,
-     207
+     227
     ]
    },
    "assessment": {
@@ -6939,11 +6914,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T19:21:54Z",
+    "last": "2026-10-04T12:10:48Z",
     "open": 1,
-    "recent": 66,
-    "since_report": 11,
-    "total": 66,
+    "recent": 68,
+    "since_report": 13,
+    "total": 68,
     "weekly": [
      0,
      0,
@@ -6960,7 +6935,7 @@
      0,
      20,
      21,
-     25
+     27
     ]
    },
    "assessment": {
@@ -7068,7 +7043,7 @@
   {
    "activity": {
     "last": "2026-10-04T04:15:06Z",
-    "open": 1,
+    "open": 2,
     "recent": 73,
     "since_report": 15,
     "total": 73,
@@ -7206,7 +7181,7 @@
    "activity": {
     "last": "2026-09-29T23:49:41Z",
     "open": 0,
-    "recent": 119,
+    "recent": 116,
     "since_report": 3,
     "total": 180,
     "weekly": [
@@ -7304,11 +7279,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-03T22:59:53Z",
+    "last": "2026-10-04T10:29:28Z",
     "open": 0,
-    "recent": 80,
-    "since_report": 24,
-    "total": 107,
+    "recent": 82,
+    "since_report": 26,
+    "total": 109,
     "weekly": [
      0,
      0,
@@ -7325,7 +7300,7 @@
      6,
      22,
      20,
-     30
+     32
     ]
    },
    "assessment": {
@@ -7431,7 +7406,7 @@
    "activity": {
     "last": "2026-10-04T02:02:45Z",
     "open": 0,
-    "recent": 10,
+    "recent": 9,
     "since_report": 1,
     "total": 143,
     "weekly": [
@@ -7627,11 +7602,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-04T00:44:35Z",
+    "last": "2026-10-04T12:05:33Z",
     "open": 0,
-    "recent": 42,
-    "since_report": 11,
-    "total": 98,
+    "recent": 45,
+    "since_report": 14,
+    "total": 101,
     "weekly": [
      0,
      0,
@@ -7648,7 +7623,7 @@
      4,
      1,
      0,
-     35
+     38
     ]
    },
    "assessment": {
