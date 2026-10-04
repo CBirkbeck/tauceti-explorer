@@ -1,3 +1,15 @@
+import Mathlib.RingTheory.RegularLocalRing.Defs
+import Mathlib.RingTheory.LocalRing.ResidueField.Fiber
+import Mathlib.RingTheory.AdicCompletion.Algebra
+import Mathlib.RingTheory.FiniteType
+import Mathlib.FieldTheory.PurelyInseparable.Basic
+import Mathlib.Algebra.TrivSqZeroExt.Basic
+import Mathlib.AlgebraicGeometry.Noetherian
+import Mathlib.Order.RelSeries
+import Mathlib.AlgebraicGeometry.Sites.Fpqc
+import Mathlib.AlgebraicGeometry.Morphisms.Etale
+import Mathlib.CategoryTheory.MorphismProperty.Representable
+import Mathlib.CategoryTheory.Sites.Sheaf
 import Mathlib.Topology.Sheaves.LocallySurjective
 import Mathlib.CategoryTheory.Sites.LeftExact
 import Mathlib.Algebra.Category.Ring.FilteredColimits
@@ -2530,3 +2542,306 @@ example :
   sorry
 
 end TauCeti.SchemeFoundations.IdealPullback
+
+
+
+open scoped TensorProduct
+open AlgebraicGeometry
+
+namespace TauCeti.SchemeFoundations.Excellence
+
+/-- Noetherian geometric regularity, tested after finite purely inseparable extensions. -/
+def GeometricallyRegular (k B : Type u) [Field k] [CommRing B] [Algebra k B] : Prop :=
+  IsNoetherianRing B ∧
+    ∀ (L : Type u) [Field L] [Algebra k L], Module.Finite k L →
+      IsPurelyInseparable k L → IsRegularRing (L ⊗[k] B)
+
+lemma GeometricallyRegular.regular (k B : Type u) [Field k] [CommRing B]
+    [Algebra k B] (h : GeometricallyRegular k B) : IsRegularRing B := by sorry
+
+lemma GeometricallyRegular.finite_extension (k B L : Type u) [Field k] [CommRing B]
+    [Algebra k B] [Field L] [Algebra k L] [Module.Finite k L]
+    (h : GeometricallyRegular k B) : IsRegularRing (L ⊗[k] B) := by sorry
+
+lemma GeometricallyRegular.algEquiv (k B C : Type u) [Field k] [CommRing B]
+    [CommRing C] [Algebra k B] [Algebra k C] (e : B ≃ₐ[k] C) :
+    GeometricallyRegular k B ↔ GeometricallyRegular k C := by sorry
+
+-- test: GeometricallyRegular.test_field
+example (k : Type u) [Field k] : GeometricallyRegular k k := by sorry
+-- test: GeometricallyRegular.test_zero
+example (k : Type u) [Field k] :
+    GeometricallyRegular k (k ⧸ (⊤ : Ideal k)) := by sorry
+-- test: GeometricallyRegular.test_dual_numbers
+example (k : Type u) [Field k] : ¬ GeometricallyRegular k (TrivSqZeroExt k k) := by sorry
+-- test: GeometricallyRegular.test_inseparable
+example (k L : Type u) [Field k] [Field L] [Algebra k L] [Module.Finite k L]
+    [IsPurelyInseparable k L] (h : ¬ Algebra.IsSeparable k L) :
+    ¬ GeometricallyRegular k L := by sorry
+
+/-- Flatness plus Noetherian geometrically regular native residue-field fibres. -/
+def RegularAlgebraMap (R B : Type u) [CommRing R] [CommRing B] [Algebra R B] : Prop :=
+  Module.Flat R B ∧ ∀ p : PrimeSpectrum R,
+    GeometricallyRegular p.asIdeal.ResidueField (p.asIdeal.Fiber B)
+
+lemma RegularAlgebraMap.flat (R B : Type u) [CommRing R] [CommRing B]
+    [Algebra R B] (h : RegularAlgebraMap R B) : Module.Flat R B := by sorry
+
+lemma RegularAlgebraMap.fibre (R B : Type u) [CommRing R] [CommRing B]
+    [Algebra R B] (h : RegularAlgebraMap R B) (p : PrimeSpectrum R) :
+    GeometricallyRegular p.asIdeal.ResidueField (p.asIdeal.Fiber B) := by sorry
+
+lemma RegularAlgebraMap.field_iff (k L : Type u) [Field k] [Field L] [Algebra k L]
+    [Module.Finite k L] :
+    RegularAlgebraMap k L ↔ Algebra.IsSeparable k L := by sorry
+
+-- test: RegularAlgebraMap.test_identity
+example (R : Type u) [CommRing R] : RegularAlgebraMap R R := by sorry
+-- test: RegularAlgebraMap.test_zero
+example (R : Type u) [CommRing R] : RegularAlgebraMap R (R ⧸ (⊤ : Ideal R)) := by sorry
+-- test: RegularAlgebraMap.test_flat_not_regular
+example (k : Type u) [Field k] :
+    Module.Flat k (TrivSqZeroExt k k) ∧ ¬ RegularAlgebraMap k (TrivSqZeroExt k k) := by sorry
+
+/-- The actual regular locus; it need not be open without a further hypothesis. -/
+def regularLocus (R : Type u) [CommRing R] : Set (PrimeSpectrum R) :=
+  {p | IsRegularLocalRing (Localization.AtPrime p.asIdeal)}
+
+lemma mem_regularLocus (R : Type u) [CommRing R] (p : PrimeSpectrum R) :
+    p ∈ regularLocus R ↔ IsRegularLocalRing (Localization.AtPrime p.asIdeal) := by sorry
+
+lemma regularLocus_eq_univ (R : Type u) [CommRing R] [IsRegularRing R] :
+    regularLocus R = Set.univ := by sorry
+
+-- test: regularLocus.test_field
+example (k : Type u) [Field k] : regularLocus k = Set.univ := by sorry
+-- test: regularLocus.test_zero
+example (R : Type u) [CommRing R] :
+    regularLocus (R ⧸ (⊤ : Ideal R)) = ∅ := by sorry
+-- test: regularLocus.test_dual_numbers
+example (k : Type u) [Field k] : regularLocus (TrivSqZeroExt k k) = ∅ := by sorry
+
+/-- At every prime, the completion of the local ring has regular formal fibres. -/
+def IsGRing (R : Type u) [CommRing R] : Prop :=
+  IsNoetherianRing R ∧ ∀ p : PrimeSpectrum R,
+    RegularAlgebraMap (Localization.AtPrime p.asIdeal)
+      (AdicCompletion (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal))
+        (Localization.AtPrime p.asIdeal))
+
+lemma IsGRing.noetherian (R : Type u) [CommRing R] (h : IsGRing R) :
+    IsNoetherianRing R := by sorry
+
+lemma IsGRing.completion_regular (R : Type u) [CommRing R] (h : IsGRing R)
+    (p : PrimeSpectrum R) :
+    RegularAlgebraMap (Localization.AtPrime p.asIdeal)
+      (AdicCompletion (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal))
+        (Localization.AtPrime p.asIdeal)) := by sorry
+
+-- test: IsGRing.test_field
+example (k : Type u) [Field k] : IsGRing k := by sorry
+-- test: IsGRing.test_zero
+example (R : Type u) [CommRing R] : IsGRing (R ⧸ (⊤ : Ideal R)) := by sorry
+-- test: IsGRing.test_complete_local
+example (R : Type u) [CommRing R] [IsLocalRing R] [IsNoetherianRing R]
+    [IsAdicComplete (IsLocalRing.maximalIdeal R) R] : IsGRing R := by sorry
+
+/-- Openness for every finite-type algebra, rather than only for the base spectrum. -/
+def IsJ2 (R : Type u) [CommRing R] : Prop :=
+  IsNoetherianRing R ∧ ∀ (B : Type u) [CommRing B] [Algebra R B],
+    Algebra.FiniteType R B → IsOpen (regularLocus B)
+
+lemma IsJ2.noetherian (R : Type u) [CommRing R] (h : IsJ2 R) :
+    IsNoetherianRing R := by sorry
+
+lemma IsJ2.regularLocus_open (R B : Type u) [CommRing R] [CommRing B] [Algebra R B]
+    [Algebra.FiniteType R B] (h : IsJ2 R) : IsOpen (regularLocus B) := by sorry
+
+-- test: IsJ2.test_field
+example (k : Type u) [Field k] : IsJ2 k := by sorry
+-- test: IsJ2.test_zero
+example (R : Type u) [CommRing R] : IsJ2 (R ⧸ (⊤ : Ideal R)) := by sorry
+-- test: IsJ2.test_singular_allowed
+example (k : Type u) [Field k] : IsJ2 (TrivSqZeroExt k k) := by sorry
+
+def IsQuasiExcellentRing (R : Type u) [CommRing R] : Prop := IsGRing R ∧ IsJ2 R
+
+lemma IsQuasiExcellentRing.gRing (R : Type u) [CommRing R]
+    (h : IsQuasiExcellentRing R) : IsGRing R := by sorry
+lemma IsQuasiExcellentRing.j2 (R : Type u) [CommRing R]
+    (h : IsQuasiExcellentRing R) : IsJ2 R := by sorry
+
+-- test: IsQuasiExcellentRing.test_field
+example (k : Type u) [Field k] : IsQuasiExcellentRing k := by sorry
+-- test: IsQuasiExcellentRing.test_zero
+example (R : Type u) [CommRing R] : IsQuasiExcellentRing (R ⧸ (⊤ : Ideal R)) := by sorry
+-- test: IsQuasiExcellentRing.test_nilpotents_allowed
+example (k : Type u) [Field k] : IsQuasiExcellentRing (TrivSqZeroExt k k) := by sorry
+
+/-- The final conjunct is the expansion of the imported R03.3/catenary predicate
+for every finite-type algebra. There is no second catenary-ring node here. -/
+def IsExcellentRing (R : Type u) [CommRing R] : Prop :=
+  IsQuasiExcellentRing R ∧ ∀ (B : Type u) [CommRing B] [Algebra R B],
+    Algebra.FiniteType R B → ∀ p q : PrimeSpectrum B, p ≤ q →
+      (∃ n : ℕ, ∀ s : LTSeries (PrimeSpectrum B),
+        s.head = p → s.last = q → s.length ≤ n) ∧
+      ∀ s t : LTSeries (PrimeSpectrum B),
+        s.head = p → s.last = q → t.head = p → t.last = q →
+        (∀ i : Fin s.length, s (Fin.castSucc i) ⋖ s i.succ) →
+        (∀ i : Fin t.length, t (Fin.castSucc i) ⋖ t i.succ) → s.length = t.length
+
+lemma IsExcellentRing.quasiExcellent (R : Type u) [CommRing R]
+    (h : IsExcellentRing R) : IsQuasiExcellentRing R := by sorry
+
+lemma IsExcellentRing.finiteType (R B : Type u) [CommRing R] [CommRing B]
+    [Algebra R B] [Algebra.FiniteType R B] (h : IsExcellentRing R) :
+    IsExcellentRing B := by sorry
+
+lemma IsExcellentRing.localization (R : Type u) [CommRing R] (M : Submonoid R)
+    (h : IsExcellentRing R) : IsExcellentRing (Localization M) := by sorry
+
+-- test: IsExcellentRing.test_field
+example (k : Type u) [Field k] : IsExcellentRing k := by sorry
+-- test: IsExcellentRing.test_zero
+example (R : Type u) [CommRing R] : IsExcellentRing (R ⧸ (⊤ : Ideal R)) := by sorry
+-- test: IsExcellentRing.test_integers
+example : IsExcellentRing ℤ := by sorry
+-- test: IsExcellentRing.test_nilpotents_allowed
+example (k : Type u) [Field k] : IsExcellentRing (TrivSqZeroExt k k) := by sorry
+-- test: IsExcellentRing.test_complete_local
+example (R : Type u) [CommRing R] [IsLocalRing R] [IsNoetherianRing R]
+    [IsAdicComplete (IsLocalRing.maximalIdeal R) R] : IsExcellentRing R := by sorry
+
+def IsQuasiExcellentScheme (X : Scheme.{u}) : Prop :=
+  ∀ x : X, ∃ U : X.Opens, x ∈ U ∧ IsAffineOpen U ∧ IsQuasiExcellentRing Γ(X, U)
+
+lemma IsQuasiExcellentScheme.affine_iff (X : Scheme.{u}) :
+    IsQuasiExcellentScheme X ↔
+      ∀ U : X.Opens, IsAffineOpen U → IsQuasiExcellentRing Γ(X, U) := by sorry
+
+lemma IsQuasiExcellentScheme.locallyNoetherian (X : Scheme.{u})
+    (h : IsQuasiExcellentScheme X) : IsLocallyNoetherian X := by sorry
+
+-- test: IsQuasiExcellentScheme.test_spec
+example (R : Type u) [CommRing R] :
+    IsQuasiExcellentScheme (Spec (.of R)) ↔ IsQuasiExcellentRing R := by sorry
+-- test: IsQuasiExcellentScheme.test_field
+example (k : Type u) [Field k] : IsQuasiExcellentScheme (Spec (.of k)) := by sorry
+-- test: IsQuasiExcellentScheme.test_zero
+example (R : Type u) [CommRing R] :
+    IsQuasiExcellentScheme (Spec (.of (R ⧸ (⊤ : Ideal R)))) := by sorry
+
+-- node: SchemeAndStackFoundations:key/excellent-schemes
+def IsExcellentScheme (X : Scheme.{u}) : Prop :=
+  ∀ x : X, ∃ U : X.Opens, x ∈ U ∧ IsAffineOpen U ∧ IsExcellentRing Γ(X, U)
+
+lemma IsExcellentScheme.affine_iff (X : Scheme.{u}) :
+    IsExcellentScheme X ↔
+      ∀ U : X.Opens, IsAffineOpen U → IsExcellentRing Γ(X, U) := by sorry
+
+lemma IsExcellentScheme.quasiExcellent (X : Scheme.{u})
+    (h : IsExcellentScheme X) : IsQuasiExcellentScheme X := by sorry
+
+lemma IsExcellentScheme.locallyNoetherian (X : Scheme.{u})
+    (h : IsExcellentScheme X) : IsLocallyNoetherian X := by sorry
+
+-- test: IsExcellentScheme.test_spec
+example (R : Type u) [CommRing R] :
+    IsExcellentScheme (Spec (.of R)) ↔ IsExcellentRing R := by sorry
+-- test: IsExcellentScheme.test_field
+example (k : Type u) [Field k] : IsExcellentScheme (Spec (.of k)) := by sorry
+-- test: IsExcellentScheme.test_empty
+example (R : Type u) [CommRing R] :
+    IsExcellentScheme (Spec (.of (R ⧸ (⊤ : Ideal R)))) := by sorry
+-- test: IsExcellentScheme.test_nonreduced
+example (k : Type u) [Field k] :
+    IsExcellentScheme (Spec (.of (TrivSqZeroExt k k))) := by sorry
+
+end TauCeti.SchemeFoundations.Excellence
+
+
+
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry
+namespace TauCeti.SchemeFoundations.Spaces
+
+abbrev SchemePresheaf := Scheme.{u}ᵒᵖ ⥤ Type u
+
+/-- A named condition on the native diagonal, using native relative representability. -/
+def RepresentableDiagonal (F : SchemePresheaf.{u}) : Prop :=
+  yoneda.relativelyRepresentable (prod.lift (𝟙 F) (𝟙 F))
+
+lemma RepresentableDiagonal.of_scheme (X : Scheme.{u}) :
+    RepresentableDiagonal (yoneda.obj X) := by sorry
+
+lemma RepresentableDiagonal.iso (F G : SchemePresheaf.{u}) (e : F ≅ G) :
+    RepresentableDiagonal F ↔ RepresentableDiagonal G := by sorry
+
+lemma RepresentableDiagonal.from_scheme (F : SchemePresheaf.{u})
+    (h : RepresentableDiagonal F) (X : Scheme.{u}) (a : yoneda.obj X ⟶ F) :
+    yoneda.relativelyRepresentable a := by sorry
+
+-- test: RepresentableDiagonal.test_field
+example (k : Type u) [Field k] :
+    RepresentableDiagonal (yoneda.obj (Spec (.of k))) := by sorry
+-- test: RepresentableDiagonal.test_empty
+example : RepresentableDiagonal (yoneda.obj Scheme.empty.{u}) := by sorry
+-- test: RepresentableDiagonal.test_nonreduced
+example (k : Type u) [Field k] :
+    RepresentableDiagonal (yoneda.obj (Spec (.of (TrivSqZeroExt k k)))) := by sorry
+
+/-- Etaleness and surjectivity are tested on every represented scheme base change. -/
+def EtaleAtlas (F : SchemePresheaf.{u}) (U : Scheme.{u}) (a : yoneda.obj U ⟶ F) : Prop :=
+  MorphismProperty.presheaf (@Etale : MorphismProperty Scheme.{u}) a ∧
+    MorphismProperty.presheaf (@Surjective : MorphismProperty Scheme.{u}) a
+
+lemma EtaleAtlas.representable (F : SchemePresheaf.{u}) (U : Scheme.{u})
+    (a : yoneda.obj U ⟶ F) (h : EtaleAtlas F U a) :
+    yoneda.relativelyRepresentable a := by sorry
+
+lemma EtaleAtlas.etale (F : SchemePresheaf.{u}) (U : Scheme.{u})
+    (a : yoneda.obj U ⟶ F) (h : EtaleAtlas F U a) :
+    MorphismProperty.presheaf (@Etale : MorphismProperty Scheme.{u}) a := by sorry
+
+lemma EtaleAtlas.surjective (F : SchemePresheaf.{u}) (U : Scheme.{u})
+    (a : yoneda.obj U ⟶ F) (h : EtaleAtlas F U a) :
+    MorphismProperty.presheaf (@Surjective : MorphismProperty Scheme.{u}) a := by sorry
+
+lemma EtaleAtlas.yoneda_iff (U X : Scheme.{u}) (f : U ⟶ X) :
+    EtaleAtlas (yoneda.obj X) U (yoneda.map f) ↔ Etale f ∧ Surjective f := by sorry
+
+-- test: EtaleAtlas.test_identity
+example (X : Scheme.{u}) : EtaleAtlas (yoneda.obj X) X (𝟙 (yoneda.obj X)) := by sorry
+-- test: EtaleAtlas.test_empty_identity
+example : EtaleAtlas (yoneda.obj Scheme.empty.{u}) Scheme.empty
+    (𝟙 (yoneda.obj Scheme.empty)) := by sorry
+-- test: EtaleAtlas.test_empty_not_cover
+example (k : Type u) [Field k] (a : yoneda.obj Scheme.empty ⟶ yoneda.obj (Spec (.of k))) :
+    ¬ EtaleAtlas (yoneda.obj (Spec (.of k))) Scheme.empty a := by sorry
+
+/-- Absolute algebraic spaces. A space over S carries a map to h_S in the native over-category.
+No quasi-compactness of the diagonal or properness is imposed. -/
+def IsAlgebraicSpace (F : SchemePresheaf.{u}) : Prop :=
+  Presheaf.IsSheaf Scheme.fppfTopology F ∧ RepresentableDiagonal F ∧
+    ∃ (U : Scheme.{u}) (a : yoneda.obj U ⟶ F), EtaleAtlas F U a
+
+lemma IsAlgebraicSpace.sheaf (F : SchemePresheaf.{u}) (h : IsAlgebraicSpace F) :
+    Presheaf.IsSheaf Scheme.fppfTopology F := by sorry
+lemma IsAlgebraicSpace.diagonal (F : SchemePresheaf.{u}) (h : IsAlgebraicSpace F) :
+    RepresentableDiagonal F := by sorry
+lemma IsAlgebraicSpace.atlas (F : SchemePresheaf.{u}) (h : IsAlgebraicSpace F) :
+    ∃ (U : Scheme.{u}) (a : yoneda.obj U ⟶ F), EtaleAtlas F U a := by sorry
+lemma IsAlgebraicSpace.of_scheme (X : Scheme.{u}) :
+    IsAlgebraicSpace (yoneda.obj X) := by sorry
+lemma IsAlgebraicSpace.iso (F G : SchemePresheaf.{u}) (e : F ≅ G) :
+    IsAlgebraicSpace F ↔ IsAlgebraicSpace G := by sorry
+
+-- test: IsAlgebraicSpace.test_field
+example (k : Type u) [Field k] : IsAlgebraicSpace (yoneda.obj (Spec (.of k))) := by sorry
+-- test: IsAlgebraicSpace.test_empty
+example : IsAlgebraicSpace (yoneda.obj Scheme.empty.{u}) := by sorry
+-- test: IsAlgebraicSpace.test_nonreduced
+example (k : Type u) [Field k] :
+    IsAlgebraicSpace (yoneda.obj (Spec (.of (TrivSqZeroExt k k)))) := by sorry
+-- test: IsAlgebraicSpace.test_arbitrary_scheme
+example (X : Scheme.{u}) : IsAlgebraicSpace (yoneda.obj X) := by sorry
+
+end TauCeti.SchemeFoundations.Spaces
