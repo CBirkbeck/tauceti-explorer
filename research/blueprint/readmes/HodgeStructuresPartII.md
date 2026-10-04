@@ -1,3 +1,187 @@
+# Finite projective dual scalar-extension comparison
+
+The actual finite-projective affine dual now commutes with the actual affine pullback through the native covector scalar-extension comparison. Its S-linear equivalence is obtained from native tensor-Hom and scalar-extension adjunction, without a global basis or flatness of S. Both horizontal directions, full transported-preconnection equality, extended differential and curvature comparisons and equivalent flatness of the two target S-operators are proved for arbitrary λ. The native monoidal tensor/unit evaluation diagram and both bidual compatibility equations commute, and the comparison is natural for every R-linear module map. New polynomial scalars retain their derivatives: over Z→Z[x], the target dual derivative evaluates to1 although the source unit operator vanishes. A variable λ=x has dλ=1; Z/4 scalar extension retains its nonzero square-zero2; the zero module is included. Coevaluation/rigidity, identity/tower coherence for these dual comparisons, universal exterior-power comparison, and genuine E1 sheaf tensor/restriction/equality detection/effective gluing remain required. The reserved global finite locally free integrable key retains relatively constant λ. All149 routes,35 omissions,five supplier requests,eleven gaps,two source issues,six planets, determinant/Tate/period and arbitrary-Q tensor-valued-shuffle obligations remain; H.0 stays partial and H.1–H.8 not_read. Earlier frontier prose is checkpoint history. Every implementation remains unchecked.
+
+The comparison uses the actual native covector baseChange map. The finite-free IsBaseChange.dual theorem is not sufficient for the stated finite-projective target; the native finite-projective dualTensorHomEquiv and scalar-extension adjunction prove bijectivity without choosing a basis. The unit-covector horizontality proof evaluates the actual two operators and transports contraction through the actual calculus map. Tensor generation then adds the new scalar derivative on both sides. Evaluation, bidual and contravariant map diagrams use actual native maps on every element.
+
+The explicit polynomial, nonreduced and zero fixtures use free source modules; no projective-but-not-free fixture is claimed. The two S-operators have equivalent flatness; this does not establish unconditional reflection of source curvature. Coevaluation/rigidity and universal exterior-power and global ringed-site comparisons remain required.
+
+## Declarations and tests
+
+### Affine dual scalar-extension comparison
+
+`affineDualPullbackEquiv` — Construct the S-linear comparison η:S⊗_R E∨≃(S⊗_R E)∨ for the existing actual affine dual and pullback operators. Its forward map is the native covector base-change map extended by the native scalar-extension adjunction. Finite projectivity proves it bijective by native tensor commutation and dualTensorHomEquiv; no global basis is selected.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed.
+
+Proof plan: Compare the forward map with the composite of native tensor commutation, the finite-projective tensor-Hom equivalence and scalar-extension adjunction. Tensor induction identifies their evaluations on t⊗e. The native composite is bijective; retain the native S-linear forward map.
+
+API:
+
+- `affineDualPullbackEquiv_tmul`: For s∈S,φ∈E∨ and arbitrary x∈S⊗E, η(s⊗φ)(x)=s·(φ.baseChange S)(x).
+- `affineDualPullbackEquiv_eval`: For s,t∈S,φ∈E∨ and e∈E, η(s⊗φ)(t⊗e)=st·σ(φ(e)), where σ:R→S is the specified algebra map.
+- `affineDualPullbackEquiv_unit`: For every φ, η(1⊗φ)=φ.baseChange S as actual S-linear functionals on S⊗E.
+- `affineDualPullbackEquiv_evaluation`: For every x∈S⊗_R(E∨⊗_R E), evaluation after the native distribBaseChange map and η⊗id equals native rid applied to the scalar extension of evaluation: ev_S((η⊗id)(distrib(x)))=rid((ev_R).baseChange S(x)). This is equality on the whole module, with the existing tensor and unit comparisons.
+- `affineDualPullbackEquiv_bidual`: For every x∈S⊗E, η_(E∨)((evalEquiv_R,E).baseChange S(x))=(η_E)∨(evalEquiv_S,S⊗E(x)), where (η_E)∨ is the native dual map of η_E. Thus native bidual evaluation commutes with the scalar-extension comparison in its contravariant direction.
+- `affineDualPullbackEquiv_bidual_inverse`: Applying the native dual map of η_E inverse to η_E∨((evalEquiv_R,E).baseChange S(x)) gives evalEquiv_S,S⊗E(x), for every x. Both directions of the native bidual comparison are retained.
+- `affineDualPullbackEquiv_natural`: For an actual R-linear h:E→F between finite projectives and x∈S⊗F∨, η_E((h∨).baseChange S(x))=((h.baseChange S)∨)(η_F(x)). This equality uses every covector and tensor-module element, without a horizontality premise.
+- `affineDualPullbackEquiv_tensor_eval`: For x∈E∨⊗_R W and e∈E, evaluate (η_E∘scalarUnit)⊗β₁ applied to x at scalarUnit(e). The result is β₁(dualTensorHom_R(x)(e)), in the actual degree-one target module V.
+- `affineDualPullbackEquiv_contraction`: For φ∈E∨ and x∈E⊗_R W, contraction of (scalarUnit⊗β₁)(x) with φ.baseChange S equals β₁ of contraction of x with φ, using the native left unitors. This identity holds for arbitrary E, without finite projectivity.
+- `Preconnection.affineDualPullback_unit_horizontal`: For every φ∈E∨, dual(D.affinePullback β)(φ.baseChange S)=((η_E∘scalarUnit)⊗β₁)(dual(D)(φ)). This is a proved comparison of the two actual additive operators on extended covectors.
+- `Preconnection.affineDualPullback_horizontal`: For every x∈S⊗E∨, dual(D.affinePullback β)(η_E(x))=(η_E⊗id_V)((dual(D).affinePullback β)(x)). The actual comparison is horizontal on the entire target-generating module.
+- `Preconnection.affineDualPullback_horizontal_inverse`: For every target covector f, (dual(D).affinePullback β)(η_E inverse(f))=(η_E inverse⊗id_V)(dual(D.affinePullback β)(f)).
+- `Preconnection.affineDualPullback_eq`: Transport the actual preconnection dual(D).affinePullback β along η_E. The full result equals dual(D.affinePullback β), including its additive operator and same σ(λ) Leibniz proof.
+- `Preconnection.affineDualPullback_extend`: For every x∈(S⊗E∨)⊗_S V, the actual degree-one extension of dual(D.affinePullback β) after η_E⊗id equals η_E⊗id applied to the extension of dual(D).affinePullback β.
+- `Preconnection.affineDualPullback_curvature`: For every x∈S⊗E∨, κ_dual(D.affinePullback β)(η_E(x))=(η_E⊗id_Y)(κ_(dual(D).affinePullback β)(x)). No d_Rλ=0 premise is required for this comparison between two S-operators.
+- `Preconnection.affineDualPullback_flat_iff`: The two S-preconnections dual(D).affinePullback β and dual(D.affinePullback β) are flat simultaneously. This is an equivalence between the two target operators, not unconditional reflection of source curvature.
+
+TESTS:
+
+- `AffineDualPullbackTests.two_scalars`: For arbitrary s,t,φ,e, η(s⊗φ)(t⊗e)=stσ(φ(e)); both independent scalar factors are present.
+- `AffineDualPullbackTests.native_covector`: The actual comparison at1⊗φ equals the pinned native covector baseChange map on every element.
+- `AffineDualPullbackTests.bidual_roundtrip`: Apply native bidual evaluation, scalar extension, the dual comparison and the native dual of its inverse: the result equals the actual target bidual evaluation on every x.
+- `AffineDualPullbackTests.nonflat_nonreduced_coefficients`: For R=Z,S=Z/4,E=Z and φ=id, η(2⊗φ)(1⊗1)=2;2 is nonzero and2²=0. The comparison requires no flatness hypothesis on this scalar extension.
+- `AffineDualPullbackTests.zero_module`: For E=Fin0→R and every target covector, η inverse(f)=0 in the actual scalar-extended dual module.
+- `AffineDualPullbackTests.inverse_operator`: On every target covector, the inverse comparison transports the actual dual-after-pullback additive operator to the actual pullback-after-dual operator.
+- `AffineDualPullbackTests.pairing_diagram`: The whole native monoidal tensor/unit evaluation diagram commutes on every element of S⊗(E∨⊗E).
+- `AffineDualPullbackTests.flat_target_equivalence`: At parameter0 the two actual target S-preconnections are flat simultaneously, without claiming source curvature reflection.
+- `AffineDualPullbackTests.new_polynomial_scalar`: Extend R=Z to S=Z[x] from zero source calculus to ordinary polynomial derivative, with β₁=β₂=0 and D=unit(1). Although D vanishes on every integer, the actual target dual derivative of η(x⊗id) evaluated at1⊗1 is1.
+- `AffineDualPullbackTests.variable_parameter`: For R=S=Z[x], ordinary derivative, λ=x and the identity calculus morphism, d_Rλ=1 and the dual-after-pullback operator on η(1⊗(x·id)) evaluated at1⊗1 is x.
+
+### Comparison on an extended covector
+
+`affineDualPullbackEquiv_tmul` — For s∈S,φ∈E∨ and arbitrary x∈S⊗E, η(s⊗φ)(x)=s·(φ.baseChange S)(x).
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed.
+
+Proof plan: Unfold the actual native scalar-extension lift on a pure tensor.
+
+### Two-scalar dual evaluation
+
+`affineDualPullbackEquiv_eval` — For s,t∈S,φ∈E∨ and e∈E, η(s⊗φ)(t⊗e)=st·σ(φ(e)), where σ:R→S is the specified algebra map.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed.
+
+Proof plan: Apply the native covector base-change evaluation and commute the scalar factors in S.
+
+### Native extended covector
+
+`affineDualPullbackEquiv_unit` — For every φ, η(1⊗φ)=φ.baseChange S as actual S-linear functionals on S⊗E.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed.
+
+Proof plan: Evaluate on every tensor-module element and use the unit scalar.
+
+### Evaluation and monoidal pullback diagram
+
+`affineDualPullbackEquiv_evaluation` — For every x∈S⊗_R(E∨⊗_R E), evaluation after the native distribBaseChange map and η⊗id equals native rid applied to the scalar extension of evaluation: ev_S((η⊗id)(distrib(x)))=rid((ev_R).baseChange S(x)). This is equality on the whole module, with the existing tensor and unit comparisons.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed.
+
+Proof plan: Induct on the outer tensor and then its inner tensor. For s⊗(φ⊗e), both paths evaluate to sσ(φ(e)).
+
+### Forward bidual compatibility
+
+`affineDualPullbackEquiv_bidual` — For every x∈S⊗E, η_(E∨)((evalEquiv_R,E).baseChange S(x))=(η_E)∨(evalEquiv_S,S⊗E(x)), where (η_E)∨ is the native dual map of η_E. Thus native bidual evaluation commutes with the scalar-extension comparison in its contravariant direction.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed.
+
+Proof plan: Test the two functionals on every element of S⊗E∨, and induct on both tensors. The native bidual evaluations give stσ(φ(e)) in opposite scalar orders, equal by commutativity.
+
+### Inverse bidual compatibility
+
+`affineDualPullbackEquiv_bidual_inverse` — Applying the native dual map of η_E inverse to η_E∨((evalEquiv_R,E).baseChange S(x)) gives evalEquiv_S,S⊗E(x), for every x. Both directions of the native bidual comparison are retained.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed.
+
+Proof plan: Use the forward bidual equation, evaluate on an arbitrary target covector and cancel η_E with its actual inverse.
+
+### Contravariant map compatibility
+
+`affineDualPullbackEquiv_natural` — For an actual R-linear h:E→F between finite projectives and x∈S⊗F∨, η_E((h∨).baseChange S(x))=((h.baseChange S)∨)(η_F(x)). This equality uses every covector and tensor-module element, without a horizontality premise.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed. F is also a finite projective R-module; h is an arbitrary actual R-linear map.
+
+Proof plan: Evaluate on arbitrary S⊗E. Induct on both tensor arguments; the native dual-map formula identifies evaluation at h(e).
+
+### Covector-tensor evaluation under calculus transport
+
+`affineDualPullbackEquiv_tensor_eval` — For x∈E∨⊗_R W and e∈E, evaluate (η_E∘scalarUnit)⊗β₁ applied to x at scalarUnit(e). The result is β₁(dualTensorHom_R(x)(e)), in the actual degree-one target module V.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed. The existing degree-zero/one/two calculi Ω over k,R and Γ over k,S and their actual morphism β supply semilinear maps β₁,β₂ commuting with derivations, degree-one differentials and wedge. The additive preconnection D has arbitrary parameter λ; d_Rλ is not assumed zero.
+
+Proof plan: Induct on x. For φ⊗ω, native covector evaluation and the σ-semilinearity of β₁ identify both expressions.
+
+### Contraction under calculus transport
+
+`affineDualPullbackEquiv_contraction` — For φ∈E∨ and x∈E⊗_R W, contraction of (scalarUnit⊗β₁)(x) with φ.baseChange S equals β₁ of contraction of x with φ, using the native left unitors. This identity holds for arbitrary E, without finite projectivity.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. The existing degree-zero/one/two calculi Ω over k,R and Γ over k,S and their actual morphism β supply semilinear maps β₁,β₂ commuting with derivations, degree-one differentials and wedge. The additive preconnection D has arbitrary parameter λ; d_Rλ is not assumed zero.
+
+Proof plan: Induct on the actual tensor x. The pure-tensor case is exactly the semilinear scalar equation for β₁.
+
+### Horizontal extended covectors
+
+`Preconnection.affineDualPullback_unit_horizontal` — For every φ∈E∨, dual(D.affinePullback β)(φ.baseChange S)=((η_E∘scalarUnit)⊗β₁)(dual(D)(φ)). This is a proved comparison of the two actual additive operators on extended covectors.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed. The existing degree-zero/one/two calculi Ω over k,R and Γ over k,S and their actual morphism β supply semilinear maps β₁,β₂ commuting with derivations, degree-one differentials and wedge. The additive preconnection D has arbitrary parameter λ; d_Rλ is not assumed zero.
+
+Proof plan: Use the injective finite-projective tensor-Hom equivalence over S. Linearity of each evaluated form reduces t⊗e to1⊗e. Substitute the actual dual evaluation and pullback formulas, use d_S(σa)=β₁(d_Ra), and apply contraction transport.
+
+### Horizontal dual pullback comparison
+
+`Preconnection.affineDualPullback_horizontal` — For every x∈S⊗E∨, dual(D.affinePullback β)(η_E(x))=(η_E⊗id_V)((dual(D).affinePullback β)(x)). The actual comparison is horizontal on the entire target-generating module.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed. The existing degree-zero/one/two calculi Ω over k,R and Γ over k,S and their actual morphism β supply semilinear maps β₁,β₂ commuting with derivations, degree-one differentials and wedge. The additive preconnection D has arbitrary parameter λ; d_Rλ is not assumed zero.
+
+Proof plan: Induct on x. The unit-covector equation gives1⊗φ; for s⊗φ the two actual λ-Leibniz equations add the same σ(λ)(η_E(1⊗φ)⊗d_Ss) correction. It must be retained even when s is a new scalar.
+
+### Horizontal inverse dual comparison
+
+`Preconnection.affineDualPullback_horizontal_inverse` — For every target covector f, (dual(D).affinePullback β)(η_E inverse(f))=(η_E inverse⊗id_V)(dual(D.affinePullback β)(f)).
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed. The existing degree-zero/one/two calculi Ω over k,R and Γ over k,S and their actual morphism β supply semilinear maps β₁,β₂ commuting with derivations, degree-one differentials and wedge. The additive preconnection D has arbitrary parameter λ; d_Rλ is not assumed zero.
+
+Proof plan: Apply the inherited horizontal-inverse theorem to the actual native linear equivalence.
+
+### Equality of transported dual operators
+
+`Preconnection.affineDualPullback_eq` — Transport the actual preconnection dual(D).affinePullback β along η_E. The full result equals dual(D.affinePullback β), including its additive operator and same σ(λ) Leibniz proof.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed. The existing degree-zero/one/two calculi Ω over k,R and Γ over k,S and their actual morphism β supply semilinear maps β₁,β₂ commuting with derivations, degree-one differentials and wedge. The additive preconnection D has arbitrary parameter λ; d_Rλ is not assumed zero. The target degree-one scalar actions satisfy IsScalarTower k S V, as required by the inherited transport/extension/curvature APIs.
+
+Proof plan: Use the horizontal equation at η_E inverse(f) to identify additive operators. Apply the existing dual evaluation uniqueness theorem to identify the complete preconnections.
+
+### Dual comparison and extended differential
+
+`Preconnection.affineDualPullback_extend` — For every x∈(S⊗E∨)⊗_S V, the actual degree-one extension of dual(D.affinePullback β) after η_E⊗id equals η_E⊗id applied to the extension of dual(D).affinePullback β.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed. The existing degree-zero/one/two calculi Ω over k,R and Γ over k,S and their actual morphism β supply semilinear maps β₁,β₂ commuting with derivations, degree-one differentials and wedge. The additive preconnection D has arbitrary parameter λ; d_Rλ is not assumed zero. The target degree-one scalar actions satisfy IsScalarTower k S V, as required by the inherited transport/extension/curvature APIs.
+
+Proof plan: Apply the existing actual extension-horizontal theorem to η_E and the proved whole-module horizontal equation.
+
+### Dual comparison and curvature
+
+`Preconnection.affineDualPullback_curvature` — For every x∈S⊗E∨, κ_dual(D.affinePullback β)(η_E(x))=(η_E⊗id_Y)(κ_(dual(D).affinePullback β)(x)). No d_Rλ=0 premise is required for this comparison between two S-operators.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed. The existing degree-zero/one/two calculi Ω over k,R and Γ over k,S and their actual morphism β supply semilinear maps β₁,β₂ commuting with derivations, degree-one differentials and wedge. The additive preconnection D has arbitrary parameter λ; d_Rλ is not assumed zero. The target degree-one scalar actions satisfy IsScalarTower k S V, as required by the inherited transport/extension/curvature APIs.
+
+Proof plan: Apply the existing actual curvature-horizontal theorem to the proved comparison; do not discard the parameter correction in either curvature.
+
+### Equivalent target flatness
+
+`Preconnection.affineDualPullback_flat_iff` — The two S-preconnections dual(D).affinePullback β and dual(D.affinePullback β) are flat simultaneously. This is an equivalence between the two target operators, not unconditional reflection of source curvature.
+
+Hypotheses: Commutative rings R,S with the specified algebra map σ:R→S; E is an actual R-module with an additive commutative group. E is finite projective over R. Native scalar-extension and dual instances give the required finite-projective target modules. No global basis, field, characteristic restriction, reducedness or flatness of S is assumed. The existing degree-zero/one/two calculi Ω over k,R and Γ over k,S and their actual morphism β supply semilinear maps β₁,β₂ commuting with derivations, degree-one differentials and wedge. The additive preconnection D has arbitrary parameter λ; d_Rλ is not assumed zero. The target degree-one scalar actions satisfy IsScalarTower k S V, as required by the inherited transport/extension/curvature APIs.
+
+Proof plan: Rewrite by the equality of transported preconnections and apply the existing transport-flatness equivalence in its reverse orientation.
+
+## Sources and ownership
+
+The current [ordinary connection section](https://stacks.math.columbia.edu/tag/07J5) supplies the ordinary differential convention. The current [finite-projective evaluation lemma](https://stacks.math.columbia.edu/tag/0FNJ) supplies duality context. These affine λ-dependent scalar-extension identities are authored deductions using pinned native declarations and the existing affine constructions. No full-paper/version or recursive categorical proof audit is claimed. Both inherited source issues are preserved, with no new finding. E1 retains generic sheaf module/tensor/dual/pullback/descent carriers; this continuation supplies their connection-specific affine comparison.
+
+## Earlier checkpoint reader (preserved verbatim)
+
 # Finite projective dual parameter connections
 
 The actual affine dual now exists for finite projective E, arbitrary form modules and arbitrary λ, using the native tensor-Hom equivalence and no global basis. The covector pairing is R-linear in e by Leibniz cancellation and gives the same-λ dual operator. Its evaluation characterization is unique; native contraction is horizontal; curvature evaluation includes the exact λ(d₀λ∧d₀(φ(e))) correction. For d₀λ=0 the usual negative dual curvature formula holds and flatness is preserved and reflected. Native dual maps of horizontal maps and both directions of the native bidual equivalence are horizontal. Polynomial λ=x, nonreduced Z/4 sign and zero-module tests are explicit. Dual base-change comparison with the existing actual affine pullback, coevaluation/rigidity, universal exterior-power comparisons, and genuine E1 sheaf tensor/restriction/equality detection/effective gluing remain open. The global finite locally free integrable key still requires relatively constant λ. All149 routed obligations,35 omissions,five requests,eleven gaps,six planets and later determinant/Tate/period and arbitrary-Q tensor-valued-shuffle obligations remain; H.0 stays partial and H.1–H.8 not_read. Earlier frontier prose is checkpoint history. Every implementation remains unchecked.
