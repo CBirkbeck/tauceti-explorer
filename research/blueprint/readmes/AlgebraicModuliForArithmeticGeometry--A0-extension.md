@@ -1,3 +1,225 @@
+# Fixed-band chart transitions and overlap cocycles
+
+Codex — codex-7e92bd, 4 October2026. Partial continuation: two constructions and12 lemmas.
+
+Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open.
+
+For charts i:T→U and j:T→V, the transition is the i-base comparison, the existing diagonal fixed-band transport, then the inverse j-base comparison. It is an actual natural isomorphism on the modification category, with actual sheaves on C/T as values. Independence applies to the induced maps and does not identify the underlying overlap isomorphisms. For a third chart, replace the independent direct choice by the composite choice, cancel the middle base comparison, and use the existing transport composition law. Arbitrary automorphism loops therefore induce identity.
+
+The existing overlapCover and direct overlapIso supply these maps along composite arrows q followed by i and q followed by j. Both pseudofunctor comparison factors remain inside the direct overlap isomorphism. The covering intersection of the three pairwise overlap covers with any given cover supplies a domain on which all three induced maps satisfy the cocycle equation. Their actions use the same section of the actual band sheaf, and the comparisons commute with all native modifications. The same conclusion is not asserted for unrestricted two-gerbe endpoint choices.
+
+## Local-chart Hom-sheaf comparison
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart**.
+
+For i:T→U, j:T→V, x∈F(U), y∈F(V), and an actual e:F(i)x≅F(j)y, construct a natural isomorphism from H_U(x,x;−) followed by native slice pullback i⁎ to H_V(y,y;−) followed by j⁎, on the actual category HomCategory(b,b). Its three factors are the existing base-change natural isomorphism for i, the existing diagonal endpoint transport for e, and the inverse base-change isomorphism for j. Thus its objects are actual sheaves on C/T, not sets of isomorphism classes.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Compose the three existing natural isomorphisms, retaining both distinct native slice functors and the same fixed-band modification category.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso, mathlib:CategoryTheory.Iso.trans, mathlib:CategoryTheory.Iso.symm.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_app**: At X∈HomCategory(b,b), the local-chart transition is the actual sheaf isomorphism BC_i(X,x,x), then diagonal selfHomSheafTransportIso(X,e), then BC_j(X,y,y) inverse. The target base-change factor is inverted.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_equivariant**: For every R→T, a∈Multiplicative A(R) and actual source section p over the composed R→T→U, the transition applied to a acting on p equals the same a acting on the transported section over R→T→V. The two actions are the existing native fibreHomSectionAction; the independent coefficient universe is retained.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_independent**: For any two actual isomorphisms e,d:F(i)x≅F(j)y, their chart-transition natural isomorphisms are equal. This does not assert e=d; independence uses the abelian fixed-band diagonal transport theorem.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_refl**: For any automorphism e of F(i)x, the chart transition from i,x to itself is the identity natural isomorphism, including when e is nonidentity.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_cocycle**: For three charts i:T→U,j:T→V,k:T→W with objects x,y,z, choose arbitrary e:F(i)x≅F(j)y, d:F(j)y≅F(k)z and a:F(i)x≅F(k)z. The transition for e followed by the transition for d equals the transition for a as natural isomorphisms. No equation a=e followed by d is assumed.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_symm**: For arbitrary forward e:F(i)x≅F(j)y and backward d:F(j)y≅F(i)x, the inverse natural isomorphism of the transition for e equals the transition for d, without assuming d is the inverse of e.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_naturality**: For m:X→Y in the native HomCategory(b,b), i⁎H_U(m) followed by the chart transition at Y equals the chart transition at X followed by j⁎H_V(m). These are equal native sheaf maps on C/T.
+
+Test **TauCeti.AlgebraicGeometry.ChartTransitionTests.nonidentity_loop** (non-example): For a supplied nonidentity automorphism of F(i)x, retain its nonidentity witness while its induced chart transition equals identity. This parameterized check does not assert the existence of such an automorphism on every gerbe.
+
+Test **TauCeti.AlgebraicGeometry.ChartTransitionTests.independent_inverse** (computation): An arbitrary independently chosen reverse transition composed after the forward transition gives the identity actual sheaf map at every X; no inverse relation between the chosen fibre isomorphisms is assumed.
+
+Test **TauCeti.AlgebraicGeometry.ChartTransitionTests.empty_sections** (degenerate): If the source sheaf has empty sections on R→T, the target section type is empty via the actual inverse transition; no global or local section is chosen.
+
+Test **TauCeti.AlgebraicGeometry.ChartTransitionTests.four_charts** (compatibility): Three successive transitions among four charts at a common base equal the transition formed using any independently supplied direct isomorphism from the first restricted object to the fourth.
+
+## The three comparison factors at a fixed transformation
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_app**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/component**.
+
+At X∈HomCategory(b,b), the local-chart transition is the actual sheaf isomorphism BC_i(X,x,x), then diagonal selfHomSheafTransportIso(X,e), then BC_j(X,y,y) inverse. The target base-change factor is inverted.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Unfold composition of native natural isomorphisms at X; all three component factors remain.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart, mathlib:CategoryTheory.Iso.app.
+
+## The transition preserves the actual band section
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_equivariant**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/equivariant**.
+
+For every R→T, a∈Multiplicative A(R) and actual source section p over the composed R→T→U, the transition applied to a acting on p equals the same a acting on the transported section over R→T→V. The two actions are the existing native fibreHomSectionAction; the independent coefficient universe is retained.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Evaluate the three component maps. Apply forward base-change equivariance, diagonal transport equivariance, then inverse base-change equivariance. All use exactly the same coefficient section a.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/equivariant, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/equivariant, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/inv-equivariant.
+
+## Independence from the overlap isomorphism
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_independent**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/independent**.
+
+For any two actual isomorphisms e,d:F(i)x≅F(j)y, their chart-transition natural isomorphisms are equal. This does not assert e=d; independence uses the abelian fixed-band diagonal transport theorem.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Replace only the middle factor using existing fixed-band independence. The base-change factors are unchanged.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-independent.
+
+## Every diagonal chart loop induces identity
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_refl**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/reflexive**.
+
+For any automorphism e of F(i)x, the chart transition from i,x to itself is the identity natural isomorphism, including when e is nonidentity.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Replace e by the identity using independence, use the existing identity transport, and cancel the forward/inverse base comparisons.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/independent, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-identity, mathlib:CategoryTheory.Iso.refl.
+
+## The local-chart cocycle for independent choices
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_cocycle**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/cocycle**.
+
+For three charts i:T→U,j:T→V,k:T→W with objects x,y,z, choose arbitrary e:F(i)x≅F(j)y, d:F(j)y≅F(k)z and a:F(i)x≅F(k)z. The transition for e followed by the transition for d equals the transition for a as natural isomorphisms. No equation a=e followed by d is assumed.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Replace a by the composite e followed by d using independence. Expand the three-factor definitions, cancel the j-base comparison with its inverse, and apply composition of the existing diagonal transport.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/independent, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-composition, mathlib:CategoryTheory.Iso.ext.
+
+## An independently chosen reverse comparison is inverse
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_symm**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/inverse**.
+
+For arbitrary forward e:F(i)x≅F(j)y and backward d:F(j)y≅F(i)x, the inverse natural isomorphism of the transition for e equals the transition for d, without assuming d is the inverse of e.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Replace d by the inverse of e and unfold the inverse of the three-factor composite.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/independent, mathlib:CategoryTheory.Iso.symm.
+
+## Compatibility with every fixed-band modification
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_naturality**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/natural**.
+
+For m:X→Y in the native HomCategory(b,b), i⁎H_U(m) followed by the chart transition at Y equals the chart transition at X followed by j⁎H_V(m). These are equal native sheaf maps on C/T.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Use the naturality field of the actual composed natural isomorphism.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart.
+
+## Hom-sheaf transition on an actual overlap member
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap**.
+
+For q:S→T belonging to the actual overlapCover(F,i,j,x,y), construct the natural comparison from (q followed by i)⁎H_U(x,x;−) to (q followed by j)⁎H_V(y,y;−) using the existing direct overlapIso. That iso retains the i-side pseudofunctor composition comparison, a chosen iterated overlap isomorphism, and the inverse j-side comparison. No compatible choice system is assumed.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Insert the existing direct overlapIso into the chart transition along the two composite base arrows.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart, AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-iso.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_eq**: The chosen overlap transition equals the chart transition along q followed by i and q followed by j formed with any supplied direct isomorphism between those endpoints. The equality is of complete natural isomorphisms.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_refl**: For any membership q in the diagonal overlapCover(F,i,i,x,x), the resulting overlap transition is the identity natural isomorphism. Classical choice need not select the identity fibre automorphism.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_cocycle**: If the same q:S→T belongs to all three actual pairwise overlap covers for i,x; j,y; k,z, the chosen xy transition followed by the chosen yz transition equals the independently chosen xz transition. The full natural-isomorphism equality retains all fixed-band transformations and modifications.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_symm**: If q belongs to the xy and yx overlap covers, the inverse of the chosen xy overlap transition equals the independently chosen yx overlap transition.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_common_cover**: For any supplied J-covering sieve D on T, its intersection with the xy, yz and xz overlap covers is J-covering. Every member therefore retains membership in D and supplies all three comparisons needed for the cocycle. No fibre products, finite-cover presentation or global gerbe object is required.
+
+Test **TauCeti.AlgebraicGeometry.ChartTransitionTests.covered_triple** (compatibility): On the covering intersection of an arbitrary cover and three pairwise overlap covers, every member retains the arbitrary-cover membership and satisfies the actual chosen-transition cocycle.
+
+Test **TauCeti.AlgebraicGeometry.ChartTransitionTests.chosen_versus_supplied** (compatibility): At each fixed-band self-transformation, the chosen overlap transition equals the explicit three-factor sheaf comparison formed with any supplied direct endpoint isomorphism.
+
+Test **TauCeti.AlgebraicGeometry.ChartTransitionTests.overlap_coefficient** (compatibility): The chosen overlap transition carries the action of each actual coefficient section a on a source section to the action of exactly the same a on its image, including nontrivial and nonfaithful base restrictions.
+
+Test **TauCeti.AlgebraicGeometry.ChartTransitionTests.modifications_on_overlap** (compatibility): The chosen overlap comparison commutes with the composite of two arbitrary native fixed-band modifications. Both pullback functors and all modification components remain in the equation.
+
+## Comparison with every supplied direct overlap map
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_eq**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap-choice**.
+
+The chosen overlap transition equals the chart transition along q followed by i and q followed by j formed with any supplied direct isomorphism between those endpoints. The equality is of complete natural isomorphisms.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Apply chart-transition independence to the actual chosen direct overlapIso and the supplied direct map.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap, AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/independent.
+
+## The chosen diagonal overlap transition
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_refl**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap-reflexive**.
+
+For any membership q in the diagonal overlapCover(F,i,i,x,x), the resulting overlap transition is the identity natural isomorphism. Classical choice need not select the identity fibre automorphism.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Apply the chart-loop identity to the chosen direct overlap automorphism.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap, AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/reflexive.
+
+## Cocycle on a common overlap refinement
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_cocycle**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap-cocycle**.
+
+If the same q:S→T belongs to all three actual pairwise overlap covers for i,x; j,y; k,z, the chosen xy transition followed by the chosen yz transition equals the independently chosen xz transition. The full natural-isomorphism equality retains all fixed-band transformations and modifications.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Apply the arbitrary-choice chart cocycle to the three independently selected direct overlap isomorphisms.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap, AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/cocycle.
+
+## Reverse chosen overlaps induce inverse maps
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_symm**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap-inverse**.
+
+If q belongs to the xy and yx overlap covers, the inverse of the chosen xy overlap transition equals the independently chosen yx overlap transition.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Apply the reverse-comparison theorem to the two chosen direct isomorphisms.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap, AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/inverse.
+
+## A covering common domain for all three transitions
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_common_cover**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/common-cover**.
+
+For any supplied J-covering sieve D on T, its intersection with the xy, yz and xz overlap covers is J-covering. Every member therefore retains membership in D and supplies all three comparisons needed for the cocycle. No fibre products, finite-cover presentation or global gerbe object is required.
+
+Hypotheses: Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w. The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed. The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.
+
+Proof plan: Use covering of each actual pairwise overlap sieve and apply native intersection_covering three times.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap-covering, mathlib:CategoryTheory.GrothendieckTopology.intersection_covering.
+
+All595 prior node objects, ten gaps,22 requests,eight source issues,ten planets and eight partial stages are preserved. Every implementation status remains unchecked. Eight parameterized native tests discriminate inverse order, independent choices, empty section carriers, four-chart composition, actual common covering membership, coefficient sections and modifications; no new nonconstant or nonneutral geometric fixture is claimed. The full Tau-dependent suggested file remains uncompiled.
+
+Source context: [Stacks Section8.11](https://stacks.math.columbia.edu/tag/06NY). The precise Hom-sheaf comparisons and proofs above are authored deductions. The inherited E6 projection-label issue and general varying-base compatibility/SF1 boundary remain; no new source error is asserted. The complete prior reader follows verbatim.
+
 # Actual gerbe local covers and overlap refinements
 
 Codex — codex-rtOQ9t, 4 October2026. Partial continuation: four actual constructions and19 API lemmas; all572 incoming nodes remain completely unchanged.

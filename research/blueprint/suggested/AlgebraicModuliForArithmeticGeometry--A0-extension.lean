@@ -8530,3 +8530,228 @@ example (f : V ⟶ U) (g : W ⟶ U) (i : T ⟶ V) (j : T ⟶ W)
   sorry
 
 end TauCeti.AlgebraicGeometry.LocalCoverTests
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+  {U V W T S : C}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+noncomputable def selfHomChartTransition (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y) :
+    fibreHomSheafFunctor b b U x x ⋙ J.overMapPullback (Type v') i ≅
+      fibreHomSheafFunctor b b V y y ⋙ J.overMapPullback (Type v') j :=
+  fibreHomBaseChangeNatIso b b i x x ≪≫ selfHomSheafTransportNatIso b e ≪≫
+    (fibreHomBaseChangeNatIso b b j y y).symm
+
+lemma selfHomChartTransition_app (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (X : HomCategory b b) :
+    (selfHomChartTransition b i j x y e).app X =
+      fibreHomBaseChangeIso b b X i x x ≪≫ selfHomSheafTransportIso b X e ≪≫
+        (fibreHomBaseChangeIso b b X j y y).symm := by
+  sorry
+
+lemma selfHomChartTransition_equivariant (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (X : HomCategory b b) (R : Over T) (a : Multiplicative (A.obj.obj (op R.left)))
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op ((Over.map i).obj R))) :
+    ((selfHomChartTransition b i j x y e).app X).hom.hom.app (op R)
+        (((fibreHomSectionAction b b U x x X ((Over.map i).obj R)).ρ a).hom p) =
+      ((fibreHomSectionAction b b V y y X ((Over.map j).obj R)).ρ a).hom
+        (((selfHomChartTransition b i j x y e).app X).hom.hom.app (op R) p) := by
+  sorry
+
+lemma selfHomChartTransition_independent (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e d : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y) :
+    selfHomChartTransition b i j x y e = selfHomChartTransition b i j x y d := by
+  sorry
+
+lemma selfHomChartTransition_refl (i : T ⟶ U) (x : F.obj (.mk (op U)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map i.op.toLoc).toFunctor.obj x) :
+    selfHomChartTransition b i i x x e = Iso.refl _ := by
+  sorry
+
+lemma selfHomChartTransition_cocycle (i : T ⟶ U) (j : T ⟶ V) (k : T ⟶ W)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V))) (z : F.obj (.mk (op W)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (d : (F.map j.op.toLoc).toFunctor.obj y ≅ (F.map k.op.toLoc).toFunctor.obj z)
+    (a : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map k.op.toLoc).toFunctor.obj z) :
+    selfHomChartTransition b i j x y e ≪≫ selfHomChartTransition b j k y z d =
+      selfHomChartTransition b i k x z a := by
+  sorry
+
+lemma selfHomChartTransition_symm (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (d : (F.map j.op.toLoc).toFunctor.obj y ≅ (F.map i.op.toLoc).toFunctor.obj x) :
+    (selfHomChartTransition b i j x y e).symm = selfHomChartTransition b j i y x d := by
+  sorry
+
+lemma selfHomChartTransition_naturality (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    {X Y : HomCategory b b} (m : X ⟶ Y) :
+    (J.overMapPullback (Type v') i).map (fibreHomSheafMap b b U x x m) ≫
+        (selfHomChartTransition b i j x y e).hom.app Y =
+      (selfHomChartTransition b i j x y e).hom.app X ≫
+        (J.overMapPullback (Type v') j).map (fibreHomSheafMap b b V y y m) := by
+  sorry
+
+noncomputable def selfHomOverlapTransition (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (q : S ⟶ T) (h : GerbeLocalCovers.overlapCover F i j x y q) :
+    fibreHomSheafFunctor b b U x x ⋙ J.overMapPullback (Type v') (q ≫ i) ≅
+      fibreHomSheafFunctor b b V y y ⋙ J.overMapPullback (Type v') (q ≫ j) :=
+  selfHomChartTransition b (q ≫ i) (q ≫ j) x y
+    (GerbeLocalCovers.overlapIso F i j x y q h)
+
+lemma selfHomOverlapTransition_eq (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (q : S ⟶ T) (h : GerbeLocalCovers.overlapCover F i j x y q)
+    (e : (F.map (q ≫ i).op.toLoc).toFunctor.obj x ≅
+      (F.map (q ≫ j).op.toLoc).toFunctor.obj y) :
+    selfHomOverlapTransition b i j x y q h =
+      selfHomChartTransition b (q ≫ i) (q ≫ j) x y e := by
+  sorry
+
+lemma selfHomOverlapTransition_refl (i : T ⟶ U) (x : F.obj (.mk (op U)))
+    (q : S ⟶ T) (h : GerbeLocalCovers.overlapCover F i i x x q) :
+    selfHomOverlapTransition b i i x x q h = Iso.refl _ := by
+  sorry
+
+lemma selfHomOverlapTransition_cocycle (i : T ⟶ U) (j : T ⟶ V) (k : T ⟶ W)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V))) (z : F.obj (.mk (op W)))
+    (q : S ⟶ T) (hxy : GerbeLocalCovers.overlapCover F i j x y q)
+    (hyz : GerbeLocalCovers.overlapCover F j k y z q)
+    (hxz : GerbeLocalCovers.overlapCover F i k x z q) :
+    selfHomOverlapTransition b i j x y q hxy ≪≫
+        selfHomOverlapTransition b j k y z q hyz =
+      selfHomOverlapTransition b i k x z q hxz := by
+  sorry
+
+lemma selfHomOverlapTransition_symm (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (q : S ⟶ T) (hxy : GerbeLocalCovers.overlapCover F i j x y q)
+    (hyx : GerbeLocalCovers.overlapCover F j i y x q) :
+    (selfHomOverlapTransition b i j x y q hxy).symm =
+      selfHomOverlapTransition b j i y x q hyx := by
+  sorry
+
+lemma selfHomOverlapTransition_common_cover (i : T ⟶ U) (j : T ⟶ V) (k : T ⟶ W)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V))) (z : F.obj (.mk (op W)))
+    (D : Sieve T) (hD : D ∈ J T) :
+    D ⊓ GerbeLocalCovers.overlapCover F i j x y ⊓
+      GerbeLocalCovers.overlapCover F j k y z ⊓
+        GerbeLocalCovers.overlapCover F i k x z ∈ J T := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.ChartTransitionTests
+open CategoryTheory Opposite Bicategory BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A) {U V W Z T S R : C}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+-- test: ChartTransitionTests.nonidentity_loop
+example (i : T ⟶ U) (x : F.obj (.mk (op U)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map i.op.toLoc).toFunctor.obj x)
+    (he : e ≠ Iso.refl _) :
+    e ≠ Iso.refl _ ∧ selfHomChartTransition b i i x x e = Iso.refl _ := by
+  sorry
+
+-- test: ChartTransitionTests.independent_inverse
+example (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (d : (F.map j.op.toLoc).toFunctor.obj y ≅ (F.map i.op.toLoc).toFunctor.obj x)
+    (X : HomCategory b b) :
+    ((selfHomChartTransition b i j x y e).app X).hom ≫
+      ((selfHomChartTransition b j i y x d).app X).hom = 𝟙 _ := by
+  sorry
+
+-- test: ChartTransitionTests.empty_sections
+example (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (X : HomCategory b b) (R : Over T)
+    [IsEmpty (((J.overMapPullback (Type v') i).obj (fibreHomSheaf b b U x x X)).obj.obj (op R))] :
+    IsEmpty (((J.overMapPullback (Type v') j).obj (fibreHomSheaf b b V y y X)).obj.obj (op R)) := by
+  sorry
+
+-- test: ChartTransitionTests.four_charts
+example (i : T ⟶ U) (j : T ⟶ V) (k : T ⟶ W) (l : T ⟶ Z)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (z : F.obj (.mk (op W))) (t : F.obj (.mk (op Z)))
+    (e : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map j.op.toLoc).toFunctor.obj y)
+    (d : (F.map j.op.toLoc).toFunctor.obj y ≅ (F.map k.op.toLoc).toFunctor.obj z)
+    (a : (F.map k.op.toLoc).toFunctor.obj z ≅ (F.map l.op.toLoc).toFunctor.obj t)
+    (c : (F.map i.op.toLoc).toFunctor.obj x ≅ (F.map l.op.toLoc).toFunctor.obj t) :
+    (selfHomChartTransition b i j x y e ≪≫ selfHomChartTransition b j k y z d) ≪≫
+      selfHomChartTransition b k l z t a = selfHomChartTransition b i l x t c := by
+  sorry
+
+-- test: ChartTransitionTests.covered_triple
+example (i : T ⟶ U) (j : T ⟶ V) (k : T ⟶ W)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V))) (z : F.obj (.mk (op W)))
+    (D : Sieve T) (hD : D ∈ J T) (q : S ⟶ T)
+    (h : (D ⊓ GerbeLocalCovers.overlapCover F i j x y ⊓
+      GerbeLocalCovers.overlapCover F j k y z ⊓ GerbeLocalCovers.overlapCover F i k x z) q) :
+    D q ∧ selfHomOverlapTransition b i j x y q h.1.1.2 ≪≫
+      selfHomOverlapTransition b j k y z q h.1.2 =
+        selfHomOverlapTransition b i k x z q h.2 ∧
+      D ⊓ GerbeLocalCovers.overlapCover F i j x y ⊓
+        GerbeLocalCovers.overlapCover F j k y z ⊓ GerbeLocalCovers.overlapCover F i k x z ∈ J T := by
+  sorry
+
+-- test: ChartTransitionTests.chosen_versus_supplied
+example (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (q : S ⟶ T) (h : GerbeLocalCovers.overlapCover F i j x y q)
+    (e : (F.map (q ≫ i).op.toLoc).toFunctor.obj x ≅ (F.map (q ≫ j).op.toLoc).toFunctor.obj y)
+    (X : HomCategory b b) :
+    (selfHomOverlapTransition b i j x y q h).app X =
+      fibreHomBaseChangeIso b b X (q ≫ i) x x ≪≫ selfHomSheafTransportIso b X e ≪≫
+        (fibreHomBaseChangeIso b b X (q ≫ j) y y).symm := by
+  sorry
+
+-- test: ChartTransitionTests.overlap_coefficient
+example (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (q : S ⟶ T) (h : GerbeLocalCovers.overlapCover F i j x y q)
+    (X : HomCategory b b) (R : Over S) (a : Multiplicative (A.obj.obj (op R.left)))
+    (p : (fibreHomSheaf b b U x x X).obj.obj (op ((Over.map (q ≫ i)).obj R))) :
+    ((selfHomOverlapTransition b i j x y q h).app X).hom.hom.app (op R)
+        (((fibreHomSectionAction b b U x x X ((Over.map (q ≫ i)).obj R)).ρ a).hom p) =
+      ((fibreHomSectionAction b b V y y X ((Over.map (q ≫ j)).obj R)).ρ a).hom
+        (((selfHomOverlapTransition b i j x y q h).app X).hom.hom.app (op R) p) := by
+  sorry
+
+-- test: ChartTransitionTests.modifications_on_overlap
+example (i : T ⟶ U) (j : T ⟶ V)
+    (x : F.obj (.mk (op U))) (y : F.obj (.mk (op V)))
+    (q : S ⟶ T) (h : GerbeLocalCovers.overlapCover F i j x y q)
+    {X Y Z : HomCategory b b} (m : X ⟶ Y) (n : Y ⟶ Z) :
+    (J.overMapPullback (Type v') (q ≫ i)).map (fibreHomSheafMap b b U x x (m ≫ n)) ≫
+        (selfHomOverlapTransition b i j x y q h).hom.app Z =
+      (selfHomOverlapTransition b i j x y q h).hom.app X ≫
+        (J.overMapPullback (Type v') (q ≫ j)).map (fibreHomSheafMap b b V y y (m ≫ n)) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.ChartTransitionTests

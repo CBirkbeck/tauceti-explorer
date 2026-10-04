@@ -1,156 +1,147 @@
-# BP-AlgebraicModuliForArithmeticGeometry--A0-extension: actual local covers
+# BP-AlgebraicModuliForArithmeticGeometry--A0-extension: chart transitions
 
-Codex — codex-rtOQ9t · 4 October 2026 · Refs #672 · **partial**.
+Codex — codex-7e92bd · 4 October 2026 · Refs #672 · **partial**.
 
-Four actual constructions and nineteen API lemmas supply canonical local-object and local-isomorphism sieves, covering overlap refinements, and chosen direct overlap isomorphisms for arbitrary Cat-valued pseudofunctors and gerbes on an arbitrary native site. The object sieve contains f:V→U exactly when F(V) is nonempty. Its native pullback along any arrow is literally the object sieve at the new base. The gerbe's actual local-existence sieve is enlarged by native superset_covering; no object over U is selected. Intersecting with any supplied cover gives a covering common refinement.
+Two actual constructions and twelve lemmas give natural local-chart comparisons for fixed-band diagonal Hom sheaves. For i:T→U and j:T→V with local objects x,y and an actual isomorphism F(i)x≅F(j)y, selfHomChartTransition is the existing base-change comparison along i, diagonal fixed-band transport, and the inverse base-change comparison along j. Its values are actual sheaves on C/T, natural on the entire HomCategory(b,b) with native modifications. Its action formula preserves the same supplied coefficient section a∈Multiplicative A(R), with independent coefficient universe w.
 
-The isomorphism sieve contains f exactly when F(f)x≅F(f)y is nonempty. Downward closure and the equality under native sieve pullback transport both endpoints with the actual F.mapComp comparisons. The comparison from the direct composite restriction to the iterated restriction is not erased. Swapping the objects leaves the sieve equal, and the reflexive sieve is maximal. Covering uses the gerbe's actual locallyIsomorphic field; intersecting with any cover is covering.
+The induced natural isomorphism is independent of the supplied fibre isomorphism. It sends every diagonal automorphism loop to identity. For three charts at a common base, two successive comparisons equal the direct comparison for any independently chosen endpoint isomorphism; no cocycle relation between the underlying choices is assumed. Reverse comparisons are inverses even when their fibre isomorphisms are independently chosen. The proofs use the existing diagonal fixed-band independence and composition laws, cancel the middle native base comparison, and retain both endpoint pullback functors. This choice independence is not asserted for arbitrary unrelated two-gerbe endpoints.
 
-For i:T→V and j:T→W with supplied local objects x,y, overlapCover compares the actual restricted objects on T. It is covering for a gerbe and remains covering after every further restriction. No fibre product or terminal object is required. A member q:S→T supplies an actual iterated isomorphism. The chosen direct overlap isomorphism F(q≫i)x≅F(q≫j)y is the i-side native composition comparison, Classical.choice of that membership evidence, then the inverse j-side comparison. Its forward/inverse formulas and both round trips are proved. Arbitrary independent choices are not equated; no cocycle or gluing assertion is smuggled into the construction.
+selfHomOverlapTransition uses the inherited actual overlapCover and direct overlapIso along q:S→T. Both pseudofunctor composition comparison factors are retained inside that direct overlap isomorphism. The intersection of any given covering sieve with all three pairwise overlap covers is covering. On every member of this common refinement the chosen comparisons satisfy the natural-isomorphism cocycle. This proves the common-refinement cocycle portion, not varying-refinement descent or a global sheaf-gluing construction.
 
-These adapters supply arbitrary local objects and overlap existence for the existing Hom-sheaf/torsor-gluing frontier. The inherited transformation-specific localImageSieve, target/lifted coherent overlaps and object-descent route remain unchanged and are imported rather than duplicated. Native sieve, topology, pseudofunctor, functor and isomorphism machinery is reused. The new constructions need no banding; the independent coefficient universe w of inherited banded-gerbe comparisons is preserved.
+Eight typed parameterized tests check a supplied nonidentity loop inducing identity, an independently chosen reverse map giving a round trip, preservation of empty section carriers, four-chart composition, actual membership and cocycle on a covering triple intersection, comparison with any supplied direct map, preservation of the same coefficient section and naturality for two composed modifications. The nonidentity-loop test retains its supplied nonidentity witness; it does not construct one for every gerbe. No nonconstant-site or nonneutral geometric fixture is added.
 
-Eighteen typed tests include four actual constant-pseudofunctor fixtures on Discrete PUnit: empty Discrete PEmpty fibres give the empty object sieve; Discrete Bool gives the maximal object sieve; distinct false/true objects give an empty isomorphism sieve; equal false objects give a maximal isomorphism sieve. The disconnected fixture is not asserted to be a gerbe. The empty-global-fibre gerbe check is parameterized and proves a covering sieve need not contain the identity; it is not a constructed nonneutral geometric fixture. Other checks cover arbitrary common covering refinements, two restrictions, both native endpoint comparisons, maximal pullbacks along members, chart exchange, direct endpoints, round trips on supplied arrows, further restriction of actual isomorphisms and equality of the deeper base paths on an actual overlap square. No nonconstant-site or nonneutral geometric fixture is added.
-
-All 572 incoming node objects remain completely equal. Twenty-three nodes are appended, giving 595 nodes, 541 raw API entries and 540 raw tests. Two baseline references import the native Sieve.ext and Sieve.pullback_eq_top_of_mem. All ten gaps, twenty-two requests, eight source issues, ten planets and eight partial stages remain unchanged; every implementation status stays unchecked. Only the R09.4 remaining frontier receives an appended entry. The full prior reader is retained verbatim after this continuation. All exact incoming Lean prefixes are retained, preceded only by the native Functor/LocallyDiscrete import used by the concrete tests.
+All595 incoming node objects are unchanged. The14 additions give609 nodes,553 raw API references and548 raw tests; the new constructions have12 API items and eight tests. Three added baseline references import native Iso.refl, Iso.symm and Iso.trans, not new generic roadmap nodes. All ten gaps,22 requests,eight source issues,ten planets and eight partial stages remain; every implementation status stays unchecked. The reader retains its complete incoming text as a suffix. The complete incoming native, Mathlib-planning and full Tau-import suggested prefixes are retained exactly.
 
 ## Reading and provenance
 
-The entire 44,034-character issue was read in five bounded slices before claiming and again after numeric bot confirmation. Claim 5976817494 won according to bot 5976818396; the unchanged issue body has SHA256 76b4b208fdc2daf287aff24fff621ad30741280c84a8c35c7f6ac34c2ea459af. The complete incoming 103-line handoff and recovery helper were personally read.
+The entire44,034-character issue was read in five bounded slices before claim5977617946 and again after exact bot5977618893 confirmed it. The unchanged body hash is76b4b208fdc2daf287aff24fff621ad30741280c84a8c35c7f6ac34c2ea459af. The governing WORKERS.md was reread in full; binding protocols and upstream/expansion instructions were freshly read or reused at their exact continuous-session scopes.
 
-[Incoming peer PR6045](https://github.com/CBirkbeck/tauceti-explorer/pull/6045), head ece737ec4ae0fa3ca2d232955d7095f92cc96d4a and archive f6452553c43f8af669c4ed21790ca66be47c9976, was recovered over actual public HTTP: 56 authenticated artifacts, eleven helpers and four final deliverables. IncomingManifest.json has SHA256 bc24350852864995d87a1f842319f87e5882547ce4e9ab3e7a8e10f7ad2608af. The actual recovered verifier was personally read and executed, reproducing its Verification.json byte for byte. All six new peer lemmas and all eight peer tests were freshly read. Other incoming proofs are authenticated and recompiled, not newly read line by line. Peer reading claims remain attributed to their author.
+The actual incoming producer is [PR6050](https://github.com/CBirkbeck/tauceti-explorer/pull/6050), verified from this deliverable’s git history: head41c30267cab2636826dc000b62d50d85cfe84247, archive3bfc09759130f0b7dc3c4d5922990803f35a1181. Its public HTTP recovery authenticated63 artifacts,twelve helpers and four final deliverables. The recovered actual verifier and immutable helper were personally read; executing that verifier reproduced its Verification.json byte for byte. IncomingManifest.json has SHA256920969300369966813afd4831dfcc9692117233b9b6bbce2004b9ccbe5cea112. All23 new incoming proof declarations and18 tests were freshly read. The complete older prefix is authenticated and recompiled, not claimed as a new whole-file manual audit.
 
-Own continuous-session readings from [PR6038](https://github.com/CBirkbeck/tauceti-explorer/pull/6038) and its own inherited PR6026 receipts are reused only at their exact original extents, after all 51 external controls compared unchanged before planning. This covers the binding protocols, twelve reviewed audit rows, campaign reader, all 34 touching links, reserved gerbe/survey API, accepted RS27 and prescribed red-team controls and the previously consumed upstream readers. OwnPreviousManifest.json, SHA256 daf905c2872086cdf1ef35a52041279c7c84c583ae4e38c4681703fb0c0d3d15, authenticates the earlier reading, input guards, SF1 boundary and four own inherited reading/source/manifest receipts. Whole-file equality does not constitute a new whole-file manual reading. OwnReadingGuard.json records the before/after hashes. No peer6045 or peer-owned6034 reading is attributed to this worker.
+Own continuous-session [PR6045](https://github.com/CBirkbeck/tauceti-explorer/pull/6045) reading extents and its own inherited PR6034 receipts are reused at exactly unchanged controls:51 mathematical/source/ownership/roadmap controls and six checker/build/intake controls. OwnPreviousManifest.json authenticates own Reading, InputGuard, Candidate and SFBoundary, plus the explicitly retained inherited reading/manifest/input-guard chain. Whole-file equality does not imply fresh whole-file reading. Peer6050 reading claims remain attributed to that worker. OwnReadingReuse.json records all61 before/after comparisons: only the four issue deliverables changed. This preserves the reviewed audit, upstream readers, accepted RS27 ownership and narrowing, reserved gerbe definition/API and prescribed red-team decisions within the exact own reading extents. All old gap/request/source-issue/version contracts are unchanged from own6045; no new supplier or generic theory is introduced. SFBoundary.json confirms SF.1 remains not_read with its nodes,coverage,requests and sourceWorklist unchanged.
 
-Fresh reads include the entire reserved gerbe contract/API/tests and R09.4 frontier, the consumed NativePrefix blocks recorded in Reading.json, the actual constant-diagram constructor, and all current object-descent/local-image/cover/overlap statements to distinguish the new adapters. The governing WORKERS.md was read completely again during this continuation. The exact unchanged own source/errata and other-stage contracts remain inherited at their original reading scopes. SFBoundary.json binds the actual unchanged SF.1 nodes, coverage, requests and sourceWorklist; SF.1 remains not_read.
+Fresh consumed incoming ranges are recorded in Reading.json: native1–70,1747–1904,2129–2260, all new peer proofs/tests, the current complete reserved gerbe contract/API/tests and latest R09.4 frontier. Pinned native Iso40–180, NatIso1–120 and Grothendieck150–181 were freshly read. Their declarations and source hashes are bound in the evidence. Exact-name searches across both complete pinned source trees and current packets found no proposed new names. Existing generic native sheaf, isomorphism and transport APIs are reused. This is not a comprehensive external PR/Zulip absence survey.
 
-The complete displayed primary [Stacks Section8.11, tag06NY](https://stacks.math.columbia.edu/tag/06NY) was freshly read, including both definitions, Lemmas8.11.2–8.11.8, proofs, diagrams and both comments. SourceReading.json records its actual HTTP byte count, hash and access time without retaining an HTML snapshot. Definition8.11.1 supplies local object/isomorphism existence; the exact canonical sieves, comparison formulas and native proofs are authored deductions. The inherited E6 projection-label correction and the omitted varying-base compatibility/SF1 obligation are retained. No new source error or exhaustive classification/errata closure is claimed. Reading.json records the exact pinned native declaration files, hashes and consumed ranges. Bounded exact-name searches in current packets and pinned Mathlib/Tau Ceti found no new names; this is not an exhaustive external PR/Zulip absence survey.
+The complete displayed [Stacks Section8.11, tag06NY](https://stacks.math.columbia.edu/tag/06NY) was freshly read, including all definitions, Lemmas8.11.2–8 with proofs/diagrams and both comments. SourceReading.json records actual fetched bytes,hash and access time without an HTML snapshot. The source motivates local existence and the independent-transition/cocycle pattern. The exact fixed-band Hom-sheaf formulas and native proofs are authored deductions. Existing E6 and the omitted general varying-base compatibility/SF1 obligation remain; no new source error or full classification/errata closure is claimed.
 
 ## Validation and limits
 
-Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 and Lean 4.34.0-rc2, compiler 6a10ac8c22beadecabdbb0919c2b50214762f91d. Both source checkouts were checked tracked-clean. The complete Tau-dependent Suggested.lean is **UNCOMPILED**: the required exact-pin Tau build is unavailable; the alternate build is at cf386627e9176a3827c1a5fe804989fd94a4d216 and lacks the needed imported oleans. No project, cache download or library build was created.
+Pins: Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, TauCeti f790474821cf4256814db967cb154e7af3d0c369 and Lean4.34.0-rc2, compiler6a10ac8c22beadecabdbb0919c2b50214762f91d. Both source trees were freshly checked tracked-clean. The complete Tau-import Suggested.lean is **UNCOMPILED**: TauProbe.json records the alternate build at cf386627e9176a3827c1a5fe804989fd94a4d216, with its needed Tau sheaf-cohomology import unavailable. No Lake project, cache download, library build or language server was created.
 
-Native.lean and the separate Mathlib-only Canonical.lean ran serially with one thread, an 8 GiB limit and 1200-second timeout against the existing pinned build. The runner checks pins, dependencies, tracked cleanliness, compiler version and at least 20 GiB available immediately before each run. No Lean language server was used and no compiler remains running.
+Native and the separate Mathlib-only Canonical.lean were checked serially with the existing exact pinned build, one thread,8GiB limit and1200-second timeout. The runner checks pins,dependencies,tracked cleanliness,compiler version and at least20GiB immediately before each run. No compiler remains running.
 
-- Native.lean: 3640 lines, 134 examples, exit 0, 0 warnings (0 admission warnings), 188 axiom audits. Available memory 53 GiB; elapsed 19.27 seconds; peak RSS 2329420 KiB. Source SHA256 `0161f00a2b9a92cdecb60cd3dc214404197f10ff899285948c5b3bad3e565e4c`; log SHA256 `9860b06cee0ebbcebf3bad2d1e4d5fa299a756dd4ef1407a6b36995df44de2db`.
+- Native.lean: 3902 lines,142 examples,exit0,0 warnings (0 admissions),202 axiom audits; 52GiB available,elapsed20.37 seconds,peakRSS2351840KiB. Source SHA256 `70879c4ac09a80e77014f2a15c5dabab568fcee224ef0444d739418a94598c57`; log SHA256 `f75a40a3fe778eaa981e06492b01e8ea3cc9050ea381ab0862bb4559893e0f43`.
 
-- Canonical.lean: 7161 lines, 395 examples, exit 0, 876 warnings (876 admission warnings), 0 axiom audits. Available memory 53 GiB; elapsed 27.07 seconds; peak RSS 3801688 KiB. Source SHA256 `c5b87c3b5a3dae0155eb2b67bb0577dac24fc9a603e876ea7ad88aad49d9b615`; log SHA256 `3b68dd9a8910e9ffb4129f7579878fe33d94327f394d6914b59a6244a913e507`.
+- Canonical.lean: 7386 lines,403 examples,exit0,896 warnings (896 admissions),0 axiom audits; 52GiB available,elapsed27.87 seconds,peakRSS3819920KiB. Source SHA256 `07ce2cf2c83038c0dfc9182fa1bbd0b75a0a23a22cdc3634727f0a2cb05e3575`; log SHA256 `df4a4bbd2f73a168dbd66cd5ee5e140712e8db4c1a9ce2df7d1dd36717ddb7f5`.
 
-The complete 3335-line incoming native prefix and all four new actual construction bodies are retained. Native has no admissions or declared axioms; all 188 audited closures use only propext, Classical.choice and Quot.sound, with no sorryAx. The planning projection admits exactly nineteen lemma and eighteen test bodies, retaining every data declaration and its actual downward-closure/transport fields. Its 37 new admissions join 839 inherited admissions for 876 expected warnings and no other warnings. All 41 new headers, exact prefix hashes, construction bodies, example counts, source/log receipts and audited closures are checked mechanically. Compilation does not change planning statuses.
+The native prefix has188 inherited audits;14 new audits give202 closures using only propext, Classical.choice and Quot.sound, with no admission or declared axiom. The planning projection retains the two real construction bodies and admits precisely12 lemmas and8 tests. Its20 new admission warnings join876 inherited warnings for896, with no other warning. Exact projection,22 new headers, prefix hashes, example counts and compilation receipts are checked mechanically. Compilation does not change implementation status.
 
-The actual indexed checker passes with 595 nodes, 533 API items, 507 definition tests and 230 baseline references; zero closed stages and no errors or warnings. Source-issue/version and actual intake checks pass. The immutable atlas is acyclic: stage 3017/8655, own declarations 595/1255, scoped 3605/10573 vertices/edges. All 24 required and 40 accepted touching restructure pairs are reachable; no unresolved leaves or own skipped/pending links. Stage edges, foreign roadmaps/stages and sibling parts are unchanged. All 51 external controls and four incoming deliverables match at both recorded bases, and the full SF.1 boundary is preserved.
+The actual indexed checker reports {'packet': 'research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json', 'roadmap': 'AlgebraicModuliForArithmeticGeometry', 'status': 'partial', 'nodes': 609, 'kinds': {'definition': 17, 'lemma': 427, 'construction': 132, 'theorem': 28, 'comparison': 5}, 'apiItems': 545, 'unitTests': 515, 'planets': 10, 'baselineDeclarations': 233, 'prerequisites': {'baseline': 627, 'node (this packet)': 1281, 'node (blueprint)': 25, 'stage': 40}, 'gaps': 10, 'requests': 22, 'stagesInScope': 8, 'stagesClosed': 0}; no errors or warnings. Source-issue/version and actual intake checks pass. The immutable stage DAG has 3017 vertices/8655 edges, own declaration DAG 609/1281, scoped DAG 3619/10613. All 24 supplier pairs and 40 accepted touching restructure pairs are reachable; no unresolved leaves or own skipped/pending links. Foreign stages/roadmaps,stage edges and sibling parts are unchanged. All57 external controls plus four incoming deliverables and the complete SF.1 boundary match at both recorded bases.
 
-Mathematical base `075c0335ac68e4e2af7a24c80e8a72f2bb4508cf`; publication control `4ad569cb98e48d6db6231bcf48b6be4a0249ef18`. Verification-math.json and Verification.json record the actual immutable checks. Declaration-index SHA256 `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`. Full uncompiled suggested-file SHA256 `472570a63be738dc64287c56d5d2c4f4a4cd367acc254ff5a75451abfca7907f`.
+Mathematical base `52f604174e994cd80e62b3147cedd683ec69e33e`; publication control `52f604174e994cd80e62b3147cedd683ec69e33e`. Actual reports: Verification-math.json and Verification.json. Declaration-index SHA256 `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`. Full uncompiled Suggested.lean SHA256 `9a9a5138fba62ebb9f3af3a4639b2c77ff3615ff802ae3c38e4052fde90a1fde`.
 
 ## Resume
 
-Continue from R09.4/local-covers and the existing general two-gerbe sheaf-base-change and two-endpoint transport families. Use the canonical local-object cover and actual isomorphism/overlap refinements to glue Hom sheaves, actions and maps. Arbitrary chosen overlap isomorphisms themselves need not satisfy cocycles; use the existing choice-independent induced fixed-band transport and prove the required sheaf/map compatibility. Package using the supplied D0 torsor groupoid, prove full faithfulness and construct a coherent inverse/unit/counit before claiming the global fixed-band morphism or self-equivalence/torsor equivalence.
+Continue from R09.4/chart-transitions: prove compatibility when a common overlap refinement changes, retaining native slice pullback composition and pseudofunctor endpoint comparisons. Then glue the actual Hom sheaves,actions and maps, use the supplied D0 torsor groupoid, prove full faithfulness, and construct a coherent inverse/unit/counit before claiming the global self-equivalence/torsor equivalence. The common-base cocycle proved here must not be presented as that entire descent construction. Do not replace missing proofs or suppliers by records assuming the conclusion.
 
-Construct nonconstant-site and nonneutral geometric fixtures while retaining empty global fibres and independent coefficient universes. Intrinsic descended-band/SF1, nonneutral root gerbes, derived H², compatible fpqc limits, source-issue and all other-stage obligations remain. Do not replace missing suppliers or proofs by records assuming the desired conclusion. This is a partial checkpoint.
+Retain the independent coefficient universe and empty-section behavior. Construct nonconstant-site and nonneutral geometric fixtures. Intrinsic descended-band/SF1, nonneutral root gerbes and derivedH², compatible fpqc limits, source-issue/version and all other-stage obligations remain. The packet is partial.
 
 ## Script: author.py
 
 ```python
-"""Append canonical gerbe-specific local covers, preserving every incoming node."""
+"""Append fixed-band local-chart transition maps and their choice-free cocycles."""
 from pathlib import Path
 import copy,csv,hashlib,json,re,subprocess,sys
-S=Path(sys.argv[1]);LIB=Path(sys.argv[2]);INDEX=Path(sys.argv[3]);R=Path.cwd()
-RID='AlgebraicModuliForArithmeticGeometry';STEM=RID+'--A0-extension';P=RID+':R09.4/';NEW=P+'local-covers/';NS='TauCeti.AlgebraicGeometry.GerbeLocalCovers.'
-old=json.loads((S/'Incoming.json').read_text());p=copy.deepcopy(old);assert len(old['nodes'])==572
-source='OG-local-covers-codex-rtOQ9t'
-# Each item is one actual new native declaration, including all construction API lemmas.
+S=Path(sys.argv[1]).resolve();LIB=Path(sys.argv[2]);INDEX=Path(sys.argv[3]);R=Path.cwd()
+RID='AlgebraicModuliForArithmeticGeometry';STEM=RID+'--A0-extension';P=RID+':R09.4/';NEW=P+'chart-transitions/';NS='TauCeti.AlgebraicGeometry.BandedMorphism.'
+old=json.loads((S/'Incoming.json').read_text());p=copy.deepcopy(old);assert len(old['nodes'])==595
+source='OG-chart-transitions-codex-7e92bd'
 specs=[
-('object','objectCover','Canonical local-object sieve','construction','For any native Cat-valued pseudofunctor F and U∈C, construct the native Sieve U whose arrows f:V→U satisfy Nonempty F(V). Downward closure sends an actual object x to F(g)x under every g:W→V; it imposes no gerbe, covering or global-object hypothesis.',[],['Use the existing native Sieve carrier and the actual restriction functor on objects.']),
-('object-membership','objectCover_mem','Local-object sieve membership','lemma','Membership of f:V→U in objectCover(F,U) is exactly Nonempty F(V), independently of f.',['object'],['Unfold the native predicate.']),
-('object-pullback','objectCover_pullback','Canonical object covers under pullback','lemma','For every f:V→U, the native pullback of objectCover(F,U) is exactly objectCover(F,V), as native sieves.',['object'],['Both native predicates test nonemptiness of the fibre at the domain of the next arrow.']),
-('object-covering','objectCover_covering','The local-object sieve covers a gerbe','lemma','If F is a gerbe on (C,J), objectCover(F,U) belongs to J(U). This assertion does not produce an object over U.',['object'],['Take the covering sieve supplied by IsGerbe.locallyNonempty and enlarge it by native superset_covering.']),
-('object-refinement','objectCover_refinement_covering','Refine any cover by local objects','lemma','For F a gerbe and any native covering sieve R on U, R∩objectCover(F,U) is J-covering. Each member has an actual nonempty source fibre.',['object-covering'],['Apply native intersection_covering to the two actual covering sieves.']),
-('object-empty','objectCover_identity_empty','An empty global fibre has no identity member','lemma','If F(U) is empty, the identity of U is not in objectCover(F,U). Even with IsGerbe F J, the covering conclusion cannot select a global object.',['object-membership'],['Eliminate the alleged inhabitant of F(U).']),
-('isom','isomCover','Canonical local-isomorphism sieve','construction','For x,y∈F(U), construct the native sieve of f:V→U admitting an actual isomorphism F(f)x≅F(f)y. Its downward closure along g:W→V composes F.mapComp(f,g)(x), F(g) of the supplied isomorphism, and F.mapComp(f,g)(y) inverse.',['object'],['Use the existing native Sieve and native Cat.Hom.toNatIso; retain both pseudofunctor comparison components.']),
-('isom-membership','isomCover_mem','Local-isomorphism membership','lemma','An arrow f:V→U belongs to isomCover(F,x,y) exactly when the actual fibre isomorphism type F(f)x≅F(f)y is nonempty.',['isom'],['Unfold the native predicate.']),
-('isom-covering','isomCover_covering','The local-isomorphism sieve covers','lemma','For a gerbe F and supplied x,y∈F(U), isomCover(F,x,y) is J-covering; a global isomorphism is not assumed.',['isom'],['Take the sieve from IsGerbe.locallyIsomorphic and use native superset_covering.']),
-('isom-symmetry','isomCover_symm','Symmetry of the local-isomorphism locus','lemma','The actual native sieves isomCover(F,x,y) and isomCover(F,y,x) are equal.',['isom-membership'],['Apply native Sieve.ext and take inverses of actual isomorphisms.']),
-('isom-reflexivity','isomCover_refl','The reflexive isomorphism locus is maximal','lemma','For every actual x∈F(U), isomCover(F,x,x) is the maximal native sieve, without a gerbe hypothesis.',['isom-membership'],['The native identity isomorphism supplies every member.']),
-('isom-pullback','isomCover_pullback','Local-isomorphism covers under restriction','lemma','For f:V→U, the native pullback of isomCover(F,x,y) equals isomCover(F,F(f)x,F(f)y). The two directions transport supplied isomorphisms with both native F.mapComp(f,g) endpoint components; F need not be strict.',['isom'],['Apply Sieve.ext. Conjugate by the two actual composition-comparison isomorphisms, in opposite directions for the two implications.']),
-('isom-refinement','isomCover_refinement_covering','Refine arbitrary covers by isomorphisms','lemma','For a gerbe F, x,y∈F(U) and every covering sieve R on U, R∩isomCover(F,x,y) is covering.',['isom-covering'],['Apply native intersection_covering.']),
-('overlap','overlapCover','Isomorphism refinements on actual overlaps','construction','For i:T→V, j:T→W and actual local objects x∈F(V), y∈F(W), construct the native sieve on T on which F(i)x and F(j)y become isomorphic. The construction needs neither fibre products nor a terminal object.',['isom'],['Specialize the canonical isomorphism sieve to the two actual restricted objects.']),
-('overlap-membership','overlapCover_mem','Actual overlap membership','lemma','Membership of q:S→T in overlapCover(F,i,j,x,y) is exactly nonemptiness of F(q)F(i)x≅F(q)F(j)y, in the actual fibre F(S).',['overlap'],['Unfold the canonical isomorphism sieve.']),
-('overlap-covering','overlapCover_covering','The overlap refinement covers','lemma','For a gerbe F, every overlapCover(F,i,j,x,y) is J-covering on T. The supplied local objects may belong to different source fibres.',['overlap','isom-covering'],['Apply the gerbe local-isomorphism covering lemma to the two restricted objects.']),
-('overlap-swap','overlapCover_swap','Swapping the two local charts','lemma','Swapping i,x with j,y leaves the native overlap sieve equal.',['overlap','isom-symmetry'],['Use equality of the underlying isomorphism sieves under inversion.']),
-('overlap-pullback','overlapCover_pullback_covering','Further restriction of overlap covers','lemma','For a gerbe F and every q:S→T, the actual native pullback of overlapCover(F,i,j,x,y) is J-covering on S.',['overlap-covering'],['Reuse native pullback_stable on this actual covering sieve.']),
-('chosen-iso','overlapIso','Actual direct overlap isomorphism','construction','For a member q:S→T of overlapCover(F,i,j,x,y), construct an actual isomorphism F(q≫i)x≅F(q≫j)y. Choose the supplied nonempty iterated isomorphism, and compose the native F.mapComp(i,q)(x), that chosen isomorphism, and the inverse F.mapComp(j,q)(y). No compatibility of independent choices or descent cocycle is assumed or proved.',['overlap-membership'],['Apply Classical.choice only to the explicit membership evidence, then compose the native comparison isomorphisms.']),
-('chosen-hom','overlapIso_hom','Forward direct overlap formula','lemma','The forward arrow of overlapIso is the hom of the i-side composition comparison, then the chosen iterated isomorphism hom, then the inverse arrow of the j-side comparison.',['chosen-iso'],['Unfold the actual composite isomorphism.']),
-('chosen-inverse','overlapIso_inv','Inverse direct overlap formula','lemma','The inverse arrow of overlapIso is the hom of the j-side comparison, then the inverse of the chosen iterated isomorphism, then the inverse arrow of the i-side comparison. All factors occur in reversed order.',['chosen-iso'],['Unfold the composite inverse and use native category associativity.']),
-('chosen-round-trip','overlapIso_hom_inv','Forward overlap round trip','lemma','The actual overlapIso hom followed by its inverse equals the native identity of F(q≫i)x.',['chosen-iso'],['Use the native isomorphism hom_inv_id field.']),
-('chosen-inverse-round-trip','overlapIso_inv_hom','Inverse overlap round trip','lemma','The actual overlapIso inverse followed by its hom equals the native identity of F(q≫j)y.',['chosen-iso'],['Use the native isomorphism inv_hom_id field.'])]
-ids={key:NEW+key for key,*_ in specs}
-apiKeys={'object':['object-membership','object-pullback','object-covering','object-refinement','object-empty'],'isom':['isom-membership','isom-covering','isom-symmetry','isom-reflexivity','isom-pullback','isom-refinement'],'overlap':['overlap-membership','overlap-covering','overlap-swap','overlap-pullback'],'chosen-iso':['chosen-hom','chosen-inverse','chosen-round-trip','chosen-inverse-round-trip']}
-testSpecs=[
-('object','object_refined_member','compatibility','A member of the common refinement of an arbitrary covering sieve and objectCover supplies an actual object in its source fibre, and this refinement is covering.'),
-('object','object_empty_global_fibre','degenerate','With a gerbe and an explicitly empty fibre F(U), objectCover still covers U but its identity arrow is absent. This is a parameterized assertion, not a constructed nonneutral geometric fixture.'),
-('object','object_iterated_restriction','compatibility','Pulling the actual canonical object sieve back along two arbitrary arrows equals the canonical object sieve at the final base.'),
-('object','constant_empty_objects','non-example','For the actual constant pseudofunctor with fibre Discrete PEmpty on Discrete PUnit, objectCover is the empty native sieve. No gerbe or covering hypothesis is asserted for this fixture.'),
-('object','constant_inhabited_objects','computation','For the actual constant pseudofunctor with fibre Discrete Bool on Discrete PUnit, objectCover is maximal, using a concrete local object.'),
-('isom','distinct_discrete_objects','non-example','For the actual constant Discrete Bool fibre, the isomorphism sieve between false and true is empty. A nonempty fibre does not imply local connectedness; this fixture is not claimed to be a gerbe.'),
-('isom','equal_discrete_objects','degenerate','For the actual constant Discrete Bool fibre, the isomorphism sieve of false with itself is maximal.'),
-('isom','isom_iterated_refinement','compatibility','For a gerbe, the actual local-isomorphism cover remains covering after two arbitrary base restrictions.'),
-('isom','isom_native_comparison','compatibility','A supplied isomorphism between iterated restrictions gives an actual isomorphism between direct composite restrictions, with both native composition comparisons retained.'),
-('isom','isom_common_cover','compatibility','The common refinement of an arbitrary covering sieve and the actual local-isomorphism sieve is covering.'),
-('overlap','overlap_member_maximal_pullback','computation','Pulling the overlap sieve back along a member makes it maximal, by native sieve closure.'),
-('overlap','overlap_swap_refinement','compatibility','After any further restriction, exchanging the local charts preserves the exact native overlap sieve.'),
-('overlap','overlap_further_cover','compatibility','The common refinement of any cover on S and a restricted overlap cover is covering, without a fibre-product hypothesis.'),
-('overlap','overlap_direct_endpoints','compatibility','An overlap member supplies an actual isomorphism between direct F(q≫i)x and F(q≫j)y endpoints.'),
-('chosen-iso','overlap_iso_round_trip','computation','Postcomposing any actual arrow into the source endpoint by the chosen overlap hom and its inverse returns that arrow.'),
-('chosen-iso','overlap_iso_inverse_round_trip','computation','Postcomposing any actual arrow into the target endpoint by the chosen overlap inverse and hom returns that arrow.'),
-('chosen-iso','overlap_iso_restriction','compatibility','Every further native restriction of the actual chosen overlap isomorphism still satisfies the hom/inverse round-trip equation.'),
-('chosen-iso','overlap_same_base_path','compatibility','If i≫f=j≫g describes an actual overlap over U, the two deeper paths (q≫i)≫f and (q≫j)≫g remain equal. This does not assert a descent cocycle for chosen isomorphisms.')]
-remaining='Canonical local-object and local-isomorphism sieves, actual overlap covering refinements and direct overlap isomorphisms now have checked native prototypes for arbitrary Cat-valued pseudofunctors and gerbes on an arbitrary site. Covering uses the genuine IsGerbe local-existence fields; direct overlap maps retain both F.mapComp endpoint factors. This resolves the explicitly named existence of local covers/refinements, but no compatibility cocycle for independent choices or gluing of Hom sheaves, actions and maps is claimed. D0 torsor packaging, full faithfulness and coherent inverse/unit/counit, intrinsic descended-band/SF1, nonneutral geometric/root-gerbe fixtures and derivedH², compatible fpqc limits and all other-stage/source obligations remain open.'
-hyps=['Use an arbitrary site (C,J), a native Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and actual native Sieve carriers. Only covering conclusions assume IsGerbe F J; constructors and transport equations need no banding or coefficient sheaf.', 'Local objects and base arrows are explicitly supplied where needed. There is no terminal object, global object, neutrality, finite-cover, fibre-product, strict-pseudofunctor or chosen-cocycle hypothesis.']
-math=lambda n:'mathlib:CategoryTheory.'+n
-prims=[math('Sieve'),math('Sieve.ext'),math('Sieve.pullback'),math('GrothendieckTopology.superset_covering'),math('GrothendieckTopology.intersection_covering'),math('GrothendieckTopology.pullback_stable'),math('Sieve.pullback_eq_top_of_mem'),math("Functor.toPseudofunctor'")]
+('chart','selfHomChartTransition','Local-chart Hom-sheaf comparison','construction',
+ 'For i:T→U, j:T→V, x∈F(U), y∈F(V), and an actual e:F(i)x≅F(j)y, construct a natural isomorphism from H_U(x,x;−) followed by native slice pullback i⁎ to H_V(y,y;−) followed by j⁎, on the actual category HomCategory(b,b). Its three factors are the existing base-change natural isomorphism for i, the existing diagonal endpoint transport for e, and the inverse base-change isomorphism for j. Thus its objects are actual sheaves on C/T, not sets of isomorphism classes.',
+ [P+'sheaf-base-change/nat-iso',P+'sheaf-transport/nat-iso','mathlib:CategoryTheory.Iso.trans','mathlib:CategoryTheory.Iso.symm'],
+ ['Compose the three existing natural isomorphisms, retaining both distinct native slice functors and the same fixed-band modification category.']),
+('component','selfHomChartTransition_app','The three comparison factors at a fixed transformation','lemma',
+ 'At X∈HomCategory(b,b), the local-chart transition is the actual sheaf isomorphism BC_i(X,x,x), then diagonal selfHomSheafTransportIso(X,e), then BC_j(X,y,y) inverse. The target base-change factor is inverted.',
+ ['@chart','mathlib:CategoryTheory.Iso.app'],['Unfold composition of native natural isomorphisms at X; all three component factors remain.']),
+('equivariant','selfHomChartTransition_equivariant','The transition preserves the actual band section','lemma',
+ 'For every R→T, a∈Multiplicative A(R) and actual source section p over the composed R→T→U, the transition applied to a acting on p equals the same a acting on the transported section over R→T→V. The two actions are the existing native fibreHomSectionAction; the independent coefficient universe is retained.',
+ ['@chart',P+'sheaf-base-change/equivariant',P+'sheaf-transport/equivariant',P+'sheaf-base-change/inv-equivariant'],
+ ['Evaluate the three component maps. Apply forward base-change equivariance, diagonal transport equivariance, then inverse base-change equivariance. All use exactly the same coefficient section a.']),
+('independent','selfHomChartTransition_independent','Independence from the overlap isomorphism','lemma',
+ 'For any two actual isomorphisms e,d:F(i)x≅F(j)y, their chart-transition natural isomorphisms are equal. This does not assert e=d; independence uses the abelian fixed-band diagonal transport theorem.',
+ ['@chart',P+'sheaf-transport/nat-iso-independent'],['Replace only the middle factor using existing fixed-band independence. The base-change factors are unchanged.']),
+('reflexive','selfHomChartTransition_refl','Every diagonal chart loop induces identity','lemma',
+ 'For any automorphism e of F(i)x, the chart transition from i,x to itself is the identity natural isomorphism, including when e is nonidentity.',
+ ['@independent',P+'sheaf-transport/nat-iso-identity','mathlib:CategoryTheory.Iso.refl'],
+ ['Replace e by the identity using independence, use the existing identity transport, and cancel the forward/inverse base comparisons.']),
+('cocycle','selfHomChartTransition_cocycle','The local-chart cocycle for independent choices','lemma',
+ 'For three charts i:T→U,j:T→V,k:T→W with objects x,y,z, choose arbitrary e:F(i)x≅F(j)y, d:F(j)y≅F(k)z and a:F(i)x≅F(k)z. The transition for e followed by the transition for d equals the transition for a as natural isomorphisms. No equation a=e followed by d is assumed.',
+ ['@independent',P+'sheaf-transport/nat-iso-composition','mathlib:CategoryTheory.Iso.ext'],
+ ['Replace a by the composite e followed by d using independence. Expand the three-factor definitions, cancel the j-base comparison with its inverse, and apply composition of the existing diagonal transport.']),
+('inverse','selfHomChartTransition_symm','An independently chosen reverse comparison is inverse','lemma',
+ 'For arbitrary forward e:F(i)x≅F(j)y and backward d:F(j)y≅F(i)x, the inverse natural isomorphism of the transition for e equals the transition for d, without assuming d is the inverse of e.',
+ ['@independent','mathlib:CategoryTheory.Iso.symm'],['Replace d by the inverse of e and unfold the inverse of the three-factor composite.']),
+('natural','selfHomChartTransition_naturality','Compatibility with every fixed-band modification','lemma',
+ 'For m:X→Y in the native HomCategory(b,b), i⁎H_U(m) followed by the chart transition at Y equals the chart transition at X followed by j⁎H_V(m). These are equal native sheaf maps on C/T.',
+ ['@chart'],['Use the naturality field of the actual composed natural isomorphism.']),
+('overlap','selfHomOverlapTransition','Hom-sheaf transition on an actual overlap member','construction',
+ 'For q:S→T belonging to the actual overlapCover(F,i,j,x,y), construct the natural comparison from (q followed by i)⁎H_U(x,x;−) to (q followed by j)⁎H_V(y,y;−) using the existing direct overlapIso. That iso retains the i-side pseudofunctor composition comparison, a chosen iterated overlap isomorphism, and the inverse j-side comparison. No compatible choice system is assumed.',
+ ['@chart',P+'local-covers/chosen-iso'],['Insert the existing direct overlapIso into the chart transition along the two composite base arrows.']),
+('overlap-choice','selfHomOverlapTransition_eq','Comparison with every supplied direct overlap map','lemma',
+ 'The chosen overlap transition equals the chart transition along q followed by i and q followed by j formed with any supplied direct isomorphism between those endpoints. The equality is of complete natural isomorphisms.',
+ ['@overlap','@independent'],['Apply chart-transition independence to the actual chosen direct overlapIso and the supplied direct map.']),
+('overlap-reflexive','selfHomOverlapTransition_refl','The chosen diagonal overlap transition','lemma',
+ 'For any membership q in the diagonal overlapCover(F,i,i,x,x), the resulting overlap transition is the identity natural isomorphism. Classical choice need not select the identity fibre automorphism.',
+ ['@overlap','@reflexive'],['Apply the chart-loop identity to the chosen direct overlap automorphism.']),
+('overlap-cocycle','selfHomOverlapTransition_cocycle','Cocycle on a common overlap refinement','lemma',
+ 'If the same q:S→T belongs to all three actual pairwise overlap covers for i,x; j,y; k,z, the chosen xy transition followed by the chosen yz transition equals the independently chosen xz transition. The full natural-isomorphism equality retains all fixed-band transformations and modifications.',
+ ['@overlap','@cocycle'],['Apply the arbitrary-choice chart cocycle to the three independently selected direct overlap isomorphisms.']),
+('overlap-inverse','selfHomOverlapTransition_symm','Reverse chosen overlaps induce inverse maps','lemma',
+ 'If q belongs to the xy and yx overlap covers, the inverse of the chosen xy overlap transition equals the independently chosen yx overlap transition.',
+ ['@overlap','@inverse'],['Apply the reverse-comparison theorem to the two chosen direct isomorphisms.']),
+('common-cover','selfHomOverlapTransition_common_cover','A covering common domain for all three transitions','lemma',
+ 'For any supplied J-covering sieve D on T, its intersection with the xy, yz and xz overlap covers is J-covering. Every member therefore retains membership in D and supplies all three comparisons needed for the cocycle. No fibre products, finite-cover presentation or global gerbe object is required.',
+ [P+'local-covers/overlap-covering','mathlib:CategoryTheory.GrothendieckTopology.intersection_covering'],
+ ['Use covering of each actual pairwise overlap sieve and apply native intersection_covering three times.'])]
+ids={k:NEW+k for k,*_ in specs};known={n['id']for n in old['nodes']}|set(ids.values())
+hyps=['Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.', 'The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.', 'The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations.']
+remaining='Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open.'
 new=[]
 for key,name,title,kind,statement,deps,steps in specs:
- deps=[ids[d]for d in deps]+[math('Sieve')] if key in ['object','isom','overlap'] else [ids[d]for d in deps]
- if key in ['object-covering','isom-covering']:deps += [RID+':key/gerbes',math('GrothendieckTopology.superset_covering')]
- if key.endswith('refinement'):deps += [math('GrothendieckTopology.intersection_covering')]
- if key=='overlap-pullback':deps += [math('GrothendieckTopology.pullback_stable')]
- if key in ['isom-symmetry','isom-reflexivity','isom-pullback']:deps += [math('Sieve.ext')]
- if key in ['object-pullback','isom-pullback']:deps += [math('Sieve.pullback')]
- n=dict(id=ids[key],parentStageId=RID+':R09.4',realises=[RID+':R09.4'],title=title,kind=kind,declarationName=NS+name,statement=statement,hypotheses=hyps,prerequisites=deps,proofSteps=steps,acceptance=['Use actual native fibres, covering sieves, functors and comparison isomorphisms. Do not identify arbitrary chosen overlap isomorphisms or assume their cocycles.',remaining],uses=[dict(where=P+'sheaf-base-change/iso',how='Supply actual local objects and overlap refinements for the still-open gluing of the existing native Hom-sheaf comparisons.'),dict(where=P+'self-equivalence-torsor',how='Supply the local-object and overlap-existence stage before D0 torsor packaging and global equivalence.'),dict(where=P+'band-morphism-equivalence',how='Retain local-existence hypotheses and native carriers in the global fixed-band comparison.')],library=dict(module='TauCeti/AlgebraicGeometry/Stacks/Gerbes',namespace=NS[:-1]),sources=[dict(sourceId=source,locator='Stacks Definition8.11.1, Section8.11/tag06NY; exact canonical sieve and composition formulas are authored native deductions.',excerpt='gerbe',match='The source gives local object/isomorphism existence. It does not state these precise Lean formulas or prove the still-open Hom-sheaf gluing and classification.')],implementationStatus='unchecked')
- new.append(n);p['nodes'].append(n)
-byid={n['id']:n for n in new}
-for key,keys in apiKeys.items():
- n=byid[ids[key]];n['api']=[dict(name=byid[ids[k]]['declarationName'],role='compatibility',statement=byid[ids[k]]['statement'])for k in keys]
- n['tests']=[dict(name='TauCeti.AlgebraicGeometry.LocalCoverTests.'+name,kind=kind,statement=st)for owner,name,kind,st in testSpecs if owner==key]
+ deps=[ids[d[1:]]if d.startswith('@')else d for d in deps];assert all(d.startswith('mathlib:')or d in known for d in deps),(key,deps)
+ n=dict(id=ids[key],parentStageId=RID+':R09.4',realises=[RID+':R09.4'],title=title,kind=kind,declarationName=NS+name,statement=statement,hypotheses=hyps,prerequisites=deps,proofSteps=steps,acceptance=['The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.',remaining],uses=[dict(where=P+'self-equivalence-torsor',how='Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging.'),dict(where=P+'sheaf-transport/nat-iso',how='Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints.')],library=dict(module='TauCeti/AlgebraicGeometry/Stacks/Gerbes',namespace=NS[:-1]),sources=[dict(sourceId=source,locator='Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.',excerpt='independent',match='The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation.')],implementationStatus='unchecked');new.append(n)
+tests=[
+ ('chart','nonidentity_loop','non-example','For a supplied nonidentity automorphism of F(i)x, retain its nonidentity witness while its induced chart transition equals identity. This parameterized check does not assert the existence of such an automorphism on every gerbe.'),
+ ('chart','independent_inverse','computation','An arbitrary independently chosen reverse transition composed after the forward transition gives the identity actual sheaf map at every X; no inverse relation between the chosen fibre isomorphisms is assumed.'),
+ ('chart','empty_sections','degenerate','If the source sheaf has empty sections on R→T, the target section type is empty via the actual inverse transition; no global or local section is chosen.'),
+ ('chart','four_charts','compatibility','Three successive transitions among four charts at a common base equal the transition formed using any independently supplied direct isomorphism from the first restricted object to the fourth.'),
+ ('overlap','covered_triple','compatibility','On the covering intersection of an arbitrary cover and three pairwise overlap covers, every member retains the arbitrary-cover membership and satisfies the actual chosen-transition cocycle.'),
+ ('overlap','chosen_versus_supplied','compatibility','At each fixed-band self-transformation, the chosen overlap transition equals the explicit three-factor sheaf comparison formed with any supplied direct endpoint isomorphism.'),
+ ('overlap','overlap_coefficient','compatibility','The chosen overlap transition carries the action of each actual coefficient section a on a source section to the action of exactly the same a on its image, including nontrivial and nonfaithful base restrictions.'),
+ ('overlap','modifications_on_overlap','compatibility','The chosen overlap comparison commutes with the composite of two arbitrary native fixed-band modifications. Both pullback functors and all modification components remain in the equation.')]
+byid={n['id']:n for n in new};apis={'chart':['component','equivariant','independent','reflexive','cocycle','inverse','natural'],'overlap':['overlap-choice','overlap-reflexive','overlap-cocycle','overlap-inverse','common-cover']}
+for key,items in apis.items():
+ n=byid[ids[key]];n['api']=[dict(name=byid[ids[k]]['declarationName'],role='compatibility',statement=byid[ids[k]]['statement'])for k in items];n['tests']=[dict(name='TauCeti.AlgebraicGeometry.ChartTransitionTests.'+name,kind=kind,statement=st)for owner,name,kind,st in tests if owner==key]
  assert len(n['api'])>=3 and len(n['tests'])>=3
-known={n['id']for n in p['nodes']}
-assert all(d.startswith('mathlib:')or d in known for n in new for d in n['prerequisites']),[d for n in new for d in n['prerequisites']if not d.startswith('mathlib:')and d not in known]
-rows={r['name']:r for r in csv.DictReader(INDEX.open(),delimiter='\t')if r['library']=='mathlib'}
-refs={d['ref']for d in p['baseline']['declarations']};added=[]
-for ref in sorted(set(prims)-refs):
- r=rows[ref.removeprefix('mathlib:')];b=(LIB/r['file']).read_bytes()
- d=dict(ref=ref,kind={'class':'definition','structure':'definition','lemma':'lemma','theorem':'theorem','def':'definition'}[r['kind']],module=r['file'],sourceLine=int(r['line']),sourceSha256=hashlib.sha256(b).hexdigest(),provides='Existing native sieve extensionality, restriction or topology axiom consumed by the actual gerbe-specific cover/refinement construction and tests.',checked='Actual declaration and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04 by Codex — codex-rtOQ9t. Native carriers and machinery are imported, not replanned.')
- added.append(d);p['baseline']['declarations'].append(d)
+p['nodes']+=new
+rows={r['name']:r for r in csv.DictReader(INDEX.open(),delimiter='\t')if r['library']=='mathlib'};refs={d['ref']for d in old['baseline']['declarations']};added=[]
+for ref in sorted({d for n in new for d in n['prerequisites']if d.startswith('mathlib:')}-refs):
+ r=rows[ref.removeprefix('mathlib:')];f=LIB/r['file'];d=dict(ref=ref,kind={'def':'definition','theorem':'theorem','lemma':'lemma'}[r['kind']],module=r['file'],sourceLine=int(r['line']),sourceSha256=hashlib.sha256(f.read_bytes()).hexdigest(),provides='Native isomorphism identity, composition or inversion used to assemble actual natural chart comparisons; imported without a new generic declaration.',checked='Declaration, surrounding universes and complete body freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on 2026-10-04.');added.append(d)
+p['baseline']['declarations']+=added
 for c in p['coverage']:
  if c['stageId']==RID+':R09.4':c['remaining'].append(remaining)
-p['summary']='Actual canonical gerbe local covers and overlap refinements: four constructions,19 lemmas,19 API items and18 typed checks; no stage closes. '+old['summary']
-p['sources'].append(dict(id=source,title='Canonical local covers and overlap refinements for arbitrary gerbes',authors='The Stacks Project Authors; exact native deductions by Codex — codex-rtOQ9t',edition='Displayed Section8.11 freshly read2026-10-04; exact Mathlib pin',url='https://stacks.math.columbia.edu/tag/06NY',accessDate='2026-10-04',readSections=['Whole displayed Section8.11: Definition8.11.1, Lemmas8.11.2–8 with proofs/diagrams, Definition8.11.4 and both comments.','Local-existence conventions supply the mathematical context; exact native canonical sieve and transport formulas are authored deductions. Existing source E6 and omitted general base-compatibility/SF1 obligations remain.']))
-plan=dict(newNodes=[n['id']for n in new],newNames=[n['declarationName']for n in new],newAPI=19,newTests=18,tests=testSpecs,remaining=remaining,wholeIncomingObjectsPreserved=572,mathematicalContractsPreserved=572,newBaseline=added)
-addition='# Actual gerbe local covers and overlap refinements\n\nCodex — codex-rtOQ9t, 4 October2026. Partial continuation: four actual constructions and19 API lemmas; all572 incoming nodes remain completely unchanged.\n\n'+remaining+'\n\nThe object sieve contains f:V→U exactly when F(V) has an object. Its equality under native sieve pullback is literal; covering follows by enlarging the gerbe local-existence sieve. The isomorphism sieve uses actual restricted objects and transports both endpoints with native mapComp. Its pullback equality explicitly conjugates by these comparisons, without making F strict. Any supplied cover can be intersected with these canonical covers. The overlap construction compares two supplied local objects on an arbitrary common refinement; no fibre product or terminal object is needed. Its chosen direct isomorphism is the i-side composition map, an explicitly supplied nonempty iterated isomorphism selected by Classical.choice, and the inverse j-side composition map. Independent choices are not equated and their descent cocycles remain open.\n\nThis is separate from the inherited localImageSieve of a transformation into a supplied target object and its lifted coherent object-descent route. That existing machinery is preserved and imported; these canonical covers supply arbitrary local objects and overlap existence for the Hom-sheaf/torsor-gluing frontier. Native Sieve, topology axioms, isomorphism inverses and functor restriction are reused. The coefficient universe w of inherited bandings is untouched; the new local-existence constructions do not require any banding.\n\n'
+p['summary']='Fixed-band local-chart Hom-sheaf comparisons and choice-independent common-refinement cocycles: two constructions,12 lemmas,12 API items and8 typed tests; no stage closes. '+old['summary']
+p['sources'].append(dict(id=source,title='Fixed-band local-chart Hom-sheaf comparisons and cocycles',authors='The Stacks Project Authors; fixed-band Hom-sheaf deductions by Codex — codex-7e92bd',edition='Displayed Section8.11 read2026-10-04; exact Mathlib pin',url='https://stacks.math.columbia.edu/tag/06NY',accessDate='2026-10-04',readSections=['Whole displayed Section8.11: definitions, Lemmas8.11.2–8 with proofs and diagrams, both comments.','Local-existence and independent-transition pattern only; exact fixed-band Hom-sheaf equations are authored deductions. Existing E6 and omitted varying-base/SF1 obligation retained.']))
+plan=dict(newNodes=[n['id']for n in new],newNames=[n['declarationName']for n in new],newAPI=12,newTests=8,tests=tests,remaining=remaining,wholeIncomingObjectsPreserved=595,mathematicalContractsPreserved=595,newBaseline=added)
+addition='# Fixed-band chart transitions and overlap cocycles\n\nCodex — codex-7e92bd, 4 October2026. Partial continuation: two constructions and12 lemmas.\n\n'+remaining+'\n\nFor charts i:T→U and j:T→V, the transition is the i-base comparison, the existing diagonal fixed-band transport, then the inverse j-base comparison. It is an actual natural isomorphism on the modification category, with actual sheaves on C/T as values. Independence applies to the induced maps and does not identify the underlying overlap isomorphisms. For a third chart, replace the independent direct choice by the composite choice, cancel the middle base comparison, and use the existing transport composition law. Arbitrary automorphism loops therefore induce identity.\n\nThe existing overlapCover and direct overlapIso supply these maps along composite arrows q followed by i and q followed by j. Both pseudofunctor comparison factors remain inside the direct overlap isomorphism. The covering intersection of the three pairwise overlap covers with any given cover supplies a domain on which all three induced maps satisfy the cocycle equation. Their actions use the same section of the actual band sheaf, and the comparisons commute with all native modifications. The same conclusion is not asserted for unrestricted two-gerbe endpoint choices.\n\n'
 for n in new:
- addition+='## '+n['title']+'\n\nDeclaration: **'+n['declarationName']+'**. Node: **'+n['id']+'**.\n\n'+n['statement']+'\n\nHypotheses: '+' '.join(n['hypotheses'])+'\n\nProof plan: '+' '.join(n['proofSteps'])+'\n\nPrerequisites: '+', '.join(n['prerequisites'])+'.\n\nUses: '+' '.join(u['where']+': '+u['how']for u in n['uses'])+'\n\n'
+ addition+='## '+n['title']+'\n\nDeclaration: **'+n['declarationName']+'**. Node: **'+n['id']+'**.\n\n'+n['statement']+'\n\nHypotheses: '+' '.join(n['hypotheses'])+'\n\nProof plan: '+' '.join(n['proofSteps'])+'\n\nPrerequisites: '+', '.join(n['prerequisites'])+'.\n\n'
  for a in n.get('api',[]):addition+='API **'+a['name']+'**: '+a['statement']+'\n\n'
  for t in n.get('tests',[]):addition+='Test **'+t['name']+'** ('+t['kind']+'): '+t['statement']+'\n\n'
-addition+='All572 complete incoming node objects, all ten gaps,22 requests,eight source issues,ten planets and eight partial stages are preserved. Every implementation status remains unchecked. Four constant-pseudofunctor tests use actual Discrete PEmpty or Discrete Bool fibres; the distinct-object case is deliberately not asserted to be a gerbe. The empty-global-fibre gerbe test is parameterized, not a constructed nonneutral geometric example. The other tests use arbitrary real native sites, fibres, arrows and isomorphisms. No nonconstant or nonneutral geometric fixture is added. The entire full Tau-dependent suggested file remains uncompiled; the exact retained incoming prefix is preceded only by the native Functor/LocallyDiscrete import needed by the concrete constant tests.\n\nSource context: [Stacks Section8.11](https://stacks.math.columbia.edu/tag/06NY). The exact construction formulas and proofs are authored deductions. The inherited E6 projection-label correction and the omitted general base-compatibility/SF1 obligations are retained. The complete previous reader follows verbatim.\n\n'
-for name,value in [('Candidate.json',p),(STEM+'.json',p),('Plan.json',plan),('new-nodes.json',new)]:
- (S/name).write_text(json.dumps(value,indent=2,ensure_ascii=False)+'\n')
+addition+='All595 prior node objects, ten gaps,22 requests,eight source issues,ten planets and eight partial stages are preserved. Every implementation status remains unchecked. Eight parameterized native tests discriminate inverse order, independent choices, empty section carriers, four-chart composition, actual common covering membership, coefficient sections and modifications; no new nonconstant or nonneutral geometric fixture is claimed. The full Tau-dependent suggested file remains uncompiled.\n\nSource context: [Stacks Section8.11](https://stacks.math.columbia.edu/tag/06NY). The precise Hom-sheaf comparisons and proofs above are authored deductions. The inherited E6 projection-label issue and general varying-base compatibility/SF1 boundary remain; no new source error is asserted. The complete prior reader follows verbatim.\n\n'
+for name,data in [('Candidate.json',p),(STEM+'.json',p),('Plan.json',plan),('new-nodes.json',new)]: (S/name).write_text(json.dumps(data,indent=2,ensure_ascii=False)+'\n')
 (S/'ReaderAddition.md').write_text(addition);(S/'Reader.md').write_text(addition+(S/'IncomingReader.md').read_text())
-names=plan['newNames'];pattern=S/'names.txt';pattern.write_text('\n'.join(names)+'\n');searches=[]
-for label,path in [('Mathlib',LIB/'Mathlib/CategoryTheory'),('TauCeti',Path(sys.argv[4])/'TauCeti/AlgebraicGeometry'),('packets',R/'research/blueprint/packets')]:
- rr=subprocess.run(['rg','-n','-F','-f',str(pattern),str(path)],text=True,capture_output=True)
- assert rr.returncode==1 and not rr.stdout and not rr.stderr,(label,rr.stdout,rr.stderr)
- searches.append(dict(scope=label,exitStatus=rr.returncode,matches=[]))
-(S/'Search.json').write_text(json.dumps(dict(names=names,searches=searches,limits='Bounded exact-name searches only; no comprehensive external PR or naming survey. Existing localImageSieve and target/lifted overlap families were personally compared and are not redefined.'),indent=2)+'\n')
 print(json.dumps(dict(nodes=len(p['nodes']),newBaseline=len(added),baseline=len(p['baseline']['declarations']),rawAPI=sum(len(n.get('api',[]))for n in p['nodes']),rawTests=sum(len(n.get('tests',[]))for n in p['nodes']))))
 ```
 
@@ -199,86 +190,81 @@ if __name__=='__main__':
 ## Script: assemble.py
 
 ```python
-"""Preserve inherited prefixes and actual data; admit only new lemma/test bodies."""
+"""Preserve incoming prefixes; admit only new theorem and test bodies."""
 from pathlib import Path
 import re,sys
-S=Path(sys.argv[1]);sys.path.insert(0,str(S));from projection import project
-proofs=(S/'NewProofs.lean').read_text();tests=(S/'Tests.lean').read_text();imports=(S/'ImportAddition.lean').read_text()
-names=re.findall(r'^(?:noncomputable )?(?:def|lemma) (\w+)',proofs,re.M);assert len(names)==23
-(S/'Audits.lean').write_text(''.join('#print axioms TauCeti.AlgebraicGeometry.GerbeLocalCovers.'+n+'\n'for n in names))
-new=project(proofs,tests);assert len(re.findall(r'\bsorry\b',new))==37
-(S/'NewAdmitted.lean').write_text(new)
-for name,prefix in [('Canonical.lean','MathlibPrefix.lean'),('Suggested.lean','Incoming.lean')]:
- (S/name).write_text(imports+(S/prefix).read_text()+'\n'+new)
-(S/'Native.lean').write_text(imports+(S/'NativePrefix.lean').read_text()+'\n'+proofs+'\n'+tests+'\n'+(S/'Audits.lean').read_text())
+S=Path(sys.argv[1]).resolve();sys.path.insert(0,str(S))
+from projection import project
+p=(S/'NewProofs.lean').read_text();t=(S/'Tests.lean').read_text()
+names=re.findall(r'^(?:noncomputable )?(?:def|lemma) (\w+)',p,re.M)
+assert len(names)==14
+a=''.join('#print axioms TauCeti.AlgebraicGeometry.BandedMorphism.'+n+'\n'for n in names)
+n=project(p,t);assert len(re.findall(r'\bsorry\b',n))==20
+for name,text in [('Audits.lean',a),('NewAdmitted.lean',n),('Native.lean',(S/'NativePrefix.lean').read_text()+'\n'+p+'\n'+t+'\n'+a),('Canonical.lean',(S/'MathlibPrefix.lean').read_text()+'\n'+n),('Suggested.lean',(S/'Incoming.lean').read_text()+'\n'+n)]:
+ (S/name).write_text(text)
 ```
 
 ## Script: handoff.py
 
 ```python
-"""Write exact mathematical results, limits and all replay helpers into this job's handoff."""
+"""Write exact mathematical scope and evidence; package adds immutable public recovery."""
 from pathlib import Path
 import hashlib,json,sys
-S=Path(sys.argv[1]);R=Path.cwd();STEM='AlgebraicModuliForArithmeticGeometry--A0-extension'
+S=Path(sys.argv[1]).resolve();R=Path.cwd();STEM='AlgebraicModuliForArithmeticGeometry--A0-extension'
 sha=lambda b:hashlib.sha256(b).hexdigest()
-t='''# BP-AlgebraicModuliForArithmeticGeometry--A0-extension: actual local covers
+t='''# BP-AlgebraicModuliForArithmeticGeometry--A0-extension: chart transitions
 
-Codex — codex-rtOQ9t · 4 October 2026 · Refs #672 · **partial**.
+Codex — codex-7e92bd · 4 October 2026 · Refs #672 · **partial**.
 
-Four actual constructions and nineteen API lemmas supply canonical local-object and local-isomorphism sieves, covering overlap refinements, and chosen direct overlap isomorphisms for arbitrary Cat-valued pseudofunctors and gerbes on an arbitrary native site. The object sieve contains f:V→U exactly when F(V) is nonempty. Its native pullback along any arrow is literally the object sieve at the new base. The gerbe's actual local-existence sieve is enlarged by native superset_covering; no object over U is selected. Intersecting with any supplied cover gives a covering common refinement.
+Two actual constructions and twelve lemmas give natural local-chart comparisons for fixed-band diagonal Hom sheaves. For i:T→U and j:T→V with local objects x,y and an actual isomorphism F(i)x≅F(j)y, selfHomChartTransition is the existing base-change comparison along i, diagonal fixed-band transport, and the inverse base-change comparison along j. Its values are actual sheaves on C/T, natural on the entire HomCategory(b,b) with native modifications. Its action formula preserves the same supplied coefficient section a∈Multiplicative A(R), with independent coefficient universe w.
 
-The isomorphism sieve contains f exactly when F(f)x≅F(f)y is nonempty. Downward closure and the equality under native sieve pullback transport both endpoints with the actual F.mapComp comparisons. The comparison from the direct composite restriction to the iterated restriction is not erased. Swapping the objects leaves the sieve equal, and the reflexive sieve is maximal. Covering uses the gerbe's actual locallyIsomorphic field; intersecting with any cover is covering.
+The induced natural isomorphism is independent of the supplied fibre isomorphism. It sends every diagonal automorphism loop to identity. For three charts at a common base, two successive comparisons equal the direct comparison for any independently chosen endpoint isomorphism; no cocycle relation between the underlying choices is assumed. Reverse comparisons are inverses even when their fibre isomorphisms are independently chosen. The proofs use the existing diagonal fixed-band independence and composition laws, cancel the middle native base comparison, and retain both endpoint pullback functors. This choice independence is not asserted for arbitrary unrelated two-gerbe endpoints.
 
-For i:T→V and j:T→W with supplied local objects x,y, overlapCover compares the actual restricted objects on T. It is covering for a gerbe and remains covering after every further restriction. No fibre product or terminal object is required. A member q:S→T supplies an actual iterated isomorphism. The chosen direct overlap isomorphism F(q≫i)x≅F(q≫j)y is the i-side native composition comparison, Classical.choice of that membership evidence, then the inverse j-side comparison. Its forward/inverse formulas and both round trips are proved. Arbitrary independent choices are not equated; no cocycle or gluing assertion is smuggled into the construction.
+selfHomOverlapTransition uses the inherited actual overlapCover and direct overlapIso along q:S→T. Both pseudofunctor composition comparison factors are retained inside that direct overlap isomorphism. The intersection of any given covering sieve with all three pairwise overlap covers is covering. On every member of this common refinement the chosen comparisons satisfy the natural-isomorphism cocycle. This proves the common-refinement cocycle portion, not varying-refinement descent or a global sheaf-gluing construction.
 
-These adapters supply arbitrary local objects and overlap existence for the existing Hom-sheaf/torsor-gluing frontier. The inherited transformation-specific localImageSieve, target/lifted coherent overlaps and object-descent route remain unchanged and are imported rather than duplicated. Native sieve, topology, pseudofunctor, functor and isomorphism machinery is reused. The new constructions need no banding; the independent coefficient universe w of inherited banded-gerbe comparisons is preserved.
+Eight typed parameterized tests check a supplied nonidentity loop inducing identity, an independently chosen reverse map giving a round trip, preservation of empty section carriers, four-chart composition, actual membership and cocycle on a covering triple intersection, comparison with any supplied direct map, preservation of the same coefficient section and naturality for two composed modifications. The nonidentity-loop test retains its supplied nonidentity witness; it does not construct one for every gerbe. No nonconstant-site or nonneutral geometric fixture is added.
 
-Eighteen typed tests include four actual constant-pseudofunctor fixtures on Discrete PUnit: empty Discrete PEmpty fibres give the empty object sieve; Discrete Bool gives the maximal object sieve; distinct false/true objects give an empty isomorphism sieve; equal false objects give a maximal isomorphism sieve. The disconnected fixture is not asserted to be a gerbe. The empty-global-fibre gerbe check is parameterized and proves a covering sieve need not contain the identity; it is not a constructed nonneutral geometric fixture. Other checks cover arbitrary common covering refinements, two restrictions, both native endpoint comparisons, maximal pullbacks along members, chart exchange, direct endpoints, round trips on supplied arrows, further restriction of actual isomorphisms and equality of the deeper base paths on an actual overlap square. No nonconstant-site or nonneutral geometric fixture is added.
-
-All 572 incoming node objects remain completely equal. Twenty-three nodes are appended, giving 595 nodes, 541 raw API entries and 540 raw tests. Two baseline references import the native Sieve.ext and Sieve.pullback_eq_top_of_mem. All ten gaps, twenty-two requests, eight source issues, ten planets and eight partial stages remain unchanged; every implementation status stays unchecked. Only the R09.4 remaining frontier receives an appended entry. The full prior reader is retained verbatim after this continuation. All exact incoming Lean prefixes are retained, preceded only by the native Functor/LocallyDiscrete import used by the concrete tests.
+All595 incoming node objects are unchanged. The14 additions give609 nodes,553 raw API references and548 raw tests; the new constructions have12 API items and eight tests. Three added baseline references import native Iso.refl, Iso.symm and Iso.trans, not new generic roadmap nodes. All ten gaps,22 requests,eight source issues,ten planets and eight partial stages remain; every implementation status stays unchecked. The reader retains its complete incoming text as a suffix. The complete incoming native, Mathlib-planning and full Tau-import suggested prefixes are retained exactly.
 
 ## Reading and provenance
 
-The entire 44,034-character issue was read in five bounded slices before claiming and again after numeric bot confirmation. Claim 5976817494 won according to bot 5976818396; the unchanged issue body has SHA256 76b4b208fdc2daf287aff24fff621ad30741280c84a8c35c7f6ac34c2ea459af. The complete incoming 103-line handoff and recovery helper were personally read.
+The entire44,034-character issue was read in five bounded slices before claim5977617946 and again after exact bot5977618893 confirmed it. The unchanged body hash is76b4b208fdc2daf287aff24fff621ad30741280c84a8c35c7f6ac34c2ea459af. The governing WORKERS.md was reread in full; binding protocols and upstream/expansion instructions were freshly read or reused at their exact continuous-session scopes.
 
-[Incoming peer PR6045](https://github.com/CBirkbeck/tauceti-explorer/pull/6045), head ece737ec4ae0fa3ca2d232955d7095f92cc96d4a and archive f6452553c43f8af669c4ed21790ca66be47c9976, was recovered over actual public HTTP: 56 authenticated artifacts, eleven helpers and four final deliverables. IncomingManifest.json has SHA256 bc24350852864995d87a1f842319f87e5882547ce4e9ab3e7a8e10f7ad2608af. The actual recovered verifier was personally read and executed, reproducing its Verification.json byte for byte. All six new peer lemmas and all eight peer tests were freshly read. Other incoming proofs are authenticated and recompiled, not newly read line by line. Peer reading claims remain attributed to their author.
+The actual incoming producer is [PR6050](https://github.com/CBirkbeck/tauceti-explorer/pull/6050), verified from this deliverable’s git history: head41c30267cab2636826dc000b62d50d85cfe84247, archive3bfc09759130f0b7dc3c4d5922990803f35a1181. Its public HTTP recovery authenticated63 artifacts,twelve helpers and four final deliverables. The recovered actual verifier and immutable helper were personally read; executing that verifier reproduced its Verification.json byte for byte. IncomingManifest.json has SHA256920969300369966813afd4831dfcc9692117233b9b6bbce2004b9ccbe5cea112. All23 new incoming proof declarations and18 tests were freshly read. The complete older prefix is authenticated and recompiled, not claimed as a new whole-file manual audit.
 
-Own continuous-session readings from [PR6038](https://github.com/CBirkbeck/tauceti-explorer/pull/6038) and its own inherited PR6026 receipts are reused only at their exact original extents, after all 51 external controls compared unchanged before planning. This covers the binding protocols, twelve reviewed audit rows, campaign reader, all 34 touching links, reserved gerbe/survey API, accepted RS27 and prescribed red-team controls and the previously consumed upstream readers. OwnPreviousManifest.json, SHA256 daf905c2872086cdf1ef35a52041279c7c84c583ae4e38c4681703fb0c0d3d15, authenticates the earlier reading, input guards, SF1 boundary and four own inherited reading/source/manifest receipts. Whole-file equality does not constitute a new whole-file manual reading. OwnReadingGuard.json records the before/after hashes. No peer6045 or peer-owned6034 reading is attributed to this worker.
+Own continuous-session [PR6045](https://github.com/CBirkbeck/tauceti-explorer/pull/6045) reading extents and its own inherited PR6034 receipts are reused at exactly unchanged controls:51 mathematical/source/ownership/roadmap controls and six checker/build/intake controls. OwnPreviousManifest.json authenticates own Reading, InputGuard, Candidate and SFBoundary, plus the explicitly retained inherited reading/manifest/input-guard chain. Whole-file equality does not imply fresh whole-file reading. Peer6050 reading claims remain attributed to that worker. OwnReadingReuse.json records all61 before/after comparisons: only the four issue deliverables changed. This preserves the reviewed audit, upstream readers, accepted RS27 ownership and narrowing, reserved gerbe definition/API and prescribed red-team decisions within the exact own reading extents. All old gap/request/source-issue/version contracts are unchanged from own6045; no new supplier or generic theory is introduced. SFBoundary.json confirms SF.1 remains not_read with its nodes,coverage,requests and sourceWorklist unchanged.
 
-Fresh reads include the entire reserved gerbe contract/API/tests and R09.4 frontier, the consumed NativePrefix blocks recorded in Reading.json, the actual constant-diagram constructor, and all current object-descent/local-image/cover/overlap statements to distinguish the new adapters. The governing WORKERS.md was read completely again during this continuation. The exact unchanged own source/errata and other-stage contracts remain inherited at their original reading scopes. SFBoundary.json binds the actual unchanged SF.1 nodes, coverage, requests and sourceWorklist; SF.1 remains not_read.
+Fresh consumed incoming ranges are recorded in Reading.json: native1–70,1747–1904,2129–2260, all new peer proofs/tests, the current complete reserved gerbe contract/API/tests and latest R09.4 frontier. Pinned native Iso40–180, NatIso1–120 and Grothendieck150–181 were freshly read. Their declarations and source hashes are bound in the evidence. Exact-name searches across both complete pinned source trees and current packets found no proposed new names. Existing generic native sheaf, isomorphism and transport APIs are reused. This is not a comprehensive external PR/Zulip absence survey.
 
-The complete displayed primary [Stacks Section8.11, tag06NY](https://stacks.math.columbia.edu/tag/06NY) was freshly read, including both definitions, Lemmas8.11.2–8.11.8, proofs, diagrams and both comments. SourceReading.json records its actual HTTP byte count, hash and access time without retaining an HTML snapshot. Definition8.11.1 supplies local object/isomorphism existence; the exact canonical sieves, comparison formulas and native proofs are authored deductions. The inherited E6 projection-label correction and the omitted varying-base compatibility/SF1 obligation are retained. No new source error or exhaustive classification/errata closure is claimed. Reading.json records the exact pinned native declaration files, hashes and consumed ranges. Bounded exact-name searches in current packets and pinned Mathlib/Tau Ceti found no new names; this is not an exhaustive external PR/Zulip absence survey.
+The complete displayed [Stacks Section8.11, tag06NY](https://stacks.math.columbia.edu/tag/06NY) was freshly read, including all definitions, Lemmas8.11.2–8 with proofs/diagrams and both comments. SourceReading.json records actual fetched bytes,hash and access time without an HTML snapshot. The source motivates local existence and the independent-transition/cocycle pattern. The exact fixed-band Hom-sheaf formulas and native proofs are authored deductions. Existing E6 and the omitted general varying-base compatibility/SF1 obligation remain; no new source error or full classification/errata closure is claimed.
 
 ## Validation and limits
 
-Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 and Lean 4.34.0-rc2, compiler 6a10ac8c22beadecabdbb0919c2b50214762f91d. Both source checkouts were checked tracked-clean. The complete Tau-dependent Suggested.lean is **UNCOMPILED**: the required exact-pin Tau build is unavailable; the alternate build is at cf386627e9176a3827c1a5fe804989fd94a4d216 and lacks the needed imported oleans. No project, cache download or library build was created.
+Pins: Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, TauCeti f790474821cf4256814db967cb154e7af3d0c369 and Lean4.34.0-rc2, compiler6a10ac8c22beadecabdbb0919c2b50214762f91d. Both source trees were freshly checked tracked-clean. The complete Tau-import Suggested.lean is **UNCOMPILED**: TauProbe.json records the alternate build at cf386627e9176a3827c1a5fe804989fd94a4d216, with its needed Tau sheaf-cohomology import unavailable. No Lake project, cache download, library build or language server was created.
 
-Native.lean and the separate Mathlib-only Canonical.lean ran serially with one thread, an 8 GiB limit and 1200-second timeout against the existing pinned build. The runner checks pins, dependencies, tracked cleanliness, compiler version and at least 20 GiB available immediately before each run. No Lean language server was used and no compiler remains running.
+Native and the separate Mathlib-only Canonical.lean were checked serially with the existing exact pinned build, one thread,8GiB limit and1200-second timeout. The runner checks pins,dependencies,tracked cleanliness,compiler version and at least20GiB immediately before each run. No compiler remains running.
 '''
-for stem in ['Native','Canonical']:
- r=json.loads((S/(stem+'.receipt.json')).read_text());lines=(S/(stem+'.lean')).read_text().splitlines();examples=sum(x.startswith('example')for x in lines)
- t+=f"\n- {stem}.lean: {len(lines)} lines, {examples} examples, exit {r['exitStatus']}, {r['warnings']} warnings ({r['admissionWarnings']} admission warnings), {r['axiomAudits']} axiom audits. Available memory {r['availableGiBBefore']} GiB; elapsed {r['elapsedSeconds']} seconds; peak RSS {r['maxRssKiB']} KiB. Source SHA256 `{r['sourceSha256']}`; log SHA256 `{r['logSha256']}`.\n"
+for name in ['Native','Canonical']:
+ d=json.loads((S/(name+'.receipt.json')).read_text());code=(S/(name+'.lean')).read_text();ex=sum(l.startswith('example')for l in code.splitlines())
+ t+=f"\n- {name}.lean: {len(code.splitlines())} lines,{ex} examples,exit{d['exitStatus']},{d['warnings']} warnings ({d['admissionWarnings']} admissions),{d['axiomAudits']} axiom audits; {d['availableGiBBefore']}GiB available,elapsed{d['elapsedSeconds']} seconds,peakRSS{d['maxRssKiB']}KiB. Source SHA256 `{d['sourceSha256']}`; log SHA256 `{d['logSha256']}`.\n"
 t+='''
-The complete 3335-line incoming native prefix and all four new actual construction bodies are retained. Native has no admissions or declared axioms; all 188 audited closures use only propext, Classical.choice and Quot.sound, with no sorryAx. The planning projection admits exactly nineteen lemma and eighteen test bodies, retaining every data declaration and its actual downward-closure/transport fields. Its 37 new admissions join 839 inherited admissions for 876 expected warnings and no other warnings. All 41 new headers, exact prefix hashes, construction bodies, example counts, source/log receipts and audited closures are checked mechanically. Compilation does not change planning statuses.
+The native prefix has188 inherited audits;14 new audits give202 closures using only propext, Classical.choice and Quot.sound, with no admission or declared axiom. The planning projection retains the two real construction bodies and admits precisely12 lemmas and8 tests. Its20 new admission warnings join876 inherited warnings for896, with no other warning. Exact projection,22 new headers, prefix hashes, example counts and compilation receipts are checked mechanically. Compilation does not change implementation status.
 '''
 if (S/'Verification.json').exists():
- v=json.loads((S/'Verification.json').read_text());g=v['graph'];q=v['checker']
- t+=f"\nThe actual indexed checker passes with {q['nodes']} nodes, {q['apiItems']} API items, {q['unitTests']} definition tests and {q['baselineDeclarations']} baseline references; zero closed stages and no errors or warnings. Source-issue/version and actual intake checks pass. The immutable atlas is acyclic: stage {g['stageDAG']['vertices']}/{g['stageDAG']['edges']}, own declarations {g['ownDeclarationDAG']['vertices']}/{g['ownDeclarationDAG']['edges']}, scoped {g['scopedDAG']['vertices']}/{g['scopedDAG']['edges']} vertices/edges. All {g['requiredPairs']} required and {g['restructurePairs']} accepted touching restructure pairs are reachable; no unresolved leaves or own skipped/pending links. Stage edges, foreign roadmaps/stages and sibling parts are unchanged. All 51 external controls and four incoming deliverables match at both recorded bases, and the full SF.1 boundary is preserved.\n"
-t+=f"\nMathematical base `{(S/'base.txt').read_text().strip()}`; publication control `{(S/'publication-base.txt').read_text().strip()}`. Verification-math.json and Verification.json record the actual immutable checks. Declaration-index SHA256 `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`. Full uncompiled suggested-file SHA256 `{sha((S/'Suggested.lean').read_bytes())}`.\n"
+ v=json.loads((S/'Verification.json').read_text());q=v['checker'];g=v['graph']
+ t+=f"\nThe actual indexed checker reports {q}; no errors or warnings. Source-issue/version and actual intake checks pass. The immutable stage DAG has {g['stageDAG']['vertices']} vertices/{g['stageDAG']['edges']} edges, own declaration DAG {g['ownDeclarationDAG']['vertices']}/{g['ownDeclarationDAG']['edges']}, scoped DAG {g['scopedDAG']['vertices']}/{g['scopedDAG']['edges']}. All {g['requiredPairs']} supplier pairs and {g['restructurePairs']} accepted touching restructure pairs are reachable; no unresolved leaves or own skipped/pending links. Foreign stages/roadmaps,stage edges and sibling parts are unchanged. All57 external controls plus four incoming deliverables and the complete SF.1 boundary match at both recorded bases.\n"
+t+=f"\nMathematical base `{(S/'base.txt').read_text().strip()}`; publication control `{(S/'publication-base.txt').read_text().strip()}`. Actual reports: Verification-math.json and Verification.json. Declaration-index SHA256 `86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1`. Full uncompiled Suggested.lean SHA256 `{sha((S/'Suggested.lean').read_bytes())}`.\n"
 t+='''
 ## Resume
 
-Continue from R09.4/local-covers and the existing general two-gerbe sheaf-base-change and two-endpoint transport families. Use the canonical local-object cover and actual isomorphism/overlap refinements to glue Hom sheaves, actions and maps. Arbitrary chosen overlap isomorphisms themselves need not satisfy cocycles; use the existing choice-independent induced fixed-band transport and prove the required sheaf/map compatibility. Package using the supplied D0 torsor groupoid, prove full faithfulness and construct a coherent inverse/unit/counit before claiming the global fixed-band morphism or self-equivalence/torsor equivalence.
+Continue from R09.4/chart-transitions: prove compatibility when a common overlap refinement changes, retaining native slice pullback composition and pseudofunctor endpoint comparisons. Then glue the actual Hom sheaves,actions and maps, use the supplied D0 torsor groupoid, prove full faithfulness, and construct a coherent inverse/unit/counit before claiming the global self-equivalence/torsor equivalence. The common-base cocycle proved here must not be presented as that entire descent construction. Do not replace missing proofs or suppliers by records assuming the conclusion.
 
-Construct nonconstant-site and nonneutral geometric fixtures while retaining empty global fibres and independent coefficient universes. Intrinsic descended-band/SF1, nonneutral root gerbes, derived H², compatible fpqc limits, source-issue and all other-stage obligations remain. Do not replace missing suppliers or proofs by records assuming the desired conclusion. This is a partial checkpoint.
+Retain the independent coefficient universe and empty-section behavior. Construct nonconstant-site and nonneutral geometric fixtures. Intrinsic descended-band/SF1, nonneutral root gerbes and derivedH², compatible fpqc limits, source-issue/version and all other-stage obligations remain. The packet is partial.
 '''
-assert all(x.rstrip()==x for x in t.splitlines())
-(S/'HandoffBase.md').write_text(t)
-helpers=['author.py','projection.py','assemble.py','handoff.py','verify.py','graph.py','immutable_view.py','compile.py','runcheck.py','package.py','recover-previous.py','recover-ownprevious.py']
-fence=chr(96)*3
-for name in helpers:
- t+='\n## Script: '+name+'\n\n'+fence+'python\n'+(S/name).read_text().rstrip()+'\n'+fence+'\n'
-(S/'Handoff.md').write_text(t)
+for name in ['author.py','projection.py','assemble.py','handoff.py','verify.py','graph.py','immutable_view.py','compile.py','runcheck.py','package.py','recover-incoming.py']:
+ t+='\n## Script: '+name+'\n\n```python\n'+(S/name).read_text()+'```\n'
+assert all(l.rstrip()==l for l in t.splitlines())
+(S/'HandoffBase.md').write_text(t);(S/'Handoff.md').write_text(t)
 for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','Handoff.md')]:
  (R/'research/blueprint'/folder/(('BP-'if folder=='handoff'else'')+STEM+'.'+ext)).write_bytes((S/name).read_bytes())
 ```
@@ -290,7 +276,7 @@ for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Rea
 from pathlib import Path
 import ast,copy,hashlib,json,os,re,subprocess,sys
 S=Path(sys.argv[1]).resolve();R=Path.cwd().resolve();sys.path.insert(0,str(S))
-RID='AlgebraicModuliForArithmeticGeometry';STEM=RID+'--A0-extension';NS='TauCeti.AlgebraicGeometry.GerbeLocalCovers.'
+RID='AlgebraicModuliForArithmeticGeometry';STEM=RID+'--A0-extension';NS='TauCeti.AlgebraicGeometry.BandedMorphism.'
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def txt(n):return (S/n).read_text()
 def data(n):return json.loads(txt(n))
@@ -301,14 +287,14 @@ texts={p:txt(n)for p,n in zip(paths,['Candidate.json','Reader.md','Suggested.lea
 assert texts[paths[-1]].startswith(txt('HandoffBase.md'))
 for p,n in zip(paths,['Incoming.json','IncomingReader.md','Incoming.lean','IncomingHandoff.md']):assert blob(MATH,p)==(S/n).read_bytes()==blob(BASE,p),p
 p=data('Candidate.json');old=data('Incoming.json');plan=data('Plan.json')
-assert len(old['nodes'])==572 and len(p['nodes'])==595 and p['nodes'][572:]==data('new-nodes.json')
-assert p['nodes'][:572]==old['nodes'] and set(p)==set(old)
+assert len(old['nodes'])==595 and len(p['nodes'])==609 and p['nodes'][595:]==data('new-nodes.json')
+assert p['nodes'][:595]==old['nodes'] and set(p)==set(old)
 for k in old:
  if k not in ['nodes','summary','sources','coverage','baseline']:assert p[k]==old[k],k
 assert p['summary'].endswith(old['summary'])and p['sources'][:-1]==old['sources']
 expectedBaseline=copy.deepcopy(old['baseline'])
 expectedBaseline['declarations']+=plan['newBaseline']
-assert p['baseline']==expectedBaseline and len(p['baseline']['declarations'])==230
+assert p['baseline']==expectedBaseline and len(p['baseline']['declarations'])==233
 for a,b in zip(old['coverage'],p['coverage']):
  if a['stageId']==RID+':R09.4':assert b['remaining']==a['remaining']+[plan['remaining']]and {k:v for k,v in a.items()if k!='remaining'}=={k:v for k,v in b.items()if k!='remaining'}
  else:assert a==b
@@ -319,15 +305,15 @@ assert txt('Reader.md')==txt('ReaderAddition.md')+txt('IncomingReader.md')
 from projection import project
 proofs=txt('NewProofs.lean');tests=txt('Tests.lean');admitted=txt('NewAdmitted.lean')
 assert admitted==project(proofs,tests)
-assert len(re.findall(r'\bsorry\b',admitted))==37
-assert txt('Native.lean')==txt('ImportAddition.lean')+txt('NativePrefix.lean')+'\n'+proofs+'\n'+tests+'\n'+txt('Audits.lean')
+assert len(re.findall(r'\bsorry\b',admitted))==20
+assert txt('Native.lean')==txt('NativePrefix.lean')+'\n'+proofs+'\n'+tests+'\n'+txt('Audits.lean')
 assert not re.search(r'\b(?:sorry|admit|axiom)\b',txt('Native.lean'))
-assert txt('Canonical.lean')==txt('ImportAddition.lean')+txt('MathlibPrefix.lean')+'\n'+admitted
-assert txt('Suggested.lean')==txt('ImportAddition.lean')+txt('Incoming.lean')+'\n'+admitted
+assert txt('Canonical.lean')==txt('MathlibPrefix.lean')+'\n'+admitted
+assert txt('Suggested.lean')==txt('Incoming.lean')+'\n'+admitted
 pm=data('IncomingManifest.json')
-assert sha((S/'IncomingManifest.json').read_bytes())=='bc24350852864995d87a1f842319f87e5882547ce4e9ab3e7a8e10f7ad2608af'
+assert sha((S/'IncomingManifest.json').read_bytes())=='920969300369966813afd4831dfcc9692117233b9b6bbce2004b9ccbe5cea112'
 for n,source in [('NativePrefix.lean','Native.lean'),('MathlibPrefix.lean','Canonical.lean'),('Incoming.lean','Suggested.lean')]:assert sha((S/n).read_bytes())==pm[source]['sha256']
-assert txt('PreviousVerification-replayed.json')==txt('PreviousVerification.json')and sha((S/'PreviousVerification-replayed.json').read_bytes())==pm['Verification.json']['sha256']
+assert txt('IncomingVerification-replayed.json')==txt('PreviousVerification.json')and sha((S/'IncomingVerification-replayed.json').read_bytes())==pm['Verification.json']['sha256']
 def headers(text):
  out={};ex=0
  for m in re.finditer(r'^(?:noncomputable )?(def|lemma|example)\b(?: (\w+))?',text,re.M):
@@ -347,18 +333,18 @@ def headers(text):
   assert name not in out;out[name]=' '.join(text[m.start():end].split())
  return out
 nh=headers(proofs);th=headers(tests);ch=headers(admitted)
-assert len(nh)==23 and len(th)==18 and ch=={**nh,**th}
-assert {NS+n for n in nh}==set(plan['newNames'])=={n['declarationName']for n in p['nodes'][572:]}
+assert len(nh)==14 and len(th)==8 and ch=={**nh,**th}
+assert {NS+n for n in nh}==set(plan['newNames'])=={n['declarationName']for n in p['nodes'][595:]}
 assert txt('Audits.lean')==''.join('#print axioms '+NS+n+'\n'for n in nh)
-assert all(len(n['api'])>=3 and len(n['tests'])>=3 for n in p['nodes'][572:]if n['kind']=='construction')
-assert sum(len(n.get('api',[]))for n in p['nodes'])==541
-assert sum(len(n.get('tests',[]))for n in p['nodes'])==540
-for n in p['nodes'][572:]:
+assert all(len(n['api'])>=3 and len(n['tests'])>=3 for n in p['nodes'][595:]if n['kind']=='construction')
+assert sum(len(n.get('api',[]))for n in p['nodes'])==553
+assert sum(len(n.get('tests',[]))for n in p['nodes'])==548
+for n in p['nodes'][595:]:
  assert n['declarationName']in texts[paths[1]]and n['statement']in texts[paths[1]]
  for x in n.get('api',[])+n.get('tests',[]):assert x['name']in texts[paths[1]]and x['statement']in texts[paths[1]]
-for key,name,kind,st in plan['tests']:assert '-- test: LocalCoverTests.'+name in tests and st in texts[paths[1]]
+for key,name,kind,st in plan['tests']:assert '-- test: ChartTransitionTests.'+name in tests and st in texts[paths[1]]
 compilation={}
-for name,want,audits,examples in [('Native',0,188,134),('Canonical',876,0,395)]:
+for name,want,audits,examples in [('Native',0,202,142),('Canonical',896,0,403)]:
  rec=data(name+'.receipt.json');log=txt(name+'.log')
  assert rec['exitStatus']==0 and rec['availableGiBBefore']>=20
  assert rec['sourceSha256']==sha((S/(name+'.lean')).read_bytes())and rec['logSha256']==sha(log.encode())
@@ -370,13 +356,20 @@ for name,want,audits,examples in [('Native',0,188,134),('Canonical',876,0,395)]:
  compilation[name]={**rec,'lines':len(txt(name+'.lean').splitlines()),'examples':examples}
 assert set(plan['newNames'])<={n for n in re.findall(r"'([^']+)' depends on axioms:",txt('Native.log'))}
 for g in data('InputGuard.json'):assert sha(blob(MATH,g['path']))==g['sha256']==sha(blob(BASE,g['path'])),g['path']
-assert len(data('PriorOwnReading.json'))==51 and all(g['unchanged']and g['before']==g['after']for g in data('PriorOwnReading.json'))
+reuse=data('OwnReadingReuse.json')
+assert len(reuse)==61 and sum(q['unchanged']for q in reuse)==57
+assert {q['path']for q in reuse if not q['unchanged']}==set(paths)
 om=data('OwnPreviousManifest.json')
-for n in ['Reading.json','InputGuard.json','SFBoundary.json']:
- assert sha((S/('OwnPrevious'+n)).read_bytes())==om[n]['sha256']
-assert sha((S/'OwnPreviousManifest.json').read_bytes())=='daf905c2872086cdf1ef35a52041279c7c84c583ae4e38c4681703fb0c0d3d15'
-for local,original in [('OwnInheritedReading.json','Own6026-Reading.json'),('OwnInheritedInputGuard.json','Own6026-InputGuard.json'),('OwnInheritedSourceReading.json','Own6026-SourceReading.json'),('OwnInheritedManifest.json','Own6026-manifest.json')]:
+assert sha((S/'OwnPreviousManifest.json').read_bytes())=='bc24350852864995d87a1f842319f87e5882547ce4e9ab3e7a8e10f7ad2608af'
+for original in ['Reading.json','InputGuard.json','Candidate.json','SFBoundary.json']:
+ assert sha((S/('OwnPrevious'+original)).read_bytes())==om[original]['sha256']
+for local,original in [('OwnInheritedReading.json','OwnPreviousReading.json'),('OwnInheritedManifest.json','OwnPreviousManifest.json'),('OwnInheritedInputGuard.json','OwnPreviousInputGuard.json')]:
  assert sha((S/local).read_bytes())==om[original]['sha256']
+own=data('OwnPreviousCandidate.json')
+assert {k for k in old if old[k]!=own[k]}=={'summary','baseline','sources','nodes','coverage'}
+assert data('Reading.json')['worker']=='Codex — codex-7e92bd'
+assert data('ClaimReceipt.json')['claim']==5977617946 and data('ClaimReceipt.json')['confirmation']==5977618893
+assert data('TauProbe.json')['fullTauCompiled'] is False
 sf=data('SFBoundary.json')
 def boundary(raw):
  q=json.loads(raw);return dict(nodes=[n for n in q['nodes']if n['parentStageId']=='SchemeAndStackFoundations:SF.1'],coverage=[c for c in q['coverage']if c['stageId']=='SchemeAndStackFoundations:SF.1'],requests=q['requests'],sourceWorklist=q['sourceWorklist'])
@@ -404,9 +397,9 @@ tree=ast.parse((R/'research/blueprint/intake.py').read_text());wanted={'file_pro
 picked=[n for n in tree.body if isinstance(n,ast.Assign)and any(isinstance(t,ast.Name)and t.id in {'ALLOWED','PRIVATE'}for t in n.targets)or isinstance(n,ast.FunctionDef)and n.name in wanted]
 env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
 job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs']if j['id']=='BP-'+STEM)
-problems=[x for f,t in texts.items()for x in env['file_problems'](f,t)];refusals=env['auto_refusals'](job,paths,False,{'codex-rtOQ9t'},set());assert not problems and not refusals,(problems,refusals)
+problems=[x for f,t in texts.items()for x in env['file_problems'](f,t)];refusals=env['auto_refusals'](job,paths,False,{'codex-7e92bd'},set());assert not problems and not refusals,(problems,refusals)
 graph=json.loads(subprocess.check_output([sys.executable,str(S/'graph.py'),str(S)],cwd=R,text=True,env={**os.environ,'MODULI_VALIDATE_BASE':BASE}));assert graph['worldCommit']==BASE
-print(json.dumps(dict(worldCommit=BASE,checker=summary,checkerErrors=errors,checkerWarnings=warnings,intakeProblems=problems,intakeRefusals=refusals,sourceIssueErrors=issues,preservedWholeNodeObjects=572,preservedMathematicalContracts=572,newDeclarations=23,newConstructions=4,newAPI=19,newTests=18,rawAPI=541,rawTests=540,matchedNewHeaders=41,compilation=compilation,fullTauCetiCompiled=False,externalInputGuards=len(data('InputGuard.json')),incomingDeliverableGuards=len(paths),sf1BoundaryPreserved=True,indexSha256=sha(Path(sys.argv[2]).read_bytes()),graph=graph,LeanExecuted=False),indent=2))
+print(json.dumps(dict(worldCommit=BASE,checker=summary,checkerErrors=errors,checkerWarnings=warnings,intakeProblems=problems,intakeRefusals=refusals,sourceIssueErrors=issues,preservedWholeNodeObjects=595,preservedMathematicalContracts=595,newDeclarations=14,newConstructions=2,newAPI=12,newTests=8,rawAPI=553,rawTests=548,matchedNewHeaders=22,compilation=compilation,fullTauCetiCompiled=False,externalInputGuards=len(data('InputGuard.json')),incomingDeliverableGuards=len(paths),sf1BoundaryPreserved=True,indexSha256=sha(Path(sys.argv[2]).read_bytes()),graph=graph,LeanExecuted=False),indent=2))
 ```
 
 ## Script: graph.py
@@ -653,7 +646,7 @@ sys.exit(result.returncode)
 """Serial checked replay with bounded diagnostics and apply_patch receipt writes."""
 from pathlib import Path
 import subprocess,sys,hashlib,json,re,time
-S=Path(sys.argv[1]);name=sys.argv[4];prefix=name[:-5]
+S=Path(sys.argv[1]).resolve();name=sys.argv[4];prefix=name[:-5]
 start=time.monotonic()
 r=subprocess.run([sys.executable,str(S/'compile.py')]+sys.argv[1:],text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
 raw=r.stdout
@@ -689,14 +682,9 @@ STEM='AlgebraicModuliForArithmeticGeometry--A0-extension'
 suggested=R/'research/blueprint/suggested'/(STEM+'.lean')
 sha=lambda b:hashlib.sha256(b).hexdigest()
 NAMES='''AlgebraicModuliForArithmeticGeometry--A0-extension.json Incoming.json Incoming.lean IncomingReader.md IncomingHandoff.md IncomingManifest.json
-NativePrefix.lean MathlibPrefix.lean PreviousVerification-replayed.json PreviousVerification.json
-PreviousRecovery.json PreviousHead.txt ClaimReceipt.json Reading.json SourceReading.json Search.json
-OwnReadingGuard.json PriorOwnReading.json OwnPreviousReading.json OwnPreviousInputGuard.json OwnPreviousManifest.json OwnPreviousSFBoundary.json
-OwnInheritedReading.json OwnInheritedInputGuard.json OwnInheritedSourceReading.json OwnInheritedManifest.json
-InputGuard.json SFBoundary.json ImportAddition.lean Native.lean Native.log Native.receipt.json NewProofs.lean Tests.lean Audits.lean
-NewAdmitted.lean Canonical.lean Canonical.log Canonical.receipt.json Candidate.json Reader.md ReaderAddition.md
-Suggested.lean Handoff.md HandoffBase.md Plan.json new-nodes.json Verification-math.json Verification.json
-base.txt publication-base.txt author.py projection.py assemble.py handoff.py verify.py graph.py immutable_view.py compile.py runcheck.py package.py recover-previous.py recover-ownprevious.py'''.split()
+NativePrefix.lean MathlibPrefix.lean IncomingVerification-replayed.json PreviousVerification.json PreviousRecovery.json PreviousHead.txt
+ClaimReceipt.json Reading.json SourceReading.json Search.json OwnReadingReuse.json OwnPreviousReading.json OwnPreviousInputGuard.json OwnPreviousManifest.json OwnPreviousSFBoundary.json OwnPreviousCandidate.json OwnInheritedReading.json OwnInheritedManifest.json OwnInheritedInputGuard.json InputGuard.json SFBoundary.json TauProbe.json TouchingLinks.json
+Native.lean Native.log Native.receipt.json NewProofs.lean Tests.lean Audits.lean NewAdmitted.lean Canonical.lean Canonical.log Canonical.receipt.json Candidate.json Reader.md ReaderAddition.md Suggested.lean Handoff.md HandoffBase.md Plan.json new-nodes.json Verification-math.json Verification.json base.txt publication-base.txt author.py projection.py assemble.py handoff.py verify.py graph.py immutable_view.py compile.py runcheck.py package.py recover-incoming.py'''.split()
 if mode=='archive':
  meta={n:dict(sha256=sha((S/n).read_bytes()),bytes=len((S/n).read_bytes()),lines=len((S/n).read_bytes().splitlines()))for n in NAMES}
  mb=(json.dumps(meta,indent=2,sort_keys=True)+'\n').encode();(S/'artifact-manifest.json').write_bytes(mb)
@@ -704,12 +692,12 @@ if mode=='archive':
  pb=(json.dumps(payload,sort_keys=True,separators=(',',':'))+'\n').encode();(S/'payload.json').write_bytes(pb)
  report=dict(artifacts=len(NAMES),helpers=sum(n.endswith('.py')for n in NAMES),manifestSha256=sha(mb),payloadSha256=sha(pb))
  (S/'package.json').write_text(json.dumps(report,indent=2)+'\n')
- suggested.write_bytes((S/'Suggested.lean').read_bytes()+b'\n/- BEGIN ARCHIVED GERBE LOCAL COVERS PAYLOAD\n'+pb+b'END ARCHIVED GERBE LOCAL COVERS PAYLOAD -/\n')
+ suggested.write_bytes((S/'Suggested.lean').read_bytes()+b'\n/- BEGIN ARCHIVED FIXED BAND CHART TRANSITIONS PAYLOAD\n'+pb+b'END ARCHIVED FIXED BAND CHART TRANSITIONS PAYLOAD -/\n')
  print(json.dumps(report,indent=2))
 elif mode=='final':
  archive=sys.argv[3];assert re.fullmatch('[0-9a-f]{40}',archive)
  p=json.loads((S/'package.json').read_text());expected={k:sha((S/n).read_bytes())for k,n in [('packets','Candidate.json'),('readmes','Reader.md'),('suggested','Suggested.lean')]}
- code='''"""Recover public authenticated gerbe local-cover evidence; never executes Lean."""
+ code='''"""Recover public authenticated fixed-band chart-transition evidence; never executes Lean."""
 from pathlib import Path
 import base64,hashlib,json,re,sys,urllib.request,zlib
 S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
@@ -724,7 +712,7 @@ sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch(ref,path):
  with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
 raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
-pb=raw.split('/- BEGIN ARCHIVED GERBE LOCAL COVERS PAYLOAD\\n',1)[1].split('END ARCHIVED GERBE LOCAL COVERS PAYLOAD -/',1)[0].encode()
+pb=raw.split('/- BEGIN ARCHIVED FIXED BAND CHART TRANSITIONS PAYLOAD\\n',1)[1].split('END ARCHIVED FIXED BAND CHART TRANSITIONS PAYLOAD -/',1)[0].encode()
 assert sha(pb)==PAYLOAD_SHA
 payload=json.loads(pb)
 def unpack(name):
@@ -779,25 +767,25 @@ Actual public HTTP recovery and both immutable verifier reports at the final hea
 else:raise ValueError(mode)
 ```
 
-## Script: recover-previous.py
+## Script: recover-incoming.py
 
 ```python
-"""Recover public authenticated general Hom-sheaf coherence evidence; never executes Lean."""
+"""Recover public authenticated gerbe local-cover evidence; never executes Lean."""
 from pathlib import Path
 import base64,hashlib,json,re,sys,urllib.request,zlib
 S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
 HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
 ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
 RID='AlgebraicModuliForArithmeticGeometry--A0-extension'
-ARCHIVE='f6452553c43f8af669c4ed21790ca66be47c9976'
-MANIFEST_SHA='bc24350852864995d87a1f842319f87e5882547ce4e9ab3e7a8e10f7ad2608af'
-PAYLOAD_SHA='08b95e4a9f3f66372350bca15a01d5ecb6b2b2e060db18a22b04792f85dac16f'
-EXPECTED={'packets': 'c61b13484bff774f8d0534a304281654721cb90c849608a71d804273383f79ec', 'readmes': '8657b8bcda294c833d245349632edd266b56ca6bc5e1abff07b9fd4f43c00660', 'suggested': 'ede4c983c7bc3907cec01c71e213837002c65e90ff4c603a3161830ed0fee327'}
+ARCHIVE='3bfc09759130f0b7dc3c4d5922990803f35a1181'
+MANIFEST_SHA='920969300369966813afd4831dfcc9692117233b9b6bbce2004b9ccbe5cea112'
+PAYLOAD_SHA='f5e33a5ab131568e030b6b8a30eaa077d245dc5aa8d442fab681fa40b79513bb'
+EXPECTED={'packets': '764165233fc6c588d72df76df1e1336b5a2085726fb1c4bd3567e41d00abbe1c', 'readmes': 'f64dc75acc4b712ecc6e60da0f9b82c28a00783a5adc79a3acb5c55a2622fa61', 'suggested': '472570a63be738dc64287c56d5d2c4f4a4cd367acc254ff5a75451abfca7907f'}
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch(ref,path):
  with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
 raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
-pb=raw.split('/- BEGIN ARCHIVED GENERAL HOM SHEAF COHERENCE PAYLOAD\n',1)[1].split('END ARCHIVED GENERAL HOM SHEAF COHERENCE PAYLOAD -/',1)[0].encode()
+pb=raw.split('/- BEGIN ARCHIVED GERBE LOCAL COVERS PAYLOAD\n',1)[1].split('END ARCHIVED GERBE LOCAL COVERS PAYLOAD -/',1)[0].encode()
 assert sha(pb)==PAYLOAD_SHA
 payload=json.loads(pb)
 def unpack(name):
@@ -818,6 +806,10 @@ for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Rea
  (S/name).write_bytes(b);public[path]=sha(b)
 fence=chr(96)*3;handoff=(S/'PublicHandoff.md').read_text()
 assert handoff.startswith((S/'HandoffBase.md').read_text())
+for name in meta:
+ if name.endswith('.py'):
+  publicCode=handoff.split('## Script: '+name+'\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
+  assert publicCode.encode()==(S/name).read_bytes(),'Public helper differs: '+name
 code=handoff.split('## Script: recover.py\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
 assert code==Path(__file__).read_text(),'Executed recovery script differs from public handoff.'
 (S/'recover.py').write_text(code)
@@ -825,59 +817,9 @@ receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpe
 (S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
 ```
 
-## Script: recover-ownprevious.py
-
-```python
-"""Recover immutable two-gerbe endpoint evidence; never executes Lean."""
-from pathlib import Path
-import base64,hashlib,json,re,sys,urllib.request,zlib
-S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
-HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
-ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
-STEM='AlgebraicModuliForArithmeticGeometry--A0-extension'
-ARCHIVE='1e6463e2f7d9a63877bbd18cdcd827b109d30f2c';MANIFEST_SHA='daf905c2872086cdf1ef35a52041279c7c84c583ae4e38c4681703fb0c0d3d15';PAYLOAD_SHA='ec84626c2598cb00eb431243cc6e7d76db5a694ba2334af6b19d57dd8d64b265'
-EXPECTED={'packets': 'd404caae3111408e3cc47e9edd13ab86e5b0ee9dbed440cb4a2020ff8b2c1824', 'readmes': 'b984c2b37a062a465fb970515e5b37968f851e34f0750f5fcf1c0abad1646d17', 'suggested': '5bf442291ad2751dce876d47b908bb1ac017538e14ec8520289c15f5236746dc'}
-HELPERS=['author.py','assemble.py','projection.py','compile.py','runcheck.py','verify.py','graph.py','immutable_view.py','write_handoff.py']
-sha=lambda b:hashlib.sha256(b).hexdigest()
-def fetch(ref,path):
- with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
-raw=fetch(ARCHIVE,'research/blueprint/suggested/'+STEM+'.lean').decode()
-prefix,rest=raw.split('/- BEGIN ARCHIVED TWO GERBE ENDPOINT PAYLOAD\n',1)
-pb=rest.split('END ARCHIVED TWO GERBE ENDPOINT PAYLOAD -/',1)[0].encode()
-assert sha(pb)==PAYLOAD_SHA
-payload=json.loads(pb)
-def unpack(n):
- b=zlib.decompress(base64.b64decode(payload[n]['data']));assert sha(b)==payload[n]['sha256'],n
- return b
-mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
-assert set(payload)==set(meta)|{'artifact-manifest.json'}
-for name,m in meta.items():
- assert Path(name).name==name and name not in {'.','..'}
- b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
- (S/name).write_bytes(b)
-(S/'artifact-manifest.json').write_bytes(mb)
-assert prefix==(S/'Suggested.lean').read_text()+'\n'
-public={}
-for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','Handoff.md')]:
- path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+STEM+'.'+ext
- b=fetch(HEAD,path)
- if folder in EXPECTED:assert sha(b)==EXPECTED[folder]and b==(S/name).read_bytes(),path
- (S/name).write_bytes(b);public[path]=sha(b)
-assert (S/(STEM+'.json')).read_bytes()==(S/'Candidate.json').read_bytes()
-fence=chr(96)*3;handoff=(S/'Handoff.md').read_text()
-assert handoff.startswith((S/'HandoffBase.md').read_text())
-for name in ['recover.py']+HELPERS:
- code=handoff.split('## Script: '+name+'\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
- if name=='recover.py':assert code==Path(__file__).read_text(),'Executed script differs from public handoff.'
- else:assert sha(code.encode())==meta[name]['sha256'],name
- (S/name).write_text(code)
-receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=len(HELPERS),manifestSha256=MANIFEST_SHA,payloadSha256=PAYLOAD_SHA,publicDeliverables=public,recoverySha256=sha((S/'recover.py').read_bytes()),LeanExecuted=False)
-(S/'PublicRecovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
-```
-
 ## Public recovery and replay
 
-Archive commit `3bfc09759130f0b7dc3c4d5922990803f35a1181` is an ancestor changing only this issue's suggested file. Its 63 inert artifacts include all 12 authoring, projection, handoff, package, verification, graph and compilation helpers. Manifest SHA256 `920969300369966813afd4831dfcc9692117233b9b6bbce2004b9ccbe5cea112`; payload SHA256 `f5e33a5ab131568e030b6b8a30eaa077d245dc5aa8d442fab681fa40b79513bb`. The final suggested file has no archive payload and preserves the complete Tau Ceti-import planning text.
+Archive commit `013f8d05af3f4c35b38bdae88fa6a6a5b35f3e4f` is an ancestor changing only this issue's suggested file. Its 62 inert artifacts include all 11 authoring, projection, handoff, package, verification, graph and compilation helpers. Manifest SHA256 `188f9f17676fed64bfe36ce2a9197b24a228d6ad9a5efe5c171f585fabba8214`; payload SHA256 `d22cae29cf1acf3262c3b139aa7ef7476f3a3f657ef1fca9f7aeb120ff772fa8`. The final suggested file has no archive payload and preserves the complete Tau Ceti-import planning text.
 
 Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the immutable public archive and four final deliverables, authenticates every hash, size and line count, binds this handoff's mathematical prefix and checks its own code against the public handoff. Inspect the recovered helpers. From an existing repository checkout containing both recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the exact prescribed declarations.tsv and place REPLAY_DIR outside the checkout. Its output should equal Verification.json. Set MODULI_VALIDATE_BASE to the mathematical base to reproduce Verification-math.json. The verifier executes the actual immutable checker, intake and atlas assembler without executing Lean or creating a repository snapshot. It checks the final public handoff as well as all archived artifacts.
 
@@ -888,22 +830,22 @@ Actual public HTTP recovery and both immutable verifier reports at the final hea
 ## Script: recover.py
 
 ```python
-"""Recover public authenticated gerbe local-cover evidence; never executes Lean."""
+"""Recover public authenticated fixed-band chart-transition evidence; never executes Lean."""
 from pathlib import Path
 import base64,hashlib,json,re,sys,urllib.request,zlib
 S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
 HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
 ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
 RID='AlgebraicModuliForArithmeticGeometry--A0-extension'
-ARCHIVE='3bfc09759130f0b7dc3c4d5922990803f35a1181'
-MANIFEST_SHA='920969300369966813afd4831dfcc9692117233b9b6bbce2004b9ccbe5cea112'
-PAYLOAD_SHA='f5e33a5ab131568e030b6b8a30eaa077d245dc5aa8d442fab681fa40b79513bb'
-EXPECTED={'packets': '764165233fc6c588d72df76df1e1336b5a2085726fb1c4bd3567e41d00abbe1c', 'readmes': 'f64dc75acc4b712ecc6e60da0f9b82c28a00783a5adc79a3acb5c55a2622fa61', 'suggested': '472570a63be738dc64287c56d5d2c4f4a4cd367acc254ff5a75451abfca7907f'}
+ARCHIVE='013f8d05af3f4c35b38bdae88fa6a6a5b35f3e4f'
+MANIFEST_SHA='188f9f17676fed64bfe36ce2a9197b24a228d6ad9a5efe5c171f585fabba8214'
+PAYLOAD_SHA='d22cae29cf1acf3262c3b139aa7ef7476f3a3f657ef1fca9f7aeb120ff772fa8'
+EXPECTED={'packets': 'ba9e5db566326868e1da66b180731b24cf393add772939a325a63654264426c6', 'readmes': '8736232e97f6feb35398d58bce59178264a4ad7595d0993bd0ae32b5084fa685', 'suggested': '9a9a5138fba62ebb9f3af3a4639b2c77ff3615ff802ae3c38e4052fde90a1fde'}
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def fetch(ref,path):
  with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
 raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
-pb=raw.split('/- BEGIN ARCHIVED GERBE LOCAL COVERS PAYLOAD\n',1)[1].split('END ARCHIVED GERBE LOCAL COVERS PAYLOAD -/',1)[0].encode()
+pb=raw.split('/- BEGIN ARCHIVED FIXED BAND CHART TRANSITIONS PAYLOAD\n',1)[1].split('END ARCHIVED FIXED BAND CHART TRANSITIONS PAYLOAD -/',1)[0].encode()
 assert sha(pb)==PAYLOAD_SHA
 payload=json.loads(pb)
 def unpack(name):
