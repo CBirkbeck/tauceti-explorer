@@ -1,3 +1,252 @@
+# Faithfully flat normalization of framed root coordinates
+
+Given an actual framed root (u,y), adjoin an n-th root T of its bundled coefficient unit u using the existing algebra D=B[T]/(T^n-u). For positive n, T is an actual unit with inverse u inverse times T^(n-1). The normalized point is the actual A-algebra map with root image T*y. The framed object changed to D is isomorphic to its embedded normalized chart point by the actual arrow labelled T. The extension has a Fin n basis, is faithfully flat, and is finitely presented; exponent invertibility is unnecessary. Finite presentation also holds for exponent zero, although this checkpoint asserts normalization and faithful flatness only for positive exponents.
+
+Over Z/4, n=2,u=3,y=1,f=3 still has no original normalized chart point, but the specified extension removes this obstruction. Over Z/9 at n=2 the nonzero nilpotent root section3 remains nonzero after normalization. The zero ring and exponent1 also satisfy the exact formulas. Algebra change retains both arrow equations; the Z/4 to Z/2 example shows that its functor can kill a nonidentity stabilizer.
+
+All583 incoming node objects,296 baseline objects,40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,the full omission ledger and all eleven source findings and version receipts are retained. This continuation adds19 nodes,12 API references,13 test references to8 distinct typed examples and3 native baseline references. Every implementation remains unchecked. Full Tau-dependent canonical execution remains UNCOMPILED; separate native and bounded Mathlib checks are reported in the handoff.
+
+For every chosen-frame root (u,y), the existing extension D=B[T]/(T^n-u) now has its actual adjoined root unit, normalized affine chart point and native framed-groupoid isomorphism labelled by that unit. For every positive exponent D has a Fin n basis and is faithfully flat; it is finitely presented even for n=0. This removes the unit-root obstruction after the specified algebra extension, including wild characteristic, while preserving nonzero nilpotent root sections. The arbitrary algebra-change functor retains actual arrow labels and is not claimed faithful. The native sheaf RootObject-to-coordinate comparison, local line-frame existence, scheme-cover packaging, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open; the reserved scheme/stack and all-positive-exponent fppf scope is unchanged.
+
+## Algebra change of framed root coordinates
+
+**TauCeti.RootStack.framedRootChange** — For every A-algebra map phi:B to C, construct the actual functor sending (u,y) to (phi(u),phi(y)) and every unit-labelled arrow w to phi(w). Retain both arrow equations and the native functor identity and composition laws.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-groupoid, mathlib:Units.map.
+
+Proof: Map the object equation, section equation and unit-power equation. Native unit-map multiplication and identity give the two functor laws.
+
+Consumed API:
+
+- **TauCeti.RootStack.framedRootChange.obj_coefficient**: The coefficient of the changed framed object is precisely Units.map(phi)(u).
+- **TauCeti.RootStack.framedRootChange.obj_root**: The section of the changed framed object is precisely phi(y).
+- **TauCeti.RootStack.framedRootChange.map_label**: The underlying unit of each mapped actual arrow is exactly Units.map(phi)(w).
+
+Typed examples:
+
+- **TauCeti.RootStack.framedNormalizationTests.actual_arrow_change**: Arbitrary algebra change maps the actual section, retains the coefficient arrow equation and maps the actual unit label.
+- **TauCeti.RootStack.framedNormalizationTests.nonfaithful_change**: Under Z/4 to Z/2 at f=0,n=2, the nonidentity framed stabilizer labelled minus1 maps to the identity. Arbitrary coefficient change is not required to be faithful.
+- **TauCeti.RootStack.framedNormalizationTests.wild_obstruction_removed**: At f=3,n=2,u=minus1,y=1 over Z/4 no original normalized chart point exists. Over the actual normalization extension there is the explicit isomorphism to its chart point, and that extension is faithfully flat and finitely presented.
+
+## The changed power-identification unit
+
+**TauCeti.RootStack.framedRootChange.obj_coefficient** — The coefficient of the changed framed object is precisely Units.map(phi)(u).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-change.
+
+Proof: Reduce the actual functor object.
+
+## The changed root section
+
+**TauCeti.RootStack.framedRootChange.obj_root** — The section of the changed framed object is precisely phi(y).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-change.
+
+Proof: Reduce the actual functor object.
+
+## The changed arrow label
+
+**TauCeti.RootStack.framedRootChange.map_label** — The underlying unit of each mapped actual arrow is exactly Units.map(phi)(w).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-change.
+
+Proof: Reduce the actual functor map.
+
+## The adjoined normalization unit
+
+**TauCeti.RootStack.FramedRoot.normalizationUnit** — For positive n and p=(u,y), use the existing D=AffineRing(u,n)=B[T]/(T^n-u). Bundle its distinguished root T as a unit, with inverse u inverse times T^(n-1).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-object, FunctionFieldArithmeticPartII:RS.0/affine-root-unit-inverse, mathlib:Units.mkOfMulEqOne.
+
+Proof: Use the existing unit-root inverse identity to construct a native bundled unit. This reuses the existing root algebra and does not define a second quotient.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationUnit_coe**: The value of the normalization unit in D is the distinguished AdjoinRoot root.
+- **TauCeti.RootStack.FramedRoot.normalizationUnit_inv**: The inverse normalization unit has value algebraMap(u inverse)*T^(n-1).
+- **TauCeti.RootStack.FramedRoot.normalizationUnit_pow**: The n-th power of the actual normalization unit is the image of u in D.units.
+
+Typed examples:
+
+- **TauCeti.RootStack.framedNormalizationTests.unit_and_inverse**: For arbitrary positive exponent the actual normalization unit roots u, the isomorphism has that forward label and its inverse label, and the actual hom-inverse composite is the identity.
+- **TauCeti.RootStack.framedNormalizationTests.exponent_one**: At n=1 the normalized root image equals the image of f and the actual normalization isomorphism label equals the image of u.
+- **TauCeti.RootStack.framedNormalizationTests.zero_ring**: Over Z/1 at n=3 the unit and root values are zero while the actual Fin 3 basis witness and faithful flatness still exist.
+
+## The normalization unit is the actual root
+
+**TauCeti.RootStack.FramedRoot.normalizationUnit_coe** — The value of the normalization unit in D is the distinguished AdjoinRoot root.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-unit.
+
+Proof: Reduce the constructed native unit.
+
+## The explicit normalization inverse
+
+**TauCeti.RootStack.FramedRoot.normalizationUnit_inv** — The inverse normalization unit has value algebraMap(u inverse)*T^(n-1).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-unit.
+
+Proof: Reduce the inverse field of the actual unit.
+
+## The normalization unit roots the coefficient
+
+**TauCeti.RootStack.FramedRoot.normalizationUnit_pow** — The n-th power of the actual normalization unit is the image of u in D.units.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-unit, FunctionFieldArithmeticPartII:RS.0/affine-root-relation.
+
+Proof: Use native unit extensionality and the existing distinguished-root power relation.
+
+## The normalized affine root point
+
+**TauCeti.RootStack.FramedRoot.normalizationPoint** — Construct an actual point of the existing affineRootPointGroupoid(f,n,D), equivalently an A-algebra map AffineRing(f,n) to D, whose root image is T*algebraMap(y).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-unit-power, FunctionFieldArithmeticPartII:RS.0/framed-normalization-change, FunctionFieldArithmeticPartII:RS.0/framed-normalized-equation, FunctionFieldArithmeticPartII:RS.2/root-point-lift, mathlib:IsScalarTower.toAlgHom.
+
+Proof: Change the framed object along the actual tower algebra map, apply its normalized-section power formula with the adjoined unit, and lift using the existing affine-root point construction.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationPoint_root**: The actual normalization-point algebra map sends the source distinguished root to T*algebraMap(y).
+- **TauCeti.RootStack.FramedRoot.normalizationPoint_coefficients**: For every a in A, the normalization-point algebra map sends the source coefficient a to algebraMap(A,D)(a).
+- **TauCeti.RootStack.FramedRoot.normalizationPoint_unique**: Any actual A-algebra point with distinguished-root image T*algebraMap(y) equals the constructed normalization point.
+
+Typed examples:
+
+- **TauCeti.RootStack.framedNormalizationTests.wild_obstruction_removed**: At f=3,n=2,u=minus1,y=1 over Z/4 no original normalized chart point exists. Over the actual normalization extension there is the explicit isomorphism to its chart point, and that extension is faithfully flat and finitely presented.
+- **TauCeti.RootStack.framedNormalizationTests.nilpotent_section_retained**: At f=0,n=2,u=1,y=3 over Z/9 the normalized root image remains nonzero and has square zero. Faithful flatness gives injectivity of the actual coefficient map; the normalizing unit cannot kill the section.
+- **TauCeti.RootStack.framedNormalizationTests.exponent_one**: At n=1 the normalized root image equals the image of f and the actual normalization isomorphism label equals the image of u.
+- **TauCeti.RootStack.framedNormalizationTests.zero_section**: For every positive n and bundled unit u, the zero-section root normalizes to section zero with the actual adjoined-unit arrow and embedded coefficient1.
+
+## The actual normalized root image
+
+**TauCeti.RootStack.FramedRoot.normalizationPoint_root** — The actual normalization-point algebra map sends the source distinguished root to T*algebraMap(y).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-point, FunctionFieldArithmeticPartII:RS.2/root-point-lift-root.
+
+Proof: Apply the defining-root computation of the existing algebra lift.
+
+## The actual normalized coefficient map
+
+**TauCeti.RootStack.FramedRoot.normalizationPoint_coefficients** — For every a in A, the normalization-point algebra map sends the source coefficient a to algebraMap(A,D)(a).
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-point.
+
+Proof: Use the actual algebra homomorphism commutes law.
+
+## Uniqueness of the normalization point
+
+**TauCeti.RootStack.FramedRoot.normalizationPoint_unique** — Any actual A-algebra point with distinguished-root image T*algebraMap(y) equals the constructed normalization point.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-point-root, mathlib:AdjoinRoot.algHom_ext.
+
+Proof: Compare the two actual root images and use native AdjoinRoot algebra-hom extensionality.
+
+## An actual isomorphism to the normalized chart
+
+**TauCeti.RootStack.FramedRoot.normalizationIso** — Construct the native framed-groupoid isomorphism from the changed object p over D to the image of its actual normalization point under rootChartEmbedding. Its forward arrow label is the adjoined normalization unit.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-point-root, FunctionFieldArithmeticPartII:RS.0/framed-normalization-unit-power, FunctionFieldArithmeticPartII:RS.0/framed-normalization-change, FunctionFieldArithmeticPartII:RS.0/framed-chart-embedding, mathlib:CategoryTheory.Groupoid.isoEquivHom.
+
+Proof: The point root formula is the section arrow equation. The distinguished-root power relation is the coefficient arrow equation. Use the native groupoid Hom-to-Iso equivalence on this concrete arrow.
+
+Consumed API:
+
+- **TauCeti.RootStack.FramedRoot.normalizationIso_hom_label**: The actual forward isomorphism label equals the constructed normalization unit.
+- **TauCeti.RootStack.FramedRoot.normalizationIso_inv_label**: The actual inverse isomorphism label equals the inverse normalization unit.
+- **TauCeti.RootStack.FramedRoot.normalizationIso_section**: The embedded normalized section equals the actual forward-arrow unit multiplied by the changed original section.
+
+Typed examples:
+
+- **TauCeti.RootStack.framedNormalizationTests.unit_and_inverse**: For arbitrary positive exponent the actual normalization unit roots u, the isomorphism has that forward label and its inverse label, and the actual hom-inverse composite is the identity.
+- **TauCeti.RootStack.framedNormalizationTests.wild_obstruction_removed**: At f=3,n=2,u=minus1,y=1 over Z/4 no original normalized chart point exists. Over the actual normalization extension there is the explicit isomorphism to its chart point, and that extension is faithfully flat and finitely presented.
+- **TauCeti.RootStack.framedNormalizationTests.zero_section**: For every positive n and bundled unit u, the zero-section root normalizes to section zero with the actual adjoined-unit arrow and embedded coefficient1.
+
+## The forward normalization arrow
+
+**TauCeti.RootStack.FramedRoot.normalizationIso_hom_label** — The actual forward isomorphism label equals the constructed normalization unit.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-iso.
+
+Proof: Reduce the explicit groupoid isomorphism.
+
+## The inverse normalization arrow
+
+**TauCeti.RootStack.FramedRoot.normalizationIso_inv_label** — The actual inverse isomorphism label equals the inverse normalization unit.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-iso.
+
+Proof: Reduce the native groupoid inverse.
+
+## Normalization transports the actual section
+
+**TauCeti.RootStack.FramedRoot.normalizationIso_section** — The embedded normalized section equals the actual forward-arrow unit multiplied by the changed original section.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-iso.
+
+Proof: Use the first retained equation of the actual forward arrow, without cancelling the section.
+
+## A finite basis for the actual normalization extension
+
+**TauCeti.RootStack.FramedRoot.normalization_finite_basis** — For positive n the actual B-algebra D has a basis indexed by Fin n, including when B is the zero ring.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-object, mathlib:AdjoinRoot.powerBasis', mathlib:Polynomial.monic_X_pow_sub_C, mathlib:Polynomial.natDegree_X_pow_sub_C, mathlib:Module.subsingletonEquiv.
+
+Proof: In the nontrivial case reindex the native monic-polynomial power basis using the exact degree n. In the subsingleton case construct a basis through the native equivalence to the Fin n Finsupp module. No basis cardinality uniqueness is asserted for the zero ring.
+
+## Faithful flatness of the actual normalization extension
+
+**TauCeti.RootStack.FramedRoot.normalization_faithfullyFlat** — For positive n, Module.FaithfullyFlat B D holds for the actual adjoined unit-root extension. No invertibility of n is required.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-normalization-basis, mathlib:Module.FaithfullyFlat.of_linearEquiv.
+
+Proof: Use the actual finite basis representation, the nonempty Fin n supplied by positivity, and native preservation of faithful flatness under a linear equivalence.
+
+## Finite presentation of the actual normalization extension
+
+**TauCeti.RootStack.FramedRoot.normalization_finitePresentation** — For every natural n, including zero, Algebra.FinitePresentation B D holds for D=AffineRing(u,n). This lemma omits the positivity premise used for normalization.
+
+Hypotheses: Arbitrary commutative A and commutative A-algebras B,C in a common universe; arbitrary section f. Algebra change works for every natural n. Normalization, its basis and faithful flatness use NeZero n. Finite presentation works for every natural n. No exponent-invertibility, reducedness, nontriviality, section-regularity, flatness or injectivity assumption on the original algebras or maps. This is the actual affine normalization of chosen-frame coordinates. Existence of a line-bundle frame and its native sheaf comparison, scheme-cover packaging, fppf stackification, effective descent and infinite genuine 2-limits remain open.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-object, mathlib:AdjoinRoot.finitePresentation.
+
+Proof: Reuse the native finite-presentation instance for the actual AdjoinRoot algebra.
+
 # Framed root coordinates and normalized charts
 
 The new coordinate groupoid keeps the unit u of the power identification and the root coordinate y, with u*y^n=f. An actual arrow labelled by a bundled unit w has y_target=w*y_source and u_target*w^n=u_source. Both equations are retained when sections vanish. This is a coordinate carrier after a chosen frame; existence of that frame and its comparison with the native sheaf RootObject remain open.
