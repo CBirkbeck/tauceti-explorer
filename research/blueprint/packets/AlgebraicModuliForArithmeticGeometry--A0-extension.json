@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Actual canonical gerbe local covers and overlap refinements: four constructions,19 lemmas,19 API items and18 typed checks; no stage closes. General two-gerbe base-change coherence: six lemmas, six API additions and eight typed checks; no stage closes. Two-gerbe endpoint transport: three constructions, thirteen lemmas, fourteen API additions and nine typed checks; no stage closes. Self-gerbe Hom-sheaf coherence checkpoint:8 lemmas,8 API additions and6 typed checks; no stage or key-definition closure. Native local Hom-sheaf base restriction checkpoint:12 declarations,10 API items and7 typed tests; no stage or key-definition closure. Choice-independent native sheaf transport between local gerbe objects:20 new declarations,15 API items and12 typed tests, including the actual local-object functor and modification naturality. Separate proof evidence compiles without admissions; no stage closure or implementation is claimed. Actual slice Hom sheaves and a functor on fixed-band gerbe modifications, with local sections, compatible simply transitive band actions and transported Isom comparison:28 new declarations,21 API items and22 typed tests. Independent native proof evidence is checked without admissions; no implementation or stage closure is claimed. Native semilinear site restriction of fixed-band Isom actions, with actual modification naturality, pseudofunctor identity/composition comparisons, and restriction-compatible natural local-object transport:18 new declarations,13 API items and14 parameterized tests. The independent proof prototype has no admissions; the roadmap remains partial and every implementation status remains unchecked. Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
+  "summary": "Fixed-band local-chart Hom-sheaf comparisons and choice-independent common-refinement cocycles: two constructions,12 lemmas,12 API items and8 typed tests; no stage closes. Actual canonical gerbe local covers and overlap refinements: four constructions,19 lemmas,19 API items and18 typed checks; no stage closes. General two-gerbe base-change coherence: six lemmas, six API additions and eight typed checks; no stage closes. Two-gerbe endpoint transport: three constructions, thirteen lemmas, fourteen API additions and nine typed checks; no stage closes. Self-gerbe Hom-sheaf coherence checkpoint:8 lemmas,8 API additions and6 typed checks; no stage or key-definition closure. Native local Hom-sheaf base restriction checkpoint:12 declarations,10 API items and7 typed tests; no stage or key-definition closure. Choice-independent native sheaf transport between local gerbe objects:20 new declarations,15 API items and12 typed tests, including the actual local-object functor and modification naturality. Separate proof evidence compiles without admissions; no stage closure or implementation is claimed. Actual slice Hom sheaves and a functor on fixed-band gerbe modifications, with local sections, compatible simply transitive band actions and transported Isom comparison:28 new declarations,21 API items and22 typed tests. Independent native proof evidence is checked without admissions; no implementation or stage closure is claimed. Native semilinear site restriction of fixed-band Isom actions, with actual modification naturality, pseudofunctor identity/composition comparisons, and restriction-compatible natural local-object transport:18 new declarations,13 API items and14 parameterized tests. The independent proof prototype has no admissions; the roadmap remains partial and every implementation status remains unchecked. Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1839,6 +1839,33 @@
         "sourceSha256": "9d65ddf7ea8f811b0a05126c2768a9cd3ede8ecce4e0e98cb43a1d2b572cad7b",
         "provides": "Existing native sieve extensionality, restriction or topology axiom consumed by the actual gerbe-specific cover/refinement construction and tests.",
         "checked": "Actual declaration and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04 by Codex — codex-rtOQ9t. Native carriers and machinery are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso.refl",
+        "kind": "definition",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "sourceLine": 116,
+        "sourceSha256": "b47eab342f3e7d08f4ff8d4a16d4580b0273d63f1a790b25560236c92d4cace7",
+        "provides": "Native isomorphism identity, composition or inversion used to assemble actual natural chart comparisons; imported without a new generic declaration.",
+        "checked": "Declaration, surrounding universes and complete body freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso.symm",
+        "kind": "definition",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "sourceLine": 87,
+        "sourceSha256": "b47eab342f3e7d08f4ff8d4a16d4580b0273d63f1a790b25560236c92d4cace7",
+        "provides": "Native isomorphism identity, composition or inversion used to assemble actual natural chart comparisons; imported without a new generic declaration.",
+        "checked": "Declaration, surrounding universes and complete body freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso.trans",
+        "kind": "definition",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "sourceLine": 131,
+        "sourceSha256": "b47eab342f3e7d08f4ff8d4a16d4580b0273d63f1a790b25560236c92d4cace7",
+        "provides": "Native isomorphism identity, composition or inversion used to assemble actual natural chart comparisons; imported without a new generic declaration.",
+        "checked": "Declaration, surrounding universes and complete body freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on 2026-10-04."
       }
     ]
   },
@@ -2799,6 +2826,18 @@
       "readSections": [
         "Whole displayed Section8.11: Definition8.11.1, Lemmas8.11.2–8 with proofs/diagrams, Definition8.11.4 and both comments.",
         "Local-existence conventions supply the mathematical context; exact native canonical sieve and transport formulas are authored deductions. Existing source E6 and omitted general base-compatibility/SF1 obligations remain."
+      ]
+    },
+    {
+      "id": "OG-chart-transitions-codex-7e92bd",
+      "title": "Fixed-band local-chart Hom-sheaf comparisons and cocycles",
+      "authors": "The Stacks Project Authors; fixed-band Hom-sheaf deductions by Codex — codex-7e92bd",
+      "edition": "Displayed Section8.11 read2026-10-04; exact Mathlib pin",
+      "url": "https://stacks.math.columbia.edu/tag/06NY",
+      "accessDate": "2026-10-04",
+      "readSections": [
+        "Whole displayed Section8.11: definitions, Lemmas8.11.2–8 with proofs and diagrams, both comments.",
+        "Local-existence and independent-transition pattern only; exact fixed-band Hom-sheaf equations are authored deductions. Existing E6 and omitted varying-base/SF1 obligation retained."
       ]
     }
   ],
@@ -36721,6 +36760,819 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Local-chart Hom-sheaf comparison",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition",
+      "statement": "For i:T→U, j:T→V, x∈F(U), y∈F(V), and an actual e:F(i)x≅F(j)y, construct a natural isomorphism from H_U(x,x;−) followed by native slice pullback i⁎ to H_V(y,y;−) followed by j⁎, on the actual category HomCategory(b,b). Its three factors are the existing base-change natural isomorphism for i, the existing diagonal endpoint transport for e, and the inverse base-change isomorphism for j. Thus its objects are actual sheaves on C/T, not sets of isomorphism classes.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/nat-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+        "mathlib:CategoryTheory.Iso.trans",
+        "mathlib:CategoryTheory.Iso.symm"
+      ],
+      "proofSteps": [
+        "Compose the three existing natural isomorphisms, retaining both distinct native slice functors and the same fixed-band modification category."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_app",
+          "role": "compatibility",
+          "statement": "At X∈HomCategory(b,b), the local-chart transition is the actual sheaf isomorphism BC_i(X,x,x), then diagonal selfHomSheafTransportIso(X,e), then BC_j(X,y,y) inverse. The target base-change factor is inverted."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_equivariant",
+          "role": "compatibility",
+          "statement": "For every R→T, a∈Multiplicative A(R) and actual source section p over the composed R→T→U, the transition applied to a acting on p equals the same a acting on the transported section over R→T→V. The two actions are the existing native fibreHomSectionAction; the independent coefficient universe is retained."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_independent",
+          "role": "compatibility",
+          "statement": "For any two actual isomorphisms e,d:F(i)x≅F(j)y, their chart-transition natural isomorphisms are equal. This does not assert e=d; independence uses the abelian fixed-band diagonal transport theorem."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_refl",
+          "role": "compatibility",
+          "statement": "For any automorphism e of F(i)x, the chart transition from i,x to itself is the identity natural isomorphism, including when e is nonidentity."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_cocycle",
+          "role": "compatibility",
+          "statement": "For three charts i:T→U,j:T→V,k:T→W with objects x,y,z, choose arbitrary e:F(i)x≅F(j)y, d:F(j)y≅F(k)z and a:F(i)x≅F(k)z. The transition for e followed by the transition for d equals the transition for a as natural isomorphisms. No equation a=e followed by d is assumed."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_symm",
+          "role": "compatibility",
+          "statement": "For arbitrary forward e:F(i)x≅F(j)y and backward d:F(j)y≅F(i)x, the inverse natural isomorphism of the transition for e equals the transition for d, without assuming d is the inverse of e."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_naturality",
+          "role": "compatibility",
+          "statement": "For m:X→Y in the native HomCategory(b,b), i⁎H_U(m) followed by the chart transition at Y equals the chart transition at X followed by j⁎H_V(m). These are equal native sheaf maps on C/T."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartTransitionTests.nonidentity_loop",
+          "kind": "non-example",
+          "statement": "For a supplied nonidentity automorphism of F(i)x, retain its nonidentity witness while its induced chart transition equals identity. This parameterized check does not assert the existence of such an automorphism on every gerbe."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartTransitionTests.independent_inverse",
+          "kind": "computation",
+          "statement": "An arbitrary independently chosen reverse transition composed after the forward transition gives the identity actual sheaf map at every X; no inverse relation between the chosen fibre isomorphisms is assumed."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartTransitionTests.empty_sections",
+          "kind": "degenerate",
+          "statement": "If the source sheaf has empty sections on R→T, the target section type is empty via the actual inverse transition; no global or local section is chosen."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartTransitionTests.four_charts",
+          "kind": "compatibility",
+          "statement": "Three successive transitions among four charts at a common base equal the transition formed using any independently supplied direct isomorphism from the first restricted object to the fourth."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/component",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The three comparison factors at a fixed transformation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_app",
+      "statement": "At X∈HomCategory(b,b), the local-chart transition is the actual sheaf isomorphism BC_i(X,x,x), then diagonal selfHomSheafTransportIso(X,e), then BC_j(X,y,y) inverse. The target base-change factor is inverted.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+        "mathlib:CategoryTheory.Iso.app"
+      ],
+      "proofSteps": [
+        "Unfold composition of native natural isomorphisms at X; all three component factors remain."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/equivariant",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The transition preserves the actual band section",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_equivariant",
+      "statement": "For every R→T, a∈Multiplicative A(R) and actual source section p over the composed R→T→U, the transition applied to a acting on p equals the same a acting on the transported section over R→T→V. The two actions are the existing native fibreHomSectionAction; the independent coefficient universe is retained.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/equivariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/equivariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-base-change/inv-equivariant"
+      ],
+      "proofSteps": [
+        "Evaluate the three component maps. Apply forward base-change equivariance, diagonal transport equivariance, then inverse base-change equivariance. All use exactly the same coefficient section a."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/independent",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Independence from the overlap isomorphism",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_independent",
+      "statement": "For any two actual isomorphisms e,d:F(i)x≅F(j)y, their chart-transition natural isomorphisms are equal. This does not assert e=d; independence uses the abelian fixed-band diagonal transport theorem.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-independent"
+      ],
+      "proofSteps": [
+        "Replace only the middle factor using existing fixed-band independence. The base-change factors are unchanged."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/reflexive",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Every diagonal chart loop induces identity",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_refl",
+      "statement": "For any automorphism e of F(i)x, the chart transition from i,x to itself is the identity natural isomorphism, including when e is nonidentity.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/independent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-identity",
+        "mathlib:CategoryTheory.Iso.refl"
+      ],
+      "proofSteps": [
+        "Replace e by the identity using independence, use the existing identity transport, and cancel the forward/inverse base comparisons."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/cocycle",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The local-chart cocycle for independent choices",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_cocycle",
+      "statement": "For three charts i:T→U,j:T→V,k:T→W with objects x,y,z, choose arbitrary e:F(i)x≅F(j)y, d:F(j)y≅F(k)z and a:F(i)x≅F(k)z. The transition for e followed by the transition for d equals the transition for a as natural isomorphisms. No equation a=e followed by d is assumed.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/independent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso-composition",
+        "mathlib:CategoryTheory.Iso.ext"
+      ],
+      "proofSteps": [
+        "Replace a by the composite e followed by d using independence. Expand the three-factor definitions, cancel the j-base comparison with its inverse, and apply composition of the existing diagonal transport."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "An independently chosen reverse comparison is inverse",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_symm",
+      "statement": "For arbitrary forward e:F(i)x≅F(j)y and backward d:F(j)y≅F(i)x, the inverse natural isomorphism of the transition for e equals the transition for d, without assuming d is the inverse of e.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/independent",
+        "mathlib:CategoryTheory.Iso.symm"
+      ],
+      "proofSteps": [
+        "Replace d by the inverse of e and unfold the inverse of the three-factor composite."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/natural",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Compatibility with every fixed-band modification",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_naturality",
+      "statement": "For m:X→Y in the native HomCategory(b,b), i⁎H_U(m) followed by the chart transition at Y equals the chart transition at X followed by j⁎H_V(m). These are equal native sheaf maps on C/T.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart"
+      ],
+      "proofSteps": [
+        "Use the naturality field of the actual composed natural isomorphism."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Hom-sheaf transition on an actual overlap member",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition",
+      "statement": "For q:S→T belonging to the actual overlapCover(F,i,j,x,y), construct the natural comparison from (q followed by i)⁎H_U(x,x;−) to (q followed by j)⁎H_V(y,y;−) using the existing direct overlapIso. That iso retains the i-side pseudofunctor composition comparison, a chosen iterated overlap isomorphism, and the inverse j-side comparison. No compatible choice system is assumed.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/chart",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/chosen-iso"
+      ],
+      "proofSteps": [
+        "Insert the existing direct overlapIso into the chart transition along the two composite base arrows."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_eq",
+          "role": "compatibility",
+          "statement": "The chosen overlap transition equals the chart transition along q followed by i and q followed by j formed with any supplied direct isomorphism between those endpoints. The equality is of complete natural isomorphisms."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_refl",
+          "role": "compatibility",
+          "statement": "For any membership q in the diagonal overlapCover(F,i,i,x,x), the resulting overlap transition is the identity natural isomorphism. Classical choice need not select the identity fibre automorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_cocycle",
+          "role": "compatibility",
+          "statement": "If the same q:S→T belongs to all three actual pairwise overlap covers for i,x; j,y; k,z, the chosen xy transition followed by the chosen yz transition equals the independently chosen xz transition. The full natural-isomorphism equality retains all fixed-band transformations and modifications."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_symm",
+          "role": "compatibility",
+          "statement": "If q belongs to the xy and yx overlap covers, the inverse of the chosen xy overlap transition equals the independently chosen yx overlap transition."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_common_cover",
+          "role": "compatibility",
+          "statement": "For any supplied J-covering sieve D on T, its intersection with the xy, yz and xz overlap covers is J-covering. Every member therefore retains membership in D and supplies all three comparisons needed for the cocycle. No fibre products, finite-cover presentation or global gerbe object is required."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartTransitionTests.covered_triple",
+          "kind": "compatibility",
+          "statement": "On the covering intersection of an arbitrary cover and three pairwise overlap covers, every member retains the arbitrary-cover membership and satisfies the actual chosen-transition cocycle."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartTransitionTests.chosen_versus_supplied",
+          "kind": "compatibility",
+          "statement": "At each fixed-band self-transformation, the chosen overlap transition equals the explicit three-factor sheaf comparison formed with any supplied direct endpoint isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartTransitionTests.overlap_coefficient",
+          "kind": "compatibility",
+          "statement": "The chosen overlap transition carries the action of each actual coefficient section a on a source section to the action of exactly the same a on its image, including nontrivial and nonfaithful base restrictions."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ChartTransitionTests.modifications_on_overlap",
+          "kind": "compatibility",
+          "statement": "The chosen overlap comparison commutes with the composite of two arbitrary native fixed-band modifications. Both pullback functors and all modification components remain in the equation."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap-choice",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Comparison with every supplied direct overlap map",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_eq",
+      "statement": "The chosen overlap transition equals the chart transition along q followed by i and q followed by j formed with any supplied direct isomorphism between those endpoints. The equality is of complete natural isomorphisms.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/independent"
+      ],
+      "proofSteps": [
+        "Apply chart-transition independence to the actual chosen direct overlapIso and the supplied direct map."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap-reflexive",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The chosen diagonal overlap transition",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_refl",
+      "statement": "For any membership q in the diagonal overlapCover(F,i,i,x,x), the resulting overlap transition is the identity natural isomorphism. Classical choice need not select the identity fibre automorphism.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/reflexive"
+      ],
+      "proofSteps": [
+        "Apply the chart-loop identity to the chosen direct overlap automorphism."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap-cocycle",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Cocycle on a common overlap refinement",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_cocycle",
+      "statement": "If the same q:S→T belongs to all three actual pairwise overlap covers for i,x; j,y; k,z, the chosen xy transition followed by the chosen yz transition equals the independently chosen xz transition. The full natural-isomorphism equality retains all fixed-band transformations and modifications.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/cocycle"
+      ],
+      "proofSteps": [
+        "Apply the arbitrary-choice chart cocycle to the three independently selected direct overlap isomorphisms."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap-inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Reverse chosen overlaps induce inverse maps",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_symm",
+      "statement": "If q belongs to the xy and yx overlap covers, the inverse of the chosen xy overlap transition equals the independently chosen yx overlap transition.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/overlap",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/inverse"
+      ],
+      "proofSteps": [
+        "Apply the reverse-comparison theorem to the two chosen direct isomorphisms."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/chart-transitions/common-cover",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "A covering common domain for all three transitions",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_common_cover",
+      "statement": "For any supplied J-covering sieve D on T, its intersection with the xy, yz and xz overlap covers is J-covering. Every member therefore retains membership in D and supplies all three comparisons needed for the cocycle. No fibre products, finite-cover presentation or global gerbe object is required.",
+      "hypotheses": [
+        "Fix an arbitrary site (C,J), an actual Cat-valued pseudofunctor F with IsGerbe F J, and an actual abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.",
+        "The chart comparison uses fixed-band self-transformations in HomCategory(b,b), with all native modifications. Supplied local objects may lie over different bases. No global object, neutrality, terminal object, strict pseudofunctor, or compatibility of independently chosen overlap isomorphisms is assumed.",
+        "The triple cocycle is an equality on a common supplied refinement with the stated membership evidence. Global sheaf gluing, varying-refinement descent and D0 torsor equivalence remain additional obligations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/local-covers/overlap-covering",
+        "mathlib:CategoryTheory.GrothendieckTopology.intersection_covering"
+      ],
+      "proofSteps": [
+        "Use covering of each actual pairwise overlap sieve and apply native intersection_covering three times."
+      ],
+      "acceptance": [
+        "The forward comparison at the target chart must be inverted. Independent choices need not compose; prove equality of their induced maps using the established fixed-band independence.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Supply local sheaf maps, coefficient equivariance and common-refinement cocycles before actual global gluing and torsor packaging."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/nat-iso",
+          "how": "Use the existing diagonal fixed-band transport, with native base-change on both charts; do not duplicate generic sheaf descent or extend choice independence to arbitrary unrelated two-gerbe endpoints."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "OG-chart-transitions-codex-7e92bd",
+          "locator": "Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof; fixed-band Hom-sheaf equations are authored deductions.",
+          "excerpt": "independent",
+          "match": "The source supplies local-existence and canonical-transition motivation. The three-factor Hom-sheaf maps, coefficient equations and native natural-isomorphism proofs are authored deductions from the listed existing prerequisites; they do not complete the source’s varying-base gluing obligation."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -36949,7 +37801,8 @@
         "The native identity/composition laws are now supplied for the self-gerbe Hom-sheaf comparison, natural in all native modifications. The general F-to-G family still needs its two-object endpoint transport and coherence. Actual covers, overlap refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and a coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; the intrinsic descended band, root-gerbe/H² and fpqc stack obligations are unchanged.",
         "The two-gerbe endpoint Hom-sheaf transport, inverse laws, coefficient action, native modification naturality and base-restriction square now have independently checked proof prototypes. General F-to-G base-change unit/composition coherence still requires its two distinct pseudofunctor endpoint comparisons. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added. Every inherited intrinsic descended-band, root-gerbe/H², fpqc-limit and other-stage/source obligation remains.",
         "The general F→G Hom-sheaf base-change unit and composition laws now have checked native proof prototypes, including the two distinct endpoint comparisons, their inverses and naturality on the actual modification category. This resolves the specifically named general-coherence frontier in earlier historical entries. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; stability under a third pullback does not assert a full descent pentagon. All inherited intrinsic descended-band/SF1, nonneutral root-gerbe/H², fpqc-limit and other-stage/source obligations remain.",
-        "Canonical local-object and local-isomorphism sieves, actual overlap covering refinements and direct overlap isomorphisms now have checked native prototypes for arbitrary Cat-valued pseudofunctors and gerbes on an arbitrary site. Covering uses the genuine IsGerbe local-existence fields; direct overlap maps retain both F.mapComp endpoint factors. This resolves the explicitly named existence of local covers/refinements, but no compatibility cocycle for independent choices or gluing of Hom sheaves, actions and maps is claimed. D0 torsor packaging, full faithfulness and coherent inverse/unit/counit, intrinsic descended-band/SF1, nonneutral geometric/root-gerbe fixtures and derivedH², compatible fpqc limits and all other-stage/source obligations remain open."
+        "Canonical local-object and local-isomorphism sieves, actual overlap covering refinements and direct overlap isomorphisms now have checked native prototypes for arbitrary Cat-valued pseudofunctors and gerbes on an arbitrary site. Covering uses the genuine IsGerbe local-existence fields; direct overlap maps retain both F.mapComp endpoint factors. This resolves the explicitly named existence of local covers/refinements, but no compatibility cocycle for independent choices or gluing of Hom sheaves, actions and maps is claimed. D0 torsor packaging, full faithfulness and coherent inverse/unit/counit, intrinsic descended-band/SF1, nonneutral geometric/root-gerbe fixtures and derivedH², compatible fpqc limits and all other-stage/source obligations remain open.",
+        "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
       ]
     },
     {
