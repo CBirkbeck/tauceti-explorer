@@ -5823,3 +5823,180 @@ example : (divisibilityTensorInvariantEquiv (B := ZMod 1) (2 : ℤ) 0).val = 0 :
 
 end TauCeti.RootStack
 end
+
+noncomputable section
+set_option maxHeartbeats 800000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe uFiniteBase
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry
+variable {A B C : Type uFiniteBase} [CommRing A] [CommRing B] [CommRing C]
+attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
+
+def divisibilityRingCoefficientNatTrans (φ : A →+* B) (f : A) :
+    divisibilityRingDiagram f ⟶ divisibilityRingDiagram (φ f) where
+  app n := CommRingCat.ofHom (AdjoinRoot.map φ _ _ (by simp))
+  naturality n N h := by
+    apply CommRingCat.hom_ext
+    apply AdjoinRoot.ringHom_ext
+    · ext a
+      change AdjoinRoot.map φ _ _ (by simp)
+        (divisibilityAffineMap f n N (leOfHom h) (algebraMap A (AffineRing f n.exponent) a)) =
+        divisibilityAffineMap (φ f) n N (leOfHom h)
+          (AdjoinRoot.map φ _ _ (by simp) (algebraMap A (AffineRing f n.exponent) a))
+      rw [AlgHom.commutes]
+      simp only [AdjoinRoot.algebraMap_eq, AdjoinRoot.map_of]
+      exact ((divisibilityAffineMap (φ f) n N (leOfHom h)).commutes (φ a)).symm
+    · change AdjoinRoot.map φ _ _ (by simp)
+        (affineDivisibility f n.exponent N.exponent (leOfHom h) (AdjoinRoot.root _)) =
+        affineDivisibility (φ f) n.exponent N.exponent (leOfHom h)
+          (AdjoinRoot.map φ _ _ (by simp) (AdjoinRoot.root _))
+      rw [affineDivisibility.root, map_pow, AdjoinRoot.map_root, AdjoinRoot.map_root,
+        affineDivisibility.root]
+
+lemma divisibilityRingCoefficientNatTrans.root (φ : A →+* B) (f : A) (n : RootDivIndex) :
+    ((divisibilityRingCoefficientNatTrans φ f).app n).hom (AdjoinRoot.root _) =
+      AdjoinRoot.root _ := by
+  sorry
+
+lemma divisibilityRingCoefficientNatTrans.constant (φ : A →+* B) (f a : A) (n : RootDivIndex) :
+    ((divisibilityRingCoefficientNatTrans φ f).app n).hom (algebraMap A (AffineRing f n.exponent) a) =
+      algebraMap B (AffineRing (φ f) n.exponent) (φ a) := by
+  sorry
+
+lemma divisibilityRingCoefficientNatTrans.id (f : A) :
+    divisibilityRingCoefficientNatTrans (RingHom.id A) f = 𝟙 (divisibilityRingDiagram f) := by
+  sorry
+
+lemma divisibilityRingCoefficientNatTrans.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
+    divisibilityRingCoefficientNatTrans (ψ.comp φ) f =
+      divisibilityRingCoefficientNatTrans φ f ≫ divisibilityRingCoefficientNatTrans ψ (φ f) := by
+  sorry
+
+lemma divisibilityCoefficientMap.level (φ : A →+* B) (f : A) (n : RootDivIndex) :
+    (divisibilityCoefficientMap φ f).comp (divisibilityAffineInclusion f n).toRingHom =
+      (divisibilityAffineInclusion (φ f) n).toRingHom.comp
+        ((divisibilityRingCoefficientNatTrans φ f).app n).hom := by
+  sorry
+
+def divisibilitySpecCoefficientNatTrans (φ : A →+* B) (f : A) :
+    divisibilitySpecDiagram (φ f) ⟶ divisibilitySpecDiagram f :=
+  Functor.whiskerRight (NatTrans.op (divisibilityRingCoefficientNatTrans φ f)) Scheme.Spec
+
+lemma divisibilitySpecCoefficientNatTrans.app (φ : A →+* B) (f : A) (n : RootDivIndex) :
+    (divisibilitySpecCoefficientNatTrans φ f).app (op n) =
+      Spec.map ((divisibilityRingCoefficientNatTrans φ f).app n) := by
+  sorry
+
+lemma divisibilitySpecCoefficientNatTrans.id (f : A) :
+    divisibilitySpecCoefficientNatTrans (RingHom.id A) f = 𝟙 (divisibilitySpecDiagram f) := by
+  sorry
+
+lemma divisibilitySpecCoefficientNatTrans.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
+    divisibilitySpecCoefficientNatTrans (ψ.comp φ) f =
+      divisibilitySpecCoefficientNatTrans ψ (φ f) ≫ divisibilitySpecCoefficientNatTrans φ f := by
+  sorry
+
+lemma divisibilitySpecCoefficientMap.projection (φ : A →+* B) (f : A) (n : RootDivIndex) :
+    divisibilitySpecCoefficientMap φ f ≫ (divisibilitySpecCone f).π.app (op n) =
+      (divisibilitySpecCone (φ f)).π.app (op n) ≫
+        (divisibilitySpecCoefficientNatTrans φ f).app (op n) := by
+  sorry
+
+lemma divisibilitySpecBaseChangeIso.projection (φ : A →+* B) (f : A) (n : RootDivIndex) :
+    (divisibilitySpecBaseChangeIso φ f).hom ≫ pullback.snd _ _ ≫
+      (divisibilitySpecCone f).π.app (op n) =
+    (divisibilitySpecCone (φ f)).π.app (op n) ≫
+      (divisibilitySpecCoefficientNatTrans φ f).app (op n) := by
+  sorry
+
+lemma divisibilitySpecBaseChangeIso.inverse_projection (φ : A →+* B) (f : A)
+    (n : RootDivIndex) :
+    (divisibilitySpecBaseChangeIso φ f).inv ≫
+      (divisibilitySpecCone (φ f)).π.app (op n) ≫
+        (divisibilitySpecCoefficientNatTrans φ f).app (op n) =
+      pullback.snd _ _ ≫ (divisibilitySpecCone f).π.app (op n) := by
+  sorry
+
+lemma divisibilitySpecCoefficientMap.unique (φ : A →+* B) (f : A)
+    (g : Spec (CommRingCat.of (DivisibilityAffineColimit (φ f))) ⟶
+      Spec (CommRingCat.of (DivisibilityAffineColimit f)))
+    (hg : ∀ n, g ≫ (divisibilitySpecCone f).π.app (op n) =
+      (divisibilitySpecCone (φ f)).π.app (op n) ≫
+        (divisibilitySpecCoefficientNatTrans φ f).app (op n)) :
+    g = divisibilitySpecCoefficientMap φ f := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+set_option maxHeartbeats 800000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry
+
+-- test: finiteProjectionTests.nonflat_third_root
+example :
+    ((divisibilityRingCoefficientNatTrans (Int.castRingHom (ZMod 4)) (2 : ℤ)).app
+      ⟨3, by decide⟩).hom (AdjoinRoot.root _) =
+        AdjoinRoot.root (Polynomial.X ^ 3 - Polynomial.C (2 : ZMod 4)) := by
+  sorry
+
+-- test: finiteProjectionTests.six_to_three
+example :
+    ((divisibilityRingCoefficientNatTrans (Int.castRingHom (ZMod 4)) (2 : ℤ)).app
+      ⟨6, by decide⟩).hom
+        (affineDivisibility (2 : ℤ) 3 6 (by decide) (AdjoinRoot.root _)) =
+      (AdjoinRoot.root (Polynomial.X ^ 6 - Polynomial.C (2 : ZMod 4))) ^ 2 := by
+  sorry
+
+-- test: finiteProjectionTests.zero_coefficient_ring
+example (x : AffineRing (2 : ℤ) 3) :
+    ((divisibilityRingCoefficientNatTrans (Int.castRingHom (ZMod 1)) (2 : ℤ)).app
+      ⟨3, by decide⟩).hom x = 0 := by
+  sorry
+
+-- test: finiteProjectionTests.wild_root_survives
+example :
+    let y := ((divisibilityRingCoefficientNatTrans (Int.castRingHom (ZMod 2)) (0 : ℤ)).app
+      ⟨2, by decide⟩).hom (AdjoinRoot.root _)
+    y ≠ 0 ∧ y ^ 2 = 0 := by
+  sorry
+
+-- test: finiteProjectionTests.identity_scheme_diagram
+example : divisibilitySpecCoefficientNatTrans (RingHom.id (ZMod 4)) (2 : ZMod 4) =
+    𝟙 (divisibilitySpecDiagram (2 : ZMod 4)) := by
+  sorry
+
+-- test: finiteProjectionTests.composed_quotient_diagram
+example :
+    divisibilitySpecCoefficientNatTrans
+      ((ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).comp (Int.castRingHom (ZMod 4))) (2 : ℤ) =
+    divisibilitySpecCoefficientNatTrans (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2))
+      ((Int.castRingHom (ZMod 4)) (2 : ℤ)) ≫
+        divisibilitySpecCoefficientNatTrans (Int.castRingHom (ZMod 4)) (2 : ℤ) := by
+  sorry
+
+-- test: finiteProjectionTests.nonflat_projection_square
+example :
+    (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 4)) (2 : ℤ)).hom ≫
+      pullback.snd _ _ ≫ (divisibilitySpecCone (2 : ℤ)).π.app (op ⟨3, by decide⟩) =
+    (divisibilitySpecCone ((Int.castRingHom (ZMod 4)) (2 : ℤ))).π.app (op ⟨3, by decide⟩) ≫
+      (divisibilitySpecCoefficientNatTrans (Int.castRingHom (ZMod 4)) (2 : ℤ)).app
+        (op ⟨3, by decide⟩) := by
+  sorry
+
+-- test: finiteProjectionTests.inverse_wild_projection
+example :
+    (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 2)) (0 : ℤ)).inv ≫
+      (divisibilitySpecCone ((Int.castRingHom (ZMod 2)) (0 : ℤ))).π.app (op ⟨2, by decide⟩) ≫
+        (divisibilitySpecCoefficientNatTrans (Int.castRingHom (ZMod 2)) (0 : ℤ)).app
+          (op ⟨2, by decide⟩) =
+      pullback.snd _ _ ≫ (divisibilitySpecCone (0 : ℤ)).π.app (op ⟨2, by decide⟩) := by
+  sorry
+
+end TauCeti.RootStack
+end

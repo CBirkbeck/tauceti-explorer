@@ -1,3 +1,194 @@
+# Finite root projections under coefficient change
+
+For every positive root exponent n, coefficient change is the existing native AdjoinRoot.map, sending coefficients through φ and the root to the root. These maps commute with every n|N transition, including nonfactorial indices. They therefore form a natural transformation of the actual finite ring diagrams. Native opposite and Spec give the contravariant natural transformation of the finite scheme diagrams, with identity and composition coherence.
+
+The existing infinite coefficient map F_φ restricts to this finite component on every n-th root algebra. Consequently the actual Spec coefficient morphism commutes with every finite projection. The existing actual scheme base-change isomorphism and its inverse obey these projection squares through the categorical pullback second projection. All such finite squares determine the infinite coefficient morphism uniquely by the native limit property.
+
+The base rings and parameter are arbitrary. The proof uses no flatness, reducedness, unit section, characteristic or exponent-invertibility assumption. Eight typed examples include the nonflat quotient Z→Z/4 at exponent 3, the 3|6 transition, the zero ring, a nonzero square-zero second root in characteristic 2, contravariant composition through Z/4→Z/2, and both directions of the actual scheme projection square.
+
+All 501 incoming mathematical contracts remain, with 498 whole node objects unchanged; only the existing infinite coefficient map, its Spec map and the scheme base-change isomorphism gain the 5 corresponding API entries. Two new constructions contain 7 API entries and 8 tests. All 40 planets, ten partial stages, eight gaps, thirteen supplier requests, both source routes, source issues/versions and the omission ledger remain. The reserved general root-stack key retains stack bases, every positive exponent and fppf scope. Every implementation stays unchecked.
+
+This is an affine diagram result. Coherent root-object groupoid reindexing, the finite projections of the general stack comparison and actual fpqc quotient/descent still need their recorded suppliers. The entire Tau-dependent canonical suggested file remains uncompiled because no existing complete build at its exact pin is available. The native proof certificate and bounded Mathlib planning projection check only their recorded source files and import cones.
+
+Fresh source reading covers the complete displayed Stacks Lemma 32.2.1 and proof, plus the current group-action conventions and all comments in Section 39.10. The root-specific identities here are authored deductions from the actual pinned APIs and inherited native chart construction. No fresh full-paper, recursive source closure, complete errata survey or stack-descent certification is asserted. Own6031 audit/protocol/upstream/source scopes are reused only at unchanged exact hashes and original scope. Peer6038 was publicly authenticated and its actual verifier replayed with the peer attribution retained.
+
+The actual finite root ring and scheme diagrams now have coefficient natural transformations for every positive index, with identity/composition coherence. The existing infinite coefficient map restricts to every finite level, and its actual affine scheme base-change isomorphism and inverse respect every finite projection. This discharges the affine finite-projection square only. Higher-universe adapters, coherent root-object groupoid reindexing and finite projections for the general stack comparison, TOWER-AFF fpqc frame torsors and actual infinite quotient/descent on objects and arrows remain open. All ten stages, eight gaps, thirteen requests, both paper routes, full omission ledger, finite Kummer/DVR bridges and geometric sheaf obligations retain their scope.
+
+## Coefficient change of the finite root diagram
+
+**TauCeti.RootStack.divisibilityRingCoefficientNatTrans** — For any unital φ:A→B, construct a native natural transformation between the existing positive-divisibility diagrams n↦A[t_n]/(t_n^n−f) and n↦B[t_n]/(t_n^n−φ(f)). At each positive n the component is the existing AdjoinRoot.map for coefficient change. Prove naturality for every n|N, including nonfactorial indices and nonflat coefficient maps.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-ring-diagram, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root, mathlib:AdjoinRoot.map, mathlib:AdjoinRoot.ringHom_ext.
+
+Proof: Use native AdjoinRoot.map and the polynomial map equality. Check the transition square on coefficients and the root generator: coefficient maps commute, and both root images are t_N^(N/n).
+
+Consumed API:
+
+- **TauCeti.RootStack.divisibilityRingCoefficientNatTrans.root**: For every positive n, the n-th component sends the actual source root t_n to the actual target root at parameter φ(f).
+- **TauCeti.RootStack.divisibilityRingCoefficientNatTrans.constant**: For every positive n and a∈A, the n-th component sends algebraMap_A(a) to algebraMap_B(φ(a)).
+- **TauCeti.RootStack.divisibilityRingCoefficientNatTrans.id**: Coefficient change along id_A is the identity natural transformation of the whole positive-divisibility ring diagram at f.
+- **TauCeti.RootStack.divisibilityRingCoefficientNatTrans.comp**: For A→φ B→ψ C, the natural transformation for ψ∘φ at f is the composite of the φ transformation at f and the ψ transformation at φ(f). This is equality of actual native natural transformations.
+
+Typed examples:
+
+- **TauCeti.RootStack.finiteProjectionTests.nonflat_third_root**: For Z→Z/4 at f=2 and nonfactorial index3, the actual finite diagram component sends the source third root to the target third root.
+- **TauCeti.RootStack.finiteProjectionTests.six_to_three**: For Z→Z/4 at f=2, changing coefficients after the 3|6 transition sends the third root to the square of the sixth root, preserving the actual quotient exponent 6/3.
+- **TauCeti.RootStack.finiteProjectionTests.zero_coefficient_ring**: For Z→Z/1, the finite component at exponent 3 sends every source element to zero in the actual root algebra over the zero ring.
+- **TauCeti.RootStack.finiteProjectionTests.wild_root_survives**: For Z→Z/2 at f=0 and exponent2, the image of the actual finite root is nonzero and square-zero. The map does not replace the wild nonreduced root algebra by its reduction.
+
+## The finite coefficient map preserves the root
+
+**TauCeti.RootStack.divisibilityRingCoefficientNatTrans.root** — For every positive n, the n-th component sends the actual source root t_n to the actual target root at parameter φ(f).
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/finite-coefficient-ring-natural, mathlib:AdjoinRoot.map_root.
+
+Proof: Use the pinned native map_root law.
+
+## The finite coefficient map applies φ to constants
+
+**TauCeti.RootStack.divisibilityRingCoefficientNatTrans.constant** — For every positive n and a∈A, the n-th component sends algebraMap_A(a) to algebraMap_B(φ(a)).
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/finite-coefficient-ring-natural, mathlib:AdjoinRoot.map_of.
+
+Proof: Use native map_of and the existing identification of the root-algebra coefficient map.
+
+## Identity coefficient change of the diagram
+
+**TauCeti.RootStack.divisibilityRingCoefficientNatTrans.id** — Coefficient change along id_A is the identity natural transformation of the whole positive-divisibility ring diagram at f.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/finite-coefficient-ring-root, FunctionFieldArithmeticPartII:RS.2/finite-coefficient-ring-constant, mathlib:AdjoinRoot.ringHom_ext.
+
+Proof: Apply natural-transformation and ring-map extensionality; the coefficient and root formulas identify every component with identity.
+
+## Composition of finite coefficient changes
+
+**TauCeti.RootStack.divisibilityRingCoefficientNatTrans.comp** — For A→φ B→ψ C, the natural transformation for ψ∘φ at f is the composite of the φ transformation at f and the ψ transformation at φ(f). This is equality of actual native natural transformations.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/finite-coefficient-ring-root, FunctionFieldArithmeticPartII:RS.2/finite-coefficient-ring-constant, mathlib:AdjoinRoot.ringHom_ext.
+
+Proof: At each positive level, compare ring maps on coefficients and the actual root generator.
+
+## The infinite coefficient map restricts to every finite level
+
+**TauCeti.RootStack.divisibilityCoefficientMap.level** — For every positive n, F_φ∘κ_A,n = κ_B,n∘η_φ,n as actual ring homomorphisms from the n-th finite root algebra into D_B(φ(f)). Here F_φ is the existing infinite coefficient map, κ the existing colimit inclusion and η the new finite diagram transformation.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-map, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-constant, FunctionFieldArithmeticPartII:RS.2/divisibility-coefficient-root, FunctionFieldArithmeticPartII:RS.2/divisibility-affine-inclusion, FunctionFieldArithmeticPartII:RS.2/finite-coefficient-ring-root, FunctionFieldArithmeticPartII:RS.2/finite-coefficient-ring-constant, mathlib:AdjoinRoot.ringHom_ext.
+
+Proof: Use native root-algebra extensionality, the actual infinite coefficient formulas and the coefficient compatibility of each inclusion.
+
+## Coefficient change of the finite scheme diagram
+
+**TauCeti.RootStack.divisibilitySpecCoefficientNatTrans** — Apply the native opposite natural transformation and whisker with Scheme.Spec to construct a natural transformation from the B-root inverse diagram at φ(f) to the A-root inverse diagram at f. Its direction is contravariant in φ and its components are actual Spec maps.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/finite-coefficient-ring-natural, FunctionFieldArithmeticPartII:RS.2/native-scheme-diagram, mathlib:CategoryTheory.NatTrans.op, mathlib:CategoryTheory.Functor.whiskerRight.
+
+Proof: Use the native opposite and right-whiskering constructions; the existing finite Spec diagram is exactly the opposite ring diagram followed by Scheme.Spec.
+
+Consumed API:
+
+- **TauCeti.RootStack.divisibilitySpecCoefficientNatTrans.app**: At op(n), the scheme transformation is Spec.map of the n-th native ring-transformation component.
+- **TauCeti.RootStack.divisibilitySpecCoefficientNatTrans.id**: For id_A, the scheme natural transformation is the identity of the entire finite-root inverse diagram.
+- **TauCeti.RootStack.divisibilitySpecCoefficientNatTrans.comp**: For A→φ B→ψ C, the transformation for ψ∘φ equals the ψ transformation at φ(f) followed by the φ transformation at f, as actual maps of inverse diagrams.
+
+Typed examples:
+
+- **TauCeti.RootStack.finiteProjectionTests.identity_scheme_diagram**: At the nonreduced base Z/4 and parameter2, the whole finite scheme transformation induced by id is the native identity transformation.
+- **TauCeti.RootStack.finiteProjectionTests.composed_quotient_diagram**: For the actual quotient chain Z→Z/4→Z/2 and f=2, the whole scheme natural transformation for the composite equals the two transformations in contravariant order.
+- **TauCeti.RootStack.finiteProjectionTests.nonflat_projection_square**: The actual affine base-change isomorphism for Z→Z/4 at f=2 commutes with the exponent3 finite scheme projection through the actual pullback second projection.
+- **TauCeti.RootStack.finiteProjectionTests.inverse_wild_projection**: The inverse affine base-change isomorphism for Z→Z/2 at f=0 commutes with the exponent2 projection through the actual finite coefficient Spec map; the corresponding root algebra is nonreduced.
+
+## The finite scheme component is the actual Spec map
+
+**TauCeti.RootStack.divisibilitySpecCoefficientNatTrans.app** — At op(n), the scheme transformation is Spec.map of the n-th native ring-transformation component.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/finite-coefficient-scheme-natural.
+
+Proof: Definitional reduction of opposite natural transformation and right whiskering.
+
+## Identity coefficient change of the inverse scheme diagram
+
+**TauCeti.RootStack.divisibilitySpecCoefficientNatTrans.id** — For id_A, the scheme natural transformation is the identity of the entire finite-root inverse diagram.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/finite-coefficient-scheme-natural, FunctionFieldArithmeticPartII:RS.2/finite-coefficient-ring-identity, mathlib:CategoryTheory.NatTrans.op_id.
+
+Proof: Reduce to the ring identity; native opposite and whiskering preserve identity.
+
+## Contravariant composition of finite scheme changes
+
+**TauCeti.RootStack.divisibilitySpecCoefficientNatTrans.comp** — For A→φ B→ψ C, the transformation for ψ∘φ equals the ψ transformation at φ(f) followed by the φ transformation at f, as actual maps of inverse diagrams.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/finite-coefficient-scheme-component, FunctionFieldArithmeticPartII:RS.2/finite-coefficient-ring-composition, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Compare components and apply native contravariant Spec.map_comp to the ring-transformation composition.
+
+## The infinite coefficient morphism commutes with finite projection
+
+**TauCeti.RootStack.divisibilitySpecCoefficientMap.projection** — For every positive n, F_S(φ) followed by the n-th projection of Spec D_A(f) equals the n-th projection of Spec D_B(φ(f)) followed by the n-th finite coefficient Spec map. Both sides are actual scheme morphisms.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-coefficient-map, FunctionFieldArithmeticPartII:RS.2/native-scheme-projection, FunctionFieldArithmeticPartII:RS.2/finite-coefficient-scheme-component, FunctionFieldArithmeticPartII:RS.2/finite-coefficient-coefficient-level, mathlib:AlgebraicGeometry.Spec.map_comp.
+
+Proof: Rewrite the actual projections and coefficient morphism as Spec maps; the finite-level ring equality gives the square.
+
+## The affine base-change isomorphism respects every finite projection
+
+**TauCeti.RootStack.divisibilitySpecBaseChangeIso.projection** — For arbitrary φ and every positive n, the existing isomorphism Spec D_B(φ(f))→Spec B×_(Spec A)Spec D_A(f), followed by the second pullback projection and the n-th A-root projection, equals the n-th B-root projection followed by its coefficient Spec map. No flatness or exponent-invertibility is required.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-second, FunctionFieldArithmeticPartII:RS.2/finite-coefficient-scheme-projection.
+
+Proof: Use the actual second-projection identity of the existing base-change isomorphism and the new finite-projection square.
+
+## The inverse affine comparison respects finite projection
+
+**TauCeti.RootStack.divisibilitySpecBaseChangeIso.inverse_projection** — For every positive n, the inverse base-change isomorphism followed by the B-root projection and its coefficient Spec map equals the pullback second projection followed by the A-root projection.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-base-change-scheme-inverse-second, FunctionFieldArithmeticPartII:RS.2/finite-coefficient-scheme-projection.
+
+Proof: Replace the finite projection composite by the coefficient morphism composite; reassociate and apply the actual inverse-second-projection identity.
+
+## Finite projections determine the infinite coefficient morphism
+
+**TauCeti.RootStack.divisibilitySpecCoefficientMap.unique** — A scheme morphism g:Spec D_B(φ(f))→Spec D_A(f) satisfying all the displayed finite-projection squares is exactly F_S(φ). The source and every diagram projection are the actual affine schemes, not a proposed stack carrier.
+
+Hypotheses: A,B,C are arbitrary commutative rings in the chosen common universe, φ and ψ are unital ring maps, and f∈A is arbitrary. RootDivIndex contains every positive exponent with divisibility transitions. No field, nontriviality, reducedness, unit section, regularity, flatness, injectivity or exponent-invertibility condition is imposed. Use the existing finite AdjoinRoot algebras, actual divisibility colimit, native ring/Spec diagrams and actual scheme pullback. Higher-universe adapters and root-object groupoid/stack/fpqc descent are separate open obligations.
+
+Prerequisites: FunctionFieldArithmeticPartII:RS.2/native-scheme-ext, FunctionFieldArithmeticPartII:RS.2/finite-coefficient-scheme-projection.
+
+Proof: Use the existing native limit-cone hom extensionality and compare every positive-index projection.
+
+## Additional API for the existing comparison maps
+
+- **TauCeti.RootStack.divisibilityCoefficientMap.level**: For every positive n, F_φ∘κ_A,n = κ_B,n∘η_φ,n as actual ring homomorphisms from the n-th finite root algebra into D_B(φ(f)). Here F_φ is the existing infinite coefficient map, κ the existing colimit inclusion and η the new finite diagram transformation.
+- **TauCeti.RootStack.divisibilitySpecCoefficientMap.projection**: For every positive n, F_S(φ) followed by the n-th projection of Spec D_A(f) equals the n-th projection of Spec D_B(φ(f)) followed by the n-th finite coefficient Spec map. Both sides are actual scheme morphisms.
+- **TauCeti.RootStack.divisibilitySpecCoefficientMap.unique**: A scheme morphism g:Spec D_B(φ(f))→Spec D_A(f) satisfying all the displayed finite-projection squares is exactly F_S(φ). The source and every diagram projection are the actual affine schemes, not a proposed stack carrier.
+- **TauCeti.RootStack.divisibilitySpecBaseChangeIso.projection**: For arbitrary φ and every positive n, the existing isomorphism Spec D_B(φ(f))→Spec B×_(Spec A)Spec D_A(f), followed by the second pullback projection and the n-th A-root projection, equals the n-th B-root projection followed by its coefficient Spec map. No flatness or exponent-invertibility is required.
+- **TauCeti.RootStack.divisibilitySpecBaseChangeIso.inverse_projection**: For every positive n, the inverse base-change isomorphism followed by the B-root projection and its coefficient Spec map equals the pullback second projection followed by the A-root projection.
+
 # Tensor base change and the universal root action
 
 Let A be any commutative ring, f∈A and B an arbitrary A-algebra, with coefficient map φ:A→B. Let D_A(f) be the direct limit of A[t_n]/(t_n^n−f) over all positive exponents ordered by divisibility. Write δ_A for the existing LEFT rational-character coaction, F_φ for its coefficient map and F_target for the corresponding map of coaction targets. The native tensor comparison is E:B⊗_A D_A(f)≃ₐ[B]D_B(φ(f)).
