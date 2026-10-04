@@ -32,17 +32,32 @@ job follows. Its main rules:
 - write timelessly;
 - use Mathlib's vocabulary.
 
-**Coverage.** A roadmap covers its sources completely. Go through every paper
-and book the roadmap is built on (its document's references and the sources its
-layers cite), and find every definition and every key theorem they use or prove
-on the way to the roadmap's targets. Each one is outlined in the roadmap: as a
-node of its packet, or as a citation of the library declaration or the other
-roadmap's node that already provides it. For example, a prismatic roadmap
+**Coverage.** A roadmap's plan starts from its targets: every definition,
+construction and theorem its layers state. For each target, go through the
+papers and books the roadmap is built on (its document's references and the
+sources its layers cite), and find the definitions and key theorems they use on
+the way to it. Each one is outlined in the roadmap: as a node of its packet, or
+as a citation of the library declaration or the other roadmap's node that
+already provides it. A source's results that no target needs are not planned. For example, a prismatic roadmap
 outlines prisms, δ-rings, the prismatic site, perfect and semiperfectoid rings,
 derived completion, perfectoidization, the cotangent complex, derived
 prismatic cohomology, the décalage functor, almost purity, quasisyntomic
 sheaves, divided power envelopes and the Koszul complex, and states Bhatt and
 Scholze's main comparison theorems with all their hypotheses.
+
+**Breadth before depth, within a budget.** A planning job first plans every
+stage in scope at the level of its targets, and only then refines. A stage is
+`planned` when every target it states is a node whose prerequisite chains end in
+the libraries, in another roadmap's node or requested stage, or in a recorded
+gap, at the granularity of section 2. Its `remaining` list may still name
+refinements. A stage is `closed` when it is planned, has no gaps and has nothing
+remaining. A job stops at about 300 nodes (`NODE_BUDGET` in
+`scripts/check_blueprint.py`), or sooner when every stage in scope is planned. It
+then records each stage's coverage honestly, with a precise `remaining` list for
+every stage it leaves open, and sets the packet's status to `complete`. A
+complete packet goes to its independent review. Once the review accepts it,
+each stage the packet left open becomes a follow-up job with its own packet and
+review, and an assembly job joins the parts into one roadmap.
 
 Read at least two upstream documents in or near your area before writing, for
 example `content/tau-ceti/ModularForms/README.md`,
@@ -231,8 +246,13 @@ Field notes:
   `comparison` or `application`.
 - `parentStageId` is a stage of the roadmap, or a node of the same roadmap for
   sub-structure.
-- Coverage status is one of `not_read`, `partial`, `source_decomposed` or
-  `closed`. A `closed` stage has an empty `remaining` list.
+- Coverage status is one of `not_read`, `partial`, `planned`,
+  `source_decomposed` or `closed` (section 0). A `closed` or `source_decomposed`
+  stage has an empty `remaining` list; a `planned` one may still name
+  refinements there.
+- `status` is `partial` while a job is under way, `complete` when its pass is
+  finished (section 0), and `closed` when every stage in scope is closed with no
+  gaps or requests left.
 - `links` are optional, because promotion derives them from `prerequisites`.
 - `scope` lists the stages this packet covers. Omit it to mean the whole
   roadmap.

@@ -487,12 +487,13 @@ STATE_LABELS = ("state:available", "state:blocked", "state:claimed", "state:runn
 AWAIT_INTEGRATION = {"blueprint", "design", "link"}
 
 
-DECOMPOSED = ("source_decomposed", "closed")
+# Coverage a planning job may finish a stage with (PROTOCOL.md section 0; scripts/check_blueprint.py PLANNED).
+DECOMPOSED = ("planned", "source_decomposed", "closed")
 
 
 def deliverables_complete(job, root=REPO):
     """Every output exists and covers the whole job: for a batch, every item of the
-    batch; for a plan, every layer in scope decomposed from its sources; for a link
+    batch; for a plan, a complete pass or every stage in scope planned; for a link
     map, the status "complete". Anything less is a checkpoint."""
     bp = root / "research" / "blueprint"
     paths = [root / path for path in job.get("outputs", [])]
@@ -504,7 +505,10 @@ def deliverables_complete(job, root=REPO):
             if packet_path is None:
                 return True
             packet = json.loads(packet_path.read_text())
-            if packet.get("status") == "closed":
+            # "complete": the pass ended at its node budget or with every stage planned, and the
+            # checker has held it to that (PROTOCOL.md section 0); the stages it leaves open become
+            # follow-up jobs once its review accepts it.
+            if packet.get("status") in ("closed", "complete"):
                 return True
             scope = job.get("scope") or packet.get("scope")
             if not scope and job["kind"] == "design":

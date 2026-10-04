@@ -13,11 +13,14 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 BP = REPO / "research" / "blueprint"
+sys.path.insert(0, str(REPO / "scripts"))
+from check_blueprint import NODE_BUDGET, PLANNED  # noqa: E402
 
 COMMON_INPUTS = """INPUTS
 - The roadmap text and stages: data/atlas.json (roadmaps[] entry with the roadmap id: readme, summary; stages[] with that owner: id, key, title, description, requires, consumers, parentStageId). Extract them with python3 into your scratch directory and read them in full. New roadmaps are defined in research/blueprint/roadmaps/*.json.
@@ -41,13 +44,13 @@ CHECK_INPUTS = """INPUTS
 - Reference library: {LIBRARY}/ (CATALOGUE.json and the additional_*.json catalogues, papers/, extracted/, text/; text files are page-ordered: use grep -n and sed -n). Public sources that are not in the library may be fetched into your scratch directory with provenance (URL, SHA-256, date); never into the repository."""
 
 METHOD = """METHOD
-1. Sources and targets. Go through every paper and book the roadmap is built on (its document's references and the sources its stages cite), and list every definition and every key theorem they use or prove on the way to the targets of the stages in scope, together with the targets the stages state: definitions, constructions, theorems, comparisons, examples. Each becomes a node whose `realises` names its stage, unless the libraries or another roadmap already provide it (step 2). Coverage is complete: no definition or key theorem of the sources is left out (PROTOCOL.md section 0).
+1. Targets first, then what they need. Start from the targets the stages in scope state: definitions, constructions, theorems, comparisons, examples. Each becomes a node whose `realises` names its stage, unless the libraries or another roadmap already provide it (step 2). Then read the papers and books the roadmap is built on (its document's references and the sources its stages cite) for the definitions and key theorems those targets need on the way. Each of these becomes a node, or a citation of what already provides it. A source's results that no target in scope needs are not planned here (PROTOCOL.md section 0).
 2. Backward chaining to the baseline. For each node write the exact statement with all hypotheses, then the construction or proof as steps, and list every fact a step uses in `prerequisites`. For each prerequisite:
    (a) find it in the baseline and confirm its statement in the Lean source (record it in baseline.declarations); or
    (b) find it as a node of another blueprint or integrated decomposition and confirm that node's statement suffices; or
    (c) if it belongs to another roadmap with no suitable node yet, add a `requests` entry and list that roadmap's stage; or
    (d) add a new node to this packet.
-   Recurse on every new node until every chain ends in (a), (b) or (c). Keep an explicit worklist in your scratch directory and work through it methodically; do not stop at the first level.
+   Recurse on every new node until every chain ends in (a), (b), (c) or a recorded gap. Keep an explicit worklist in your scratch directory and work through it methodically; do not stop at the first level.
    Build on existing roadmaps and never duplicate them (PROTOCOL.md section 15): what a Tau Ceti roadmap or another proposed roadmap plans is imported through (b) or (c), never planned again in (d). If you need more than an existing roadmap provides in its own direction, propose the addition as "<that roadmap>, Part II" in `restructure`.
 3. Granularity. One node per library declaration. Split multi-part results. Every non-routine step becomes its own lemma node.
 4. Uses, API and unit tests. For every definition and construction, first find where and how it is used, in the sources and in the layers that consume it (the stage links in the atlas extracts, and other packets), and record each use in `uses` as {{"where", "how"}}. Then give it an `api` outline that serves those uses (PROTOCOL.md section 4) and a `tests` list of at least three unit tests (section 12), chosen so that a plausible wrong definition fails one of them: a value in a small case, the degenerate case, agreement with the closest Mathlib or Tau Ceti notion wherever both are defined, and a non-example. Think as a library designer: what does a user of this object need in order to use it without unfolding its definition? Include compatibility with the closest Mathlib or Tau Ceti notion, stated precisely.
@@ -71,9 +74,11 @@ RULES
 - Edit only {EDITABLE}, the document {README}, the suggested file {SUGGESTED}, the handoff note and files in your scratch directory. Do not run git. Do not edit application code, data/, content/, tests/, README.md, HANDOVER.md, the queue, reserved ids or other packets.
 - No private absolute paths, PDFs or extracted book text in the repository.
 - Save the packet after every few nodes (write to a temporary file in your scratch directory, validate it with python3 -c 'import json;json.load(open(...))', then move it into place) so an interrupted run loses little.
-- Depth before breadth: a closed treatment of fewer stages is worth more than a shallow treatment of all. If you cannot finish, leave status "partial" with precise `remaining` lists so a continuation job can resume exactly where you stopped.
+- Breadth before depth (PROTOCOL.md section 0). First plan every stage in scope at the level of its targets, then refine. A stage is `planned` when every target it states is a node whose prerequisite chains end in the libraries, in another roadmap's node or requested stage, or in a recorded gap, at the granularity of step 3. Its `remaining` list may still name refinements. A stage is `closed` when it is planned, has no gaps and has nothing remaining.
+- Budget: about {BUDGET} nodes. Stop refining when the packet reaches it, or sooner when every stage in scope is planned or closed. Then give every stage an honest coverage record: planned, closed, or partial / not_read with a precise `remaining` list. Set the packet's "status" to "complete", and bring the document, suggested file and handoff note up to date for what is planned. A complete packet goes to its independent review, and each stage it leaves open becomes a follow-up job. If the packet already has more than {BUDGET} nodes when you start, add no nodes: bring the coverage records, gaps, document, suggested file and handoff up to date, and set "status" to "complete".
+- If you have to stop before the pass is complete, leave "status" as "partial" with precise `remaining` lists, so the next worker resumes exactly where you stopped.
 
-Finish by printing a summary under 250 words: nodes by kind, API items, unit tests, planets, baseline declarations cited, whether the suggested file compiled, gaps, requests, and what a continuation must do."""
+Finish by printing a summary under 250 words: nodes by kind, API items, unit tests, planets, baseline declarations cited, whether the suggested file compiled, gaps, requests, the status of each stage, and what a follow-up must do."""
 
 HEADER = """You are a research mathematician and library architect for the Tau Ceti Atlas blueprint programme. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it).
 
@@ -287,7 +292,7 @@ Check each item below, and correct it in place wherever the fix is clear. Record
 2. Baseline. For every `baseline.declarations` entry, open the Lean file at the cited module and confirm two things: that the declaration exists under that name at the pinned commit, and that its statement provides what the citing nodes need, with the same or weaker hypotheses and the same conventions. Remove or replace a wrong citation. A near miss becomes a node.
 3. Closure. For every node, ask whether its proofSteps really follow from its prerequisites plus routine steps.
    - Where they do not, add the missing prerequisites or lemma nodes, marking each added node with "addedBy": "{JOB}", or record a gap.
-   - Check that every stage target in scope is realised.
+   - Check that every target of a stage marked planned or closed is realised.
    - Check that cross-roadmap prerequisites are justified, by reading the supplier's statement.
    - Check that each request is precise.
 4. Granularity. Split any node that bundles several declarations or hides a non-routine argument.
@@ -305,7 +310,7 @@ Use "accepted" only when all of the following hold:
 - every node is verified, corrected, or added and justified;
 - every baseline citation is confirmed;
 - no unresolved contradiction remains.
-A packet may still be accepted while it is partial and while it lists open gaps, as long as they are recorded honestly.
+A packet may still be accepted while it is partial and while it lists open gaps, as long as they are recorded honestly. A packet whose status is "complete" is one finished pass under the node budget (PROTOCOL.md section 0). Check every stage it marks planned or closed against those definitions, and correct the status where it does not hold. A stage left partial or not_read is acceptable when its `remaining` list is precise, because it becomes a follow-up job. Accept a complete pass when what it plans is right; do not send it back for the stages it leaves open.
 Write research/blueprint/reviews/{JOB}.md with the counts, corrections, baseline citations removed or fixed, nodes added, and questions for the orchestrator.
 
 RULES: edit only the files under review, your report and scratch files. Do not run git. No Lean code outside the suggested file under review. No private paths in the repository. Do not promote anything.
@@ -961,6 +966,43 @@ def added_sources(rid):
 ONE_LAYER_PER_PART = {"DirichletPadicLFunctions": "2026-10-02"}
 
 
+def review_job(job_id):
+    """The independent review of a blueprint, follow-up or design job."""
+    return "REV-" + (job_id[3:] if job_id.startswith("BP-") else job_id)
+
+
+def new_roadmap(rid):
+    """The definition of a roadmap a design job proposed, or {} for one the atlas already has."""
+    path = BP / "roadmaps" / f"{rid}.json"
+    try:
+        return json.loads(path.read_text()) if path.exists() else {}
+    except ValueError:
+        return {}
+
+
+def open_stages(packet, scope):
+    """[(stage, remaining)] for each stage in scope that the packet does not plan (PROTOCOL.md section 0)."""
+    covered = {c.get("stageId"): c for c in packet.get("coverage") or [] if isinstance(c, dict)}
+    return [(sid, (covered.get(sid) or {}).get("remaining") or []) for sid in scope
+            if (covered.get(sid) or {}).get("status") not in PLANNED]
+
+
+def accepted_pass(job, prior):
+    """(packet path, packet) when a planning job's review has finished and accepted its packet, else None."""
+    if prior.get(review_job(job["id"]), {}).get("state") != "done":
+        return None
+    path = next((o for o in job.get("outputs") or [] if o.startswith("research/blueprint/packets/")), None)
+    try:
+        packet = json.loads((REPO / path).read_text()) if path else None
+    except (OSError, ValueError):
+        return None
+    # Only a pass finished under the node budget hands on its open stages. Packets accepted while
+    # "partial" under the earlier rule keep their gaps and requests for the red-team and fix rounds.
+    if not isinstance(packet, dict) or packet.get("status") != "complete" or (packet.get("review") or {}).get("status") != "accepted":
+        return None
+    return path, packet
+
+
 def split_note(rid, output):
     """What a layer job of a split roadmap inherits from the whole-roadmap job."""
     return (f"\nUntil {ONE_LAYER_PER_PART[rid]} one job, BP-{rid}, planned this whole roadmap, and it grew past what one review "
@@ -1195,7 +1237,7 @@ def main():
     for a, b in edges:
         if comp[a] != comp[b]:
             suppliers[b].add(a)
-    fill = dict(REPO=str(REPO), BASELINE=args.baseline, LIBRARY=args.library, WORKERS=args.workers)
+    fill = dict(REPO=str(REPO), BASELINE=args.baseline, LIBRARY=args.library, WORKERS=args.workers, BUDGET=NODE_BUDGET)
     jobs = []
     prompts = {}
 
@@ -1434,6 +1476,58 @@ def main():
             # maps; it waits only for its family's restructuring, when it has one.
             job["suppliers"] = sorted({j for s in suppliers[rid] if not s.startswith("tauceti:") for j in bp_jobs_of.get(s, []) if j in ids})
             job["after"] = (["REV-PLAN-HABIRO"] if rid in HABIRO_FAMILY else []) + ([family_review[rid]] if rid in family_review else [])
+    # Follow-ups (PROTOCOL.md section 0): a pass its review accepted leaves each stage it did not plan
+    # to a job of its own, with its own packet and review; the assembly below joins the parts.
+    worklist = [j for j in jobs if j["kind"] in ("blueprint", "design")]
+    taken = {j["id"] for j in jobs}
+    while worklist:
+        job = worklist.pop(0)
+        accepted = accepted_pass(job, prior)
+        if not accepted:
+            continue
+        packet_path, packet = accepted
+        rid = job["roadmapIds"][0]
+        definition = new_roadmap(rid)
+        title = (roadmaps.get(rid) or {}).get("title") or definition.get("title") or rid
+        stage_titles = {s["id"]: s["title"] for s in stages_by_owner.get(rid, [])}
+        stage_titles.update({f"{rid}:{st.get('key')}": st.get("title") or st.get("name") or st.get("key")
+                             for st in definition.get("stages") or []})
+        scope = job.get("scope") or packet.get("scope") or [f"{rid}:{st.get('key')}" for st in definition.get("stages") or []]
+        review_id = review_job(job["id"])
+        own = (job["id"], packet_path, *[o for o in job["outputs"] if o.endswith((".md", ".lean")) and "/split/" not in o][:2])
+        for sid, remaining in open_stages(packet, scope):
+            key = sid.split(":", 1)[1].split("#")[-1][:40].replace("/", "-").replace(":", "-")
+            fid, n = f"BP-{file_id(rid)}--{key}", 2
+            while fid in taken:
+                fid, n = f"BP-{file_id(rid)}--{key}-{n}", n + 1
+            taken.add(fid)
+            part = fid[len(f"BP-{file_id(rid)}--"):]
+            output = f"research/blueprint/packets/{file_id(rid)}--{part}.json"
+            readme = f"research/blueprint/readmes/{file_id(rid)}--{part}.md"
+            suggested = f"research/blueprint/suggested/{file_id(rid)}--{part}.lean"
+            note = (f"\nThis stage is a follow-up of {job['id']}: its pass ended at the node budget or left this stage open, and "
+                    f"its review {review_id} accepted it. Plan the stage in your own packet {output}, whose scope is this stage "
+                    f"alone. Start from the coverage record for {sid} in {packet_path}, which says what remains"
+                    + (f" ({'; '.join(str(r) for r in remaining)[:600]})" if remaining else "") +
+                    f". Cite that packet's nodes by id wherever they apply, give your nodes ids it does not use, and do not edit it.\n")
+            text = BP_TEMPLATE.format(**fill, JOB=fid, ROADMAP=rid, TITLE=title, README=readme, SUGGESTED=suggested,
+                                      PARTNOTE=f", stage {key}, a follow-up of {job['id']}",
+                                      STAGES=f"- {sid} — {stage_titles.get(sid, sid)}", OUTPUT=output, PART=json.dumps(part),
+                                      EXTRA=note, FILE=file_id(rid), EDITABLE=output)
+            follow = {"id": fid, "kind": "blueprint", "priority": job.get("priority", 3), "order": job.get("order", 0),
+                      "roadmapIds": [rid], "scope": [sid], "outputs": [output, readme, suggested], "after": [review_id],
+                      "followUpOf": job["id"]}
+            add(follow, text)
+            rtext = REVIEW_TEMPLATE.format(**fill, JOB=review_job(fid), TARGETS=f"the blueprint packet {output} and its suggested Lean file {suggested} (roadmap {rid}, stage {sid}, a follow-up of {job['id']})")
+            add({"id": review_job(fid), "kind": "review", "priority": 2, "order": job.get("order", 0), "roadmapIds": [rid],
+                 "outputs": [f"research/blueprint/reviews/{review_job(fid)}.md", output, suggested], "after": [fid],
+                 "avoidAccountOf": fid}, rtext)
+            taken.add(review_job(fid))
+            bp_jobs_of[rid].append(fid)
+            if not any(p[0] == job["id"] for p in parts_of[rid]):
+                parts_of[rid].insert(0, own)
+            parts_of[rid].append((fid, output, readme, suggested))
+            worklist.append(follow)
     # Assembly of multi-part roadmaps, after every part is reviewed.
     for rid, parts in parts_of.items():
         if len(parts) < 2:
@@ -1447,8 +1541,11 @@ def main():
         if rid in ONE_LAYER_PER_PART:
             text += (f"\nresearch/blueprint/split/{file_id(rid)}.md and .lean are the drafts of the job that planned the whole roadmap "
                      "before it was split by layer. Take from them only what no part carried over, and do not edit them.")
-        add({"id": job_id, "kind": "assembly", "priority": 2, "order": 5000, "roadmapIds": [rid], "outputs": [readme, suggested],
-             "after": ["REV-" + p[0][3:] for p in parts]}, text)
+        # The handoff note is the one output that cannot exist before the assembly runs: the
+        # document and suggested file may be a part's own, which would make the job look finished.
+        add({"id": job_id, "kind": "assembly", "priority": 2, "order": 5000, "roadmapIds": [rid],
+             "outputs": [readme, suggested, f"research/blueprint/handoff/{job_id}.md"],
+             "after": [review_job(p[0]) for p in parts]}, text)
     # Priority 1: name the planets drawn today (research/expansion/naming/PLANETS.json).
     planets_index = BP.parent / "expansion" / "naming" / "PLANETS.json"
     for number, batch in enumerate(json.loads(planets_index.read_text())["jobs"] if planets_index.exists() else [], 1):
