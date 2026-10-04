@@ -1645,3 +1645,194 @@ example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) [IsAffineHom g]
   sorry
 
 end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X Y Z : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+def kernelCompNatIso (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) :
+    allOpenQuotient (I.comap (f ≫ g)) ≅ allOpenQuotient ((I.comap g).comap f) :=
+  NatIso.ofComponents (fun U => (kernelCompIso I f g U.unop).toCommRingCatIso)
+    (fun h => kernelCompIso_naturality I f g h.unop.le)
+
+lemma kernelCompNatIso_app (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : X.Opens) :
+    (kernelCompNatIso I f g).app (op U) = (kernelCompIso I f g U).toCommRingCatIso := by
+  sorry
+
+lemma kernelCompNatIso_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : X.Opens) (a : Γ(X, U)) :
+    (kernelCompNatIso I f g).hom.app (op U) (Ideal.Quotient.mk _ a) =
+      Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma kernelCompNatIso_inv_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : X.Opens) (a : Γ(X, U)) :
+    (kernelCompNatIso I f g).inv.app (op U) (Ideal.Quotient.mk _ a) =
+      Ideal.Quotient.mk _ a := by
+  sorry
+
+def sheafCompNatIso (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) :
+    sheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap (f ≫ g))) ≅
+      sheafify (Opens.grothendieckTopology X) (allOpenQuotient ((I.comap g).comap f)) :=
+  (sheafification (Opens.grothendieckTopology X) CommRingCat).mapIso (kernelCompNatIso I f g)
+
+lemma sheafCompNatIso_unit (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) :
+    toSheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap (f ≫ g))) ≫
+      (sheafCompNatIso I f g).hom =
+    (kernelCompNatIso I f g).hom ≫
+      toSheafify (Opens.grothendieckTopology X) (allOpenQuotient ((I.comap g).comap f)) := by
+  sorry
+
+lemma sheafCompNatIso_unit_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : X.Opens) (a : Γ(X, U)) :
+    (sheafCompNatIso I f g).hom.app (op U)
+      ((toSheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap (f ≫ g)))).app
+        (op U) (Ideal.Quotient.mk _ a)) =
+    (toSheafify (Opens.grothendieckTopology X) (allOpenQuotient ((I.comap g).comap f))).app
+      (op U) (Ideal.Quotient.mk _ a) := by
+  sorry
+
+lemma sheafCompNatIso_inv_unit_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : X.Opens) (a : Γ(X, U)) :
+    (sheafCompNatIso I f g).inv.app (op U)
+      ((toSheafify (Opens.grothendieckTopology X) (allOpenQuotient ((I.comap g).comap f))).app
+        (op U) (Ideal.Quotient.mk _ a)) =
+    (toSheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap (f ≫ g)))).app
+      (op U) (Ideal.Quotient.mk _ a) := by
+  sorry
+
+def closedCompNatIso (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) :
+    (TopologicalSpace.Opens.map (I.comap (f ≫ g)).subschemeι.base).op ⋙
+      (I.comap (f ≫ g)).subscheme.presheaf ≅
+    (TopologicalSpace.Opens.map ((I.comap g).comap f).subschemeι.base).op ⋙
+      ((I.comap g).comap f).subscheme.presheaf :=
+  let _ := allOpenSheafComparison_isIso (I.comap (f ≫ g))
+  let _ := allOpenSheafComparison_isIso ((I.comap g).comap f)
+  (asIso (allOpenSheafComparison (I.comap (f ≫ g)))).symm ≪≫
+    sheafCompNatIso I f g ≪≫ asIso (allOpenSheafComparison ((I.comap g).comap f))
+
+lemma sheafCompNatIso_closed (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) :
+    (sheafCompNatIso I f g).hom ≫ allOpenSheafComparison ((I.comap g).comap f) =
+      allOpenSheafComparison (I.comap (f ≫ g)) ≫ (closedCompNatIso I f g).hom := by
+  sorry
+
+lemma closedCompNatIso_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : X.Opens) (a : Γ(X, U)) :
+    (closedCompNatIso I f g).hom.app (op U) ((I.comap (f ≫ g)).subschemeι.app U a) =
+      ((I.comap g).comap f).subschemeι.app U a := by
+  sorry
+
+lemma closedCompNatIso_inv_mk (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (U : X.Opens) (a : Γ(X, U)) :
+    (closedCompNatIso I f g).inv.app (op U) (((I.comap g).comap f).subschemeι.app U a) =
+      (I.comap (f ≫ g)).subschemeι.app U a := by
+  sorry
+
+lemma kernelCompNatIso_closed (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) :
+    (kernelCompNatIso I f g).hom ≫ allOpenToClosed ((I.comap g).comap f) =
+      allOpenToClosed (I.comap (f ≫ g)) ≫ (closedCompNatIso I f g).hom := by
+  sorry
+
+lemma sheafCompNatIso_unique (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (q : sheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap (f ≫ g))) ⟶
+      sheafify (Opens.grothendieckTopology X) (allOpenQuotient ((I.comap g).comap f)))
+    (hq : q ≫ allOpenSheafComparison ((I.comap g).comap f) =
+      allOpenSheafComparison (I.comap (f ≫ g)) ≫ (closedCompNatIso I f g).hom) :
+    q = (sheafCompNatIso I f g).hom := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X Y Z : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: CompositeKernelPresheafChecked.roundtrip
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) (U : X.Opens)
+    (q : (allOpenQuotient (I.comap (f ≫ g))).obj (op U)) :
+    (kernelCompNatIso I f g).inv.app (op U)
+      ((kernelCompNatIso I f g).hom.app (op U) q) = q := by
+  sorry
+
+-- test: CompositeKernelPresheafChecked.empty_open
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    (q : (allOpenQuotient (I.comap (f ≫ g))).obj (op (⊥ : X.Opens))) :
+    (kernelCompNatIso I f g).hom.app (op (⊥ : X.Opens)) q = 0 := by
+  sorry
+
+-- test: CompositeKernelPresheafChecked.two_restrictions
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    {U V W : X.Opens} (h : U ≤ V) (k : V ≤ W)
+    (q : (allOpenQuotient (I.comap (f ≫ g))).obj (op W)) :
+    (kernelCompNatIso I f g).hom.app (op U)
+      (allOpenRestriction (I.comap (f ≫ g)) h
+        (allOpenRestriction (I.comap (f ≫ g)) k q)) =
+    allOpenRestriction ((I.comap g).comap f) (h.trans k)
+      ((kernelCompNatIso I f g).hom.app (op W) q) := by
+  sorry
+
+-- test: CompositeClosedPresheafChecked.all_sections_roundtrip
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) (U : X.Opens)
+    (s : Γ((I.comap (f ≫ g)).subscheme, (I.comap (f ≫ g)).subschemeι ⁻¹ᵁ U)) :
+    (closedCompNatIso I f g).inv.app (op U)
+      ((closedCompNatIso I f g).hom.app (op U) s) = s := by
+  sorry
+
+-- test: CompositeClosedPresheafChecked.all_quotient_classes
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) (U : X.Opens)
+    (q : (allOpenQuotient (I.comap (f ≫ g))).obj (op U)) :
+    (allOpenToClosed ((I.comap g).comap f)).app (op U)
+      ((kernelCompNatIso I f g).hom.app (op U) q) =
+    (closedCompNatIso I f g).hom.app (op U)
+      ((allOpenToClosed (I.comap (f ≫ g))).app (op U) q) := by
+  sorry
+
+-- test: CompositeClosedPresheafChecked.restriction
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z)
+    {U V : X.Opens} (h : U ≤ V)
+    (s : Γ((I.comap (f ≫ g)).subscheme, (I.comap (f ≫ g)).subschemeι ⁻¹ᵁ V)) :
+    (closedCompNatIso I f g).hom.app (op U)
+      ((I.comap (f ≫ g)).subscheme.presheaf.map
+        (homOfLE ((I.comap (f ≫ g)).subschemeι.preimage_mono h)).op s) =
+    ((I.comap g).comap f).subscheme.presheaf.map
+      (homOfLE (((I.comap g).comap f).subschemeι.preimage_mono h)).op
+      ((closedCompNatIso I f g).hom.app (op V) s) := by
+  sorry
+
+-- test: CompositeSheafChecked.all_sections_square
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) (U : X.Opens)
+    (q : (sheafify (Opens.grothendieckTopology X)
+      (allOpenQuotient (I.comap (f ≫ g)))).obj (op U)) :
+    (allOpenSheafComparison ((I.comap g).comap f)).app (op U)
+      ((sheafCompNatIso I f g).hom.app (op U) q) =
+    (closedCompNatIso I f g).hom.app (op U)
+      ((allOpenSheafComparison (I.comap (f ≫ g))).app (op U) q) := by
+  sorry
+
+-- test: CompositeSheafChecked.forced_comparison
+example (I : Z.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) :
+    let _ := allOpenSheafComparison_isIso ((I.comap g).comap f)
+    allOpenSheafComparison (I.comap (f ≫ g)) ≫ (closedCompNatIso I f g).hom ≫
+      inv (allOpenSheafComparison ((I.comap g).comap f)) = (sheafCompNatIso I f g).hom := by
+  sorry
+
+-- test: CompositeSheafChecked.nonreduced_identity
+example :
+    let X := Spec (.of (ZMod 4))
+    let I : X.IdealSheafData := ⊥
+    let U : X.Opens := ⊤
+    let a := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    let q := (sheafCompNatIso I (𝟙 X) (𝟙 X)).hom.app (op U)
+      ((toSheafify (Opens.grothendieckTopology X)
+        (allOpenQuotient (I.comap (𝟙 X ≫ 𝟙 X)))).app (op U) (Ideal.Quotient.mk _ a))
+    q ≠ 0 ∧ q ^ 2 = 0 := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
