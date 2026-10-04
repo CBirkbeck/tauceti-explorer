@@ -4,6 +4,26 @@ Blueprint for the roadmap `FiniteFieldsAndCharacterSums`, job `BP-FiniteFieldsAn
 Packet: `research/blueprint/packets/FiniteFieldsAndCharacterSums.json`. Suggested Lean file:
 `research/blueprint/suggested/FiniteFieldsAndCharacterSums.lean`. Handoff: `research/blueprint/handoff/BP-FiniteFieldsAndCharacterSums.md`.
 
+The planning boundary follows the current protocol. The declarations below retain their inherited mathematical
+statements, API and tests; this pass adds no declarations and does not independently certify their proofs or all
+457 baseline citations. The packet's source-version records attribute the previous worker's readings of the
+specified preprints, published scan and author copies. They do not claim new published-version collation.
+
+| Layer | Current coverage frontier |
+|---|---|
+| FF.0 | Certified field presentations, Rabin certificates, tensor products and normal bases remain target-planned. |
+| FF.1 | Hasse–Davenport product proof and the precise AC.0 Fourier import remain open; the Bergstrom–Faber–Payne two-point character-sum interpolation target is absent. |
+| FF.2 | GOS, Weil I 8.5 compactification/local constancy, uniform Lang–Weil, the constant-field Chebotarev variant, hyper-Kloosterman and correlation inputs remain open. Reconcile Weil II 3.7.2–3.7.3 and canonical Artin–Schreier/global and local Fourier ownership. |
+| FF.3 | Existing factorization and point-count algorithms retain their correctness and cost contracts. The routed square-free polynomial count is absent; its ownership and CN.0/CN.5 input checks remain open. |
+| FF.4 | The dyadic Galois-ring unit group, Soto–Andrade estimate, Wu–Liu composition/trace theory, sequence families and Hermitian-code example remain open, with finite-field/Ore-ring and coding ownership comparisons. |
+| FF.5 | Specialized application targets remain planned with exact normalization and good-prime hypotheses. Imported estimates, certificate services and the raw stage-edge correction remain open. |
+
+For the square-free count, the missing result is an enumeration theorem: monic counts are 1 in degree zero,
+q in degree one, and qⁿ − qⁿ⁻¹ in degree n ≥ 2. Its square-free factorization prerequisite is already FF.3's;
+the algorithm does not itself state this enumeration. For the missing interpolation result, q is odd, d ≥ 2,
+the two points of the projective line are distinct, and evaluation at infinity means the degree-d coefficient.
+These are routed source targets awaiting declaration-level treatment within the recorded follow-up frontier.
+
 Mathlib already knows a great deal about finite fields and their characters. This roadmap plans what lies beyond it:
 
 - **FF.0:** certified presentations with Rabin's irreducibility certificate, tensor products of finite fields and Frobenius
@@ -16,8 +36,9 @@ Mathlib already knows a great deal about finite fields and their characters. Thi
 - **FF.4:** Galois rings, linearised and permutation polynomials, m-sequences and codes.
 - **FF.5:** the application handoffs that the accepted restructuring RS-03 keeps.
 
-**Status: partial.** FF.0, FF.3 and FF.5 are source decomposed; FF.1, FF.2 and FF.4 are partial, each with a precise
-`remaining` list in the packet's coverage record. The packet has:
+**Status: complete planning pass; mathematical closure is open.** The inherited 354 nodes exceed the 300-node
+planning budget in PROTOCOL section 0. FF.0 retains source decomposition and FF.5 remains target-planned; FF.1, FF.2, FF.3 and
+FF.4 are partial. Precise `remaining` lists identify the work for independent review and stage follow-ups. The packet has:
 
 - 354 nodes, 562 API items and 374 unit tests;
 - 457 cited declarations of the pinned libraries;
@@ -31,9 +52,9 @@ Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f
 | FF.0 | source decomposed | 11 | Rabin's irreducibility test; Certified presentation of a finite field; Tensor product of finite fields; Frobenius normal basis |
 | FF.1 | partial | 42 | Canonical additive character; Hasse–Davenport lifting relation; Teichmüller character; Stickelberger's congruence; Stickelberger's theorem on Gauss sums; Residue character of F_q((1/T)) |
 | FF.2 | partial | 89 | Weil bound for additive character sums; Artin–Schreier sheaf; Deligne's bound for trace functions; Weil bound for multiplicative character sums; Weil bound for Kloosterman sums; Lang–Weil estimate |
-| FF.3 | source decomposed | 104 | Gauss's product formula; Prime polynomial theorem; Cantor–Zassenhaus algorithm; Berlekamp's algorithm; Hensel lifting of factorizations; Schoof's algorithm |
+| FF.3 | partial | 104 | Gauss's product formula; Prime polynomial theorem; Cantor–Zassenhaus algorithm; Berlekamp's algorithm; Hensel lifting of factorizations; Schoof's algorithm |
 | FF.4 | partial | 91 | Galois rings GR(p^n, r); Permutation polynomials; m-sequences; Reed–Solomon codes; Algebraic geometry codes; Finite upper half-plane |
-| FF.5 | source decomposed | 17 | Weil bound for integer polynomials mod p; Local densities at good primes; Correlation bound for decimated m-sequences; Shamir secret sharing |
+| FF.5 | planned | 17 | Weil bound for integer polynomials mod p; Local densities at good primes; Correlation bound for decimated m-sequences; Shamir secret sharing |
 
 ## RS-03, and what this roadmap owns and imports
 
