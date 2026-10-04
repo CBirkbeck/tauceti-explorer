@@ -1,3 +1,287 @@
+# Local charts for the global fixed-band Hom sheaf
+
+Codex — codex-7e92bd, 4 October 2026. Partial continuation: three constructions and fifteen lemmas.
+
+The global Hom candidate now has an explicit local chart map, injectivity and local surjectivity before sheafification, and an actual sheaf comparison isomorphism under the stated native WEqualsLocallyBijective class. The matched base/fibre-universe case supplies that class automatically; the arbitrary larger-fibre-universe instance remains unproved here. Modification, chart-object transport and base change agree with the comparison. Still required: descend the actual band action and prove local torsor properties, package the supplied D0 torsor groupoid, then prove full faithfulness and a coherent inverse/unit/counit. No global injectivity or surjectivity of the raw chart map or raw sheafification unit is asserted. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open.
+
+For a chart U,x, the native local Hom sheaf maps to the orbit presheaf restricted to Over U. The map sends a section to the represented class at the pulled-back object, using the actual StrongTrans comparison. Its naturality retains F.mapComp′ and the equality witnessing a slice arrow. Fixed-chart quotient injectivity proves injectivity. Gerbe local connectedness provides a covering on which an arbitrary represented pair can be transported into this chart; the actual composition comparison identifies the pulled-back objects. This proves local surjectivity, without asserting global surjectivity of the raw map.
+
+Compose with the native sheafification unit to obtain the actual local-to-global sheaf morphism. Under the explicit native WEqualsLocallyBijective class at the lifted section universe, the unit is locally bijective; native slice-sieve transfer and the native sheaf criterion prove the comparison is an isomorphism. This hypothesis is automatic for matched base/fibre universes, as an independent test verifies. It is not silently assumed automatic for arbitrary larger fibre universes. The inverse applies to all global sections, including those without a supplied raw representative. Chart-object changes, modifications and base changes commute with the actual comparison. The band action and torsor-groupoid equivalence remain subsequent tasks.
+
+This gerbe-specific comparison imports generic local-bijectivity, slice and sheafification machinery from the pinned native library. General stacks/stackification and torsor-groupoid packaging remain D0; algebraic-space carriers, diagonals and atlases remain SF1 under RS27. No new generic supplier theory is duplicated.
+
+## Restriction of a local Hom section in orbit coordinates
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomTransport_pullHom**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/pull-hom**.
+
+For f:V→U, g:W→V and h:W→U with g followed by f equal to h, the transported isomorphism of the native pullHom of a section p equals the fibre restriction of its transported isomorphism, followed by diagonal transport along the inverse of the actual F.mapComp′ component. The equality witness and both endpoint comparisons are retained.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: Substitute the equality of base arrows, use the established StrongTrans composition formula, and cancel the two inverse pseudofunctor comparison components.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-comp, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction.
+
+## The local chart map to orbit classes
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-map**.
+
+For X in HomCategory(b,b), U in C and an actual x in F(U), construct a natural transformation from the ULift of fibreHomSheaf(b,b,U,x,x,X) to the restriction of the lifted global orbit presheaf along Over.forget U. At T→U it sends p to the class of (F(T→U)x,transport(p)). This map is defined in independent fibre universes without a local-bijectivity assumption on sheafification.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: Supply the explicit represented class. The pullHom comparison gives the actual mapComp′ witness identifying its restriction with the image of the restricted section in the quotient.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/pull-hom, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/transport, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/presheaf, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_apply**: At T→U the chart-to-orbit map sends ULift(p) to ULift of the class represented by the actual pulled-back object F(T→U)x and fibreHomTransportIsoEquiv(p).
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_injective**: At every T of Over U, the lifted chart-to-orbit component is injective. Equality is tested at the same pulled-back object, so no local or global choice of isomorphism is required.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_locallySurjective**: For every actual chart x over U, the chart-to-orbit natural transformation is locally surjective for the native topology J.over U. This covers arbitrary quotient sections, and is not a claim of global surjectivity of the raw chart map.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_modification**: For every native fixed-band modification m:X→Y, the square of local Hom-sheaf maps, chart-to-orbit maps and the actual global orbit-presheaf map commutes as equality of natural transformations.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_transport**: For every actual e:x≅y over U, mapping a local section after selfHomSheafTransport(e) into orbit classes equals mapping the original section from the x chart, at every T→U.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_baseChange**: For f:V→U and T→V, apply the actual fibreHomBaseChangeIso to a section of the original chart pulled back along Over.map f. Its image in the chart for F(f)x equals the original chart image at (Over.map f)(T).
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.raw_distinct** (non-example): Two supplied distinct sections of the same local Hom sheaf remain distinct in the raw orbit image; their existence on every chart is not asserted.
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.cover_of_arbitrary_class** (compatibility): For an arbitrary lifted quotient section over a slice object, the native image sieve of the chart map covers; no global representative on the chosen chart is assumed.
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.restriction_square** (compatibility): The explicit chart map commutes with restriction along every slice arrow, with the actual local Hom restriction and global orbit restriction.
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.transport_choice** (compatibility): Two different supplied chart-object isomorphisms give the same raw orbit image of a local section.
+
+## The chart map is pointwise injective
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_injective**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/injective**.
+
+At every T of Over U, the lifted chart-to-orbit component is injective. Equality is tested at the same pulled-back object, so no local or global choice of isomorphism is required.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: Remove ULift, apply fixed-chart injectivity of the orbit quotient and injectivity of the local transport equivalence, then restore equality of lifted sections.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-map, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/injective, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv.
+
+## Every orbit section is locally in the chart image
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_locallySurjective**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/locally-surjective**.
+
+For every actual chart x over U, the chart-to-orbit natural transformation is locally surjective for the native topology J.over U. This covers arbitrary quotient sections, and is not a claim of global surjectivity of the raw chart map.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: Induct on a represented pair (y,q). Local gerbe connectedness gives a covering sieve on which the pullbacks of y and F(T→U)x are isomorphic. Compose with the inverse actual mapComp component, diagonally transport the restricted q, and invert fibreHomTransportIsoEquiv to obtain the local preimage. Native overEquiv transfers this covering to the slice.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-map, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/transport, AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction, mathlib:CategoryTheory.Presheaf.IsLocallySurjective, mathlib:CategoryTheory.Sieve.overEquiv_iff.
+
+## The local chart map to the global sheaf
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/global-map**.
+
+Construct an actual morphism of sheaves on J.over U from the explicit ULift of the local Hom sheaf to the restriction of selfHomGlobalSheafFunctor(b)(X). Its underlying map is chart-to-orbit followed by the slice restriction of the native sheafification unit. No WEqualsLocallyBijective assumption is needed to define this morphism.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: Use native sheafCompose for ULift and native Sheaf.over. Compose the proved chart natural transformation with whiskerLeft of the existing sheafification unit.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-map, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-functor.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal_isIso**: Assuming the explicit native class J.WEqualsLocallyBijective(Type(max(u,v,u′,v′))), the local chart-to-global sheaf morphism is an isomorphism. The native instance supplies this assumption automatically when the fibre object and morphism universes are u and v. No unconditional larger-universe instance is asserted.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal_modification**: For every native modification, the local chart-to-global morphisms intertwine the lifted local Hom-sheaf map and the restriction of the actual global sheaf map. The equality holds without WEqualsLocallyBijective.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal_transport**: For every e:x≅y, the lifted local transport morphism followed by the y-chart global comparison equals the x-chart global comparison, as actual sheaf morphisms and without a sheafification local-bijectivity assumption.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal_baseChange**: For every f:V→U and T→V, the actual local base-change isomorphism followed by the new-chart global map agrees on each section with the original chart map at (Over.map f)(T). The global target component is exactly the same object T.left.
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.two_transports** (compatibility): Two successive actual changes of chart object followed by the global comparison give the original global comparison as sheaf morphisms.
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.two_modifications** (compatibility): Two successive local modification maps followed by the global comparison equal the original comparison followed by the actual composite global modification.
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.refined_base_change** (compatibility): The global comparison respects local base change after an additional arbitrary slice restriction, retaining the native Over.map and fibreHomBaseChangeIso.
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.matched_universes** (compatibility): When F has the same fibre object and morphism universes as the base category, the native instance proves IsIso for the actual chart map with no WEqualsLocallyBijective hypothesis in the test statement; the coefficient universe stays independent.
+
+## The local chart map is an isomorphism
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal_isIso**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/is-iso**.
+
+Assuming the explicit native class J.WEqualsLocallyBijective(Type(max(u,v,u′,v′))), the local chart-to-global sheaf morphism is an isomorphism. The native instance supplies this assumption automatically when the fibre object and morphism universes are u and v. No unconditional larger-universe instance is asserted.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed. The native class J.WEqualsLocallyBijective(Type(max(u,v,u′,v′))) is an explicit additional hypothesis. It is supplied by the pinned native instance for matched fibre/base universes, as checked by an independent test; its automatic availability in arbitrary larger fibre universes is not claimed.
+
+Proof plan: The native class makes the unit locally injective and locally surjective. Transfer its equalizer and image covering sieves along overEquiv. Compose with the injective and locally surjective chart map; the native locally-bijective sheaf criterion then proves IsIso. No inverse is postulated.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/global-map, AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/injective, AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/locally-surjective, mathlib:CategoryTheory.GrothendieckTopology.WEqualsLocallyBijective, mathlib:CategoryTheory.Sheaf.isLocallyBijective_iff_isIso, mathlib:CategoryTheory.Presheaf.isLocallyInjective_of_injective, mathlib:CategoryTheory.Presheaf.equalizerSieve_mem, mathlib:CategoryTheory.Presheaf.imageSieve_mem, mathlib:CategoryTheory.GrothendieckTopology.overEquiv_symm_mem_over.
+
+## The actual local-global chart isomorphism
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/iso**.
+
+Under the explicit native WEqualsLocallyBijective class at the lifted section universe, package the proved local chart morphism and its actual inverse as a native sheaf isomorphism. Its source is the ULift of fibreHomSheaf and its target is the native restriction of the global candidate; it uses no global gerbe object beyond the particular chart U,x.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed. The native class J.WEqualsLocallyBijective(Type(max(u,v,u′,v′))) is an explicit additional hypothesis. It is supplied by the pinned native instance for matched fibre/base universes, as checked by an independent test; its automatic availability in arbitrary larger fibre universes is not claimed.
+
+Proof plan: Install the proved IsIso instance locally and use native asIso. The inverse is supplied by the established sheaf criterion.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/global-map, AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/is-iso.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_hom**: The forward morphism of selfHomChartGlobalIso is exactly selfHomChartToGlobal, under the same explicit native local-bijectivity hypothesis.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_apply**: Under the explicit native local-bijectivity hypothesis, the comparison isomorphism sends a lifted local section to the image of its specified orbit class under the actual global sheafification unit.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_inv_hom**: Under the explicit native local-bijectivity hypothesis, applying the actual inverse comparison and then the forward comparison returns every section of the restricted global sheaf. A quotient representative for the section is not assumed.
+
+API **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_hom_inv**: Under the explicit native local-bijectivity hypothesis, the inverse comparison recovers each lifted local Hom section from its forward image.
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.arbitrary_global_section** (compatibility): With the explicit native local-bijectivity class, every section of the restricted global sheaf has an actual local Hom-section preimage under the comparison, without assuming that the global section is represented in the raw quotient.
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.distinct_after_sheafification** (non-example): Under the same explicit class, two supplied distinct sections on one chart remain distinct under the actual global sheaf comparison. No global injectivity of the raw sheafification unit is claimed.
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.empty_local_carrier** (degenerate): Under the same explicit class, an empty local Hom-section carrier forces an empty restricted global-sheaf section carrier at that slice object. The chart object itself is still supplied.
+
+Test **TauCeti.AlgebraicGeometry.ChartGlobalTests.matched_universes** (compatibility): When F has the same fibre object and morphism universes as the base category, the native instance proves IsIso for the actual chart map with no WEqualsLocallyBijective hypothesis in the test statement; the coefficient universe stays independent.
+
+## The comparison isomorphism has the specified forward map
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_hom**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/iso-hom**.
+
+The forward morphism of selfHomChartGlobalIso is exactly selfHomChartToGlobal, under the same explicit native local-bijectivity hypothesis.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed. The native class J.WEqualsLocallyBijective(Type(max(u,v,u′,v′))) is an explicit additional hypothesis. It is supplied by the pinned native instance for matched fibre/base universes, as checked by an independent test; its automatic availability in arbitrary larger fibre universes is not claimed.
+
+Proof plan: Unfold native asIso.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/iso, AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/global-map.
+
+## The chart map on a local section
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_apply**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-apply**.
+
+At T→U the chart-to-orbit map sends ULift(p) to ULift of the class represented by the actual pulled-back object F(T→U)x and fibreHomTransportIsoEquiv(p).
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: Evaluate the explicit component.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-map.
+
+## The comparison on a local section
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_apply**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/iso-apply**.
+
+Under the explicit native local-bijectivity hypothesis, the comparison isomorphism sends a lifted local section to the image of its specified orbit class under the actual global sheafification unit.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed. The native class J.WEqualsLocallyBijective(Type(max(u,v,u′,v′))) is an explicit additional hypothesis. It is supplied by the pinned native instance for matched fibre/base universes, as checked by an independent test; its automatic availability in arbitrary larger fibre universes is not claimed.
+
+Proof plan: Evaluate the actual forward morphism and its composed natural transformation.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/iso, AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-map.
+
+## Chart coordinates commute with modifications
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_modification**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-modification**.
+
+For every native fixed-band modification m:X→Y, the square of local Hom-sheaf maps, chart-to-orbit maps and the actual global orbit-presheaf map commutes as equality of natural transformations.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: Evaluate on sections, use transport-equivalence modification compatibility, and retain the actual component isomorphism inside the represented class.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-map, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-assembly/transport-iso-equiv-modification, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/functor.
+
+## The sheaf comparison commutes with modifications
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal_modification**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/global-modification**.
+
+For every native modification, the local chart-to-global morphisms intertwine the lifted local Hom-sheaf map and the restriction of the actual global sheaf map. The equality holds without WEqualsLocallyBijective.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: Apply the sheafification unit to the orbit-level square and then use the established naturality of that unit in modifications.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/global-map, AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-modification, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-unit.
+
+## Changing the chart object leaves its orbit image unchanged
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_transport**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-transport**.
+
+For every actual e:x≅y over U, mapping a local section after selfHomSheafTransport(e) into orbit classes equals mapping the original section from the x chart, at every T→U.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: The transported section is diagonal transport along F(T→U)(e); that actual isomorphism witnesses equality in the native quotient.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-map, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-transport/transport-comparison, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/transport.
+
+## Orbit coordinates respect native local base change
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_baseChange**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-base-change**.
+
+For f:V→U and T→V, apply the actual fibreHomBaseChangeIso to a section of the original chart pulled back along Over.map f. Its image in the chart for F(f)x equals the original chart image at (Over.map f)(T).
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: Use the proved base-change transport formula. The actual component of F.mapComp witnesses equality of the two represented classes.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-map, AlgebraicModuliForArithmeticGeometry:R09.4/sheaf-coherence/self-transport, AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/transport.
+
+## Chart-object changes commute with the global comparison
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal_transport**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/global-transport**.
+
+For every e:x≅y, the lifted local transport morphism followed by the y-chart global comparison equals the x-chart global comparison, as actual sheaf morphisms and without a sheafification local-bijectivity assumption.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: Apply the same global sheafification-unit component to the orbit transport equation, then use sheaf-morphism extensionality.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/global-map, AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-transport.
+
+## Base change commutes with the global comparison on sections
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal_baseChange**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/global-base-change**.
+
+For every f:V→U and T→V, the actual local base-change isomorphism followed by the new-chart global map agrees on each section with the original chart map at (Over.map f)(T). The global target component is exactly the same object T.left.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed.
+
+Proof plan: Apply the unit at T.left to the explicit orbit base-change equation; no strictification or omitted endpoint identification is used.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/global-map, AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/orbit-base-change.
+
+## Every global section is recovered from its chart preimage
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_inv_hom**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/inverse-forward**.
+
+Under the explicit native local-bijectivity hypothesis, applying the actual inverse comparison and then the forward comparison returns every section of the restricted global sheaf. A quotient representative for the section is not assumed.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed. The native class J.WEqualsLocallyBijective(Type(max(u,v,u′,v′))) is an explicit additional hypothesis. It is supplied by the pinned native instance for matched fibre/base universes, as checked by an independent test; its automatic availability in arbitrary larger fibre universes is not claimed.
+
+Proof plan: Evaluate the native inverse-forward identity on an arbitrary global sheaf section.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/iso.
+
+## Every local section is recovered by the inverse comparison
+
+Declaration: **TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_hom_inv**. Node: **AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/forward-inverse**.
+
+Under the explicit native local-bijectivity hypothesis, the inverse comparison recovers each lifted local Hom section from its forward image.
+
+Hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J. b is an actual abelian banding by A in independent coefficient universe w; morphisms and modifications are the existing native HomCategory(b,b). A chart consists of an actual U and x in F(U). Sections on Over U are lifted directly by ULift(max(u,v,u′),v′); the orbit presheaf is lifted by ULift(max(u,v),max(u′,v′)). Their target universe is max(u,v,u′,v′). No global object on all of C, neutrality, or strictification of F is assumed. The native class J.WEqualsLocallyBijective(Type(max(u,v,u′,v′))) is an explicit additional hypothesis. It is supplied by the pinned native instance for matched fibre/base universes, as checked by an independent test; its automatic availability in arbitrary larger fibre universes is not claimed.
+
+Proof plan: Evaluate the native forward-inverse identity on an arbitrary lifted local section.
+
+Prerequisites: AlgebraicModuliForArithmeticGeometry:R09.4/chart-global/iso.
+
+All 642 prior node objects, ten gaps, 22 requests, eight source issues, ten planets and eight partial stages are preserved. All implementation statuses remain unchecked. The eleven parameterized tests have twelve references across the three constructions. The matched-universe test has no extra local-bijectivity premise. Conditional unequal-section and empty-carrier tests retain their supplied witnesses. No new nonconstant-site or nonneutral geometric fixture is claimed. The full Tau-dependent suggested file remains uncompiled.
+
+Sources: [Stacks Section 8.11](https://stacks.math.columbia.edu/tag/06NY) and [Stacks Section 7.49](https://stacks.math.columbia.edu/tag/00ZG). Displayed proofs were read with their stated omissions; the generic formal statements and universe-limited instances were read at the pinned Mathlib source. Exact fixed-band formulas are authored deductions. The complete prior reader follows verbatim.
+
 # The global fixed-band Hom sheaf candidate
 
 Codex — codex-7e92bd, 4 October 2026. Partial continuation: six constructions and sixteen lemmas.
