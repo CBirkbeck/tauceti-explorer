@@ -1,3 +1,231 @@
+# Native normalization base-change comparison over the changed base
+
+For every positive exponent and arbitrary change of test A-algebra, the actual chosen-frame normalization functor now has a native natural isomorphism over Spec C with the native Over.pullback of the normalization functor over Spec B. Its components use the existing chosen scheme comparison followed by native symmetry; both forward and inverse projections and actual framed-arrow naturality are specified. The actual native adjunction counit, specialized to normalization, recovers the previous normalizationChangeNatTrans through this isomorphism, and the whole normalized-chart natural transformation transports in both directions. The nonflat Z/4 to Z/2 tests kill a nonzero square-zero section and collapse a nonidentity minus-one stabilizer; no faithfulness of coefficient change or pullback is asserted. Wild exponents and zero rings are retained. General native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes, the full omission ledger and inherited source findings retain their scope.
+
+Let Dp=B[T]/(T^n-u) for the actual framed root p=(u,y). For phi:B to C, Mathlib’s native Over.pullback uses the scheme pullback with Dp first and Spec C second. The earlier normalizationBaseChangeIso uses the reversed order. Compose that actual scheme isomorphism with native pullback symmetry and check the second projection to construct its Over(Spec C) isomorphism. Naturality follows by checking both scheme projections, with the existing normalization-change naturality supplying the first and the changed arrow base triangle the second. NatIso.ofComponents supplies the actual inverse naturality and functor roundtrips.
+
+The projection adapter is precisely a whiskering of Mathlib’s existing adjunction counit. Its generic categorical content remains a baseline import. Through the new natural isomorphism it recovers the earlier normalizationChangeNatTrans as a whole natural transformation, so both forward and inverse normalized-chart transport follow from the existing chart factorization. These actual Over functors remain distinct from general line-bundle root groupoids and their geometric descent.
+
+## The normalization comparison over the changed base
+
+`TauCeti.RootStack.FramedRoot.normalizationOverBaseChangeIso`. For every positive n and actual chosen-frame root p over B, construct an isomorphism in Over(Spec C) from the normalization of the changed root to the native Over.pullback of its original normalization cover along Spec(phi). Its underlying scheme isomorphism is the existing normalizationBaseChangeIso followed by native pullback symmetry. The target has normalization first and Spec(phi) second.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Use the existing native Cartesian scheme comparison, then native pullback symmetry to match Over.pullback. Its second projection is the changed normalization structure map, giving the required Over triangle.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-change-iso`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-fst`, `mathlib:CategoryTheory.Over.isoMk`, `mathlib:CategoryTheory.Over.pullback`, `mathlib:CategoryTheory.Limits.pullbackSymmetry`, `mathlib:CategoryTheory.Limits.pullbackSymmetry_hom_comp_snd`.
+
+API `TauCeti.RootStack.FramedRoot.normalizationOverBaseChangeIso_hom_fst`: The underlying forward component followed by the first projection of the native Over.pullback equals Spec(normalizationChange(phi,p)), the actual map to the original normalization scheme.
+
+API `TauCeti.RootStack.FramedRoot.normalizationOverBaseChangeIso_hom_snd`: The underlying forward component followed by the second projection of the native Over.pullback equals the changed root normalizationSpecMap to Spec C.
+
+API `TauCeti.RootStack.FramedRoot.normalizationOverBaseChangeIso_inv_fst`: The underlying inverse component followed by Spec(normalizationChange(phi,p)) equals the first projection of the native Over.pullback.
+
+API `TauCeti.RootStack.FramedRoot.normalizationOverBaseChangeIso_inv_snd`: The underlying inverse component followed by the changed normalizationSpecMap equals the second projection of the native Over.pullback.
+
+API `TauCeti.RootStack.FramedRoot.normalizationOverBaseChangeIso_naturality`: For every actual framed arrow h:p to q, changing h and then applying the Over comparison equals applying the comparison at p and then the actual Over.pullback image of normalizationFunctor.map h. This is equality of actual Over morphisms with all unit labels retained.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.over_projections_roundtrips` (compatibility): For arbitrary positive exponent, check both forward and inverse projections in the native Over category and both actual Over morphism roundtrips.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.actual_arrow_naturality` (compatibility): For every actual framed arrow, check forward and inverse naturality as actual Over morphisms, retaining all unit labels.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.killed_nilpotent` (non-example): For the actual nonflat Z/4 to Z/2 map of Z-algebras and p=(1,2) at n=2,f=0, the normalized chart section z is nonzero with z squared zero and is killed by normalizationChange. The actual natural-isomorphism component followed by its pullback projection still gives the changed chart map.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.wild_exponent` (degenerate): Over Z/3 at exponent3 and f=0, the exponent vanishes in the coefficient ring while the actual Over comparison roundtrip and pulled-back cover base triangle hold for every change of test Z-algebra.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.zero_ring` (degenerate): Over the zero ring Z/1 at exponent3, the actual inverse Over roundtrip and pulled-back cover base triangle hold without choosing any spectrum point.
+
+## The original-cover projection of the Over comparison
+
+`TauCeti.RootStack.FramedRoot.normalizationOverBaseChangeIso_hom_fst`. The underlying forward component followed by the first projection of the native Over.pullback equals Spec(normalizationChange(phi,p)), the actual map to the original normalization scheme.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Compute the composite through symmetry and use the existing second-projection equation.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-over-iso`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-snd`, `mathlib:CategoryTheory.Limits.pullbackSymmetry_hom_comp_fst`.
+
+## The changed-base projection of the Over comparison
+
+`TauCeti.RootStack.FramedRoot.normalizationOverBaseChangeIso_hom_snd`. The underlying forward component followed by the second projection of the native Over.pullback equals the changed root normalizationSpecMap to Spec C.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Compute the composite through symmetry and use the existing first-projection equation.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-over-iso`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-fst`, `mathlib:CategoryTheory.Limits.pullbackSymmetry_hom_comp_snd`.
+
+## The original-cover projection of the inverse comparison
+
+`TauCeti.RootStack.FramedRoot.normalizationOverBaseChangeIso_inv_fst`. The underlying inverse component followed by Spec(normalizationChange(phi,p)) equals the first projection of the native Over.pullback.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Substitute the forward first projection and use the actual Over isomorphism roundtrip.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-over-hom-first`, `mathlib:CategoryTheory.Over.inv_left_hom_left`.
+
+## The changed-base projection of the inverse comparison
+
+`TauCeti.RootStack.FramedRoot.normalizationOverBaseChangeIso_inv_snd`. The underlying inverse component followed by the changed normalizationSpecMap equals the second projection of the native Over.pullback.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Substitute the forward second projection and use the actual Over isomorphism roundtrip.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-over-hom-second`, `mathlib:CategoryTheory.Over.inv_left_hom_left`.
+
+## Naturality in all actual framed arrows
+
+`TauCeti.RootStack.FramedRoot.normalizationOverBaseChangeIso_naturality`. For every actual framed arrow h:p to q, changing h and then applying the Over comparison equals applying the comparison at p and then the actual Over.pullback image of normalizationFunctor.map h. This is equality of actual Over morphisms with all unit labels retained.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Use Over morphism extensionality and both native pullback projections. The first equation is the existing normalization-change naturality law; the second is the changed arrow base triangle.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-over-hom-first`, `FunctionFieldArithmeticPartII:RS.0/normalization-over-hom-second`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-transformation`, `FunctionFieldArithmeticPartII:RS.0/normalization-arrows-ring-base`, `mathlib:CategoryTheory.Over.OverMorphism.ext`, `mathlib:CategoryTheory.Limits.pullback.hom_ext`, `mathlib:CategoryTheory.Limits.pullback.lift_fst`, `mathlib:CategoryTheory.Limits.pullback.lift_snd`, `mathlib:CategoryTheory.Over.pullback`.
+
+## The natural base-change isomorphism of normalization functors
+
+`TauCeti.RootStack.normalizationBaseChangeNatIso`. For every positive n and arbitrary A-algebra homomorphism phi:B to C, construct a native natural isomorphism from framedRootChange(phi) followed by normalizationFunctor over C to normalizationFunctor over B followed by native Over.pullback along Spec(phi). Its components are the actual normalizationOverBaseChangeIso.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Apply native NatIso.ofComponents to the actual Over isomorphisms and the proved equality for every framed arrow. Native inverse naturality and both functor roundtrips follow from this constructor.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-over-iso`, `FunctionFieldArithmeticPartII:RS.0/normalization-over-naturality`, `mathlib:CategoryTheory.NatIso.ofComponents`.
+
+API `TauCeti.RootStack.normalizationBaseChangeNatIso_app`: The component at p of normalizationBaseChangeNatIso(phi) is exactly p.normalizationOverBaseChangeIso(phi).
+
+API `TauCeti.RootStack.normalizationBaseChangeNatIso_projection`: Forget the Over base of the whole forward normalizationBaseChangeNatIso and compose with normalizationPullbackProjection. The resulting native natural transformation equals normalizationChangeNatTrans(phi) exactly.
+
+API `TauCeti.RootStack.normalizationBaseChangeNatIso_chart`: The forgotten forward normalizationBaseChangeNatIso followed by normalizationPullbackProjection and the original normalizationChartNatTrans equals the left whiskering of the changed normalizationChartNatTrans by framedRootChange(phi), as whole native natural transformations.
+
+API `TauCeti.RootStack.normalizationBaseChangeNatIso_inverse_projection`: The forgotten inverse normalizationBaseChangeNatIso followed by normalizationChangeNatTrans(phi) equals normalizationPullbackProjection(phi), as whole native natural transformations.
+
+API `TauCeti.RootStack.normalizationBaseChangeNatIso_inverse_chart`: The forgotten inverse normalizationBaseChangeNatIso followed by the changed chart transformation whiskered by framedRootChange(phi) equals normalizationPullbackProjection followed by the original chart transformation.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.whole_chart_transport` (compatibility): Check both whole projection-recovery equalities and both whole chart-transport equalities as native natural transformations.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.actual_arrow_naturality` (compatibility): For every actual framed arrow, check forward and inverse naturality as actual Over morphisms, retaining all unit labels.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.killed_nilpotent` (non-example): For the actual nonflat Z/4 to Z/2 map of Z-algebras and p=(1,2) at n=2,f=0, the normalized chart section z is nonzero with z squared zero and is killed by normalizationChange. The actual natural-isomorphism component followed by its pullback projection still gives the changed chart map.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.collapsed_stabilizer` (non-example): For the same quotient and the zero-section root p=(1,0), the minus-one framed automorphism is nonidentity over Z/4 but becomes identity over Z/2. Naturality of the actual Over comparison proves the pullback of its normalization arrow is identity; no faithfulness of the coefficient-change functor or pullback is asserted.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.wild_exponent` (degenerate): Over Z/3 at exponent3 and f=0, the exponent vanishes in the coefficient ring while the actual Over comparison roundtrip and pulled-back cover base triangle hold for every change of test Z-algebra.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.exponent_one` (degenerate): At exponent one over arbitrary test algebras, the changed normalized chart root is the image of f, and the natural-isomorphism component followed by the native pullback projection recovers normalizationChangeNatTrans.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.zero_ring` (degenerate): Over the zero ring Z/1 at exponent3, the actual inverse Over roundtrip and pulled-back cover base triangle hold without choosing any spectrum point.
+
+## Components of the normalization natural isomorphism
+
+`TauCeti.RootStack.normalizationBaseChangeNatIso_app`. The component at p of normalizationBaseChangeNatIso(phi) is exactly p.normalizationOverBaseChangeIso(phi).
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Compute the native NatIso.ofComponents component.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-base-change-natural-iso`.
+
+## The native projection of pulled-back normalization covers
+
+`TauCeti.RootStack.normalizationPullbackProjection`. Specialize the counit of the existing native Over.map/Over.pullback adjunction to normalizationFunctor and forget the base. This gives a native natural transformation from the pulled-back normalization schemes over C to the original normalization schemes over B, with first-pullback-projection components. This is an adapter of existing generic categorical infrastructure, not a new generic pullback construction.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Whisker the native adjunction counit by normalizationFunctor on the left and Over.forget on the right. Over.map changes the base triangle while retaining the underlying scheme and arrow.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor`, `mathlib:CategoryTheory.Over.pullback`, `mathlib:CategoryTheory.Over.mapPullbackAdj`, `mathlib:CategoryTheory.Over.forget`.
+
+API `TauCeti.RootStack.normalizationPullbackProjection_app`: The component at p of normalizationPullbackProjection(phi) is the first projection from the native pullback of p.normalizationSpecMap and Spec(phi).
+
+API `TauCeti.RootStack.normalizationPullbackProjection_base`: The component projection to the original normalization scheme followed by p.normalizationSpecMap equals the second pullback projection to Spec C followed by Spec(phi).
+
+API `TauCeti.RootStack.normalizationPullbackProjection_naturality`: For every actual h:p to q, the underlying scheme map of Over.pullback(normalizationFunctor.map h) followed by the projection at q equals the projection at p followed by the original normalizationFunctor.map h.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.whole_chart_transport` (compatibility): Check both whole projection-recovery equalities and both whole chart-transport equalities as native natural transformations.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.wild_exponent` (degenerate): Over Z/3 at exponent3 and f=0, the exponent vanishes in the coefficient ring while the actual Over comparison roundtrip and pulled-back cover base triangle hold for every change of test Z-algebra.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.exponent_one` (degenerate): At exponent one over arbitrary test algebras, the changed normalized chart root is the image of f, and the natural-isomorphism component followed by the native pullback projection recovers normalizationChangeNatTrans.
+
+Test `TauCeti.RootStack.normalizationNatIsoTests.zero_ring` (degenerate): Over the zero ring Z/1 at exponent3, the actual inverse Over roundtrip and pulled-back cover base triangle hold without choosing any spectrum point.
+
+## Components of the native normalization projection
+
+`TauCeti.RootStack.normalizationPullbackProjection_app`. The component at p of normalizationPullbackProjection(phi) is the first projection from the native pullback of p.normalizationSpecMap and Spec(phi).
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Compute the native adjunction counit and both whiskerings.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-pullback-projection`.
+
+## The base triangle of the pulled-back cover
+
+`TauCeti.RootStack.normalizationPullbackProjection_base`. The component projection to the original normalization scheme followed by p.normalizationSpecMap equals the second pullback projection to Spec C followed by Spec(phi).
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Use the existing native pullback condition with normalization first and Spec(phi) second.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-pullback-projection-component`, `mathlib:CategoryTheory.Limits.pullback.condition`.
+
+## Arrow compatibility of the pulled-back cover projection
+
+`TauCeti.RootStack.normalizationPullbackProjection_naturality`. For every actual h:p to q, the underlying scheme map of Over.pullback(normalizationFunctor.map h) followed by the projection at q equals the projection at p followed by the original normalizationFunctor.map h.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Apply the naturality of the actual whiskered native adjunction counit.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-pullback-projection`.
+
+## Recovery of the original normalization-change transformation
+
+`TauCeti.RootStack.normalizationBaseChangeNatIso_projection`. Forget the Over base of the whole forward normalizationBaseChangeNatIso and compose with normalizationPullbackProjection. The resulting native natural transformation equals normalizationChangeNatTrans(phi) exactly.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Use natural-transformation extensionality and the forward original-cover projection at every actual framed root.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-base-change-natural-component`, `FunctionFieldArithmeticPartII:RS.0/normalization-pullback-projection-component`, `FunctionFieldArithmeticPartII:RS.0/normalization-over-hom-first`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-transformation`.
+
+## Transport of the whole normalized chart transformation
+
+`TauCeti.RootStack.normalizationBaseChangeNatIso_chart`. The forgotten forward normalizationBaseChangeNatIso followed by normalizationPullbackProjection and the original normalizationChartNatTrans equals the left whiskering of the changed normalizationChartNatTrans by framedRootChange(phi), as whole native natural transformations.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Reassociate the actual natural transformations, recover normalizationChangeNatTrans, then apply its existing whole chart-factorization equation.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-natural-iso-projection`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-chart-factorization`.
+
+## Recovery of the pullback projection through the inverse
+
+`TauCeti.RootStack.normalizationBaseChangeNatIso_inverse_projection`. The forgotten inverse normalizationBaseChangeNatIso followed by normalizationChangeNatTrans(phi) equals normalizationPullbackProjection(phi), as whole native natural transformations.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Use natural-transformation extensionality and the inverse original-cover projection at each actual framed root.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-base-change-natural-component`, `FunctionFieldArithmeticPartII:RS.0/normalization-pullback-projection-component`, `FunctionFieldArithmeticPartII:RS.0/normalization-over-inverse-first`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-transformation`.
+
+## Inverse transport of the whole normalized chart transformation
+
+`TauCeti.RootStack.normalizationBaseChangeNatIso_inverse_chart`. The forgotten inverse normalizationBaseChangeNatIso followed by the changed chart transformation whiskered by framedRootChange(phi) equals normalizationPullbackProjection followed by the original chart transformation.
+
+Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels. No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled. This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.
+
+Proof: Substitute the existing chart factorization, reassociate, and use the whole inverse projection identity.
+
+Prerequisites: `FunctionFieldArithmeticPartII:RS.0/normalization-natural-iso-inverse-projection`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-chart-factorization`.
+
+The [Stacks fibre-product section](https://stacks.math.columbia.edu/tag/01JO) supplies the geometric universal-property context; the exact normalization comparisons above are authored deductions. The [root-stack literature guide](https://stacks.math.columbia.edu/tag/04V8) supplies the finite-root literature context. All inherited source omissions, source issues, route assignments and geometric supplier requests remain recorded below.
+
 # Three-step chosen normalization coherence
 
 Three successive arbitrary test-algebra changes now have an actual normalization isomorphism to the three nested chosen scheme pullbacks. Pull back the complete two-step comparison along the third change and compose its normalizationBaseChangeIso. All forward and inverse projection equations and roundtrips hold. The actual triple pullback collapse agrees, as a whole native isomorphism and on its inverse, with the alternate route that first combines the last two changes. Composing the actual triple normalization comparison with either collapse route gives the direct normalizationBaseChangeIso for the triple composite. The positive-exponent actual chart triangle holds. Every natural exponent is allowed for scheme comparisons, with no flatness or injectivity assumptions; the nonflat Z/4 to Z/2 example kills a nonzero square-zero normalized section and preserves the comparison. Wild exponents and zero rings remain allowed. This establishes three-step chosen-scheme coherence only; higher coherence, native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open with all inherited source, supplier and geometric obligations.
