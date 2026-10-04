@@ -1,3 +1,7 @@
+import Mathlib.Topology.Sheaves.LocallySurjective
+import Mathlib.CategoryTheory.Sites.LeftExact
+import Mathlib.Algebra.Category.Ring.FilteredColimits
+
 import Mathlib.AlgebraicGeometry.IdealSheaf.Functorial
 import Mathlib.LinearAlgebra.TensorProduct.Quotient
 import Mathlib.RingTheory.Ideal.Colon
@@ -1113,6 +1117,190 @@ example (I : Y.IdealSheafData) (f : X ⟶ Y) [IsAffineHom f] :
 example (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
     (h : ¬ Function.Surjective ((quotientToClosedNatTrans I f).app (op U))) :
     ¬ IsAffineHom f := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+lemma allOpenKernel_restriction (I : X.IdealSheafData) {U V : X.Opens} (h : U ≤ V) :
+    RingHom.ker (I.subschemeι.app V).hom ≤
+      (RingHom.ker (I.subschemeι.app U).hom).comap (X.presheaf.map (homOfLE h).op).hom := by
+  sorry
+
+def allOpenRestriction (I : X.IdealSheafData) {U V : X.Opens} (h : U ≤ V) :
+    (Γ(X, V) ⧸ RingHom.ker (I.subschemeι.app V).hom) →+*
+      (Γ(X, U) ⧸ RingHom.ker (I.subschemeι.app U).hom) :=
+  Ideal.quotientMap _ (X.presheaf.map (homOfLE h).op).hom (by sorry)
+
+lemma allOpenRestriction_mk (I : X.IdealSheafData) {U V : X.Opens} (h : U ≤ V)
+    (a : Γ(X, V)) :
+    allOpenRestriction I h (Ideal.Quotient.mk _ a) =
+      Ideal.Quotient.mk _ (X.presheaf.map (homOfLE h).op a) := by
+  sorry
+
+lemma allOpenRestriction_id (I : X.IdealSheafData) (U : X.Opens) :
+    allOpenRestriction I (le_refl U) = RingHom.id _ := by
+  sorry
+
+lemma allOpenRestriction_comp (I : X.IdealSheafData) {U V W : X.Opens}
+    (h : U ≤ V) (k : V ≤ W) :
+    (allOpenRestriction I h).comp (allOpenRestriction I k) =
+      allOpenRestriction I (h.trans k) := by
+  sorry
+
+def allOpenQuotient (I : X.IdealSheafData) : X.Opensᵒᵖ ⥤ CommRingCat.{u} where
+  obj U := .of (Γ(X, U.unop) ⧸ RingHom.ker (I.subschemeι.app U.unop).hom)
+  map h := CommRingCat.ofHom (allOpenRestriction I h.unop.le)
+  map_id U := by sorry
+  map_comp h k := by sorry
+
+lemma allOpenQuotient_obj (I : X.IdealSheafData) (U : X.Opens) :
+    (allOpenQuotient I).obj (op U) =
+      CommRingCat.of (Γ(X, U) ⧸ RingHom.ker (I.subschemeι.app U).hom) := by
+  sorry
+
+lemma allOpenQuotient_map (I : X.IdealSheafData) {U V : X.Opens} (h : U ≤ V) :
+    (allOpenQuotient I).map (homOfLE h).op = CommRingCat.ofHom (allOpenRestriction I h) := by
+  sorry
+
+def allOpenToClosed (I : X.IdealSheafData) : allOpenQuotient I ⟶
+    (TopologicalSpace.Opens.map I.subschemeι.base).op ⋙ I.subscheme.presheaf where
+  app U := CommRingCat.ofHom (I.subschemeι.app U.unop).hom.kerLift
+  naturality U V h := by sorry
+
+lemma allOpenToClosed_mk (I : X.IdealSheafData) (U : X.Opens) (a : Γ(X, U)) :
+    (allOpenToClosed I).app (op U) (Ideal.Quotient.mk _ a) = I.subschemeι.app U a := by
+  sorry
+
+lemma allOpenToClosed_injective (I : X.IdealSheafData) (U : X.Opens) :
+    Function.Injective ((allOpenToClosed I).app (op U)) := by
+  sorry
+
+lemma allOpenToClosed_affine_bijective (I : X.IdealSheafData) (U : X.affineOpens) :
+    Function.Bijective ((allOpenToClosed I).app (op U.1)) := by
+  sorry
+
+lemma allOpenToClosed_affine_agreement (I : X.IdealSheafData) (U : X.affineOpens) :
+    (allOpenToClosed I).app (op U.1) =
+      CommRingCat.ofHom (Ideal.quotientMap (I.ideal U) (RingHom.id _)
+        (by rw [I.ker_subschemeι_app U]; exact le_rfl)) ≫ (I.subschemeObjIso U).inv := by
+  sorry
+
+lemma allOpenToClosed_locally_surjective (I : X.IdealSheafData) :
+    Presheaf.IsLocallySurjective (Opens.grothendieckTopology X)
+      (allOpenToClosed I) := by
+  sorry
+
+lemma allOpenToClosed_locally_injective (I : X.IdealSheafData) :
+    Presheaf.IsLocallyInjective (Opens.grothendieckTopology X)
+      (allOpenToClosed I) := by
+  sorry
+
+def allOpenSheafComparison (I : X.IdealSheafData) :
+    sheafify (Opens.grothendieckTopology X) (allOpenQuotient I) ⟶
+      (TopologicalSpace.Opens.map I.subschemeι.base).op ⋙ I.subscheme.presheaf :=
+  sheafifyLift _ (allOpenToClosed I)
+    (by sorry)
+
+lemma allOpenSheafComparison_factor (I : X.IdealSheafData) :
+    toSheafify (Opens.grothendieckTopology X) (allOpenQuotient I) ≫
+      allOpenSheafComparison I = allOpenToClosed I := by
+  sorry
+
+lemma allOpenSheafComparison_mk (I : X.IdealSheafData) (U : X.Opens) (a : Γ(X, U)) :
+    (allOpenSheafComparison I).app (op U)
+      ((toSheafify (Opens.grothendieckTopology X) (allOpenQuotient I)).app (op U)
+        (Ideal.Quotient.mk _ a)) = I.subschemeι.app U a := by
+  sorry
+
+lemma allOpenSheafComparison_unique (I : X.IdealSheafData)
+    (q : sheafify (Opens.grothendieckTopology X) (allOpenQuotient I) ⟶
+      (TopologicalSpace.Opens.map I.subschemeι.base).op ⋙ I.subscheme.presheaf)
+    (hq : toSheafify (Opens.grothendieckTopology X) (allOpenQuotient I) ≫
+      q = allOpenToClosed I) : q = allOpenSheafComparison I := by
+  sorry
+
+lemma allOpenSheafComparison_isIso (I : X.IdealSheafData) :
+    IsIso (allOpenSheafComparison I) := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
+
+noncomputable section
+namespace TauCeti.SchemeFoundations.IdealPullback
+open CategoryTheory AlgebraicGeometry Opposite
+variable {X Y : Scheme.{u}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+
+-- test: AllOpenRestrictionChecked.two_step
+example (I : X.IdealSheafData) {U V W : X.Opens} (h : U ≤ V) (k : V ≤ W)
+    (a : Γ(X, W) ⧸ RingHom.ker (I.subschemeι.app W).hom) :
+    (allOpenQuotient I).map (homOfLE h).op
+      ((allOpenQuotient I).map (homOfLE k).op a) =
+        (allOpenQuotient I).map (homOfLE (h.trans k)).op a := by
+  sorry
+
+-- test: AllOpenQuotientChecked.affine_ideal
+example (I : X.IdealSheafData) (U : X.affineOpens) (a : Γ(X, U)) :
+    (allOpenToClosed I).app (op U.1) (Ideal.Quotient.mk _ a) = 0 ↔ a ∈ I.ideal U := by
+  sorry
+
+-- test: AllOpenQuotientChecked.unit_ideal
+example (U : X.affineOpens) (a : Γ(X, U) ⧸
+    RingHom.ker ((⊤ : X.IdealSheafData).subschemeι.app U).hom) : a = 0 := by
+  sorry
+
+-- test: AllOpenQuotientChecked.nonreduced
+example :
+    let X := Spec (.of (ZMod 4))
+    let I : X.IdealSheafData := ⊥
+    let U : X.affineOpens := ⟨⊤, isAffineOpen_top _⟩
+    let a := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    let q := (allOpenToClosed I).app (op U.1) (Ideal.Quotient.mk _ a)
+    q ≠ 0 ∧ q ^ 2 = 0 := by
+  sorry
+
+-- test: AllOpenToClosedChecked.affine_roundtrip
+example (I : X.IdealSheafData) (U : X.affineOpens)
+    (a : Γ(X, U) ⧸ RingHom.ker (I.subschemeι.app U).hom) :
+    (RingEquiv.ofBijective ((allOpenToClosed I).app (op U.1)).hom
+      (allOpenToClosed_affine_bijective I U)).symm
+      ((allOpenToClosed I).app (op U.1) a) = a := by
+  sorry
+
+-- test: AllOpenToClosedChecked.nonaffine_obstruction
+example (I : X.IdealSheafData) (U : X.Opens)
+    (h : ¬ Function.Surjective ((allOpenToClosed I).app (op U))) : ¬ IsAffineOpen U := by
+  sorry
+
+-- test: AllOpenSheafComparisonChecked.representative_inverse
+example (I : X.IdealSheafData) (U : X.Opens) (a : Γ(X, U)) :
+    let q := allOpenSheafComparison I
+    let _ := allOpenSheafComparison_isIso I
+    (inv q).app (op U) (I.subschemeι.app U a) =
+      (toSheafify (Opens.grothendieckTopology X) (allOpenQuotient I)).app (op U)
+        (Ideal.Quotient.mk _ a) := by
+  sorry
+
+-- test: AllOpenSheafComparisonChecked.pullback_agreement
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens) (a : Γ(X, f ⁻¹ᵁ U)) :
+    (allOpenSheafComparison (I.comap f)).app (op (f ⁻¹ᵁ U))
+      ((toSheafify (Opens.grothendieckTopology X) (allOpenQuotient (I.comap f))).app
+        (op (f ⁻¹ᵁ U)) (Ideal.Quotient.mk _ a)) =
+          quotientToClosed I f U (Ideal.Quotient.mk _ a) := by
+  sorry
+
+-- test: AllOpenSheafComparisonChecked.arbitrary_section
+example (I : X.IdealSheafData) (U : X.Opens)
+    (s : Γ(I.subscheme, I.subschemeι ⁻¹ᵁ U)) :
+    ∃ q, (allOpenSheafComparison I).app (op U) q = s := by
   sorry
 
 end TauCeti.SchemeFoundations.IdealPullback
