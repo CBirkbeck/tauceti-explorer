@@ -1,0 +1,84 @@
+{
+  "id": "DeformationAndDerivedPatchingAlgebraPartII",
+  "title": "Commutative algebra for deformation theory and patching, Part II: Kawasaki’s Cohen–Macaulay blowing-ups",
+  "area": "commutative",
+  "parent": "DeformationAndDerivedPatchingAlgebra",
+  "summary": "This continuation starts after the finite-module depth, support and Cohen–Macaulay theory of DeformationAndDerivedPatchingAlgebra R03.3. It develops ordered CM-secant and Huneke d-sequences, Kawasaki’s product-of-prefix-ideals calculus and blowing-ups of modules. The final target is a Cohen–Macaulay module blowing-up along the ideal determined by a CM-secant sequence, with the actual local-cohomology claims and dimension bound needed by the proof.",
+  "readme": "A source-faithful continuation of local commutative algebra. See the matching reader document for exact conventions, corrected source statements and checkpoint coverage. Generic local cohomology and secant/depth/CM theory remain in R03.3; normalized ordinary-ring dualizing complexes are requested from AS.1; scheme blowups and affine charts are imported from StableReduction Layer 4 and module strict transforms from AdicCoefficientsAndComparisons L5.",
+  "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra",
+    "AnalyticStacks",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "AdicCoefficientsAndComparisons"
+  ],
+  "stages": [
+    {
+      "key": "K0",
+      "title": "CM-secant sequences and annihilators",
+      "description": "Define the local-cohomology annihilator product and CM-secant sequences; compare with imported secant and CM conditions, including empty support. Prove Schenzel’s torsion bound, extension to parameters, reversed p-standard comparison, the normalized-duality annihilator identity, the CM-locus equality for equidimensional support and the general defect-set formula.",
+      "requires": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "AnalyticStacks:AS.1"
+      ]
+    },
+    {
+      "key": "K1",
+      "title": "Huneke d-sequences and power intersections",
+      "description": "Define d-sequences on arbitrary modules over commutative rings. Prove the corrected torsion/colon characterization with r_j rather than r_i, native weak-regular compatibility and the two separate Goto–Yamagishi intersection identities. Include zero, unit and order-sensitive tests.",
+      "requires": []
+    },
+    {
+      "key": "K2",
+      "title": "Kawasaki’s prefix-product sequence calculus",
+      "description": "Define products of successive prefix ideals and the unit/successor/prefix formulas. Prove Proposition 3.11 in its three separate clauses: reversed d-sequences after auxiliary secant quotients, power-torsion equality, and regularity lifting for the last auxiliary parameter. Prove robustness under those quotients.",
+      "requires": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0",
+        "DeformationAndDerivedPatchingAlgebraPartII:K1",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ]
+    },
+    {
+      "key": "K3",
+      "title": "Rees modules and module blowing-ups",
+      "description": "Construct the graded Rees module over the native Rees algebra and sheafify it on the imported scheme blowup. Prove chart image and exceptional-kernel formulas, agreement with the imported module strict transform, two-ideal module comparison, support identification and the Rees/Proj dimension bound. Do not rebuild scheme blowups.",
+      "requires": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K2",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "AdicCoefficientsAndComparisons:L5",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ]
+    },
+    {
+      "key": "K4",
+      "title": "Cohen–Macaulay blowing-ups",
+      "description": "Prove the regular-terminal-element reduction and dimension-zero depth induction, with Claims 3.14.5 and 3.14.6 and the actual chart relation r_bT−r_a. Derive the theorem first under the weaker prefix conditions and then for CM-secant sequences. Exhibit the cited CM-ring/maximal-ideal-blowup nonexample.",
+      "requires": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K0",
+        "DeformationAndDerivedPatchingAlgebraPartII:K1",
+        "DeformationAndDerivedPatchingAlgebraPartII:K2",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "CES21",
+      "title": "Macaulayfication of Noetherian schemes",
+      "authors": "Kęstutis Česnavičius",
+      "edition": "arXiv:1810.04493v2, deposited 3 September 2020; not the Duke version of record",
+      "url": "https://arxiv.org/abs/1810.04493v2",
+      "sha256": "a07d62e6ef1e4c2126c172426391e97031d28006b92ccb6c5f3afd9c2ddb07b9",
+      "readSections": [
+        "§3 in full, including the proof of Theorem 3.14; readable ar5iv conversion cross-checked against accepted extraction and errata"
+      ],
+      "accessDate": "2026-10-04",
+      "conversion": {
+        "url": "https://ar5iv.labs.arxiv.org/html/1810.04493",
+        "sha256": "b7eb46583b8346479567b494d02107533d066e888f8cf65a771ae2f2c41da9d5",
+        "note": "Conversion has generated date August 8, 2026; that is not an author revision date. The PDF edition and the conversion are separate artifacts."
+      }
+    }
+  ],
+  "status": "draft"
+}
