@@ -1,3 +1,127 @@
+# BP-GeometryOfNumbersAndQuadraticArithmetic — complete target-planning pass
+
+Codex — codex-5ebb6f · issue #1030 · 2026-10-04.
+Claim comment 5984257949, bot confirmation 5984259222.
+Own branch codex-5ebb6f-geometry-next78; base 5a1e04ee07942a3bbce583725a9c1be8285c4a43.
+
+## Result and stopping point
+
+The breadth pass is complete under protocol section 0: all seven stages are
+planned at 157 nodes, before the 300-node budget. There are 80 new declarations;
+all 77 incoming whole node objects remain exact. There are 176 baseline entries,
+224 API items and 344 tests across all nodes; the checker’s definition/construction
+totals are 148 API items and 118 tests. There are 35 planets, 55 explicit gaps,
+15 supplier requests, 19 sources, 20 source-version records and 10 source findings.
+Every declaration remains unchecked. No stage is mathematically closed.
+
+The packet’s 27-row targetInventory maps every current stage target to actual
+declarations and imports. Coverage is planned, with exact remaining refinements.
+The reader preserves the incoming detailed mathematical foundation and adds
+the new declaration, API, test, source and gap contracts. The suggested file
+prototypes native carriers and signatures and catalogs every additional API/test
+name. Its suggestedFrontier distinguishes native statements from foreign
+conditions/signatures still to be supplied; catalogue comments are not executable
+declarations. No unknown foreign condition is replaced by a proposition field
+or fake exact-category, homogeneous-space or spectrum carrier.
+
+## Mathematical points for the next refinement
+
+- Integral Dedekind lattices are full finitely generated native submodules;
+  global freeness is not assumed. Localization is distinct from completion.
+  Integral quadratic values and perfect polar pairings are distinct at two.
+- Field Witt/invariants and Hasse–Minkowski remain imports. Proper spinor genus
+  uses the actual Spin image, with no assumed surjectivity on field points.
+  Hermitian involution compatibility is explicit; quaternionic right modules
+  are not replaced with commutative vector spaces.
+- Li–Zhang’s finite-field formula counts injective isometries. All
+  representations of a degenerate source can have an additional zero map.
+  Density normalization uses the base residue cardinality q, not q²;
+  the normalized polynomial uses negative-q interpolation and its actual sign.
+- Genus mass has reciprocal finite stabilizer weights. The ordinary O mass and
+  proper SO volume identity differ. The maximal integral mass theorem retains
+  its precise dimension/degree, archimedean, zeta and dyadic local-factor inputs;
+  original mass/density proofs and convergence remain named gaps.
+- Davenport is a bounded semialgebraic multiset/projection estimate with
+  complexity dependence. Dynamics identifies actual groups/quotients/measures,
+  with mixing, recurrence, closure, invariant measures and time averages separate.
+  Oppenheim and Duke are qualitative endpoints here, with no quantitative error.
+  Euclidean upper transference is not generalized to arbitrary polar bodies.
+- Generic certified LLL remains GN.5 by accepted RS-03. Its matrices are integer
+  two-sided inverses, its potential is exact and its output is checked in the
+  original lattice. The squared factor is 2^(n−1); no exact SVP/CVP or unproved
+  bit-complexity theorem follows. Arithmetic heights/exclusion are consumer work.
+- Exact duality/GW/W uses the existing intrinsic exact structure. Higher GW is
+  a homotopy fibre. Nonconnective hermitian suspension keeps duality and
+  idempotent completion. Qʰ-only levels are not generally an Ω-spectrum.
+  Exact-category constructions do not assume 1/2; the classical dg Bott branch
+  does. Period four refers to shifts, not all higher homotopy degrees.
+- Dedekind residue duality is (p⁻¹M/M)[−1]; a uniformizer identification is not
+  naturally preserved under arbitrary ramification. Symmetric dyadic devissage
+  is not quadratic devissage. Number-ring comparison retains 2-completion;
+  inversion of two gives 2-local connected covers and only injectivity at π₀.
+  The stable Poincaré framework belongs to the routed
+  HermitianKTheoryOfPoincareCategories owner; do not define it again here.
+
+## Evidence and preservation
+
+All seven reviewed AUDIT-02 rows, the accepted audit review, current stage
+targets/edges, twelve current matching link records, accepted RS-03/RS-07
+ownership decisions, exact supplier slices, and the full IntegralLattices and
+EffectiveBounds upstream documents were read. Binding worker/protocol files
+were refreshed; no applicable AGENTS.md was found. All additional baseline
+statements were read at the pins. Earlier primary-source evidence remains
+historical rather than claimed rerun.
+
+The current routing inventory has 295 distinct item IDs from 31 papers and
+36 source routes. It is provenance, not a certificate of complete source proof
+coverage. Every newly acquired primary source has its URL, edition, SHA-256,
+access date and precise read frontier in the packet/reader. In particular:
+LLL physical pp.1–8 were visually read; Voight §§9.3–9.8, Li–Zhang density
+§§1.7/3.1–3.7, Schlichting exact-category §§2–4 and selected §8/9 passages,
+Calmes III selected localization/comparison pages, and the stated dynamics,
+transference and maximal mass slices were read. Original inputs not acquired
+or not read are explicit gaps; no entire-book or entire-295-item reading claim.
+
+E10 records a missing torsion-free hypothesis in Voight §9.4.5. The publisher’s
+version of record (printed p.144, physical p.160) and current author copy
+(printed p.140, physical p.160) were both acquired and the passage read;
+the current page was visually checked. The dated author errata were searched
+and the Chapter 9 corrections read. A residue module A/πA is the counterexample;
+localized lattices already have the needed torsion-free hypothesis. The finding
+awaits independent verification. All nine earlier findings and five earlier
+sourceVersions records remain exact. No author was contacted.
+
+## Verification
+
+- Indexed check_blueprint.py: zero errors and zero warnings; seven planned stages.
+- source_issues.check_issues and check_errata.versions_checked: zero errors.
+- Whole-object preservation: 77 nodes, 156 baseline entries, six original source
+  objects, nine findings, five version records; inherited reader and this earlier
+  handoff remain intact.
+- Suggested Lean: 2479 lines, 33 individual Mathlib imports, exit zero in
+  9.81 seconds; 364 admission warnings, no errors and no other warnings.
+  Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; imported source bytes and pre-existing oleans
+  checked, all existing build package commits match its manifest. No Tau Ceti
+  import, because its available compiled root differs from the pinned source.
+  Signature checking does not discharge the recorded prototype frontier.
+  SHA-256 489171d95fb59c41f900c352d6ae771e6566c120d7fbbfceaee9789f581bf566.
+- Finite exact regressions: 496 integer bases, 256 swaps, two-sided certificates,
+  size/Lovász and integer-potential checks, 48 original vectors per basis;
+  eight finite-field representation/embedding cases over residue extensions of
+  F₃/F₅, and 18 polynomial derivative cases. These are not universal proofs.
+- Only the three deliverables and this handoff changed. Intake path/JSON checks,
+  auto-refusal checks and git diff --check are clean. One bounded Lean process
+  ran at a time, with at least 20 GiB available and a 20-minute limit. No Lake
+  project, cache download, library build, language server or background worker.
+
+Resume the explicit stage remaining lists and gaps after independent review,
+starting from the complete targetInventory; do not restart the inherited
+Minkowski/Henk foundation or re-plan completed upstream owners. Scratch source
+copies and logs are deleted after the PR opens; URLs, hashes, read scopes,
+regression evidence and the Lean receipt remain in these deliverables.
+
+## Earlier handoff, preserved verbatim
+
 # BP-GeometryOfNumbersAndQuadraticArithmetic — fifth continuation
 
 Codex — codex-a71f92 · issue #1030 · 2026-09-27  
