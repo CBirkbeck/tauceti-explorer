@@ -1,3 +1,5 @@
+import Mathlib.Data.Quot
+import Mathlib.CategoryTheory.Sites.LeftExact
 import Mathlib.CategoryTheory.Bicategory.Functor.LocallyDiscrete
 import Mathlib.CategoryTheory.Core
 import Mathlib.CategoryTheory.Action.Basic
@@ -8980,3 +8982,330 @@ example (i : T ⟶ U) (j : T ⟶ V) (k : T ⟶ W)
   sorry
 
 end TauCeti.AlgebraicGeometry.ChartRefinementTests
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+def selfHomOrbitSetoid (U : C) (X : HomCategory b b) :
+    Setoid (Σ x : F.obj (.mk (op U)), x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x) where
+  r p q := ∃ e : p.1 ≅ q.1, (selfTransportActionIso b X e).hom.hom p.2 = q.2
+  iseqv := by
+    constructor
+    · intro p
+      refine ⟨Iso.refl p.1, ?_⟩
+      rw [selfTransportActionIso_id]
+      rfl
+    · intro p q h
+      obtain ⟨e, h⟩ := h
+      refine ⟨e.symm, ?_⟩
+      rw [← h]
+      apply Iso.ext
+      simp [selfTransportActionIso]
+    · intro p q r h k
+      obtain ⟨e, h⟩ := h
+      obtain ⟨d, k⟩ := k
+      refine ⟨e ≪≫ d, ?_⟩
+      rw [selfTransportActionIso_comp]
+      change (selfTransportActionIso b X d).hom.hom
+        ((selfTransportActionIso b X e).hom.hom p.2) = r.2
+      rw [h, k]
+
+lemma selfHomOrbit_mk_eq (U : C) (X : HomCategory b b)
+    (p q : Σ x : F.obj (.mk (op U)), x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x) :
+    Quotient.mk (selfHomOrbitSetoid b U X) p = Quotient.mk _ q ↔
+      ∃ e : p.1 ≅ q.1, (selfTransportActionIso b X e).hom.hom p.2 = q.2 := by
+  sorry
+
+lemma selfHomOrbit_mk_injective (U : C) (X : HomCategory b b)
+    (x : F.obj (.mk (op U))) :
+    Function.Injective (fun p : x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x =>
+      Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩) := by
+  sorry
+
+noncomputable def selfHomOrbitRestrict (X : HomCategory b b) {U V : C} (f : V ⟶ U) :
+    Quotient (selfHomOrbitSetoid b U X) → Quotient (selfHomOrbitSetoid b V X) :=
+  Quotient.map (fun p => ⟨(F.map f.op.toLoc).toFunctor.obj p.1,
+    (fibreIsomRestriction b b X f p.1 p.1).hom p.2⟩) (by
+      intro p q h
+      obtain ⟨e, he⟩ := h
+      refine ⟨(F.map f.op.toLoc).toFunctor.mapIso e, ?_⟩
+      have k := congrArg (fun m => m.hom p.2) (selfTransportActionIso_restriction b X f e)
+      change (fibreIsomRestriction b b X f q.1 q.1).hom
+        ((selfTransportActionIso b X e).hom.hom p.2) =
+        (selfTransportActionIso b X ((F.map f.op.toLoc).toFunctor.mapIso e)).hom.hom
+          ((fibreIsomRestriction b b X f p.1 p.1).hom p.2) at k
+      rw [he] at k
+      exact k.symm)
+
+lemma selfHomOrbitRestrict_mk (X : HomCategory b b) {U V : C} (f : V ⟶ U)
+    (x : F.obj (.mk (op U))) (p : x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x) :
+    selfHomOrbitRestrict b X f (Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩) =
+      Quotient.mk (selfHomOrbitSetoid b V X) ⟨(F.map f.op.toLoc).toFunctor.obj x,
+        (fibreIsomRestriction b b X f x x).hom p⟩ := by
+  sorry
+
+lemma selfHomOrbitRestrict_id (X : HomCategory b b) (U : C)
+    (p : Quotient (selfHomOrbitSetoid b U X)) : selfHomOrbitRestrict b X (𝟙 U) p = p := by
+  sorry
+
+lemma selfHomOrbitRestrict_comp (X : HomCategory b b) {U V W : C}
+    (f : V ⟶ U) (g : W ⟶ V) (p : Quotient (selfHomOrbitSetoid b U X)) :
+    selfHomOrbitRestrict b X (g ≫ f) p =
+      selfHomOrbitRestrict b X g (selfHomOrbitRestrict b X f p) := by
+  sorry
+
+noncomputable def selfHomOrbitPresheaf (X : HomCategory b b) :
+    Cᵒᵖ ⥤ Type (max u' v') where
+  obj U := Quotient (selfHomOrbitSetoid b U.unop X)
+  map f := TypeCat.ofHom (selfHomOrbitRestrict b X f.unop)
+  map_id U := by ext p; exact selfHomOrbitRestrict_id b X U.unop p
+  map_comp f g := by ext p; exact selfHomOrbitRestrict_comp b X f.unop g.unop p
+
+noncomputable def selfHomOrbitMap {X Y : HomCategory b b} (m : X ⟶ Y) (U : C) :
+    Quotient (selfHomOrbitSetoid b U X) → Quotient (selfHomOrbitSetoid b U Y) :=
+  Quotient.map (fun p => ⟨p.1, p.2 ≪≫ componentIso b b m U p.1⟩) (by
+    intro p q h
+    obtain ⟨e, he⟩ := h
+    refine ⟨e, ?_⟩
+    have k := congrArg (fun t => t.hom p.2) ((selfTransportNatIso b e).hom.naturality m)
+    change (selfTransportActionIso b Y e).hom.hom (p.2 ≪≫ componentIso b b m U p.1) =
+      (selfTransportActionIso b X e).hom.hom p.2 ≪≫ componentIso b b m U q.1 at k
+    rw [he] at k
+    exact k)
+
+lemma selfHomOrbitMap_mk {X Y : HomCategory b b} (m : X ⟶ Y) (U : C)
+    (x : F.obj (.mk (op U))) (p : x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x) :
+    selfHomOrbitMap b m U (Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩) =
+      Quotient.mk (selfHomOrbitSetoid b U Y) ⟨x, p ≪≫ componentIso b b m U x⟩ := by
+  sorry
+
+lemma selfHomOrbitMap_id (X : HomCategory b b) (U : C)
+    (p : Quotient (selfHomOrbitSetoid b U X)) : selfHomOrbitMap b (𝟙 X) U p = p := by
+  sorry
+
+lemma selfHomOrbitMap_comp {X Y Z : HomCategory b b} (m : X ⟶ Y) (n : Y ⟶ Z)
+    (U : C) (p : Quotient (selfHomOrbitSetoid b U X)) :
+    selfHomOrbitMap b (m ≫ n) U p = selfHomOrbitMap b n U (selfHomOrbitMap b m U p) := by
+  sorry
+
+lemma selfHomOrbitMap_restrict {X Y : HomCategory b b} (m : X ⟶ Y) {U V : C}
+    (f : V ⟶ U) (p : Quotient (selfHomOrbitSetoid b U X)) :
+    selfHomOrbitRestrict b Y f (selfHomOrbitMap b m U p) =
+      selfHomOrbitMap b m V (selfHomOrbitRestrict b X f p) := by
+  sorry
+
+noncomputable def selfHomOrbitFunctor : HomCategory b b ⥤ (Cᵒᵖ ⥤ Type (max u' v')) where
+  obj X := selfHomOrbitPresheaf b X
+  map m :=
+    { app := fun U => TypeCat.ofHom (selfHomOrbitMap b m U.unop)
+      naturality := by
+        intro U V f
+        ext p
+        exact (selfHomOrbitMap_restrict b m f.unop p).symm }
+  map_id X := by
+    ext U p
+    exact selfHomOrbitMap_id b X U.unop p
+  map_comp m n := by
+    ext U p
+    exact selfHomOrbitMap_comp b m n U.unop p
+
+noncomputable def selfHomGlobalSheafFunctor :
+    HomCategory b b ⥤ Sheaf J (Type (max u v u' v')) :=
+  selfHomOrbitFunctor b ⋙
+    (Functor.whiskeringRight Cᵒᵖ (Type (max u' v')) (Type (max u v u' v'))).obj
+      uliftFunctor.{max u v, max u' v'} ⋙ presheafToSheaf J (Type (max u v u' v'))
+
+lemma selfHomGlobalSheafFunctor_obj (X : HomCategory b b) :
+    (selfHomGlobalSheafFunctor b).obj X =
+      (presheafToSheaf J (Type (max u v u' v'))).obj
+        (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v, max u' v'}) := by
+  sorry
+
+lemma selfHomGlobalSheafFunctor_map_inverse {X Y : HomCategory b b} (m : X ⟶ Y) :
+    (selfHomGlobalSheafFunctor b).map m ≫
+        (selfHomGlobalSheafFunctor b).map (homIso b b m).inv = 𝟙 _ := by
+  sorry
+
+lemma selfHomGlobalSheafFunctor_unit_naturality {X Y : HomCategory b b} (m : X ⟶ Y) :
+    Functor.whiskerRight ((selfHomOrbitFunctor b).map m) uliftFunctor.{max u v, max u' v'} ≫
+        toSheafify J (selfHomOrbitPresheaf b Y ⋙ uliftFunctor.{max u v, max u' v'}) =
+      toSheafify J (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v, max u' v'}) ≫
+        ((selfHomGlobalSheafFunctor b).map m).hom := by
+  sorry
+
+lemma selfHomOrbit_mk_transport (U : C) (X : HomCategory b b)
+    {x y : F.obj (.mk (op U))} (e : x ≅ y)
+    (p : x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x) :
+    Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩ =
+      Quotient.mk (selfHomOrbitSetoid b U X) ⟨y,(selfTransportActionIso b X e).hom.hom p⟩ := by
+  sorry
+
+lemma selfHomOrbitMap_inverse {X Y : HomCategory b b} (m : X ⟶ Y)
+    (U : C) (p : Quotient (selfHomOrbitSetoid b U X)) :
+    selfHomOrbitMap b (homIso b b m).inv U (selfHomOrbitMap b m U p) = p := by
+  sorry
+
+lemma selfHomGlobalSheafFunctor_hom_ext (X : HomCategory b b)
+    (Q : Sheaf J (Type (max u v u' v')))
+    (f g : (selfHomGlobalSheafFunctor b).obj X ⟶ Q)
+    (h : toSheafify J (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v, max u' v'}) ≫ f.hom =
+      toSheafify J (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v, max u' v'}) ≫ g.hom) :
+    f = g := by
+  sorry
+
+lemma selfHomGlobalSheafFunctor_universal (X : HomCategory b b)
+    (Q : Sheaf J (Type (max u v u' v')))
+    (f : selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v, max u' v'} ⟶ Q.obj) :
+    ∃! g : (selfHomGlobalSheafFunctor b).obj X ⟶ Q,
+      toSheafify J (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v, max u' v'}) ≫ g.hom = f := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.GlobalHomTests
+open CategoryTheory Opposite Bicategory BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A)
+  {U V W : C}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+
+-- test: GlobalHomTests.transport_chain
+example (X : HomCategory b b) {x y z : F.obj (.mk (op U))}
+    (e : x ≅ y) (d : y ≅ z) (p : x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x) :
+    Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩ =
+      Quotient.mk (selfHomOrbitSetoid b U X)
+        ⟨z,(selfTransportActionIso b X d).hom.hom ((selfTransportActionIso b X e).hom.hom p)⟩ := by
+  sorry
+
+-- test: GlobalHomTests.unequal_arrows
+example (X : HomCategory b b) (x : F.obj (.mk (op U)))
+    (p q : x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x) (h : p ≠ q) :
+    Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩ ≠
+      Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,q⟩ := by
+  sorry
+
+-- test: GlobalHomTests.empty_fibre
+example (X : HomCategory b b) [IsEmpty (F.obj (.mk (op U)))] :
+    IsEmpty ((selfHomOrbitPresheaf b X).obj (op U)) := by
+  sorry
+
+-- test: GlobalHomTests.two_restrictions
+example (X : HomCategory b b) (f : V ⟶ U) (g : W ⟶ V)
+    (p : (selfHomOrbitPresheaf b X).obj (op U)) :
+    (selfHomOrbitPresheaf b X).map g.op ((selfHomOrbitPresheaf b X).map f.op p) =
+      (selfHomOrbitPresheaf b X).map (g ≫ f).op p := by
+  sorry
+
+-- test: GlobalHomTests.change_representative
+example (X : HomCategory b b) (f : V ⟶ U)
+    {x y : F.obj (.mk (op U))} (e : x ≅ y)
+    (p : x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x) :
+    Quotient.mk (selfHomOrbitSetoid b V X)
+        ⟨(F.map f.op.toLoc).toFunctor.obj x, (fibreIsomRestriction b b X f x x).hom p⟩ =
+      Quotient.mk (selfHomOrbitSetoid b V X)
+        ⟨(F.map f.op.toLoc).toFunctor.obj y,
+          (fibreIsomRestriction b b X f y y).hom ((selfTransportActionIso b X e).hom.hom p)⟩ := by
+  sorry
+
+-- test: GlobalHomTests.identity_comparison
+example (X : HomCategory b b) (x : F.obj (.mk (op U)))
+    (p : x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x) :
+    Quotient.mk (selfHomOrbitSetoid b U X)
+        ⟨(F.map (𝟙 U).op.toLoc).toFunctor.obj x,
+          (fibreIsomRestriction b b X (𝟙 U) x x).hom p⟩ =
+      Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩ := by
+  sorry
+
+-- test: GlobalHomTests.inverse_modification
+example {X Y : HomCategory b b} (m : X ⟶ Y)
+    (p : (selfHomOrbitPresheaf b X).obj (op U)) :
+    ((selfHomOrbitFunctor b).map (homIso b b m).inv).app (op U)
+        (((selfHomOrbitFunctor b).map m).app (op U) p) = p := by
+  sorry
+
+-- test: GlobalHomTests.modification_restriction
+example {X Y Z : HomCategory b b} (m : X ⟶ Y) (n : Y ⟶ Z)
+    (f : V ⟶ U) (g : W ⟶ V) (p : (selfHomOrbitPresheaf b X).obj (op U)) :
+    selfHomOrbitRestrict b Z g
+        (selfHomOrbitMap b n V (selfHomOrbitRestrict b Y f (selfHomOrbitMap b m U p))) =
+      selfHomOrbitMap b (m ≫ n) W (selfHomOrbitRestrict b X (g ≫ f) p) := by
+  sorry
+
+-- test: GlobalHomTests.nonidentity_modification
+example (X : HomCategory b b) (m : X ⟶ X) (x : F.obj (.mk (op U)))
+    (p : x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x)
+    (h : p ≪≫ componentIso b b m U x ≠ p) :
+    selfHomOrbitMap b m U (Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩) ≠
+      Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩ := by
+  sorry
+
+-- test: GlobalHomTests.unit_restriction
+example (X : HomCategory b b) (f : V ⟶ U)
+    (p : (selfHomOrbitPresheaf b X).obj (op U)) :
+    ((selfHomGlobalSheafFunctor b).obj X).obj.map f.op
+        ((toSheafify J (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v, max u' v'})).app
+          (op U) (ULift.up p)) =
+      (toSheafify J (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v, max u' v'})).app
+        (op V) (ULift.up (selfHomOrbitRestrict b X f p)) := by
+  sorry
+
+-- test: GlobalHomTests.unit_modification
+example {X Y : HomCategory b b} (m : X ⟶ Y)
+    (x : F.obj (.mk (op U))) (p : x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x) :
+    (((selfHomGlobalSheafFunctor b).map m).hom.app (op U))
+        ((toSheafify J (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v, max u' v'})).app
+          (op U) (ULift.up (Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩))) =
+      (toSheafify J (selfHomOrbitPresheaf b Y ⋙ uliftFunctor.{max u v, max u' v'})).app
+        (op U) (ULift.up (Quotient.mk (selfHomOrbitSetoid b U Y)
+          ⟨x,p ≪≫ componentIso b b m U x⟩)) := by
+  sorry
+
+-- test: GlobalHomTests.universal_target
+example (X : HomCategory b b) (Q : Sheaf J (Type (max u v u' v')))
+    (f : selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v, max u' v'} ⟶ Q.obj) :
+    ∃! g : (selfHomGlobalSheafFunctor b).obj X ⟶ Q,
+      toSheafify J (selfHomOrbitPresheaf b X ⋙ uliftFunctor.{max u v, max u' v'}) ≫ g.hom = f := by
+  sorry
+
+-- test: GlobalHomTests.generator_ext
+example (X : HomCategory b b) (Q : Sheaf J (Type (max u v u' v')))
+    (f g : (selfHomGlobalSheafFunctor b).obj X ⟶ Q)
+    (h : ∀ (U : C) (x : F.obj (.mk (op U)))
+      (p : x ≅ (X.obj.app (.mk (op U))).toFunctor.obj x),
+      f.hom.app (op U) ((toSheafify J (selfHomOrbitPresheaf b X ⋙
+        uliftFunctor.{max u v, max u' v'})).app (op U)
+          (ULift.up (Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩))) =
+      g.hom.app (op U) ((toSheafify J (selfHomOrbitPresheaf b X ⋙
+        uliftFunctor.{max u v, max u' v'})).app (op U)
+          (ULift.up (Quotient.mk (selfHomOrbitSetoid b U X) ⟨x,p⟩)))) : f = g := by
+  sorry
+
+-- test: GlobalHomTests.global_inverse
+example {X Y : HomCategory b b} (m : X ⟶ Y)
+    (p : ((selfHomGlobalSheafFunctor b).obj Y).obj.obj (op U)) :
+    (((selfHomGlobalSheafFunctor b).map m).hom.app (op U))
+        ((((selfHomGlobalSheafFunctor b).map (homIso b b m).inv).hom.app (op U)) p) = p := by
+  sorry
+
+-- test: GlobalHomTests.global_composition
+example {X Y Z : HomCategory b b} (m : X ⟶ Y) (n : Y ⟶ Z) :
+    (selfHomOrbitFunctor b).map (m ≫ n) =
+      (selfHomOrbitFunctor b).map m ≫ (selfHomOrbitFunctor b).map n ∧
+    (selfHomGlobalSheafFunctor b).map (m ≫ n) =
+      (selfHomGlobalSheafFunctor b).map m ≫ (selfHomGlobalSheafFunctor b).map n := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.GlobalHomTests

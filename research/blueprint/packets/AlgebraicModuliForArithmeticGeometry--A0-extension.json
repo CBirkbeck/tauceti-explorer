@@ -13,7 +13,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.7"
   ],
   "status": "partial",
-  "summary": "Fixed-band Hom-sheaf chart refinement: one construction, ten lemmas, six API items and eight typed tests; all stages remain partial. Fixed-band local-chart Hom-sheaf comparisons and choice-independent common-refinement cocycles: two constructions,12 lemmas,12 API items and8 typed tests; no stage closes. Actual canonical gerbe local covers and overlap refinements: four constructions,19 lemmas,19 API items and18 typed checks; no stage closes. General two-gerbe base-change coherence: six lemmas, six API additions and eight typed checks; no stage closes. Two-gerbe endpoint transport: three constructions, thirteen lemmas, fourteen API additions and nine typed checks; no stage closes. Self-gerbe Hom-sheaf coherence checkpoint:8 lemmas,8 API additions and6 typed checks; no stage or key-definition closure. Native local Hom-sheaf base restriction checkpoint:12 declarations,10 API items and7 typed tests; no stage or key-definition closure. Choice-independent native sheaf transport between local gerbe objects:20 new declarations,15 API items and12 typed tests, including the actual local-object functor and modification naturality. Separate proof evidence compiles without admissions; no stage closure or implementation is claimed. Actual slice Hom sheaves and a functor on fixed-band gerbe modifications, with local sections, compatible simply transitive band actions and transported Isom comparison:28 new declarations,21 API items and22 typed tests. Independent native proof evidence is checked without admissions; no implementation or stage closure is claimed. Native semilinear site restriction of fixed-band Isom actions, with actual modification naturality, pseudofunctor identity/composition comparisons, and restriction-compatible natural local-object transport:18 new declarations,13 API items and14 parameterized tests. The independent proof prototype has no admissions; the roadmap remains partial and every implementation status remains unchecked. Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
+  "summary": "Global fixed-band Hom candidate: six constructions, sixteen lemmas, native orbit presheaf and sheafification with maps and universal property; all stages remain partial. Fixed-band Hom-sheaf chart refinement: one construction, ten lemmas, six API items and eight typed tests; all stages remain partial. Fixed-band local-chart Hom-sheaf comparisons and choice-independent common-refinement cocycles: two constructions,12 lemmas,12 API items and8 typed tests; no stage closes. Actual canonical gerbe local covers and overlap refinements: four constructions,19 lemmas,19 API items and18 typed checks; no stage closes. General two-gerbe base-change coherence: six lemmas, six API additions and eight typed checks; no stage closes. Two-gerbe endpoint transport: three constructions, thirteen lemmas, fourteen API additions and nine typed checks; no stage closes. Self-gerbe Hom-sheaf coherence checkpoint:8 lemmas,8 API additions and6 typed checks; no stage or key-definition closure. Native local Hom-sheaf base restriction checkpoint:12 declarations,10 API items and7 typed tests; no stage or key-definition closure. Choice-independent native sheaf transport between local gerbe objects:20 new declarations,15 API items and12 typed tests, including the actual local-object functor and modification naturality. Separate proof evidence compiles without admissions; no stage closure or implementation is claimed. Actual slice Hom sheaves and a functor on fixed-band gerbe modifications, with local sections, compatible simply transitive band actions and transported Isom comparison:28 new declarations,21 API items and22 typed tests. Independent native proof evidence is checked without admissions; no implementation or stage closure is claimed. Native semilinear site restriction of fixed-band Isom actions, with actual modification naturality, pseudofunctor identity/composition comparisons, and restriction-compatible natural local-object transport:18 new declarations,13 API items and14 parameterized tests. The independent proof prototype has no admissions; the roadmap remains partial and every implementation status remains unchecked. Native fixed-band morphism groupoid checkpoint:17 declaration-sized refinements (one definition, three constructions, thirteen lemmas),16 API entries and12 typed tests. All420 incoming declarations retain their contracts; only the neutral/all self-equivalence parents gain one dependency and one proof step each. The420-node source coverage, ten gaps and22 supplier requests remain required. Native Hom-sheaf assembly checkpoint: 19 new declarations, three constructions, 13 API items and 12 tests. Use full StrongTrans composition coherence and Mathlib local-bijection gluing to specify fibrewise fullness in the inherited adapter universe convention. All 365 untouched incoming node objects and the old full-faithfulness contract are retained; that parent gains only two prerequisite edges and one proof step. All implementations stay unchecked. Partial checkpoint with 366 declaration nodes. Adds 25 actual StrongTrans pullback adapters: five constructions and twenty lemmas, sixteen API items and fifteen native carrier/orientation tests. The actual local equivalences now compare the correct target pullbacks; arbitrary deeper-slice coherence and inverse Hom-sheaf gluing remain open. All incoming general gerbe/key-definition statements, source issues, requests, planets and ownership contracts are preserved; only the general full-faithfulness node receives two supplier edges and one proof step. No stage or reserved key is closed. Object-descent continuation: 27 native adapter and proof nodes retain local objects and isomorphisms, all three DescentData equations, actual global image morphisms, and fibrewise equivalence; coherent banded inverse and universe normalization remain open. This continuation separates eight native fixed-band inverse/modification adapters, with an independent coefficient universe and admission-free prototype audits, from the still-requested generic coherent inverse StrongTrans. It does not certify the global gerbe equivalence. This continuation bundles actual fibre Isom actions in native Action, maps every native fixed-band modification to equivariant postcomposition, and supplies choice-independent natural local-object transport. These pointwise leaves retain independent coefficient universes and possible empty section sets; the full torsor-sheaf comparison remains open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1866,6 +1866,83 @@
         "sourceSha256": "b47eab342f3e7d08f4ff8d4a16d4580b0273d63f1a790b25560236c92d4cace7",
         "provides": "Native isomorphism identity, composition or inversion used to assemble actual natural chart comparisons; imported without a new generic declaration.",
         "checked": "Declaration, surrounding universes and complete body freshly read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex — codex-7e92bd on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:Quotient.map",
+        "kind": "def",
+        "module": "Mathlib/Data/Quot.lean",
+        "provides": "A relation-preserving function induces a function on native setoid quotients.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact native application compiled."
+      },
+      {
+        "ref": "mathlib:Quotient.eq",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Quot.lean",
+        "provides": "Equality of quotient representatives is equivalent to the original setoid relation.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact native application compiled."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.whiskeringRight",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Whiskering.lean",
+        "provides": "Native postcomposition functor on functor categories.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact native application compiled."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.uliftFunctor",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Types/Basic.lean",
+        "provides": "The native functor raising the universe of type-valued carriers.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact native application compiled."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.HasSheafify",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "provides": "Left-exact sheafification interface; Sites.LeftExact supplies its actual concrete-type instance at the required enlarged universe.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact native application compiled."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.presheafToSheaf",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "provides": "The native sheafification functor left adjoint to sheaf inclusion.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact native application compiled."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.toSheafify_naturality",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "provides": "Naturality of the actual sheafification unit.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact native application compiled."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.sheafify_hom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "provides": "Maps from sheafification to a sheaf are determined by precomposition with its unit.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact native application compiled."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.sheafifyLift",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "provides": "The universal map from a sheafified presheaf to a target sheaf.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact native application compiled."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.toSheafify_sheafifyLift",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "provides": "The native sheafification lift factors the original map.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact native application compiled."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.sheafifyLift_unique",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
+        "provides": "Uniqueness of the native sheafification lift.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact native application compiled."
       }
     ]
   },
@@ -2850,6 +2927,30 @@
       "readSections": [
         "Whole displayed Section 8.11: definitions, Lemmas 8.11.2–8 and their proofs/diagrams, both comments.",
         "Source gives local/canonical compatibility context; exact fixed-band Hom-sheaf refinement formulas are authored deductions. E6 and general varying-base/SF1 obligations remain."
+      ]
+    },
+    {
+      "id": "GH-gerbe-context-codex-7e92bd",
+      "title": "Gerbes and the chart-pair orbit construction",
+      "authors": "The Stacks Project Authors; fixed-band deductions by Codex — codex-7e92bd",
+      "edition": "Displayed section read 2026-10-04; exact Mathlib pin",
+      "url": "https://stacks.math.columbia.edu/tag/06NY",
+      "sha256": "784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e",
+      "accessDate": "2026-10-04",
+      "readSections": [
+        "Whole displayed Section 8.11: all definitions, Lemmas 8.11.2–8 and displayed proofs/diagrams, both comments. E6 and varying-base/SF1 obligations remain."
+      ]
+    },
+    {
+      "id": "GH-sheafification-codex-7e92bd",
+      "title": "Sheafification in a topology and the global Hom candidate",
+      "authors": "The Stacks Project Authors; fixed-band deductions by Codex — codex-7e92bd",
+      "edition": "Displayed section read 2026-10-04; exact Mathlib pin",
+      "url": "https://stacks.math.columbia.edu/tag/00ZG",
+      "sha256": "82eb2adcf930934a9e75dd2cd7d314a8b0e63ef354c3b63b51fdd2ecbc99c474",
+      "accessDate": "2026-10-04",
+      "readSections": [
+        "Whole displayed Section 7.49: Lemmas 7.49.1–5, all displayed proofs and both comments. The omitted proof of 7.49.1 and linked proof for 7.49.5 were not recursively read; 7.49.3 gives a sketch. Exact formal statements are supplied by the read pinned native library."
       ]
     }
   ],
@@ -38217,6 +38318,1368 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/orbit",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The relation on fixed-band Hom chart pairs",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitSetoid",
+      "statement": "For U in C and X in HomCategory(b,b), put the native Setoid on pairs (x,p), where x belongs to F(U) and p:x≅X_U(x). Relate (x,p) and (y,q) precisely when there exists e:x≅y such that the actual diagonal transport sends p to q. Its equivalence laws are proved, rather than imposed as additional data.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-id",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-comp"
+      ],
+      "proofSteps": [
+        "Reflexivity uses identity transport; symmetry uses the inverse fibre isomorphism and cancellation; transitivity uses transport along the composite. The native Quotient is used throughout."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_eq",
+          "role": "compatibility",
+          "statement": "The classes of arbitrary pairs (x,p) and (y,q) in the native quotient are equal if and only if some e:x≅y transports p to q. This is an existence statement and chooses no isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_injective",
+          "role": "extensionality",
+          "statement": "For each actual x in F(U), the function p↦[(x,p)] from isomorphisms x≅X_U(x) to chart-pair classes is injective. No global object of the gerbe is required."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_transport",
+          "role": "compatibility",
+          "statement": "For every e:x≅y in F(U), the class represented by (x,p) equals the class represented by (y,transport_e(p)). The witness is the supplied e itself."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.transport_chain",
+          "kind": "compatibility",
+          "statement": "Two consecutive actual transports give the same quotient class as the initial representative."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.unequal_arrows",
+          "kind": "non-example",
+          "statement": "A supplied pair of distinct isomorphisms at the same chart remains distinct in the raw quotient; existence of such a pair on every gerbe is not asserted."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.empty_fibre",
+          "kind": "degenerate",
+          "statement": "An empty fibre forces an empty raw presheaf section carrier. No emptiness of its sheafification is asserted."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/equality",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Equality of chart-pair classes",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_eq",
+      "statement": "The classes of arbitrary pairs (x,p) and (y,q) in the native quotient are equal if and only if some e:x≅y transports p to q. This is an existence statement and chooses no isomorphism.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/orbit",
+        "mathlib:Quotient.eq"
+      ],
+      "proofSteps": [
+        "Specialize the native quotient equality criterion to the proved setoid."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/injective",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "A fixed chart retains distinct arrows",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_injective",
+      "statement": "For each actual x in F(U), the function p↦[(x,p)] from isomorphisms x≅X_U(x) to chart-pair classes is injective. No global object of the gerbe is required.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/equality",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-independent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso-id"
+      ],
+      "proofSteps": [
+        "An equality gives a loop e at x. Fixed-band transport independence identifies its action with identity transport, so the two arrows are equal."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Restriction of chart-pair classes",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict",
+      "statement": "For f:V→U send [(x,p)] to [(F(f)x,res_f(p))], with res_f the actual StrongTrans fibre-isomorphism restriction. The map has codomain the quotient for F(V), without identifying F with a strict functor.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/orbit",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/self-transport-action-iso-restriction",
+        "mathlib:Quotient.map"
+      ],
+      "proofSteps": [
+        "Apply native Quotient.map. If e witnesses equivalent representatives, F(f)(e) witnesses their restricted equivalence by the actual transport/restriction square."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_mk",
+          "role": "compatibility",
+          "statement": "Restriction of the class represented by (x,p) is exactly the class represented by (F(f)x,res_f(p)); the StrongTrans comparison in res_f is retained."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_id",
+          "role": "compatibility",
+          "statement": "Restriction along the identity of U is the identity function on all chart-pair classes, even when the pseudofunctor identity comparison is not a definitional equality."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_comp",
+          "role": "compatibility",
+          "statement": "For f:V→U and g:W→V, restriction along g followed by f equals restriction along f and then along g, on every chart-pair class. The equivalence witness is the actual component of F.mapComp."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.two_restrictions",
+          "kind": "compatibility",
+          "statement": "The actual presheaf restriction through two arrows agrees with restriction along their composite on arbitrary quotient sections."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.change_representative",
+          "kind": "compatibility",
+          "statement": "Restrict two representatives related by an arbitrary fibre isomorphism; their explicit restricted representatives define the same class."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.identity_comparison",
+          "kind": "computation",
+          "statement": "The explicitly restricted pair over the identity gives the original class although its object is F(id)(x), retaining the actual pseudofunctor identity comparison."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction-mk",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Restriction on a represented class",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_mk",
+      "statement": "Restriction of the class represented by (x,p) is exactly the class represented by (F(f)x,res_f(p)); the StrongTrans comparison in res_f is retained.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction"
+      ],
+      "proofSteps": [
+        "Evaluate the native quotient map."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction-id",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Identity restriction after quotienting",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_id",
+      "statement": "Restriction along the identity of U is the identity function on all chart-pair classes, even when the pseudofunctor identity comparison is not a definitional equality.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-id",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso"
+      ],
+      "proofSteps": [
+        "Induct on a representative. Use the actual component of F.mapId as the equivalence witness, then cancel the corresponding endpoint transport."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Composition of restrictions after quotienting",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_comp",
+      "statement": "For f:V→U and g:W→V, restriction along g followed by f equals restriction along f and then along g, on every chart-pair class. The equivalence witness is the actual component of F.mapComp.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/fibre-isom-restriction-comp",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-action-iso"
+      ],
+      "proofSteps": [
+        "Induct on a representative, keep the actual pseudofunctor composition isomorphism, and use the established restriction composition formula."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/presheaf",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The global presheaf of Hom chart-pair classes",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitPresheaf",
+      "statement": "Construct the actual functor P_X:Cᵒᵖ→Type(max(u′,v′)) whose sections over U are the native chart-pair quotient and whose restriction maps are the proved quotient restrictions. A fibre with no object gives no raw sections; no sheaf condition is asserted here.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction-id",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction-comp"
+      ],
+      "proofSteps": [
+        "Use the exact quotient carriers and restrictions as native functor data. The preceding identity and composition lemmas supply the two functor laws."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_mk",
+          "role": "compatibility",
+          "statement": "Restriction of the class represented by (x,p) is exactly the class represented by (F(f)x,res_f(p)); the StrongTrans comparison in res_f is retained."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_id",
+          "role": "compatibility",
+          "statement": "Restriction along the identity of U is the identity function on all chart-pair classes, even when the pseudofunctor identity comparison is not a definitional equality."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_comp",
+          "role": "compatibility",
+          "statement": "For f:V→U and g:W→V, restriction along g followed by f equals restriction along f and then along g, on every chart-pair class. The equivalence witness is the actual component of F.mapComp."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.empty_fibre",
+          "kind": "degenerate",
+          "statement": "An empty fibre forces an empty raw presheaf section carrier. No emptiness of its sheafification is asserted."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.two_restrictions",
+          "kind": "compatibility",
+          "statement": "The actual presheaf restriction through two arrows agrees with restriction along their composite on arbitrary quotient sections."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.change_representative",
+          "kind": "compatibility",
+          "statement": "Restrict two representatives related by an arbitrary fibre isomorphism; their explicit restricted representatives define the same class."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Modification maps on chart-pair classes",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap",
+      "statement": "For any native fixed-band modification m:X→Y, send [(x,p)] over U to [(x,p followed by m_x)], using the actual component isomorphism. This defines a function between the two chart-pair quotients.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/orbit",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/self-transport-nat-iso",
+        "mathlib:Quotient.map"
+      ],
+      "proofSteps": [
+        "Apply native Quotient.map. Naturality of the existing diagonal transport natural isomorphism in m supplies representative independence with the same fibre isomorphism e."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_mk",
+          "role": "compatibility",
+          "statement": "The map for m:X→Y sends the represented class (x,p) exactly to the class (x,p followed by componentIso(m,U,x))."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_id",
+          "role": "compatibility",
+          "statement": "The quotient map induced by the identity modification of X fixes every class over every U."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_comp",
+          "role": "compatibility",
+          "statement": "For m:X→Y and n:Y→Z, the quotient map for m followed by n equals the map for m then the map for n, on every class over U."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_restrict",
+          "role": "compatibility",
+          "statement": "For m:X→Y and f:V→U, restriction of the m-image of any class equals the m-image over V of its restriction from U."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_inverse",
+          "role": "compatibility",
+          "statement": "Applying the map of m:X→Y and then its native inverse modification recovers every quotient section over U."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.inverse_modification",
+          "kind": "compatibility",
+          "statement": "The actual orbit-presheaf natural transformation for a modification followed by its native inverse recovers each section."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.modification_restriction",
+          "kind": "compatibility",
+          "statement": "Two arbitrary modifications interleaved with two restrictions agree with the composite modification after composite restriction."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.nonidentity_modification",
+          "kind": "non-example",
+          "statement": "If an actual modification changes a supplied fibre isomorphism by postcomposition, its raw quotient map changes that represented class; it is not silently collapsed to identity."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-mk",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Modification on a represented class",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_mk",
+      "statement": "The map for m:X→Y sends the represented class (x,p) exactly to the class (x,p followed by componentIso(m,U,x)).",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map"
+      ],
+      "proofSteps": [
+        "Evaluate the native quotient map."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-id",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Identity modification on classes",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_id",
+      "statement": "The quotient map induced by the identity modification of X fixes every class over every U.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-mk",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-id"
+      ],
+      "proofSteps": [
+        "Induct on a representative and use the actual identity-component formula."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-comp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Composite modification on classes",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_comp",
+      "statement": "For m:X→Y and n:Y→Z, the quotient map for m followed by n equals the map for m then the map for n, on every class over U.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-mk",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-action/component-iso-comp"
+      ],
+      "proofSteps": [
+        "Induct on and destruct a pair representative, then use component composition and associativity of isomorphisms."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-restrict",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Modification maps commute with restriction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_restrict",
+      "statement": "For m:X→Y and f:V→U, restriction of the m-image of any class equals the m-image over V of its restriction from U.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/restriction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/fibre-restriction/restriction-iso-modification",
+        "mathlib:CategoryTheory.Functor.mapIso_trans"
+      ],
+      "proofSteps": [
+        "Induct on a pair. The two restricted pairs have exactly the same object; congruence reduces to the actual StrongTrans modification/restriction identity."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/functor",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The Hom-category functor to orbit presheaves",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitFunctor",
+      "statement": "Construct a native functor HomCategory(b,b)→(Cᵒᵖ→Type(max(u′,v′))) sending X to P_X and every native modification to its quotient natural transformation. It is defined on all morphisms of the supplied category.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/presheaf",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-restrict",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-id",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-comp"
+      ],
+      "proofSteps": [
+        "Use the restriction square for naturality and the quotient identity/composition laws for functoriality."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_restrict",
+          "role": "compatibility",
+          "statement": "For m:X→Y and f:V→U, restriction of the m-image of any class equals the m-image over V of its restriction from U."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_id",
+          "role": "compatibility",
+          "statement": "The quotient map induced by the identity modification of X fixes every class over every U."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_comp",
+          "role": "compatibility",
+          "statement": "For m:X→Y and n:Y→Z, the quotient map for m followed by n equals the map for m then the map for n, on every class over U."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_inverse",
+          "role": "compatibility",
+          "statement": "Applying the map of m:X→Y and then its native inverse modification recovers every quotient section over U."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.inverse_modification",
+          "kind": "compatibility",
+          "statement": "The actual orbit-presheaf natural transformation for a modification followed by its native inverse recovers each section."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.modification_restriction",
+          "kind": "compatibility",
+          "statement": "Two arbitrary modifications interleaved with two restrictions agree with the composite modification after composite restriction."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.global_composition",
+          "kind": "compatibility",
+          "statement": "Composition holds as equality of actual presheaf natural transformations and of actual global sheaf morphisms."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-functor",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "A global sheaf from the Hom chart-pair presheaf",
+      "kind": "construction",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor",
+      "statement": "Construct a native functor HomCategory(b,b)→Sheaf(J,Type(max(u,v,u′,v′))) by composing the orbit-presheaf functor, postcomposition with native ULift, and Mathlib presheafToSheaf. The universe lift makes native type-valued sheafification available; the coefficient universe w remains independent. No global neutral object or extra HasSheafify assumption is supplied.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/functor",
+        "mathlib:CategoryTheory.Functor.whiskeringRight",
+        "mathlib:CategoryTheory.uliftFunctor",
+        "mathlib:CategoryTheory.HasSheafify",
+        "mathlib:CategoryTheory.presheafToSheaf"
+      ],
+      "proofSteps": [
+        "Use native functor composition and whiskering. The actual existing concrete-type instance from Sites.LeftExact supplies sheafification in the enlarged universe. This gives a globally defined candidate and its maps; identification with the earlier local Hom sheaves is a separate remaining theorem."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-sheafification-codex-7e92bd",
+          "locator": "Stacks Section 7.49/tag 00ZG, Lemmas 7.49.3–5; exact functor is an authored specialization.",
+          "excerpt": "sheafification",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_obj",
+          "role": "compatibility",
+          "statement": "The global candidate at X is exactly the native sheafification of P_X postcomposed with ULift to Type(max(u,v,u′,v′))."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_map_inverse",
+          "role": "compatibility",
+          "statement": "For any m:X→Y, its global sheaf map followed by the map for the native inverse modification is the identity of the global sheaf at X."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_unit_naturality",
+          "role": "compatibility",
+          "statement": "The ULift-whiskered presheaf map induced by m followed by the sheafification unit at Y equals the unit at X followed by the underlying global sheaf map of m."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_hom_ext",
+          "role": "extensionality",
+          "statement": "For any sheaf Q in the stated type universe, two sheaf morphisms from the global candidate at X to Q are equal if their underlying presheaf maps agree after precomposition with the actual sheafification unit of ULift(P_X)."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_universal",
+          "role": "universal-property",
+          "statement": "For every target sheaf Q and presheaf morphism ULift(P_X)→Q, there exists a unique sheaf morphism from the global candidate at X to Q whose underlying map restricts to the given morphism along the actual sheafification unit."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.unit_restriction",
+          "kind": "compatibility",
+          "statement": "On arbitrary raw quotient sections, the actual global sheaf restriction commutes with the ULift sheafification unit."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.unit_modification",
+          "kind": "computation",
+          "statement": "The global sheaf map on the image of an explicit pair under the unit is the unit image of postcomposition by the actual modification component."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.universal_target",
+          "kind": "compatibility",
+          "statement": "For an arbitrary sheaf target, every map out of the lifted orbit presheaf has a unique actual sheaf-morphism extension along the unit."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.generator_ext",
+          "kind": "compatibility",
+          "statement": "Agreement on the unit images of every represented pair at every U implies equality of actual sheaf morphisms to any target sheaf, by quotient induction and the native universal property."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.global_inverse",
+          "kind": "compatibility",
+          "statement": "Apply the inverse global map and then the forward map to an arbitrary sheafified section; it returns the section, without assuming a representative or unit surjectivity."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.GlobalHomTests.global_composition",
+          "kind": "compatibility",
+          "statement": "Composition holds as equality of actual presheaf natural transformations and of actual global sheaf morphisms."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-object",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The exact sheafification object",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_obj",
+      "statement": "The global candidate at X is exactly the native sheafification of P_X postcomposed with ULift to Type(max(u,v,u′,v′)).",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-functor"
+      ],
+      "proofSteps": [
+        "Unfold the composite functors and native postcomposition on objects."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-sheafification-codex-7e92bd",
+          "locator": "Stacks Section 7.49/tag 00ZG, Lemmas 7.49.3–5; exact functor is an authored specialization.",
+          "excerpt": "sheafification",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Global maps respect modification inverses",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_map_inverse",
+      "statement": "For any m:X→Y, its global sheaf map followed by the map for the native inverse modification is the identity of the global sheaf at X.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-functor",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso"
+      ],
+      "proofSteps": [
+        "Combine the two maps using functoriality, then use the actual hom-inverse identity in HomCategory(b,b)."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-sheafification-codex-7e92bd",
+          "locator": "Stacks Section 7.49/tag 00ZG, Lemmas 7.49.3–5; exact functor is an authored specialization.",
+          "excerpt": "sheafification",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-unit",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Naturality of the sheafification unit",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_unit_naturality",
+      "statement": "The ULift-whiskered presheaf map induced by m followed by the sheafification unit at Y equals the unit at X followed by the underlying global sheaf map of m.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-functor",
+        "mathlib:CategoryTheory.toSheafify_naturality"
+      ],
+      "proofSteps": [
+        "Specialize naturality of the native sheafification unit to the actual whiskered quotient natural transformation."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-sheafification-codex-7e92bd",
+          "locator": "Stacks Section 7.49/tag 00ZG, Lemmas 7.49.3–5; exact functor is an authored specialization.",
+          "excerpt": "sheafification",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/transport",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Transport preserves the represented class",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbit_mk_transport",
+      "statement": "For every e:x≅y in F(U), the class represented by (x,p) equals the class represented by (y,transport_e(p)). The witness is the supplied e itself.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/orbit"
+      ],
+      "proofSteps": [
+        "Apply native quotient soundness to the defining relation with witness e."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-inverse",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Modification inverse on all quotient sections",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_inverse",
+      "statement": "Applying the map of m:X→Y and then its native inverse modification recovers every quotient section over U.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-comp",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/map-id",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/banded-hom/hom-iso"
+      ],
+      "proofSteps": [
+        "Combine the maps, use the native hom-inverse identity, and apply the proved identity-modification formula."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-gerbe-context-codex-7e92bd",
+          "locator": "Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact fixed-band orbit equations are authored deductions.",
+          "excerpt": "gerbe",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-ext",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "Global sheaf maps are determined before sheafification",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_hom_ext",
+      "statement": "For any sheaf Q in the stated type universe, two sheaf morphisms from the global candidate at X to Q are equal if their underlying presheaf maps agree after precomposition with the actual sheafification unit of ULift(P_X).",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-object",
+        "mathlib:CategoryTheory.Sheaf.hom_ext",
+        "mathlib:CategoryTheory.sheafify_hom_ext"
+      ],
+      "proofSteps": [
+        "Apply native sheaf morphism extensionality and native sheafification hom extensionality using the target sheaf property."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-sheafification-codex-7e92bd",
+          "locator": "Stacks Section 7.49/tag 00ZG, Lemmas 7.49.3–5; exact functor is an authored specialization.",
+          "excerpt": "sheafification",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-universal",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "title": "The universal property of the global candidate",
+      "kind": "lemma",
+      "declarationName": "TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_universal",
+      "statement": "For every target sheaf Q and presheaf morphism ULift(P_X)→Q, there exists a unique sheaf morphism from the global candidate at X to Q whose underlying map restricts to the given morphism along the actual sheafification unit.",
+      "hypotheses": [
+        "C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an actual Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.",
+        "b is an actual abelian banding by A:Sheaf(J,AddCommGrpCat) in an independent coefficient universe w. X,Y,Z and their modifications belong to the existing native HomCategory(b,b). No global object, neutrality, strictification of F, nonempty fibre, or chosen coherent isomorphism system is assumed.",
+        "Raw presheaves take values in Type(max(u′,v′)); global sheaves use the explicit native ULift to Type(max(u,v,u′,v′)). The local Hom-sheaf comparison and torsor structures remain requirements, not assumptions hidden in these constructions."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/global-hom/sheaf-object",
+        "mathlib:CategoryTheory.sheafifyLift",
+        "mathlib:CategoryTheory.toSheafify_sheafifyLift",
+        "mathlib:CategoryTheory.sheafifyLift_unique",
+        "mathlib:CategoryTheory.Sheaf.hom_ext"
+      ],
+      "proofSteps": [
+        "Package the native sheafifyLift as a sheaf morphism. Its factorization and uniqueness follow from the actual native lemmas and sheaf hom extensionality."
+      ],
+      "acceptance": [
+        "Keep actual quotient representatives, pseudofunctor comparisons, modification components, universe lift, and native sheafification. All construction data are supplied by the stated prerequisites.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.4/self-equivalence-torsor",
+          "how": "Construct the global candidate and its maps before the required local torsor comparison and the supplier-owned torsor-groupoid packaging."
+        },
+        {
+          "where": "Stacks Section 8.11; Section 7.49",
+          "how": "Apply local gerbe transport and the existing universal sheafification; no new generic stackification or sheaf-descent package is planned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Stacks/Gerbes",
+        "namespace": "TauCeti.AlgebraicGeometry.BandedMorphism"
+      },
+      "sources": [
+        {
+          "sourceId": "GH-sheafification-codex-7e92bd",
+          "locator": "Stacks Section 7.49/tag 00ZG, Lemmas 7.49.3–5; exact functor is an authored specialization.",
+          "excerpt": "sheafification",
+          "match": "The source supplies general mathematical context. Exact fixed-band quotient, restriction and modification equations are authored from the listed prerequisites; the native library supplies all generic quotient and sheafification machinery."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -38447,7 +39910,8 @@
         "The general F→G Hom-sheaf base-change unit and composition laws now have checked native proof prototypes, including the two distinct endpoint comparisons, their inverses and naturality on the actual modification category. This resolves the specifically named general-coherence frontier in earlier historical entries. Actual local-object covers/refinements, gluing of sheaves/actions/maps, D0 torsor packaging, full faithfulness and coherent inverse/unit/counit remain open. No concrete nonconstant-site or nonneutral geometric fixture is added; stability under a third pullback does not assert a full descent pentagon. All inherited intrinsic descended-band/SF1, nonneutral root-gerbe/H², fpqc-limit and other-stage/source obligations remain.",
         "Canonical local-object and local-isomorphism sieves, actual overlap covering refinements and direct overlap isomorphisms now have checked native prototypes for arbitrary Cat-valued pseudofunctors and gerbes on an arbitrary site. Covering uses the genuine IsGerbe local-existence fields; direct overlap maps retain both F.mapComp endpoint factors. This resolves the explicitly named existence of local covers/refinements, but no compatibility cocycle for independent choices or gluing of Hom sheaves, actions and maps is claimed. D0 torsor packaging, full faithfulness and coherent inverse/unit/counit, intrinsic descended-band/SF1, nonneutral geometric/root-gerbe fixtures and derivedH², compatible fpqc limits and all other-stage/source obligations remain open.",
         "Fixed-band diagonal Hom sheaves now have actual natural chart comparisons, coefficient equivariance and cocycles on common overlap refinements, independent of the actual overlap choices. All native base-change factors and modifications are retained. This supplies the choice-independent common-refinement cocycle portion of the gluing frontier, not a completed gluing construction: prove compatibility when the refinement changes, glue sheaves/actions/maps, package with the supplied D0 torsor groupoid, and prove full faithfulness with coherent inverse/unit/counit. General two-gerbe endpoint transport does not acquire this diagonal fixed-band independence. Intrinsic descended-band/SF1, nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open.",
-        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
+        "Fixed-band diagonal Hom-sheaf chart transitions now commute with arbitrary further refinements, as complete natural isomorphisms on HomCategory(b,b) and on actual sections, retaining native slice pullback composition and both pseudofunctor endpoint comparisons. Independently chosen overlap maps satisfy the same square, and every further restriction of an established overlap is available. Actual global sheaf/action/map gluing, supplied D0 torsor-groupoid packaging, full faithfulness and a coherent inverse/unit/counit remain. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open.",
+        "An actual global candidate sheaf and functor on every fixed-band modification now exist, by native sheafification of the proved chart-pair orbit presheaf. Its unit and universal property are explicit. Still required: prove its local comparison with the existing fibreHomSheaf on every chart and the associated overlap/refinement compatibility; descend the actual band action and prove local torsor properties; package the supplied D0 torsor groupoid, then establish full faithfulness and a coherent inverse/unit/counit. No injectivity of the sheafification unit or sheaf condition for the raw quotient is claimed. Intrinsic descended-band/SF1, nonconstant-site and nonneutral geometric fixtures, root gerbes and derived H², compatible fpqc limits and all other-stage/source obligations remain open."
       ]
     },
     {
