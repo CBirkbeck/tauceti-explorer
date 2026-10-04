@@ -1,3 +1,145 @@
+# Affine dual identity and tower coherence
+
+The existing finite-projective affine dual comparison now satisfies whole linear-equivalence identity and two-step tower coherence through the native module unitors, cancelBaseChange and dual congruence. The native covector tower theorem is reused, then tensor generation proves the equality on all classes. The actual dual connection operator respects the identity comparison and the tower comparison in both horizontal directions; full transported-preconnection equality, extended differential and curvature compatibility and equivalent flatness of the two target T-operators are proved. Arbitrary λ, including dλ≠0, needs no flatness of either algebra map or global basis. Three-scalar, inverse-path, zero-module, nonreduced Z/4, polynomial new-scalar derivative and variable-parameter fixtures are explicit. No new generic carrier is introduced. Three-step dual coherence and categorical coevaluation/rigidity, universal exterior-power comparison and actual E1 sheaf tensor/restriction/equality detection/effective gluing remain required. The reserved global finite locally free integrable key retains dλ=0. All149 routes,35 omissions,five requests,eleven gaps,two source issues,six planets and determinant/Tate/period/arbitrary-Q shuffle obligations remain; H.0 stays partial and H.1–H.8 not_read. Earlier frontier prose is checkpoint history. Every implementation remains unchecked.
+
+Write η_RS for the existing comparison, C_E for the native cancellation T⊗_S(S⊗_R E)≃T⊗_R E, and K=C_E∨ followed by η_RT. The identity is η_RR followed by dualCongr(lid_E)=lid_E∨. The whole tower equality identifies K with η_RS.baseChange, then η_ST, then dualCongr(C_E). The covector tower law already exists in Mathlib and is imported.
+
+Actual connection horizontality follows by composing the existing tower and direct-dual operator equations. It retains the equality of parameters and all new-scalar derivative terms. The inverse, full transport, extension and curvature identities use the same native composite; no new generic carrier is defined. Flatness is equivalent between two target T-operators, with no unconditional reflection to R.
+
+The explicit module fixtures are free or zero; no projective-but-not-free fixture is claimed. Two-step tower coherence does not itself supply three-step dual coherence, categorical coevaluation/rigidity or global sheaf descent.
+
+## Declarations and tests
+
+### Identity coherence of the affine dual comparison
+
+`affineDualPullbackEquiv_id` — Let η_RS:S⊗_R E∨≃_S(S⊗_R E)∨ be the existing finite-projective affine dual comparison. As whole R-linear equivalences, η_RR followed by native dual congruence along lid_R,E equals lid_R,E∨. The module unitor and its contravariant action on the dual are explicit.
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed.
+
+Proof plan: Extensionality on the scalar-extended covector and its argument reduces to pure tensors r⊗φ and the inverse unitor 1⊗e. The existing evaluation formula gives rφ(e); addition uses the two whole-map induction hypotheses.
+
+### Native covector tower inside the affine comparison
+
+`affineDualPullbackEquiv_tower_unit` — For φ∈E∨ and C_E=cancelBaseChange R S T T E, η_ST(1⊗η_RS(1⊗φ))=C_E.dualMap(η_RT(1⊗φ)) as T-linear functionals on T⊗_S(S⊗_R E). This specializes the already-native covector tower theorem to the connection comparison; it does not plan a new generic dual base-change law.
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed.
+
+Proof plan: Rewrite all three unit tensors by η_unit, use the pinned Module.Dual.baseChange_baseChange theorem, and identify native inverse dual congruence with precomposition by C_E through evaluation.
+
+### Affine dual tower on every tensor class
+
+`affineDualPullbackEquiv_tower_apply` — For every x∈T⊗_S(S⊗_R E∨), η_ST((η_RS.toLinearMap).baseChange T(x))=C_E.dualMap(η_RT(C_E∨(x))). Equality holds on the entire module, not just extended source covectors.
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed.
+
+Proof plan: Induct on both tensor factors. Express t⊗(s⊗φ) as (tσ_ST(s)) times 1⊗(1⊗φ), use T-linearity of each actual map and the native cancellation formula, then apply the unit-covector tower identity.
+
+### Whole affine dual tower equivalence
+
+`affineDualPullbackEquiv_tower` — The whole T-linear equivalence C_E∨ followed by η_RT equals (η_RS.baseChange S T), then η_ST, then Module.Dual.congr(C_E). Thus direct dual comparison after flattening and the iterated dual comparison after contravariant module flattening are the same actual equivalence.
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed.
+
+Proof plan: Apply extensionality twice. Evaluate the whole-module tower identity at C_E inverse(y); cancellation changes precomposition by C_E into evaluation at y. Unfold only the native equivalence coercions needed to match the statement.
+
+### Three-scalar evaluation of the dual tower
+
+`affineDualPullbackEquiv_tower_eval` — Writing K=C_E∨ followed by η_RT, K(t⊗(s⊗φ))(u⊗e)=(tσ_ST(s))uσ_RT(φ(e)) for arbitrary t,u∈T and s∈S. All three independent scalar factors and the specified algebra maps remain visible.
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed.
+
+Proof plan: Evaluate the actual native cancellation map on the nested tensor, then apply the inherited two-scalar η formula and commute the first two scalar factors.
+
+### Identity comparison of the actual dual operator
+
+`Preconnection.affineDualPullback_id_horizontal` — For every x∈R⊗_R E∨, dual(D)(Module.Dual.congr(lid_R,E)(η_RR(x)))=(lid_R,E∨⊗id_W)((dual(D).affinePullback(refl Ω))(x)). This is an identity between the actual additive operators under the explicit native unitors.
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed. Actual degree-zero/one/two calculi over k,R,S,T with independent-universe form modules and actual morphisms m,n; D is the existing additive λ-preconnection. The degree-one scalar actions satisfy IsScalarTower k R W, k S V and k T P where used by the inherited tower/transport/curvature APIs. The identity case only uses the source calculus and IsScalarTower k R W. No d_Rλ=0 premise is added to these raw affine identities.
+
+Proof plan: Evaluate the whole equivalence identity at x, rewrite the actual operator argument, and apply the inherited identity-pullback horizontality to dual(D).
+
+### Horizontal affine dual tower comparison
+
+`Preconnection.affineDualPullback_tower_horizontal` — For actual calculus morphisms m:Ω→Γ and n:Γ→Δ and every x∈T⊗_S(S⊗_R E∨), dual(D.affinePullback(n.towerComp m))(K(x))=(K⊗id_P)((dual(D).affinePullbackTower n m)(x)). The tower retains the actual twice-pulled-back additive operator and the parameter equality σ_ST(σ_RS(λ))=σ_RT(λ).
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed. Actual degree-zero/one/two calculi over k,R,S,T with independent-universe form modules and actual morphisms m,n; D is the existing additive λ-preconnection. The degree-one scalar actions satisfy IsScalarTower k R W, k S V and k T P where used by the inherited tower/transport/curvature APIs. The identity case only uses the source calculus and IsScalarTower k R W. No d_Rλ=0 premise is added to these raw affine identities.
+
+Proof plan: Compose the inherited actual tower horizontality for dual(D) with the direct affine-dual horizontality for n.towerComp m. Native tensor-map composition identifies the composite with K⊗id. Together with the whole equivalence equality, this also identifies the iterated dual-comparison path.
+
+### Horizontal inverse of the affine dual tower
+
+`Preconnection.affineDualPullback_tower_inverse` — For every target covector f∈(T⊗_R E)∨, (dual(D).affinePullbackTower n m)(K inverse(f))=(K inverse⊗id_P)(dual(D.affinePullback(n.towerComp m))(f)). The inverse is the inverse of the actual composite native equivalence.
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed. Actual degree-zero/one/two calculi over k,R,S,T with independent-universe form modules and actual morphisms m,n; D is the existing additive λ-preconnection. The degree-one scalar actions satisfy IsScalarTower k R W, k S V and k T P where used by the inherited tower/transport/curvature APIs. The identity case only uses the source calculus and IsScalarTower k R W. No d_Rλ=0 premise is added to these raw affine identities.
+
+Proof plan: Apply the inherited horizontal-inverse theorem to K and the proved whole-module equation.
+
+### Equality of full transported dual tower preconnections
+
+`Preconnection.affineDualPullback_tower_eq` — Transport the full preconnection dual(D).affinePullbackTower n m along K. The result equals dual(D.affinePullback(n.towerComp m)), including its additive operator and the same σ_RT(λ) Leibniz law.
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed. Actual degree-zero/one/two calculi over k,R,S,T with independent-universe form modules and actual morphisms m,n; D is the existing additive λ-preconnection. The degree-one scalar actions satisfy IsScalarTower k R W, k S V and k T P where used by the inherited tower/transport/curvature APIs. The identity case only uses the source calculus and IsScalarTower k R W. No d_Rλ=0 premise is added to these raw affine identities.
+
+Proof plan: Evaluate transport at K inverse(f), use tower horizontality and cancel K. This identifies additive operators; the existing dual evaluation uniqueness theorem identifies the complete preconnections.
+
+### Affine dual tower and extended differential
+
+`Preconnection.affineDualPullback_tower_extend` — For every x∈(T⊗_S(S⊗_R E∨))⊗_T P, the actual degree-one extension of dual(D.affinePullback(n.towerComp m)) on (K⊗id_P)(x) equals (K⊗id_Q) applied to the actual extension of dual(D).affinePullbackTower n m on x.
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed. Actual degree-zero/one/two calculi over k,R,S,T with independent-universe form modules and actual morphisms m,n; D is the existing additive λ-preconnection. The degree-one scalar actions satisfy IsScalarTower k R W, k S V and k T P where used by the inherited tower/transport/curvature APIs. The identity case only uses the source calculus and IsScalarTower k R W. No d_Rλ=0 premise is added to these raw affine identities.
+
+Proof plan: Apply the inherited extension-horizontal theorem to K with its proved actual operator equation.
+
+### Affine dual tower and curvature
+
+`Preconnection.affineDualPullback_tower_curvature` — For every x∈T⊗_S(S⊗_R E∨), κ_dual(D.affinePullback(n.towerComp m))(K(x))=(K⊗id_Q)(κ_(dual(D).affinePullbackTower n m)(x)). The comparison retains arbitrary λ, including d_Rλ≠0.
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed. Actual degree-zero/one/two calculi over k,R,S,T with independent-universe form modules and actual morphisms m,n; D is the existing additive λ-preconnection. The degree-one scalar actions satisfy IsScalarTower k R W, k S V and k T P where used by the inherited tower/transport/curvature APIs. The identity case only uses the source calculus and IsScalarTower k R W. No d_Rλ=0 premise is added to these raw affine identities.
+
+Proof plan: Apply the inherited actual curvature-horizontal theorem. No parameter correction is discarded and no source-curvature reflection is inferred.
+
+### Equivalent target flatness for the dual tower
+
+`Preconnection.affineDualPullback_tower_flat_iff` — The two actual T-preconnections dual(D).affinePullbackTower n m and dual(D.affinePullback(n.towerComp m)) are flat simultaneously. This compares two target operators; it is not unconditional reflection of the original R-curvature.
+
+Hypotheses: Commutative rings R,S,T in a common ring universe, with specified algebra structures R→S→T and R→T satisfying IsScalarTower R S T; E is an actual finite projective R-module in an independent universe. Identity statements only require R. Native instances supply finite projectivity of scalar extensions and duals. No global basis, field, characteristic, reducedness, nontriviality or flatness of the algebra maps is assumed. Actual degree-zero/one/two calculi over k,R,S,T with independent-universe form modules and actual morphisms m,n; D is the existing additive λ-preconnection. The degree-one scalar actions satisfy IsScalarTower k R W, k S V and k T P where used by the inherited tower/transport/curvature APIs. The identity case only uses the source calculus and IsScalarTower k R W. No d_Rλ=0 premise is added to these raw affine identities.
+
+Proof plan: Rewrite by full transported-preconnection equality, then use the inherited transport-flatness equivalence in the reverse orientation.
+
+### API additions to the existing comparison
+
+- `affineDualPullbackEquiv_id`: Let η_RS:S⊗_R E∨≃_S(S⊗_R E)∨ be the existing finite-projective affine dual comparison. As whole R-linear equivalences, η_RR followed by native dual congruence along lid_R,E equals lid_R,E∨. The module unitor and its contravariant action on the dual are explicit.
+- `affineDualPullbackEquiv_tower_unit`: For φ∈E∨ and C_E=cancelBaseChange R S T T E, η_ST(1⊗η_RS(1⊗φ))=C_E.dualMap(η_RT(1⊗φ)) as T-linear functionals on T⊗_S(S⊗_R E). This specializes the already-native covector tower theorem to the connection comparison; it does not plan a new generic dual base-change law.
+- `affineDualPullbackEquiv_tower_apply`: For every x∈T⊗_S(S⊗_R E∨), η_ST((η_RS.toLinearMap).baseChange T(x))=C_E.dualMap(η_RT(C_E∨(x))). Equality holds on the entire module, not just extended source covectors.
+- `affineDualPullbackEquiv_tower`: The whole T-linear equivalence C_E∨ followed by η_RT equals (η_RS.baseChange S T), then η_ST, then Module.Dual.congr(C_E). Thus direct dual comparison after flattening and the iterated dual comparison after contravariant module flattening are the same actual equivalence.
+- `affineDualPullbackEquiv_tower_eval`: Writing K=C_E∨ followed by η_RT, K(t⊗(s⊗φ))(u⊗e)=(tσ_ST(s))uσ_RT(φ(e)) for arbitrary t,u∈T and s∈S. All three independent scalar factors and the specified algebra maps remain visible.
+- `Preconnection.affineDualPullback_id_horizontal`: For every x∈R⊗_R E∨, dual(D)(Module.Dual.congr(lid_R,E)(η_RR(x)))=(lid_R,E∨⊗id_W)((dual(D).affinePullback(refl Ω))(x)). This is an identity between the actual additive operators under the explicit native unitors.
+- `Preconnection.affineDualPullback_tower_horizontal`: For actual calculus morphisms m:Ω→Γ and n:Γ→Δ and every x∈T⊗_S(S⊗_R E∨), dual(D.affinePullback(n.towerComp m))(K(x))=(K⊗id_P)((dual(D).affinePullbackTower n m)(x)). The tower retains the actual twice-pulled-back additive operator and the parameter equality σ_ST(σ_RS(λ))=σ_RT(λ).
+- `Preconnection.affineDualPullback_tower_inverse`: For every target covector f∈(T⊗_R E)∨, (dual(D).affinePullbackTower n m)(K inverse(f))=(K inverse⊗id_P)(dual(D.affinePullback(n.towerComp m))(f)). The inverse is the inverse of the actual composite native equivalence.
+- `Preconnection.affineDualPullback_tower_eq`: Transport the full preconnection dual(D).affinePullbackTower n m along K. The result equals dual(D.affinePullback(n.towerComp m)), including its additive operator and the same σ_RT(λ) Leibniz law.
+- `Preconnection.affineDualPullback_tower_extend`: For every x∈(T⊗_S(S⊗_R E∨))⊗_T P, the actual degree-one extension of dual(D.affinePullback(n.towerComp m)) on (K⊗id_P)(x) equals (K⊗id_Q) applied to the actual extension of dual(D).affinePullbackTower n m on x.
+- `Preconnection.affineDualPullback_tower_curvature`: For every x∈T⊗_S(S⊗_R E∨), κ_dual(D.affinePullback(n.towerComp m))(K(x))=(K⊗id_Q)(κ_(dual(D).affinePullbackTower n m)(x)). The comparison retains arbitrary λ, including d_Rλ≠0.
+- `Preconnection.affineDualPullback_tower_flat_iff`: The two actual T-preconnections dual(D).affinePullbackTower n m and dual(D.affinePullback(n.towerComp m)) are flat simultaneously. This compares two target operators; it is not unconditional reflection of the original R-curvature.
+
+### Typed tests
+
+- `AffineDualTowerTests.identity_covector`: For every x∈R⊗E∨ and e∈E, η_RR(x)(1⊗e)=lid_R,E∨(x)(e); this tests the identity diagram on every tensor class.
+- `AffineDualTowerTests.inverse_path_roundtrip`: Apply the full iterated comparison η_RS.baseChange,η_ST,dualCongr(C_E), then the inverse direct comparison K inverse. Every x∈T⊗_S(S⊗_R E∨) is recovered.
+- `AffineDualTowerTests.three_scalars`: Nested t⊗(s⊗φ), evaluated at u⊗e, gives (tσ_ST(s))uσ_RT(φ(e)); none of the three scalar factors is omitted.
+- `AffineDualTowerTests.nonflat_nonreduced_tower`: For Z→Z/4→Z/4 and E=Z, K(1⊗(2⊗id))(1⊗1)=2 with2 nonzero and2²=0. The first scalar extension has no flatness premise.
+- `AffineDualTowerTests.zero_module`: For E=Fin0→R and every target covector, K inverse(f)=0 in the actual twice-extended dual module.
+- `AffineDualTowerTests.full_transport`: The complete transported preconnection equals dual of the direct pullback, with arbitrary λ and the actual tower parameter equality.
+- `AffineDualTowerTests.curvature_on_all_classes`: The actual curvature comparison holds for every twice-extended covector class, retaining the target degree-two tensor map.
+- `AffineDualTowerTests.flat_target_equivalence`: At λ=0 the two actual target T-operators are flat simultaneously, with no source-curvature reflection claim.
+- `AffineDualTowerTests.new_polynomial_scalar`: For Z→Z[x]→Z[x], zero source calculus, ordinary target derivative, zero form comparison and D=unit(1), D vanishes on every integer but the direct target dual derivative at K(1⊗(x⊗id)), evaluated on1⊗1, is1.
+- `AffineDualTowerTests.variable_parameter`: For the identity tower on Z[x] with ordinary derivative and λ=x, dλ=1 and the target dual derivative at K(1⊗(1⊗(x·id))), evaluated on1⊗1, equals x.
+
+## Sources and ownership
+
+The current [ordinary connection section](https://stacks.math.columbia.edu/tag/07J5) supplies the differential convention. The [finite-projective evaluation lemma](https://stacks.math.columbia.edu/tag/0FNJ) supplies duality context. The exact λ-dependent coherence identities are authored deductions using the existing actual operators and pinned native maps, including the already-native covector tower law. Both source issues are preserved with no new finding. Generic sheaf modules, tensor, dual and pullback/descent remain E1 responsibilities; this continuation supplies connection-specific affine equations. No full-paper/version or recursive categorical proof audit is claimed.
+
+## Earlier checkpoint reader (preserved verbatim)
+
 # Finite projective dual scalar-extension comparison
 
 The actual finite-projective affine dual now commutes with the actual affine pullback through the native covector scalar-extension comparison. Its S-linear equivalence is obtained from native tensor-Hom and scalar-extension adjunction, without a global basis or flatness of S. Both horizontal directions, full transported-preconnection equality, extended differential and curvature comparisons and equivalent flatness of the two target S-operators are proved for arbitrary λ. The native monoidal tensor/unit evaluation diagram and both bidual compatibility equations commute, and the comparison is natural for every R-linear module map. New polynomial scalars retain their derivatives: over Z→Z[x], the target dual derivative evaluates to1 although the source unit operator vanishes. A variable λ=x has dλ=1; Z/4 scalar extension retains its nonzero square-zero2; the zero module is included. Coevaluation/rigidity, identity/tower coherence for these dual comparisons, universal exterior-power comparison, and genuine E1 sheaf tensor/restriction/equality detection/effective gluing remain required. The reserved global finite locally free integrable key retains relatively constant λ. All149 routes,35 omissions,five supplier requests,eleven gaps,two source issues,six planets, determinant/Tate/period and arbitrary-Q tensor-valued-shuffle obligations remain; H.0 stays partial and H.1–H.8 not_read. Earlier frontier prose is checkpoint history. Every implementation remains unchecked.
