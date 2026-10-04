@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts. Affine conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and6 typed examples;657 incoming node objects retained whole. Global conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and8 typed examples;666 incoming whole node objects preserved. The existing geometric conductor theorem receives a separate native counterpart proof.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts. Affine conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and6 typed examples;657 incoming node objects retained whole. Global conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and8 typed examples;666 incoming whole node objects preserved. The existing geometric conductor theorem receives a separate native counterpart proof. Actual conductor Scheme descent continuation:21 declarations(5 constructions,16 lemmas),18 API references and15 distinct typed examples(17 references). All675 incoming node contracts are preserved;674 whole objects are unchanged, and the existing Scheme pushout node gains only appended prerequisites/proof steps.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3922,6 +3922,150 @@
         "line": 179,
         "provides": "theorem bijective_of_isIso {X Y : C} (f : X ⟶ Y) [IsIso f] : Reuse the actual native affine, ideal-sheaf support, closed-map or categorical API.",
         "checked": "Codex — codex-rtOQ9t read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.LocallyRingedSpace.Hom",
+        "kind": "structure",
+        "module": "Mathlib/Geometry/RingedSpace/LocallyRingedSpace.lean",
+        "line": 79,
+        "provides": "structure Hom (X Y : LocallyRingedSpace.{u}) : Type _ Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.LocallyRingedSpace.Hom.ext'",
+        "kind": "lemma",
+        "module": "Mathlib/Geometry/RingedSpace/LocallyRingedSpace.lean",
+        "line": 96,
+        "provides": "@[ext] lemma Hom.ext' {X Y : LocallyRingedSpace.{u}} {f g : X ⟶ Y} Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.PresheafedSpace.Hom",
+        "kind": "structure",
+        "module": "Mathlib/Geometry/RingedSpace/PresheafedSpace.lean",
+        "line": 70,
+        "provides": "structure Hom (X Y : PresheafedSpace C) where Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.PresheafedSpace.ext",
+        "kind": "theorem",
+        "module": "Mathlib/Geometry/RingedSpace/PresheafedSpace.lean",
+        "line": 130,
+        "provides": "theorem ext {X Y : PresheafedSpace C} (α β : X ⟶ Y) (w : α.base = β.base) Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.PresheafedSpace.stalkMap.comp",
+        "kind": "theorem",
+        "module": "Mathlib/Geometry/RingedSpace/Stalks.lean",
+        "line": 123,
+        "provides": "theorem comp {X Y Z : PresheafedSpace.{_, _, v} C} (α : X ⟶ Y) (β : Y ⟶ Z) (x : X) : Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.PresheafedSpace.stalkMap.congr_hom",
+        "kind": "theorem",
+        "module": "Mathlib/Geometry/RingedSpace/Stalks.lean",
+        "line": 147,
+        "provides": "theorem congr_hom {X Y : PresheafedSpace.{_, _, v} C} (α β : X ⟶ Y) (h : α = β) (x : X) : Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "line": 74,
+        "provides": "structure Hom (X Y : Scheme) Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_eq_app",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "line": 226,
+        "provides": "lemma appLE_eq_app {U : Y.Opens} : Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.app_eq_appLE",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "line": 222,
+        "provides": "lemma app_eq_appLE {U : Y.Opens} : Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.ext",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "line": 240,
+        "provides": "protected lemma ext {f g : X ⟶ Y} (h_base : f.base = g.base) Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.ext'",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "line": 250,
+        "provides": "protected lemma ext' {f g : X ⟶ Y} (h : f.toLRSHom = g.toLRSHom) : f = g := by Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.hom_ext",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "line": 125,
+        "provides": "lemma hom_ext (hP : IsPullback fst snd f g) {W : C} {k l : W ⟶ P} Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.lift",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "line": 106,
+        "provides": "noncomputable def lift (hP : IsPullback fst snd f g) {W : C} (h : W ⟶ X) (k : W ⟶ Y) Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.lift_fst",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "line": 111,
+        "provides": "lemma lift_fst (hP : IsPullback fst snd f g) {W : C} (h : W ⟶ X) (k : W ⟶ Y) Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsPullback.lift_snd",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
+        "line": 116,
+        "provides": "lemma lift_snd (hP : IsPullback fst snd f g) {W : C} (h : W ⟶ X) (k : W ⟶ Y) Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:TopCat.Presheaf.ext",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Sheaves/Presheaf.lean",
+        "line": 61,
+        "provides": "lemma ext {X : TopCat.{w}} {P Q : Presheaf C X} {f g : P ⟶ Q} Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:TopCat.ofHom",
+        "kind": "abbrev",
+        "module": "Mathlib/Topology/Category/TopCat/Basic.lean",
+        "line": 88,
+        "provides": "abbrev ofHom {X Y : Type u} [TopologicalSpace X] [TopologicalSpace Y] (f : C(X, Y)) : of X ⟶ of Y := Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:isLocalHom_of_comp",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/RingHom/Basic.lean",
+        "line": 43,
+        "provides": "theorem isLocalHom_of_comp (f : R →+* S) (g : S →+* T) [IsLocalHom (g.comp f)] : Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
+        "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
       }
     ]
   },
@@ -4652,6 +4796,30 @@
       "accessed": "2026-10-04T07:22:41.574848+00:00",
       "readSections": [
         "Whole displayed Lemma37.14.1 statement and proof, including comments boundary, read through primary-source web tool. Authored finite conductor generalization uses quotient topology plus previously proved actual structure-sheaf pullback. No whole Ferrand or Witaszek paper claim; earlier own bounded readings reused as authenticated."
+      ]
+    },
+    {
+      "id": "conductor-scheme-descent-7e92bd-0ET0",
+      "title": "Affine pushout universal property and locality",
+      "authors": "The Stacks Project authors",
+      "edition": "Current displayed page, 4 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0ET0",
+      "sha256": "bbbfdcd78318dc3aef0acc1615cef57eb793f430e96986a119ab7808daf558d9",
+      "accessed": "2026-10-04T08:38:55.270529+00:00",
+      "readSections": [
+        "Complete displayed statement and proof, and zero-page-comment boundary, freshly read via primary-source web tool. Section-level comments not newly read. Global finite schematically dominant conductor descent is an authored deduction."
+      ]
+    },
+    {
+      "id": "conductor-scheme-descent-7e92bd-0E25",
+      "title": "Global pushouts along closed immersions and integral maps",
+      "authors": "The Stacks Project authors",
+      "edition": "Current displayed page, 4 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0E25",
+      "sha256": "b52f9b9dcecad662b267fd703d489c46e43678d9a777caff570fb31537834ee2",
+      "accessed": "2026-10-04T08:38:55.636436+00:00",
+      "readSections": [
+        "Complete displayed statement and proof, and zero-page-comment boundary, freshly read via primary-source web tool. Section-level comments not newly read. Global finite schematically dominant conductor descent is an authored deduction."
       ]
     }
   ],
@@ -11288,13 +11456,19 @@
       "hypotheses": [],
       "proofSteps": [
         "Apply conductor-scheme-geometric and the existing GeometricPushout.lift contract: the closed inclusion D_f→Y and finite induced conductor map satisfy its finite Ferrand alternative.",
-        "Express existence and uniqueness as the colimit property of the actual square. Do not restrict T to affine schemes and do not assert an algebraic-space target theorem from a Scheme signature."
+        "Express existence and uniqueness as the colimit property of the actual square. Do not restrict T to affine schemes and do not assert an algebraic-space target theorem from a Scheme signature.",
+        "A direct native counterpart now constructs conductorSchemeDesc from the actual all-open ring pullback, proves locality using surjective point lifts and native stalk composition, and supplies both triangles and uniqueness. Apply the native PushoutCocone colimit constructor to this actual scheme cocone. The original statement, hypotheses and acceptance conditions are unchanged; the broader generic GeometricPushout.lift route remains a separate planned contract."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-geometric",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-induced-map",
         "NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts",
-        "mathlib:CategoryTheory.IsPushout"
+        "mathlib:CategoryTheory.IsPushout",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-source",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-closed",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-unique",
+        "mathlib:CategoryTheory.Limits.PushoutCocone.isColimitAux'"
       ],
       "sources": [
         {
@@ -39167,6 +39341,1121 @@
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "The underlying map for scheme descent",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescBase",
+      "statement": "Given compatible scheme morphisms y:Y→T and z:C_f→T, define the native TopCat morphism d:P→T by the existing continuous conductor descent applied to their actual underlying maps.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-descent",
+        "mathlib:TopCat.ofHom"
+      ],
+      "proofSteps": [
+        "Apply the actual continuous descent to the pointwise equality obtained by forgetting the supplied scheme square."
+      ],
+      "acceptance": [
+        "Given compatible scheme morphisms y:Y→T and z:C_f→T, define the native TopCat morphism d:P→T by the existing continuous conductor descent applied to their actual underlying maps.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescBase_source",
+          "role": "compatibility",
+          "statement": "The composite of the underlying map of f with d equals the underlying map of y."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescBase_closed",
+          "role": "compatibility",
+          "statement": "The composite of the actual inclusion C_f→P with d equals the underlying map of z."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescBase_preimage_source",
+          "role": "compatibility",
+          "statement": "For every open U of T, f⁻¹(d⁻¹U)=y⁻¹U as actual opens of Y."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescBase_preimage_closed",
+          "role": "compatibility",
+          "statement": "For every open U of T, the inverse image of d⁻¹U under C_f→P equals z⁻¹U as actual opens of C_f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorSchemeDescentChecked.base_triangles",
+          "kind": "compatibility",
+          "statement": "Both actual TopCat triangles hold simultaneously for a compatible pair of scheme morphisms."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.preimages",
+          "kind": "compatibility",
+          "statement": "Both source and closed preimages of the intersection of two arbitrary target opens agree with the actual y and z inverse images."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.identity_arbitrary_target",
+          "kind": "degenerate",
+          "statement": "For f=id_P and any compatible maps into any scheme T, descent equals y, with no affine restriction on P or T."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-pushout",
+          "how": "Supply the actual section, ringed-space or scheme map needed for the existing categorical conductor universal property."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base-source",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The underlying source triangle",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescBase_source",
+      "statement": "The composite of the underlying map of f with d equals the underlying map of y.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-source"
+      ],
+      "proofSteps": [
+        "Use native TopCat extensionality and the existing pointwise source triangle."
+      ],
+      "acceptance": [
+        "The composite of the underlying map of f with d equals the underlying map of y.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base-closed",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The underlying closed triangle",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescBase_closed",
+      "statement": "The composite of the actual inclusion C_f→P with d equals the underlying map of z.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-global-continuous-closed"
+      ],
+      "proofSteps": [
+        "Use native TopCat extensionality and the existing pointwise closed triangle."
+      ],
+      "acceptance": [
+        "The composite of the actual inclusion C_f→P with d equals the underlying map of z.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-preimage-source",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Actual source preimages for descent",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescBase_preimage_source",
+      "statement": "For every open U of T, f⁻¹(d⁻¹U)=y⁻¹U as actual opens of Y.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base-source"
+      ],
+      "proofSteps": [
+        "Apply the inverse-image functor on opens to the actual source triangle."
+      ],
+      "acceptance": [
+        "For every open U of T, f⁻¹(d⁻¹U)=y⁻¹U as actual opens of Y.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-preimage-closed",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Actual closed preimages for descent",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescBase_preimage_closed",
+      "statement": "For every open U of T, the inverse image of d⁻¹U under C_f→P equals z⁻¹U as actual opens of C_f.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base-closed"
+      ],
+      "proofSteps": [
+        "Apply the inverse-image functor on opens to the actual closed triangle."
+      ],
+      "acceptance": [
+        "For every open U of T, the inverse image of d⁻¹U under C_f→P equals z⁻¹U as actual opens of C_f.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-compatible",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Compatible sections on the actual overlap",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_compatible",
+      "statement": "For every target open U, restrict the actual y and z section maps using the two descent-preimage equalities. Their composites to Γ(D_f,i⁻¹f⁻¹d⁻¹U) agree through i.app and the existing conductorChartMap.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-preimage-source",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-preimage-closed",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-chart-map",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_comp_appLE",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.app_eq_appLE"
+      ],
+      "proofSteps": [
+        "Express both composites as appLE of i≫y and g≫z. The supplied equality of scheme morphisms identifies them, with dependent open-domain inequalities retained."
+      ],
+      "acceptance": [
+        "For every target open U, restrict the actual y and z section maps using the two descent-preimage equalities. Their composites to Γ(D_f,i⁻¹f⁻¹d⁻¹U) agree through i.app and the existing conductorChartMap.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "The descended map on every open",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescApp",
+      "statement": "For each open U of T, construct the native commutative-ring morphism Γ(T,U)→Γ(P,d⁻¹U) by the actual every-open conductor pullback and the two compatible restricted section maps.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-compatible",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-open-section-pullback",
+        "mathlib:CategoryTheory.IsPullback.lift"
+      ],
+      "proofSteps": [
+        "Use the native IsPullback lift; its carrier is the existing structure sheaf on P, not a replacement ring of pairs."
+      ],
+      "acceptance": [
+        "For each open U of T, construct the native commutative-ring morphism Γ(T,U)→Γ(P,d⁻¹U) by the actual every-open conductor pullback and the two compatible restricted section maps.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_source",
+          "role": "compatibility",
+          "statement": "Composing the descended section map with f.app on d⁻¹U gives y.appLE on the exact source inverse image."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_closed",
+          "role": "compatibility",
+          "statement": "Composing the descended section map with the actual C_f→P section map gives z.appLE on the exact closed inverse image."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_unique",
+          "role": "compatibility",
+          "statement": "Any ring morphism Γ(T,U)→Γ(P,d⁻¹U) with both specified section projections equals the descended section map."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_naturality",
+          "role": "compatibility",
+          "statement": "For every restriction U→V in the opposite opens of T, restriction followed by the V section map equals the U section map followed by restriction on the actual inverse-image opens of P."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorSchemeDescentChecked.empty_sections",
+          "kind": "degenerate",
+          "statement": "The actual descended section map on the empty target open sends every section to zero, using the zero ring on the empty inverse image."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.restriction",
+          "kind": "compatibility",
+          "statement": "An arbitrary target-open inclusion commutes with the descended section map and the actual inverse-image restriction."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.presheaf_triangles",
+          "kind": "compatibility",
+          "statement": "The components of the actual descended natural transformation satisfy both section triangles on every target open."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-pushout",
+          "how": "Supply the actual section, ringed-space or scheme map needed for the existing categorical conductor universal property."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-source",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The descended source section map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_source",
+      "statement": "Composing the descended section map with f.app on d⁻¹U gives y.appLE on the exact source inverse image.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-map",
+        "mathlib:CategoryTheory.IsPullback.lift_fst"
+      ],
+      "proofSteps": [
+        "Apply the native pullback-lift first projection identity."
+      ],
+      "acceptance": [
+        "Composing the descended section map with f.app on d⁻¹U gives y.appLE on the exact source inverse image.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-closed",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The descended closed section map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_closed",
+      "statement": "Composing the descended section map with the actual C_f→P section map gives z.appLE on the exact closed inverse image.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-map",
+        "mathlib:CategoryTheory.IsPullback.lift_snd"
+      ],
+      "proofSteps": [
+        "Apply the native pullback-lift second projection identity."
+      ],
+      "acceptance": [
+        "Composing the descended section map with the actual C_f→P section map gives z.appLE on the exact closed inverse image.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-unique",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Uniqueness of the descended section map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_unique",
+      "statement": "Any ring morphism Γ(T,U)→Γ(P,d⁻¹U) with both specified section projections equals the descended section map.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-source",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-closed",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-open-section-pullback",
+        "mathlib:CategoryTheory.IsPullback.hom_ext"
+      ],
+      "proofSteps": [
+        "Use both projections of the actual ring pullback to compare the candidate morphisms."
+      ],
+      "acceptance": [
+        "Any ring morphism Γ(T,U)→Γ(P,d⁻¹U) with both specified section projections equals the descended section map.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-natural",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Descent respects arbitrary restrictions",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_naturality",
+      "statement": "For every restriction U→V in the opposite opens of T, restriction followed by the V section map equals the U section map followed by restriction on the actual inverse-image opens of P.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-source",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-closed",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-open-section-pullback",
+        "mathlib:CategoryTheory.IsPullback.hom_ext",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.naturality",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_map",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.map_appLE"
+      ],
+      "proofSteps": [
+        "Check the two pullback projections using the native naturality and appLE restriction identities. No basis-only or affine-open assertion substitutes for all-open naturality."
+      ],
+      "acceptance": [
+        "For every restriction U→V in the opposite opens of T, restriction followed by the V section map equals the U section map followed by restriction on the actual inverse-image opens of P.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-presheaf",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "The actual descended presheaf morphism",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescPresheaf",
+      "statement": "Assemble the descended section maps into a native natural transformation O_T→d_*O_P on all opens of T. Its components are exactly conductorDescApp and its naturality is the proved restriction identity.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-map",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-natural"
+      ],
+      "proofSteps": [
+        "Use the native presheaf pushforward and natural-transformation constructor, retaining actual components and the naturality witness in the planning signature."
+      ],
+      "acceptance": [
+        "Assemble the descended section maps into a native natural transformation O_T→d_*O_P on all opens of T. Its components are exactly conductorDescApp and its naturality is the proved restriction identity.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_source",
+          "role": "compatibility",
+          "statement": "Composing the descended section map with f.app on d⁻¹U gives y.appLE on the exact source inverse image."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_closed",
+          "role": "compatibility",
+          "statement": "Composing the descended section map with the actual C_f→P section map gives z.appLE on the exact closed inverse image."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescApp_naturality",
+          "role": "compatibility",
+          "statement": "For every restriction U→V in the opposite opens of T, restriction followed by the V section map equals the U section map followed by restriction on the actual inverse-image opens of P."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorSchemeDescentChecked.presheaf_triangles",
+          "kind": "compatibility",
+          "statement": "The components of the actual descended natural transformation satisfy both section triangles on every target open."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.presheaf_empty",
+          "kind": "degenerate",
+          "statement": "The actual natural-transformation component on the empty open has its value in the zero ring."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.presheaf_two_restrictions",
+          "kind": "compatibility",
+          "statement": "Two successive arbitrary target-open restrictions agree with the single actual inverse-image restriction through the descended natural transformation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-pushout",
+          "how": "Supply the actual section, ringed-space or scheme map needed for the existing categorical conductor universal property."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-space",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "The descended morphism of ringed spaces",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescRingedSpace",
+      "statement": "Construct a native PresheafedSpace morphism from the underlying ringed space of P to that of T, with base d and presheaf map conductorDescPresheaf. Both prescribed presheaves are the actual structure sheaves; locality is proved separately.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-presheaf",
+        "mathlib:AlgebraicGeometry.PresheafedSpace.Hom"
+      ],
+      "proofSteps": [
+        "Pair the actual continuous map and actual natural transformation using the native morphism constructor; no new ringed-space carrier is introduced."
+      ],
+      "acceptance": [
+        "Construct a native PresheafedSpace morphism from the underlying ringed space of P to that of T, with base d and presheaf map conductorDescPresheaf. Both prescribed presheaves are the actual structure sheaves; locality is proved separately.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescRingedSpace_source",
+          "role": "compatibility",
+          "statement": "Composing the underlying PresheafedSpace morphism of f with the descended ringed-space map equals the underlying morphism of y, including the entire sheaf map."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescRingedSpace_closed",
+          "role": "compatibility",
+          "statement": "Composing the underlying actual C_f→P morphism with the descended ringed-space map equals the underlying morphism of z, including the entire sheaf map."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorDescRingedSpace_isLocalHom",
+          "role": "compatibility",
+          "statement": "At every point p of P, the descended map O_T,d(p)→O_P,p is a local ring homomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorSchemeDescentChecked.ringed_triangles",
+          "kind": "compatibility",
+          "statement": "Both triangles hold as full native PresheafedSpace morphisms, including their sheaf components and dependent base transports."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.local_stalks",
+          "kind": "compatibility",
+          "statement": "At every point of the actual target P the descended ringed-space stalk homomorphism is local."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.cusp_scheme_pushout",
+          "kind": "compatibility",
+          "statement": "The actual globally glued quadratic cusp normalization with a=b=0 over every field has its categorical conductor pushout in Scheme."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-pushout",
+          "how": "Supply the actual section, ringed-space or scheme map needed for the existing categorical conductor universal property."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-source",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The source triangle as ringed spaces",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescRingedSpace_source",
+      "statement": "Composing the underlying PresheafedSpace morphism of f with the descended ringed-space map equals the underlying morphism of y, including the entire sheaf map.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-space",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base-source",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-preimage-source",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-source",
+        "mathlib:AlgebraicGeometry.PresheafedSpace.ext",
+        "mathlib:TopCat.Presheaf.ext",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_map",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_eq_app"
+      ],
+      "proofSteps": [
+        "Use native extensionality, the actual base triangle, and the section projection after the required equality transport on opens. The native appLE composition removes the inverse transport."
+      ],
+      "acceptance": [
+        "Composing the underlying PresheafedSpace morphism of f with the descended ringed-space map equals the underlying morphism of y, including the entire sheaf map.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-closed",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The closed triangle as ringed spaces",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescRingedSpace_closed",
+      "statement": "Composing the underlying actual C_f→P morphism with the descended ringed-space map equals the underlying morphism of z, including the entire sheaf map.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-space",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base-closed",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-preimage-closed",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-closed",
+        "mathlib:AlgebraicGeometry.PresheafedSpace.ext",
+        "mathlib:TopCat.Presheaf.ext",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_map",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_eq_app"
+      ],
+      "proofSteps": [
+        "Use the same native extensionality argument with the actual closed inclusion and its dependent inverse-image transport."
+      ],
+      "acceptance": [
+        "Composing the underlying actual C_f→P morphism with the descended ringed-space map equals the underlying morphism of z, including the entire sheaf map.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-local-stalks",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Locality of the descended stalk maps",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorDescRingedSpace_isLocalHom",
+      "statement": "At every point p of P, the descended map O_T,d(p)→O_P,p is a local ring homomorphism.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-source",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.isClosedMap",
+        "mathlib:AlgebraicGeometry.surjective_of_isDominant_of_isClosed_range",
+        "mathlib:AlgebraicGeometry.PresheafedSpace.stalkMap.comp",
+        "mathlib:AlgebraicGeometry.PresheafedSpace.stalkMap.congr_hom",
+        "mathlib:isLocalHom_of_comp"
+      ],
+      "proofSteps": [
+        "Choose q∈Y above p using finite schematic dominance. The source ringed-space triangle identifies the composite stalk map with that of y, up to the native equality transport. This composite is local; the native isLocalHom_of_comp theorem gives locality of the first factor. No stalkwise surjectivity or separability hypothesis is used."
+      ],
+      "acceptance": [
+        "At every point p of P, the descended map O_T,d(p)→O_P,p is a local ring homomorphism.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "The actual descended scheme morphism",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSchemeDesc",
+      "statement": "Construct the scheme morphism P→T whose underlying ringed-space morphism is conductorDescRingedSpace and whose locality witness is the proved local-stalk theorem.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-space",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-local-stalks",
+        "mathlib:AlgebraicGeometry.LocallyRingedSpace.Hom",
+        "mathlib:AlgebraicGeometry.Scheme.Hom"
+      ],
+      "proofSteps": [
+        "Use the native locally ringed-space and scheme morphism constructors on the already existing schemes. Scheme existence is not an assumption or a new carrier."
+      ],
+      "acceptance": [
+        "Construct the scheme morphism P→T whose underlying ringed-space morphism is conductorDescRingedSpace and whose locality witness is the proved local-stalk theorem.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSchemeDesc_source",
+          "role": "compatibility",
+          "statement": "The composite f≫conductorSchemeDesc equals y as an actual scheme morphism."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSchemeDesc_closed",
+          "role": "compatibility",
+          "statement": "The actual conductor inclusion C_f→P followed by conductorSchemeDesc equals z as a scheme morphism."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSchemeDesc_unique",
+          "role": "compatibility",
+          "statement": "Any scheme morphism m:P→T with f≫m=y and (C_f→P)≫m=z equals conductorSchemeDesc. T is an arbitrary scheme, including nonaffine and nonseparated targets."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSchemeDesc_natural",
+          "role": "compatibility",
+          "statement": "For every scheme morphism m:T→T′, conductorSchemeDesc followed by m equals the descent of y≫m and z≫m with their transported compatibility."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorSchemeDescentChecked.scheme_reconstruction",
+          "kind": "compatibility",
+          "statement": "Descending the actual f and actual conductor inclusion into P reconstructs the identity scheme morphism of P."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.identity_arbitrary_target",
+          "kind": "degenerate",
+          "statement": "For f=id_P and any compatible maps into any scheme T, descent equals y, with no affine restriction on P or T."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.empty_scheme",
+          "kind": "degenerate",
+          "statement": "The identity on Spec(ZMod1), an empty scheme, gives the actual categorical conductor pushout in Scheme."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.nonreduced_scheme",
+          "kind": "degenerate",
+          "statement": "The identity on Spec(ZMod4) gives the actual categorical conductor pushout while2 remains nonzero and square-zero in the ring."
+        },
+        {
+          "name": "ConductorSchemeDescentChecked.inseparable_scheme_pushout",
+          "kind": "compatibility",
+          "statement": "The actual global quadratic normalization for q=t²−s over F₂(s) has its categorical conductor pushout, without separability or rational-branch hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-pushout",
+          "how": "Supply the actual section, ringed-space or scheme map needed for the existing categorical conductor universal property."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-source",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The descended scheme source triangle",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSchemeDesc_source",
+      "statement": "The composite f≫conductorSchemeDesc equals y as an actual scheme morphism.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-source",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.ext'",
+        "mathlib:AlgebraicGeometry.LocallyRingedSpace.Hom.ext'"
+      ],
+      "proofSteps": [
+        "Apply native scheme and locally ringed-space extensionality to the proved ringed-space source triangle."
+      ],
+      "acceptance": [
+        "The composite f≫conductorSchemeDesc equals y as an actual scheme morphism.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-closed",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The descended scheme closed triangle",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSchemeDesc_closed",
+      "statement": "The actual conductor inclusion C_f→P followed by conductorSchemeDesc equals z as a scheme morphism.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-closed",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.ext'",
+        "mathlib:AlgebraicGeometry.LocallyRingedSpace.Hom.ext'"
+      ],
+      "proofSteps": [
+        "Apply native extensionality to the proved closed ringed-space triangle."
+      ],
+      "acceptance": [
+        "The actual conductor inclusion C_f→P followed by conductorSchemeDesc equals z as a scheme morphism.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-unique",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Uniqueness against every scheme target",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSchemeDesc_unique",
+      "statement": "Any scheme morphism m:P→T with f≫m=y and (C_f→P)≫m=z equals conductorSchemeDesc. T is an arbitrary scheme, including nonaffine and nonseparated targets.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base-source",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-unique",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.isClosedMap",
+        "mathlib:AlgebraicGeometry.surjective_of_isDominant_of_isClosed_range",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.ext",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.appLE_comp_appLE",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.app_eq_appLE"
+      ],
+      "proofSteps": [
+        "Surjectivity identifies the underlying maps. After transporting the actual inverse-image opens, both section triangles identify the section maps by the ring pullback uniqueness. Native scheme extensionality then proves equality."
+      ],
+      "acceptance": [
+        "Any scheme morphism m:P→T with f≫m=y and (C_f→P)≫m=z equals conductorSchemeDesc. T is an arbitrary scheme, including nonaffine and nonseparated targets.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-natural",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Descent commutes with scheme postcomposition",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSchemeDesc_natural",
+      "statement": "For every scheme morphism m:T→T′, conductorSchemeDesc followed by m equals the descent of y≫m and z≫m with their transported compatibility.",
+      "hypotheses": [
+        "Y,P,T are actual schemes in a common universe; f:Y→P is finite and schematically dominant. I=conductorIdealSheaf f, J=I.comap f, C_f=I.subscheme, D_f=J.subscheme, i=J.subschemeι and g=conductorMap f.",
+        "The supplied y:Y→T and z:C_f→T satisfy i≫y=g≫z as scheme morphisms, not merely as point maps. Every open is allowed. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-unique",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-source",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-closed"
+      ],
+      "proofSteps": [
+        "Apply scheme-descent uniqueness and the two actual triangles, using associativity."
+      ],
+      "acceptance": [
+        "For every scheme morphism m:T→T′, conductorSchemeDesc followed by m equals the descent of y≫m and z≫m with their transported compatibility.",
+        "Use actual all-open structure-sheaf maps and native scheme morphisms; retain nilpotents and the empty scheme."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-scheme-descent-7e92bd-0ET0",
+          "locator": "Lemma37.14.1, complete displayed statement/proof and zero-page-comment boundary",
+          "excerpt": "morphism of schemes",
+          "match": "The affine proof constructs the sheaf map and checks locality using a point lift. The global finite schematically dominant conductor extension is an authored deduction from the earlier actual topology and all-open conductor pullback, with native restriction and stalk APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -39531,7 +40820,8 @@
         "The actual finite schematically dominant conductor square is now a native pullback of CommRingCat-valued structure sheaves. The comparison uses the native affine-basis isomorphism criterion and the preceding actual affine section pullback. Evaluation gives the actual ring pullback on every open, hence middle exactness of the signed additive sequence and unique reconstruction of every compatible section pair. The explicit all-open reconstruction agrees with the preceding affine isomorphism. No last-map surjectivity on nonaffine opens is claimed. Packaging the additive short exact sequence as a native sheaf short complex and its epimorphism, quotient topology, geometric/categorical Scheme pushout, recomputed flat-conductor integration, P¹/Proj, projectivity/properness, coherent H0/H1, separate I₂ and later model/classification work remain required. All18 gaps,23 requests,23 source findings and seven partial stages remain; every implementation is unchecked and the full Tau-importing canonical suggested file remains UNCOMPILED.",
         "The actual general finite schematically dominant conductor square now supplies a native additive sheaf ShortComplex and ShortExact theorem. The first arrow is the actual structure-map biproduct lift; the second is the actual inclusion minus chart map. Projection, signed injection and section-pair identities are retained. Native pullback/kernel APIs prove mono and middle exactness; affine closed-inclusion lifts and the affine-open basis prove local surjectivity and native sheaf epimorphy. No last-map section surjectivity on nonaffine opens is claimed. Quotient topology, geometric/categorical Scheme pushout, recomputed flat-conductor integration, P¹/Proj, properness/projectivity, coherent H0/H1 and genus, separate I₂ and later model/classification work remain required. All18 gaps,23 requests,23 source findings and seven partial stages remain; every implementation is unchecked and the full Tau-importing suggested file remains UNCOMPILED.",
         "The affine conductor square for any injective integral ring map now has a native TopCat pushout theorem, using actual spectra and a specified continuous descent to arbitrary topological targets. Its source and closed triangles, uniqueness and continuous postcomposition are checked. No finiteness, Noetherianity, reducedness or nontriviality is required. The global finite schematically dominant topology and geometric/categorical Scheme pushout, recomputed flat conductors, P¹/Proj, properness/projectivity, coherent cohomology, separate I₂ and all later model/classification work remain open. All18 gaps and23 requests remain, with three bounded notation findings added to the23 inherited findings. All seven stages remain partial, all implementations unchecked, and the full Tau-importing suggested file remains UNCOMPILED.",
-        "The actual global conductor square for every finite schematically dominant map now has a specified continuous descent, both triangles, uniqueness, continuous postcomposition and an actual TopCat IsPushout, obtained by affine-local off-conductor fibers and actual closed-subscheme supports. Combined with the inherited every-open structure-sheaf pullback, the exact existing GeometricPushout predicate also has a separately checked native proof. No affine, Noetherian, reduced, separated, birational or nonempty hypothesis is imposed. The categorical Scheme universal property, recomputed flat-conductor integration, algebraic-space existence, P¹/Proj, projectivity/properness, coherent cohomology, separate I₂ and later classification/model work remain required. All18 gaps,23 requests,26 source findings,78 routes and seven partial stages remain; every implementation is unchecked and the full Tau-importing suggested file is UNCOMPILED."
+        "The actual global conductor square for every finite schematically dominant map now has a specified continuous descent, both triangles, uniqueness, continuous postcomposition and an actual TopCat IsPushout, obtained by affine-local off-conductor fibers and actual closed-subscheme supports. Combined with the inherited every-open structure-sheaf pullback, the exact existing GeometricPushout predicate also has a separately checked native proof. No affine, Noetherian, reduced, separated, birational or nonempty hypothesis is imposed. The categorical Scheme universal property, recomputed flat-conductor integration, algebraic-space existence, P¹/Proj, projectivity/properness, coherent cohomology, separate I₂ and later classification/model work remain required. All18 gaps,23 requests,26 source findings,78 routes and seven partial stages remain; every implementation is unchecked and the full Tau-importing suggested file is UNCOMPILED.",
+        "The actual global conductor square for every finite schematically dominant scheme morphism now has an explicit descended scheme morphism to every compatible scheme target. Twenty-one declarations construct the actual base map, every-open ring maps, their natural transformation, ringed-space morphism and stalk-local scheme morphism, with both triangles, uniqueness and scheme postcomposition. A native proof realizes the exact existing conductor_global_isPushout header without a duplicate target node. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added. This closes this native Scheme-universal-property substep; it does not establish generic Ferrand algebraic-space existence, recomputed flat conductors, P¹/Proj, properness/projectivity, coherent cohomology, separate I₂ or later classification/model obligations. All18 gaps,23 requests,26 source findings,78 routes and seven partial stages remain, all implementations unchecked; the full Tau-dependent suggested file is UNCOMPILED."
       ]
     },
     {
