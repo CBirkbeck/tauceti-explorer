@@ -1,3 +1,5 @@
+import Mathlib.Geometry.RingedSpace.Stalks
+import Mathlib.RingTheory.LocalRing.RingHom.Basic
 import Mathlib.AlgebraicGeometry.Morphisms.UnderlyingMap
 import Mathlib.AlgebraicGeometry.IdealSheaf.Functorial
 import Mathlib.AlgebraicGeometry.AffineScheme
@@ -6582,6 +6584,254 @@ example (P : Scheme.{u}) :
     IsEmpty (conductorIdealSheaf (𝟙 P)).subscheme ∧
       GeometricPushout ((conductorIdealSheaf (𝟙 P)).comap (𝟙 P)).subschemeι
         (conductorMap (𝟙 P)) (𝟙 P) (conductorIdealSheaf (𝟙 P)).subschemeι := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry TopologicalSpace
+
+namespace TauCeti.GenusOne.FerrandPushout
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {Y P T : Scheme.{u}}
+variable (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+  (y : Y ⟶ T) (z : (conductorIdealSheaf f).subscheme ⟶ T)
+  (hc : ((conductorIdealSheaf f).comap f).subschemeι ≫ y = conductorMap f ≫ z)
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base
+noncomputable def conductorDescBase : P.toTopCat ⟶ T.toTopCat :=
+  TopCat.ofHom (conductorGlobalDesc f y.base.hom z.base.hom
+    (fun q => ConcreteCategory.congr_hom (congrArg Scheme.forgetToTop.map hc) q))
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base-source
+lemma conductorDescBase_source : f.base ≫ conductorDescBase f y z hc = y.base := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-base-closed
+lemma conductorDescBase_closed :
+    (conductorIdealSheaf f).subschemeι.base ≫ conductorDescBase f y z hc = z.base := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-preimage-source
+lemma conductorDescBase_preimage_source (U : T.Opens) :
+    f ⁻¹ᵁ (Opens.map (conductorDescBase f y z hc)).obj U = y ⁻¹ᵁ U := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-preimage-closed
+lemma conductorDescBase_preimage_closed (U : T.Opens) :
+    (conductorIdealSheaf f).subschemeι ⁻¹ᵁ
+      (Opens.map (conductorDescBase f y z hc)).obj U = z ⁻¹ᵁ U := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-compatible
+lemma conductorDescApp_compatible (U : T.Opens) :
+    y.appLE U _ (conductorDescBase_preimage_source f y z hc U).le ≫
+      ((conductorIdealSheaf f).comap f).subschemeι.app
+        (f ⁻¹ᵁ (Opens.map (conductorDescBase f y z hc)).obj U) =
+    z.appLE U _ (conductorDescBase_preimage_closed f y z hc U).le ≫
+      conductorChartMap f ((Opens.map (conductorDescBase f y z hc)).obj U) := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-map
+noncomputable def conductorDescApp (U : T.Opens) :
+    Γ(T, U) ⟶ Γ(P, (Opens.map (conductorDescBase f y z hc)).obj U) :=
+  (conductor_open_isPullback f _).lift
+    (y.appLE U _ (conductorDescBase_preimage_source f y z hc U).le)
+    (z.appLE U _ (conductorDescBase_preimage_closed f y z hc U).le)
+    (conductorDescApp_compatible f y z hc U)
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-source
+lemma conductorDescApp_source (U : T.Opens) :
+    conductorDescApp f y z hc U ≫ f.app _ =
+      y.appLE U _ (conductorDescBase_preimage_source f y z hc U).le := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-closed
+lemma conductorDescApp_closed (U : T.Opens) :
+    conductorDescApp f y z hc U ≫ (conductorIdealSheaf f).subschemeι.app _ =
+      z.appLE U _ (conductorDescBase_preimage_closed f y z hc U).le := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-unique
+lemma conductorDescApp_unique (U : T.Opens)
+    (a : Γ(T, U) ⟶ Γ(P, (Opens.map (conductorDescBase f y z hc)).obj U))
+    (hy : a ≫ f.app _ = y.appLE U _ (conductorDescBase_preimage_source f y z hc U).le)
+    (hz : a ≫ (conductorIdealSheaf f).subschemeι.app _ =
+      z.appLE U _ (conductorDescBase_preimage_closed f y z hc U).le) :
+    a = conductorDescApp f y z hc U := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-section-natural
+lemma conductorDescApp_naturality {U V : T.Opens} (i : op U ⟶ op V) :
+    T.presheaf.map i ≫ conductorDescApp f y z hc V =
+      conductorDescApp f y z hc U ≫ P.presheaf.map ((Opens.map
+        (conductorDescBase f y z hc)).map i.unop).op := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-presheaf
+noncomputable def conductorDescPresheaf :
+    T.presheaf ⟶ (conductorDescBase f y z hc) _* P.presheaf where
+  app U := conductorDescApp f y z hc U.unop
+  naturality _ _ i := conductorDescApp_naturality f y z hc i
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-space
+noncomputable def conductorDescRingedSpace : P.toPresheafedSpace ⟶ T.toPresheafedSpace where
+  base := conductorDescBase f y z hc
+  c := conductorDescPresheaf f y z hc
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-source
+lemma conductorDescRingedSpace_source :
+    f.toPshHom ≫ conductorDescRingedSpace f y z hc = y.toPshHom := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-ringed-closed
+lemma conductorDescRingedSpace_closed :
+    (conductorIdealSheaf f).subschemeι.toPshHom ≫ conductorDescRingedSpace f y z hc =
+      z.toPshHom := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-descent-local-stalks
+lemma conductorDescRingedSpace_isLocalHom (p : P) :
+    IsLocalHom ((conductorDescRingedSpace f y z hc).stalkMap p).hom := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent
+noncomputable def conductorSchemeDesc : P ⟶ T :=
+  ⟨⟨conductorDescRingedSpace f y z hc, conductorDescRingedSpace_isLocalHom f y z hc⟩⟩
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-source
+lemma conductorSchemeDesc_source : f ≫ conductorSchemeDesc f y z hc = y := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-closed
+lemma conductorSchemeDesc_closed :
+    (conductorIdealSheaf f).subschemeι ≫ conductorSchemeDesc f y z hc = z := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-unique
+lemma conductorSchemeDesc_unique (m : P ⟶ T)
+    (hy : f ≫ m = y) (hz : (conductorIdealSheaf f).subschemeι ≫ m = z) :
+    m = conductorSchemeDesc f y z hc := by
+  sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-scheme-descent-natural
+lemma conductorSchemeDesc_natural {T' : Scheme.{u}} (m : T ⟶ T') :
+    conductorSchemeDesc f y z hc ≫ m =
+      conductorSchemeDesc f (y ≫ m) (z ≫ m) (by simp only [← Category.assoc, hc]) := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry TopologicalSpace
+namespace TauCeti.GenusOne.FerrandPushout
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {Y P T : Scheme.{u}} (f : Y ⟶ P) [IsFinite f] [IsSchemeTheoreticallyDominant f]
+  (y : Y ⟶ T) (z : (conductorIdealSheaf f).subscheme ⟶ T)
+  (hc : ((conductorIdealSheaf f).comap f).subschemeι ≫ y = conductorMap f ≫ z)
+
+-- test: ConductorSchemeDescentChecked.base_triangles
+example : f.base ≫ conductorDescBase f y z hc = y.base ∧
+    (conductorIdealSheaf f).subschemeι.base ≫ conductorDescBase f y z hc = z.base := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.preimages
+example (U V : T.Opens) :
+    f ⁻¹ᵁ (Opens.map (conductorDescBase f y z hc)).obj (U ⊓ V) =
+      (y ⁻¹ᵁ U) ⊓ (y ⁻¹ᵁ V) ∧
+    (conductorIdealSheaf f).subschemeι ⁻¹ᵁ
+        (Opens.map (conductorDescBase f y z hc)).obj (U ⊓ V) =
+      (z ⁻¹ᵁ U) ⊓ (z ⁻¹ᵁ V) := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.empty_sections
+example (a : Γ(T, ⊥)) : conductorDescApp f y z hc ⊥ a = 0 := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.restriction
+example {U V : T.Opens} (h : V ≤ U) :
+    T.presheaf.map (homOfLE h).op ≫ conductorDescApp f y z hc V =
+      conductorDescApp f y z hc U ≫ P.presheaf.map
+        ((Opens.map (conductorDescBase f y z hc)).map (homOfLE h)).op := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.presheaf_triangles
+example (U : T.Opens) :
+    (conductorDescPresheaf f y z hc).app (op U) ≫ f.app _ =
+      y.appLE U _ (conductorDescBase_preimage_source f y z hc U).le ∧
+    (conductorDescPresheaf f y z hc).app (op U) ≫ (conductorIdealSheaf f).subschemeι.app _ =
+      z.appLE U _ (conductorDescBase_preimage_closed f y z hc U).le := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.presheaf_empty
+example (a : Γ(T, ⊥)) : (conductorDescPresheaf f y z hc).app (op ⊥) a = 0 := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.presheaf_two_restrictions
+example {U V W : T.Opens} (h : V ≤ U) (k : W ≤ V) :
+    T.presheaf.map (homOfLE h).op ≫ T.presheaf.map (homOfLE k).op ≫
+        (conductorDescPresheaf f y z hc).app (op W) =
+      (conductorDescPresheaf f y z hc).app (op U) ≫
+        P.presheaf.map ((Opens.map (conductorDescBase f y z hc)).map
+          (homOfLE (k.trans h))).op := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.ringed_triangles
+example : f.toPshHom ≫ conductorDescRingedSpace f y z hc = y.toPshHom ∧
+    (conductorIdealSheaf f).subschemeι.toPshHom ≫ conductorDescRingedSpace f y z hc =
+      z.toPshHom := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.local_stalks
+example (p : P) : IsLocalHom ((conductorDescRingedSpace f y z hc).stalkMap p).hom := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.scheme_reconstruction
+example : conductorSchemeDesc f f (conductorIdealSheaf f).subschemeι
+    (conductorMap_square f) = 𝟙 P := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.identity_arbitrary_target
+example (P T : Scheme.{u}) (y : P ⟶ T)
+    (z : (conductorIdealSheaf (𝟙 P)).subscheme ⟶ T)
+    (hc : ((conductorIdealSheaf (𝟙 P)).comap (𝟙 P)).subschemeι ≫ y =
+      conductorMap (𝟙 P) ≫ z) : conductorSchemeDesc (𝟙 P) y z hc = y := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.empty_scheme
+example :
+    let P := Spec (CommRingCat.of (ZMod 1))
+    IsPushout ((conductorIdealSheaf (𝟙 P)).comap (𝟙 P)).subschemeι
+      (conductorMap (𝟙 P)) (𝟙 P) (conductorIdealSheaf (𝟙 P)).subschemeι := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.nonreduced_scheme
+example :
+    let P := Spec (CommRingCat.of (ZMod 4))
+    let f := 𝟙 P
+    IsPushout ((conductorIdealSheaf f).comap f).subschemeι
+      (conductorMap f) f (conductorIdealSheaf f).subschemeι ∧
+      (2 : ZMod 4) ≠ 0 ∧ (2 : ZMod 4) ^ 2 = 0 := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.cusp_scheme_pushout
+example {k : Type u} [Field k] :
+    let f := QuadraticPinch.Global.normalization (0 : k) 0
+    letI : IsFinite f := QuadraticPinch.Global.normalization_isFinite 0 0
+    letI : IsSchemeTheoreticallyDominant f :=
+      QuadraticPinch.Global.normalization_schemeTheoreticallyDominant 0 0
+    IsPushout ((conductorIdealSheaf f).comap f).subschemeι (conductorMap f)
+      f (conductorIdealSheaf f).subschemeι := by
+  sorry
+
+-- test: ConductorSchemeDescentChecked.inseparable_scheme_pushout
+example :
+    let f := QuadraticPinch.Global.normalization (0 : RatFunc (ZMod 2)) (-RatFunc.X)
+    letI : IsFinite f := QuadraticPinch.Global.normalization_isFinite _ _
+    letI : IsSchemeTheoreticallyDominant f :=
+      QuadraticPinch.Global.normalization_schemeTheoreticallyDominant _ _
+    IsPushout ((conductorIdealSheaf f).comap f).subschemeι (conductorMap f)
+      f (conductorIdealSheaf f).subschemeι := by
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
