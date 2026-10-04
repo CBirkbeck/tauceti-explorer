@@ -8038,3 +8038,232 @@ example (X : HomCategory b b) (e : x ≅ x') :
   sorry
 
 end TauCeti.AlgebraicGeometry.EndpointTransportTests
+
+namespace TauCeti.AlgebraicGeometry.BandedMorphism
+open CategoryTheory Opposite Bicategory
+open scoped Pseudofunctor.StrongTrans
+open Pseudofunctor.LocallyDiscreteOpToCat
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 800000
+set_option backward.defeqAttrib.useBackward true
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+  [IsGerbe F J] [IsGerbe G J] {A : Sheaf J AddCommGrpCat.{w}}
+  (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+local instance : Category (Pseudofunctor.StrongTrans F G) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := G)
+variable {U V W : C}
+
+lemma fibreHomBaseChangeIso_id (X : HomCategory bF bG)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    fibreHomBaseChangeIso bF bG X (𝟙 U) x y ≪≫
+      fibreHomEndpointTransportIso bF bG X
+        ((Cat.Hom.toNatIso (F.mapId (.mk (op U)))).app x)
+        ((Cat.Hom.toNatIso (G.mapId (.mk (op U)))).app y) =
+    (J.overMapPullbackId (Type v') U).app (fibreHomSheaf bF bG U x y X) := by
+  sorry
+
+lemma fibreHomBaseChangeIso_comp (X : HomCategory bF bG) (f : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    (J.overMapPullbackComp (Type v') g f).app (fibreHomSheaf bF bG U x y X) ≪≫
+      fibreHomBaseChangeIso bF bG X (g ≫ f) x y ≪≫
+      fibreHomEndpointTransportIso bF bG X
+        ((Cat.Hom.toNatIso (F.mapComp f.op.toLoc g.op.toLoc)).app x)
+        ((Cat.Hom.toNatIso (G.mapComp f.op.toLoc g.op.toLoc)).app y) =
+    (J.overMapPullback (Type v') g).mapIso (fibreHomBaseChangeIso bF bG X f x y) ≪≫
+      fibreHomBaseChangeIso bF bG X g ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y) := by
+  sorry
+
+lemma fibreHomBaseChangeNatIso_id
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    fibreHomBaseChangeNatIso bF bG (𝟙 U) x y ≪≫
+      fibreHomEndpointTransportNatIso bF bG
+        ((Cat.Hom.toNatIso (F.mapId (.mk (op U)))).app x)
+        ((Cat.Hom.toNatIso (G.mapId (.mk (op U)))).app y) =
+    Functor.isoWhiskerLeft (fibreHomSheafFunctor bF bG U x y)
+        (J.overMapPullbackId (Type v') U) ≪≫
+      (fibreHomSheafFunctor bF bG U x y).rightUnitor := by
+  sorry
+
+lemma fibreHomBaseChangeNatIso_comp (f : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    Functor.associator (fibreHomSheafFunctor bF bG U x y)
+        (J.overMapPullback (Type v') f) (J.overMapPullback (Type v') g) ≪≫
+      Functor.isoWhiskerLeft (fibreHomSheafFunctor bF bG U x y)
+        (J.overMapPullbackComp (Type v') g f) ≪≫
+      fibreHomBaseChangeNatIso bF bG (g ≫ f) x y ≪≫
+      fibreHomEndpointTransportNatIso bF bG
+        ((Cat.Hom.toNatIso (F.mapComp f.op.toLoc g.op.toLoc)).app x)
+        ((Cat.Hom.toNatIso (G.mapComp f.op.toLoc g.op.toLoc)).app y) =
+    Functor.isoWhiskerRight (fibreHomBaseChangeNatIso bF bG f x y)
+        (J.overMapPullback (Type v') g) ≪≫
+      fibreHomBaseChangeNatIso bF bG g ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y) := by
+  sorry
+
+lemma fibreHomBaseChangeIso_id_inv (X : HomCategory bF bG)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    (fibreHomEndpointTransportIso bF bG X
+        ((Cat.Hom.toNatIso (F.mapId (.mk (op U)))).app x)
+        ((Cat.Hom.toNatIso (G.mapId (.mk (op U)))).app y)).inv ≫
+      (fibreHomBaseChangeIso bF bG X (𝟙 U) x y).inv =
+    ((J.overMapPullbackId (Type v') U).app (fibreHomSheaf bF bG U x y X)).inv := by
+  sorry
+
+lemma fibreHomBaseChangeIso_comp_inv (X : HomCategory bF bG) (f : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    (fibreHomEndpointTransportIso bF bG X
+        ((Cat.Hom.toNatIso (F.mapComp f.op.toLoc g.op.toLoc)).app x)
+        ((Cat.Hom.toNatIso (G.mapComp f.op.toLoc g.op.toLoc)).app y)).inv ≫
+      (fibreHomBaseChangeIso bF bG X (g ≫ f) x y).inv ≫
+      ((J.overMapPullbackComp (Type v') g f).app (fibreHomSheaf bF bG U x y X)).inv =
+    (fibreHomBaseChangeIso bF bG X g ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y)).inv ≫
+      (J.overMapPullback (Type v') g).map (fibreHomBaseChangeIso bF bG X f x y).inv := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.BandedMorphism
+
+namespace TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests
+open CategoryTheory Opposite Bicategory BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
+  [IsGerbe F J] [IsGerbe G J] {A : Sheaf J AddCommGrpCat.{w}}
+  (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
+local instance : Category (Pseudofunctor.StrongTrans F G) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := G)
+variable {U V W Z : C}
+
+-- test: GeneralBaseCoherenceTests.unit_inverse_order
+example (X : HomCategory bF bG) (x : F.obj (.mk (op U)))
+    (y : G.obj (.mk (op U))) (T : Over U)
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj (op T)) :
+    (fibreHomBaseChangeIso bF bG X (𝟙 U) x y).inv.hom.app (op T)
+      ((fibreHomEndpointTransportIso bF bG X
+        ((Cat.Hom.toNatIso (F.mapId (.mk (op U)))).app x)
+        ((Cat.Hom.toNatIso (G.mapId (.mk (op U)))).app y)).inv.hom.app (op T) p) =
+    ((J.overMapPullbackId (Type v') U).app (fibreHomSheaf bF bG U x y X)).inv.hom.app
+      (op T) p := by
+  sorry
+
+-- test: GeneralBaseCoherenceTests.composition_inverse_round_trip
+example (X : HomCategory bF bG) (f : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    ((J.overMapPullback (Type v') g).mapIso (fibreHomBaseChangeIso bF bG X f x y) ≪≫
+      fibreHomBaseChangeIso bF bG X g ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y)).hom ≫
+      (fibreHomEndpointTransportIso bF bG X
+        ((Cat.Hom.toNatIso (F.mapComp f.op.toLoc g.op.toLoc)).app x)
+        ((Cat.Hom.toNatIso (G.mapComp f.op.toLoc g.op.toLoc)).app y)).inv ≫
+      (fibreHomBaseChangeIso bF bG X (g ≫ f) x y).inv ≫
+      ((J.overMapPullbackComp (Type v') g f).app (fibreHomSheaf bF bG U x y X)).inv =
+    𝟙 _ := by
+  sorry
+
+-- test: GeneralBaseCoherenceTests.iterated_modifications
+example {X Y : HomCategory bF bG} (m : X ⟶ Y) (f : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    ((fibreHomSheafFunctor bF bG U x y ⋙ J.overMapPullback (Type v') f) ⋙
+      J.overMapPullback (Type v') g).map m ≫
+      ((Functor.isoWhiskerRight (fibreHomBaseChangeNatIso bF bG f x y)
+        (J.overMapPullback (Type v') g) ≪≫
+        fibreHomBaseChangeNatIso bF bG g ((F.map f.op.toLoc).toFunctor.obj x)
+          ((G.map f.op.toLoc).toFunctor.obj y)).hom.app Y) =
+    ((Functor.isoWhiskerRight (fibreHomBaseChangeNatIso bF bG f x y)
+        (J.overMapPullback (Type v') g) ≪≫
+        fibreHomBaseChangeNatIso bF bG g ((F.map f.op.toLoc).toFunctor.obj x)
+          ((G.map f.op.toLoc).toFunctor.obj y)).hom.app X) ≫
+      (fibreHomSheafFunctor bF bG W
+        ((F.map g.op.toLoc).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj x))
+        ((G.map g.op.toLoc).toFunctor.obj ((G.map f.op.toLoc).toFunctor.obj y))).map m := by
+  sorry
+
+-- test: GeneralBaseCoherenceTests.same_actual_coefficient
+example (X : HomCategory bF bG) (f : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) (T : Over W)
+    (a : Multiplicative (A.obj.obj (op T.left)))
+    (p : (fibreHomSheaf bF bG U x y X).obj.obj
+      (op ((Over.map f).obj ((Over.map g).obj T)))) :
+    (fibreHomBaseChangeIso bF bG X g ((F.map f.op.toLoc).toFunctor.obj x)
+      ((G.map f.op.toLoc).toFunctor.obj y)).hom.hom.app (op T)
+      ((fibreHomBaseChangeIso bF bG X f x y).hom.hom.app (op ((Over.map g).obj T))
+        (((fibreHomSectionAction bF bG U x y X
+          ((Over.map f).obj ((Over.map g).obj T))).ρ a).hom p)) =
+    ((fibreHomSectionAction bF bG W
+      ((F.map g.op.toLoc).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj x))
+      ((G.map g.op.toLoc).toFunctor.obj ((G.map f.op.toLoc).toFunctor.obj y)) X T).ρ a).hom
+      ((fibreHomBaseChangeIso bF bG X g ((F.map f.op.toLoc).toFunctor.obj x)
+        ((G.map f.op.toLoc).toFunctor.obj y)).hom.hom.app (op T)
+        ((fibreHomBaseChangeIso bF bG X f x y).hom.hom.app (op ((Over.map g).obj T)) p)) := by
+  sorry
+
+-- test: GeneralBaseCoherenceTests.third_pullback_stability
+example (X : HomCategory bF bG) (f : V ⟶ U) (g : W ⟶ V) (h : Z ⟶ W)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) :
+    (J.overMapPullback (Type v') h).mapIso
+      ((J.overMapPullbackComp (Type v') g f).app (fibreHomSheaf bF bG U x y X) ≪≫
+        fibreHomBaseChangeIso bF bG X (g ≫ f) x y ≪≫
+        fibreHomEndpointTransportIso bF bG X
+          ((Cat.Hom.toNatIso (F.mapComp f.op.toLoc g.op.toLoc)).app x)
+          ((Cat.Hom.toNatIso (G.mapComp f.op.toLoc g.op.toLoc)).app y)) =
+    (J.overMapPullback (Type v') h).mapIso
+      ((J.overMapPullback (Type v') g).mapIso (fibreHomBaseChangeIso bF bG X f x y) ≪≫
+        fibreHomBaseChangeIso bF bG X g ((F.map f.op.toLoc).toFunctor.obj x)
+          ((G.map f.op.toLoc).toFunctor.obj y)) := by
+  sorry
+
+-- test: GeneralBaseCoherenceTests.unbalanced_unit_endpoint
+example (X : HomCategory bF bG) (x : F.obj (.mk (op U)))
+    (y : G.obj (.mk (op U))) (d : y ≅ y) (T : Over U)
+    (h : (G.map T.hom.op.toLoc).toFunctor.map d.inv ≠ 𝟙 _)
+    (p : ((J.overMapPullback (Type v') (𝟙 U)).obj
+      (fibreHomSheaf bF bG U x y X)).obj.obj (op T)) :
+    let q := ((fibreHomBaseChangeIso bF bG X (𝟙 U) x y ≪≫
+      fibreHomEndpointTransportIso bF bG X
+        ((Cat.Hom.toNatIso (F.mapId (.mk (op U)))).app x)
+        ((Cat.Hom.toNatIso (G.mapId (.mk (op U)))).app y)).hom.hom.app (op T) p)
+    (fibreHomEndpointTransport bF bG X (Iso.refl x) d).hom.app (op T) q ≠
+      ((J.overMapPullbackId (Type v') U).app (fibreHomSheaf bF bG U x y X)).hom.hom.app
+        (op T) p := by
+  sorry
+
+-- test: GeneralBaseCoherenceTests.empty_iterated_sections
+example (X : HomCategory bF bG) (f : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op U))) (y : G.obj (.mk (op U))) (T : Over W)
+    [IsEmpty ((fibreHomSheaf bF bG U x y X).obj.obj
+      (op ((Over.map f).obj ((Over.map g).obj T))))] :
+    IsEmpty ((fibreHomSheaf bF bG W
+      ((F.map g.op.toLoc).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj x))
+      ((G.map g.op.toLoc).toFunctor.obj ((G.map f.op.toLoc).toFunctor.obj y)) X).obj.obj (op T)) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests
+
+namespace TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests
+open CategoryTheory Opposite Bicategory BandedMorphism
+open scoped Pseudofunctor.StrongTrans
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
+  {F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}} [IsGerbe F J]
+  {A : Sheaf J AddCommGrpCat.{w}} (b : AbelianBanding F J A) {U V W : C}
+local instance : Category (Pseudofunctor.StrongTrans F F) :=
+  Pseudofunctor.StrongTrans.homCategory (F := F) (G := F)
+-- test: GeneralBaseCoherenceTests.diagonal_composition
+example (X : HomCategory b b) (f : V ⟶ U) (g : W ⟶ V)
+    (x : F.obj (.mk (op U))) :
+    (J.overMapPullbackComp (Type v') g f).app (fibreHomSheaf b b U x x X) ≪≫
+      fibreHomBaseChangeIso b b X (g ≫ f) x x ≪≫
+      selfHomSheafTransportIso b X
+        ((Cat.Hom.toNatIso (F.mapComp f.op.toLoc g.op.toLoc)).app x) =
+    (J.overMapPullback (Type v') g).mapIso (fibreHomBaseChangeIso b b X f x x) ≪≫
+      fibreHomBaseChangeIso b b X g ((F.map f.op.toLoc).toFunctor.obj x)
+        ((F.map f.op.toLoc).toFunctor.obj x) := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.GeneralBaseCoherenceTests
