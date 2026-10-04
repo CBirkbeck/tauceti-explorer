@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts. Affine conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and6 typed examples;657 incoming node objects retained whole. Global conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and8 typed examples;666 incoming whole node objects preserved. The existing geometric conductor theorem receives a separate native counterpart proof. Actual conductor Scheme descent continuation:21 declarations(5 constructions,16 lemmas),18 API references and15 distinct typed examples(17 references). All675 incoming node contracts are preserved;674 whole objects are unchanged, and the existing Scheme pushout node gains only appended prerequisites/proof steps.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts. Affine conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and6 typed examples;657 incoming node objects retained whole. Global conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and8 typed examples;666 incoming whole node objects preserved. The existing geometric conductor theorem receives a separate native counterpart proof. Actual conductor Scheme descent continuation:21 declarations(5 constructions,16 lemmas),18 API references and15 distinct typed examples(17 references). All675 incoming node contracts are preserved;674 whole objects are unchanged, and the existing Scheme pushout node gains only appended prerequisites/proof steps. Conductor cokernel scalar-extension continuation:13 declarations(2 constructions,11 lemmas),10 API references and9 distinct typed tests(10 references). All696 incoming contracts remain;695 whole node objects are unchanged and one existing flat-conductor node gains appended prerequisites/proof steps. One known corrected historical Stacks proof-reference finding is appended with its narrow version scope.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -4066,6 +4066,78 @@
         "line": 43,
         "provides": "theorem isLocalHom_of_comp (f : R →+* S) (g : S →+* T) [IsLocalHom (g.comp f)] : Reuse the native pullback, scheme, presheaf or stalk API at its actual scope.",
         "checked": "Codex — codex-7e92bd read this declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:AlgHom.fst",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Prod.lean",
+        "line": 63,
+        "provides": "def fst : A × B →ₐ[R] A := Reuse the actual tensor, quotient or algebra-map API.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+        "line": 536,
+        "provides": "def map (f : A →ₐ[S] C) (g : B →ₐ[R] D) : A ⊗[R] B →ₐ[S] C ⊗[R] D := Reuse the actual tensor, quotient or algebra-map API.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.one_def",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "line": 113,
+        "provides": "theorem one_def : (1 : A ⊗[R] B) = (1 : A) ⊗ₜ (1 : B) := Reuse the actual tensor, quotient or algebra-map API.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.mk_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "line": 207,
+        "provides": "theorem mk_surjective : Function.Surjective (@mk _ _ _ _ _ p) := by Reuse the actual tensor, quotient or algebra-map API.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Submodule.baseChange_span",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 863,
+        "provides": "lemma baseChange_span (s : Set M) : Reuse the actual tensor, quotient or algebra-map API.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:Submodule.mapQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "line": 172,
+        "provides": "def mapQ (f : M →ₛₗ[τ₁₂] M₂) (h : p ≤ comap f q) : M ⧸ p →ₛₗ[τ₁₂] M₂ ⧸ q := Reuse the actual tensor, quotient or algebra-map API.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "line": 183,
+        "provides": "def map (f : M →ₗ[A] P) (g : N →ₗ[R] Q) : M ⊗[R] N →ₗ[A] P ⊗[R] Q := Reuse the actual tensor, quotient or algebra-map API.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Quotient.lean",
+        "line": 270,
+        "provides": "noncomputable def tensorQuotientEquiv (n : Submodule B N) : Reuse the actual tensor, quotient or algebra-map API.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
+      },
+      {
+        "ref": "mathlib:ZMod.castHom",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "line": 331,
+        "provides": "def castHom (h : m ∣ n) (R : Type*) [Ring R] [CharP R m] : ZMod n →+* R where Reuse the actual tensor, quotient or algebra-map API.",
+        "checked": "Codex — codex-rtOQ9t read this statement at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04."
       }
     ]
   },
@@ -4820,6 +4892,32 @@
       "accessed": "2026-10-04T08:38:55.636436+00:00",
       "readSections": [
         "Complete displayed statement and proof, and zero-page-comment boundary, freshly read via primary-source web tool. Section-level comments not newly read. Global finite schematically dominant conductor descent is an authored deduction."
+      ]
+    },
+    {
+      "id": "conductor-cokernel-rtOQ9t-00DF",
+      "title": "Tensor right exactness",
+      "authors": "The Stacks Project authors",
+      "edition": "Current primary displayed page; read4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/00DF",
+      "sha256": "3bb81296a391cc67e6db93279041b8be00425bda4d110662b0c6287bf924ed1a",
+      "accessed": "2026-10-04T09:34:29.913361+00:00",
+      "readSections": [
+        "Complete displayed lemma statement/proof and page comments read through primary public page; section-level comments/history not read.",
+        "The actual unit-image comparison is an authored conductor specialization; the generic finite-flat annihilator theorem stays at SF.0."
+      ]
+    },
+    {
+      "id": "conductor-cokernel-rtOQ9t-07T8",
+      "title": "Finite flat annihilator supplier context",
+      "authors": "The Stacks Project authors",
+      "edition": "Current primary displayed page; read4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/07T8",
+      "sha256": "09f951f7a17951a7e273a51ec2520181edef236040a149e9d4d98e7d5cd0a19c",
+      "accessed": "2026-10-04T09:34:30.220945+00:00",
+      "readSections": [
+        "Complete displayed lemma statement/proof and page comments read through primary public page; section-level comments/history not read.",
+        "The actual unit-image comparison is an authored conductor specialization; the generic finite-flat annihilator theorem stays at SF.0."
       ]
     }
   ],
@@ -10916,7 +11014,8 @@
       "proofSteps": [
         "Apply native flat tensor injectivity to A→B, identifying A⊗_A F with F; this gives the actual inclusion f_F.",
         "Native flat exactness identifies (B/(A·1))⊗_A F with B_F/(F·1). The quotient is a finite A-module because B is finite.",
-        "Invoke the requested general finite-module annihilator base-change export (Stacks07T8, with its finite-intersection input0BBY) at SF.0. Transport both annihilators through conductor-annihilator to get exactly the equality of ideals in F."
+        "Invoke the requested general finite-module annihilator base-change export (Stacks07T8, with its finite-intersection input0BBY) at SF.0. Transport both annihilators through conductor-annihilator to get exactly the equality of ideals in F.",
+        "A native F-linear equivalence now identifies F⊗_A(B/span_A{1}) with the quotient by the actual base-changed unit span, without flatness. Its annihilator is the recomputed conductor for the left-oriented F⊗_A B. To realize this existing theorem, import the already owned SF.0 finite-module flat-annihilator export, then explicitly compare the left-oriented algebraMap with the inherited right-oriented includeRight map by the actual tensor commutativity equivalence. Global conductor ideal-sheaf pullback and restriction maps remain separate. No original statement, hypotheses or acceptance condition changes."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator",
@@ -10924,7 +11023,11 @@
         "mathlib:Module.Flat.lTensor_exact",
         "mathlib:Module.Flat.lTensor_preserves_injective_linearMap",
         "mathlib:Algebra.TensorProduct.includeRight",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-span-base-change",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-annihilator",
+        "SchemeAndStackFoundations:SF.0/flat-annihilator"
       ],
       "sources": [
         {
@@ -40456,6 +40559,654 @@
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-span-base-change",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The extended algebra image is the unit span",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorUnitSpan_baseChange",
+      "statement": "For any commutative A-algebra B and A-algebra F, (span_A{1_B}).baseChange F equals span_F{1_(F⊗_A B)} as actual F-submodules. No flatness, injectivity or finiteness is required.",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "mathlib:Submodule.baseChange_span",
+        "mathlib:Algebra.TensorProduct.one_def"
+      ],
+      "proofSteps": [
+        "Apply the native singleton-span base-change formula and identify 1⊗1 with the actual tensor-algebra unit."
+      ],
+      "acceptance": [
+        "For any commutative A-algebra B and A-algebra F, (span_A{1_B}).baseChange F equals span_F{1_(F⊗_A B)} as actual F-submodules. No flatness, injectivity or finiteness is required.",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "Scalar extension of the conductor cokernel",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange",
+      "statement": "Construct the actual F-linear equivalence F⊗_A(B/span_A{1}) ≃ (F⊗_A B)/span_F{1} by the existing tensorQuotientEquiv followed by quotient transport through conductorUnitSpan_baseChange. Both carriers are native module quotients.",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-unit-span-base-change",
+        "mathlib:TensorProduct.AlgebraTensorModule.tensorQuotientEquiv",
+        "mathlib:Submodule.quotEquivOfEq"
+      ],
+      "proofSteps": [
+        "Compose the existing F-linear tensor quotient equivalence with the native quotient equivalence for equal submodules. This is the conductor specialization, not a new generic tensor quotient construction."
+      ],
+      "acceptance": [
+        "Construct the actual F-linear equivalence F⊗_A(B/span_A{1}) ≃ (F⊗_A B)/span_F{1} by the existing tensorQuotientEquiv followed by quotient transport through conductorUnitSpan_baseChange. Both carriers are native module quotients.",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_tmul",
+          "role": "compatibility",
+          "statement": "The conductor cokernel comparison sends s⊗[b] to [s⊗b] for all s∈F and b∈B."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_symm_tmul",
+          "role": "compatibility",
+          "statement": "The inverse comparison sends [s⊗b] to s⊗[b]."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_scalar_zero",
+          "role": "compatibility",
+          "statement": "The comparison sends s⊗[algebraMap A B(a)] to zero for every s∈F and a∈A."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_annihilator",
+          "role": "compatibility",
+          "statement": "Ann_F(F⊗_A(B/span_A{1})) equals the inverse image under algebraMap F (F⊗_A B) of the actual conductor of its image subring. This unconditional equality identifies the recomputed conductor; it does not assert equality with the extension of Ann_A(B/span_A{1})."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_natural",
+          "role": "compatibility",
+          "statement": "For every h:B→D and x∈F⊗_A(B/span_A{1}), compare then apply the cokernel map of the actual tensor algebra map id_F⊗h equals extend conductorCokernelMap(h) then compare. The equality is on all tensors, with F-linearity retained."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_natural_map",
+          "role": "compatibility",
+          "statement": "The naturality equality is an equality of actual F-linear maps: E_D ∘ (id_F⊗conductorCokernelMap(h)) = conductorCokernelMap(id_F⊗h) ∘ E_B."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorCokernelChecked.pure_tensor_sum",
+          "kind": "compatibility",
+          "statement": "The comparison sends s⊗[b]+t⊗[c] to the class of s⊗b+t⊗c in the actual quotient."
+        },
+        {
+          "name": "ConductorCokernelChecked.inverse_tensor",
+          "kind": "compatibility",
+          "statement": "Its inverse sends the actual class of s⊗b to s⊗[b]."
+        },
+        {
+          "name": "ConductorCokernelChecked.scalar_image_zero",
+          "kind": "degenerate",
+          "statement": "The actual algebra image class s⊗[algebraMap(a)] maps to zero for all scalars."
+        },
+        {
+          "name": "ConductorCokernelChecked.nonreduced_diagonal_class",
+          "kind": "computation",
+          "statement": "The class of (2,0) is nonzero in (Z/4×Z/4)/span_(Z/4){(1,1)}; nilpotent elements are retained."
+        },
+        {
+          "name": "ConductorCokernelChecked.nonflat_quotient_tensor",
+          "kind": "degenerate",
+          "statement": "Under the actual quotient algebra Z/4→Z/2, the comparison sends 1⊗[(2,0)] to zero. Together with the preceding nonzero source class this records a class killed by nonflat scalar extension, while the quotient comparison itself still exists."
+        },
+        {
+          "name": "ConductorCokernelChecked.natural_projection",
+          "kind": "compatibility",
+          "statement": "For the actual algebra projection B×D→B, the F-linear comparison square commutes on every extended quotient element."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change",
+          "how": "Identify the actual conductor quotient and its natural maps before applying the existing SF.0 generic flat-annihilator export. The right-oriented and global conductor targets remain open."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-tensor",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The comparison on actual tensor representatives",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_tmul",
+      "statement": "The conductor cokernel comparison sends s⊗[b] to [s⊗b] for all s∈F and b∈B.",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change"
+      ],
+      "proofSteps": [
+        "Reduce the two actual native equivalence components on representatives."
+      ],
+      "acceptance": [
+        "The conductor cokernel comparison sends s⊗[b] to [s⊗b] for all s∈F and b∈B.",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-inverse",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Inverse comparison on actual representatives",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_symm_tmul",
+      "statement": "The inverse comparison sends [s⊗b] to s⊗[b].",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-tensor"
+      ],
+      "proofSteps": [
+        "Apply injectivity of the actual comparison and its inverse law."
+      ],
+      "acceptance": [
+        "The inverse comparison sends [s⊗b] to s⊗[b].",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-scalars",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The actual algebra image vanishes in the quotient",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_scalar_zero",
+      "statement": "The comparison sends s⊗[algebraMap A B(a)] to zero for every s∈F and a∈A.",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change",
+        "mathlib:Submodule.mem_span_singleton"
+      ],
+      "proofSteps": [
+        "The class of algebraMap(a)=a•1 is zero in the native quotient before tensoring; use the actual equivalence map-zero law."
+      ],
+      "acceptance": [
+        "The comparison sends s⊗[algebraMap A B(a)] to zero for every s∈F and a∈A.",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-annihilator",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The recomputed conductor annihilates the extended cokernel",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_annihilator",
+      "statement": "Ann_F(F⊗_A(B/span_A{1})) equals the inverse image under algebraMap F (F⊗_A B) of the actual conductor of its image subring. This unconditional equality identifies the recomputed conductor; it does not assert equality with the extension of Ann_A(B/span_A{1}).",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change",
+        "mathlib:LinearEquiv.annihilator_eq",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-annihilator"
+      ],
+      "proofSteps": [
+        "Transport the annihilator through the actual F-linear comparison. The existing conductor-annihilator proof is repeated only inside this conductor specialization at independent universes because its inherited standalone header uses a common universe. Retain the full ideals and nilpotent elements."
+      ],
+      "acceptance": [
+        "Ann_F(F⊗_A(B/span_A{1})) equals the inverse image under algebraMap F (F⊗_A B) of the actual conductor of its image subring. This unconditional equality identifies the recomputed conductor; it does not assert equality with the extension of Ann_A(B/span_A{1}).",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "The conductor cokernel map of an algebra morphism",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelMap",
+      "statement": "For an actual A-algebra morphism h:B→D, construct the A-linear map B/span_A{1}→D/span_A{1} by native mapQ and the fact that h preserves the unit. No injectivity or surjectivity is assumed.",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "mathlib:Submodule.mapQ"
+      ],
+      "proofSteps": [
+        "Use the native quotient map after proving that the actual algebra homomorphism carries the unit span into the target unit span. No new quotient carrier is introduced."
+      ],
+      "acceptance": [
+        "For an actual A-algebra morphism h:B→D, construct the A-linear map B/span_A{1}→D/span_A{1} by native mapQ and the fact that h preserves the unit. No injectivity or surjectivity is assumed.",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_mk",
+          "role": "compatibility",
+          "statement": "The actual cokernel map of h sends [b] to [h(b)]."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_id",
+          "role": "compatibility",
+          "statement": "For the identity A-algebra morphism on B, conductorCokernelMap equals the native identity linear map on B/span_A{1}."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_comp",
+          "role": "compatibility",
+          "statement": "For h:B→D and g:D→E, the conductor cokernel map of g∘h equals conductorCokernelMap(g) composed with conductorCokernelMap(h), as actual A-linear maps."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_surjective",
+          "role": "compatibility",
+          "statement": "If an actual A-algebra morphism h:B→D is surjective, its conductor cokernel map is surjective. No claim is made for injective h."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorCokernelChecked.map_representative",
+          "kind": "compatibility",
+          "statement": "For an actual algebra morphism h, the cokernel map sends [b+c] to [h(b)+h(c)]."
+        },
+        {
+          "name": "ConductorCokernelChecked.map_identity",
+          "kind": "degenerate",
+          "statement": "The cokernel map of the actual identity algebra morphism fixes every actual quotient class."
+        },
+        {
+          "name": "ConductorCokernelChecked.map_composition",
+          "kind": "compatibility",
+          "statement": "The cokernel map of g∘h equals the composite of the two actual cokernel maps on every quotient class."
+        },
+        {
+          "name": "ConductorCokernelChecked.natural_projection",
+          "kind": "compatibility",
+          "statement": "For the actual algebra projection B×D→B, the F-linear comparison square commutes on every extended quotient element."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-finite-flat-base-change",
+          "how": "Identify the actual conductor quotient and its natural maps before applying the existing SF.0 generic flat-annihilator export. The right-oriented and global conductor targets remain open."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map-representative",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The cokernel map on representatives",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_mk",
+      "statement": "The actual cokernel map of h sends [b] to [h(b)].",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map"
+      ],
+      "proofSteps": [
+        "Reduce the native mapQ component on a quotient representative."
+      ],
+      "acceptance": [
+        "The actual cokernel map of h sends [b] to [h(b)].",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map-identity",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Identity algebra maps induce identity cokernel maps",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_id",
+      "statement": "For the identity A-algebra morphism on B, conductorCokernelMap equals the native identity linear map on B/span_A{1}.",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map"
+      ],
+      "proofSteps": [
+        "Use quotient-linear-map extensionality and the actual identity algebra map."
+      ],
+      "acceptance": [
+        "For the identity A-algebra morphism on B, conductorCokernelMap equals the native identity linear map on B/span_A{1}.",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map-composition",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Composition of actual algebra maps",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_comp",
+      "statement": "For h:B→D and g:D→E, the conductor cokernel map of g∘h equals conductorCokernelMap(g) composed with conductorCokernelMap(h), as actual A-linear maps.",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map"
+      ],
+      "proofSteps": [
+        "Use native quotient-map extensionality and the actual composed algebra morphism on representatives."
+      ],
+      "acceptance": [
+        "For h:B→D and g:D→E, the conductor cokernel map of g∘h equals conductorCokernelMap(g) composed with conductorCokernelMap(h), as actual A-linear maps.",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map-surjectivity",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Surjective algebra maps induce surjective cokernel maps",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelMap_surjective",
+      "statement": "If an actual A-algebra morphism h:B→D is surjective, its conductor cokernel map is surjective. No claim is made for injective h.",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map",
+        "mathlib:Submodule.Quotient.mk_surjective"
+      ],
+      "proofSteps": [
+        "Lift an actual target quotient class to D and then lift its representative along the supplied surjective algebra morphism."
+      ],
+      "acceptance": [
+        "If an actual A-algebra morphism h:B→D is surjective, its conductor cokernel map is surjective. No claim is made for injective h.",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-naturality",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Naturality for actual algebra morphisms",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_natural",
+      "statement": "For every h:B→D and x∈F⊗_A(B/span_A{1}), compare then apply the cokernel map of the actual tensor algebra map id_F⊗h equals extend conductorCokernelMap(h) then compare. The equality is on all tensors, with F-linearity retained.",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-algebra-map",
+        "mathlib:TensorProduct.AlgebraTensorModule.map",
+        "mathlib:Algebra.TensorProduct.map",
+        "mathlib:Submodule.Quotient.mk_surjective"
+      ],
+      "proofSteps": [
+        "Use native tensor induction; zero and addition use the actual linear maps. On pure tensors lift the quotient representative and reduce both actual paths to the same class [s⊗h(b)]."
+      ],
+      "acceptance": [
+        "For every h:B→D and x∈F⊗_A(B/span_A{1}), compare then apply the cokernel map of the actual tensor algebra map id_F⊗h equals extend conductorCokernelMap(h) then compare. The equality is on all tensors, with F-linearity retained.",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-natural-square",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The F-linear comparison square",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorCokernelBaseChange_natural_map",
+      "statement": "The naturality equality is an equality of actual F-linear maps: E_D ∘ (id_F⊗conductorCokernelMap(h)) = conductorCokernelMap(id_F⊗h) ∘ E_B.",
+      "hypotheses": [
+        "A,B,F,D,E are commutative rings in independent universes, including zero and nonreduced rings. B,F,D,E carry the indicated A-algebra structures; no finite, flat, faithful, injective, Noetherian or reduced hypothesis is imposed unless stated.",
+        "Tensor orientation is F⊗_A B, with its native left F-algebra/module structure. This checkpoint does not identify the inherited right-oriented B⊗_A F conductor map or global ideal-sheaf pullbacks."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-cokernel-base-change-naturality"
+      ],
+      "proofSteps": [
+        "Apply native linear-map extensionality to the all-tensor equality."
+      ],
+      "acceptance": [
+        "The naturality equality is an equality of actual F-linear maps: E_D ∘ (id_F⊗conductorCokernelMap(h)) = conductorCokernelMap(id_F⊗h) ∘ E_B.",
+        "Use the actual unit-image submodules, tensor-algebra maps and native module quotients, retaining nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-cokernel-rtOQ9t-00DF",
+          "locator": "Complete Lemma10.12.10 displayed statement/proof; conductor specialization is authored",
+          "excerpt": "right exact",
+          "match": "Right exactness permits comparison without flatness. The unit-image identity and actual algebra-map naturality are conductor-specific deductions using the pinned native tensor quotient APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -40821,7 +41572,8 @@
         "The actual general finite schematically dominant conductor square now supplies a native additive sheaf ShortComplex and ShortExact theorem. The first arrow is the actual structure-map biproduct lift; the second is the actual inclusion minus chart map. Projection, signed injection and section-pair identities are retained. Native pullback/kernel APIs prove mono and middle exactness; affine closed-inclusion lifts and the affine-open basis prove local surjectivity and native sheaf epimorphy. No last-map section surjectivity on nonaffine opens is claimed. Quotient topology, geometric/categorical Scheme pushout, recomputed flat-conductor integration, P¹/Proj, properness/projectivity, coherent H0/H1 and genus, separate I₂ and later model/classification work remain required. All18 gaps,23 requests,23 source findings and seven partial stages remain; every implementation is unchecked and the full Tau-importing suggested file remains UNCOMPILED.",
         "The affine conductor square for any injective integral ring map now has a native TopCat pushout theorem, using actual spectra and a specified continuous descent to arbitrary topological targets. Its source and closed triangles, uniqueness and continuous postcomposition are checked. No finiteness, Noetherianity, reducedness or nontriviality is required. The global finite schematically dominant topology and geometric/categorical Scheme pushout, recomputed flat conductors, P¹/Proj, properness/projectivity, coherent cohomology, separate I₂ and all later model/classification work remain open. All18 gaps and23 requests remain, with three bounded notation findings added to the23 inherited findings. All seven stages remain partial, all implementations unchecked, and the full Tau-importing suggested file remains UNCOMPILED.",
         "The actual global conductor square for every finite schematically dominant map now has a specified continuous descent, both triangles, uniqueness, continuous postcomposition and an actual TopCat IsPushout, obtained by affine-local off-conductor fibers and actual closed-subscheme supports. Combined with the inherited every-open structure-sheaf pullback, the exact existing GeometricPushout predicate also has a separately checked native proof. No affine, Noetherian, reduced, separated, birational or nonempty hypothesis is imposed. The categorical Scheme universal property, recomputed flat-conductor integration, algebraic-space existence, P¹/Proj, projectivity/properness, coherent cohomology, separate I₂ and later classification/model work remain required. All18 gaps,23 requests,26 source findings,78 routes and seven partial stages remain; every implementation is unchecked and the full Tau-importing suggested file is UNCOMPILED.",
-        "The actual global conductor square for every finite schematically dominant scheme morphism now has an explicit descended scheme morphism to every compatible scheme target. Twenty-one declarations construct the actual base map, every-open ring maps, their natural transformation, ringed-space morphism and stalk-local scheme morphism, with both triangles, uniqueness and scheme postcomposition. A native proof realizes the exact existing conductor_global_isPushout header without a duplicate target node. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added. This closes this native Scheme-universal-property substep; it does not establish generic Ferrand algebraic-space existence, recomputed flat conductors, P¹/Proj, properness/projectivity, coherent cohomology, separate I₂ or later classification/model obligations. All18 gaps,23 requests,26 source findings,78 routes and seven partial stages remain, all implementations unchecked; the full Tau-dependent suggested file is UNCOMPILED."
+        "The actual global conductor square for every finite schematically dominant scheme morphism now has an explicit descended scheme morphism to every compatible scheme target. Twenty-one declarations construct the actual base map, every-open ring maps, their natural transformation, ringed-space morphism and stalk-local scheme morphism, with both triangles, uniqueness and scheme postcomposition. A native proof realizes the exact existing conductor_global_isPushout header without a duplicate target node. No affine, Noetherian, reduced, separated, birational, nonempty or separability assumption is added. This closes this native Scheme-universal-property substep; it does not establish generic Ferrand algebraic-space existence, recomputed flat conductors, P¹/Proj, properness/projectivity, coherent cohomology, separate I₂ or later classification/model obligations. All18 gaps,23 requests,26 source findings,78 routes and seven partial stages remain, all implementations unchecked; the full Tau-dependent suggested file is UNCOMPILED.",
+        "Thirteen conductor-specific declarations now identify the actual F-linear scalar-extension cokernel, its representative and inverse formulas, algebra-image vanishing, full recomputed-conductor annihilator and naturality for actual algebra morphisms. Two native constructions reuse the existing unit spans, quotient carriers and tensor equivalence; no flatness, injectivity or finiteness is needed for these comparisons. SF.0 continues to own its already proven generic finite-flat annihilator/quotient exports. Explicit transport to the inherited right-oriented B⊗_A F conductor theorem and global ideal-sheaf flat recomputation remain open, together with generic Ferrand algebraic-space existence, the scheme affine-neighborhood criterion, P¹/Proj, projectivity/properness, coherent cohomology/genus, separate I₂ and later model/classification obligations. All18 gaps,23 requests,78 routes and seven partial stages remain; implementations stay unchecked. The full Tau-dependent suggested file remains UNCOMPILED."
       ]
     },
     {
@@ -41503,6 +42255,20 @@
       "searched": [
         "Complete current Section 37.67 and all six comments read on 4 October 2026; Proposition 37.67.3 also read on its standalone page.",
         "Bounded web queries: site:stacks.math.columbia.edu 0ECJ correction; site:stacks.math.columbia.edu 0E25 typo; site:github.com/stacks/stacks-project 0ECH pushout typo. Only relevant Stacks results used; no separate correction identified."
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ErtOQ9t00DF1",
+      "source": "conductor-cokernel-rtOQ9t-00DF",
+      "kind": "misprint",
+      "locator": "Historical proof-reference fragment in the complete public correction patch aee70b2c90b64dc043aa7740e0d9c9346aa4323f; current Lemma10.12.10 page comments10136/10607. Patch SHA256 464eb5213ac6a5ed1937db69a06c4dc109f85c6dea0dfe80884ab3342f441d86. Only this patch and the complete current displayed lemma/comments were read, not the whole historical source version.",
+      "printed": "Using the pullback property again",
+      "correction": "Use the exactness characterization by Hom into every R-module P, citing Lemma10.10.1(1) for both uses; quantify over P explicitly.",
+      "reason": "The actual current proof transfers the Hom exact sequence through tensor-Hom adjunction and tests it for every P. The authors correction patch explicitly replaces the old proof reference and adds that quantifier.",
+      "affects": "the proof",
+      "known": "Corrected24July2025 by Stacks authors commit aee70b2c90b64dc043aa7740e0d9c9346aa4323f, acknowledged in current page comment10607; no new error in the current statement is alleged.",
+      "searched": [
+        "Complete current Lemma10.12.10 page, its two comments and the entire linked authors correction patch https://github.com/stacks/stacks-project/commit/aee70b2c90b64dc043aa7740e0d9c9346aa4323f.patch. Section comments and whole historical source were not read."
       ]
     }
   ],

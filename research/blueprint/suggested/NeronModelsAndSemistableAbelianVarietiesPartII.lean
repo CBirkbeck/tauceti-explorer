@@ -1,3 +1,7 @@
+import Mathlib.LinearAlgebra.TensorProduct.Quotient
+import Mathlib.LinearAlgebra.TensorProduct.Tower
+import Mathlib.RingTheory.TensorProduct.Maps
+import Mathlib.Algebra.Algebra.Prod
 import Mathlib.Geometry.RingedSpace.Stalks
 import Mathlib.RingTheory.LocalRing.RingHom.Basic
 import Mathlib.AlgebraicGeometry.Morphisms.UnderlyingMap
@@ -6832,6 +6836,166 @@ example :
       QuadraticPinch.Global.normalization_schemeTheoreticallyDominant _ _
     IsPushout ((conductorIdealSheaf f).comap f).subschemeι (conductorMap f)
       f (conductorIdealSheaf f).subschemeι := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+/- Conductor-specific use of native tensor quotients, retaining the actual unit image. -/
+namespace TauCeti.GenusOne.FerrandPushout
+open scoped TensorProduct
+universe cu cv cw cx cy
+variable {A : Type cu} {B : Type cv} {F : Type cw} {D : Type cx} {E : Type cy}
+variable [CommRing A] [CommRing B] [CommRing F] [CommRing D] [CommRing E]
+variable [Algebra A B] [Algebra A F] [Algebra A D] [Algebra A E]
+
+lemma conductorUnitSpan_baseChange :
+    (Submodule.span A ({1} : Set B)).baseChange F =
+      Submodule.span F ({1} : Set (F ⊗[A] B)) := by
+  sorry
+
+noncomputable def conductorCokernelBaseChange :
+    F ⊗[A] (B ⧸ Submodule.span A ({1} : Set B)) ≃ₗ[F]
+      (F ⊗[A] B) ⧸ Submodule.span F ({1} : Set (F ⊗[A] B)) :=
+  TensorProduct.AlgebraTensorModule.tensorQuotientEquiv F A F
+    (Submodule.span A ({1} : Set B)) ≪≫ₗ
+      Submodule.quotEquivOfEq _ _ conductorUnitSpan_baseChange
+
+lemma conductorCokernelBaseChange_tmul (s : F) (b : B) :
+    conductorCokernelBaseChange (s ⊗ₜ[A] Submodule.Quotient.mk b) =
+      Submodule.Quotient.mk (s ⊗ₜ[A] b) := by
+  sorry
+
+lemma conductorCokernelBaseChange_symm_tmul (s : F) (b : B) :
+    conductorCokernelBaseChange.symm (Submodule.Quotient.mk (s ⊗ₜ[A] b)) =
+      s ⊗ₜ[A] Submodule.Quotient.mk b := by
+  sorry
+
+lemma conductorCokernelBaseChange_scalar_zero (s : F) (a : A) :
+    conductorCokernelBaseChange
+      (s ⊗ₜ[A] Submodule.Quotient.mk (algebraMap A B a)) = 0 := by
+  sorry
+
+lemma conductorCokernelBaseChange_annihilator :
+    Module.annihilator F (F ⊗[A] (B ⧸ Submodule.span A ({1} : Set B))) =
+      ((algebraMap F (F ⊗[A] B)).range.conductor).comap
+        (algebraMap F (F ⊗[A] B)) := by
+  sorry
+
+noncomputable def conductorCokernelMap (h : B →ₐ[A] D) :
+    (B ⧸ Submodule.span A ({1} : Set B)) →ₗ[A]
+      D ⧸ Submodule.span A ({1} : Set D) :=
+  (Submodule.span A ({1} : Set B)).mapQ
+    (Submodule.span A ({1} : Set D)) h.toLinearMap (by
+      rw [Submodule.span_le]
+      intro b hb
+      have hb' : b = 1 := Set.mem_singleton_iff.mp hb
+      subst b
+      change h 1 ∈ Submodule.span A ({1} : Set D)
+      rw [map_one]
+      exact Submodule.subset_span (by simp))
+
+lemma conductorCokernelMap_mk (h : B →ₐ[A] D) (b : B) :
+    conductorCokernelMap h (Submodule.Quotient.mk b) =
+      Submodule.Quotient.mk (h b) := by
+  sorry
+
+lemma conductorCokernelMap_id :
+    conductorCokernelMap (AlgHom.id A B) = LinearMap.id := by
+  sorry
+
+lemma conductorCokernelMap_comp (h : B →ₐ[A] D) (g : D →ₐ[A] E) :
+    conductorCokernelMap (g.comp h) =
+      (conductorCokernelMap g).comp (conductorCokernelMap h) := by
+  sorry
+
+lemma conductorCokernelMap_surjective (h : B →ₐ[A] D)
+    (hh : Function.Surjective h) : Function.Surjective (conductorCokernelMap h) := by
+  sorry
+
+lemma conductorCokernelBaseChange_natural (h : B →ₐ[A] D)
+    (x : F ⊗[A] (B ⧸ Submodule.span A ({1} : Set B))) :
+    conductorCokernelBaseChange
+      (TensorProduct.AlgebraTensorModule.map (LinearMap.id : F →ₗ[F] F)
+        (conductorCokernelMap h) x) =
+      conductorCokernelMap (Algebra.TensorProduct.map (AlgHom.id F F) h)
+        (conductorCokernelBaseChange x) := by
+  sorry
+
+lemma conductorCokernelBaseChange_natural_map (h : B →ₐ[A] D) :
+    conductorCokernelBaseChange.toLinearMap.comp
+      (TensorProduct.AlgebraTensorModule.map (LinearMap.id : F →ₗ[F] F)
+        (conductorCokernelMap h)) =
+      (conductorCokernelMap (Algebra.TensorProduct.map (AlgHom.id F F) h)).comp
+        conductorCokernelBaseChange.toLinearMap := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+namespace TauCeti.GenusOne.FerrandPushout
+open scoped TensorProduct
+universe cu cv cw cx cy
+variable {A : Type cu} {B : Type cv} {F : Type cw} {D : Type cx} {E : Type cy}
+variable [CommRing A] [CommRing B] [CommRing F] [CommRing D] [CommRing E]
+variable [Algebra A B] [Algebra A F] [Algebra A D] [Algebra A E]
+
+-- test: ConductorCokernelChecked.pure_tensor_sum
+example (s t : F) (b c : B) :
+    conductorCokernelBaseChange
+      (s ⊗ₜ[A] Submodule.Quotient.mk b + t ⊗ₜ[A] Submodule.Quotient.mk c) =
+      Submodule.Quotient.mk (s ⊗ₜ[A] b + t ⊗ₜ[A] c) := by
+  sorry
+
+-- test: ConductorCokernelChecked.inverse_tensor
+example (s : F) (b : B) :
+    conductorCokernelBaseChange.symm (Submodule.Quotient.mk (s ⊗ₜ[A] b)) =
+      s ⊗ₜ[A] Submodule.Quotient.mk b := by
+  sorry
+
+-- test: ConductorCokernelChecked.scalar_image_zero
+example (s : F) (a : A) :
+    conductorCokernelBaseChange
+      (s ⊗ₜ[A] Submodule.Quotient.mk (algebraMap A B a)) = 0 := by
+  sorry
+
+-- test: ConductorCokernelChecked.nonreduced_diagonal_class
+example :
+    (Submodule.Quotient.mk ((2, 0) : ZMod 4 × ZMod 4) :
+      (ZMod 4 × ZMod 4) ⧸ Submodule.span (ZMod 4) ({1} : Set (ZMod 4 × ZMod 4))) ≠ 0 := by
+  sorry
+
+-- test: ConductorCokernelChecked.nonflat_quotient_tensor
+example :
+    letI : Algebra (ZMod 4) (ZMod 2) := (ZMod.castHom (⟨2, rfl⟩ : 2 ∣ 4) (ZMod 2)).toAlgebra
+    conductorCokernelBaseChange (A := ZMod 4) (B := ZMod 4 × ZMod 4)
+      (F := ZMod 2)
+      ((1 : ZMod 2) ⊗ₜ[ZMod 4] Submodule.Quotient.mk ((2, 0) : ZMod 4 × ZMod 4)) = 0 := by
+  sorry
+
+-- test: ConductorCokernelChecked.map_representative
+example (h : B →ₐ[A] D) (b c : B) :
+    conductorCokernelMap h (Submodule.Quotient.mk (b + c)) =
+      Submodule.Quotient.mk (h b + h c) := by
+  sorry
+
+-- test: ConductorCokernelChecked.map_identity
+example (b : B ⧸ Submodule.span A ({1} : Set B)) :
+    conductorCokernelMap (AlgHom.id A B) b = b := by
+  sorry
+
+-- test: ConductorCokernelChecked.map_composition
+example (h : B →ₐ[A] D) (g : D →ₐ[A] E)
+    (b : B ⧸ Submodule.span A ({1} : Set B)) :
+    conductorCokernelMap (g.comp h) b =
+      conductorCokernelMap g (conductorCokernelMap h b) := by
+  sorry
+
+-- test: ConductorCokernelChecked.natural_projection
+example (x : F ⊗[A] ((B × D) ⧸ Submodule.span A ({1} : Set (B × D)))) :
+    conductorCokernelBaseChange
+      (TensorProduct.AlgebraTensorModule.map (LinearMap.id : F →ₗ[F] F)
+        (conductorCokernelMap (AlgHom.fst A B D)) x) =
+      conductorCokernelMap (Algebra.TensorProduct.map (AlgHom.id F F) (AlgHom.fst A B D))
+        (conductorCokernelBaseChange x) := by
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
