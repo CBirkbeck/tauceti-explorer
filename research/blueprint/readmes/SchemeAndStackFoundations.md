@@ -1,3 +1,198 @@
+# Composite ideal pullback: closed sections and sheafification
+
+Write J=I.comap(f≫g) and K=(I.comap g).comap f for arbitrary scheme morphisms f:X→Y, g:Y→Z and native ideal datum I on Z. The previous checkpoint compares Γ(X,U)/ker(J.ι.app U) with Γ(X,U)/ker(K.ι.app U) on every open U. Those actual ring equivalences now form kernelCompNatIso between the all-open quotient presheaves. Its inverse preserves the same ambient section representatives.
+
+Sheafify the kernel transport and compose it with the inverse direct and forward iterated allOpenSheafComparison isomorphisms to construct closedCompNatIso between the actual direct images of the two closed-subscheme structure presheaves. The inverse-image functors belong to the respective native immersions and remain explicit. On an ambient section a, this transport sends J.ι(a) to K.ι(a). Consequently kernelCompNatIso followed by the iterated allOpenToClosed equals the direct allOpenToClosed followed by closedCompNatIso, as actual natural transformations.
+
+Apply native sheafification to kernelCompNatIso to obtain sheafCompNatIso. Unit naturality gives its representative formula. The definition of closedCompNatIso and inverse cancellation give the square with both actual allOpenSheafComparison maps. This equality applies to every sheafified section; its proof does not assume that closed sections or sheafified sections on an arbitrary open have ambient representatives there. Since allOpenSheafComparison is already an isomorphism, that square uniquely determines the new sheafification map.
+
+Nine typed tests cover all-class inverses, the empty open, two successive quotient restrictions, every closed section and its actual restrictions, the closed comparison on all quotient classes, the sheafified square on all sections and its forced map. A concrete test on Spec(ZMod4) carries the nonzero square-zero class of2 through the unit and the comparison. Replacing the quotient or sheafification by its reduced ring would fail this test.
+
+All131 incoming whole nodes, five planets, eight gaps,62 source routes, twelve confirmed findings, inherited E1 and all six reserved-key boundaries remain. Fourteen nodes add three constructions, twelve API entries and nine tests. Native asIso, Functor.mapIso and sheafification are reused rather than planned again. Every implementation stays unchecked and all seven stages retain their partial/not_read status.
+
+Fresh source reading is the complete displayed Stacks01JU statement, proof and three page comments. It supplies the image-ideal pullback convention; the exact presheaf and sheafification equations are authored deductions from pinned native APIs and existing constructions. No new source finding arose in this bounded passage. Own6049 original reading scopes remain scoped to27 unchanged controls among32, with original attribution. Peer6052 evidence was authenticated and its two actual verifier reports replayed; its reading attribution is not reused.
+
+Fourteen new declarations compare composite and iterated immersion-kernel quotient presheaves, actual direct images of closed-subscheme structure presheaves and their native sheafifications on every open. Both comparison squares commute, and the sheafification comparison is uniquely determined by the closed-section square. Identity and three-morphism coherence, explicit reindexed image-ideal quotient-to-closed/sheafification natural squares and the remaining conductor/flat-recomputation obligations remain. No arbitrary nonaffine image-ideal equality, closed-section surjectivity or naive quotient sheaf condition is claimed. Eight gaps, six reserved-key boundaries,62 source routes and all other-stage obligations remain open.
+
+## Composite kernel quotient presheaf comparison
+
+**TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso** — For arbitrary scheme morphisms f:X→Y and g:Y→Z and native ideal datum I on Z, construct a natural isomorphism on all opens of X from allOpenQuotient(I.comap(f≫g)) to allOpenQuotient((I.comap g).comap f), with the existing kernelCompIso as its actual components.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-kernel-quotient-isomorphism, SchemeAndStackFoundations:SF.0/composite-kernel-restriction, mathlib:CategoryTheory.NatIso.ofComponents.
+
+Proof: Package the existing native kernel quotient ring equivalences and their restriction law by NatIso.ofComponents.
+
+Consumed API:
+
+- **TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_app**: On every open U of X, the component is exactly the CommRingCat isomorphism of kernelCompIso I f g U.
+- **TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_mk**: On every open U of X the forward component sends the class of each a∈Γ(X,U) to the same section class in the iterated immersion-kernel quotient.
+- **TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_inv_mk**: On every open U of X the inverse component sends each section class in the iterated immersion-kernel quotient to the same section class in the direct quotient.
+- **TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_closed**: As actual natural transformations on all opens of X, kernelCompNatIso.hom followed by the iterated allOpenToClosed equals the direct allOpenToClosed followed by closedCompNatIso.hom.
+
+Typed tests:
+
+- **CompositeKernelPresheafChecked.roundtrip**: For arbitrary f,g, every open U and every direct kernel quotient class q, the forward and inverse natural components return q.
+- **CompositeKernelPresheafChecked.empty_open**: On the empty open of X every direct kernel quotient class maps to zero, for arbitrary f,g and I.
+- **CompositeKernelPresheafChecked.two_restrictions**: For every U≤V≤W in X and every quotient class on W, comparison after two direct restrictions equals the single iterated restriction along U≤W after comparison at W.
+
+## Kernel presheaf comparison component
+
+**TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_app** — On every open U of X, the component is exactly the CommRingCat isomorphism of kernelCompIso I f g U.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-isomorphism.
+
+Proof: Reduce the explicitly specified natural components.
+
+## Kernel presheaf comparison on representatives
+
+**TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_mk** — On every open U of X the forward component sends the class of each a∈Γ(X,U) to the same section class in the iterated immersion-kernel quotient.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-component, SchemeAndStackFoundations:SF.0/composite-kernel-representative.
+
+Proof: Use the existing kernelCompIso representative law.
+
+## Inverse kernel presheaf comparison on representatives
+
+**TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_inv_mk** — On every open U of X the inverse component sends each section class in the iterated immersion-kernel quotient to the same section class in the direct quotient.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-component, SchemeAndStackFoundations:SF.0/composite-kernel-inverse-representative.
+
+Proof: Use the existing inverse kernelCompIso representative law.
+
+## Composite closed-subscheme section comparison
+
+**TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso** — Construct the actual natural isomorphism from U↦Γ((I.comap(f≫g)).subscheme,(I.comap(f≫g)).ι⁻¹U) to U↦Γ(((I.comap g).comap f).subscheme,((I.comap g).comap f).ι⁻¹U) by the inverse direct allOpenSheafComparison, then sheafCompNatIso, then the iterated allOpenSheafComparison. Both dependent inverse-image functors remain explicit.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-sheafification-isomorphism, SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism, mathlib:CategoryTheory.asIso.
+
+Proof: Compose the actual comparison isomorphisms with the sheafification of kernel transport. Native comap_comp already determines the kernel equivalence; no equality cast of the large dependent direct-image presheaf is needed.
+
+Consumed API:
+
+- **TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_mk**: For every open U and a∈Γ(X,U), closedCompNatIso sends the direct pulled-back immersion restriction of a to the iterated pulled-back immersion restriction of a.
+- **TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_inv_mk**: For every open U, the inverse closedCompNatIso sends the iterated immersion restriction of each ambient section a to its direct immersion restriction.
+- **TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_closed**: As actual natural transformations on all opens of X, kernelCompNatIso.hom followed by the iterated allOpenToClosed equals the direct allOpenToClosed followed by closedCompNatIso.hom.
+
+Typed tests:
+
+- **CompositeClosedPresheafChecked.all_sections_roundtrip**: Every section of the direct closed subscheme over the inverse image of any open U returns under forward and inverse comparison, without assuming that the section lifts to an ambient section.
+- **CompositeClosedPresheafChecked.all_quotient_classes**: On every open and every quotient class, kernel comparison followed by iterated allOpenToClosed agrees with direct allOpenToClosed followed by closed comparison.
+- **CompositeClosedPresheafChecked.restriction**: For every U≤V and every closed-subscheme section over the inverse image of V, the closed comparison commutes with the actual structure-presheaf restrictions along the two immersion inverse images.
+
+## Composite closed comparison preserves ambient sections
+
+**TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_mk** — For every open U and a∈Γ(X,U), closedCompNatIso sends the direct pulled-back immersion restriction of a to the iterated pulled-back immersion restriction of a.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square, SchemeAndStackFoundations:SF.0/composite-sheafification-unit-representative, SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-representative.
+
+Proof: Evaluate the actual sheafified comparison square on the unit-image of each ambient quotient class and use the two existing comparison representative formulas.
+
+## Inverse closed comparison preserves ambient sections
+
+**TauCeti.SchemeFoundations.IdealPullback.closedCompNatIso_inv_mk** — For every open U, the inverse closedCompNatIso sends the iterated immersion restriction of each ambient section a to its direct immersion restriction.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-closed-presheaf-representative.
+
+Proof: Rewrite by the forward representative formula and cancel the actual natural isomorphism.
+
+## Composite kernel comparison commutes with closed sections
+
+**TauCeti.SchemeFoundations.IdealPullback.kernelCompNatIso_closed** — As actual natural transformations on all opens of X, kernelCompNatIso.hom followed by the iterated allOpenToClosed equals the direct allOpenToClosed followed by closedCompNatIso.hom.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-representative, SchemeAndStackFoundations:SF.0/composite-closed-presheaf-representative, SchemeAndStackFoundations:SF.0/all-open-to-closed-representative, mathlib:Ideal.Quotient.ringHom_ext.
+
+Proof: Apply natural-transformation and native quotient ring-map extensionality. Both composites send each ambient section class to its iterated immersion restriction.
+
+## Composite quotient sheafification comparison
+
+**TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso** — Apply the native CommRingCat-valued sheafification functor on the Zariski site of X to kernelCompNatIso, producing an actual natural isomorphism between the sheafifications of the direct and iterated all-open kernel quotient presheaves.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-isomorphism, mathlib:CategoryTheory.sheafification, mathlib:CategoryTheory.Functor.mapIso.
+
+Proof: Use the existing sheafification functor and its native mapIso; retain the actual source and target presheaves.
+
+Consumed API:
+
+- **TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_unit**: The direct toSheafify unit followed by sheafCompNatIso.hom equals kernelCompNatIso.hom followed by the iterated unit, as natural transformations on every open.
+- **TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_unit_mk**: For every open U and ambient section a, sheafCompNatIso.hom sends the unit-image of the direct quotient class of a to the unit-image of the iterated quotient class of the same a.
+- **TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_inv_unit_mk**: On every open U the inverse sheafification comparison sends the unit-image of each iterated section class to the unit-image of the direct section class with the same ambient representative.
+- **TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_closed**: As actual natural transformations on all opens, sheafCompNatIso.hom followed by the iterated allOpenSheafComparison equals the direct allOpenSheafComparison followed by closedCompNatIso.hom. This equality holds on every sheafified section, including sections without an ambient representative on that open.
+- **TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_unique**: Any natural transformation q between these two sheafifications that commutes with the same direct and iterated allOpenSheafComparison maps and closedCompNatIso equals sheafCompNatIso.hom.
+
+Typed tests:
+
+- **CompositeSheafChecked.all_sections_square**: For every open U and every section q of the direct quotient sheafification, including sections not given by global ambient representatives, the sheaf comparison commutes with the two actual closed-subscheme comparisons.
+- **CompositeSheafChecked.forced_comparison**: The composite of direct allOpenSheafComparison, closedCompNatIso and the inverse iterated allOpenSheafComparison is exactly sheafCompNatIso.hom as a natural transformation.
+- **CompositeSheafChecked.nonreduced_identity**: For two identity morphisms of Spec(ZMod4), zero ideal datum and the global ambient section corresponding to2, its quotient class followed by the sheafification unit and composite sheafification comparison is nonzero and square-zero.
+
+## Composite sheafification comparison preserves the unit
+
+**TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_unit** — The direct toSheafify unit followed by sheafCompNatIso.hom equals kernelCompNatIso.hom followed by the iterated unit, as natural transformations on every open.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-sheafification-isomorphism, mathlib:CategoryTheory.toSheafify_naturality.
+
+Proof: Apply native naturality of the sheafification adjunction unit.
+
+## Sheafification comparison on section classes
+
+**TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_unit_mk** — For every open U and ambient section a, sheafCompNatIso.hom sends the unit-image of the direct quotient class of a to the unit-image of the iterated quotient class of the same a.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-sheafification-unit, SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-representative.
+
+Proof: Evaluate unit naturality at U and the quotient representative, then use the kernel comparison representative formula.
+
+## Inverse sheafification comparison on section classes
+
+**TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_inv_unit_mk** — On every open U the inverse sheafification comparison sends the unit-image of each iterated section class to the unit-image of the direct section class with the same ambient representative.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-sheafification-unit-representative.
+
+Proof: Rewrite by the forward unit representative formula and cancel the actual isomorphism.
+
+## Composite sheafification comparison commutes with closed sections
+
+**TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_closed** — As actual natural transformations on all opens, sheafCompNatIso.hom followed by the iterated allOpenSheafComparison equals the direct allOpenSheafComparison followed by closedCompNatIso.hom. This equality holds on every sheafified section, including sections without an ambient representative on that open.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-closed-presheaf-isomorphism, SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism.
+
+Proof: Expand the specified composite closed isomorphism and cancel the direct allOpenSheafComparison with its inverse. This proves the equality on all sections without any ambient-section surjectivity claim.
+
+## Closed comparison determines composite sheafification transport
+
+**TauCeti.SchemeFoundations.IdealPullback.sheafCompNatIso_unique** — Any natural transformation q between these two sheafifications that commutes with the same direct and iterated allOpenSheafComparison maps and closedCompNatIso equals sheafCompNatIso.hom.
+
+Hypotheses: X,Y,Z are native schemes, f:X→Y and g:Y→Z are arbitrary actual scheme morphisms, and I is native IdealSheafData on Z. Every open of X is allowed. No affineness, flatness, Noetherianity, reducedness or finiteness is assumed. No surjectivity of ambient sections onto closed sections on arbitrary opens is asserted.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square, SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism.
+
+Proof: Cancel the iterated allOpenSheafComparison, already an actual isomorphism, and use the commuting square.
+
 # Quotients under composite scheme ideal pullback
 
 For f:X→Y, g:Y→Z, native ideal datum I on Z and affine U⊆Z, the direct extended ideal is E=I(U).map((f≫g).app U). If the single intermediate open g⁻¹U is affine, native ideal pullback on that open identifies E with the iterated extended ideal E′=(I.comap g)(g⁻¹U).map(f.app(g⁻¹U)). The direct and iterated rings of sections are definitionally the same through native scheme composition. Their actual quotient rings are therefore canonically isomorphic by the identity on section representatives. The inverse preserves those representatives too.
