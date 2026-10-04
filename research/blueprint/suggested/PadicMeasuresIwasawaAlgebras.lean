@@ -3137,3 +3137,10 @@ example {A : Type*} [CommRing A] [IsLocalRing A] [IsAdicComplete (IsLocalRing.ma
 end L4Tests
 
 end TauCeti.Iwasawa
+
+/-!
+The planning pass is complete under the 300-node budget rule. All 369 inherited
+node contracts remain unchecked. L0, L1, L2, L3 and L4 remain partial; L0a, L5
+and L6 retain their source-decomposition gaps. Coverage and the handoff distinguish
+current validation from historical compiler and source-reading evidence.
+-/
