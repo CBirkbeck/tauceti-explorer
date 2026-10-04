@@ -21211,11 +21211,11 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "released on GitHub issue #642"
+   "note": "claimed on GitHub issue #642"
   },
   {
    "id": "REV-SchemeAndStackFoundations",
