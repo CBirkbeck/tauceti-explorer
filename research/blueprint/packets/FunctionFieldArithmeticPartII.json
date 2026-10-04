@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim. Positive-divisibility coefficient continuation:23 explicit declarations,18 API items and12 typed tests establish coefficient functoriality of the universal coaction and actual invariant algebra. Native scheme-limit continuation:21 declarations,23 API entries and21 typed tests specify the actual affine inverse-limit and its coefficient/factorial dictionary. Native affine base-change continuation:21 declarations,14 API entries and14 typed tests specify the actual ring pushout, tensor equivalence and Cartesian scheme comparison. Tensor-action continuation:11 declaration contracts,9 API entries and8 typed tests describe the actual coaction comparison and native tensor invariant algebra under arbitrary affine base change. Finite-projection continuation: 14 declarations (2 constructions, 12 lemmas), 12 API entries and 8 typed examples; all 501 incoming mathematical contracts retained. Affine root-point continuation: 23 declarations (5 constructions,18 lemmas),20 API entries and14 distinct typed tests; all515 whole incoming node objects preserved. Root-point diagram continuation:20 declarations(3 constructions17 lemmas),17 API references and7 distinct typed tests; all538 incoming mathematical contracts preserved,535 whole old nodes unchanged and three receive only appended API references. Framed root continuation:25 declarations(1 definition4 constructions20 lemmas),22 API references and9 distinct typed tests. All558 incoming node objects are unchanged. Framed normalization continuation:19 declarations (4 constructions and15 lemmas),12 API references and8 distinct typed tests. All583 incoming node objects are unchanged. Affine fppf scheme continuation:14 declarations (3 constructions and11 lemmas),11 API references and7 distinct typed tests with14 references. All602 incoming node objects are unchanged. Faithful normalization-arrow continuation:18 declarations (3 constructions and15 lemmas),14 API references and8 distinct typed tests with14 references. All616 incoming node objects are unchanged. Arbitrary test-algebra continuation:21 declarations (3 constructions and18 lemmas),15 API references and9 distinct typed tests with14 references. All634 incoming node objects are unchanged. Two-step normalization pullback continuation:21 declarations (3 constructions and 18 lemmas),16 API references and 9 distinct typed examples with13 references. All 655 incoming node objects remain unchanged.",
+  "summary": "Partial roadmap with 388 declaration-sized nodes. Arbitrary-section rational-character LEFT coaction now has the explicit heterobasic coefficient square, identity/composition and unchanged-weight formulas, and one-way preservation of universal coinvariance. New conditional proof bodies are checked against incoming admitted coordinate/coaction contracts. All incoming source routes, general root-stack scope, nonreduced fibres and geometric/sheaf boundaries remain; no implementation or stage is certified closed. Separate native evidence proves the existing rational-character/infinite unity-root coordinate block; three computation lemmas expose natural representatives and factorial levels. No geometric or stage closure is asserted. The ten arbitrary-section rational LEFT coaction contracts now have separate admission-free exact-Mathlib proof evidence, and the ten coefficient contracts of PR5978 are replayed without their former admitted inputs. The defining-degree boundary and three additional tests are specified. Two inherited tensor-power precedence errors are corrected only in the Lean prototypes, leaving all mathematical contracts unchanged. Next complete full exact-pin Tau typing, positive-index/higher-universe transport, convolution-point identification, coherent root-object reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons. These algebraic certificates do not identify all coinvariants with A. Preserve all eight gaps, thirteen requests and both source routes. The actual finite coaction equalizer is identified with the coefficient algebra through diagonal/zero-row coordinates, uniformly in wild characteristic and with arbitrary nonreduced coefficients. The factorial arbitrary-section root algebra has the actual native coefficient invariant subalgebra A. Rational-character extraction and injective finite-stage inclusions supply a finite-level criterion, existence and uniqueness of the coefficient, and the native equalizer algebra equivalence, also for wild and nonreduced bases. This algebraic calculation does not discharge the geometric quotient, Spec-limit, root-groupoid or fpqc frame-descent contracts. Positive-divisibility coaction continuation:20 explicit declarations,15 consumed API items and14 typed examples; invariant algebra identified without a geometric quotient claim. Positive-divisibility coefficient continuation:23 explicit declarations,18 API items and12 typed tests establish coefficient functoriality of the universal coaction and actual invariant algebra. Native scheme-limit continuation:21 declarations,23 API entries and21 typed tests specify the actual affine inverse-limit and its coefficient/factorial dictionary. Native affine base-change continuation:21 declarations,14 API entries and14 typed tests specify the actual ring pushout, tensor equivalence and Cartesian scheme comparison. Tensor-action continuation:11 declaration contracts,9 API entries and8 typed tests describe the actual coaction comparison and native tensor invariant algebra under arbitrary affine base change. Finite-projection continuation: 14 declarations (2 constructions, 12 lemmas), 12 API entries and 8 typed examples; all 501 incoming mathematical contracts retained. Affine root-point continuation: 23 declarations (5 constructions,18 lemmas),20 API entries and14 distinct typed tests; all515 whole incoming node objects preserved. Root-point diagram continuation:20 declarations(3 constructions17 lemmas),17 API references and7 distinct typed tests; all538 incoming mathematical contracts preserved,535 whole old nodes unchanged and three receive only appended API references. Framed root continuation:25 declarations(1 definition4 constructions20 lemmas),22 API references and9 distinct typed tests. All558 incoming node objects are unchanged. Framed normalization continuation:19 declarations (4 constructions and15 lemmas),12 API references and8 distinct typed tests. All583 incoming node objects are unchanged. Affine fppf scheme continuation:14 declarations (3 constructions and11 lemmas),11 API references and7 distinct typed tests with14 references. All602 incoming node objects are unchanged. Faithful normalization-arrow continuation:18 declarations (3 constructions and15 lemmas),14 API references and8 distinct typed tests with14 references. All616 incoming node objects are unchanged. Arbitrary test-algebra continuation:21 declarations (3 constructions and18 lemmas),15 API references and9 distinct typed tests with14 references. All634 incoming node objects are unchanged. Two-step normalization pullback continuation:21 declarations (3 constructions and 18 lemmas),16 API references and 9 distinct typed examples with13 references. All 655 incoming node objects remain unchanged. Three-step chosen normalization continuation:25 declarations (4 constructions and21 lemmas),21 API references and9 distinct typed examples with15 references. All676 incoming node objects remain unchanged.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2462,6 +2462,22 @@
         "line": 276,
         "provides": "noncomputable def asIso (f : X ⟶ Y) [IsIso f] : X ≅ Y := Native pullback coherence API reused for the actual normalization schemes.",
         "checked": "Codex — codex-rtOQ9t read this declaration at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-04; Reading.json gives exact bounded scope."
+      },
+      {
+        "ref": "mathlib:AlgHom.comp_assoc",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Hom.lean",
+        "line": 267,
+        "provides": "theorem comp_assoc (φ₁ : C →ₐ[R] D) (φ₂ : B →ₐ[R] C) (φ₃ : A →ₐ[R] B) : Actual chosen normalization coherence.",
+        "checked": "Codex — codex-rtOQ9t read this exact pinned declaration; Reading.json gives scope."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Iso.ext",
+        "kind": "theorem",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "line": 79,
+        "provides": "theorem ext ⦃α β : X ≅ Y⦄ (w : α.hom = β.hom) : α = β := Actual chosen normalization coherence.",
+        "checked": "Codex — codex-rtOQ9t read this exact pinned declaration; Reading.json gives scope."
       }
     ]
   },
@@ -2915,6 +2931,18 @@
       "accessed": "2026-10-04",
       "readSections": [
         "Whole current displayed Section26.17, definitions1/7, lemmas2–6 and proofs, and all eight comments. Native normalization tower coherence is an authored specialization of the universal property, not a quoted source theorem."
+      ]
+    },
+    {
+      "id": "NormalizationThree-codex-rtOQ9t",
+      "title": "Scheme fibre products and authored three-step normalization coherence",
+      "authors": "The Stacks Project Authors; specialized deductions by Codex — codex-rtOQ9t",
+      "edition": "Current displayed section, accessed4October2026",
+      "url": "https://stacks.math.columbia.edu/tag/01JO",
+      "sha256": "63f6e1836712f7c2a70a444047a6fca99ff6a7ad72eb55c001f7821c3b5d2724",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "Whole displayed Section26.17 definitions1/7, lemmas2–6 and proofs, and all eight comments. Three-step normalization comparisons are authored specializations of native universal properties."
       ]
     }
   ],
@@ -40167,6 +40195,1295 @@
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "construction",
+      "title": "The chosen normalization pullback pasting comparison",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationPastingIso",
+      "statement": "For arbitrary A-algebra maps phi:B to C and psi:C to D and framed root p=(u,y), construct the actual scheme isomorphism from the chosen iterated pullback Spec D times over Spec C with (Spec C times over Spec B with Spec Dp), to the chosen direct pullback Spec D times over Spec B with Spec Dp. Here Dp=B[T]/(T^n-u). Use native pullbackRightPullbackFstIso followed by pullback.congrHom for the actual Spec-composition equality.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso",
+        "mathlib:CategoryTheory.Limits.pullback.congrHom",
+        "mathlib:AlgebraicGeometry.Spec.map_comp"
+      ],
+      "proofSteps": [
+        "Compose the actual native pasting and Spec-composition congruence isomorphisms. This comparison itself is pulled back across the third test-algebra change."
+      ],
+      "acceptance": [
+        "For arbitrary A-algebra maps phi:B to C and psi:C to D and framed root p=(u,y), construct the actual scheme isomorphism from the chosen iterated pullback Spec D times over Spec C with (Spec C times over Spec B with Spec Dp), to the chosen direct pullback Spec D times over Spec B with Spec Dp. Here Dp=B[T]/(T^n-u). Use native pullbackRightPullbackFstIso followed by pullback.congrHom for the actual Spec-composition equality.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationPastingIso_hom_fst",
+          "role": "compatibility",
+          "statement": "The forward pasting map followed by the direct first projection equals the outer iterated first projection."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationPastingIso_hom_snd",
+          "role": "compatibility",
+          "statement": "The forward pasting map followed by the direct normalization projection equals the composite of both iterated second projections."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationPastingIso_inv_fst",
+          "role": "compatibility",
+          "statement": "The inverse pasting map followed by the outer iterated first projection equals the direct first projection."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationPastingIso_inv_snd",
+          "role": "compatibility",
+          "statement": "The inverse pasting map followed by both iterated second projections equals the direct normalization projection."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.pasting_projections",
+          "kind": "compatibility",
+          "statement": "The two-step pasting comparison has all four projection equations and both inverse roundtrips."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.collapse_associativity",
+          "kind": "compatibility",
+          "statement": "The actual three-step collapse has all four projection formulas and both roundtrips; its whole isomorphism equals the alternate native pasting route and the inverse routes agree."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.direct_comparison",
+          "kind": "compatibility",
+          "statement": "The whole actual three-step normalization comparison followed by the triple collapse equals the direct normalization isomorphism, and the inverse routes agree."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor",
+          "how": "Compare actual chosen normalization covers through three arbitrary test-algebra changes with whole associativity and direct-comparison equations."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-object",
+          "how": "Supply coherent affine normalization comparisons for the open native sheaf comparison and local frame/descent construction."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-fst",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationPastingIso hom fst",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationPastingIso_hom_fst",
+      "statement": "The forward pasting map followed by the direct first projection equals the outer iterated first projection.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting",
+        "mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_fst",
+        "mathlib:CategoryTheory.Limits.pullback.lift_fst",
+        "mathlib:CategoryTheory.Limits.pullback.lift_snd"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The forward pasting map followed by the direct first projection equals the outer iterated first projection.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-snd",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationPastingIso hom snd",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationPastingIso_hom_snd",
+      "statement": "The forward pasting map followed by the direct normalization projection equals the composite of both iterated second projections.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting",
+        "mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_snd",
+        "mathlib:CategoryTheory.Limits.pullback.lift_fst",
+        "mathlib:CategoryTheory.Limits.pullback.lift_snd"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The forward pasting map followed by the direct normalization projection equals the composite of both iterated second projections.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-inv-fst",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationPastingIso inv fst",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationPastingIso_inv_fst",
+      "statement": "The inverse pasting map followed by the outer iterated first projection equals the direct first projection.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-fst",
+        "mathlib:CategoryTheory.Iso.inv_comp_eq"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The inverse pasting map followed by the outer iterated first projection equals the direct first projection.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-inv-snd",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationPastingIso inv snd",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationPastingIso_inv_snd",
+      "statement": "The inverse pasting map followed by both iterated second projections equals the direct normalization projection.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-snd",
+        "mathlib:CategoryTheory.Iso.inv_comp_eq"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The inverse pasting map followed by both iterated second projections equals the direct normalization projection.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "construction",
+      "title": "Transport the whole two-step comparison through a third change",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso",
+      "statement": "For phi:B to C,psi:C to D,chi:D to E, construct the actual native isomorphism between the pullback of Spec D(psi(phi p)) along Spec(chi) and the pullback along Spec(chi) of the chosen two-step normalization pullback. Its underlying map is pullback.map with identities on Spec E and Spec D and normalizationIteratedBaseChangeIso(phi,psi,p).hom on the normalization factor.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated-hom-fst",
+        "mathlib:CategoryTheory.Limits.pullback.map",
+        "mathlib:CategoryTheory.Limits.pullback.map_isIso",
+        "mathlib:CategoryTheory.asIso"
+      ],
+      "proofSteps": [
+        "The exact existing first projection supplies compatibility; all three pointwise maps are isomorphisms. Use native pullback.map_isIso and asIso."
+      ],
+      "acceptance": [
+        "For phi:B to C,psi:C to D,chi:D to E, construct the actual native isomorphism between the pullback of Spec D(psi(phi p)) along Spec(chi) and the pullback along Spec(chi) of the chosen two-step normalization pullback. Its underlying map is pullback.map with identities on Spec E and Spec D and normalizationIteratedBaseChangeIso(phi,psi,p).hom on the normalization factor.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_hom_fst",
+          "role": "compatibility",
+          "statement": "The forward three-step transport followed by its target first projection equals the source first projection to Spec E."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_hom_snd",
+          "role": "compatibility",
+          "statement": "The forward three-step transport followed by its target second projection equals the source second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).hom."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_inv_fst",
+          "role": "compatibility",
+          "statement": "The inverse three-step transport followed by its source first projection equals its target first projection to Spec E."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_inv_snd",
+          "role": "compatibility",
+          "statement": "The inverse three-step transport followed by its source second projection equals its target second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).inv."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.transport_projections",
+          "kind": "compatibility",
+          "statement": "Transport of the whole two-step comparison along an arbitrary third change has all four projection equations and both inverse roundtrips."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.triple_projections",
+          "kind": "compatibility",
+          "statement": "The actual three-step normalization comparison has both forward and both inverse projection formulas and both roundtrips."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.zero_ring",
+          "kind": "degenerate",
+          "statement": "For Z to Z/1 followed by two identities and p=(1,0),n=3, the actual three-step comparison has its first projection and both roundtrips and the changed normalization map is singleton fppf covering on the empty spectrum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor",
+          "how": "Compare actual chosen normalization covers through three arbitrary test-algebra changes with whole associativity and direct-comparison equations."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-object",
+          "how": "Supply coherent affine normalization comparisons for the open native sheaf comparison and local frame/descent construction."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-hom-fst",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTripleTransportIso hom fst",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_hom_fst",
+      "statement": "The forward three-step transport followed by its target first projection equals the source first projection to Spec E.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport",
+        "mathlib:CategoryTheory.Limits.pullback.lift_fst",
+        "mathlib:CategoryTheory.Limits.pullback.lift_snd"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The forward three-step transport followed by its target first projection equals the source first projection to Spec E.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-hom-snd",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTripleTransportIso hom snd",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_hom_snd",
+      "statement": "The forward three-step transport followed by its target second projection equals the source second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).hom.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport",
+        "mathlib:CategoryTheory.Limits.pullback.lift_fst",
+        "mathlib:CategoryTheory.Limits.pullback.lift_snd"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The forward three-step transport followed by its target second projection equals the source second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).hom.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-inv-fst",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTripleTransportIso inv fst",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_inv_fst",
+      "statement": "The inverse three-step transport followed by its source first projection equals its target first projection to Spec E.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-hom-fst",
+        "mathlib:CategoryTheory.Iso.inv_comp_eq"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The inverse three-step transport followed by its source first projection equals its target first projection to Spec E.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-inv-snd",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTripleTransportIso inv snd",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleTransportIso_inv_snd",
+      "statement": "The inverse three-step transport followed by its source second projection equals its target second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).inv.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-hom-snd",
+        "mathlib:CategoryTheory.Iso.inv_comp_eq"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The inverse three-step transport followed by its source second projection equals its target second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).inv.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "construction",
+      "title": "The actual three-step normalization comparison",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso",
+      "statement": "Construct the native scheme isomorphism from Spec D(chi(psi(phi p))) to Spec E times over Spec D with (Spec D times over Spec C with (Spec C times over Spec B with Spec Dp)). Compose normalizationBaseChangeIso(chi,psi(phi p)) with normalizationTripleTransportIso(phi,psi,chi,p).",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-iso",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport"
+      ],
+      "proofSteps": [
+        "Compose the existing actual third normalization base-change comparison with the pullback transport of the entire two-step comparison."
+      ],
+      "acceptance": [
+        "Construct the native scheme isomorphism from Spec D(chi(psi(phi p))) to Spec E times over Spec D with (Spec D times over Spec C with (Spec C times over Spec B with Spec Dp)). Compose normalizationBaseChangeIso(chi,psi(phi p)) with normalizationTripleTransportIso(phi,psi,chi,p).",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_hom_fst",
+          "role": "compatibility",
+          "statement": "The three-step normalization comparison followed by the outer first projection equals the actual normalizationSpecMap of chi(psi(phi p)) to Spec E."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_hom_snd",
+          "role": "compatibility",
+          "statement": "The three-step normalization comparison followed by all three second projections equals normalizationChangeSpecMap(chi composed with (psi composed with phi),p)."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_inv_fst",
+          "role": "compatibility",
+          "statement": "The inverse three-step normalization comparison followed by the actual changed normalizationSpecMap equals the outer first projection."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_inv_snd",
+          "role": "compatibility",
+          "statement": "The inverse three-step normalization comparison followed by the actual direct normalizationChangeSpecMap equals the composite of all three second projections."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_paste",
+          "role": "compatibility",
+          "statement": "The whole normalizationTripleBaseChangeIso(phi,psi,chi,p) followed by normalizationTriplePastingIso(phi,psi,chi,p) equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p) as actual native scheme isomorphisms."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_paste_inverse",
+          "role": "compatibility",
+          "statement": "normalizationTriplePastingIso.inv followed by normalizationTripleBaseChangeIso.inv equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p).inv as actual scheme morphisms."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_chart",
+          "role": "compatibility",
+          "statement": "For positive exponent, normalizationTripleBaseChangeIso.hom followed by all three second projections and p.normalizationChartMap equals normalizationChartMap(chi(psi(phi p))), as actual scheme morphisms to the existing root chart."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.triple_projections",
+          "kind": "compatibility",
+          "statement": "The actual three-step normalization comparison has both forward and both inverse projection formulas and both roundtrips."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.direct_comparison",
+          "kind": "compatibility",
+          "statement": "The whole actual three-step normalization comparison followed by the triple collapse equals the direct normalization isomorphism, and the inverse routes agree."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.killed_nilpotent",
+          "kind": "non-example",
+          "statement": "For Z/4 to Z/2 followed by two identities, p=(1,2) at f=0,n=2 has a nonzero square-zero normalized section killed by the actual direct composite algebra map, while the three-step comparison retains its exact normalization projection and roundtrip."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.wild_chart",
+          "kind": "degenerate",
+          "statement": "At exponent3 over Z/3 and arbitrary three successive algebra changes, the exponent vanishes in the base while the actual three-step chart triangle and roundtrip hold and the direct changed normalization map is singleton fppf covering."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.exponent_zero",
+          "kind": "degenerate",
+          "statement": "For f=1,n=0 and arbitrary three changes the actual three-step comparison equals the direct chosen comparison after pasting and has both roundtrips; no positive-exponent chart or cover is asserted."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.zero_ring",
+          "kind": "degenerate",
+          "statement": "For Z to Z/1 followed by two identities and p=(1,0),n=3, the actual three-step comparison has its first projection and both roundtrips and the changed normalization map is singleton fppf covering on the empty spectrum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor",
+          "how": "Compare actual chosen normalization covers through three arbitrary test-algebra changes with whole associativity and direct-comparison equations."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-object",
+          "how": "Supply coherent affine normalization comparisons for the open native sheaf comparison and local frame/descent construction."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-fst",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTripleBaseChangeIso hom fst",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_hom_fst",
+      "statement": "The three-step normalization comparison followed by the outer first projection equals the actual normalizationSpecMap of chi(psi(phi p)) to Spec E.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-hom-fst",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-fst",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated-hom-snd",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-tower-scheme-composition"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The three-step normalization comparison followed by the outer first projection equals the actual normalizationSpecMap of chi(psi(phi p)) to Spec E.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-snd",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTripleBaseChangeIso hom snd",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_hom_snd",
+      "statement": "The three-step normalization comparison followed by all three second projections equals normalizationChangeSpecMap(chi composed with (psi composed with phi),p).",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-transport-hom-snd",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-snd",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-tower-iterated-hom-snd",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-tower-scheme-composition"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The three-step normalization comparison followed by all three second projections equals normalizationChangeSpecMap(chi composed with (psi composed with phi),p).",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-inv-fst",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTripleBaseChangeIso inv fst",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_inv_fst",
+      "statement": "The inverse three-step normalization comparison followed by the actual changed normalizationSpecMap equals the outer first projection.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-fst",
+        "mathlib:CategoryTheory.Iso.inv_comp_eq"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The inverse three-step normalization comparison followed by the actual changed normalizationSpecMap equals the outer first projection.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-inv-snd",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTripleBaseChangeIso inv snd",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_inv_snd",
+      "statement": "The inverse three-step normalization comparison followed by the actual direct normalizationChangeSpecMap equals the composite of all three second projections.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-snd",
+        "mathlib:CategoryTheory.Iso.inv_comp_eq"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The inverse three-step normalization comparison followed by the actual direct normalizationChangeSpecMap equals the composite of all three second projections.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "construction",
+      "title": "Collapse the three actual chosen pullbacks",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso",
+      "statement": "Construct the actual native isomorphism from the three nested chosen pullbacks to the direct chosen pullback for chi composed with (psi composed with phi). First pull normalizationPastingIso(phi,psi,p) back along Spec(chi) using pullback.map with identities on the outer test scheme and common base; then compose normalizationPastingIso(psi composed with phi,chi,p).",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-fst",
+        "mathlib:CategoryTheory.Limits.pullback.map",
+        "mathlib:CategoryTheory.Limits.pullback.map_isIso",
+        "mathlib:CategoryTheory.asIso"
+      ],
+      "proofSteps": [
+        "Pull back the first-two-change pasting comparison and compose the remaining two-change pasting comparison. Native carriers retain the chosen pullback parentheses."
+      ],
+      "acceptance": [
+        "Construct the actual native isomorphism from the three nested chosen pullbacks to the direct chosen pullback for chi composed with (psi composed with phi). First pull normalizationPastingIso(phi,psi,p) back along Spec(chi) using pullback.map with identities on the outer test scheme and common base; then compose normalizationPastingIso(psi composed with phi,chi,p).",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_hom_fst",
+          "role": "compatibility",
+          "statement": "The forward three-step collapse followed by the direct first projection equals the outer first projection of the three nested chosen pullbacks."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_hom_snd",
+          "role": "compatibility",
+          "statement": "The forward three-step collapse followed by the direct normalization projection equals all three nested second projections."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_inv_fst",
+          "role": "compatibility",
+          "statement": "The inverse three-step collapse followed by the outer nested first projection equals the direct first projection."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_inv_snd",
+          "role": "compatibility",
+          "statement": "The inverse three-step collapse followed by all three nested second projections equals the direct normalization projection."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_associativity",
+          "role": "compatibility",
+          "statement": "The whole normalizationTriplePastingIso equals the alternate route which first applies pullbackRightPullbackFstIso to Spec(psi), the first projection of the phi pullback and Spec(chi), then pullback.congrHom for Spec(chi composed with psi), then normalizationPastingIso(phi,chi composed with psi,p), and finally the explicit pullback.congrHom for the spectrum of AlgHom.comp_assoc. This is equality of actual native scheme isomorphisms with the same three-nested source and direct target."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_associativity_inverse",
+          "role": "compatibility",
+          "statement": "The inverse of normalizationTriplePastingIso equals normalizationPastingIso(phi,chi composed with psi,p).inv preceded by the inverse final AlgHom-associativity spectrum congruence and followed by the inverse Spec-composition congruence and inverse outer pullbackRightPullbackFstIso, in exactly reversed order."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.collapse_associativity",
+          "kind": "compatibility",
+          "statement": "The actual three-step collapse has all four projection formulas and both roundtrips; its whole isomorphism equals the alternate native pasting route and the inverse routes agree."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.direct_comparison",
+          "kind": "compatibility",
+          "statement": "The whole actual three-step normalization comparison followed by the triple collapse equals the direct normalization isomorphism, and the inverse routes agree."
+        },
+        {
+          "name": "TauCeti.RootStack.normalizationThreeTests.exponent_zero",
+          "kind": "degenerate",
+          "statement": "For f=1,n=0 and arbitrary three changes the actual three-step comparison equals the direct chosen comparison after pasting and has both roundtrips; no positive-exponent chart or cover is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/normalization-arrows-functor",
+          "how": "Compare actual chosen normalization covers through three arbitrary test-algebra changes with whole associativity and direct-comparison equations."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-object",
+          "how": "Supply coherent affine normalization comparisons for the open native sheaf comparison and local frame/descent construction."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-fst",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTriplePastingIso hom fst",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_hom_fst",
+      "statement": "The forward three-step collapse followed by the direct first projection equals the outer first projection of the three nested chosen pullbacks.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-fst",
+        "mathlib:CategoryTheory.Limits.pullback.lift_fst",
+        "mathlib:CategoryTheory.Limits.pullback.lift_snd"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The forward three-step collapse followed by the direct first projection equals the outer first projection of the three nested chosen pullbacks.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-snd",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTriplePastingIso hom snd",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_hom_snd",
+      "statement": "The forward three-step collapse followed by the direct normalization projection equals all three nested second projections.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-snd",
+        "mathlib:CategoryTheory.Limits.pullback.lift_fst",
+        "mathlib:CategoryTheory.Limits.pullback.lift_snd"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The forward three-step collapse followed by the direct normalization projection equals all three nested second projections.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-inv-fst",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTriplePastingIso inv fst",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_inv_fst",
+      "statement": "The inverse three-step collapse followed by the outer nested first projection equals the direct first projection.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-fst",
+        "mathlib:CategoryTheory.Iso.inv_comp_eq"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The inverse three-step collapse followed by the outer nested first projection equals the direct first projection.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-inv-snd",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "normalizationTriplePastingIso inv snd",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_inv_snd",
+      "statement": "The inverse three-step collapse followed by all three nested second projections equals the direct normalization projection.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-snd",
+        "mathlib:CategoryTheory.Iso.inv_comp_eq"
+      ],
+      "proofSteps": [
+        "Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection."
+      ],
+      "acceptance": [
+        "The inverse three-step collapse followed by all three nested second projections equals the direct normalization projection.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-associativity",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The two three-step chosen collapse routes agree",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_associativity",
+      "statement": "The whole normalizationTriplePastingIso equals the alternate route which first applies pullbackRightPullbackFstIso to Spec(psi), the first projection of the phi pullback and Spec(chi), then pullback.congrHom for Spec(chi composed with psi), then normalizationPastingIso(phi,chi composed with psi,p), and finally the explicit pullback.congrHom for the spectrum of AlgHom.comp_assoc. This is equality of actual native scheme isomorphisms with the same three-nested source and direct target.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-fst",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-snd",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-fst",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-pasting-hom-snd",
+        "mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso",
+        "mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_fst",
+        "mathlib:CategoryTheory.Limits.pullbackRightPullbackFstIso_hom_snd",
+        "mathlib:CategoryTheory.Limits.pullback.congrHom",
+        "mathlib:CategoryTheory.Limits.pullback.hom_ext",
+        "mathlib:CategoryTheory.Iso.ext",
+        "mathlib:AlgHom.comp_assoc"
+      ],
+      "proofSteps": [
+        "Apply native Iso.ext and pullback.hom_ext. Both routes have the same outer first projection and all three second projections; actual AlgHom composition identifies the direct target maps."
+      ],
+      "acceptance": [
+        "The whole normalizationTriplePastingIso equals the alternate route which first applies pullbackRightPullbackFstIso to Spec(psi), the first projection of the phi pullback and Spec(chi), then pullback.congrHom for Spec(chi composed with psi), then normalizationPastingIso(phi,chi composed with psi,p), and finally the explicit pullback.congrHom for the spectrum of AlgHom.comp_assoc. This is equality of actual native scheme isomorphisms with the same three-nested source and direct target.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-associativity-inverse",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The inverse associativity routes agree",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTriplePastingIso_associativity_inverse",
+      "statement": "The inverse of normalizationTriplePastingIso equals normalizationPastingIso(phi,chi composed with psi,p).inv preceded by the inverse final AlgHom-associativity spectrum congruence and followed by the inverse Spec-composition congruence and inverse outer pullbackRightPullbackFstIso, in exactly reversed order.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-associativity"
+      ],
+      "proofSteps": [
+        "Apply Iso.inv to the entire actual three-step associativity equality."
+      ],
+      "acceptance": [
+        "The inverse of normalizationTriplePastingIso equals normalizationPastingIso(phi,chi composed with psi,p).inv preceded by the inverse final AlgHom-associativity spectrum congruence and followed by the inverse Spec-composition congruence and inverse outer pullbackRightPullbackFstIso, in exactly reversed order.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-direct",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Three-step normalization equals the direct comparison",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_paste",
+      "statement": "The whole normalizationTripleBaseChangeIso(phi,psi,chi,p) followed by normalizationTriplePastingIso(phi,psi,chi,p) equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p) as actual native scheme isomorphisms.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-fst",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-snd",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-fst",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-collapse-hom-snd",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-fst",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-hom-snd",
+        "mathlib:CategoryTheory.Limits.pullback.hom_ext",
+        "mathlib:CategoryTheory.Iso.ext"
+      ],
+      "proofSteps": [
+        "Use Iso.ext and pullback.hom_ext; the projections are the actual third-changed normalizationSpecMap and direct normalizationChangeSpecMap."
+      ],
+      "acceptance": [
+        "The whole normalizationTripleBaseChangeIso(phi,psi,chi,p) followed by normalizationTriplePastingIso(phi,psi,chi,p) equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p) as actual native scheme isomorphisms.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-direct-inverse",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "The inverse three-step comparison equals the direct inverse",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_paste_inverse",
+      "statement": "normalizationTriplePastingIso.inv followed by normalizationTripleBaseChangeIso.inv equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p).inv as actual scheme morphisms.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). Every natural exponent n, including zero, is allowed.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-direct"
+      ],
+      "proofSteps": [
+        "Apply Iso.inv to the complete direct comparison equality, retaining reversed order."
+      ],
+      "acceptance": [
+        "normalizationTriplePastingIso.inv followed by normalizationTripleBaseChangeIso.inv equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p).inv as actual scheme morphisms.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/normalization-three-chart",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "kind": "lemma",
+      "title": "Three-step normalization retains the actual chart",
+      "declarationName": "TauCeti.RootStack.FramedRoot.normalizationTripleBaseChangeIso_chart",
+      "statement": "For positive exponent, normalizationTripleBaseChangeIso.hom followed by all three second projections and p.normalizationChartMap equals normalizationChartMap(chi(psi(phi p))), as actual scheme morphisms to the existing root chart.",
+      "hypotheses": [
+        "Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). The natural exponent n is positive.",
+        "No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-three-comparison-hom-snd",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-chart"
+      ],
+      "proofSteps": [
+        "Postcompose the exact triple normalization projection with the existing chart map and apply normalizationChange_chart for the direct composite."
+      ],
+      "acceptance": [
+        "For positive exponent, normalizationTripleBaseChangeIso.hom followed by all three second projections and p.normalizationChartMap equals normalizationChartMap(chi(psi(phi p))), as actual scheme morphisms to the existing root chart.",
+        "Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "NormalizationThree-codex-rtOQ9t",
+          "locator": "Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties",
+          "excerpt": "universal among all diagrams",
+          "match": "Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -40343,7 +41660,8 @@
         "For every positive exponent and actual chosen-frame root p=(u,y), the existing normalization extension D=B[T]/(T^n-u) now gives an actual singleton cover of Spec B in the native scheme fppf precoverage. Its actual coefficient spectrum map is flat, surjective and locally of finite presentation; its unique source, arrow and presieve are computed and every actual base point lifts. The actual normalized chart arrow Spec D to Spec(A[Z]/(Z^n-f)) induces the existing normalization-point map on global sections, pulls the root section to T times the image of y, and has the proved coefficient triangle to Spec A. Wild exponents, nonzero nilpotents and the empty zero-ring spectrum are retained. Finite presentation of the scheme map also holds for n=0; the cover assertion uses positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, as do all existing source, supplier and geometric obligations.",
         "For positive exponent, chosen-frame normalization is now an actual faithful functor from FramedRoot f n B to the native category Over(Spec B). An actual arrow with unit label zeta induces the B-algebra map Dq to Dp sending Tq to Tp times zeta inverse; its actual spectrum arrow lies over Spec B, respects identity and composition, is an isomorphism and preserves the actual normalized chart point. Every object retains its actual singleton fppf covering morphism. The chart maps form a native natural transformation to the constant actual affine root chart, with the proved global-section computation. Faithfulness cancels the bundled unit Tp and uses faithful flatness of B to Dp; it never cancels the root section. Zero-section stabilizers over Z/4 and nonzero square-zero sections over Z/9 remain visible. Ring-map functoriality and the base triangle allow n=0, while normalization points, faithful covers and chart naturality require positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, along with every existing source, supplier and geometric obligation.",
         "Normalization covers now commute with arbitrary changes of the test A-algebra. For phi:B to C and p=(u,y), the actual A-algebra map Dp to D(phi p) sends T to T and coefficients through phi, preserves identity and composition, and commutes with every actual framed-arrow normalization map. Its coefficient square is a native ring pushout, hence its spectrum square is Cartesian. The native isomorphism with the chosen scheme pullback has both forward and inverse projection formulas, for every natural exponent. For positive exponent these components form a native natural transformation between the underlying normalization cover functors; the whole chart natural transformation factors through it exactly, and each component gives the Cartesian square of the existing singleton fppf covers. No flatness or injectivity of phi is assumed: over Z/4 to Z/2 a nonzero square-zero normalized section is killed. Wild exponents and zero rings remain allowed. Native sheaf RootObject comparison, local frame existence, stackification, effective fpqc descent, coherent iterated scheme comparisons, infinite genuine 2-limits and higher-universe adapters remain open, as do all inherited source, supplier and geometric obligations.",
-        "Successive arbitrary test-algebra changes now have an actual native scheme comparison from the changed normalization scheme to the iterated chosen pullback. It is constructed by pulling back the previous normalizationBaseChangeIso and composing the next one, with both forward and inverse projection formulas and roundtrips. After the native pullback-pasting isomorphism and the actual Spec-composition congruence, the whole isomorphism equals the direct normalizationBaseChangeIso, and the inverse route also agrees. The direct chosen comparison is natural for every actual framed arrow, including all unit labels, and the positive-exponent iterated chart triangle holds. Actual normalization scheme maps have identity, composition and three-map associativity for every natural exponent, including zero. No flatness or injectivity is assumed: Z/4 to Z/2 then identity kills a nonzero square-zero section while preserving the comparison equations. Wild exponents and the zero ring remain allowed. This establishes two-step chosen-scheme coherence only; three-step chosen-pullback associators, native sheaf RootObject comparison, local frames, stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open, with all inherited source, supplier and geometric obligations."
+        "Successive arbitrary test-algebra changes now have an actual native scheme comparison from the changed normalization scheme to the iterated chosen pullback. It is constructed by pulling back the previous normalizationBaseChangeIso and composing the next one, with both forward and inverse projection formulas and roundtrips. After the native pullback-pasting isomorphism and the actual Spec-composition congruence, the whole isomorphism equals the direct normalizationBaseChangeIso, and the inverse route also agrees. The direct chosen comparison is natural for every actual framed arrow, including all unit labels, and the positive-exponent iterated chart triangle holds. Actual normalization scheme maps have identity, composition and three-map associativity for every natural exponent, including zero. No flatness or injectivity is assumed: Z/4 to Z/2 then identity kills a nonzero square-zero section while preserving the comparison equations. Wild exponents and the zero ring remain allowed. This establishes two-step chosen-scheme coherence only; three-step chosen-pullback associators, native sheaf RootObject comparison, local frames, stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open, with all inherited source, supplier and geometric obligations.",
+        "Three successive arbitrary test-algebra changes now have an actual normalization isomorphism to the three nested chosen scheme pullbacks. Pull back the complete two-step comparison along the third change and compose its normalizationBaseChangeIso. All forward and inverse projection equations and roundtrips hold. The actual triple pullback collapse agrees, as a whole native isomorphism and on its inverse, with the alternate route that first combines the last two changes. Composing the actual triple normalization comparison with either collapse route gives the direct normalizationBaseChangeIso for the triple composite. The positive-exponent actual chart triangle holds. Every natural exponent is allowed for scheme comparisons, with no flatness or injectivity assumptions; the nonflat Z/4 to Z/2 example kills a nonzero square-zero normalized section and preserves the comparison. Wild exponents and zero rings remain allowed. This establishes three-step chosen-scheme coherence only; higher coherence, native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open with all inherited source, supplier and geometric obligations."
       ]
     },
     {
@@ -40615,7 +41933,7 @@
     {
       "id": "TOWER-TYPING",
       "title": "Typed infinite fpqc comparison and root-limit coherence",
-      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison. The native affine-chart IsLimit, universal maps and factorial/coefficient scheme comparisons now have explicit contracts and separate proof evidence; the remaining TOWER-AFF and coherent root-groupoid obligations are unchanged. The arbitrary affine-chart coefficient square now has an explicit native ring pushout, tensor equivalence and categorical scheme pullback with both projections. This discharges the affine Cartesian comparison only; higher-universe, coherent root-groupoid and TOWER-AFF fpqc obligations remain open. The actual affine tensor base-change comparison now intertwines the universal rational-character coaction and identifies its tensor equalizer with B. The coherent root-groupoid and TOWER-AFF fpqc comparisons remain open. The actual finite root ring and scheme diagrams now have coefficient natural transformations for every positive index, with identity/composition coherence. The existing infinite coefficient map restricts to every finite level, and its actual affine scheme base-change isomorphism and inverse respect every finite projection. This discharges the affine finite-projection square only. Higher-universe adapters, coherent root-object groupoid reindexing and finite projections for the general stack comparison, TOWER-AFF fpqc frame torsors and actual infinite quotient/descent on objects and arrows remain open. All ten stages, eight gaps, thirteen requests, both paper routes, full omission ledger, finite Kummer/DVR bridges and geometric sheaf obligations retain their scope. The finite affine charts now have actual algebra-valued point action groupoids retaining every roots-of-unity arrow label, native power functors for all positive n|N, and change-of-test-algebra functors. Root images and labels satisfy identity/composition power laws and commute with test-algebra change. This discharges a finite chart point-and-arrow prerequisite only: no general line-bundle root-object equivalence, coherent infinite groupoid reindexing, frame-torsor existence, fppf stackification or fpqc quotient/descent is inferred. Higher-universe adapters and every existing TOWER-TYPING/TOWER-AFF geometric obligation remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes and the complete omission ledger retain their scope. The actual finite root-point power and test-algebra change functors now satisfy identity, composition and interchange as equalities of full functors. They give a native positive-divisibility diagram valued in Grpd and natural transformations for arbitrary test-algebra maps, packaged into a functor from native CommAlgCat to the groupoid-diagram category. All stabilizers and nilpotent points are retained. This provides finite chart categorical coherence only: the general line-bundle root-object comparison, coherent infinite groupoid reindexing and 2-limit comparison, frame-torsor existence, fppf stackification, effective infinite fpqc quotient/descent and higher-universe adapters remain open. All ten partial stages,eight gaps,thirteen requests,forty planets,both paper routes,the full omission ledger and source issue/version envelopes retain their scope. An actual native framed root-coordinate groupoid now retains the arbitrary power-identification unit u and equation u*y^n=f. Its arrows retain both section and unit-power equations. The existing normalized affine chart embeds fully faithfully, with native FullyFaithful data and an actual Hom equivalence preserving all stabilizers. A framed object is isomorphic to an embedded chart object exactly when u is an n-th power in the test algebra unit group. The Z/4 example u=3,y=1,f=3,n=2 has framed root data but no chart root, so chart points do not give objectwise essential surjectivity before local trivialization and stackification. The native sheaf RootObject-to-coordinate functor, frame/unit-root existence locally, fppf stackification, infinite coherent reindexing, genuine 2-limit comparison, effective fpqc quotient/descent and higher-universe adapters remain open. The reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every chosen-frame root (u,y), the existing extension D=B[T]/(T^n-u) now has its actual adjoined root unit, normalized affine chart point and native framed-groupoid isomorphism labelled by that unit. For every positive exponent D has a Fin n basis and is faithfully flat; it is finitely presented even for n=0. This removes the unit-root obstruction after the specified algebra extension, including wild characteristic, while preserving nonzero nilpotent root sections. The arbitrary algebra-change functor retains actual arrow labels and is not claimed faithful. The native sheaf RootObject-to-coordinate comparison, local line-frame existence, scheme-cover packaging, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open; the reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every positive exponent and actual chosen-frame root p=(u,y), the existing normalization extension D=B[T]/(T^n-u) now gives an actual singleton cover of Spec B in the native scheme fppf precoverage. Its actual coefficient spectrum map is flat, surjective and locally of finite presentation; its unique source, arrow and presieve are computed and every actual base point lifts. The actual normalized chart arrow Spec D to Spec(A[Z]/(Z^n-f)) induces the existing normalization-point map on global sections, pulls the root section to T times the image of y, and has the proved coefficient triangle to Spec A. Wild exponents, nonzero nilpotents and the empty zero-ring spectrum are retained. Finite presentation of the scheme map also holds for n=0; the cover assertion uses positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, as do all existing source, supplier and geometric obligations. For positive exponent, chosen-frame normalization is now an actual faithful functor from FramedRoot f n B to the native category Over(Spec B). An actual arrow with unit label zeta induces the B-algebra map Dq to Dp sending Tq to Tp times zeta inverse; its actual spectrum arrow lies over Spec B, respects identity and composition, is an isomorphism and preserves the actual normalized chart point. Every object retains its actual singleton fppf covering morphism. The chart maps form a native natural transformation to the constant actual affine root chart, with the proved global-section computation. Faithfulness cancels the bundled unit Tp and uses faithful flatness of B to Dp; it never cancels the root section. Zero-section stabilizers over Z/4 and nonzero square-zero sections over Z/9 remain visible. Ring-map functoriality and the base triangle allow n=0, while normalization points, faithful covers and chart naturality require positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, along with every existing source, supplier and geometric obligation. Normalization covers now commute with arbitrary changes of the test A-algebra. For phi:B to C and p=(u,y), the actual A-algebra map Dp to D(phi p) sends T to T and coefficients through phi, preserves identity and composition, and commutes with every actual framed-arrow normalization map. Its coefficient square is a native ring pushout, hence its spectrum square is Cartesian. The native isomorphism with the chosen scheme pullback has both forward and inverse projection formulas, for every natural exponent. For positive exponent these components form a native natural transformation between the underlying normalization cover functors; the whole chart natural transformation factors through it exactly, and each component gives the Cartesian square of the existing singleton fppf covers. No flatness or injectivity of phi is assumed: over Z/4 to Z/2 a nonzero square-zero normalized section is killed. Wild exponents and zero rings remain allowed. Native sheaf RootObject comparison, local frame existence, stackification, effective fpqc descent, coherent iterated scheme comparisons, infinite genuine 2-limits and higher-universe adapters remain open, as do all inherited source, supplier and geometric obligations. Successive arbitrary test-algebra changes now have an actual native scheme comparison from the changed normalization scheme to the iterated chosen pullback. It is constructed by pulling back the previous normalizationBaseChangeIso and composing the next one, with both forward and inverse projection formulas and roundtrips. After the native pullback-pasting isomorphism and the actual Spec-composition congruence, the whole isomorphism equals the direct normalizationBaseChangeIso, and the inverse route also agrees. The direct chosen comparison is natural for every actual framed arrow, including all unit labels, and the positive-exponent iterated chart triangle holds. Actual normalization scheme maps have identity, composition and three-map associativity for every natural exponent, including zero. No flatness or injectivity is assumed: Z/4 to Z/2 then identity kills a nonzero square-zero section while preserving the comparison equations. Wild exponents and the zero ring remain allowed. This establishes two-step chosen-scheme coherence only; three-step chosen-pullback associators, native sheaf RootObject comparison, local frames, stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open, with all inherited source, supplier and geometric obligations.",
+      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison. The native affine-chart IsLimit, universal maps and factorial/coefficient scheme comparisons now have explicit contracts and separate proof evidence; the remaining TOWER-AFF and coherent root-groupoid obligations are unchanged. The arbitrary affine-chart coefficient square now has an explicit native ring pushout, tensor equivalence and categorical scheme pullback with both projections. This discharges the affine Cartesian comparison only; higher-universe, coherent root-groupoid and TOWER-AFF fpqc obligations remain open. The actual affine tensor base-change comparison now intertwines the universal rational-character coaction and identifies its tensor equalizer with B. The coherent root-groupoid and TOWER-AFF fpqc comparisons remain open. The actual finite root ring and scheme diagrams now have coefficient natural transformations for every positive index, with identity/composition coherence. The existing infinite coefficient map restricts to every finite level, and its actual affine scheme base-change isomorphism and inverse respect every finite projection. This discharges the affine finite-projection square only. Higher-universe adapters, coherent root-object groupoid reindexing and finite projections for the general stack comparison, TOWER-AFF fpqc frame torsors and actual infinite quotient/descent on objects and arrows remain open. All ten stages, eight gaps, thirteen requests, both paper routes, full omission ledger, finite Kummer/DVR bridges and geometric sheaf obligations retain their scope. The finite affine charts now have actual algebra-valued point action groupoids retaining every roots-of-unity arrow label, native power functors for all positive n|N, and change-of-test-algebra functors. Root images and labels satisfy identity/composition power laws and commute with test-algebra change. This discharges a finite chart point-and-arrow prerequisite only: no general line-bundle root-object equivalence, coherent infinite groupoid reindexing, frame-torsor existence, fppf stackification or fpqc quotient/descent is inferred. Higher-universe adapters and every existing TOWER-TYPING/TOWER-AFF geometric obligation remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes and the complete omission ledger retain their scope. The actual finite root-point power and test-algebra change functors now satisfy identity, composition and interchange as equalities of full functors. They give a native positive-divisibility diagram valued in Grpd and natural transformations for arbitrary test-algebra maps, packaged into a functor from native CommAlgCat to the groupoid-diagram category. All stabilizers and nilpotent points are retained. This provides finite chart categorical coherence only: the general line-bundle root-object comparison, coherent infinite groupoid reindexing and 2-limit comparison, frame-torsor existence, fppf stackification, effective infinite fpqc quotient/descent and higher-universe adapters remain open. All ten partial stages,eight gaps,thirteen requests,forty planets,both paper routes,the full omission ledger and source issue/version envelopes retain their scope. An actual native framed root-coordinate groupoid now retains the arbitrary power-identification unit u and equation u*y^n=f. Its arrows retain both section and unit-power equations. The existing normalized affine chart embeds fully faithfully, with native FullyFaithful data and an actual Hom equivalence preserving all stabilizers. A framed object is isomorphic to an embedded chart object exactly when u is an n-th power in the test algebra unit group. The Z/4 example u=3,y=1,f=3,n=2 has framed root data but no chart root, so chart points do not give objectwise essential surjectivity before local trivialization and stackification. The native sheaf RootObject-to-coordinate functor, frame/unit-root existence locally, fppf stackification, infinite coherent reindexing, genuine 2-limit comparison, effective fpqc quotient/descent and higher-universe adapters remain open. The reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every chosen-frame root (u,y), the existing extension D=B[T]/(T^n-u) now has its actual adjoined root unit, normalized affine chart point and native framed-groupoid isomorphism labelled by that unit. For every positive exponent D has a Fin n basis and is faithfully flat; it is finitely presented even for n=0. This removes the unit-root obstruction after the specified algebra extension, including wild characteristic, while preserving nonzero nilpotent root sections. The arbitrary algebra-change functor retains actual arrow labels and is not claimed faithful. The native sheaf RootObject-to-coordinate comparison, local line-frame existence, scheme-cover packaging, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open; the reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every positive exponent and actual chosen-frame root p=(u,y), the existing normalization extension D=B[T]/(T^n-u) now gives an actual singleton cover of Spec B in the native scheme fppf precoverage. Its actual coefficient spectrum map is flat, surjective and locally of finite presentation; its unique source, arrow and presieve are computed and every actual base point lifts. The actual normalized chart arrow Spec D to Spec(A[Z]/(Z^n-f)) induces the existing normalization-point map on global sections, pulls the root section to T times the image of y, and has the proved coefficient triangle to Spec A. Wild exponents, nonzero nilpotents and the empty zero-ring spectrum are retained. Finite presentation of the scheme map also holds for n=0; the cover assertion uses positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, as do all existing source, supplier and geometric obligations. For positive exponent, chosen-frame normalization is now an actual faithful functor from FramedRoot f n B to the native category Over(Spec B). An actual arrow with unit label zeta induces the B-algebra map Dq to Dp sending Tq to Tp times zeta inverse; its actual spectrum arrow lies over Spec B, respects identity and composition, is an isomorphism and preserves the actual normalized chart point. Every object retains its actual singleton fppf covering morphism. The chart maps form a native natural transformation to the constant actual affine root chart, with the proved global-section computation. Faithfulness cancels the bundled unit Tp and uses faithful flatness of B to Dp; it never cancels the root section. Zero-section stabilizers over Z/4 and nonzero square-zero sections over Z/9 remain visible. Ring-map functoriality and the base triangle allow n=0, while normalization points, faithful covers and chart naturality require positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, along with every existing source, supplier and geometric obligation. Normalization covers now commute with arbitrary changes of the test A-algebra. For phi:B to C and p=(u,y), the actual A-algebra map Dp to D(phi p) sends T to T and coefficients through phi, preserves identity and composition, and commutes with every actual framed-arrow normalization map. Its coefficient square is a native ring pushout, hence its spectrum square is Cartesian. The native isomorphism with the chosen scheme pullback has both forward and inverse projection formulas, for every natural exponent. For positive exponent these components form a native natural transformation between the underlying normalization cover functors; the whole chart natural transformation factors through it exactly, and each component gives the Cartesian square of the existing singleton fppf covers. No flatness or injectivity of phi is assumed: over Z/4 to Z/2 a nonzero square-zero normalized section is killed. Wild exponents and zero rings remain allowed. Native sheaf RootObject comparison, local frame existence, stackification, effective fpqc descent, coherent iterated scheme comparisons, infinite genuine 2-limits and higher-universe adapters remain open, as do all inherited source, supplier and geometric obligations. Successive arbitrary test-algebra changes now have an actual native scheme comparison from the changed normalization scheme to the iterated chosen pullback. It is constructed by pulling back the previous normalizationBaseChangeIso and composing the next one, with both forward and inverse projection formulas and roundtrips. After the native pullback-pasting isomorphism and the actual Spec-composition congruence, the whole isomorphism equals the direct normalizationBaseChangeIso, and the inverse route also agrees. The direct chosen comparison is natural for every actual framed arrow, including all unit labels, and the positive-exponent iterated chart triangle holds. Actual normalization scheme maps have identity, composition and three-map associativity for every natural exponent, including zero. No flatness or injectivity is assumed: Z/4 to Z/2 then identity kills a nonzero square-zero section while preserving the comparison equations. Wild exponents and the zero ring remain allowed. This establishes two-step chosen-scheme coherence only; three-step chosen-pullback associators, native sheaf RootObject comparison, local frames, stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open, with all inherited source, supplier and geometric obligations. Three successive arbitrary test-algebra changes now have an actual normalization isomorphism to the three nested chosen scheme pullbacks. Pull back the complete two-step comparison along the third change and compose its normalizationBaseChangeIso. All forward and inverse projection equations and roundtrips hold. The actual triple pullback collapse agrees, as a whole native isomorphism and on its inverse, with the alternate route that first combines the last two changes. Composing the actual triple normalization comparison with either collapse route gives the direct normalizationBaseChangeIso for the triple composite. The positive-exponent actual chart triangle holds. Every natural exponent is allowed for scheme comparisons, with no flatness or injectivity assumptions; the nonflat Z/4 to Z/2 example kills a nonzero square-zero normalized section and preserves the comparison. Wild exponents and zero rings remain allowed. This establishes three-step chosen-scheme coherence only; higher coherence, native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open with all inherited source, supplier and geometric obligations.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
         "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
