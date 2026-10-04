@@ -2114,3 +2114,62 @@ The verifier authenticates 108 unchecked nodes, all original target and paper ro
  print(json.dumps(dict(archive=archive,recoverySha256=sha(code.encode()),finalHandoffSha256=sha(text.encode())),indent=2))
 else:raise ValueError(mode)
 ```
+
+## Public recovery and verification
+
+Archive commit `115ef68ef0b5c8a7c8c4b01b67c9894c27ec60dc` is an ancestor changing only this issue’s named deliverables. It holds 58 inert named artifacts, including 21 exact helpers. Manifest SHA256 `ae85f187caf399f2b735a6891a96ac56156442b91ab3a445ca7fa7821a230148`; payload SHA256 `e059866cb196bea4f0d5c06ff581c25e6a0d980b2e41f6c1bd94dff3362269bf`. The final suggested file contains no archive payload.
+
+Save the final Python fence as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the public immutable archive and all four deliverables, authenticates every artifact and helper, and checks its own code against the public handoff. Keep REPLAY_DIR outside an existing repository checkout. Inspect the recovered helpers, then from that checkout run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the pinned declarations.tsv (SHA256 86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1). Output must equal Verification.json. Set ROOT_ACTION_VALIDATE_BASE to the base in base.txt to reproduce MathematicalVerification.json. Both bases must exist locally. The verifier runs the actual immutable checker, source-issue/intake functions and atlas assembler, and authenticates the new packet, source ledger and command index without executing Lean.
+
+The verifier authenticates 108 unchecked nodes, all original target and paper routes, the exact signatures, 22 source issues and the recorded compiler output. It reruns the two exact BCG arithmetic checks and the actual repository intake/graph checks at both immutable bases. The full suggested file compiled with zero errors and 447 admission warnings. The two namespace audit records are authenticated and reproduced; the checker uses the unchanged supplied index and the packet records the full Lean names separately. All 32 accepted restructuring paths remain reachable; missing drawing of requested supplier/forwarding edges is reported explicitly. Neither recovery nor the verifier executes Lean or proves any admitted mathematical claim. Both recovered reports were reproduced byte for byte for this corrected PR head.
+
+
+## Script: recover.py
+
+```python
+"""Recover public completion evidence, authenticate artifacts, never execute Lean."""
+from pathlib import Path
+import base64,hashlib,json,re,sys,urllib.request,zlib
+S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
+HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
+ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
+STEM='ComputationalNumberTheory'
+ARCHIVE='115ef68ef0b5c8a7c8c4b01b67c9894c27ec60dc'
+MANIFEST_SHA='ae85f187caf399f2b735a6891a96ac56156442b91ab3a445ca7fa7821a230148'
+PAYLOAD_SHA='e059866cb196bea4f0d5c06ff581c25e6a0d980b2e41f6c1bd94dff3362269bf'
+EXPECTED={'packets': '22e5ca3204e872d4953d2c17b24fc718508c4d9a99e0551ef9202312149f5751', 'readmes': 'e5035ba10d69d7378b539b90b7b384401ba32998c9a3f50693e7865f20f1f129', 'suggested': '6e6701098e23ca63efa9778c500017d2c9557f927971f0df16e1c854d125a798'}
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def fetch(ref,path):
+ with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
+raw=fetch(ARCHIVE,'research/blueprint/suggested/'+STEM+'.lean').decode()
+pb=raw.rsplit('/- BEGIN ARCHIVED PLANNING PASS COMPLETION PAYLOAD\n',1)[1].split('END ARCHIVED PLANNING PASS COMPLETION PAYLOAD -/',1)[0].encode()
+assert sha(pb)==PAYLOAD_SHA;payload=json.loads(pb)
+def unpack(name):
+ b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
+ return b
+mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
+assert set(payload)==set(meta)|{'artifact-manifest.json'}
+for name,m in meta.items():
+ assert Path(name).name==name and name not in {'.','..'}
+ b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
+ (S/name).write_bytes(b)
+(S/'artifact-manifest.json').write_bytes(mb)
+public={}
+for folder,ext,name in [('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','PublicHandoff.md')]:
+ path='research/blueprint/'+folder+'/'+('BP-'if folder=='handoff'else'')+STEM+'.'+ext
+ b=fetch(HEAD,path)
+ if folder in EXPECTED:assert sha(b)==EXPECTED[folder]and b==(S/name).read_bytes(),path
+ (S/name).write_bytes(b);public[path]=sha(b)
+(S/(STEM+'.json')).write_bytes((S/'Candidate.json').read_bytes())
+handoff=(S/'PublicHandoff.md').read_text();assert handoff.startswith((S/'HandoffBase.md').read_text())
+def script(name):
+ tag='\n## Script: '+name+'\n\n'+chr(96)*3+'python\n'
+ a=handoff.rindex(tag)+len(tag);b=handoff.index('\n'+chr(96)*3,a)
+ return handoff[a:b]+'\n'
+for name in meta:
+ if name.endswith('.py'):assert script(name)==(S/name).read_text(),name
+code=script('recover.py');assert code==Path(__file__).read_text()
+(S/'recover.py').write_text(code)
+receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=sum(n.endswith('.py')for n in meta),publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
+(S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
+```
