@@ -1,0 +1,179 @@
+{
+  "id": "JacobianChallengePartII",
+  "title": "The Jacobian challenge (Christian Merten’s AG version), Part II",
+  "area": "arithmeticgeometry",
+  "parent": "tauceti:TauCetiRoadmap/JacobianChallenge",
+  "summary": "Extend the field-level Jacobian challenge to smooth projective geometrically connected positive-genus curve families over noetherian bases. Build degree Picard torsors and the relative Jacobian, use the canonical principal polarization to obtain a section-free twice-theta bundle, establish actual-line-bundle descent and theta identities, and supply universal Faltings–Zhang constructions and the stable semi-abelian Hodge comparison.",
+  "readme": "The definitive roadmap document is research/blueprint/readmes/JacobianChallengePartII.md. Generic Picard sheaves, rigidification, abelian schemes, duals, torsion and generalized Jacobians are imported from their owners. A global base point, degree-one line bundle or theta divisor is never part of the standing family hypotheses. Analytic metrics, adelic pairings and nondegeneracy are consumers rather than extra targets here.",
+  "prerequisites": [
+    "AbelianSchemesAndArithmeticModuli",
+    "AlgebraicModuliForArithmeticGeometry",
+    "NeronModelsAndSemistableAbelianVarieties",
+    "StableReductionPartII",
+    "tauceti:TauCetiRoadmap/JacobianChallenge"
+  ],
+  "stages": [
+    {
+      "key": "JC0",
+      "title": "Relative Picard degree components",
+      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nRelative degree components. For every d∈ℤ, Picᵈ_{X/S} is the sub-fppf-sheaf of the imported Pic_{X/S} whose geometric-fibre classes have degree d. A locally varying integer degree gives the disjoint union of these constant-degree pieces, not a single globally constant integer on disconnected T.\n\nLocal constancy of relative degree. For an invertible L on X_T, the function t↦deg(L_t)=χ(L_t)−χ(O_{X_t}) is locally constant on T and unchanged after any base extension of residue fields.\n\nRelative curve Picard scheme. Pic_{X/S} is represented by a smooth separated S-group scheme, with open-and-closed quasi-projective pieces Picᵈ_{X/S} for d∈ℤ. Its degree-zero piece is the identity component. Representability commutes with arbitrary change of base.\n\nPicard degree torsors. Tensoring by degree-zero classes makes Picᵈ_{X/S} an fppf torsor under Pic⁰_{X/S}; Picᵈ need not have an S-point. Its difference morphism Picᵈ×_S Picᵈ→Pic⁰ sends (L,M) to M⊗L⁻¹.",
+      "requires": [
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+      ]
+    },
+    {
+      "key": "JC1",
+      "title": "Relative Jacobians and principal polarization",
+      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nRelative Jacobian. J(X/S):=Pic⁰_{X/S}, with the tensor group law, is an abelian scheme of relative dimension g. No section of X/S is part of its data.\n\nProperness of the relative Jacobian. For smooth projective geometrically connected X/S, Pic⁰_{X/S}→S is proper. Consequently it is projective locally over S and the canonical relatively ample twice-theta bundle of JC3 will make it projective over S.\n\nBase change of the relative Jacobian. For every T→S, the Picard-sheaf base-change isomorphism restricts to a group-scheme isomorphism J(X/S)_T≅J(X_T/T), including infinitesimal base changes.\n\nCanonical principal polarization. There is a canonical principal polarization λ_X:J→J∨, functorial in base change, defined without a global degree-one bundle on X. After an fppf cover with a degree-one bundle it agrees with the classical theta polarization, with Yuan’s Poincaré sign convention pinned in JC3.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A1",
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "JacobianChallengePartII:JC0",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties"
+      ]
+    },
+    {
+      "key": "JC2",
+      "title": "Section-free Abel and difference morphisms",
+      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nSection-free Abel map. The diagonal relative effective Cartier divisor on X×_S X defines a canonical S-morphism a₁:X→Pic¹_{X/S}, taking a T-point x to O_{X_T}(Γ_x). It commutes with arbitrary base change and needs no section of π.\n\nDegree-d Abel–Jacobi morphism. For an actual invertible α on X of constant relative degree d∈ℤ, i_α:X→J sends x to [O(dΓ_x)⊗α_T⁻¹]. The morphism exists for every d, including 0 and negative d.\n\nLocal pointed factorization. After any base change with a section x₀:X_T/T, i_α=t_β∘[d]∘i_{O(x₀)}, where β=[dO(x₀)−α_T]∈J(T). The equality holds as T-morphisms.\n\nDegree-one Abel immersion. If d=1, i_α:X→J is a closed immersion over every noetherian S in the standing scope. No global section of X/S is required.\n\nFiniteness of nonzero-degree Abel maps. For d≠0, i_α:X→J is finite over S. The statement allows negative d and characteristic dividing d. The degree-zero map is constant and is not finite on a nonempty curve fibre.\n\nCurve difference morphism. j:X×_S X→J is δ∘(a₁,a₁), with j(x,y)=[O(Γ_y−Γ_x)]; it is defined without a section.\n\nDifference as the Abel map over X. View X×_S X over the first X-factor. Its diagonal is a section and its Jacobian is X×_S J. The Abel map for O(Δ_X) is (x,y)↦(x,j(x,y)); forgetting the first coordinate gives j.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A1",
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "JacobianChallengePartII:JC0",
+        "JacobianChallengePartII:JC1",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+      ]
+    },
+    {
+      "key": "JC3",
+      "title": "Theta and normalized Poincaré identities",
+      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nNormalized Jacobian Poincaré bundle. Let P_X on J×_S J be the pullback of the rigidified Poincaré bundle via the canonical identification of J with its dual, using Yuan’s convention: on a field fibre with theta line L, its class is m*L⁻¹⊗p₁*L⊗p₂*L. It is rigidified along both zero axes. The sign comparison between this convention and the supplier φ_L convention is a required named comparison.\n\nTheta divisor with a degree-one class. Over a field K, for a smooth projective geometrically connected C of genus g>0 and an actual degree-one divisor α, θ_α is the image of Sym^{g−1}C→J, D↦[D−(g−1)α], with its effective Cartier divisor structure. For g=1 the symmetric power is Spec K and θ_α is the origin. This translates the parent theta construction to arbitrary degree-one α, which need not be effective or a rational point.\n\nCanonical twice-theta bundle. Define Θ_X:=Δ_J*(P_X∨), an actual invertible sheaf on J with the induced zero rigidification. This is defined without a degree-one bundle on X; it is not a chosen theta divisor.\n\nPullback of inverse theta. i_α*O_J([-1]*θ_α)≅O_C(gα).\n\nPullback of theta. i_α*O_J(θ_α)≅ω_{C/K}⊗O_C((2−g)α).\n\nPoincaré addition identity. In Pic(J×J), P=m*O_J(−θ_α)⊗p₁*O_J(θ_α)⊗p₂*O_J(θ_α). As a rigidified isomorphism, include the constant fibre normalization of O_J(θ_α) at the origin; the displayed formula alone is a class equality over the field.\n\nPoincaré pullback on the curve square. In Pic(C×C), (i_α,i_α)*P=O(Δ_C)⊗p₁*O_C(−α)⊗p₂*O_C(−α). There is no assumption (2g−2)α=ω_C.\n\nTheta doubling formula. [2]*O_J(θ_α)≅O_J(3θ_α+[-1]*θ_α) as a Picard class over K.\n\nPoincaré diagonal identity. Δ_J*P≅O_J(−θ_α−[-1]*θ_α).\n\nGeometric fibre twice-theta class. For every geometric point s of S, Θ_s is algebraically equivalent to twice a theta divisor on J_s. With a chosen degree-one α over the algebraically closed residue field, its Picard class is θ_α+[-1]*θ_α.\n\nSymmetry of twice-theta. [-1]*Θ_X≅Θ_X as zero-rigidified bundles over S, not merely on geometric fibres.\n\nZero rigidification of twice-theta. The zero-axis trivializations of P induce e*Θ_X≅O_S, compatible with base change.\n\nRelative ampleness of twice-theta. Θ_X is relatively ample for J→S; hence J→S is projective. The proof uses properness and the fibrewise ampleness criterion over noetherian S.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A1",
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "JacobianChallengePartII:JC1",
+        "JacobianChallengePartII:JC2",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+      ]
+    },
+    {
+      "key": "JC4",
+      "title": "Actual Picard groups and descent",
+      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nActual fibrewise Picard subgroup. For a projective flat Y→S, Pic⁰(Y/S) is the subgroup of the actual Pic(Y) formed by line-bundle classes algebraically trivial on every geometric fibre. It is not Pic⁰_{Y/S}(S); comparison to that sheaf group requires a separate obstruction statement.\n\nPicard subgroup along both projections. For projective flat Y₁,Y₂ over S, Pic⁰⁰(Y₁×_S Y₂) consists of actual line classes whose restrictions to every geometric fibre of each projection to Y₁ and to Y₂ are algebraically trivial.\n\nRelative curve autoduality. There is a canonical base-change-compatible identification u:Pic⁰_{J/S}≅Pic⁰_{X/S} such that, for the actual degree-d α, i_α*= [d]∘u as morphisms of fppf group sheaves. The sign of u is characterized by degree-one Abel pullback.\n\nActual Picard classes and the Brauer obstruction. For proper flat Y/S with O_S≅f_*O_Y universally, 0→Pic(S)→Pic(Y)→Pic_{Y/S}(S)→Br(S)→Br(Y) is exact. For J/S its identity section kills the obstruction, so Pic⁰(J/S)/Pic(S)≅Pic⁰_{J/S}(S). For X/S the same map is only injective without a section.\n\nActual Picard pullback torsion cokernel. Let S be a normal integral quasi-projective scheme flat over ℤ or over a field, and let α have relative degree d>0. Every L∈Pic⁰(X/S) has a positive tensor power in the image of i_α*:Pic⁰(J/S)→Pic⁰(X/S). In particular the cokernel is a torsion group. No integral surjectivity is asserted.\n\nLift preserving both fibre conditions. In the arithmetic normal-base scope and for positive-degree i_α, every Pic⁰⁰ class on X×_S X has a positive power lifted through id_X×i_α to a class on X×_S J lying in Pic⁰⁰. The corresponding assertion through i_α×id_J lifts Pic⁰⁰(X×J) to Pic⁰⁰(J×J).\n\nBi-Picard pullback torsion cokernel. Under the same S, X, α and d>0 hypotheses, (i_α,i_α)*:Pic⁰⁰(J×_S J)→Pic⁰⁰(X×_S X) has torsion cokernel.\n\nAxis-normalized Picard subgroup. Over a field K, with a rational x₀∈C(K), Pic⁻(C²) is the subgroup of actual Pic(C²) whose restrictions to C×{x₀} and {x₀}×C are trivial; Pic⁻(J²) uses the two zero axes. These are classes with trivial restrictions, not chosen rigidifications and not the larger Pic⁰⁰ subgroup.\n\nPointed square Picard comparison. With x₀ as above and i=i_{O(x₀)}, (i,i)*:Pic⁻(J²)→Pic⁻(C²) is an isomorphism. The application over complete nonarchimedean K uses only this algebraic assertion here; its metrics belong to the Arakelov owner.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "JacobianChallengePartII:JC1",
+        "JacobianChallengePartII:JC2",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+      ]
+    },
+    {
+      "key": "JC5",
+      "title": "Faltings–Zhang and canonical shifts",
+      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nCanonical-bundle Abel morphism. For g>1, ω_{X/S} has relative degree 2g−2, so i_ω(x)=[(2g−2)Γ_x−ω_{X/S}] is a finite S-morphism X→J.\n\nUniversal shifted canonical morphism. For g>1, τ:J×_S X→J×_S J is (y,x)↦(y,y+i_ω(x)); it is a morphism over the first J-factor and has no global-section hypothesis.\n\nFaltings–Zhang morphism. For m≥1, FZ_m:X^{m+1}_S→J^m_S sends (x₀,…,x_m) to (j(x₀,x₁),…,j(x₀,x_m)). It is defined without a section and without a maximal-variation hypothesis.\n\nShifted Faltings–Zhang morphism. For g>1 and m≥1, τ_m:X^m_S×_S J→J^m_S sends (x₁,…,x_m,y) to (i_ω(x₁)+y,j(x₁,x₂),…,j(x₁,x_m)). The source order, first shift and unscaled remaining differences are part of the definition.\n\nTriangular change on represented points. For any scheme S, any group object A of Over(S), any T∈Over(S), and n≥0, there is a natural equivalence of (n+1)-tuples of T-valued points of A: R(q)₀=q₀, R(q)_r=q_r q₀⁻¹ for r≠0. Its inverse sends r to (r₀,r₁r₀,…,r_nr₀). Multiplicative notation is Mathlib’s notation for group objects; on the Jacobian it means subtraction and addition. The construction uses actual morphisms T→A, not an abstract point-set replacement for A.\n\nShifted-power factorization. Let B_m(x₁,…,x_m,y)=(i_ω(x₁)+y,…,i_ω(x_m)+y). After the triangular change R on J^m, R∘B_m=D∘τ_m, where D fixes the first coordinate and multiplies each tail by 2g−2. This equality holds as S-morphisms; D is a finite locally free isogeny for g>1.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A1",
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "JacobianChallengePartII:JC2",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+      ]
+    },
+    {
+      "key": "JC6",
+      "title": "Stable curve–Jacobian Hodge comparison",
+      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nPicard Lie algebra and coherent cohomology. For an integral noetherian S and a stable connected nodal genus-g>1 family π:X→S, let G=Pic⁰_{X/S} be the smooth separated semi-abelian group supplied by Néron R11.4. There is a canonical O_S-linear isomorphism Lie(G/S)≅R¹π_*O_X, compatible with base change.\n\nCurve and Jacobian Hodge bundles. Under the hypotheses of the Picard Lie comparison, relative duality gives π_*ω_{X/S}≅e*Ω¹_{G/S}. Both are locally free of rank g and commute with the allowed base changes; the right side uses invariant differentials of the semi-abelian G.\n\nCurve–Jacobian Hodge line isomorphism. For the same stable family, λ_X:=det(π_*ω_{X/S}) is canonically isomorphic to det(e*Ω¹_{G/S}); the isomorphism is the determinant of the vector-bundle comparison and is compatible with its base-change isomorphisms.",
+      "requires": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.4",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+      ]
+    },
+    {
+      "key": "JC7",
+      "title": "Universal curves with full level",
+      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nUniversal Jacobian with full level. Fix g≥2, ℓ≥3 invertible on the base, and the same pairing component and cyclotomic convention as the imported fine-level curve scheme. Apply JC0–JC3 to its smooth projective universal curve: obtain Pic=⨆_d Picᵈ, the principally polarized J, its induced full symplectic level-ℓ structure, and the section-free C→Pic¹ morphism.\n\nFaltings–Zhang for the universal curve. For every S→M_g[ℓ] in the chosen level convention and m≥1, base change the universal curve and its Jacobian. FZ_m:C_S^{m+1}→J_S^m is a morphism over S. On a field fibre with P₀∈C(k), fixing its first coordinate gives the m-fold pointed Abel embedding C−P₀.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "JacobianChallengePartII:JC1",
+        "JacobianChallengePartII:JC2",
+        "JacobianChallengePartII:JC5",
+        "StableReductionPartII:MC.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "yuan",
+      "title": "Arithmetic bigness and a uniform Bogomolov-type result",
+      "authors": "Xinyi Yuan",
+      "edition": "Author manuscript dated21 August2024,126 pages; printed page equals PDF page. The Annals203(2026) typeset text was not obtained.",
+      "url": "http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
+      "sha256": "b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "§2.2.1–2.2.2 pp.29–32 including Proposition2.6 algebraic argument",
+        "Theorems2.9–2.10 and proof pp.35–39 for algebraic morphisms; metric statements are external consumers",
+        "Lemma3.4 and proof pp.43–44",
+        "§4.6.2 Theorem4.17 and proof pp.98–99 for the FZ and shifted coordinate constructions",
+        "§A.3 p.109 axis-normalized classes; TheoremA.3 and proof pp.110–111"
+      ]
+    },
+    {
+      "id": "dgh",
+      "title": "Uniformity in Mordell–Lang for curves",
+      "authors": "Vesselin Dimitrov, Ziyang Gao, Philipp Habegger",
+      "edition": "arXiv2001.10276v3,49 pages; printed pp.23–25 correspond to PDF pages23–25. Published Annals194(2021) wording not collated.",
+      "url": "https://arxiv.org/pdf/2001.10276v3",
+      "sha256": "5fc8e86f53ee43e9d18e8239a8db986bff74115ddb947abef4902a72dde338a4",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "§6.1 pp.23–25 through the universal Picard, section-free Abel, difference and Faltings–Zhang construction; numerical heights are outside this algebraic roadmap"
+      ]
+    },
+    {
+      "id": "blr",
+      "title": "Néron Models",
+      "authors": "Siegfried Bosch, Werner Lütkebohmert, Michel Raynaud",
+      "edition": "Springer1990, public scan neron4.pdf containing printed pp.170–261; each scan page is a two-page spread.",
+      "url": "https://archive.math.arizona.edu/cais/scans/BLR-Neron_Models/neron4.pdf",
+      "sha256": "88610c3ffba4eeaec738bb635a54a12c7fd6f4c69597045914feb6f33da284aa",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "§8.1 pp.199–205, in particular Proposition4 and its Leray/rigidification argument",
+        "§8.4 Theorem1 and proof pp.231–232, Proposition2 and Theorem3 p.232",
+        "§9.2 Corollaries11–14 pp.250–251",
+        "§9.3 Theorem1 and proof, Remark2 and symmetric-power/Abel chart construction pp.252–258",
+        "§9.4 Theorem1 and Proposition4 with the beginning of its canonical-theta proof pp.259–261"
+      ]
+    },
+    {
+      "id": "milne",
+      "title": "Jacobian Varieties",
+      "authors": "J. S. Milne",
+      "edition": "Public notes, §8 Theorem8.1 and following paragraph, printed pp.27–28, inspected through the web PDF text; PDF download returned406, so no byte hash is claimed.",
+      "url": "https://www.jmilne.org/math/xnotes/JVs.pdf",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "§8 Theorem8.1 and the base-change/abelian-scheme paragraph pp.27–28"
+      ]
+    }
+  ],
+  "status": "draft"
+}
