@@ -513,6 +513,18 @@
     "data/blueprints/Polylogarithms.md"
    ]
   },
+  "research/blueprint/packets/SemisimpleAlgebrasPartII.json": {
+   "promotedAt": "2026-10-04T23:25:46Z",
+   "review": "055ccdce0067b119",
+   "reviewDate": "2026-10-04",
+   "reviewer": "independent-review-REV-DESIGN-SemisimpleAlgebrasPartII",
+   "sha256": "a22b0e4cf4bb7405cfb80d792b3057900910ae92a18c3716175c0e1fe8299f05",
+   "to": [
+    "data/blueprints/SemisimpleAlgebrasPartII.json",
+    "data/blueprints/SemisimpleAlgebrasPartII.md",
+    "data/blueprints/roadmaps/SemisimpleAlgebrasPartII.json"
+   ]
+  },
   "research/blueprint/packets/SmallRamificationAndAbelianVarietyBaseCases.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "e009cbb50f6abb6c",
