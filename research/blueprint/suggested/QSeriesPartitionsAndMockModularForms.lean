@@ -88,6 +88,10 @@ import Mathlib.RingTheory.PowerSeries.PiTopology
 import Mathlib.RingTheory.PowerSeries.Substitution
 
 /-
+The planning pass is complete at the protocol node budget. Coverage and source
+reading limits are recorded per layer in the packet and handoff; completion of
+the pass does not certify mathematical closure or implementation.
+
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md` is definitive. These
 statements suggest Lean forms so that contributors and reviewers can converge on

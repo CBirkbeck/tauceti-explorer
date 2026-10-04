@@ -11,7 +11,29 @@ Rademacher's exact formula and the Hardy–Ramanujan asymptotic. QM.3 and QM.4 d
 completions of mock theta functions. QM.5 connects them to quantum modular forms, radial limits of WRT invariants, cranks
 and traces of singular moduli, and QM.6 states and plans the proof chain of monstrous moonshine.
 
-**Status: partial.** QM.0, QM.3 and QM.4 are source decomposed; QM.1, QM.2, QM.5 and QM.6 are partial, each with a
+
+The planning boundary follows current PROTOCOL section 0. All 536 inherited declaration objects, their API and
+unit tests remain unchanged; no implementation or independent proof review is claimed. New routed sources expose
+missing targets, so the earlier source-decomposition labels for QM.0 and QM.3 no longer describe current coverage.
+The Jacobi ownership proposal is amended to match the confirmed verifier; migrating local carriers to precise
+supplier imports/comparisons remains open. Existing accepted RS-06 and RS-10 contracts remain binding.
+
+| Layer | Current coverage frontier |
+|---|---|
+| QM.0 | Yu’s plethystic/cycle-index/coefficient and integrality targets; Liu’s d-values and finite Gaussian identities, reusing the existing polynomial Gaussian coefficient. |
+| QM.1 | Taylor/ring/Hecke-operator and multiplier proof frontier, plus canonical symplectic/unitary Jacobi ownership and exact imports. |
+| QM.2 | Dedekind-to-Selberg/Whiteman bridge, composite Gauss phases, exceptional-prime evaluations and sharper effective remainders. The existing finite phase/Fischer reduction is retained. |
+| QM.3 | Vector-valued metaplectic Maass/ξ and Hejhal–Poincaré inputs; weight-two Hecke-trick Poincaré and Eisenstein families, their unfolding, continuation and derivative. Scalar weight-at-least-four nodes do not supply these cases. |
+| QM.4 | Selected completion targets remain planned; Hickerson’s Eulerian-series identification and growth-free torsion specialization remain explicit gaps. |
+| QM.5 | Listed quantum/radial-limit/congruence/trace proof inputs; one definition/example service for QT.7, with genuine analytic and Habiro comparisons. |
+| QM.6 | Leech/FLM module, invariant form, Monster identification/character data and Conway–Norton/Koike inputs, respecting accepted comparison contracts. |
+
+The source-version and source-finding records are inherited receipts. This pass checks route statements and
+ownership evidence, rather than re-reading every primary proof or certifying publication collation. The packet's
+coverage lists the precise next work for independent review, stage follow-ups and assembly.
+
+**Status: complete planning pass; mathematical closure is open.** The incoming 536 nodes exceed the protocol
+planning budget of 300. QM.4 is target-planned; all other layers are partial, each with a
 precise `remaining` list in the packet's coverage record. The packet has 536 nodes, 766 API items and
 521 packet tests (511 definition/construction tests), cites 417 declarations of the pinned libraries and 53 sources, and records
 65 source issues, 14 gaps and 24 requests to other roadmaps. These counts include the inherited
@@ -22,11 +44,11 @@ Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f
 
 | Layer | Status | Nodes | Planets |
 |---|---|---|---|
-| QM.0 | source decomposed | 50 | q-Pochhammer symbols; Gaussian binomial coefficients; q-binomial theorem; Jacobi triple product identity; Ramanujan's partition congruences; Rogers–Ramanujan identities |
+| QM.0 | partial | 50 | q-Pochhammer symbols; Gaussian binomial coefficients; q-binomial theorem; Jacobi triple product identity; Ramanujan's partition congruences; Rogers–Ramanujan identities |
 | QM.1 | partial | 103 | Dedekind eta transformation formula; Ligozat's cusp-order formula; Theta transformation law on the theta group; Jacobi theta function ϑ(z; τ); Jacobi forms of weight k and index m; Theta decomposition |
 | QM.2 | partial | 72 | Ford circles; Modified Bessel function I_ν; Rademacher's Kloosterman sum A_k(n); Rademacher's exact formula; Effective remainder bound; Hardy–Ramanujan asymptotic formula |
-| QM.3 | source decomposed | 66 | Weight-k hyperbolic Laplacian; ξ-operator (shadow map); Harmonic weak Maass form; Bruinier–Funke pairing {g, f}; Bruinier–Funke exact sequences; Maass–Poincaré series |
-| QM.4 | source decomposed | 110 | Appell–Lerch sum μ(u, v; τ); Zwegers' completion μ̃; Transformation law of μ̃ (Zwegers Thm 1.11); Zwegers' indefinite theta function; Modularity of indefinite theta functions; Zwegers' completion of F₇ (weight 1/2) |
+| QM.3 | partial | 66 | Weight-k hyperbolic Laplacian; ξ-operator (shadow map); Harmonic weak Maass form; Bruinier–Funke pairing {g, f}; Bruinier–Funke exact sequences; Maass–Poincaré series |
+| QM.4 | planned | 110 | Appell–Lerch sum μ(u, v; τ); Zwegers' completion μ̃; Transformation law of μ̃ (Zwegers Thm 1.11); Zwegers' indefinite theta function; Modularity of indefinite theta functions; Zwegers' completion of F₇ (weight 1/2) |
 | QM.5 | partial | 72 | Quantum modular form; Eichler integral; Kontsevich–Zagier strange identity; WRT invariants as radial limits; Andrews–Garvan crank; Traces of singular moduli |
 | QM.6 | partial | 63 | Vertex operator algebra; McKay–Thompson series; No-ghost theorem; Monster Lie algebra; Twisted denominator identity; Monstrous moonshine theorem |
 
@@ -536,9 +558,11 @@ bound for generalized Kloosterman sums of half-integral weight* (arXiv:2309.0852
   `r ∈ ½ℤ`, the spaces of forms with multiplier, Shimura's theta law on `Γ₀(4)`, the group `Mp₂(ℤ)`
   and the Weil representation `ρ_L`. This layer imports them (three requests) and proves that its
   own multipliers are multiplier systems in that sense and agree with Shimura's convention.
-- `MetaplecticAutomorphicForms:MP.8` owns the Jacobi group of the double cover of `GSp(4)` used by
-  Bump–Friedberg–Hoffstein. The classical Jacobi forms on `SL(2, ℤ) ⋉ ℤ²` are this layer's; MP.8
-  consumes them where its objects restrict to `SL(2, ℤ)`.
+- Generic Jacobi theory has the single supplier boundary specified by confirmed
+  `RT-AREA-automorphic-1/20`: MetaplecticAutomorphicForms before MP.7. The local classical
+  declarations below await an exact import/comparison migration. MP.8 retains its GSp(4)
+  double-cover specialization. Exact restriction and comparison maps require reviewed supplier
+  matches; the previous proposal to reverse the blanket edge is superseded.
 - The Tau Ceti ModularForms roadmap computes eta-quotient worked examples (`η²⁴ = Δ`, `η(z)²η(11z)²`,
   `η(z)³η(7z)³`, `η(z)η(23z)`) with Newman's integral-weight Dirichlet-character criterion. This layer
   supplies the general eta multiplier and eta-quotient theory those computations rest on and does
@@ -3980,9 +4004,9 @@ ArithmeticStatistics:ST.5 plans ArithmeticStatistics:ST.5/gaussian-binomial-coef
 
 ### `rescope`: QSeriesPartitionsAndMockModularForms, MetaplecticAutomorphicForms
 
-The atlas records a stage edge MetaplecticAutomorphicForms:MP.8 → QSeriesPartitionsAndMockModularForms:QM.1, and the library audit lists MP.8 and QM.1 as both defining Jacobi forms and theta decomposition. QM.1 needs nothing from MP.8: classical Jacobi forms on SL(2, ℤ) ⋉ ℤ² (Eichler–Zagier), their slash operators, Fourier expansion, theta decomposition and the Jacobi theta function are built here from Mathlib and MP.7 alone. MP.8's object is the Jacobi group inside the specific double cover of GSp(4) used by Bump–Friedberg–Hoffstein, with half-integral-weight Jacobi forms and Fourier–Jacobi/Whittaker expansions.
+The inherited proposal to make QM.1 the owner of generic classical Jacobi forms conflicts with the confirmed verifier of RT-AREA-automorphic-1/20. Preserve its local declaration IDs while reviewing their migration to supplier imports and source-specific comparison/application nodes; the verifier distinguishes the genuine symplectic/unitary common theory from MP.8’s GSp4-cover specialization.
 
-**Proposal.** QM.1 owns the classical Jacobi forms on SL(2, ℤ) ⋉ ℤ² of weight k ∈ ½ℤ and index m ∈ ½ℤ with multiplier system and character (nodes QM.1/jacobi-modular-slash … QM.1/theta-decomposition-weil-representation). MP.8 keeps the GSp(4)-cover Jacobi group, cover-specific Jacobi forms and Fourier–Jacobi expansions, and imports QM.1's slash operators, Fourier characterisation and theta decomposition wherever its objects restrict to SL(2, ℤ) ⋉ ℤ². Replace the edge MP.8 → QM.1 by QM.1 → MP.8 (no cycle arises: MP.7 → QM.1 → MP.8 and MP.7 → MP.8).
+**Proposal.** Plan the reusable Jacobi group H(W) semidirect Sp(W) and its unitary analogue, Schrödinger–Weil representation, weight/index/multiplier Jacobi forms, Fourier–Jacobi coefficients and theta decomposition once in MetaplecticAutomorphicForms before MP.7 (for example MP.6). QM.1 imports that service and keeps its eta/theta/q-series applications and exact comparison laws; MP.8 specializes the GSp4 cover. Compare and convert the inherited local classical carriers without inventing a second owner. L2s imports the common service; add an L2 edge only after establishing L2’s own Fouquet–Wan use, not from an embedded L2s paragraph. This is a proposal awaiting review, not an applied reversal of the existing stage edge.
 
 ### `rescope`: MetaplecticAutomorphicForms, QSeriesPartitionsAndMockModularForms
 
