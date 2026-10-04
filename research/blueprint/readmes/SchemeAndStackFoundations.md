@@ -1,3 +1,175 @@
+# Image-ideal quotient tower coherence
+
+Codex — codex-7e92bd,4October2026. Partial checkpoint: ten lemmas.
+
+Actual image-ideal quotient reindexing now has whole three-morphism and right identity coherence, with explicit affine inverse-image functors and full comap_comp/comap_id ideal transports. The first morphism remains arbitrary; only the subsequent maps in a tower are affine. Left identity requires its own canonical identification of the reindexed identity quotient with the direct quotient and remains open, as do longer tower/pentagon formulations and conductor-specific identification/coherence. All eight gaps, both consumer requests,62 source routes,six reserved-key boundaries and other-stage obligations remain unchanged. No arbitrary nonaffine image-ideal equality, global section surjectivity or naive quotient sheaf assertion follows.
+
+The two routes preserve every ambient section representative, and source quotient surjectivity promotes this calculation to equality of whole natural isomorphisms. The general transport and extensionality lemmas retain arbitrary target presheaves or ideal-data equalities, keeping expensive dependent transports behind reusable interfaces. Identity reindexing is the actual inverse image under the identity map. The tower target uses nested inverse images and the full ideal datum ((I.comap h).comap g), rather than only its closed support.
+
+## Representatives under ideal-data transport
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_eqToIso_mk**. Node: **SchemeAndStackFoundations:SF.0/quotient-tower/ideal-transport**.
+
+For native ideal data I=J on Y and arbitrary f:X→Y, transport along that equality in the actual functor quotientPresheaf sends the image-ideal quotient class of every section a over every affine U to the class of the same a. The equality is of full ideal data, not just supports.
+
+Hypotheses: Native schemes and IdealSheafData in one universe; use actual image-ideal quotients and inverse-image functors. The first morphism is arbitrary. Whole tower reindexing requires the two subsequent morphisms affine; the right identity law does not require the first morphism affine. No flatness, reducedness, Noetherianity, nonemptiness or nontriviality hypothesis.
+
+Proof plan: Eliminate the equality of ideal data. Both functors and representatives then coincide.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/affine-quotient-presheaf, mathlib:CategoryTheory.eqToIso.
+
+## Extensionality on actual quotient representatives
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_hom_ext**. Node: **SchemeAndStackFoundations:SF.0/quotient-tower/ext**.
+
+Two natural transformations from quotientPresheaf I f to any commutative-ring-valued presheaf on affine opens of Y are equal if their components agree on every quotient representative. The target need not be another quotient or have globally liftable sections.
+
+Hypotheses: Native schemes and IdealSheafData in one universe; use actual image-ideal quotients and inverse-image functors. The first morphism is arbitrary. Whole tower reindexing requires the two subsequent morphisms affine; the right identity law does not require the first morphism affine. No flatness, reducedness, Noetherianity, nonemptiness or nontriviality hypothesis.
+
+Proof plan: Use native natural-transformation and concrete-morphism extensionality, and surjectivity of the source quotient map.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/affine-quotient-presheaf, mathlib:CategoryTheory.NatTrans, mathlib:CategoryTheory.ConcreteCategory.hom_ext, mathlib:Ideal.Quotient.mk_surjective.
+
+## Representative transport under morphism associativity
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_assoc_mk**. Node: **SchemeAndStackFoundations:SF.0/quotient-tower/arrow-assoc**.
+
+For arbitrary composable f,g,h and native I on the final scheme, the actual equality transport of quotientPresheaf along (f followed by g) followed by h = f followed by (g followed by h) sends every section class to the same section class.
+
+Hypotheses: Native schemes and IdealSheafData in one universe; use actual image-ideal quotients and inverse-image functors. The first morphism is arbitrary. Whole tower reindexing requires the two subsequent morphisms affine; the right identity law does not require the first morphism affine. No flatness, reducedness, Noetherianity, nonemptiness or nontriviality hypothesis.
+
+Proof plan: Native morphism associativity and the induced inverse-image and section maps have the same representative.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/affine-quotient-presheaf, mathlib:CategoryTheory.eqToIso.
+
+## Successive reindexed comparisons on representatives
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_assoc_left_mk**. Node: **SchemeAndStackFoundations:SF.0/quotient-tower/left-representative**.
+
+For arbitrary f:X→Y and affine g:Y→Z,h:Z→W, first compare the quotient for (f followed by g) followed by h along h; then apply the comparison along g, whiskered by the actual affine inverse-image functor of h. At every affine U of W this composite sends the class of a to the class of the same a for ((I.comap h).comap g) extended along f.
+
+Hypotheses: Native schemes and IdealSheafData in one universe; use actual image-ideal quotients and inverse-image functors. The first morphism is arbitrary. Whole tower reindexing requires the two subsequent morphisms affine; the right identity law does not require the first morphism affine. No flatness, reducedness, Noetherianity, nonemptiness or nontriviality hypothesis.
+
+Proof plan: Apply the two existing representative formulas, at U and at its actual affine inverse image under h.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-natural-isomorphism, mathlib:CategoryTheory.Functor.isoWhiskerLeft.
+
+## Comparison followed by arbitrary ideal-data transport
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_eqToIso_mk**. Node: **SchemeAndStackFoundations:SF.0/quotient-tower/composition-transport**.
+
+For arbitrary f and affine g, follow quotientCompNatIso I f g by the affine-inverse-image whiskering of transport along any equality I.comap g=J. Every direct quotient representative maps to the corresponding representative for J extended along f.
+
+Hypotheses: Native schemes and IdealSheafData in one universe; use actual image-ideal quotients and inverse-image functors. The first morphism is arbitrary. Whole tower reindexing requires the two subsequent morphisms affine; the right identity law does not require the first morphism affine. No flatness, reducedness, Noetherianity, nonemptiness or nontriviality hypothesis.
+
+Proof plan: Eliminate the equality I.comap g=J, simplify the identity isomorphisms, and use the actual composition representative formula. This general lemma avoids expanding a composite pullback ideal during kernel checking.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/composite-quotient-natural-isomorphism, SchemeAndStackFoundations:SF.0/quotient-tower/ideal-transport, mathlib:CategoryTheory.Functor.isoWhiskerLeft, mathlib:CategoryTheory.Functor.isoWhiskerLeft_refl, mathlib:CategoryTheory.eqToIso_refl, mathlib:CategoryTheory.Iso.trans_refl.
+
+## Associativity transport before an arbitrary natural map
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_assoc_post_mk**. Node: **SchemeAndStackFoundations:SF.0/quotient-tower/post-assoc**.
+
+After transporting the source quotient presheaf along native morphism associativity, any natural transformation out of the right-associated quotient takes a representative to the same value as its component applied directly to that representative. Its target is an arbitrary commutative-ring-valued presheaf.
+
+Hypotheses: Native schemes and IdealSheafData in one universe; use actual image-ideal quotients and inverse-image functors. The first morphism is arbitrary. Whole tower reindexing requires the two subsequent morphisms affine; the right identity law does not require the first morphism affine. No flatness, reducedness, Noetherianity, nonemptiness or nontriviality hypothesis.
+
+Proof plan: Apply the arbitrary component map to the proved associativity representative equality.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-tower/arrow-assoc.
+
+## Composite comparison and ideal transport on representatives
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_assoc_right_mk**. Node: **SchemeAndStackFoundations:SF.0/quotient-tower/right-representative**.
+
+For arbitrary f and affine g,h, transport along native morphism associativity, compare along the composite g followed by h, and then transport the full ideal datum using I.comap_comp g h, whiskered by the composite affine inverse-image functor. Every quotient representative is the class of the same ambient section in the fully iterated quotient.
+
+Hypotheses: Native schemes and IdealSheafData in one universe; use actual image-ideal quotients and inverse-image functors. The first morphism is arbitrary. Whole tower reindexing requires the two subsequent morphisms affine; the right identity law does not require the first morphism affine. No flatness, reducedness, Noetherianity, nonemptiness or nontriviality hypothesis.
+
+Proof plan: Apply the general postcomposition representative lemma and the general composition-plus-transport representative lemma. Keep each dependent transport behind its separately checked interface.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-tower/post-assoc, SchemeAndStackFoundations:SF.0/quotient-tower/composition-transport, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp.
+
+## Three-morphism coherence of image-ideal quotients
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_assoc**. Node: **SchemeAndStackFoundations:SF.0/quotient-tower/assoc**.
+
+For arbitrary f:X→Y and affine g:Y→Z,h:Z→W, the whole natural isomorphism obtained by comparing along h and then along g after affine inverse-image reindexing equals the route that first transports along native morphism associativity, compares along g followed by h, and transports along I.comap_comp g h after reindexing by that composite. Both sides have the actual direct quotient presheaf as source and the fully iterated quotient presheaf as target; the reindexing functors and full ideal-data transport are explicit.
+
+Hypotheses: Native schemes and IdealSheafData in one universe; use actual image-ideal quotients and inverse-image functors. The first morphism is arbitrary. Whole tower reindexing requires the two subsequent morphisms affine; the right identity law does not require the first morphism affine. No flatness, reducedness, Noetherianity, nonemptiness or nontriviality hypothesis.
+
+Proof plan: Compare the hom natural transformations on every quotient representative using the two independently proved formulas, then use native isomorphism extensionality.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-tower/ext, SchemeAndStackFoundations:SF.0/quotient-tower/left-representative, SchemeAndStackFoundations:SF.0/quotient-tower/right-representative, mathlib:CategoryTheory.Iso.ext.
+
+## Representative transport under the right identity
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_id_right_mk**. Node: **SchemeAndStackFoundations:SF.0/quotient-tower/arrow-unit**.
+
+For arbitrary f:X→Y and native I, equality transport of quotientPresheaf along f followed by the identity of Y = f preserves every quotient representative on every affine U.
+
+Hypotheses: Native schemes and IdealSheafData in one universe; use actual image-ideal quotients and inverse-image functors. The first morphism is arbitrary. Whole tower reindexing requires the two subsequent morphisms affine; the right identity law does not require the first morphism affine. No flatness, reducedness, Noetherianity, nonemptiness or nontriviality hypothesis.
+
+Proof plan: The native right identity and induced representative maps coincide.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/affine-quotient-presheaf, mathlib:CategoryTheory.eqToIso.
+
+## Right identity coherence of image-ideal quotients
+
+Declaration: **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_id_right**. Node: **SchemeAndStackFoundations:SF.0/quotient-tower/right-unit**.
+
+For arbitrary f:X→Y, quotientCompNatIso I f (identity Y), followed by the identity-affine-inverse-image whiskering of the full ideal transport I.comap_id, equals native equality transport along f followed by identity Y = f, as whole natural isomorphisms. No affineness assumption on f is required.
+
+Hypotheses: Native schemes and IdealSheafData in one universe; use actual image-ideal quotients and inverse-image functors. The first morphism is arbitrary. Whole tower reindexing requires the two subsequent morphisms affine; the right identity law does not require the first morphism affine. No flatness, reducedness, Noetherianity, nonemptiness or nontriviality hypothesis.
+
+Proof plan: Use the general composition-plus-transport formula with the identity morphism, compare with the right-identity representative formula, and apply natural-transformation and isomorphism extensionality.
+
+Prerequisites: SchemeAndStackFoundations:SF.0/quotient-tower/ext, SchemeAndStackFoundations:SF.0/quotient-tower/composition-transport, SchemeAndStackFoundations:SF.0/quotient-tower/arrow-unit, mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id, mathlib:CategoryTheory.Iso.ext.
+
+## API and tests: SchemeAndStackFoundations:SF.0/affine-quotient-presheaf
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_eqToIso_mk**: For native ideal data I=J on Y and arbitrary f:X→Y, transport along that equality in the actual functor quotientPresheaf sends the image-ideal quotient class of every section a over every affine U to the class of the same a. The equality is of full ideal data, not just supports.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_hom_ext**: Two natural transformations from quotientPresheaf I f to any commutative-ring-valued presheaf on affine opens of Y are equal if their components agree on every quotient representative. The target need not be another quotient or have globally liftable sections.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_assoc_mk**: For arbitrary composable f,g,h and native I on the final scheme, the actual equality transport of quotientPresheaf along (f followed by g) followed by h = f followed by (g followed by h) sends every section class to the same section class.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_assoc_post_mk**: After transporting the source quotient presheaf along native morphism associativity, any natural transformation out of the right-associated quotient takes a representative to the same value as its component applied directly to that representative. Its target is an arbitrary commutative-ring-valued presheaf.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientPresheaf_id_right_mk**: For arbitrary f:X→Y and native I, equality transport of quotientPresheaf along f followed by the identity of Y = f preserves every quotient representative on every affine U.
+
+Test **QuotientTowerChecked.ideal_transport_roundtrip** (compatibility): For arbitrary equal native ideal data and every actual quotient class, forward equality transport followed by its inverse returns that class; the equality need not be definitional.
+
+Test **QuotientTowerChecked.empty_source** (degenerate): On the empty affine base open, the actual successive tower comparison sends every source quotient class to zero, for arbitrary f and affine g,h, including zero rings.
+
+Test **QuotientTowerChecked.nonreduced_identity_tower** (computation): For the triple identity on Spec(ZMod4), with zero ideal datum, the actual successive quotient tower route carries the section2 to a nonzero square-zero element. This excludes replacement by reduction or closed support.
+
+## API and tests: SchemeAndStackFoundations:SF.0/composite-quotient-natural-isomorphism
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_assoc_left_mk**: For arbitrary f:X→Y and affine g:Y→Z,h:Z→W, first compare the quotient for (f followed by g) followed by h along h; then apply the comparison along g, whiskered by the actual affine inverse-image functor of h. At every affine U of W this composite sends the class of a to the class of the same a for ((I.comap h).comap g) extended along f.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_eqToIso_mk**: For arbitrary f and affine g, follow quotientCompNatIso I f g by the affine-inverse-image whiskering of transport along any equality I.comap g=J. Every direct quotient representative maps to the corresponding representative for J extended along f.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_assoc_right_mk**: For arbitrary f and affine g,h, transport along native morphism associativity, compare along the composite g followed by h, and then transport the full ideal datum using I.comap_comp g h, whiskered by the composite affine inverse-image functor. Every quotient representative is the class of the same ambient section in the fully iterated quotient.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_assoc**: For arbitrary f:X→Y and affine g:Y→Z,h:Z→W, the whole natural isomorphism obtained by comparing along h and then along g after affine inverse-image reindexing equals the route that first transports along native morphism associativity, compares along g followed by h, and transports along I.comap_comp g h after reindexing by that composite. Both sides have the actual direct quotient presheaf as source and the fully iterated quotient presheaf as target; the reindexing functors and full ideal-data transport are explicit.
+
+API **TauCeti.SchemeFoundations.IdealPullback.quotientCompNatIso_id_right**: For arbitrary f:X→Y, quotientCompNatIso I f (identity Y), followed by the identity-affine-inverse-image whiskering of the full ideal transport I.comap_id, equals native equality transport along f followed by identity Y = f, as whole natural isomorphisms. No affineness assumption on f is required.
+
+Test **QuotientTowerChecked.right_identity_sections** (computation): For arbitrary f and every quotient class, inserting the final identity and transporting the pulled-back ideal agrees with the actual native right-identity transport.
+
+Test **QuotientTowerChecked.assoc_sections** (compatibility): For every direct quotient class, the two whole three-morphism routes agree, retaining an arbitrary first morphism and actual affine reindexing.
+
+Test **QuotientTowerChecked.assoc_inverse_sections** (compatibility): For every fully iterated quotient class, the two inverse tower routes agree on that actual class; no representative-lifting assumption is imposed on closed or sheafified target sections.
+
+Test **QuotientTowerChecked.kernel_target_sections** (compatibility): The two quotient tower routes followed by the actual fully iterated kernel comparison agree on every source class; the final inverse image need not be affine and the vertical comparison is not assumed invertible.
+
+Test **QuotientTowerChecked.closed_target_sections** (compatibility): The two quotient tower routes followed by the actual fully iterated closed comparison agree on every source class; the final inverse image need not be affine and the vertical comparison is not assumed invertible.
+
+Test **QuotientTowerChecked.sheaf_target_sections** (compatibility): The two quotient tower routes followed by the actual fully iterated sheaf comparison agree on every source class; the final inverse image need not be affine and the vertical comparison is not assumed invertible.
+
+All176 incoming mathematical contracts are preserved;174 whole nodes are unchanged, with only two API/test lists extended. All eight gaps,62 routes,twelve confirmed findings,six reserved-key boundaries,five planets and E1 are preserved. All seven stages remain partial/not_read. The complete suggested file is compiled; implementation statuses remain unchecked. Source context: [Stacks01JU](https://stacks.math.columbia.edu/tag/01JU); exact coherence equations are authored deductions, with no new source issue. The full prior reader follows verbatim.
+
 # Reindexed quotient comparison squares
 
 Codex — codex-7e92bd,4October2026. Partial checkpoint: one construction and fifteen lemmas.

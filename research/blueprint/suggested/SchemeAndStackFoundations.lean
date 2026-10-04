@@ -2279,3 +2279,254 @@ example :
   sorry
 
 end TauCeti.SchemeFoundations.IdealPullback
+
+namespace TauCeti.SchemeFoundations.IdealPullback
+open _root_.CategoryTheory _root_.AlgebraicGeometry _root_.Opposite
+universe quotientTowerLevel
+variable {X Y Z W : Scheme.{quotientTowerLevel}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 800000
+
+lemma quotientPresheaf_eqToIso_mk (I J : Y.IdealSheafData) (h : I = J)
+    (f : X ⟶ Y) (U : Y.affineOpens) (a : Γ(X, f ⁻¹ᵁ U)) :
+    (eqToIso (congrArg (fun K => quotientPresheaf K f) h)).hom.app (op U)
+      (Ideal.Quotient.mk _ a) = Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma quotientPresheaf_hom_ext (I : Y.IdealSheafData) (f : X ⟶ Y)
+    {F : Y.affineOpensᵒᵖ ⥤ CommRingCat}
+    (α β : quotientPresheaf I f ⟶ F)
+    (H : ∀ (U : Y.affineOpens) (a : Γ(X, f ⁻¹ᵁ U)),
+      α.app (op U) (Ideal.Quotient.mk _ a) = β.app (op U) (Ideal.Quotient.mk _ a)) :
+    α = β := by
+  sorry
+
+lemma quotientPresheaf_assoc_mk (I : W.IdealSheafData)
+    (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W) (U : W.affineOpens)
+    (a : Γ(X, ((f ≫ g) ≫ h) ⁻¹ᵁ U)) :
+    (eqToIso (congrArg (quotientPresheaf I) (Category.assoc f g h))).hom.app
+      (op U) (Ideal.Quotient.mk _ a) = Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma quotientCompNatIso_assoc_left_mk (I : W.IdealSheafData)
+    (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W) [IsAffineHom g] [IsAffineHom h]
+    (U : W.affineOpens) (a : Γ(X, ((f ≫ g) ≫ h) ⁻¹ᵁ U)) :
+    (quotientCompNatIso I (f ≫ g) h ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+        (⟨h ⁻¹ᵁ U, U.2.preimage h⟩ : Z.affineOpens))
+        from fun _ _ k => h.preimage_mono k).functor.op
+        (quotientCompNatIso (I.comap h) f g)).hom.app (op U) (Ideal.Quotient.mk _ a) = Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma quotientCompNatIso_eqToIso_mk (I : Z.IdealSheafData)
+    (f : X ⟶ Y) (g : Y ⟶ Z) [IsAffineHom g]
+    (J : Y.IdealSheafData) (hJ : I.comap g = J)
+    (U : Z.affineOpens) (a : Γ(X, (f ≫ g) ⁻¹ᵁ U)) :
+    (quotientCompNatIso I f g ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : Z.affineOpens =>
+        (⟨g ⁻¹ᵁ U, U.2.preimage g⟩ : Y.affineOpens))
+        from fun _ _ k => g.preimage_mono k).functor.op
+        (eqToIso (congrArg (fun K => quotientPresheaf K f) hJ))).hom.app
+          (op U) (Ideal.Quotient.mk _ a) = Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma quotientPresheaf_assoc_post_mk (I : W.IdealSheafData)
+    (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W)
+    {F : W.affineOpensᵒᵖ ⥤ CommRingCat}
+    (α : quotientPresheaf I (f ≫ g ≫ h) ⟶ F)
+    (U : W.affineOpens) (a : Γ(X, ((f ≫ g) ≫ h) ⁻¹ᵁ U)) :
+    ((eqToIso (congrArg (quotientPresheaf I) (Category.assoc f g h))).hom ≫ α).app
+      (op U) (Ideal.Quotient.mk _ a) = α.app (op U) (Ideal.Quotient.mk _ a) := by
+  sorry
+
+lemma quotientCompNatIso_assoc_right_mk (I : W.IdealSheafData)
+    (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W) [IsAffineHom g] [IsAffineHom h]
+    (U : W.affineOpens) (a : Γ(X, ((f ≫ g) ≫ h) ⁻¹ᵁ U)) :
+    (eqToIso (congrArg (quotientPresheaf I) (Category.assoc f g h)) ≪≫
+      quotientCompNatIso I f (g ≫ h) ≪≫
+        Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+          (⟨(g ≫ h) ⁻¹ᵁ U, U.2.preimage (g ≫ h)⟩ : Y.affineOpens))
+          from fun _ _ k => (g ≫ h).preimage_mono k).functor.op
+          (eqToIso (congrArg (fun K => quotientPresheaf K f) (I.comap_comp g h)))).hom.app (op U) (Ideal.Quotient.mk _ a) = Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma quotientCompNatIso_assoc (I : W.IdealSheafData)
+    (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W) [IsAffineHom g] [IsAffineHom h] :
+    quotientCompNatIso I (f ≫ g) h ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+        (⟨h ⁻¹ᵁ U, U.2.preimage h⟩ : Z.affineOpens))
+        from fun _ _ k => h.preimage_mono k).functor.op
+        (quotientCompNatIso (I.comap h) f g) =
+    eqToIso (congrArg (quotientPresheaf I) (Category.assoc f g h)) ≪≫
+      quotientCompNatIso I f (g ≫ h) ≪≫
+        Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+          (⟨(g ≫ h) ⁻¹ᵁ U, U.2.preimage (g ≫ h)⟩ : Y.affineOpens))
+          from fun _ _ k => (g ≫ h).preimage_mono k).functor.op
+          (eqToIso (congrArg (fun K => quotientPresheaf K f) (I.comap_comp g h))) := by
+  sorry
+
+lemma quotientPresheaf_id_right_mk (I : Y.IdealSheafData)
+    (f : X ⟶ Y) (U : Y.affineOpens) (a : Γ(X, f ⁻¹ᵁ U)) :
+    (eqToIso (congrArg (quotientPresheaf I) (Category.comp_id f))).hom.app
+      (op U) (Ideal.Quotient.mk _ a) = Ideal.Quotient.mk _ a := by
+  sorry
+
+lemma quotientCompNatIso_id_right (I : Y.IdealSheafData) (f : X ⟶ Y) :
+    quotientCompNatIso I f (𝟙 Y) ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : Y.affineOpens =>
+        (⟨(𝟙 Y) ⁻¹ᵁ U, U.2.preimage (𝟙 Y)⟩ : Y.affineOpens))
+        from fun _ _ k => (𝟙 Y : Y ⟶ Y).preimage_mono k).functor.op
+        (eqToIso (congrArg (fun K => quotientPresheaf K f) I.comap_id)) =
+      eqToIso (congrArg (quotientPresheaf I) (Category.comp_id f)) := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
+
+namespace TauCeti.SchemeFoundations.IdealPullback
+open _root_.CategoryTheory _root_.AlgebraicGeometry _root_.Opposite
+universe quotientTowerTestLevel
+variable {X Y Z W : Scheme.{quotientTowerTestLevel}}
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option maxHeartbeats 800000
+
+-- test: QuotientTowerChecked.ideal_transport_roundtrip
+example (I J : Y.IdealSheafData) (h : I = J) (f : X ⟶ Y)
+    (U : Y.affineOpens) (q : (quotientPresheaf I f).obj (op U)) :
+    (eqToIso (congrArg (fun K => quotientPresheaf K f) h)).inv.app (op U)
+      ((eqToIso (congrArg (fun K => quotientPresheaf K f) h)).hom.app (op U) q) = q := by
+  sorry
+
+-- test: QuotientTowerChecked.right_identity_sections
+example (I : Y.IdealSheafData) (f : X ⟶ Y) (U : Y.affineOpens)
+    (q : (quotientPresheaf I (f ≫ 𝟙 Y)).obj (op U)) :
+    (quotientCompNatIso I f (𝟙 Y) ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : Y.affineOpens =>
+        (⟨(𝟙 Y) ⁻¹ᵁ U, U.2.preimage (𝟙 Y)⟩ : Y.affineOpens))
+        from fun _ _ k => (𝟙 Y : Y ⟶ Y).preimage_mono k).functor.op
+        (eqToIso (congrArg (fun K => quotientPresheaf K f) I.comap_id))).hom.app (op U) q =
+      (eqToIso (congrArg (quotientPresheaf I) (Category.comp_id f))).hom.app (op U) q := by
+  sorry
+
+-- test: QuotientTowerChecked.assoc_sections
+example (I : W.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W)
+    [IsAffineHom g] [IsAffineHom h] (U : W.affineOpens)
+    (q : (quotientPresheaf I ((f ≫ g) ≫ h)).obj (op U)) :
+    (quotientCompNatIso I (f ≫ g) h ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+        (⟨h ⁻¹ᵁ U, U.2.preimage h⟩ : Z.affineOpens))
+        from fun _ _ k => h.preimage_mono k).functor.op
+        (quotientCompNatIso (I.comap h) f g)).hom.app (op U) q =
+      (eqToIso (congrArg (quotientPresheaf I) (Category.assoc f g h)) ≪≫
+      quotientCompNatIso I f (g ≫ h) ≪≫
+        Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+          (⟨(g ≫ h) ⁻¹ᵁ U, U.2.preimage (g ≫ h)⟩ : Y.affineOpens))
+          from fun _ _ k => (g ≫ h).preimage_mono k).functor.op
+          (eqToIso (congrArg (fun K => quotientPresheaf K f) (I.comap_comp g h)))).hom.app (op U) q := by
+  sorry
+
+-- test: QuotientTowerChecked.assoc_inverse_sections
+example (I : W.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W)
+    [IsAffineHom g] [IsAffineHom h] (U : W.affineOpens)
+    (q : (quotientPresheaf ((I.comap h).comap g) f).obj
+      (op ⟨g ⁻¹ᵁ (h ⁻¹ᵁ U), (U.2.preimage h).preimage g⟩)) :
+    (quotientCompNatIso I (f ≫ g) h ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+        (⟨h ⁻¹ᵁ U, U.2.preimage h⟩ : Z.affineOpens))
+        from fun _ _ k => h.preimage_mono k).functor.op
+        (quotientCompNatIso (I.comap h) f g)).inv.app (op U) q =
+      (eqToIso (congrArg (quotientPresheaf I) (Category.assoc f g h)) ≪≫
+      quotientCompNatIso I f (g ≫ h) ≪≫
+        Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+          (⟨(g ≫ h) ⁻¹ᵁ U, U.2.preimage (g ≫ h)⟩ : Y.affineOpens))
+          from fun _ _ k => (g ≫ h).preimage_mono k).functor.op
+          (eqToIso (congrArg (fun K => quotientPresheaf K f) (I.comap_comp g h)))).inv.app (op U) q := by
+  sorry
+
+-- test: QuotientTowerChecked.kernel_target_sections
+example (I : W.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W)
+    [IsAffineHom g] [IsAffineHom h] (U : W.affineOpens)
+    (q : (quotientPresheaf I ((f ≫ g) ≫ h)).obj (op U)) :
+    (quotientToKernelNatTrans ((I.comap h).comap g) f).app
+      (op ⟨g ⁻¹ᵁ (h ⁻¹ᵁ U), (U.2.preimage h).preimage g⟩) ((quotientCompNatIso I (f ≫ g) h ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+        (⟨h ⁻¹ᵁ U, U.2.preimage h⟩ : Z.affineOpens))
+        from fun _ _ k => h.preimage_mono k).functor.op
+        (quotientCompNatIso (I.comap h) f g)).hom.app (op U) q) =
+    (quotientToKernelNatTrans ((I.comap h).comap g) f).app
+      (op ⟨g ⁻¹ᵁ (h ⁻¹ᵁ U), (U.2.preimage h).preimage g⟩) ((eqToIso (congrArg (quotientPresheaf I) (Category.assoc f g h)) ≪≫
+      quotientCompNatIso I f (g ≫ h) ≪≫
+        Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+          (⟨(g ≫ h) ⁻¹ᵁ U, U.2.preimage (g ≫ h)⟩ : Y.affineOpens))
+          from fun _ _ k => (g ≫ h).preimage_mono k).functor.op
+          (eqToIso (congrArg (fun K => quotientPresheaf K f) (I.comap_comp g h)))).hom.app (op U) q) := by
+  sorry
+
+-- test: QuotientTowerChecked.closed_target_sections
+example (I : W.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W)
+    [IsAffineHom g] [IsAffineHom h] (U : W.affineOpens)
+    (q : (quotientPresheaf I ((f ≫ g) ≫ h)).obj (op U)) :
+    (quotientToClosedNatTrans ((I.comap h).comap g) f).app
+      (op ⟨g ⁻¹ᵁ (h ⁻¹ᵁ U), (U.2.preimage h).preimage g⟩) ((quotientCompNatIso I (f ≫ g) h ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+        (⟨h ⁻¹ᵁ U, U.2.preimage h⟩ : Z.affineOpens))
+        from fun _ _ k => h.preimage_mono k).functor.op
+        (quotientCompNatIso (I.comap h) f g)).hom.app (op U) q) =
+    (quotientToClosedNatTrans ((I.comap h).comap g) f).app
+      (op ⟨g ⁻¹ᵁ (h ⁻¹ᵁ U), (U.2.preimage h).preimage g⟩) ((eqToIso (congrArg (quotientPresheaf I) (Category.assoc f g h)) ≪≫
+      quotientCompNatIso I f (g ≫ h) ≪≫
+        Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+          (⟨(g ≫ h) ⁻¹ᵁ U, U.2.preimage (g ≫ h)⟩ : Y.affineOpens))
+          from fun _ _ k => (g ≫ h).preimage_mono k).functor.op
+          (eqToIso (congrArg (fun K => quotientPresheaf K f) (I.comap_comp g h)))).hom.app (op U) q) := by
+  sorry
+
+-- test: QuotientTowerChecked.sheaf_target_sections
+example (I : W.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W)
+    [IsAffineHom g] [IsAffineHom h] (U : W.affineOpens)
+    (q : (quotientPresheaf I ((f ≫ g) ≫ h)).obj (op U)) :
+    (quotientToSheafNatTrans ((I.comap h).comap g) f).app
+      (op ⟨g ⁻¹ᵁ (h ⁻¹ᵁ U), (U.2.preimage h).preimage g⟩) ((quotientCompNatIso I (f ≫ g) h ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+        (⟨h ⁻¹ᵁ U, U.2.preimage h⟩ : Z.affineOpens))
+        from fun _ _ k => h.preimage_mono k).functor.op
+        (quotientCompNatIso (I.comap h) f g)).hom.app (op U) q) =
+    (quotientToSheafNatTrans ((I.comap h).comap g) f).app
+      (op ⟨g ⁻¹ᵁ (h ⁻¹ᵁ U), (U.2.preimage h).preimage g⟩) ((eqToIso (congrArg (quotientPresheaf I) (Category.assoc f g h)) ≪≫
+      quotientCompNatIso I f (g ≫ h) ≪≫
+        Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+          (⟨(g ≫ h) ⁻¹ᵁ U, U.2.preimage (g ≫ h)⟩ : Y.affineOpens))
+          from fun _ _ k => (g ≫ h).preimage_mono k).functor.op
+          (eqToIso (congrArg (fun K => quotientPresheaf K f) (I.comap_comp g h)))).hom.app (op U) q) := by
+  sorry
+
+-- test: QuotientTowerChecked.empty_source
+example (I : W.IdealSheafData) (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W)
+    [IsAffineHom g] [IsAffineHom h]
+    (q : (quotientPresheaf I ((f ≫ g) ≫ h)).obj (op ⟨⊥, isAffineOpen_bot W⟩)) :
+    (quotientCompNatIso I (f ≫ g) h ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : W.affineOpens =>
+        (⟨h ⁻¹ᵁ U, U.2.preimage h⟩ : Z.affineOpens))
+        from fun _ _ k => h.preimage_mono k).functor.op
+        (quotientCompNatIso (I.comap h) f g)).hom.app (op ⟨⊥, isAffineOpen_bot W⟩) q = 0 := by
+  sorry
+
+-- test: QuotientTowerChecked.nonreduced_identity_tower
+example :
+    let X := Spec (.of (ZMod 4))
+    let I : X.IdealSheafData := ⊥
+    let U : X.affineOpens := ⟨⊤, isAffineOpen_top _⟩
+    let f : X ⟶ X := 𝟙 X
+    let g : X ⟶ X := 𝟙 X
+    let h : X ⟶ X := 𝟙 X
+    let a := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
+    let q := (quotientCompNatIso I (f ≫ g) h ≪≫
+      Functor.isoWhiskerLeft (show Monotone (fun U : X.affineOpens =>
+        (⟨h ⁻¹ᵁ U, U.2.preimage h⟩ : X.affineOpens))
+        from fun _ _ k => h.preimage_mono k).functor.op
+        (quotientCompNatIso (I.comap h) f g)).hom.app (op U) (Ideal.Quotient.mk _ a)
+    q ≠ 0 ∧ q ^ 2 = 0 := by
+  sorry
+
+end TauCeti.SchemeFoundations.IdealPullback
