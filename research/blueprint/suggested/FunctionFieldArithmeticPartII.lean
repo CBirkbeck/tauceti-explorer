@@ -1,3 +1,5 @@
+import Mathlib.CategoryTheory.Comma.Over.Pullback
+
 import Mathlib.CategoryTheory.Comma.Over.Basic
 
 import Mathlib.AlgebraicGeometry.Sites.Fpqc
@@ -8175,6 +8177,245 @@ example :
     e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ ∧
     Presieve.singleton ((framedRootChange (0 : ℤ) 3 (χ.comp (ψ.comp φ))).obj p).normalizationSpecMap ∈
       Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 1))) := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+set_option maxHeartbeats 1200000
+set_option synthInstance.maxHeartbeats 200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
+variable [Algebra A B] [Algebra A C] {f : A} {n : ℕ} [NeZero n]
+
+def FramedRoot.normalizationOverBaseChangeIso (φ : B →ₐ[A] C)
+    (p : FramedRoot f n B) :
+    (normalizationFunctor f n).obj ((framedRootChange f n φ).obj p) ≅
+      (Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).obj
+        ((normalizationFunctor f n).obj p) :=
+  Over.isoMk (p.normalizationBaseChangeIso φ ≪≫
+    pullbackSymmetry (Spec.map (CommRingCat.ofHom φ.toRingHom))
+      p.normalizationSpecMap) (by
+    change ((p.normalizationBaseChangeIso φ).hom ≫
+      (pullbackSymmetry _ _).hom) ≫ pullback.snd _ _ = _
+    rw [Category.assoc, pullbackSymmetry_hom_comp_snd,
+      FramedRoot.normalizationBaseChangeIso_hom_fst]
+    rfl)
+
+lemma FramedRoot.normalizationOverBaseChangeIso_hom_fst (φ : B →ₐ[A] C)
+    (p : FramedRoot f n B) :
+    (p.normalizationOverBaseChangeIso φ).hom.left ≫ pullback.fst _ _ =
+      Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) := by
+  sorry
+
+lemma FramedRoot.normalizationOverBaseChangeIso_hom_snd (φ : B →ₐ[A] C)
+    (p : FramedRoot f n B) :
+    (p.normalizationOverBaseChangeIso φ).hom.left ≫ pullback.snd _ _ =
+      ((framedRootChange f n φ).obj p).normalizationSpecMap := by
+  sorry
+
+lemma FramedRoot.normalizationOverBaseChangeIso_inv_fst (φ : B →ₐ[A] C)
+    (p : FramedRoot f n B) :
+    (p.normalizationOverBaseChangeIso φ).inv.left ≫
+      Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) =
+        pullback.fst _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationOverBaseChangeIso_inv_snd (φ : B →ₐ[A] C)
+    (p : FramedRoot f n B) :
+    (p.normalizationOverBaseChangeIso φ).inv.left ≫
+      ((framedRootChange f n φ).obj p).normalizationSpecMap =
+        pullback.snd _ _ := by
+  sorry
+
+lemma FramedRoot.normalizationOverBaseChangeIso_naturality (φ : B →ₐ[A] C)
+    {p q : FramedRoot f n B} (h : p ⟶ q) :
+    (normalizationFunctor f n).map ((framedRootChange f n φ).map h) ≫
+      (q.normalizationOverBaseChangeIso φ).hom =
+    (p.normalizationOverBaseChangeIso φ).hom ≫
+      (Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).map
+        ((normalizationFunctor f n).map h) := by
+  sorry
+
+def normalizationBaseChangeNatIso (f : A) (n : ℕ) [NeZero n]
+    (φ : B →ₐ[A] C) :
+    framedRootChange f n φ ⋙ normalizationFunctor f n ≅
+      normalizationFunctor f n ⋙
+        Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom)) :=
+  NatIso.ofComponents (fun p => p.normalizationOverBaseChangeIso φ)
+    (fun h => FramedRoot.normalizationOverBaseChangeIso_naturality φ h)
+
+lemma normalizationBaseChangeNatIso_app (φ : B →ₐ[A] C)
+    (p : FramedRoot f n B) :
+    (normalizationBaseChangeNatIso f n φ).app p =
+      p.normalizationOverBaseChangeIso φ := by
+  sorry
+
+def normalizationPullbackProjection (f : A) (n : ℕ) [NeZero n]
+    (φ : B →ₐ[A] C) :
+    normalizationFunctor f n ⋙
+      Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom)) ⋙
+        Over.forget (Spec (CommRingCat.of C)) ⟶
+      normalizationFunctor f n ⋙ Over.forget (Spec (CommRingCat.of B)) :=
+  Functor.whiskerLeft (normalizationFunctor f n)
+    (Functor.whiskerRight (Over.mapPullbackAdj
+      (Spec.map (CommRingCat.ofHom φ.toRingHom))).counit
+        (Over.forget (Spec (CommRingCat.of B))))
+
+lemma normalizationPullbackProjection_app (φ : B →ₐ[A] C)
+    (p : FramedRoot f n B) :
+    (normalizationPullbackProjection f n φ).app p =
+      pullback.fst p.normalizationSpecMap
+        (Spec.map (CommRingCat.ofHom φ.toRingHom)) := by
+  sorry
+
+lemma normalizationPullbackProjection_base (φ : B →ₐ[A] C)
+    (p : FramedRoot f n B) :
+    (normalizationPullbackProjection f n φ).app p ≫ p.normalizationSpecMap =
+      pullback.snd p.normalizationSpecMap
+        (Spec.map (CommRingCat.ofHom φ.toRingHom)) ≫
+          Spec.map (CommRingCat.ofHom φ.toRingHom) := by
+  sorry
+
+lemma normalizationPullbackProjection_naturality (φ : B →ₐ[A] C)
+    {p q : FramedRoot f n B} (h : p ⟶ q) :
+    ((Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).map
+      ((normalizationFunctor f n).map h)).left ≫
+        (normalizationPullbackProjection f n φ).app q =
+      (normalizationPullbackProjection f n φ).app p ≫
+        ((normalizationFunctor f n).map h).left := by
+  sorry
+
+lemma normalizationBaseChangeNatIso_projection (φ : B →ₐ[A] C) :
+    Functor.whiskerRight (normalizationBaseChangeNatIso f n φ).hom
+        (Over.forget (Spec (CommRingCat.of C))) ≫
+      normalizationPullbackProjection f n φ = normalizationChangeNatTrans f n φ := by
+  sorry
+
+lemma normalizationBaseChangeNatIso_chart (φ : B →ₐ[A] C) :
+    Functor.whiskerRight (normalizationBaseChangeNatIso f n φ).hom
+        (Over.forget (Spec (CommRingCat.of C))) ≫
+      (normalizationPullbackProjection f n φ ≫ normalizationChartNatTrans f n) =
+    Functor.whiskerLeft (framedRootChange f n φ) (normalizationChartNatTrans f n) := by
+  sorry
+
+lemma normalizationBaseChangeNatIso_inverse_projection (φ : B →ₐ[A] C) :
+    Functor.whiskerRight (normalizationBaseChangeNatIso f n φ).inv
+        (Over.forget (Spec (CommRingCat.of C))) ≫ normalizationChangeNatTrans f n φ =
+      normalizationPullbackProjection f n φ := by
+  sorry
+
+lemma normalizationBaseChangeNatIso_inverse_chart (φ : B →ₐ[A] C) :
+    Functor.whiskerRight (normalizationBaseChangeNatIso f n φ).inv
+        (Over.forget (Spec (CommRingCat.of C))) ≫
+      Functor.whiskerLeft (framedRootChange f n φ) (normalizationChartNatTrans f n) =
+    normalizationPullbackProjection f n φ ≫ normalizationChartNatTrans f n := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
+variable [Algebra A B] [Algebra A C]
+
+-- test: normalizationNatIsoTests.over_projections_roundtrips
+example {f : A} {n : ℕ} [NeZero n] (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
+    let e := p.normalizationOverBaseChangeIso φ
+    e.hom.left ≫ pullback.fst _ _ =
+      Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) ∧
+    e.hom.left ≫ pullback.snd _ _ = ((framedRootChange f n φ).obj p).normalizationSpecMap ∧
+    e.inv.left ≫ Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) =
+      pullback.fst _ _ ∧
+    e.inv.left ≫ ((framedRootChange f n φ).obj p).normalizationSpecMap = pullback.snd _ _ ∧
+    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
+  sorry
+
+-- test: normalizationNatIsoTests.whole_chart_transport
+example (f : A) (n : ℕ) [NeZero n] (φ : B →ₐ[A] C) :
+    let e := normalizationBaseChangeNatIso f n φ
+    Functor.whiskerRight e.hom (Over.forget (Spec (CommRingCat.of C))) ≫
+      normalizationPullbackProjection f n φ = normalizationChangeNatTrans f n φ ∧
+    Functor.whiskerRight e.inv (Over.forget (Spec (CommRingCat.of C))) ≫
+      normalizationChangeNatTrans f n φ = normalizationPullbackProjection f n φ ∧
+    Functor.whiskerRight e.hom (Over.forget (Spec (CommRingCat.of C))) ≫
+      (normalizationPullbackProjection f n φ ≫ normalizationChartNatTrans f n) =
+      Functor.whiskerLeft (framedRootChange f n φ) (normalizationChartNatTrans f n) ∧
+    Functor.whiskerRight e.inv (Over.forget (Spec (CommRingCat.of C))) ≫
+      Functor.whiskerLeft (framedRootChange f n φ) (normalizationChartNatTrans f n) =
+      normalizationPullbackProjection f n φ ≫ normalizationChartNatTrans f n := by
+  sorry
+
+-- test: normalizationNatIsoTests.actual_arrow_naturality
+example {f : A} {n : ℕ} [NeZero n] (φ : B →ₐ[A] C)
+    {p q : FramedRoot f n B} (h : p ⟶ q) :
+    (normalizationFunctor f n).map ((framedRootChange f n φ).map h) ≫
+      ((normalizationBaseChangeNatIso f n φ).app q).hom =
+    ((normalizationBaseChangeNatIso f n φ).app p).hom ≫
+      (Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).map
+        ((normalizationFunctor f n).map h) ∧
+    (Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).map
+        ((normalizationFunctor f n).map h) ≫
+      ((normalizationBaseChangeNatIso f n φ).app q).inv =
+    ((normalizationBaseChangeNatIso f n φ).app p).inv ≫
+      (normalizationFunctor f n).map ((framedRootChange f n φ).map h) := by
+  sorry
+
+-- test: normalizationNatIsoTests.killed_nilpotent
+example :
+    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 := (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).toIntAlgHom
+    let p : FramedRoot (0 : ℤ) 2 (ZMod 4) := ⟨1, 2, by decide⟩
+    let z := p.normalizationPoint (AdjoinRoot.root _)
+    z ≠ 0 ∧ z ^ 2 = 0 ∧ p.normalizationChange φ z = 0 ∧
+    ((normalizationBaseChangeNatIso (0 : ℤ) 2 φ).app p).hom.left ≫
+      (normalizationPullbackProjection (0 : ℤ) 2 φ).app p ≫ p.normalizationChartMap =
+      ((framedRootChange (0 : ℤ) 2 φ).obj p).normalizationChartMap := by
+  sorry
+
+-- test: normalizationNatIsoTests.collapsed_stabilizer
+example :
+    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 := (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).toIntAlgHom
+    let p : FramedRoot (0 : ℤ) 2 (ZMod 4) := ⟨1, 0, by decide⟩
+    ∃ h : p ⟶ p, h ≠ 𝟙 p ∧ (framedRootChange (0 : ℤ) 2 φ).map h = 𝟙 _ ∧
+      (Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).map
+        ((normalizationFunctor (0 : ℤ) 2).map h) = 𝟙 _ := by
+  sorry
+
+-- test: normalizationNatIsoTests.wild_exponent
+example (φ : ZMod 3 →ₐ[ℤ] ZMod 3) (p : FramedRoot (0 : ℤ) 3 (ZMod 3)) :
+    (3 : ZMod 3) = 0 ∧
+    ((normalizationBaseChangeNatIso (0 : ℤ) 3 φ).app p).hom ≫
+      ((normalizationBaseChangeNatIso (0 : ℤ) 3 φ).app p).inv = 𝟙 _ ∧
+    (normalizationPullbackProjection (0 : ℤ) 3 φ).app p ≫ p.normalizationSpecMap =
+      pullback.snd _ _ ≫ Spec.map (CommRingCat.ofHom φ.toRingHom) := by
+  sorry
+
+-- test: normalizationNatIsoTests.exponent_one
+example (f : A) (φ : B →ₐ[A] C) (p : FramedRoot f 1 B) :
+    p.normalizationChange φ (p.normalizationPoint (AdjoinRoot.root _)) =
+      algebraMap A _ f ∧
+    ((normalizationBaseChangeNatIso f 1 φ).app p).hom.left ≫
+      (normalizationPullbackProjection f 1 φ).app p =
+        (normalizationChangeNatTrans f 1 φ).app p := by
+  sorry
+
+-- test: normalizationNatIsoTests.zero_ring
+example :
+    let φ : ZMod 1 →ₐ[ℤ] ZMod 1 := AlgHom.id ℤ _
+    let p : FramedRoot (0 : ℤ) 3 (ZMod 1) := ⟨1, 0, by decide⟩
+    ((normalizationBaseChangeNatIso (0 : ℤ) 3 φ).app p).inv ≫
+      ((normalizationBaseChangeNatIso (0 : ℤ) 3 φ).app p).hom = 𝟙 _ ∧
+    (normalizationPullbackProjection (0 : ℤ) 3 φ).app p ≫ p.normalizationSpecMap =
+      pullback.snd _ _ ≫ Spec.map (CommRingCat.ofHom φ.toRingHom) := by
   sorry
 
 end TauCeti.RootStack

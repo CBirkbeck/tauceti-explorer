@@ -1,557 +1,211 @@
-# Three-step chosen normalization coherence — checkpoint
+# DESIGN-FunctionFieldArithmeticPartII: normalization over the changed base
 
-Codex — codex-rtOQ9t. Refs #3403. Partial; every implementation remains unchecked.
+Worker: Codex — codex-5ebb6f. Issue3403; partial continuation. All717 nodes remain unchecked and all10 stages partial.
 
-For an actual chosen-frame root p=(u,y) of f over a commutative A-algebra B, retain the bundled unit u, equation u*y^n=image(f), and existing normalization algebra Dp=B[T]/(T^n-u). Arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E give the exact existing framedRootChange objects and normalization spectrum maps.
+The actual normalization covers now form a native natural isomorphism over Spec C with the native Over.pullback of the normalization functor over Spec B, for positive exponent and arbitrary A-algebra change. Its object components use the prior scheme comparison and native pullback symmetry; all four projection laws and actual framed-arrow naturality are specified. The whiskered native adjunction counit recovers the existing normalizationChangeNatTrans, and the whole normalized-chart natural transformation transports in both directions.
 
-normalizationPastingIso bundles the native pullbackRightPullbackFstIso and the exact pullback.congrHom for Spec composition. Its source is Spec D times over Spec C with (Spec C times over Spec B with Spec Dp); its target is the chosen direct pullback. Both forward and inverse projection equations and native roundtrips hold.
+The8 new examples include a nonflat Z/4 to Z/2 map killing a nonzero square-zero section and collapsing a nonidentity minus-one stabilizer. The actual pullback of that normalization arrow becomes identity. No faithfulness of coefficient change or pullback is inferred. Wild exponents and the zero ring remain allowed. The positive-exponent boundary is explicit.
 
-Pull the entire existing normalizationIteratedBaseChangeIso(phi,psi,p) back along Spec(chi), using pullback.map with identity maps on Spec E and Spec D. Its exact first projection makes the map compatible; native pullback.map_isIso and asIso give normalizationTripleTransportIso, with all four projection equations. Compose the actual normalizationBaseChangeIso(chi,psi(phi p)) with that transport to obtain normalizationTripleBaseChangeIso. Its first projection is the actual changed normalizationSpecMap to Spec E. All three second projections give exactly normalizationChangeSpecMap(chi composed with (psi composed with phi),p). Both inverse equations and roundtrips hold.
+All701 incoming nodes and338 baseline entries are retained as whole objects. This continuation appends16 nodes (3 constructions,13 lemmas),13 API items,8 tests with16 construction references, and9 precisely read native baseline imports. No old API or test is changed. The only existing metadata changes append the frontier to packet summary, RS.0 coverage, TOWER-TYPING detail and RS.0 roadmap description, plus one source entry and the9 baseline imports. All8 gaps,13 requests,40 planets,11 inherited source findings, version envelopes, all38 symplectic route contracts and the complete inherited source/omission ledgers remain intact.
 
-normalizationTriplePastingIso collapses the three nested chosen pullbacks by first pulling back normalizationPastingIso(phi,psi,p) along Spec(chi), then using normalizationPastingIso(psi composed with phi,chi,p). It has all four projection formulas and roundtrips. The whole isomorphism equals the alternate route that first combines the last two changes: native pullbackRightPullbackFstIso for Spec(psi), the phi pullback first projection and Spec(chi); native Spec-composition pullback.congrHom; normalizationPastingIso(phi,chi composed with psi,p); and finally the explicit pullback.congrHom induced by the spectrum of AlgHom.comp_assoc. Keeping that final identification explicit avoids relying on expensive implicit conversion of the actual scheme maps. The inverse whole route also agrees, reversing all four isomorphisms.
+General native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits, higher-universe adapters and all geometric/sheaf/reciprocity suppliers remain open. Resume with the actual native sheaf RootObject-to-chosen-frame comparison and its local frame construction; do not re-plan the now-proved normalization maps, natural isomorphism or chart transport. The higher chosen coherence and general descent comparisons still need their own declarations.
 
-Composing normalizationTripleBaseChangeIso with normalizationTriplePastingIso equals the entire direct normalizationBaseChangeIso for chi composed with (psi composed with phi), as native scheme isomorphisms. The inverse collapse followed by inverse normalization comparison equals the direct inverse. For positive exponent, all three second projections followed by the actual chart map equal the changed actual chart map. No substitute carrier, section cancellation or flatness assumption is used.
+Freshly read the complete issue before/after the bot-confirmed claim; all196 comments mechanically classified. Read the full parent FA.0–FA.7 reviewed audit and REV-AUDIT-20, owned stage descriptions, all gaps/requests/coverage, reserved canonical key and survey/owner records, sourceCoverage table and routing proposal metadata. Earlier same-worker full AlgebraicCurves/JacobianChallenge and both protocols are reused only after fresh byte guards. Fresh pinned statements and surrounding hypotheses are recorded in Reading.json; peer reading receipts remain inherited provenance. No full fresh reading of the1.2MB incoming reader, whole packet/native source, inherited complete papers or symplectic proofs is claimed.
 
-Nine proved typed examples check all four pasting projections; all four transport projections; all four actual triple normalization projections; all four triple collapse projections, both roundtrips, the whole alternate route and reversed inverse route; the whole direct comparison and inverse; exponent zero; wild characteristic; and the zero ring. For Z/4 to Z/2 followed by two identities, p=(1,2) at f=0,n=2 has a nonzero square-zero normalized section killed by the actual triple composite algebra map, while the prescribed comparison projection and roundtrip still hold. At exponent3 over Z/3 the exponent vanishes in the base, yet the actual chart triangle and direct singleton fppf covering remain valid. The zero-ring covering statement requires no point of its empty spectrum. Every natural exponent is allowed for scheme comparisons; chart and covering assertions use positive exponent. There is no injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption.
+The [Stacks fibre-product section](https://stacks.math.columbia.edu/tag/01JO) was read in full, including its printed proofs and comments; the [root-stack literature guide](https://stacks.math.columbia.edu/tag/04V8) was read in full for context. The exact normalization Over and chart equations are authored deductions, not source quotations. All general categorical operations are native imports, including Over.pullback and its adjunction counit. The bounded open Mathlib root-stack PR search returned0; no exhaustive absence claim is made.
 
-All676 incoming node objects and336 baseline records remain unchanged. This adds25 nodes (4 constructions and21 lemmas),21 API references and15 references to9 distinct typed examples. Every construction has at least three API items,three tests and explicit consumers. Two baseline declarations are added after reading the exact pinned statements and ambient hypotheses. The packet has701 nodes,338 baseline records,566 raw API references and538 raw test references. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,eleven source findings,version receipts and the full omission ledger retain their scope. Only the RS0 description/coverage and TOWER-TYPING detail gain this frontier.
+Incoming [PR6087](https://github.com/CBirkbeck/tauceti-explorer/pull/6087), head9ab61ade2f252f0521fce3d75b3041672ee67cd0, was authenticated through public HTTP:79 artifacts,10 helpers and all5 final files exactly matched the claimed-base inputs. Both actual archived verifiers reproduced their recorded mathematical and publication results exactly, with no Lean executed by those verifiers. Their artifacts remain recoverable in incoming/. The complete authenticated native prefix was freshly compiled as Context before prototyping.
 
-Three-step chosen-scheme coherence is established. Higher coherence,native sheaf RootObject comparison,local frame existence,fppf stackification,effective fpqc descent,infinite genuine2-limits and higher-universe adapters remain open. The reserved key retains arbitrary scheme and stack bases,actual invertible sheaves with sections,and every positive exponent in the fppf topology. Relative closed subschemes,nonreduced fibres,étale/DM invertibility hypotheses,both paper routes and all supplier obligations retain their original scope.
+Native proof evidence: 11648 lines,422 examples,618 standard-axiom audits plus1 axiom-free audit,0 warnings/errors/admissions; source SHA256 `9bd9123162366caaba5c7232c895d2abc92e30ff4a388a19e393a333c3956b24`, log SHA256 `d8cce47cc0d9f559696d6a957a9ebb537c0e0a8ad0009e42daa65754b119795b`.
 
-## Reading and provenance
+Mathlib-only admitted canonical cone: 9411 lines,422 examples,549 warnings solely from sorry,231 audits without sorryAx; source SHA256 `575fb01d7e285789d6981df1f247b2ec6ac6c8a99102bd4e622362814c5aa7ce`, log SHA256 `1e8a16f08c710335bebfe671ae64778c3378884a58c070d6ef2b50b078b73b0a`.
 
-The whole19646-character issue was read before claim5982646979 and after exact bot confirmation5982648051, each in complete contiguous ranges[0,13000] and[13000,19646]. The bodies match, SHA25680b1094ef57ffa9199903d436336938209a197a5eaf2f0c909560918668f0ed5. Whole WORKERS was refreshed in the preceding continuous loop job and its complete239 lines were freshly reread here in bounded ranges1–210/211–239. Complete blueprint/expansion/upstream protocols retain this same worker's original scopes at unchanged authenticated hashes; blueprint115–245/325–410 was also refreshed here.
+The entire canonical Tau Ceti file is UNCOMPILED. The available Tau build is at a different commit and lacks all4 required compiled Tau imports. No Lake setup, updates, cache downloads or library builds were performed. Every Lean run was serial, memory-guarded with at least20GiB available, one thread,8GiB cap and20-minute timeout. Source and log hashes bind the actual checks; successful native evidence does not close the planning implementations or general geometry.
 
-All eight complete reviewed FA0–FA7 audit rows and whole REV-AUDIT20 were read in bounded complete outputs. No PartII audit row exists. The whole reserved key and actual root-stack key definition,native RootObject,normalizationBaseChangeIso,normalizationIteratedBaseChangeIso,its whole pasting node,and actual scheme-map composition node were read. An initially truncated aggregate was replaced by complete targeted reads for the consumed iterated objects. Whole JAC-A/TOWER-AFF requests,the RS0 description last4000 characters and TOWER-TYPING last3000 were refreshed. All remaining original source,supplier,route and omission scopes are retained only through guarded own readings.
+The actual indexed checker, source/version checks and actual intake report0 errors/warnings/problems/refusals. The immutable atlas stage graph has3057 vertices/8726 edges; owned declaration graph717/1556; scoped graph3879/11523; all acyclic. All89 required supplier paths reach, all foreign roadmap and stage objects and inherited stage-edge objects are unchanged, and this roadmap has no skipped or pending links. The45 unrelated preexisting unreachable restructure pairs remain unchanged. The verifier reads843 immutable atlas/checker inputs at base `2c175a30fabe58e901fcdd386506ee6e2ac6280f` without a repository snapshot.
 
-Own incoming PR6082 at headb3cb01d23a0d894a5aacb297c653b43f50e75d42 was recovered by actual public HTTP from archive6e49272c430d395d074f4e72c5e3886d828ab1d4. Manifestcd0d1293173238248c4f3d5327555d86a3e0ec1f0fb1830387d1d14b23efa19e authenticates79 artifacts,ten helpers and five final files. Both original actual immutable verifier reports were rerun at their exact mathematical/publication bases and matched the archived reports byte-for-byte. All five current incoming files equal actual public bytes. Its handoff first13000 characters and all ten consumed helpers were read in complete bounded scopes; no fresh whole-fenced-handoff reading is claimed.
+Proof archive: `1ccda6f471454953c7ec9f7c4e10526284dc53cb`
+Artifact manifest SHA256: `9b7daf5c1085dd9f0c8c515547816a21398eab0ee858d62b7a2aae683f7a9cf3`
+Artifact payload SHA256: `c12fd85dc0252bff9878307d95d44eabdc9658db6c0b481c8304830c774fb35b`
+Recovery helper SHA256: `b17b04311cc818f8f7fc84720cf707b9e39292032190f0b45efcf65f3a6b77d0`
 
-OwnPreviousReading/InputGuard/Candidate are bound to that actual6082 manifest. OwnInheritedManifest/Reading/InputGuard and the original OwnInheritedReadingReceipt/OwnOriginal6036Reading retain the exact nested authenticated own provenance and originally attributed scopes. The parent FunctionFieldArithmetic and upstream AlgebraicCurves/JacobianChallenge documents,governing protocols and selected source passages are reused only within the originally recorded same-worker continuous-session scopes. Eighteen external controls are unchanged; five owned files advanced. All676 incoming nodes,336 baseline objects and every incoming mathematical contract equal own6082 exactly. No peer personal reading receipt is adopted and no historical reading scope is enlarged.
+The ancestor contains the complete selected proof sources, logs, receipts, incoming recovery artifacts and all helper bodies in an inert comment in the issue’s suggested Lean file. The final suggested file retains the original canonical prefix and appends the actual construction bodies and admitted lemma/test signatures. No Lean code is placed in the packet or reader. Recovery requires an output directory and the final public head SHA. Run recover.py OUTPUT HEAD, then from an existing repository checkout run python3 OUTPUT/verify.py OUTPUT DECLARATION_INDEX. This replays actual immutable checker/intake/atlas and all source/header/receipt/preservation checks without Lean. Serial compilation can be replayed with compile.py/runcheck.py using an existing exact-pin Mathlib build and Lean binary only.
 
-Complete incoming21-declaration NewProofs and9-example NewTests were read. Focused actual Native8900–8945,9193–9235,10182–10245 cover the framed groupoid,algebra-change functor and chosen normalization comparison. The whole10844-line inherited Native was authenticated and recompiled as Context; no fresh complete manual reread is claimed. All25 new declarations,nine proved examples and exact admitted header projections were personally checked.
-
-The whole displayed [Stacks04V8 subsection](https://stacks.math.columbia.edu/tag/04V8) paragraph/references and [Stacks01JO section](https://stacks.math.columbia.edu/tag/01JO), definitions1/7,lemmas2–6 and proofs,and all eight comments were freshly read. SourceReading binds actual HTTP hashes,URLs and access times. These give literature and scheme fibre-product context; the exact three-step normalization,chosen associativity,inverse and chart equations are authored deductions from the pinned native universal properties. No recursive reference audit,new source error,historical-version or whole-paper closure is claimed.
-
-Pinned pullback.map/map_isIso/congrHom/hom_ext and lift projections with reassociated attributes; pullbackRightPullbackFstIso and projections; Iso.ext and AlgHom.comp_assoc were freshly read with ambient hypotheses. Unchanged own6082 source reading scopes supply asIso and Iso.inv_comp_eq. Reading/BaselineReading record exact hashes,ranges and indexed signatures. Specialized-name scans of the pinned Mathlib/Tau trees and packet directory and the touching-link scan including historical aliases found no matches. These bounded scans do not establish exhaustive semantic,PR or discussion absence.
-
-## Validation
-
-The whole Tau-dependent Canonical.lean and byte-equal Suggested.lean remain UNCOMPILED. Fresh TauProbe checks actual pinned sourcef790474821cf4256814db967cb154e7af3d0c369,a different available Tau build and four missing required compiled imports. No library build,cache download,Lake project,clone,repository snapshot or language server was created. All checks were strictly serial in the existing exact Mathlib build082e2d37e8b0463410cdb532e111cd43d5a66174 with Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d,one thread,8192MiB managed limit and1200-second timeout. Every launch checked fresh available memory≥20GiB,exact pins,compiler version,compiled dependencies and tracked cleanliness. Every own compiler finished.
-
-- Native.lean: 11307 lines, 414 examples, exit0, 0 warnings; 602 dependency audits plus 1 axiom-free audits. Available memory 41GiB; elapsed 359.05 seconds; peak 4317204KiB. Source SHA256 30e46edc3e01f27cca26051f122c55f6a204a795d8f5580e3f3b05fb58fbc0e7; diagnostics SHA256 4fe1053e48980baa026ce07d5a1d4a86b6c252fbe7904514d66c248a688e8e79.
-- Sketch.lean: 9170 lines, 414 examples, exit0, 528 warnings; 231 dependency audits plus 0 axiom-free audits. Available memory 41GiB; elapsed 160.44 seconds; peak 4079672KiB. Source SHA256 62e64f848ae973e88d6cdf592745f43cce39723add825623a04c4f3af377d76b; diagnostics SHA256 80e5c3a695230ffc1a0c2bc887488d3b2e75bde40d75e36acf03021a61025a5a.
-
-Native executes the entire inherited proof certificate and all new declarations/examples together:414 examples,no errors,warnings or admissions,and602 standard dependency audits plus one axiom-free audit. All25 new declaration closures are audited and use only propext,Classical.choice and Quot.sound. Sketch is the admitted Mathlib projection with414 examples and528 admission warnings only;231 inherited audits stay clean. Its21 new lemma proofs andnine example proofs are admitted; the four construction bodies remain concrete. All25 declaration headers andnine example headers match the proved append. Full Canonical SHA2563c7a9dc5a7bdd8fcea02e29e5856d01aaedadd5d26e957170e4ed9eba36287de; neither executed Mathlib cone certifies the full Tau file.
-
-Context and the focused Prototype compiled without errors or warnings. Exact sources,diagnostics and receipts are archived; disposable Context.olean is omitted. Earlier prototype conversion/kernel-limit failures were resolved by the explicit associativity congruence while retaining the original memory limit and mathematical claims; final executed proofs contain no admissions.
-
-Indexed packet,source issue/version and actual immutable intake/file checks pass. Both verification reports execute those checks and the actual atlas assembler without Lean. Publication graph: stage3057/8726,own701/1525,scoped3863/11476 vertices/edges,all acyclic. All89 required supplier pairs are reachable; no owned skipped or pending links. Foreign roadmap/stage and inherited stage-edge objects match their immutable controls. The45 unrelated existing unreachable restructure pairs retain their scope.
-
-Mathematical baseb3c2144279a099ccdbf8944dfe393469a7d07796; publication base83e3fc3aebd43b435145c35fc0b7903222b1b735. All23 input guards and queue job contract match across the bases. Prescribed index SHA25686649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1. Actual public HTTP recovery authenticates the archive/final files and both original actual verifier reports are reproduced before opening the PR.
-
-## Resume
-
-The whole three-step chosen normalization comparisons now agree with both parenthesized collapse routes and the direct comparison. Extend higher chosen coherence and carry actual framed arrows/unit labels into the native sheaf RootObject comparison. Local line-frame existence,descent,stackification and infinite genuine2-limits remain necessary. Preserve every inherited source,supplier,route and omission obligation.
-
-## Script: assemble.py
+## Script: recover.py
 
 ```python
-"""Retain all incoming prefixes and append exact normalization base-change data."""
+"""Recover and authenticate every proof artifact and final deliverable from public HTTP."""
 from pathlib import Path
-import re
-from projection import project
-S=Path(__file__).resolve().parent
-t=lambda n:(S/n).read_text()
-def prefix(n):
- text=t(n);imports=t('NewImports.lean');i=text.index('import ');return text[:i]+imports+'\n'+text[i:] if imports.strip() else text
-a=project(t('NewProofs.lean'),t('NewTests.lean'));(S/'NewAdmitted.lean').write_text(a)
-for out,p in [('Canonical.lean','CanonicalPrefix.lean'),('Sketch.lean','SketchPrefix.lean')]:
- (S/out).write_text(prefix(p)+'\n'+a)
-(S/'Suggested.lean').write_text(t('Canonical.lean'))
-names=re.findall(r'^(?:def|lemma|theorem) ([\w.]+)',t('NewProofs.lean'),re.M)
-audit=''.join('#print axioms TauCeti.RootStack.'+n+'\n'for n in names);(S/'Audits.lean').write_text(audit)
-(S/'Native.lean').write_text(prefix('NativePrefix.lean')+'\n'+t('NewProofs.lean')+'\n'+t('NewTests.lean')+'\n'+audit)
-```
-
-## Script: author.py
-
-```python
-"""Append actual three-step chosen normalization comparisons with unchanged incoming contracts."""
-from pathlib import Path
-import copy,csv,json,re,sys
-S=Path(__file__).resolve().parent;RID='FunctionFieldArithmeticPartII';NS='TauCeti.RootStack.'
-load=lambda n:json.loads((S/n).read_text())
-def save(n,x):(S/n).write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
-old=load('Incoming.json');p=copy.deepcopy(old);road=load('Incoming-roadmap.json')
-existing={n.get('declarationName','').removeprefix(NS):n['id']for n in old['nodes']}
-L='mathlib:CategoryTheory.Limits.'
-specs=[]
-def add(slug,name,kind,title,statement,deps,proof):specs.append((slug,'FramedRoot.'+name,kind,title,statement,deps,proof))
-add('pasting','normalizationPastingIso','construction','The chosen normalization pullback pasting comparison','For arbitrary A-algebra maps phi:B to C and psi:C to D and framed root p=(u,y), construct the actual scheme isomorphism from the chosen iterated pullback Spec D times over Spec C with (Spec C times over Spec B with Spec Dp), to the chosen direct pullback Spec D times over Spec B with Spec Dp. Here Dp=B[T]/(T^n-u). Use native pullbackRightPullbackFstIso followed by pullback.congrHom for the actual Spec-composition equality.',[L+'pullbackRightPullbackFstIso',L+'pullback.congrHom','mathlib:AlgebraicGeometry.Spec.map_comp'],'Compose the actual native pasting and Spec-composition congruence isomorphisms. This comparison itself is pulled back across the third test-algebra change.')
-projection_data={
-'normalizationPastingIso':[
-('hom_fst','The forward pasting map followed by the direct first projection equals the outer iterated first projection.'),
-('hom_snd','The forward pasting map followed by the direct normalization projection equals the composite of both iterated second projections.'),
-('inv_fst','The inverse pasting map followed by the outer iterated first projection equals the direct first projection.'),
-('inv_snd','The inverse pasting map followed by both iterated second projections equals the direct normalization projection.')],
-'normalizationTripleTransportIso':[
-('hom_fst','The forward three-step transport followed by its target first projection equals the source first projection to Spec E.'),
-('hom_snd','The forward three-step transport followed by its target second projection equals the source second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).hom.'),
-('inv_fst','The inverse three-step transport followed by its source first projection equals its target first projection to Spec E.'),
-('inv_snd','The inverse three-step transport followed by its source second projection equals its target second projection followed by normalizationIteratedBaseChangeIso(phi,psi,p).inv.')],
-'normalizationTripleBaseChangeIso':[
-('hom_fst','The three-step normalization comparison followed by the outer first projection equals the actual normalizationSpecMap of chi(psi(phi p)) to Spec E.'),
-('hom_snd','The three-step normalization comparison followed by all three second projections equals normalizationChangeSpecMap(chi composed with (psi composed with phi),p).'),
-('inv_fst','The inverse three-step normalization comparison followed by the actual changed normalizationSpecMap equals the outer first projection.'),
-('inv_snd','The inverse three-step normalization comparison followed by the actual direct normalizationChangeSpecMap equals the composite of all three second projections.')],
-'normalizationTriplePastingIso':[
-('hom_fst','The forward three-step collapse followed by the direct first projection equals the outer first projection of the three nested chosen pullbacks.'),
-('hom_snd','The forward three-step collapse followed by the direct normalization projection equals all three nested second projections.'),
-('inv_fst','The inverse three-step collapse followed by the outer nested first projection equals the direct first projection.'),
-('inv_snd','The inverse three-step collapse followed by all three nested second projections equals the direct normalization projection.')]}
-def projections(base,slug):
- for suffix,statement in projection_data[base]:
-  deps=['FramedRoot.'+base]
-  if suffix.startswith('inv'):deps=['FramedRoot.'+base+'_hom_'+suffix.split('_')[1],'mathlib:CategoryTheory.Iso.inv_comp_eq']
-  elif base=='normalizationTripleBaseChangeIso':deps+=['FramedRoot.normalizationTripleTransportIso_'+suffix,'FramedRoot.normalizationBaseChangeIso_'+suffix,'FramedRoot.normalizationIteratedBaseChangeIso_hom_snd','FramedRoot.normalizationChangeSpecMap_composition']
-  elif base=='normalizationTriplePastingIso':deps+=['FramedRoot.normalizationPastingIso_'+suffix,L+'pullback.lift_fst',L+'pullback.lift_snd']
-  elif base=='normalizationPastingIso':deps+=[L+'pullbackRightPullbackFstIso_'+suffix,L+'pullback.lift_fst',L+'pullback.lift_snd']
-  else:deps+=[L+'pullback.lift_fst',L+'pullback.lift_snd']
-  add(slug+'-'+suffix.replace('_','-'),base+'_'+suffix,'lemma',base+' '+suffix.replace('_',' '),statement,deps,'Compute actual native pullback map and pasting projections. For an inverse formula move the isomorphism across the corresponding forward equation, retaining every actual normalization spectrum map and nested second projection.')
-projections('normalizationPastingIso','pasting')
-add('transport','normalizationTripleTransportIso','construction','Transport the whole two-step comparison through a third change','For phi:B to C,psi:C to D,chi:D to E, construct the actual native isomorphism between the pullback of Spec D(psi(phi p)) along Spec(chi) and the pullback along Spec(chi) of the chosen two-step normalization pullback. Its underlying map is pullback.map with identities on Spec E and Spec D and normalizationIteratedBaseChangeIso(phi,psi,p).hom on the normalization factor.',['FramedRoot.normalizationIteratedBaseChangeIso','FramedRoot.normalizationIteratedBaseChangeIso_hom_fst',L+'pullback.map',L+'pullback.map_isIso','mathlib:CategoryTheory.asIso'],'The exact existing first projection supplies compatibility; all three pointwise maps are isomorphisms. Use native pullback.map_isIso and asIso.')
-projections('normalizationTripleTransportIso','transport')
-add('comparison','normalizationTripleBaseChangeIso','construction','The actual three-step normalization comparison','Construct the native scheme isomorphism from Spec D(chi(psi(phi p))) to Spec E times over Spec D with (Spec D times over Spec C with (Spec C times over Spec B with Spec Dp)). Compose normalizationBaseChangeIso(chi,psi(phi p)) with normalizationTripleTransportIso(phi,psi,chi,p).',['FramedRoot.normalizationBaseChangeIso','FramedRoot.normalizationTripleTransportIso'],'Compose the existing actual third normalization base-change comparison with the pullback transport of the entire two-step comparison.')
-projections('normalizationTripleBaseChangeIso','comparison')
-add('collapse','normalizationTriplePastingIso','construction','Collapse the three actual chosen pullbacks','Construct the actual native isomorphism from the three nested chosen pullbacks to the direct chosen pullback for chi composed with (psi composed with phi). First pull normalizationPastingIso(phi,psi,p) back along Spec(chi) using pullback.map with identities on the outer test scheme and common base; then compose normalizationPastingIso(psi composed with phi,chi,p).',['FramedRoot.normalizationPastingIso','FramedRoot.normalizationPastingIso_hom_fst',L+'pullback.map',L+'pullback.map_isIso','mathlib:CategoryTheory.asIso'],'Pull back the first-two-change pasting comparison and compose the remaining two-change pasting comparison. Native carriers retain the chosen pullback parentheses.')
-projections('normalizationTriplePastingIso','collapse')
-add('associativity','normalizationTriplePastingIso_associativity','lemma','The two three-step chosen collapse routes agree','The whole normalizationTriplePastingIso equals the alternate route which first applies pullbackRightPullbackFstIso to Spec(psi), the first projection of the phi pullback and Spec(chi), then pullback.congrHom for Spec(chi composed with psi), then normalizationPastingIso(phi,chi composed with psi,p), and finally the explicit pullback.congrHom for the spectrum of AlgHom.comp_assoc. This is equality of actual native scheme isomorphisms with the same three-nested source and direct target.',['FramedRoot.normalizationTriplePastingIso_hom_fst','FramedRoot.normalizationTriplePastingIso_hom_snd','FramedRoot.normalizationPastingIso_hom_fst','FramedRoot.normalizationPastingIso_hom_snd',L+'pullbackRightPullbackFstIso',L+'pullbackRightPullbackFstIso_hom_fst',L+'pullbackRightPullbackFstIso_hom_snd',L+'pullback.congrHom',L+'pullback.hom_ext','mathlib:CategoryTheory.Iso.ext','mathlib:AlgHom.comp_assoc'],'Apply native Iso.ext and pullback.hom_ext. Both routes have the same outer first projection and all three second projections; actual AlgHom composition identifies the direct target maps.')
-add('associativity-inverse','normalizationTriplePastingIso_associativity_inverse','lemma','The inverse associativity routes agree','The inverse of normalizationTriplePastingIso equals normalizationPastingIso(phi,chi composed with psi,p).inv preceded by the inverse final AlgHom-associativity spectrum congruence and followed by the inverse Spec-composition congruence and inverse outer pullbackRightPullbackFstIso, in exactly reversed order.',['FramedRoot.normalizationTriplePastingIso_associativity'],'Apply Iso.inv to the entire actual three-step associativity equality.')
-add('direct','normalizationTripleBaseChangeIso_paste','lemma','Three-step normalization equals the direct comparison','The whole normalizationTripleBaseChangeIso(phi,psi,chi,p) followed by normalizationTriplePastingIso(phi,psi,chi,p) equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p) as actual native scheme isomorphisms.',['FramedRoot.normalizationTripleBaseChangeIso_hom_fst','FramedRoot.normalizationTripleBaseChangeIso_hom_snd','FramedRoot.normalizationTriplePastingIso_hom_fst','FramedRoot.normalizationTriplePastingIso_hom_snd','FramedRoot.normalizationBaseChangeIso_hom_fst','FramedRoot.normalizationBaseChangeIso_hom_snd',L+'pullback.hom_ext','mathlib:CategoryTheory.Iso.ext'],'Use Iso.ext and pullback.hom_ext; the projections are the actual third-changed normalizationSpecMap and direct normalizationChangeSpecMap.')
-add('direct-inverse','normalizationTripleBaseChangeIso_paste_inverse','lemma','The inverse three-step comparison equals the direct inverse','normalizationTriplePastingIso.inv followed by normalizationTripleBaseChangeIso.inv equals normalizationBaseChangeIso(chi composed with (psi composed with phi),p).inv as actual scheme morphisms.',['FramedRoot.normalizationTripleBaseChangeIso_paste'],'Apply Iso.inv to the complete direct comparison equality, retaining reversed order.')
-add('chart','normalizationTripleBaseChangeIso_chart','lemma','Three-step normalization retains the actual chart','For positive exponent, normalizationTripleBaseChangeIso.hom followed by all three second projections and p.normalizationChartMap equals normalizationChartMap(chi(psi(phi p))), as actual scheme morphisms to the existing root chart.',['FramedRoot.normalizationTripleBaseChangeIso_hom_snd','FramedRoot.normalizationChange_chart'],'Postcompose the exact triple normalization projection with the existing chart map and apply normalizationChange_chart for the direct composite.')
-ids={name:RID+':RS.0/normalization-three-'+slug for slug,name,*_ in specs};sourceid='NormalizationThree-codex-rtOQ9t';nodes=[]
-for slug,name,kind,title,statement,deps,proof in specs:
- nodes.append(dict(id=ids[name],parentStageId=RID+':RS.0',realises=[RID+':RS.0'],kind=kind,title=title,declarationName=NS+name,statement=statement,hypotheses=['Commutative rings A,B,C,D,E in one universe; A-algebra structures on B,C,D,E; arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E; f in A and actual framed root p=(u,y), with u a bundled unit and u*y^n=image(f). '+('The natural exponent n is positive.'if slug=='chart'else'Every natural exponent n, including zero, is allowed.'),'No flatness, injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption. Higher coherence, native sheaf comparison, local frames, descent, stackification and infinite genuine 2-limits remain open.'],prerequisites=[d if ':'in d else ids.get(d,existing.get(d))for d in deps],proofSteps=[proof],acceptance=[statement,'Retain actual native scheme carriers and projection maps across arbitrary algebra changes, including nilpotents.'],library=dict(module='TauCeti/AlgebraicGeometry/RootStacks/RS0',namespace=NS[:-1]),sources=[dict(sourceId=sourceid,locator='Stacks Section26.17, Definition26.17.1 and Lemma26.17.2 with proof; authored three-step normalization specialization of the pinned native pullback universal properties',excerpt='universal among all diagrams',match='Scheme fibre-product context; exact three-step normalization, associativity and inverse equations are authored deductions. No stackification or infinite comparison theorem is attributed.')],api=[],tests=[],implementationStatus='unchecked'))
-by={n['declarationName'].removeprefix(NS):n for n in nodes}
-apis={k:['FramedRoot.'+k+'_'+suffix for suffix,_ in v]for k,v in projection_data.items()}
-apis['normalizationTripleBaseChangeIso']+=['FramedRoot.normalizationTripleBaseChangeIso_'+x for x in ['paste','paste_inverse','chart']]
-apis['normalizationTriplePastingIso']+=['FramedRoot.normalizationTriplePastingIso_'+x for x in ['associativity','associativity_inverse']]
-testdata=[('pasting_projections','compatibility','The two-step pasting comparison has all four projection equations and both inverse roundtrips.'),('transport_projections','compatibility','Transport of the whole two-step comparison along an arbitrary third change has all four projection equations and both inverse roundtrips.'),('triple_projections','compatibility','The actual three-step normalization comparison has both forward and both inverse projection formulas and both roundtrips.'),('collapse_associativity','compatibility','The actual three-step collapse has all four projection formulas and both roundtrips; its whole isomorphism equals the alternate native pasting route and the inverse routes agree.'),('direct_comparison','compatibility','The whole actual three-step normalization comparison followed by the triple collapse equals the direct normalization isomorphism, and the inverse routes agree.'),('killed_nilpotent','non-example','For Z/4 to Z/2 followed by two identities, p=(1,2) at f=0,n=2 has a nonzero square-zero normalized section killed by the actual direct composite algebra map, while the three-step comparison retains its exact normalization projection and roundtrip.'),('wild_chart','degenerate','At exponent3 over Z/3 and arbitrary three successive algebra changes, the exponent vanishes in the base while the actual three-step chart triangle and roundtrip hold and the direct changed normalization map is singleton fppf covering.'),('exponent_zero','degenerate','For f=1,n=0 and arbitrary three changes the actual three-step comparison equals the direct chosen comparison after pasting and has both roundtrips; no positive-exponent chart or cover is asserted.'),('zero_ring','degenerate','For Z to Z/1 followed by two identities and p=(1,0),n=3, the actual three-step comparison has its first projection and both roundtrips and the changed normalization map is singleton fppf covering on the empty spectrum.')]
-tests=[dict(name=NS+'normalizationThreeTests.'+a,kind=b,statement=c)for a,b,c in testdata];tb={a:t for (a,*_),t in zip(testdata,tests)}
-testsets={'normalizationPastingIso':['pasting_projections','collapse_associativity','direct_comparison'],'normalizationTripleTransportIso':['transport_projections','triple_projections','zero_ring'],'normalizationTripleBaseChangeIso':['triple_projections','direct_comparison','killed_nilpotent','wild_chart','exponent_zero','zero_ring'],'normalizationTriplePastingIso':['collapse_associativity','direct_comparison','exponent_zero']}
-for name,entries in apis.items():
- n=by['FramedRoot.'+name];n['api']=[dict(name=NS+x,role='compatibility',statement=by[x]['statement'])for x in entries];n['tests']=[tb[x]for x in testsets[name]];n['uses']=[dict(where=existing['normalizationFunctor'],how='Compare actual chosen normalization covers through three arbitrary test-algebra changes with whole associativity and direct-comparison equations.'),dict(where=RID+':RS.0/root-object',how='Supply coherent affine normalization comparisons for the open native sheaf comparison and local frame/descent construction.')]
-p['nodes']+=nodes
-rows=list(csv.reader(Path(sys.argv[1]).open(),delimiter='\t'));have={x['ref']for x in p['baseline']['declarations']};baseline=[];reading=[]
-for name in sorted({x.removeprefix('mathlib:')for n in nodes for x in n['prerequisites']if x.startswith('mathlib:')}):
- row=next(r for r in rows if len(r)>5 and r[0]=='mathlib'and r[1]==name);reading.append(dict(name=name,file=row[3],line=int(row[4]),signature=row[5],scope='Exact pinned statement and ambient hypotheses read in bounded fresh ranges or authenticated unchanged own prior reading; Reading.json records scope.'))
- if 'mathlib:'+name not in have:baseline.append(dict(ref='mathlib:'+name,kind=row[2],module=row[3],line=int(row[4]),provides=row[5]+' Actual chosen normalization coherence.',checked='Codex — codex-rtOQ9t read this exact pinned declaration; Reading.json gives scope.'))
-p['baseline']['declarations']+=baseline;save('BaselineReading.json',reading)
-src=load('SourceReading.json')[1];p['sources'].append(dict(id=sourceid,title='Scheme fibre products and authored three-step normalization coherence',authors='The Stacks Project Authors; specialized deductions by Codex — codex-rtOQ9t',edition='Current displayed section, accessed4October2026',url=src['url'],sha256=src['sha256'],accessed='2026-10-04',readSections=[src['scope']]))
-frontier='Three successive arbitrary test-algebra changes now have an actual normalization isomorphism to the three nested chosen scheme pullbacks. Pull back the complete two-step comparison along the third change and compose its normalizationBaseChangeIso. All forward and inverse projection equations and roundtrips hold. The actual triple pullback collapse agrees, as a whole native isomorphism and on its inverse, with the alternate route that first combines the last two changes. Composing the actual triple normalization comparison with either collapse route gives the direct normalizationBaseChangeIso for the triple composite. The positive-exponent actual chart triangle holds. Every natural exponent is allowed for scheme comparisons, with no flatness or injectivity assumptions; the nonflat Z/4 to Z/2 example kills a nonzero square-zero normalized section and preserves the comparison. Wild exponents and zero rings remain allowed. This establishes three-step chosen-scheme coherence only; higher coherence, native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open with all inherited source, supplier and geometric obligations.'
-p['summary']+=' Three-step chosen normalization continuation:25 declarations (4 constructions and21 lemmas),21 API references and9 distinct typed examples with15 references. All676 incoming node objects remain unchanged.'
-next(x for x in p['coverage']if x['stageId']==RID+':RS.0')['remaining'].append(frontier);next(x for x in p['gaps']if x['id']=='TOWER-TYPING')['detail']+=' '+frontier;next(x for x in road['stages']if x['key']=='RS.0')['description']+=' '+frontier
-for name,x in [('Candidate.json',p),(RID+'.json',p),('Candidate-roadmap.json',road),('NewNodes.json',nodes),('NewTests.json',tests)]:save(name,x)
-save('Plan.json',dict(newNames=[n['declarationName']for n in nodes],apiAdditions={},newNodes=[n['id']for n in nodes],newBaseline=baseline,newBaselineRefs=[x['ref']for x in baseline],frontier=frontier,newNodesCount=len(nodes),newAPI=sum(map(len,apis.values())),newTests=len(tests),testReferences=sum(map(len,testsets.values()))))
-parts=['# Three-step chosen normalization coherence\n\n'+frontier+'\n\nAll676 incoming node objects and336 baseline records retain their full scope. This adds25 nodes,21 API references and9 distinct typed examples with15 references. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,eleven source findings,omission ledger and version receipts retain their scope. Every implementation remains unchecked. The whole Tau-dependent suggested file is uncompiled; separate executed native Mathlib proof and admitted sketch evidence have exact scopes in the handoff.\n\n']
-for n in nodes:
- parts+=['## '+n['title']+'\n\n','**'+n['declarationName']+'** — '+n['statement']+'\n\n','Hypotheses: '+' '.join(n['hypotheses'])+'\n\n','Prerequisites: '+', '.join(n['prerequisites'])+'.\n\n','Proof: '+' '.join(n['proofSteps'])+'\n\n']
- for label,key in [('Consumed API','api'),('Typed examples','tests')]:
-  if n[key]:parts+=[label+':\n\n']+['- **'+x['name']+'**: '+x['statement']+'\n'for x in n[key]]+['\n']
-(S/'ReaderAddition.md').write_text(''.join(parts));(S/'Reader.md').write_text(''.join(parts)+(S/'IncomingReader.md').read_text())
-assert set(re.findall(r'^(?:def|lemma|theorem) ([\w.]+)',(S/'NewProofs.lean').read_text(),re.M))==set(ids)
-assert len(nodes)==25 and sum(map(len,apis.values()))==21
-print(json.dumps(dict(nodes=len(p['nodes']),newNodes=len(nodes),rawAPI=sum(len(n.get('api',[]))for n in p['nodes']),rawTests=sum(len(n.get('tests',[]))for n in p['nodes']),baseline=len(p['baseline']['declarations']),newBaseline=len(baseline))))
-```
-
-## Script: projection.py
-
-```python
-"""Admit lemma and example proofs while retaining actual construction bodies."""
-import re
-def admit_lemmas(text):
- lines=text.splitlines(keepends=True);out=[];i=0
- while i<len(lines):
-  if re.match(r'^(?:lemma|theorem) |^example\b',lines[i]):
-   j=i+1
-   while j<len(lines)and(not lines[j].strip()or lines[j][0].isspace()):j+=1
-   block=''.join(lines[i:j]);depth=0;pos=None;pending_let=0
-   for k,c in enumerate(block):
-    if c in '([{':depth+=1
-    elif c in ')]}':depth-=1
-    if depth==0 and re.match(r'let(?:I)?\b',block[k:]) and (k==0 or not (block[k-1].isalnum() or block[k-1]=='_')):
-     pending_let+=1
-    if block[k:k+2]==':='and depth==0:
-     if pending_let:pending_let-=1
-     else:pos=k;break
-   assert pos is not None,block
-   out.append(block[:pos]+':= by\n  sorry\n\n');i=j
-  else:out.append(lines[i]);i+=1
- return ''.join(out)
-def split_imports(text):
- lines=text.splitlines(keepends=True);last=max(i for i,l in enumerate(lines)if l.startswith('import '))
- assert all(not l.strip()or l.startswith(('import ','--'))for l in lines[:last+1])
- return ''.join(lines[:last+1]),''.join(lines[last+1:])
-
-def project(proofs,tests):
- return admit_lemmas(proofs)+'\n'+admit_lemmas(tests)
-```
-
-## Script: write_handoff.py
-
-```python
-"""Render precise mathematical, personal reading and execution scopes."""
-from pathlib import Path
-import json,hashlib,re
-S=Path(__file__).resolve().parent
-text=lambda n:(S/n).read_text()
-data=lambda n:json.loads(text(n))
+import base64,gzip,hashlib,json,re,sys,urllib.request
+out=Path(sys.argv[1]).resolve();head=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',head)
+out.mkdir(parents=True,exist_ok=True);RID='FunctionFieldArithmeticPartII';repo='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
 sha=lambda b:hashlib.sha256(b).hexdigest()
-def checked(name):
- r=data(name+'.receipt.json');b=(S/(name+'.lean')).read_bytes();assert r['exitStatus']==0
- return f"- {name}.lean: {len(b.splitlines())} lines, {len(re.findall(r'^example\b',b.decode(),re.M))} examples, exit0, {r['warnings']} warnings; {r['axiomAudits']} dependency audits plus {text(name+'.log').count('does not depend on any axioms')} axiom-free audits. Available memory {r['availableGiBBefore']}GiB; elapsed {r['elapsedSeconds']} seconds; peak {r['maxRssKiB']}KiB. Source SHA256 {sha(b)}; diagnostics SHA256 {r['logSha256']}.\n"
-g=data('Graph.json');p=data('Candidate.json');plan=data('Plan.json');c=data('ClaimReceipt.json')
-h=f'''# Three-step chosen normalization coherence — checkpoint
-
-Codex — codex-rtOQ9t. Refs #3403. Partial; every implementation remains unchecked.
-
-For an actual chosen-frame root p=(u,y) of f over a commutative A-algebra B, retain the bundled unit u, equation u*y^n=image(f), and existing normalization algebra Dp=B[T]/(T^n-u). Arbitrary A-algebra maps phi:B to C,psi:C to D,chi:D to E give the exact existing framedRootChange objects and normalization spectrum maps.
-
-normalizationPastingIso bundles the native pullbackRightPullbackFstIso and the exact pullback.congrHom for Spec composition. Its source is Spec D times over Spec C with (Spec C times over Spec B with Spec Dp); its target is the chosen direct pullback. Both forward and inverse projection equations and native roundtrips hold.
-
-Pull the entire existing normalizationIteratedBaseChangeIso(phi,psi,p) back along Spec(chi), using pullback.map with identity maps on Spec E and Spec D. Its exact first projection makes the map compatible; native pullback.map_isIso and asIso give normalizationTripleTransportIso, with all four projection equations. Compose the actual normalizationBaseChangeIso(chi,psi(phi p)) with that transport to obtain normalizationTripleBaseChangeIso. Its first projection is the actual changed normalizationSpecMap to Spec E. All three second projections give exactly normalizationChangeSpecMap(chi composed with (psi composed with phi),p). Both inverse equations and roundtrips hold.
-
-normalizationTriplePastingIso collapses the three nested chosen pullbacks by first pulling back normalizationPastingIso(phi,psi,p) along Spec(chi), then using normalizationPastingIso(psi composed with phi,chi,p). It has all four projection formulas and roundtrips. The whole isomorphism equals the alternate route that first combines the last two changes: native pullbackRightPullbackFstIso for Spec(psi), the phi pullback first projection and Spec(chi); native Spec-composition pullback.congrHom; normalizationPastingIso(phi,chi composed with psi,p); and finally the explicit pullback.congrHom induced by the spectrum of AlgHom.comp_assoc. Keeping that final identification explicit avoids relying on expensive implicit conversion of the actual scheme maps. The inverse whole route also agrees, reversing all four isomorphisms.
-
-Composing normalizationTripleBaseChangeIso with normalizationTriplePastingIso equals the entire direct normalizationBaseChangeIso for chi composed with (psi composed with phi), as native scheme isomorphisms. The inverse collapse followed by inverse normalization comparison equals the direct inverse. For positive exponent, all three second projections followed by the actual chart map equal the changed actual chart map. No substitute carrier, section cancellation or flatness assumption is used.
-
-Nine proved typed examples check all four pasting projections; all four transport projections; all four actual triple normalization projections; all four triple collapse projections, both roundtrips, the whole alternate route and reversed inverse route; the whole direct comparison and inverse; exponent zero; wild characteristic; and the zero ring. For Z/4 to Z/2 followed by two identities, p=(1,2) at f=0,n=2 has a nonzero square-zero normalized section killed by the actual triple composite algebra map, while the prescribed comparison projection and roundtrip still hold. At exponent3 over Z/3 the exponent vanishes in the base, yet the actual chart triangle and direct singleton fppf covering remain valid. The zero-ring covering statement requires no point of its empty spectrum. Every natural exponent is allowed for scheme comparisons; chart and covering assertions use positive exponent. There is no injectivity, surjectivity, reducedness, nontriviality, exponent-invertibility or section-regularity assumption.
-
-All676 incoming node objects and336 baseline records remain unchanged. This adds25 nodes (4 constructions and21 lemmas),21 API references and15 references to9 distinct typed examples. Every construction has at least three API items,three tests and explicit consumers. Two baseline declarations are added after reading the exact pinned statements and ambient hypotheses. The packet has701 nodes,338 baseline records,566 raw API references and538 raw test references. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,eleven source findings,version receipts and the full omission ledger retain their scope. Only the RS0 description/coverage and TOWER-TYPING detail gain this frontier.
-
-Three-step chosen-scheme coherence is established. Higher coherence,native sheaf RootObject comparison,local frame existence,fppf stackification,effective fpqc descent,infinite genuine2-limits and higher-universe adapters remain open. The reserved key retains arbitrary scheme and stack bases,actual invertible sheaves with sections,and every positive exponent in the fppf topology. Relative closed subschemes,nonreduced fibres,étale/DM invertibility hypotheses,both paper routes and all supplier obligations retain their original scope.
-
-## Reading and provenance
-
-The whole19646-character issue was read before claim{c['claim']} and after exact bot confirmation{c['bot']}, each in complete contiguous ranges[0,13000] and[13000,19646]. The bodies match, SHA256{c['bodySha256']}. Whole WORKERS was refreshed in the preceding continuous loop job and its complete239 lines were freshly reread here in bounded ranges1–210/211–239. Complete blueprint/expansion/upstream protocols retain this same worker's original scopes at unchanged authenticated hashes; blueprint115–245/325–410 was also refreshed here.
-
-All eight complete reviewed FA0–FA7 audit rows and whole REV-AUDIT20 were read in bounded complete outputs. No PartII audit row exists. The whole reserved key and actual root-stack key definition,native RootObject,normalizationBaseChangeIso,normalizationIteratedBaseChangeIso,its whole pasting node,and actual scheme-map composition node were read. An initially truncated aggregate was replaced by complete targeted reads for the consumed iterated objects. Whole JAC-A/TOWER-AFF requests,the RS0 description last4000 characters and TOWER-TYPING last3000 were refreshed. All remaining original source,supplier,route and omission scopes are retained only through guarded own readings.
-
-Own incoming PR6082 at headb3cb01d23a0d894a5aacb297c653b43f50e75d42 was recovered by actual public HTTP from archive6e49272c430d395d074f4e72c5e3886d828ab1d4. Manifestcd0d1293173238248c4f3d5327555d86a3e0ec1f0fb1830387d1d14b23efa19e authenticates79 artifacts,ten helpers and five final files. Both original actual immutable verifier reports were rerun at their exact mathematical/publication bases and matched the archived reports byte-for-byte. All five current incoming files equal actual public bytes. Its handoff first13000 characters and all ten consumed helpers were read in complete bounded scopes; no fresh whole-fenced-handoff reading is claimed.
-
-OwnPreviousReading/InputGuard/Candidate are bound to that actual6082 manifest. OwnInheritedManifest/Reading/InputGuard and the original OwnInheritedReadingReceipt/OwnOriginal6036Reading retain the exact nested authenticated own provenance and originally attributed scopes. The parent FunctionFieldArithmetic and upstream AlgebraicCurves/JacobianChallenge documents,governing protocols and selected source passages are reused only within the originally recorded same-worker continuous-session scopes. Eighteen external controls are unchanged; five owned files advanced. All676 incoming nodes,336 baseline objects and every incoming mathematical contract equal own6082 exactly. No peer personal reading receipt is adopted and no historical reading scope is enlarged.
-
-Complete incoming21-declaration NewProofs and9-example NewTests were read. Focused actual Native8900–8945,9193–9235,10182–10245 cover the framed groupoid,algebra-change functor and chosen normalization comparison. The whole10844-line inherited Native was authenticated and recompiled as Context; no fresh complete manual reread is claimed. All25 new declarations,nine proved examples and exact admitted header projections were personally checked.
-
-The whole displayed [Stacks04V8 subsection](https://stacks.math.columbia.edu/tag/04V8) paragraph/references and [Stacks01JO section](https://stacks.math.columbia.edu/tag/01JO), definitions1/7,lemmas2–6 and proofs,and all eight comments were freshly read. SourceReading binds actual HTTP hashes,URLs and access times. These give literature and scheme fibre-product context; the exact three-step normalization,chosen associativity,inverse and chart equations are authored deductions from the pinned native universal properties. No recursive reference audit,new source error,historical-version or whole-paper closure is claimed.
-
-Pinned pullback.map/map_isIso/congrHom/hom_ext and lift projections with reassociated attributes; pullbackRightPullbackFstIso and projections; Iso.ext and AlgHom.comp_assoc were freshly read with ambient hypotheses. Unchanged own6082 source reading scopes supply asIso and Iso.inv_comp_eq. Reading/BaselineReading record exact hashes,ranges and indexed signatures. Specialized-name scans of the pinned Mathlib/Tau trees and packet directory and the touching-link scan including historical aliases found no matches. These bounded scans do not establish exhaustive semantic,PR or discussion absence.
-
-## Validation
-
-The whole Tau-dependent Canonical.lean and byte-equal Suggested.lean remain UNCOMPILED. Fresh TauProbe checks actual pinned sourcef790474821cf4256814db967cb154e7af3d0c369,a different available Tau build and four missing required compiled imports. No library build,cache download,Lake project,clone,repository snapshot or language server was created. All checks were strictly serial in the existing exact Mathlib build082e2d37e8b0463410cdb532e111cd43d5a66174 with Lean4.34.0-rc2 commit6a10ac8c22beadecabdbb0919c2b50214762f91d,one thread,8192MiB managed limit and1200-second timeout. Every launch checked fresh available memory≥20GiB,exact pins,compiler version,compiled dependencies and tracked cleanliness. Every own compiler finished.
-
-'''+checked('Native')+checked('Sketch')+f'''
-Native executes the entire inherited proof certificate and all new declarations/examples together:414 examples,no errors,warnings or admissions,and602 standard dependency audits plus one axiom-free audit. All25 new declaration closures are audited and use only propext,Classical.choice and Quot.sound. Sketch is the admitted Mathlib projection with414 examples and528 admission warnings only;231 inherited audits stay clean. Its21 new lemma proofs andnine example proofs are admitted; the four construction bodies remain concrete. All25 declaration headers andnine example headers match the proved append. Full Canonical SHA256{sha((S/'Canonical.lean').read_bytes())}; neither executed Mathlib cone certifies the full Tau file.
-
-Context and the focused Prototype compiled without errors or warnings. Exact sources,diagnostics and receipts are archived; disposable Context.olean is omitted. Earlier prototype conversion/kernel-limit failures were resolved by the explicit associativity congruence while retaining the original memory limit and mathematical claims; final executed proofs contain no admissions.
-
-Indexed packet,source issue/version and actual immutable intake/file checks pass. Both verification reports execute those checks and the actual atlas assembler without Lean. Publication graph: stage{g['stageDAG']['vertices']}/{g['stageDAG']['edges']},own{g['ownDeclarationDAG']['vertices']}/{g['ownDeclarationDAG']['edges']},scoped{g['scopedDAG']['vertices']}/{g['scopedDAG']['edges']} vertices/edges,all acyclic. All{g['requiredPairs']} required supplier pairs are reachable; no owned skipped or pending links. Foreign roadmap/stage and inherited stage-edge objects match their immutable controls. The{g['otherPreexistingUnreachableRestructurePairs']} unrelated existing unreachable restructure pairs retain their scope.
-
-Mathematical base{text('base.txt').strip()}; publication base{text('publication-base.txt').strip()}. All23 input guards and queue job contract match across the bases. Prescribed index SHA25686649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1. Actual public HTTP recovery authenticates the archive/final files and both original actual verifier reports are reproduced before opening the PR.
-
-## Resume
-
-The whole three-step chosen normalization comparisons now agree with both parenthesized collapse routes and the direct comparison. Extend higher chosen coherence and carry actual framed arrows/unit labels into the native sheaf RootObject comparison. Local line-frame existence,descent,stackification and infinite genuine2-limits remain necessary. Preserve every inherited source,supplier,route and omission obligation.
-
-'''
-fence=chr(96)*3
-for helper in ['assemble.py','author.py','projection.py','write_handoff.py','verify.py','graph.py','immutable_view.py','compile.py','runcheck.py','package.py']:
- h+='## Script: '+helper+'\n\n'+fence+'python\n'+text(helper)+fence+'\n\n'
-h=h.rstrip()+'\n';(S/'HandoffBase.md').write_text(h);(S/'Handoff.md').write_text(h)
+def get(ref,path):return urllib.request.urlopen(repo+ref+'/'+path,timeout=90).read()
+handoff_path='research/blueprint/handoff/DESIGN-'+RID+'.md'
+handoff=get(head,handoff_path);text=handoff.decode()
+archive=re.search(r'Proof archive: `([0-9a-f]{40})`',text)[1]
+manifest_sha=re.search(r'Artifact manifest SHA256: `([0-9a-f]{64})`',text)[1]
+payload_sha=re.search(r'Artifact payload SHA256: `([0-9a-f]{64})`',text)[1]
+recover_sha=re.search(r'Recovery helper SHA256: `([0-9a-f]{64})`',text)[1]
+assert sha(Path(__file__).read_bytes())==recover_sha
+blob=get(archive,'research/blueprint/suggested/'+RID+'.lean').decode()
+manifest_bytes=base64.b64decode(blob.split('TAUCETI-OVER-MANIFEST-BEGIN\n',1)[1].split('\nTAUCETI-OVER-MANIFEST-END',1)[0])
+payload=base64.b85decode(''.join(blob.split('TAUCETI-OVER-PAYLOAD-BEGIN\n',1)[1].split('\nTAUCETI-OVER-PAYLOAD-END',1)[0].splitlines()))
+assert sha(manifest_bytes)==manifest_sha and sha(payload)==payload_sha
+manifest=json.loads(manifest_bytes);artifacts=json.loads(gzip.decompress(payload));assert set(manifest)==set(artifacts)
+for name,encoded in artifacts.items():
+ path=Path(name);assert not path.is_absolute() and '..'not in path.parts
+ data=base64.b64decode(encoded);m=manifest[name];assert len(data)==m['bytes'] and sha(data)==m['sha256'] and len(data.splitlines())==m['lines'],name
+ target=out/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
+(out/'artifact-manifest.json').write_bytes(manifest_bytes)
+(out/(RID+'.json')).write_bytes((out/'Candidate.json').read_bytes())
+fence=chr(96)*3;helpers=0
+for name in ['recover.py','verify.py','immutable_view.py','graph.py','projection.py','assemble.py','compile.py','runcheck.py','author.py','package.py']:
+ code=text.split('## Script: '+name+'\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
+ assert code.encode()==(out/name).read_bytes(),name;helpers+=1
+final={}
+for folder,extension,name in [('roadmaps','json','Candidate-roadmap.json'),('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean')]:
+ path='research/blueprint/'+folder+'/'+RID+'.'+extension;data=get(head,path);assert data==(out/name).read_bytes(),path;final[path]=sha(data)
+final[handoff_path]=sha(handoff);(out/'PublicHandoff.md').write_bytes(handoff)
+record=dict(head=head,archive=archive,manifestSha256=manifest_sha,payloadSha256=payload_sha,recoveryHelperSha256=recover_sha,artifactsVerified=len(manifest),archivedHelpersVerified=helpers,finalDeliverables=final,transport='Public HTTP only; archive payload and final head bytes authenticated.')
+(out/'public-recovery.json').write_text(json.dumps(record,indent=2)+'\n');print(json.dumps(record,indent=2))
 ```
 
 ## Script: verify.py
 
 ```python
-"""Replay exact contracts, source receipts and actual immutable checker/intake/atlas; no Lean."""
+"""Replay preservation, native receipts and actual immutable checker/intake/atlas; no Lean."""
 from pathlib import Path
 import ast,hashlib,json,os,re,subprocess,sys
-S=Path(sys.argv[1]).resolve();R=Path.cwd().resolve();sys.path.insert(0,str(S))
-RID='FunctionFieldArithmeticPartII';NS='TauCeti.RootStack.'
+S=Path(sys.argv[1]).resolve();R=Path.cwd().resolve();sys.path.insert(0,str(S));RID='FunctionFieldArithmeticPartII';NS='TauCeti.RootStack.'
+t=lambda n:(S/n).read_text()
+d=lambda n:json.loads(t(n))
 sha=lambda b:hashlib.sha256(b).hexdigest()
-def txt(n):return (S/n).read_text()
-def data(n):return json.loads(txt(n))
-MATH=txt('base.txt').strip();BASE=os.environ.get('ROOTS_VALIDATE_BASE',txt('publication-base.txt').strip())
-def blob(ref,path):return subprocess.check_output(['git','show',ref+':'+path],cwd=R)
+BASE=t('base.txt').strip();assert BASE==t('publication-base.txt').strip()
+def blob(p):return subprocess.check_output(['git','show',BASE+':'+p],cwd=R)
 paths=['research/blueprint/'+f+'/'+('DESIGN-'if f=='handoff'else'')+RID+'.'+e for f,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
-names=['Candidate-roadmap.json','Candidate.json','Reader.md','Suggested.lean','Handoff.md'];contents={p:txt(n)for p,n in zip(paths,names)}
-if (S/'PublicHandoff.md').exists():
- assert txt('PublicHandoff.md').startswith(txt('HandoffBase.md'))
- contents[paths[-1]]=txt('PublicHandoff.md')
- fence=chr(96)*3
- code=txt('PublicHandoff.md').split('## Script: recover.py\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
- assert code==txt('recover.py')
- if (S/'artifact-manifest.json').exists():
-  for helper in data('artifact-manifest.json'):
-   if helper.endswith('.py'):
-    embedded=txt('PublicHandoff.md').split('## Script: '+helper+'\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
-    assert embedded==txt(helper),helper
-
-for p,n in zip(paths,['Incoming-roadmap.json','Incoming.json','IncomingReader.md','Incoming.lean','IncomingHandoff.md']):
- assert blob(MATH,p)==(S/n).read_bytes()==blob(BASE,p),p
-assert sha((S/'OwnPreviousManifest.json').read_bytes())=='cd0d1293173238248c4f3d5327555d86a3e0ec1f0fb1830387d1d14b23efa19e'
-for n,o in [('OwnPreviousReading.json','Reading.json'),('OwnPreviousInputGuard.json','InputGuard.json'),('OwnPreviousCandidate.json','Candidate.json'),('OwnInheritedManifest.json','OwnPreviousManifest.json'),('OwnInheritedReading.json','OwnPreviousReading.json'),('OwnInheritedInputGuard.json','OwnPreviousInputGuard.json'),('OwnInheritedReadingReceipt.json','OwnInheritedReadingReceipt.json'),('OwnOriginal6036Reading.json','OwnOriginal6036Reading.json')]:
- assert sha((S/n).read_bytes())==data('OwnPreviousManifest.json')[o]['sha256'],n
-reuse=data('OwnReadingReuse.json');guards=data('OwnPreviousInputGuard.json')
-assert len(guards)==len(reuse)==23 and sum(x['unchanged']for x in reuse)==18
-for g,u in zip(guards,reuse):
- assert g['path']==u['path'] and g['sha256']==u['before'] and sha(blob(MATH,g['path']))==u['after']
- assert u['unchanged']==(u['before']==u['after'])
-claim=data('ClaimReceipt.json');assert claim['issue']==3403 and claim['claim']==5982646979 and claim['bot']==5982648051 and claim['beforeAfterEqual']
-assert claim['characters']==19646 and claim['bodySha256']=='80b1094ef57ffa9199903d436336938209a197a5eaf2f0c909560918668f0ed5'
-for key in ['beforeReads','afterReads']:
- ranges=claim[key];assert ranges[0][0]==0 and ranges[-1][1]==19646 and all(a[1]==b[0]for a,b in zip(ranges,ranges[1:]))
-p=data('Candidate.json');old=data('Incoming.json');road=data('Candidate-roadmap.json');oldroad=data('Incoming-roadmap.json');plan=data('Plan.json')
-assert len(old['nodes'])==676 and len(p['nodes'])==701 and p['nodes'][676:]==data('NewNodes.json')
-unchanged=0
-for a,b in zip(old['nodes'],p['nodes']):
- expected=json.loads(json.dumps(a))
- if a['id']in plan['apiAdditions']:expected['api']+=plan['apiAdditions'][a['id']]
- else:unchanged+=1
- assert b==expected,a['id']
-assert unchanged==676 and set(p)==set(old)and plan['apiAdditions']=={}and p['nodes'][:676]==old['nodes']
+for p,n in zip(paths,['Incoming-roadmap.json','Incoming.json','IncomingReader.md','Incoming.lean','IncomingHandoff.md']):assert blob(p)==(S/n).read_bytes(),p
+old=d('Incoming.json');p=d('Candidate.json');road=d('Candidate-roadmap.json');oldroad=d('Incoming-roadmap.json');plan=d('Plan.json')
+assert len(old['nodes'])==701 and p['nodes'][:701]==old['nodes'] and p['nodes'][701:]==d('NewNodes.json')
+assert len(p['nodes'])==717 and len(d('NewNodes.json'))==16
 for k in old:
- if k not in ['nodes','summary','sources','baseline','coverage','gaps','sourceIssues','sourceVersions']:assert p[k]==old[k],k
-assert p['sourceIssues']==old['sourceIssues'] and len(p['sourceIssues'])==11
-assert p['sourceVersions']==old['sourceVersions']
-assert p['sources'][:-1]==old['sources']and p['summary'].startswith(old['summary'])
+ if k not in ['nodes','summary','sources','baseline','coverage','gaps']:assert p[k]==old[k],k
+assert p['summary']==old['summary']+' '+plan['frontier'] and p['sources'][:-1]==old['sources']
 assert {k:v for k,v in p['baseline'].items()if k!='declarations'}=={k:v for k,v in old['baseline'].items()if k!='declarations'}
-assert p['baseline']['declarations'][:336]==old['baseline']['declarations']
-assert [d['ref']for d in p['baseline']['declarations'][336:]]==plan['newBaselineRefs']and len(plan['newBaselineRefs'])==2
-assert p['status']=='partial'and all(n['implementationStatus']=='unchecked'for n in p['nodes'])
-assert len(p['requests'])==13 and len(p['gaps'])==8 and len(p['coverage'])==10
+assert p['baseline']['declarations'][:338]==old['baseline']['declarations']
+assert [x['ref']for x in p['baseline']['declarations'][338:]]==plan['newBaselineRefs'] and len(plan['newBaselineRefs'])==9
 for a,b in zip(old['coverage'],p['coverage']):
- if a['stageId']==RID+':RS.0':assert b['remaining'][:-1]==a['remaining']and {k:v for k,v in a.items()if k!='remaining'}=={k:v for k,v in b.items()if k!='remaining'}
- else:assert a==b
+ expected=json.loads(json.dumps(a))
+ if a['stageId']==RID+':RS.0':expected['remaining'].append(plan['frontier'])
+ assert b==expected
 for a,b in zip(old['gaps'],p['gaps']):
- if a['id']=='TOWER-TYPING':assert b['detail'].startswith(a['detail'])and {k:v for k,v in a.items()if k!='detail'}=={k:v for k,v in b.items()if k!='detail'}
- else:assert a==b
+ expected=json.loads(json.dumps(a))
+ if a['id']=='TOWER-TYPING':expected['detail']+=' '+plan['frontier']
+ assert b==expected
 assert {k:v for k,v in road.items()if k!='stages'}=={k:v for k,v in oldroad.items()if k!='stages'}
 for a,b in zip(oldroad['stages'],road['stages']):
- if a['key']=='RS.0':assert b['description']==a['description']+' '+plan['frontier']and {k:v for k,v in a.items()if k!='description'}=={k:v for k,v in b.items()if k!='description'}
- else:assert a==b
-assert data('PreviousRecovery.json')['head']=='b3cb01d23a0d894a5aacb297c653b43f50e75d42'
-assert data('PreviousRecovery.json')['artifactsVerified']==79 and data('PreviousRecovery.json')['archivedHelpersVerified']==10
-assert data('IncomingReceipt.json')['bothActualVerifiersMatchRecordedExactly'] and data('IncomingReceipt.json')['fiveMathematicalBaseFilesMatchPublicHead']
-for i,tag in enumerate(['04V8','01JO']):
- source=data('SourceReading.json')[i]
- assert source['sha256']==sha((S/('Stacks-'+tag+'.html')).read_bytes())
- assert source['url']=='https://stacks.math.columbia.edu/tag/'+tag
-assert p['sources'][-1]['id']=='NormalizationThree-codex-rtOQ9t'
-assert p['sources'][-1]['sha256']==data('SourceReading.json')[1]['sha256']
-assert data('OwnContractGuard.json')=={k:data('Incoming.json')[k]==data('OwnPreviousCandidate.json')[k]for k in data('Incoming.json')if k not in ['nodes','summary','sources','baseline','coverage','gaps','sourceIssues','sourceVersions']}
-assert all(data('OwnContractGuard.json').values())
-assert old==data('OwnPreviousCandidate.json')
-assert old['baseline']['declarations'][:336]==data('OwnPreviousCandidate.json')['baseline']['declarations']
-assert data('OwnPreviousRecovery.json')['head']=='b3cb01d23a0d894a5aacb297c653b43f50e75d42' and data('OwnPreviousRecovery.json')['artifactsVerified']==79
-for k in ['sourceIssues','sourceVersions']:
- assert old[k][:len(data('OwnPreviousCandidate.json')[k])]==data('OwnPreviousCandidate.json')[k]
-assert data('TauProbe.json')['fullCanonicalExecution'].startswith('UNCOMPILED')
-assert txt('Reader.md')==txt('ReaderAddition.md')+txt('IncomingReader.md')
+ expected=json.loads(json.dumps(a))
+ if a['key']=='RS.0':expected['description']+=' '+plan['frontier']
+ assert b==expected
+assert p['status']=='partial' and len(p['gaps'])==8 and len(p['requests'])==13 and len(p['coverage'])==10
+assert all(x['status']=='partial'for x in p['coverage']) and all(x['implementationStatus']=='unchecked'for x in p['nodes'])
+assert sum(bool(x.get('planet'))for x in p['nodes'])==40
+assert len(p['sourceIssues'])==11 and len(p['restructure'][0]['itemInventory'])==38
+assert t('Reader.md')==t('ReaderAddition.md')+t('IncomingReader.md')
 from projection import project
-assert txt('NewAdmitted.lean')==project(txt('NewProofs.lean'),txt('NewTests.lean'))
-assert txt('CanonicalPrefix.lean')==txt('Incoming.lean')
-def with_import(n):
- text=txt(n);imports=txt('NewImports.lean');i=text.index('import ');return text[:i]+imports+'\n'+text[i:] if imports.strip() else text
-assert txt('Canonical.lean')==with_import('Incoming.lean')+'\n'+txt('NewAdmitted.lean')==txt('Suggested.lean')
-assert txt('Sketch.lean')==with_import('SketchPrefix.lean')+'\n'+txt('NewAdmitted.lean')
-for target,source in [('NativePrefix.lean','Native.lean'),('Incoming.lean','Canonical.lean'),('SketchPrefix.lean','Sketch.lean')]:
- assert sha((S/target).read_bytes())==data('IncomingManifest.json')[source]['sha256']
-assert sha((S/'IncomingManifest.json').read_bytes())=='cd0d1293173238248c4f3d5327555d86a3e0ec1f0fb1830387d1d14b23efa19e'
-for n,o in [('IncomingPublicationVerification-replayed.json','Verification.json'),('IncomingMathematicalVerification-replayed.json','Verification-mathematical.json')]:
- assert sha((S/n).read_bytes())==data('IncomingManifest.json')[o]['sha256']
-assert sha(Path(sys.argv[2]).read_bytes())=='86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1'
-assert txt('Context.lean')==txt('NativePrefix.lean')
-cr=data('Context.receipt.json');assert cr['exitStatus']==0 and cr['warnings']==0 and cr['sourceSha256']==sha((S/'Context.lean').read_bytes()) and cr['logSha256']==sha((S/'Context.log').read_bytes())
-assert txt('Prototype.lean')=='import Context\n'+txt('NewProofs.lean')+'\n'+txt('NewTests.lean')
-pr=data('Prototype.receipt.json');pl=txt('Prototype.log')
-assert pr['exitStatus']==0 and pr['warnings']==0 and pr['availableGiBBefore']>=20
-assert pr['sourceSha256']==sha((S/'Prototype.lean').read_bytes())and pr['logSha256']==sha(pl.encode())
-assert not re.search(r'\b(?:sorry|admit|axiom)\b',txt('Prototype.lean'))
-assert txt('Native.lean')==with_import('NativePrefix.lean')+'\n'+txt('NewProofs.lean')+'\n'+txt('NewTests.lean')+'\n'+txt('Audits.lean')
-assert not re.search(r'\b(?:sorry|admit|axiom)\b',txt('Native.lean'))
+assert t('NewAdmitted.lean')==project(t('NewProofs.lean'),t('NewTests.lean'))
+def prefix(n):
+ text=t(n);i=text.index('import ');return text[:i]+t('NewImports.lean')+'\n'+text[i:]
+assert t('CanonicalPrefix.lean')==t('Incoming.lean')
+assert t('Canonical.lean')==prefix('CanonicalPrefix.lean')+'\n'+t('NewAdmitted.lean')==t('Suggested.lean')
+assert t('Sketch.lean')==prefix('SketchPrefix.lean')+'\n'+t('NewAdmitted.lean')
+assert t('Native.lean')==prefix('NativePrefix.lean')+'\n'+t('NewProofs.lean')+'\n'+t('NewTests.lean')+'\n'+t('Audits.lean')
+assert t('Prototype.lean')=='import Context\n'+t('NewImports.lean')+t('NewProofs.lean')+'\n'+t('NewTests.lean')
+assert t('Context.lean')==t('NativePrefix.lean')
+assert t('NativePrefix.lean')==t('incoming/Native.lean') and t('SketchPrefix.lean')==t('incoming/Sketch.lean')
+for n,m in d('incoming/artifact-manifest.json').items():
+ b=(S/'incoming'/n).read_bytes();assert len(b)==m['bytes'] and sha(b)==m['sha256'],n
+assert d('IncomingVerification-publication.json')==d('incoming/Verification.json')
+assert d('IncomingVerification-mathematical.json')==d('incoming/Verification-mathematical.json')
+assert d('IncomingReceipt.json')['fiveFilesMatchClaimedBase'] and d('IncomingReceipt.json')['bothActualVerifiersMatchRecordedExactly']
+assert d('incoming/public-recovery.json')['artifactsVerified']==79 and d('incoming/public-recovery.json')['archivedHelpersVerified']==10
+for n in ['Native','Sketch']:
+ m=d('incoming/artifact-manifest.json')[n+'.lean'];assert sha((S/'incoming'/(n+'.lean')).read_bytes())==m['sha256']
+claim=d('ClaimReceipt.json');assert claim['issue']==3403 and claim['claim']==5983175305 and claim['bot']==5983176705 and claim['beforeAfterEqual']
+assert sum(x['characters']for x in claim['readParts'])==claim['characters']==19646 and claim['commentsInspected']==196
+assert d('TauProbe.json')['fullCanonicalExecution'].startswith('UNCOMPILED')
+for source in d('SourceReading.json'):
+ tag=source['url'].rsplit('/',1)[1];assert source['sha256']==sha((S/('Stacks-'+tag+'.html')).read_bytes())
+assert p['sources'][-1]['sha256']==d('SourceReading.json')[1]['sha256']
+for g in d('InputGuard.json'):assert sha(blob(g['path']))==g['sha256'],g['path']
+assert len(d('Reading.json')['sameSessionReuse'])==4
+for g in d('Reading.json')['sameSessionReuse']:assert sha(blob(g['path']))==g['sha256']
+assert sha(Path(sys.argv[2]).read_bytes())==d('LibrarySearch.json')['indexSha256']=='86649a7d5f35d1178a45fe7aa4713741d03d43ff3b37bb8c91a1da1c794c8ce1'
 def headers(text):
  found={}
- for m in re.finditer(r'^(structure|def|lemma|theorem|example)\b(?: ([\w.]+))?',text,re.M):
-  depth=0;end=None;pending_let=0
+ for m in re.finditer(r'^(def|lemma|theorem|example)\b(?: ([\w.]+))?',text,re.M):
+  depth=0;end=None;pending=0
   for i in range(m.start(),len(text)):
    c=text[i]
    if c in '([{⟨':depth+=1
    elif c in ')]}⟩':depth-=1
-   if depth==0 and re.match(r'let(?:I)?\b',text[i:]) and (i==0 or not (text[i-1].isalnum() or text[i-1]=='_')):pending_let+=1
+   if depth==0 and re.match(r'let(?:I)?\b',text[i:])and(i==0 or not(text[i-1].isalnum()or text[i-1]=='_')):pending+=1
    if depth==0 and text.startswith(':=',i):
-    if pending_let:pending_let-=1
+    if pending:pending-=1
     else:end=i;break
-   if depth==0 and m.group(1)in {'def','structure'}and text.startswith('where',i)and text[i-1].isspace()and text[i+5].isspace():end=i;break
   assert end is not None
   label=m.group(2)if m.group(1)!='example'else'example#'+str(sum(x.startswith('example#')for x in found))
   assert label not in found;found[label]=' '.join(text[m.start():end].split())
  return found
-nh=headers(txt('NewProofs.lean'));nt=headers(txt('NewTests.lean'));ch=headers(txt('NewAdmitted.lean'));assert {**nh,**nt}==ch
-assert all(not re.search(r'\b(?:sorry|admit|axiom)\b',h)for h in ch.values())
-assert len(nh)==25 and len(nt)==9
-assert set(plan['newNames'])=={NS+n for n in nh}=={n['declarationName']for n in p['nodes'][676:]}
-assert {t['name']for t in data('NewTests.json')}=={NS+n for n in re.findall(r'^-- test: (.+)$',txt('NewTests.lean'),re.M)}
-for n in p['nodes'][676:]:
- if n['kind']in {'construction','definition'}:assert len(n['api'])>=3 and len(n['tests'])>=3 and n['uses']
- assert n['declarationName']in txt('Reader.md')and n['statement']in txt('Reader.md')
- for x in n['api']+n['tests']:assert x['name']in txt('Reader.md')and x['statement']in txt('Reader.md')
-assert sum(len(n['api'])for n in p['nodes'][676:])+sum(map(len,plan['apiAdditions'].values()))==21 and sum(len(n['tests'])for n in p['nodes'][676:])==15
+nh=headers(t('NewProofs.lean'));nt=headers(t('NewTests.lean'));ch=headers(t('NewAdmitted.lean'))
+assert {**nh,**nt}==ch and len(nh)==16 and len(nt)==8
+assert set(plan['newNames'])=={NS+n for n in nh}=={n['declarationName']for n in p['nodes'][701:]}
+assert {a['name']for a in d('NewTests.json')}=={NS+n for n in re.findall(r'^-- test: (.+)$',t('NewTests.lean'),re.M)}
+assert not any(re.search(r'\b(?:sorry|admit|axiom)\b',v)for v in ch.values())
+assert not re.search(r'\b(?:sorry|admit|axiom)\b',t('Native.lean'))
+for n in p['nodes'][701:]:
+ if n['kind']=='construction':assert len(n['api'])>=3 and len(n['tests'])>=3 and n['uses']
+ assert n['declarationName']in t('Reader.md')and n['statement']in t('Reader.md')
+ for a in n['api']+n['tests']:assert a['name']in t('Reader.md')and a['statement']in t('Reader.md')
+assert sum(len(n['api'])for n in p['nodes'][701:])==13 and sum(len(n['tests'])for n in p['nodes'][701:])==16
 compilation={}
-for name,want,audits in [('Native',0,602),('Sketch',528,231)]:
- rec=data(name+'.receipt.json');log=txt(name+'.log')
- assert rec['exitStatus']==0 and rec['availableGiBBefore']>=20
+for name,warnings,audits in [('Context',0,602),('Prototype',0,0),('Native',0,618),('Sketch',549,231)]:
+ rec=d(name+'.receipt.json');log=t(name+'.log')
+ assert rec['exitStatus']==0 and rec['availableGiBBefore']>=20 and rec['warnings']==warnings
  assert rec['sourceSha256']==sha((S/(name+'.lean')).read_bytes())and rec['logSha256']==sha(log.encode())
- assert ': error'not in log and log.count('warning:')==log.count('warning: declaration uses `sorry`')==want,(name,log.count('warning:'))
- ex=len(re.findall(r'^example\b',txt(name+'.lean'),re.M));assert ex==414,(name,ex)
+ assert ': error'not in log and log.count('warning:')==log.count('warning: declaration uses `sorry`')==warnings
  a=re.findall(r'depends on axioms:\s*\[([^]]*)\]',log);assert len(a)==audits,(name,len(a))
  assert 'sorryAx'not in log and all(set(v.strip()for v in x.replace('\n',' ').split(','))<={'propext','Classical.choice','Quot.sound'}for x in a)
- compilation[name]={**rec,'lines':len(txt(name+'.lean').splitlines()),'examples':ex,'axiomFreeAudits':log.count('does not depend on any axioms')}
-audited=set(re.findall(r"'([^']+)' (?:depends on axioms:|does not depend on any axioms)",txt('Native.log')))
-assert set(plan['newNames'])<=audited
-assert 'z ≠ 0' in nt['example#5'] and 'z ^ 2 = 0' in nt['example#5'] and 'normalizationTripleBaseChangeIso' in nt['example#5']
-assert 'a ≪≫ c ≪≫ b ≪≫ d' in nt['example#3'] and 'd.inv ≫ b.inv ≫ c.inv ≫ a.inv' in nt['example#3']
-assert 'e ≪≫ c' in nt['example#4'] and 'c.inv ≫ e.inv' in nt['example#4']
-assert txt('NewImports.lean')==''
-assert 'sorry'not in txt('NewProofs.lean') and len(re.findall(r'^def ',txt('NewProofs.lean'),re.M))==4
-for g in data('InputGuard.json'):assert sha(blob(MATH,g['path']))==g['sha256']==sha(blob(BASE,g['path'])),g['path']
-for qbase in [MATH,BASE]:
- jq=json.loads(blob(qbase,'research/blueprint/queue.json'));own=next(j for j in jq['jobs']if j['id']=='DESIGN-'+RID)
- contract={k:v for k,v in own.items()if k not in ['state','note']}
- if qbase==MATH:own_original=contract
- else:assert contract==own_original
-if (S/'artifact-manifest.json').exists():
- for n,m in data('artifact-manifest.json').items():
-  b=(S/n).read_bytes();assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],n
+ compilation[name]={**rec,'lines':len(t(name+'.lean').splitlines()),'examples':len(re.findall(r'^example\b',t(name+'.lean'),re.M)),'axiomFreeAudits':log.count('does not depend on any axioms')}
+assert compilation['Native']['examples']==compilation['Sketch']['examples']==422
+audited=set(re.findall(r"'([^']+)' (?:depends on axioms:|does not depend on any axioms)",t('Native.log')));assert set(plan['newNames'])<=audited
+assert 'z ≠ 0' in nt['example#3'] and 'z ^ 2 = 0' in nt['example#3'] and 'normalizationBaseChangeNatIso' in nt['example#3']
+assert 'h ≠ 𝟙 p' in nt['example#4'] and 'Over.pullback' in nt['example#4']
+names=['Candidate-roadmap.json','Candidate.json','Reader.md','Suggested.lean','PublicHandoff.md'];contents={p:t(n)for p,n in zip(paths,names)}
 for path,text in contents.items():
  assert not re.search(r'/(?:home|tmp|Users)/|file'+'://',text),path
  assert not re.search(r'[ \t]+$',text,re.M),path
+if(S/'artifact-manifest.json').exists():
+ for n,m in d('artifact-manifest.json').items():
+  b=(S/n).read_bytes();assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],n
+fence=chr(96)*3
+for n in ['recover.py','verify.py','immutable_view.py','graph.py','projection.py','assemble.py','compile.py','runcheck.py','author.py','package.py']:
+ embedded=t('PublicHandoff.md').split('## Script: '+n+'\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n';assert embedded==t(n),n
 os.environ['ROOTS_VALIDATE_BASE']=BASE
 import immutable_view;assert immutable_view.BASE==BASE
-for path,t in contents.items():immutable_view.CACHE[path]=t.encode()
+for path,text in contents.items():immutable_view.CACHE[path]=text.encode()
 immutable_view.install();sys.path.insert(0,str(R/'scripts'))
 import check_blueprint,source_issues,check_errata
 index=check_blueprint.load_index(Path(sys.argv[2]));assert index[0]is not None
-errors,warnings,summary=check_blueprint.check(S/(RID+'.json'),index,check_blueprint.world());assert not errors and not warnings,(errors,warnings)
-summary['packet']=paths[1]
+errors,warnings,summary=check_blueprint.check(S/(RID+'.json'),index,check_blueprint.world());assert not errors and not warnings,(errors,warnings);summary['packet']=paths[1]
 issues=source_issues.check_issues(p['sourceIssues'],RID)+check_errata.versions_checked(p,p['sourceIssues']);assert not issues,issues
 tree=ast.parse((R/'research/blueprint/intake.py').read_text());wanted={'file_problems','auto_refusals','own_files','independent_of'}
 picked=[n for n in tree.body if isinstance(n,ast.Assign)and any(isinstance(t,ast.Name)and t.id in {'ALLOWED','PRIVATE'}for t in n.targets)or isinstance(n,ast.FunctionDef)and n.name in wanted]
 env={'json':json,'re':re};exec(compile(ast.Module(body=picked,type_ignores=[]),'actual-intake','exec'),env)
 job=next(j for j in json.loads((R/'research/blueprint/queue.json').read_text())['jobs']if j['id']=='DESIGN-'+RID)
-problems=[x for f in paths for x in env['file_problems'](f,contents[f])];refusals=env['auto_refusals'](job,paths,False,{'codex-rtOQ9t'},set());assert not problems and not refusals,(problems,refusals)
-graph=json.loads(subprocess.check_output([sys.executable,str(S/'graph.py'),str(S)],cwd=R,text=True,env={**os.environ,'ROOTS_VALIDATE_BASE':BASE}));assert graph['worldCommit']==BASE
-if BASE==txt('publication-base.txt').strip():assert graph==data('Graph.json')
-print(json.dumps(dict(checker=summary,sourceIssueErrors=issues,intakeProblems=problems,intakeRefusals=refusals,wholeIncomingNodesUnchanged=676,incomingMathematicalContractsPreserved=676,newNodes=25,newAPIItems=21,newTests=9,newTestReferences=15,newSourceFindings=0,inheritedSourceFindingsUnchanged=len(old['sourceIssues']),matchedNewHeaders=len(ch),rawAPIItems=sum(len(n.get('api',[]))for n in p['nodes']),rawTests=sum(len(n.get('tests',[]))for n in p['nodes']),compilation=compilation,canonicalExecution='UNCOMPILED: no existing full Tau Ceti build at the exact pin; entire canonical prefix retained.',inputGuards=len(data('InputGuard.json')),indexSha256=sha(Path(sys.argv[2]).read_bytes()),immutableBase=BASE,graph=graph,LeanExecuted=False),indent=2))
-```
-
-## Script: graph.py
-
-```python
-from pathlib import Path
-import sys,json,copy,collections,hashlib
-S=Path(sys.argv[1]).resolve();R=Path.cwd();sys.path.insert(0,str(S));import immutable_view;immutable_view.install()
-sys.path.insert(0,str(R/'scripts'));import build,blueprints,check_blueprint
-RID='FunctionFieldArithmeticPartII';FILES=['research/blueprint/'+f+'/'+('DESIGN-' if f=='handoff' else '')+RID+'.'+e for f,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
-p=json.loads((S/'Candidate.json').read_text());old=json.loads((S/'Incoming.json').read_text());rd=json.loads((S/'Candidate-roadmap.json').read_text());rold=json.loads((S/'Incoming-roadmap.json').read_text());nodes={n['id']:n for n in p['nodes']}
-packets,documents,definitions=blueprints.load_promoted(R)
-keep=[x for x in packets if x[0]!=RID];documents[RID]=FILES[2]
-def assemble(candidate,definition):
- build.load_promoted=lambda *args:(copy.deepcopy(keep+[(RID,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
- return build.assemble(require_distances=False)[0]
-a=assemble(p,rd);b=assemble(old,rold)
-world={}
-for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
- for file in sorted((R/folder).glob('*.json')):
-  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
-world.update(nodes)
-listedstageids={x['id'] for x in a['stages']}
-stageids=listedstageids|set(check_blueprint.world()[1])
-se={(e['source'],e['target']) for e in a['stageEdges']}
-before_edges={(e['source'],e['target'])for e in b['stageEdges']}
-added=se-before_edges
-expected=set()
-assert added==expected and not(before_edges-se),{'added':sorted(added),'removed':sorted(before_edges-se)}
-assert all(s in nodes and t in nodes and nodes[s].get('planet')and nodes[t].get('planet')for s,t in added)
-assert all(e['kind']=='blueprint'for e in a['stageEdges']if(e['source'],e['target'])in added)
-assert [e for e in a['stageEdges']if(e['source'],e['target'])not in added]==b['stageEdges']
-def dag(vertices,edges):
- vertices=set(vertices)|{v for e in edges for v in e}
- following=collections.defaultdict(set);indeg={v:0 for v in vertices}
- for s,t in edges:
-  if t not in following[s]:following[s].add(t);indeg[t]+=1
- todo=[v for v,k in indeg.items() if k==0];count=0
- while todo:
-  v=todo.pop();count+=1
-  for w in following[v]:
-   indeg[w]-=1
-   if indeg[w]==0:todo.append(w)
- assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
- return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
-ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
-todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
-while todo:
- nid=todo.pop()
- if nid in seen:continue
- seen.add(nid)
- for d in world[nid].get('prerequisites',[]):
-  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
-  de.add((d,nid))
-  if d in world:todo.append(d)
-  elif d not in stageids:unresolved.add(d)
-assert not unresolved,unresolved
-de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
-de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
-out=collections.defaultdict(set)
-for s,t in se:out[s].add(t)
-def reachable(source,target):
- todo=[source];seen=set()
- while todo:
-  v=todo.pop()
-  if v==target:return True
-  if v not in seen:seen.add(v);todo.extend(out[v])
- return False
-def stageof(v):
- checked=set()
- while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
- return v
-pairs={(d,s['id']) for s in a['stages'] if s['id'].startswith(RID+':') for d in s.get('requires',[])}
-pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
-pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
-rspairs=set()
-for file in (R/'research/blueprint/restructure').glob('*.result.json'):
- q=json.loads(file.read_text())
- if q.get('review',{}).get('status')!='accepted':continue
- rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source') in stageids and x.get('target') in stageids}
-assert all(reachable(s,t) for s,t in pairs),sorted((s,t) for s,t in pairs if not reachable(s,t))
-missing_restructures=sorted((s,t) for s,t in rspairs if not reachable(s,t))
-assert not any(s.startswith(RID+':') or t.startswith(RID+':') for s,t in missing_restructures),missing_restructures
-# All inherited edges remain identical; added edges join existing owned planets only.
-ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
-assert ar[RID]['blueprint']['declarations']==len(nodes)
-assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
-def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
-assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
-assert {k:v for k,v in ar.items() if k!=RID}=={k:v for k,v in br.items() if k!=RID}
-assert {x['id']:x for x in a['stages'] if not x['id'].startswith(RID+':')}=={x['id']:x for x in b['stages'] if not x['id'].startswith(RID+':')}
-summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'ownRestructurePairs':sum(s.startswith(RID+':') or t.startswith(RID+':') for s,t in rspairs),'otherPreexistingUnreachableRestructurePairs':len(missing_restructures),'otherUnreachableRestructurePairListSha256':hashlib.sha256(json.dumps(missing_restructures).encode()).hexdigest(),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True,'inheritedStageEdgeObjectsUnchanged':True,'newInternalPlanetEdges':sorted(added)}
-
-summary['worldCommit']=immutable_view.BASE
-summary['foreignRoadmapsAndStagesUnchanged']=True
-summary['immutableInputHashes']={path:hashlib.sha256(immutable_view.blob(path)).hexdigest() for path in sorted(immutable_view.READS)}
-print(json.dumps(summary,indent=2))
+problems=[x for f in paths for x in env['file_problems'](f,contents[f])];refusals=env['auto_refusals'](job,paths,False,{'codex-5ebb6f'},set());assert not problems and not refusals,(problems,refusals)
+graph=json.loads(subprocess.check_output([sys.executable,str(S/'graph.py'),str(S)],cwd=R,text=True));assert graph==d('Graph.json')
+print(json.dumps(dict(checker=summary,sourceIssueErrors=issues,intakeProblems=problems,intakeRefusals=refusals,wholeIncomingNodesUnchanged=701,newNodes=16,newAPIItems=13,newTests=8,newTestReferences=16,matchedNewHeaders=24,rawAPIItems=sum(len(n.get('api',[]))for n in p['nodes']),rawTests=sum(len(n.get('tests',[]))for n in p['nodes']),compilation=compilation,canonicalExecution=d('TauProbe.json')['fullCanonicalExecution'],inputGuards=23,indexSha256=sha(Path(sys.argv[2]).read_bytes()),immutableBase=BASE,graph=graph,LeanExecuted=False),indent=2))
 ```
 
 ## Script: immutable_view.py
@@ -662,6 +316,156 @@ def install():
     sys.meta_path.insert(0, Finder())
 ```
 
+## Script: graph.py
+
+```python
+from pathlib import Path
+import sys,json,copy,collections,hashlib
+S=Path(sys.argv[1]).resolve();R=Path.cwd();sys.path.insert(0,str(S));import immutable_view;immutable_view.install()
+sys.path.insert(0,str(R/'scripts'));import build,blueprints,check_blueprint
+RID='FunctionFieldArithmeticPartII';FILES=['research/blueprint/'+f+'/'+('DESIGN-' if f=='handoff' else '')+RID+'.'+e for f,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
+p=json.loads((S/'Candidate.json').read_text());old=json.loads((S/'Incoming.json').read_text());rd=json.loads((S/'Candidate-roadmap.json').read_text());rold=json.loads((S/'Incoming-roadmap.json').read_text());nodes={n['id']:n for n in p['nodes']}
+packets,documents,definitions=blueprints.load_promoted(R)
+keep=[x for x in packets if x[0]!=RID];documents[RID]=FILES[2]
+def assemble(candidate,definition):
+ build.load_promoted=lambda *args:(copy.deepcopy(keep+[(RID,candidate)]),copy.deepcopy(documents),copy.deepcopy([d for d in definitions if d.get('id')!=RID]+[definition]))
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,rd);b=assemble(old,rold)
+world={}
+for folder in ['data/decompositions','data/blueprints','research/blueprint/packets']:
+ for file in sorted((R/folder).glob('*.json')):
+  for n in json.loads(file.read_text()).get('nodes',[]):world.setdefault(n['id'],n)
+world.update(nodes)
+listedstageids={x['id'] for x in a['stages']}
+stageids=listedstageids|set(check_blueprint.world()[1])
+se={(e['source'],e['target']) for e in a['stageEdges']}
+before_edges={(e['source'],e['target'])for e in b['stageEdges']}
+added=se-before_edges
+expected=set()
+assert added==expected and not(before_edges-se),{'added':sorted(added),'removed':sorted(before_edges-se)}
+assert all(s in nodes and t in nodes and nodes[s].get('planet')and nodes[t].get('planet')for s,t in added)
+assert all(e['kind']=='blueprint'for e in a['stageEdges']if(e['source'],e['target'])in added)
+assert [e for e in a['stageEdges']if(e['source'],e['target'])not in added]==b['stageEdges']
+def dag(vertices,edges):
+ vertices=set(vertices)|{v for e in edges for v in e}
+ following=collections.defaultdict(set);indeg={v:0 for v in vertices}
+ for s,t in edges:
+  if t not in following[s]:following[s].add(t);indeg[t]+=1
+ todo=[v for v,k in indeg.items() if k==0];count=0
+ while todo:
+  v=todo.pop();count+=1
+  for w in following[v]:
+   indeg[w]-=1
+   if indeg[w]==0:todo.append(w)
+ assert count==len(vertices),[v for v,k in indeg.items() if k][:10]
+ return {'vertices':len(vertices),'edges':len(edges),'acyclic':True}
+ownedges={(d,nid) for nid,n in nodes.items() for d in n['prerequisites'] if d in nodes}
+todo=list(nodes);seen=set();de=set();unresolved=set();baseref=set()
+while todo:
+ nid=todo.pop()
+ if nid in seen:continue
+ seen.add(nid)
+ for d in world[nid].get('prerequisites',[]):
+  if d.startswith(('mathlib:','tauceti:')) and d not in stageids:baseref.add(d);continue
+  de.add((d,nid))
+  if d in world:todo.append(d)
+  elif d not in stageids:unresolved.add(d)
+assert not unresolved,unresolved
+de|={(world[nid]['parentStageId'],nid) for nid in seen if world[nid].get('parentStageId')}
+de|={(q['supplier'],v) for q in p['requests'] for v in q.get('neededBy',[]) if v in nodes or v in stageids}
+out=collections.defaultdict(set)
+for s,t in se:out[s].add(t)
+def reachable(source,target):
+ todo=[source];seen=set()
+ while todo:
+  v=todo.pop()
+  if v==target:return True
+  if v not in seen:seen.add(v);todo.extend(out[v])
+ return False
+def stageof(v):
+ checked=set()
+ while v in world and v not in checked:checked.add(v);v=world[v].get('parentStageId')
+ return v
+pairs={(d,s['id']) for s in a['stages'] if s['id'].startswith(RID+':') for d in s.get('requires',[])}
+pairs|={(d,stageof(nid)) for nid,n in nodes.items() for d in n['prerequisites'] if d in stageids and d not in world and d!=stageof(nid)}
+pairs|={(stageof(q['supplier']),stageof(v)) for q in p['requests'] for v in q['neededBy'] if stageof(q['supplier'])!=stageof(v)}
+rspairs=set()
+for file in (R/'research/blueprint/restructure').glob('*.result.json'):
+ q=json.loads(file.read_text())
+ if q.get('review',{}).get('status')!='accepted':continue
+ rspairs|={(x['source'],x['target']) for x in q.get('links',[]) if x.get('source') in stageids and x.get('target') in stageids}
+assert all(reachable(s,t) for s,t in pairs),sorted((s,t) for s,t in pairs if not reachable(s,t))
+missing_restructures=sorted((s,t) for s,t in rspairs if not reachable(s,t))
+assert not any(s.startswith(RID+':') or t.startswith(RID+':') for s,t in missing_restructures),missing_restructures
+# All inherited edges remain identical; added edges join existing owned planets only.
+ar={r['id']:r for r in a['roadmaps']};br={r['id']:r for r in b['roadmaps']}
+assert ar[RID]['blueprint']['declarations']==len(nodes)
+assert not ar[RID]['blueprint']['skippedLinks'] and not ar[RID].get('pendingLinks',[])
+def skips(r):return r.get('blueprint',{}).get('skippedLinks',[]),r.get('pendingLinks',[])
+assert all(skips(ar[x])==skips(br[x]) for x in br if x!=RID)
+assert {k:v for k,v in ar.items() if k!=RID}=={k:v for k,v in br.items() if k!=RID}
+assert {x['id']:x for x in a['stages'] if not x['id'].startswith(RID+':')}=={x['id']:x for x in b['stages'] if not x['id'].startswith(RID+':')}
+summary={'stageDAG':dag(listedstageids,se),'ownDeclarationDAG':dag(nodes,ownedges),'scopedDAG':dag(listedstageids|seen,se|de),'reachableDeclarations':len(seen),'externalDeclarations':sorted(seen-set(nodes)),'baselineLeaves':len(baseref),'requiredPairs':len(pairs),'restructurePairs':len(rspairs),'ownRestructurePairs':sum(s.startswith(RID+':') or t.startswith(RID+':') for s,t in rspairs),'otherPreexistingUnreachableRestructurePairs':len(missing_restructures),'otherUnreachableRestructurePairListSha256':hashlib.sha256(json.dumps(missing_restructures).encode()).hexdigest(),'unresolved':sorted(unresolved),'ownSkippedLinks':[],'ownPendingLinks':[],'otherSkipsMatch':True,'stageEdgesUnchanged':True,'inheritedStageEdgeObjectsUnchanged':True,'newInternalPlanetEdges':sorted(added)}
+
+summary['worldCommit']=immutable_view.BASE
+summary['foreignRoadmapsAndStagesUnchanged']=True
+summary['immutableInputHashes']={path:hashlib.sha256(immutable_view.blob(path)).hexdigest() for path in sorted(immutable_view.READS)}
+print(json.dumps(summary,indent=2))
+```
+
+## Script: projection.py
+
+```python
+"""Admit lemma and example proofs while retaining actual construction bodies."""
+import re
+def admit_lemmas(text):
+ lines=text.splitlines(keepends=True);out=[];i=0
+ while i<len(lines):
+  if re.match(r'^(?:lemma|theorem) |^example\b',lines[i]):
+   j=i+1
+   while j<len(lines)and(not lines[j].strip()or lines[j][0].isspace()):j+=1
+   block=''.join(lines[i:j]);depth=0;pos=None;pending_let=0
+   for k,c in enumerate(block):
+    if c in '([{':depth+=1
+    elif c in ')]}':depth-=1
+    if depth==0 and re.match(r'let(?:I)?\b',block[k:]) and (k==0 or not (block[k-1].isalnum() or block[k-1]=='_')):
+     pending_let+=1
+    if block[k:k+2]==':='and depth==0:
+     if pending_let:pending_let-=1
+     else:pos=k;break
+   assert pos is not None,block
+   out.append(block[:pos]+':= by\n  sorry\n\n');i=j
+  else:out.append(lines[i]);i+=1
+ return ''.join(out)
+def split_imports(text):
+ lines=text.splitlines(keepends=True);last=max(i for i,l in enumerate(lines)if l.startswith('import '))
+ assert all(not l.strip()or l.startswith(('import ','--'))for l in lines[:last+1])
+ return ''.join(lines[:last+1]),''.join(lines[last+1:])
+
+def project(proofs,tests):
+ return admit_lemmas(proofs)+'\n'+admit_lemmas(tests)
+```
+
+## Script: assemble.py
+
+```python
+"""Retain all incoming prefixes and append exact normalization base-change data."""
+from pathlib import Path
+import re
+from projection import project
+S=Path(__file__).resolve().parent
+t=lambda n:(S/n).read_text()
+def prefix(n):
+ text=t(n);imports=t('NewImports.lean');i=text.index('import ');return text[:i]+imports+'\n'+text[i:] if imports.strip() else text
+a=project(t('NewProofs.lean'),t('NewTests.lean'));(S/'NewAdmitted.lean').write_text(a)
+for out,p in [('Canonical.lean','CanonicalPrefix.lean'),('Sketch.lean','SketchPrefix.lean')]:
+ (S/out).write_text(prefix(p)+'\n'+a)
+(S/'Suggested.lean').write_text(t('Canonical.lean'))
+names=re.findall(r'^(?:def|lemma|theorem) ([\w.]+)',t('NewProofs.lean'),re.M)
+audit=''.join('#print axioms TauCeti.RootStack.'+n+'\n'for n in names);(S/'Audits.lean').write_text(audit)
+(S/'Native.lean').write_text(prefix('NativePrefix.lean')+'\n'+t('NewProofs.lean')+'\n'+t('NewTests.lean')+'\n'+audit)
+```
+
 ## Script: compile.py
 
 ```python
@@ -727,166 +531,118 @@ if r.returncode or record['warnings']!=record['admissionWarnings']:
 sys.exit(r.returncode)
 ```
 
+## Script: author.py
+
+```python
+"""Append the actual Over normalization comparison; preserve every incoming node."""
+from pathlib import Path
+import csv,copy,hashlib,json,re,sys
+S=Path(sys.argv[1]).resolve();RID='FunctionFieldArithmeticPartII';NS='TauCeti.RootStack.'
+t=lambda n:(S/n).read_text()
+data=lambda n:json.loads(t(n))
+def put(n,x): (S/n).write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+old=data('Incoming.json');p=copy.deepcopy(old);rd=data('Incoming-roadmap.json')
+owned={n.get('declarationName','')[len(NS):]:n['id'] for n in old['nodes']}
+items=[
+('FramedRoot.normalizationOverBaseChangeIso','normalization-over-iso','The normalization comparison over the changed base','For every positive n and actual chosen-frame root p over B, construct an isomorphism in Over(Spec C) from the normalization of the changed root to the native Over.pullback of its original normalization cover along Spec(phi). Its underlying scheme isomorphism is the existing normalizationBaseChangeIso followed by native pullback symmetry. The target has normalization first and Spec(phi) second.', ['FramedRoot.normalizationBaseChangeIso','FramedRoot.normalizationBaseChangeIso_hom_fst','mathlib:CategoryTheory.Over.isoMk','mathlib:CategoryTheory.Over.pullback','mathlib:CategoryTheory.Limits.pullbackSymmetry','mathlib:CategoryTheory.Limits.pullbackSymmetry_hom_comp_snd'],'Use the existing native Cartesian scheme comparison, then native pullback symmetry to match Over.pullback. Its second projection is the changed normalization structure map, giving the required Over triangle.'),
+('FramedRoot.normalizationOverBaseChangeIso_hom_fst','normalization-over-hom-first','The original-cover projection of the Over comparison','The underlying forward component followed by the first projection of the native Over.pullback equals Spec(normalizationChange(phi,p)), the actual map to the original normalization scheme.', ['FramedRoot.normalizationOverBaseChangeIso','FramedRoot.normalizationBaseChangeIso_hom_snd','mathlib:CategoryTheory.Limits.pullbackSymmetry_hom_comp_fst'],'Compute the composite through symmetry and use the existing second-projection equation.'),
+('FramedRoot.normalizationOverBaseChangeIso_hom_snd','normalization-over-hom-second','The changed-base projection of the Over comparison','The underlying forward component followed by the second projection of the native Over.pullback equals the changed root normalizationSpecMap to Spec C.', ['FramedRoot.normalizationOverBaseChangeIso','FramedRoot.normalizationBaseChangeIso_hom_fst','mathlib:CategoryTheory.Limits.pullbackSymmetry_hom_comp_snd'],'Compute the composite through symmetry and use the existing first-projection equation.'),
+('FramedRoot.normalizationOverBaseChangeIso_inv_fst','normalization-over-inverse-first','The original-cover projection of the inverse comparison','The underlying inverse component followed by Spec(normalizationChange(phi,p)) equals the first projection of the native Over.pullback.', ['FramedRoot.normalizationOverBaseChangeIso_hom_fst','mathlib:CategoryTheory.Over.inv_left_hom_left'],'Substitute the forward first projection and use the actual Over isomorphism roundtrip.'),
+('FramedRoot.normalizationOverBaseChangeIso_inv_snd','normalization-over-inverse-second','The changed-base projection of the inverse comparison','The underlying inverse component followed by the changed normalizationSpecMap equals the second projection of the native Over.pullback.', ['FramedRoot.normalizationOverBaseChangeIso_hom_snd','mathlib:CategoryTheory.Over.inv_left_hom_left'],'Substitute the forward second projection and use the actual Over isomorphism roundtrip.'),
+('FramedRoot.normalizationOverBaseChangeIso_naturality','normalization-over-naturality','Naturality in all actual framed arrows','For every actual framed arrow h:p to q, changing h and then applying the Over comparison equals applying the comparison at p and then the actual Over.pullback image of normalizationFunctor.map h. This is equality of actual Over morphisms with all unit labels retained.', ['FramedRoot.normalizationOverBaseChangeIso_hom_fst','FramedRoot.normalizationOverBaseChangeIso_hom_snd','normalizationChangeNatTrans','FramedRoot.normalizationRingMap_overBase','mathlib:CategoryTheory.Over.OverMorphism.ext','mathlib:CategoryTheory.Limits.pullback.hom_ext','mathlib:CategoryTheory.Limits.pullback.lift_fst','mathlib:CategoryTheory.Limits.pullback.lift_snd','mathlib:CategoryTheory.Over.pullback'],'Use Over morphism extensionality and both native pullback projections. The first equation is the existing normalization-change naturality law; the second is the changed arrow base triangle.'),
+('normalizationBaseChangeNatIso','normalization-base-change-natural-iso','The natural base-change isomorphism of normalization functors','For every positive n and arbitrary A-algebra homomorphism phi:B to C, construct a native natural isomorphism from framedRootChange(phi) followed by normalizationFunctor over C to normalizationFunctor over B followed by native Over.pullback along Spec(phi). Its components are the actual normalizationOverBaseChangeIso.', ['FramedRoot.normalizationOverBaseChangeIso','FramedRoot.normalizationOverBaseChangeIso_naturality','mathlib:CategoryTheory.NatIso.ofComponents'],'Apply native NatIso.ofComponents to the actual Over isomorphisms and the proved equality for every framed arrow. Native inverse naturality and both functor roundtrips follow from this constructor.'),
+('normalizationBaseChangeNatIso_app','normalization-base-change-natural-component','Components of the normalization natural isomorphism','The component at p of normalizationBaseChangeNatIso(phi) is exactly p.normalizationOverBaseChangeIso(phi).', ['normalizationBaseChangeNatIso'],'Compute the native NatIso.ofComponents component.'),
+('normalizationPullbackProjection','normalization-pullback-projection','The native projection of pulled-back normalization covers','Specialize the counit of the existing native Over.map/Over.pullback adjunction to normalizationFunctor and forget the base. This gives a native natural transformation from the pulled-back normalization schemes over C to the original normalization schemes over B, with first-pullback-projection components. This is an adapter of existing generic categorical infrastructure, not a new generic pullback construction.', ['normalizationFunctor','mathlib:CategoryTheory.Over.pullback','mathlib:CategoryTheory.Over.mapPullbackAdj','mathlib:CategoryTheory.Over.forget'],'Whisker the native adjunction counit by normalizationFunctor on the left and Over.forget on the right. Over.map changes the base triangle while retaining the underlying scheme and arrow.'),
+('normalizationPullbackProjection_app','normalization-pullback-projection-component','Components of the native normalization projection','The component at p of normalizationPullbackProjection(phi) is the first projection from the native pullback of p.normalizationSpecMap and Spec(phi).', ['normalizationPullbackProjection'],'Compute the native adjunction counit and both whiskerings.'),
+('normalizationPullbackProjection_base','normalization-pullback-projection-base','The base triangle of the pulled-back cover','The component projection to the original normalization scheme followed by p.normalizationSpecMap equals the second pullback projection to Spec C followed by Spec(phi).', ['normalizationPullbackProjection_app','mathlib:CategoryTheory.Limits.pullback.condition'],'Use the existing native pullback condition with normalization first and Spec(phi) second.'),
+('normalizationPullbackProjection_naturality','normalization-pullback-projection-arrows','Arrow compatibility of the pulled-back cover projection','For every actual h:p to q, the underlying scheme map of Over.pullback(normalizationFunctor.map h) followed by the projection at q equals the projection at p followed by the original normalizationFunctor.map h.', ['normalizationPullbackProjection'],'Apply the naturality of the actual whiskered native adjunction counit.'),
+('normalizationBaseChangeNatIso_projection','normalization-natural-iso-projection','Recovery of the original normalization-change transformation','Forget the Over base of the whole forward normalizationBaseChangeNatIso and compose with normalizationPullbackProjection. The resulting native natural transformation equals normalizationChangeNatTrans(phi) exactly.', ['normalizationBaseChangeNatIso_app','normalizationPullbackProjection_app','FramedRoot.normalizationOverBaseChangeIso_hom_fst','normalizationChangeNatTrans'],'Use natural-transformation extensionality and the forward original-cover projection at every actual framed root.'),
+('normalizationBaseChangeNatIso_chart','normalization-natural-iso-chart','Transport of the whole normalized chart transformation','The forgotten forward normalizationBaseChangeNatIso followed by normalizationPullbackProjection and the original normalizationChartNatTrans equals the left whiskering of the changed normalizationChartNatTrans by framedRootChange(phi), as whole native natural transformations.', ['normalizationBaseChangeNatIso_projection','normalizationChangeNatTrans_chart'],'Reassociate the actual natural transformations, recover normalizationChangeNatTrans, then apply its existing whole chart-factorization equation.'),
+('normalizationBaseChangeNatIso_inverse_projection','normalization-natural-iso-inverse-projection','Recovery of the pullback projection through the inverse','The forgotten inverse normalizationBaseChangeNatIso followed by normalizationChangeNatTrans(phi) equals normalizationPullbackProjection(phi), as whole native natural transformations.', ['normalizationBaseChangeNatIso_app','normalizationPullbackProjection_app','FramedRoot.normalizationOverBaseChangeIso_inv_fst','normalizationChangeNatTrans'],'Use natural-transformation extensionality and the inverse original-cover projection at each actual framed root.'),
+('normalizationBaseChangeNatIso_inverse_chart','normalization-natural-iso-inverse-chart','Inverse transport of the whole normalized chart transformation','The forgotten inverse normalizationBaseChangeNatIso followed by the changed chart transformation whiskered by framedRootChange(phi) equals normalizationPullbackProjection followed by the original chart transformation.', ['normalizationBaseChangeNatIso_inverse_projection','normalizationChangeNatTrans_chart'],'Substitute the existing chart factorization, reassociate, and use the whole inverse projection identity.')]
+testdata=[
+('over_projections_roundtrips','compatibility','For arbitrary positive exponent, check both forward and inverse projections in the native Over category and both actual Over morphism roundtrips.'),
+('whole_chart_transport','compatibility','Check both whole projection-recovery equalities and both whole chart-transport equalities as native natural transformations.'),
+('actual_arrow_naturality','compatibility','For every actual framed arrow, check forward and inverse naturality as actual Over morphisms, retaining all unit labels.'),
+('killed_nilpotent','non-example','For the actual nonflat Z/4 to Z/2 map of Z-algebras and p=(1,2) at n=2,f=0, the normalized chart section z is nonzero with z squared zero and is killed by normalizationChange. The actual natural-isomorphism component followed by its pullback projection still gives the changed chart map.'),
+('collapsed_stabilizer','non-example','For the same quotient and the zero-section root p=(1,0), the minus-one framed automorphism is nonidentity over Z/4 but becomes identity over Z/2. Naturality of the actual Over comparison proves the pullback of its normalization arrow is identity; no faithfulness of the coefficient-change functor or pullback is asserted.'),
+('wild_exponent','degenerate','Over Z/3 at exponent3 and f=0, the exponent vanishes in the coefficient ring while the actual Over comparison roundtrip and pulled-back cover base triangle hold for every change of test Z-algebra.'),
+('exponent_one','degenerate','At exponent one over arbitrary test algebras, the changed normalized chart root is the image of f, and the natural-isomorphism component followed by the native pullback projection recovers normalizationChangeNatTrans.'),
+('zero_ring','degenerate','Over the zero ring Z/1 at exponent3, the actual inverse Over roundtrip and pulled-back cover base triangle hold without choosing any spectrum point.')]
+tests=[dict(name=NS+'normalizationNatIsoTests.'+n,kind=k,statement=st)for n,k,st in testdata]
+construct={'FramedRoot.normalizationOverBaseChangeIso','normalizationBaseChangeNatIso','normalizationPullbackProjection'}
+ids={n:RID+':RS.0/'+slug for n,slug,*_ in items};lookup={**owned,**ids}
+api_for={
+ 'FramedRoot.normalizationOverBaseChangeIso':[x[0]for x in items[1:6]],
+ 'normalizationBaseChangeNatIso':['normalizationBaseChangeNatIso_app','normalizationBaseChangeNatIso_projection','normalizationBaseChangeNatIso_chart','normalizationBaseChangeNatIso_inverse_projection','normalizationBaseChangeNatIso_inverse_chart'],
+ 'normalizationPullbackProjection':['normalizationPullbackProjection_app','normalizationPullbackProjection_base','normalizationPullbackProjection_naturality']}
+test_for={'FramedRoot.normalizationOverBaseChangeIso':[0,2,3,5,7], 'normalizationBaseChangeNatIso':[1,2,3,4,5,6,7], 'normalizationPullbackProjection':[1,5,6,7]}
+common=['Commutative rings A,B,C in a common arbitrary universe, specified A-algebra structures on B and C, arbitrary A-algebra homomorphism phi:B to C, arbitrary f in A and positive natural n expressed by the native NeZero instance. Actual chosen-frame roots carry bundled units u, sections y and u*y^n=image(f); actual arrows retain both defining equations and their unit labels.', 'No flatness, injectivity or surjectivity of phi, exponent-invertibility, reducedness, nontriviality or section-regularity is assumed. No root section is cancelled.', 'This is the finite chosen-frame normalization interface. Native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open.']
+statements={x[0]:x[3]for x in items}
+source=dict(sourceId='NormalizationOver-codex-5ebb6f',locator='Stacks Section26.17 tag01JO: Definition26.17.1 and Lemma26.17.2; authored normalization functor deductions using pinned Over.pullback and its adjunction',excerpt='projection morphisms',match='The source gives the scheme fibre-product universal property and affine tensor interpretation. The exact Over comparison, adjunction-counit adapter and chart natural-transformation equations are authored deductions from the authenticated normalization maps, not theorems quoted from the source.')
+nodes=[]
+for name,slug,title,st,deps,proof in items:
+ node=dict(id=ids[name],parentStageId=RID+':RS.0',realises=[RID+':RS.0'],kind='construction'if name in construct else'lemma',title=title,declarationName=NS+name,statement=st,hypotheses=common,prerequisites=[d if d.startswith(('mathlib:','tauceti:'))else lookup[d] for d in deps],proofSteps=[proof],acceptance=[st,'Use the actual pinned Over.pullback functor and its native adjunction, actual framed arrows and actual scheme morphisms; retain nonflat changes, wild exponents, nonzero nilpotent sections and the zero ring.'],library=dict(module='TauCeti/AlgebraicGeometry/RootStacks/RS0',namespace='TauCeti.RootStack'),sources=[source],api=[],tests=[],implementationStatus='unchecked')
+ if name in construct:
+  node['api']=[dict(name=NS+n,role='compatibility',statement=statements[n])for n in api_for[name]]
+  node['tests']=[tests[i]for i in test_for[name]]
+  node['uses']=[dict(where=RID+':RS.0/normalization-arrows-functor',how='Compare the actual faithful normalization cover functor with its native pullback over a changed test algebra, including both projections and all framed arrow labels.'),dict(where=RID+':RS.0/root-object',how='Supply an actual functor-level affine cover and normalized-chart comparison for the still-open native sheaf RootObject comparison and descent interfaces. No general root stack equivalence is inferred.')]
+ nodes.append(node)
+frontier='For every positive exponent and arbitrary change of test A-algebra, the actual chosen-frame normalization functor now has a native natural isomorphism over Spec C with the native Over.pullback of the normalization functor over Spec B. Its components use the existing chosen scheme comparison followed by native symmetry; both forward and inverse projections and actual framed-arrow naturality are specified. The actual native adjunction counit, specialized to normalization, recovers the previous normalizationChangeNatTrans through this isomorphism, and the whole normalized-chart natural transformation transports in both directions. The nonflat Z/4 to Z/2 tests kill a nonzero square-zero section and collapse a nonidentity minus-one stabilizer; no faithfulness of coefficient change or pullback is asserted. Wild exponents and zero rings are retained. General native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes, the full omission ledger and inherited source findings retain their scope.'
+p['nodes']+=nodes;p['summary']+=' '+frontier
+p['sources'].append(dict(id='NormalizationOver-codex-5ebb6f',title='Fibre products of schemes and authored normalization comparisons over the changed base',authors='The Stacks Project Authors; normalization deductions Codex — codex-5ebb6f',edition='Current primary Section26.17 tag01JO, read4October2026; pinned native categorical interfaces',url='https://stacks.math.columbia.edu/tag/01JO',sha256=hashlib.sha256((S/'Stacks-01JO.html').read_bytes()).hexdigest(),accessed='2026-10-04',readSections=['Complete Section26.17, Definitions26.17.1/.7, Lemmas26.17.2–.6 and their printed proofs and eight comments; selected geometric context only.','Subsection112.5.13 tag04V8 complete narrative and literature references; context only. No new reading of the complete inherited Yun–Zhang or symplectic papers is claimed.']))
+refs=sorted({d for n in nodes for d in n['prerequisites']if d.startswith('mathlib:')}-{d['ref']for d in p['baseline']['declarations']})
+index={(x['library'],x['name']):x for x in csv.DictReader(open(sys.argv[2]),delimiter='\t')}
+provides={
+ 'CategoryTheory.Limits.pullback.condition':'For f:X to Z and g:Y to Z with their native pullback, the first projection followed by f equals the second projection followed by g.',
+ 'CategoryTheory.Limits.pullbackSymmetry':'For any category and a chosen pullback of f and g, the native isomorphism from pullback(f,g) to pullback(g,f).',
+ 'CategoryTheory.Limits.pullbackSymmetry_hom_comp_fst':'The forward pullback symmetry followed by the target first projection equals the source second projection.',
+ 'CategoryTheory.Limits.pullbackSymmetry_hom_comp_snd':'The forward pullback symmetry followed by the target second projection equals the source first projection.',
+ 'CategoryTheory.NatIso.ofComponents':'Objectwise isomorphisms of two native functors satisfying forward naturality give a native natural isomorphism; the constructor proves inverse naturality by conjugating the forward equation.',
+ 'CategoryTheory.Over.inv_left_hom_left':'For an isomorphism in Over X, its underlying inverse followed by its underlying forward map equals the identity of the target underlying object.',
+ 'CategoryTheory.Over.isoMk':'An underlying-object isomorphism between two Over X objects whose forward map respects the structure map gives an actual isomorphism in Over X.',
+ 'CategoryTheory.Over.mapPullbackAdj':'For f:X to Y in a category with pullbacks along f, the native adjunction Over.map f left adjoint to Over.pullback f; its counit underlying map is the first pullback projection.',
+ 'CategoryTheory.Over.pullback':'For f:X to Y in a category with pullbacks along f, the native functor Over Y to Over X sends g to the second projection of pullback(g.hom,f), and arrows to the universal map with the specified original-object and base projections.'}
+for ref in refs:
+ x=index[tuple(ref.split(':',1))];p['baseline']['declarations'].append(dict(ref=ref,kind=x['kind'],module=x['file'],line=int(x['line']),provides=provides[x['name']],checked='Codex — codex-5ebb6f read the actual pinned statement and surrounding variables on4October2026; Reading.json records bounded ranges.'))
+next(x for x in p['coverage']if x['stageId']==RID+':RS.0')['remaining'].append(frontier)
+next(x for x in p['gaps']if x['id']=='TOWER-TYPING')['detail']+=' '+frontier
+next(x for x in rd['stages']if x['key']=='RS.0')['description']+=' '+frontier
+put('Candidate.json',p);put('Candidate-roadmap.json',rd);put('NewNodes.json',nodes);put('NewTests.json',tests)
+put('Plan.json',dict(newNames=[NS+x[0]for x in items],newBaselineRefs=refs,frontier=frontier,oldNodes=len(old['nodes']),newNodes=len(nodes),newAPIItems=sum(len(n['api'])for n in nodes),newTestReferences=sum(len(n['tests'])for n in nodes),newTests=len(tests)))
+reader=['# Native normalization base-change comparison over the changed base','',frontier,'','Let Dp=B[T]/(T^n-u) for the actual framed root p=(u,y). For phi:B to C, Mathlib’s native Over.pullback uses the scheme pullback with Dp first and Spec C second. The earlier normalizationBaseChangeIso uses the reversed order. Compose that actual scheme isomorphism with native pullback symmetry and check the second projection to construct its Over(Spec C) isomorphism. Naturality follows by checking both scheme projections, with the existing normalization-change naturality supplying the first and the changed arrow base triangle the second. NatIso.ofComponents supplies the actual inverse naturality and functor roundtrips.','', 'The projection adapter is precisely a whiskering of Mathlib’s existing adjunction counit. Its generic categorical content remains a baseline import. Through the new natural isomorphism it recovers the earlier normalizationChangeNatTrans as a whole natural transformation, so both forward and inverse normalized-chart transport follow from the existing chart factorization. These actual Over functors remain distinct from general line-bundle root groupoids and their geometric descent.','']
+for n in nodes:
+ reader += ['## '+n['title'],'','`'+n['declarationName']+'`. '+n['statement'],'',' '.join(n['hypotheses']),'','Proof: '+n['proofSteps'][0],'','Prerequisites: '+', '.join('`'+d+'`'for d in n['prerequisites'])+'.','']
+ for a in n['api']:reader+=['API `'+a['name']+'`: '+a['statement'],'']
+ for a in n['tests']:reader+=['Test `'+a['name']+'` ('+a['kind']+'): '+a['statement'],'']
+reader+=['The [Stacks fibre-product section](https://stacks.math.columbia.edu/tag/01JO) supplies the geometric universal-property context; the exact normalization comparisons above are authored deductions. The [root-stack literature guide](https://stacks.math.columbia.edu/tag/04V8) supplies the finite-root literature context. All inherited source omissions, source issues, route assignments and geometric supplier requests remain recorded below.','']
+(S/'ReaderAddition.md').write_text('\n'.join(reader)+'\n');(S/'Reader.md').write_text(t('ReaderAddition.md')+t('IncomingReader.md'))
+print(json.dumps(data('Plan.json'),ensure_ascii=False,indent=2))
+```
+
 ## Script: package.py
 
 ```python
-"""Archive only named job evidence in an inert comment; write final public recovery."""
+"""Publish complete selected proof artifacts in an inert suggested-file ancestor."""
 from pathlib import Path
-import base64,hashlib,json,re,sys,zlib
-S=Path(sys.argv[1]).resolve();R=Path.cwd();mode=sys.argv[2]
-STEM='FunctionFieldArithmeticPartII'
-suggested=R/'research/blueprint/suggested'/(STEM+'.lean')
-sha=lambda b:hashlib.sha256(b).hexdigest()
-NAMES='''Incoming-roadmap.json Incoming.json IncomingReader.md Incoming.lean IncomingHandoff.md IncomingManifest.json IncomingReceipt.json
-IncomingPublicationVerification-replayed.json IncomingMathematicalVerification-replayed.json NativePrefix.lean CanonicalPrefix.lean SketchPrefix.lean NewImports.lean
-Native.lean Native.log Native.receipt.json Canonical.lean Sketch.lean Sketch.log Sketch.receipt.json
-NewProofs.lean NewTests.lean NewAdmitted.lean Audits.lean Candidate-roadmap.json Candidate.json Reader.md ReaderAddition.md Suggested.lean Handoff.md HandoffBase.md
-ClaimReceipt.json Reading.json SourceReading.json BaselineReading.json OwnReadingReuse.json OwnContractGuard.json OwnPreviousReading.json OwnPreviousInputGuard.json OwnPreviousManifest.json OwnPreviousCandidate.json OwnInheritedManifest.json OwnInheritedReading.json OwnInheritedInputGuard.json OwnInheritedReadingReceipt.json OwnOriginal6036Reading.json OwnPreviousRecovery.json Stacks-04V8.html Stacks-01JO.html LibrarySearch.json TauProbe.json
-InputGuard.json PublicationChanges.json Plan.json NewNodes.json NewTests.json PreviousRecovery.json Verification-mathematical.json Verification.json
-TouchingLinks.json Graph.json base.txt publication-base.txt Context.lean Context.log Context.receipt.json Prototype.lean Prototype.log Prototype.receipt.json
-assemble.py author.py projection.py write_handoff.py verify.py graph.py immutable_view.py compile.py runcheck.py package.py'''.split()
-if mode=='archive':
- meta={n:dict(sha256=sha((S/n).read_bytes()),bytes=len((S/n).read_bytes()),lines=len((S/n).read_bytes().splitlines()))for n in NAMES}
- mb=(json.dumps(meta,indent=2,sort_keys=True)+'\n').encode();(S/'artifact-manifest.json').write_bytes(mb)
- payload={n:dict(sha256=sha((S/n).read_bytes()),data=base64.b64encode(zlib.compress((S/n).read_bytes(),9)).decode())for n in NAMES+['artifact-manifest.json']}
- pb=(json.dumps(payload,sort_keys=True,separators=(',',':'))+'\n').encode();(S/'payload.json').write_bytes(pb)
- report=dict(artifacts=len(NAMES),helpers=sum(n.endswith('.py')for n in NAMES),manifestSha256=sha(mb),payloadSha256=sha(pb))
- (S/'package.json').write_text(json.dumps(report,indent=2)+'\n')
- suggested.write_bytes((S/'Suggested.lean').read_bytes()+b'\n/- BEGIN ARCHIVED THREE-STEP NORMALIZATION PULLBACK PAYLOAD\n'+pb+b'END ARCHIVED THREE-STEP NORMALIZATION PULLBACK PAYLOAD -/\n')
- print(json.dumps(report,indent=2))
-elif mode=='final':
- archive=sys.argv[3];assert re.fullmatch('[0-9a-f]{40}',archive)
- p=json.loads((S/'package.json').read_text());expected={k:sha((S/n).read_bytes())for k,n in [('roadmaps','Candidate-roadmap.json'),('packets','Candidate.json'),('readmes','Reader.md'),('suggested','Suggested.lean')]}
- code='''"""Recover public authenticated three-step normalization pullback evidence; never executes Lean."""
-from pathlib import Path
-import base64,hashlib,json,re,sys,urllib.request,zlib
-S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
-HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
-ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
-RID='FunctionFieldArithmeticPartII'
-ARCHIVE=__ARCHIVE__
-MANIFEST_SHA=__MANIFEST__
-PAYLOAD_SHA=__PAYLOAD__
-EXPECTED=__EXPECTED__
-sha=lambda b:hashlib.sha256(b).hexdigest()
-def fetch(ref,path):
- with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
-raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
-pb=raw.split('/- BEGIN ARCHIVED THREE-STEP NORMALIZATION PULLBACK PAYLOAD\\n',1)[1].split('END ARCHIVED THREE-STEP NORMALIZATION PULLBACK PAYLOAD -/',1)[0].encode()
-assert sha(pb)==PAYLOAD_SHA
-payload=json.loads(pb)
-def unpack(name):
- b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
- return b
-mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
-assert set(payload)==set(meta)|{'artifact-manifest.json'}
-for name,m in meta.items():
- assert Path(name).name==name and name not in {'.','..'}
- b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
- (S/name).write_bytes(b)
+import base64,gzip,hashlib,json,sys
+S=Path(sys.argv[1]).resolve();sha=lambda b:hashlib.sha256(b).hexdigest()
+names=['Audits.lean','Candidate-roadmap.json','Candidate.json','Canonical.lean','CanonicalPrefix.lean','ClaimReceipt.json','Context.lean','Context.log','Context.receipt.json','Graph.json','Incoming-roadmap.json','Incoming.json','Incoming.lean','IncomingHandoff.md','IncomingReader.md','IncomingReceipt.json','IncomingVerification-publication.json','IncomingVerification-mathematical.json','InputGuard.json','LibrarySearch.json','Native.lean','Native.log','Native.receipt.json','NativePrefix.lean','NewAdmitted.lean','NewImports.lean','NewNodes.json','NewProofs.lean','NewTests.json','NewTests.lean','Plan.json','Prototype.lean','Prototype.log','Prototype.receipt.json','Reader.md','ReaderAddition.md','Reading.json','Sketch.lean','Sketch.log','Sketch.receipt.json','SketchPrefix.lean','SourceReading.json','Stacks-01JO.html','Stacks-04V8.html','Suggested.lean','TauProbe.json','Verification.json','base.txt','publication-base.txt','recover.py','verify.py','immutable_view.py','graph.py','projection.py','assemble.py','compile.py','runcheck.py','author.py','package.py']
+names+=['incoming/'+p.name for p in sorted((S/'incoming').iterdir())if p.is_file()and p.suffix not in ['.olean','.ilean']]
+assert len(names)==len(set(names))
+manifest={};artifacts={}
+for n in names:
+ b=(S/n).read_bytes();manifest[n]=dict(sha256=sha(b),bytes=len(b),lines=len(b.splitlines()));artifacts[n]=base64.b64encode(b).decode()
+mb=(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n').encode();payload=gzip.compress(json.dumps(artifacts,separators=(',',':')).encode(),mtime=0)
 (S/'artifact-manifest.json').write_bytes(mb)
-public={}
-for folder,ext,name in [('roadmaps','json','Candidate-roadmap.json'),('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','PublicHandoff.md')]:
- path='research/blueprint/'+folder+'/'+('DESIGN-'if folder=='handoff'else'')+RID+'.'+ext
- b=fetch(HEAD,path)
- if folder in EXPECTED:assert sha(b)==EXPECTED[folder]and b==(S/name).read_bytes(),path
- (S/name).write_bytes(b);public[path]=sha(b)
-(S/(RID+'.json')).write_bytes((S/'Candidate.json').read_bytes())
-fence=chr(96)*3;handoff=(S/'PublicHandoff.md').read_text()
-assert handoff.startswith((S/'HandoffBase.md').read_text())
-code=handoff.split('## Script: recover.py\\n\\n'+fence+'python\\n',1)[1].split('\\n'+fence+'\\n',1)[0]+'\\n'
-assert code==Path(__file__).read_text(),'Executed recovery script differs from public handoff.'
-for helper in meta:
- if helper.endswith('.py'):
-  embedded=handoff.split('## Script: '+helper+'\\n\\n'+fence+'python\\n',1)[1].split('\\n'+fence+'\\n',1)[0]+'\\n'
-  assert embedded.encode()==(S/helper).read_bytes(),helper
-
-(S/'recover.py').write_text(code)
-receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=sum(n.endswith('.py')for n in meta),publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
-(S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\\n');print(json.dumps(receipt,indent=2))
-'''
- for key,val in [('__ARCHIVE__',archive),('__MANIFEST__',p['manifestSha256']),('__PAYLOAD__',p['payloadSha256']),('__EXPECTED__',expected)]:code=code.replace(key,repr(val))
- compile(code,'recover.py','exec');(S/'recover.py').write_text(code)
- prose=f'''
-## Public recovery and replay
-
-Archive commit `{archive}` is an ancestor changing only this issue's suggested file. Its {p['artifacts']} inert artifacts include all {p['helpers']} authoring, projection, handoff, package, verification, graph and compilation helpers. Manifest SHA256 `{p['manifestSha256']}`; payload SHA256 `{p['payloadSha256']}`. The final suggested file has no archive payload and equals the entire Tau-dependent Canonical.lean, which remains UNCOMPILED.
-
-Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the immutable public archive and five final deliverables, authenticates every hash, size and line count, binds this handoff's mathematical prefix and checks its own code against the public handoff. Inspect the recovered helpers. From an existing repository checkout containing both recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the exact prescribed declarations.tsv and place REPLAY_DIR outside the checkout. Its output should equal Verification.json. Set ROOTS_VALIDATE_BASE to the mathematical base to reproduce Verification-mathematical.json. The verifier executes the actual immutable checker, intake and atlas assembler without executing Lean or creating a repository snapshot. It checks the final public handoff as well as all archived artifacts.
-
-Serial proof replay with an existing exact Mathlib build: `python3 REPLAY_DIR/runcheck.py REPLAY_DIR MATHLIB_CHECKOUT LEAN_BINARY Native.lean`, followed by the corresponding Sketch.lean command only after completion. The runner checks pins, tracked cleanliness, compiled dependencies, compiler version, memory≥20GiB and timeout. Canonical.lean and Suggested.lean are byte-equal, but neither whole file was compiled: no existing complete Tau build at the pin is available. The two bounded Mathlib checks certify only their recorded import cones. Recorded diagnostic hashes authenticate the original runs; timing and resource statistics vary on replay.
-
-Actual public HTTP recovery and both immutable verifier reports at the final head are checked before opening the PR. Disposable scratch is removed after submission; this handoff contains all recovery references.
-
-## Script: recover.py
-
-'''
- text=(S/'HandoffBase.md').read_text()+prose+'```python\n'+code+'```\n'
- (S/'PublicHandoff.md').write_text(text)
- (R/'research/blueprint/handoff'/('DESIGN-'+STEM+'.md')).write_text(text)
- suggested.write_bytes((S/'Suggested.lean').read_bytes())
- print(json.dumps(dict(archive=archive,recoverySha256=sha(code.encode()),finalHandoffSha256=sha(text.encode())),indent=2))
-else:raise ValueError(mode)
-```
-
-## Public recovery and replay
-
-Archive commit `5af6a8d2c6d9546ccc3dab272699ebe08aef88d5` is an ancestor changing only this issue's suggested file. Its 79 inert artifacts include all 10 authoring, projection, handoff, package, verification, graph and compilation helpers. Manifest SHA256 `23c81eb43ec04c384f6534c0f526270691ed7d1163f2207eeb0802e7b64f7af3`; payload SHA256 `f7a3ae3633c0965065cac5f9307883948d2e8b7e108c48b47571d8dd5cf70915`. The final suggested file has no archive payload and equals the entire Tau-dependent Canonical.lean, which remains UNCOMPILED.
-
-Save the Python fence below as recover.py and run `python3 recover.py REPLAY_DIR FULL_PR_HEAD_SHA`. It fetches the immutable public archive and five final deliverables, authenticates every hash, size and line count, binds this handoff's mathematical prefix and checks its own code against the public handoff. Inspect the recovered helpers. From an existing repository checkout containing both recorded bases, run `PYTHONDONTWRITEBYTECODE=1 python3 REPLAY_DIR/verify.py REPLAY_DIR DECLARATION_INDEX`. Use the exact prescribed declarations.tsv and place REPLAY_DIR outside the checkout. Its output should equal Verification.json. Set ROOTS_VALIDATE_BASE to the mathematical base to reproduce Verification-mathematical.json. The verifier executes the actual immutable checker, intake and atlas assembler without executing Lean or creating a repository snapshot. It checks the final public handoff as well as all archived artifacts.
-
-Serial proof replay with an existing exact Mathlib build: `python3 REPLAY_DIR/runcheck.py REPLAY_DIR MATHLIB_CHECKOUT LEAN_BINARY Native.lean`, followed by the corresponding Sketch.lean command only after completion. The runner checks pins, tracked cleanliness, compiled dependencies, compiler version, memory≥20GiB and timeout. Canonical.lean and Suggested.lean are byte-equal, but neither whole file was compiled: no existing complete Tau build at the pin is available. The two bounded Mathlib checks certify only their recorded import cones. Recorded diagnostic hashes authenticate the original runs; timing and resource statistics vary on replay.
-
-Actual public HTTP recovery and both immutable verifier reports at the final head are checked before opening the PR. Disposable scratch is removed after submission; this handoff contains all recovery references.
-
-## Script: recover.py
-
-```python
-"""Recover public authenticated three-step normalization pullback evidence; never executes Lean."""
-from pathlib import Path
-import base64,hashlib,json,re,sys,urllib.request,zlib
-S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True)
-HEAD=sys.argv[2];assert re.fullmatch('[0-9a-f]{40}',HEAD)
-ROOT='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
-RID='FunctionFieldArithmeticPartII'
-ARCHIVE='5af6a8d2c6d9546ccc3dab272699ebe08aef88d5'
-MANIFEST_SHA='23c81eb43ec04c384f6534c0f526270691ed7d1163f2207eeb0802e7b64f7af3'
-PAYLOAD_SHA='f7a3ae3633c0965065cac5f9307883948d2e8b7e108c48b47571d8dd5cf70915'
-EXPECTED={'roadmaps': '9790e0a62e05671abbbecef78d2e4d56a462af3b2407fd840b2130803b539543', 'packets': '9b24d43753bdd118bb47d6e29c373147a61f1d91812bc292f8081207810812cb', 'readmes': 'd35662f4548d0bd568df21efccdf1879fb6fdc48f59303fb011362dee0c69642', 'suggested': '3c7a9dc5a7bdd8fcea02e29e5856d01aaedadd5d26e957170e4ed9eba36287de'}
-sha=lambda b:hashlib.sha256(b).hexdigest()
-def fetch(ref,path):
- with urllib.request.urlopen(ROOT+ref+'/'+path,timeout=30)as r:return r.read()
-raw=fetch(ARCHIVE,'research/blueprint/suggested/'+RID+'.lean').decode()
-pb=raw.split('/- BEGIN ARCHIVED THREE-STEP NORMALIZATION PULLBACK PAYLOAD\n',1)[1].split('END ARCHIVED THREE-STEP NORMALIZATION PULLBACK PAYLOAD -/',1)[0].encode()
-assert sha(pb)==PAYLOAD_SHA
-payload=json.loads(pb)
-def unpack(name):
- b=zlib.decompress(base64.b64decode(payload[name]['data']));assert sha(b)==payload[name]['sha256'],name
- return b
-mb=unpack('artifact-manifest.json');assert sha(mb)==MANIFEST_SHA;meta=json.loads(mb)
-assert set(payload)==set(meta)|{'artifact-manifest.json'}
-for name,m in meta.items():
- assert Path(name).name==name and name not in {'.','..'}
- b=unpack(name);assert sha(b)==m['sha256']and len(b)==m['bytes']and len(b.splitlines())==m['lines'],name
- (S/name).write_bytes(b)
-(S/'artifact-manifest.json').write_bytes(mb)
-public={}
-for folder,ext,name in [('roadmaps','json','Candidate-roadmap.json'),('packets','json','Candidate.json'),('readmes','md','Reader.md'),('suggested','lean','Suggested.lean'),('handoff','md','PublicHandoff.md')]:
- path='research/blueprint/'+folder+'/'+('DESIGN-'if folder=='handoff'else'')+RID+'.'+ext
- b=fetch(HEAD,path)
- if folder in EXPECTED:assert sha(b)==EXPECTED[folder]and b==(S/name).read_bytes(),path
- (S/name).write_bytes(b);public[path]=sha(b)
-(S/(RID+'.json')).write_bytes((S/'Candidate.json').read_bytes())
-fence=chr(96)*3;handoff=(S/'PublicHandoff.md').read_text()
-assert handoff.startswith((S/'HandoffBase.md').read_text())
-code=handoff.split('## Script: recover.py\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
-assert code==Path(__file__).read_text(),'Executed recovery script differs from public handoff.'
-for helper in meta:
- if helper.endswith('.py'):
-  embedded=handoff.split('## Script: '+helper+'\n\n'+fence+'python\n',1)[1].split('\n'+fence+'\n',1)[0]+'\n'
-  assert embedded.encode()==(S/helper).read_bytes(),helper
-
-(S/'recover.py').write_text(code)
-receipt=dict(head=HEAD,archive=ARCHIVE,artifactsVerified=len(meta),archivedHelpersVerified=sum(n.endswith('.py')for n in meta),publicDeliverables=public,recoverySha256=sha(code.encode()),LeanExecuted=False)
-(S/'public-recovery.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
+encoded=base64.b85encode(payload).decode();encoded='\n'.join(encoded[i:i+120]for i in range(0,len(encoded),120))
+archive=(S/'Canonical.lean').read_text()+'\n/-\nTAUCETI-OVER-MANIFEST-BEGIN\n'+base64.b64encode(mb).decode()+'\nTAUCETI-OVER-MANIFEST-END\nTAUCETI-OVER-PAYLOAD-BEGIN\n'+encoded+'\nTAUCETI-OVER-PAYLOAD-END\n-/\n'
+(S/'Archive.lean').write_text(archive)
+archive_sha=sys.argv[2]if len(sys.argv)>2 else'ARCHIVE_PENDING'
+v=json.loads((S/'Verification.json').read_text());g=v['graph'];native=v['compilation']['Native'];sketch=v['compilation']['Sketch']
+lines=['# DESIGN-FunctionFieldArithmeticPartII: normalization over the changed base','', 'Worker: Codex — codex-5ebb6f. Issue3403; partial continuation. All717 nodes remain unchecked and all10 stages partial.','', 'The actual normalization covers now form a native natural isomorphism over Spec C with the native Over.pullback of the normalization functor over Spec B, for positive exponent and arbitrary A-algebra change. Its object components use the prior scheme comparison and native pullback symmetry; all four projection laws and actual framed-arrow naturality are specified. The whiskered native adjunction counit recovers the existing normalizationChangeNatTrans, and the whole normalized-chart natural transformation transports in both directions.','', 'The8 new examples include a nonflat Z/4 to Z/2 map killing a nonzero square-zero section and collapsing a nonidentity minus-one stabilizer. The actual pullback of that normalization arrow becomes identity. No faithfulness of coefficient change or pullback is inferred. Wild exponents and the zero ring remain allowed. The positive-exponent boundary is explicit.','', 'All701 incoming nodes and338 baseline entries are retained as whole objects. This continuation appends16 nodes (3 constructions,13 lemmas),13 API items,8 tests with16 construction references, and9 precisely read native baseline imports. No old API or test is changed. The only existing metadata changes append the frontier to packet summary, RS.0 coverage, TOWER-TYPING detail and RS.0 roadmap description, plus one source entry and the9 baseline imports. All8 gaps,13 requests,40 planets,11 inherited source findings, version envelopes, all38 symplectic route contracts and the complete inherited source/omission ledgers remain intact.','', 'General native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits, higher-universe adapters and all geometric/sheaf/reciprocity suppliers remain open. Resume with the actual native sheaf RootObject-to-chosen-frame comparison and its local frame construction; do not re-plan the now-proved normalization maps, natural isomorphism or chart transport. The higher chosen coherence and general descent comparisons still need their own declarations.','', 'Freshly read the complete issue before/after the bot-confirmed claim; all196 comments mechanically classified. Read the full parent FA.0–FA.7 reviewed audit and REV-AUDIT-20, owned stage descriptions, all gaps/requests/coverage, reserved canonical key and survey/owner records, sourceCoverage table and routing proposal metadata. Earlier same-worker full AlgebraicCurves/JacobianChallenge and both protocols are reused only after fresh byte guards. Fresh pinned statements and surrounding hypotheses are recorded in Reading.json; peer reading receipts remain inherited provenance. No full fresh reading of the1.2MB incoming reader, whole packet/native source, inherited complete papers or symplectic proofs is claimed.','', 'The [Stacks fibre-product section](https://stacks.math.columbia.edu/tag/01JO) was read in full, including its printed proofs and comments; the [root-stack literature guide](https://stacks.math.columbia.edu/tag/04V8) was read in full for context. The exact normalization Over and chart equations are authored deductions, not source quotations. All general categorical operations are native imports, including Over.pullback and its adjunction counit. The bounded open Mathlib root-stack PR search returned0; no exhaustive absence claim is made.','', 'Incoming [PR6087](https://github.com/CBirkbeck/tauceti-explorer/pull/6087), head9ab61ade2f252f0521fce3d75b3041672ee67cd0, was authenticated through public HTTP:79 artifacts,10 helpers and all5 final files exactly matched the claimed-base inputs. Both actual archived verifiers reproduced their recorded mathematical and publication results exactly, with no Lean executed by those verifiers. Their artifacts remain recoverable in incoming/. The complete authenticated native prefix was freshly compiled as Context before prototyping.','', f"Native proof evidence: {native['lines']} lines,422 examples,618 standard-axiom audits plus{native['axiomFreeAudits']} axiom-free audit,0 warnings/errors/admissions; source SHA256 `{native['sourceSha256']}`, log SHA256 `{native['logSha256']}`.",'', f"Mathlib-only admitted canonical cone: {sketch['lines']} lines,422 examples,549 warnings solely from sorry,231 audits without sorryAx; source SHA256 `{sketch['sourceSha256']}`, log SHA256 `{sketch['logSha256']}`.",'', 'The entire canonical Tau Ceti file is UNCOMPILED. The available Tau build is at a different commit and lacks all4 required compiled Tau imports. No Lake setup, updates, cache downloads or library builds were performed. Every Lean run was serial, memory-guarded with at least20GiB available, one thread,8GiB cap and20-minute timeout. Source and log hashes bind the actual checks; successful native evidence does not close the planning implementations or general geometry.','', f"The actual indexed checker, source/version checks and actual intake report0 errors/warnings/problems/refusals. The immutable atlas stage graph has{g['stageDAG']['vertices']} vertices/{g['stageDAG']['edges']} edges; owned declaration graph717/{g['ownDeclarationDAG']['edges']}; scoped graph{g['scopedDAG']['vertices']}/{g['scopedDAG']['edges']}; all acyclic. All89 required supplier paths reach, all foreign roadmap and stage objects and inherited stage-edge objects are unchanged, and this roadmap has no skipped or pending links. The45 unrelated preexisting unreachable restructure pairs remain unchanged. The verifier reads{len(g['immutableInputHashes'])} immutable atlas/checker inputs at base `{v['immutableBase']}` without a repository snapshot.",'', f'Proof archive: `{archive_sha}`',f'Artifact manifest SHA256: `{sha(mb)}`',f'Artifact payload SHA256: `{sha(payload)}`',f'Recovery helper SHA256: `{sha((S/"recover.py").read_bytes())}`','', 'The ancestor contains the complete selected proof sources, logs, receipts, incoming recovery artifacts and all helper bodies in an inert comment in the issue’s suggested Lean file. The final suggested file retains the original canonical prefix and appends the actual construction bodies and admitted lemma/test signatures. No Lean code is placed in the packet or reader. Recovery requires an output directory and the final public head SHA. Run recover.py OUTPUT HEAD, then from an existing repository checkout run python3 OUTPUT/verify.py OUTPUT DECLARATION_INDEX. This replays actual immutable checker/intake/atlas and all source/header/receipt/preservation checks without Lean. Serial compilation can be replayed with compile.py/runcheck.py using an existing exact-pin Mathlib build and Lean binary only.','']
+fence=chr(96)*3
+for n in ['recover.py','verify.py','immutable_view.py','graph.py','projection.py','assemble.py','compile.py','runcheck.py','author.py','package.py']:lines+=['## Script: '+n,'',fence+'python',(S/n).read_text().rstrip(),fence,'']
+(S/'PublicHandoff.md').write_text('\n'.join(lines)+'\n')
+print(json.dumps(dict(artifacts=len(names),manifestSha256=sha(mb),payloadSha256=sha(payload),payloadBytes=len(payload),archiveBytes=len(archive.encode())),indent=2))
 ```
