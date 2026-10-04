@@ -91,7 +91,7 @@ artifacts and replay helpers remain recoverable from this handoff.
     "verify.py": "cfd3960548a5391ba31955a08ba7b8b71c8d18750e14016e463fa67ec24a0ce5",
     "immutable.py": "3c2368dc0c06aa56c565aa2e12625d7bc16eea59e49abd3287962205e7d42f84",
     "compile-pass.py": "7736282c8db846e5c989b24817ac4d8ed0b13ca38fbae576ae98b6d00c9edd81",
-    "recover.py": "0dfc4f9141a4d1237b847366fbc681d2c4348c1ab4f903ed248b84e7b554d7c2"
+    "recover.py": "4b878f50577e6a90e49bc3f0d89a905566847b2c2f13f06b60176db8966d5cad"
   },
   "artifacts": {
     "TargetWorklist.json": {
@@ -432,14 +432,22 @@ sys.exit(result.returncode)
 ```python
 """Authenticate and recover this pass from public HTTP; never execute Lean."""
 from pathlib import Path
-import base64,hashlib,json,re,sys,urllib.request,zlib
+import base64,hashlib,json,re,sys,urllib.request,urllib.error,zlib
 S=Path(sys.argv[1]).resolve();S.mkdir(parents=True,exist_ok=True);head=sys.argv[2]
 assert re.fullmatch('[0-9a-f]{40}',head)
 root='https://raw.githubusercontent.com/CBirkbeck/tauceti-explorer/'
 sha=lambda b:hashlib.sha256(b).hexdigest()
 paths=['research/blueprint/'+d+'/'+('DESIGN-' if d=='handoff' else '')+'AbelianVarietiesIsogenousToNoJacobian.'+e for d,e in [('roadmaps','json'),('packets','json'),('readmes','md'),('suggested','lean'),('handoff','md')]]
 def fetch(path):
- with urllib.request.urlopen(root+head+'/'+path,timeout=30) as r:return r.read()
+ try:
+  with urllib.request.urlopen(root+head+'/'+path,timeout=30) as r:return r.read()
+ except urllib.error.HTTPError as e:
+  if e.code!=404:raise
+  # Newly pushed commits can temporarily have negative raw-CDN entries.
+  # The public contents API still identifies the same immutable commit.
+  url='https://api.github.com/repos/CBirkbeck/tauceti-explorer/contents/'+path+'?ref='+head
+  req=urllib.request.Request(url,headers={'Accept':'application/vnd.github.raw+json'})
+  with urllib.request.urlopen(req,timeout=30) as r:return r.read()
 public={path:fetch(path) for path in paths};handoff=public[paths[-1]].decode()
 meta=json.loads(re.search(r'<!-- NO JACOBIAN PLANNING PASS METADATA\n(.*?)\nEND NO JACOBIAN PLANNING PASS METADATA -->',handoff,re.S).group(1))
 assert meta['base']=='47357504f05b53e03053da25871ed098e547d771'
