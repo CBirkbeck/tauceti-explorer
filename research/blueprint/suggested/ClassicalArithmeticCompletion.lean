@@ -5963,3 +5963,96 @@ example : IsAutomatic 2 (fun n : ℕ => if n = 0 then 7 else n % 2) ∧
     IsAutomatic 3 (fun n : ℕ => if n = 0 then 7 else n % 2) := by sorry
 
 end TauCeti.ClassicalArithmetic
+
+/-! ## Existing CA.5 order-to-unit comparison
+
+Signatures for the already planned and independently reviewed node
+`CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four`.
+These complete that node's four named API entries and four acceptance examples.
+The three later CA.4 level-zero/root-orbit comparison nodes still need typed
+signatures tied to their pending general carrier; see the packet's signature gap.
+-/
+
+namespace TauCeti.ClassicalArithmetic
+
+section QuadraticOrderComparison
+
+open Polynomial NumberField
+
+variable {K : Type*} [Field K] [NumberField K]
+
+/-- Every unit lies in the quadratic order in the residue class `1 mod 8`. -/
+theorem unit_mem_zsqrtd_of_mod_eight_eq_one {d : ℤ} {θ : 𝓞 K}
+    (hθ : θ * θ = d) (hmin : minpoly ℤ θ = X ^ 2 - C d)
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (hd : 1 < d)
+    (hsf : Squarefree d) (hd8 : d % 8 = 1) (u : (𝓞 K)ˣ) :
+    (u : 𝓞 K) ∈ (zsqrtdToRingOfIntegers θ hθ).range := by
+  sorry
+
+/-- In the residue class `5 mod 8`, cubing lands in the quadratic order. -/
+theorem unit_cube_mem_zsqrtd_of_mod_eight_eq_five {d : ℤ} {θ : 𝓞 K}
+    (hθ : θ * θ = d) (hmin : minpoly ℤ θ = X ^ 2 - C d)
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (hd : 1 < d)
+    (hsf : Squarefree d) (hd8 : d % 8 = 5) (u : (𝓞 K)ˣ) :
+    ((u ^ 3 : (𝓞 K)ˣ) : 𝓞 K) ∈ (zsqrtdToRingOfIntegers θ hθ).range ∧
+      ∀ a b ν : ℤ, 2 * (u : 𝓞 K) = a + b * θ →
+        Algebra.norm ℤ (u : 𝓞 K) = ν →
+        2 * (u : 𝓞 K) ^ 3 =
+          (a * (a ^ 2 - 3 * ν) : ℤ) + (b * (a ^ 2 - ν) : ℤ) * θ := by
+  sorry
+
+/-- Negative Pell solubility and the unit norm condition for `d = 1 mod 4`. -/
+theorem negativePell_iff_unit_norm_neg_one_mod_four_one {d : ℤ} {θ : 𝓞 K}
+    (hθ : θ * θ = d) (hmin : minpoly ℤ θ = X ^ 2 - C d)
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (hd : 1 < d)
+    (hsf : Squarefree d) (hd4 : d % 4 = 1) :
+    (∃ x y : ℤ, x ^ 2 - d * y ^ 2 = -1) ↔
+      ∃ u : (𝓞 K)ˣ, Algebra.norm ℤ (u : 𝓞 K) = -1 := by
+  sorry
+
+/-- Cubing preserves the sign of a unit norm in `{1,-1}`. -/
+theorem unit_cube_norm (u : (𝓞 K)ˣ) {ν : ℤ}
+    (hν : ν = 1 ∨ ν = -1) (hu : Algebra.norm ℤ (u : 𝓞 K) = ν) :
+    Algebra.norm ℤ ((u ^ 3 : (𝓞 K)ˣ) : 𝓞 K) = ν ^ 3 ∧ ν ^ 3 = ν := by
+  sorry
+
+/-- `negativePell_half_unit_five`: a half-integral unit is not in the order. -/
+example {θ : 𝓞 K} (hθ : θ * θ = ((5 : ℤ) : 𝓞 K))
+    (hmin : minpoly ℤ θ = X ^ 2 - C (5 : ℤ))
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (u : (𝓞 K)ˣ)
+    (hu : 2 * (u : 𝓞 K) = 1 + θ) :
+    Algebra.norm ℤ (u : 𝓞 K) = -1 ∧
+      (u : 𝓞 K) ∉ (zsqrtdToRingOfIntegers (d := 5) θ hθ).range ∧
+      (u : 𝓞 K) ^ 3 = 2 + θ := by
+  sorry
+
+/-- `negativePell_half_unit_thirteen`: cubing produces the integral solution. -/
+example {θ : 𝓞 K} (hθ : θ * θ = ((13 : ℤ) : 𝓞 K))
+    (hmin : minpoly ℤ θ = X ^ 2 - C (13 : ℤ))
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (u : (𝓞 K)ˣ)
+    (hu : 2 * (u : 𝓞 K) = 3 + θ) :
+    (u : 𝓞 K) ^ 3 = 18 + 5 * θ ∧ (18 : ℤ) ^ 2 - 13 * 5 ^ 2 = -1 := by
+  sorry
+
+/-- `negativePell_order_seventeen`: the residue class where no cube is needed. -/
+example {θ : 𝓞 K} (hθ : θ * θ = ((17 : ℤ) : 𝓞 K))
+    (hmin : minpoly ℤ θ = X ^ 2 - C (17 : ℤ))
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) :
+    4 + θ ∈ (zsqrtdToRingOfIntegers (d := 17) θ hθ).range ∧
+      Algebra.norm ℤ (4 + θ) = -1 ∧
+      ∀ a b : ℤ, Odd a → Odd b → ¬ (a ^ 2 - 17 * b ^ 2 = 4 ∨
+        a ^ 2 - 17 * b ^ 2 = -4) := by
+  sorry
+
+/-- `negativePell_positive_norm_twentyone`: norm `+1` does not solve negative Pell. -/
+example {θ : 𝓞 K} (hθ : θ * θ = ((21 : ℤ) : 𝓞 K))
+    (hmin : minpoly ℤ θ = X ^ 2 - C (21 : ℤ))
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (u : (𝓞 K)ˣ)
+    (hu : 2 * (u : 𝓞 K) = 5 + θ) :
+    (u : 𝓞 K) ^ 3 = 55 + 12 * θ ∧ Algebra.norm ℤ (u : 𝓞 K) = 1 ∧
+      ¬ ∃ x y : ℤ, x ^ 2 - 21 * y ^ 2 = -1 := by
+  sorry
+
+end QuadraticOrderComparison
+
+end TauCeti.ClassicalArithmetic
