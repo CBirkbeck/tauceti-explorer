@@ -1,3 +1,5 @@
+import Mathlib.CategoryTheory.Comma.Over.Basic
+
 import Mathlib.AlgebraicGeometry.Sites.Fpqc
 
 import Mathlib.CategoryTheory.Functor.FullyFaithful
@@ -7080,6 +7082,235 @@ example :
 -- test: framedCoverTests.exponent_zero_finite_presentation
 example (f : A) (p : FramedRoot f 0 B) :
     LocallyOfFinitePresentation p.normalizationSpecMap := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory AlgebraicGeometry
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option linter.style.haveILetI false
+variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
+variable {f : A} {n : ℕ}
+
+def FramedRoot.normalizationRingMap {p q : FramedRoot f n B} (h : p ⟶ q) :
+    AffineRing (q.coefficient : B) n →ₐ[B] AffineRing (p.coefficient : B) n :=
+  AdjoinRoot.liftAlgHom _ (Algebra.ofId B _)
+    (AdjoinRoot.root _ * algebraMap B _ ((h.1⁻¹ : Bˣ) : B)) (by
+      have hu : p.coefficient * h.1⁻¹ ^ n = q.coefficient := by
+        calc
+          _ = (q.coefficient * h.1 ^ n) * h.1⁻¹ ^ n :=
+            congrArg (fun v : Bˣ => v * h.1⁻¹ ^ n) h.2.2.symm
+          _ = _ := by rw [mul_assoc,← mul_pow,mul_inv_cancel,one_pow,mul_one]
+      simp only [Polynomial.eval₂_sub,Polynomial.eval₂_pow,Polynomial.eval₂_X,
+        Polynomial.eval₂_C]
+      change (AdjoinRoot.root _ * algebraMap B _ ((h.1⁻¹ : Bˣ) : B)) ^ n -
+        algebraMap B _ (q.coefficient : B) = 0
+      rw [mul_pow,affineRoot.pow_eq,← map_pow,← map_mul,sub_eq_zero]
+      exact congrArg (algebraMap B _) (congrArg (fun v : Bˣ => (v : B)) hu))
+
+lemma FramedRoot.normalizationRingMap_root {p q : FramedRoot f n B} (h : p ⟶ q) :
+    FramedRoot.normalizationRingMap h (AdjoinRoot.root _) =
+      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (p.coefficient : B)) *
+        algebraMap B _ ((h.1⁻¹ : Bˣ) : B) := by
+  sorry
+
+lemma FramedRoot.normalizationRingMap_coefficients {p q : FramedRoot f n B}
+    (h : p ⟶ q) (b : B) :
+    FramedRoot.normalizationRingMap h
+      (algebraMap B (AffineRing (q.coefficient : B) n) b) =
+        algebraMap B (AffineRing (p.coefficient : B) n) b := by
+  sorry
+
+lemma FramedRoot.normalizationRingMap_identity (p : FramedRoot f n B) :
+    FramedRoot.normalizationRingMap (𝟙 p) = AlgHom.id B _ := by
+  sorry
+
+lemma FramedRoot.normalizationRingMap_composition {p q r : FramedRoot f n B}
+    (h : p ⟶ q) (j : q ⟶ r) :
+    (FramedRoot.normalizationRingMap h).comp (FramedRoot.normalizationRingMap j) =
+      FramedRoot.normalizationRingMap (h ≫ j) := by
+  sorry
+
+variable [NeZero n]
+
+lemma FramedRoot.normalizationRingMap_point {p q : FramedRoot f n B} (h : p ⟶ q) :
+    ((FramedRoot.normalizationRingMap h).restrictScalars A).comp q.normalizationPoint =
+      p.normalizationPoint := by
+  sorry
+
+lemma FramedRoot.normalizationRingMap_injective {p q : FramedRoot f n B} :
+    Function.Injective (FramedRoot.normalizationRingMap : (p ⟶ q) → _) := by
+  sorry
+
+omit [NeZero n] in
+lemma FramedRoot.normalizationRingMap_overBase {p q : FramedRoot f n B} (h : p ⟶ q) :
+    Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom) ≫
+      q.normalizationSpecMap = p.normalizationSpecMap := by
+  sorry
+
+def normalizationFunctor (f : A) (n : ℕ) [NeZero n] :
+    FramedRoot f n B ⥤ Over (Spec (CommRingCat.of B)) where
+  obj p := Over.mk p.normalizationSpecMap
+  map h := Over.homMk
+    (Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom))
+    (FramedRoot.normalizationRingMap_overBase h)
+  map_id p := by
+    apply Over.OverMorphism.ext
+    change Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap (𝟙 p)).toRingHom) = 𝟙 _
+    rw [FramedRoot.normalizationRingMap_identity]
+    exact Spec.map_id _
+  map_comp h j := by
+    apply Over.OverMorphism.ext
+    change Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap (h ≫ j)).toRingHom) =
+      Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom) ≫
+        Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap j).toRingHom)
+    rw [← FramedRoot.normalizationRingMap_composition]
+    exact Spec.map_comp (CommRingCat.ofHom (FramedRoot.normalizationRingMap j).toRingHom)
+      (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom)
+
+lemma normalizationFunctor_obj (f : A) (n : ℕ) [NeZero n] (p : FramedRoot f n B) :
+    (normalizationFunctor f n).obj p = Over.mk p.normalizationSpecMap := by
+  sorry
+
+lemma normalizationFunctor_map (f : A) (n : ℕ) [NeZero n]
+    {p q : FramedRoot f n B} (h : p ⟶ q) :
+    ((normalizationFunctor f n).map h).left =
+      Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom) := by
+  sorry
+
+lemma normalizationFunctor_faithful (f : A) (n : ℕ) [NeZero n] :
+    (normalizationFunctor f n (B := B)).Faithful := by
+  sorry
+
+attribute [instance] normalizationFunctor_faithful
+
+lemma normalizationFunctor_map_isIso (f : A) (n : ℕ) [NeZero n]
+    {p q : FramedRoot f n B} (h : p ⟶ q) :
+    IsIso ((normalizationFunctor f n).map h) := by
+  sorry
+
+lemma normalizationFunctor_cover (f : A) (n : ℕ) [NeZero n] (p : FramedRoot f n B) :
+    Presieve.singleton ((normalizationFunctor f n).obj p).hom ∈
+      Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) := by
+  sorry
+
+lemma FramedRoot.normalizationChartMap_naturality {p q : FramedRoot f n B} (h : p ⟶ q) :
+    Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom) ≫
+      q.normalizationChartMap = p.normalizationChartMap := by
+  sorry
+
+def normalizationChartNatTrans (f : A) (n : ℕ) [NeZero n] :
+    normalizationFunctor f n (B := B) ⋙ Over.forget (Spec (CommRingCat.of B)) ⟶
+      (Functor.const (FramedRoot f n B)).obj (Spec (CommRingCat.of (AffineRing f n))) where
+  app p := p.normalizationChartMap
+  naturality p q h := by
+    change Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom) ≫
+      q.normalizationChartMap = p.normalizationChartMap ≫ 𝟙 _
+    rw [Category.comp_id]
+    exact FramedRoot.normalizationChartMap_naturality h
+
+lemma normalizationChartNatTrans_app (f : A) (n : ℕ) [NeZero n] (p : FramedRoot f n B) :
+    (normalizationChartNatTrans f n).app p = p.normalizationChartMap := by
+  sorry
+
+lemma normalizationChartNatTrans_appTop (f : A) (n : ℕ) [NeZero n] (p : FramedRoot f n B) :
+    (Scheme.ΓSpecIso (CommRingCat.of (AffineRing f n))).inv ≫
+      ((normalizationChartNatTrans f n).app p).appTop ≫
+        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) n))).hom =
+          CommRingCat.ofHom p.normalizationPoint.toRingHom := by
+  sorry
+
+end TauCeti.RootStack
+end
+
+noncomputable section
+namespace TauCeti.RootStack
+open CategoryTheory AlgebraicGeometry
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+set_option linter.style.haveILetI false
+variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
+
+-- test: normalizationArrowTests.generators
+example {f : A} {n : ℕ} {p q : FramedRoot f n B} (h : p ⟶ q) (b : B) :
+    FramedRoot.normalizationRingMap h (AdjoinRoot.root _) =
+      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (p.coefficient : B)) *
+        algebraMap B _ ((h.1⁻¹ : Bˣ) : B) ∧
+    FramedRoot.normalizationRingMap h
+      (algebraMap B (AffineRing (q.coefficient : B) n) b) =
+        algebraMap B (AffineRing (p.coefficient : B) n) b := by
+  sorry
+
+-- test: normalizationArrowTests.functoriality
+example {f : A} {n : ℕ} {p q r : FramedRoot f n B} (h : p ⟶ q) (j : q ⟶ r) :
+    FramedRoot.normalizationRingMap (𝟙 p) = AlgHom.id B _ ∧
+    (FramedRoot.normalizationRingMap h).comp (FramedRoot.normalizationRingMap j) =
+      FramedRoot.normalizationRingMap (h ≫ j) := by
+  sorry
+
+-- test: normalizationArrowTests.actual_scheme_diagram
+example {f : A} {n : ℕ} [NeZero n] {p q : FramedRoot f n B} (h : p ⟶ q) :
+    IsIso ((normalizationFunctor f n).map h) ∧
+    ((normalizationFunctor f n).map h).left ≫ q.normalizationSpecMap = p.normalizationSpecMap ∧
+    ((normalizationFunctor f n).map h).left ≫
+      (normalizationChartNatTrans f n).app q = (normalizationChartNatTrans f n).app p ∧
+    (normalizationFunctor f n).map h ≫ (normalizationFunctor f n).map (Groupoid.inv h) =
+      𝟙 ((normalizationFunctor f n).obj p) ∧
+    Presieve.singleton ((normalizationFunctor f n).obj p).hom ∈
+      Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) := by
+  sorry
+
+-- test: normalizationArrowTests.zero_section_automorphism
+example :
+    ∃ (p : FramedRoot (0 : ZMod 4) 2 (ZMod 4)) (h : p ⟶ p),
+      p.root = 0 ∧ h.1 = -1 ∧
+      (normalizationFunctor (0 : ZMod 4) 2).map h ≠ 𝟙 _ := by
+  sorry
+
+-- test: normalizationArrowTests.nilpotent_section
+example :
+    ∃ (p q : FramedRoot (0 : ZMod 9) 2 (ZMod 9)) (h : p ⟶ q),
+      p.root = 3 ∧ q.root = 6 ∧ h.1 = -1 ∧
+      let z := p.normalizationPoint (AdjoinRoot.root _)
+      FramedRoot.normalizationRingMap h (q.normalizationPoint (AdjoinRoot.root _)) = z ∧
+        z ≠ 0 ∧ z ^ 2 = 0 := by
+  sorry
+
+-- test: normalizationArrowTests.coefficient_change
+example :
+    ∃ (p q : FramedRoot (1 : ZMod 7) 2 (ZMod 7)) (h : p ⟶ q),
+      (p.coefficient : ZMod 7) = 1 ∧ (q.coefficient : ZMod 7) = 2 ∧
+      p.root = 1 ∧ q.root = 2 ∧ (h.1 : ZMod 7) = 2 ∧
+      FramedRoot.normalizationRingMap h (AdjoinRoot.root _) =
+        AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (p.coefficient : ZMod 7)) *
+          algebraMap (ZMod 7) _ 4 ∧
+      ((normalizationFunctor (1 : ZMod 7) 2).map h).left ≫ q.normalizationChartMap =
+        p.normalizationChartMap := by
+  sorry
+
+-- test: normalizationArrowTests.exponent_one
+example (f : A) (p : FramedRoot f 1 B) :
+    Presieve.singleton ((normalizationFunctor f 1).obj p).hom ∈
+      Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) ∧
+    ((Scheme.ΓSpecIso (CommRingCat.of (AffineRing f 1))).inv ≫
+      ((normalizationChartNatTrans f 1).app p).appTop ≫
+        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) 1))).hom).hom
+          (AdjoinRoot.root _) = algebraMap A (AffineRing (p.coefficient : B) 1) f := by
+  sorry
+
+-- test: normalizationArrowTests.zero_ring
+example :
+    let p : FramedRoot (0 : ZMod 1) 3 (ZMod 1) := ⟨1,0,by decide⟩
+    (normalizationFunctor (0 : ZMod 1) 3).map (𝟙 p) = 𝟙 _ ∧
+    Presieve.singleton ((normalizationFunctor (0 : ZMod 1) 3).obj p).hom ∈
+      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 1))) ∧
+    (normalizationChartNatTrans (0 : ZMod 1) 3).app p = p.normalizationChartMap := by
   sorry
 
 end TauCeti.RootStack
