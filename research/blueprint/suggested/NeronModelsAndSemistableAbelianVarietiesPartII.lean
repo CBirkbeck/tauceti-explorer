@@ -1,3 +1,6 @@
+import Mathlib.Topology.ContinuousMap.Basic
+import Mathlib.RingTheory.Spectrum.Prime.Topology
+import Mathlib.CategoryTheory.Limits.Shapes.Pullback.PullbackCone
 /-!
 This file is not the roadmap and is not exhaustive. The companion roadmap document is
 definitive. These statements suggest Lean forms so contributors and reviewers can converge
@@ -6282,6 +6285,144 @@ example :
     let a := (Scheme.ΓSpecIso (.of (ZMod 4))).inv 2
     a ≠ 0 ∧ a ^ 2 = 0 ∧
       ((conductorAdditiveShortComplex (𝟙 P)).f.hom.app (op (⊤ : P.Opens))) a ≠ 0 := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry TopologicalSpace
+
+namespace TauCeti.GenusOne.FerrandPushout
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A B : Type u} [CommRing A] [CommRing B]
+
+lemma conductor_comap_le_iff (φ : A →+* B) (q : Ideal B) :
+    φ.range.conductor.comap φ ≤ q.comap φ ↔ φ.range.conductor ≤ q := by
+  sorry
+
+lemma conductor_prime_eq_of_comap_eq (φ : A →+* B) (p q : PrimeSpectrum B)
+    (h : PrimeSpectrum.comap φ p = PrimeSpectrum.comap φ q)
+    (hp : ¬ φ.range.conductor ≤ p.asIdeal) : p = q := by
+  sorry
+
+lemma conductor_spec_factorsThrough (φ : A →+* B) {T : Type v} [TopologicalSpace T]
+    (y : C(PrimeSpectrum B, T))
+    (z : C(PrimeSpectrum (A ⧸ φ.range.conductor.comap φ), T))
+    (hc : ∀ q : PrimeSpectrum (B ⧸ φ.range.conductor),
+      y (PrimeSpectrum.comap (Ideal.Quotient.mk φ.range.conductor) q) =
+      z (PrimeSpectrum.comap (Ideal.quotientMap φ.range.conductor φ le_rfl) q)) :
+    Function.FactorsThrough y (PrimeSpectrum.comap φ) := by
+  sorry
+
+section Desc
+variable (φ : A →+* B) (hinj : Function.Injective φ) (hint : φ.IsIntegral)
+  {T : Type v} [TopologicalSpace T]
+  (y : C(PrimeSpectrum B, T))
+  (z : C(PrimeSpectrum (A ⧸ φ.range.conductor.comap φ), T))
+  (hc : ∀ q : PrimeSpectrum (B ⧸ φ.range.conductor),
+    y (PrimeSpectrum.comap (Ideal.Quotient.mk φ.range.conductor) q) =
+    z (PrimeSpectrum.comap (Ideal.quotientMap φ.range.conductor φ le_rfl) q))
+
+noncomputable def conductorSpecDesc : C(PrimeSpectrum A, T) :=
+  Topology.IsQuotientMap.lift
+    (f := ⟨PrimeSpectrum.comap φ, PrimeSpectrum.continuous_comap φ⟩)
+    ((PrimeSpectrum.isClosedMap_comap_of_isIntegral φ hint).isQuotientMap
+      (PrimeSpectrum.continuous_comap φ) (hint.comap_surjective hinj)) y
+    (conductor_spec_factorsThrough φ y z hc)
+
+lemma conductorSpecDesc_comap (p : PrimeSpectrum B) :
+    conductorSpecDesc φ hinj hint y z hc (PrimeSpectrum.comap φ p) = y p := by
+  sorry
+
+lemma conductorSpecDesc_closed (q : PrimeSpectrum (A ⧸ φ.range.conductor.comap φ)) :
+    conductorSpecDesc φ hinj hint y z hc
+      (PrimeSpectrum.comap (Ideal.Quotient.mk (φ.range.conductor.comap φ)) q) = z q := by
+  sorry
+
+lemma conductorSpecDesc_unique (m : C(PrimeSpectrum A, T))
+    (hm : ∀ p : PrimeSpectrum B, m (PrimeSpectrum.comap φ p) = y p) :
+    m = conductorSpecDesc φ hinj hint y z hc := by
+  sorry
+
+lemma conductorSpecDesc_natural {T' : Type w} [TopologicalSpace T'] (m : C(T, T')) :
+    m.comp (conductorSpecDesc φ hinj hint y z hc) =
+      conductorSpecDesc φ hinj hint (m.comp y) (m.comp z) (fun q => congrArg m (hc q)) := by
+  sorry
+
+end Desc
+
+lemma conductorSpec_isPushout (φ : A →+* B) (hinj : Function.Injective φ)
+    (hint : φ.IsIntegral) :
+    IsPushout
+      (Scheme.forgetToTop.map (Spec.map (CommRingCat.ofHom (Ideal.Quotient.mk φ.range.conductor))))
+      (Scheme.forgetToTop.map (Spec.map (CommRingCat.ofHom
+        (Ideal.quotientMap φ.range.conductor φ le_rfl))))
+      (Scheme.forgetToTop.map (Spec.map (CommRingCat.ofHom φ)))
+      (Scheme.forgetToTop.map (Spec.map (CommRingCat.ofHom
+        (Ideal.Quotient.mk (φ.range.conductor.comap φ))))) := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry TopologicalSpace
+namespace TauCeti.GenusOne.FerrandPushout
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+variable {A B : Type u} [CommRing A] [CommRing B]
+
+-- test: ConductorTopologyChecked.identity_descent
+example {T : Type v} [TopologicalSpace T] (y : C(PrimeSpectrum A, T))
+    (z : C(PrimeSpectrum (A ⧸ (RingHom.id A).range.conductor.comap (RingHom.id A)), T))
+    (hc : ∀ q : PrimeSpectrum (A ⧸ (RingHom.id A).range.conductor),
+      y (PrimeSpectrum.comap (Ideal.Quotient.mk (RingHom.id A).range.conductor) q) =
+      z (PrimeSpectrum.comap
+        (Ideal.quotientMap (RingHom.id A).range.conductor (RingHom.id A) le_rfl) q)) :
+    conductorSpecDesc (RingHom.id A) Function.injective_id ((RingHom.id A).isIntegral_of_surjective Function.surjective_id) y z hc = y := by
+  sorry
+
+-- test: ConductorTopologyChecked.two_actual_triangles
+example (φ : A →+* B) (hinj : Function.Injective φ) (hint : φ.IsIntegral)
+    {T : Type v} [TopologicalSpace T] (y : C(PrimeSpectrum B, T))
+    (z : C(PrimeSpectrum (A ⧸ φ.range.conductor.comap φ), T))
+    (hc : ∀ q : PrimeSpectrum (B ⧸ φ.range.conductor),
+      y (PrimeSpectrum.comap (Ideal.Quotient.mk φ.range.conductor) q) =
+      z (PrimeSpectrum.comap (Ideal.quotientMap φ.range.conductor φ le_rfl) q))
+    (p : PrimeSpectrum B) (q : PrimeSpectrum (A ⧸ φ.range.conductor.comap φ)) :
+    conductorSpecDesc φ hinj hint y z hc (PrimeSpectrum.comap φ p) = y p ∧
+      conductorSpecDesc φ hinj hint y z hc
+        (PrimeSpectrum.comap (Ideal.Quotient.mk (φ.range.conductor.comap φ)) q) = z q := by
+  sorry
+
+-- test: ConductorTopologyChecked.zero_ring
+example :
+    IsEmpty (PrimeSpectrum (ZMod 1)) ∧
+    IsPushout
+      (Scheme.forgetToTop.map (Spec.map (CommRingCat.ofHom
+        (Ideal.Quotient.mk (RingHom.id (ZMod 1)).range.conductor))))
+      (Scheme.forgetToTop.map (Spec.map (CommRingCat.ofHom
+        (Ideal.quotientMap (RingHom.id (ZMod 1)).range.conductor
+          (RingHom.id (ZMod 1)) le_rfl))))
+      (Scheme.forgetToTop.map (Spec.map (CommRingCat.ofHom (RingHom.id (ZMod 1)))))
+      (Scheme.forgetToTop.map (Spec.map (CommRingCat.ofHom
+        (Ideal.Quotient.mk ((RingHom.id (ZMod 1)).range.conductor.comap (RingHom.id (ZMod 1))))))) := by
+  sorry
+
+-- test: ConductorTopologyChecked.source_triangle_determines_every_target
+example (φ : A →+* B) (hinj : Function.Injective φ) (hint : φ.IsIntegral)
+    {T : Type v} [TopologicalSpace T] (m n : C(PrimeSpectrum A, T))
+    (h : ∀ p : PrimeSpectrum B, m (PrimeSpectrum.comap φ p) = n (PrimeSpectrum.comap φ p)) :
+    m = n := by
+  sorry
+
+-- test: ConductorTopologyChecked.nonintegral_injection_is_not_surjective_on_points
+example : ¬ Function.Surjective (PrimeSpectrum.comap (Int.castRingHom ℚ)) := by
+  sorry
+
+-- test: ConductorTopologyChecked.topology_does_not_remove_nilpotents
+example :
+    Function.Bijective (PrimeSpectrum.comap
+      (Ideal.Quotient.mk (nilradical (ZMod 4)))) ∧
+      (2 : ZMod 4) ≠ 0 ∧ (2 : ZMod 4) ^ 2 = 0 := by
   sorry
 
 end TauCeti.GenusOne.FerrandPushout

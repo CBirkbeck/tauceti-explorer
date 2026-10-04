@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts.",
+  "summary": "Seven-stage partial design with 440 incoming declaration nodes. For every field k and q=t²+at+b, the existing affine pinch A_q has the actual native k[T]-algebra action T↦q and an injective parameter map. The existing coordinates upgrade to a k[T]-linear equivalence k[T]²≃A_q, with native finite basis {1,tq}, exact polynomial coefficients and two-term reconstruction. The specified module is free, finite, of finrank2 and flat over k[q]. These properties concern the quadratic parameter algebra. Projective-line/Proj identifications, normalization universal property, conductor sheaves, coherent cohomology and independent I₂ geometry remain required. All seven stages remain partial and every implementation remains unchecked. For every field k and q=t²+at+b, the existing polynomial coordinates of A_q have the exact multiplication z⋆w=(z₀w₀+(T³−bT²)z₁w₁,z₀w₁+z₁w₀−aTz₁w₁), and the actual second basis vector v=tq satisfies v²=θ(T³−bT²)−θ(aT)v. For every commutative S=k[T]-algebra B, the specified S-algebra homomorphisms A_q→B are equivalent to the actual roots of y²=ι(T³−bT²)−ι(aT)y, through the explicit coefficient evaluation. B may be nonreduced or the zero ring and live in an independent universe. This is an affine algebraic mapping property, not the normalization universal property, a Proj/projective-line comparison or a coherent-cohomology theorem. All existing geometric obligations, seven partial stages and unchecked implementations remain. This continuation adds23 nodes (6constructions17lemmas),19 consumed API items and22 exact examples for the specified ν: all-open section injectivity, zero kernel after flat pullback and the existing relative normalization comparison/descent. The affine inclusion A_q→k[t] is not surjective. The resulting packet has463 nodes; all7stages remain partial. New native and admitted sources are uncompiled in this turn because available memory is below20GiB; all implementation statuses remain unchecked. The actual generic-point function-field continuation specifies the genuine transported ν stalk map and its native field isomorphism, then the canonical integral comparison from normalization in K_C to N with both triangles and uniqueness. It does not identify that comparison as an isomorphism. For every nonempty affine U⊂C, the actual B_U=Γ(N,ν⁻¹U) is integrally closed and is the integral closure of A_U=Γ(C,U) in K_N. The specified σ upgrades to an A_U-algebra equivalence and gives E_U:B_U≃integralClosure(A_U,K_C), with exact forward/inverse generic-germ, coefficient and restriction laws. This settles the affine generic-field comparison. It does not identify E_U with the sections of the existing δ: compare against native normalizationDiagram/normalizationObjIso, handle the empty-open branch and assemble the scheme isomorphism. Preserve P¹/Proj identification, properness/projectivity, conductor ideal sheaf and exact sequence, finite-pushforward H0/H1 and the independent I₂ geometry. All seven stages remain partial and every implementation unchecked. Twelve native-normalization section nodes (three constructions and nine lemmas) give κ_U:S_U≃ₐ[A_U]K_C for nonempty U, θ_U:D_U≃ₐ[A_U]integralClosure(A_U,K_C) and Ψ_U:D_U≃ₐ[A_U]B_U for nonempty affine U, with exact coefficients, ambient values, inverse formulas and κ restriction compatibility. General rational-function and normalization APIs are imported. Identification with δ.app, θ/Ψ restriction compatibility, empty opens and global scheme assembly remain required. The resulting packet has 513 nodes; all stages remain partial and all implementations unchecked. The actual comparison δ:η.normalization→N is now identified with Ψ_U⁻¹ on nonempty affine sections, with native closure and source restriction formulas. Empty-open sections are handled separately, the finite-map affine cover proves δ is a scheme isomorphism, and its inverse respects both triangles. The actual comparison upgrades to Λ_U:B_U≃ₐ[A_U]D_U on every open, commuting with forward and inverse restriction and the actual coefficients; on nonempty affine opens it recovers Ψ_U⁻¹. The native projective-line/Proj identifications, properness/projectivity, conductor ideal sheaf and structure-sheaf exact sequence, finite-pushforward H0/H1, independent I₂ geometry and every inherited family/model/classification obligation remain required. All seven stages are partial and every mathematical implementation status is unchecked. The full canonical Tau Ceti-importing file is uncompiled; the bounded Mathlib artifacts with the consumed exact pinned Tau Ceti source excerpt are checked. The common-ideal reconstruction now has native comparison, kernel, compatible-pair lifting and categorical pullback proofs, an actual inverse-coordinate ring equivalence, and an additive sequence whose middle exactness is equivalent to the image being an ideal. The arbitrary-subring conductor square and native quotient-module annihilator identity are checked separately, and actual all-open conductor ideals agree across the absolute normalization isomorphism. The conductor ideal sheaf, structure-sheaf sequence, properness/projectivity and cohomology remain separate obligations. The finite spanning-family conductor criterion, product common-denominator equivalence and native fraction membership in its extended ideal retain arbitrary commutative bases, noninjective coefficient maps, empty families and nilpotent denominators. The recomputed localized-B conductor and global IdealSheafData restriction comparisons remain separate required identifications; no stage closes. The actual finite-algebra conductor is now recomputed after localization, with no injectivity or denominator-regularity assumption. Six new supporting declarations and four regression tests specialize the previous finite-generator checkpoint; the global affine-restriction/IdealSheafData comparison remains open. Actual conductor-sheaf continuation:11 declaration-sized lemmas,7 API items and6 typed tests, with native proofs of the existing construction and its three APIs. Actual conductor-map continuation:14 new declarations (2constructions12lemmas),11 API entries and6 new typed tests; the existing conductorMap and its three APIs have native proofs. Source-conductor comparison continuation:13 new declarations (1construction12lemmas),4 API entries and3 typed tests; the pre-existing conductor_affine_quotients header has a native proof. Actual conductor section-ring continuation:16 new declarations(2constructions14lemmas),11 API entries and6 typed tests; affine reconstruction and additive exactness, with all-open difference restriction compatibility. Conductor structure-sheaf continuation:17 new declarations(4constructions13lemmas),17 API entries(13 distinct declarations) and12 test references(9 typed tests); native sheaf pullback, arbitrary-open middle exactness and reconstruction. Additive conductor sheaf continuation:15 new declarations(1construction14lemmas),13 API entries and6 typed tests. The specified actual sequence is natively ShortExact, with epimorphy proved by local affine lifts. Affine conductor topology continuation:9 declarations(1 construction,8 lemmas),4 API entries and6 typed examples;657 incoming node objects retained whole.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3722,6 +3722,126 @@
         "line": 164,
         "provides": "instance createsLimits [HasLimitsOfSize.{u₁, u₂} D] : Existing native infrastructure, read at the exact pinned commit; no second generic carrier.",
         "checked": "Codex — codex-rtOQ9t freshly read the complete native statement, ambient hypotheses and relevant proof on2026-10-04 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.PushoutCocone.isColimitAux'",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/PullbackCone.lean",
+        "line": 406,
+        "provides": "def isColimitAux' (t : PushoutCocone f g) Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:Ideal.ker_le_comap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "line": 1052,
+        "provides": "theorem ker_le_comap {K : Ideal S} (f : F) : RingHom.ker f ≤ comap f K := fun _ hx => Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/Defs.lean",
+        "line": 34,
+        "provides": "structure PrimeSpectrum (R : Type*) [CommSemiring R] where Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum.comap",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/RingHom.lean",
+        "line": 34,
+        "provides": "def PrimeSpectrum.comap {R S : Type*} [CommSemiring R] [CommSemiring S] (f : R →+* S) Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum.comap_asIdeal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/RingHom.lean",
+        "line": 47,
+        "provides": "theorem comap_asIdeal (y : PrimeSpectrum S) : Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum.comap_comp_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/RingHom.lean",
+        "line": 60,
+        "provides": "theorem comap_comp_apply (f : R →+* S) (g : S →+* S') (x : PrimeSpectrum S') : Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum.comap_injective_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/RingHom.lean",
+        "line": 74,
+        "provides": "theorem comap_injective_of_surjective (f : R →+* S) (hf : Function.Surjective f) : Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum.comap_quotientMk_bijective_of_le_nilradical",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+        "line": 427,
+        "provides": "lemma comap_quotientMk_bijective_of_le_nilradical {I : Ideal R} (hle : I ≤ nilradical R) : Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum.continuous_comap",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+        "line": 333,
+        "provides": "lemma continuous_comap (f : R →+* S) : Continuous (comap f) := by Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum.isClosedMap_comap_of_isIntegral",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
+        "line": 1154,
+        "provides": "theorem isClosedMap_comap_of_isIntegral (hf : f.IsIntegral) : Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:RingHom.isIntegral_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+        "line": 525,
+        "provides": "theorem RingHom.isIntegral_of_surjective (hf : Function.Surjective f) : f.IsIntegral := Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:Topology.IsClosedMap.isQuotientMap",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Maps/Basic.lean",
+        "line": 578,
+        "provides": "theorem isQuotientMap (hcl : IsClosedMap f) (hcont : Continuous f) Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:Topology.IsQuotientMap.lift",
+        "kind": "def",
+        "module": "Mathlib/Topology/ContinuousMap/Basic.lean",
+        "line": 471,
+        "provides": "noncomputable def lift : C(Y, Z) where Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:Topology.IsQuotientMap.lift_comp",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/ContinuousMap/Basic.lean",
+        "line": 488,
+        "provides": "theorem lift_comp : (hf.lift g h).comp f = g := by Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
+      },
+      {
+        "ref": "mathlib:range_comap_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/RingHom.lean",
+        "line": 237,
+        "provides": "theorem range_comap_of_surjective (hf : Surjective f) : Reuse the actual native spectrum, ideal, quotient-map or categorical API.",
+        "checked": "Codex — codex-7e92bd read the native declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-04."
       }
     ]
   },
@@ -4368,6 +4488,78 @@
       "accessed": "2026-10-04T03:01:54.118605+00:00",
       "readSections": [
         "Complete displayed statement and proof of Stacks37.14.1 freshly read in web viewer; actual additive sheaf short-exact result is an authored consequence of the existing finite schematically dominant conductor sheaf pullback, affine closed-inclusion surjectivity and native categorical APIs. No recursive source closure or fresh exhaustive erratum search. HTML text is not archived."
+      ]
+    },
+    {
+      "id": "conductor-topology-7e92bd-0ET0",
+      "title": "Conductor topology context: Stacks 0ET0",
+      "authors": "The Stacks Project authors",
+      "edition": "Current displayed page, 4 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0ET0",
+      "sha256": "bbbfdcd78318dc3aef0acc1615cef57eb793f430e96986a119ab7808daf558d9",
+      "accessed": "2026-10-04T04:13:31.375700+00:00",
+      "readSections": [
+        "Complete statement/proof and current page comments; existing pushforward-domain typo re-observed."
+      ]
+    },
+    {
+      "id": "conductor-topology-7e92bd-0E25",
+      "title": "Conductor topology context: Stacks 0E25",
+      "authors": "The Stacks Project authors",
+      "edition": "Current displayed page, 4 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0E25",
+      "sha256": "b52f9b9dcecad662b267fd703d489c46e43678d9a777caff570fb31537834ee2",
+      "accessed": "2026-10-04T04:13:31.768111+00:00",
+      "readSections": [
+        "Complete statement/proof and context0ECI; product-for-pushout typo found."
+      ]
+    },
+    {
+      "id": "conductor-topology-7e92bd-0ECI",
+      "title": "Conductor topology context: Stacks 0ECI",
+      "authors": "The Stacks Project authors",
+      "edition": "Current displayed page, 4 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0ECI",
+      "sha256": "98ded1a615e21e0962bdf87923412e5c1cbc5cbb4a2934535275ce744daf82fc",
+      "accessed": "2026-10-04T04:13:32.234386+00:00",
+      "readSections": [
+        "Complete situation with all three hypotheses."
+      ]
+    },
+    {
+      "id": "conductor-topology-7e92bd-0B7J",
+      "title": "Conductor topology context: Stacks 0B7J",
+      "authors": "The Stacks Project authors",
+      "edition": "Current displayed page, 4 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0B7J",
+      "sha256": "6a6100dfb0509a600ef6915491e0a2d5c3badf4b8424caf4cce9648be0919ae7",
+      "accessed": "2026-10-04T04:13:32.686126+00:00",
+      "readSections": [
+        "Complete statement/proof and all three comments; corrected historical comments distinguished from current text."
+      ]
+    },
+    {
+      "id": "conductor-topology-7e92bd-08KH",
+      "title": "Conductor topology context: Stacks 08KH",
+      "authors": "The Stacks Project authors",
+      "edition": "Current displayed page, 4 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/08KH",
+      "sha256": "8b3d94b96a87c95348ec6ab4f6083dac4659d7b72332c77e82bbf747911c6bd7",
+      "accessed": "2026-10-04T04:13:33.084260+00:00",
+      "readSections": [
+        "Complete ring-map situation and surjectivity hypothesis."
+      ]
+    },
+    {
+      "id": "conductor-topology-7e92bd-0ECH",
+      "title": "Conductor topology context: Stacks 0ECH",
+      "authors": "The Stacks Project authors",
+      "edition": "Current displayed page, 4 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0ECH",
+      "sha256": "f463dad9e8b6d26c33a0648fe580b0353831006054091d44fb47009579b78c14",
+      "accessed": "2026-10-04T04:13:33.437591+00:00",
+      "readSections": [
+        "Complete displayed Section37.67, results37.67.1–37.67.9, proofs and six comments; three current notation errors recorded separately."
       ]
     }
   ],
@@ -37977,6 +38169,453 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-comap-containment",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Detect conductor containment after contraction",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductor_comap_le_iff",
+      "statement": "For any ring map φ:A→B and ideal q⊆B, the contracted conductor I=K.comap φ satisfies I≤q.comap φ if and only if K≤q, where K=φ.range.conductor.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed.",
+        "Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment"
+      ],
+      "proofSteps": [
+        "Every element of K lies in the range of φ. Choose a preimage to prove the reverse implication; the other implication is monotonicity of ideal contraction."
+      ],
+      "acceptance": [
+        "For any ring map φ:A→B and ideal q⊆B, the contracted conductor I=K.comap φ satisfies I≤q.comap φ if and only if K≤q, where K=φ.range.conductor.",
+        "Keep nilpotents and the zero ring. Do not infer a global Scheme pushout or ringed-space equivalence from the topological universal property."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-topology-7e92bd-0B7J",
+          "locator": "Lemma 15.6.2, complete proof and comments; ring hypotheses in Situation 15.6.1",
+          "excerpt": "pushout",
+          "match": "Context for affine pushout topology. The conductor-specific prime-fiber and continuous-descent proofs are authored deductions from the existing conductor and pinned native spectral APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-prime-off-locus",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Prime fibers away from the conductor are singletons",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductor_prime_eq_of_comap_eq",
+      "statement": "For any φ and p,q∈Spec B with equal contractions, if K is not contained in p then p=q. No injectivity or integrality assumption is needed.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed.",
+        "Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment",
+        "mathlib:PrimeSpectrum"
+      ],
+      "proofSteps": [
+        "Choose t∈K outside p; its lift to A is also outside the contracted q, so t∉q. Each product tb lifts to A. Membership agrees after multiplication by t and primality cancels t in both directions."
+      ],
+      "acceptance": [
+        "For any φ and p,q∈Spec B with equal contractions, if K is not contained in p then p=q. No injectivity or integrality assumption is needed.",
+        "Keep nilpotents and the zero ring. Do not infer a global Scheme pushout or ringed-space equivalence from the topological universal property."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-topology-7e92bd-0B7J",
+          "locator": "Lemma 15.6.2, complete proof and comments; ring hypotheses in Situation 15.6.1",
+          "excerpt": "pushout",
+          "match": "Context for affine pushout topology. The conductor-specific prime-fiber and continuous-descent proofs are authored deductions from the existing conductor and pinned native spectral APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-factors",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Compatible continuous maps are constant on spectral fibers",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductor_spec_factorsThrough",
+      "statement": "For any φ and topological space T, let y:Spec B→T and z:Spec(A/I)→T be continuous and agree after the two maps out of Spec(B/K). Then y is constant on every fiber of Spec φ.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed.",
+        "Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-comap-containment",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-prime-off-locus",
+        "mathlib:range_comap_of_surjective",
+        "mathlib:PrimeSpectrum.comap_injective_of_surjective",
+        "mathlib:PrimeSpectrum.comap_comp_apply",
+        "mathlib:Ideal.quotientMap_comp_mk"
+      ],
+      "proofSteps": [
+        "Split according to whether K lies in the prime. Outside K use singleton fibers. Inside K lift both primes through B/K; their contractions to A/I agree because the quotient spectrum embeds in Spec A. Compatibility then equates their y-values."
+      ],
+      "acceptance": [
+        "For any φ and topological space T, let y:Spec B→T and z:Spec(A/I)→T be continuous and agree after the two maps out of Spec(B/K). Then y is constant on every fiber of Spec φ.",
+        "Keep nilpotents and the zero ring. Do not infer a global Scheme pushout or ringed-space equivalence from the topological universal property."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-topology-7e92bd-0B7J",
+          "locator": "Lemma 15.6.2, complete proof and comments; ring hypotheses in Situation 15.6.1",
+          "excerpt": "pushout",
+          "match": "Context for affine pushout topology. The conductor-specific prime-fiber and continuous-descent proofs are authored deductions from the existing conductor and pinned native spectral APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "construction",
+      "title": "Descend continuous maps through the conductor square",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSpecDesc",
+      "statement": "For an injective integral ring map φ:A→B, every compatible pair of continuous maps y:Spec B→T and z:Spec(A/I)→T has a specified continuous descent map Spec A→T. The target T is arbitrary and may live in an independent universe.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed.",
+        "Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-factors",
+        "mathlib:PrimeSpectrum.continuous_comap",
+        "mathlib:PrimeSpectrum.isClosedMap_comap_of_isIntegral",
+        "mathlib:RingHom.IsIntegral.comap_surjective",
+        "mathlib:Topology.IsClosedMap.isQuotientMap",
+        "mathlib:Topology.IsQuotientMap.lift"
+      ],
+      "proofSteps": [
+        "The integral spectral map is closed and injectivity gives lying-over surjectivity, hence it is a quotient map. Apply the native continuous quotient lift to y and the proved fiber constancy; retain the actual native ContinuousMap carrier."
+      ],
+      "acceptance": [
+        "For an injective integral ring map φ:A→B, every compatible pair of continuous maps y:Spec B→T and z:Spec(A/I)→T has a specified continuous descent map Spec A→T. The target T is arbitrary and may live in an independent universe.",
+        "Keep nilpotents and the zero ring. Do not infer a global Scheme pushout or ringed-space equivalence from the topological universal property."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-topology-7e92bd-0B7J",
+          "locator": "Lemma 15.6.2, complete proof and comments; ring hypotheses in Situation 15.6.1",
+          "excerpt": "pushout",
+          "match": "Context for affine pushout topology. The conductor-specific prime-fiber and continuous-descent proofs are authored deductions from the existing conductor and pinned native spectral APIs."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_comap",
+          "role": "compatibility",
+          "statement": "For every p∈Spec B, conductorSpecDesc evaluated at Spec φ(p) equals y(p)."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_closed",
+          "role": "compatibility",
+          "statement": "For every q∈Spec(A/I), the descent evaluated at the actual closed inclusion of q equals z(q)."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_unique",
+          "role": "compatibility",
+          "statement": "Any continuous m:Spec A→T with m∘Spec φ=y equals the specified descent. The source triangle alone suffices; no separation axiom is imposed on T."
+        },
+        {
+          "name": "TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_natural",
+          "role": "compatibility",
+          "statement": "For any continuous m:T→T′, postcomposing the specified descent equals the specified descent of m∘y and m∘z with the transported compatibility proof."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ConductorTopologyChecked.identity_descent",
+          "kind": "degenerate",
+          "statement": "The specified continuous descent for id_A equals the given map y for any compatible closed-side map."
+        },
+        {
+          "name": "ConductorTopologyChecked.two_actual_triangles",
+          "kind": "compatibility",
+          "statement": "The actual descent satisfies the source and closed-side value identities simultaneously for every pair of spectrum points."
+        },
+        {
+          "name": "ConductorTopologyChecked.zero_ring",
+          "kind": "degenerate",
+          "statement": "Spec(ZMod 1) is empty and the actual identity conductor square still has its native TopCat pushout property."
+        },
+        {
+          "name": "ConductorTopologyChecked.source_triangle_determines_every_target",
+          "kind": "compatibility",
+          "statement": "Two maps to any topological target that agree after the injective integral spectral map are equal; no separation assumption is added."
+        },
+        {
+          "name": "ConductorTopologyChecked.nonintegral_injection_is_not_surjective_on_points",
+          "kind": "non-example",
+          "statement": "Spec Q→Spec Z is not surjective: the prime over 2 has no preimage. Injectivity alone does not give the quotient-map descent used here."
+        },
+        {
+          "name": "ConductorTopologyChecked.topology_does_not_remove_nilpotents",
+          "kind": "non-example",
+          "statement": "For ZMod 4, quotienting by the nilradical induces a bijection of spectra, while 2 is nonzero and square-zero. The topological result does not discard ring structure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-topological-pushout",
+          "how": "Supply the actual universal continuous map of the affine conductor square; it is the affine topological prerequisite for the still-open global geometric pushout."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-source",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Descent recovers the source map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_comap",
+      "statement": "For every p∈Spec B, conductorSpecDesc evaluated at Spec φ(p) equals y(p).",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed.",
+        "Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent",
+        "mathlib:Topology.IsQuotientMap.lift_comp"
+      ],
+      "proofSteps": [
+        "Evaluate the native continuous quotient-lift composition identity at p."
+      ],
+      "acceptance": [
+        "For every p∈Spec B, conductorSpecDesc evaluated at Spec φ(p) equals y(p).",
+        "Keep nilpotents and the zero ring. Do not infer a global Scheme pushout or ringed-space equivalence from the topological universal property."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-topology-7e92bd-0B7J",
+          "locator": "Lemma 15.6.2, complete proof and comments; ring hypotheses in Situation 15.6.1",
+          "excerpt": "pushout",
+          "match": "Context for affine pushout topology. The conductor-specific prime-fiber and continuous-descent proofs are authored deductions from the existing conductor and pinned native spectral APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-closed",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Descent recovers the closed conductor map",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_closed",
+      "statement": "For every q∈Spec(A/I), the descent evaluated at the actual closed inclusion of q equals z(q).",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed.",
+        "Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-source",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-comap-containment",
+        "mathlib:RingHom.IsIntegral.comap_surjective",
+        "mathlib:Ideal.ker_le_comap",
+        "mathlib:Ideal.mk_ker",
+        "mathlib:range_comap_of_surjective",
+        "mathlib:PrimeSpectrum.comap_asIdeal",
+        "mathlib:PrimeSpectrum.comap_injective_of_surjective",
+        "mathlib:Ideal.quotientMap_comp_mk"
+      ],
+      "proofSteps": [
+        "Lift the closed point q to p∈Spec B by lying over. The contraction criterion puts K in p, so p lifts through B/K. Compatibility and injectivity of Spec(A/I)→Spec A give the required triangle."
+      ],
+      "acceptance": [
+        "For every q∈Spec(A/I), the descent evaluated at the actual closed inclusion of q equals z(q).",
+        "Keep nilpotents and the zero ring. Do not infer a global Scheme pushout or ringed-space equivalence from the topological universal property."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-topology-7e92bd-0B7J",
+          "locator": "Lemma 15.6.2, complete proof and comments; ring hypotheses in Situation 15.6.1",
+          "excerpt": "pushout",
+          "match": "Context for affine pushout topology. The conductor-specific prime-fiber and continuous-descent proofs are authored deductions from the existing conductor and pinned native spectral APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-unique",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The source triangle determines the descent uniquely",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_unique",
+      "statement": "Any continuous m:Spec A→T with m∘Spec φ=y equals the specified descent. The source triangle alone suffices; no separation axiom is imposed on T.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed.",
+        "Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-source",
+        "mathlib:RingHom.IsIntegral.comap_surjective"
+      ],
+      "proofSteps": [
+        "Use surjectivity of Spec φ and the pointwise source triangle to prove equality of native continuous maps."
+      ],
+      "acceptance": [
+        "Any continuous m:Spec A→T with m∘Spec φ=y equals the specified descent. The source triangle alone suffices; no separation axiom is imposed on T.",
+        "Keep nilpotents and the zero ring. Do not infer a global Scheme pushout or ringed-space equivalence from the topological universal property."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-topology-7e92bd-0B7J",
+          "locator": "Lemma 15.6.2, complete proof and comments; ring hypotheses in Situation 15.6.1",
+          "excerpt": "pushout",
+          "match": "Context for affine pushout topology. The conductor-specific prime-fiber and continuous-descent proofs are authored deductions from the existing conductor and pinned native spectral APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-natural",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "Descent commutes with every continuous postcomposition",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_natural",
+      "statement": "For any continuous m:T→T′, postcomposing the specified descent equals the specified descent of m∘y and m∘z with the transported compatibility proof.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed.",
+        "Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-unique",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-source"
+      ],
+      "proofSteps": [
+        "Apply the native uniqueness theorem to m composed with the descent, checking its source triangle pointwise."
+      ],
+      "acceptance": [
+        "For any continuous m:T→T′, postcomposing the specified descent equals the specified descent of m∘y and m∘z with the transported compatibility proof.",
+        "Keep nilpotents and the zero ring. Do not infer a global Scheme pushout or ringed-space equivalence from the topological universal property."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-topology-7e92bd-0B7J",
+          "locator": "Lemma 15.6.2, complete proof and comments; ring hypotheses in Situation 15.6.1",
+          "excerpt": "pushout",
+          "match": "Context for affine pushout topology. The conductor-specific prime-fiber and continuous-descent proofs are authored deductions from the existing conductor and pinned native spectral APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-topological-pushout",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "kind": "lemma",
+      "title": "The affine conductor square is a topological pushout",
+      "declarationName": "TauCeti.GenusOne.FerrandPushout.conductorSpec_isPushout",
+      "statement": "For every injective integral φ:A→B, the actual underlying TopCat square Spec(B/K)→Spec B, Spec(B/K)→Spec(A/I), Spec B→Spec A, Spec(A/I)→Spec A is IsPushout. All four arrows are Scheme.forgetToTop applied to the specified native Spec maps.",
+      "hypotheses": [
+        "A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed.",
+        "Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-source",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-closed",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-unique",
+        "mathlib:CategoryTheory.IsPushout",
+        "mathlib:CategoryTheory.Limits.PushoutCocone.isColimitAux'"
+      ],
+      "proofSteps": [
+        "Prove the actual square commutes, then supply its limiting cocone using the continuous descent, both triangle identities and pointwise uniqueness. This theorem is in TopCat; global Scheme and algebraic-space pushouts remain separate obligations."
+      ],
+      "acceptance": [
+        "For every injective integral φ:A→B, the actual underlying TopCat square Spec(B/K)→Spec B, Spec(B/K)→Spec(A/I), Spec B→Spec A, Spec(A/I)→Spec A is IsPushout. All four arrows are Scheme.forgetToTop applied to the specified native Spec maps.",
+        "Keep nilpotents and the zero ring. Do not infer a global Scheme pushout or ringed-space equivalence from the topological universal property."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/G0",
+        "namespace": "TauCeti.GenusOne.FerrandPushout"
+      },
+      "sources": [
+        {
+          "sourceId": "conductor-topology-7e92bd-0B7J",
+          "locator": "Lemma 15.6.2, complete proof and comments; ring hypotheses in Situation 15.6.1",
+          "excerpt": "pushout",
+          "match": "Context for affine pushout topology. The conductor-specific prime-fiber and continuous-descent proofs are authored deductions from the existing conductor and pinned native spectral APIs."
+        }
+      ],
+      "api": [],
+      "tests": [],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -38339,7 +38978,8 @@
         "The full ideal equality (I_f.comap f)(f⁻¹U)=c(im(f.app U),Γ(Y,f⁻¹U)) is now supplied for every affine U and finite schematically dominant f, using native ideal-sheaf adjunction and open restriction. The exact existing conductor_affine_quotients header has a native proof. The canonical source section chart is B/K for this full conductor K, and both its closed inclusion and the actual conductor map have the specified quotient-map coordinates. The nonreduced diagonal Z/4 example retains a nonzero square-zero coordinate. This resolves the previously recorded source-ideal comparison; no generic tensor-quotient theorem is replanned. The all-open structure-sheaf exact sequence, geometric/categorical pushout, flat-recomputed conductor, P¹/Proj, properness/projectivity, cohomology, I2 and later classification obligations remain required. All seven stages remain partial, all implementation statuses unchecked, and the full Tau-importing canonical file uncompiled.",
         "The actual affine conductor section square is a native CommRingCat pullback and target sections are reconstructed by the specified isomorphism with its native fiber product. The signed additive difference is defined on every open and respects every open restriction; the preceding section-pair map is injective on every open. On affine opens the difference is surjective and the sequence is exact. No surjectivity on arbitrary-open sections or global sheaf exactness is asserted. Global sheaf comparison, quotient topology, geometric/categorical pushout, recomputed flat conductor integration, P¹/Proj, projectivity/properness, coherent H0/H1, separate I₂ and later model/classification work remain required. Two bounded source findings record a pushforward-domain misprint and an overbroad matrix-dimension justification; the latter adds an explicit source-proof gap without disproving the curve lemma. All seven stages remain partial, all implementations unchecked, and the full Tau-importing canonical suggested file remains UNCOMPILED.",
         "The actual finite schematically dominant conductor square is now a native pullback of CommRingCat-valued structure sheaves. The comparison uses the native affine-basis isomorphism criterion and the preceding actual affine section pullback. Evaluation gives the actual ring pullback on every open, hence middle exactness of the signed additive sequence and unique reconstruction of every compatible section pair. The explicit all-open reconstruction agrees with the preceding affine isomorphism. No last-map surjectivity on nonaffine opens is claimed. Packaging the additive short exact sequence as a native sheaf short complex and its epimorphism, quotient topology, geometric/categorical Scheme pushout, recomputed flat-conductor integration, P¹/Proj, projectivity/properness, coherent H0/H1, separate I₂ and later model/classification work remain required. All18 gaps,23 requests,23 source findings and seven partial stages remain; every implementation is unchecked and the full Tau-importing canonical suggested file remains UNCOMPILED.",
-        "The actual general finite schematically dominant conductor square now supplies a native additive sheaf ShortComplex and ShortExact theorem. The first arrow is the actual structure-map biproduct lift; the second is the actual inclusion minus chart map. Projection, signed injection and section-pair identities are retained. Native pullback/kernel APIs prove mono and middle exactness; affine closed-inclusion lifts and the affine-open basis prove local surjectivity and native sheaf epimorphy. No last-map section surjectivity on nonaffine opens is claimed. Quotient topology, geometric/categorical Scheme pushout, recomputed flat-conductor integration, P¹/Proj, properness/projectivity, coherent H0/H1 and genus, separate I₂ and later model/classification work remain required. All18 gaps,23 requests,23 source findings and seven partial stages remain; every implementation is unchecked and the full Tau-importing suggested file remains UNCOMPILED."
+        "The actual general finite schematically dominant conductor square now supplies a native additive sheaf ShortComplex and ShortExact theorem. The first arrow is the actual structure-map biproduct lift; the second is the actual inclusion minus chart map. Projection, signed injection and section-pair identities are retained. Native pullback/kernel APIs prove mono and middle exactness; affine closed-inclusion lifts and the affine-open basis prove local surjectivity and native sheaf epimorphy. No last-map section surjectivity on nonaffine opens is claimed. Quotient topology, geometric/categorical Scheme pushout, recomputed flat-conductor integration, P¹/Proj, properness/projectivity, coherent H0/H1 and genus, separate I₂ and later model/classification work remain required. All18 gaps,23 requests,23 source findings and seven partial stages remain; every implementation is unchecked and the full Tau-importing suggested file remains UNCOMPILED.",
+        "The affine conductor square for any injective integral ring map now has a native TopCat pushout theorem, using actual spectra and a specified continuous descent to arbitrary topological targets. Its source and closed triangles, uniqueness and continuous postcomposition are checked. No finiteness, Noetherianity, reducedness or nontriviality is required. The global finite schematically dominant topology and geometric/categorical Scheme pushout, recomputed flat conductors, P¹/Proj, properness/projectivity, coherent cohomology, separate I₂ and all later model/classification work remain open. All18 gaps and23 requests remain, with three bounded notation findings added to the23 inherited findings. All seven stages remain partial, all implementations unchecked, and the full Tau-importing suggested file remains UNCOMPILED."
       ]
     },
     {
@@ -38976,6 +39616,51 @@
       "searched": [
         "Current tag0C6L complete displayed proof, Example53.10.6 and public comments inspected3October2026.",
         "Web query: \"0C6L\" \"commutative\" \"dimension\" correction, restricted to stacks.math.columbia.edu and github.com; no separate correction identified."
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII/E7e92bd0ECJ",
+      "source": "conductor-topology-7e92bd-0ECH",
+      "kind": "misprint",
+      "locator": "Lemma37.67.2, final sentence of proof; accessed 2026-10-04T04:13:33.437591+00:00, SHA256 f463dad9e8b6d26c33a0648fe580b0353831006054091d44fb47009579b78c14",
+      "printed": "j^{-1}(V′) = i^{-1}(V′)",
+      "correction": "j^{-1}(V′) = i^{-1}(U′)",
+      "reason": "V′ lies in Y, whereas the codomain of i is X. The construction defines U′=D(f) and V′=D(g) with matching inverse images.",
+      "affects": "the proof",
+      "known": "Still present on the current source; six section comments include a different corrected statement omission, not this final proof typo. No separate correction identified in the bounded current-page and web search; no exhaustive erratum audit.",
+      "searched": [
+        "Complete current Section 37.67 and all six comments read on 4 October 2026; Proposition 37.67.3 also read on its standalone page.",
+        "Bounded web queries: site:stacks.math.columbia.edu 0ECJ correction; site:stacks.math.columbia.edu 0E25 typo; site:github.com/stacks/stacks-project 0ECH pushout typo. Only relevant Stacks results used; no separate correction identified."
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII/E7e92bd0E25",
+      "source": "conductor-topology-7e92bd-0E25",
+      "kind": "misprint",
+      "locator": "Proposition37.67.3 proof, affine reduction paragraph; accessed 2026-10-04T04:13:31.768111+00:00, SHA256 b52f9b9dcecad662b267fd703d489c46e43678d9a777caff570fb31537834ee2",
+      "printed": "Y \\times _ Z X",
+      "correction": "Y \\amalg _ Z X",
+      "reason": "The paragraph proves that the ringed-space pushout is a scheme. The given span has maps Z→Y and Z→X, so the displayed product over Z is not the object being constructed.",
+      "affects": "the proof",
+      "known": "Still present. Comment10118 and its2025 fix concern a separate swapped-base notation in the following paragraph, not this product symbol. No separate correction identified in the bounded current-page and web search; no exhaustive erratum audit.",
+      "searched": [
+        "Complete current Section 37.67 and all six comments read on 4 October 2026; Proposition 37.67.3 also read on its standalone page.",
+        "Bounded web queries: site:stacks.math.columbia.edu 0ECJ correction; site:stacks.math.columbia.edu 0E25 typo; site:github.com/stacks/stacks-project 0ECH pushout typo. Only relevant Stacks results used; no separate correction identified."
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII/E7e92bd0ECH7",
+      "source": "conductor-topology-7e92bd-0ECH",
+      "kind": "misprint",
+      "locator": "Lemma37.67.7 proof, base of the comparison morphism and final flatness sentence; accessed 2026-10-04T04:13:33.437591+00:00, SHA256 f463dad9e8b6d26c33a0648fe580b0353831006054091d44fb47009579b78c14",
+      "printed": "Y \\amalg _ X Z; Y \\times _ Z X",
+      "correction": "Use Y \\amalg _ Z X in both places.",
+      "reason": "W is a scheme over the pushout of the original span Y←Z→X. The comparison and flatness condition use that same base.",
+      "affects": "the proof",
+      "known": "Both still present in the current section; no corresponding correction appears among its six comments. No separate correction identified in the bounded current-page and web search; no exhaustive erratum audit.",
+      "searched": [
+        "Complete current Section 37.67 and all six comments read on 4 October 2026; Proposition 37.67.3 also read on its standalone page.",
+        "Bounded web queries: site:stacks.math.columbia.edu 0ECJ correction; site:stacks.math.columbia.edu 0E25 typo; site:github.com/stacks/stacks-project 0ECH pushout typo. Only relevant Stacks results used; no separate correction identified."
       ]
     }
   ],

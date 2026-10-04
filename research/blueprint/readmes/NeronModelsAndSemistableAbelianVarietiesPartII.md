@@ -1,3 +1,125 @@
+# Affine conductor topology
+
+For an injective integral ring map φ:A→B, set K=φ.range.conductor and I=K.comap φ. The square of actual spectra Spec(B/K)→Spec B and Spec(A/I)→Spec A is a pushout of topological spaces. A compatible pair of continuous maps to any topological target descends to a specified continuous map from Spec A. Both triangles, uniqueness and compatibility with continuous postcomposition have native proofs.
+
+The proof first identifies the spectral fibers. Outside the conductor a chosen conductor element separates primes; inside it, the actual quotient spectra identify the compatible maps. Integrality makes Spec φ closed and injectivity gives lying over, so the native continuous quotient-lift API constructs the descent. This works without module finiteness, Noetherianity, reducedness, nontriviality or separation assumptions on the target.
+
+Six typed examples check identity, both triangles, the empty spectrum of the zero ring, uniqueness for arbitrary targets, failure of point-surjectivity for Spec Q→Spec Z, and a nonzero square-zero element in ZMod 4 despite the bijective map from its reduction. The final result is an actual TopCat IsPushout of native Spec arrows. Global scheme topology, structure-preserving categorical gluing and the geometric/Scheme pushout remain open.
+
+All657 incoming node objects,29 planets,78 routes,18 gaps,23 requests and seven partial stages are preserved. The new construction has four API entries and six tests; every implementation stays unchecked. The full Tau-importing canonical file remains UNCOMPILED. Native proofs and the bounded Mathlib planning projection have separate checked receipts.
+
+Fresh reading covers Stacks15.6.1–2,37.14.1 and the displayed Section37.67 with its proofs and comments. The conductor-specific proof is an authored deduction from pinned APIs. Three current notation errors are recorded: the final inverse-image expression in37.67.2 uses V′ where U′ is required;37.67.3 has a product symbol where its pushout is intended;37.67.7 has two inconsistent names for the pushout base. These findings concern proof notation and do not challenge the stated results. Existing corrections in comments concern different locations. All23 inherited source findings retain their attributed scope.
+
+Own6039 protocol, audit and supplier scopes are reused only at unchanged hashes; current peer6044 was publicly recovered and its actual verifier replayed byte-for-byte. Reading.json records fresh and reused scopes. No fresh full-paper, recursive source closure or exhaustive correction search is claimed.
+
+The affine conductor square for any injective integral ring map now has a native TopCat pushout theorem, using actual spectra and a specified continuous descent to arbitrary topological targets. Its source and closed triangles, uniqueness and continuous postcomposition are checked. No finiteness, Noetherianity, reducedness or nontriviality is required. The global finite schematically dominant topology and geometric/categorical Scheme pushout, recomputed flat conductors, P¹/Proj, properness/projectivity, coherent cohomology, separate I₂ and all later model/classification work remain open. All18 gaps and23 requests remain, with three bounded notation findings added to the23 inherited findings. All seven stages remain partial, all implementations unchecked, and the full Tau-importing suggested file remains UNCOMPILED.
+
+## Detect conductor containment after contraction
+
+**TauCeti.GenusOne.FerrandPushout.conductor_comap_le_iff** — For any ring map φ:A→B and ideal q⊆B, the contracted conductor I=K.comap φ satisfies I≤q.comap φ if and only if K≤q, where K=φ.range.conductor.
+
+Hypotheses: A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed. Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment.
+
+Proof: Every element of K lies in the range of φ. Choose a preimage to prove the reverse implication; the other implication is monotonicity of ideal contraction.
+
+## Prime fibers away from the conductor are singletons
+
+**TauCeti.GenusOne.FerrandPushout.conductor_prime_eq_of_comap_eq** — For any φ and p,q∈Spec B with equal contractions, if K is not contained in p then p=q. No injectivity or integrality assumption is needed.
+
+Hypotheses: A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed. Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment, mathlib:PrimeSpectrum.
+
+Proof: Choose t∈K outside p; its lift to A is also outside the contracted q, so t∉q. Each product tb lifts to A. Membership agrees after multiplication by t and primality cancels t in both directions.
+
+## Compatible continuous maps are constant on spectral fibers
+
+**TauCeti.GenusOne.FerrandPushout.conductor_spec_factorsThrough** — For any φ and topological space T, let y:Spec B→T and z:Spec(A/I)→T be continuous and agree after the two maps out of Spec(B/K). Then y is constant on every fiber of Spec φ.
+
+Hypotheses: A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed. Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-comap-containment, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-prime-off-locus, mathlib:range_comap_of_surjective, mathlib:PrimeSpectrum.comap_injective_of_surjective, mathlib:PrimeSpectrum.comap_comp_apply, mathlib:Ideal.quotientMap_comp_mk.
+
+Proof: Split according to whether K lies in the prime. Outside K use singleton fibers. Inside K lift both primes through B/K; their contractions to A/I agree because the quotient spectrum embeds in Spec A. Compatibility then equates their y-values.
+
+## Descend continuous maps through the conductor square
+
+**TauCeti.GenusOne.FerrandPushout.conductorSpecDesc** — For an injective integral ring map φ:A→B, every compatible pair of continuous maps y:Spec B→T and z:Spec(A/I)→T has a specified continuous descent map Spec A→T. The target T is arbitrary and may live in an independent universe.
+
+Hypotheses: A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed. Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-factors, mathlib:PrimeSpectrum.continuous_comap, mathlib:PrimeSpectrum.isClosedMap_comap_of_isIntegral, mathlib:RingHom.IsIntegral.comap_surjective, mathlib:Topology.IsClosedMap.isQuotientMap, mathlib:Topology.IsQuotientMap.lift.
+
+Proof: The integral spectral map is closed and injectivity gives lying-over surjectivity, hence it is a quotient map. Apply the native continuous quotient lift to y and the proved fiber constancy; retain the actual native ContinuousMap carrier.
+
+Consumed API:
+
+- **TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_comap**: For every p∈Spec B, conductorSpecDesc evaluated at Spec φ(p) equals y(p).
+- **TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_closed**: For every q∈Spec(A/I), the descent evaluated at the actual closed inclusion of q equals z(q).
+- **TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_unique**: Any continuous m:Spec A→T with m∘Spec φ=y equals the specified descent. The source triangle alone suffices; no separation axiom is imposed on T.
+- **TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_natural**: For any continuous m:T→T′, postcomposing the specified descent equals the specified descent of m∘y and m∘z with the transported compatibility proof.
+
+Typed examples:
+
+- **ConductorTopologyChecked.identity_descent**: The specified continuous descent for id_A equals the given map y for any compatible closed-side map.
+- **ConductorTopologyChecked.two_actual_triangles**: The actual descent satisfies the source and closed-side value identities simultaneously for every pair of spectrum points.
+- **ConductorTopologyChecked.zero_ring**: Spec(ZMod 1) is empty and the actual identity conductor square still has its native TopCat pushout property.
+- **ConductorTopologyChecked.source_triangle_determines_every_target**: Two maps to any topological target that agree after the injective integral spectral map are equal; no separation assumption is added.
+- **ConductorTopologyChecked.nonintegral_injection_is_not_surjective_on_points**: Spec Q→Spec Z is not surjective: the prime over 2 has no preimage. Injectivity alone does not give the quotient-map descent used here.
+- **ConductorTopologyChecked.topology_does_not_remove_nilpotents**: For ZMod 4, quotienting by the nilradical induces a bijection of spectra, while 2 is nonzero and square-zero. The topological result does not discard ring structure.
+
+## Descent recovers the source map
+
+**TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_comap** — For every p∈Spec B, conductorSpecDesc evaluated at Spec φ(p) equals y(p).
+
+Hypotheses: A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed. Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent, mathlib:Topology.IsQuotientMap.lift_comp.
+
+Proof: Evaluate the native continuous quotient-lift composition identity at p.
+
+## Descent recovers the closed conductor map
+
+**TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_closed** — For every q∈Spec(A/I), the descent evaluated at the actual closed inclusion of q equals z(q).
+
+Hypotheses: A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed. Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-comap-containment, mathlib:RingHom.IsIntegral.comap_surjective, mathlib:Ideal.ker_le_comap, mathlib:Ideal.mk_ker, mathlib:range_comap_of_surjective, mathlib:PrimeSpectrum.comap_asIdeal, mathlib:PrimeSpectrum.comap_injective_of_surjective, mathlib:Ideal.quotientMap_comp_mk.
+
+Proof: Lift the closed point q to p∈Spec B by lying over. The contraction criterion puts K in p, so p lifts through B/K. Compatibility and injectivity of Spec(A/I)→Spec A give the required triangle.
+
+## The source triangle determines the descent uniquely
+
+**TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_unique** — Any continuous m:Spec A→T with m∘Spec φ=y equals the specified descent. The source triangle alone suffices; no separation axiom is imposed on T.
+
+Hypotheses: A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed. Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-source, mathlib:RingHom.IsIntegral.comap_surjective.
+
+Proof: Use surjectivity of Spec φ and the pointwise source triangle to prove equality of native continuous maps.
+
+## Descent commutes with every continuous postcomposition
+
+**TauCeti.GenusOne.FerrandPushout.conductorSpecDesc_natural** — For any continuous m:T→T′, postcomposing the specified descent equals the specified descent of m∘y and m∘z with the transported compatibility proof.
+
+Hypotheses: A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed. Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-unique, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-source.
+
+Proof: Apply the native uniqueness theorem to m composed with the descent, checking its source triangle pointwise.
+
+## The affine conductor square is a topological pushout
+
+**TauCeti.GenusOne.FerrandPushout.conductorSpec_isPushout** — For every injective integral φ:A→B, the actual underlying TopCat square Spec(B/K)→Spec B, Spec(B/K)→Spec(A/I), Spec B→Spec A, Spec(A/I)→Spec A is IsPushout. All four arrows are Scheme.forgetToTop applied to the specified native Spec maps.
+
+Hypotheses: A and B are arbitrary commutative rings in a common universe; K is the existing range-subring conductor and I=K.comap φ. The first three lemmas require only a ring map. Descent and the pushout require φ injective and integral. No finiteness, Noetherianity, reducedness or nontriviality is imposed. Continuous targets have independent universes and no separation assumptions. Use actual native spectra, quotient rings, continuous maps and TopCat; global scheme gluing remains open.
+
+Prerequisites: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-source, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-closed, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-spectrum-descent-unique, mathlib:CategoryTheory.IsPushout, mathlib:CategoryTheory.Limits.PushoutCocone.isColimitAux'.
+
+Proof: Prove the actual square commutes, then supply its limiting cocone using the continuous descent, both triangle identities and pointwise uniqueness. This theorem is in TopCat; global Scheme and algebraic-space pushouts remain separate obligations.
+
 # The actual conductor additive sheaf sequence
 
 Let f:Y→P be finite and schematically dominant, I its actual conductor ideal datum and J=I.comap f. The preceding actual pullback of structure sheaves becomes a pullback of additive sheaves by the existing CommRingCat→RingCat→AddCommGrpCat forgetful functors. Inclusion of sheaves into presheaves creates limits, and whiskering with the existing forgetful functors preserves them. The additive pullback is therefore reflected from presheaves. No general forgetful functor, sheaf carrier or complex is newly planned.
