@@ -1,32 +1,31 @@
 # Semisimple algebras, Artin–Wedderburn, and the structure of their modules, Part II
 
-This continuation starts with the parent roadmap’s Layer6. Its arithmetic branch studies the index of a Brauer class, the finite extensions which split it, and its period. Its geometric branch studies modules over Azumaya algebras, their scheme-theoretic support, and characteristic coefficients which descend through Morita equivalences. The two branches share Brauer-class conventions, but neither depends on completion of the other. Five layers make this separation explicit. The Cartier application uses the geometric branch and retains the unresolved source argument on a nilpotent relative thickening.
+This continuation starts from the parent’s Layer6. The arithmetic branch descends its built algebra index to Brauer classes and studies finite splitting degrees and period. The geometric branch concerns sheaf Azumaya module equivalences, ideal support and characteristic coefficients over nonreduced bases. The two branches share Brauer conventions and do not require each other’s completion.
 
-This is an initial partial checkpoint. All five stages are partial, all implementation statuses are unchecked, and the outstanding native constructions and source inputs are named below. Passing the packet checker checks structure and references; it does not prove the statements. In particular, the single checked affine support calculation does not establish sheaf Morita theory, period-index arithmetic or the relative Cartier application.
+The target-level planning pass is complete under PROTOCOL0: all five stages are planned, each target ends in a read pinned declaration, an owner-stage request or a precise gap. None is closed. Every implementation status is unchecked. Independent review is required before promotion; completion of planning does not certify an implementation or repair a source proof.
 
-## Conventions and the starting library
+## Conventions and ownership
 
-A field is nontrivial. A central simple algebra is finite-dimensional over its centre K. The degree is the square root of its K-dimension, while the index is the degree of its central division representative. These agree for a division algebra, but differ for a positive matrix algebra. The Brauer identity is written multiplicatively as 1. Its period is Mathlib’s existing orderOf: positivity is proved from a finite-order witness, because natural order is zero on an arbitrary infinite-order group element. No new group order is defined.
+All arithmetic classes use the actual same-universe BrauerGroup and Tau Ceti’s multiplicative group and base-change homomorphisms. The class identity is1; the period uses existing orderOf, with positivity proved from finite order. The class index is the quotient descent of the existing CSA index, rather than the degree of an arbitrary matrix representative. SplittingDegrees quantifies over actual finite extensions, including inseparable ones. Transfer uses finite separable extensions and the full units coefficient module; the trivial F₂ adapter is insufficient.
 
-The arithmetic prototypes use the same universe for K, its algebra representatives and the extension fields. This matches the pinned Brauer CommGroup and base-change homomorphism. The minimum/gcd characterization quantifies over actual finite field extensions in that universe; it is not a finite list of guessed splitting degrees. Scalar extension for index divisibility need not be separable. Corestriction and the Galois cohomology argument require finite separable extensions and chosen closure embeddings until independence is proved.
+For the column proof, D is a division K-algebra, L an extension and ρ an actual K-algebra map to M_n(L). The built matrix action is restricted by Module.compHom, preserving the original K-action through ρ.commutes. Finite K-dimension implies finite D-dimension; freeness over division rings and the dimension tower are imports. With n>0 and dim_K D=n² the constructed tower yields n dividing dim_K L. Neither separability nor the desired divisibility is assumed. The exact-degree splitting matrix presentation and Brauer baseChange_comp are already built. The remaining parent request is the conjunction of separability and index degree, which two separate existence statements do not establish.
 
-The reviewed library audit contains no row for either this new roadmap or its parent. This absence is recorded, rather than converted into a missing-library verdict. Actual declarations were read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and TauCeti f790474821cf4256814db967cb154e7af3d0c369. The parent README predates several built exports. Algebra index, positive-matrix invariance, division representatives, scalar extension of Brauer classes, finite index-degree splitting fields and finite separable splitting fields all exist and are reused. The last two existence theorems do not state their conjunction. A separable splitter of index degree remains an exact parent-owned input to the period proof.
+The reviewed audit has no applicable parent or PartII row. That records audit coverage, not library absence. Both upstream RepresentationTheory readers were read in full. The old generic moritaStructure locator is absent from the current K.7 decomposition; its current invariance-products-and-colimits node is coarse. Native projective-generator tensor/Hom and localization remain that owner’s requested interface. The single scheme-Azumaya/Brauer carrier belongs to SchemeAndStackFoundations:key/scheme-brauer, still reserved. SF.0 supplies QCoh/localization and finite-presentation descent; HodgeStructuresPartII:H.0 owns the integrable Higgs/symmetric action, without duplicate carriers here.
 
-On schemes, the one shared carrier and Brauer definition belong to SchemeAndStackFoundations:key/scheme-brauer. That reserved key has not yet been written. This roadmap imports it; it does not construct a competing sheaf Azumaya or scheme Brauer definition. Affine IsAzumaya, the finite nonempty matrix Azumaya instance and the actual matrix module-category equivalence are already in Mathlib. General projective-generator Morita structure is imported from GeneralAlgebraicKTheory:K.7, whose existing moritaStructure API needs finer native declarations. Its source uses right modules; the supplier must provide the opposite-ring comparison needed for the left-module convention here.
+Scheme support means I_Y·M=0 and is stronger than topological support. Positive matrix rank matters; on disconnected bases it may vary. Splitting changes use specified invertible-sheaf evaluation, not a unique isomorphism between arbitrary modules. For finite spectral q:V→B, that line bundle lives on V and need not come from B. A semilocal trivialization and finite-presentation descent, followed by intertwining of every commuting action, are the explicit comparison needed for pushforward coefficients. The single-endomorphism line lemma on B alone does not prove it.
 
-For an ideal sheaf I_Y and an A-module M, scheme-theoretic support on Y means I_Y·M=0. Topological support in the underlying closed set is weaker and is insufficient over nilpotents. A splitting module P is a finite locally free generator with specified A≅End(P). Its local rank is positive; on a disconnected base the rank may differ between components. Tensoring P with an invertible sheaf changes the splitting module and its transition functor. The chosen evaluation, unit and counit are data: arbitrary splitting modules are not uniquely isomorphic.
+## Source checks and unresolved arguments
 
-## Source scope and corrections
+The author-corrected Gille–Szamuely2006 argument embeds the quotient by the reduced characteristic polynomial into the division algebra; the finite domain is then a field, and distinct roots supply separability. The false irreducibility claim over an algebraic closure is not used. The complete §4.5 proof, including4.5.16, has now been read; primary decomposition is outside the dependency chain of the stated targets and is not newly planned. The separate Saltman correction is outside this continuation.
 
-The fresh source reading covers Benoist §0.1, Gille–Szamuely’s 2006 §4.5 on printed pp100–105, the author’s December4,2020 errata, and Esnault–Groechenig arXiv v4 Theorem2.17/Remark2.18 and AppendixA.2–A.3. Both binding route briefs and all seven item records were read. The published EG PDF returned403; no equality of its text with the preprint is certified. OV07 and BB07 are required cited inputs which have not been freshly acquired. The complete papers and the complete book have not been read, and no full-source coverage claim is made.
+Esnault–Groechenigv4 Theorem2.17/Remark2.18 and AppendixA.2–A.3 were reread. The polynomial uniqueness shortcut fails: over F₂[ε]/ε², λ and λ+ε are distinct monic polynomials with equal squares. The replacement compares and descends actual Morita coefficients; it also records the full commuting-Higgs invariant and matrix rank/power relation. These mathematical interfaces need the actual requested sheaf and determinant exports before native geometric elaboration.
 
-The author’s correction to Gille–Szamuely p101 repairs the separable index-degree argument. A polynomial with distinct roots cannot also be irreducible over the algebraic closure when its degree exceeds one. Instead, its quotient algebra embeds in the division algebra: after scalar extension the map is the diagonal-algebra embedding. The finite commutative subalgebra is a domain, hence a field; the distinct roots supply separability. The corrected argument must be used by the parent supplier. The author’s separate Saltman correction changes a prime-to-characteristic bound to index dividing period squared; that stronger period-index problem is outside the general arithmetic targets here.
+Published OV07 Corollary2.9 and its lift-dependent context, and §4.2’s two-step boundary/Proposition4.4 were freshly read. OV writes F_*D as a ring sheaf on the Frobenius twist; its associated cotangent algebra is the algebra used by EG, not a Frobenius pullback with a missing descent. The splitting is bounded at the (p−1)st zero-section neighbourhood; it is not a splitting on an arbitrary spectral thickening. BB’s v2 §2.2 and Proposition3.11/Corollary3.12 supply specified splitting bimodules, not merely abstract equality of classes. Published/preprint identity for BB is not certified. BBv2 Proposition3.11 has two apparent misprints: the smaller algebra has rank p^(2d), and the typed composition is η∘δ. Its subsequent pullback calculation already uses that order. Both are recorded as preprint findings E5/E6; the publisher text could not be acquired. The arXiv OV file’s generated2024 cover date is not treated as a new authored version; the published copy is the planning citation.
 
-Two geometric source problems remain explicit. On F₂[ε]/ε², T and T+ε are distinct monic polynomials with equal squares. Thus a Frobenius power relation cannot provide uniqueness of a monic root over arbitrary nonreduced bases. The replacement is descent of actual Morita characteristic coefficients, with a further commuting-Higgs refinement still required. In AppendixA.2, vanishing on t=1 does not imply support on the zero-section: a nilpotent parameter multiplied by a nonzero fibre coordinate still survives away from that section. No repaired proof of the relative Brauer-class vanishing is certified. The categorical refinement in A.3 additionally needs chosen bimodule and coherence data; equality of Brauer classes alone does not choose an equivalence.
+In EGAppendixA.2, zero restriction at t=1 does not locate a form’s support on the cotangent zero-section. The exact target Φ(m*θ−r*θ)=0 on V×Spec k[t]/(t−1)^p is a named node with an open proof gap. Relative sequence naturality requires the actual ambient exact diagram, including its restriction to a singular spectral thickening. A canonical categorical refinement additionally needs chosen splitting data and identity-fibre/composition coherence. Neither conclusion follows just by naming OV or BB.
 
 ## Layer contracts
 
-Each item below is one planned declaration. A prerequisite beginning with mathlib or tauceti names a read statement at the exact pin; a stage prerequisite names a recorded supplier request. Promised keys remain unresolved. API items used by another node are promoted into separately listed declarations. The three new definitions and two constructions carry twenty acceptance tests in total; the native file represents the field interfaces and the affine support boundary, while the missing geometric and cohomological carriers have an explicit omission ledger.
 
 ### SA.0. Class index and finite splitting degrees
 
@@ -54,16 +53,18 @@ For a field K, classIndex:Br(K)→N is the quotient descent of A↦TauCeti.Algeb
 
 Construction or proof: Use the actual CSA setoid quotient and index-brauer-congr to form Quotient.lift. Identify the value on a division representative using index_eq_deg_of_divisionRing; uniqueness follows from the existing division-class uniqueness theorem.
 
-Prerequisites: mathlib:BrauerGroup, tauceti:TauCeti.Algebra.index, SemisimpleAlgebrasPartII:SA.0/index-brauer-congr, tauceti:TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing, tauceti:TauCeti.BrauerGroup.nonempty_algEquiv_of_mk_eq_mk, tauceti:TauCeti.Algebra.index_eq_deg_of_divisionRing.
+Prerequisites: mathlib:BrauerGroup, tauceti:TauCeti.Algebra.index, SemisimpleAlgebrasPartII:SA.0/index-brauer-congr, tauceti:TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing, tauceti:TauCeti.BrauerGroup.nonempty_algEquiv_of_mk_eq_mk, tauceti:TauCeti.Algebra.index_eq_deg_of_divisionRing, tauceti:TauCeti.Quaternion.orderOf_mk_eq_two.
 
 Source: GS §4.5.
 
-The interface serves Benoist §0.1: Provides index of a brauer class for the consuming declarations in this layer and its successors..
+Uses: Benoist §0.1: Provides index of a brauer class for the consuming declarations in this layer and its successors.
 
-- classIndex_mk (simp): classIndex([A])=index_K(A).
-- classIndex_pos (characterisation): For every α, 0<classIndex α.
-- classIndex_eq_one_iff (characterisation): classIndex α=1 iff α=1.
-- classIndex_baseChange_dvd (functoriality): For every field extension L/K, classIndex(α_L) divides classIndex α.
+Planning API:
+
+- classIndex_mk: classIndex([A])=index_K(A).
+- classIndex_pos: For every α, 0<classIndex α.
+- classIndex_eq_one_iff: classIndex α=1 iff α=1.
+- classIndex_baseChange_dvd: For every field extension L/K, classIndex(α_L) divides classIndex α.
 
 Acceptance tests:
 
@@ -71,6 +72,8 @@ Acceptance tests:
 - finite_field: Every class over a finite field has index1.
 - division_representative: For a central division algebra D of degree d, classIndex([D])=d; a nonsplit quaternion division example has value2.
 - zero_excluded: No Brauer class has index0; the zero-dimensional matrix ring is not a CSA.
+- hamilton_period_index: For the Hamilton quaternion class h=[ℍ[ℝ]], classIndex(h)=2 and orderOf(h)=2; the built order-of-class theorem supplies the period computation.
+- complexification_lowers_index: For h=[ℍ[ℝ]], classIndex(baseChange ℝ ℂ h)=1 < classIndex(h)=2. This is a finite quadratic extension that strictly lowers the index.
 
 Atlas planet: Index of a Brauer class.
 
@@ -122,13 +125,15 @@ Prerequisites: tauceti:TauCeti.BrauerGroup.baseChange.
 
 Source: GS §4.5.
 
-The interface serves Benoist §0.1: Provides finite splitting degrees for the consuming declarations in this layer and its successors..
+Uses: Benoist §0.1: Provides finite splitting degrees for the consuming declarations in this layer and its successors.
 
-- mem_splittingDegrees (characterisation): d belongs iff there is a finite extension L/K of degree d killing α.
-- one_mem_splittingDegrees_iff (characterisation): 1 belongs iff α=1.
-- splittingDegrees_nonempty (structure): Every α has a finite splitting degree.
-- splittingDegrees_positive (characterisation): Every member is positive.
-- classIndex_mem_splittingDegrees (example): The class index itself belongs.
+Planning API:
+
+- mem_splittingDegrees: d belongs iff there is a finite extension L/K of degree d killing α.
+- one_mem_splittingDegrees_iff: 1 belongs iff α=1.
+- splittingDegrees_nonempty: Every α has a finite splitting degree.
+- splittingDegrees_positive: Every member is positive.
+- classIndex_mem_splittingDegrees: The class index itself belongs.
 
 Acceptance tests:
 
@@ -143,9 +148,9 @@ Declaration: SemisimpleAlgebrasPartII:SA.0/division-module-dimension. Kind: lemm
 
 Let D be a central division K-algebra of degree d>0 and L/K finite with L⊗_K D≃ₐ[L]M_d(L). The column module V=L^d admits a finite-dimensional left D-module structure compatible with its K-action, and dim_K V=d²·dim_D V.
 
-Construction or proof: Restrict the matrix column action along D→L⊗D and the chosen matrix equivalence; explicitly verify scalar-tower compatibility. A K-spanning set also D-spans V, so V is finite-dimensional over the division ring D. The module structure and its finite/free instances are a genuine construction obligation. Use the free-module tower law and dim_K D=d². This is an authored proof for inseparable extensions as well, rather than an attribution of that strengthening to GS4.5.11.
+Construction or proof: Choose the matrix presentation of exact degree through the built nonempty_algEquiv_matrix_deg; no new parent existence result. Set ρ=(e restricted to K)∘includeRight and take divisionColumnModule with this actual homomorphism. Apply column-scalar-tower, column-finite and column-tower-dimension. Rewrite dim_K D=d² using the built deg_sq in its stated direction. The Mathlib-only action, tower, finiteness and cancellation now have separate admission-free proof receipts; the Tau Ceti signature remains uncompiled.
 
-Prerequisites: mathlib:Module.finrank_mul_finrank, tauceti:TauCeti.Algebra.index_eq_deg_of_divisionRing, tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields, tauceti:TauCeti.Algebra.deg_sq.
+Prerequisites: mathlib:Module.finrank_mul_finrank, tauceti:TauCeti.Algebra.index_eq_deg_of_divisionRing, tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields, tauceti:TauCeti.Algebra.deg_sq, SemisimpleAlgebrasPartII:SA.0/division-column-action, SemisimpleAlgebrasPartII:SA.0/column-tower-dimension, tauceti:TauCeti.Algebra.IsSplittingField.nonempty_algEquiv_matrix_deg.
 
 Source: GS 4.5.3, 4.5.8; authored dimension strengthening.
 
@@ -155,9 +160,9 @@ Declaration: SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree. Kind:
 
 For every field K, α∈Br(K), and finite extension L/K with α_L=1, classIndex α divides dim_K L. No separability hypothesis.
 
-Construction or proof: Choose the existing central division representative D. The class-kernel theorem gives a splitting matrix equivalence after scalar extension. Apply division-module-dimension to obtain [L:K]·d=r·d². Cancel the positive d to obtain [L:K]=r·d. Do not cancel the square first and infer a false divisibility.
+Construction or proof: Choose the existing central division representative D and use the built class-kernel and exact-degree matrix-presentation exports. Instantiate column-splitting-degree at n=deg_K D, using deg_pos and deg_sq. Translate the representative degree through class-index-mk and index_eq_deg_of_divisionRing. This final Tau Ceti adapter remains uncompiled.
 
-Prerequisites: SemisimpleAlgebrasPartII:SA.0/class-index, SemisimpleAlgebrasPartII:SA.0/class-index-positive, SemisimpleAlgebrasPartII:SA.0/division-module-dimension, tauceti:TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing, tauceti:TauCeti.BrauerGroup.mk_mem_ker_baseChange_iff_isSplittingField.
+Prerequisites: SemisimpleAlgebrasPartII:SA.0/class-index, SemisimpleAlgebrasPartII:SA.0/class-index-positive, SemisimpleAlgebrasPartII:SA.0/division-module-dimension, tauceti:TauCeti.BrauerGroup.exists_eq_mk_centralDivisionRing, tauceti:TauCeti.BrauerGroup.mk_mem_ker_baseChange_iff_isSplittingField, SemisimpleAlgebrasPartII:SA.0/column-splitting-degree.
 
 Source: GS 4.5.8; authored extension to all finite fields.
 
@@ -181,9 +186,9 @@ Declaration: SemisimpleAlgebrasPartII:SA.0/index-divides-degree-index. Kind: the
 
 For every finite extension L/K, classIndex α divides [L:K]·classIndex(α_L). No separability hypothesis.
 
-Construction or proof: Apply the existing index-degree attainment theorem to a representative of α_L to choose M/L of degree classIndex(α_L). Composition of native algebra instances gives M/K finite; the existing splitting-field tower law makes M split α. Use index-divides-splitting-degree and the field tower degree formula.
+Construction or proof: Choose the built index-degree finite splitter M/L of a representative of α_L. Install the native K/L/M algebra tower and finiteness. Evaluate the existing baseChange_comp at α to see that M kills α; this is a supplied group law, not a new splitting ascent theorem. Apply all-finite splitting-degree divisibility and the field tower dimension formula.
 
-Prerequisites: SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree, tauceti:TauCeti.Algebra.exists_isSplittingField_finrank_eq_index, mathlib:Module.finrank_mul_finrank, tauceti:TauCeti.BrauerGroup.baseChange, tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields.
+Prerequisites: SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree, tauceti:TauCeti.Algebra.exists_isSplittingField_finrank_eq_index, mathlib:Module.finrank_mul_finrank, tauceti:TauCeti.BrauerGroup.baseChange, tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields, tauceti:TauCeti.BrauerGroup.baseChange_comp.
 
 Source: GS 4.5.11; authored all-finite strengthening.
 
@@ -239,7 +244,95 @@ Prerequisites: SemisimpleAlgebrasPartII:SA.0/minimum-splitting-degree, Semisimpl
 
 Source: GS 4.5.10.
 
-This stage remains partial: Elaborate division-column module instances and all native field signatures; complete supplier splitting tower checks and all-finite proof.
+#### Restricted division-column action
+
+Declaration: SemisimpleAlgebrasPartII:SA.0/division-column-action. Kind: construction.
+
+For a division K-algebra D, extension field L and a specified K-algebra homomorphism ρ:D→M_n(L), divisionColumnModule n ρ is the left D-action on L^n obtained from the existing matrix column module by Module.compHom. For a chosen splitting equivalence take ρ=e∘includeRight with scalars restricted to K. This assembles built operations for the arithmetic proof; it does not reconstruct their general theory.
+
+Construction or proof: Use the scoped matrix module instance and compose its scalar action with the actual ring homomorphism underlying ρ. For the splitting input, compose the existing tensor includeRight with the K-restriction of e. The column action retains its original K-vector-space structure.
+
+Prerequisites: mathlib:Module.compHom, mathlib:Matrix.Module.matrixModule, mathlib:Algebra.TensorProduct.includeRight.
+
+Source: GS 4.5.3; authored all-finite column-action argument.
+
+Uses: SemisimpleAlgebrasPartII:SA.0/division-module-dimension: Supplies the actual noncommutative scalar action used in the dimension tower; no arithmetic proposition is assumed.
+
+Planning API:
+
+- divisionColumnAction: At coordinate i, a acts by the sum of ρ(a)_ij times v_j.
+- divisionColumnTower: The restricted D-action has IsScalarTower K D L^n with the original K-action.
+- divisionColumnFinite: If L/K is finite, L^n is a finite D-module for this action.
+- divisionColumnDimension: Its K-dimension is dim_K(D) times its D-dimension.
+
+Acceptance tests:
+
+- column_rank_one: For n=1, a acts by multiplication by the single entry ρ(a)_00.
+- column_rank_two: The zeroth coordinate is ρ(a)_00 v_0+ρ(a)_01 v_1; this distinguishes rows from transposed columns.
+- column_empty: For n=0 the column module is finite and has dimension zero; positivity is separately required for cancellation.
+- column_degree_boundary: A degree-two division algebra acting on a splitting column module forces an even extension degree; odd degree contradicts the proved tower identity.
+
+#### Column-action coordinates
+
+Declaration: SemisimpleAlgebrasPartII:SA.0/column-action-coordinate. Kind: lemma.
+
+At coordinate i, a acts by the sum of ρ(a)_ij times v_j.
+
+Construction or proof: Unfold the built restricted action once and use Matrix.Module.smul_apply.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.0/division-column-action.
+
+Source: GS 4.5.3; authored all-finite division-column refinement.
+
+#### Compatible scalar tower
+
+Declaration: SemisimpleAlgebrasPartII:SA.0/column-scalar-tower. Kind: lemma.
+
+The restricted D-action has IsScalarTower K D L^n with the original K-action.
+
+Construction or proof: Use ρ.commutes to identify the image of a base-field scalar with the matrix algebra scalar. Use IsScalarTower.of_algebraMap_smul and the built matrix scalar-tower instance.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.0/division-column-action, mathlib:IsScalarTower.of_algebraMap_smul.
+
+Source: GS 4.5.3; authored all-finite division-column refinement.
+
+#### Finiteness over the division algebra
+
+Declaration: SemisimpleAlgebrasPartII:SA.0/column-finite. Kind: lemma.
+
+If L/K is finite, L^n is a finite D-module for this action.
+
+Construction or proof: The original K-module is finite as a finite product of finite K-modules. Apply Module.Finite.of_restrictScalars_finite with the constructed scalar tower; no separate spanning-set proof is planned.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.0/column-scalar-tower, mathlib:Module.Finite.of_restrictScalars_finite.
+
+Source: GS 4.5.3; authored all-finite division-column refinement.
+
+#### Column dimension tower
+
+Declaration: SemisimpleAlgebrasPartII:SA.0/column-tower-dimension. Kind: lemma.
+
+Its K-dimension is dim_K(D) times its D-dimension.
+
+Construction or proof: Every module over a division ring is free; import this instance for both K and D. Apply Module.finrank_mul_finrank with the constructed tower.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.0/column-scalar-tower, SemisimpleAlgebrasPartII:SA.0/column-finite, mathlib:Module.Basis.ofVectorSpace, mathlib:Module.finrank_mul_finrank.
+
+Source: GS 4.5.3; authored all-finite division-column refinement.
+
+#### Column splitting-degree divisibility
+
+Declaration: SemisimpleAlgebrasPartII:SA.0/column-splitting-degree. Kind: lemma.
+
+If n>0, dim_K D=n² and ρ:D→M_n(L) is a K-algebra homomorphism, with D and L finite-dimensional over K, then n divides dim_K L. No separability assumption.
+
+Construction or proof: The same K-column module has dimension n·dim_K L by the finite-product rank theorem. The tower identity gives n·dim_K L=n²·dim_D L^n. Reassociate the right side and cancel the positive n. The explicit quotient is dim_D L^n. The dimension hypothesis is the built CSA square-dimension identity in the application, not the desired divisibility assumed as an input.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.0/column-tower-dimension, mathlib:Module.finrank_pi_fintype, mathlib:mul_left_cancel₀.
+
+Source: GS 4.5.3; authored all-finite division-column refinement.
+
+Coverage: planned. Remaining: Independently review the all-finite quotient/CSA adapter and elaborate it when the pinned Tau Ceti compiled imports exist.
 
 ### SA.1. Period and prime support
 
@@ -271,12 +364,14 @@ Prerequisites: tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-
 
 Source: GS §4.5.
 
-The interface serves Benoist §0.1: Provides corestriction of brauer classes for the consuming declarations in this layer and its successors..
+Uses: Benoist §0.1: Provides corestriction of brauer classes for the consuming declarations in this layer and its successors.
 
-- brauerCorestriction_res (compatibility): cor(α_L)=α^[L:K].
-- brauerCorestriction_comp (functoriality): Corestriction is transitive in finite separable towers.
-- brauerCorestriction_self (simp): Corestriction for K/K is identity.
-- brauerCorestriction_embedding (extensionality): Compatible changes of chosen closure embedding give the same map.
+Planning API:
+
+- brauerCorestriction_res: cor(α_L)=α^[L:K].
+- brauerCorestriction_comp: Corestriction is transitive in finite separable towers.
+- brauerCorestriction_self: Corestriction for K/K is identity.
+- brauerCorestriction_embedding: Compatible changes of chosen closure embedding give the same map.
 
 Acceptance tests:
 
@@ -387,7 +482,7 @@ Source: GS 4.5.13.
 
 Atlas planet: Period and index have the same prime divisors.
 
-This stage remains partial: Close separable index-degree, all-class comparison naturality, units coefficient transfer, Sylow fixed-field and relative p-group chain.
+Coverage: planned. Remaining: Implement the requested separable index-degree conjunction, all-class H² naturality/transfer and Sylow fixed-field relative chain.
 
 ### SA.2. Geometric Morita and scheme support
 
@@ -431,12 +526,14 @@ Prerequisites: SchemeAndStackFoundations:key/scheme-brauer, SchemeAndStackFounda
 
 Source: EG Theorem2.17 proof, pp13–14; AppendixA.3.
 
-The interface serves Esnault–Groechenig Theorem2.17 / AppendixA.3: Provides morita equivalence from a splitting module for the consuming declarations in this layer and its successors..
+Uses: Esnault–Groechenig Theorem2.17 / AppendixA.3: Provides morita equivalence from a splitting module for the consuming declarations in this layer and its successors.
 
-- sheafMorita_unit (universal-property): Hom_A(P,P⊗N)≅N naturally.
-- sheafMorita_counit (universal-property): P⊗Hom_A(P,M)≅M naturally.
-- sheafMorita_restrict (functoriality): The functors and adjunction data commute with restriction to opens.
-- sheafMorita_matrix (compatibility): For P=O_X^n, n>0, the affine specialization is the pinned matrix equivalence.
+Planning API:
+
+- sheafMorita_unit: Hom_A(P,P⊗N)≅N naturally.
+- sheafMorita_counit: P⊗Hom_A(P,M)≅M naturally.
+- sheafMorita_restrict: The functors and adjunction data commute with restriction to opens.
+- sheafMorita_matrix: For P=O_X^n, n>0, the affine specialization is the pinned matrix equivalence.
 
 Acceptance tests:
 
@@ -473,13 +570,13 @@ Source: EG Remark2.18 and proof of Theorem2.17.
 
 Atlas planet: Morita preserves scheme-theoretic support.
 
-This stage remains partial: Import native generic projective-generator theory and shared scheme-Brauer/QCoh carriers; elaborate coherent and support descent.
+Coverage: planned. Remaining: Implement the single shared scheme-Brauer carrier and generic projective-generator/QCoh localization interfaces, then coherent and ideal-support descent.
 
 ### SA.3. Characteristic invariants by Morita descent
 
-For an A-linear endomorphism on an Azumaya module whose inverse Morita module is locally free, define its characteristic polynomial on splitting covers. Compare splitting modules by an invertible sheaf with specified evaluation and prove line-twist invariance; descend coefficient sections over nonreduced schemes. Extend this single-endomorphism model to the commuting Higgs tuple required by EG2.17 and its rank/power relation. The Frobenius-root uniqueness shortcut is false and is excluded.
+For an A-linear endomorphism on an Azumaya module whose inverse Morita module is locally free, define its characteristic polynomial on splitting covers. Compare splitting modules by an invertible sheaf with specified evaluation and prove line-twist invariance; descend coefficient sections over nonreduced schemes. Use the explicit finite spectral pushforward, spectral-cover line twist, overlap and full commuting-Higgs coefficient nodes for EG2.17 and its rank/power relation; import the H.0 carrier once. The Frobenius-root uniqueness shortcut is false and is excluded.
 
-Dependencies: SemisimpleAlgebrasPartII:SA.2, SchemeAndStackFoundations:SF.0, SchemeAndStackFoundations:SF.2.
+Dependencies: SemisimpleAlgebrasPartII:SA.2, SchemeAndStackFoundations:SF.0, SchemeAndStackFoundations:SF.2, HodgeStructuresPartII:H.0.
 
 #### Change of splitting module
 
@@ -517,12 +614,14 @@ Prerequisites: SchemeAndStackFoundations:key/scheme-brauer, SemisimpleAlgebrasPa
 
 Source: EG Theorem2.17; repair of E2.
 
-The interface serves Esnault–Groechenig Theorem2.17 / AppendixA.3: Provides morita characteristic polynomial for the consuming declarations in this layer and its successors..
+Uses: Esnault–Groechenig Theorem2.17 / AppendixA.3: Provides morita characteristic polynomial for the consuming declarations in this layer and its successors.
 
-- moritaCharpoly_matrix (compatibility): For A=M_n(R), M=R^n⊗N and t=id⊗u, the value is charpoly u.
-- moritaCharpoly_changeSplitting (extensionality): Compatible replacement of splitting generator leaves the polynomial unchanged.
-- moritaCharpoly_baseChange (functoriality): Pullback carries the polynomial to the coefficient pullback for finite locally free inverse modules.
-- moritaCharpoly_degree (data): On a rank-r locus it is monic of degree r.
+Planning API:
+
+- moritaCharpoly_matrix: For A=M_n(R), M=R^n⊗N and t=id⊗u, the value is charpoly u.
+- moritaCharpoly_changeSplitting: Compatible replacement of splitting generator leaves the polynomial unchanged.
+- moritaCharpoly_baseChange: Pullback carries the polynomial to the coefficient pullback for finite locally free inverse modules.
+- moritaCharpoly_degree: On a rank-r locus it is monic of degree r.
 
 Acceptance tests:
 
@@ -539,17 +638,141 @@ Declaration: SemisimpleAlgebrasPartII:SA.3/frobenius-root-boundary. Kind: lemma.
 
 In R=F₂[ε]/ε², ε≠0 and ε²=0. Thus the distinct monic polynomials T and T+ε have the same square; a monic Frobenius root is not unique on a nonreduced base.
 
-Construction or proof: Use the native TrivSqZeroExt(F₂,F₂) model and its pure nilpotent element. Verify nonzero by its second projection and square zero by inr_mul_inr. Compute (T+ε)²=T² in characteristic2. The compiled native tests check the two ring facts; the polynomial equality still needs its own native example.
+Construction or proof: Use the native TrivSqZeroExt(F₂,F₂) model and its pure nilpotent element. Verify nonzero by its second projection and square zero by inr_mul_inr. The separate native proof verifies distinctness by constant coefficients, monicity and the polynomial square equality, as well as the two ring facts. It uses the native dual-number ring; no reducedness hypothesis is inserted.
 
 Prerequisites: mathlib:TrivSqZeroExt.inr_mul_inr.
 
 Source: EG Theorem2.17 proof, pp13–14; source issue E2.
 
-This stage remains partial: Supply étale Picard transitions, coefficient descent and Higgs tuple refinement; prove native polynomial nilpotent example.
+#### Finite pushforward of a matrix Morita module
+
+Declaration: SemisimpleAlgebrasPartII:SA.3/finite-pushforward-morita. Kind: lemma.
+
+Let q:V→B be finite, A split by a free generator of positive rank n, and M=P⊗F. Then q_*M≅(q_*F)^⊕n, respecting every commuting function action from V. If q_*M is finite locally free, q_*F is finite locally free and its componentwise rank is rank(q_*M)/n.
+
+Construction or proof: Restriction of scalars along a finite algebra map preserves finite direct sums. The inverse summand is a finite direct summand of q_*M, hence finite projective; descend the affine finite-projective description. The rank identity uses the actual nonempty finite product, and n may vary on components.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.2/sheaf-morita, SchemeAndStackFoundations:SF.0, mathlib:ModuleCat.matrixEquivalence.
+
+Source: EG Theorem2.17 proof, pp13–14; authored repair of the overlap argument.
+
+#### Line trivialization over a finite cover
+
+Declaration: SemisimpleAlgebrasPartII:SA.3/spectral-line-trivialization. Kind: lemma.
+
+For a finite morphism q:V→B and invertible sheaf L on V, after passage to a strictly henselian local base at a point of B, L is free on the resulting semilocal finite algebra. With finite-presentation data this trivialization descends to an étale neighbourhood of that point.
+
+Construction or proof: A finite algebra over a local ring is semilocal; an invertible module over a semilocal ring is free of rank one. Use finite presentation of L, its inverse and the evaluation maps to descend a chosen basis and its inverse from the filtered étale neighbourhoods. Request the generic semilocal and finite-presentation descent exports from SF.0; strict-henselian splitting of A remains the shared key.
+
+Prerequisites: SchemeAndStackFoundations:SF.0, SchemeAndStackFoundations:key/scheme-brauer.
+
+Source: EG Theorem2.17 proof, pp13–14; authored repair of the overlap argument.
+
+#### Spectral line twists preserve characteristic coefficients
+
+Declaration: SemisimpleAlgebrasPartII:SA.3/finite-pushforward-line-invariant. Kind: lemma.
+
+For finite q:V→B, F with q_*F finite locally free, and an invertible sheaf L on V, tensoring F by L preserves the characteristic polynomial of every universal commuting function action after q_*. The line is on V and need not be a pullback from B.
+
+Construction or proof: Use spectral-line-trivialization on a covering family of étale base neighbourhoods. A chosen V-linear basis of L identifies the two pushed-forward modules and intertwines all function actions, so their universal matrices are conjugate. Import matrix conjugation invariance and descend equality of coefficient sections; no Frobenius root cancellation and no reduction of B.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.3/spectral-line-trivialization, mathlib:Matrix.charpoly_units_conj, SchemeAndStackFoundations:SF.0, HodgeStructuresPartII:H.0.
+
+Source: EG Theorem2.17 proof, pp13–14; authored repair of the overlap argument.
+
+#### Morita Higgs coefficients agree on overlaps
+
+Declaration: SemisimpleAlgebrasPartII:SA.3/morita-higgs-overlap. Kind: lemma.
+
+For a finite spectral morphism V→B and two étale splitting generators of A, the characteristic coefficients of the finite locally free inverse Morita pushforwards agree, including their full symmetric differential coefficients.
+
+Construction or proof: Use the specified splitting-transition-line evaluation to compare inverse modules by an invertible V-sheaf. Apply finite-pushforward-line-invariant to the universal commuting action; the base one-endomorphism line lemma alone does not supply this step.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.3/splitting-transition-line, SemisimpleAlgebrasPartII:SA.3/finite-pushforward-line-invariant, HodgeStructuresPartII:H.0.
+
+Source: EG Theorem2.17 proof, pp13–14; authored repair of the overlap argument.
+
+#### Morita Higgs characteristic coefficients
+
+Declaration: SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant. Kind: construction.
+
+Given a finite spectral morphism V→B, sheaf Azumaya A on V and A-module M, suppose on étale splitting neighbourhoods the inverse Morita pushforward is finite locally free of rank r with the imported integrable coefficient-valued Higgs action. Construct degree-r monic symmetric characteristic coefficients on B by descent of these actual inverse-module coefficients, without choosing a Frobenius root.
+
+Construction or proof: Use the imported H.0 integrable Higgs/symmetric-action carrier and request its universal determinant coefficients. Use morita-higgs-overlap to glue all coefficient sections through SF.0 descent. Keep the evaluation maps fixed; invariance of coefficients does not assert uniqueness of the modules.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.3/morita-higgs-overlap, SemisimpleAlgebrasPartII:SA.3/finite-pushforward-morita, HodgeStructuresPartII:H.0, SchemeAndStackFoundations:SF.0.
+
+Source: EG Theorem2.17 proof, pp13–14; authored repair of the overlap argument.
+
+Uses: EG2.17 local Morita step and Cartier successor BNR support comparison: Provides the degree-r invariant with coefficients in all symmetric differential degrees over nonreduced parameter bases.
+
+Planning API:
+
+- moritaHiggsInvariant_local: On a splitting chart the descended coefficients equal the universal Higgs determinant of the actual inverse-module pushforward.
+- moritaHiggsInvariant_changeSplitting: A compatible change of splitting generator leaves every symmetric coefficient unchanged.
+- moritaHiggsInvariant_baseChange: Compatible base change preserving the stated local freeness pulls back all coefficients.
+- moritaHiggsInvariant_power: For local matrix rank n the original pushforward has characteristic polynomial equal to the n-th power of the Morita polynomial and rank nr.
+
+Acceptance tests:
+
+- higgs_scalar_rank_one: For one commuting scalar b the polynomial is λ−b; in several coefficient directions retain each linear coefficient.
+- higgs_zero_module: The zero module has invariant1 and rank0.
+- higgs_spectral_line: An invertible sheaf on the finite spectral cover, even one not pulled back from the base, preserves all pushed-forward coefficients.
+- higgs_nonreduced_root: Over the characteristic-two dual numbers, λ and λ+ε have the same square but different coefficients; the action, rather than its square, selects the invariant.
+
+#### Local Morita Higgs invariant
+
+Declaration: SemisimpleAlgebrasPartII:SA.3/higgs-invariant-local. Kind: lemma.
+
+On a splitting chart the descended coefficients equal the universal Higgs determinant of the actual inverse-module pushforward.
+
+Construction or proof: Evaluate the descended section on its defining covering chart.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant.
+
+Source: EG Theorem2.17 proof, pp13–14; authored repair of the overlap argument.
+
+#### Change of Morita Higgs splitting
+
+Declaration: SemisimpleAlgebrasPartII:SA.3/higgs-invariant-change. Kind: lemma.
+
+A compatible change of splitting generator leaves every symmetric coefficient unchanged.
+
+Construction or proof: Use the overlap equality and sheaf section extensionality.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.3/morita-higgs-overlap, SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant.
+
+Source: EG Theorem2.17 proof, pp13–14; authored repair of the overlap argument.
+
+#### Base change of Morita Higgs coefficients
+
+Declaration: SemisimpleAlgebrasPartII:SA.3/higgs-invariant-basechange. Kind: lemma.
+
+Compatible base change preserving the stated local freeness pulls back all coefficients.
+
+Construction or proof: Import coefficient pullback for the universal determinant and finite flat base change or the explicitly supplied pushforward comparison. Compare on splitting charts and descend. Arbitrary base change requires that comparison and the stated finite local freeness.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant, HodgeStructuresPartII:H.0, SchemeAndStackFoundations:SF.0.
+
+Source: EG Theorem2.17 proof, pp13–14; authored repair of the overlap argument.
+
+#### Matrix multiplicity of Morita Higgs coefficients
+
+Declaration: SemisimpleAlgebrasPartII:SA.3/higgs-invariant-power. Kind: lemma.
+
+For local matrix rank n the original pushforward has characteristic polynomial equal to the n-th power of the Morita polynomial and rank nr.
+
+Construction or proof: In a coefficient basis, each universal commuting-action matrix is n identical diagonal blocks. The determinant of block diagonal matrices is the product of block determinants; this does not depend on the characteristic. Descend coefficient equality and the local rank identity, including n=p^d in the differential-operator application.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.3/finite-pushforward-morita, SemisimpleAlgebrasPartII:SA.3/morita-higgs-invariant, HodgeStructuresPartII:H.0, mathlib:Matrix.det_blockDiagonal.
+
+Source: EG Theorem2.17 proof, pp13–14; authored repair of the overlap argument.
+
+Coverage: planned. Remaining: Implement finite spectral pushforward, semilocal line trivialization, symmetric Higgs determinant and coefficient descent with the supplied carrier; the polynomial boundary has separate checked evidence.
 
 ### SA.4. Cartier forms and relative Brauer comparison
 
-Apply the Cartier-specific four-term units/closed-form exact sequence to obtain the two-step Brauer boundary, with additivity and relative base-change naturality. Import [D]=Φ(θ) and chosen W₂ splittings from the Cartier-flow owner. For perfect characteristic-p smooth projective Z and the spectral cover V, compare m*D and r*D on V×Spec k[t]/(t−1)^p; identify the missing relative class-vanishing input in EG AppendixA.2 and the coherent categorical refinement in A.3. These targets are partial until that gap and the OV07/BB07 inputs are closed.
+Apply the Cartier-specific four-term units/closed-form exact sequence to obtain the two-step Brauer boundary, with additivity and relative base-change naturality. Import [D]=Φ(θ) and chosen W₂ splittings from the Cartier-flow owner. For perfect characteristic-p smooth projective Z and the spectral cover V, compare m*D and r*D on V×Spec k[t]/(t−1)^p; identify the missing relative class-vanishing input in EG AppendixA.2 and the coherent categorical refinement in A.3. All target interfaces are planned with the exact relative class-vanishing gap and lift-dependent OV/BB supplier obligations; the stage is not closed.
 
 Dependencies: SemisimpleAlgebrasPartII:SA.2, SemisimpleAlgebrasPartII:SA.3, SchemeAndStackFoundations:SF.2.
 
@@ -561,9 +784,9 @@ For a smooth characteristic-p scheme in the exact Cartier setup of EG(A.3), the 
 
 Construction or proof: Import the actual relative four-term exact sequence of units, dlog, closed forms and w*−C; a short exact sequence with the same names is insufficient. Use SF.2’s connecting-map construction twice, with its explicit middle image sheaf. Import the specific OV07 Proposition4.4 identification [D]=Φ(θ); it is not supplied merely by generic CR.1 crystals. Relative functoriality requires a morphism of the full exact sequence.
 
-Prerequisites: SchemeAndStackFoundations:SF.2, SchemeAndStackFoundations:key/scheme-brauer.
+Prerequisites: SchemeAndStackFoundations:SF.2, SchemeAndStackFoundations:key/scheme-brauer, SemisimpleAlgebrasPartII:SA.4/cartier-middle-image, SemisimpleAlgebrasPartII:SA.4/cartier-boundary-additivity, SemisimpleAlgebrasPartII:SA.4/cartier-boundary-naturality.
 
-Source: EG AppendixA.2, equation(A.3); OV07 Proposition4.4 not freshly acquired.
+Source: EG EGAppendixA.2 equation(A.3); freshly read published OV07 Proposition4.4 pp87–88.
 
 #### Relative Brauer class comparison
 
@@ -573,33 +796,83 @@ Let Z/k be smooth projective, k perfect of characteristic p>0, with a W₂(k)-li
 
 Construction or proof: By cartier-brauer-comparison the class difference is Φ(m*θ−r*θ). The published proof’s inference from vanishing on t=1 to support on the zero-section is invalid as stated; retain a named unresolved Brauer-class vanishing input for this exact relative thickening. If that input is proved, the equality follows. A chosen Morita bimodule/evaluation coherence is needed to obtain the categorical refinement of RemarkA.3. No canonical equivalence is inferred from equality of classes alone.
 
-Prerequisites: SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison, SchemeAndStackFoundations:key/scheme-brauer, SemisimpleAlgebrasPartII:SA.2/sheaf-morita.
+Prerequisites: SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison, SchemeAndStackFoundations:key/scheme-brauer, SemisimpleAlgebrasPartII:SA.2/sheaf-morita, SemisimpleAlgebrasPartII:SA.4/relative-class-vanishing-input, SemisimpleAlgebrasPartII:SA.4/relative-morita-refinement.
 
 Source: EG PropositionA.2 and RemarkA.3, pp40–41.
 
-This stage remains partial: Freshly read OV07 and BB07, decompose the relative Cartier sequence and repair A.2 class vanishing with coherent categorical data.
+#### Middle image in the Cartier boundary
 
-## The two chains requiring the most care
+Declaration: SemisimpleAlgebrasPartII:SA.4/cartier-middle-image. Kind: comparison.
 
-For splitting-degree divisibility, choose the division representative D of degree d. A splitting equivalence over L acts on the d-dimensional column module V=L^d. Restrict that action to D. Its K-action must agree with the given field scalar action, and a K-spanning set gives a D-spanning set. Since D is a division ring, the finite module is free. The tower formula then compares [L:K]·d with dim_K(D)·dim_D(V)=d²·r. Cancelling the positive d yields d dividing [L:K]. This argument works for inseparable extensions and is an authored strengthening of the separable book statement. The compatible action, finiteness and free instances are unresolved native obligations; they are not asserted by an arbitrary arithmetic hypothesis.
+In the supplied relative four-term sequence, the image of dlog identifies with J=(F_*O_Y^×)/O_Y′^× and yields two short exact sequences: 0→O_Y′^×→F_*O_Y^×→J→0 and 0→J→F_*Z¹_Y/S→Ω¹_Y′/S→0.
 
-For prime support, first prove finite positive period and period dividing index. If a prime p does not divide the period, take a finite Galois splitter M/K and the fixed field E of a p-Sylow subgroup. Then [E:K] is prime to p. The restricted Brauer class lies in the relative group of the p-group extension M/E; the comparison with finite-group H² and positive-degree annihilation make its order a p-power. Restriction also makes that order divide the original period, so it is trivial. Index divisibility for E now excludes p from the index. The relative comparison, Sylow degree and units-coefficient annihilation need the stated suppliers. A trivial F₂ coefficient adapter cannot prove this for general classes.
+Construction or proof: Use exactness to identify the quotient by the first kernel with the middle image, retaining the actual image and quotient maps. Import the Cartier-flow exactness and SF.2 abelian-sheaf cokernel/image comparison. No independent sheaf-of-forms carrier is introduced.
 
-## Native prototype and continuation
+Prerequisites: SchemeAndStackFoundations:SF.2.
 
-The field part uses actual CSA, BrauerGroup, TauCeti.Algebra.index, scalar extension, TensorProduct, Matrix, Subgroup.zpowers, finite-dimensional modules and natural group order. It has no opaque arithmetic proposition package. Twenty-two packet declarations have native signatures, while the two concrete boundary nodes have partial native examples. Eleven declarations remain unrepresented because their genuine sheaf or H² inputs have not been supplied. Their twelve API items and twelve tests are listed in the packet ledger. The field signatures have not been elaborated: all four required Tau Ceti compiled imports are absent from the existing pinned build. No library build, project setup, cache retrieval or language server was run.
+Source: OV07 §4.2 equation(4.1.1), Proposition4.2, pp85–86.
 
-The separate affine proof prototype preserved at immutable commit3895cfa elaborated with zero errors and zero warnings. It checks the nonempty-product ideal-support equivalence, three matrix-size examples including the empty boundary, the nonzero square-zero element over F₂, and two Z/4 support computations. The separate proof prototype’s named matrixSupport theorem has printed axioms omitting the admission axiom. This check concerns the product module and the finite-ring computations; it does not certify the uncompiled field signatures, a full sheaf support theorem, or the characteristic polynomial boundary as a named theorem. Exact source and log hashes are in the packet and handoff.
+#### Additivity of the Cartier Brauer boundary
 
-Continue at the division-column action and separable index-degree export, then the units comparison and Sylow relative chain. In parallel mathematical order, refine the generic Morita supplier, obtain the shared scheme-Brauer key, and write native sheaf tensor/Hom/support and coefficient-descent declarations. Read OV07 and BB07 before decomposing the Cartier-specific exact sequence. The relative AppendixA.2 class vanishing must be established by a valid argument before any final equality or categorical equivalence can be marked closed.
+Declaration: SemisimpleAlgebrasPartII:SA.4/cartier-boundary-additivity. Kind: lemma.
+
+For the supplied relative exact sequence and Φ=δ₁∘δ₀ through J, Φ(ω₁+ω₂)=Φ(ω₁)+Φ(ω₂) and Φ(0)=0 in H²_ét(O^×), corresponding to tensor-product Brauer classes under the shared comparison.
+
+Construction or proof: Both connecting maps are homomorphisms of abelian groups. Transport addition through the shared scheme-Brauer comparison; field BrauerGroup is not used here.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.4/cartier-middle-image, SchemeAndStackFoundations:SF.2, SchemeAndStackFoundations:key/scheme-brauer.
+
+Source: OV07 §4.2 two-step morphism after(4.1.1), pp85–86.
+
+#### Relative naturality of the Cartier Brauer boundary
+
+Declaration: SemisimpleAlgebrasPartII:SA.4/cartier-boundary-naturality. Kind: lemma.
+
+A supplied morphism of the full relative Cartier exact sequences, including the units and closed-form maps, commutes with Φ. Base change to a nonreduced parameter scheme requires this exact relative diagram; restriction to a reduced fibre alone is insufficient.
+
+Construction or proof: Use functoriality of the actual middle image map and both supplied short exact sequences. Apply naturality of each connecting homomorphism and compose the two squares. Request the relative sequence for smooth Y/S and its base changes from the Cartier owner; never apply an absolute sequence to a singular thickening as if it were smooth over k.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.4/cartier-middle-image, SchemeAndStackFoundations:SF.2.
+
+Source: OV07 §4.2 relative sequence; EGAppendixA.2 relative-base passage.
+
+#### Relative Cartier class vanishing obligation
+
+Declaration: SemisimpleAlgebrasPartII:SA.4/relative-class-vanishing-input. Kind: theorem.
+
+In EGAppendixA.2, with perfect characteristic-p k, a smooth projective W₂-liftable Z, V=Z′_a and T=Spec k[t]/(t−1)^p, prove Φ(m*θ−r*θ)=0 on V×T using a valid relative argument. This is a target with the recorded source gap, not an assumed established theorem.
+
+Construction or proof: The difference restricts to zero at t=1, but that does not locate its support on the cotangent zero-section. Supply a valid cohomological vanishing or an actual splitting bimodule on all V×T. The OV bounded zero-section splitting is only an input after a valid restriction/transport argument. The relative exact-sequence comparison is a separate prerequisite; singular V×T does not inherit smooth exactness without the supplied ambient restriction diagram.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.4/cartier-boundary-naturality, SchemeAndStackFoundations:key/scheme-brauer.
+
+Source: EG PropositionA.2 proof, pp40–41; invalid support implication remains a gap.
+
+#### Chosen relative Morita equivalence
+
+Declaration: SemisimpleAlgebrasPartII:SA.4/relative-morita-refinement. Kind: comparison.
+
+With a W₂-lift and an actual compatible splitting of m*D⊗(r*D)^op on V×T, construct the O-linear equivalence between their module categories, carrying its chosen evaluation and identity-fibre comparison. Bare equality of Brauer classes does not choose this splitting or coherence.
+
+Construction or proof: Import the OV2.9 lift-dependent bounded splitting and BB3.11/3.12 explicit bimodule comparisons from the Cartier successor. Transport the splitting through the proven relative class-vanishing comparison and retain the chosen bimodule. Apply the geometric Morita unit/counit and verify restriction at t=1 and composition coherence. These transport/coherence steps remain supplier obligations.
+
+Prerequisites: SemisimpleAlgebrasPartII:SA.4/relative-class-vanishing-input, SemisimpleAlgebrasPartII:SA.2/sheaf-morita, SchemeAndStackFoundations:key/scheme-brauer.
+
+Source: BBv2 §2.2 equivalence as splitting of A⊗B^op; Proposition3.11/Corollary3.12, p11; EGRemarkA.3.
+
+Coverage: planned. Remaining: Supply the exact relative Cartier interfaces and chosen OV/BB bimodules, prove relative-class-vanishing-input through a valid argument, and verify lift-dependent restriction/coherence.
+
+## Native validation and review boundary
+
+The whole suggested file is uncompiled because the existing Tau Ceti build is at a different revision and cannot certify its five imports. No dependency build, project setup, cache download or language server was started. The canonical Mathlib-only extraction contains admitted planning signatures and tests; its independent checked proof source constructs the actual restricted column action and checks its tower, finiteness, dimension and cancellation, plus the distinct monic polynomial counterexample. These receipts have different scopes. The definitive packet ledger lists every unrepresented geometric or H² signature and its API/tests, without proxy proposition fields. Exact current receipts and recoverable public artifacts are in the handoff. Historical affine evidence remains at its immutable cited commit.
+
+The target-level plan stops at55 nodes because every stage target is represented. All five stages require follow-up implementation and mathematical review as listed above. The general all-finite arithmetic application, generic Morita and sheaf suppliers, full symmetric coefficients, relative Cartier class vanishing and chosen categorical coherence remain precise review obligations.
 
 ## Public sources
 
-- [Central Simple Algebras and Galois Cohomology](https://www.math.ens.psl.eu/~benoist/refs/Gille-Szamuely.pdf), Philippe Gille and Tamás Szamuely, Cambridge Studies in Advanced Mathematics101, 2006. Read2026-10-02: 2006 edition §4.5, printed pp100–105; proof of 4.5.16 not completely read.
-- [Errata and additional comments](https://pagine.dm.unipi.it/tamas/erratams.pdf), Tamás Szamuely, Author errata dated December4, 2020. Read2026-10-02: December 4, 2020: p101 correction and p105 Saltman correction.
-- [The period-index problem for real surfaces](https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf), Olivier Benoist, Publications Mathématiques de l’IHÉS130 (2019), 63–110. Read2026-10-02: §0.1, printed p63: definitions and general divisibility; the surface theorems are outside this continuation.
-- [Rigid connections and F-isocrystals](https://arxiv.org/pdf/1707.00752v4), Hélène Esnault and Michael Groechenig, arXiv:1707.00752v4, June1, 2020. Read2026-10-02: arXiv v4, June 1, 2020; Theorem2.17 and Remark2.18, pp13–14; Appendix A.2–A.3, pp40–41.
-
-## Suggested-file protocol correction
-
-Under PROTOCOL13 every current suggested definition, theorem and example body is admitted. The current affine signature extraction elaborates with zero errors, eight admitted-body warnings and zero other warnings; seven examples remain. The earlier actual proofs and their receipt are retained at [immutable commit3895cfa](https://github.com/CBirkbeck/tauceti-explorer/blob/3895cfae9312599fb6dc1546fdee537d5bf14e36/research/blueprint/suggested/SemisimpleAlgebrasPartII.lean). Its proof receipt is distinct from the current sketch, whose full Tau Ceti file remains uncompiled. This correction changes prototype bodies and test-kind metadata, with all mathematical statements and dependency records preserved.
+- [Central Simple Algebras and Galois Cohomology](https://www.math.ens.psl.eu/~benoist/refs/Gille-Szamuely.pdf), Philippe Gille and Tamás Szamuely. Accessed 2026-10-04: 2006 §4.5 pp100–106, including complete proof4.5.16; selected §4.4 comparison statements. Primary decomposition is out of the target dependency chain and is not newly planned.
+- [Errata and additional comments](https://pagine.dm.unipi.it/tamas/erratams.pdf), Tamás Szamuely. Accessed 2026-10-04: December 4, 2020: p101 correction and p105 Saltman correction
+- [The period-index problem for real surfaces](https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf), Olivier Benoist. Accessed 2026-10-02: §0.1, printed p63: definitions and general divisibility; the surface theorems are outside this continuation
+- [Rigid connections and F-isocrystals](https://arxiv.org/pdf/1707.00752v4), Hélène Esnault and Michael Groechenig. Accessed 2026-10-04: v4 Theorem2.17/Remark2.18 pp13–14, including complete local Morita proof; AppendixA.2–A.3 pp40–41.
+- [Nonabelian Hodge theory in characteristic p](https://www.numdam.org/item/10.1007/s10240-007-0010-z.pdf), Arthur Ogus and Vadim Vologodsky. Accessed 2026-10-04: Published Corollary2.9, Theorem2.8 context pp33–34; §4.2 exact sequence and Proposition4.2/4.4 pp85–88; no full-paper reading.
+- [Geometric Langlands correspondence for D-modules in prime characteristic: the GL(n) case](https://arxiv.org/pdf/math/0602255v2), Roman Bezrukavnikov and Alexander Braverman. Accessed 2026-10-04: arXiv math/0602255v2, 4Dec2006; §2.2 and §3.10–3.12, pp3,11; no published/preprint identity certification.

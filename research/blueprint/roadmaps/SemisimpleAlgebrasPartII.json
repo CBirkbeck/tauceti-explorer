@@ -3,14 +3,15 @@
   "title": "Semisimple algebras, Artin-Wedderburn, and the structure of their modules, Part II",
   "area": "algebraicnt",
   "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
-  "summary": "This continuation joins general Brauer period-index arithmetic to geometric Azumaya module descent. It starts from existing central simple algebras, division representatives, algebra index, scalar extension and matrix Morita equivalences, then plans class invariants, finite splitting-degree divisibility, separable cohomological transfer, scheme-theoretic support and characteristic invariants. Relative Cartier applications retain their exact source and supplier gaps. This is a partial research plan with no implementation or closure claims.",
+  "summary": "This continuation joins general Brauer period-index arithmetic to geometric Azumaya module descent. It starts from existing central simple algebras, division representatives, algebra index, scalar extension and matrix Morita equivalences, then plans class invariants, finite splitting-degree divisibility, separable cohomological transfer, scheme-theoretic support and characteristic invariants. Relative Cartier applications retain their exact source and supplier gaps. All five stage targets are planned under the breadth-first protocol, with precise remaining supplier and source gaps; no stage is closed and no implementation is claimed.",
   "readme": "See research/blueprint/readmes/SemisimpleAlgebrasPartII.md for conventions, five layer contracts, source corrections, API/tests, ownership and unresolved inputs.",
   "prerequisites": [
     "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
     "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
     "tauceti:TauCetiRoadmap/ProfiniteCohomology",
     "SchemeAndStackFoundations",
-    "GeneralAlgebraicKTheory"
+    "GeneralAlgebraicKTheory",
+    "HodgeStructuresPartII"
   ],
   "stages": [
     {
@@ -46,17 +47,18 @@
     {
       "key": "SA.3",
       "title": "Characteristic invariants by Morita descent",
-      "description": "For an A-linear endomorphism on an Azumaya module whose inverse Morita module is locally free, define its characteristic polynomial on splitting covers. Compare splitting modules by an invertible sheaf with specified evaluation and prove line-twist invariance; descend coefficient sections over nonreduced schemes. Extend this single-endomorphism model to the commuting Higgs tuple required by EG2.17 and its rank/power relation. The Frobenius-root uniqueness shortcut is false and is excluded.",
+      "description": "For an A-linear endomorphism on an Azumaya module whose inverse Morita module is locally free, define its characteristic polynomial on splitting covers. Compare splitting modules by an invertible sheaf with specified evaluation and prove line-twist invariance; descend coefficient sections over nonreduced schemes. Use the explicit finite spectral pushforward, spectral-cover line twist, overlap and full commuting-Higgs coefficient nodes for EG2.17 and its rank/power relation; import the H.0 carrier once. The Frobenius-root uniqueness shortcut is false and is excluded.",
       "requires": [
         "SemisimpleAlgebrasPartII:SA.2",
         "SchemeAndStackFoundations:SF.0",
-        "SchemeAndStackFoundations:SF.2"
+        "SchemeAndStackFoundations:SF.2",
+        "HodgeStructuresPartII:H.0"
       ]
     },
     {
       "key": "SA.4",
       "title": "Cartier forms and relative Brauer comparison",
-      "description": "Apply the Cartier-specific four-term units/closed-form exact sequence to obtain the two-step Brauer boundary, with additivity and relative base-change naturality. Import [D]=Φ(θ) and chosen W₂ splittings from the Cartier-flow owner. For perfect characteristic-p smooth projective Z and the spectral cover V, compare m*D and r*D on V×Spec k[t]/(t−1)^p; identify the missing relative class-vanishing input in EG AppendixA.2 and the coherent categorical refinement in A.3. These targets are partial until that gap and the OV07/BB07 inputs are closed.",
+      "description": "Apply the Cartier-specific four-term units/closed-form exact sequence to obtain the two-step Brauer boundary, with additivity and relative base-change naturality. Import [D]=Φ(θ) and chosen W₂ splittings from the Cartier-flow owner. For perfect characteristic-p smooth projective Z and the spectral cover V, compare m*D and r*D on V×Spec k[t]/(t−1)^p; identify the missing relative class-vanishing input in EG AppendixA.2 and the coherent categorical refinement in A.3. All target interfaces are planned with the exact relative class-vanishing gap and lift-dependent OV/BB supplier obligations; the stage is not closed.",
       "requires": [
         "SemisimpleAlgebrasPartII:SA.2",
         "SemisimpleAlgebrasPartII:SA.3",
@@ -70,9 +72,9 @@
       "title": "Central Simple Algebras and Galois Cohomology",
       "authors": "Philippe Gille and Tamás Szamuely",
       "url": "https://www.math.ens.psl.eu/~benoist/refs/Gille-Szamuely.pdf",
-      "accessed": "2026-10-02",
+      "accessed": "2026-10-04",
       "readSections": [
-        "2006 edition §4.5, printed pp100–105; proof of 4.5.16 not completely read"
+        "2006 §4.5 pp100–106, including complete proof4.5.16; selected §4.4 comparison statements. Primary decomposition is out of the target dependency chain and is not newly planned."
       ],
       "sha256": "3697582f57a11547addeb8d5d63764d788b9d670e2bd76bd7401b9f3994f1e63",
       "edition": "Cambridge Studies in Advanced Mathematics101, 2006"
@@ -82,7 +84,7 @@
       "title": "Errata and additional comments",
       "authors": "Tamás Szamuely",
       "url": "https://pagine.dm.unipi.it/tamas/erratams.pdf",
-      "accessed": "2026-10-02",
+      "accessed": "2026-10-04",
       "readSections": [
         "December 4, 2020: p101 correction and p105 Saltman correction"
       ],
@@ -106,14 +108,38 @@
       "title": "Rigid connections and F-isocrystals",
       "authors": "Hélène Esnault and Michael Groechenig",
       "url": "https://arxiv.org/pdf/1707.00752v4",
-      "accessed": "2026-10-02",
+      "accessed": "2026-10-04",
       "readSections": [
-        "arXiv v4, June 1, 2020; Theorem2.17 and Remark2.18, pp13–14; Appendix A.2–A.3, pp40–41"
+        "v4 Theorem2.17/Remark2.18 pp13–14, including complete local Morita proof; AppendixA.2–A.3 pp40–41."
       ],
       "sha256": "bcc435b58bb2b1c06869413c1cd96018676d15da8003d21e5b507b114a63c4eb",
       "edition": "arXiv:1707.00752v4, June1, 2020",
-      "fetchedUrl": "https://arxiv.org/pdf/1707.00752",
+      "fetchedUrl": "https://arxiv.org/pdf/1707.00752v4",
       "versionVerified": "PDF page1 footer identifies arXiv:1707.00752v4, 1 Jun2020."
+    },
+    {
+      "id": "OV07",
+      "title": "Nonabelian Hodge theory in characteristic p",
+      "authors": "Arthur Ogus and Vadim Vologodsky",
+      "url": "https://www.numdam.org/item/10.1007/s10240-007-0010-z.pdf",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "Published Corollary2.9, Theorem2.8 context pp33–34; §4.2 exact sequence and Proposition4.2/4.4 pp85–88; no full-paper reading."
+      ],
+      "sha256": "2266595d31d3ee482d7fffefaf86ad8f50767804059bbde9ccaaf3b27c4f1035",
+      "edition": "Publications Mathématiques de l’IHÉS106(2007),1–138"
+    },
+    {
+      "id": "BBv2",
+      "title": "Geometric Langlands correspondence for D-modules in prime characteristic: the GL(n) case",
+      "authors": "Roman Bezrukavnikov and Alexander Braverman",
+      "url": "https://arxiv.org/pdf/math/0602255v2",
+      "accessed": "2026-10-04",
+      "readSections": [
+        "arXiv math/0602255v2, 4Dec2006; §2.2 and §3.10–3.12, pp3,11; no published/preprint identity certification."
+      ],
+      "sha256": "a94800bee9fcbb4ea99b6d945b4e8c24b99a80fd957021d6f5ca530ca38b0b1c",
+      "edition": "arXiv:math/0602255v2,4Dec2006"
     }
   ],
   "status": "draft"
