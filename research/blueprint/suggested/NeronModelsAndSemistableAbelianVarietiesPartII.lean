@@ -1,3 +1,5 @@
+import Mathlib.LinearAlgebra.Quotient.Basic
+import Mathlib.RingTheory.Flat.Basic
 import Mathlib.LinearAlgebra.TensorProduct.Quotient
 import Mathlib.LinearAlgebra.TensorProduct.Tower
 import Mathlib.RingTheory.TensorProduct.Maps
@@ -6996,6 +6998,173 @@ example (x : F ⊗[A] ((B × D) ⧸ Submodule.span A ({1} : Set (B × D)))) :
         (conductorCokernelMap (AlgHom.fst A B D)) x) =
       conductorCokernelMap (Algebra.TensorProduct.map (AlgHom.id F F) (AlgHom.fst A B D))
         (conductorCokernelBaseChange x) := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+
+noncomputable section
+namespace TauCeti.GenusOne.FerrandPushout
+open scoped TensorProduct
+set_option maxHeartbeats 1200000
+set_option backward.isDefEq.respectTransparency false
+set_option backward.isDefEq.respectTransparency.types false
+universe rbU
+variable {A B F : Type rbU} [CommRing A] [CommRing B] [CommRing F]
+variable [Algebra A B] [Algebra A F]
+attribute [local instance] Algebra.TensorProduct.rightAlgebra
+
+lemma conductorUnitSpan_swap :
+    (Submodule.span F ({1} : Set (F ⊗[A] B))).map
+      (Algebra.TensorProduct.commRight A F B).toLinearMap =
+        Submodule.span F ({1} : Set (B ⊗[A] F)) := by
+  sorry
+
+def conductorUnitQuotientSwap :
+    ((F ⊗[A] B) ⧸ Submodule.span F ({1} : Set (F ⊗[A] B))) ≃ₗ[F]
+      (B ⊗[A] F) ⧸ Submodule.span F ({1} : Set (B ⊗[A] F)) :=
+  Submodule.Quotient.equiv _ _ (Algebra.TensorProduct.commRight A F B).toLinearEquiv
+    conductorUnitSpan_swap
+
+lemma conductorUnitQuotientSwap_mk (s : F) (b : B) :
+    conductorUnitQuotientSwap (Submodule.Quotient.mk (s ⊗ₜ[A] b)) =
+      Submodule.Quotient.mk (b ⊗ₜ[A] s) := by
+  sorry
+
+lemma conductorUnitQuotientSwap_symm_mk (s : F) (b : B) :
+    conductorUnitQuotientSwap.symm (Submodule.Quotient.mk (b ⊗ₜ[A] s)) =
+      Submodule.Quotient.mk (s ⊗ₜ[A] b) := by
+  sorry
+
+lemma conductorUnitQuotientSwap_annihilator :
+    Module.annihilator F
+      ((F ⊗[A] B) ⧸ Submodule.span F ({1} : Set (F ⊗[A] B))) =
+      Module.annihilator F
+        ((B ⊗[A] F) ⧸ Submodule.span F ({1} : Set (B ⊗[A] F))) := by
+  sorry
+
+def conductorCokernelRightBaseChange :
+    F ⊗[A] (B ⧸ Submodule.span A ({1} : Set B)) ≃ₗ[F]
+      (B ⊗[A] F) ⧸ Submodule.span F ({1} : Set (B ⊗[A] F)) :=
+  conductorCokernelBaseChange ≪≫ₗ conductorUnitQuotientSwap
+
+lemma conductorCokernelRightBaseChange_tmul (s : F) (b : B) :
+    conductorCokernelRightBaseChange (s ⊗ₜ[A] Submodule.Quotient.mk b) =
+      Submodule.Quotient.mk (b ⊗ₜ[A] s) := by
+  sorry
+
+lemma conductorCokernelRightBaseChange_symm_tmul (s : F) (b : B) :
+    conductorCokernelRightBaseChange.symm (Submodule.Quotient.mk (b ⊗ₜ[A] s)) =
+      s ⊗ₜ[A] Submodule.Quotient.mk b := by
+  sorry
+
+lemma conductorCokernelRightBaseChange_scalar_zero (s : F) (a : A) :
+    conductorCokernelRightBaseChange
+      (s ⊗ₜ[A] Submodule.Quotient.mk (algebraMap A B a)) = 0 := by
+  sorry
+
+lemma conductorCokernelRightBaseChange_annihilator :
+    Module.annihilator F (F ⊗[A] (B ⧸ Submodule.span A ({1} : Set B))) =
+      (((Algebra.TensorProduct.includeRight : F →ₐ[A] B ⊗[A] F).toRingHom).range.conductor).comap
+        (Algebra.TensorProduct.includeRight : F →ₐ[A] B ⊗[A] F).toRingHom := by
+  sorry
+
+lemma conductorRightMap_injective [Module.Flat A F]
+    (hf : Function.Injective (algebraMap A B)) :
+    Function.Injective
+      (Algebra.TensorProduct.includeRight : F →ₐ[A] B ⊗[A] F).toRingHom := by
+  sorry
+
+lemma conductorRightAnnihilator_flat [Module.Finite A B] [Module.Flat A F] :
+    (Module.annihilator A (B ⧸ Submodule.span A ({1} : Set B))).map
+      (algebraMap A F) =
+        (((Algebra.TensorProduct.includeRight : F →ₐ[A] B ⊗[A] F).toRingHom).range.conductor).comap
+          (Algebra.TensorProduct.includeRight : F →ₐ[A] B ⊗[A] F).toRingHom := by
+  sorry
+
+end TauCeti.GenusOne.FerrandPushout
+end
+
+namespace TauCeti.GenusOne.FerrandPushout
+open scoped TensorProduct
+universe rtU
+variable {A B F : Type rtU} [CommRing A] [CommRing B] [CommRing F]
+variable [Algebra A B] [Algebra A F]
+section rightAction
+attribute [local instance] Algebra.TensorProduct.rightAlgebra
+
+-- test: ConductorRightChecked.swap_sum
+example (s t : F) (b c : B) :
+    conductorUnitQuotientSwap (Submodule.Quotient.mk (s ⊗ₜ[A] b + t ⊗ₜ[A] c)) =
+      Submodule.Quotient.mk (b ⊗ₜ[A] s + c ⊗ₜ[A] t) := by
+  sorry
+
+-- test: ConductorRightChecked.swap_inverse_sum
+example (s t : F) (b c : B) :
+    conductorUnitQuotientSwap.symm (Submodule.Quotient.mk (b ⊗ₜ[A] s + c ⊗ₜ[A] t)) =
+      Submodule.Quotient.mk (s ⊗ₜ[A] b + t ⊗ₜ[A] c) := by
+  sorry
+
+-- test: ConductorRightChecked.swap_scalar_action
+example (a s : F) (b : B) :
+    conductorUnitQuotientSwap (a • Submodule.Quotient.mk (s ⊗ₜ[A] b)) =
+      a • Submodule.Quotient.mk (b ⊗ₜ[A] s) := by
+  sorry
+
+-- test: ConductorRightChecked.right_sum
+example (s t : F) (b c : B) :
+    conductorCokernelRightBaseChange
+      (s ⊗ₜ[A] Submodule.Quotient.mk b + t ⊗ₜ[A] Submodule.Quotient.mk c) =
+      Submodule.Quotient.mk (b ⊗ₜ[A] s + c ⊗ₜ[A] t) := by
+  sorry
+
+-- test: ConductorRightChecked.right_inverse
+example (s : F) (b : B) :
+    conductorCokernelRightBaseChange.symm (Submodule.Quotient.mk (b ⊗ₜ[A] s)) =
+      s ⊗ₜ[A] Submodule.Quotient.mk b := by
+  sorry
+
+-- test: ConductorRightChecked.right_scalar_zero
+example (s : F) (a : A) :
+    conductorCokernelRightBaseChange
+      (s ⊗ₜ[A] Submodule.Quotient.mk (algebraMap A B a)) = 0 := by
+  sorry
+
+-- test: ConductorRightChecked.nonreduced_quotient_class
+example :
+    (Submodule.Quotient.mk ((2, 0) : ZMod 4 × ZMod 4) :
+      (ZMod 4 × ZMod 4) ⧸ Submodule.span (ZMod 4) ({1} : Set (ZMod 4 × ZMod 4))) ≠ 0 := by
+  sorry
+
+-- test: ConductorRightChecked.nonflat_right_tensor
+example :
+    letI : Algebra (ZMod 4) (ZMod 2) := (ZMod.castHom (⟨2, rfl⟩ : 2 ∣ 4) (ZMod 2)).toAlgebra
+    conductorCokernelRightBaseChange (A := ZMod 4) (B := ZMod 4 × ZMod 4)
+      (F := ZMod 2)
+      ((1 : ZMod 2) ⊗ₜ[ZMod 4] Submodule.Quotient.mk ((2, 0) : ZMod 4 × ZMod 4)) = 0 := by
+  sorry
+
+end rightAction
+
+-- test: ConductorRightChecked.flat_nonreduced_diagonal
+example :
+    let fF := (Algebra.TensorProduct.includeRight :
+      ZMod 4 →ₐ[ZMod 4] (ZMod 4 × ZMod 4) ⊗[ZMod 4] ZMod 4).toRingHom
+    Function.Injective fF ∧
+      ((((algebraMap (ZMod 4) (ZMod 4 × ZMod 4)).range.conductor).comap
+        (algebraMap (ZMod 4) (ZMod 4 × ZMod 4))).map
+        (algebraMap (ZMod 4) (ZMod 4)) = (fF.range.conductor).comap fF) := by
+  sorry
+
+-- test: ConductorRightChecked.nilpotent_right_map
+example :
+    (Algebra.TensorProduct.includeRight :
+      ZMod 4 →ₐ[ZMod 4] (ZMod 4 × ZMod 4) ⊗[ZMod 4] ZMod 4) 2 ≠ 0 := by
+  sorry
+
+-- test: ConductorRightChecked.zero_ring
+example :
+    Function.Injective (Algebra.TensorProduct.includeRight :
+      ZMod 1 →ₐ[ZMod 1] ZMod 1 ⊗[ZMod 1] ZMod 1).toRingHom := by
   sorry
 
 end TauCeti.GenusOne.FerrandPushout
