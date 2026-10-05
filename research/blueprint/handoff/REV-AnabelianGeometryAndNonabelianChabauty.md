@@ -1,139 +1,137 @@
 # Handoff: REV-AnabelianGeometryAndNonabelianChabauty
 
-Issue [#526](https://github.com/CBirkbeck/tauceti-explorer/issues/526); current
-checkpoint by Codex `codex-1O5j0u`, 2026-10-05. Input explorer revision:
-`ceae7664eb1264bc255acade6af444e36a29b0d0`, including the earlier independent
-review checkpoints [#6170](https://github.com/CBirkbeck/tauceti-explorer/pull/6170)
-and [#6175](https://github.com/CBirkbeck/tauceti-explorer/pull/6175).
-Continue this same unfinished review. These sessions did not author the
-blueprint. There is no final packet `review` object or acceptance verdict.
+Issue [#526](https://github.com/CBirkbeck/tauceti-explorer/issues/526); checkpoint
+by Codex `codex-i1BjcC`, 2026-10-05. Input explorer revision
+`b4ea721503c52188587f85a4ebc5541d02f6e151`.
+Continue this same unfinished independent review. The reviewer did not author
+the blueprint. There is no final packet `review` object or acceptance verdict.
+Earlier independent checkpoints
+[#6170](https://github.com/CBirkbeck/tauceti-explorer/pull/6170),
+[#6175](https://github.com/CBirkbeck/tauceti-explorer/pull/6175) and
+[#6180](https://github.com/CBirkbeck/tauceti-explorer/pull/6180) are incorporated.
 
-## Durable work in this continuation
+## Durable evidence from this pass
 
-The review report contains a **160-entry pinned statement locator table**.
-Every cited declaration's statement and surrounding hypotheses was read at
-Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` or Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. All 138 Mathlib names resolve in a
-fresh name-check file. The 22 Tau Ceti entries were checked from pinned source;
-the existing build lacks LowDegree's object. This advances the earlier
-selected-baseline reading, but does not finish checking **every consumer**.
-Use the exact table, especially for namespace-ambiguous continuity, subgroup,
-quotient and generated-dual declarations.
+The review report now starts with a **50-row scoped node audit**, positions
+51–100 inclusive (zero-based packet order), from `NC.3/cocycle-map-one` through
+`NC.3/h1-finite-quotient-equivalence`. Statements, hypotheses, proof sketches,
+direct prerequisites, sources and actual suggested signatures were examined,
+including all construction APIs/tests in this family. This verifies the
+mathematical calculations within that scope, not every precursor proof or
+whole-packet closure. The previous 49-node late-family screen (314–362) and
+160-entry pinned statement locator table remain in the historical report with
+their attribution. The new packet checkpoint preserves its predecessor in
+`independentReviewCheckpoints`.
 
-The packet's `independentReviewCheckpoint.selectedNodeAudit.nodes` lists the
-49 nodes freshly screened against their statements, hypotheses, mathematical
-proof sketches, APIs/tests and actual suggested signatures: the late
-kernel-invariant-gauge, invariant-action, orbit/image, neutral-fibre and
-repointed twisted-fibre families, plus the native equivariant topological-torsor
-bundle. The report gives the independent calculations. Earlier precursor
-closure and the complete review matrix remain unfinished; the checkpoint
-records no final per-node verdict.
+The significant checks are ordered cocycle/gauge conventions, invariant targets,
+**same-N** gauge reflection and inflation injectivity, inverse-gauge
+normalization, the neutral restriction fibre, quotient-action joint continuity
+using an open product quotient map, reversed-inclusion transitions, and the
+native Types colimit universal property using a common intersection refinement.
+No blanket claim about the full 363-node plan is made.
 
-The central-extension theorem now explicitly distinguishes its **positive**
-defect from Kim arXiv v1's printed p.5 **inverse** defect. Its H² class is the
-negative of Kim's printed class, with the same zero locus. Its proof outline
-pins the changed-lift formula D(c′)=D(c)+d¹z. The statement, source match,
-acceptance and suggested omission comment retain this convention. The action
-hypothesis now names B, replacing an unbound U.
+Corrections/additions:
 
-The added `tests.central_defect_sign_C3_C9` is an actual native ZMod arithmetic
-example, proved by `decide`: the least-residue lift has defect 3 at (2,1), its
-inverse is 6, and the values differ. It does not construct the missing
-continuous H² connecting interface. No nodes or suppliers were added.
+- Three new concrete identity-S₃ tests pin the actual descent, inflation and
+  forward descent equivalence to nonidentity values. Inverse laws alone could
+  accept an equivalence conjugating the output by (12). New statements still
+  use `sorry`; this is a planning prototype, not an implementation.
+- A native `by decide` example proves c(n)=1, c(gn)=c(g), c(ng)≠c(g) for a
+  conjugation coboundary in S₃. It discriminates right/left constancy and the
+  normality requirement. The report distinguishes these proved arithmetic
+  assertions from the mathematical centralizer/cocycle explanation.
+- Finite-quotient class surjectivity directly cites `NC.3/nonabelian-h1` for
+  its actual orbit carrier and representative choice.
+- The residual central-extension action codomain is corrected to G×B→B.
+  Keep the preceding positive-defect convention: Kim arXiv v1's printed
+  inverse defect gives the negative class, with the same zero locus.
 
-The obsolete 01ZM retrieval failure was replaced with a scoped receipt for
-reading its whole statement and all three printed proofs. The surrounding
-03RH proofs of 03RM and Schmidt–Stix Appendix A.3, pp.861–866, were also read.
-Their transitive foundation/supplier proof leaves remain open. The prior
-checkpoint's full report is retained as a historical section of the current
-report; all its mathematical corrections remain in the packet/suggested file.
-Historical encoded payloads were neither decoded nor executed.
+Fresh reading: exact Kim v1 printed pp.5–9 definitions, Proposition 1 proof and
+selected central-extension passages; Poonen Definition 1.3.14 and complete
+Proposition 1.3.15 proof, printed pp.11–12. The general compact/discrete
+colimit is an authored deduction, not the printed Hilbert 90 theorem. Source
+hashes and links are in the report. No whole-paper, Serre or published-version
+collation is claimed. All seven NC coverage entries and the upstream roadmap
+comparators were consulted. The selected consumers' **47 Mathlib prerequisite
+statements** were reread with their namespace/hypothesis context at
+`082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti remains pinned at
+`f790474821cf4256814db967cb154e7af3d0c369`. This session does not claim a fresh
+all-160 consumer audit. Historical encoded payloads were preserved without
+being decoded or executed.
 
-Current counts: 363 nodes, 160 baseline declarations, 17 requests, 10 gaps and
-11 planets; 320 definition/construction API entries and 250 tests; 340 API
-entries and 265 tests across all node kinds. NC.0 and NC.3 remain partial;
-the other five stages remain not_read. Every implementation is unchecked.
+Counts: 363 nodes, 160 baseline declarations, 17 requests, 10 gaps, 11 planets;
+320 definition/construction API entries and 253 tests; 340 API entries and
+269 tests across all node kinds. NC.0/NC.3 remain partial, other stages
+not_read, all implementations unchecked. Packet `complete` means its
+budget-complete planning pass, not review completion.
 
 ## Checks and reproduction
 
-Packet checker: 0 errors, 0 warnings. Whitespace check passes. All 138 cited
-Mathlib qualified names elaborate in a fresh name-check file. The full
-suggested file was attempted with `lean-check` and fails at the unavailable
+Packet checker: 0 errors, 0 warnings. The native S₃ arithmetic and relevant
+baseline name checks elaborate without admissions. Full suggested `lean-check`
+was attempted but stops at the unavailable
 `TauCeti.RepresentationTheory.Homological.ContCohomology.LowDegree.olean`.
-Do not build the libraries to repair it.
+Do not build or update libraries to repair it.
 
-The final Mathlib projection elaborates with exit 0, 690 warnings, all for
-`sorry`, and no errors/other warnings. The new sign example is proved without
-an admission. Available memory was 95 GiB. To reproduce in your own authorized
-on-disk scratch directory:
+The Mathlib projection exits 0 with **693 warnings, all `sorry`**, no errors or
+other warnings. Available memory was 95 GiB. Reproduce in authorized on-disk
+scratch by removing exactly `^import TauCeti\..*` lines and the exact block
+`section Abelian` through `end Abelian` inclusive. Keep
+`section AbelianTwistingTest`; check memory and run `lean-check` once under
+WORKERS.md. This validates signatures outside additive comparisons, not the
+admitted statements/proofs or the full suggested file.
 
-1. Remove exactly lines matching `^import TauCeti\..*` from the suggested file.
-2. Remove the exact block `section Abelian` through `end Abelian`, inclusive.
-   Keep `section AbelianTwistingTest`.
-3. Check memory and run the resulting file with `lean-check` under the shared
-   machine rules. This checks prototype signatures, excluding the additive
-   comparisons, not proof truth or implementation.
-
-Current suggested SHA-256:
-`8c77e349c1f417615b452bb59b21424e596097fdea8c2c33287abdd2de28ccee`.
-Current projection SHA-256:
-`0d4eeb9a9b74b5c7a4d54e2721f10431fdf9b3dffa07ea9d772d7c2c9a129b41`.
-The full suggested file remains uncompiled. Prior hashes in historical reports
-or encoded receipts concern prior versions. No scratch file is needed to
-resume: the report, packet, suggested file and public pinned source locators
-hold all durable evidence. Scratch is deleted after submission.
+Suggested SHA-256:
+`ea15ef060b3deffef127327fe1f1431e6400f22ae2c20d5fc238b111435c92cf`.
+Projection SHA-256:
+`20475e3ff9c7cd0f9c85f76ca2c873310836cddf0bc95e20d456f04874183afc`.
+The report and public pinned sources contain all durable evidence. No scratch
+file is required to resume. Scratch is deleted after submission.
 
 ## Where to resume
 
-1. **Earlier node/consumer matrix.** Start with the first 314 nodes, before
-   `NC.3/kernel-invariant-gauge`. Check actual consumers against the newly read
-   baseline statements, exact primary locators/excerpts, authored deductions,
-   prerequisites, API and meaningful tests. The early discrete descent,
-   quotient-cocycle, inflation/restriction, finite-quotient, coefficient/source,
-   twisting, kernel-adapter and stabilizer families supply precursors of the
-   late orbit screen. Detailed late-family calculations are in the report;
-   they do not certify their unreviewed precursor closure. Do not turn a
-   successful Mathlib projection or inherited author receipt into a
-   mathematical verdict.
-2. **Central and additive gaps.** Keep the positive obstruction sign. The
-   actual H² class map, continuous-lift independence, exactness and freeness
-   interfaces remain omitted; the native sign test supplies arithmetic only.
-   Construct the genuine action on the additive central coefficient and
-   retain Tau Ceti's continuous-cochain B². Complete the canonical additive
-   cocycle conversion and compatibility with Tau Ceti's finite-quotient
-   transitions/colimit. The earlier invariants/continuity/abelian/twisting
-   tests and native torsor isomorphism classification are already supplied;
-   do not list them as missing again.
-3. **Geometric proof leaves.** 01ZM and Appendix A.3's printed arguments no
-   longer require reacquisition merely to read them. Their referenced affine
-   algebra/limit/gluing and Isaksen/Artin–Mazur foundations still need closure.
-   Finish the relevant Stacks 03SB and 0F13 context/proofs, 03RH's Tsen/stalk/
-   Leray/colimit dependencies, and finite-presentation property/finite-group
-   descent. Descent of the cover and eventual zero of its pulled-back class
-   are separate steps; restriction to a separable closure need not be
-   injective. The algebraic torsor comparison still needs point existence,
-   both compatible actions, orbit homeomorphisms and descent/effectivity.
-4. **Ownership and coverage.** Read the current fine-grained IG/SF supplier
-   contracts and reconcile coverage/gap supersession chains. Requests are
-   desired exports, not already established results. IG.0's extra geometric
-   product and P¹ contracts still need ownership confirmation; IG.0/IG.1/IG.6
-   have no completed relevant supply here, and SF.2's accepted packet is
-   partial. ProfiniteCohomology Layer 10 owns the all-degree additive/native
-   comparison. Avoid an NC.3→NC.0 stage cycle. Keep M₀,n, generic NS and generic
-   heights with their routed owners. The unaccepted raw-homotopy candidate
-   does not yet provide registered foundation stages.
-5. **Reserved key and final screen.** The single
-   `AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1` retains its exact
+1. **Node/consumer matrix:** complete positions 0–50, then 101–313. The former
+   supply the cocycle, native fixed-point and orbit-carrier precursors of this
+   pass; the latter include coefficient/source changes, twisting, kernel
+   adapters, stabilizers, central/additive comparisons and geometry. Reuse
+   this scoped table and the historical late-family calculations, but check
+   transitive closure before issuing any final per-node verdict. Successful
+   projection elaboration and inherited source receipts are not mathematical
+   proof certificates.
+2. **Central/additive interfaces:** keep positive D and Tau Ceti's continuous
+   B². Connecting H², continuous-lift independence, exactness/freeness and
+   canonical additive-cocycle comparison remain explicit omissions. Native
+   sign/normality arithmetic does not construct them. Compatibility with Tau
+   Ceti's finite-quotient transitions/colimit and the all-degree comparison
+   remains to be settled. ProfiniteCohomology Layer 10 owns the latter.
+3. **Geometric leaves:** prior checkpoints read the complete Stacks 01ZM
+   statement/proofs, surrounding 03RH/03RM arguments and Schmidt–Stix
+   Appendix A.3. Their affine/limit/gluing, Tsen/stalk/Leray/colimit and
+   Isaksen/Artin–Mazur proof leaves still need closure. Finish 03SB/0F13
+   context/proofs and finite-presentation property/finite-group descent.
+   Descending a cover and eventual vanishing of its pulled-back class are
+   distinct; restriction to a separable closure need not be injective.
+   Algebraic torsor comparison needs point existence, compatible actions,
+   orbit homeomorphisms and effectivity.
+4. **Ownership/coverage/planets:** inspect current fine-grained IG/SF supplier
+   contracts and gap supersession chains. Requests are desired exports,
+   not established results. IG.0's geometric product/P¹ contracts need
+   confirmation; IG.0/IG.1/IG.6 have no completed relevant supply here, and
+   SF.2's accepted packet is partial. Avoid an NC.3→NC.0 stage cycle.
+   Keep M₀,n, generic NS and heights with their routed owners. The unaccepted
+   raw-homotopy candidate supplies no registered foundation stages. Complete
+   every planet and duplication screen.
+5. **Reserved key/final verdict:** preserve the single
+   `AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1`, its exact
    coefficient class and canonical map in every degree. Full finite and
-   p-primary classes use full profinite π; a constant-Fₚ specialization alone
-   does not justify pro-p replacement. Raw equivalence retains its separately
-   verified geometrically-unibranch scope. Its geometric Lean interfaces
-   remain explicit omissions. Finish every node, planet, duplication,
-   ownership and source-error check. `sourceIssues` is currently empty with
-   an unfinished screen. Honest partial/not_read stages alone do not reject
-   a budget-complete pass. Only after the complete screen write the required
-   `review` object and one justified verdict for every node.
+   p-primary classes use full profinite π; constant-Fₚ specialization alone
+   does not justify pro-p replacement. Raw equivalence retains separately
+   verified geometrically-unibranch scope; geometric Lean interfaces are
+   omitted. `sourceIssues` is empty with an unfinished screen. Honest
+   partial/not_read stages alone do not reject a budget-complete pass. Only
+   after the whole screen supply the required `review` object and a justified
+   verdict for every node.
 
-No reader, atlas data, supplier packet or author handoff was changed. Continue
-only this review's deliverables and its handoff; no acceptance or promotion is
-claimed.
+No reader, atlas data, supplier packet or author handoff was changed. Reader
+reconciliation should reflect the strengthened tests and residual B codomain
+correction when authorized. Continue only this review's deliverables/handoff.
