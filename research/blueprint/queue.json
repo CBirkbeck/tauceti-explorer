@@ -13181,8 +13181,9 @@
    "avoidAccountOf": "DESIGN-FunctionFieldArithmeticPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-FunctionFieldArithmeticPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3533"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3533",
+   "finishedAt": "2026-10-05T13:20:10Z"
   },
   {
    "id": "DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
