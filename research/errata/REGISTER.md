@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-7160 new mistakes confirmed · 1497 awaiting review · 1437 already corrected in print · 112 rejected on review · 20 extractions and packets not yet checked.
+7160 new mistakes confirmed · 1498 awaiting review · 1437 already corrected in print · 112 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -12403,6 +12403,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 
 - **Misprint** at §16, proof of Lemma 16.3, p. 93 (arXiv:1709.07343v4). The source says `so we may assume X2 = Spa(Rperf , (R+ )perf ), where R is topologically of finite type over C.`; it should be `… where R is topologically of finite type over C3.`. Lemma 16.3 names its fields C1, C2, C3 and the previous sentence says 'each Rj is topologically of finite type over C3'; no field C is defined in the lemma. Recorded as `ClassicalAdicEtaleCohomology/E6`; looked for an existing correction in: arXiv:1709.07343 v4 (read); earlier arXiv versions not compared.
 - **Gap** at §16, proof of Lemma 16.3, p. 93 (arXiv:1709.07343v4) (it affects the proof). The source says `We prove more generally that if X2 is any perfectoid space over X3 and j2 : U2 ,→ X2 any quasicompact open subset, then Hi((X1 ×X3 X2)ét, j2! M) = Hi(X2,ét, j2! M) for all i ≥ 0. We can write X2 = lim Spa((Rj)perf, (Rj+)perf) as a cofiltered inverse limit`; it should be `The argument proves the claim for affinoid perfectoid X2 (which is all the lemma needs, X2 = Spa(C2, C2+)); for a general perfectoid X2 one must first reduce to affinoids (for qcqs X2 by a Čech spectral sequence for a finite affinoid cover, compatible with base change; for non-quasicompact X2 the claim needs a further limit argument).`. Only an affinoid perfectoid space is a cofiltered limit of affinoids Spa((Rj)perf, (Rj+)perf); a non-quasicompact perfectoid space is not. Recorded as `ClassicalAdicEtaleCohomology/E7`; looked for an existing correction in: arXiv:1709.07343 v4 (read); earlier arXiv versions not compared.
+
+### Shlomo Sternberg, Lie Algebras, Author lecture notes, 23 April 2004 (`ClassicalGroupsPartII`)
+
+- **Misprint** at Author PDF, 23 April 2004, §7.9, printed p.131, dimension displayed after contraction. The source says `binom(2n,j) − binom(2n,2j−2)`; it should be `The second lower index is j−2. Thus dim ker κ_j = binom(2n,j)−binom(2n,j−2), for 2≤j≤n.`. The surjective map immediately above has target Λ^(j−2)V, of dimension binom(2n,j−2). For n=j=2 the printed formula gives 0 instead of the five-dimensional second fundamental representation. Recorded as `ClassicalGroupsPartII/E1`; looked for an existing correction in: Author online-book page and the current linked author PDF, accessed 2026-10-05; Darij Grinberg, Errata to Lie algebras, 29 June 2019, https://darijgrinberg.gitlab.io/algebra/sternberg-errata1.pdf: covers Chapter 1, not p.131; Web search for Sternberg Lie algebras errata and the displayed lower index, 2026-10-05.
 
 ### The Stacks Project Authors, Divided Power Algebra, Live text accessed 2026-09-26; dpa.tex at a04446e57ec1fbc252a871afcec7752fb2807b14 (`CrystallineCohomology`)
 
