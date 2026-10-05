@@ -31129,12 +31129,12 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-SieveMethodsAndPrimePatterns.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8"
    ],
-   "note": "claimed on GitHub issue #1036"
+   "note": "released on GitHub issue #1036"
   },
   {
    "id": "REV-SieveMethodsAndPrimePatterns",
@@ -59765,7 +59765,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticLegendreCharacterInterfaces.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1692"
   },
   {
    "id": "REV-DESIGN-EllipticLegendreCharacterInterfaces",
