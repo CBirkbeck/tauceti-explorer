@@ -1,3 +1,70 @@
+# Completed independent review: needs changes
+
+2026-10-05 — Codex, session `codex-UE02jn`; [issue #3619](https://github.com/CBirkbeck/tauceti-explorer/issues/3619), job `REV-DESIGN-StableReductionPartII`.
+
+This finishes the cumulative independent review and records a top-level **`needs_changes`** decision. It is a completed review submission, not an unfinished checkpoint. All six earlier independent-review checkpoints and their attribution are retained below and in the packet. No mathematical node, baseline citation, source issue or archived proof receipt is removed.
+
+The decisive problem is consistency with the definitive reader. The [reader](../readmes/StableReductionPartII.md) still states the incorrect triangle codimension and uses the disproved special-fibre vanishing step. It is outside this issue's allowed deliverables. The packet and suggested-file comment now identify this contradiction explicitly; this worker has not edited the reader.
+
+The eight partial stages, their precise mathematical gaps and the explicit Lean omissions are legitimate outputs of the finished planning pass. They are **not** grounds for rejecting that pass. Verification below means the conditional target-level plan and its local mathematical route are justified at the recorded scope; it does not mean transitive proof closure or implementation.
+
+| Item | Final count or result |
+| --- | --- |
+| Nodes | 528: 8 definitions, 109 constructions, 342 lemmas, 67 theorems, one application, one comparison |
+| Top-level per-node review | 524 verified, one corrected, three unverifiable for reader/packet agreement |
+| Definition/construction API and tests | 469 API items, 406 tests; every one of 117 objects has at least three discriminating tests |
+| All-node API and tests | 470/433 items; 462/432 unique names |
+| Planets | 35; stage counts 2,6,5,5,6,4,6,1 |
+| Pinned baseline | 276 Mathlib entries in 111 modules; none added, removed or replaced |
+| Supplier requests / gaps | 140 / 21; one new reader-consistency gap |
+| Sources / source findings | 36 / 14; no new finding |
+| Consumer routes / reserved-key papers | 26 / six |
+| Suggested-file inventory | 450 expressed/78 omitted nodes; 365/97 unique APIs; 356/76 unique tests |
+| Planning status | `complete` pass under section 0; all eight stages and the reserved key remain `partial` |
+
+## Corrections made in this final pass
+
+1. `MC.4/finite-degree-equations` now states the noetherian quasi-compact base hypotheses and covers the single proper finite-type parameter cover **over ℤ** used by `projective-coarse`. Its relative Serre deduction is distinguished from the cited CLM field lemma. It keeps the explicit owner obligation for ideal generation, vanishing, fibre-ideal flatness and base change.
+2. `MC.4/dualizing-section-degree` now explicitly specifies the smooth projective connected base curve, algebraically closed field, proper flat finitely presented geometrically connected nodal family of genus at least two, smooth generic fibre and smooth-locus section. Its evaluation-image proof is retained: the image is a line `I = s*ω^m(-D)`, so `m deg(s*ω) = deg I + deg D ≥ 0`. Special-fibre `R¹`-vanishing is not used.
+3. Requests 70 and 71 now request the **same fixed degree** on the parameter cover, followed by fibrewise determinant ampleness and fixed-line openness. They no longer repeat the unsupported varying-exponent argument. Request 119 now requests generic evaluation and the invertible image/effective-divisor comparison, matching the corrected node and request 131.
+4. E12 and E14 review reasons now record the completed, scoped corroboration. Every E1–E14 verdict remains confirmed for its identified public copy and precise claim; publisher-wide wording and novelty are not certified.
+5. Replaced the accumulated MC.2 history in the roadmap description by its final mathematical scope. The polynomial versus completed-local distinction, both native Ext interfaces, ordinary versus relative stable reflexivity, original-ring versus completed-ring Hom, and finite-projective versus arbitrary completed coefficients are preserved. Reconciled summary/remaining wording and the stale omission count. Removed one duplicated AV boundary sentence.
+6. Added the actionable reader-consistency gap, the required top-level `review` object and `finalIndependentAudit`. The suggested file receives only an appended review comment; its mathematical declarations and admitted bodies are unchanged. No new node, API or test is introduced.
+
+## Required reader repair
+
+| Reader block | Current contradiction | Required synchronization |
+| --- | --- | --- |
+| `MC.2/rigid-triangle-embedding`, around line 3878 | Three imposed smoothing coordinates and a fourth when the genus-one component is nodal | Four imposed coordinates: three internal triangle nodes **and the attachment**; a fifth parameter for the nodal genus-one component. Knudsen II printed p.179 already gives this count. |
+| `MC.2/genus-one-base`, immediately following | Repeats the three/four count | Apply the same four/five correction and the family-level recovery qualifications. |
+| `MC.4/dualizing-section-degree`, around line 4336 | Asserts vanishing of `R¹f_*(ω^m(-s))` on the original nodal family | Replace by the generic evaluation-image argument. Blowing up a constant smooth family at its section point produces an exceptional ℙ¹ on which this line has degree `-m-1` and nonzero H¹. |
+| `MC.4/smooth-generic-direct-image-nef` | Describes a negative pluricanonical twist | Carry the corrected positive surface twist, Leray injection, exceptional characteristic-two bound and separate contraction comparisons. |
+| `MC.7/level-picard-parameter`, `picard-triples-comparison` | Stale field/stage imports, missing lift-fibre/tangent contracts and Yuan §4.5 locator | Carry exact early JC0/JC4/JC6 and A0 imports, universal global functions, the Pic(T)-torsor of actual lifts, base-twist and dual-number tests, and §4.3.2 pp.73–75. |
+
+The orchestrator should authorize synchronization of the **whole** reader against all cumulative correction ledgers, not only these examples: source locators, projective-frame twist, integral boundary/conormal range, fixed-degree projectivity, graph closure with the base coordinate, fine-level/Hodge hypotheses, exact early Picard imports, source findings, 26 consumer routes and current counts. Afterwards a focused consistency check can resolve the three document-agreement verdicts. No maintainer mathematical choice is needed for these clear corrections.
+
+## Evidence and practical limits
+
+**Baseline.** All 276 declaration statements were freshly read in the clean existing Mathlib source at `082e2d37e8b0463410cdb532e111cd43d5a66174`, including surrounding binders and the selected consumer restrictions. Namespace/doc-hit ambiguities were resolved from the actual declaration, including linear-equivalence versus linear-map tensor maps and cochain versus chain `of`/`single` interfaces. All 111 module Git blobs and the 276 confirmed references are recorded in `finalIndependentAudit.baseline`; 106 inherited module-blob records match. Of the references, 263 occur as current direct prerequisites and 13 remain inventory-only inputs. No near miss was silently accepted as a geometric theorem. Existing fppf topologies, stack predicates, scheme unramifiedness and scheme finiteness primitives do not provide effective curve-family descent or stack properness.
+
+**Sources.** Reacquired 26 public artifacts; every byte hash matches an existing named-copy receipt or version record. The arXiv HTML record has its comparison hash in `sourceVersions`, rather than the main source entry; it is not a changed mathematical version. Fresh selected checks include Knudsen II Main Lemma 2.2 p.175, Theorem 3.7 proof pp.187–189 and Corollary 3.9 p.190; Ile v3 pp.5,20–21; CLM2021 pp.1,4,25,30–31 and NSF pp.1,32–33,39–41; Yuan author pp.16,45; and live Stacks0BXJ. Relevant scanned equations and underlined stable-Hom notation were read visually. The existing findings are corroborated by the printed claims, documented author-copy corrections and their concrete counterexamples. E12's blowup and E14's `n=0` counterexamples are now explicit in their review reasons.
+
+The cumulative receipts cover every node's local source/hypothesis route, including the predecessor's 425-node algebra audit and its 68-record correction ledger. The source list contains 705 citations with 131 distinct locator/excerpt combinations. Author-strengthened native algebra deductions are not attributed to a broader printed geometric theorem. Fresh hash reconciliation does not claim a new whole-paper reading. Published Yuan/DGH/Ile full-text collation, CLM publisher identification, unread generic transitive proofs and priority/novelty remain qualified open work. Public URLs, hashes and exact fresh scopes are committed in the packet; the submission depends on no scratch files.
+
+**Supplier composition and ownership.** Reconciled all 140 requests and the exact supplier statements. The fourteen direct declaration imports reach sixty nodes across 169 local packets, with no explicit cycle, ambiguous reachable id or path back into this packet. Stage/upstream targets are opaque mathematical boundaries, not implementations. The current A0-extension packet is now reviewed `accepted`; its two imported contracts retain their stated universal-global-functions and section hypotheses. Its current hash/review is recorded without overwriting the predecessor's historical receipt. JC0/JC1/JC4 retain Noetherian scope; JC6 retains integral Noetherian scope. The universal comparison needs the regular-component and atlas descent route before arbitrary pullbacks. The accepted Néron normalization target still has a DVR-shaped predecessor that does not prove its general nodal-field application. This is recorded as an owner gap. SF.5 does not already supply nef-vector-bundle determinant ampleness, and Shimura C5 retains good-prime restrictions. Downstream JC7 is not introduced into fine curve-level construction.
+
+**API, prototypes and key.** All 117 definition/construction outlines have their uses and at least three discriminating tests. The inherited local semantic audit and exact native carriers are preserved. Fresh set reconciliation finds no missing, unknown, overlapping or duplicated omission entries; all 251 named omissions occur in the Lean comments. Eight repeated API names and one repeated test name are canonical reuse at two consuming nodes, not duplicate definitions. Tests guard coefficient versus ambient flatness, ordered matrix signs, characteristic two, rank zero/one, finite-projective retraction, original-ring Hom, elliptic inertia, self-node flags, projective-frame base twists, Pic(T)-twisted lifts and infinitesimal Picard points. Compilation checks the expressed types, not admitted proofs or missing geometric signatures.
+
+The reserved `StableReductionPartII:key/moduli-curves` has a single owner, all six survey samples in its API/tests, and the six scoped consumer/export contracts. Stable-pair, unpointed genus-at-least-two, stack/coarse/fine, Hurwitz inertia, MCG and cohomology ownership boundaries are retained. All 26 routes remain partial. The 35 planets are named mathematical objects/theorems, at most six per stage. The stage order separates unpointed induction from the genus-one base, and early Picard/Hodge suppliers from downstream universal-level applications.
+
+## Final validation
+
+Fresh final-file `lean-check`: exit0;zero errors;875 intentional `sorry` warnings;zero other warnings;95GiB available before compilation. The file has5,937 lines, SHA-256 `9f31aa238a6348175cb2244eefc2d209a8924c6e0733af2701375b5bf9d9f78a`. Mathlib pin `082e2d37e8b0463410cdb532e111cd43d5a66174`. All declarations and their original line positions are unchanged. Packet checker:zero errors/warnings; intake check-files:five allowed deliverables,zero problems; `git diff --check`:clean. Only Mathlib imports are elaborated; the shared enclosing Tau Ceti checkout is not the pinned Tau Ceti baseline. No Tau Ceti compilation, implementation or transitive closure is claimed.
+
+---
+
+## Preserved earlier independent-review reports
+
 # REV-DESIGN-StableReductionPartII: relative Picard suppliers and consumer checkpoint
 
 Issue [#3619](https://github.com/CBirkbeck/tauceti-explorer/issues/3619). Reviewer: Codex (GPT-6), session `codex-LwkQQl`. Date: 2026-10-05. Continues [#6200](https://github.com/CBirkbeck/tauceti-explorer/pull/6200) and the preserved reports below.
