@@ -1,10 +1,11 @@
 /-
-Planning-pass completion, 2026-10-04: the inherited packet has 478 nodes and adds
-none under the updated 300-node budget. All mathematical declarations below are
-unchanged; every packet implementation status remains unchecked. Three stages
-are partial and five not_read, with current follow-up tasks in the reader/packet.
-The full Tau-importing file is uncompiled. PR #6086 authenticates inherited native
-source replay and an isolated admitted projection; this pass runs no new Lean.
+This file is not the roadmap and is not exhaustive. The roadmap document is
+definitive; these statements suggest names and signatures for contributors and
+reviewers. Every packet implementation status remains unchecked. The packet has
+478 nodes; three stages are partial and five not_read.
+The complete Tau-importing file has no successful elaboration receipt. Historical
+projection receipts cover only their stated extracted sources. The independent
+review checkpoint records the current compiler checks and the missing Tau object.
 -/
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import TauCeti.RingTheory.GradedAlgebra.Homogeneous.Quotient
@@ -96,8 +97,8 @@ The previous file elaborated with placeholder-proof warnings only against the
 existing Mathlib build at the pin (Codex codex-J6LwjP, 2 October 2026).
 That historical receipt covers neither codex-rtOQ9t's positivity continuation
 nor codex-a71f92's cumulative continuation.
-The current full-file elaboration receipt is in the handoff.
-No Tau Ceti module is imported; its baseline references were inspected as source.
+The current compiler boundary is recorded in the independent review handoff.
+This file imports the native Tau Ceti direct-sum and graded-quotient modules.
 The original ten baseline examples are retained. Five new signatures and four
 algebraic regressions cover the R03.4 point strand, not the eight-stage part.
 -/
@@ -369,6 +370,15 @@ theorem isCatenary_iff_ringKrullDim_quotient_covBy (A : Type*) [CommRing A] [IsL
 
 end Ring
 
+/-- **`R03.3/regular-local-cohen-macaulay`** (Stacks 00NQ). A list generating
+the maximal ideal with length equal to the dimension is a regular sequence.
+The packet records the missing regular-local-domain input to its proof. -/
+theorem RingTheory.Sequence.isRegular_of_generators_maximalIdeal
+    (A : Type*) [CommRing A] [IsRegularLocalRing A] (rs : List A)
+    (hspan : Ideal.ofList rs = IsLocalRing.maximalIdeal A)
+    (hlen : (rs.length : WithBot ℕ∞) = ringKrullDim A) :
+    RingTheory.Sequence.IsRegular A rs := by sorry
+
 /-- **`R03.3/free-of-maximal-depth-regular-local`** (Stacks Lemma 10.106.6, tag 00NT; the case
 `e = d` of Proposition 10.110.1, tag 00O7). A finite module of maximal depth over a regular local
 ring is free. -/
@@ -382,17 +392,21 @@ theorem Module.free_of_isRegular_of_isRegularLocalRing {A M : Type*} [CommRing A
 namespace SuggestedTest.Catenary
 
 /-- Unit test: a field is catenary. -/
+-- test: isCatenary_test_field
 example (k : Type*) [Field k] : Ring.IsCatenary k := sorry
 
 /-- Unit test: `ℤ` is catenary. -/
+-- test: isCatenary_test_int
 example : Ring.IsCatenary ℤ := sorry
 
 /-- Unit test, pinning the word *saturated*: `k[x, y]` is catenary, although its chains
 `0 ⊂ (x, y)` and `0 ⊂ (x) ⊂ (x, y)` have different lengths. -/
+-- test: isCatenary_test_mvPolynomial_two
 example (k : Type*) [Field k] : Ring.IsCatenary (MvPolynomial (Fin 2) k) := sorry
 
 /-- Unit test, pinning the equal-length clause (Stacks 02JE, Nagata): some Noetherian local
 domain is not catenary. -/
+-- test: isCatenary_test_nagata
 example : ∃ (A : Type) (_ : CommRing A), IsLocalRing A ∧ IsNoetherianRing A ∧ IsDomain A ∧
     ¬ Ring.IsCatenary A := sorry
 
@@ -410,7 +424,7 @@ end SuggestedTest.Catenary
 ## R03.3: general Hilbert–Samuel strand (Codex — codex-a71f92, 2026-10-02)
 
 The reader's Section 5b is definitive. These additions now elaborate with placeholder proofs at the Mathlib pin.
-The current receipt covers the complete file; earlier receipts remain historical.
+This historical receipt predates the Tau imports; it does not cover the complete file.
 The actual associated-graded bridge, Hilbert–Serre induction, degree/dimension
 and Artin–Rees comparison remain explicit packet gaps. A polynomial supplied
 as a hypothesis is not used as a replacement definition of multiplicity.
@@ -1164,7 +1178,7 @@ end TauCeti.HilbertSamuel
 
 /-! ## R03.3: native graded quotients and rational summation (codex-a71f92)
 
-The current full-file elaboration receipt is in the handoff. Every signature uses native quotients or rational polynomials.
+The review handoff records the current elaboration boundary. Every signature here uses native quotients or rational polynomials.
 No associated-graded ring/module or graded polynomial-existence input is asserted.
 -/
 namespace TauCeti.HilbertSamuel
