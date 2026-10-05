@@ -1942,10 +1942,10 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 1935,
-     "missingDeclarations": 1935,
+     "declarations": 2187,
+     "missingDeclarations": 2187,
      "depth": 42,
-     "layersCovered": 3,
+     "layersCovered": 4,
      "layers": 5,
      "sourcePages": 82
     }
