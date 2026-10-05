@@ -1,5 +1,41 @@
 # REV-AnalyticNumberTheory--AN.0 — current checkpoint
 
+Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-BdrTzT`,2026-10-05. Claim confirmed by [bot comment5993995699](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5993995699). Input commit `52c598cfaf84f788f32722b4617206fa2fe44b8b`; branch `codex-BdrTzT/review-analytic-527`.
+
+**Partial independent review; no final verdict or top-level packet `review` object.** The inherited `status: complete` describes the author's plan. This is a checkpoint; intake must classify the review as incomplete. Preserve this session's local corrections and all three historical checkpoint receipts below, each at its recorded scope. No node is newly certified as finally verified.
+
+## Saved work and validation
+
+- Fresh scoped primary-source audit of zero-based nodes87–97. Ten existing payloads changed:87–95 and97; node96 inspected and retained. Payloads98–105 inspected without a source audit. No nodes added/deleted.
+- Explicit sum-of-two-squares Euler factors and positive-product constant; shifted Eisenstein prime criterion including2; shifted-square zero witness and exact finite count. Source-derived asymptotic transfer/product-positivity proofs remain open.
+- Exceptional union: keep the asserted asymptotic separate from the available upper bounds. Require the Eisenstein leading asymptotic and a negligible shifted intersection; its indicator has no multiplicative Euler product. Cutoff13 union count8 was checked by direct enumeration.
+- Fixed-modulus half classes: exact2#R=φ(M), subgroup support, repeated prime powers, ν=1 identity and positive constants preceding all sufficiently large cutoffs. Character-branch/leading-term/positivity work remains open; the general claim is not literally Ghosh–Sarnak's printed proposition.
+- Precise residue, density and prime-ideal quantifiers; inclusive norm/height endpoints; primitive conductors and zero multiplicities. The exceptional set and error constant are fixed before all4≤Y≤X. Full published LOW Lemma4.3 proof read, but its original analytic inputs remain unverified.
+- Smoothed Perron kernel Y^s/(s(s+1)), safe-height contour, endpoint residues and exact prime-power/ramification/weight transfer are explicit proof obligations. Added three supplier requests to existing ADS layers4,6,5 without claiming those generic/qualitative exports settle the quantitative result.
+- Effective prime lower bound retains35/19 and an absolute effective discriminant threshold. Zaman's theorem/final case use35; Lemma7.2.3 prints40. This is an unresolved proof-reconciliation question, not a confirmed erratum. Full Zaman proof unread.
+- Distinct-prime weight now uses the pinned prime-factor product divisor and log identities; retain N=2 and the negative log log2 case.
+- Four primary-source/version records, one extended book reading receipt and six baseline declarations added. Exact URLs, selected passages, hashes and unread boundaries are in the latest [review-report section](../reviews/REV-AnalyticNumberTheory--AN.0.md) and packet. No new source issue or final adjudication.
+- Six admitted theorem signatures and17 admitted examples added. `lean-check` in the shared pinned Mathlib build: exit0,0 errors,192 warnings, all `sorry`. Available memory103 GiB; file SHA256 `acc7af3403169d1e7bab1b2b812d29f54f69b0fd74cf4b75f73cfc05913a3a2c`. No running Lean/background process. Six canonical-carrier definitions still only mathematical comments.
+- Packet checker:0 errors,0 warnings. Submission paths, whitespace and incomplete-review classification checked before PR. Counts:224 nodes,91 API items,77 planned tests,26 planets,72 baseline declarations,43 gaps,32 requests, six ownership proposals,17 source issues. Only the three issue deliverables and this handoff changed.
+
+Scratch downloads and logs are deleted when the PR opens. No departing-worker scratch file is required to resume; reacquire primary texts from the recorded URLs. Elaboration, finite enumeration and schemas are not proofs or a completed review.
+
+## Resume after a fresh claim
+
+1. Read the current issue, binding protocols, report and all historical handoffs. Next sequential primary-source audit: **node98**. Earlier source receipts are not final verified-node verdicts; finish the entire224-node inventory.
+2. Revisit87–97: original Landau/Eisenstein arithmetic and Selberg–Delange transfer; positive convergent constants; shifted intersection estimate; general half-class character asymptotics; original Louboutin bound; original primitive-Hecke density and IK unit-height/logarithmic-derivative bounds; full smoothed contour/quantitative splitting transfer; full Zaman proof and35/40 reconciliation. Existing gaps32/34 record these limits.
+3. Retain historical node72/maximal-divisor-order, numerical original-source, Mertens constant/majorant, coprime-uniformity, inverse-totient and squarefree-mean/Euler-tail obligations. Preserve CM parity/conductor/pole, partial-series zero slot, DIT unit/measure and quadratic-geometry corrections. Every historical worklist below remains live.
+4. Audit every consumer against all72 pinned baseline declarations, all supplier/ownership contracts, all definitions/APIs/tests, native signatures/comments, planets and named red-team routes. Do not infer availability of stronger quantitative estimates from qualitative supplier text. Six canonical-carrier signatures are still omitted.
+5. Adjudicate all17 source issues, retaining E19's preliminary-only scope and the historical source-version limits. This session added no confirmed erratum. Finish original external-source proof reading rather than inheriting extraction approval as proof.
+6. The reader is outside issue527's deliverables. It needs authorized synchronization of all four checkpoints, including the current half-cardinality/quantifier, Landau/intersection, source/proof gap and supplier corrections. Full reader review is still unfinished. Do not edit it under this issue without authorization or claim acceptance while it diverges.
+7. Add the final independent-review object only after all required node/source/reader/native/closure and red-team verdicts are defensible. Re-run the pinned checker and `lean-check` when executable statements change. Use shared build and automatic intake; never manually merge, close or change labels.
+
+No maintainer decision is needed for the saved local corrections. Remaining work is substantive independent review and the recorded supplier/reader interfaces.
+
+## Historical checkpoint — Codex `codex-KI4dsy`
+
+# REV-AnalyticNumberTheory--AN.0 — current checkpoint
+
 Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-KI4dsy`, 2026-10-05. Input commit `f7af18783e675e67940130a78c1b25b4bcc1ad57`; branch `codex-KI4dsy/review-analytic-number-theory-527`.
 
 **Partial independent review. No final verdict and no top-level packet `review` object.** The packet's inherited `status: complete` describes the original planning pass. This submission is a checkpoint. Preserve this session's corrections and both historical checkpoints below; their source receipts are limited to their stated reading scopes.

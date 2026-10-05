@@ -18,6 +18,9 @@ import Mathlib.Data.Finset.Powerset
 import Mathlib.Data.Nat.Squarefree
 import Mathlib.Data.Nat.Totient
 import Mathlib.Analysis.SpecialFunctions.Choose
+import Mathlib.NumberTheory.SumTwoSquares
+import Mathlib.Order.Interval.Set.Nat
+import Mathlib.Data.Set.Card
 import Mathlib.Tactic
 
 /-!
@@ -40,6 +43,8 @@ cardinality signature, and concrete Mertens, Euler-tail and Möbius/totient form
 The Euler tail uses HasProd, so a divergent totalized product cannot satisfy it.
 Exercise5.4(c) in the preliminary Koukoulopoulos source has the reversed
 integrand; use κ=∫(1_[0,1](u)−exp(−u))/u du=γ as recorded in source issue E19.
+Continuation codex-BdrTzT adds native Landau/support count and prime-divisor
+weight signatures, finite representation examples and exact half-cardinality guards.
 The full independent mathematical review is still unfinished.
 Other statements requiring those carriers or unacquired higher-genus/covering
 interfaces are listed mathematically at the end. They are not executable signatures.
@@ -672,6 +677,98 @@ theorem dirichlet_polynomial_mean_square :
             2 * T * ∑ n ∈ Finset.Icc 1 N, ‖a n‖ ^ 2 + R ∧
         |R| ≤ C * ∑ n ∈ Finset.Icc 1 N, (n : ℝ) * ‖a n‖ ^ 2 := by sorry
 
+/-! Scoped review additions: Landau counts and the distinct-prime logarithmic weight.
+The arithmetic predicates use existing natural/integer, primeFactors and ZMod carriers.
+The source-proof gaps in the packet remain open. -/
+
+theorem landau_sum_two_squares_count :
+    ∃ P C_L : ℝ,
+      HasProd (fun p : {p : ℕ // p.Prime ∧ p % 4 = 3} =>
+        (1 - ((p.val : ℝ) ^ 2)⁻¹) ^ (-(1 / 2 : ℝ))) P ∧
+      0 < P ∧ C_L = P / Real.sqrt 2 ∧
+      Tendsto (fun K : ℕ =>
+        (Set.ncard {k : ℕ | 1 ≤ k ∧ k ≤ K ∧
+          ∃ u v : ℤ, (k : ℤ) = u ^ 2 + v ^ 2} : ℝ) /
+          (C_L * (K : ℝ) / Real.sqrt (Real.log K))) atTop (nhds 1) := by sorry
+
+-- Represented integers, rather than their representation multiplicities, are counted.
+example : Set.ncard {k : ℕ | 1 ≤ k ∧ k ≤ 5 ∧
+    ∃ u v : ℤ, (k : ℤ) = u ^ 2 + v ^ 2} = 4 := by sorry
+example : (∃ u v : ℤ, (9 : ℤ) = u ^ 2 + v ^ 2) := by sorry
+example : ¬ (∃ u v : ℤ, (3 : ℤ) = u ^ 2 + v ^ 2) := by sorry
+
+theorem landau_three_square_form_count :
+    ∃ C : ℝ, 0 < C ∧ ∀ K : ℝ, 2 ≤ K →
+      (Set.ncard {k : ℕ | 1 ≤ k ∧ (k : ℝ) ≤ K ∧
+        ∃ u v : ℤ, 4 * ((k : ℤ) - 1) = u ^ 2 + 3 * v ^ 2} : ℝ) ≤
+        C * K / Real.sqrt (Real.log K) := by sorry
+
+example : (∃ u v : ℤ, 4 * ((1 : ℤ) - 1) = u ^ 2 + 3 * v ^ 2) := by sorry
+example : ¬ (∃ u v : ℤ, 4 * ((3 : ℤ) - 1) = u ^ 2 + 3 * v ^ 2) := by sorry
+example : (∃ u v : ℤ, 4 * ((4 : ℤ) - 1) = u ^ 2 + 3 * v ^ 2) := by sorry
+
+theorem shifted_square_count (K : ℝ) (hK : 1 ≤ K) :
+    (Set.ncard {k : ℕ | 1 ≤ k ∧ (k : ℝ) ≤ K ∧
+      ∃ u : ℤ, (k : ℤ) - 4 = u ^ 2} : ℝ) ≤
+      1 + Real.sqrt (max (K - 4) 0) := by sorry
+
+-- The exact finite formula distinguishes the empty small-cutoff range from k = 4.
+example (N : ℕ) :
+    Set.ncard {k : ℕ | 1 ≤ k ∧ k ≤ N ∧
+      ∃ u : ℤ, (k : ℤ) - 4 = u ^ 2} =
+        if 4 ≤ N then Nat.sqrt (N - 4) + 1 else 0 := by sorry
+example : Set.ncard {k : ℕ | 1 ≤ k ∧ k ≤ 3 ∧
+    ∃ u : ℤ, (k : ℤ) - 4 = u ^ 2} = 0 := by sorry
+example : Set.ncard {k : ℕ | 1 ≤ k ∧ k ≤ 4 ∧
+    ∃ u : ℤ, (k : ℤ) - 4 = u ^ 2} = 1 := by sorry
+example : Set.ncard {k : ℕ | 1 ≤ k ∧ k ≤ 13 ∧
+    ∃ u : ℤ, (k : ℤ) - 4 = u ^ 2} = 4 := by sorry
+
+theorem landau_exception_union :
+    ∃ C : ℝ, 0 < C ∧
+      Tendsto (fun K : ℕ =>
+        (Set.ncard {k : ℕ | 1 ≤ k ∧ k ≤ K ∧
+          ((∃ u v : ℤ, (k : ℤ) = u ^ 2 + v ^ 2) ∨
+           (∃ u v : ℤ, 4 * ((k : ℤ) - 1) = u ^ 2 + 3 * v ^ 2) ∨
+           (∃ u : ℤ, (k : ℤ) - 4 = u ^ 2))} : ℝ) /
+          (C * (K : ℝ) / Real.sqrt (Real.log K))) atTop (nhds 1) := by sorry
+
+example : Set.ncard {k : ℕ | 1 ≤ k ∧ k ≤ 13 ∧
+    ((∃ u v : ℤ, (k : ℤ) = u ^ 2 + v ^ 2) ∨
+     (∃ u v : ℤ, 4 * ((k : ℤ) - 1) = u ^ 2 + 3 * v ^ 2) ∨
+     (∃ u : ℤ, (k : ℤ) - 4 = u ^ 2))} = 8 := by sorry
+
+/-- Each unit class in R may occur repeatedly. Primes dividing M are excluded
+because their image cannot equal an element of R, which consists of units. -/
+theorem half_density_prime_support_count (M : ℕ) [NeZero M]
+    (R : Finset (ZMod M)ˣ) (hhalf : 2 * R.card = M.totient)
+    (a : (ZMod M)ˣ) (ha : a ∈ Subgroup.closure (R : Set (ZMod M)ˣ)) :
+    ∃ C₁ C₂ : ℝ, 0 < C₁ ∧ 0 < C₂ ∧ ∃ X₀ : ℕ, 2 ≤ X₀ ∧
+      ∀ X : ℕ, X₀ ≤ X →
+        C₁ * (X : ℝ) / Real.sqrt (Real.log X) ≤
+          (Set.ncard {ν : ℕ | 1 ≤ ν ∧ ν ≤ X ∧ (ν : ZMod M) = a ∧
+            ∀ p ∈ ν.primeFactors, ∃ r ∈ R, (r : ZMod M) = (p : ZMod M)} : ℝ) ∧
+        (Set.ncard {ν : ℕ | 1 ≤ ν ∧ ν ≤ X ∧ (ν : ZMod M) = a ∧
+            ∀ p ∈ ν.primeFactors, ∃ r ∈ R, (r : ZMod M) = (p : ZMod M)} : ℝ) ≤
+          C₂ * (X : ℝ) / Real.sqrt (Real.log X) := by sorry
+
+-- Algebraic support restriction: the empty factorization gives the identity class.
+example (M : ℕ) [NeZero M] (R : Finset (ZMod M)ˣ) (a : (ZMod M)ˣ)
+    (ha : a ∉ Subgroup.closure (R : Set (ZMod M)ˣ)) (X : ℕ) :
+    Set.ncard {ν : ℕ | 1 ≤ ν ∧ ν ≤ X ∧ (ν : ZMod M) = a ∧
+      ∀ p ∈ ν.primeFactors, ∃ r ∈ R, (r : ZMod M) = (p : ZMod M)} = 0 := by sorry
+example : ∀ p ∈ (9 : ℕ).primeFactors, (p : ZMod 4) = 3 := by sorry
+example : ¬ (∀ p ∈ (3 : ℕ).primeFactors, (p : ZMod 4) = 1) := by sorry
+example : ¬ ∃ R : Finset (ZMod 2)ˣ, 2 * R.card = (2 : ℕ).totient := by sorry
+
+theorem prime_divisor_log_weight :
+    ∃ C : ℝ, ∀ N : ℕ, 2 ≤ N →
+      (∑ p ∈ N.primeFactors, Real.log p / p) ≤ Real.log (Real.log N) + C := by sorry
+
+example (a : ℕ) (ha : 1 ≤ a) :
+    (∑ p ∈ ((2 : ℕ) ^ a).primeFactors, Real.log (p : ℝ) / (p : ℝ)) = Real.log 2 / 2 := by sorry
+example : Real.log (Real.log 2) < 0 := by sorry
+
 end TauCeti.AnalyticNumberTheory
 
 /-!
@@ -1009,7 +1106,7 @@ AnalyticNumberTheory:AN.5/landau-sum-two-squares-count
 For K→∞, #{1≤k≤K:k=u²+v² for some integers u,v}∼C_L K/√log K with the positive Landau–Ramanujan constant C_L.
 
 AnalyticNumberTheory:AN.5/landau-three-square-form-count
-The number of positive k≤K with 4(k−1)=u²+3v² is O(K/√log K), with an absolute constant.
+For real K≥2, the count of positive integers k≤K with 4(k−1)=u²+3v² for some integers u,v is at most C K/√log K for one absolute C>0; the k=1 norm-zero case is counted once.
 
 AnalyticNumberTheory:AN.5/shifted-square-count
 #{1≤k≤K:k−4 is an integer square}≤1+√max(K−4,0), for K≥1.
@@ -1018,10 +1115,10 @@ AnalyticNumberTheory:AN.5/landau-exception-union
 The union of k=u²+v², 4(k−1)=u²+3v² and k−4=u², with k positive and ≤K, has cardinality ∼C′ K/√log K for a positive C′.
 
 AnalyticNumberTheory:AN.5/half-density-prime-support-count
-Fix M≥1 and R⊆(ZMod M)^× with #R=φ(M)/2, and omit the finitely many primes dividing M. Let H be the subgroup of (ZMod M)^× generated by R. For every a∈H, the count of 1≤ν≤X with all prime factors in R modulo M and ν≡a mod M is comparable to X/√log X, with positive constants depending on M,R,a. Classes a∉H have count zero.
+Fix a positive modulus M and R⊆(ZMod M)^× with 2#R=φ(M); primes dividing M are excluded. Let H be the subgroup generated by R. For each fixed a∈H there are C₁,C₂>0 and X₀≥2, depending only on M,R,a, such that for all X≥X₀ the count of positive ν≤X with every prime factor lying in R modulo M and ν≡a mod M lies between C₁ X/√log X and C₂ X/√log X. If a∉H, that count is0. The empty factorization ofν=1 is included only in the identity class.
 
 AnalyticNumberTheory:AN.4/louboutin-dedekind-residue-upper
-For degree d>1 the source quotes Res_(s=1) ζ_K(s)≤(e log|D_K|/(2(d−1)))^(d−1).
+For every number field K of degree d>1 and absolute discriminant D_K, the residue κ_K of the continued Dedekind zeta function satisfies κ_K≤(e log D_K/(2(d−1)))^(d−1).
 
 AnalyticNumberTheory:AN.3/ray-class-zero-density
 There is c = c([k : ℚ]) > 0 such that for Q, T > 1, 1/2 ≤ σ < 1 and ε > 0, Σ_{Nm 𝔮≤Q}Σ*_{χ mod 𝔮}N_χ(σ, T) ≪_{[k:ℚ],ε} (Disc(k)QT)^{c(1−σ)+ε}, the inner sum over primitive ray class characters of conductor 𝔮 and N_χ(σ, T) counting zeros with ℜρ ∈ (σ, 1), |ℑρ| ≤ T.
