@@ -23799,11 +23799,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions--L2.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #5880"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L2",
@@ -30272,7 +30273,7 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AdelicAlgebraicGroups",
     "BP-ArithmeticLocallySymmetricSpaces",
@@ -30280,7 +30281,7 @@
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "released on GitHub issue #1021"
+   "note": "claimed on GitHub issue #1021"
   },
   {
    "id": "REV-AnalyticNumberTheory--AN.0",
@@ -31258,8 +31259,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #546"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #546",
+   "finishedAt": "2026-10-05T07:12:47Z"
   },
   {
    "id": "BP-ExponentialSumsAndCircleMethod",
