@@ -22,13 +22,15 @@
       "requires": [
         "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "AlgebraicModuliForArithmeticGeometry:R09.4",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.0",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
       ]
     },
     {
       "key": "MC.1",
       "title": "The unpointed Deligne–Mumford construction",
-      "description": "For g≥2 construct the tricanonical Hilbert locus with polynomial (6t−1)(g−1), identify its projective-frame torsor and quotient stack, and prove representability, finiteness and unramifiedness of the diagonal. Import the parent’s infinitesimal automorphism vanishing and compute the obstruction space, algebraize versal deformations and obtain independent node-smoothing parameters. Deduce a smooth proper Deligne–Mumford stack over Z of relative dimension 3g−3 with relative normal-crossings boundary.",
+      "description": "For g≥2 construct the tricanonical Hilbert locus with polynomial (6t−1)(g−1), identify its projective-frame torsor and quotient stack, and prove representability, finiteness and unramifiedness of the diagonal. Import the parent’s infinitesimal automorphism vanishing and compute the obstruction space, algebraize versal deformations and obtain independent node-smoothing parameters. Deduce a smooth proper Deligne–Mumford stack over Z of relative dimension 3g−3 with relative normal-crossings boundary. A projective frame is an isomorphism P(f_*ω³)≅P^{5g−6}_S. Its embedded hyperplane line agrees with ω³ up to tensoring by a base invertible sheaf; no linear basis or trivialization of that base line is retained. The canonical relative-polarization locus requires its own relative Hilbert/Isom comparison. Extend locally Noetherian parent cohomology and duality to arbitrary family bases by the separately specified approximation input.",
       "requires": [
         "StableReductionPartII:MC.0",
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
@@ -36,7 +38,9 @@
         "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
         "AlgebraicModuliForArithmeticGeometry:R09.2",
         "AlgebraicModuliForArithmeticGeometry:R09.4",
-        "AlgebraicModuliForArithmeticGeometry:R09.6"
+        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "SchemeAndStackFoundations:SF.0"
       ]
     },
     {
