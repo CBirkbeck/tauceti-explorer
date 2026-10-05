@@ -1,5 +1,35 @@
 # REV-AnalyticNumberTheory--AN.0 — current checkpoint
 
+Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-45ZB12`,2026-10-05. Claim confirmed in [bot comment5995492397](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5995492397). Input commit `62fc40dc6bcfd050f62a565510ca2e8a5c73122f`; branch `codex-45ZB12-review-analytic-number-theory`.
+
+**Partial independent review; no final verdict or top-level packet `review` object.** The inherited `status:complete` describes the author's planning pass. Intake must classify this review as incomplete. Preserve this session's corrections and all five historical receipts below at their stated scope; none supplies a final verified-node verdict.
+
+## Saved work and resume point
+
+Fresh scoped source audit: original zero-based nodes112–172 and220, **62 changed payloads and11 added lemmas224–234**. Resume at **173**, the Dedekind/Tate completion comparison. Payloads173–189 were inspected but have no fresh primary-source audit. Revisit the original proof/interface gaps in this and every historical range; node72 remains explicitly unaudited.
+
+The [latest report](../reviews/REV-AnalyticNumberTheory--AN.0.md) and packet retain exact source URLs, hashes, passages and unread boundaries. No scratch file is needed. Reacquire the public sources; the Kedlaya hash matches the inherited author PDF. Yun–Zhang's publisher PDF matched after the author-copy download failed. MilneCFT is the author-notes version4.03, not a full Brauer proof.
+
+- Hadamard: origin/zero-order and finite/empty families; reciprocal and three product-range lemmas; bounded-gap good circles; analytic continuous-log upgrade; Borel–Carathéodory before Cauchy; multiplicities and nonpolynomial strict positivity. General higher-genus proof, unordered split/summability and reindexing adapters remain open.
+- Xi/zero-free: regular completion and existing theta kernel; one-sided Mellin/truncated-integral comparison; integer factorial gamma majorant; corrected gamma shift, exclusions and strip positivity; pinned von-Mangoldt series; explicit final constants. Original digamma remainder/effectivity and pole-germ interface remain open.
+- Explicit formula: positive zero-weight count, multiplicities, good-height bands, finite local pole subtraction, existing cosine functional equation, trivial-zero simplicity, endpoint/nearest-prime-power corrections, small-x horizontal segment and odd left-edge limit. Riemann–von Mangoldt is positive and inclusive. Primitive-character local count and half-interval uniformity are separate; original argument-phase/Davenport/IK proofs remain unread.
+- Artin: invariant-space degree/roots and existing determinant carriers; explicit local reciprocal bound and convolution majorant; separate ramified local induction polynomial. Import NFA1.4 and Mackey3a, and CFT7 conductor/CFT11 arithmetic reciprocity. Upstream Brauer6 states elementary subgroup characters; its induced-linear refinement is a precise open request. Canonical Artin definitions remain among five native omissions. The Landau endpoint gap was removed by the source's right-limit contradiction; no boundary series sum is used. Analytic disc roots and boundary overlap have native signatures.
+- E2,E3,E6,E7,E8,E11,E16 now have fresh local confirmed receipts; E18's1/k was reread and retained. No source issue added. These receipts do not complete the final18-entry audit.
+
+43 pinned baseline entries and three precise supplier requests added. Existing gap descriptions0–8 sharpened, one unnecessary endpoint gap/coverage entry removed. No planet or ownership proposal changed. The zero-function order test was added. Current totals:235 nodes,93 APIs,80 tests,26 planets,123 baseline declarations,42 gaps,35 requests, six ownership proposals,18 source issues.
+
+## Validation and remaining whole-review work
+
+`lean-check` in the existing shared Mathlib build:0 errors,248 warnings, all `sorry`; available memory95 GiB. Suggested-file SHA256 `4fbd0d7e6620bd16946f22c51025c973b15b5430aa3ff62c622c491024c2fbea`. Mathlib pin `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti pin `f790474821cf4256814db967cb154e7af3d0c369`. Mathlib-only elaboration; no Tau Ceti module compilation, build/cache operation, language server or background compile.
+
+Pinned packet checker:0 errors/0 warnings. Submission-path/no-private-path rules, source-issue/version schemas, whitespace and incomplete-review classification checked before PR. Only the three issue deliverables and this handoff changed. Elaboration with admitted proofs is not mathematical certification. Scratch is deleted after PR opening; the report/packet/handoff contain the durable record.
+
+Still required: remaining nodes173 onward, all earlier unread original proofs, all123 baseline consumers, every source-issue verdict, API/native completeness for all22 definitions, stage/target closure, planets, library-audit deduplication and named RT-AREA-analytic/1, RT-AREA-combinatorics/8 and RS-07 routes. The reader is outside this issue's deliverables; selected blocks show stale Landau/Artin and earlier corrections, and all11 new lemmas must be synchronized under authorization. Its entire independent reading remains unfinished. No final review should be added until those checks are completed.
+
+No maintainer decision is required to continue. This run submits one checkpoint and claims no second job.
+
+## Historical checkpoint — Codex `codex-btapUd`
+
 Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-btapUd`,2026-10-05. Claim confirmed by [bot comment5994710524](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5994710524). Input commit `87bd33694d5c627634d560b7e7e37abddb02ea50`; branch `codex-btapUd/review-analytic-527`.
 
 **Partial independent review; no final verdict or top-level packet `review` object.** The inherited `status: complete` describes the author's plan. Intake must classify this review as incomplete. Preserve this session's local corrections and all four historical receipts below, each at its stated scope. No node has newly received a final verified verdict.

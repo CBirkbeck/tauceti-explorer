@@ -23,6 +23,15 @@ import Mathlib.Order.Interval.Set.Nat
 import Mathlib.Data.Set.Card
 import Mathlib.Topology.EMetricSpace.BoundedVariation
 import Mathlib.Topology.Order.LeftRightLim
+import Mathlib.Analysis.Complex.LocallyUniformLimit
+import Mathlib.Analysis.Complex.BorelCaratheodory
+import Mathlib.Analysis.Complex.JensenFormula
+import Mathlib.Analysis.Complex.Liouville
+import Mathlib.Analysis.Complex.BranchLogRoot
+import Mathlib.Analysis.SpecialFunctions.Complex.Analytic
+import Mathlib.Analysis.SpecialFunctions.Complex.LogBounds
+import Mathlib.Analysis.SpecialFunctions.Gamma.Digamma
+import Mathlib.NumberTheory.LSeries.Dirichlet
 import Mathlib.Tactic
 
 /-!
@@ -51,6 +60,12 @@ The full independent mathematical review is still unfinished.
 Continuation codex-btapUd supplies the Weil test predicate with pinned BV/one-sided-limit
 APIs and every API/test signature, and strict-cutoff squarefree counting forms.
 Five canonical-carrier definitions remain omitted.
+Continuation codex-45ZB12 expands the Hadamard/xi and explicit-formula signatures,
+uses multiplicities and an inclusive positive Riemann–von Mangoldt count, and adds
+finite Artin-factor and prescribed-root disc signatures. Canonical Artin carriers
+remain explicit omissions. Compilation checks signatures with admitted proofs;
+it supplies no mathematical certification. The packet/report give the exact
+fresh source, baseline and incomplete-review scopes.
 Other statements requiring those carriers or unacquired higher-genus/covering
 interfaces are listed mathematically at the end. They are not executable signatures.
 -/
@@ -218,6 +233,8 @@ example : entire_order_at_most (fun z : ℂ => 1 - z ^ 2) 0 := by sorry
 example (f : ℂ → ℂ) (hf : Differentiable ℂ f) (C : ℝ)
     (h : ∀ z : ℂ, ‖f z‖ ≤ Real.exp (C * ‖z‖ * Real.log (2 + ‖z‖))) :
     entire_order_at_most f 1 := by sorry
+-- entire_order_at_most.zero: an upper bound does not assert exact order.
+example : entire_order_at_most (fun _ : ℂ => 0) 0 := by sorry
 
 def genus_one_factor (w : ℂ) : ℂ := (1 - w) * Complex.exp w
 lemma genus_one_factor.value (w : ℂ) :
@@ -304,10 +321,11 @@ theorem fixed_progression_prime_number_theorem (q : ℕ) [NeZero q]
     Tendsto (fun x : ℝ => theta_ap x q (a : ZMod q) / x)
       atTop (𝓝 ((Nat.totient q : ℝ)⁻¹)) := by sorry
 theorem riemann_von_mangoldt_count :
-    ∃ C T₀ : ℝ, 0 < C ∧ 2 ≤ T₀ ∧ ∀ T : ℝ, T₀ ≤ T →
-      |((zeta_zero_multiset T).card : ℝ) / 2 -
+    ∃ C : ℝ, 0 < C ∧ ∀ T : ℝ, 2 ≤ T →
+      |(((zeta_zero_multiset (T + 1)).filter
+          (fun ρ => 0 < ρ.im ∧ ρ.im ≤ T)).card : ℝ) -
         (T / (2 * Real.pi) * Real.log (T / (2 * Real.pi)) - T / (2 * Real.pi))| ≤
-        C * Real.log T := by sorry
+        C * Real.log (T + 2) := by sorry
 
 /-! AN.5: explicit finite cutoffs and multiplicative means. -/
 
@@ -663,8 +681,17 @@ theorem dirichlet_conductor_zero_free_region :
 theorem order_one_hadamard (f : ℂ → ℂ) (hf : entire_order_at_most f 1)
     (hnonzero : ∃ z : ℂ, f z ≠ 0) :
     ∃ a b : ℂ, ∃ u : ℕ → Option ℂ,
-      (∀ n α, u n = some α → α ≠ 0) ∧
-      (∀ α : ℂ, α ≠ 0 → Nat.card {n : ℕ // u n = some α} = analyticOrderNatAt f α) ∧
+      (∀ n α, u n = some α → α ≠ 0 ∧ f α = 0) ∧
+      (∀ α : ℂ, Set.Finite {n : ℕ | u n = some α}) ∧
+      (∀ α : ℂ, α ≠ 0 →
+        Nat.card {n : ℕ // u n = some α} = analyticOrderNatAt f α) ∧
+      TendstoLocallyUniformlyOn
+        (fun S : Finset ℕ => fun z : ℂ => ∏ n ∈ S, match u n with
+          | none => (1 : ℂ)
+          | some α => genus_one_factor (z / α))
+        (fun z : ℂ => ∏' n : ℕ, match u n with
+          | none => (1 : ℂ)
+          | some α => genus_one_factor (z / α)) atTop Set.univ ∧
       ∀ z : ℂ,
         Multipliable (fun n => match u n with
           | none => (1 : ℂ)
@@ -673,6 +700,295 @@ theorem order_one_hadamard (f : ℂ → ℂ) (hf : entire_order_at_most f 1)
           ∏' n : ℕ, match u n with
             | none => (1 : ℂ)
             | some α => genus_one_factor (z / α) := by sorry
+
+/-! Hadamard review interfaces: indexed occurrences retain multiplicity.
+All signatures below are suggestions with admitted proofs. The original source
+leaves the three factor estimates as Exercise 8.4.10; the packet gives their
+mathematical derivations and records the remaining generic limit adapters. -/
+
+lemma origin_zero_factor (f : ℂ → ℂ) (hf : Differentiable ℂ f)
+    (hnonzero : ∃ z : ℂ, f z ≠ 0) :
+    ∃ g : ℂ → ℂ, Differentiable ℂ g ∧ g 0 ≠ 0 ∧
+      (∀ z, f z = z ^ analyticOrderNatAt f 0 * g z) ∧
+      (∀ ρ : ℝ, entire_order_at_most f ρ → entire_order_at_most g ρ) := by sorry
+
+lemma compact_zero_count (f : ℂ → ℂ) (hf : Differentiable ℂ f)
+    (hnonzero : ∃ z : ℂ, f z ≠ 0) :
+    (∀ R : ℝ, Set.Finite {z : ℂ | ‖z‖ ≤ R ∧ f z = 0}) ∧
+      ∀ z : ℂ, analyticOrderAt f z ≠ ⊤ := by sorry
+
+lemma continuous_log_analytic_upgrade (U : Set ℂ) (hU : IsOpen U)
+    (g L : ℂ → ℂ) (hg : AnalyticOnNhd ℂ g U)
+    (hgne : ∀ z ∈ U, g z ≠ 0) (hL : ContinuousOn L U)
+    (hexp : ∀ z ∈ U, Complex.exp (L z) = g z) :
+    AnalyticOnNhd ℂ L U := by sorry
+
+lemma borel_cauchy_affine_log (h : ℂ → ℂ) (hh : Differentiable ℂ h)
+    (hgrowth : ∀ ε : ℝ, 0 < ε → ∃ C : ℝ, 0 < C ∧
+      ∀ z : ℂ, (h z).re ≤ C * (1 + ‖z‖ ^ (1 + ε))) :
+    ∃ a b : ℂ, ∀ z : ℂ, h z = a + b * z := by sorry
+
+lemma canonical_factor_log_tail (w : ℂ) (hw : ‖w‖ ≤ 1 / 2) :
+    Complex.exp (Complex.log (1 - w) + w) = genus_one_factor w ∧
+      HasSum (fun n : ℕ => -(w ^ (n + 2) / (n + 2)))
+        (Complex.log (1 - w) + w) ∧
+      ‖Complex.log (1 - w) + w‖ ≤ ‖w‖ ^ 2 := by sorry
+
+section IndexedCanonicalProducts
+
+variable {ι : Type*} [DecidableEq ι]
+
+lemma zero_reciprocal_truncation_bound (α : ι → ℂ)
+    (hα : ∀ i, α i ≠ 0)
+    (hfinite : ∀ R : ℝ, Set.Finite {i | ‖α i‖ ≤ R})
+    (b C : ℝ) (hb : 1 < b) (hb2 : b < 2) (hC : 0 < C)
+    (hcount : ∀ R : ℝ, 1 ≤ R →
+      (Set.ncard {i | ‖α i‖ ≤ R} : ℝ) ≤ C * R ^ b) :
+    ∃ K : ℝ, 0 < K ∧ ∀ R : ℝ, 2 ≤ R → ∀ S : Finset ι,
+      (∀ i ∈ S, ‖α i‖ < R) →
+      ∑ i ∈ S, ‖α i‖⁻¹ ≤ K * R ^ (b - 1) := by sorry
+
+lemma zero_reciprocal_square_tail_bound (α : ι → ℂ)
+    (hα : ∀ i, α i ≠ 0)
+    (hfinite : ∀ R : ℝ, Set.Finite {i | ‖α i‖ ≤ R})
+    (b C : ℝ) (hb : 1 < b) (hb2 : b < 2) (hC : 0 < C)
+    (hcount : ∀ R : ℝ, 1 ≤ R →
+      (Set.ncard {i | ‖α i‖ ≤ R} : ℝ) ≤ C * R ^ b) :
+    ∃ K : ℝ, 0 < K ∧ ∀ R : ℝ, 1 ≤ R →
+      Summable (fun i : {i // R < ‖α i‖} => ‖α i‖ ^ (-2 : ℝ)) ∧
+      (∑' i : {i // R < ‖α i‖}, ‖α i‖ ^ (-2 : ℝ)) ≤
+        K * R ^ (b - 2) := by sorry
+
+lemma canonical_product_inner_lower_bound (α : ι → ℂ)
+    (hα : ∀ i, α i ≠ 0)
+    (hfinite : ∀ R : ℝ, Set.Finite {i | ‖α i‖ ≤ R})
+    (b C : ℝ) (hb : 1 < b) (hb2 : b < 2) (hC : 0 < C)
+    (hcount : ∀ R : ℝ, 1 ≤ R →
+      (Set.ncard {i | ‖α i‖ ≤ R} : ℝ) ≤ C * R ^ b) :
+    ∃ K : ℝ, 0 < K ∧ ∀ R : ℝ, 2 ≤ R → ∀ z : ℂ, ‖z‖ = R →
+      ∀ S : Finset ι, (∀ i ∈ S, ‖α i‖ < R / 2) →
+      -K * R ^ b ≤ ∑ i ∈ S, Real.log ‖genus_one_factor (z / α i)‖ := by sorry
+
+lemma canonical_product_middle_lower_bound (α : ι → ℂ)
+    (hα : ∀ i, α i ≠ 0)
+    (hfinite : ∀ R : ℝ, Set.Finite {i | ‖α i‖ ≤ R})
+    (b C : ℝ) (hb : 1 < b) (hb2 : b < 2) (hC : 0 < C)
+    (hcount : ∀ R : ℝ, 1 ≤ R →
+      (Set.ncard {i | ‖α i‖ ≤ R} : ℝ) ≤ C * R ^ b) :
+    ∃ K : ℝ, 0 < K ∧ ∀ R : ℝ, 2 ≤ R →
+      (∀ i, ‖α i‖ ^ (-2 : ℝ) < |R - ‖α i‖|) →
+      ∀ z : ℂ, ‖z‖ = R → ∀ S : Finset ι,
+      (∀ i ∈ S, R / 2 ≤ ‖α i‖ ∧ ‖α i‖ ≤ 2 * R) →
+      -K * R ^ b * (1 + Real.log (2 * R)) ≤
+        ∑ i ∈ S, Real.log ‖genus_one_factor (z / α i)‖ := by sorry
+
+lemma canonical_product_outer_lower_bound (α : ι → ℂ)
+    (hα : ∀ i, α i ≠ 0)
+    (hfinite : ∀ R : ℝ, Set.Finite {i | ‖α i‖ ≤ R})
+    (b C : ℝ) (hb : 1 < b) (hb2 : b < 2) (hC : 0 < C)
+    (hcount : ∀ R : ℝ, 1 ≤ R →
+      (Set.ncard {i | ‖α i‖ ≤ R} : ℝ) ≤ C * R ^ b) :
+    ∃ K : ℝ, 0 < K ∧ ∀ R : ℝ, 2 ≤ R → ∀ z : ℂ, ‖z‖ = R →
+      let P := ∏' i : {i // 2 * R < ‖α i‖}, genus_one_factor (z / α i)
+      P ≠ 0 ∧ -K * R ^ b ≤ Real.log ‖P‖ := by sorry
+
+lemma canonical_product_lower_good_circles (α : ι → ℂ)
+    (hα : ∀ i, α i ≠ 0)
+    (hfinite : ∀ R : ℝ, Set.Finite {i | ‖α i‖ ≤ R})
+    (hcount : ∀ b : ℝ, 1 < b → ∃ C : ℝ, 0 < C ∧
+      ∀ R : ℝ, 1 ≤ R → (Set.ncard {i | ‖α i‖ ≤ R} : ℝ) ≤ C * R ^ b)
+    (ε : ℝ) (hε : 0 < ε) (hε1 : ε < 1) :
+    ∃ C : ℝ, 0 < C ∧ ∀ R : ℝ, 2 ≤ R →
+      (∀ i, ‖α i‖ ^ (-2 : ℝ) < |R - ‖α i‖|) →
+      ∀ z : ℂ, ‖z‖ = R →
+        -C * R ^ (1 + ε) ≤ Real.log ‖∏' i, genus_one_factor (z / α i)‖ := by sorry
+
+end IndexedCanonicalProducts
+
+-- Empty products and origin multiplicity remain visible in the prototype.
+example (z : ℂ) : z ^ 2 * Complex.exp z =
+    z ^ 2 * Complex.exp (0 + 1 * z) *
+      ∏' _i : Fin 0, genus_one_factor z := by sorry
+example (z : ℂ) : genus_one_factor z * genus_one_factor (-z) =
+    1 - z ^ 2 := by sorry
+
+
+/-- AN.2/theta-tail-decay: the kernel is already in Mathlib. -/
+lemma theta_tail_decay (x : ℝ) (hx : 1 ≤ x) :
+    0 ≤ (HurwitzZeta.evenKernel 0 x - 1) / 2 ∧
+    (HurwitzZeta.evenKernel 0 x - 1) / 2 ≤
+      Real.exp (-Real.pi * x) / (1 - Real.exp (-Real.pi)) := by sorry
+
+/-- AN.2/xi-integral-comparison: the finite-integral limit is local in s. -/
+lemma xi_integral_comparison :
+    let integrand := fun (s : ℂ) (x : ℝ) =>
+      ((x : ℂ) ^ (s / 2 - 1) + (x : ℂ) ^ ((1 - s) / 2 - 1)) *
+        (((HurwitzZeta.evenKernel 0 x - 1) / 2 : ℝ) : ℂ)
+    (∀ s : ℂ, MeasureTheory.IntegrableOn (integrand s) (Set.Ioi 1)) ∧
+    (∀ s : ℂ, riemann_xi s = 1 / 2 + (s * (s - 1) / 2) *
+      ∫ x in Set.Ioi (1 : ℝ), integrand s x) ∧
+    TendstoLocallyUniformlyOn
+      (fun (R : ℝ) (s : ℂ) => ∫ x in Set.Icc (1 : ℝ) R, integrand s x)
+      (fun s : ℂ => ∫ x in Set.Ioi (1 : ℝ), integrand s x)
+      atTop Set.univ := by sorry
+
+/-- AN.2/gamma-integral-growth-majorant: the constant can be explicit. -/
+lemma gamma_integral_growth_majorant (r : ℝ) (hr : 2 ≤ r) :
+    MeasureTheory.IntegrableOn
+      (fun x : ℝ => (x ^ (r / 2 + 1) + 1) * Real.exp (-Real.pi * x)) (Set.Ioi 1) ∧
+    (∫ x in Set.Ioi (1 : ℝ), (x ^ (r / 2 + 1) + 1) * Real.exp (-Real.pi * x)) ≤
+      Real.exp (2 * r * Real.log (2 + r)) := by sorry
+
+/-- AN.2/xi-order-one-growth: this is an upper-order statement. -/
+lemma xi_order_one_growth :
+    (∃ C R : ℝ, 0 < C ∧ 0 < R ∧ ∀ s : ℂ, R ≤ ‖s‖ →
+      ‖riemann_xi s‖ ≤ Real.exp (C * ‖s‖ * Real.log (2 + ‖s‖))) ∧
+    entire_order_at_most riemann_xi 1 := by sorry
+
+/-- AN.2/xi-entire-and-endpoints. -/
+lemma xi_entire_and_endpoints :
+    Differentiable ℂ riemann_xi ∧ riemann_xi 0 = 1 / 2 ∧ riemann_xi 1 = 1 / 2 := by sorry
+
+/-- AN.2/xi-zero-critical-strip: neither boundary line contains a xi zero. -/
+lemma xi_zero_critical_strip (ρ : ℂ) (hρ : riemann_xi ρ = 0) :
+    0 < ρ.re ∧ ρ.re < 1 := by sorry
+
+/-- AN.2/zeta-hadamard-log-derivative: analytic-order weights express the
+same multiplicities as the repeated-zero family in the mathematical statement. -/
+lemma zeta_hadamard_log_derivative :
+    ∃ B : ℂ, ∀ s : ℂ, s ≠ 0 → s ≠ 1 → riemannZeta s ≠ 0 →
+      (∀ n : ℕ, s / 2 ≠ -(n : ℂ)) →
+      let summand := fun ρ : {z : ℂ // riemann_xi z = 0} =>
+        (analyticOrderNatAt riemann_xi ρ.1 : ℂ) * (1 / (s - ρ.1) + 1 / ρ.1)
+      Summable summand ∧
+      deriv riemannZeta s / riemannZeta s = B - 1 / s - 1 / (s - 1) +
+        (Real.log Real.pi : ℂ) / 2 - Complex.digamma (s / 2) / 2 + ∑' ρ, summand ρ := by sorry
+
+/-- AN.2/digamma-right-half-plane: one constant works on the whole half-plane. -/
+lemma digamma_right_half_plane :
+    ∃ C : ℝ, 0 < C ∧ ∀ z : ℂ, (1 / 2 : ℝ) ≤ z.re → 2 ≤ ‖z‖ →
+      ‖Complex.digamma z - Complex.log z‖ ≤ C / ‖z‖ := by sorry
+
+/-- AN.2/zeta-log-derivative-right: the n=0 term is totalized to zero. -/
+lemma zeta_log_derivative_right :
+    Summable (fun n : ℕ => ArithmeticFunction.vonMangoldt n / (n : ℝ) ^ 2) ∧
+    ∀ s : ℂ, 2 ≤ s.re → ‖deriv riemannZeta s / riemannZeta s‖ ≤
+      ∑' n : ℕ, ArithmeticFunction.vonMangoldt n / (n : ℝ) ^ 2 := by sorry
+
+/-- AN.2/zeta-pole-log-derivative: constants precede the real argument. -/
+lemma zeta_pole_log_derivative :
+    ∃ δ K : ℝ, 0 < δ ∧ 0 < K ∧ ∀ σ : ℝ, 1 < σ → σ < 1 + δ →
+      ‖-deriv riemannZeta (σ : ℂ) / riemannZeta (σ : ℂ) - 1 / ((σ : ℂ) - 1)‖ ≤ K := by sorry
+
+/-- AN.2/zeta-three-four-one-derivative: the generic positivity remains ADS8. -/
+lemma zeta_three_four_one_derivative (σ t : ℝ) (hσ : 1 < σ) :
+    0 ≤ 3 * (-deriv riemannZeta (σ : ℂ) / riemannZeta (σ : ℂ)).re +
+      4 * (-deriv riemannZeta ((σ : ℂ) + t * Complex.I) /
+        riemannZeta ((σ : ℂ) + t * Complex.I)).re +
+      (-deriv riemannZeta ((σ : ℂ) + (2 * t : ℝ) * Complex.I) /
+        riemannZeta ((σ : ℂ) + (2 * t : ℝ) * Complex.I)).re := by sorry
+
+/-- AN.2/single-zero-positive-term: both parts of the corrected summand matter. -/
+lemma single_zero_positive_term (ρ : ℂ) (hρ : riemann_xi ρ = 0)
+    (σ : ℝ) (hσ : 1 < σ) :
+    (1 / ((σ : ℂ) + ρ.im * Complex.I - ρ)).re = 1 / (σ - ρ.re) ∧
+    0 < (1 / ρ).re ∧
+    ∀ τ : {z : ℂ // riemann_xi z = 0},
+      0 ≤ (1 / ((σ : ℂ) + ρ.im * Complex.I - τ.1) + 1 / τ.1).re := by sorry
+
+/-- AN.2/zero-free-region-constant-selection: only high positive heights. -/
+lemma zero_free_region_constant_selection :
+    ∃ c t₀ : ℝ, 0 < c ∧ 1 < t₀ ∧ ∀ ρ : ℂ, riemann_xi ρ = 0 →
+      t₀ ≤ ρ.im → ρ.re < 1 - c / Real.log ρ.im := by sorry
+
+
+/-- AN.3/zeta-poisson-zero-weight: a positive series, with analytic-order weights. -/
+lemma zeta_poisson_zero_weight :
+    ∃ C : ℝ, 0 < C ∧ ∀ t : ℝ,
+      let weight := fun ρ : {z : ℂ // riemann_xi z = 0} =>
+        (analyticOrderNatAt riemann_xi ρ.1 : ℝ) / (1 + (t - ρ.1.im) ^ 2)
+      Summable weight ∧ ∑' ρ, weight ρ ≤ C * Real.log (2 + |t|) := by sorry
+
+/-- AN.3/zeta-unit-height-zero-count: a closed band inside a strict larger cutoff. -/
+lemma zeta_unit_height_zero_count :
+    ∃ C : ℝ, 0 < C ∧ ∀ T : ℝ, 2 ≤ T →
+      (((zeta_zero_multiset (T + 2)).filter
+        (fun ρ => T ≤ ρ.im ∧ ρ.im ≤ T + 1)).card : ℝ) ≤ C * Real.log (T + 2) := by sorry
+
+/-- AN.3/good-height-selection: every zero ordinate, including nearby outside bands. -/
+lemma good_height_selection :
+    ∃ c : ℝ, 0 < c ∧ ∀ T : ℝ, 2 ≤ T → ∃ T' : ℝ,
+      T' ∈ Set.Icc T (T + 1) ∧ ∀ ρ : ℂ, riemann_xi ρ = 0 →
+        c / Real.log (T + 2) ≤ |T' - ρ.im| := by sorry
+
+/-- AN.3/zeta-local-log-derivative: actual evaluation points must be nonzeros. -/
+lemma zeta_local_log_derivative :
+    ∃ C : ℝ, 0 < C ∧ ∀ σ t : ℝ, -1 ≤ σ → σ ≤ 2 → 2 ≤ |t| →
+      riemannZeta ((σ : ℂ) + t * Complex.I) ≠ 0 →
+      ‖deriv riemannZeta ((σ : ℂ) + t * Complex.I) /
+        riemannZeta ((σ : ℂ) + t * Complex.I) -
+        (((zeta_zero_multiset (|t| + 2)).filter (fun ρ => |t - ρ.im| < 1)).map
+          (fun ρ => 1 / ((σ : ℂ) + t * Complex.I - ρ))).sum‖ ≤
+      C * Real.log (2 + |t|) := by sorry
+
+/-- AN.3/zeta-left-log-derivative: the excluded zeros are negative even integers. -/
+lemma zeta_left_log_derivative (c : ℝ) (hc : 0 < c) :
+    ∃ C : ℝ, 0 < C ∧ ∀ w : ℂ, w.re ≤ -1 →
+      (∀ n : ℕ, 1 ≤ n → c ≤ ‖w + 2 * (n : ℂ)‖) →
+      riemannZeta w ≠ 0 ∧ ‖deriv riemannZeta w / riemannZeta w‖ ≤
+        C * Real.log (2 + ‖w‖) := by sorry
+
+/-- AN.3/zeta-trivial-zero-simple: a zero-value theorem alone is weaker. -/
+lemma zeta_trivial_zero_simple (n : ℕ) (hn : 1 ≤ n) :
+    analyticOrderNatAt riemannZeta (-2 * (n : ℂ)) = 1 := by sorry
+
+/-- AN.3/low-zero-safe-interval-kernel: subtract before bounding reciprocals. -/
+lemma low_zero_safe_interval_kernel (x : ℝ) (hx : 2 ≤ x)
+    (ρ : ℂ) (h0 : 0 < ρ.re) (h1 : ρ.re < 1) :
+    ‖((x : ℂ) ^ ρ - ((x / 2 : ℝ) : ℂ) ^ ρ) / ρ‖ ≤
+      2 * x ^ ρ.re * min 1 (1 / ‖ρ‖) := by sorry
+
+/-- AN.3/primitive-character-unit-height-zero-count: existing Dirichlet carrier. -/
+lemma primitive_character_unit_height_zero_count :
+    ∃ C : ℝ, 0 < C ∧ ∀ (q : ℕ) [NeZero q], 1 ≤ q →
+      ∀ χ : DirichletCharacter ℂ q, χ.IsPrimitive → χ ≠ 1 → ∀ u : ℝ,
+      Finite {p : ℂ × ℕ //
+        DirichletCharacter.LFunction χ p.1 = 0 ∧ 0 < p.1.re ∧ p.1.re < 1 ∧
+        u ≤ p.1.im ∧ p.1.im ≤ u + 1 ∧
+        p.2 < analyticOrderNatAt (DirichletCharacter.LFunction χ) p.1} ∧
+      (Nat.card {p : ℂ × ℕ //
+        DirichletCharacter.LFunction χ p.1 = 0 ∧ 0 < p.1.re ∧ p.1.re < 1 ∧
+        u ≤ p.1.im ∧ p.1.im ≤ u + 1 ∧
+        p.2 < analyticOrderNatAt (DirichletCharacter.LFunction χ) p.1} : ℝ) ≤
+          C * Real.log ((q : ℝ) * (2 + |u|)) := by sorry
+
+/-- AN.3/zero-weight-sum: an actual finite set of occurrences is exhibited. -/
+lemma zero_weight_sum :
+    ∃ C : ℝ, 0 < C ∧ ∀ (q : ℕ) [NeZero q], 1 ≤ q →
+      ∀ χ : DirichletCharacter ℂ q, χ.IsPrimitive → ∀ T : ℝ, 2 ≤ T →
+      ∃ Z : Finset (ℂ × ℕ),
+        (∀ p : ℂ × ℕ, p ∈ Z ↔
+          DirichletCharacter.LFunction χ p.1 = 0 ∧ 0 < p.1.re ∧ p.1.re < 1 ∧
+          |p.1.im| ≤ T ∧ p.2 < analyticOrderNatAt (DirichletCharacter.LFunction χ) p.1) ∧
+        (∑ p ∈ Z, min 1 (1 / ‖p.1‖)) ≤ C * Real.log ((q : ℝ) * (T + 2)) ^ 2 := by sorry
+
+/-- AN.3/character-half-interval-formula: all constants precede conductor,
+character, interval length and height; the zero sum has a finite occurrence carrier. -/
+theorem character_half_interval_formula :
+    ∃ C : ℝ, 0 < C ∧ ∃ k₀ : ℕ, 2 ≤ k₀ ∧
+      ∀ (q : ℕ) [NeZero q], 1 ≤ q → ∀ χ : DirichletCharacter ℂ q,
+      χ.IsPrimitive → χ ≠ 1 → ∀ k : ℕ, k₀ ≤ k →
+      ∀ T : ℝ, 2 ≤ T → T ≤ (k : ℝ) →
+      ∃ Z : Finset (ℂ × ℕ),
+        (∀ p : ℂ × ℕ, p ∈ Z ↔
+          DirichletCharacter.LFunction χ p.1 = 0 ∧ 0 < p.1.re ∧ p.1.re < 1 ∧
+          |p.1.im| ≤ T ∧ p.2 < analyticOrderNatAt (DirichletCharacter.LFunction χ) p.1) ∧
+        ‖(∑ m ∈ (Finset.range (k + 1)).filter
+            (fun m : ℕ => (k : ℝ) / 2 < (m : ℝ)),
+            χ (m : ZMod q) * (ArithmeticFunction.vonMangoldt m : ℂ)) +
+          ∑ p ∈ Z, ((k : ℂ) ^ p.1 - (((k : ℝ) / 2 : ℝ) : ℂ) ^ p.1) / p.1‖ ≤
+          C * ((k : ℝ) * Real.log ((q : ℝ) * k) ^ 2 / T +
+            Real.log ((q : ℝ) * k) ^ 2) := by sorry
 
 theorem dirichlet_polynomial_mean_square :
     ∃ C : ℝ, 0 < C ∧ ∀ N : ℕ, 1 ≤ N → ∀ a : ℕ → ℂ,
@@ -866,13 +1182,38 @@ example : ((Finset.range 14).filter (fun n : ℕ =>
     0 < n ∧ Squarefree n ∧ (∀ p ∈ n.primeFactors, p = 2 ∨ (p : ZMod 4) = 1) ∧
     n.primeFactors.card = 2)).card = 1 := by sorry
 
+/-! AN.4: concrete finite-factor and disc signatures. The canonical number-field
+Artin carriers remain omitted under the explicit interface gap. -/
+
+lemma artin_local_reciprocal_bound (d m : ℕ) (hm : m ≤ d)
+    (θ : ℝ) (hθ0 : 0 ≤ θ) (hθ1 : θ < 1)
+    (α : Fin m → ℂ) (hα : ∀ j, ‖α j‖ = 1) (z : ℂ) (hz : ‖z‖ ≤ θ) :
+    (∏ j, (1 - α j * z)) ≠ 0 ∧
+      ‖(∏ j, (1 - α j * z))⁻¹‖ ≤ ((1 - θ) ^ d)⁻¹ ∧
+      ‖(∏ j, (1 - α j * z))⁻¹ - 1‖ ≤
+        (d : ℝ) * ‖z‖ * ((1 - θ) ^ d)⁻¹ := by sorry
+
+lemma analytic_root_on_disc (a z₀ w₀ : ℂ) (r : ℝ) (hr : 0 < r)
+    (F : ℂ → ℂ) (hF : AnalyticOnNhd ℂ F (Metric.ball a r))
+    (hF0 : ∀ z ∈ Metric.ball a r, F z ≠ 0) (m : ℕ) (hm : 0 < m)
+    (hz₀ : z₀ ∈ Metric.ball a r) (hw₀ : w₀ ^ m = F z₀) :
+    ∃ R : ℂ → ℂ, AnalyticOnNhd ℂ R (Metric.ball a r) ∧
+      (∀ z ∈ Metric.ball a r, R z ^ m = F z) ∧ R z₀ = w₀ ∧
+      ∀ S : ℂ → ℂ, AnalyticOnNhd ℂ S (Metric.ball a r) →
+        (∀ z ∈ Metric.ball a r, S z ^ m = F z) → S z₀ = w₀ →
+        Set.EqOn S R (Metric.ball a r) := by sorry
+
+lemma boundary_disc_overlap (a b : ℂ) (ha : a.re = 1) (hb : b.re = 1)
+    (r q : ℝ) (h : (Metric.ball a r ∩ Metric.ball b q).Nonempty) :
+    IsPreconnected (Metric.ball a r ∩ Metric.ball b q) ∧
+      ∃ z ∈ Metric.ball a r ∩ Metric.ball b q, 1 < z.re := by sorry
+
 end TauCeti.AnalyticNumberTheory
 
 /-!
 ## Canonical-carrier signature omissions (explicit gap, not native declarations)
 
 AnalyticNumberTheory:AN.4/partial-ideal-zeta
-
 For a number field K, choose its ordinary or narrow ideal class group, and a class A. Let a_A(n) count nonzero integral ideals of norm n in A, with a_A(0)=0. Define ζ_A(s)=LSeries a_A s on Re s>1, using the imported norm-indexed ideal arithmetic function and finite norm fibres. Quadratic period applications use narrow classes for real quadratic K and ordinary classes for imaginary quadratic K. Index ideals, not their generators. The finite class sum agrees with NumberField.dedekindZeta as an LSeries: the latter may have a different zeroth coefficient, which LSeries ignores.
 
 Signature withheld until its recorded canonical supplier interface exists.
@@ -894,7 +1235,6 @@ TEST partial_ideal_zeta.no_generators: The unit ideal contributes once, even whe
 TEST partial_ideal_zeta.zero: The zero ideal contributes to no coefficient; no norm-zero negative power occurs.
 
 AnalyticNumberTheory:AN.2/exceptional-squareclasses
-
 For 0<c<1/2 let S(c) consist of nonzero squarefree d≠1 such that the primitive quadratic character of Q(√d) has a real zero β∈[1−c/log(|d|+4),1]. The conductor is |d| or 4|d| as dictated by its fundamental discriminant. Enumerate any finite initial segment by nondecreasing |d|; an infinite enumeration requires infinitude, which is not asserted.
 
 Signature withheld until its recorded canonical supplier interface exists.
@@ -916,7 +1256,6 @@ TEST exceptional_squareclasses.two: d=2 has conductor 8, not 2.
 TEST exceptional_squareclasses.finite: The definition permits an empty or finite S(c); it does not fabricate an infinite sequence.
 
 AnalyticNumberTheory:AN.4/artin-local-polynomial
-
 For a finite Galois extension L/K, a finite-dimensional complex representation ρ of G=Gal(L/K), and a nonzero prime ideal p of K, choose P above p, its decomposition/inertia groups D_P,I_P and arithmetic Frobenius in D_P/I_P. On V^(I_P), Frobenius acts canonically. Define P_p(T)=det(1−T·Frob_P|V^(I_P)) in C[T]. The determinant is independent of P and of a Frobenius lift.
 
 Signature withheld until its recorded canonical supplier interface exists.
@@ -927,7 +1266,7 @@ API artin_local_polynomial.constant: P_p(0)=1.
 
 API artin_local_polynomial.unramified: For unramified p, P_p(T)=det(1−Tρ(Frob_p)) on all of V.
 
-API artin_local_polynomial.degree: deg P_p≤dim_C V; its eigenvalues have modulus1.
+API artin_local_polynomial.degree: natDegree P_p=dim_C(V^I)≤dim_C V; the Frobenius endomorphism on V^I has eigenvalues of modulus1 and every root of P_p has modulus1. The degree-zero polynomial1 has no roots.
 
 API artin_local_polynomial.basis: Changing the finite-dimensional basis does not change the polynomial.
 
@@ -938,7 +1277,6 @@ TEST artin_local_polynomial.zero: For the zero representation, P_p=1.
 TEST artin_local_polynomial.ramified_character: For a one-dimensional character nontrivial on inertia, V^I=0 and P_p=1; using the whole V would give a wrong factor.
 
 AnalyticNumberTheory:AN.4/artin-euler-series
-
 For the preceding data and Re s>1, L_K(s,ρ)=∏_p P_p((Np)^−s)^−1, over all nonzero prime ideals of K, with complex powers using the positive real norm logarithm. Coefficients are the norm-regrouped reciprocal local-polynomial coefficients, not a completely multiplicative degree-one ideal weight.
 
 Signature withheld until its recorded canonical supplier interface exists.
@@ -960,7 +1298,6 @@ TEST artin_euler_series.zero: The zero representation gives1.
 TEST artin_euler_series.ramified: A one-dimensional character ramified at p contributes local factor1 there.
 
 AnalyticNumberTheory:AN.5/halasz-coefficient-class
-
 For κ>0, C(κ) consists of multiplicative arithmetic functions f with f(1)=1 for which F(s)=Σf(n)n^−s, an Euler-compatible logF series and −F′/F(s)=ΣΛ_f(n)n^−s converge absolutely on Re s>1, and |Λ_f(n)|≤κΛ(n). The logarithm is the branch fixed by the Euler expansion and tends to0 as real s→∞.
 
 Signature withheld until its recorded canonical supplier interface exists.
@@ -1252,7 +1589,7 @@ AnalyticNumberTheory:AN.2/finite-order-hadamard
 For nonzero entire f of finite order at most ρ≥0, set n=floor ρ. Its nonzero zeros α with multiplicity satisfy Σ|α|^(−n−1)<∞ and f(z)=z^m exp(h(z))∏E_n(z/α), where E_n(w)=(1−w)exp(Σ_{j=1}^n w^j/j), h is a polynomial of degree≤n and the product converges locally uniformly. Finite/empty zero sets are allowed.
 
 AnalyticNumberTheory:AN.3/character-half-interval-formula
-For primitive nonprincipal chi of conductor q, sufficiently large integer k and 2<=T<=k, a truncated explicit formula on (k/2,k] has zero contributions -(k^rho-(k/2)^rho)/rho for nontrivial zeros |Im rho|<=T, with error O(k*log^2(qk)/T+log^2(qk)).
+There are absolute C>0 and k₀≥2 such that for every primitive nonprincipal Dirichlet characterχ of conductor q, integer k≥k₀ and real2≤T≤k, Σ_(k/2<m≤k)χ(m)Λ(m)=−Σ_(nontrivial zeros |Imρ|≤T)mρ(k^ρ−(k/2)^ρ)/ρ+E, with |E|≤C[k log²(qk)/T+log²(qk)]. Endpoint sums are over positive integers; powers use exp(ρ log x).
 
 AnalyticNumberTheory:AN.4/brauer-meromorphic-continuation
 Every finite-image complex Artin Euler series has a meromorphic continuation to C obtained from an integral Brauer expression as a finite product of integer powers of canonical Hecke continuations. This asserts global meromorphy, not Artin holomorphy.
@@ -1319,5 +1656,41 @@ For m≥0 and Re c>0, the canonical continuation has ζ_H(−m,c)=−B_{m+1}(c)/
 
 AnalyticNumberTheory:AN.4/quadratic-residue-quotient
 For a quadratic extension E/F, L_f(1,η)=κ_E/κ_F>0, where κ_K is the positive residue of the continued Dedekind function. Here η is the canonical nontrivial primitive quadratic Hecke character attached by global Artin reciprocity. Its holomorphy at 1, the continued zeta factorization, and the two simple positive residues give the quotient; general line-one nonvanishing is not needed for this argument.
+
+
+## Additional lemma specifications exposed by codex-45ZB12
+
+AnalyticNumberTheory:AN.2/zero-reciprocal-truncation-bound
+Under the family/count hypotheses there is K>0, depending on α,C,b, such that for R≥2, Σ_{|α_i|<R}|α_i|⁻¹≤K R^(b−1). The sum is finite and counts repeated zeros.
+
+AnalyticNumberTheory:AN.2/zero-reciprocal-square-tail-bound
+Under the family/count hypotheses there is K>0, depending only on C,b, such that for R≥1, the reciprocal-square series over |α_i|>R is summable and Σ_{|α_i|>R}|α_i|⁻²≤K R^(b−2).
+
+AnalyticNumberTheory:AN.2/canonical-product-inner-lower-bound
+Under the family/count hypotheses there is K>0 such that for R≥2, |z|=R and every finite subset S of indices with |α_i|<R/2, Σ_{i∈S}log|E₁(z/α_i)|≥−K R^b.
+
+AnalyticNumberTheory:AN.2/canonical-product-middle-lower-bound
+Under the family/count hypotheses there is K>0 such that for R≥2 satisfying |R−|α_i||>|α_i|⁻² for every index, |z|=R and every finite S with R/2≤|α_i|≤2R, Σ_{i∈S}log|E₁(z/α_i)|≥−K R^b(1+log(2R)).
+
+AnalyticNumberTheory:AN.2/canonical-product-outer-lower-bound
+Under the family/count hypotheses there is K>0 such that for R≥2 and |z|=R the unordered outer product P_out(z)=∏_{|α_i|>2R}E₁(z/α_i) is nonzero and log|P_out(z)|≥−K R^b.
+
+AnalyticNumberTheory:AN.2/xi-zero-critical-strip
+For every complex ρ with ξ(ρ)=0,0<Re ρ<1.
+
+AnalyticNumberTheory:AN.3/zeta-poisson-zero-weight
+There is an absolute C>0 such that for every real t, Σ_(ξ(ρ)=0)mρ/(1+(t−Imρ)²) is summable and at most C log(2+|t|), with mρ=analyticOrderNatAt ξρ.
+
+AnalyticNumberTheory:AN.3/zeta-trivial-zero-simple
+For every natural n≥1, analyticOrderNatAt riemannZeta(−2n)=1.
+
+AnalyticNumberTheory:AN.3/primitive-character-unit-height-zero-count
+There is an absolute C>0 such that for every primitive nonprincipal Dirichlet character χ of conductor q≥1 and every real u, the nontrivial L-zero occurrences with u≤Imρ≤u+1 number at most C log(q(2+|u|)).
+
+AnalyticNumberTheory:AN.4/artin-local-reciprocal-bound
+For d∈N,0≤m≤d,0≤t≤θ<1 and α₁,…,α_m∈C with |α_j|=1, put A(z)=∏_{j=1}^m(1−α_j z). For |z|=t, A(z)≠0, |A(z)^−1|≤(1−θ)^−d and |A(z)^−1−1|≤d t(1−θ)^−d. The assertion includes d=m=0.
+
+AnalyticNumberTheory:AN.4/artin-ramified-induction-polynomial
+For L/K finite Galois with group G,H≤G,F=L^H and σ a finite-dimensional complex representation of H, at every nonzero prime p of K, P_{p,Ind_H^Gσ}(T)=∏_{q|p in F}P_{q,σ}(T^{f(q/p)}). The right polynomials are defined from Gal(L/F)=H, their own inertia invariants and arithmetic Frobenius modulo inertia.
 
 -/
