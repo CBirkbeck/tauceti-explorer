@@ -4,6 +4,12 @@ definitive. These suggested names, signatures, API items and examples help
 contributors and reviewers converge on Lean forms. All new constructions and
 proofs are placeholders; no implementation is claimed.
 -/
+import Mathlib.Topology.Algebra.Group.Subgroup
+import Mathlib.Algebra.Group.Subgroup.Ker
+import Mathlib.LinearAlgebra.Quotient.Basic
+import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.LinearAlgebra.TensorProduct.Tower
+import Mathlib.RingTheory.Ideal.Span
 import Mathlib.Topology.Algebra.Module.FiniteDimension
 import Mathlib.RingTheory.Norm.Transitivity
 import Mathlib.Topology.Algebra.Valued.NormedValued
@@ -28,6 +34,7 @@ import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
 import Mathlib.Algebra.DualNumber
 import research.blueprint.suggested.PadicMeasuresIwasawaAlgebras
 import research.blueprint.suggested.«DirichletPadicLFunctions--L1»
+import research.blueprint.suggested.«IntegralIwasawaTheory--I.8»
 import Mathlib.Algebra.Polynomial.Taylor
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
 import Mathlib.FieldTheory.Finite.Basic
@@ -61,8 +68,8 @@ variable {R S : Type*} [CommRing R] [CommRing S]
 /- q is only local notation for the exact transparent body of the imported proposed definition
 DirichletPadic.smoothingDenominator (DirichletPadicLFunctions:L1/smoothing-denominator).
 It introduces no declaration, carrier or second constructor. Once that proposed library declaration
-is implemented, import its module and replace this notation with its name. The present file can
-therefore elaborate on the actual baseline without pretending the proposed module is available. -/
+is implemented, import its module and replace this notation with its name. This notation identifies the actual supplied expression; the proposed supplier
+module imports still require their prepared build before this file can elaborate. -/
 local notation "q[" R ", " a "]" =>
   (PowerSeries.mk (fun n => ((Nat.choose (a : ℕ) (n + 1)) : R)))
 
@@ -2021,7 +2028,8 @@ theorem rawColeman_range (hp : Odd p) :
 /-- Exactness of the actual maps and the closed/quotient topology on the middle
 and final images. The kernel inclusion is the closed embedding of the actual
 constant/binomial product characterized by rawColeman_kernel. Equivariance,
-completed-module and tensor comparisons remain continuation work. -/
+principal completed modules and algebraic tensor signatures follow below; their
+prepared supplier interfaces and completed topologies remain refinement work. -/
 theorem colemanSequence_topology (hp : Odd p) :
     let torsion := {c : Zˣ // c^(p-1)=1}
     let ι : torsion × Multiplicative Z → U := fun q =>
@@ -2040,5 +2048,627 @@ theorem colemanSequence_topology (hp : Odd p) :
       (⟨Multiplicative.toAdd (rawColeman p u), ⟨u,rfl⟩⟩ :
         Set.range (fun v : U => Multiplicative.toAdd (rawColeman p v)))) ∧
     IsQuotientMap (cyclotomicMoment p) := sorry
+end ColemanCyclotomic
+end
+
+/- Arithmetic actions and the principal sequence. The native subgroup carriers
+are those above. The module structures below are arithmetic applications of the
+upstream pro-p and PMIA completed-action interfaces, not new generic theories.
+The shared build cannot elaborate the existing imports; these signatures are
+unelaborated. The precise IsProP and completed-tensor conditions whose supplier
+names are not implemented are recorded in comments, never as placeholder Props. -/
+noncomputable section
+namespace ColemanCyclotomic
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open AbstractMeasure TauCetiRoadmap.Campaign.ColemanPowerSeries
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "O" => fun n => integralClosure Z (level p n)
+local notation "U" => normCompatibleUnits p
+local notation "PU" => principalNormCompatibleUnits p
+local notation "B" => PowerSeries Z
+local notation "M" => D(Zˣ,Z)
+local instance : TopologicalSpace M := AbstractMeasure.WeakTopology
+local instance : TopologicalSpace (ZMod p) := ⊥
+local instance : DiscreteTopology (ZMod p) := ⟨rfl⟩
+
+private abbrev full (u : Additive PU) : U := (Additive.toMul u).val
+private abbrev scalarUnit (n : ℕ) (c : Zˣ) : (O n)ˣ :=
+  Units.map (algebraMap Z (O n)).toMonoidHom c
+private abbrev rootUnit (n : ℕ) : (O n)ˣ :=
+  ⟨integralZeta p n, integralZeta p n ^ (p^(n+1)-1), by sorry, by sorry⟩
+private abbrev Pn (n : ℕ) : Subgroup (O n)ˣ :=
+  (Units.map (reduction p n).toMonoidHom).ker
+
+def teichTower : (ZMod p)ˣ →* U := sorry
+lemma teichTower_apply (r : (ZMod p)ˣ) (c : Zˣ)
+    (hc : c^(p-1)=1) (hr : Units.map PadicInt.toZMod.toMonoidHom c = r) (n : ℕ) :
+    (teichTower p r).val n = scalarUnit p n c := sorry
+lemma teichTower_residue (r : (ZMod p)ˣ) : normLimitResidue p (teichTower p r) = r := sorry
+lemma teichTower_pow (r : (ZMod p)ˣ) : (teichTower p r)^(p-1)=1 := sorry
+lemma teichTower_continuous : Continuous (teichTower p) := sorry
+-- TeichTowerTests.one
+example : teichTower p 1 = 1 := sorry
+-- TeichTowerTests.minus_one_three
+example (n : ℕ) : (teichTower 3 (-1)).val n = -1 := sorry
+-- TeichTowerTests.fifth_power
+example (r : (ZMod 5)ˣ) (hr : (r : ZMod 5)=2) :
+    teichTower 5 r ^ 4 = 1 ∧ (normLimitResidue 5 (teichTower 5 r) : ZMod 5)=2 ∧
+    (2 : ℤ_[5])^4 ≠ 1 := sorry
+lemma unitsNorm_teich (r : (ZMod p)ˣ) (n : ℕ) :
+    unitsNorm p n ((teichTower p r).val (n+1)) = (teichTower p r).val n := sorry
+-- Comparison with the independently supplied finite Teichmüller section uses
+-- TauCeti.eq_teichmuller after the canonical integer/residue adapter is installed.
+
+def unitSplit : U ≃* (ZMod p)ˣ × PU := sorry
+lemma unitSplit_fst (u : U) : (unitSplit p u).1 = normLimitResidue p u := sorry
+lemma unitSplit_snd (u : U) : (unitSplit p u).2.val = u / teichTower p (normLimitResidue p u) := sorry
+lemma unitSplit_symm (r : (ZMod p)ˣ) (u : PU) :
+    (unitSplit p).symm (r,u) = teichTower p r * u.val := sorry
+lemma unitSplit_homeomorph : Continuous (unitSplit p) ∧ Continuous (unitSplit p).symm := sorry
+-- UnitSplitTests.one
+example : unitSplit p 1 = (1,1) := sorry
+-- UnitSplitTests.principal
+example (u : PU) : unitSplit p u.val = (1,u) := sorry
+-- UnitSplitTests.minus_one_three
+example : (unitSplit 3 (teichTower 3 (-1))).1 = -1 ∧
+    (unitSplit 3 (teichTower 3 (-1))).2 = 1 := sorry
+
+def finiteAction (n : ℕ) : Zˣ →* (O n ≃ₐ[Z] O n) := sorry
+lemma finiteAction_zeta (n : ℕ) (a : Zˣ) :
+    finiteAction p n a (integralZeta p n) =
+      integralZeta p n ^ (PadicInt.toZModPow (n+1) (a : Z)).val := sorry
+lemma finiteAction_scalar (n : ℕ) (a : Zˣ) (z : Z) :
+    finiteAction p n a (algebraMap Z (O n) z) = algebraMap Z (O n) z := sorry
+lemma finiteAction_reduction (n : ℕ) (a : Zˣ) (x : O n) :
+    reduction p n (finiteAction p n a x) = reduction p n x := sorry
+lemma finiteAction_continuous (n : ℕ) (a : Zˣ) :
+    Continuous (finiteAction p n a) ∧ Continuous (finiteAction p n a).symm := sorry
+-- FiniteActionTests.one
+example (n : ℕ) : finiteAction p n 1 = AlgEquiv.refl Z (O n) := sorry
+-- FiniteActionTests.conjugation
+example (n : ℕ) :
+    Units.map (finiteAction p n (-1)).toAlgHom.toMonoidHom (rootUnit p n) =
+      (rootUnit p n)⁻¹ := sorry
+-- FiniteActionTests.ternary_second_level
+example (a : ℤ_[3]ˣ) (ha : (a : ℤ_[3])=4) :
+    finiteAction 3 1 a (integralZeta 3 1) = integralZeta 3 1 ^ 4 ∧
+    finiteAction 3 1 a (integralZeta 3 1) ≠ integralZeta 3 1 := sorry
+lemma unitsNorm_finiteAction (n : ℕ) (a : Zˣ) (u : (O (n+1))ˣ) :
+    unitsNorm p n (Units.map (finiteAction p (n+1) a).toAlgHom.toMonoidHom u) =
+      Units.map (finiteAction p n a).toAlgHom.toMonoidHom (unitsNorm p n u) := sorry
+
+def towerAction : Zˣ →* (U ≃* U) := sorry
+lemma towerAction_apply (a : Zˣ) (u : U) (n : ℕ) :
+    (towerAction p a u).val n = Units.map (finiteAction p n a).toAlgHom.toMonoidHom (u.val n) := sorry
+lemma towerAction_principal (a : Zˣ) (u : U) :
+    towerAction p a u ∈ principalNormCompatibleUnits p ↔ u ∈ principalNormCompatibleUnits p := sorry
+lemma towerAction_teich (a : Zˣ) (r : (ZMod p)ˣ) : towerAction p a (teichTower p r) = teichTower p r := sorry
+lemma towerAction_tate (hp : Odd p) (a : Zˣ) (b : Z) :
+    towerAction p a (tateTower p hp (Multiplicative.ofAdd b)) =
+      tateTower p hp (Multiplicative.ofAdd ((a : Z)*b)) := sorry
+-- TowerActionTests.one
+example (u : U) : towerAction p 1 u = u := sorry
+-- TowerActionTests.inverse
+example (a : Zˣ) (u : U) : towerAction p a⁻¹ (towerAction p a u)=u := sorry
+-- TowerActionTests.conjugate_tate
+example (hp : Odd p) : towerAction p (-1) (tateTower p hp (Multiplicative.ofAdd 1)) =
+    tateTower p hp (Multiplicative.ofAdd (-1)) := sorry
+ theorem continuous_towerAction : Continuous (fun x : Zˣ × U => towerAction p x.1 x.2) := sorry
+/- principalTower_isProP: apply the upstream IsProP predicate to PU. Its final
+namespace is not available here, so that condition is omitted from a formal
+signature. The proof uses closed-subgroup and product stability at upstream
+ProfiniteProPGroups layer 3 and finite principal units at LocalFields layer 1.
+It does not require surjectivity of the coordinate maps. -/
+
+private def finitePrincipalModule (n : ℕ) : Module Z (Additive (Pn p n)) := sorry
+local instance (n : ℕ) : Module Z (Additive (Pn p n)) := finitePrincipalModule p n
+
+def principalModule : Module Z (Additive PU) := sorry
+local instance : Module Z (Additive PU) := principalModule p
+private def principalCoordinate (n : ℕ) : Additive PU →ₗ[Z] Additive (Pn p n) := sorry
+private lemma principalCoordinate_apply (n : ℕ) (u : Additive PU) :
+    (Additive.toMul (principalCoordinate p n u)).val = (full p u).val n := sorry
+lemma principalModule_nat (k : ℕ) (u : Additive PU) :
+    full p ((k : Z) • u) = full p u ^ k := sorry
+lemma principalModule_coordinate (a : Z) (u : Additive PU) (n : ℕ) :
+    principalCoordinate p n (a • u) = a • principalCoordinate p n u := sorry
+lemma principalModule_continuous : Continuous (fun x : Z × Additive PU => x.1 • x.2) := sorry
+lemma principalModule_action_commutes (g : Zˣ) (a : Z) (u : Additive PU) :
+    towerAction p g (full p (a • u)) =
+      full p (a • Additive.ofMul (⟨towerAction p g (full p u), by sorry⟩ : PU)) := sorry
+private abbrev tatePrincipal (hp : Odd p) (b : Z) : Additive PU :=
+  Additive.ofMul ⟨tateTower p hp (Multiplicative.ofAdd b), tateTower_principal p hp b⟩
+-- PrincipalModuleTests.zero
+example (u : Additive PU) : full p ((0 : Z) • u)=1 := sorry
+-- PrincipalModuleTests.two
+example (u : Additive PU) : full p ((2 : Z) • u)=full p u ^ 2 := sorry
+-- PrincipalModuleTests.tate
+example (hp : Odd p) (a b : Z) : a • tatePrincipal p hp b = tatePrincipal p hp (a*b) := sorry
+
+def principalCompletedModule : Module M (Additive PU) := sorry
+local instance : Module M (Additive PU) := principalCompletedModule p
+lemma principalCompletedModule_dirac (g : Zˣ) (u : Additive PU) :
+    full p (dirac Z g • u) = towerAction p g (full p u) := sorry
+lemma principalCompletedModule_scalar (a : Z) (u : Additive PU) :
+    (algebraMap Z M a) • u = a • u := sorry
+lemma principalCompletedModule_continuous : Continuous (fun x : M × Additive PU => x.1 • x.2) := sorry
+lemma principalCompletedModule_unique (m : Module M (Additive PU))
+    (hcont : letI : Module M (Additive PU) := m
+      Continuous (fun x : M × Additive PU => x.1 • x.2))
+    (hdirac : letI : Module M (Additive PU) := m
+      ∀ g u, full p (dirac Z g • u) = towerAction p g (full p u))
+    (hscalar : letI : Module M (Additive PU) := m
+      ∀ a u, (algebraMap Z M a) • u = a • u) :
+    m = principalCompletedModule p := sorry
+-- CompletedUnitTests.zero
+example (u : Additive PU) : (0 : M) • u=0 := sorry
+-- CompletedUnitTests.one
+example (u : Additive PU) : dirac Z (1 : Zˣ) • u=u := sorry
+-- CompletedUnitTests.minus_one_tate
+example (hp : Odd p) (b : Z) (hb : b ≠ 0) :
+    dirac Z (-1 : Zˣ) • tatePrincipal p hp b = tatePrincipal p hp (-b) ∧
+    dirac Z (-1 : Zˣ) • tatePrincipal p hp b ≠ tatePrincipal p hp b := sorry
+
+lemma seriesEvaluation_finiteAction (n : ℕ) (a : Zˣ) (F : B) :
+    seriesEvaluation p n (PowerSeries.subst (PowerSeries.binomialSeries Z (a : Z)-1) F) =
+      finiteAction p n a (seriesEvaluation p n F) := sorry
+lemma colemanEquiv_towerAction (a : Zˣ) (u : U) :
+    (colemanEquiv p (towerAction p a u) : Bˣ).val =
+      PowerSeries.subst (PowerSeries.binomialSeries Z (a : Z)-1) (colemanEquiv p u : Bˣ).val := sorry
+ theorem coleman_smul (a : Z) (u : Additive PU) :
+    Multiplicative.toAdd (rawColeman p (full p (a • u))) =
+      a • Multiplicative.toAdd (rawColeman p (full p u)) ∧
+    Multiplicative.toAdd (colemanMap p (full p (a • u))) =
+      a • Multiplicative.toAdd (colemanMap p (full p u)) := sorry
+ theorem rawColeman_towerAction (a : Zˣ) (u : U) :
+    Multiplicative.toAdd (rawColeman p (towerAction p a u)) =
+      dirac Z a * Multiplicative.toAdd (rawColeman p u) ∧
+    Multiplicative.toAdd (colemanMap p (towerAction p a u)) =
+      dirac Z a * Multiplicative.toAdd (colemanMap p u) := sorry
+
+def principalColeman : Additive PU →ₗ[M] M := sorry
+lemma principalColeman_apply (u : Additive PU) :
+    principalColeman p u = Multiplicative.toAdd (colemanMap p (full p u)) := sorry
+lemma principalColeman_continuous : Continuous (principalColeman p) := sorry
+lemma principalColeman_dirac (g : Zˣ) (u : Additive PU) :
+    principalColeman p (dirac Z g • u)=dirac Z g * principalColeman p u := sorry
+lemma principalColeman_raw (u : Additive PU) :
+    principalColeman p u = -Multiplicative.toAdd (rawColeman p (full p u)) := sorry
+-- PrincipalColemanTests.zero
+example : principalColeman p 0=0 := sorry
+-- PrincipalColemanTests.tate
+example (hp : Odd p) (b : Z) : principalColeman p (tatePrincipal p hp b)=0 := sorry
+-- PrincipalColemanTests.twist
+example (g : Zˣ) (u : Additive PU) : principalColeman p (dirac Z g • u) =
+    AbstractMeasure.map (⟨fun x : Zˣ => g*x, by fun_prop⟩ : C(Zˣ,Zˣ)) (principalColeman p u) := sorry
+
+lemma unitAmice_weighting (μ : M) :
+    psiSeries p (PowerSeries.mahlerDerivation Z (unitsMeasureAmiceEquiv p μ).val) = 0 ∧
+    PowerSeries.constantCoeff (PowerSeries.mahlerDerivation Z (unitsMeasureAmiceEquiv p μ).val) =
+      cyclotomicMoment p μ := sorry
+ theorem principalColeman_kernel (hp : Odd p) :
+    (LinearMap.ker (principalColeman p) : Set (Additive PU)) = Set.range (tatePrincipal p hp) ∧
+    Function.Injective (tatePrincipal p hp) ∧ IsClosed (Set.range (tatePrincipal p hp)) := sorry
+ theorem principalColeman_exact (hp : Odd p) :
+    Function.Injective (tatePrincipal p hp) ∧
+    (LinearMap.ker (principalColeman p) : Set (Additive PU)) = Set.range (tatePrincipal p hp) ∧
+    Set.range (principalColeman p) = (LinearMap.ker (cyclotomicMoment p) : Set M) ∧
+    Function.Surjective (cyclotomicMoment p) ∧
+    IsClosed (Set.range (tatePrincipal p hp)) ∧ IsClosed (Set.range (principalColeman p)) ∧
+    IsQuotientMap (fun u : Additive PU =>
+      (⟨principalColeman p u,⟨u,rfl⟩⟩ : Set.range (principalColeman p))) ∧
+    IsQuotientMap (cyclotomicMoment p) := sorry
+-- Both endpoints carry the Tate action. The bundled Λ-linear endpoint requires
+-- the imported character-module interface; the signature states its actual
+-- underlying map and exactness rather than assuming a character action.
+local instance : IsScalarTower Z M (Additive PU) := by sorry
+private def tateLinear (hp : Odd p) : Z →ₗ[Z] Additive PU := sorry
+private lemma tateLinear_apply (hp : Odd p) (b : Z) : tateLinear p hp b=tatePrincipal p hp b := sorry
+ theorem coleman_exact_baseChange (hp : Odd p) (A : Type*) [CommRing A] [Algebra Z A]
+    [Module.Free Z A] [Module.Finite Z A] :
+    Function.Injective (LinearMap.baseChange A (tateLinear p hp)) ∧
+    Set.range (LinearMap.baseChange A (tateLinear p hp)) =
+      (LinearMap.ker (LinearMap.baseChange A ((principalColeman p).restrictScalars Z)) :
+        Set (TensorProduct Z A (Additive PU))) ∧
+    Set.range (LinearMap.baseChange A ((principalColeman p).restrictScalars Z)) =
+      (LinearMap.ker (LinearMap.baseChange A (cyclotomicMoment p)) : Set (TensorProduct Z A M)) ∧
+    Function.Surjective (LinearMap.baseChange A (cyclotomicMoment p)) := sorry
+-- The finite-module topology, both A(1) endpoint actions and the comparison with
+-- the supplier's completed tensor products are omitted pending PMIA L5's typed
+-- interface. The algebraic signature tensors ALL FOUR terms of the actual maps.
+
+/- Local images of the supplier's global cyclotomic units. An embedding of
+number fields is algebraic; no continuity from the complex topology to the
+p-adic topology is asserted. The index n here is the supplier's n+1. -/
+local notation "F" => fun n => TauCeti.CyclotomicTower.Qmu (p^(n+1))
+local notation "Dn" => fun n => TauCeti.CyclotomicTower.cyclotomicUnits p (n+1)
+local notation "Dnplus" => fun n => TauCeti.CyclotomicTower.realCyclotomicUnits p (n+1)
+private def fieldAction (n : ℕ) (a : Zˣ) : level p n ≃ₐ[ℚ_[p]] level p n := sorry
+private lemma finiteAction_field (n : ℕ) (a : Zˣ) (x : O n) :
+    algebraMap (O n) (level p n) (finiteAction p n a x) =
+      fieldAction p n a (algebraMap (O n) (level p n) x) := sorry
+
+def globalLocalEmbedding (n : ℕ) : F n →ₐ[ℚ] level p n := sorry
+lemma globalLocalEmbedding_zeta (n : ℕ) :
+    globalLocalEmbedding p n (TauCeti.CyclotomicTower.xi p (n+1)) = zeta p n := sorry
+lemma globalLocalEmbedding_injective (n : ℕ) : Function.Injective (globalLocalEmbedding p n) := sorry
+lemma globalLocalEmbedding_tower (n : ℕ) (x : F n) :
+    globalLocalEmbedding p (n+1)
+      (IntermediateField.inclusion (TauCeti.CyclotomicTower.Qmu_mono (by sorry)) x) =
+      algebraMap (level p n) (level p (n+1)) (globalLocalEmbedding p n x) := sorry
+lemma globalLocalEmbedding_conjugation (n : ℕ) (x y : F n)
+    (h : (y : ℂ) = star (x : ℂ)) :
+    globalLocalEmbedding p n y = fieldAction p n (-1) (globalLocalEmbedding p n x) := sorry
+-- GlobalLocalTests.one
+example (n : ℕ) : globalLocalEmbedding p n 1=1 := sorry
+-- GlobalLocalTests.ternary_root
+example : globalLocalEmbedding 3 0
+    ((TauCeti.CyclotomicTower.xi 3 1)^2+TauCeti.CyclotomicTower.xi 3 1+1)=0 := sorry
+-- GlobalLocalTests.conjugate
+example (n : ℕ) : globalLocalEmbedding p n (TauCeti.CyclotomicTower.xi p (n+1))⁻¹ =
+    (zeta p n)⁻¹ := sorry
+
+def globalLocalUnits (n : ℕ) : Dn n →* (O n)ˣ := sorry
+lemma globalLocalUnits_field (n : ℕ) (d : Dn n) :
+    algebraMap (O n) (level p n) (globalLocalUnits p n d : O n) =
+      globalLocalEmbedding p n (d.val : F n) := sorry
+lemma globalLocalUnits_injective (n : ℕ) : Function.Injective (globalLocalUnits p n) := sorry
+lemma globalLocalUnits_cUnit (n a : ℕ) (ha : IsUnit (a : Z)) (d : Dn n)
+    (hd : (d.val : F n) = TauCeti.CyclotomicTower.cUnit p (n+1) a) :
+    (globalLocalUnits p n d : O n) =
+      seriesEvaluation p n (DirichletPadic.smoothingDenominator Z a) := sorry
+lemma globalLocalUnits_real (n : ℕ) (d : Dn n) (hd : d.val ∈ Dnplus n) :
+    Units.map (finiteAction p n (-1)).toAlgHom.toMonoidHom (globalLocalUnits p n d) =
+      globalLocalUnits p n d := sorry
+-- GlobalLocalUnitTests.one
+example (n : ℕ) : globalLocalUnits p n 1=1 := sorry
+-- GlobalLocalUnitTests.minus_one
+example (n : ℕ) (d : Dn n) (hd : d.val = -1) : globalLocalUnits p n d = -1 := sorry
+-- GlobalLocalUnitTests.ternary_two
+example (d : TauCeti.CyclotomicTower.cyclotomicUnits 3 1)
+    (hd : (d.val : TauCeti.CyclotomicTower.Qmu (3^1)) = TauCeti.CyclotomicTower.cUnit 3 1 2) :
+    (globalLocalUnits 3 0 d : integralClosure ℤ_[3] (level 3 0)) = 1+integralZeta 3 0 := sorry
+
+def realLocalUnits (n : ℕ) : Subgroup (O n)ˣ :=
+    MonoidHom.eqLocus (Units.map (finiteAction p n (-1)).toAlgHom.toMonoidHom) (MonoidHom.id _)
+lemma mem_realLocalUnits (n : ℕ) (u : (O n)ˣ) : u ∈ realLocalUnits p n ↔
+    Units.map (finiteAction p n (-1)).toAlgHom.toMonoidHom u = u := sorry
+lemma realLocalUnits_closed (n : ℕ) : IsClosed (realLocalUnits p n : Set (O n)ˣ) ∧
+    IsCompact (realLocalUnits p n : Set (O n)ˣ) := sorry
+lemma realLocalUnits_scalar (n : ℕ) (c : Zˣ) : scalarUnit p n c ∈ realLocalUnits p n := sorry
+lemma realLocalUnits_root (hp : Odd p) (n : ℕ) (u : (O n)ˣ)
+    (hroot : u^(p^(n+1))=1) (hr : u ∈ realLocalUnits p n) : u=1 := sorry
+-- RealLocalTests.one
+example (n : ℕ) : (1 : (O n)ˣ) ∈ realLocalUnits p n := sorry
+-- RealLocalTests.minus_one
+example (n : ℕ) : (-1 : (O n)ˣ) ∈ realLocalUnits p n := sorry
+-- RealLocalTests.root_excluded
+example (hp : Odd p) (n : ℕ) : rootUnit p n ∉ realLocalUnits p n := sorry
+
+def localCyclotomicUnits (n : ℕ) : Subgroup (O n)ˣ := (globalLocalUnits p n).range.topologicalClosure
+lemma mem_localCyclotomicUnits (n : ℕ) (u : (O n)ˣ) : u ∈ localCyclotomicUnits p n ↔
+    u ∈ closure (Set.range (globalLocalUnits p n)) := sorry
+lemma localCyclotomicUnits_global (n : ℕ) (d : Dn n) :
+    globalLocalUnits p n d ∈ localCyclotomicUnits p n := sorry
+lemma localCyclotomicUnits_closed (n : ℕ) : IsClosed (localCyclotomicUnits p n : Set (O n)ˣ) ∧
+    IsCompact (localCyclotomicUnits p n : Set (O n)ˣ) := sorry
+lemma localCyclotomicUnits_minimal (n : ℕ) (H : Subgroup (O n)ˣ)
+    (hH : IsClosed (H : Set (O n)ˣ)) (hd : ∀ d, globalLocalUnits p n d ∈ H) :
+    localCyclotomicUnits p n ≤ H := sorry
+-- LocalCyclotomicTests.one
+example (n : ℕ) : (1 : (O n)ˣ) ∈ localCyclotomicUnits p n := sorry
+-- LocalCyclotomicTests.minus_one
+example (n : ℕ) : (-1 : (O n)ˣ) ∈ localCyclotomicUnits p n := sorry
+-- LocalCyclotomicTests.root
+example (n : ℕ) : rootUnit p n ∈ localCyclotomicUnits p n := sorry
+
+private def globalRealUnits (n : ℕ) : Dnplus n →* (O n)ˣ :=
+    (globalLocalUnits p n).comp
+      { toFun := fun d => ⟨d.val, by sorry⟩, map_one' := sorry, map_mul' := sorry }
+def realLocalCyclotomicUnits (n : ℕ) : Subgroup (O n)ˣ :=
+    (globalRealUnits p n).range.topologicalClosure
+lemma mem_realLocalCyclotomicUnits (n : ℕ) (u : (O n)ˣ) : u ∈ realLocalCyclotomicUnits p n ↔
+    u ∈ closure (Set.range (globalRealUnits p n)) := sorry
+lemma realLocalCyclotomicUnits_le (n : ℕ) :
+    realLocalCyclotomicUnits p n ≤ realLocalUnits p n ∧
+    realLocalCyclotomicUnits p n ≤ localCyclotomicUnits p n := sorry
+lemma realLocalCyclotomicUnits_closed (n : ℕ) : IsClosed (realLocalCyclotomicUnits p n : Set (O n)ˣ) ∧
+    IsCompact (realLocalCyclotomicUnits p n : Set (O n)ˣ) := sorry
+lemma realLocalCyclotomicUnits_global (n : ℕ) (d : Dnplus n) :
+    globalRealUnits p n d ∈ realLocalCyclotomicUnits p n := sorry
+-- RealCyclotomicTests.one
+example (n : ℕ) : (1 : (O n)ˣ) ∈ realLocalCyclotomicUnits p n := sorry
+-- RealCyclotomicTests.minus_one
+example (n : ℕ) : (-1 : (O n)ˣ) ∈ realLocalCyclotomicUnits p n := sorry
+-- RealCyclotomicTests.root_excluded
+example (hp : Odd p) (n : ℕ) : rootUnit p n ∉ realLocalCyclotomicUnits p n := sorry
+
+def principalLocalCyclotomicUnits (n : ℕ) : Submodule Z (Additive (Pn p n)) :=
+    { carrier := {u | (Additive.toMul u).val ∈ localCyclotomicUnits p n}
+      zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+lemma mem_principalLocalCyclotomicUnits (n : ℕ) (u : Additive (Pn p n)) :
+    u ∈ principalLocalCyclotomicUnits p n ↔
+      (Additive.toMul u).val ∈ localCyclotomicUnits p n ∧
+        Units.map (reduction p n).toMonoidHom (Additive.toMul u).val = 1 := sorry
+lemma principalLocalCyclotomicUnits_closed (n : ℕ) :
+    IsClosed (principalLocalCyclotomicUnits p n : Set (Additive (Pn p n))) ∧
+    IsCompact (principalLocalCyclotomicUnits p n : Set (Additive (Pn p n))) := sorry
+lemma principalLocalCyclotomicUnits_smul (n : ℕ) (a : Z) (u : Additive (Pn p n))
+    (hu : u ∈ principalLocalCyclotomicUnits p n) : a • u ∈ principalLocalCyclotomicUnits p n := sorry
+-- PrincipalCyclotomicTests.one
+example (n : ℕ) : (0 : Additive (Pn p n)) ∈ principalLocalCyclotomicUnits p n := sorry
+-- PrincipalCyclotomicTests.root
+example (n : ℕ) : Additive.ofMul (⟨rootUnit p n, by sorry⟩ : Pn p n) ∈
+    principalLocalCyclotomicUnits p n := sorry
+-- PrincipalCyclotomicTests.minus_one_excluded
+example (hp : Odd p) (n : ℕ) : (-1 : (O n)ˣ) ∉ Pn p n ∧
+    (-1 : (O n)ˣ) ∈ localCyclotomicUnits p n := sorry
+
+def principalRealLocalCyclotomicUnits (n : ℕ) : Submodule Z (Additive (Pn p n)) :=
+    { carrier := {u | (Additive.toMul u).val ∈ realLocalCyclotomicUnits p n}
+      zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+lemma mem_principalRealLocalCyclotomicUnits (n : ℕ) (u : Additive (Pn p n)) :
+    u ∈ principalRealLocalCyclotomicUnits p n ↔
+      (Additive.toMul u).val ∈ realLocalCyclotomicUnits p n ∧
+        Units.map (reduction p n).toMonoidHom (Additive.toMul u).val = 1 := sorry
+lemma principalRealLocalCyclotomicUnits_closed (n : ℕ) :
+    IsClosed (principalRealLocalCyclotomicUnits p n : Set (Additive (Pn p n))) ∧
+    IsCompact (principalRealLocalCyclotomicUnits p n : Set (Additive (Pn p n))) := sorry
+lemma principalRealLocalCyclotomicUnits_smul (n : ℕ) (a : Z) (u : Additive (Pn p n))
+    (hu : u ∈ principalRealLocalCyclotomicUnits p n) : a • u ∈ principalRealLocalCyclotomicUnits p n := sorry
+-- PrincipalRealTests.one
+example (n : ℕ) : (0 : Additive (Pn p n)) ∈ principalRealLocalCyclotomicUnits p n := sorry
+-- PrincipalRealTests.minus_one_excluded
+example (hp : Odd p) (n : ℕ) : (-1 : (O n)ˣ) ∉ Pn p n := sorry
+-- PrincipalRealTests.ternary_bottom
+example : principalRealLocalCyclotomicUnits 3 0 = ⊥ := sorry
+
+lemma unitsNorm_localCyclotomicUnits (n : ℕ) :
+    (∀ u ∈ localCyclotomicUnits p (n+1), unitsNorm p n u ∈ localCyclotomicUnits p n) ∧
+    (∀ u ∈ realLocalCyclotomicUnits p (n+1), unitsNorm p n u ∈ realLocalCyclotomicUnits p n) ∧
+    (∀ u ∈ localCyclotomicUnits p (n+1), u ∈ Pn p (n+1) →
+      unitsNorm p n u ∈ localCyclotomicUnits p n ∧ unitsNorm p n u ∈ Pn p n) ∧
+    (∀ u ∈ realLocalCyclotomicUnits p (n+1), u ∈ Pn p (n+1) →
+      unitsNorm p n u ∈ realLocalCyclotomicUnits p n ∧ unitsNorm p n u ∈ Pn p n) := sorry
+lemma principal_closure_eq_span (n r : ℕ) (g : Fin r → Additive (Pn p n)) :
+    closure (Set.range (fun a : Fin r → ℤ => ∑ i, a i • g i)) =
+      Set.range (fun a : Fin r → Z => ∑ i, a i • g i) := sorry
+
+def realCyclotomicTower (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) : U := sorry
+lemma realCyclotomicTower_apply (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) (n : ℕ) :
+    (realCyclotomicTower p hp a ha).val n =
+      (tateTower p hp (Multiplicative.ofAdd ((1-(a : Z))*PadicInt.inv (2 : Z)))).val n * (cyclotomicTower p a ha).val n := sorry
+lemma realCyclotomicTower_global (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) (n : ℕ)
+    (d : Dnplus n)
+    (hd : (d.val : F n) = TauCeti.CyclotomicTower.xi p (n+1) ^
+      (PadicInt.toZModPow (n+1) ((1-(a : Z))*PadicInt.inv (2 : Z))).val * TauCeti.CyclotomicTower.cUnit p (n+1) a) :
+    (realCyclotomicTower p hp a ha).val n = globalRealUnits p n d := sorry
+lemma realCyclotomicTower_fixed (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) :
+    towerAction p (-1) (realCyclotomicTower p hp a ha)=realCyclotomicTower p hp a ha := sorry
+-- RealTowerTests.one_parameter
+example (hp : Odd p) (ha : IsUnit (1 : Z)) : realCyclotomicTower p hp 1 ha=1 := sorry
+-- RealTowerTests.ternary_two
+example (ha : IsUnit (2 : ℤ_[3])) : (realCyclotomicTower 3 (by decide) 2 ha).val 0 = -1 := sorry
+-- RealTowerTests.fifth_two
+example (ha : IsUnit (2 : ℤ_[5])) :
+    (normLimitResidue 5 (realCyclotomicTower 5 (by decide) 2 ha) : ZMod 5)=2 ∧
+    realCyclotomicTower 5 (by decide) 2 ha ∉ principalNormCompatibleUnits 5 := sorry
+lemma realCyclotomicTower_residue (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) :
+    (normLimitResidue p (realCyclotomicTower p hp a ha) : ZMod p)=a := sorry
+
+def adjustedRealTower (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) : Additive PU := sorry
+lemma adjustedRealTower_coe (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) :
+    full p (adjustedRealTower p hp a ha) =
+      teichTower p (Units.map PadicInt.toZMod.toMonoidHom (ha.unit))⁻¹ * realCyclotomicTower p hp a ha := sorry
+lemma adjustedRealTower_fixed (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) :
+    towerAction p (-1) (full p (adjustedRealTower p hp a ha)) = full p (adjustedRealTower p hp a ha) := sorry
+lemma adjustedRealTower_pow (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) :
+    full p (adjustedRealTower p hp a ha)^(p-1) = realCyclotomicTower p hp a ha ^ (p-1) := sorry
+lemma adjustedRealTower_norm (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) (n : ℕ) :
+    unitsNorm p n ((full p (adjustedRealTower p hp a ha)).val (n+1)) =
+      (full p (adjustedRealTower p hp a ha)).val n := sorry
+-- AdjustedRealTests.one_parameter
+example (hp : Odd p) (ha : IsUnit (1 : Z)) : adjustedRealTower p hp 1 ha=0 := sorry
+-- AdjustedRealTests.ternary_bottom
+example (ha : IsUnit (2 : ℤ_[3])) :
+    (full 3 (adjustedRealTower 3 (by decide) 2 ha)).val 0=1 := sorry
+-- AdjustedRealTests.fifth_residue
+example (ha : IsUnit (2 : ℤ_[5])) (n : ℕ) :
+    reduction 5 n ((full 5 (adjustedRealTower 5 (by decide) 2 ha)).val n :
+      integralClosure ℤ_[5] (level 5 n))=1 ∧
+    (normLimitResidue 5 (realCyclotomicTower 5 (by decide) 2 ha) : ZMod 5)=2 := sorry
+lemma adjustedRealTower_mem (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) (n : ℕ) :
+    principalCoordinate p n (adjustedRealTower p hp a ha) ∈ principalRealLocalCyclotomicUnits p n := sorry
+lemma unitsNorm_adjustedRealTower (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) (n : ℕ) :
+    unitsNorm p n ((full p (adjustedRealTower p hp a ha)).val (n+1)) =
+      (full p (adjustedRealTower p hp a ha)).val n ∧
+    principalCoordinate p n (adjustedRealTower p hp a ha) ∈ principalRealLocalCyclotomicUnits p n := sorry
+/- At finite level a native finite group ring can be written as a monoid algebra
+on the power-residue unit group modulo ⟨−1⟩. The signature below writes the same
+span using Λ(G), acting on the actual coordinate; the generic finite projection
+and its surjectivity are PMIA L1's requested interface. -/
+ theorem finiteRealCyclotomic_cyclic (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z))
+    (hgen : Dense (Subgroup.zpowers ha.unit : Set Zˣ)) (n : ℕ) :
+    (principalRealLocalCyclotomicUnits p n : Set (Additive (Pn p n))) =
+      Set.range (fun λ : M => principalCoordinate p n (λ • adjustedRealTower p hp a ha)) := sorry
+
+def principalCyclotomicLimit : Submodule M (Additive PU) :=
+    { carrier := {u | ∀ n, principalCoordinate p n u ∈ principalLocalCyclotomicUnits p n}
+      zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+lemma mem_principalCyclotomicLimit (u : Additive PU) : u ∈ principalCyclotomicLimit p ↔
+    ∀ n, principalCoordinate p n u ∈ principalLocalCyclotomicUnits p n := sorry
+lemma principalCyclotomicLimit_closed : IsClosed (principalCyclotomicLimit p : Set (Additive PU)) ∧
+    IsCompact (principalCyclotomicLimit p : Set (Additive PU)) := sorry
+lemma principalCyclotomicLimit_action (λ : M) (u : Additive PU) (hu : u ∈ principalCyclotomicLimit p) :
+    λ • u ∈ principalCyclotomicLimit p := sorry
+lemma principalCyclotomicLimit_tate (hp : Odd p) (b : Z) : tatePrincipal p hp b ∈ principalCyclotomicLimit p := sorry
+-- CyclotomicLimitTests.one
+example : (0 : Additive PU) ∈ principalCyclotomicLimit p := sorry
+-- CyclotomicLimitTests.tate
+example (hp : Odd p) : tatePrincipal p hp 1 ∈ principalCyclotomicLimit p := sorry
+-- CyclotomicLimitTests.minus_one_excluded
+example (hp : Odd p) : teichTower p (-1) ∉ principalNormCompatibleUnits p := sorry
+
+def realPrincipalCyclotomicLimit : Submodule M (Additive PU) :=
+    { carrier := {u | ∀ n, principalCoordinate p n u ∈ principalRealLocalCyclotomicUnits p n}
+      zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+lemma mem_realPrincipalCyclotomicLimit (u : Additive PU) : u ∈ realPrincipalCyclotomicLimit p ↔
+    ∀ n, principalCoordinate p n u ∈ principalRealLocalCyclotomicUnits p n := sorry
+lemma realPrincipalCyclotomicLimit_closed : IsClosed (realPrincipalCyclotomicLimit p : Set (Additive PU)) ∧
+    IsCompact (realPrincipalCyclotomicLimit p : Set (Additive PU)) := sorry
+lemma realPrincipalCyclotomicLimit_adjusted (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) :
+    adjustedRealTower p hp a ha ∈ realPrincipalCyclotomicLimit p := sorry
+lemma realPrincipalCyclotomicLimit_factor (u : Additive PU) (hu : u ∈ realPrincipalCyclotomicLimit p)
+    (g : Zˣ) (ε : Subgroup.zpowers (-1 : Zˣ)) :
+    towerAction p (g*ε.val) (full p u) = towerAction p g (full p u) := sorry
+-- This is the actual factorization through the native quotient group; transport
+-- of the completed action to Λ(G⁺) awaits the supplier's typed quotient interface.
+-- RealLimitTests.one
+example : (0 : Additive PU) ∈ realPrincipalCyclotomicLimit p := sorry
+-- RealLimitTests.adjusted
+example (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) :
+    adjustedRealTower p hp a ha ∈ realPrincipalCyclotomicLimit p := sorry
+-- RealLimitTests.tate_excluded
+example (hp : Odd p) : tatePrincipal p hp 1 ∉ realPrincipalCyclotomicLimit p := sorry
+lemma cyclotomicCoefficient_fibers (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z))
+    (hgen : Dense (Subgroup.zpowers ha.unit : Set Zˣ))
+    (u : Additive PU) (hu : u ∈ realPrincipalCyclotomicLimit p) :
+    let S := fun n => {λ : M | principalCoordinate p n (λ • adjustedRealTower p hp a ha) =
+      principalCoordinate p n u}
+    (∀ n, (S n).Nonempty ∧ IsClosed (S n)) ∧ (∀ n, S (n+1) ⊆ S n) := sorry
+-- Λ(G) above can replace Λ(G⁺): the actual coefficient action factors through
+-- the latter, and its compactness/surjectivity comparison is requested from PMIA.
+ theorem realPrincipalCyclotomicLimit_cyclic (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z))
+    (hgen : Dense (Subgroup.zpowers ha.unit : Set Zˣ)) :
+    (realPrincipalCyclotomicLimit p : Set (Additive PU)) =
+      Set.range (fun λ : M => λ • adjustedRealTower p hp a ha) ∧
+    IsQuotientMap (fun λ : M =>
+      (⟨λ • adjustedRealTower p hp a ha, by sorry⟩ : realPrincipalCyclotomicLimit p)) := sorry
+lemma localCyclotomicUnits_tate_real (hp : Odd p) (n : ℕ) :
+    (∀ u ∈ localCyclotomicUnits p n, ∃! q : {x : (O n)ˣ // x^(p^(n+1))=1} × realLocalCyclotomicUnits p n,
+      u = q.1.val*q.2.val) ∧
+    realLocalCyclotomicUnits p n = localCyclotomicUnits p n ⊓ realLocalUnits p n ∧
+    (∀ u ∈ localCyclotomicUnits p n, u ∈ Pn p n →
+      ∃! q : {x : (O n)ˣ // x^(p^(n+1))=1} × realLocalCyclotomicUnits p n,
+        u=q.1.val*q.2.val ∧ q.2.val ∈ Pn p n) := sorry
+ theorem principalCyclotomicLimit_tate_real (hp : Odd p) :
+    (∀ u ∈ principalCyclotomicLimit p, ∃! q : Z × realPrincipalCyclotomicLimit p,
+      u=tatePrincipal p hp q.1+q.2.val) ∧
+    Continuous (fun q : Z × realPrincipalCyclotomicLimit p => tatePrincipal p hp q.1+q.2.val) := sorry
+-- Compact source and Hausdorff target give the homeomorphism. Its completed
+-- character-module bundling is omitted until the Tate-action interface is typed.
+
+/- The plus carriers are actual fixed submodules. The supplied quotient-group
+comparison identifies the measure carrier with Λ(G⁺); that condition is omitted
+until its typed interface exists. Its ring identity is e⁺, not ambient 1. -/
+private def realPrincipalUnits : Submodule M (Additive PU) :=
+    { carrier := {u | towerAction p (-1) (full p u)=full p u}
+      zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+private def plusMeasures : Submodule M M :=
+    { carrier := {μ | dirac Z (-1 : Zˣ)*μ=μ}
+      zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+lemma realPrincipalColeman_surjective (hp : Odd p) :
+    (∀ μ ∈ plusMeasures p, ∃ u : realPrincipalUnits p, principalColeman p u.val=μ) ∧
+    Function.Injective (fun u : realPrincipalUnits p => principalColeman p u.val) := sorry
+lemma principalColeman_adjustedRealTower (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) :
+    principalColeman p (adjustedRealTower p hp a ha) = DirichletPadic.padicIntrinsicNumerator p ha.unit ∧
+    Multiplicative.toAdd (rawColeman p (full p (adjustedRealTower p hp a ha))) =
+      -DirichletPadic.padicIntrinsicNumerator p ha.unit := sorry
+-- Numerator equals ([a]-1)ζ_p by the exact imported Dirichlet pseudomeasure
+-- theorem. The additional plus-pseudomeasure transport needs PMIA L3 and the
+-- precise Dirichlet L1 comparison, so is omitted rather than renormalized.
+local instance : CommRing M :=
+    { (inferInstance : Ring M) with mul_comm := AbstractMeasure.mul_comm_of_commMonoid }
+lemma augmentation_generator_comparison (a : Zˣ)
+    (hgen : Dense (Subgroup.zpowers a : Set Zˣ)) :
+    {μ : M | μ (ContinuousMap.const Zˣ (1 : Z))=0} =
+      (Ideal.span ({dirac Z a-1} : Set M) : Set M) ∧
+    IsClosed (Ideal.span ({DirichletPadic.padicIntrinsicNumerator p a} : Set M) : Set M) := sorry
+-- The equality with I(G)ζ_p and its Λ(G⁺) version use the imported generic
+-- augmentation/fraction interfaces. This signature states the integral ideal
+-- and its closedness; it does not multiply an unbounded fraction by a merely
+-- topologically generated ideal without the principal-augmentation theorem.
+ theorem principalColeman_cyclotomic_image (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z))
+    (hgen : Dense (Subgroup.zpowers ha.unit : Set Zˣ)) :
+    Set.range (fun u : principalCyclotomicLimit p => principalColeman p u.val) =
+      (Ideal.span ({DirichletPadic.padicIntrinsicNumerator p ha.unit} : Set M) : Set M) := sorry
+ theorem principalColeman_real_cyclotomic_image (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z))
+    (hgen : Dense (Subgroup.zpowers ha.unit : Set Zˣ)) :
+    Set.range (fun u : realPrincipalCyclotomicLimit p => principalColeman p u.val) =
+      (Ideal.span ({DirichletPadic.padicIntrinsicNumerator p ha.unit} : Set M) : Set M) := sorry
+
+ theorem cyclotomicQuotient_exact (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z))
+    (hgen : Dense (Subgroup.zpowers ha.unit : Set Zˣ)) :
+    let J := Ideal.span ({DirichletPadic.padicIntrinsicNumerator p ha.unit} : Set M)
+    ∃ f : (Additive PU ⧸ (principalCyclotomicLimit p).restrictScalars Z) →ₗ[Z]
+        (M ⧸ J.restrictScalars Z),
+    ∃ g : (M ⧸ J.restrictScalars Z) →ₗ[Z] Z,
+      (∀ u, f (Submodule.Quotient.mk u) = Submodule.Quotient.mk (principalColeman p u)) ∧
+      (∀ μ, g (Submodule.Quotient.mk μ)=cyclotomicMoment p μ) ∧
+      Function.Injective f ∧ Set.range f = (LinearMap.ker g : Set (M ⧸ J.restrictScalars Z)) ∧
+      Function.Surjective g := sorry
+-- These are the actual quotient maps. Their character-module bundling and
+-- closed/quotient topology comparisons await the requested PMIA L5 interface.
+
+private def realCyclotomicSubmodule : Submodule M (realPrincipalUnits p) :=
+    { carrier := {u | u.val ∈ realPrincipalCyclotomicLimit p}
+      zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+def realPrincipalUnitQuotient : Type :=
+    realPrincipalUnits p ⧸ realCyclotomicSubmodule p
+private abbrev realQuotientMap : realPrincipalUnits p →ₗ[M] realPrincipalUnitQuotient p :=
+    (realCyclotomicSubmodule p).mkQ
+lemma realPrincipalUnitQuotient_mk (u : realPrincipalUnits p) :
+    realQuotientMap p u = Submodule.Quotient.mk u := sorry
+lemma realPrincipalUnitQuotient_eq_zero (u : realPrincipalUnits p) :
+    realQuotientMap p u=0 ↔ u.val ∈ realPrincipalCyclotomicLimit p := sorry
+lemma realPrincipalUnitQuotient_eq (u v : realPrincipalUnits p) :
+    realQuotientMap p u = realQuotientMap p v ↔ u.val-v.val ∈ realPrincipalCyclotomicLimit p := sorry
+lemma realPrincipalUnitQuotient_lift {V : Type*} [AddCommGroup V] [Module M V]
+    (f : realPrincipalUnits p →ₗ[M] V)
+    (hf : ∀ u : realCyclotomicSubmodule p, f u.val=0) :
+    ∃! g : realPrincipalUnitQuotient p →ₗ[M] V, ∀ u, g (realQuotientMap p u)=f u := sorry
+-- The continuous lift follows from native quotient topology. Its Λ(G⁺)-linear
+-- wording is obtained through the requested quotient-group module comparison.
+-- RealQuotientTests.one
+example : realQuotientMap p 0=0 := sorry
+-- RealQuotientTests.adjusted
+example (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z)) :
+    realQuotientMap p (⟨adjustedRealTower p hp a ha, by sorry⟩ : realPrincipalUnits p)=0 := sorry
+-- RealQuotientTests.conjugate_tate_excluded
+example (hp : Odd p) (b : Z) (hb : b ≠ 0) : tatePrincipal p hp b ∉ realPrincipalUnits p := sorry
+private def plusImageIdeal (a : Zˣ) : Submodule M (plusMeasures p) :=
+    { carrier := {μ | μ.val ∈ Ideal.span ({DirichletPadic.padicIntrinsicNumerator p a} : Set M)}
+      zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+ theorem realPrincipalUnitQuotient_equiv (hp : Odd p) (a : ℕ) (ha : IsUnit (a : Z))
+    (hgen : Dense (Subgroup.zpowers ha.unit : Set Zˣ)) :
+    ∃ e : realPrincipalUnitQuotient p ≃ₗ[M] (plusMeasures p ⧸ plusImageIdeal p ha.unit),
+      ∀ u : realPrincipalUnits p,
+        e (realQuotientMap p u) =
+          Submodule.Quotient.mk (⟨principalColeman p u.val, by sorry⟩ : plusMeasures p) := sorry
+-- The native quotient above becomes Λ(G⁺)/(I(G⁺)ζ_p⁺) under the requested
+-- algebra/pseudomeasure comparison. The continuous inverse/topology condition
+-- is omitted pending the prepared quotient topological-module interface.
+
+/- Finite-flat base change of the actual unit quotient, using native finite
+algebraic tensors. The separately requested PMIA L5 theorem compares these
+with completed tensors and the finite-module topology. -/
+local instance : Module Z (realPrincipalUnits p) := by sorry
+local instance : Module Z (realPrincipalUnitQuotient p) := by sorry
+local instance : IsScalarTower Z M (realPrincipalUnits p) := by sorry
+private def realCyclotomicInclusion : realCyclotomicSubmodule p →ₗ[Z] realPrincipalUnits p :=
+    ((realCyclotomicSubmodule p).subtype).restrictScalars Z
+ theorem realPrincipalUnitQuotient_baseChange (hp : Odd p) (A : Type*) [CommRing A] [Algebra Z A]
+    [Module.Free Z A] [Module.Finite Z A] :
+    ∃ e : TensorProduct Z A (realPrincipalUnitQuotient p) ≃ₗ[A]
+        ((TensorProduct Z A (realPrincipalUnits p)) ⧸
+          LinearMap.range (LinearMap.baseChange A (realCyclotomicInclusion p))),
+      ∀ (a : A) (u : realPrincipalUnits p),
+        e (TensorProduct.tmul Z a (realQuotientMap p u)) =
+          Submodule.Quotient.mk (TensorProduct.tmul Z a u) := sorry
+-- The tensor of the actual Coleman equivalence gives the corresponding algebra
+-- quotient. The signature includes the unit quotient on the left. It does not
+-- identify an unchanged ℤ_p-unit quotient with an A-coefficient measure quotient.
 end ColemanCyclotomic
 end
