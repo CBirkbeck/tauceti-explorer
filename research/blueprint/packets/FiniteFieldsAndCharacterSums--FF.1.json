@@ -1,0 +1,853 @@
+{
+  "roadmapId": "FiniteFieldsAndCharacterSums",
+  "protocol": "blueprint-v1",
+  "part": "FF.1",
+  "scope": [
+    "FiniteFieldsAndCharacterSums:FF.1"
+  ],
+  "status": "complete",
+  "summary": "Target-level continuation of the accepted predecessor. Reuse every existing character, sum, lifting, Stickelberger and convention node. Supply actual field-coordinate Fourier transport and its trivial boundary; give the missing BFP two-point interpolation target; specify digit-factorial distribution and a public exact-Gamma route to Hasse–Davenport, retaining its two analytic supplier obligations. Include the elementary Gauss comparison for a presented product of finite fields. This is a completed planning pass, not gap-free source closure or formalisation.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AddChar",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "Native additive characters; character multiplication notation has trivial character 1 (also additive zero).",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:AddChar.IsPrimitive",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "provides": "Every nonzero field multiplier gives a nontrivial shifted character.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:AddChar.FiniteField.primitiveChar",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "provides": "A primitive character constructed through the trace and a primitive root in a cyclotomic extension, when target and source characteristics differ; not a chosen complex canonical character.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:AddChar.to_mulShift_inj_of_isPrimitive",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "provides": "Injectivity of a primitive character’s shift parametrisation.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:AddChar.card_eq",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+        "provides": "Complex additive dual of a finite additive commutative group has the same cardinality.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:AddChar.complexBasis",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+        "provides": "Native complex character basis of functions on a finite additive commutative group.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:AddChar.complexBasis_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+        "provides": "The basis vector is the character itself.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:AddChar.sum_eq_ite",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "Row orthogonality: sum is card at the trivial character, otherwise zero.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:AddChar.sum_apply_eq_ite",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+        "provides": "Complex column orthogonality for an arbitrary finite additive commutative group.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:MulChar",
+        "kind": "structure",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "Native monoid characters sending nonunits to zero; over a field all characters, including 1, vanish at zero.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:MulChar.sum_eq_zero_of_ne_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "Sum over a finite commutative monoid of a nontrivial domain-valued MulChar is zero.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:MulChar.sum_one_eq_card_units",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "The trivial MulChar sum counts units, hence q−1 over a finite field.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:gaussSum",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "Native finite commutative ring sum ∑x χ(x)ψ(x).",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:gaussSum_mulShift_eq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "For unit a, g(χ,ψ_a)=χ⁻¹(a)g(χ,ψ).",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:star_gaussSum_eq",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "Complex conjugation inverts both characters in the Gauss sum.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:gaussSum_one_left",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "For nontrivial additive ψ, g(1,ψ)=−1.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:gaussSum_mul_gaussSum_eq_card",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "For χ≠1 and primitive ψ over a finite field, g(χ,ψ)g(χ⁻¹,ψ⁻¹)=q.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:gaussSum_sq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "For nontrivial quadratic χ and primitive ψ, g(χ,ψ)²=χ(−1)q.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:gaussSum_ne_zero_of_nontrivial",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "Nonzero cardinality in the target, χ≠1 and primitive ψ imply g(χ,ψ)≠0.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:jacobiSum_one_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+        "provides": "Zero-extended trivial characters give J(1,1)=q−2.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:jacobiSum_eq_gaussSum_mul_gaussSum_div_gaussSum",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+        "provides": "If χφ≠1, primitive ψ and nonzero target cardinality, J(χ,φ)=gχ gφ/gχφ.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:jacobiSum_mul_jacobiSum_inv",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+        "provides": "If χ,φ,χφ are nontrivial and characteristics differ, J(χ,φ)J(χ⁻¹,φ⁻¹)=q.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:gaussSum_pow_eq_prod_jacobiSum",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+        "provides": "For n=orderOf χ≥2 and primitive ψ, gχⁿ=χ(−1)q∏_{1≤i<n−1}J(χ,χⁱ).",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:legendreSym.quadratic_reciprocity",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
+        "provides": "Quadratic reciprocity for distinct odd primes, with prime instances; the proof uses the built quadratic character/Gauss identities.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:Polynomial.degreeLT",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
+        "provides": "Native coefficient-vanishing submodule of polynomials of degree strictly less than n.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:Polynomial.degreeLTEquiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
+        "provides": "Linear coefficient equivalence degreeLT F n ≃ F^{Fin n}; inverse is the finite monomial sum.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:Polynomial.monomial_coe_mem_degreeLT",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
+        "provides": "Monomials with exponent i:Fin n belong to the native degree bound.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:Polynomial.lcoeff",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Coeff.lean",
+        "provides": "Coefficient extraction as an R-linear map.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:Polynomial.leval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Eval/SMul.lean",
+        "provides": "Polynomial evaluation as an R-linear map.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:Nat.digits",
+        "kind": "def",
+        "module": "Mathlib/Data/Nat/Digits/Defs.lean",
+        "provides": "Least-significant-first native base-p digits; zero has empty digit list.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "mathlib:Fintype.prod_sum",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Ring/Finset.lean",
+        "provides": "Finite dependent product of sums equals the sum over tuples of the product, for a commutative semiring.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      },
+      {
+        "ref": "tauceti:CommGroup.sum_monoidHom_apply_eq_ite",
+        "kind": "theorem",
+        "module": "TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality.lean",
+        "provides": "Column orthogonality on any finite commutative group into a domain with enough roots of unity; specialises to F_qˣ for all prime powers.",
+        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Kowalski-elementary",
+      "title": "Exponential sums over finite fields: elementary methods",
+      "authors": "Emmanuel Kowalski",
+      "edition": "Public author notes, supplied PDF",
+      "url": "https://people.math.ethz.ch/~kowalski/exponential-sums-elementary.pdf",
+      "sha256": "ff30b82d143cedcaf76f1ef2f15a49856c0eabc2c95ba7ac0da2e3e43da9a866",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Proposition 1.10 and proof, pp.12–13",
+        "Proposition 1.13, p.14; multiplicative zero convention p.15",
+        "Gauss-sum definitions and transport in §2.1, pp.17–18"
+      ]
+    },
+    {
+      "id": "Cohen-II-public",
+      "title": "Number Theory, Volume II: Analytic and Modern Tools",
+      "authors": "Henri Cohen",
+      "edition": "2007 Springer GTM 240, ISBN 978-0-387-49893-5; public scan with publisher imprint, not a table of contents",
+      "url": "https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf",
+      "sha256": "e25889069c18eee932088e1b9264c614ce883bb394a03cb3a109f5859ab57ca0",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Theorem 11.6.14 and entire proof, pp.372–375",
+        "Theorem 11.7.5 and Corollary 11.7.6, pp.386–387",
+        "Lemma 11.7.12 and chosen-root comparison, pp.390–391",
+        "§11.7.4, Lemma 11.7.14, Corollary 11.7.15 and Theorem 11.7.16 with complete proofs, pp.392–395",
+        "Page images of printed pp.390–391 (PDF pp.412–413), checked for the chosen-root modulus"
+      ]
+    },
+    {
+      "id": "Conrad-Gauss-Jacobi",
+      "title": "Gauss and Jacobi sums on finite fields and Z/mZ",
+      "authors": "Keith Conrad",
+      "edition": "Public author notes, undated",
+      "url": "https://kconrad.math.uconn.edu/blurbs/gradnumthy/Gauss-Jacobi-sums.pdf",
+      "sha256": "546796c67f82b251c416dcfd10a20602e77efe3c63f0df8749d1e22831d163b7",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Appendix, p.19, lifting sign and multiplication formula (A.6), including footnotes 8–9"
+      ]
+    },
+    {
+      "id": "BFP-v2",
+      "title": "Polynomial point counts and odd cohomology vanishing on moduli spaces of stable curves",
+      "authors": "Jonas Bergström, Carel Faber and Sam Payne",
+      "edition": "arXiv:2206.07759v2 (17 October 2023); published Annals of Mathematics 199 (2024)",
+      "url": "https://arxiv.org/pdf/2206.07759v2",
+      "sha256": "36beb2d3eccb42161a0b6190a653b060337f08fed5866f6b578888d503346758",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Proof of Lemma 5.2, arXiv pp.8–9, including the all-polynomial interpolation step and the separate squarefree induction"
+      ]
+    },
+    {
+      "id": "Cohen-errata",
+      "title": "Errata, Changes, and Addenda for the Books Number Theory, Volumes I and II",
+      "authors": "Henri Cohen",
+      "edition": "Last modified 30 November 2008",
+      "url": "https://www.math.u-bordeaux.fr/~cohen/deabookerrata.pdf",
+      "sha256": "a2f5e8a3897494a2b7727019fdda1f47ac97af5b6528685e0c024a29aa786fa4",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Volume II errata, pp.3–5; search entire file for pp.390–391 and Lemma 11.7.12"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.1/finite-field-fourier-transport",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.1"
+      ],
+      "title": "Fourier inversion and Parseval in field coordinates",
+      "kind": "theorem",
+      "statement": "Put e(a)=ψ.mulShift a, so e(a)(x)=ψ(ax). With C_f(a)=(AddChar.complexBasis F).repr(f)(e(a)), for every f,g:F→ℂ and x∈F simultaneously ∑a C_f(a)ψ(ax)=f(x) and q⁻¹∑y f(y)conj(g(y))=∑a C_f(a)conj(C_g(a)). Here C_f(a)=q⁻¹∑y f(y)conj(ψ(ay)).",
+      "hypotheses": [
+        "F is a finite field with q=#F; all additive and multiplicative characters take values in ℂ. Multiplicative characters, including 1, are zero on nonunits.",
+        "ψ is primitive; over a field this means ψ is nontrivial."
+      ],
+      "proofSteps": [
+        "Use the predecessor additive-characters-are-shifts bijection a↦ψ_a on the actual additive group (F,+). Native shift injectivity and AddChar.card_eq verify both domain and dual cardinality q. Construct a local indexing equivalence from that bijection; do not define a second dual object.",
+        "Import AC.0/fourier-transform and its fourier_eq_basis_repr and fourier_inversion_reindex APIs. Reindex the dual sum by e. The normalization is q⁻¹ on the transform only, and the inversion kernel has positive sign ψ(ax).",
+        "Import AC.0/fourier-parseval and apply the same bijection to both coefficients. This proves the simultaneous identities without using a cyclic Fourier transform or an equivalence with ZMod q."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.1/additive-characters-are-shifts",
+        "AdditiveCombinatorics:AC.0/fourier-transform",
+        "AdditiveCombinatorics:AC.0/fourier-parseval",
+        "mathlib:AddChar.to_mulShift_inj_of_isPrimitive",
+        "mathlib:AddChar.card_eq",
+        "mathlib:AddChar.complexBasis",
+        "mathlib:AddChar.complexBasis_apply"
+      ],
+      "acceptance": [
+        "For δ_b, C(a)=q⁻¹conj(ψ(ab)); inversion gives δ_b and Parseval gives q⁻¹. For f=1 only a=0 survives with coefficient 1.",
+        "Use F₄: its additive group is (Z/2Z)², so a cyclic ZMod 4 transform cannot satisfy this character parametrisation.",
+        "Assembly replaces the predecessor Fourier node’s coarse AC.0 edge by the two exact owner node ids and this transport; its old general-Fourier request is discharged. No predecessor file is edited in this part."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFieldSums/Comparisons",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.finiteField_fourier_transport"
+      },
+      "sources": [
+        {
+          "sourceId": "Kowalski-elementary",
+          "locator": "Proposition 1.10, pp.12–13, and Proposition 1.13, p.14",
+          "match": "The finite-field specialization and field-coordinate reindexing of the already owned general Fourier identities."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite-field Fourier inversion"
+      }
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.1/multiplicative-fourier-boundary-coefficients",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.1"
+      ],
+      "title": "Fourier coefficients with the trivial-character boundary",
+      "kind": "theorem",
+      "statement": "For every χ and a∈F, C_χ(a)=q⁻¹∑x χ(x)conj(ψ(ax)) equals (q−1)/q if a=0 and χ=1, equals 0 if a=0 and χ≠1, and equals q⁻¹χ⁻¹(−a)g(χ,ψ) if a≠0.",
+      "hypotheses": [
+        "F is a finite field with q=#F; all additive and multiplicative characters take values in ℂ. Multiplicative characters, including 1, are zero on nonunits.",
+        "ψ is primitive."
+      ],
+      "proofSteps": [
+        "Use the owner Fourier definition and its native-basis-coordinate comparison. Complex additive character conjugation replaces ψ(ax) by ψ(−ax).",
+        "For a=0 use MulChar.sum_eq_zero_of_ne_one or MulChar.sum_one_eq_card_units. A field has q−1 units; its trivial character is not the constant function 1 on F.",
+        "For a≠0 use the unit −a in gaussSum_mulShift_eq. This covers χ=1 as well: g(1,ψ)=−1, hence nonzero coefficients are −1/q. For χ≠1 it agrees with the predecessor’s existing expansion, so assembly keeps that older target and adds the boundary API."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.1/finite-field-fourier-transport",
+        "FiniteFieldsAndCharacterSums:FF.1/fourier-expansion-of-multiplicative-character",
+        "FiniteFieldsAndCharacterSums:FF.1/trivial-character-conventions",
+        "AdditiveCombinatorics:AC.0/fourier-transform",
+        "mathlib:gaussSum_mulShift_eq",
+        "mathlib:gaussSum_one_left",
+        "mathlib:MulChar.sum_eq_zero_of_ne_one",
+        "mathlib:MulChar.sum_one_eq_card_units"
+      ],
+      "acceptance": [
+        "For χ=1 and a=0 the answer is (q−1)/q, not 0.",
+        "For χ=1 and a≠0 the answer is −1/q; inversion recovers 0 at x=0 and 1 at every unit.",
+        "For a nontrivial χ, a=0 gives 0; the sign in χ⁻¹(−a) is tested by δ and the chosen ψ, rather than absorbed into a changed transform convention."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFieldSums/Comparisons",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.mulChar_fourier_boundary"
+      },
+      "sources": [
+        {
+          "sourceId": "Kowalski-elementary",
+          "locator": "Proposition 1.10, pp.12–13; multiplicative zero convention p.15; §2.1 Gauss transport",
+          "match": "Normalized character coefficients followed by Gauss transport; adjust the author’s trivial-zero convention to native MulChar. The explicit boundary formula is derived here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.1/digit-product-distribution",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.1"
+      ],
+      "title": "Distribution of digit sums and digit factorials",
+      "kind": "theorem",
+      "statement": "Let M=p^f−1, d=M/m, s(r)=the sum of native base-p digits and h(r)=the product of their factorials (h(0)=1). For 0≤b<d, ∑_{0≤j<m}s(b+jd)=s(mb)+∑_{1≤j<m}s(jd). In ZMod p, m^{s(mb)}∏_{0≤j<m}h(b+jd)=h(mb)∏_{1≤j<m}h(jd).",
+      "hypotheses": [
+        "p is prime, f>0, m>0 and m divides M. Thus M>0, d>0 and p∤m. No odd-prime restriction."
+      ],
+      "proofSteps": [
+        "Pad each digit list to length f. Multiplication by p modulo M cycles the digits for r<M; s(r)=(p−1)∑_{i<f}{p^i r/M}. For each i, multiplication by p^i permutes j modulo m. The elementary fractional-part distribution on this grid gives the first identity after summation over i. All arguments b+jd and mb lie in [0,M).",
+        "For b>0 put k=mb, so 0<k<M. Import L3/gross-koblitz-source-multiplication-theorem with its actual Morita Gamma and positive fractional preimages. The numerator preimages, after permuting j for each i, are the cyclic fractions for b+jd; denominators are those for mb and jd, 1≤j<m. None is an integer here, so positive versus ordinary fractional parts agree.",
+        "Reduce that exact Gamma identity modulo p using L3/morita-gamma-sharp-reduction at precision 1 and its recurrence. If r has low digit r₀, r/M≡−r₀ mod p and Γ_p(r/M)≡Γ_p(−r₀)=1/r₀!; all factorials are units since r₀<p. Multiplying over the cyclic rotations gives 1/h(r). The Teichmuller value reduces to m^k. Since k≡s(k) mod p−1, rearrangement gives the stated factorial product.",
+        "For b=0 both identities are tautologies after splitting off the j=0 term; do not insert Gamma(1) for Gamma(0). At p=2 every digit factorial and m in ZMod 2 is 1; this congruence is valid but by itself cannot identify a binary root of unity."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.digits",
+        "DirichletPadicLFunctions:L3/morita-gamma",
+        "DirichletPadicLFunctions:L3/morita-gamma-functional-equation",
+        "DirichletPadicLFunctions:L3/morita-gamma-sharp-reduction",
+        "DirichletPadicLFunctions:L3/gross-koblitz-source-multiplication-theorem"
+      ],
+      "acceptance": [
+        "p=5,f=1,m=2,b=1: the factorial congruence is 2²·1!·3! ≡2!·2!≡4 modulo 5, detecting an inverted m exponent.",
+        "p=3,f=2,m=2,b=1: the sum identity is s(1)+s(5)=1+3= s(2)+s(4)=2+2; factorial identity gives 2²·1·2=2·1 modulo 3.",
+        "b=0 and m=1 are exact boundary cases. The binary factorial test is tautological and is not the product-theorem proof."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFieldSums/Comparisons",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.digit_product_distribution"
+      },
+      "sources": [
+        {
+          "sourceId": "Cohen-II-public",
+          "locator": "§11.7.4, Lemma 11.7.14 and proof of Corollary 11.7.15, pp.392–394; Gamma distribution Theorem 11.6.14, pp.372–375",
+          "match": "Cyclic Gamma distribution and digit-sum cancellation. The source cites Vol.I Proposition 3.7.1; the fractional-part derivation and reduction above supply the requested digit/factorial interface without claiming to have read the unavailable Vol.I proof."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.1/hasse-davenport-product-completion",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.1"
+      ],
+      "title": "Completion of the Hasse–Davenport product plan",
+      "kind": "theorem",
+      "statement": "For all χ, g(χ^m,ψ)∏_{1≤j<m}g(ρ^j,ψ)=χ(m)^m∏_{0≤j<m}g(χρ^j,ψ). This is the unconditional target; the proof plan has the explicit Dwork supplier gap below.",
+      "hypotheses": [
+        "F is a finite field with q=#F; all additive and multiplicative characters take values in ℂ. Multiplicative characters, including 1, are zero on nonunits.",
+        "m>0 divides q−1; ρ has exact order m; ψ is primitive. In particular m is a unit in F. χ may be trivial, χ^m may be trivial, and p may be 2."
+      ],
+      "proofSteps": [
+        "For m=1 the identity is immediate. Choose a generator ω of the multiplicative character group, with the predecessor’s Teichmuller/prime-above-p convention. Write ρ=ω^{−td}, gcd(t,m)=1, d=(q−1)/m, and χ=ω^{−a}. Permuting j removes t; replacing a by its residue b mod d permutes the numerator and leaves χ^m and χ(m)^m unchanged.",
+        "If b=0, χ is a power of ρ, so the numerator is a permutation of all ρ^j factors. As a is a multiple of d, χ^m=1 and χ(m)^m=1. Use g(1,ψ)=−1 to split off the j=0 factor. This case avoids the excluded exponent q−1 endpoint.",
+        "For 0<b<d first use the canonical trace character. Compare all character values inside their cyclotomic coefficient field and its completion at the predecessor’s chosen prime above p, and then transport through an injective complex embedding. Invoke L3/robert-gross-koblitz-comparison ONLY with the actual coefficient-bound and chosen-root splitting inputs requested from RD.6. It gives the source-negative sum −g(ω^{-r},ψ)=π^{s(r)}∏_{i<f}Γ_p(e(r,i)), with compatible π^{p−1}=−p, for 0≤r<q−1. Use the corrected maximal-ideal chosen-root normalization in sourceIssue E750, not the printed congruence modulo p.",
+        "Apply digit-product-distribution to cancel the π powers. The exact L3 Gamma multiplication quotient, with k=mb, equals ω(m)^{mb}=χ(m)^{−m}. There are m source-negative sums on each side, so their signs cancel. Multiplication by χ(m)^m gives the target. This exact prime-to-p Teichmuller identity replaces the predecessor’s insufficient inference from a congruence modulo the cyclotomic prime.",
+        "L3 identifies the Gamma quotient by proving its normalized (p−1)st power is 1 and its residue is 1; reduction is injective on these prime-to-p roots. For p=2 the exponent p−1 is 1, so the equality is exact before reduction. No claim that an arbitrary p-power root congruent to 1 must be trivial is used.",
+        "For arbitrary primitive ψ, use the predecessor shift parametrisation and gaussSum_mulShift_eq. Both sides acquire the same χ^{-m}(u)∏_{1≤j<m}ρ^{-j}(u) factor. All Gauss factors are nonzero by the native nontrivial theorem or the trivial value −1. This route is arithmetic and p-adic analytic; it does not use étale cohomology or Poincare duality."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.1/digit-product-distribution",
+        "FiniteFieldsAndCharacterSums:FF.1/teichmuller-character",
+        "FiniteFieldsAndCharacterSums:FF.1/prime-above-p-in-cyclotomic-compositum",
+        "FiniteFieldsAndCharacterSums:FF.1/canonical-additive-character",
+        "FiniteFieldsAndCharacterSums:FF.1/additive-characters-are-shifts",
+        "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-transport",
+        "DirichletPadicLFunctions:L3/gross-koblitz-source-multiplication-theorem",
+        "DirichletPadicLFunctions:L3/gross-koblitz-multiplication-teichmuller",
+        "DirichletPadicLFunctions:L3/morita-gamma-multiplication-orbit-power",
+        "DirichletPadicLFunctions:L3/robert-gross-koblitz-comparison",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.6",
+        "mathlib:gaussSum_one_left",
+        "mathlib:gaussSum_ne_zero_of_nontrivial",
+        "mathlib:gaussSum_mulShift_eq"
+      ],
+      "acceptance": [
+        "m=1 gives gχ=gχ, including χ=1.",
+        "If χ is any power of ρ, both sides agree by permutation and g1=−1, including χ^m=1.",
+        "At q=4,m=3 and a character ρ of order 3, χ=ρ gives −gρ gρ² on both sides. This tests characteristic two and the j=0 sign.",
+        "The factorial congruence alone leaves a possible p-power root; the exact Gamma quotient is the required stronger equality. The Dwork assumptions have not been discharged, so this node is planned, not closed.",
+        "Assembly retains predecessor /hasse-davenport-product-relation as the target and attaches this completion route; no duplicate target or second planet is promoted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFieldSums/Comparisons",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.hasseDavenport_product"
+      },
+      "sources": [
+        {
+          "sourceId": "Conrad-Gauss-Jacobi",
+          "locator": "Appendix p.19, (A.6), denominator convention and footnote 9",
+          "match": "Exact target normalization; the j=0 trivial factor is −1."
+        },
+        {
+          "sourceId": "Cohen-II-public",
+          "locator": "§11.7.4, Corollary 11.7.15 and Theorem 11.7.16(1), complete proofs pp.392–395; Lemma 11.7.12 pp.390–391",
+          "match": "Public Gamma/Gross–Koblitz proof for all finite fields and all characters. The two analytic inputs inherited through L3 remain a gap, rather than claiming source closure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Hasse–Davenport product formula"
+      }
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.1/projective-polynomial-evaluation",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.1"
+      ],
+      "title": "Evaluation of a prescribed-degree binary form",
+      "kind": "construction",
+      "statement": "For d≥0 and x:Option F define an F-linear map E_d(x):Polynomial.degreeLT F(d+1)→F. E_d(some a,P)=P(a), E_d(none,P)=coeff_d(P). Option F labels the standard representatives [a:1] and [1:0]. It is the evaluation of ∑_{i≤d}coeff_i(P)X^i Z^{d−i} in these representatives, not a coordinate-independent scalar on arbitrary representatives.",
+      "hypotheses": [
+        "F is a finite field with q=#F; all additive and multiplicative characters take values in ℂ. Multiplicative characters, including 1, are zero on nonunits.",
+        "The ambient degree d is part of the data, even when degree P<d."
+      ],
+      "proofSteps": [
+        "Use the existing native degreeLT submodule; compose its inclusion with Polynomial.leval a at finite points and Polynomial.lcoeff F d at infinity. These are already linear maps, so the constructor has the required algebraic structure.",
+        "For the homogeneous interpretation substitute (a,1) or (1,0) in the displayed degree-d homogenization. No projective-space or binary-form carrier is introduced.",
+        "The native coefficient equivalence gives the monomial formula. Addition and scalar compatibility are native linear-map laws; the degree-lowering assertion follows from coefficient vanishing. These routine API computations stay inside this target-level node."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.degreeLT",
+        "mathlib:Polynomial.degreeLTEquiv",
+        "mathlib:Polynomial.monomial_coe_mem_degreeLT",
+        "mathlib:Polynomial.leval",
+        "mathlib:Polynomial.lcoeff"
+      ],
+      "acceptance": [
+        "Each of the four named tests is included as an example in the suggested file.",
+        "Changing representatives by λ≠0 scales the section value by λ^d. Consequently the fixed chart is stated explicitly; no canonical scalar evaluation on P¹ is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFieldSums/Comparisons",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.projectiveEval"
+      },
+      "sources": [
+        {
+          "sourceId": "BFP-v2",
+          "locator": "Lemma 5.2 proof, arXiv v2 pp.8–9, the sums over P¹(F_q) and over all polynomials of degree at most d",
+          "match": "Makes the implicit prescribed-degree homogenization at infinity precise. The small interpolation API is the finite-field consumer of native polynomial evaluation, not a new general interpolation theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.FiniteFieldSums.projectiveEval_some",
+          "role": "compatibility",
+          "statement": "At some a the linear map agrees with Polynomial.leval a on the underlying polynomial: E_d(some a,P)=P.eval a."
+        },
+        {
+          "name": "TauCeti.FiniteFieldSums.projectiveEval_none",
+          "role": "compatibility",
+          "statement": "At none the linear map agrees with Polynomial.lcoeff F d: E_d(none,P)=P.coeff d."
+        },
+        {
+          "name": "TauCeti.FiniteFieldSums.projectiveEval_monomial",
+          "role": "simp",
+          "statement": "For i:Fin(d+1), E_d(x,cX^i)=c·a^i at x=some a, and equals c if i=d, otherwise 0, at x=none."
+        },
+        {
+          "name": "TauCeti.FiniteFieldSums.projectiveEval_add",
+          "role": "structure",
+          "statement": "E_d(x,P+Q)=E_d(x,P)+E_d(x,Q)."
+        },
+        {
+          "name": "TauCeti.FiniteFieldSums.projectiveEval_smul",
+          "role": "structure",
+          "statement": "E_d(x,cP)=c E_d(x,P)."
+        },
+        {
+          "name": "TauCeti.FiniteFieldSums.projectiveEval_of_degree_lt",
+          "role": "simp",
+          "statement": "If degree P<d, E_d(none,P)=0, including the zero polynomial."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BFP-v2, Lemma 5.2 proof, pp.8–9",
+          "how": "Evaluate the prescribed-degree homogeneous polynomial on finite points and infinity before summing quadratic characters."
+        },
+        {
+          "where": "FiniteFieldsAndCharacterSums:FF.1/projective-two-evaluation-uniform",
+          "how": "Express both evaluations as linear coefficient functionals; infinity fixes the top coefficient."
+        },
+        {
+          "where": "FiniteFieldsAndCharacterSums:FF.1/projective-two-point-character-sum",
+          "how": "Form the actual all-polynomial two-point character correlation in the chosen chart."
+        }
+      ],
+      "tests": [
+        {
+          "name": "projectiveEvalTests.lower_degree_infinity",
+          "kind": "non-example",
+          "statement": "Over ZMod 3 at d=2, E₂(none,X)=0. Polynomial.leadingCoeff would give 1 and fails."
+        },
+        {
+          "name": "projectiveEvalTests.top_degree_infinity",
+          "kind": "computation",
+          "statement": "Over ZMod 3 at d=2, E₂(none,X²)=1; an always-zero infinity rule fails."
+        },
+        {
+          "name": "projectiveEvalTests.degree_zero_constant",
+          "kind": "degenerate",
+          "statement": "For every c∈F, E₀(none,c)=c; degree zero is supported by the definition."
+        },
+        {
+          "name": "projectiveEvalTests.finite_zero_constant",
+          "kind": "compatibility",
+          "statement": "For every d and P, E_d(some 0,P)=P.coeff 0, agreeing with native evaluation."
+        }
+      ],
+      "planet": {
+        "name": "Projective polynomial evaluation"
+      }
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.1/projective-two-evaluation-uniform",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.1"
+      ],
+      "title": "Uniform two-evaluation fibres",
+      "kind": "theorem",
+      "statement": "For d≥1 and distinct x,y:Option F, the map P↦(E_d(x,P),E_d(y,P)) from Polynomial.degreeLT F(d+1) to F×F is surjective. For every u,v∈F its fibre has cardinality q^{d−1}.",
+      "hypotheses": [
+        "F is a finite field with q=#F; all additive and multiplicative characters take values in ℂ. Multiplicative characters, including 1, are zero on nonunits.",
+        "d≥1 and x≠y."
+      ],
+      "proofSteps": [
+        "Use Polynomial.degreeLTEquiv to identify a polynomial with its d+1 coefficients. This provides the finite enumeration, without defining another vector-space carrier.",
+        "If x=some a and y=some b, fix all coefficients except a₀,a₁. The two residual equations have determinant b−a≠0 and have a unique solution. The remaining d−1 coordinates give a bijection of each fibre with F^{d−1}.",
+        "If exactly one point is infinity, fix a_d to its prescribed value. Fix all coordinates except a₀,a_d, and solve a₀ from the finite evaluation. Again there are d−1 free coordinates. If infinity comes first, swap the two target coordinates.",
+        "Distinctness excludes the two-infinity case. The explicit coefficient bijections prove both existence and cardinality. No general multivariate or scheme interpolation theorem is required."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.1/projective-polynomial-evaluation",
+        "mathlib:Polynomial.degreeLTEquiv"
+      ],
+      "acceptance": [
+        "At d=1 every fibre is a singleton, including the pair (some 0,none).",
+        "Over F₃ at d=2 the pair (some 0,none) has exactly 3 polynomials for each prescribed pair of values.",
+        "d=0 is excluded: constants give a diagonal image. x=y is excluded even for d≥1, since unequal prescribed values cannot be interpolated."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFieldSums/Comparisons",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.projectiveEval_pair_uniform"
+      },
+      "sources": [
+        {
+          "sourceId": "BFP-v2",
+          "locator": "Lemma 5.2 proof, arXiv v2 pp.8–9, interpolation sentence",
+          "match": "Explicit uniform-fibre proof of the paper’s two-point interpolation step. d≥1 suffices for this ingredient; the source uses d≥2 in its subsequent induction."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.1/projective-two-point-character-sum",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.1"
+      ],
+      "title": "Two-point character orthogonality for all polynomials",
+      "kind": "theorem",
+      "statement": "For d≥1, x≠y and χ≠1, ∑_{P∈Polynomial.degreeLT F(d+1)}χ(E_d(x,P))φ(E_d(y,P))=0 for every φ. The accompanying declaration projectiveEval_character_correlation_all states the stronger identity, without χ≠1: this sum is q^{d−1}(∑uχ(u))(∑vφ(v)).",
+      "hypotheses": [
+        "F is a finite field with q=#F; all additive and multiplicative characters take values in ℂ. Multiplicative characters, including 1, are zero on nonunits.",
+        "d≥1 and x,y:Option F are distinct. For vanishing χ is nontrivial; φ can be trivial. No monic or squarefree restriction and no conjugation in the product."
+      ],
+      "proofSteps": [
+        "Partition the finite coefficient space by the two evaluation values. Use projective-two-evaluation-uniform to give every fibre multiplicity q^{d−1}.",
+        "Factor the double finite sum to obtain the all-character identity. Then apply the existing MulChar.sum_eq_zero_of_ne_one to χ. This supplies the target from the exact native row-orthogonality owner.",
+        "For the source’s odd-q quadratic character extend by zero and transport its integer values to ℂ. The sum vanishes for each ordered distinct pair, hence summing over those pairs gives the BFP interpolation total for d≥2. The squarefree induction and the hyperelliptic automorphism-weighted moment remain in the paper’s other owners."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.1/projective-two-evaluation-uniform",
+        "FiniteFieldsAndCharacterSums:FF.1/projective-polynomial-evaluation",
+        "mathlib:MulChar.sum_eq_zero_of_ne_one",
+        "mathlib:MulChar.sum_one_eq_card_units"
+      ],
+      "acceptance": [
+        "For χ=φ=1 the all-character sum is q^{d−1}(q−1)², so a zero claim without nontriviality is false.",
+        "For d=1, x=some 0 and y=none, coefficient pairs enumerate F² once and give (∑χ)(∑φ).",
+        "For odd q and its nontrivial quadratic χ, the all-polynomial distinct-pair total in BFP is zero. The theorem itself remains valid in characteristic two for any available nontrivial χ; F₂ has none.",
+        "Do not sum over squarefree or monic polynomials; those restrictions destroy the equal-fibre argument."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFieldSums/Comparisons",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.projectiveEval_character_correlation"
+      },
+      "sources": [
+        {
+          "sourceId": "BFP-v2",
+          "locator": "Lemma 5.2 proof, arXiv v2 pp.8–9, all-polynomial interpolation total",
+          "match": "The stronger pairwise theorem and exact multiplicity are derived here. This node is only PAPER-BERGSTROM-FABER-PAYNE-24/char-sum-interpolation, not the full Lemma 5.2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "additionalDeclarations": [
+        "TauCeti.FiniteFieldSums.projectiveEval_character_correlation_all"
+      ],
+      "planet": {
+        "name": "Two-point character orthogonality"
+      }
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-finite-product-factorisation",
+      "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
+      "realises": [
+        "FiniteFieldsAndCharacterSums:FF.1"
+      ],
+      "title": "Gauss sums on products of finite fields",
+      "kind": "theorem",
+      "statement": "Let ι be finite and K_i finite fields, A=∏_i K_i the native product ring. Given native characters χ:A→ℂ, ψ:A→ℂ and χ_i,ψ_i on K_i such that χ(x)=∏iχ_i(x_i) and ψ(x)=∏iψ_i(x_i) for all x, g_A(χ,ψ)=∏i g_{K_i}(χ_i,ψ_i).",
+      "hypotheses": [
+        "The hypotheses explicitly give the component factorisations; arbitrary characters are not silently declared to factor. No primitivity or nontriviality is required. All Gauss sums use Mathlib’s native definition on finite commutative rings."
+      ],
+      "proofSteps": [
+        "Unfold the native Gauss sum and insert the two character factorisations. Combine the component products to make the summand ∏i(χ_i(x_i)ψ_i(x_i)).",
+        "Apply Fintype.prod_sum in reverse. This proves the comparison even with trivial component characters and with an empty index set.",
+        "For a finite étale algebra already presented as a product of finite fields, norm-induced multiplicative and trace-induced additive characters have exactly these factorisations, by the component norm product and trace sum. Their component lifts are the predecessor’s existing norm/trace-lift objects. The theorem consumes a presentation; it does not construct or classify finite étale algebras."
+      ],
+      "prerequisites": [
+        "mathlib:gaussSum",
+        "mathlib:Fintype.prod_sum",
+        "FiniteFieldsAndCharacterSums:FF.1/norm-lift-of-a-multiplicative-character",
+        "FiniteFieldsAndCharacterSums:FF.1/trace-lift-of-an-additive-character"
+      ],
+      "acceptance": [
+        "Two components give g_A=g_1g_2 with the native positive-sum sign.",
+        "Two nontrivial additive components and trivial multiplicative components give g_A=(−1)²=1, whereas the source-negative convention −g_A gives −1; an étale-algebra lifting sign must count the components explicitly.",
+        "An empty product is the singleton ring and both sides equal 1. The statement also permits zero Gauss factors."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFieldSums/Comparisons",
+        "namespace": "TauCeti.FiniteFieldSums",
+        "declaration": "TauCeti.FiniteFieldSums.gaussSum_finiteProduct"
+      },
+      "sources": [
+        {
+          "sourceId": "Kowalski-elementary",
+          "locator": "Proof of Proposition 1.10, pp.12–13, product-group characters; norm and trace lift discussion pp.14–15",
+          "match": "The tuple finite-sum factorisation is derived using the native baseline product-of-sums identity. This is the componentwise étale-product comparison, with no cohomological realization."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.6",
+      "need": "Export the precise coefficient norm theorem for the actual native series Theta_q=rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)), q=p^f,f>0,pi^(p−1)=−p. With K a complete ultrametric characteristic-zero normed field, an explicitly norm-preserving Q_p embedding and r=‖pi‖, supply ∀n, ‖PowerSeries.coeff n Theta_q‖≤r^(n(p−1)^2/(p q)), equivalently normalized v_p(A_n)≥n(p−1)/(p q). The current RD.6/dwork-isocrystal node only gives the prime coefficient inequality in proofSteps, with no standalone native PowerSeries API. Its Frobenius factor is the inverse of this Robert-sign series; preserve that sign distinction. The inherited L3 request records its primary proof as: Robert2000 VII2.1–2.4 pp.386–397, using Artin–Hasse integrality, the strict growth-modulus condition and bounded coefficients on smaller radii. The q-product radius is p^((p−1)/(p q)); taking the limiting real radius gives the non-strict coefficient bound. Do not numerically substitute exp(pi(1−1)) to obtain Theta_p(1); formal composition and analytic evaluation differ at that boundary. This request asks the existing Dwork owner for its exact coefficient interface, not for the consumer’s factorial, digit, continuity or moving-tail proofs.",
+      "neededBy": [
+        "FiniteFieldsAndCharacterSums:FF.1/hasse-davenport-product-completion"
+      ],
+      "inheritedFrom": [
+        "DirichletPadicLFunctions:L3/robert-coefficient-series-term-bound"
+      ]
+    },
+    {
+      "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.6",
+      "need": "Export the actual native splitting-value interface in addition to the preceding coefficient-bound request. For p prime, a normalized complete ultrametric nonarchimedean local field K with residueF of cardinalityq=p^f,f>0, an explicit norm-preserving Q_p embedding, chosen primitive p-th rootzeta and compatiblepi^(p−1)=−p, prove ∀u:Fˣ, tsum_n coeff_n(rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)))*tau(u)^n = (AddChar.zmodChar p zeta.pow_eq_one)(Algebra.trace (ZMod p) F u). Use the actual native TauCeti.teichmuller lift tau inK, actual formal coefficients and existing trace character. Explain chosen-root compatibility: the Dwork rootTheta_p(1) is primitive and congruent1+pi modulo pi², and the normalizedpi associated withzeta must giveTheta_p(1)=zeta. Include p=2 (pi=−2,zeta=−1) and the small-prime checks. The current RD.6/dwork-isocrystal node describes inverse Frobenius trace values but exports no equality between this native coefficient tsum and that additive character; its inverse sign must be converted explicitly. Source: Robert2000 VII2.4 pp.393–397 and Robert2001 Appendix2 p.169, both recorded as fully read by that owner; this continuation imports the precise request, not a new source-reading claim. The consumer already proves summability on‖z‖≤1 from the coefficient bound and proves the actual Teichmuller norm1, so this request does not outsource convergence, finite orthogonality or the Gamma comparison. In this application choose K as the completion of the cyclotomic character-value field at the predecessor’s prime above p; include existence of a compatible pi for the chosen zeta with pi/(zeta−1) ≡ 1 modulo the maximal ideal, equivalently pi ≡ zeta−1 modulo (zeta−1)^2. Cohen-II Lemma 11.7.12 prints a stronger, false modulus p (sourceIssue E750); do not impose it.",
+      "neededBy": [
+        "FiniteFieldsAndCharacterSums:FF.1/hasse-davenport-product-completion"
+      ],
+      "inheritedFrom": [
+        "DirichletPadicLFunctions:L3/robert-series-gauss-comparison"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "FiniteFieldsAndCharacterSums:FF.1",
+      "status": "planned",
+      "note": "The accepted predecessor provides the other FF.1 targets, including the full elementary lifting route. Every item in its FF.1 remaining list is now a target or imported owner node. Fourier and interpolation chains need no new supplier assumption; product closure still inherits the two precise RD.6 questions through L3.",
+      "remaining": [
+        "RD.6 must export the coefficient norm estimate and the compatible chosen-root splitting-value equality for the actual Robert-sign formal series, including p=2. Then instantiate L3/robert-gross-koblitz-comparison and certify the product route without those explicit input hypotheses.",
+        "Assembly must replace the predecessor’s coarse AC.0 prerequisite/request by the exact transform/Parseval nodes and this finite-field transport, retain its existing product target and attach this proof route, and reconcile the old product-root gap with the concrete supplier gap. This part does not edit the predecessor."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Exact Dwork inputs inherited through the Gross–Koblitz owner",
+      "neededBy": [
+        "FiniteFieldsAndCharacterSums:FF.1/hasse-davenport-product-completion"
+      ],
+      "detail": "The inspected L3/robert-gross-koblitz-comparison requires both the coefficient bound and the actual chosen-root trace-character splitting equality. RD.6/dwork-isocrystal does not export either precise native coefficient interface. The exact Gamma multiplication import resolves the arbitrary-root ambiguity, but it does not prove these analytic inputs. The two requests spell out K, its normalized Q_p embedding, actual formal coefficients, compatible pi and zeta, Teichmuller lifts, trace, sign and binary boundary. Until supplied the unconditional product target has a recorded dependency gap; no source closure is claimed."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "FiniteFieldsAndCharacterSums/E750",
+      "source": "Cohen-II-public",
+      "kind": "misprint",
+      "locator": "Lemma 11.7.12, printed p.390 and repeated in its proof p.391, 2007 Springer scan (PDF pp.412–413); page images personally checked",
+      "correction": "Require π/(ζ_p−1) ≡ 1 modulo the maximal ideal (ζ_p−1)ℤ_K, equivalently π ≡ ζ_p−1 modulo (ζ_p−1)². Replace the excessive congruence in the comparison proof too; only the resulting cyclotomic-prime congruence is justified there.",
+      "reason": "At p=3 set t=ζ_3−1, so t²=−3(1+t), v_3(t)=1/2 and u=π/t satisfies u²=(1+t)⁻¹. If u−1 were divisible by 3 then u²−1 would be divisible by 3, but u²−1=−t/(1+t) has valuation 1/2. The printed choice therefore cannot exist. The same page’s later remark gives v_π((ζ_p−1)/π−1)=1, consistent with the corrected modulus.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Cohen author homepage https://www.math.u-bordeaux.fr/~hecohen/ and current ~cohen alias, accessed 2026-10-05",
+        "Author errata https://www.math.u-bordeaux.fr/~cohen/deabookerrata.pdf, dated 2008-11-30: Volume II entries read and whole file searched; no correction at pp.390–391 found",
+        "Publisher book record https://link.springer.com/book/10.1007/978-0-387-49894-2 and web search for Lemma 11.7.12 errata; no later correction found"
+      ]
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums/E751",
+      "source": "Cohen-II-public",
+      "kind": "misprint",
+      "locator": "Theorem 11.6.14, printed p.372 first line, 2007 scan",
+      "printed": "The source requires n ≥ 1 with p ∤ n.",
+      "correction": "Use N in place of n in both occurrences; N is the multiplier throughout the displayed distribution identity and its proof.",
+      "reason": "The remainder of the theorem uses N for the same multiplier; the author explicitly corrects both occurrences.",
+      "affects": "nothing",
+      "known": "Cohen, Errata, Changes, and Addenda, 2008-11-30, p.4, Volume II p.372 entry: https://www.math.u-bordeaux.fr/~cohen/deabookerrata.pdf",
+      "searched": [
+        "Author errata PDF, Volume II p.372 entry, personally read 2026-10-05"
+      ]
+    }
+  ],
+  "restructure": [],
+  "upstreamNotes": [
+    {
+      "where": "RT-AREA-finitefields/9–10; accepted EXT-08 review sections 7–8",
+      "note": "Maintainer integration must use the accepted placement corrections: character sheaves, Lang torsors and Gauss cohomological realization belong to FF.2; Euler–Poincare/Swan belongs to its external owner. Baseline Gauss product identity is already built. This part consumes the accepted blueprint predecessor and writes no queue, atlas, expansion or decomposition files; the historical EXT-08 promotion/supplier forwarding remains an integration task."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf",
+      "citation": "Henri Cohen, Number Theory II, Springer GTM 240 (2007), copyright and ISBN pages read; publicly hosted scan",
+      "read": "2026-10-05",
+      "sha256": "e25889069c18eee932088e1b9264c614ce883bb394a03cb3a109f5859ab57ca0"
+    }
+  ]
+}
