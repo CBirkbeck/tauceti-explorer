@@ -32105,8 +32105,9 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6320"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6320",
+   "finishedAt": "2026-10-05T21:46:52Z"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
@@ -32322,7 +32323,8 @@
    ],
    "followUpOf": "BP-HabiroCyclotomicCompletions",
    "prompt": "research/blueprint/prompts/BP-HabiroCyclotomicCompletions--HC.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6470"
   },
   {
    "id": "REV-HabiroCyclotomicCompletions--HC.4",
