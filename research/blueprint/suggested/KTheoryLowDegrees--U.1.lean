@@ -7992,3 +7992,391 @@ theorem kubota_noncongruence_kernel (s : MennickeSymbol A I C)
   sorry
 
 end TauCeti.MennickeSymbol
+
+/-! ## Relative standard forms and the next-rank value
+
+This section specifies BMS §§7–8 on the inherited GL, congruence and elementary
+carriers. `extendedValue` is initially a function. Its multiplication theorem
+requires the normalizer argument of §§9–10, which remains an explicit gap. -/
+
+namespace TauCeti.MennickeExtension
+
+open TauCeti.KTheory TauCeti.RelativeK1
+variable {A : Type u} [CommRing A] {I : Ideal A} {C : Type v} [Group C]
+variable {n : ℕ}
+
+abbrev Level (r : ℕ) (I : Ideal A) := congruenceSubgroup (Fin r) I
+
+/-- First-coordinate relative unimodularity, with an actual spanning condition. -/
+def RelativeColumn (I : Ideal A) (n : ℕ) (a : Fin (n+1) → A) : Prop :=
+  Ideal.span (Set.range a) = ⊤ ∧ ∀ i, a i - (if i = 0 then 1 else 0) ∈ I
+
+theorem RelativeColumn_iff (a : Fin (n+1) → A) :
+    RelativeColumn I n a ↔ Ideal.span (Set.range a) = ⊤ ∧
+      a 0 - 1 ∈ I ∧ ∀ i : Fin n, a i.succ ∈ I := by sorry
+
+theorem RelativeColumn_map {B : Type w} [CommRing B] (f : A →+* B)
+    (J : Ideal B) (hf : ∀ x ∈ I, f x ∈ J) (a : Fin (n+1) → A)
+    (ha : RelativeColumn I n a) : RelativeColumn J n (f ∘ a) := by sorry
+
+theorem RelativeColumn_one : RelativeColumn I n (Pi.single 0 1) := by sorry
+
+-- test RelativeColumn_integer_test
+example : RelativeColumn (Ideal.span {(2 : ℤ)}) 2 ![3,2,0] := by sorry
+-- test RelativeColumn_bot_test
+example (a : Fin (n+1) → A) : RelativeColumn (⊥ : Ideal A) n a ↔ a = Pi.single 0 1 := by sorry
+-- test RelativeColumn_level_test
+example : ¬ RelativeColumn (Ideal.span {(2 : ℤ)}) 2 ![2,1,0] := by sorry
+-- test RelativeColumn_nonunimodular_test
+example : ¬ RelativeColumn (Ideal.span {(2 : ℤ)}) 2 ![3,6,0] := by sorry
+
+/-- BMS Lemma 7.3: use the square of the last coordinate to keep coefficients in I. -/
+theorem relative_shortening {k n : ℕ} (hk : 1 ≤ k) (hn : k ≤ n)
+    (hsr : HasStableRange A k) (a : Fin (n+1) → A) (ha : RelativeColumn I n a) :
+    ∃ b : Fin n → I, RelativeColumn I (n-1)
+      (fun i : Fin (n-1+1) => a ⟨i, by omega⟩ +
+        (b ⟨i, by omega⟩ : A) * a (Fin.last n)) := by sorry
+
+/-- The relative, rather than absolute, orbit theorem. -/
+theorem relative_elementary_transitive {k n : ℕ} (hk : 1 ≤ k) (hn : k ≤ n)
+    (hsr : HasStableRange A k) (a : Fin (n+1) → A) (ha : RelativeColumn I n a) :
+    ∃ e ∈ relElementary (Fin (n+1)) I,
+      (e : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1 := by sorry
+
+/-- Same-level reduction, needed to determine an extension uniquely. -/
+theorem relative_gl_reduction {k r : ℕ} (hk : 1 ≤ k) (hr : k < r)
+    (hsr : HasStableRange A k) (g : Level r I) :
+    ∃ a : Level k I, ∃ e ∈ relElementary (Fin r) I,
+      g.val = stabilise hr.le a.val * e := by sorry
+
+/-- The rank-one conjugation calculation in Bass's finite-rank normality proof. -/
+theorem relative_rank_one_conjugate {r : ℕ} (hr : 1 ≤ r)
+    (a b : Fin r → A) (hba : b ⬝ᵥ a = 0) (q : I) :
+    ∃ e ∈ relElementary (Fin (r+1)) I,
+      (e : Matrix (Fin (r+1)) (Fin (r+1)) A) =
+        stabiliseMatrix (1 + (q : A) • Matrix.vecMulVec a b) := by sorry
+
+/-- Normality holds under the stable-range bound, not at arbitrary finite rank. -/
+theorem relative_elementary_normal {k r : ℕ} (hk : 1 ≤ k) (hr : k < r)
+    (hsr : HasStableRange A k) : (relElementary (Fin r) I).Normal := by sorry
+
+/-- The GE commutator bound, expressed on the existing E and diagonal generators. -/
+theorem relative_ge_commutator {k r : ℕ} (hk : 1 ≤ k) (hr : k < r)
+    (hr3 : 3 ≤ r) (hsr : HasStableRange A k) :
+    (∀ τ ∈ elementarySubgroup (Fin r) A, ∀ g : Level r I,
+      τ * g.val * τ⁻¹ * g.val⁻¹ ∈ relElementary (Fin r) I) ∧
+    ∀ d : Fin r → Aˣ, ∀ g : Level r I,
+      diagUnit d * g.val * (diagUnit d)⁻¹ * g.val⁻¹ ∈ relElementary (Fin r) I := by sorry
+
+/-- Rank two uses relative Bézout completion; higher ranks use relative transitivity. -/
+theorem dedekind_relative_gl_transitive [IsDedekindDomain A] {n : ℕ} (hn : 1 ≤ n)
+    (a : Fin (n+1) → A) (ha : RelativeColumn I n a) :
+    ∃ g : Level (n+1) I, (g.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1 := by sorry
+
+/-- Normal-kernel conjugation and transposition, with their concrete matrices. -/
+def conjugate {r : ℕ} (τ : GL (Fin r) A) (g : Level r I) : Level r I :=
+  ⟨τ * g.val * τ⁻¹, by sorry⟩
+def transposeLevel {r : ℕ} (g : Level r I) : Level r I :=
+  ⟨⟨(g.val : Matrix (Fin r) (Fin r) A)ᵀ,
+    (g.val⁻¹ : Matrix (Fin r) (Fin r) A)ᵀ, by sorry, by sorry⟩, by sorry⟩
+def embedLevel {m r : ℕ} (h : m ≤ r) : Level m I →* Level r I where
+  toFun g := ⟨stabilise h g.val, by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- The asymmetric relation of BMS (8.4), including the I-level top-left witness. -/
+def Related {n : ℕ} (I : Ideal A) (t : A) (a b : Level (n+1) I) : Prop :=
+  ∃ x : Matrix (Fin (n+1)) (Fin (n+1)) A, x 0 0 ∈ I ∧
+    (∀ i j, a.val i j = if j = 0 then (if i = 0 then 1 else 0) + t*x i 0 else x i j) ∧
+    (∀ i j, b.val i j = if i = 0 then (if j = 0 then 1 else 0) + t*x 0 j else x i j)
+
+theorem Related_iff {n : ℕ} (t : A) (a b : Level (n+1) I) :
+    Related I t a b ↔ ∃ x : Matrix (Fin (n+1)) (Fin (n+1)) A, x 0 0 ∈ I ∧
+      (∀ i j, a.val i j = if j = 0 then (if i = 0 then 1 else 0)+t*x i 0 else x i j) ∧
+      (∀ i j, b.val i j = if i = 0 then (if j = 0 then 1 else 0)+t*x 0 j else x i j) := Iff.rfl
+
+theorem Related_map {B : Type w} [CommRing B] (f : A →+* B) (J : Ideal B)
+    (hf : ∀ x ∈ I, f x ∈ J) {n : ℕ} {t : A} {a b : Level (n+1) I}
+    (h : Related I t a b) (ha : glMap f a.val ∈ congruenceSubgroup (Fin (n+1)) J)
+    (hb : glMap f b.val ∈ congruenceSubgroup (Fin (n+1)) J) :
+    Related J (f t) ⟨glMap f a.val,ha⟩ ⟨glMap f b.val,hb⟩ := by sorry
+
+theorem Related_one {n : ℕ} (a b : Level (n+1) (⊤ : Ideal A)) :
+    Related ⊤ 1 a b ↔ a = b := by sorry
+
+-- test Related_one_test
+example {n : ℕ} (a b : Level (n+1) (⊤ : Ideal A)) : Related ⊤ 1 a b ↔ a = b := by sorry
+-- test Related_bot_test
+example {n : ℕ} : Related (⊥ : Ideal A) 0 (1 : Level (n+1) (⊥ : Ideal A)) 1 := by sorry
+-- test Related_asymmetric_test
+example : ∃ h : elementary (by decide : (0 : Fin 2) ≠ 1) (2 : ℤ) ∈ congruenceSubgroup (Fin 2) ⊤,
+    Related ⊤ 0 ⟨elementary (by decide : (0 : Fin 2) ≠ 1) 2,h⟩ 1 ∧
+      ¬ Related ⊤ 0 (1 : Level 2 (⊤ : Ideal ℤ)) ⟨elementary (by decide : (0 : Fin 2) ≠ 1) 2,h⟩ := by sorry
+
+/-- Lemma 8.8(a) keeps the same parameter and witness level. -/
+theorem related_product {n : ℕ} {t : A} (ht : t ∈ I) {a a' b b' : Level (n+1) I}
+    (ha : Related I t a a') (hb : Related I t b b') : Related I t (a*b) (a'*b') := by sorry
+
+/-- Lemma 8.8(b) is stabilized by one coordinate. -/
+theorem related_stabilized_commutator {n : ℕ} (hn : 1 ≤ n) {t : A} (ht : t ∈ I)
+    {a b : Level (n+1) I} (h : Related I t a b) :
+    (embedLevel (Nat.le_succ (n+1)) (a⁻¹*b)).val ∈
+      ⁅elementarySubgroup (Fin (n+2)) A, congruenceSubgroup (Fin (n+2)) I⁆ := by sorry
+
+/-- Type L: an invertible upper block matrix at the same ideal level. -/
+def leftMatrix {n : ℕ} (a : Level (n+1) I) (y : Fin (n+1) → I) :
+    Matrix (Fin (n+2)) (Fin (n+2)) A := fun i j =>
+  if hi : i.val < n+1 then
+    if hj : j.val < n+1 then a.val ⟨i.val,hi⟩ ⟨j.val,hj⟩ else (y ⟨i.val,hi⟩ : A)
+  else if j = Fin.last (n+1) then 1 else 0
+noncomputable def leftBlock {n : ℕ} (a : Level (n+1) I) (y : Fin (n+1) → I) : Level (n+2) I :=
+  ⟨Matrix.GeneralLinearGroup.mk'' (leftMatrix a y) (by sorry), by sorry⟩
+
+theorem leftBlock_apply {n : ℕ} (a : Level (n+1) I) (y : Fin (n+1) → I) :
+    (leftBlock a y).val.val = leftMatrix a y := by sorry
+
+theorem leftBlock_mul {n : ℕ} (a b : Level (n+1) I) (y z : Fin (n+1) → I) :
+    ∃ w : Fin (n+1) → I, (∀ i, (w i : A) =
+      ((a.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ (fun j => (z j : A))) i + (y i : A)) ∧
+      leftBlock a y * leftBlock b z = leftBlock (a*b) w := by sorry
+
+theorem leftBlock_ext {n : ℕ} (a b : Level (n+1) I) (y z : Fin (n+1) → I) :
+    leftBlock a y = leftBlock b z ↔ a = b ∧ y = z := by sorry
+
+-- test leftBlock_zero_test
+example {n : ℕ} (a : Level (n+1) I) : leftBlock a 0 = embedLevel (Nat.le_succ (n+1)) a := by sorry
+-- test leftBlock_row_test
+example {n : ℕ} (a : Level (n+1) I) (y : Fin (n+1) → I) (j : Fin (n+2)) :
+    (leftBlock a y).val (Fin.last (n+1)) j = if j = Fin.last (n+1) then 1 else 0 := by sorry
+-- test leftBlock_integer_test
+example : ∃ y : Fin 2 → Ideal.span {(2 : ℤ)}, (∀ i, (y i : ℤ) = (![2,4] : Fin 2 → ℤ) i) ∧
+    (leftBlock (1 : Level 2 (Ideal.span {(2 : ℤ)})) y).val.val = !![1,0,2;0,1,4;0,0,1] := by sorry
+
+/-- Type R, with the opposite placement: first column e₀, lower-right corner b. -/
+def rightMatrix {n : ℕ} (b : Level (n+1) I) (p : Fin (n+1) → I) :
+    Matrix (Fin (n+2)) (Fin (n+2)) A := fun i j =>
+  if hi : i = 0 then
+    if hj : j = 0 then 1 else (p (j.pred hj) : A)
+  else if hj : j = 0 then 0 else b.val (i.pred hi) (j.pred hj)
+noncomputable def rightBlock {n : ℕ} (b : Level (n+1) I) (p : Fin (n+1) → I) : Level (n+2) I :=
+  ⟨Matrix.GeneralLinearGroup.mk'' (rightMatrix b p) (by sorry), by sorry⟩
+
+theorem rightBlock_apply {n : ℕ} (b : Level (n+1) I) (p : Fin (n+1) → I) :
+    (rightBlock b p).val.val = rightMatrix b p := by sorry
+
+theorem rightBlock_mul {n : ℕ} (a b : Level (n+1) I) (p q : Fin (n+1) → I) :
+    ∃ w : Fin (n+1) → I, (∀ i, (w i : A) = (q i : A) +
+      (((fun j => (p j : A)) ᵥ* (b.val : Matrix (Fin (n+1)) (Fin (n+1)) A)) i)) ∧
+      rightBlock a p * rightBlock b q = rightBlock (a*b) w := by sorry
+
+theorem rightBlock_ext {n : ℕ} (a b : Level (n+1) I) (p q : Fin (n+1) → I) :
+    rightBlock a p = rightBlock b q ↔ a = b ∧ p = q := by sorry
+
+-- test rightBlock_zero_test
+example {n : ℕ} (b : Level (n+1) I) (i j : Fin (n+1)) :
+    (rightBlock b 0).val i.succ j.succ = b.val i j := by sorry
+-- test rightBlock_column_test
+example {n : ℕ} (b : Level (n+1) I) (p : Fin (n+1) → I) (i : Fin (n+2)) :
+    (rightBlock b p).val i 0 = if i = 0 then 1 else 0 := by sorry
+-- test rightBlock_integer_test
+example : ∃ p : Fin 2 → Ideal.span {(2 : ℤ)}, (∀ i, (p i : ℤ) = (![2,4] : Fin 2 → ℤ) i) ∧
+    (rightBlock (1 : Level 2 (Ideal.span {(2 : ℤ)})) p).val.val = !![1,2,4;0,1,0;0,0,1] := by sorry
+
+/-- The distinguished root e_{last,first}(t), including its level witness. -/
+def middle {n : ℕ} (t : I) : Level (n+2) I :=
+  ⟨elementary (by intro h; have hh := congrArg Fin.val h; simp at hh : Fin.last (n+1) ≠ (0 : Fin (n+2))) (t : A), by sorry⟩
+
+/-- Standard forms are factorization data, not unique choices. -/
+structure StandardForm {n : ℕ} (g : Level (n+2) I) where
+  left : Level (n+1) I
+  right : Level (n+1) I
+  column : Fin (n+1) → I
+  row : Fin (n+1) → I
+  parameter : I
+  factorization : g = leftBlock left column * middle parameter * rightBlock right row
+
+theorem StandardForm.parameter_eq {n : ℕ} {g : Level (n+2) I} (f : StandardForm g) :
+    (f.parameter : A) = g.val (Fin.last (n+1)) 0 := by sorry
+
+theorem StandardForm.ext {n : ℕ} {g : Level (n+2) I} (f h : StandardForm g)
+    (hl : f.left = h.left) (hr : f.right = h.right) (hc : f.column = h.column)
+    (hp : f.row = h.row) : f = h := by sorry
+
+noncomputable def StandardForm.identity {n : ℕ} : StandardForm (1 : Level (n+2) I) where
+  left := 1
+  right := 1
+  column := 0
+  row := 0
+  parameter := 0
+  factorization := by sorry
+
+-- test StandardForm_identity_test
+example {n : ℕ} : (StandardForm.identity (I := I) (n := n)).parameter = 0 := rfl
+-- test StandardForm_middle_test
+example {n : ℕ} (t : I) : ∃ f : StandardForm (middle (n := n) t),
+    f.left = 1 ∧ f.right = 1 ∧ f.column = 0 ∧ f.row = 0 ∧ f.parameter = t := by sorry
+-- test StandardForm_nonunique_test
+example : ∃ g : Level 3 (⊤ : Ideal ℤ), ∃ f h : StandardForm g,
+    f.parameter = 0 ∧ h.parameter = 0 ∧ f.left ≠ h.left := by sorry
+
+theorem standardForm_exists {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (g : Level (n+2) I) : Nonempty (StandardForm g) := by sorry
+
+theorem related_relative_elementary {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    {t : A} (hI : t ∈ I) {a b : Level (n+2) I} (h : Related I t a b) :
+    (a⁻¹*b).val ∈ relElementary (Fin (n+2)) I := by sorry
+
+/-- Every condition is an equation about an actual homomorphism or matrix. -/
+structure ExtensionConditions {n : ℕ} (k : Level (n+1) I →* C) : Prop where
+  elementary_kernel : ∀ e : Level (n+1) I, e.val ∈ relElementary (Fin (n+1)) I → k e = 1
+  elementary_conjugation : ∀ τ ∈ elementarySubgroup (Fin (n+1)) A,
+    ∀ g : Level (n+1) I, k (conjugate τ g) = k g
+  diagonal_conjugation : ∀ d : Fin (n+1) → Aˣ,
+    ∀ g : Level (n+1) I, k (conjugate (diagUnit d) g) = k g
+  transpose_kernel : ∀ g : Level (n+1) I, k g = 1 → k (transposeLevel g) = 1
+  related : ∀ t ∈ I, ∀ a b : Level (n+1) I, Related I t a b → k b = k a
+
+theorem ExtensionConditions_iff {n : ℕ} (k : Level (n+1) I →* C) :
+    ExtensionConditions k ↔
+      (∀ e : Level (n+1) I, e.val ∈ relElementary (Fin (n+1)) I → k e = 1) ∧
+      (∀ τ ∈ elementarySubgroup (Fin (n+1)) A, ∀ g : Level (n+1) I, k (conjugate τ g) = k g) ∧
+      (∀ d : Fin (n+1) → Aˣ, ∀ g : Level (n+1) I, k (conjugate (diagUnit d) g) = k g) ∧
+      (∀ g : Level (n+1) I, k g = 1 → k (transposeLevel g) = 1) ∧
+      (∀ t ∈ I, ∀ a b : Level (n+1) I, Related I t a b → k b = k a) := by sorry
+
+theorem ExtensionConditions_comp {n : ℕ} {D : Type w} [Group D]
+    (k : Level (n+1) I →* C) (h : ExtensionConditions k) (φ : C →* D)
+    (hφ : Function.Injective φ) : ExtensionConditions (φ.comp k) := by sorry
+
+-- test ExtensionConditions_trivial_test
+example {n : ℕ} : ExtensionConditions (1 : Level (n+1) I →* C) := by sorry
+-- test ExtensionConditions_identity_fails_test
+example : ¬ ExtensionConditions (MonoidHom.id (Level 2 (⊤ : Ideal ℤ))) := by sorry
+-- test ExtensionConditions_comp_test
+example {n : ℕ} {D : Type w} [Group D] (k : Level (n+1) I →* C)
+    (h : ExtensionConditions k) (φ : C ≃* D) : ExtensionConditions (φ.toMonoidHom.comp k) := by sorry
+
+/-- BMS Lemma 8.7(b), on the exact inherited Kubota homomorphism. -/
+theorem kubota_extension_conditions [IsDedekindDomain A] (s : TauCeti.MennickeSymbol A I C) :
+    ExtensionConditions (TauCeti.MennickeSymbol.kubotaHom s) := by sorry
+
+/-- Uniqueness needs same-level surjective reduction, not existence of a new homomorphism. -/
+theorem extension_unique {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (k : Level (n+1) I →* C) (f h : Level (n+2) I →* C)
+    (hf : f.comp (embedLevel (Nat.le_succ (n+1))) = k)
+    (hh : h.comp (embedLevel (Nat.le_succ (n+1))) = k)
+    (hfe : ∀ e : Level (n+2) I, e.val ∈ relElementary (Fin (n+2)) I → f e = 1)
+    (hhe : ∀ e : Level (n+2) I, e.val ∈ relElementary (Fin (n+2)) I → h e = 1) : f = h := by sorry
+
+/-- Only the kernel is asserted transpose-stable; the values need not be equal. -/
+theorem extension_transpose_kernel {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (k : Level (n+1) I →* C) (hk : ExtensionConditions k) (f : Level (n+2) I →* C)
+    (hf : f.comp (embedLevel (Nat.le_succ (n+1))) = k)
+    (hfe : ∀ e : Level (n+2) I, e.val ∈ relElementary (Fin (n+2)) I → f e = 1) :
+    ∀ g : Level (n+2) I, f g = 1 → f (transposeLevel g) = 1 := by sorry
+
+theorem extension_related_invariance {n : ℕ} (hn : 1 ≤ n) (hsr : HasStableRange A (n+1))
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (f : Level (n+2) I →* C)
+    (hfe : ∀ e : Level (n+2) I, e.val ∈ relElementary (Fin (n+2)) I → f e = 1)
+    {t : A} (hI : t ∈ I) {a b : Level (n+2) I} (h : Related I t a b) : f b = f a := by sorry
+
+/-- Evaluation retains the source order, left corner before right corner. -/
+def standardFormValue {n : ℕ} (k : Level (n+1) I →* C) {g : Level (n+2) I}
+    (f : StandardForm g) : C := k f.left * k f.right
+
+theorem standardFormValue_apply {n : ℕ} (k : Level (n+1) I →* C) {g : Level (n+2) I}
+    (f : StandardForm g) : standardFormValue k f = k f.left * k f.right := rfl
+
+theorem standardFormValue_comp {n : ℕ} {D : Type w} [Group D] (k : Level (n+1) I →* C)
+    (φ : C →* D) {g : Level (n+2) I} (f : StandardForm g) :
+    standardFormValue (φ.comp k) f = φ (standardFormValue k f) := by sorry
+
+theorem standardFormValue_congr {n : ℕ} (k : Level (n+1) I →* C) {g : Level (n+2) I}
+    (f h : StandardForm g) (hl : k f.left = k h.left) (hr : k f.right = k h.right) :
+    standardFormValue k f = standardFormValue k h := by sorry
+
+-- test standardFormValue_identity_test
+example {n : ℕ} (k : Level (n+1) I →* C) :
+    standardFormValue k StandardForm.identity = 1 := by sorry
+-- test standardFormValue_trivial_test
+example {n : ℕ} {g : Level (n+2) I} (f : StandardForm g) :
+    standardFormValue (1 : Level (n+1) I →* C) f = 1 := by sorry
+-- test standardFormValue_middle_test
+example {n : ℕ} (k : Level (n+1) I →* C) (t : I) (f : StandardForm (middle (n := n) t))
+    (hl : f.left = 1) (hr : f.right = 1) : standardFormValue k f = 1 := by sorry
+
+theorem standardFormValue_independent {n : ℕ} (hn : 1 ≤ n) (k : Level (n+1) I →* C)
+    (hk : ExtensionConditions k) {g : Level (n+2) I} (f h : StandardForm g) :
+    standardFormValue k f = standardFormValue k h := by sorry
+
+noncomputable def extendedValue {n : ℕ} (k : Level (n+1) I →* C)
+    (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (g : Level (n+2) I) : C :=
+  standardFormValue k (Classical.choice (standardForm_exists hn hsr ht g))
+
+theorem extendedValue_standardForm {n : ℕ} (k : Level (n+1) I →* C)
+    (hk : ExtensionConditions k) (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (g : Level (n+2) I) (f : StandardForm g) :
+    extendedValue k hsr hn ht g = standardFormValue k f := by sorry
+
+theorem extendedValue_one {n : ℕ} (k : Level (n+1) I →* C)
+    (hk : ExtensionConditions k) (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1) :
+    extendedValue k hsr hn ht 1 = 1 := by sorry
+
+theorem extendedValue_comp {n : ℕ} {D : Type w} [Group D] (k : Level (n+1) I →* C)
+    (φ : C →* D) (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (g : Level (n+2) I) : extendedValue (φ.comp k) hsr hn ht g = φ (extendedValue k hsr hn ht g) := by sorry
+
+-- test extendedValue_one_test
+example {n : ℕ} (k : Level (n+1) I →* C) (hk : ExtensionConditions k)
+    (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1) :
+    extendedValue k hsr hn ht 1 = 1 := by sorry
+-- test extendedValue_middle_test
+example {n : ℕ} (k : Level (n+1) I →* C) (hk : ExtensionConditions k)
+    (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1) (t : I) :
+    extendedValue k hsr hn ht (middle t) = 1 := by sorry
+-- test extendedValue_trivial_test
+example {n : ℕ} (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+    (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+      ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+    (g : Level (n+2) I) : extendedValue (1 : Level (n+1) I →* C) hsr hn ht g = 1 := by sorry
+
+section Evaluation
+variable {n : ℕ} (k : Level (n+1) I →* C) (hk : ExtensionConditions k)
+  (hsr : HasStableRange A (n+1)) (hn : 1 ≤ n)
+  (ht : ∀ J : Ideal A, ∀ a : Fin (n+1) → A, RelativeColumn J n a →
+    ∃ u : Level (n+1) J, (u.val : Matrix (Fin (n+1)) (Fin (n+1)) A) *ᵥ a = Pi.single 0 1)
+
+include hk
+
+theorem extendedValue_left (a : Level (n+1) I) (y : Fin (n+1) → I) :
+    extendedValue k hsr hn ht (leftBlock a y) = k a := by sorry
+
+theorem extendedValue_right (b : Level (n+1) I) (p : Fin (n+1) → I) :
+    extendedValue k hsr hn ht (rightBlock b p) = k b := by sorry
+
+theorem extendedValue_two_sided (a b : Level (n+1) I)
+    (y p : Fin (n+1) → I) (g : Level (n+2) I) :
+    extendedValue k hsr hn ht (leftBlock a y * g * rightBlock b p) =
+      k a * extendedValue k hsr hn ht g * k b := by sorry
+
+end Evaluation
+end TauCeti.MennickeExtension
