@@ -1,7 +1,7 @@
 /-
 Budgeted planning pass (2026-10-04, Codex — codex-5ebb6f): retain all 415 packet nodes.
 The planning pass is complete; every stage remains partial with explicit follow-up work.
-All mathematical declarations, imports, API outlines and tests below are preserved.
+The independent codex-7e92bd review corrects statements, imports and boundary tests below.
 Signature elaboration is not implementation or a new verification of the source proofs.
 Suggested Lean for the Tau Ceti roadmap "Arithmetic statistics, counting fields and Selmer
 distributions" (`ArithmeticStatistics`), stages ST.0–ST.5.
@@ -20,12 +20,14 @@ Davenport–Heilbronn sets `U_p`, the `PGL₂`-action on binary quartics and sol
 coefficient coordinates of binary forms, the densities `CongruenceConditions.localMass` and the
 orbit counts of binary forms; ST.4 owns the Borel structure on `ℤ_p`.
 
-The file imports only Mathlib, at commit 082e2d3 (the import block below). Tau Ceti (f790474) is
-not built here. Where a Tau Ceti module would be imported, the comment after the import block names
-it, and the declarations that restate a Tau Ceti carrier say so in their docstrings (to be deleted
-in favour of the import).
+This file imports the pinned Mathlib and Tau Ceti modules directly, including the native
+square-class, elliptic-curve descent and class-group carriers. The preceding Mathlib-only candidate
+was elaborated with zero errors, but that does not validate this native-import revision. The needed
+Tau Ceti oleans are unavailable here; the final file has not been compiled against those imports.
+See REV-ArithmeticStatistics.md for the exact source and typing receipts.
 -/
 
+import Mathlib.Data.ENat.Lattice
 import Mathlib.Algebra.BigOperators.Finprod
 import Mathlib.Algebra.CubicDiscriminant
 import Mathlib.Algebra.Field.ZMod
@@ -149,29 +151,20 @@ import Mathlib.Topology.Instances.Matrix
 import Mathlib.Topology.Instances.Real.Lemmas
 import Mathlib.Topology.Order.LiminfLimsup
 
-/- Tau Ceti modules that the real development imports here (not built in this environment):
-* `TauCeti.Order.Northcott` (`TauCeti.normLE`, `TauCeti.summatory`): ST.0 families;
-* `TauCeti.FieldTheory.SquareClassGroup.Basic` (`TauCeti.SquareClassGroup`): ST.0, restated below
-  as `ArithmeticStatistics.SquareClassGroup`;
-* `TauCeti.AlgebraicGeometry.EllipticCurve.ShortWeierstrass` (`WeierstrassCurve.shortCurve`) and
-  `TauCeti.AlgebraicGeometry.EllipticCurve.QuadraticTwist` (`WeierstrassCurve.quadraticTwistOf`):
-  ST.0 twists and ST.5 twist families;
-* EllipticCurves Layer 8 (`IsMinimalPairNF`, `shortEquationHeight`, planned there): restated in ST.0;
-* `TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.SelmerGroup` and the other
-  `MordellWeil` modules (`WeierstrassCurve.Affine.A`, `M`, `μ`, `localRes`, `selmerGroup₂`): ST.1
-  and ST.4;
-* `TauCeti.NumberTheory.Modular` (`ModularGroup.isFundamentalDomain_fdo`): ST.2;
-* `TauCeti.Algebra.Group.ElementaryTwoQuotient.Basic` (`ElementaryTwoQuotient`), and the
-  ClassFieldTheory and PolynomialGaloisGroups layers: ST.3. -/
+import TauCeti.Order.Northcott
+import TauCeti.FieldTheory.SquareClassGroup.Basic
+import TauCeti.AlgebraicGeometry.EllipticCurve.ShortWeierstrass
+import TauCeti.AlgebraicGeometry.EllipticCurve.QuadraticTwist
+import TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.SelmerGroup
+import TauCeti.NumberTheory.Modular
+import TauCeti.NumberTheory.ClassGroup.ElementaryTwoQuotient
 
 /-! # ArithmeticStatistics:ST.0 — Families, heights and measures -/
 
 noncomputable section ST0
 
-/-! The Tau Ceti carriers this stage builds on (`TauCeti.SquareClassGroup`, `TauCeti.summatory`,
-`WeierstrassCurve.shortCurve`, `WeierstrassCurve.quadraticTwistOf`) and the planned EllipticCurves
-Layer 8 carrier (`IsMinimalPairNF`, `shortEquationHeight`) appear as marked stand-ins that mirror
-their specifications; in the real development they are imported, never restated. -/
+/-! Existing Tau Ceti objects are imported above. The minimal-pair and short-equation-height
+conditions planned in EllipticCurves Layer 8 remain proposed interfaces, not imported declarations. -/
 
 open Filter Topology
 
@@ -257,7 +250,11 @@ def ofNat (N : ι → ℕ) [Northcott N] : ArithmeticFamily ι := ⟨fun i => (N
 `TauCeti.coe_normLE`), so `weightedCount (ofNat N) w X = TauCeti.summatory N w X`
 (TauCeti/Order/Northcott.lean). -/
 theorem heightLE_ofNat (N : ι → ℕ) [Northcott N] (X : ℝ) :
-    ((ofNat N).heightLE X : Set ι) = {i | (N i : ℝ) ≤ X} := sorry
+    (ofNat N).heightLE X = TauCeti.normLE N X := sorry
+
+/-- Compatibility with the existing inclusive summatory API. -/
+theorem weightedCount_ofNat (N : ι → ℕ) [Northcott N] (w : ι → ℝ) (X : ℝ) :
+    (ofNat N).weightedCount w X = TauCeti.summatory N w X := sorry
 
 /-- The elements of a number field ordered by Mathlib's multiplicative Weil height. -/
 def ofMulHeight (K : Type*) [Field K] [NumberField K] : ArithmeticFamily K :=
@@ -376,7 +373,8 @@ theorem tendsto_rescale_count_div_rpow (c : ℝ) (hc : 0 < c) (S : Set ι) {κ C
 
 /-- Changing the height by a constant factor on each of finitely many pieces, each with an
 `X^κ` count, turns the piecewise densities into their weighted mean. -/
-theorem hasDensity_piecewise_rescale {k : ℕ} (G : ArithmeticFamily ι) (T : Fin k → Set ι)
+theorem hasDensity_piecewise_rescale {k : ℕ} (hk : 0 < k)
+    (G : ArithmeticFamily ι) (T : Fin k → Set ι)
     (hT : Pairwise (Function.onFun Disjoint T)) (c : Fin k → ℝ) (hc : ∀ j, 0 < c j)
     (hG : ∀ j, ∀ i ∈ T j, G.height i = c j * F.height i) {κ : ℝ} (hκ : 0 < κ)
     (a : Fin k → ℝ) (ha : ∀ j, 0 < a j)
@@ -413,9 +411,10 @@ theorem stabilizerWeight_pos (v : V) [Finite (MulAction.stabilizer Γ v)] :
 theorem stabilizerWeight_le_one (ω : MulAction.orbitRel.Quotient Γ V) :
     stabilizerWeight Γ V ω ≤ 1 := sorry
 
-/-- Passing to the faithful quotient: if a finite subgroup `Z` acts trivially, then `#Z` times
-the weight is the reciprocal order of the stabilizer modulo `Z` (for `GL₂(ℤ)` on quartic forms,
-`Z = {±1}` and this is Bhargava–Shankar's `1/r = 2/#Stab_{GL₂(ℤ)}`). -/
+/-- If a finite subgroup `Z` acts trivially, then `#Z` times the weight is the reciprocal
+cardinality of the stabilizer's coset space modulo `Z`. Normality gives a descended quotient
+group action; it is faithful only when `Z` is the whole kernel. For nonsingular quartic forms,
+`Z = {±1}` and this is Bhargava–Shankar's `1/r = 2/#Stab_{GL₂(ℤ)}`. -/
 theorem natCard_mul_stabilizerWeight (Z : Subgroup Γ) [Finite Z] (hZ : ∀ z ∈ Z, ∀ v : V, z • v = v)
     (v : V) [Finite (MulAction.stabilizer Γ v)] :
     (Nat.card Z : ℝ) * stabilizerWeight Γ V (Quotient.mk _ v) =
@@ -1029,10 +1028,8 @@ open IsDedekindDomain NumberField
 
 variable (F : Type*) [Field F] [NumberField F]
 
-/-- The square-class group `Fˣ/(Fˣ)²`. In Tau Ceti this is `TauCeti.SquareClassGroup F`
-(TauCeti/FieldTheory/SquareClassGroup/Basic.lean), restated here only because Tau Ceti is not
-built locally. -/
-abbrev SquareClassGroup : Type _ := Additive Fˣ ⧸ (Subgroup.square Fˣ).toAddSubgroup
+/-- Local spelling of the imported Tau Ceti square-class carrier; no duplicate quotient. -/
+abbrev SquareClassGroup : Type _ := TauCeti.SquareClassGroup F
 
 /-- The finite primes at which a unit has odd valuation. -/
 def oddSupport (u : Fˣ) : Set (HeightOneSpectrum (𝓞 F)) :=
@@ -1096,7 +1093,8 @@ theorem northcott_squareclassHeight : Northcott (squareclassHeight F) := sorry
 
 /-- The twisted short model `y² = x³ + u²A x + u³B` (Burungale–Tian §1.0.2: the model
 `u y² = x³ + Ax + B`). In Tau Ceti this is `WeierstrassCurve.shortCurve (u²A) (u³B)`. -/
-def twistModel (A B : F) (u : Fˣ) : WeierstrassCurve F := ⟨0, 0, 0, (u : F) ^ 2 * A, (u : F) ^ 3 * B⟩
+def twistModel (A B : F) (u : Fˣ) : WeierstrassCurve F :=
+  WeierstrassCurve.shortCurve ((u : F) ^ 2 * A) ((u : F) ^ 3 * B)
 
 /-- The `F`-isomorphism class of the twist by a squareclass. -/
 def twistClass (A B : F) :
@@ -1127,7 +1125,7 @@ theorem twistModel_j (A B : F) (u : Fˣ) [(⟨0, 0, 0, A, B⟩ : WeierstrassCurv
 `y² = x³ + 16u²A x + 64u³B`. -/
 theorem exists_smul_twistModel_eq_quadraticTwistOf (A B : F) (u : Fˣ) :
     ∃ C : WeierstrassCurve.VariableChange F,
-      C • twistModel F A B u = ⟨0, 0, 0, 16 * (u : F) ^ 2 * A, 64 * (u : F) ^ 3 * B⟩ := sorry
+      C • twistModel F A B u = (WeierstrassCurve.shortCurve A B).quadraticTwistOf 0 (-(u : F)) := sorry
 
 theorem twistModel_rat_congruent (n : ℚˣ) :
     twistModel ℚ (-1) 0 n = ⟨0, 0, 0, -(n : ℚ) ^ 2, 0⟩ := sorry
@@ -1293,13 +1291,8 @@ end ST0
 
 noncomputable section ST1
 
-/-! Tau Ceti declarations that the real development imports rather than restates are named in
-comments: `WeierstrassCurve.Affine.A`, `M`, `μ`, `ker_μ_eq`, `normM`, `localRes`, `localCondition`
-and `selmerGroup₂` (the `TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil` modules). The étale
-algebra and its square classes are spelled below exactly as Tau Ceti spells `W.A = AdjoinRoot W.f`
-and `W.M = W.Aˣ ⧸ (powMonoidHom 2).range` for the curve `y² = x³ − 27 I x − 27 J`, so that the
-statements transfer verbatim; statements that need `μ` or `selmerGroup₂` themselves are given in a
-Mathlib-only form, with the Tau Ceti form in the docstring. -/
+/-! The quartic comparison uses the native descent algebra `W.A`, its square classes `W.M`,
+the descent homomorphism `μ`, restriction `localRes` and `selmerGroup₂`. -/
 
 open Polynomial
 open scoped MatrixGroups
@@ -1616,10 +1609,11 @@ example (b : Module.Basis (Fin 3) ℤ (Fin 3 → ℤ)) (h0 : b 0 = 1) (h1 : b 1 
 `R(x³ + 2y³)` has index form `x³ + 2y³`. -/
 example : indexForm (⟨1, 0, 0, 2⟩ : BinaryCubicForm ℤ).basis = ⟨1, 0, 0, 2⟩ := sorry
 
-/-- Unit test `ArithmeticStatistics.CubicRing.test_indexForm_negate_basis`: replacing `b₁, b₂` by
-`−b₁, −b₂` negates the index form (the twisted action of `−1`). -/
-example (b b' : Module.Basis (Fin 3) ℤ (Fin 3 → ℤ)) (h0 : b 0 = 1) (h0' : b' 0 = 1)
-    (h1 : b' 1 = -b 1) (h2 : b' 2 = -b 2) : indexForm b' = -indexForm b := sorry
+/-- Unit test `ArithmeticStatistics.CubicRing.test_indexForm_scale_basis`: doubling the two
+nonscalar basis vectors multiplies the index form by `2`; untwisted substitution gives `8`. -/
+example (b b' : Module.Basis (Fin 3) ℚ (Fin 3 → ℚ)) (h0 : b 0 = 1) (h0' : b' 0 = 1)
+    (h1 : b' 1 = 2 • b 1) (h2 : b' 2 = 2 • b 2) :
+    indexForm b' = (indexForm b).scale 2 := sorry
 
 end CubicRing
 
@@ -1934,10 +1928,15 @@ def HasCubicResolvent (Q C : Type*) [CommRing Q] [CommRing C] : Prop :=
   ∃ (bQ : Module.Basis (Fin 4) ℤ Q) (bC : Module.Basis (Fin 3) ℤ C) (P : TernaryQuadraticPair ℤ),
     IsResolventPair bQ bC P
 
-/-- The content of a ring of finite rank: the largest `n` with `Q = ℤ + n Q'`. -/
-noncomputable def ringContent (Q : Type*) [CommRing Q] : ℕ :=
-  sSup {n : ℕ | ∃ S : Subring Q, ∀ x : Q, ∃ (k : ℤ) (s : Q), s ∈ S ∧ x = k + n * s}
-
+open scoped TensorProduct in
+/-- The content of a quartic ring, computed using overrings in its rational algebra.
+Infinite content is represented by `⊤`. -/
+def ringContent (Q : Type*) [CommRing Q] : ℕ∞ :=
+  sSup ((fun n : ℕ => (n : ℕ∞)) '' {n : ℕ | 0 < n ∧
+    ∃ S : Subalgebra ℤ (ℚ ⊗[ℤ] Q),
+      Nonempty (Module.Basis (Fin 4) ℤ S) ∧
+      Set.range (fun q : Q => (1 : ℚ) ⊗ₜ[ℤ] q) =
+        {x | ∃ (k : ℤ) (s : S), x = (k : ℚ ⊗[ℤ] Q) + n • (s : ℚ ⊗[ℤ] Q)}})
 theorem isResolventPair_smul {Q C : Type*} [CommRing Q] [CommRing C] (bQ : Module.Basis (Fin 4) ℤ Q)
     (bC : Module.Basis (Fin 3) ℤ C) (P : TernaryQuadraticPair ℤ) (h : IsResolventPair bQ bC P)
     (g : GL (Fin 3) ℤ × GL (Fin 2) ℤ) :
@@ -1960,6 +1959,15 @@ example (Q C : Type*) [CommRing Q] [CommRing C] (bQ : Module.Basis (Fin 4) ℤ Q
 
 /-- Unit test `ArithmeticStatistics.QuarticRing.test_ringContent_int_pi`: `ℤ⁴` has content `1`. -/
 example : ringContent (Fin 4 → ℤ) = 1 := sorry
+
+/-- Unit test `ArithmeticStatistics.QuarticRing.test_ringContent_content_two`. -/
+example (S : Subring (Fin 4 → ℤ))
+    (hS : ∀ x, x ∈ S ↔ ∀ i j, (2 : ℤ) ∣ x i - x j) : ringContent S = 2 := sorry
+/-- Unit test `ArithmeticStatistics.QuarticRing.test_ringContent_trivial`. -/
+example (Q : Type*) [CommRing Q] (b : Module.Basis (Fin 4) ℤ Q)
+    (h0 : b 0 = 1) (h : ∀ i j : Fin 3, b i.succ * b j.succ = 0) :
+    ringContent Q = ⊤ := sorry
+
 
 end QuarticRing
 
@@ -2054,7 +2062,8 @@ end TernaryQuadraticPair
 namespace QuarticRing
 
 /-- HCL III, Theorem 1 and Proposition 13, in based form: every pair is the resolvent pair of a
-based quartic ring and cubic resolvent, uniquely up to based isomorphism; the discriminants agree. -/
+based quartic ring and cubic resolvent, uniquely up to isomorphism preserving the quotient
+bases modulo scalars; the discriminants agree. -/
 theorem exists_isResolventPair (P : TernaryQuadraticPair ℤ) :
     ∃ (Q C : Type) (_ : CommRing Q) (_ : CommRing C) (bQ : Module.Basis (Fin 4) ℤ Q) (bC : Module.Basis (Fin 3) ℤ C),
       IsResolventPair bQ bC P := sorry
@@ -2062,13 +2071,14 @@ theorem exists_isResolventPair (P : TernaryQuadraticPair ℤ) :
 theorem isResolventPair_unique {Q Q' C C' : Type*} [CommRing Q] [CommRing Q'] [CommRing C] [CommRing C']
     (bQ : Module.Basis (Fin 4) ℤ Q) (bC : Module.Basis (Fin 3) ℤ C) (bQ' : Module.Basis (Fin 4) ℤ Q') (bC' : Module.Basis (Fin 3) ℤ C')
     (P : TernaryQuadraticPair ℤ) (h : IsResolventPair bQ bC P) (h' : IsResolventPair bQ' bC' P) :
-    ∃ (e : Q ≃+* Q') (e' : C ≃+* C'), (∀ i, e (bQ i) = bQ' i) ∧ ∀ i, e' (bC i) = bC' i := sorry
+    ∃ (e : Q ≃+* Q') (e' : C ≃+* C'),
+      (∀ i, ∃ z : ℤ, e (bQ i) = bQ' i + z) ∧
+      ∀ i, ∃ z : ℤ, e' (bC i) = bC' i + z := sorry
 
-theorem isResolventPair_iff_smul {Q C : Type*} [CommRing Q] [CommRing C]
-    (bQ : Module.Basis (Fin 4) ℤ Q) (bC : Module.Basis (Fin 3) ℤ C) (P P' : TernaryQuadraticPair ℤ)
-    (h : IsResolventPair bQ bC P) :
-    (∃ (bQ' : Module.Basis (Fin 4) ℤ Q) (bC' : Module.Basis (Fin 3) ℤ C), IsResolventPair bQ' bC' P') ↔
-      ∃ g : GL (Fin 3) ℤ × GL (Fin 2) ℤ, g • P = P' := sorry
+/- The full orbit converse needs isomorphisms of the resolvent map and orientation.
+Existence of bases on the same underlying rings alone forgets that data. The full
+bundled statement remains a prototype gap; `isResolventPair_smul` above gives the
+valid forward implication. -/
 
 /-! ## ST.1/existence-and-number-of-cubic-resolvents -/
 
@@ -2367,52 +2377,59 @@ namespace BinaryQuartic
 variable {K : Type*} [Field K]
 
 /-- The curve `E_{I,J} : y² = x³ − 27 I x − 27 J` (the Jacobian of `z² = g(x, y)`, Cremona–Fisher §6). -/
-def curveIJ (I J : K) : WeierstrassCurve K := ⟨0, 0, 0, -27 * I, -27 * J⟩
+abbrev curveIJ (I J : K) : WeierstrassCurve K := WeierstrassCurve.shortCurve (-27 * I) (-27 * J)
 
 /-- The étale algebra `K[T]/(T³ − 27 I T − 27 J)`, spelled as Tau Ceti's `(curveIJ I J).toAffine.A`. -/
 abbrev etaleAlgebra (I J : K) : Type _ :=
-  AdjoinRoot (X ^ 3 + C (curveIJ I J).a₂ * X ^ 2 + C (curveIJ I J).a₄ * X + C (curveIJ I J).a₆)
+  (curveIJ I J).toAffine.A
 
 /-- Its square classes, spelled as Tau Ceti's `(curveIJ I J).toAffine.M`. -/
 abbrev squareClasses (I J : K) : Type _ :=
-  (etaleAlgebra I J)ˣ ⧸ (powMonoidHom 2 : (etaleAlgebra I J)ˣ →* (etaleAlgebra I J)ˣ).range
+  (curveIJ I J).toAffine.M
 
 /-- The cubic `T³ − 27 I T − 27 J` defining `etaleAlgebra I J`. -/
 noncomputable def curvePoly (I J : K) : K[X] :=
-  X ^ 3 + C (curveIJ I J).a₂ * X ^ 2 + C (curveIJ I J).a₄ * X + C (curveIJ I J).a₆
+  (curveIJ I J).toAffine.f
 
 /-- The restriction of square classes along a field homomorphism (Tau Ceti's `localRes`). -/
 noncomputable def restrictSquareClasses {L : Type*} [Field L] (φ : K →+* L) (I J : K) :
     squareClasses I J →* squareClasses (φ I) (φ J) :=
-  QuotientGroup.map _ _ (Units.map (AdjoinRoot.map φ (curvePoly I J) (curvePoly (φ I) (φ J)) sorry).toMonoidHom)
-    sorry
+  by
+    letI : Algebra K L := φ.toAlgebra
+    have hc : (curveIJ I J).baseChange L = curveIJ (φ I) (φ J) := by sorry
+    simpa only [hc] using (curveIJ I J).toAffine.localRes L
 
 /-- The irrational covariant `G(x, y) = (4φ g(x, y) + g₄(x, y))/3` with `φ = −T/3`. -/
 noncomputable def irrationalCovariant (g : BinaryQuartic K) (I J : K) (x y : K) : etaleAlgebra I J :=
   AdjoinRoot.mk _ (C ((hessian g).eval x y / 3) - C (4 * g.eval x y / 9) * X)
 
 /-- The cubic invariant `z(g)`, the class of `G(x, y)` at any point where `g₆(x, y) ≠ 0`
-(Cremona–Fisher, Proposition 2); `1` if there is no such point. -/
+(Cremona–Fisher, Proposition 2); `1` outside the admissible locus.
+The unit proof is tested explicitly, so arbitrary unrelated `I,J,g` do not demand a false proof. -/
 noncomputable def cubicInvariant (I J : K) (g : BinaryQuartic K) : squareClasses I J := by
   classical
   exact if h : ∃ p : K × K, g.sextic p.1 p.2 ≠ 0 then
-    QuotientGroup.mk (IsUnit.unit (sorry : IsUnit (irrationalCovariant g I J h.choose.1 h.choose.2)))
+    if hu : IsUnit (irrationalCovariant g I J h.choose.1 h.choose.2) then
+      QuotientGroup.mk hu.unit
+    else 1
   else 1
 
-theorem cubicInvariant_eq_mk (I J : K) (g : BinaryQuartic K) (hg : invI g = I ∧ invJ g = J)
+theorem cubicInvariant_eq_mk (hK : (6 : K) ≠ 0) (I J : K) (g : BinaryQuartic K) (hg : invI g = I ∧ invJ g = J)
     (x y : K) (h : g.sextic x y ≠ 0) (hu : IsUnit (irrationalCovariant g I J x y)) :
     cubicInvariant I J g = QuotientGroup.mk hu.unit := sorry
 
-theorem isUnit_irrationalCovariant (I J : K) (g : BinaryQuartic K) (hg : invI g = I ∧ invJ g = J)
+theorem isUnit_irrationalCovariant (hK : (6 : K) ≠ 0) (I J : K) (g : BinaryQuartic K) (hg : invI g = I ∧ invJ g = J)
     (x y : K) (h : g.sextic x y ≠ 0) : IsUnit (irrationalCovariant g I J x y) := sorry
 
-theorem norm_irrationalCovariant (I J : K) (g : BinaryQuartic K) (hg : invI g = I ∧ invJ g = J) (x y : K) :
+theorem norm_irrationalCovariant (hK : (6 : K) ≠ 0) (I J : K) (g : BinaryQuartic K) (hg : invI g = I ∧ invJ g = J) (x y : K) :
     Algebra.norm K (irrationalCovariant g I J x y) = g.sextic x y ^ 2 := sorry
 
 theorem exists_sextic_ne_zero (g : BinaryQuartic K) (hK2 : (2 : K) ≠ 0) (hK3 : (3 : K) ≠ 0)
     (hK5 : Nat.card K ≠ 5) (hd : disc g ≠ 0) : ∃ x y : K, g.sextic x y ≠ 0 := sorry
 
-theorem cubicInvariant_map {L : Type*} [Field L] (φ : K →+* L) (I J : K) (g : BinaryQuartic K)
+theorem cubicInvariant_map {L : Type*} [Field L] (φ : K →+* L)
+    (hK : (6 : K) ≠ 0) (hK5 : Nat.card K ≠ 5) (I J : K)
+    (hIJ : 4 * I ^ 3 - J ^ 2 ≠ 0) (g : BinaryQuartic K)
     (hg : invI g = I ∧ invJ g = J) :
     restrictSquareClasses φ I J (cubicInvariant I J g) = cubicInvariant (φ I) (φ J) (g.map φ) := sorry
 
@@ -2435,7 +2452,9 @@ end BinaryQuartic
 
 /-! ## ST.1/cubic-invariant-is-an-orbit-invariant -/
 
-theorem BinaryQuartic.cubicInvariant_pgl_smul {K : Type*} [Field K] (I J : K) (γ : PGL(2, K))
+theorem BinaryQuartic.cubicInvariant_pgl_smul {K : Type*} [Field K]
+    (hK : (6 : K) ≠ 0) (hK5 : Nat.card K ≠ 5) (I J : K)
+    (hIJ : 4 * I ^ 3 - J ^ 2 ≠ 0) (γ : PGL(2, K))
     (g : BinaryQuartic K) (hg : invI g = I ∧ invJ g = J) :
     BinaryQuartic.cubicInvariant I J (γ • g) = BinaryQuartic.cubicInvariant I J g := sorry
 
@@ -2449,7 +2468,7 @@ variable {K : Type*} [Field K]
 noncomputable def linearFactorForm (I J : K) : BinaryQuartic K := ⟨0, 1, 0, -I / 3, -J / 27⟩
 
 /-- Cremona–Fisher, Lemma 3 and Proposition 8. -/
-theorem cubicInvariant_eq_one_iff (hK : (6 : K) ≠ 0) (I J : K) (g : BinaryQuartic K)
+theorem cubicInvariant_eq_one_iff (hK : (6 : K) ≠ 0) (hK5 : Nat.card K ≠ 5) (I J : K) (g : BinaryQuartic K)
     (hg : invI g = I ∧ invJ g = J) (hd : disc g ≠ 0) :
     cubicInvariant I J g = 1 ↔ ∃ x y : K, (x, y) ≠ (0, 0) ∧ g.eval x y = 0 := sorry
 
@@ -2465,7 +2484,7 @@ end BinaryQuartic
 /-- Cremona–Fisher, Lemma 9: with `r = g₆(1, 0)`, equal cubic invariants give a root of the quartic
 `g̃ = p₁ g₂ − a₁ h₂` (here `h₂` the Hessian of `g₂`). -/
 theorem BinaryQuartic.exists_root_of_cubicInvariant_eq {K : Type*} [Field K] (hK : (6 : K) ≠ 0)
-    (I J : K) (g₁ g₂ : BinaryQuartic K) (h₁ : invI g₁ = I ∧ invJ g₁ = J) (h₂ : invI g₂ = I ∧ invJ g₂ = J)
+    (I J : K) (hIJ : 4 * I ^ 3 - J ^ 2 ≠ 0) (g₁ g₂ : BinaryQuartic K) (h₁ : invI g₁ = I ∧ invJ g₁ = J) (h₂ : invI g₂ = I ∧ invJ g₂ = J)
     (hr₁ : g₁.sextic 1 0 ≠ 0) (hr₂ : g₂.sextic 1 0 ≠ 0)
     (hz : BinaryQuartic.cubicInvariant I J g₁ = BinaryQuartic.cubicInvariant I J g₂) :
     ∃ x y : K, (x, y) ≠ (0, 0) ∧
@@ -2475,7 +2494,7 @@ theorem BinaryQuartic.exists_root_of_cubicInvariant_eq {K : Type*} [Field K] (hK
 
 /-- Cremona–Fisher, Lemma 10. -/
 theorem BinaryQuartic.exists_pgl_smul_of_comparison_root {K : Type*} [Field K] (hK : (6 : K) ≠ 0)
-    (I J : K) (g₁ g₂ : BinaryQuartic K) (h₁ : invI g₁ = I ∧ invJ g₁ = J) (h₂ : invI g₂ = I ∧ invJ g₂ = J)
+    (I J : K) (hIJ : 4 * I ^ 3 - J ^ 2 ≠ 0) (g₁ g₂ : BinaryQuartic K) (h₁ : invI g₁ = I ∧ invJ g₁ = J) (h₂ : invI g₂ = I ∧ invJ g₂ = J)
     (hr₁ : g₁.sextic 1 0 ≠ 0) {x y : K} (hxy : (x, y) ≠ (0, 0))
     (h : (3 * g₁.b ^ 2 - 8 * g₁.a * g₁.c) * g₂.eval x y - g₁.a * (BinaryQuartic.hessian g₂).eval x y = 0) :
     ∃ γ : PGL(2, K), γ • g₁ = g₂ := sorry
@@ -2533,11 +2552,23 @@ end BinaryQuartic
 
 /-- Cremona–Fisher, Theorem 13(1): `z(q(P))` is the class of `ξ − T` (the value of Tau Ceti's
 `WeierstrassCurve.Affine.μ` at `P`; at a `2`-torsion point, of the corrected representative). -/
-theorem BinaryQuartic.cubicInvariant_quarticOfPoint {K : Type*} [Field K] (hK : (6 : K) ≠ 0) (I J ξ η : K)
+theorem BinaryQuartic.cubicInvariant_quarticOfPoint {K : Type*} [Field K]
+    (hK : (6 : K) ≠ 0) (hK5 : Nat.card K ≠ 5) (I J ξ η : K)
+    (hIJ : 4 * I ^ 3 - J ^ 2 ≠ 0)
     (h : (BinaryQuartic.curveIJ I J).toAffine.Nonsingular ξ η) (hη : η ≠ 0) :
     ∃ u : (BinaryQuartic.etaleAlgebra I J)ˣ, (u : BinaryQuartic.etaleAlgebra I J) = AdjoinRoot.mk _ (C ξ - X) ∧
       BinaryQuartic.cubicInvariant I J (BinaryQuartic.quarticOfPoint I J (.some ξ η h)) = QuotientGroup.mk u :=
   sorry
+
+/-- The full native descent comparison, including infinity and rational two-torsion. -/
+open scoped Classical in
+theorem BinaryQuartic.cubicInvariant_quarticOfPoint_eq_mu {K : Type*} [Field K]
+    (hK : (6 : K) ≠ 0) (hK5 : Nat.card K ≠ 5) (I J : K)
+    [(BinaryQuartic.curveIJ I J).IsElliptic]
+    (P : (BinaryQuartic.curveIJ I J).toAffine.Point) :
+    BinaryQuartic.cubicInvariant I J (BinaryQuartic.quarticOfPoint I J P) =
+      WeierstrassCurve.Affine.μ (W := (BinaryQuartic.curveIJ I J).toAffine)
+        (Multiplicative.ofAdd P) := sorry
 
 /-! ## ST.1/binary-quartic-parametrization-of-e-mod-2e -/
 
@@ -2619,7 +2650,7 @@ end BinaryQuartic
 
 /-! ## ST.1/locally-soluble-quartics-and-the-two-selmer-group -/
 
-/-- Bhargava–Shankar, Proposition 3.3 over a number field, in Mathlib-only form: the cubic invariant
+/-- Bhargava–Shankar, Proposition 3.3 over a number field, in coefficient form: the cubic invariant
 is injective on `PGL₂(K)`-orbits of everywhere locally soluble forms with invariants `I, J`. With Tau
 Ceti the full statement is that it is a bijection onto `(curveIJ I J).toAffine.selmerGroup₂ (𝓞 K)
 (fun w : InfinitePlace K ↦ w.Completion)`, the orbit of forms with a linear factor going to `1`. -/
@@ -2629,7 +2660,7 @@ theorem BinaryQuartic.cubicInvariant_injective_locallySoluble {K : Type*} [Field
     (hz : BinaryQuartic.cubicInvariant I J g₁ = BinaryQuartic.cubicInvariant I J g₂) :
     ∃ γ : PGL(2, K), γ • g₁ = g₂ := sorry
 
-/-- The existence half, in Mathlib-only form: a square class of square norm that is, at every place,
+/-- The existence half, in coefficient form: a square class of square norm that is, at every place,
 the cubic invariant of a soluble local form, is the cubic invariant of a locally soluble global form. -/
 theorem BinaryQuartic.exists_locallySoluble_of_local {K : Type*} [Field K] [NumberField K]
     (I J : K) (hIJ : 4 * I ^ 3 - J ^ 2 ≠ 0) (u : (BinaryQuartic.etaleAlgebra I J)ˣ)
@@ -2645,6 +2676,15 @@ theorem BinaryQuartic.exists_locallySoluble_of_local {K : Type*} [Field K] [Numb
           BinaryQuartic.cubicInvariant _ _ g) :
     ∃ g : BinaryQuartic K, g.IsEverywhereLocallySoluble ∧ invI g = I ∧ invJ g = J ∧
       BinaryQuartic.cubicInvariant I J g = QuotientGroup.mk u := sorry
+
+/-- The image consists exactly of the native everywhere locally soluble descent classes. -/
+theorem BinaryQuartic.mem_selmerGroup₂_iff {K : Type*} [Field K] [NumberField K]
+    (I J : K) [(BinaryQuartic.curveIJ I J).IsElliptic]
+    (m : (BinaryQuartic.curveIJ I J).toAffine.M) :
+    m ∈ (BinaryQuartic.curveIJ I J).toAffine.selmerGroup₂ (𝓞 K)
+      (fun w : NumberField.InfinitePlace K => w.Completion) ↔
+    ∃ g : BinaryQuartic K, g.IsEverywhereLocallySoluble ∧ invI g = I ∧ invJ g = J ∧
+      BinaryQuartic.cubicInvariant I J g = m := sorry
 
 /-! ## ST.1/primitive-vectors-extend-to-special-linear-matrices -/
 
@@ -2697,8 +2737,8 @@ theorem c4_weierstrass (A B : R) : (weierstrass A B).c4 = -48 * A := sorry
 
 theorem c6_weierstrass (A B : R) : (weierstrass A B).c6 = -864 * B := sorry
 
-theorem c4_cube_sub_c6_sq (U : TernaryCubicForm ℚ) :
-    ∃ Δ : ℚ, U.c4 ^ 3 - U.c6 ^ 2 = 1728 * Δ := sorry
+theorem c4_cube_sub_c6_sq (U : TernaryCubicForm ℤ) :
+    ∃ Δ : ℤ, U.c4 ^ 3 - U.c6 ^ 2 = 1728 * Δ := sorry
 
 /-- Unit test `ArithmeticStatistics.TernaryCubicForm.test_c4_fermat`: the Fermat cubic `x³ + y³ + z³`
 has `c₄ = 0`. -/
@@ -2766,9 +2806,12 @@ end TernaryCubicForm
 /-- For `E : y² = x³ + A x + B`, `P = (ξ, η)` with `η ≠ 0` and `M ∈ SL₃` moving `(0 : 1 : 0)` to `P`,
 the projected quartic has invariants `(−48A, −1728B)` and cubic invariant the class of `36 ξ − T`
 (the `μ`-value at the image of `P` on `y² = x³ + 1296 A x + 46656 B`). -/
-theorem TernaryCubicForm.cubicInvariant_projectionQuartic {K : Type*} [Field K] (hK : (6 : K) ≠ 0)
-    (A B ξ η : K) (hP : η ^ 2 = ξ ^ 3 + A * ξ + B) (hη : η ≠ 0) (M : SL(3, K))
-    (hM : ∀ k, (M : Matrix (Fin 3) (Fin 3) K) 1 k = ![ξ, η, 1] k) :
+theorem TernaryCubicForm.cubicInvariant_projectionQuartic {K : Type*} [Field K]
+    (hK : (6 : K) ≠ 0) (hK5 : Nat.card K ≠ 5)
+    (A B ξ η : K) (hΔ : 4 * A ^ 3 + 27 * B ^ 2 ≠ 0)
+    (hP : η ^ 2 = ξ ^ 3 + A * ξ + B) (hη : η ≠ 0) (M : SL(3, K))
+    (lam : K) (hlam : lam ≠ 0)
+    (hM : ∀ k, (M : Matrix (Fin 3) (Fin 3) K) 1 k = lam * ![ξ, η, 1] k) :
     ∃ u : (BinaryQuartic.etaleAlgebra (-48 * A) (-1728 * B))ˣ,
       (u : BinaryQuartic.etaleAlgebra (-48 * A) (-1728 * B)) = AdjoinRoot.mk _ (C (36 * ξ) - X) ∧
       BinaryQuartic.cubicInvariant (-48 * A) (-1728 * B)
@@ -2799,7 +2842,7 @@ theorem BinaryQuartic.exists_integral_representative (f : BinaryQuartic ℚ) (hf
 
 /-! ## ST.1/binary-quartic-parametrization-of-two-selmer -/
 
-/-- Bhargava–Shankar, Theorem 3.5, in Mathlib-only form. For `E = E_{A,B}` with `I = −3A`, `J = −27B`,
+/-- Bhargava–Shankar, Theorem 3.5, in coefficient form. For `E = E_{A,B}` with `I = −3A`, `J = −27B`,
 the `2`-Selmer elements correspond to `PGL₂(ℚ)`-classes of locally soluble integral forms with
 invariants `2⁴ I = −48A` and `2⁶ J = −1728B`; with Tau Ceti the target is
 `(curveIJ (-48A) (-1728B)).toAffine.selmerGroup₂ ℤ (fun _ : Unit ↦ ℝ)`, transported to
@@ -3228,8 +3271,9 @@ variable {n : ℕ}
 says that this limit exists). -/
 def toFun (φ : CongruenceConditions n) (v : Fin n → ℤ) : ℝ :=
   limUnder atTop fun N : ℕ =>
-    ∏ p ∈ (Finset.range N).filter Nat.Prime,
-      (haveI : Fact p.Prime := ⟨sorry⟩; φ.localFun p (fun i => (v i : ℤ_[p])))
+    ∏ p ∈ Finset.range N,
+      if hp : p.Prime then (haveI : Fact p.Prime := ⟨hp⟩; φ.localFun p (fun i => (v i : ℤ_[p])))
+      else 1
 
 /-- The local mass `∫ φ_p dμ_p`. -/
 def localMass (φ : CongruenceConditions n) (p : ℕ) [Fact p.Prime] : ℝ :=
@@ -3323,7 +3367,7 @@ inductive QuarticRealType
   | twoNeg
   deriving DecidableEq
 
-/-- The number of real roots in `ℙ^1(ℝ)` (with multiplicity), counting `[1 : 0]` when `a = 0`. -/
+/-- On the nonsingular locus this counts real projective roots, including `[1 : 0]` when `a = 0`. The auxiliary formula is not a multiplicity count at a repeated root at infinity. -/
 def realRootCount (f : BinaryQuartic ℝ) : ℕ :=
   Multiset.card f.dehomogenize.roots + if f.a = 0 then 1 else 0
 
@@ -3513,6 +3557,15 @@ def gaussDomain : Set (Matrix (Fin 2) (Fin 2) ℝ) := iwasawaMatrix '' gaussCoor
 def gaussDomain_haar : Measure (ℝ × ℝ × ℝ × ℝ) :=
   volume.withDensity fun q => ENNReal.ofReal (q.2.1 ^ (-3 : ℤ) * q.2.2.2⁻¹ / (2 * Real.pi))
 
+local instance : MeasurableSpace (Matrix (Fin 2) (Fin 2) ℝ) := borel _
+local instance : BorelSpace (Matrix (Fin 2) (Fin 2) ℝ) := ⟨rfl⟩
+
+/-- Haar measure on positive-determinant real matrices, pushed forward from one angular period.
+The ambient matrix space also contains singular and negative-determinant matrices, which receive zero measure. -/
+def realGL2Haar : Measure (Matrix (Fin 2) (Fin 2) ℝ) :=
+  Measure.map iwasawaMatrix (gaussDomain_haar.restrict
+    {q | 0 < q.2.1 ∧ 0 < q.2.2.2 ∧ 0 ≤ q.2.2.1 ∧ q.2.2.1 < 2 * Real.pi})
+
 theorem iwasawa_existsUnique (g : Matrix (Fin 2) (Fin 2) ℝ) (hg : 0 < g.det) :
     ∃! q : ℝ × ℝ × ℝ × ℝ, 0 < q.2.1 ∧ 0 < q.2.2.2 ∧ 0 ≤ q.2.2.1 ∧ q.2.2.1 < 2 * Real.pi ∧
       g = iwasawaMatrix q := sorry
@@ -3571,11 +3624,11 @@ def quarticMultiplicity (h : Matrix (Fin 2) (Fin 2) ℝ) (i : QuarticRealType)
     (x : BinaryQuartic ℝ) : ℕ :=
   Set.ncard {g ∈ gaussDomain | ∃ ℓ ∈ quarticFundSet i, BinaryQuartic.subst (g * h) ℓ = x}
 
-/-- (8): the class of `x` is represented `#Stab_ℝ(x)/#Stab_ℤ(x)` times in `F h·L^(i)`
+/-- (8), corrected at the modular boundary: for almost every `h`, the class of `x` is represented `#Stab_ℝ(x)/#Stab_ℤ(x)` times in `F h·L^(i)`
 (ArithmeticStatistics:ST.2/orbit-multiplicities-in-fundamental-multisets). -/
-theorem sum_quarticMultiplicity_orbit (i : QuarticRealType) (h : Matrix (Fin 2) (Fin 2) ℝ)
-    (hh : h.det ≠ 0) (x : BinaryQuartic ℝ) (hx : x ∈ quarticLocus i) :
-    (∑ᶠ x' ∈ {x' | ∃ γ : GL (Fin 2) ℤ,
+theorem sum_quarticMultiplicity_orbit (i : QuarticRealType)
+    (x : BinaryQuartic ℝ) (hx : x ∈ quarticLocus i) :
+    ∀ᵐ h ∂realGL2Haar, (∑ᶠ x' ∈ {x' | ∃ γ : GL (Fin 2) ℤ,
         BinaryQuartic.subst ((γ : Matrix (Fin 2) (Fin 2) ℤ).map (Int.cast : ℤ → ℝ)) x = x'},
       quarticMultiplicity h i x') * Set.ncard {γ : GL (Fin 2) ℤ |
         BinaryQuartic.subst ((γ : Matrix (Fin 2) (Fin 2) ℤ).map (Int.cast : ℤ → ℝ)) x = x} =
@@ -3583,105 +3636,103 @@ theorem sum_quarticMultiplicity_orbit (i : QuarticRealType) (h : Matrix (Fin 2) 
 
 /-! ## Counting binary quartic forms -/
 
-/-- The averaged count `N(S; X)` of (11), with `G₀` given in Iwasawa coordinates
+/-- The averaged count `N(S; X)` of (11), with `G₀` a set of real matrices
 (ArithmeticStatistics:ST.2/averaged-count-of-binary-quartic-orbits). -/
-def quarticAveragedCount (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (i : QuarticRealType)
+def quarticAveragedCount (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (i : QuarticRealType)
     (S : Set (BinaryQuartic ℤ)) (X : ℝ) : ℝ :=
   (∫ q in G₀, ∑ᶠ x ∈ {x : BinaryQuartic ℤ | x ∈ S ∧ x.IsIrreducibleOverQ ∧
-      x.height < X}, (quarticMultiplicity (iwasawaMatrix q) i (x.map (Int.castRingHom ℝ)) : ℝ)
-    ∂gaussDomain_haar) / (quarticStabWeight i * (gaussDomain_haar G₀).toReal)
+      x.height < X}, (quarticMultiplicity q i (x.map (Int.castRingHom ℝ)) : ℝ)
+    ∂realGL2Haar) / (quarticStabWeight i * (realGL2Haar G₀).toReal)
 
 /-- The weighted averaged count `N_φ(S; X)`. -/
-def quarticAveragedCount_weighted (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (i : QuarticRealType)
+def quarticAveragedCount_weighted (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (i : QuarticRealType)
     (φ : BinaryQuartic ℤ → ℝ) (S : Set (BinaryQuartic ℤ)) (X : ℝ) : ℝ :=
   (∫ q in G₀, ∑ᶠ x ∈ {x : BinaryQuartic ℤ | x ∈ S ∧ x.IsIrreducibleOverQ ∧
-      x.height < X}, φ x * (quarticMultiplicity (iwasawaMatrix q) i (x.map (Int.castRingHom ℝ)) : ℝ)
-    ∂gaussDomain_haar) / (quarticStabWeight i * (gaussDomain_haar G₀).toReal)
+      x.height < X}, φ x * (quarticMultiplicity q i (x.map (Int.castRingHom ℝ)) : ℝ)
+    ∂realGL2Haar) / (quarticStabWeight i * (realGL2Haar G₀).toReal)
 
 /-- The region `B(n, t, λ, X) = n a(t) λ G₀·L^(i) ∩ {H < X}` (as a set). -/
-def quarticRegionB (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (i : QuarticRealType) (u t l X : ℝ) :
+def quarticRegionB (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (i : QuarticRealType) (u t l X : ℝ) :
     Set (BinaryQuartic ℝ) :=
   {x | BinaryQuartic.pairHeight x.invI x.invJ < X ∧ ∃ q ∈ G₀, ∃ ℓ ∈ quarticFundSet i,
-    BinaryQuartic.subst (l • (iwasawaN u * iwasawaA t) * iwasawaMatrix q) ℓ = x}
+    BinaryQuartic.subst (l • (iwasawaN u * iwasawaA t) * q) ℓ = x}
 
-/-- The admissible averaging sets: compact, `SO_2`-invariant in the `θ`-coordinate, determinant
-`≥ 1`, with nonempty interior. -/
-def IsAveragingSet (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) : Prop :=
-  IsCompact G₀ ∧ (interior G₀).Nonempty ∧ (∀ q ∈ G₀, 0 < q.2.1 ∧ 0 < q.2.2.2) ∧
-    (∀ q ∈ G₀, 1 ≤ (iwasawaMatrix q).det) ∧
-    ∀ q ∈ G₀, ∀ θ : ℝ, ∃ q' ∈ G₀, iwasawaMatrix q' = iwasawaK θ * iwasawaMatrix q
+/-- Geometric averaging conditions on matrix sets. Semialgebraicity for Davenport remains a supplier gap; it is not silently asserted by this predicate. -/
+def IsAveragingSet (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) : Prop :=
+  IsCompact G₀ ∧ (interior G₀).Nonempty ∧ G₀ = closure (interior G₀) ∧
+    (∀ h ∈ G₀, 1 ≤ h.det) ∧ ∀ h ∈ G₀, ∀ θ : ℝ, iwasawaK θ * h ∈ G₀
 
-theorem quarticAveragedCount_eq_sum_classes (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (hG₀ : IsAveragingSet G₀)
+theorem quarticAveragedCount_eq_sum_classes (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (hG₀ : IsAveragingSet G₀)
     (i : QuarticRealType) (S : Set (BinaryQuartic ℤ)) (hS : ∀ γ : GL (Fin 2) ℤ, ∀ f ∈ S,
       γ • f ∈ S) (hSi : S ⊆ intQuarticLocus i) (X : ℝ) :
     quarticAveragedCount G₀ i S X = ∑ᶠ c ∈ Quotient.mk (MulAction.orbitRel (GL (Fin 2) ℤ) _) ''
       {f | f ∈ S ∧ f.IsIrreducibleOverQ ∧ f.height < X},
         (2 : ℝ) / Set.ncard {γ : GL (Fin 2) ℤ | γ • c.out = c.out} := sorry
 
-theorem quarticAveragedCount_union (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (i : QuarticRealType)
+theorem quarticAveragedCount_union (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (hG₀ : IsAveragingSet G₀) (i : QuarticRealType)
     (S₁ S₂ : Set (BinaryQuartic ℤ)) (h : Disjoint S₁ S₂) (X : ℝ) :
     quarticAveragedCount G₀ i (S₁ ∪ S₂) X =
       quarticAveragedCount G₀ i S₁ X + quarticAveragedCount G₀ i S₂ X := sorry
 
-theorem quarticAveragedCount_mono (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (i : QuarticRealType)
+theorem quarticAveragedCount_mono (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (hG₀ : IsAveragingSet G₀) (i : QuarticRealType)
     {S₁ S₂ : Set (BinaryQuartic ℤ)} (h : S₁ ⊆ S₂) {X Y : ℝ} (hXY : X ≤ Y) :
     quarticAveragedCount G₀ i S₁ X ≤ quarticAveragedCount G₀ i S₂ Y := sorry
 
-theorem quarticAveragedCount_indep (G₀ G₁ : Set (ℝ × ℝ × ℝ × ℝ)) (h₀ : IsAveragingSet G₀)
+theorem quarticAveragedCount_indep (G₀ G₁ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (h₀ : IsAveragingSet G₀)
     (h₁ : IsAveragingSet G₁) (i : QuarticRealType) (S : Set (BinaryQuartic ℤ))
     (hS : ∀ γ : GL (Fin 2) ℤ, ∀ f ∈ S, γ • f ∈ S)
     (X : ℝ) : quarticAveragedCount G₀ i S X = quarticAveragedCount G₁ i S X := sorry
 
-theorem quarticAveragedCount_reducible (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (i : QuarticRealType)
+theorem quarticAveragedCount_reducible (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (i : QuarticRealType)
     (S : Set (BinaryQuartic ℤ)) (hS : ∀ f ∈ S, ¬ f.IsIrreducibleOverQ) (X : ℝ) :
     quarticAveragedCount G₀ i S X = 0 := sorry
 
 /-- Unit test `ArithmeticStatistics.quarticAveragedCount.empty`. -/
-example (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (i : QuarticRealType) (S : Set (BinaryQuartic ℤ)) (X : ℝ) :
+example (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (i : QuarticRealType) (S : Set (BinaryQuartic ℤ)) (X : ℝ) :
     quarticAveragedCount G₀ i ∅ X = 0 ∧ (X ≤ 1 → quarticAveragedCount G₀ i S X = 0) := sorry
 
 /-- Unit test `ArithmeticStatistics.quarticAveragedCount.reducible_zero`. -/
-example (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (i : QuarticRealType) (X : ℝ) :
+example (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (i : QuarticRealType) (X : ℝ) :
     quarticAveragedCount G₀ i {f | f ∈ intQuarticLocus i ∧ f.a = 0} X = 0 := sorry
 
 /-- Unit test `ArithmeticStatistics.quarticAveragedCount.not_orbit_count`: on a single point the
 average is in general strictly between `0` and `1`. -/
-example : ∃ (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (i : QuarticRealType) (f : BinaryQuartic ℤ) (X : ℝ),
+example : ∃ (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (i : QuarticRealType) (f : BinaryQuartic ℤ) (X : ℝ),
     IsAveragingSet G₀ ∧ 0 < quarticAveragedCount G₀ i {f} X ∧
       quarticAveragedCount G₀ i {f} X < 1 := sorry
 
 /-- Unit test `ArithmeticStatistics.quarticAveragedCount.invariant`: for `S = V_ℤ^(i)` the value
 does not depend on `G₀`. -/
-example (G₀ G₁ : Set (ℝ × ℝ × ℝ × ℝ)) (h₀ : IsAveragingSet G₀) (h₁ : IsAveragingSet G₁)
+example (G₀ G₁ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (h₀ : IsAveragingSet G₀) (h₁ : IsAveragingSet G₁)
     (i : QuarticRealType) (X : ℝ) :
     quarticAveragedCount G₀ i (intQuarticLocus i) X =
       quarticAveragedCount G₁ i (intQuarticLocus i) X := sorry
 
 /-- The multiset count `#{x ∈ S^irr ∩ B(n, t, λ, X)}` (multiplicity: number of `(q, ℓ)`). -/
-def quarticRegionCount (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (i : QuarticRealType) (S : Set (BinaryQuartic ℤ))
+def quarticRegionCount (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (i : QuarticRealType) (S : Set (BinaryQuartic ℤ))
     (u t l X : ℝ) : ℝ :=
   ∑ᶠ x ∈ {x : BinaryQuartic ℤ | x ∈ S ∧ x.IsIrreducibleOverQ ∧ x.height < X},
-    (Set.ncard {qℓ : (ℝ × ℝ × ℝ × ℝ) × BinaryQuartic ℝ | qℓ.1 ∈ G₀ ∧ qℓ.2 ∈ quarticFundSet i ∧
-      BinaryQuartic.subst (l • (iwasawaN u * iwasawaA t) * iwasawaMatrix qℓ.1) qℓ.2 =
+    (Set.ncard {qℓ : (Matrix (Fin 2) (Fin 2) ℝ) × BinaryQuartic ℝ | qℓ.1 ∈ G₀ ∧ qℓ.2 ∈ quarticFundSet i ∧
+      BinaryQuartic.subst (l • (iwasawaN u * iwasawaA t) * qℓ.1) qℓ.2 =
         x.map (Int.castRingHom ℝ)} : ℝ)
 
 /-- **Theorem 2.5, the averaging formula**
 (ArithmeticStatistics:ST.2/averaging-formula-for-binary-quartic-forms). -/
-theorem quarticAveragedCount_eq_integral (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (hG₀ : IsAveragingSet G₀)
+theorem quarticAveragedCount_eq_integral (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (hG₀ : IsAveragingSet G₀)
     (i : QuarticRealType) (S : Set (BinaryQuartic ℤ)) (hSi : S ⊆ intQuarticLocus i) (X : ℝ) :
     quarticAveragedCount G₀ i S X =
-      (1 / (2 * quarticStabWeight i * (gaussDomain_haar G₀).toReal)) *
+      (1 / (2 * quarticStabWeight i * (realGL2Haar G₀).toReal)) *
         ∫ q in {q : ℝ × ℝ × ℝ | 0 < q.2.1 ∧ 0 < q.2.2 ∧ |q.1| ≤ 1 / 2 ∧
             1 ≤ q.1 ^ 2 + q.2.1 ^ 4},
           quarticRegionCount G₀ i S q.1 q.2.1 q.2.2 X * (q.2.1 ^ (-3 : ℤ) * q.2.2⁻¹) := sorry
 
 /-- Lemma 2.3 (ArithmeticStatistics:ST.2/reducible-binary-quartic-forms-in-the-main-body). -/
-theorem reducible_quartic_main_body (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (hG₀ : IsAveragingSet G₀)
+theorem reducible_quartic_main_body (G₀ : Set (Matrix (Fin 2) (Fin 2) ℝ)) (hG₀ : IsAveragingSet G₀)
     (i : QuarticRealType) (ε : ℝ) (hε : 0 < ε) :
     ∃ C : ℝ, ∀ q ∈ G₀, ∀ X : ℝ, 1 ≤ X →
       (∑ᶠ x ∈ {x : BinaryQuartic ℤ | x.a ≠ 0 ∧ ¬ x.IsIrreducibleOverQ ∧
           x.height < X},
-        (quarticMultiplicity (iwasawaMatrix q) i (x.map (Int.castRingHom ℝ)) : ℝ)) ≤
+        (quarticMultiplicity q i (x.map (Int.castRingHom ℝ)) : ℝ)) ≤
         C * X ^ (2 / 3 + ε) := sorry
 
 /-- Lemma 2.22: reducible monic cubic forms up to unipotent equivalence
@@ -3704,22 +3755,9 @@ theorem large_stabilizer_quartic_count (ε : ℝ) (hε : 0 < ε) :
             f.map (Int.castRingHom ℚ)}}) : ℝ) ≤
         C * X ^ (3 / 4 + ε) := sorry
 
-/-- Proposition 2.7 and its translate version
-(ArithmeticStatistics:ST.2/binary-quartic-lattice-points-in-the-cusp). -/
-theorem quartic_cusp_count (G₀ : Set (ℝ × ℝ × ℝ × ℝ)) (hG₀ : IsAveragingSet G₀)
-    (i : QuarticRealType) (C₀ : ℝ)
-    (hC₀ : ∀ q ∈ G₀, ∀ ℓ ∈ quarticFundSet i, ∀ j,
-      |(BinaryQuartic.subst (iwasawaMatrix q) ℓ).coeffs j| ≤ C₀ ^ 4) :
-    ∃ K : ℝ, ∀ (m : ℕ) (v₀ : BinaryQuartic ℤ) (u t l X : ℝ), 0 < m → |u| ≤ 1 / 2 →
-      3 ^ (1 / 4 : ℝ) / Real.sqrt 2 ≤ t → 0 < l →
-      (C₀ * l < t → ∀ x : BinaryQuartic ℤ, (∀ j, (m : ℤ) ∣ x.coeffs j - v₀.coeffs j) → x.a ≠ 0 →
-          (x.map (Int.castRingHom ℝ)) ∉ quarticRegionB G₀ i u t l X) ∧
-      (t ≤ C₀ * l → |(Set.ncard {x : BinaryQuartic ℤ | (∀ j, (m : ℤ) ∣ x.coeffs j - v₀.coeffs j) ∧
-          x.a ≠ 0 ∧
-          (x.map (Int.castRingHom ℝ)) ∈ quarticRegionB G₀ i u t l X} : ℝ) -
-        (volume (BinaryQuartic.ofCoeffs ⁻¹' quarticRegionB G₀ i u t l X)).toReal / (m : ℝ) ^ 5| ≤
-          K * t ^ 4 * l ^ 16) :=
-  sorry
+/- Proposition 2.7: the packet records the corrected multiset count and volume,
+including semialgebraicity and a positive coefficient bound. Its native Lean signature awaits
+the GN.4 semialgebraic-multiset interface; the former support-only signature was misleading. -/
 
 /-- The volume `Vol(R_X(L^(i)))` of the multiset `F·L^(i) ∩ {H < X}`. -/
 def quarticFundVolume (i : QuarticRealType) (X : ℝ) : ℝ :=
@@ -3849,7 +3887,10 @@ theorem uniformity_estimate_quartic :
 theorem squarefree_sieve_quartic (i : QuarticRealType) (φ : CongruenceConditions 5)
     (hφ : φ.IsAcceptable quarticDiscPoly)
     (hinv : ∀ γ : GL (Fin 2) ℤ, ∀ f : BinaryQuartic ℤ,
-      φ.toFun (γ • f).coeffs = φ.toFun f.coeffs) :
+      φ.toFun (γ • f).coeffs = φ.toFun f.coeffs)
+    (hlocal : ∀ (p : ℕ) [Fact p.Prime], ∀ γ : GL (Fin 2) ℤ, ∀ f : BinaryQuartic ℤ_[p],
+      φ.localFun p ((Matrix.GeneralLinearGroup.map (Int.castRingHom ℤ_[p]) γ) • f).coeffs =
+        φ.localFun p f.coeffs) :
     (fun X : ℝ => (∑ᶠ c ∈ Quotient.mk (MulAction.orbitRel (GL (Fin 2) ℤ) _) ''
         {f | f ∈ intQuarticLocus i ∧ f.IsIrreducibleOverQ ∧ f.height < X}, φ.toFun c.out.coeffs) -
       (quarticClassCount (intQuarticLocus i) X : ℝ) *
@@ -3945,7 +3986,7 @@ def cubicAveragingConstant (C : ℝ) (i : Fin 2) : ℝ :=
     ∫ v in BinaryCubicForm.ofCoeffs ⁻¹' (cubicAveragingSet C ∩ realCubicLocus i),
       1 / |(BinaryCubicForm.ofCoeffs v).disc|
 
-theorem cubicAveragedCount_eq_sum_classes (C : ℝ) (hC : 1 ≤ C) (i : Fin 2)
+theorem cubicAveragedCount_eq_sum_classes (C : ℝ) (hC : 2 ≤ C) (i : Fin 2)
     (S : Set (BinaryCubicForm ℤ)) (hS : ∀ γ : GL (Fin 2) ℤ, ∀ f ∈ S, γ • f ∈ S)
     (hSi : S ⊆ intCubicLocus i) (X : ℝ) :
     cubicAveragedCount C i S X = ∑ᶠ c ∈ Quotient.mk (MulAction.orbitRel (GL (Fin 2) ℤ) _) ''
@@ -3961,7 +4002,7 @@ theorem cubicAveragedCount_union (C : ℝ) (i : Fin 2) (S₁ S₂ : Set (BinaryC
 theorem cubicAveragedCount_mono (C : ℝ) (i : Fin 2) {S₁ S₂ : Set (BinaryCubicForm ℤ)} (h : S₁ ⊆ S₂)
     {X Y : ℝ} (hXY : X ≤ Y) : cubicAveragedCount C i S₁ X ≤ cubicAveragedCount C i S₂ Y := sorry
 
-theorem cubicAveragedCount_indep (C C' : ℝ) (hC : 1 ≤ C) (hC' : 1 ≤ C') (i : Fin 2)
+theorem cubicAveragedCount_indep (C C' : ℝ) (hC : 2 ≤ C) (hC' : 2 ≤ C') (i : Fin 2)
     (S : Set (BinaryCubicForm ℤ)) (hS : ∀ γ : GL (Fin 2) ℤ, ∀ f ∈ S, γ • f ∈ S) (X : ℝ) :
     cubicAveragedCount C i S X = cubicAveragedCount C' i S X := sorry
 
@@ -3981,19 +4022,27 @@ example (C : ℝ) (i : Fin 2) (X : ℝ) :
 
 /-- Unit test `ArithmeticStatistics.cubicAveragedCount.cyclic_weight`: the class of the cyclic form
 `x^3 + x^2y − 2xy^2 − y^3` contributes `1/3`. -/
-example (C : ℝ) (hC : 1 ≤ C) (X : ℝ) (hX : 49 < X) :
+example (C : ℝ) (hC : 2 ≤ C) (X : ℝ) (hX : 49 < X) :
     cubicAveragedCount C 0
       {f | ∃ γ : GL (Fin 2) ℤ, γ • (⟨1, 1, -2, -1⟩ : BinaryCubicForm ℤ) = f} X =
       1 / 3 := sorry
 
 /-- Unit test `ArithmeticStatistics.cubicAveragedCount.invariant`. -/
-example (C C' : ℝ) (hC : 1 ≤ C) (hC' : 1 ≤ C') (i : Fin 2) (X : ℝ) :
+example (C C' : ℝ) (hC : 2 ≤ C) (hC' : 2 ≤ C') (i : Fin 2) (X : ℝ) :
     cubicAveragedCount C i (intCubicLocus i) X = cubicAveragedCount C' i (intCubicLocus i) X :=
   sorry
 
+/-- Unit test `ArithmeticStatistics.cubicAveragingSet.positive_denominators`:
+strict interior witnesses for both signs at C=2. -/
+example :
+    (⟨1 / 3, 0, -1, 0⟩ : BinaryCubicForm ℝ).disc = 4 / 3 ∧
+    3 * (1 / 3 : ℝ)^2 + (-1 : ℝ)^2 < 2 ∧
+    (⟨1 / 2, 0, 0, 1 / 2⟩ : BinaryCubicForm ℝ).disc = -27 / 16 ∧
+    3 * (1 / 2 : ℝ)^2 + 3 * (1 / 2 : ℝ)^2 < 2 := sorry
+
 /-- The averaging formula (20)-(23), corrected
 (ArithmeticStatistics:ST.2/averaging-formula-for-binary-cubic-forms). -/
-theorem cubicAveragedCount_eq_integral (C : ℝ) (hC : 1 ≤ C) (i : Fin 2)
+theorem cubicAveragedCount_eq_integral (C : ℝ) (hC : 2 ≤ C) (i : Fin 2)
     (S : Set (BinaryCubicForm ℤ)) (hSi : S ⊆ intCubicLocus i) (X : ℝ) :
     cubicAveragedCount C i S X =
       (1 / (2 * cubicAveragingConstant C i)) *
@@ -4004,7 +4053,7 @@ theorem cubicAveragedCount_eq_integral (C : ℝ) (hC : 1 ≤ C) (i : Fin 2)
             (q.2.1 ^ (-3 : ℤ) * q.2.2⁻¹) := sorry
 
 /-- Lemma 25 (ArithmeticStatistics:ST.2/binary-cubic-lattice-points-in-the-cusp), case `m = 1`. -/
-theorem cubic_cusp_count (C : ℝ) (hC : 1 ≤ C) (i : Fin 2) (C₀ : ℝ)
+theorem cubic_cusp_count (C : ℝ) (hC : 2 ≤ C) (i : Fin 2) (C₀ : ℝ)
     (hC₀ : ∀ w ∈ cubicAveragingSet C, ∀ j, |w.coeffs j| ≤ C₀) :
     ∃ K : ℝ, ∀ u t l X : ℝ, |u| ≤ 1 / 2 → 3 ^ (1 / 4 : ℝ) / Real.sqrt 2 ≤ t → 0 < l →
       (C₀ * l < t ^ 3 → ∀ x : BinaryCubicForm ℤ, x.a ≠ 0 →
@@ -4031,7 +4080,7 @@ theorem cubic_count_congruence (i : Fin 2) (m : ℕ) [NeZero m] (A : Set (Fin 4 
       (𝓝 (Real.pi ^ 2 / (12 * cubicStabWeight i) * (Set.ncard A / (m : ℝ) ^ 4))) := sorry
 
 /-- Part (a): uniformity in the modulus for lattice translates, `m ≤ X^{1/6}`. -/
-theorem cubic_count_translate_uniform (i : Fin 2) (C : ℝ) (hC : 1 ≤ C) :
+theorem cubic_count_translate_uniform (i : Fin 2) (C : ℝ) (hC : 2 ≤ C) :
     ∃ K : ℝ, ∀ (m : ℕ) (v₀ : BinaryCubicForm ℤ) (X : ℝ), 0 < m → 1 ≤ X → (m : ℝ) ≤ X ^ (1 / 6 : ℝ) →
       cubicAveragedCount C i {f | (∀ j, (m : ℤ) ∣ f.coeffs j - v₀.coeffs j) ∧ f ∈ intCubicLocus i}
           X ≤
@@ -4076,7 +4125,10 @@ theorem uniformity_estimate_cubic :
 (ArithmeticStatistics:ST.2/sieve-to-acceptable-functions-for-binary-cubic-forms). -/
 theorem sieve_cubic (i : Fin 2) (φ : CongruenceConditions 4) (hφ : φ.IsAcceptable cubicDiscPoly)
     (hinv : ∀ γ : GL (Fin 2) ℤ, ∀ f : BinaryCubicForm ℤ,
-      φ.toFun (γ • f).coeffs = φ.toFun f.coeffs) :
+      φ.toFun (γ • f).coeffs = φ.toFun f.coeffs)
+    (hlocal : ∀ (p : ℕ) [Fact p.Prime], ∀ γ : GL (Fin 2) ℤ, ∀ f : BinaryCubicForm ℤ_[p],
+      φ.localFun p ((Matrix.GeneralLinearGroup.map (Int.castRingHom ℤ_[p]) γ) • f).coeffs =
+        φ.localFun p f.coeffs) :
     Tendsto (fun X : ℝ => (∑ᶠ c ∈ Quotient.mk (MulAction.orbitRel (GL (Fin 2) ℤ) _) ''
         {f | f ∈ intCubicLocus i ∧ f.IsIrreducibleOverQ ∧ |(f.disc : ℝ)| < X},
           φ.toFun c.out.coeffs) / X) atTop
@@ -4251,7 +4303,7 @@ theorem classGroupTorsionCard_prime_eq_pow_rank (p : ℕ) [Fact p.Prime] :
 (`TauCeti.ClassGroup.card_elementaryTwoQuotient_eq_card_twoTorsion`). -/
 theorem classGroupTorsionCard_two_eq_card_elementaryTwoQuotient :
     classGroupTorsionCard K 2 =
-      Nat.card (ClassGroup (𝓞 K) ⧸ (powMonoidHom 2 : ClassGroup (𝓞 K) →* ClassGroup (𝓞 K)).range) := by
+      Nat.card (TauCeti.ClassGroup.ElementaryTwoQuotient (𝓞 K)) := by
   sorry
 
 theorem classGroupTorsionCard_congr {L : Type*} [Field L] [NumberField L] (e : K ≃ₐ[ℚ] L) (m : ℕ) :
@@ -4276,7 +4328,7 @@ example (K : Type*) [Field K] [NumberField K] : classGroupTorsionCard K 1 = 1 :=
 elementary 2-quotient `Cl(K)/Cl(K)²` (Tau Ceti's `ElementaryTwoQuotient`). -/
 example (K : Type*) [Field K] [NumberField K] :
     classGroupTorsionCard K 2 =
-      Nat.card (ClassGroup (𝓞 K) ⧸ (powMonoidHom 2 : ClassGroup (𝓞 K) →* ClassGroup (𝓞 K)).range) := by
+      Nat.card (TauCeti.ClassGroup.ElementaryTwoQuotient (𝓞 K)) := by
   sorry
 
 /-- Unit test `ArithmeticStatistics.classGroupTorsionCard_three_sqrt_neg_fortyseven`: for the
@@ -4514,17 +4566,17 @@ structure CubicLocalSpecification where
 
 namespace CubicLocalSpecification
 
-/-- The forms over `ℤ_p` that are maximal and not totally ramified at `p` (the image of `V_p`). -/
+/-- The full p-adic residue preimage of `V_p` modulo `p²`. -/
 def localNowhereTotallyRamified (p : Nat.Primes) : Set (BinaryCubicForm (@PadicInt p ⟨p.prop⟩)) :=
   haveI : Fact (p : ℕ).Prime := ⟨p.prop⟩
-  {f | ∃ g ∈ maximalNotTotallyRamifiedSet p, ∀ k : ℕ,
-    (f.map (PadicInt.toZModPow k)) = (g.map (Int.castRingHom (ZMod ((p : ℕ) ^ k))))}
+  {f | ∃ g ∈ maximalNotTotallyRamifiedSet p,
+    (f.map (PadicInt.toZModPow 2)) = (g.map (Int.castRingHom (ZMod ((p : ℕ) ^ 2))))}
 
-/-- The forms over `ℤ_p` that are maximal at `p` (the image of `U_p`). -/
+/-- The full p-adic residue preimage of `U_p` modulo `p²`. -/
 def localMaximal (p : Nat.Primes) : Set (BinaryCubicForm (@PadicInt p ⟨p.prop⟩)) :=
   haveI : Fact (p : ℕ).Prime := ⟨p.prop⟩
-  {f | ∃ g ∈ BinaryCubicForm.U p, ∀ k : ℕ,
-    (f.map (PadicInt.toZModPow k)) = (g.map (Int.castRingHom (ZMod ((p : ℕ) ^ k))))}
+  {f | ∃ g ∈ BinaryCubicForm.U p,
+    (f.map (PadicInt.toZModPow 2)) = (g.map (Int.castRingHom (ZMod ((p : ℕ) ^ 2))))}
 
 /-- Acceptable: for all large `p`, `Σ_p` contains the maximal, not totally ramified forms. -/
 def IsAcceptable (S : CubicLocalSpecification) : Prop :=
@@ -4567,6 +4619,11 @@ def archimedeanMass (S : CubicLocalSpecification) : ℝ :=
   (if true ∈ S.atInfinity then 1 / 6 else 0) + (if false ∈ S.atInfinity then 1 / 2 else 0)
 
 end CubicLocalSpecification
+
+/-- A p-adic orbit is not restricted to integral coefficient vectors. -/
+example (p : Nat.Primes) (γ : GL (Fin 2) (@PadicInt p ⟨p.prop⟩)) :
+    γ • (⟨0, 1, -1, 0⟩ : BinaryCubicForm (@PadicInt p ⟨p.prop⟩)) ∈
+      CubicLocalSpecification.localMaximal p := by sorry
 
 /-- Unit test `ArithmeticStatistics.CubicLocalSpecification.maximal_isStronglyAcceptable`. -/
 example : CubicLocalSpecification.maximal.IsStronglyAcceptable := by sorry
@@ -4675,20 +4732,26 @@ def quadraticFormClassNumber (D : ℤ) : ℕ :=
   Nat.card (Quot (fun q r : {q : ℤ × ℤ × ℤ // q.2.1 ^ 2 - 4 * q.1 * q.2.2 = D} =>
     ∃ γ : Matrix.SpecialLinearGroup (Fin 2) ℤ, quadFormSubst γ q.1 = r.1))
 
-/-- **Siegel**: `Σ_{0<D<X} h_D log ε_D ~ (π²/18) X^{3/2}`. -/
+/-- Primitive quadratic classes, matching the strict class number of the order of discriminant D. -/
+def primitiveQuadraticFormClassNumber (D : ℤ) : ℕ :=
+  Nat.card (Quot (fun q r : {q : ℤ × ℤ × ℤ // q.2.1 ^ 2 - 4 * q.1 * q.2.2 = D ∧
+      Nat.gcd q.1.natAbs (Nat.gcd q.2.1.natAbs q.2.2.natAbs) = 1} =>
+    ∃ γ : Matrix.SpecialLinearGroup (Fin 2) ℤ, quadFormSubst γ q.1 = r.1))
+
+/-- **Siegel**: `Σ_{0<D<X} h_D^prim log ε_D ~ (π²/(18ζ(3))) X^{3/2}`. -/
 theorem siegel_count_of_indefinite_binary_quadratic_forms :
     Tendsto (fun X : ℝ => (∑ D ∈ (Finset.range ⌈X⌉₊).filter (fun D => 0 < D ∧ ¬ IsSquare D),
-        (quadraticFormClassNumber D : ℝ) * pellRegulator D) / X ^ ((3 : ℝ) / 2)) atTop
-      (𝓝 (Real.pi ^ 2 / 18)) := by
+        (primitiveQuadraticFormClassNumber D : ℝ) * pellRegulator D) / X ^ ((3 : ℝ) / 2)) atTop
+      (𝓝 (Real.pi ^ 2 / (18 * (riemannZeta 3).re))) := by
   sorry
 
-/-- **The classical counts** (BS Theorems 1.4 and 1.5, with 1.4(a) corrected). -/
+/-- **The classical counts** (BS Theorems 1.4 and 1.5, with definite sign and primitive regulator conventions corrected). -/
 theorem quoted_classical_counts_for_binary_quadratic_and_cubic_forms :
     Tendsto (fun X : ℝ => (positiveDefiniteClassCount X : ℝ) / X ^ ((3 : ℝ) / 2)) atTop
         (𝓝 (Real.pi / 18)) ∧
       Tendsto (fun X : ℝ => (∑ D ∈ (Finset.range ⌈X⌉₊).filter (fun D => 0 < D ∧ ¬ IsSquare D),
-        (quadraticFormClassNumber D : ℝ) * pellRegulator D) / X ^ ((3 : ℝ) / 2)) atTop
-        (𝓝 (Real.pi ^ 2 / 18)) ∧
+        (primitiveQuadraticFormClassNumber D : ℝ) * pellRegulator D) / X ^ ((3 : ℝ) / 2)) atTop
+        (𝓝 (Real.pi ^ 2 / (18 * (riemannZeta 3).re))) ∧
       Tendsto (fun X : ℝ => (cubicClassCount (intCubicLocus 1) X : ℝ) / X) atTop
         (𝓝 (Real.pi ^ 2 / 24)) ∧
       Tendsto (fun X : ℝ => (cubicClassCount (intCubicLocus 0) X : ℝ) / X) atTop
@@ -4965,10 +5028,10 @@ end ST3
 
 noncomputable section ST4
 
-/-! In the Tau Ceti development the 2-Selmer group, Sha and the descent sequence come from
-`TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.SelmerGroup` and EllipticCurves layer 7; since
-Tau Ceti is not built here, statements about `#S₂(E)` use the binary-quartic count of ST.1's
-Theorem 3.5 (`selmerSize`), and statements about Sha are stated through the identity (2). -/
+/-! The native 2-Selmer group is imported and compared with quartic descent in
+`BinaryQuartic.mem_selmerGroup₂_iff`. The counting statements use ST.1's quartic orbit count
+`selmerSize`; passage to native Selmer cardinalities needs that comparison and finiteness.
+The Sha descent sequence remains an EllipticCurves layer 7 dependency. -/
 
 open Filter Topology MeasureTheory
 
@@ -5124,7 +5187,7 @@ theorem disc_ne_zero_of_mem_localSolubleSet {p : Nat.Primes} {S : Set EllipticFa
 
 /-- The characterisation, promoted to the node `locally-soluble-set-is-cut-out-by-local-conditions`. -/
 theorem mem_locallySolubleSet_iff (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]))
-    (hSig : ∀ p, IsClosed (Sig p)) (s : EllipticFamily.SignCondition) (f : BinaryQuartic ℤ) :
+    (hSig : ∀ p : Nat.Primes, IsClosed {x : {x : ℤ_[p] × ℤ_[p] // 4 * x.1 ^ 3 - x.2 ^ 2 ≠ 0} | x.1 ∈ Sig p}) (s : EllipticFamily.SignCondition) (f : BinaryQuartic ℤ) :
     f ∈ locallySolubleSet (EllipticFamily.congruenceFamily Sig s) ↔
       f.map (Int.castRingHom ℝ) ∈ realSolubleSet s ∧
         ∀ p : Nat.Primes, f.map (Int.castRingHom ℤ_[p]) ∈
@@ -5161,6 +5224,12 @@ def zpMeasure (p : ℕ) [Fact p.Prime] : Measure ℤ_[p] := Measure.addHaarMeasu
 /-- The Haar probability measure `dI dJ` on `ℤ_p²`. -/
 def zpPairMeasure (p : ℕ) [Fact p.Prime] : Measure (ℤ_[p] × ℤ_[p]) :=
   (zpMeasure p).prod (zpMeasure p)
+
+/-- The source's local regularity hypothesis. Closedness is relative to the nonsingular
+locus; the ambient boundary must have Haar measure zero. -/
+def RegularLocalSpecifications (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p])) : Prop :=
+  ∀ p : Nat.Primes, IsClosed {x : {x : ℤ_[p] × ℤ_[p] // 4 * x.1 ^ 3 - x.2 ^ 2 ≠ 0} | x.1 ∈ Sig p} ∧
+    zpPairMeasure p (frontier (Sig p)) = 0
 
 /- The Haar probability measure on `V_{ℤ_p} = ℤ_p⁵` (coefficient coordinates) is ST.2's
 `padicHaar p 5`. -/
@@ -5434,7 +5503,9 @@ def integralOrbits (p : ℕ) [Fact p.Prime] (I J : ℤ_[p]) : Set (MulAction.orb
 /-- Bhargava–Shankar Proposition 3.7, for `PGL₂(ℤ_p)`-invariant `φ` (the general form needs a
 Haar measure on `PGL₂(ℤ_p)`, which Mathlib's instances do not provide). -/
 theorem integral_eq_orbit_integral (p : ℕ) [Fact p.Prime] (φ : BinaryQuartic ℚ_[p] → ℝ)
-    (hφ : ∀ γ ∈ pgl2Zp p, ∀ f, φ (γ • f) = φ f) (hφ0 : ∀ f, 0 ≤ φ f) :
+    (hφ : ∀ γ ∈ pgl2Zp p, ∀ f, φ (γ • f) = φ f) (hφ0 : ∀ f, 0 ≤ φ f)
+    (hint : Integrable (fun v : Fin 5 → ℤ_[p] =>
+      φ ((ofCoeffs v).map (PadicInt.Coe.ringHom (p := p)))) (padicHaar p 5)) :
     ∫ v, φ ((ofCoeffs v).map (PadicInt.Coe.ringHom (p := p))) ∂(padicHaar p 5) =
       (padicNorm p (1 / 27) : ℝ) * (1 - (p : ℝ) ^ (-2 : ℤ)) *
         ∫ x, (∑ᶠ q ∈ integralOrbits p x.1 x.2,
@@ -5455,7 +5526,8 @@ theorem integral_div_weight_eq (p : Nat.Primes) (T : Set (BinaryQuartic ℤ_[p])
     (hT : ∀ f ∈ T, disc f ≠ 0 ∧ (f.map (PadicInt.Coe.ringHom (p := p))).IsSoluble ∧
       (2 ^ 4 * 3 : ℤ_[p]) ∣ invI f ∧ (2 ^ 6 * 27 : ℤ_[p]) ∣ invJ f)
     (hsat : ∀ f g : BinaryQuartic ℤ_[p], f ∈ T → invI g = invI f → invJ g = invJ f →
-      (g.map (PadicInt.Coe.ringHom (p := p))).IsSoluble → g ∈ T) :
+      (g.map (PadicInt.Coe.ringHom (p := p))).IsSoluble → g ∈ T)
+    (hTm : MeasurableSet {v : Fin 5 → ℤ_[p] | ofCoeffs v ∈ T}) :
     ∫ v in {v | ofCoeffs v ∈ T}, (1 / (localBinaryQuarticWeight p (ofCoeffs v) : ℝ))
         ∂(padicHaar p 5) =
       (padicNorm p (1 / 27) : ℝ) * (1 - (p : ℝ) ^ (-2 : ℤ)) *
@@ -5534,7 +5606,7 @@ def realSolubleOrbitCount (s : EllipticFamily.SignCondition) (X : ℝ) : ℕ :=
       f.map (Int.castRingHom ℝ) ∈ realSolubleSet s ∧ height f < X}
 
 theorem tendsto_weightedSolubleOrbitCount (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]))
-    (hSig : ∀ p, IsClosed (Sig p)) (s : EllipticFamily.SignCondition)
+    (hSig : RegularLocalSpecifications Sig) (s : EllipticFamily.SignCondition)
     (hL : EllipticFamily.IsLarge (EllipticFamily.congruenceFamily Sig s)) :
     Tendsto (fun Y : ℝ =>
       (weightedSolubleOrbitCount (EllipticFamily.congruenceFamily Sig s) Y -
@@ -5584,7 +5656,7 @@ def curveCount (S : Set EllipticFamily.Carrier) (X : ℝ) : ℕ :=
 
 /-- Bhargava–Shankar Theorem 3.17. -/
 theorem tendsto_curveCount (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]))
-    (hSig : ∀ p, IsClosed (Sig p)) (s : EllipticFamily.SignCondition)
+    (hSig : RegularLocalSpecifications Sig) (s : EllipticFamily.SignCondition)
     (hL : EllipticFamily.IsLarge (EllipticFamily.congruenceFamily Sig s)) :
     Tendsto (fun X : ℝ =>
       ((curveCount (EllipticFamily.congruenceFamily Sig s) X : ℝ) -
@@ -5596,7 +5668,7 @@ theorem tendsto_curveCount (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]))
 
 /-- Bhargava–Shankar Theorem 3.19, with the positivity hypothesis. -/
 theorem tendsto_selmer_average_sub_one (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]))
-    (hSig : ∀ p, IsClosed (Sig p)) (s : EllipticFamily.SignCondition)
+    (hSig : RegularLocalSpecifications Sig) (s : EllipticFamily.SignCondition)
     (hL : EllipticFamily.IsLarge (EllipticFamily.congruenceFamily Sig s))
     (hpos : ∀ p : Nat.Primes,
       0 < zpPairMeasure p (EllipticFamily.invLocal p (EllipticFamily.congruenceFamily Sig s))) :
@@ -5618,7 +5690,7 @@ theorem tamagawa_pgl2 : Real.pi ^ 2 / 3 * ∏' p : Nat.Primes, (1 - (p : ℝ) ^ 
 /-- Bhargava–Shankar Theorem 3.1, with the positivity hypothesis: over a large family with
 positive local masses, ordered by height, the average size of the 2-Selmer group is `3`. -/
 theorem hasFamilyAverage_selmerSize (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]))
-    (hSig : ∀ p, IsClosed (Sig p)) (s : EllipticFamily.SignCondition)
+    (hSig : RegularLocalSpecifications Sig) (s : EllipticFamily.SignCondition)
     (hL : EllipticFamily.IsLarge (EllipticFamily.congruenceFamily Sig s))
     (hpos : ∀ p : Nat.Primes,
       0 < zpPairMeasure p (EllipticFamily.invLocal p (EllipticFamily.congruenceFamily Sig s))) :
@@ -5631,11 +5703,12 @@ theorem hasFamilyAverage_selmerSize (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × �
 def residueFamily (m : ℕ) (U : Set (ZMod m × ZMod m)) : Set EllipticFamily.Carrier :=
   {E | ((E.1.a₄ : ZMod m), (E.1.a₆ : ZMod m)) ∈ U}
 
+/-- A finite union of congruence classes is large with positive projection masses.
+It need not be one independent product of local conditions. Apply the average theorem to
+its disjoint individual classes and then add the counts. -/
 theorem residueFamily_large_and_pos (m : ℕ) (hm : 0 < m) (U : Set (ZMod m × ZMod m))
     (hne : (residueFamily m U).Nonempty) :
-    ∃ Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]), (∀ p, IsClosed (Sig p)) ∧
-      residueFamily m U = EllipticFamily.congruenceFamily Sig .any ∧
-      EllipticFamily.IsLarge (residueFamily m U) ∧
+    EllipticFamily.IsLarge (residueFamily m U) ∧
       ∀ p : Nat.Primes, 0 < zpPairMeasure p (EllipticFamily.invLocal p (residueFamily m U)) := sorry
 
 /-- Semistability of `E_{A,B}`: at every prime the minimal model over `ℤ_p` has good or
@@ -5648,7 +5721,7 @@ def IsSemistable (E : EllipticFamily.Carrier) : Prop :=
         ((E.1.map (Int.castRingHom ℚ_[p])).minimal ℤ_[p])
 
 theorem semistable_large_and_pos :
-    ∃ Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]), (∀ p, IsClosed (Sig p)) ∧
+    ∃ Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]), RegularLocalSpecifications Sig ∧
       {E | IsSemistable E} = EllipticFamily.congruenceFamily Sig .any ∧
       EllipticFamily.IsLarge {E | IsSemistable E} ∧
       ∀ p : Nat.Primes, 0 < zpPairMeasure p (EllipticFamily.invLocal p {E | IsSemistable E}) :=
@@ -5692,7 +5765,7 @@ theorem card_rational_two_torsion_le :
           ∃ r : ℚ, r ^ 3 + x.1 * r + x.2 = 0}.ncard : ℝ) ≤ C * X ^ (1 / 2 : ℝ) := sorry
 
 theorem hasFamilyAverage_twoTorsion_rank_eq_zero (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]))
-    (hSig : ∀ p, IsClosed (Sig p)) (s : EllipticFamily.SignCondition)
+    (hSig : RegularLocalSpecifications Sig) (s : EllipticFamily.SignCondition)
     (hL : EllipticFamily.IsLarge (EllipticFamily.congruenceFamily Sig s))
     (hpos : ∀ p : Nat.Primes,
       0 < zpPairMeasure p (EllipticFamily.invLocal p (EllipticFamily.congruenceFamily Sig s))) :
@@ -5704,7 +5777,7 @@ theorem hasFamilyAverage_twoTorsion_rank_eq_zero (Sig : ∀ p : Nat.Primes, Set 
 /-- Bhargava–Shankar Corollary 1.2 (for every family satisfying Theorem 3.1): the upper averages
 of the 2-Selmer rank and of the rank are at most `3/2`. -/
 theorem upperFamilyAverage_rank_le (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]))
-    (hSig : ∀ p, IsClosed (Sig p)) (s : EllipticFamily.SignCondition)
+    (hSig : RegularLocalSpecifications Sig) (s : EllipticFamily.SignCondition)
     (hL : EllipticFamily.IsLarge (EllipticFamily.congruenceFamily Sig s))
     (hpos : ∀ p : Nat.Primes,
       0 < zpPairMeasure p (EllipticFamily.invLocal p (EllipticFamily.congruenceFamily Sig s))) :
@@ -5718,7 +5791,7 @@ theorem upperFamilyAverage_rank_le (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × �
 /-- The upper average of `r₂(S₂) − r − r₂(E(ℚ)[2])`, which is `r₂(Ш_E[2])` by (2), is at most
 `3/2`. -/
 theorem upperFamilyAverage_sha_two_rank_le (Sig : ∀ p : Nat.Primes, Set (ℤ_[p] × ℤ_[p]))
-    (hSig : ∀ p, IsClosed (Sig p)) (s : EllipticFamily.SignCondition)
+    (hSig : RegularLocalSpecifications Sig) (s : EllipticFamily.SignCondition)
     (hL : EllipticFamily.IsLarge (EllipticFamily.congruenceFamily Sig s))
     (hpos : ∀ p : Nat.Primes,
       0 < zpPairMeasure p (EllipticFamily.invLocal p (EllipticFamily.congruenceFamily Sig s))) :
@@ -5737,12 +5810,11 @@ noncomputable section ST5
 /-!
 ## Scope
 
-Objects the pinned Mathlib does not contain (Selmer groups, isogenies,
-quadratic twists, Hurwitz schemes, abelian varieties over finite fields) are either prototyped through
-an explicit function standing for the arithmetic invariant, as documented at each use, or omitted;
-no condition is replaced by an empty `Prop`. Tau Ceti modules (for example
-`TauCeti.AlgebraicGeometry.EllipticCurve.QuadraticTwist`) would be imported where the roadmap cites
-EllipticCurves Layer 5; Tau Ceti is not built in this environment, so they are not imported here.
+Native Tau Ceti square classes, twists and 2-descent are imported above. Higher Selmer groups,
+isogeny Selmer ratios and Hurwitz point counts still need the supplier interfaces recorded in
+the packet. Here their numerical consequences use explicit input functions, documented at each
+use, and do not assert construction of those arithmetic objects. No condition is replaced by an
+empty `Prop`. The missing Tau Ceti oleans limit typing evidence as stated in the file header.
 -/
 
 
@@ -6159,7 +6231,7 @@ theorem tendsto_of_tendsto_surjectionMoment (ℓ : ℕ) [Fact ℓ.Prime] (hℓ :
     Tendsto (fun n => ν n A) atTop (𝓝 (cohenLenstraMeasure ℓ 0 A)) := sorry
 
 /-- EVW item 115: distribution convergence does not force moment convergence. -/
-theorem exists_tendsto_not_tendsto_surjectionMoment (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : ℓ ≠ 2) :
+theorem exists_tendsto_not_tendsto_surjectionMoment (ℓ : ℕ) [Fact ℓ.Prime] :
     ∃ ν : ℕ → PMF FinAbPGroupClass,
       (∀ A, Tendsto (fun n => ν n A) atTop (𝓝 (cohenLenstraMeasure ℓ 0 A))) ∧
       Tendsto (fun n => surjectionMoment ℓ (ν n) ⟨1, Nat.Partition.indiscrete 1⟩) atTop (𝓝 2) :=
@@ -6180,7 +6252,7 @@ theorem tendsto_cohenLenstraMeasure_of_moments (p u : ℕ) [Fact p.Prime]
 
 /-- Normalized Haar measure on `n × m` matrices over `ℤ_p`, as maps `ℤ_p^m → ℤ_p^n`. -/
 noncomputable def padicMatrixHaar (p : ℕ) [Fact p.Prime] (n m : ℕ) :
-    MeasureTheory.Measure (Fin n → Fin m → ℤ_[p]) := sorry
+    MeasureTheory.Measure (Fin n → Fin m → ℤ_[p]) := MeasureTheory.Measure.addHaarMeasure ⊤
 
 /-- The cokernel `ℤ_p^n / M ℤ_p^m` of a matrix. -/
 abbrev padicCokernel (p : ℕ) [Fact p.Prime] {n m : ℕ} (M : Fin n → Fin m → ℤ_[p]) : Type :=
@@ -6520,7 +6592,7 @@ theorem cohenMartinetPredictedMoment_eq_pow {G : Type*} [Group G] {p : ℕ} [Fac
   sorry
 
 /-- Unit test `ArithmeticStatistics.cohenMartinetPredictedMoment.test_imaginary_quadratic`:
-`G = C₂` acting on `Z = F_p` (`p` odd) by `-1`, one complex place with `σ` the generator:
+`G = C₂` acting on `Z = F_p` (`p` odd) by `-1`, complex conjugation over the real base place:
 `|Z^σ| = 1`, prediction `1` — the Cohen–Lenstra `u = 0` moment. -/
 example (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) (ρ : Representation (ZMod p) (Multiplicative (ZMod 2)) (ZMod p))
     (hρ : ρ (Multiplicative.ofAdd 1) = -LinearMap.id) :
@@ -6645,7 +6717,7 @@ example {ι : Type*} (p : ℕ) (E : ℕ → Finset ι) (C : ι → Type*) [∀ i
 `|Hom_G(M, V)| = 1 + |Sur_G(M, V)|`. -/
 theorem card_equivariantHom_eq_one_add {G : Type*} [Group G] {p : ℕ} [Fact p.Prime] (M : Type*)
     [AddCommGroup M] [DistribMulAction G M] [Finite M] {V : Type*} [AddCommGroup V]
-    [Module (ZMod p) V] (ρ : Representation (ZMod p) G V)
+    [Module (ZMod p) V] [Nontrivial V] (ρ : Representation (ZMod p) G V)
     (hirr : ∀ W : Submodule (ZMod p) V, (∀ g, W.map (ρ g) ≤ W) → W = ⊥ ∨ W = ⊤) :
     Nat.card {f : M →+ V // ∀ (g : G) (x : M), f (g • x) = ρ g (f x)} =
       1 + equivariantSurjCard M ρ := sorry
@@ -6664,8 +6736,9 @@ theorem tendsto_relativeThreeTorsion_of_cohenMartinet {ι G : Type*} [Group G]
     Tendsto (fun X : ℕ => (∑ i ∈ E X, (h3 i : ℝ)) / ((E X).card : ℝ)) atTop
       (𝓝 (1 + ((3 : ℝ) ^ u)⁻¹)) := sorry
 
-/-- LOWW §7.2: when `W'` is irreducible, the Cohen–Martinet prediction for the average of
-`h₃(K/k)` is `(1 + 3^{-u(K/F)})(1 + 3^{-u(F/k)})`. -/
+/-- The scalar expansion of the LOWW §7.2 prediction when `W'` is irreducible.
+The statistical implication also needs moment convergence for all submodules of `V ⊕ W'`,
+including the joint target; this arithmetic implication is not encoded by this identity. -/
 theorem cohenMartinet_prediction_threeTorsion_two_extension (uKF uFk : ℕ) :
     ((1 : ℚ) + (3 ^ uKF)⁻¹) * (1 + (3 ^ uFk)⁻¹) =
       1 + (3 ^ uKF)⁻¹ + (3 ^ uFk)⁻¹ + (3 ^ (uKF + uFk))⁻¹ := sorry
@@ -6853,10 +6926,20 @@ theorem familyUpperMoment_const (S : ℝ → Finset α) (hS : ∀ᶠ X in atTop,
     (c : ℝ≥0∞) (hc : c ≠ ∞) (m : ℕ) :
     familyUpperMoment S (fun _ => c) m = c ^ m ∧ familyLowerMoment S (fun _ => c) m = c ^ m := sorry
 
-/-- For finite nonnegative real `f`, the first upper moment is the upper family average (ST.4). -/
+/-- For nonnegative real `f`, take the limsup in `ENNReal` after embedding the finite averages.
+Moving `ofReal` outside a real limsup requires the boundedness hypothesis below. -/
 theorem familyUpperMoment_one_eq_upperFamilyAverage (S : ℝ → Finset α) (f : α → ℝ) (hf : ∀ x, 0 ≤ f x) :
     familyUpperMoment S (fun x => ENNReal.ofReal (f x)) 1 =
       limsup (fun X : ℝ => ENNReal.ofReal ((∑ x ∈ S X, f x) / (S X).card)) atTop := sorry
+
+/-- Comparison with ST.4's real limsup, under an eventual upper bound. -/
+theorem familyUpperMoment_one_eq_ofReal_limsup (S : ℝ → Finset α) (f : α → ℝ)
+    (hf : ∀ x, 0 ≤ f x)
+    (hbound : IsBoundedUnder (· ≤ ·) atTop
+      (fun X : ℝ => (∑ x ∈ S X, f x) / (S X).card)) :
+    familyUpperMoment S (fun x => ENNReal.ofReal (f x)) 1 =
+      ENNReal.ofReal (limsup (fun X : ℝ => (∑ x ∈ S X, f x) / (S X).card) atTop) := sorry
+
 
 /-- The positive integers of height `< X` in ST.0's family `SquarefreeFamily.natFamily` of the
 natural numbers ordered by `n ↦ n`. -/
@@ -7052,10 +7135,13 @@ example [FiniteDimensional K V] (Q : QuadraticForm K V) (hQ : LinearMap.BilinFor
       X.comap (LinearMap.BilinForm.orthogonal (QuadraticMap.polarBilin Q) X).subtype) = 2 * n - 2 * Module.finrank K X :=
   sorry
 
-/-- Unit test `ArithmeticStatistics.isotropicQuotientForm.test_needs_isotropic`: the diagonal line
-of the hyperbolic plane is not isotropic when `2 ≠ 0`. -/
-example (K : Type*) [Field K] (h2 : (2 : K) ≠ 0) :
-    ¬ ∀ x ∈ Submodule.span K {((1 : K), (1 : K))}, hyperbolicPlane K x = 0 := sorry
+/-- Unit test `ArithmeticStatistics.isotropicQuotientForm.test_needs_isotropic`: over F₂ the
+self-orthogonal diagonal line has nonzero Q, so Q cannot descend to its zero quotient. -/
+example :
+    LinearMap.BilinForm.orthogonal (QuadraticMap.polarBilin (hyperbolicPlane (ZMod 2)))
+      (Submodule.span (ZMod 2) {((1 : ZMod 2), (1 : ZMod 2))}) =
+        Submodule.span (ZMod 2) {((1 : ZMod 2), (1 : ZMod 2))} ∧
+    hyperbolicPlane (ZMod 2) (1, 1) ≠ hyperbolicPlane (ZMod 2) (0, 0) := sorry
 
 /-- PR Proposition 2.6(a): every fibre of the isotropic reduction has `∏ (p^{n-i} + 1)` elements. -/
 theorem card_fiber_isotropicReduction (p : ℕ) [Fact p.Prime] {V : Type*} [AddCommGroup V]
@@ -7722,8 +7808,10 @@ noncomputable def logSelmerRatio (c : ℚ) : ℤ := padicValRat 3 c
 /-- `T_m(φ) = {s : c(φ_s) = 3^m}` for the function `s ↦ c(φ_s)` on squareclasses. -/
 def selmerRatioClass {σ : Type*} (cs : σ → ℚ) (m : ℤ) : Set σ := {s | cs s = (3 : ℚ) ^ m}
 
+/-- The abstract equality used at good places; local points need not map bijectively. -/
 theorem localSelmerRatio_of_good {A B : Type*} [AddCommGroup A] [AddCommGroup B] (f : A →+ B)
-    (hf : Function.Bijective f) : localSelmerRatio f = 1 := sorry
+    (hk : Finite f.ker) (hc : Nat.card (B ⧸ f.range) = Nat.card f.ker) :
+    localSelmerRatio f = 1 := sorry
 
 theorem localSelmerRatio_complex {A B : Type*} [AddCommGroup A] [AddCommGroup B] (f : A →+ B)
     (hs : Function.Surjective f) (hk : Nat.card f.ker = 3) : localSelmerRatio f = 1 / 3 := sorry
@@ -7882,7 +7970,7 @@ noncomputable def primitiveVectors (ι : Type*) [Fintype ι] [DecidableEq ι] (Q
   haveI := Classical.decPred (fun b : ι → ZMod Q => Ideal.span (Set.range b) = ⊤)
   Finset.univ.filter fun b => Ideal.span (Set.range b) = ⊤
 
-theorem card_primitiveVectors_primePow (ι : Type*) [Fintype ι] [DecidableEq ι] (p r : ℕ) [Fact p.Prime] :
+theorem card_primitiveVectors_primePow (ι : Type*) [Fintype ι] [DecidableEq ι] (p r : ℕ) [Fact p.Prime] (hr : 1 ≤ r) :
     ((primitiveVectors ι (p ^ r)).card : ℝ) =
       (p : ℝ) ^ (r * Fintype.card ι) * (1 - ((p : ℝ) ^ Fintype.card ι)⁻¹) := sorry
 
@@ -8667,13 +8755,16 @@ section ConvergenceModes
 def allowedPrimePowers (m : ℕ) : Filter ℕ :=
   atTop ⊓ 𝓟 {q | IsPrimePow q ∧ Nat.Coprime q m}
 
-instance allowedPrimePowers_neBot (m : ℕ) : (allowedPrimePowers m).NeBot := sorry
+instance allowedPrimePowers_neBot (m : ℕ) [NeZero m] : (allowedPrimePowers m).NeBot := sorry
+
+/-- At modulus zero the allowed set is empty, so the filter cannot support unique limits. -/
+example : allowedPrimePowers 0 = ⊥ := sorry
 
 /-- Eventual-degree large-`q` limit. -/
 def EventualDegreeLargeQLimit (E : ℕ → ℕ → ℝ) (m : ℕ) (c : ℕ → ℝ) : Prop :=
   ∃ n₀, ∀ n ≥ n₀, Tendsto (fun q => E q n) (allowedPrimePowers m) (𝓝 (c n))
 
-theorem EventualDegreeLargeQLimit.unique {E : ℕ → ℕ → ℝ} {m : ℕ} {c c' : ℕ → ℝ}
+theorem EventualDegreeLargeQLimit.unique {E : ℕ → ℕ → ℝ} {m : ℕ} [NeZero m] {c c' : ℕ → ℝ}
     (h : EventualDegreeLargeQLimit E m c) (h' : EventualDegreeLargeQLimit E m c') :
     ∀ᶠ n in atTop, c n = c' n := sorry
 
@@ -8700,7 +8791,7 @@ def PrintedBadTypeLimitAssertion (E : ℕ → ℕ → ℝ) (M : ℕ → ℕ) (m 
   ∃ w > (0 : ℝ), ∃ n₀, ∀ n ≥ n₀, ∃ L : ℝ,
     Tendsto (fun q => E q n / M q) (allowedPrimePowers m) (𝓝 L) ∧ w * (n : ℝ) ^ (N - 1) ≤ L
 
-theorem PrintedBadTypeLimitAssertion.liminf_bound {E : ℕ → ℕ → ℝ} {M : ℕ → ℕ} {m N : ℕ}
+theorem PrintedBadTypeLimitAssertion.liminf_bound {E : ℕ → ℕ → ℝ} {M : ℕ → ℕ} {m N : ℕ} [NeZero m]
     (h : PrintedBadTypeLimitAssertion E M m N) :
     ∃ w > (0 : ℝ), ∃ n₀ : ℕ, ∀ n : ℕ, n₀ ≤ n →
       w * (n : ℝ) ^ (N - 1) ≤ Filter.liminf (fun q => E q n / M q) (allowedPrimePowers m) := sorry
@@ -8715,11 +8806,11 @@ example (m N : ℕ) : PrintedBadTypeLimitAssertion (fun _ n => (n : ℝ) ^ (N - 
   sorry
 
 /-- Unit test `ArithmeticStatistics.PrintedBadTypeLimitAssertion.test_zero`: `E ≡ 0` fails. -/
-example (m : ℕ) : ¬ PrintedBadTypeLimitAssertion (fun _ _ => 0) (fun _ => 1) m 1 := sorry
+example (m : ℕ) [NeZero m] : ¬ PrintedBadTypeLimitAssertion (fun _ _ => 0) (fun _ => 1) m 1 := sorry
 
 /-- Unit test `ArithmeticStatistics.PrintedBadTypeLimitAssertion.test_oscillating`: an oscillating
 `E` satisfies the liminf bound but not the assertion. -/
-example (m N : ℕ) :
+example (m N : ℕ) [NeZero m] :
     ¬ PrintedBadTypeLimitAssertion
       (fun q n => (n : ℝ) ^ (N - 1) * (if q % 4 = 1 then 3 else 1)) (fun _ => 1) m N := sorry
 
