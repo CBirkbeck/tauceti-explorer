@@ -8,6 +8,7 @@
 
 
 import Mathlib.LinearAlgebra.Dual.BaseChange
+import Mathlib.Algebra.Algebra.Bilinear
 import Mathlib.RingTheory.TensorProduct.Basic
 
 import Mathlib.LinearAlgebra.Contraction
@@ -1278,8 +1279,7 @@ example (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R]
     (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
       (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom := sorry
 /-- In F₂, xy+yx survives in the tensor algebra but dies in the symmetric algebra. -/
--- node: HodgeStructuresPartII:H.0/symmetric-projection-counterexample
-theorem symmetricProjection_charTwo_counterexample :
+theorem symmetricProjection_charTwo_tensor_counterexample :
     let q₀ : Fin 2 → ZMod 2 := Pi.single 0 1
     let q₁ : Fin 2 → ZMod 2 := Pi.single 1 1
     let t := TensorAlgebra.ι (ZMod 2) q₀ * TensorAlgebra.ι (ZMod 2) q₁ +
@@ -1309,6 +1309,40 @@ theorem symmetricProjection_charTwo_action_counterexample :
     charTwoShiftX * charTwoShiftY + charTwoShiftY * charTwoShiftX = 0 ∧
     ∀ word : Fin 3 → Fin 2,
       ((List.ofFn word).map (fun i => if i = 0 then charTwoShiftX else charTwoShiftY)).prod = 0 := sorry
+
+/-- The quotient's monomial basis (1,x,y,xy), presented by native coordinates.
+This is a concrete example fixture, not a new module or Higgs carrier. -/
+def charTwoField :
+    (Fin 2 × Fin 2 → ZMod 2) →ₗ[ZMod 2]
+      (Fin 2 × Fin 2 → ZMod 2) ⊗[ZMod 2] (Fin 2 → ZMod 2) :=
+  ((TensorProduct.mk (ZMod 2) _ _).flip (Pi.single 0 1)).comp
+      (Matrix.toLin' charTwoShiftX) +
+    ((TensorProduct.mk (ZMod 2) _ _).flip (Pi.single 1 1)).comp
+      (Matrix.toLin' charTwoShiftY)
+
+/-- The symmetric image of a two-slot coefficient tensor, using native multiplication.
+Its image lies in degree two of the existing symmetric algebra. -/
+def charTwoSymmetricPair :
+    (Fin 2 → ZMod 2) ⊗[ZMod 2] (Fin 2 → ZMod 2) →ₗ[ZMod 2]
+      SymmetricAlgebra (ZMod 2) (Fin 2 → ZMod 2) :=
+  (LinearMap.mul' (ZMod 2) (SymmetricAlgebra (ZMod 2) (Fin 2 → ZMod 2))).comp
+    (TensorProduct.map (SymmetricAlgebra.ι (ZMod 2) (Fin 2 → ZMod 2))
+      (SymmetricAlgebra.ι (ZMod 2) (Fin 2 → ZMod 2)))
+
+-- node: HodgeStructuresPartII:H.0/symmetric-projection-counterexample
+theorem symmetricProjection_charTwo_counterexample :
+    (∀ v w : Module.Dual (ZMod 2) (Fin 2 → ZMod 2),
+      Commute (affineContractions charTwoField v) (affineContractions charTwoField w)) ∧
+    affineOrderedSquare charTwoField (Pi.single (0, 0) 1) =
+      (Pi.single (1, 1) 1) ⊗ₜ[ZMod 2]
+        ((Pi.single 0 1) ⊗ₜ[ZMod 2] (Pi.single 1 1) +
+          (Pi.single 1 1) ⊗ₜ[ZMod 2] (Pi.single 0 1)) ∧
+    affineOrderedSquare charTwoField ≠ 0 ∧
+    (TensorProduct.map
+      (LinearMap.id : (Fin 2 × Fin 2 → ZMod 2) →ₗ[ZMod 2] (Fin 2 × Fin 2 → ZMod 2))
+      charTwoSymmetricPair).comp (affineOrderedSquare charTwoField) = 0 ∧
+    affineOrderedIterate charTwoField 2 ≠ 0 ∧
+    affineOrderedIterate charTwoField 3 = 0 := sorry
 
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
 
@@ -1388,9 +1422,14 @@ example (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) (n : ℕ)
     (hz : affineOrderedIterate θ n = 0) :
     affineOrderedIterate ((TensorProduct.map (LinearMap.id : E →ₗ[R] E) u).comp θ) n = 0 := sorry
 
--- test: TwistedHiggsBundle.affineOrderedIterate.test_chart_identity
-example (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
-    affineOrderedIterate θ n = 0 ↔ affineOrderedIterate θ n = 0 := sorry
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_scaled_chart
+example (n : ℕ) :
+    let θ := (TensorProduct.rid ℚ ℚ).symm.toLinearMap
+    let ψ := (2 : ℚ) • θ
+    let f := (3 : ℚ) • (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
+    let u := (2 : ℚ) • (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
+    ψ.comp f = (TensorProduct.map f u).comp θ ∧
+      ψ ≠ θ ∧ affineOrderedIterate θ n ≠ 0 ∧ affineOrderedIterate ψ n ≠ 0 := sorry
 
 -- test: TwistedHiggsBundle.affineOrderedIterate.test_bound_two_to_five
 example (θ : E →ₗ[R] E ⊗[R] Q) (hz : affineOrderedIterate θ 2 = 0) :
