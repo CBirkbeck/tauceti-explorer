@@ -16,6 +16,7 @@ import Mathlib.RepresentationTheory.Homological.ContCohomology.Basic
 import Mathlib.Algebra.Group.Action.End
 import Mathlib.GroupTheory.GroupAction.Quotient
 import Mathlib.Topology.Algebra.Group.Quotient
+import Mathlib.Topology.Algebra.Group.Torsor
 import Mathlib.Topology.Algebra.MulAction
 import Mathlib.Topology.Algebra.ContinuousMonoidHom
 import Mathlib.GroupTheory.SpecificGroups.Cyclic
@@ -499,27 +500,47 @@ def H1.twistEquiv (c : Z1 G U) : H1 G (Twist c) ≃ H1 G U := sorry
 
 theorem H1.twistEquiv_one (c : Z1 G U) : H1.twistEquiv c 1 = H1.mk c := by sorry
 
+-- TauCeti.NonabelianCohomology.tests.twist_trivial
+example (d : Z1 G (Twist (1 : Z1 G U))) :
+    (∀ (g : G) (x : U),
+      g • (show Twist (1 : Z1 G U) from x) =
+        (show Twist (1 : Z1 G U) from g • x)) ∧
+    (∀ g, Z1.twistEquiv (1 : Z1 G U) d g = (show U from d g)) ∧
+    H1.twistEquiv (1 : Z1 G U) (H1.mk d) =
+      H1.mk (Z1.twistEquiv (1 : Z1 G U) d) := by sorry
+
 end Twisting
 
+section AbelianTwistingTest
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [CommGroup U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+
+-- TauCeti.NonabelianCohomology.tests.twist_abelian
+example (c : Z1 G U) (d : Z1 G (Twist c)) :
+    (∀ (g : G) (x : U),
+      g • (show Twist c from x) = (show Twist c from g • x)) ∧
+    (∀ g, Z1.twistEquiv c d g = (show U from d g) * c g) ∧
+    H1.twistEquiv c (H1.mk d) = H1.mk (Z1.twistEquiv c d) := by sorry
+end AbelianTwistingTest
+
 section Torsor
-variable (G : Type u) [Group G] [TopologicalSpace G]
+variable (G : Type u) [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
   (U : Type v) [Group U] [TopologicalSpace U] [IsTopologicalGroup U] [MulDistribMulAction G U]
   [ContinuousSMul G U]
 
-/-- NC.3/torsor-classification: a `(G, U)`-torsor. -/
+/-- NC.3/equivariant-topological-torsors: a nonempty `(G, U)`-torsor. -/
 structure Torsor where
   carrier : Type (max u v)
   [top : TopologicalSpace carrier]
-  [nonempty : Nonempty carrier]
-  [rightAction : MulAction Uᵐᵒᵖ carrier]
+  [rightTorsor : _root_.Torsor Uᵐᵒᵖ carrier]
+  [topologicalTorsor : IsTopologicalTorsor carrier]
   [leftAction : MulAction G carrier]
-  continuous_right : Continuous fun p : carrier × Uᵐᵒᵖ => p.2 • p.1
   continuous_left : Continuous fun p : G × carrier => p.1 • p.2
-  isHomeomorph_orbit : ∀ p : carrier, IsHomeomorph fun x : U => (MulOpposite.op x) • p
   compat : ∀ (g : G) (p : carrier) (x : U),
     g • ((MulOpposite.op x) • p) = (MulOpposite.op (g • x)) • (g • p)
 
-attribute [instance] Torsor.top Torsor.nonempty Torsor.rightAction Torsor.leftAction
+attribute [instance] Torsor.top Torsor.rightTorsor Torsor.topologicalTorsor Torsor.leftAction
 
 variable {G U}
 
@@ -535,6 +556,95 @@ theorem Torsor.classOf_eq_one_iff (P : Torsor G U) :
 
 theorem Torsor.classOf_surjective :
     Function.Surjective (Torsor.classOf : Torsor G U → H1 G U) := by sorry
+
+/-- A torsor isomorphism is a homeomorphism respecting the right U-action and left G-action. -/
+structure Torsor.Iso (P Q : Torsor G U) where
+  toHomeomorph : P.carrier ≃ₜ Q.carrier
+  map_right : ∀ (p : P.carrier) (x : U),
+    toHomeomorph ((MulOpposite.op x) • p) = (MulOpposite.op x) • toHomeomorph p
+  map_left : ∀ (g : G) (p : P.carrier), toHomeomorph (g • p) = g • toHomeomorph p
+
+@[ext] theorem Torsor.Iso.ext {P Q : Torsor G U} (e f : P.Iso Q)
+    (h : ∀ p, e.toHomeomorph p = f.toHomeomorph p) : e = f := by sorry
+
+def Torsor.Iso.refl (P : Torsor G U) : P.Iso P := sorry
+
+def Torsor.Iso.symm {P Q : Torsor G U} (e : P.Iso Q) : Q.Iso P := sorry
+
+def Torsor.Iso.trans {P Q R : Torsor G U} (e : P.Iso Q) (f : Q.Iso R) : P.Iso R := sorry
+
+def Torsor.orbitHomeomorph (P : Torsor G U) (p : P.carrier) : U ≃ₜ P.carrier :=
+  (MulOpposite.opHomeomorph : U ≃ₜ Uᵐᵒᵖ).trans (Homeomorph.smulConst p)
+
+theorem Torsor.orbitHomeomorph_apply (P : Torsor G U) (p : P.carrier) (x : U) :
+    P.orbitHomeomorph p x = (MulOpposite.op x) • p := by sorry
+
+def Torsor.ofCocycle (c : Z1 G U) : Torsor G U := sorry
+
+/-- A model coordinate, avoiding universe-unsafe identification of carriers. -/
+def Torsor.ofCocycleHomeomorph (c : Z1 G U) : U ≃ₜ (Torsor.ofCocycle c).carrier := sorry
+
+theorem Torsor.ofCocycleHomeomorph_right (c : Z1 G U) (x y : U) :
+    Torsor.ofCocycleHomeomorph c (x * y) =
+      (MulOpposite.op y) • Torsor.ofCocycleHomeomorph c x := by sorry
+
+theorem Torsor.ofCocycleHomeomorph_left (c : Z1 G U) (g : G) (x : U) :
+    g • Torsor.ofCocycleHomeomorph c x =
+      Torsor.ofCocycleHomeomorph c (c g * (g • x)) := by sorry
+
+theorem Torsor.cocycle_ofCocycle (c : Z1 G U) :
+    (Torsor.ofCocycle c).cocycle (Torsor.ofCocycleHomeomorph c 1) = c := by sorry
+
+theorem Torsor.cocycle_spec (P : Torsor G U) (p : P.carrier) (g : G) :
+    g • p = (MulOpposite.op (P.cocycle p g)) • p := by sorry
+
+theorem Torsor.cocycle_change_point (P : Torsor G U) (p : P.carrier) (x : U) :
+    P.cocycle ((MulOpposite.op x) • p) = x⁻¹ • P.cocycle p := by sorry
+
+theorem Torsor.cocycle_map_iso {P Q : Torsor G U} (e : P.Iso Q) (p : P.carrier) :
+    Q.cocycle (e.toHomeomorph p) = P.cocycle p := by sorry
+
+theorem Torsor.classOf_eq_mk_cocycle (P : Torsor G U) (p : P.carrier) :
+    P.classOf = H1.mk (P.cocycle p) := by sorry
+
+theorem Torsor.classOf_ofCocycle (c : Z1 G U) :
+    (Torsor.ofCocycle c).classOf = H1.mk c := by sorry
+
+/-- Injectivity on isomorphism classes, the missing half of the classification. -/
+theorem Torsor.classOf_eq_classOf_iff (P Q : Torsor G U) :
+    P.classOf = Q.classOf ↔ Nonempty (P.Iso Q) := by sorry
+
+/-- The relation is concrete: existence of an equivariant homeomorphism. -/
+def Torsor.isoSetoid (G : Type u) [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
+    (U : Type v) [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+    [MulDistribMulAction G U] [ContinuousSMul G U] : Setoid (Torsor G U) where
+  r P Q := Nonempty (P.Iso Q)
+  iseqv := by sorry
+
+def Torsor.classification : Quotient (Torsor.isoSetoid G U) ≃ H1 G U := sorry
+
+theorem Torsor.classification_mk (P : Torsor G U) :
+    Torsor.classification (Quotient.mk (Torsor.isoSetoid G U) P) = P.classOf := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.torsor_orbit_at_identity
+example (P : Torsor G U) (p : P.carrier) : P.orbitHomeomorph p 1 = p := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.torsor_coboundary_isomorphic
+example (x : U) :
+    Nonempty ((Torsor.ofCocycle (Z1.coboundary (G := G) x)).Iso
+      (Torsor.ofCocycle (1 : Z1 G U))) := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.torsor_gauge_isomorphic
+example (c : Z1 G U) (x : U) :
+    Nonempty ((Torsor.ofCocycle (x • c)).Iso (Torsor.ofCocycle c)) := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.torsor_nonneutral_no_fixed_point
+example (c : Z1 G U) (hc : H1.mk c ≠ (1 : H1 G U)) :
+    ¬ ∃ p : (Torsor.ofCocycle c).carrier, ∀ g : G, g • p = p := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.torsor_inequivalent_not_isomorphic
+example (c d : Z1 G U) (hcd : H1.mk c ≠ H1.mk d) :
+    ¬ Nonempty ((Torsor.ofCocycle c).Iso (Torsor.ofCocycle d)) := by sorry
 
 end Torsor
 
@@ -577,7 +687,62 @@ example :
     Nat.card (H1 (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))) = 2 := by
   sorry
 
+-- TauCeti.NonabelianCohomology.tests.twist_S3
+example (c : Z1 (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3)))
+    (hc : c (Multiplicative.ofAdd (1 : ZMod 2)) = Equiv.swap (0 : Fin 3) 1) :
+    (∀ x : Twist c, Multiplicative.ofAdd (1 : ZMod 2) • x =
+      (show Twist c from Equiv.swap (0 : Fin 3) 1 *
+        (show Equiv.Perm (Fin 3) from x) * (Equiv.swap (0 : Fin 3) 1)⁻¹)) ∧
+    Nat.card (H0 (Multiplicative (ZMod 2)) (Twist c)) = 2 := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.twist_changes_invariants
+example (c : Z1 (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3)))
+    (hc : c (Multiplicative.ofAdd (1 : ZMod 2)) = Equiv.swap (0 : Fin 3) 1) :
+    Nat.card (H0 (Multiplicative (ZMod 2)) (Twist c)) = 2 ∧
+    Nat.card (H0 (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))) = 6 ∧
+    H1.twistEquiv c 1 ≠ (1 : H1 (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))) := by sorry
+
 end FiniteCoreTests
+
+section InvariantsIntegerTests
+variable [MulDistribMulAction (Multiplicative (ZMod 2)) (Multiplicative ℤ)]
+
+-- TauCeti.NonabelianCohomology.tests.invariants (negation action)
+example (hneg : ∀ (g : Multiplicative (ZMod 2)) (x : Multiplicative ℤ),
+    (g • x).toAdd = if g.toAdd = 0 then x.toAdd else -x.toAdd) :
+    H0 (Multiplicative (ZMod 2)) (Multiplicative ℤ) = ⊥ := by sorry
+
+-- TauCeti.NonabelianCohomology.tests.invariants (trivial action)
+example (htriv : ∀ (g : Multiplicative (ZMod 2)) (x : Multiplicative ℤ), g • x = x) :
+    H0 (Multiplicative (ZMod 2)) (Multiplicative ℤ) = ⊤ := by sorry
+end InvariantsIntegerTests
+
+section ContinuityCoreTest
+variable [TopologicalSpace (Multiplicative (ZMod 2))]
+  [DiscreteTopology (Multiplicative (ZMod 2))]
+  [MulDistribMulAction (ℕ → Multiplicative (ZMod 2)) (Multiplicative (ZMod 2))]
+  (htriv : ∀ (g : ℕ → Multiplicative (ZMod 2)) (x : Multiplicative (ZMod 2)), g • x = x)
+include htriv
+
+-- TauCeti.NonabelianCohomology.tests.continuity
+example : Countable (Z1 (ℕ → Multiplicative (ZMod 2)) (Multiplicative (ZMod 2))) ∧
+    ¬ Countable ((ℕ → Multiplicative (ZMod 2)) →* Multiplicative (ZMod 2)) := by sorry
+end ContinuityCoreTest
+
+section FiniteAbelianCoreTest
+variable [TopologicalSpace (Multiplicative (ZMod 2))]
+  [DiscreteTopology (Multiplicative (ZMod 2))]
+  [TopologicalSpace (Multiplicative (ZMod 3))]
+  [DiscreteTopology (Multiplicative (ZMod 3))]
+  [MulDistribMulAction (Multiplicative (ZMod 2)) (Multiplicative (ZMod 3))]
+  [ContinuousSMul (Multiplicative (ZMod 2)) (Multiplicative (ZMod 3))]
+  (hneg : ∀ (g : Multiplicative (ZMod 2)) (x : Multiplicative (ZMod 3)),
+    (g • x).toAdd = if g.toAdd = 0 then x.toAdd else -x.toAdd)
+include hneg
+
+-- TauCeti.NonabelianCohomology.tests.h1_abelian
+example : Subsingleton (H1 (Multiplicative (ZMod 2)) (Multiplicative (ZMod 3))) := by sorry
+end FiniteAbelianCoreTest
 
 -- Discrete cocycle descent continuation.
 namespace Z1
@@ -1064,21 +1229,21 @@ EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.tests.factor_order
 test: For G = U = S₃ with the trivial action, the identity map satisfies c(gh) = c(g)·(g•c(h)) but not c(gh) = (g•c(h))·c(g) (it is a homomorphism, not an anti-homomorphism): the factor order of the cocycle condition matters for nonabelian U.
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
-OMITTED TauCeti.NonabelianCohomology.tests.invariants
+TYPED REVIEW PROTOTYPE TauCeti.NonabelianCohomology.tests.invariants
 test: For G = ℤ/2 acting on U = ℤ by negation, H⁰(G, U) = {0}; for the trivial action H⁰ = U.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: the actual named instance or typed example is present above. Proofs remain sorry; this does not certify the unavailable Tau Ceti comparison artifact.
 
-OMITTED TauCeti.NonabelianCohomology.tests.continuity
+TYPED REVIEW PROTOTYPE TauCeti.NonabelianCohomology.tests.continuity
 test: For G = ∏_{n ∈ ℕ} ℤ/2 (profinite) acting trivially on U = ℤ/2 (discrete), Z¹(G, U) is countable (continuous characters factor through finitely many coordinates), whereas the abstract homomorphisms G → ℤ/2 are uncountable: dropping continuity changes Z¹.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: the actual named instance or typed example is present above. Proofs remain sorry; this does not certify the unavailable Tau Ceti comparison artifact.
 
 EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1
 API: H¹(G, U) = MulAction.orbitRel.Quotient U (Z¹ G U).
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
-OMITTED TauCeti.NonabelianCohomology.Z1.instMulAction
+TYPED REVIEW PROTOTYPE TauCeti.NonabelianCohomology.Z1.instMulAction
 API: The action (u·c)(g) = u·c(g)·(g•u)⁻¹ of U on Z¹(G, U).
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: the actual named instance or typed example is present above. Proofs remain sorry; this does not certify the unavailable Tau Ceti comparison artifact.
 
 EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.mk
 API: The class map Z¹(G, U) → H¹(G, U).
@@ -1092,9 +1257,9 @@ EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.mk_eq_mk_iff
 API: mk c = mk c′ iff c′ = u·c for some u ∈ U.
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
-OMITTED TauCeti.NonabelianCohomology.H1.instOne
+TYPED REVIEW PROTOTYPE TauCeti.NonabelianCohomology.H1.instOne
 API: The base point, the class of the trivial cocycle.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: the actual named instance or typed example is present above. Proofs remain sorry; this does not certify the unavailable Tau Ceti comparison artifact.
 
 EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.mk_eq_one_iff
 API: mk c = 1 iff there is u ∈ U with c(g) = u·(g•u)⁻¹ for all g.
@@ -1104,9 +1269,9 @@ REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.H1.equivOfTrivial
 API: For trivial action, H¹(G, U) ≃ (G →ₜ* U) modulo conjugation by U.
 Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
-OMITTED TauCeti.NonabelianCohomology.tests.h1_trivial_group
+EXISTING TYPED EXAMPLE TauCeti.NonabelianCohomology.tests.h1_trivial_group
 test: If G is the trivial group, H¹(G, U) is a single point.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: the typed Subsingleton example appears above; its proof is sorry.
 
 REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.tests.h1_S3
 test: For G = ℤ/2 acting trivially on S₃ (both discrete), H¹(G, S₃) has exactly 2 elements: the base point and the class of the transpositions.
@@ -1116,9 +1281,9 @@ REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.tests.not_coboundary_qu
 test: In the same example, identifying cocycles c, c′ when c′(g) = c(g)·u(g•u)⁻¹ for some u gives 4 classes (the action is trivial, so every such b is trivial), not 2: the correct relation is twisted conjugation.
 Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
-OMITTED TauCeti.NonabelianCohomology.tests.h1_abelian
+TYPED REVIEW PROTOTYPE TauCeti.NonabelianCohomology.tests.h1_abelian
 test: For G = ℤ/2 acting on U = ℤ/3 (additive, discrete) by negation, H¹ is a single point, agreeing with Tau Ceti's ContCohomology.H1 (the orders are coprime).
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: the actual named instance or typed example is present above. Proofs remain sorry; this does not certify the unavailable Tau Ceti comparison artifact.
 
 EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.map
 API: The map H¹(G, U) → H¹(G, U′) induced by a continuous equivariant homomorphism.
@@ -1152,9 +1317,9 @@ EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.equivContCohomology
 API: H¹(G, Multiplicative M) ≃ ContCohomology.H1 G M, compatible with the class maps.
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
-OMITTED TauCeti.NonabelianCohomology.instMulDistribMulActionMultiplicative
+TYPED REVIEW PROTOTYPE TauCeti.NonabelianCohomology.instMulDistribMulActionMultiplicative
 API: A DistribMulAction of G on the additive group M induces a MulDistribMulAction of G on Multiplicative M (not an instance in Mathlib at the pin), and continuity of the action transfers.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: the actual named instance or typed example is present above. Proofs remain sorry; this does not certify the unavailable Tau Ceti comparison artifact.
 
 REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.Z1.equivContCohomology
 API: Z¹(G, Multiplicative M) ≃ ContCohomology.Z1 G M, the identity on underlying functions.
@@ -1204,25 +1369,28 @@ REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.Twist.self
 API: Twisting by the trivial cocycle is the original action.
 Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
-OMITTED TauCeti.NonabelianCohomology.tests.twist_trivial
+TYPED REVIEW TEST TauCeti.NonabelianCohomology.tests.twist_trivial
 test: Twisting by the trivial cocycle gives back U with its action, and twistEquiv is the identity.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed example supplied by Codex codex-CS32rR. Finite tests retain the discrete topology, trivial original action and prescribed transposition cocycle hypotheses; proofs remain sorry.
 
-OMITTED TauCeti.NonabelianCohomology.tests.twist_abelian
+TYPED REVIEW TEST TauCeti.NonabelianCohomology.tests.twist_abelian
 test: For U commutative, g ⋆ u = g•u for every c, and twistEquiv is translation by c.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed example supplied by Codex codex-CS32rR. Finite tests retain the discrete topology, trivial original action and prescribed transposition cocycle hypotheses; proofs remain sorry.
 
-OMITTED TauCeti.NonabelianCohomology.tests.twist_S3
+TYPED REVIEW TEST TauCeti.NonabelianCohomology.tests.twist_S3
 test: For G = ℤ/2 acting trivially on S₃ and c sending the generator to a transposition τ, the twisted action is conjugation by τ, whose invariants form the subgroup {1, τ} of order 2.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed example supplied by Codex codex-CS32rR. Finite tests retain the discrete topology, trivial original action and prescribed transposition cocycle hypotheses; proofs remain sorry.
 
-OMITTED TauCeti.NonabelianCohomology.tests.twist_changes_invariants
+TYPED REVIEW TEST TauCeti.NonabelianCohomology.tests.twist_changes_invariants
 test: A twist need not be isomorphic to U as a G-group: for G = ℤ/2 acting trivially on S₃ and c(σ) = τ a transposition, H⁰(G, ₍c₎S₃) = {1, τ} has order 2 while H⁰(G, S₃) = S₃ has order 6; and twistEquiv sends the base point to [c], not to the base point.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed example supplied by Codex codex-CS32rR. Finite tests retain the discrete topology, trivial original action and prescribed transposition cocycle hypotheses; proofs remain sorry.
 
-EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Torsor.classOf
-node: A (G, U)-torsor is a topological space P with a continuous right action of U that is free and transitive, such that for one (equivalently every) p ∈ P the orbit map U → P, u ↦ p·u, is a homeomorphism, together with a continuous left action of G satisfying g•(p·u) = (g•p)·(g•u). For p ∈ P let c_p(g) ∈ U be the unique element with g•p = p·c_p(g). Then c_p ∈ Z¹(G, U), c_{p·u} = u⁻¹·c_p under the twisted-conjugation action, so [P] := [c_p] ∈ H¹(G, U) is independent of p and of the isomorphism class of P; P ↦ [P] is a bijection from isomorphism classes of (G, U)-torsors to H¹(G, U), the trivial torsor U corresponds to the base point, and P has a G-fixed point iff [P] is the base point. The inverse sends [c] to U with the twisted G-action g ∗ u := c(g)·(g•u).
-Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
+TYPED REVIEW CORRECTION TauCeti.NonabelianCohomology.Torsor.classOf
+The actual Torsor.Iso, its isomorphism setoid, classOf_eq_classOf_iff and
+classification now state both directions of the topological classification.
+The equivariant-topological-torsors node supplies the definition, cocycle API
+and five typed tests. These remain unproved prototypes. The comparison with
+algebraic/scheme torsors and descent is a separate recorded gap.
 
 -/
 
