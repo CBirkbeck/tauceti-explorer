@@ -22,8 +22,11 @@ This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These statements suggest Lean forms so contributors and reviewers
 converge on names and signatures. No implementation is claimed.
 
-The file was not compiled: no complete existing build at both exact pins was
-available. The native-signature gap records six definition blocks whose canonical
+Review checkpoint codex-7e92bd (2026-10-05): the full file elaborates in an
+existing build using Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, with
+158 warnings, all `declaration uses sorry`, and no errors. This file imports
+Mathlib only; it does not compile Tau Ceti modules. The mathematical review is
+incomplete. The native-signature gap records six definition blocks whose canonical
 imported carriers cannot yet be stated. Their mathematical specifications and all
 API/test names are retained below, rather than introducing substitute Prop fields.
 Other statements requiring those carriers or unacquired higher-genus/covering
@@ -772,7 +775,7 @@ AnalyticNumberTheory:AN.2/mod-eight-interval-mass
 With epsilon=0.002811, for a=3 or 5 and k>=2*10^10, theta(k;a,8)-theta(k/2;a,8)>=(1-3*epsilon)*k/8.
 
 AnalyticNumberTheory:AN.2/prime-power-interval-margin
-For k>=2*10^10, the prime-power mass psi(k)-theta(k)-psi(k/2)+theta(k/2) is smaller than (((1-3*0.002811)/8)-0.1239)*k. Thus an absolute prime-weighted sum >=(1-3*epsilon)k/8 implies an absolute Lambda-weighted sum >0.1239*k.
+Put ε=0.002811. For real k≥2*10^10, the prime-power mass M=psi(k)−theta(k)−psi(k/2)+theta(k/2) is smaller than (((1−3*ε)/8)−0.1239)*k. For b:ℕ→ℂ with |b(n)|≤1 whenever k/2<n≤k, put P=Σ_{k/2<p≤k, p prime}b(p)log p and V=Σ_{k/2<n≤k}b(n)Λ(n). Then |V−P|≤M, so |P|≥(1−3*ε)*k/8 implies |V|>0.1239*k.
 
 AnalyticNumberTheory:AN.2/two-real-zero-separation
 There is an effective absolute c_star>0 such that if distinct real primitive quadratic characters of conductors N1,N2>1 have real zeros beta1,beta2, then min(beta1,beta2)<1-3*c_star/log(N1*N2).
@@ -799,7 +802,7 @@ AnalyticNumberTheory:AN.2/quadratic-effective-zero-gap
 For q>=3 and a quadratic Dirichlet character modulo q, a real zero beta>0 satisfies beta<=1-40/(sqrt(q)*(log q)^2).
 
 AnalyticNumberTheory:AN.2/explicit-weighted-prime-sum
-For x≥319 there is one absolute real E such that log x+E−1/(2 log x)<Σ_{p≤x}(log p)/p<log x+E+1/(2 log x).
+There exists an absolute real constant E such that, for every real x≥319, log x+E−1/(2 log x)<Σ_{p≤x}(log p)/p<log x+E+1/(2 log x). The same E applies at both endpoints of every interval subtraction.
 
 AnalyticNumberTheory:AN.2/explicit-plus-euler-product
 For real x>=10^8, product_{p prime,p<=x}(1+1/p)<=2*log x.
