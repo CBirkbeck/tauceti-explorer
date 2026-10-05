@@ -1,3 +1,6 @@
+import Mathlib.Analysis.Analytic.ChangeOrigin
+import Mathlib.Analysis.Analytic.OfScalars
+import Mathlib.NumberTheory.Padics.Measure.AmiceTransform
 import Mathlib.Algebra.Polynomial.Derivative
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.FieldSimp
@@ -2226,3 +2229,174 @@ example (p : ℚ) (hp : p ≠ 0) (n : ℕ) : (p ^ n)⁻¹ = p * (p ^ (n + 1))⁻
   ring
 
 end TauCeti.LocallyAnalytic.SuggestedTest
+
+/-! Scalar Mellin checkpoint, Codex codex-yAUVaO (2026-10-05).
+Only the newly added L1/L3 adapters are represented below; existing signatures remain above.
+All signatures and tests with omitted proofs remain unchecked plans. -/
+noncomputable section
+open Filter
+open scoped Topology AbstractMeasure
+namespace TauCeti.Mellin
+variable {p : ℕ} [Fact p.Prime]
+variable {K : Type*} [NontriviallyNormedField K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [IsUltrametricDist K]
+
+-- The predicate uses native radius-restricted series; it is not a new carrier.
+def OnOpenDisc (F : PowerSeries K) : Prop :=
+  ∀ R : ℝ, 0 < R → R < 1 → PowerSeries.IsRestricted R F
+
+-- Evaluation is the native scalar-series sum, not a second construction.
+abbrev evalOpen (F : PowerSeries K) (t : K) : K :=
+  FormalMultilinearSeries.ofScalarsSum (fun n => F.coeff n) t
+lemma evalOpen_def (F : PowerSeries K) (t : K) :
+    evalOpen F t = ∑' n : ℕ, F.coeff n * t ^ n := by sorry
+lemma evalOpen_zero (F : PowerSeries K) : evalOpen F 0 = F.coeff 0 := by sorry
+lemma evalOpen_C (a t : K) : evalOpen (PowerSeries.C a) t = a := by sorry
+lemma evalOpen_X (t : K) : evalOpen PowerSeries.X t = t := by sorry
+lemma evalOpen_add (F H : PowerSeries K) (hF : OnOpenDisc F) (hH : OnOpenDisc H)
+    (t : K) (ht : ‖t‖ < 1) : evalOpen (F + H) t = evalOpen F t + evalOpen H t := by sorry
+lemma evalOpen_smul (F : PowerSeries K) (hF : OnOpenDisc F) (a t : K) (ht : ‖t‖ < 1) :
+    evalOpen (a • F) t = a * evalOpen F t := by sorry
+-- MellinEvalTests.zero_series
+example (t : K) : evalOpen 0 t = 0 := by sorry
+-- MellinEvalTests.linear
+example (a b t : K) : evalOpen (PowerSeries.C a + PowerSeries.C b * PowerSeries.X) t =
+    a + b*t := by sorry
+-- MellinEvalTests.geometric
+example (t : K) (ht : ‖t‖ < 1) : evalOpen (PowerSeries.mk (fun _ => (1 : K))) t =
+    (1-t)⁻¹ := by sorry
+-- MellinEvalTests.boundary
+example : ¬ Summable (fun _ : ℕ => (1 : K)) := by sorry
+
+-- L1/open-disc-native-radius
+lemma openDisc_native_radius (F : PowerSeries K) (hF : OnOpenDisc F) :
+    (1 : ENNReal) ≤ (FormalMultilinearSeries.ofScalars K (fun n => F.coeff n)).radius := by sorry
+
+-- L1/open-disc-summability
+lemma openDisc_summable (F : PowerSeries K) (hF : OnOpenDisc F)
+    (t : K) (ht : ‖t‖ < 1) : Summable (fun n : ℕ => F.coeff n * t ^ n) := by sorry
+-- L1/open-disc-uniform-tail
+lemma evalOpen_tail_bound (F : PowerSeries K) (hF : OnOpenDisc F) (R S M : ℝ)
+    (hR : 0 < R) (hRS : R < S) (hS : S < 1) (hM : 0 ≤ M)
+    (hb : ∀ n : ℕ, ‖F.coeff n‖ * S^n ≤ M) (t : K) (ht : ‖t‖ ≤ R) (N : ℕ) :
+    ‖evalOpen F t - ∑ n ∈ Finset.range N, F.coeff n * t^n‖ ≤ M * (R/S)^N := by sorry
+-- L1/open-disc-evaluation-analytic
+theorem analyticOnNhd_evalOpen (F : PowerSeries K) (hF : OnOpenDisc F) :
+    AnalyticOnNhd K (evalOpen F) {t : K | ‖t‖ < 1} := by sorry
+-- L1/open-disc-evaluation-mul
+lemma evalOpen_mul (F H : PowerSeries K) (hF : OnOpenDisc F) (hH : OnOpenDisc H)
+    (t : K) (ht : ‖t‖ < 1) : evalOpen (F * H) t = evalOpen F t * evalOpen H t := by sorry
+-- L1/open-disc-evaluation-map
+lemma evalOpen_map {L : Type*} [NontriviallyNormedField L] [CompleteSpace L]
+    [IsUltrametricDist L] (φ : K →+* L) (hφ : Isometry φ)
+    (F : PowerSeries K) (hF : OnOpenDisc F) (t : K) (ht : ‖t‖ < 1) :
+    evalOpen (PowerSeries.map φ F) (φ t) = φ (evalOpen F t) := by sorry
+
+section Components
+variable {G Δ : Type*} [TopologicalSpace G] [CompactSpace G]
+  [Fintype Δ] [TopologicalSpace Δ] [DiscreteTopology Δ]
+-- L3/finite-character-component-mellin: H is an imported chart, ν an imported finite character.
+def componentMellin (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) : PowerSeries K := by sorry
+lemma componentMellin_coeff (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) (n : ℕ) :
+    (componentMellin H ν μ).coeff n = μ ⟨fun g =>
+      ν (H g).1 * algebraMap ℤ_[p] K (mahler n (H g).2), by fun_prop⟩ := by sorry
+lemma componentMellin_add (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ η : AbstractMeasure G K K) :
+    componentMellin H ν (μ+η) = componentMellin H ν μ + componentMellin H ν η := by sorry
+lemma componentMellin_smul (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (a : K) (μ : AbstractMeasure G K K) :
+    componentMellin H ν (a • μ) = a • componentMellin H ν μ := by sorry
+lemma componentMellin_dirac (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) (g : G) :
+    componentMellin H ν (AbstractMeasure.dirac K g) =
+      PowerSeries.mk (fun n => ν (H g).1 * algebraMap ℤ_[p] K (mahler n (H g).2)) := by sorry
+lemma componentMellin_mass (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) :
+    (componentMellin H ν μ).coeff 0 = μ ⟨fun g => ν (H g).1, by fun_prop⟩ := by sorry
+-- ComponentMellinTests.zero
+example (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) : componentMellin H ν 0 = 0 := by sorry
+-- ComponentMellinTests.finite_atom
+example (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) (δ : Δ) :
+    componentMellin H ν (AbstractMeasure.dirac K (H.symm (δ,0))) =
+      PowerSeries.C (ν δ) := by sorry
+-- ComponentMellinTests.generator_atom
+example (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) (δ : Δ) :
+    componentMellin H ν (AbstractMeasure.dirac K (H.symm (δ,1))) =
+      PowerSeries.C (ν δ) * (1+PowerSeries.X) := by sorry
+-- ComponentMellinTests.native_amice
+example (μ : AbstractMeasure ℤ_[p] K K) :
+    componentMellin (Homeomorph.uniqueProd PUnit ℤ_[p]).symm (fun _ => (1 : K)) μ =
+      μ.amiceTransform := by sorry
+-- L3/component-mellin-coefficient-bound
+lemma componentMellin_coeff_bound (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) (C : ℝ) (hC : 0 ≤ C) (hν : ∀ δ, ‖ν δ‖ ≤ C) (n : ℕ) :
+    ‖(componentMellin H ν μ).coeff n‖ ≤ ‖AbstractMeasure.toCLMEquiv μ‖ * C := by sorry
+-- L3/component-mellin-open-disc
+theorem componentMellin_onOpenDisc (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) : OnOpenDisc (componentMellin H ν μ) := by sorry
+-- L3/component-mellin-evaluation
+theorem componentMellin_eval (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) (t : K) (ht : ‖t‖ < 1) :
+    evalOpen (componentMellin H ν μ) t = μ ⟨fun g => ν (H g).1 *
+      PadicInt.addChar_of_value_at_one t
+        (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr ht) (H g).2, by fun_prop⟩ := by sorry
+end Components
+
+-- L3/branch-mellin
+def branchMellin (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) : K :=
+    evalOpen F (PadicInt.addChar_of_value_at_one q
+      (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr hq) s - 1)
+lemma branchMellin_def (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
+    branchMellin F q hq s = evalOpen F (PadicInt.addChar_of_value_at_one q
+      (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr hq) s - 1) := by sorry
+lemma branchMellin_zero (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) :
+    branchMellin (p := p) F q hq 0 = F.coeff 0 := by sorry
+lemma branchMellin_one (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) :
+    branchMellin (p := p) F q hq 1 = evalOpen F q := by sorry
+lemma branchMellin_add (F H : PowerSeries K) (hF : OnOpenDisc F) (hH : OnOpenDisc H)
+    (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
+    branchMellin (F+H) q hq s = branchMellin F q hq s + branchMellin H q hq s := by sorry
+-- BranchMellinTests.zero
+example (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) : branchMellin 0 q hq s = 0 := by sorry
+-- BranchMellinTests.constant
+example (a q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
+    branchMellin (PowerSeries.C a) q hq s = a := by sorry
+-- BranchMellinTests.linear_at_one
+example (q : K) (hq : ‖q‖ < 1) : branchMellin (p := p) PowerSeries.X q hq 1 = q := by sorry
+-- BranchMellinTests.generator_at_zero
+example (q : K) (hq : ‖q‖ < 1) : branchMellin (p := p) (1+PowerSeries.X) q hq 0 = 1 := by sorry
+-- L3/branch-coordinate-domain
+lemma branchCoordinate_norm_le (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
+    ‖PadicInt.addChar_of_value_at_one q
+      (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr hq) s - 1‖ ≤ ‖q‖ := by sorry
+-- L3/branch-integer-evaluation
+lemma branchMellin_nat (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) (n : ℕ) :
+    branchMellin F q hq (n : ℤ_[p]) = evalOpen F ((1+q)^n-1) := by sorry
+
+-- L3/meromorphic-mellin-clearing: domain is guarded at the point of use.
+def quotientMellin (F D : PowerSeries K) (t : K) : K := evalOpen F t / evalOpen D t
+lemma quotientMellin_def (F D : PowerSeries K) (t : K) :
+    quotientMellin F D t = evalOpen F t / evalOpen D t := by sorry
+lemma quotientMellin_clear (F D : PowerSeries K) (t : K) (hD : evalOpen D t ≠ 0) :
+    evalOpen D t * quotientMellin F D t = evalOpen F t := by sorry
+lemma quotientMellin_one (F : PowerSeries K) (t : K) :
+    quotientMellin F 1 t = evalOpen F t := by sorry
+lemma quotientMellin_zero (D : PowerSeries K) (t : K) : quotientMellin 0 D t = 0 := by sorry
+-- QuotientMellinTests.no_denominator
+example (F : PowerSeries K) (t : K) : quotientMellin F 1 t = evalOpen F t := by sorry
+-- QuotientMellinTests.simple_pole
+example (t : K) (ht : t ≠ 0) : quotientMellin 1 PowerSeries.X t = t⁻¹ := by sorry
+-- QuotientMellinTests.removable_on_punctured_disc
+example (t : K) (ht : t ≠ 0) : quotientMellin PowerSeries.X PowerSeries.X t = 1 := by sorry
+-- QuotientMellinTests.trivial_character_excluded
+example : evalOpen (PowerSeries.X : PowerSeries K) 0 = 0 := by sorry
+-- L3/meromorphic-clearing-independence
+lemma quotientMellin_independent (F D F' D' : PowerSeries K)
+    (hF : OnOpenDisc F) (hD : OnOpenDisc D) (hF' : OnOpenDisc F') (hD' : OnOpenDisc D')
+    (h : F*D'=F'*D) (t : K) (ht : ‖t‖ < 1)
+    (hDt : evalOpen D t ≠ 0) (hD't : evalOpen D' t ≠ 0) :
+    quotientMellin F D t = quotientMellin F' D' t := by sorry
+end TauCeti.Mellin
+
+end

@@ -1,10 +1,239 @@
-# Locally analytic distributions: L0–L2, and L4's entire functional input at fixed characteristic degree
+# Locally analytic distributions, growth and scalar Mellin evaluation
 
-**Current checkpoint:** 199 unchecked nodes: 7 definitions, 19 constructions, 115 lemmas, 38 theorems and 20
-comparisons; 106 API items, 91 packet tests on definitions and constructions, 12 planets and 229 baseline citations.
-Eight gaps, six requests, two inherited source findings and zero closed stages remain. L1 is
-`source_decomposed`; L0 and L2 are `partial` (one variable done); L3 is `not_read`; L4 is `partial`. Numerical summaries in the
-earlier developments below are historical.
+**Current checkpoint:** 214 unchecked nodes: 7 definitions, 22 constructions,
+123 lemmas, 41 theorems and 21 comparisons; 122 API items, 103 packet tests,
+15 planets and 248 baseline citations. Ten gaps, six requests, two inherited
+source findings and zero planned or closed stages remain. Every stage L0–L4
+is partial. This continuation adds fifteen L1/L3 nodes; all 199 prior nodes
+are preserved. Numerical summaries and completion statements in the earlier
+checkpoint developments below are historical.
+
+## One-variable scalar Mellin checkpoint (Codex codex-yAUVaO)
+
+This continuation adds six L1 and nine L3 declarations. It preserves every
+previous node, including the thirteen L4 decomposition declarations. The new
+module is `TauCeti/NumberTheory/Padics/Mellin`, namespace `TauCeti.Mellin`.
+The series and measure carriers are native Mathlib objects. Character
+representability, the component charts and their universal character belong to
+PadicMeasuresIwasawaAlgebras L0a. Generic analytic-family actions remain in LAD
+L4, as required by the accepted RS-16 restructuring.
+
+### Sources and the boundary of this read
+
+The fresh source reads are Rodrigues Jacinto–Williams,
+[arXiv:2309.15692v2](https://arxiv.org/pdf/2309.15692v2), §§3.7–3.8,
+pp. 23–26, and §5.3, pp. 34–35; and Colmez,
+[*Fonctions d'une variable p-adique*](https://webusers.imj-prg.fr/~pierre.colmez/fonctionsdunevariable.pdf),
+§I.6, pp. 27–28, §II.2 including the proofs on p. 30, and §II.4,
+pp. 34–36. Remark 3.47 describes character evaluation on the components of
+weight space and the clearing-factor expression for a pseudomeasure. The
+formula in §5.3 fixes the unshifted branch parameter. Colmez supplies the
+open-disc coefficient model and the local-character context. The six native
+series adapters below are explicitly worker decompositions of estimates used
+by those results; the papers do not give them six separate numbered statements.
+
+The pinned-library audit already distinguishes the native one-dimensional
+continuous-character correspondence from a representing rigid space. The
+latter is an imported request, so this checkpoint makes no claim that a
+function on coefficient-field points constructs that space. It also does not
+claim a fresh read of the Schneider–Teitelbaum, Loeffler, Colmez–Nizioł,
+Pilloni, BCGP or Pan passages. Their assigned work stays in the coverage lists.
+
+### L1: native series, radius and evaluation
+
+Let K be a finite extension of Q_p with the normalized ultrametric absolute
+value. The elementary series statements hold more generally over a complete,
+nontrivially normed ultrametric field. Write F=Σ a_n T^n for a native power
+series. In this section an **open-disc series** means that ||a_n||R^n tends to
+zero for every real radius 0<R<1. This is the native restrictedness predicate at
+each radius, and is the coefficient model of the already planned R⁺. Write
+E(F,t) for Mathlib's scalar formal-multilinear-series sum of these coefficients.
+Analytic interpretations always require ||t||<1; the underlying total sum
+operation does not assert convergence at boundary points.
+
+`L1/open-disc-native-radius` compares this model with the native analytic
+radius. Restrictedness at S<1 bounds ||a_n||S^n. The native scalar coefficient
+norm and radius bound then give radius at least S, hence at least 1. This
+comparison reuses `FormalMultilinearSeries.ofScalars` and its sum, rather than
+planning another summation or analyticity theory.
+
+`L1/open-disc-summability` makes the pointwise convergence obligation explicit.
+For ||t||<1 choose ||t||<S<1. The terms have norms bounded by
+||a_n||S^n(||t||/S)^n and tend to zero. Completeness and the nonarchimedean
+summability criterion give a sum. The baseline index records the
+multiplicative generating declaration; its source explicitly generates the
+additive summability theorem. The geometric series is a useful boundary test:
+it converges on this open disc, while its terms at t=1 are constantly one.
+
+`L1/open-disc-uniform-tail` strengthens convergence for later interchange of
+limits. If 0<R<S<1, M≥0 and ||a_n||S^n≤M for all n, then, for ||t||≤R,
+
+‖E(F,t) − Σ_{n<N} a_n t^n‖ ≤ M(R/S)^N.
+
+Every tail term has this bound; finite ultrametric sums and their limit retain
+it. Thus the polynomial truncations converge uniformly on the smaller closed
+disc. This argument uses a coefficient estimate and makes no compactness
+assumption on that disc. At N=0 it bounds the whole value by M; the monomial
+T^N tests the location of the first omitted term.
+
+`L1/open-disc-evaluation-analytic` applies the native analyticity theorem on
+the extended-metric ball of the scalar series' radius. It states precisely
+that E(F,−) is analytic at every point with norm less than one.
+`L1/open-disc-evaluation-mul` uses the native product-of-sums result and the
+finite fibres i+j=n to identify the Cauchy product. Evaluation preserves
+multiplication there; additivity and scalar linearity follow from summability.
+These laws are what allow clearing relations to survive evaluation.
+
+`L1/open-disc-evaluation-map` is the coefficient-extension adapter. If φ:K→K′
+is an isometric field homomorphism into a complete ultrametric field, then
+
+E(map(φ,F),φ(t)) = φ(E(F,t)) for ||t||<1.
+
+The isometry preserves restrictedness, and continuity transports the finite
+partial-sum limit. Identity and composition reduce to the native power-series
+map laws. This scalar statement does not construct extension of locally
+analytic distribution spaces, a remaining L3 target.
+
+The suggested file includes four additional native-evaluation examples: the
+zero series, a linear polynomial a+bT, the geometric series with value
+(1−t)⁻¹ inside the disc, and nonsummability of the constant-one terms at the
+boundary. These support the series adapters; they do not increase the packet's
+definition/construction test count.
+
+### L3: a Mellin component on an imported chart
+
+`L3/finite-character-component-mellin` takes as input a compact space G, a
+finite discrete set Δ, an imported chart H:G≃Δ×Z_p and a function ν:Δ→K. In
+character-space applications H is a group chart and ν is a finite character;
+the adapter itself needs only the continuous chart and the finite value
+function. For a native bounded measure μ on G put
+
+F_{μ,ν,H}(T) = Σ_{n≥0} μ(g ↦ ν(H(g)_Δ) binom(H(g)_Z,n)) T^n.
+
+The binomial value is transported by the native algebra map Z_p→K. Its test
+function is continuous: the finite factor is discrete and the Mahler function
+is native and continuous. Apply μ to each such function, then use the native
+power-series coefficient constructor. This is a component adapter of the
+existing bounded Amice transform. It does not redefine bounded measures or
+construct the character chart.
+
+The construction's six API entries specify its constructor, coefficient
+projection, additivity in μ, scalar linearity in μ, the Dirac-mass formula, and
+the zeroth coefficient μ(ν∘H_Δ). Its four tests distinguish the finite factor
+and the generator coordinate: a zero measure gives zero; the atom at (δ,0)
+gives the constant ν(δ); the atom at (δ,1) gives ν(δ)(1+T); and a singleton
+finite factor with ν=1 gives exactly the native bounded Amice transform.
+The first new L3 planet is **Component Mellin transform**.
+
+`L3/component-mellin-coefficient-bound` fixes the boundedness proof. If C≥0
+bounds every ||ν(δ)||, then
+
+||coeff_n(F_{μ,ν,H})|| ≤ ||μ|| C.
+
+Here ||μ|| is the native continuous-linear-functional operator norm. The
+Mahler function has sup norm one, and the bounded scalar action gives the same
+upper bound after transport to K. Thus its weighted pullback has sup norm at
+most C. For a finite character in a splitting field, C=1 is available.
+
+`L3/component-mellin-open-disc` multiplies this uniform coefficient bound by
+R^n for each R<1 and applies the restrictedness criterion. Analytic evaluation
+follows from the L1 adapter. This is the forward bounded-measure comparison.
+The converse, including finite-character inversion and its topology, remains
+to be derived from the exact PMIA `L2/field-bounded-amice-isometry` node and the
+requested finite-component interface.
+
+`L3/component-mellin-evaluation` is the scalar Mellin identity. For ||t||<1,
+let κ_t be the native additive character on Z_p with κ_t(1)=1+t. Then
+
+E(F_{μ,ν,H},t) = μ(g ↦ ν(H(g)_Δ) κ_t(H(g)_Z)).
+
+The native character is the Mahler series with coefficients t^n. Its weighted
+pullback is uniformly summable in the continuous-function norm, with term
+norms at most C||t||^n. Apply the native measure's continuous linear map to
+this sum. The coefficient formula identifies the resulting scalar series.
+When H and ν have their imported group meanings, the right side is integration
+against the corresponding character. At t=0 it is the finite-character mass;
+for an atom at the generator it is ν(δ)(1+t).
+
+### Arithmetic branches and their domain
+
+`L3/branch-mellin` defines B_{F,q}(s)=E(F,κ_q(s)−1), where ||q||<1 and
+s∈Z_p. It uses native p-adic exponentiation through the character κ_q. The
+construction's API is the defining formula, its constructor, the value
+B(0)=coeff_0 F, the value B(1)=E(F,q), and additivity in F. Its four tests are
+zero F, constant F, B_{T,q}(1)=q, and B_{1+T,q}(0)=1. The planet is
+**Mellin branch**.
+
+`L3/branch-coordinate-domain` supplies the missing domain condition:
+||κ_q(s)−1||≤||q||<1. Remove the constant term of the native Mahler expansion;
+all remaining terms have norm at most ||q||^n≤||q||. The ultrametric limit
+retains the bound. `L3/branch-integer-evaluation` then gives
+B_{F,q}(n)=E(F,(1+q)^n−1) for n≥0 by the character law.
+
+In RJW's standard odd-prime unit chart take γ=1+p, q=γ−1 and ν=ω^i. This gives
+Mel_{μ,i}(s)=∫ω(x)^i〈x〉^s dμ. At p=2 the requested chart uses the finite
+factor {±1}, principal units 1+4Z_2 and γ=5. No odd-prime component count is
+asserted there. Recovering x^k also requires k≡i modulo p−1, or the appropriate
+dyadic parity. The chart-to-arithmetic-character comparison is an explicit
+supplier obligation. The zeta-function shift s↦1−s belongs to the downstream
+Dirichlet p-adic L-function normalization; it is not inserted in this branch.
+Local analyticity and weight derivatives, including their log(γ) factor,
+remain to be decomposed separately.
+
+### Clearing factors and meromorphic overlap
+
+`L3/meromorphic-mellin-clearing` constructs the chart expression
+Q_{F,D}(t)=E(F,t)/E(D,t), with mathematical domain ||t||<1 and E(D,t)≠0.
+For an actual PMIA pseudomeasure λ cleared by ([a]−[1]), F comes from the
+genuine bounded-measure numerator and D represents κ_t(a)−1. PMIA owns those
+numerators and their algebraic cross-product relations. LAD owns the analytic
+expression and its eventual gluing on character components.
+
+Its API comprises the constructor, quotient formula, the guarded identity
+E(D,t)Q=E(F,t), denominator-one compatibility, and zero numerator. The four
+tests are Q_{F,1}=E(F,t), Q_{1,T}=t⁻¹ at t≠0, Q_{T,T}=1 on the punctured
+disc, and E(T,0)=0 excluding the trivial character from that chart. A total
+field division operation has a value at zero denominator, but that value is
+not asserted to be a pseudomeasure evaluation. A removable expression on a
+punctured disc is not by itself an extension theorem. The planet is
+**Meromorphic Mellin evaluation**.
+
+`L3/meromorphic-clearing-independence` assumes four open-disc series with
+FD′=F′D. At a point where both evaluated denominators are nonzero, evaluation
+multiplicativity gives Q_{F,D}=Q_{F′,D′}. This is one overlap lemma, conditional
+on the exact imported algebraic relation. Geometric gluing, genuine clearing
+denominators and pole-order bounds still need their own declarations. A
+generator clearing factor can have its exceptional zero at the trivial
+character; a general clearing element can vanish at additional characters,
+so the domain keeps the entire nonvanishing condition.
+
+### What this checkpoint leaves open
+
+All five stages are partial. L3 now has a bounded scalar entry point. Its full
+unbounded Mellin equivalence still needs the finite-factor decomposition of
+locally analytic functions and their duals, transported through the existing
+L1 Amice equivalence, with its Fréchet topology. Twists, weight derivatives,
+multivariable/ray-class functoriality and analytic-versus-adic comparison are
+explicit remaining work. The geometric disc and gluing interface is imported
+from AdicSpaces Layer 5.
+
+L1's earlier source-decomposed status applied to the older source scope. The
+new Colmez–Nizioł Appendix A assignment and refinement of its inherited
+composite APIs require partial status. L0 must include the appropriate
+nonarchimedean locally convex/left-heart setting, with spherical completeness
+or the precise outer-term separability assumptions. L1 must include the
+surjective derivative on LA(Z_p) without continuous section and the associated
+tR⁺ nonsplitting input. These statements are not derived in this checkpoint.
+
+L4 retains every earlier decomposition node. RT-AREA-iwasawa-2 and
+RT-AREA-iwasawa-5 remain unresolved: the new derived finite-slope input must
+specify projective Banach complex representatives and compact endomorphisms,
+the nonalternating product characteristic series, homotopy/localization
+compatibility, corrected slope endpoints and Stein/quasi-Stein descent.
+Pilloni §13, BCGP 2021 §6.1.1, BCGP 2025 §§2.2/4.6 and Pan Example 2.2.2 are
+assigned sources still to read, rather than citations validated by this
+continuation. Solid/discrete-module higher Coleman machinery stays outside
+this Banach-complex input.
 
 ## Layers L0–L2 (Claude Code, session cc-39fac3)
 
