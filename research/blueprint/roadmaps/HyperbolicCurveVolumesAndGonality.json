@@ -1,0 +1,173 @@
+{
+  "id": "HyperbolicCurveVolumesAndGonality",
+  "title": "Fuchsian groups and orbifold Riemann surfaces, Part II: volumes and gonality of hyperbolic curves",
+  "area": "analysis",
+  "parent": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+  "summary": "This extension connects the existing Fuchsian quotient and compactification theory to sharp hyperbolic curve-volume estimates and gonality. It fixes metric and current normalizations, builds analytic cycles and positive potentials, distinguishes complex and conjugate diagonals, and relates conformal area to gonality through Li–Yau while importing the automorphic spectral gap.",
+  "readme": "This roadmap extends Fuchsian groups and orbifold Riemann surfaces. It begins with that roadmap’s projective actions, quotient charts, geodesics, cusp compactification and finite-map degree theory. Its new objects are hyperbolic volume comparisons, analytic integration and positivity, diagonal tube estimates, and gonality/conformal-area invariants. The metric carrier remains Mathlib’s UpperHalfPlane and Tau Ceti’s Complex.UnitDisc/PoincareDisc. Function-field Riemann–Roch, canonical degree and regular projective models remain in AlgebraicCurves; algebraic intersections remain in SchemeAndStackFoundations SF.5; analytification and algebraization remain in ComplexComparisonPartII C0–C4. The current and differential-form theory needed for these volume estimates is mathematical work here, not an unearned consequence of those algebraic suppliers. Congruence spectral gaps are owned by the separate AutomorphicSpectralTheory extension.\n\nCurvature is −1; d₁ is twice Tau Ceti’s PoincareDisc distance. Neighborhoods in products use the maximum coordinate distance; the pulled-back two-form is a sum. Set dᶜ=i(∂̄−∂)/(4π), so ddᶜ=i∂∂̄/(2π) and ddᶜlog|h|²=[div(h)]. This is half Demailly’s operator; every comparison carries its constant. The conjugate diagonal is a totally real locus, not a complex divisor. Effective cycle and parametrization multiplicities are retained throughout.\n\nThe companion blueprint is a checkpoint. HV.0 and HV.1 contain concrete scalar and measure signatures; HV.2 contains the local parameter integral and three degree-sensitive volume models. The global analytic-cycle, current, intersection, gonality and spectral-comparison targets remain explicitly open. The roadmap does not assert that its ambitious endpoints have been decomposed or formalised.\n",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "ComplexComparisonPartII",
+    "SchemeAndStackFoundations"
+  ],
+  "stages": [
+    {
+      "key": "HV.0",
+      "title": "Curvature normalization, disc area and lens geometry",
+      "description": "Consume PoincareDisc, Schwarz–Pick, UpperHalfPlane.dist/volume and Cayley coordinates. Expose d₁=2d_TauCeti, radial balls, b=4/(1−|z|²)², the restricted density measure, a(r)=4πsinh²(r/2), and a_λ(r)=λ²a(r/λ). Distinguish max-product neighborhoods from sum forms. Prove the normalized ±a lens enclosure with M(R)=2artanh√tanh(R/2), including M(R)−R→log2.",
+      "requires": []
+    },
+    {
+      "key": "HV.1",
+      "title": "Invariant scalar diagonal potentials",
+      "description": "Define μ=tanh²(d₁/4), χ=tanh²(d₁/2) and ψ(z,w)=χ(z,w̄), prove their formulas, ranges, zero loci and simultaneous or conjugate action invariance. Prove χ=4μ/(1+μ)², F=−8πlog(1−μ), H(log μ)=log(χ/(1−χ)) off Δ and H′ at radius r equals cosh r. Define f(s)=−log(1−s), g(t)=2asin√(1−e^(−t)) and prove g′(2log cosh r)=1/sinh r. Reject the conjugate diagonal as a complex divisor by its totally real tangent plane. These are scalar formulas; extended-real log μ and psh/current claims are HV.3/HV.5 targets.",
+      "requires": [
+        "HyperbolicCurveVolumesAndGonality:HV.0"
+      ]
+    },
+    {
+      "key": "HV.2",
+      "title": "Analytic cycles and normalization integration",
+      "description": "Define locally finite effective complex one-cycles, analytic normalization and integration of Σprᵢ*ω_X with cycle weights. Define branch multiplicity and mult_ξ(C), including degree-d parameterizations and proper finite-map pushforward laws. Construct quotient metric/form descent via Fuchsian charts and compare to the existing invariant half-plane measure. Prove chart independence and weighted integration. Supply local sum-density and nonnegative source-integral formulas, fibre equality a(r), anti-graph equality 2a(r), the power-map degree factor, and zero contribution of a constant cusp coordinate. Pin ρ_X as half the compact systole; do not use a positive global pointwise injectivity radius for a cusped quotient.",
+      "requires": [
+        "HyperbolicCurveVolumesAndGonality:HV.0",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces"
+      ]
+    },
+    {
+      "key": "HV.3",
+      "title": "Positive currents, singular Stokes and canonical area",
+      "description": "Construct test forms, currents and positive (1,1)-currents with chart independence and actual continuity topology; construct extended-real psh functions and their locally integrable distributional derivatives. Set dᶜ=i(∂̄−∂)/(4π) on real functions, ddᶜ=i∂∂̄/(2π), half Demailly’s normalization. Prove ddᶜlog|h|²=[div(h)] and singular Stokes on normalized curve branches by regular-level approximation, with atomic multiplicities. Prove log μ is psh with value −∞ on Δ, F is psh and ddᶜF≤ω_D². Construct Hermitian line-bundle curvature and Chern–Weil comparison for K_X; prove c₁(K_X)=[ω_X]/(2π) and vol(C)=2π(K_Xⁿ·C), including cycle weights. Import algebraic intersections and analytification/GAGA, not analytic currents, from SF.5/C0–C4.",
+      "requires": [
+        "HyperbolicCurveVolumesAndGonality:HV.1",
+        "HyperbolicCurveVolumesAndGonality:HV.2",
+        "SchemeAndStackFoundations:SF.5",
+        "ComplexComparisonPartII:C0",
+        "ComplexComparisonPartII:C2",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ]
+    },
+    {
+      "key": "HV.4",
+      "title": "Hwang–To point and diagonal volumes",
+      "description": "For compact curvature −1 hyperbolic X, ρ_X>0, an effective curve cycle C and 0<r<ρ_X, prove vol(C∩B∞(ξ,r))≥a(r)mult_ξ(C). For 0<r<ρ_X/2 and no diagonal component, prove vol(C∩{d_X(x,y)<2r})≥2a(r)(C·Δ). Define I(r)=∫ddᶜF, prove I(r)/a(r) monotone and its Lelong limit at least 2(C·Δ). For Δ₂={(x,y,x,y)}⊂X⁴, and every component of C not contained in Δ₂, prove vol(C∩B∞(Δ₂,r))≥2a(r)Σ_{ξ∈C∩Δ₂}mult_ξ(C); this is a point sum, not divisor intersection with a codimension-two locus. Prove the global midpoint lens bound using the existing geodesic-normalizing isometries.",
+      "requires": [
+        "HyperbolicCurveVolumesAndGonality:HV.3",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "key": "HV.5",
+      "title": "Relative diagonal and conjugate-diagonal volumes",
+      "description": "For C with no diagonal component, construct ddᶜlog(χ/(1−χ))=ω/(4π)+[Δ], with the corrected smooth coefficient, and prove V_Δ(r)/cosh r monotone for 0<r<ρ_X/2. On X×Xbar construct the real analytic conjugate diagonal, its tubes and conjugate-chart invariance; prove i∂∂̄(f∘ψ)=ω/2 and i∂∂̄(g∘f∘ψ)≥0 as currents. Singular Stokes gives V_barΔ(r)=2sinh r·∫i∂∂̄(g∘f∘ψ), hence V_barΔ(r)/√a(2r) monotone. For 0<r<R<ρ_X/2 prove V_barΔ(r)≤(sinh r/sinh R)V_barΔ(R); the reciprocal printed in the erratum is rejected. Rescale radii, ρ and forms for curvature −1/λ²; use cosh(r/λ) and √a_λ(2r). Define no algebraic intersection with barΔ.",
+      "requires": [
+        "HyperbolicCurveVolumesAndGonality:HV.1",
+        "HyperbolicCurveVolumesAndGonality:HV.3",
+        "HyperbolicCurveVolumesAndGonality:HV.4"
+      ]
+    },
+    {
+      "key": "HV.6",
+      "title": "Gonality on smooth projective models",
+      "description": "For a smooth projective geometrically connected curve B/k define gon_k(B) as the minimum positive degree of a finite nonconstant k-morphism to P¹_k, with existence proved. For opens and integral image curves use the smooth projective normalization/completion imported from AlgebraicCurves/ComplexComparisonPartII. Prove extension-field monotonicity and equality for algebraically closed k, with a finite-type descent/specialization argument. Over algebraically closed k prove gon≤g+1 by Riemann–Roch. Separately prove gon≤floor((g+3)/2) in characteristic zero using the pencil case of Brill–Noether existence, and prove equality on a nonempty Zariski-open locus in M_g over ℂ. Supply gon(P¹)=1 and gon(genus-one B)=2 over algebraically closed k; a nonsplit genus-zero curve is not assigned gonality one from genus alone. Import function-field RR, canonical degree, ramification and projective models.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+        "ComplexComparisonPartII:C0",
+        "ComplexComparisonPartII:C1",
+        "ComplexComparisonPartII:C2",
+        "ComplexComparisonPartII:C3",
+        "ComplexComparisonPartII:C4"
+      ]
+    },
+    {
+      "key": "HV.7",
+      "title": "Conformal area, finite-area cusps and Li–Yau",
+      "description": "Define V_c(n,φ)=sup_{A∈Conf(Sⁿ)}Area(A∘φ) for nondegenerate branched conformal immersions, V_c(n,M)=inf_φ V_c(n,φ), and stable conformal area A_c. Prove conformal invariance, degree-d comparison, and V_c(n,S²)=4π for n≥2. Prove λ₁Area≤2A_c≤8πgon for compact Riemann surfaces by conformal barycenter balancing and the Rayleigh quotient. Extend to the finite-area hyperbolic metric with cusps/elliptic singularities, using λ′₁=inf positive Rayleigh quotients, identified with min(λ₁,1/4) when the discrete eigenvalue exists. Prove coordinate test functions have finite Dirichlet energy and mean-zero normalization by Abramovich’s conformal argument. Import the congruence spectral gap from the separately routed AutomorphicSpectralTheory extension; never prove that automorphic theorem here. State the resulting gonality lower bound gon≥λ′₁Area/(8π), with modular-curve area/index inputs imported.",
+      "requires": [
+        "HyperbolicCurveVolumesAndGonality:HV.2",
+        "HyperbolicCurveVolumesAndGonality:HV.6",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "bt",
+      "title": "p-torsion monodromy representations of elliptic curves over geometric function fields",
+      "authors": "Benjamin Bakker and Jacob Tsimerman",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf",
+      "edition": "Annals of Mathematics 184 (2016), no.3, 709–744, published version",
+      "readSections": [
+        "§1.3 pp.712–713",
+        "Lemma 13 and Figure 2 pp.724–725",
+        "§§5.1–5.2 pp.732–735",
+        "Canonical degree paragraph p.736"
+      ],
+      "accessed": "2026-10-05",
+      "sha256": "814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a"
+    },
+    {
+      "id": "erratum",
+      "title": "Erratum to p-torsion monodromy representations of elliptic curves over geometric function fields",
+      "authors": "Benjamin Bakker and Jacob Tsimerman",
+      "url": "https://benjamin-bakker.github.io/P.torsion.erratum.pdf",
+      "edition": "Undated five-page author erratum; no publication date inferred",
+      "readSections": [
+        "All five pages; §3 pp.2–3 and reversed ratio in §4.1 p.3 checked"
+      ],
+      "accessed": "2026-10-05",
+      "sha256": "db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1"
+    },
+    {
+      "id": "demailly",
+      "title": "Complex Analytic and Differential Geometry",
+      "authors": "Jean-Pierre Demailly",
+      "url": "https://www-fourier.univ-grenoble-alpes.fr/~demailly/source_files/analgeom/agbook.pdf",
+      "edition": "Version of Thursday June 21, 2012",
+      "readSections": [
+        "Chapter III §2.C pp.141–144, especially (2.15)",
+        "Chapter III §3 opening and (3.1), p.144; no claim to have completed the analytic-current prerequisite development"
+      ],
+      "accessed": "2026-10-05",
+      "sha256": "f41eb026184088b5b14e3127a0bf693e6c51e176a63a8896ffd6e0818db8098f"
+    },
+    {
+      "id": "abramovich",
+      "title": "A linear lower bound on the gonality of modular curves",
+      "authors": "Dan Abramovich",
+      "url": "https://arxiv.org/pdf/alg-geom/9609012",
+      "edition": "arXiv alg-geom/9609012v1 (16 September 1996); regenerated internal heading October 23, 2018",
+      "readSections": [
+        "§§0.1–1.8 pp.1–3, including singular metric, λ′₁ Rayleigh characterization and conformal area proof"
+      ],
+      "accessed": "2026-10-05",
+      "sha256": "5ff2134fbfb6bd702fa7051637027405c8e0d77a595830a63e8ad36f50791779"
+    },
+    {
+      "id": "li-yau",
+      "title": "A New Conformal Invariant and Its Applications to the Willmore Conjecture and the First Eigenvalue of Compact Surfaces",
+      "authors": "Peter Li and Shing-Tung Yau",
+      "url": "https://math.jhu.edu/~js/Math748/li-yau.conformal.pdf",
+      "edition": "Inventiones mathematicae 69 (1982), 269–291; public scanned PDF viewed through browser",
+      "readSections": [
+        "§1 definitions (1.2)–(1.4), Facts 1–2, pp.271–272; §2 Theorem 1 proof pp.273–276 and Corollary pp.276–277. Proof inspected but not yet decomposed into declaration nodes."
+      ],
+      "accessed": "2026-10-05"
+    }
+  ],
+  "status": "draft"
+}
