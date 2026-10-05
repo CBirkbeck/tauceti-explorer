@@ -1,837 +1,450 @@
-# Review continuation: codex-weV8Bp
-
-Codex — codex-weV8Bp, 2026-10-05. Refs #346. Input commit `db18a825efd9434f4bed2896d2050b4b0ab03fcf`; branch `codex-weV8Bp-review-346`. [Claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5997304645) was confirmed by [the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5997308251). The whole issue was read before claiming and after confirmation. This session did none of the planning under review.
-
-**Unfinished independent review checkpoint; no overall verdict.** The packet has no top-level review object. Its complete planning-pass status is retained, with four partial and four not_read stages. The partial reserved gerbe contract, sixteen gaps, twenty-two requests, source-finding verdicts and unchecked implementation statuses remain open as received. Earlier report sections are historical evidence, not fresh certifications by this session.
-
-## Changes saved
-
-Nine existing nodes change, at incoming zero-based indices **189, 197, 199, 212, 213, 218, 219, 222, 223**. No nodes, API entries, planets or source findings are added or removed. Four native baseline citations and two fixture tests are added.
-
-1. **Discrete-fibre inputs (189, 197).** Cite the existing Discrete carrier/category and its exact eq_of_hom theorem. The cross-component obstruction now derives false = true from the first component of a proposed isomorphism hom. Remove the unrelated constant-functor, Cat and groupoid citations from that obstruction; no new discrete category or groupoid is planned.
-2. **Point-stack closure (199, 222).** Explicitly list the native DescentData carrier, ofObj, toDescentData and hom_ext, plus the existing IsStackFor interface. The canonical descent functor's actual full-faithfulness and essential-surjectivity witnesses produce IsStackFor before IsStack.of_isStackFor is invoked. Its self-transition field supplies the identity equation, even for an empty fibre category. This exposes the existing argument's inputs without introducing another descent theory.
-3. **Cross-object naturality (213).** Replace the claimed first-factor identity arrow between arbitrary labels with the actual Codiscrete comparison isomorphism hom. The group factor is the identity element. An identity morphism at the first label has the wrong target when the two labels differ. Add the native comparison and extensionality citations. The centre-equivalence statement and its actual chosen member i are retained.
-4. **Named equality/convention inputs (212, 218, 219).** Supply the existing product-morphism extensionality lemma where the proof names it. Explicitly cite SingleObj.comp_as_mul and the native Aut definition for the automorphism construction: categorical composition reverses group multiplication, and Aut multiplication reverses isomorphism composition back. No commutativity assumption is introduced for G.
-5. **Nonemptiness counterexamples (213, 223).** Add ConnectedEquivTests.emptyFibreCollapse: for an empty label type and G=C3, the distinct central coefficients 1 and 0 in additive notation define the same categorical-centre unit. Thus the centre equivalence requires an actual label. Add ConnectedBandTests.emptyFibreNotGerbe: the empty connected-fibre diagram on the point site is a stack and fails local nonemptiness, hence is not a gerbe. Both are actual native suggested examples with admitted bodies, and both type-check in the fresh fragment.
-
-All **660 ids, 255 incoming baseline objects, 72 source objects, 14 source findings and their verdicts, 16 gaps, 22 requests, 8 coverage rows and 10 planets** survive. Baseline count becomes **259**. Raw API/tests become **611/591**, from 611/589; normalized API/tests are **603/557**, from 603/556. The checker counts tests on definitions/constructions, so the new theorem-node test is retained in the raw total but not its normalized total. Nothing is promoted or declared implemented.
-
-## Fresh reading and bounded conclusions
-
-Read the binding worker, blueprint, expansion and upstream guidance; the issue; the previous review handoff/current report section; and the complete upstream JacobianChallenge and ReductiveGroups reader documents. Read the R09.4 library-coverage audit with its AUDIT-01 review metadata. The audit supplies the native generic stack carrier, while generic stackification belongs to D0 and representable diagonals/atlases to SF.1. These fixture nodes import the built categories and descent carrier, and neither build the missing generic stackification nor claim a geometric band comparison. No whole-atlas duplication screen or full audit of the other seven stages is claimed.
-
-Read all fields of nodes **185–239**, inclusive: **55 full node objects**. Repeated hypothesis/source/library fields were compared against the two fixture-family roots; there were no differences. Read direct earlier supplier objects **0, 109, 110, 112, 115, 138** as context, and inspected the native section subgroup, restriction, evaluation and gerbe signatures. These contextual reads do not recertify all earlier source locators, geometric tests or recursive supplier chains.
-
-| Incoming indices | Scope and bounded conclusion |
-| --- | --- |
-| 185–188, 201–203 | Constant-diagram sections are exactly full categorical-centre units, recovered at the identity slice arrow. Arbitrary base categories are allowed: every slice object maps to that identity object. No terminal base object, topology or gerbe condition is used. |
-| 189–194, 204–210 | Discrete-component centres are profiles I→G for commutative G, including empty I. The two composed native equivalences retain full units and all slice arrows. The stated API projections and inverses agree with the suggested signatures. |
-| 195–198 | A chosen member of a subsingleton I gives bijective evaluation. Two discrete components and a nonidentity group element give a nontrivial kernel at one component. The bottom topology's covering-sieve criterion turns failure of a cross-component isomorphism into failure of the gerbe condition. |
-| 199–200 | Native point-stack proof uses the one-object/one-arrow cover indexing; the connected PUnit fixture additionally satisfies the groupoid, local-existence and local-isomorphism requirements. The native self-transition equation is needed in the descent-object comparison. |
-| 211–216, 224–226, 229–235 | For Codiscrete(I)×SingleObj(G), a chosen label identifies centre units and compatible sections with Z(G), for arbitrary G. Naturality along comparison arrows forces equality at distinct labels. Empty I is a genuine obstruction to coefficient recovery; the added test prevents omitting the chosen member. |
-| 217–220, 227, 236–237 | Evaluation is injective and has image exactly Z(G), hence is onto precisely when Z(G)=G. The native Aut multiplication makes the actual automorphism for gh equal the product in the stated order. |
-| 221–223, 228, 238–239 | Comparison isomorphisms retain distinct object labels. The generic point-stack statement allows an empty category, while the point-gerbe assertion requires an actual i. The added empty-fibre test separates these assertions. |
-
-All definition/construction nodes in this bounded section have their API and at least three tests, and the names occur in the compiled fragment at the matching signatures/examples. This is a bounded statement/signature check, not a full per-node acceptance verdict or a proof of admitted tests. The combined historical reading frontier is now **232 distinct nodes: 0–65, 67, 75–239**. The remaining **428** are **66, 68–74, 240–659**. All 660 still need reconciled final dispositions and recursive source/closure/baseline checks before an overall verdict.
-
-Read the complete mathematical content of [Stacks Definition 8.11.1, 06NZ](https://stacks.math.columbia.edu/tag/06NZ), [Lemma 8.11.8, 0CJY](https://stacks.math.columbia.edu/tag/0CJY), and [Definition 8.4.1, 026F](https://stacks.math.columbia.edu/tag/026F). The fixture-family source excerpts match the gerbe definition literally. The complete 0CJY printed proof retains its abelian-inertia assumption and explicitly omits varying-base compatibility. These centre/profile/point-stack/finite-fixture computations are labelled authored deductions in the packet; they are not extra results asserted to be printed in Stacks. No new mistake in these source texts is alleged, and the fourteen inherited source findings were not replayed.
-
-Fresh downloads on 2026-10-05 have SHA256: 06NZ `b60742528d35ea2612a54bc8d95096fb2e97a39e4cba59034918834e5f414535`; 0CJY `41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e`; 026F `0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0`. These match the relevant inherited source bytes.
-
-Independently checked the finite fixture consequences by enumerating every profile, pair of object labels and group-valued arrow, imposing the native-order naturality equation a(j)g=g a(i). Discrete fibres use only i=j; codiscrete fibres use all i,j. Inverses in these groupoids are uniquely determined. C3 gives 3 sections with one component, 9 with two discrete components, 3 with two codiscrete labels, and 1 with no labels. S3 was enumerated as all six permutations of three letters under function composition: its centre has one element and does not contain (0 1). Projection at one disconnected component loses information; a connected C3 generator is recovered at both labels. The empty tuple is identical for distinct C3 coefficients. These exhaustive finite checks support the test values, without claiming a proof of the native Lean statements or an algebraic-geometric fixture.
-
-## Baseline statements read
-
-Freshly read **29 existing catalogue statements**, including ambient binders, and the **4 new citations** below at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Each module was compared byte-for-byte to the pinned git object. No Tau Ceti declaration is newly certified. The other incoming catalogue entries and the broader recursive baseline leaves are not recertified by this continuation.
-
-| Declaration | Module |
-| --- | --- |
-| `mathlib:CategoryTheory.CatCenter` | Mathlib/CategoryTheory/Center/Basic.lean |
-| `mathlib:CategoryTheory.CatCenter.ext` | Mathlib/CategoryTheory/Center/Basic.lean |
-| `mathlib:CategoryTheory.CatCenter.naturality` | Mathlib/CategoryTheory/Center/Basic.lean |
-| `mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
-| `mathlib:CategoryTheory.eqToIso` | Mathlib/CategoryTheory/EqToHom.lean |
-| `mathlib:CategoryTheory.Functor.FullyFaithful` | Mathlib/CategoryTheory/Functor/FullyFaithful.lean |
-| `mathlib:CategoryTheory.Cat.of` | Mathlib/CategoryTheory/Category/Cat.lean |
-| `mathlib:CategoryTheory.Functor.EssSurj` | Mathlib/CategoryTheory/EssentialImage.lean |
-| `mathlib:CategoryTheory.Functor.IsEquivalence` | Mathlib/CategoryTheory/Equivalence.lean |
-| `mathlib:CategoryTheory.Functor.const` | Mathlib/CategoryTheory/Functor/Const.lean |
-| `mathlib:CategoryTheory.Functor.toPseudofunctor'` | Mathlib/CategoryTheory/Bicategory/Functor/LocallyDiscrete.lean |
-| `mathlib:CategoryTheory.GrothendieckTopology.bot_covering` | Mathlib/CategoryTheory/Sites/Grothendieck.lean |
-| `mathlib:CategoryTheory.Prod.hom_ext` | Mathlib/CategoryTheory/Products/Basic.lean |
-| `mathlib:CategoryTheory.Pseudofunctor.IsStack.of_isStackFor` | Mathlib/CategoryTheory/Sites/Descent/IsStack.lean |
-| `mathlib:CategoryTheory.SingleObj.category` | Mathlib/CategoryTheory/SingleObj.lean |
-| `mathlib:CategoryTheory.SingleObj.comp_as_mul` | Mathlib/CategoryTheory/SingleObj.lean |
-| `mathlib:CategoryTheory.SingleObj.groupoid` | Mathlib/CategoryTheory/SingleObj.lean |
-| `mathlib:CategoryTheory.isIso_prod_iff` | Mathlib/CategoryTheory/Products/Basic.lean |
-| `mathlib:CategoryTheory.Codiscrete` | Mathlib/CategoryTheory/CodiscreteCategory.lean |
-| `mathlib:CategoryTheory.Codiscrete.iso` | Mathlib/CategoryTheory/CodiscreteCategory.lean |
-| `mathlib:CategoryTheory.Codiscrete.eq_iso_hom` | Mathlib/CategoryTheory/CodiscreteCategory.lean |
-| `mathlib:CategoryTheory.Iso.prod` | Mathlib/CategoryTheory/Products/Basic.lean |
-| `mathlib:Subgroup.center` | Mathlib/GroupTheory/Subgroup/Center.lean |
-| `mathlib:Subgroup.mem_center_iff` | Mathlib/GroupTheory/Subgroup/Center.lean |
-| `mathlib:CategoryTheory.Pseudofunctor.DescentData` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
-| `mathlib:CategoryTheory.Pseudofunctor.DescentData.ofObj` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
-| `mathlib:CategoryTheory.Pseudofunctor.toDescentData` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
-| `mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
-| `mathlib:CategoryTheory.Aut` | Mathlib/CategoryTheory/Endomorphism.lean |
-| `mathlib:CategoryTheory.Discrete` | Mathlib/CategoryTheory/Discrete/Basic.lean |
-| `mathlib:CategoryTheory.discreteCategory` | Mathlib/CategoryTheory/Discrete/Basic.lean |
-| `mathlib:CategoryTheory.Discrete.eq_of_hom` | Mathlib/CategoryTheory/Discrete/Basic.lean |
-| `mathlib:CategoryTheory.Pseudofunctor.IsStackFor` | Mathlib/CategoryTheory/Sites/Descent/DescentData.lean |
-
-Module SHA256 receipts:
-
-| Module | SHA256 |
-| --- | --- |
-| Mathlib/CategoryTheory/Bicategory/Functor/LocallyDiscrete.lean | `412205e7e04b7980e29d4825d0c13a48d5c40f1c79b3fb009bfb76d0306ada1a` |
-| Mathlib/CategoryTheory/Category/Cat.lean | `9e0a731c46c8986adc4395a43e7cf14616db47ca16882b1f868bc85934beaa72` |
-| Mathlib/CategoryTheory/Center/Basic.lean | `a94d5510ede4d946248e08dd97bbfee277f0f873b4175a9f0bf4a7881f76cc3f` |
-| Mathlib/CategoryTheory/CodiscreteCategory.lean | `fef5dccd077b2b07121f612f3693036ff018fbee5708df139bed94aed02efc85` |
-| Mathlib/CategoryTheory/Discrete/Basic.lean | `991b2b47f290004ad22760c7bc244b2258b68e4befd4f03a8f19dfab14b9e8b8` |
-| Mathlib/CategoryTheory/Endomorphism.lean | `7c9eb33bb74caeacb6efe3bab7f7e57ad77c07b42489ba91952eebf866fcca4f` |
-| Mathlib/CategoryTheory/EqToHom.lean | `2626e21deb49f8106302bd9396a3c5d08fc65318e9f13575d479eb4162544a3b` |
-| Mathlib/CategoryTheory/Equivalence.lean | `7cdcf9ca9aa50982c7471a2f4124e667f164fd68dfc6bdad08272c6565a457ea` |
-| Mathlib/CategoryTheory/EssentialImage.lean | `a72ca2e0427028cf8ab5256b008727458aa002d52b8ca0d962eb4ef808b81691` |
-| Mathlib/CategoryTheory/Functor/Const.lean | `e4f0f3a1ec0ba21d7bc7149c8cf8e0907ada124ef1e01ad49bff52f414df6123` |
-| Mathlib/CategoryTheory/Functor/FullyFaithful.lean | `94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e` |
-| Mathlib/CategoryTheory/Products/Basic.lean | `7d04b57043d610daef8c683e752fe6750a5e5fa868a4ed92ea2e8bedb7a6c6e4` |
-| Mathlib/CategoryTheory/SingleObj.lean | `6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03` |
-| Mathlib/CategoryTheory/Sites/Descent/DescentData.lean | `2292153f538142a8c3879094fed08f38a619a6dd13af91ab1c2f29448fb5e13e` |
-| Mathlib/CategoryTheory/Sites/Descent/IsStack.lean | `389633d8611b769455a07fdb1d0b591848dfba27ba09f12274dd391d086d2a10` |
-| Mathlib/CategoryTheory/Sites/Grothendieck.lean | `7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d` |
-| Mathlib/GroupTheory/Subgroup/Center.lean | `4f4ca009b6f8cbfc42a2c5503dba3859670abd5d43e1e8257273b4057f5bee93` |
-
-The discrete category has equality witnesses as morphisms; codiscrete labels remain distinct despite unique comparison arrows. SingleObj composition is g times f. The centre is End(identity), Aut multiplication is reverse Iso.trans, and product morphism equality checks both factors. IsStackFor requires equivalence of the actual descent functor; DescentData supplies its self-transition identity. The new inputs are baseline imports, never duplicate planned definitions.
-
-## Validation and exact compilation boundary
-
-Packet checker at the declaration index: **zero errors, zero warnings**. Source-finding schema/version checks: **zero errors**. The intake's file/private-path check, unchanged-history/preservation checks and whitespace check pass. The actual issues.deliverables_complete classifier remains false: this review is a checkpoint.
-
-The freshly checked **807-line Mathlib-only fragment** contains the actual basic gerbe signatures, native section subgroup/restriction/evaluation interfaces, both complete fixture namespaces and the two added counterexamples. It elaborates with **127 warnings, all declaration-uses-sorry warnings; zero errors and no other warnings**. Its SHA256 is `20a15736a57987f19ba11fae7e411e6fc53480653e94092924d95f3ff65510e4`; the final full suggested-file SHA256 is `95f25747754c6d854d24f2dc78956dcd66ccceac3fd3007f9e08b3acd34a0df3`. This checks admitted signatures and examples at the exact Mathlib pin, not proofs or full-file elaboration.
-
-Exact reconstruction: retain distinct individual Mathlib imports before the full file's first CategoryTheory/Opposite/Bicategory open, in original order, omitting the Tau Ceti import. Retain that open and its six outer universe declarations. Take the first outer AlgebraicGeometry namespace through immediately before the neutralization declaration comment, then close the namespace. Take the intrinsic-band continuation's outer namespace through immediately before the comment introducing local central families that commute with native descent transitions, then close IntrinsicBandSections and its outer namespace. Append the complete constant point-site fixture block through the end of ConnectedBandFixtures, including the new tests. Join these blocks with one blank line; all mathematical bodies come from the committed suggested file. The authorized suggested path was used temporarily, its full bytes held in process memory, and restored in a finally clause. The full-file restoration was verified byte-for-byte.
-
-The **full file did not compile**: lean-check stopped at the missing object file for TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence. Available memory before the checks was **96 GiB**. Shared Mathlib has the exact pin, while shared Tau Ceti HEAD is `cf386627e9176a3827c1a5fe804989fd94a4d216`, not `f790474821cf4256814db967cb154e7af3d0c369`. No exact-Tau-pin or full-file compilation is claimed. Only lean-check was used to invoke Lean; no builds, updates, caches, language servers or background Lean processes were started or left running.
-
-## Resume and orchestrator questions
-
-Recheck these nine edits and the two empty-fibre examples, then resume **240–659**, alongside the unresolved earlier indices **66, 68–74**. Reconcile the earlier central-section, root-gerbe, conjugation and fixed-band inverse corrections when producing final checked dispositions. The reserved gerbe sample API, coherent-duality ownership, independent coefficient universes, geometric nonconstant/nonneutral fixtures, H² quotient/sign/two-inverse identities, SF.1 descended-band comparison and affine/profinite supplier scope remain for review. Honest partial planning is not a rejection reason; the absence of a reconciled full review is the reason no overall verdict is supplied here.
-
-The reader is not an authorized deliverable of this review. A separately authorized orchestrator edit must synchronize the fixture proof inputs, the corrected cross-object comparison passage and the two empty-fibre tests with the reader. The shared exact Tau Ceti build/module is needed for full-file elaboration; this run does not build one.
-
-The report and handoff contain the continuation evidence; scratch is disposable and removed after submission. This session submits one checkpoint and takes no second job.
-
----
-
-# Historical checkpoints before codex-weV8Bp
-
-# Review continuation: codex-X10mph
-
-Codex — codex-X10mph, 2026-10-05. Refs #346. Input commit `6417f4eae40e972d6bb80ea2b3e5e6a4be553524`; branch `codex-X10mph-review-346`. [Claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5996545879) was confirmed by [the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5996549584). The whole issue was read before claiming and again after confirmation. This session did none of the input planning.
-
-**Unfinished independent review checkpoint; no overall verdict.** There is no top-level packet review object or final checked disposition. Planning status remains complete, with four partial and four not_read stages. The partial reserved gerbe contract, sixteen gaps, twenty-two requests and unchecked implementation statuses remain unchanged. Honest planning boundaries are permitted; they are not a rejection verdict. All historical reports below retain their authorship and are not recertified here.
-
-## Corrections saved
-
-Nine existing node objects change: incoming zero-based indices **8, 159, 165, 173–178**. No node or baseline declaration is added or removed.
-
-1. **Categorical scope of conjugation independence (8).** The overlap adapter 155 works in an arbitrary category with commutative Aut(x); its named prerequisite previously stated only a gerbe result. The existing node and its existing general categorical API now agree: equality of the two native conjugation equivalences requires only those category/object/isomorphism/commutativity hypotheses. Gerbe automorphism-sheaf independence remains its restrictionwise application. Remove the unnecessary gerbe prerequisite from the categorical result. This uses the actual computation in Stacks 8.11.8, not a stronger stack theorem.
-2. **Explicit faithfulness inputs (159, 165).** Name the pinned covering-sieve prestack witness, its actual fully faithful descent structure and native descent-morphism extensionality. The reversal proof additionally names the existing injectivity lemma. Its comparison runs through the canonical descent functor; it does not assume one arbitrary restriction detects equality. These are existing catalogue entries, not newly planned descent theory.
-3. **Fixed-band data and universes (173–178).** Replace the inherited unspecified assumptions with actual IsGerbe F J, the prescribed abelian sheaf A and band b, their restriction/conjugation equations, and the local objects only where supplied. The mathematical statement permits a fixed sufficiently large coefficient universe; the present native signatures use max(u,v,u′,v′). The independent coefficient-universe normalization remains open in the reserved-key boundary. No neutralization or object in each fibre is assumed.
-4. **Surjectivity closure (177).** List the gerbe local-nonemptiness input and the existing coefficient restriction theorem explicitly. The proof glues in the prescribed coefficient sheaf and detects the resulting section equality on a covering sieve, so it also covers an empty global fibre.
-5. **Local coefficient projection (174).** Add `localBandCoefficient_apply`: each coefficient is exactly the additive form of the displayed band's inverse applied to the full native section evaluation. Its suggested signature retains the actual object family, arrow, sieve membership and band. The three existing tests remain and constrain unit, existing coefficients and independence of local objects.
-6. **Native commutativity counterexample.** Two added suggested examples use the existing one-object category of S3, with actual groupoid isomorphisms from transpositions. Conjugation by (0 1) sends (1 2) to (0 2), and its whole native conjugation equivalence differs from identity conjugation. These are acceptance examples for node 8, with admitted bodies; they do not define a second stack or prove a geometric comparison. The explicit category and both object arguments of the native isomorphism constructor are necessary because the single-object Hom type alone does not determine its endpoints.
-
-All 660 ids, 255 baseline entries, 72 source catalogue objects, fourteen source findings and their verdicts, source versions, twenty-two requests, eight coverage rows, key-definition rows and ten planets are preserved. Raw API/tests: 610/589 → **611/589**; checker-normalized: 602/556 → **603/556**. One API signature and two theorem-acceptance examples are added. No source finding or gap is added or closed. No final planet or ownership verdict is claimed.
-
-## Fresh bounded reading
-
-Read the binding worker, blueprint, expansion and upstream rules; the issue and prior handoff/report; and the complete upstream JacobianChallenge and ReductiveGroups readers. Read the reviewed R09.4 audit and AUDIT-01 review metadata: native IsStack, IsPrestack and DescentData are imported, while groupoid/gerbe/band extensions do not duplicate a generic stack carrier. No complete cross-atlas duplication screen or review of the other seven stage-audit rows is claimed.
-
-Read all fields of nodes **155–184**, with their principal source and direct prerequisite statements. Node 8 and the fourteen earlier direct supplier objects were consulted to assess the categorical and fixed-band chain; that contextual inspection does not recertify the previous whole frontier or every secondary locator.
-
-- 155: `band-conjugate-overlap`
-- 156: `band-conjugate-descent-iso`
-- 157: `band-conjugate-cover-aut`
-- 158: `band-conjugate-cover-local`
-- 159: `band-conjugate-cover-unique`
-- 160: `band-conjugate-cover-choice`
-- 161: `band-conjugate-cover-hom`
-- 162: `band-conjugate-cover-global-iso`
-- 163: `band-conjugate-cover-refinement`
-- 164: `band-conjugate-cover-independent`
-- 165: `band-conjugate-cover-reverse`
-- 166: `band-conjugate-cover-equivalence`
-- 167: `band-conjugate-cover-equivalence-independent`
-- 168: `band-conjugate-cover-composition`
-- 169: `band-conjugate-base-change`
-- 170: `band-conjugate-naturality`
-- 171: `band-center-lift`
-- 172: `band-center-lift-evaluation`
-- 173: `band-coefficient-local-surjective`
-- 174: `band-coefficient-local-family`
-- 175: `band-coefficient-local-recovery`
-- 176: `band-coefficient-local-matching`
-- 177: `band-center-from-banding-surjective`
-- 178: `band-center-from-banding-equivalence`
-- 179: `band-center-from-banding-presheaf-iso`
-- 180: `band-center-from-banding-presheaf-iso-hom`
-- 181: `band-center-from-banding-sheaf-iso`
-- 182: `band-center-from-banding-sheaf-iso-hom`
-- 183: `band-center-from-banding-sheaf-iso-hom-transport`
-- 184: `band-center-from-banding-sheaf-iso-unique`
-
-The combined historical bounded-reading frontier now contains **177 distinct nodes: 0–65, 67, 75–184**. The remaining **483** are **66, 68–74, 185–659**. This is a reading frontier, not final verification. Every node still requires a reconciled checked disposition, recursive closure/source/baseline reconciliation and the relevant geometric and native-signature checks before an overall verdict.
-
-Read [Stacks Lemma 8.11.8, tag 0CJY](https://stacks.math.columbia.edu/tag/0CJY), its complete statement and proof, and [Definition 8.4.1, tag 026F](https://stacks.math.columbia.edu/tag/026F). Verified the five source entries used by 155–184 at this shared passage and their literal excerpts. The printed abelian-gerbe argument supports local conjugation, its choice independence and same-base cocycles; it explicitly leaves the final varying-base verification unprinted. The native arbitrary-base transport, simultaneous centre-unit lift and prescribed-band inverse are authored deductions, labelled as such in the packet. Their mathematical proof routes retain pullback/intersection covering, actual pseudofunctor composition and identity constraints, native Hom descent and the coefficient sheaf axiom. No effective object descent is needed to lift an automorphism of an already specified object. The SF.1 slice-glued-band identification is a separate unresolved comparison.
-
-Downloaded on 2026-10-05, SHA256: 0CJY `41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e`; 026F `0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0`. No mistake in these two texts is newly alleged. The fourteen inherited source findings were preserved, not independently replayed.
-
-## Baseline evidence
-
-The following **30 existing baseline entries** were freshly read, with their ambient binders, at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The modules were compared byte-for-byte against the commit's git objects. This does not recertify the other 225 catalogue entries or every recursive baseline leaf of the broader packet. In particular, the forgetful-sheaf theorem requires limit preservation of the appropriate size; the mapComp constraint points from composite restriction to iterated restriction; the sheaf inclusion is the existing full subcategory; and native Aut multiplication follows reverse categorical composition.
-
-- `mathlib:CategoryTheory.Pseudofunctor.IsStack`
-- `mathlib:CategoryTheory.Pseudofunctor.IsPrestack`
-- `mathlib:CategoryTheory.Aut.autMulEquivOfIso`
-- `mathlib:CategoryTheory.Functor.mapAut`
-- `mathlib:CategoryTheory.Aut.unitsEndEquivAut`
-- `mathlib:CategoryTheory.NatIso.ofComponents`
-- `mathlib:CategoryTheory.Pseudofunctor.isPrestackFor'`
-- `mathlib:CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful`
-- `mathlib:CategoryTheory.Pseudofunctor.toDescentData`
-- `mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext`
-- `mathlib:CategoryTheory.Functor.FullyFaithful.map_injective`
-- `mathlib:CategoryTheory.GrothendieckTopology.pullback_stable`
-- `mathlib:CategoryTheory.Presheaf.isSheaf_comp_of_isSheaf`
-- `mathlib:CategoryTheory.isSheaf_iff_isSheaf_of_type`
-- `mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk`
-- `mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso`
-- `mathlib:CategoryTheory.Pseudofunctor.mapComp'`
-- `mathlib:CategoryTheory.Cat.Hom.toNatIso`
-- `mathlib:CategoryTheory.Presieve.IsSheafFor`
-- `mathlib:CategoryTheory.GrothendieckTopology.intersection_covering`
-- `mathlib:CategoryTheory.Pseudofunctor.mapId'`
-- `mathlib:CategoryTheory.Presieve.FamilyOfElements`
-- `mathlib:CategoryTheory.Presieve.FamilyOfElements.Compatible`
-- `mathlib:MulEquiv.ofBijective`
-- `mathlib:CategoryTheory.fullyFaithfulSheafToPresheaf`
-- `mathlib:CategoryTheory.Presheaf.isSheaf_of_iso_iff`
-- `mathlib:CategoryTheory.Sheaf.hom_ext`
-- `mathlib:CategoryTheory.eqToIso`
-- `mathlib:CategoryTheory.eqToHom`
-- `mathlib:CategoryTheory.Functor.FullyFaithful`
-
-Also read the native SingleObj category/groupoid/arrow conventions as context for the S3 examples. No new baseline entry is asserted on that basis. Module hashes, paths relative to Mathlib:
-
-| Module | SHA256 |
-| --- | --- |
-| Algebra/Group/Equiv/Defs.lean | `27737abca9e515c38b7381864638c89c4c12bf6532821c04a78c4d8a22fdc381` |
-| CategoryTheory/Bicategory/Functor/Pseudofunctor.lean | `d5ef476a4cbde70668b9be30cf9d8c09dd4478b17a9625abe2b9a12210e8fe1b` |
-| CategoryTheory/Category/Cat.lean | `9e0a731c46c8986adc4395a43e7cf14616db47ca16882b1f868bc85934beaa72` |
-| CategoryTheory/Endomorphism.lean | `7c9eb33bb74caeacb6efe3bab7f7e57ad77c07b42489ba91952eebf866fcca4f` |
-| CategoryTheory/EqToHom.lean | `2626e21deb49f8106302bd9396a3c5d08fc65318e9f13575d479eb4162544a3b` |
-| CategoryTheory/Functor/FullyFaithful.lean | `94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e` |
-| CategoryTheory/NatIso.lean | `c2e8b0662cae553808f1973dfc6027272b8ec2697a105a487ce1b1044330d103` |
-| CategoryTheory/SingleObj.lean | `6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03` |
-| CategoryTheory/Sites/Descent/DescentData.lean | `2292153f538142a8c3879094fed08f38a619a6dd13af91ab1c2f29448fb5e13e` |
-| CategoryTheory/Sites/Descent/IsPrestack.lean | `470b75a20ab5cb1de6de12444a84d4b50352cbd1b6bba9224cd54779dd8b22b2` |
-| CategoryTheory/Sites/Descent/IsStack.lean | `389633d8611b769455a07fdb1d0b591848dfba27ba09f12274dd391d086d2a10` |
-| CategoryTheory/Sites/Grothendieck.lean | `7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d` |
-| CategoryTheory/Sites/IsSheafFor.lean | `b47fe14e505dce52cac9e86a823b4b0e4968c16a898da7447c37fd705cf73653` |
-| CategoryTheory/Sites/Sheaf.lean | `e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de` |
-
-## Validation and exact compilation boundary
-
-Packet checker: zero errors and warnings. File/private-path check, semantic preservation and whitespace check pass. The actual intake completion classifier returns false. No overall review object is supplied.
-
-The final **1,754-line Mathlib fragment**, including the new coefficient signature and both S3 acceptance examples, elaborates with **175 warnings, all declaration-uses-admission warnings; zero errors and no other warnings**. SHA256: `0345bc0dbf34a819305b46625018752422eaf5c2fa3190e121ea9b60e472dd36`. This is a signature check against exact pinned Mathlib, with admissions, not proved test values, validation of every geometric fixture, or full-file elaboration. The fragment was temporarily placed only at the authorized suggested path, the full bytes were retained in process memory, and a finally clause restored them after every attempt. Initial versions of the S3 signature needed explicit category/object annotations; the stated result is for the final corrected fragment.
-
-To reconstruct it: retain all distinct individual Mathlib imports appearing before the full file's first CategoryTheory/Opposite/Bicategory open, in their original order, omitting the TauCeti import. Supply that open and the file's six outer universes. Take the initial TauCeti.AlgebraicGeometry namespace through immediately before the neutralization declaration, then close it. Take the intrinsic-band namespace block beginning after its continuation comment through the first closing IntrinsicBandSections, and close its outer namespace. Append the entire local-conjugation continuation through immediately before the constant point-site fixture comment, including the S3 review-test namespace. These are the actual committed signatures and prerequisite carriers; none is replaced by an opaque theorem assumption.
-
-Before each check, free memory was 95 GB. A full suggested-file attempt failed before elaboration at the unavailable TauCeti SheafCohomology.LongExactSequence object file. Shared Mathlib matches the pin; shared Tau HEAD is `cf386627e9176a3827c1a5fe804989fd94a4d216`, whereas the required Tau commit is `f790474821cf4256814db967cb154e7af3d0c369`. **The full file did not compile, and no exact-Tau-pin compilation is claimed.** No library build, update, cache fetch or language server was used. No Lean process is left running.
-
-## Resume and orchestrator questions
-
-Recheck the nine changed nodes, the coefficient projection and concrete S3 examples, then continue the remaining indices. Independently replay the earlier five central-section/fixture edits and root-gerbe correction when reconciling the previous checkpoint. Complete the reserved gerbe sample API and imported coherent-duality ownership checks, independent coefficient universes, source findings, geometric nonconstant/nonneutral fixtures, fixed-band inversion, SF.1 descended-slice comparison, H² quotient/sign/two-inverse identities and affine/profinite supplier scope. All sixteen gaps and twenty-two requests remain open; prior reports give their detailed source frontiers.
-
-The reader is outside this issue's authorized deliverables. A separately authorized orchestrator edit must synchronize node 8's categorical scope, nodes 159/165/177's dependencies, the six fixed-band assumption passages and the new coefficient API/acceptance example. No reader edit is made here.
-
-The report and handoff replace disposable scratch evidence. This session submits one checkpoint and takes no second job.
-
----
-
-# Historical checkpoints before codex-X10mph
-
-# Review continuation: codex-2ahsNe
-
-Codex — codex-2ahsNe, 2026-10-05. Refs #346. Input commit `300bb4cef8937635f6ae26056f1e3b16f42b4eca`; branch `codex-2ahsNe-review-346`. [Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5995810022) confirmed by [bot reply](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5995812680). The whole issue was read before claiming and again after confirmation. This session did none of the input planning.
-
-**Unfinished independent review checkpoint; no overall verdict.** No top-level packet `review` or final per-node disposition is supplied. The complete planning pass retains its four partial and four not_read coverage rows, partial gerbe contract and unchecked implementation statuses. Those honest planning boundaries are not a rejection. Historical reports below remain attributed to their sessions and are not recertified here.
+# Independent review: algebraic moduli A0 extension
+
+**Accepted as a finished partial planning pass.** Codex — codex-kXMhPM, 2026-10-05. Refs #346. Reviewer: `independent-review-REV-AlgebraicModuliForArithmeticGeometry--A0-extension`. This session wrote none of the input planning. The input was commit `3bde673c64def3ef86e62be39e11335f8b536858`; branch `codex-kXMhPM-review-346`. [Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5997765122) and [bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5997769027).
+
+This is the reconciled completed review, superseding the bounded checkpoint reports previously stored here. Their historical receipts remain in the input commit and packet provenance; they are not used as a substitute for this independent statement/source audit. No stage or implementation is promoted. Four stages remain partial, four remain not_read, all sixteen gaps and twenty-two supplier requests remain open, and the reserved gerbe key remains partial.
+
+## Counts and dispositions
+
+| Item | Incoming | Reviewed result |
+| --- | ---: | ---: |
+| Nodes | 660 | 476 |
+| Definitions / constructions | 17 / 142 | 17 / 142 |
+| Lemmas / theorems / comparisons | 468 / 28 / 5 | 284 / 28 / 5 |
+| Routine facts retained inside owner APIs | — | 184 |
+| Raw API items / tests | 611 / 591 | 619 / 598 |
+| Checker-normalized API items / tests | 603 / 557 | 611 / 564 |
+| Baseline declarations | 259 | 259 confirmed |
+| Source catalogue records / distinct URLs | 72 / 33 | 72 / 33 |
+| Distinct URL / literal-excerpt pairs | 124 | 124 matched |
+| Source findings | 14 | 18 confirmed |
+| Planets | 10 | 10 |
+| Gaps / requests | 16 / 22 | 16 / 22 |
+| Planned or closed stages | 0 | 0 |
+
+The packet `review.checked` contains exactly one disposition for each retained node: **400 verified, 76 corrected, zero added, zero unverifiable**. All 660 incoming mathematical plans were read, including the 184 facts now retained as API proof outlines. No baseline citation was removed or replaced, and no new mathematical node was introduced.
 
 ## Corrections
 
-Five existing node objects change, incoming zero-based indices 109, 112, 115, 116 and 120. No node or baseline citation is added or removed.
+1. **Target-level granularity.** The roadmap has library distance 6 and the configured lemma-level threshold is 5. PROTOCOL §2 therefore asks for target-level planning. An iterative consumer audit identifies 184 routine projection, evaluation, inverse and identity facts already named in construction APIs, with no remaining node consumers or consumers in other packets. They are folded into those API items. Their exact statements, hypotheses, proof steps, acceptance conditions and citations are preserved in `outlineJustification`; inputs referring to another folded fact are represented by that API name and its owner. Existing native Lean declarations remain. API facts used by retained nodes remain separate nodes under PROTOCOL §4. The complete 184-entry mapping below makes the change traceable. Historical continuation lists now name retained owner nodes and separately list their folded API declarations.
+2. **Reserved gerbe samples.** All eight contracts from `KEYDEF-algebraicgeometry.json` are now exposed in the API and tests of `AlgebraicModuliForArithmeticGeometry:key/gerbes`. They point to existing same-owner constructions, without making the root definition depend on its descendants. Eight API contracts and seven tests are added; the existing root nonneutrality test supplies the eighth test. Supplier-dependent native forms are explicitly named in the suggested-file omission ledger. No fictitious proposition carrier or geometric implementation is added.
+3. **Sheafification locators.** Six incoming node citations to tag 00ZG incorrectly called results 7.49.3–5 lemmas. These are Theorem 7.49.3, Definition 7.49.4 and Proposition 7.49.5. The two corresponding source-catalogue reading descriptions are corrected. These labels are also corrected in the proof outlines of folded facts.
+4. **Lean section closure.** Close the unnamed `noncomputable section` inside `ModuleDescentAllTests` before closing its named namespace. The incoming file produced an unexpected namespace-end error and 689 unintended namespace warnings in the Mathlib projection. After this one code correction, the projection has no errors and only admission warnings.
+5. **Evidence and historical scope.** Refresh every baseline checked receipt from the independent pinned-source reading; reconcile all node dispositions; replace checkpoint-only source-finding verdict reasons with fresh reasons; add E15–E18 and their version records. Prefix the R09.4 remaining-work history with current counts so historical counts do not describe the current frontier.
 
-- `band-center-sections` now exposes `mk` for the actual compatible family of units of native `CatCenter`, and `val_mk`, `val_one`, `val_mul`, `val_inv`. These specify the components and retain every base arrow and the pinned categorical multiplication convention. The suggested file includes their typed signatures.
-- Six original tests now have explicit suggested signatures on the existing `BandFixtures` and `ConnectedBandFixtures` carriers: C3 cardinality/evaluation bijectivity, terminal-fibre triviality, S3 cardinality/non-surjectivity, a specified C3 generator section, conjugation along any connecting isomorphism in the two-object C3 fibre, and exclusion of the actual S3 transposition. No second fixture carrier is created. Each body is `sorry`; these are planning tests, not proved computations. Their comparison with geometric classifying stacks remains open. The historical omission ledger acknowledges exactly these added signatures.
-- Test kinds on these nodes use `computation` and `characterisation` instead of inherited aliases. Tests themselves are retained.
-- `band-center-sheaf` drops the unnecessary SF.1 stage prerequisite. Its local central-section descent chain uses native Mathlib Hom descent and the stronger `band-center-prestack-sheaf` result. This does not implement generic slice-sheaf descent. The separate `band-center-glued-comparison` is now an explicit consumer of the existing SF.1 effective-descent request; that request remains unresolved.
-- `BandSheafTests.rootNonneutral` now states the actual boundary: algebraically closed k, n≥2 invertible in k, X=P¹_k with its small étale site. A global nth root of O(1) would require n times its degree to equal 1. For n=1 the fibre is nonempty, so the former unrestricted wording was false. The geometric Lean fixture and H² class/sign interpretation remain omitted. This is a correction to a packet test, not a newly found error in a published source.
-- One gap records the remaining geometric fixture, nonconstant/terminal-free test, fixed-band inversion, slice comparison and H² review obligations. Existing continuation signatures for some of these tests are present, but are not independently certified by this run.
+## Mathematical and closure audit
 
-All 660 ids, 255 baseline entries, 72 source objects, 22 requests, eight coverage rows, key-definition rows, fourteen source findings and ten planets are preserved. The SF.1 request gains one consumer. Raw API/tests: 605/589→610/589; checker-normalized: 597/556→602/556. Gaps: 15→16. Source versions and all existing source-finding verdicts remain unchanged. No final planet or ownership verdict is claimed.
+Every incoming node was read with its hypotheses, direct prerequisites, proof steps and all source locator/excerpt pairs. Every definition and construction API/test list was checked, including parameterized identity, action, restriction, refinement and inverse checks. Authored native formulas are explicitly deductions on pinned carriers: a short motivating quotation from a gerbe source is not represented as a printed proof of those formulas.
 
-## Fresh reading and source boundary
+The gerbe carrier extends native `IsStack` and separately imposes groupoid fibres, local nonemptiness and local isomorphism on covering sieves. The intrinsic band is a compatible central-section sheaf, not arbitrary objectwise automorphisms. Evaluation has image the centre; the nonabelian S3 fixture excludes a transposition. The discrete two-component, connected two-label, empty-fibre, nonconstant C4→C2→C2 and terminal-free chain fixtures distinguish locality, compatible sections, connectedness, coefficient restrictions and loss of information. Their scope is native categorical/bottom-topology fixtures, not a claimed algebraic-geometric example.
 
-Read the worker, blueprint, expansion and upstream rules, previous handoff/report, and the complete upstream JacobianChallenge and ReductiveGroups readers. Read the R09.3/R09.4 reviewed audit rows and AUDIT-01 metadata. Read SF.1's stage and inspected its supplier packet for the existing slice-sheaf request; the broad stage description does not supply the requested interface by itself. Consulted the gerbe key entry and reserved ownership records as leads, without completing the entire sample-API or coherent-duality audit. The other six stage-audit rows and all cross-atlas duplication checks remain pending.
+Band-preserving transformations use the displayed restriction/conjugation equations. Fixed-band Hom inverses retain their actual local anchors; arbitrary deeper-slice coherence uses both endpoint pseudofunctor comparisons and native StrongTrans naturality. Fullness is obtained from the native Hom sheaf and covering local bijectivity, not from a chosen global isomorphism. Essential surjectivity uses native descent data and stack effectivity. The modification groupoid retains modifications and their inverses. Coherent inverse StrongTrans, torsor comparison, independently normalized coefficient universes and the geometric examples remain the named supplier/proof obligations; the conditional interfaces do not silently assert them.
 
-Read the full JSON objects for **46 nodes, indices 109–154 inclusive**: the intrinsic central-section carrier, reindexing, extensionality, evaluation and band comparisons, separatedness/locality, objectwise descent, cover-centre construction, arbitrary-base compatibility and simultaneous gluing. This is bounded independent reading of statements, hypotheses, proof routes and API/test text, not final verification of every secondary locator, recursive prerequisite or native suggested declaration. Root-gerbe indices 27–28 were consulted as contextual leads, not added to this frontier.
+The H² route is derived sheaf cohomology. Enough injectives, cokernel exactness, the H¹/torsor comparison and injective-band neutralization are explicit inputs. The class uses the cokernel torsor and native connecting map with its fixed sign. Quotient torsors, independence of neutralization and the two inverse constructions remain mathematical plans with recorded closure obligations. There is no unconditional substitution of Čech H². The O(1) root gerbe is a gerbe of line-bundle roots without a section, on the étale site with n invertible. Its degree obstruction rules out a global root when n>1, and its derived Kummer class is nonzero. Root stacks with a section retain their different owner.
 
-Together with the historical 101-node frontier, 147 distinct nodes have bounded readings: **0–65, 67, 75–154**. The remaining **513** are **66, 68–74, 155–659**. Every one of the 660 still needs reconciliation and a final checked disposition before a verdict.
+Compatible fpqc limits retain actual stage objects, transition isomorphisms, their unit/composition coherence and compatible arrows. Nonempty affine inverse limits require the stated nonemptiness/affineness hypotheses. The profinite-integer example uses the affine group limit, not a topological set of points. Its coordinate ring has arbitrarily many surviving orthogonal idempotents; a finite list of generators lies in one finite-dimensional stage, proving the group is not finite type. Its trivial-object stabilizer therefore excludes finite-presentation algebraicity, while each finite stage remains algebraic.
 
-Freshly read [Stacks Section 8.11, tag 06NY](https://stacks.math.columbia.edu/tag/06NY), including its gerbe definition, relative characterization and Lemmas 8.11.2–8.11.8 with proofs; the [standalone Lemma 8.11.8, tag 0CJY](https://stacks.math.columbia.edu/tag/0CJY); and [Definition 8.4.1, tag 026F](https://stacks.math.columbia.edu/tag/026F). The source's band construction assumes abelian automorphism sheaves and glues slice sheaves; it omits the final varying-base conclusion. The packet's central-section sheaf for an arbitrary prestack is an authored closure argument, explicitly labelled as such, not a theorem printed in this source. Its proof descends local automorphisms through fully faithful native Hom descent, proves naturality at every object, pulls back covering sieves, retains the pseudofunctor composition constraint, and glues all slice components. Evaluation onto inertia and identification with the imported slice-glued band are separate obligations.
+The R09.3 affine comparison has the faithfully flat ring-map assumption, actual all-test-object descent data, the chosen-pullback comparison, comonad counit coordinates and right-adjoint uniqueness transport. Native module descent and finite-presentation descent are imported rather than re-planned. Faithfulness of restriction alone does not imply effectivity. The Picard leaves retain proper/flat/finite-presentation and universal structure-sheaf hypotheses where used; section rigidification uses base-changed units and gluing on X_T. General Picard representability and GAGA remain outside this pass.
 
-The twenty pinned Mathlib baseline statements listed below were freshly read with their ambient binders and hypotheses. In particular, `IsPrestack` does not assume groupoids; `sheafHom` lives on the slice; `isSheaf_comp_of_isSheaf` has an explicit limit-preservation hypothesis. No declaration is replaced by a name-only search. This does not certify the other 235 entries or every baseline leaf of indices 140–154.
+All target levels and stage statuses were checked: none is marked planned or closed, so no unplanned target is hidden behind a closure claim. `status: complete` records the finished pass; the retained 476 nodes still exceed the current approximately 300-node pass budget. No new proof splitting was performed. Follow-up planning must work from the explicit remaining lists.
 
-- `CategoryTheory.Pseudofunctor.IsPrestack`, `CategoryTheory.Pseudofunctor.sheafHom`, `CategoryTheory.Pseudofunctor.isPrestackFor'`, `CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful`.
-- `CategoryTheory.Pseudofunctor.toDescentData`, `CategoryTheory.Pseudofunctor.DescentData.hom_ext`, `CategoryTheory.Functor.FullyFaithful.map_injective`.
-- `CategoryTheory.Aut.autMulEquivOfIso`, `CategoryTheory.Functor.mapAut`, `CategoryTheory.Aut.unitsEndEquivAut`, `CategoryTheory.NatIso.ofComponents`.
-- `CategoryTheory.CatCenter`, `CategoryTheory.CatCenter.ext`, `CategoryTheory.CatCenter.naturality`, `CategoryTheory.CatCenter.mul_app`.
-- `CategoryTheory.GrothendieckTopology.pullback_stable`, `CategoryTheory.Presheaf.isSheaf_comp_of_isSheaf`, `CategoryTheory.isSheaf_iff_isSheaf_of_type`, `CategoryTheory.Presieve.IsSheaf.isSeparated`, `CategoryTheory.Presieve.IsSeparatedFor.ext`.
+## Ownership and supplier statements
 
-Source downloads on 2026-10-05 are reconstructible by the URLs above and SHA256:
+Read the reviewed A0/R09.1–R09.7 library-audit rows, the campaign reader, and the complete upstream JacobianChallenge and ReductiveGroups models. Native stacks, prestacks, descent data, sheaf cohomology, module descent and quasi-coherent affine modules remain baseline imports. No audited existing library layer is newly planned.
 
-| Tag | SHA256 |
-| --- | --- |
-| 06NY | `784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e` |
-| 026F | `0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0` |
-| 0CJY | `41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e` |
+Read current supplier statements in SchemeAndStackFoundations SF.1/SF.2 and DiamondsAndVStacks D0. Exact D0 stackification, groupoid-quotient/2-fibre-product and Čech-to-derived comparison nodes are used where supplied. The remaining stage references are accompanied by precise requests for geometric/torsor/band, cohomology and coherent-inverse interfaces; they are supplier dependencies with open requests, not assertions that those stages already contain the missing result. No exact existing supplier declaration discharges those requests.
 
-Each following module was compared byte-for-byte with Mathlib commit `082e2d37e8b0463410cdb532e111cd43d5a66174`; paths below are relative to `Mathlib/CategoryTheory/`:
+Coherent dualizing complexes and exceptional inverse image remain imports from `SchemeAndStackFoundations:key/coherent-duality`. Its proper right-adjoint and separated finite-type Noetherian derived-quasi-coherent scope was read. This packet introduces no duplicate dualizing-complex node. The reserved gerbe id is retained once; abelian bandings, neutralizations and their companion constructions remain within that ownership.
 
-| Module | SHA256 |
-| --- | --- |
-| Center/Basic.lean | `a94d5510ede4d946248e08dd97bbfee277f0f873b4175a9f0bf4a7881f76cc3f` |
-| Endomorphism.lean | `7c9eb33bb74caeacb6efe3bab7f7e57ad77c07b42489ba91952eebf866fcca4f` |
-| Functor/FullyFaithful.lean | `94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e` |
-| NatIso.lean | `c2e8b0662cae553808f1973dfc6027272b8ec2697a105a487ce1b1044330d103` |
-| Sites/Descent/DescentData.lean | `2292153f538142a8c3879094fed08f38a619a6dd13af91ab1c2f29448fb5e13e` |
-| Sites/Descent/IsPrestack.lean | `470b75a20ab5cb1de6de12444a84d4b50352cbd1b6bba9224cd54779dd8b22b2` |
-| Sites/Grothendieck.lean | `7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d` |
-| Sites/IsSheafFor.lean | `b47fe14e505dce52cac9e86a823b4b0e4968c16a898da7447c37fd705cf73653` |
-| Sites/Sheaf.lean | `e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de` |
-| Sites/SheafOfTypes.lean | `2b322b717166426aaa4390a7f5157e1fce28e636618c3d995e54f76fbec3d5f9` |
+## Reserved gerbe sample matrix
 
-## Validation and continuation
-
-Packet checker: zero errors and warnings. Intake file/private-path checks, historical preservation, source-finding schema, semantic edit scope and whitespace checks pass. The actual completion classifier returns false. There is no overall acceptance.
-
-An isolated **278-line Mathlib fragment** containing the native central-section block, added API and six new examples elaborates with **seventeen `sorry` warnings, zero errors and no other warnings**. SHA256: `3f3fa702514bc76780a636efdb21350c77ef5cd0066990b51f0c6ab2a54cc5d1`. It was temporarily written only to the authorized suggested-file path, with the complete text retained in memory and restored in `finally`. This validates signatures with admissions, not mathematical proofs or full-file elaboration.
-
-To reconstruct the fragment, import Mathlib's Sites.Descent.IsStack, Center.Basic, SingleObj, Products.Basic, Discrete.Basic, CodiscreteCategory, Bicategory.Functor.LocallyDiscrete, Data.ZMod.Basic, SetTheory.Cardinal.Finite and GroupTheory.Perm.Fin. Open CategoryTheory/Opposite/Bicategory and declare the four original outer universes. Take the intrinsic-band continuation namespace block through the point immediately before the packaging comment for `band-center-sheaf`, and close IntrinsicBandSections and TauCeti.AlgebraicGeometry. Take BandFixtures' header through immediately before `constantSection`, then its commutative component-construction block from `variable (I : Type fixture_u) (G : Type fixture_v) [CommGroup G]` through immediately before `component_eval_bijective`, and close BandFixtures. Take ConnectedBandFixtures' header through immediately before `connectedCenter` and close it. Append the final IntrinsicBandReviewTests namespace. Preserve the selected blocks verbatim. Existing fixture equivalences also contain admissions, so a successful elaboration cannot establish their computations.
-
-Available memory before the full-file attempt was 95 GB. The full file fails before elaboration because `TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence.olean` is missing. Shared Mathlib matches the exact pin, but shared Tau HEAD is `cf386627e9176a3827c1a5fe804989fd94a4d216`, not required `f790474821cf4256814db967cb154e7af3d0c369`. **No full-file or exact-Tau-pin compilation is claimed.** No builds, updates, cache fetches, language servers or background Lean processes were used.
-
-Resume by rechecking the five edited nodes, the added constructor/component signatures, concrete test fragment and SF.1 dependency separation. Complete the geometric comparisons, root-gerbe signature and fixed-band inversion. Then review indices 66, 68–74 and 155 onward, all remaining baseline/source/closure/API/test/planet checks, reserved gerbe sample contract and coherent-duality import. Earlier E12–E14 and other source findings remain attributable to their original bounded reports and require final reconciliation. H² quotient/sign/two-inverse identities and arbitrary affine/profinite-group supplier scope remain open.
-
-The reader is outside this issue's authorized paths. A separately authorized orchestrator edit must synchronize the five affected node/API/test passages and omission summary. No reader edit is made here. Scratch is discarded after opening the PR; the report and handoff carry all continuation information. This run submits one checkpoint and takes no second job.
-
----
-
-# Historical checkpoints before codex-2ahsNe
-
-# Review continuation: codex-tBJmUU
-
-Codex — codex-tBJmUU, 2026-10-05. Refs #346. Input commit `47691b70c799f852c05c363ec26dd72468741503`. [Claim comment 5994904624](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5994904624) was confirmed by [bot reply 5994907736](https://github.com/CBirkbeck/tauceti-explorer/issues/346#issuecomment-5994907736). The entire issue was read before claiming and again after confirmation. This session did none of the input planning.
-
-**This is an unfinished independent review checkpoint, with no overall verdict.** There is no top-level packet `review` object or final node disposition. The planning pass's `status: complete` remains appropriate to its budget-ended pass; its four partial and four not_read stages are not grounds for rejection. No stage, key definition or implementation status is promoted. Prior sessions' reports below remain historical evidence attributed to their authors.
-
-## Corrections saved
-
-Twelve existing node objects change: incoming indices 33, 35, 40, 50–52 and 79–84. No node is added. All 660 ids, 72 source catalogue objects, eight coverage rows, key-definition rows and ten planets are preserved. The 22 requests remain, with the invertible-sheaf pullback request also naming the rigidified consumer. Two baseline declarations, eight API entries, three gaps, three source findings and four source-version records are added. Final counts: 255 baseline declarations, 605/589 raw API/tests, 597/556 checker-normalized API/tests, 15 gaps and 14 source findings. No existing source finding's verdict is changed.
-
-1. The compatible-family API now supplies its actual category, componentwise identity/composition, evaluation functors and componentwise invertibility. Its pullback accepts a supplied same-universe strong transformation between index diagrams and exposes the resulting object component. This conditional interface does not construct the geometric site-restriction diagrams. Three native tests retain arrows: an arbitrary singleton pseudofunctor, a cofiltered constant one-object group diagram, and the singleton C3 diagram with one isomorphism class and three endomorphisms. Their packet text and omission ledger agree. The distinct Boolean cofiltered 2-category convention is preserved.
-2. The nonempty-limit proof chooses a point of the nonempty scheme and restricts the compatible object to its residue field. This supplies the affine field chart; it does not claim the original nonaffine X itself is an affine chart or infer a rational neutralization. The locally-full-limit lemma explicitly requires a small nonempty cofiltered index so its coordinate diagram is filtered.
-3. Kernel rigidification now identifies the quotient source Isom sheaf with Isom in the **middle** gerbe at g(x),g(y). The faithful map from the middle to the original final target need only embed that sheaf. The uniqueness proof makes both facts explicit. The B1→B(C2) test distinguishes the middle and final-target Hom sheaves; an admitted native faithful/non-full one-object functor fixture records their cardinalities one and two. Its geometric comparison remains omitted.
-4. All six Picard nodes now name S, X, B, f, the scheme test objects and the small-étale invertible-module convention. Sections and the universal structure-sheaf isomorphism appear precisely where used. The rigidified groupoid can be defined without the latter hypothesis; trivial automorphisms require it.
-5. Relative Picard sheafification imports pinned Mathlib's ordinary sheafification, replacing the D0 generic stackification prerequisite. Its abelian group structure uses finite-product-compatible sheafification after a native site/universe instantiation. The quotient is by **im(f_T*)**, without presuming injectivity. The scheme Picard inverse remains imported from upstream JacobianChallenge Layer A, rather than attributed to the pinned commutative monoid.
-6. The fixed-base rigidified groupoid needs no D0 groupoid quotient. It imports the SF.1 invertible-module comparison instead. Four added API clauses give its constructor, the exact arrow equation σ_T*(φ)∘α=β, arrow extensionality and the trivial object. Pullback explicitly consumes the unit and section-square comparison. These unavailable geometric signatures remain honest mathematical omissions.
-7. Three gaps preserve the unresolved arbitrary affine-group supplier boundary, the Picard native interfaces and explicit representative-obstruction non-example, and the geometric compatible-family/factorization comparisons. They do not certify the existing requests as supplied theorems.
-
-## Fresh reading and its limits
-
-Read the binding worker, blueprint, expansion and upstream protocols, the complete upstream JacobianChallenge and ReductiveGroups readers, the preceding handoff/report, the A0-extension and R09.4 reviewed library-audit rows and their review metadata. Read D0's stackification and groupoid-quotient supplier node objects, and the relevant local supplier requests. No complete re-audit of those supplier roadmaps, all restructuring proposals, the coherent-duality owner or the other six stage-audit rows is claimed.
-
-Examined the full JSON objects for these 24 nodes, comparing statement, hypotheses, proof route, API/test text and principal sources:
-
-- `AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-gerbe`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/compatible-limit-family`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/profinite-etale-gerbe`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/locally-full`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-isom-epi`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-relative`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-limit`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-gerbe`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-finite-type`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-not-algebraic-fp`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/canonical-affine-factorization`
-- `AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/canonical-factorization-unique`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-image`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-finite-presentation`
-- `AlgebraicModuliForArithmeticGeometry:R09.4/relative-profinite-gerbe-finite-stages`
-- `AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf`
-- `AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-base-change`
-- `AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-kernel`
-- `AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard`
-- `AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid`
-- `AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split`
-
-Eighteen of these were already bounded readings in the preceding gerbe checkpoint; six Picard nodes are new to that frontier. The cumulative historical bounded-reading frontier is now 101 distinct ids: indices 0–65, 67, 75–108. The remaining 559 are indices 66, 68–74 and 109–659. This is **not** a final review: every node still needs reconciliation with recursive closure, all secondary locators, native signatures and a final checked disposition. This session does not recertify earlier workers' other nodes, source findings or baseline readings.
-
-For the six Picard nodes, read Stacks 0D24's Situation 99.11.1, restriction remark, Lemmas 99.11.2–99.11.4, the rigidified category definition and Lemma 99.11.7 with proofs. Read 0D02's Picard-stack definition as context. The Picard planet's name matches this source; the other nine planets were not independently certified. The general warning `PicardSheafTests.needSheafification` still lacks an explicit worked counterexample, now recorded as a gap. P1 degree/group laws and the section/function/unit dictionaries require the named supplier interfaces.
-
-For the gerbe nodes, reread BV12 v5 §3 Definitions 3.2–3.5 and Remark 3.6/Proposition 3.7, BV19 v3 and published definitions/factorization/local-fullness/limit passages, and Bresciani's published §2/Lemma 2 proof. In BV12 the index 2-category is distinct from an arbitrary ordinary cofiltered category. E10 was reread and retained. Finite-stage synchronization and the geometric classifying-stack/profinite-limit comparisons remain obligations. E1–E9 and E11 were not freshly replayed.
-
-## Baseline and ownership evidence
-
-Seventeen packet baseline statements were freshly read at the exact pins, with their ambient assumptions: seven Sheafification declarations (`HasSheafify`, `presheafToSheaf`, `toSheafify_naturality`, `sheafify_hom_ext`, `sheafifyLift`, `toSheafify_sheafifyLift`, `sheafifyLift_unique`); SingleObj's `category`, `comp_as_mul`, `groupoid` and `MonoidHom.toFunctor`; `Pseudofunctor.StrongTrans`; the newly cited `IsCofiltered` and `Skeleton`; Tau Ceti's `IsInvertible`, `InvertibleSheaf` and `LineBundleClass`. Of the final 255 declarations, 238 were not freshly read in this session. No citation was removed from the catalogue; two unneeded cross-roadmap node prerequisites were replaced.
-
-Mathlib local module bytes were compared to `git show` at `082e2d37e8b0463410cdb532e111cd43d5a66174`. Authenticated SHA256 values:
-
-| Module | SHA256 |
-| --- | --- |
-| CategoryTheory/Sites/Sheafification.lean | `3df0b49f121a026db6d8c4d5c352830d46bfdeab1a340ff3bf6e214ccd27a360` |
-| CategoryTheory/Filtered/Basic.lean | `9b490da3d94eb4b3b566dc17e4361ce1928cc2ee7aece62fd281a8864a5baa8b` |
-| CategoryTheory/SingleObj.lean | `6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03` |
-| CategoryTheory/Skeletal.lean | `5c56274abf5bf5a45e0557d2028a4858edb8b4c952e9d18cfa163897887fb77b` |
-| CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean | `4485e8cf6de3421060a3c803f2c37495a63b8ad785f956b87687c3d324011406` |
-
-Tau source was read using exact commit `f790474821cf4256814db967cb154e7af3d0c369`, independently of the shared checkout's HEAD. LineBundle/Basic.lean hash: `a5b3a45ddf3e6d8ecee349b6a85d8e6381127b7bfbe6a4d70ac761c0340e3e43`; LineBundle/Class.lean: `beab5ca378823b69dd002d1582f945f976ec005a8528c32bf39a7bb87bc013b4`; ModuleCat/Sheaf/Invertible/Basic.lean: `1b3caa1c6a44884c8d612909b05f57ae7599306d2fd4fa43dc72d5a535beb12f`. The line-bundle carrier is a full module subcategory, so its core is necessary for Picard arrows. Its class carrier has a commutative monoid, not a proved Picard-group inverse.
-
-As supplier leads, read exact-Tau affine-group Image, HopfIdeal quotient image, isogeny, closed-subgroup and Fppf/Quotient/Basic statements. The image factorization has an injective coordinate inclusion but no generic faithful-flatness theorem. The fppf quotient constructs a group sheaf, explicitly without representability. SF.1's read stage does not plan the arbitrary affine-group results presently requested from it. ReductiveGroups Layer 3 owns the group direction but has finite-type standing hypotheses; profinite stabilizers require a scope extension/Part II. The new gap asks the orchestrator to resolve that ownership without pretending the finite-type roadmap already supplies it. These extra leads are not added as unconditional baseline citations.
-
-## Source findings and reconstructible evidence
-
-E12 records BV19 Proposition 3.9's final-target Hom error. For B1→B(C2) with trivial stabilizer kernel, the quotient source Hom sheaf is trivial, while the final target has C2 automorphisms. Changing f-images to g-images gives the middle-gerbe formula needed by the proof; the canonical-factorization proposition is not refuted. The formula is present in the publisher's p.539 and arXiv v3 p.9. Bounded MSP/title/erratum searches and the arXiv submission history found no separate correction. The publisher article HTML was inaccessible to the browser tool; its PDF was read. `known: new` has this bounded meaning.
-
-E13 and E14 record two Stacks 0D24 notation slips: the normalization composite needs α_j inverse, and the base change of g:T→T′ must run X_T→X_T′. Domain/codomain checks establish both corrections. Both remain in public quot.tex. The live page had no comments offering a correction. Neither changes the intended theorem. All three have bounded confirmation by this unfinished review, which does not make them effective finished-review verdicts. No author was contacted.
-
-Downloads read on 2026-10-05; public URLs and SHA256 values reconstruct the discarded evidence:
-
-| Source | SHA256 |
-| --- | --- |
-| [BV12 arXiv v5](https://arxiv.org/pdf/1204.1260v5) | `c2a803a6a63837670f8d5eb1b2fa19606b74ab59c81335c6df9b631fa9b21eed` |
-| [BV19 published](https://msp.org/ant/2019/13-3/ant-v13-n3-p01-s.pdf) | `64fca3767f3c6cbd02fbf84f1fb456c7fda30c7bc95ddc8c8c84cd3bd8629111` |
-| [BV19 arXiv v3](https://arxiv.org/pdf/1610.07341v3) | `820bc690bb5753e990b580716b93aff2326d873ae03b7bf2aee8e9e935e55ed6` |
-| [Bresciani published](https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf) | `77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148` |
-| [Stacks 0D24](https://stacks.math.columbia.edu/tag/0D24) | `d0d28a2cc8b6be6b6d0874c36e7ce653c25484bb337af1b67253eb6c71c2e3e7` |
-| [Stacks 0D02](https://stacks.math.columbia.edu/tag/0D02) | `613260ff0de0fc52e9dcec0b9192fb421e550bfb79322980a88a1a0fe7aef495` |
-| [Public quot.tex](https://raw.githubusercontent.com/stacks/stacks-project/master/quot.tex) | `dd8e6fe1c77fbc372252abbfc7f449a5d9a344d1e83acabcc55a53edf3f750e0` |
-
-## Validation and continuation
-
-Packet checker: zero errors and warnings. Source issue/version schemas, allowed-file/private-path check, historical preservation, semantic scope and whitespace checks pass. The actual intake completion classifier returns false. There is no overall acceptance.
-
-Serial `lean-check` of the Mathlib-only compatible-family block plus its four test examples succeeds with only twelve `sorry` warnings. The checked fragment SHA256 is `b3649a446350963ce3e0cb9e3b170ee76bc0ffc332e56b812d9fab2066cb50bf`. It comprises the block from `universe uI vI` through the end of `CanonicalFactorTests`, with the nine Mathlib imports needed for LocallyDiscrete, Pseudo natural transformations, Discrete, Filtered, Skeletal, SingleObj, ZMod, TypeTags.Finite and Cardinal.Finite, the CategoryTheory/Opposite/Bicategory opens, four outer universes and the existing namespace. The final check temporarily placed that fragment at the authorized suggested-file path, retained the full file in process memory and restored its bytes in `finally`. The isolated signature check is not a proof or full-file elaboration. Initial checks mistakenly used a scratch Lean file contrary to the issue's restriction; that file was removed and the final check used the authorized path.
-
-Available memory was 95 GB immediately before both final checks. The full suggested file then fails before elaboration at the unavailable TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence object file. Shared Mathlib matches its pin; shared Tau HEAD is `cf386627e9176a3827c1a5fe804989fd94a4d216`, not the required Tau pin. **No full-file or exact-Tau-pin compilation is claimed.** No library build, cache fetch, dependency update or language server was used. No Lean process is left running.
-
-Resume with independent rechecks of these twelve node edits, E12–E14, the native fragment and the three gaps. Resolve the arbitrary affine-group supplier scope and geometric limit diagrams. Build the Picard/rigidified native interfaces and explicit nonrepresentative sheaf point test. Complete all 559 nodes outside the cumulative bounded frontier, then reconcile all 660 with final closure/source/API/test/baseline/planet dispositions. H2 quotient/sign/two-inverse identities, coherent duality imports and the reserved gerbe sample contract from earlier checkpoints remain open.
-
-The reader is outside this issue's authorized files. The orchestrator must arrange synchronization of the twelve affected passages, added API clauses, new source findings and omission summary in a separately authorized reader edit. No reader is edited here. This run submits one checkpoint and claims no second job.
-
----
-
-# Historical checkpoints before codex-tBJmUU
-
-# Review continuation: codex-BTpcaN
-
-Codex — codex-BTpcaN, 2026-10-05. Refs #346. Input commit: `0fbbbfccdad9e3c5e0db40cd5e401ea500b23b65`. Claim comment 5994365139 was confirmed by bot reply 5994367586. The issue was read before claiming and again after confirmation. This session did none of the planning under review.
-
-**Unfinished review checkpoint; no overall verdict.** The packet still has no top-level `review`. Its planning `status: complete`, eight partial/not_read coverage rows, partial reserved gerbe contract and all unchecked implementation statuses remain unchanged. An open gap or partial stage is permitted by the protocol; those facts are not a rejection verdict. The two earlier checkpoints below remain historical evidence from their named sessions.
-
-## Corrections in this session
-
-1. **All-module Hom calculation.** `R09.3/affine-pullback-tensor` used the mapping property of tilde and the pullback adjunction without naming either adjunction among its direct inputs. Add the actual baseline `AlgebraicGeometry.tilde.adjunction`, `AlgebraicGeometry.moduleSpecΓFunctor` and the already cited scheme-module pullback adjunction. The affine equivalence `tildeEquiv` alone handles quasi-coherent targets; the proof uses the tilde adjunction on arbitrary sheaf-module targets. Record the native global-sections/pushforward/restrictScalars comparison as an outstanding transport obligation rather than silently inferring it from an equivalence of fibres.
-2. **Existing coherence.** `R09.3/quasicoherent-pseudofunctor` now explicitly imports the three existing scheme-module associativity/left-unit/right-unit equations. They live beside the already existing `Adj(Cat)`-valued scheme-module pseudofunctor. Restricting its left-adjoint constraints to the full quasi-coherent subcategories reuses that mathematics. The generic coherence is not a new construction; the quasi-coherence-preservation and restricted comparisons remain obligations.
-3. **Faithfully flat hypotheses.** Replace the unrelated schemes boilerplate in `affine-module-descent-equivalence.hypotheses` by the actual ring map, faithful flatness, module universes and unrestricted module morphisms its statement uses. No theorem is generalized or weakened.
-4. **Common-refinement members.** Spell out the actual finite affine refinement members and their products over S in the fullness proof, leaving the intersections possibly nonaffine. Record E11 for the source's undefined base U and mistaken V_k member labels. The corrected proof uses the mathematical refinement already intended by the source.
-5. **Space-to-scheme reduction.** The algebraic-space descent proof now names scheme charts Tij→Xi and applies the scheme theorem to U×X Tij, after using X's representable diagonal. It no longer writes the unrefined U×X Xi as though it were automatically a scheme. The final original-datum comparison remains required.
-6. **Suggested signatures and discriminating examples.** State the actual affine pullback naturality square. Replace a generic tilde-is-quasi-coherent example by the particular countably infinite free module over a field, including its failure of finite generation. Replace the ModuleCat-only noninvertibility check by the actual tilde sheaf-module map. Add the nonflat Z→Z/2Z fixture: the monomorphism multiplication by two pulls back to zero on a nonzero sheaf and loses monicity. Remove exactly the three corresponding omission-ledger entries; composition, localization, unit comparisons and all other omissions remain. These are suggested signatures with `sorry`, not compiled definitions or proofs.
-7. **Explicit boundary.** Add one gap for the native structure-sheaf unit/slice comparisons used by quasi-coherence pullback, the global-sections transport used by affine pullback, the remaining signatures and the small-étale/Zariski comparison. This does not close the older chosen-overlap adapter gap or any supplier request.
-
-Exactly five existing node objects change: indices 57, 58, 60, 63 and 78 in the incoming array. No node is added or removed. All 660 ids, 72 source objects, 22 requests, coverage rows, key-definition rows, planets and implementation statuses are preserved. Baseline declarations increase 248→253 (five confirmed additions, no removal), gaps 11→12, source findings 10→11. Raw API/test counts stay 597/589; checker-normalized counts stay 589/556. The corresponding reader document is outside the issue's permitted files and was not edited; its affected paragraphs and generated omission summaries need synchronization by an authorized reader job.
-
-## Fresh reading scope
-
-Read the binding worker, blueprint, expansion and upstream instructions; read both upstream JacobianChallenge and ReductiveGroups documents in full, and this roadmap's campaign reader. AdicSpaces and AlgebraicCurves were read only in part and are not counted toward the two-document requirement. Read the reviewed R09.3 audit row with AUDIT-01 review metadata, and the SF.1 atlas stage plus the exact requests this strand places on it. Those requests cover topology refinements, ordinary gluing, charts, rank comparison and scheme-site comparison; the SF.1 description is broad, not a proof that every requested interface is already supplied. No complete cross-atlas ownership screen, gerbe sample-API audit or coherent-duality import audit is claimed.
-
-Examined the statement, hypotheses, proof sketches and API/test text of the following 38 existing objects, with principal-source comparison. This is a bounded reading record, **not** final per-node verification: secondary locators, recursive closure, every baseline binder and each omitted native signature are not all checked. The previous records concern 57 other ids. Together their reading frontiers and this one identify 95 distinct objects; the remaining 565 objects still need even that bounded pass. All 660 still need a reconciled final checked disposition before a verdict.
-
-| Incoming zero-based index | Node suffix after `AlgebraicModuliForArithmeticGeometry:` |
-| --- | --- |
-| 56 | `R09.3/quasicoherent-pullback` |
-| 57 | `R09.3/affine-pullback-tensor` |
-| 58 | `R09.3/quasicoherent-pseudofunctor` |
-| 59 | `R09.3/module-descent-coaction` |
-| 60 | `R09.3/affine-module-descent-equivalence` |
-| 61 | `R09.3/affine-fpqc-quasicoherent-descent` |
-| 62 | `R09.3/fpqc-quasicoherent-descent-faithful` |
-| 63 | `R09.3/fpqc-quasicoherent-descent-full` |
-| 64 | `R09.3/fpqc-quasicoherent-descent-effective` |
-| 65 | `R09.3/fpqc-quasicoherent-descent` |
-| 75 | `R09.3/finite-presentation-module-descent` |
-| 76 | `R09.3/finite-locally-free-descent` |
-| 77 | `R09.3/space-quasicoherent-modules` |
-| 78 | `R09.3/space-fpqc-quasicoherent-descent` |
-| 85 | `R09.3/module-overlap-datum` |
-| 86 | `R09.3/tensor-comonad-coordinates` |
-| 87 | `R09.3/overlap-diagonal` |
-| 88 | `R09.3/overlap-to-coalgebra` |
-| 89 | `R09.3/coaction-transition-maps` |
-| 90 | `R09.3/coaction-transition-inverses` |
-| 91 | `R09.3/coaction-transition-cocycle` |
-| 92 | `R09.3/coalgebra-to-overlap` |
-| 93 | `R09.3/overlap-coaction-roundtrips` |
-| 94 | `R09.3/overlap-coalgebra-morphisms` |
-| 95 | `R09.3/overlap-coalgebra-equivalence` |
-| 96 | `R09.3/overlap-comparison-canonical` |
-| 97 | `R09.3/canonical-overlap-functor` |
-| 98 | `R09.3/overlap-pullback-coordinates` |
-| 99 | `R09.3/overlap-pullback-diagonal` |
-| 100 | `R09.3/overlap-pullback-triple` |
-| 101 | `R09.3/overlap-to-chosen-descent` |
-| 102 | `R09.3/chosen-descent-to-overlap` |
-| 103 | `R09.3/chosen-overlap-roundtrips` |
-| 104 | `R09.3/chosen-overlap-morphisms` |
-| 105 | `R09.3/chosen-overlap-equivalence` |
-| 106 | `R09.3/native-module-descent-coalgebra` |
-| 107 | `R09.3/native-module-canonical-comparison` |
-| 108 | `R09.3/descent-equalizer-module-coordinates` |
-
-The overlap/coalgebra strand fixes the first and second scalar-factor actions. In particular, its reverse transition formula uses the coaction, the two inverse calculations use different trilinear maps, and its object correspondence needs no flatness. Faithful flatness enters when comparing ModuleCat R to these presentation categories. The chosen/all-test-object equivalence and equalizer/counit compatibility still need complete pinned-carrier and baseline verification; reading their mathematical route is not an elaboration or closure claim.
-
-The source proof of 023N omits the categorical equivalence and inverse-functor checks; the packet rightly supplies separate native comparison leaves instead of treating those omitted details as printed proofs. The full scheme-descent proof keeps arbitrary modules and nonaffine intersections. Its local-to-global comparison must return an isomorphism of the original descent data, not only a sheaf with isomorphic local modules. The space reduction likewise retains its final original-datum comparison. For finite local freeness, finite presentation plus flatness gives projectivity, and the rank/invertibility dictionary is still a precise SF.1 supplier boundary.
-
-## Baseline reading
-
-Freshly read 19 Mathlib declaration statements with their ambient binders at `082e2d37e8b0463410cdb532e111cd43d5a66174`, and one Tau Ceti statement directly using `git show` at `f790474821cf4256814db967cb154e7af3d0c369`. Existing Mathlib files were compared byte-for-byte to `git show` at the pin. No declaration name search alone is counted as verification. Other module hashes inspected as authentication aids do not certify unread declarations.
-
-| Module | Declaration statements read |
-| --- | --- |
-| Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean | `CategoryTheory.Pseudofunctor` |
-| Mathlib/Algebra/Category/ModuleCat/Descent.lean | `comonadicExtendScalars` |
-| Mathlib/Algebra/Category/ModuleCat/Pseudofunctor.lean | `CommRingCat.moduleCatExtendScalarsPseudofunctor` |
-| Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean | `SheafOfModules.IsQuasicoherent` |
-| Mathlib/AlgebraicGeometry/Modules/Tilde.lean | `AlgebraicGeometry.tildeEquiv`, **added** `AlgebraicGeometry.tilde.adjunction`, **added** `AlgebraicGeometry.moduleSpecΓFunctor` |
-| Mathlib/AlgebraicGeometry/Modules/Sheaf.lean | `AlgebraicGeometry.Scheme.Modules.pullback`, `.pullbackPushforwardAdjunction`, `.pullbackId`, `.pullbackComp`; **added** `.pseudofunctor_associativity`, `.pseudofunctor_left_unitality`, `.pseudofunctor_right_unitality` |
-| Mathlib/CategoryTheory/Sites/Descent/DescentData.lean | `CategoryTheory.Pseudofunctor.DescentData` |
-| Mathlib/RingTheory/Finiteness/Descent.lean | `Module.Finite.of_finite_tensorProduct_of_faithfullyFlat` |
-| Mathlib/Algebra/Module/FinitePresentation.lean | `Module.FinitePresentation.fg_ker_iff` |
-| Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean | `Module.Flat.of_flat_tensorProduct` |
-| Mathlib/RingTheory/Flat/EquationalCriterion.lean | `Module.Flat.projective_of_finitePresentation` |
-| TauCeti/Algebra/Category/ModuleCat/Sheaf/Invertible/Basic.lean | `TauCeti.SheafOfModules.IsInvertible` |
-
-The Tau predicate uses a covering with freely generating singleton basis types, not a bare abstract rank-one label. The generic Mathlib PullbackFree unit/free isomorphisms were additionally read as leads: their hypotheses include finality of the underlying site functor. That hypothesis must be discharged for the actual scheme/slice transport before they can serve the new gap; they were not added as unconditional citations. Of the packet's 253 baseline objects, 233 were not freshly read in this session. Earlier sessions' readings remain attributed to them; the native adapter baseline citations are not certified by this session merely because the containing modules were authenticated.
-
-## Sources and source findings
-
-Fresh HTML downloads on 2026-10-05 match the packet's source SHA256 values below. Reading is limited to the listed sections; no whole catalogue or whole-book reading is claimed. These public URLs and hashes reconstruct the disposable source evidence.
-
-| Source | Reading scope | SHA256 |
+| Survey sample | Root API / test | Same-owner plan |
 | --- | --- | --- |
-| [Stacks 01BG](https://stacks.math.columbia.edu/tag/01BG) | Lemma 17.10.4 and proof | `f68bf1a4192d956d97ff7493ae1c8696d66b89432f25a8dfeb14285cf2537c6a` |
-| [Stacks 01I6](https://stacks.math.columbia.edu/tag/01I6) | Lemmas 26.7.1 and 26.7.3, mapping property and pullback comparison | `a84434c8fbcd635e95c75c323faea1f5e1f47367b3ef88e161f424d8ef10cc3d` |
-| [Stacks 023F](https://stacks.math.columbia.edu/tag/023F) | Definition 35.3.1, Lemmas 35.3.2–35.3.3 and tensor/cocycle formulas | `d5b82802e667aa651dffd7498d362bb9a5aadf49f838b1351233d2dc3536c282` |
-| [Stacks 023N](https://stacks.math.columbia.edu/tag/023N) | Proposition 35.3.9 and proof/comments; E5 rechecked | `b8d9a77257d45cfdf1068727990ce4b697f54f311b97b80511c9ed85a5f37cbd` |
-| [Stacks 023S](https://stacks.math.columbia.edu/tag/023S) | Lemma 35.5.1 and full finite-union reduction | `ed24079eb360cc593bf8c7b473873c56f3eb6194957c0a19dff051279e2d58f4` |
-| [Stacks 023T](https://stacks.math.columbia.edu/tag/023T) | Proposition 35.5.2 and full proof/comments | `ca9e9d7885ae6176696fac333dbb27776f82c57818c2be11b4cb674135ec6508` |
-| [Stacks 023E](https://stacks.math.columbia.edu/tag/023E) | Lemma 35.2.4 and proof | `5135f4c1fbb1cad92a08ea0e970a889a030984be299b76f26133870dca7e6e71` |
-| [Stacks 05B0](https://stacks.math.columbia.edu/tag/05B0) | Lemma 35.7.3 and its affine-reference boundary | `6c99f3e956fdfdee18972fc6a4bfdd63f0bb44e981a5cc16d5086cb1667b56fb` |
-| [Stacks 05B2](https://stacks.math.columbia.edu/tag/05B2) | Lemma 35.7.6 and proof | `4cbed905704a364eaded1c82d97dc23a78d6fdca51096d9753c7be72311c5dd6` |
-| [Stacks 03G5](https://stacks.math.columbia.edu/tag/03G5) | Definition 66.29.1 and Lemmas 66.29.2–66.29.3 | `77482e373a8d7168affeb85119eb59094943dd3418abc864558699bdc48a9f0b` |
-| [Stacks 04W8](https://stacks.math.columbia.edu/tag/04W8) | Proposition 74.4.1 and all seven proof steps | `73b3474abccacb2ecd47229ff2322316368c60fa5f90112cb351a1f1b2fe315a` |
+| 1 | `GerbeSampleAPI.classifyingNeutral` / `GerbeSampleTests.classifyingNeutral` | `classifying-abelian-gerbe`, `neutralization`, `h2-classification` |
+| 2 | `GerbeSampleAPI.rootClass` / `GerbeSampleTests.rootClass` | `root-gerbe`, `root-gerbe-class`, `root-o1-nonneutral` |
+| 3 | `GerbeSampleAPI.localNotNeutral` / `GerbeTests.rootNotNeutral` | `root-gerbe`, `root-o1-nonneutral` |
+| 4 | `GerbeSampleAPI.derivedClassification` / `GerbeSampleTests.derivedClassification` | `torsor-representative-of-class`, `class-of-gerbe`, `h2-classification` |
+| 5 | `GerbeSampleAPI.pullbackClass` / `GerbeSampleTests.pullbackClass` | `class-site-pullback` |
+| 6 | `GerbeSampleAPI.neutralSelfEquivalences` / `GerbeSampleTests.neutralSelfEquivalences` | `neutral-self-equivalences` |
+| 7 | `GerbeSampleAPI.compatibleLimit` / `GerbeSampleTests.compatibleLimit` | `compatible-limit-family`, `profinite-etale-gerbe` |
+| 8 | `GerbeSampleAPI.profiniteNotFinitePresentation` / `GerbeSampleTests.profiniteNotFinitePresentation` | `z-hat-gerbe`, `z-hat-not-finite-type`, `z-hat-not-algebraic-fp` |
 
-Rechecked E5 at 023N: its contracted sum uses y_j where the intervening membership sentence prints y_i; the existing verdict is preserved. E1–E4 and E6–E10 were not freshly replayed. E11 was checked in both 023T HTML and the public [descent.tex](https://raw.githubusercontent.com/stacks/stacks-project/master/descent.tex), under `proposition-fpqc-descent-quasi-coherent`. The public TeX hash is `49483b3bcb36427a607a8227f4ea67730fcddf1eeccb8e992ca61915ace3b31d`. The comments' 2023 correction concerns the domains of restricted maps, not these two remaining labels; current TeX still contains both. `known: new` records this bounded search, not an exhaustive novelty claim. The two slips affect notation only; the theorem is not refuted. SourceVersions records both texts. No author was contacted.
+The root contracts keep the chosen site, terminal object where needed, band-preserving equivalence, derived cohomology comparison, n invertibility and genuine 2-limit coherence. Mathematical sample statements are established by the cited proof plans; native geometric/classification carriers and their examples remain omitted and the key remains partial.
 
-## Validation and continuation
+## Source findings
 
-The packet checker reports zero errors and warnings. Source-finding/version schemas, intake four-file scope, preservation checks and whitespace checks pass. The actual completion classifier reports this review unfinished. No overall verdict is added.
+All fourteen inherited findings were independently replayed at their locators. Four missed findings were added. Public URLs and exact content hashes appear in the source table below; packet `sourceVersions` distinguishes publication, preprint and author copy. Bounded correction searches are listed in each finding; absence of a located corrigendum is not an exhaustive novelty claim.
 
-The final suggested file was checked serially with `lean-check`; memory available immediately beforehand was 95 GB (102 GB at the first attempt). Both attempts stop at the unavailable `TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence` object file. Shared Mathlib matches its exact pin; shared Tau Ceti is `cf386627e9176a3827c1a5fe804989fd94a4d216`, not the required Tau pin. **No full-file or new-signature elaboration is claimed.** No scratch Lean file, language server, library build, dependency update or cache download was created. Existing embedded proofs were not replayed.
-
-Resume by rechecking the five edits, E11 and new suggested statements; obtain an already built exact-Tau-pin environment for elaboration. Finish the unit/slice and Gamma transport gap, affine identity/composition/localization examples, restricted QCoh constraints, chosen-overlap native carriers and all baseline statements those adapters cite. Continue all unexamined nodes and reconcile each earlier bounded reading with full recursive closure/API/test/source checks. The H2 quotient/sign/inverse identities, reserved gerbe contract, coherent-duality imports and full eight-stage coverage/ownership checklist from the preceding handoff remain outstanding. Reader synchronization needs authorization in a separate issue or expanded deliverables; this review does not edit it.
-
----
-
-# Historical checkpoints before codex-BTpcaN
-
-# Review continuation: codex-Z21ta0
-
-Codex — codex-Z21ta0, 2026-10-05. Refs #346. Input commit: `e553dc9b084c4494bb4773794cd7d64f7dcd8594`. Bot reply 5993594502 confirms this session's claim comment 5993584008. The issue was read before claiming and again after confirmation. This session did none of the input planning. The preceding checkpoint below is preserved as **historical evidence from codex-izOPZo**, not fresh verification by this session.
-
-**This remains an unfinished review checkpoint with no overall verdict.** There is no top-level packet `review` object. No node is given a final checked disposition and no stage or key definition is promoted. The planning pass's `status: complete` remains unchanged. Its partial/not_read coverage is permitted; it is not by itself grounds for rejecting the plan.
-
-## Changes in this continuation
-
-1. Add the existing `IsGerbe.isIso_hom` projection to the root planning API. The carrier already has this field; it is necessary because the pinned `IsStack` is Cat-valued and alone does not require groupoid fibres.
-2. Replace the weak disconnectedness-only `GerbeTests.twoComponents` example with the exact constant `Discrete Bool` pseudofunctor on the one-point site. Its statement includes both `IsStack` and failure of `IsGerbe`. Put it after the existing `BandFixtures.constantDiagram` alias rather than introducing another carrier.
-3. Propagate the chosen terminal object and the actual native-cohomology assumptions into `torsor-representative-of-class`, `class-of-gerbe`, `class-choice-independent`, `h2-classification`, `class-coefficient-map` and `class-site-pullback`. The class construction restricts a neutralizing object z over terminal S to every U; this is exactly where terminality is used. Its chosen route also requires enough injectives, the derived H1–torsor comparison, slice injective restriction and covering Čech acyclicity. The existing supplier requests remain obligations. These are requirements of the proposed proof route, not a claim that Giraud's classification fails on other presentations of a topos.
-4. Give `root-gerbe-class` its missing scheme, line bundle, positive/invertible n and small étale site hypotheses, including the Kummer/Picard and classification interfaces it consumes. Synchronize all seven affected omission-ledger entries with these hypotheses. They remain omitted mathematical interfaces, rather than pretend Lean signatures.
-5. Add `band-morphism-equivalence` as a direct prerequisite of the classification proof's band-preserving-map-to-equivalence step. Its coherent inverse remains an independent prerequisite obligation.
-6. Refine the quotient-torsor/inverse-identities gap after reading Breen's Proposition 2.14. That proposition supplies an equivalence of 2-stacks between abelian gerbes and torsors under the torsor gr-stack. The comparison with the packet's specific injective dimension shift, native δ and contraction sign is still required. Add a precise gap for the reserved key's sample API and omitted fixtures.
-7. Record E10, a dimension-of-arrow misprint in BV12 arXiv v5 Definition 3.5. The limit-family node already uses the intended one-arrow compatibility square; its source match now names the slip. No mathematical conclusion changes.
-
-Exactly nine existing node objects change (root, and indices 22, 24, 25, 26, 28, 30, 31, 33 in the incoming zero-based array). All 660 ids, 248 baseline objects, 72 source objects, eight coverage rows, 22 requests and the partial key-definition row are preserved. No node, test name or planet is added. There is one added API item, one refined gap, one added gap and one added source finding/version record. Counts: 597 raw API entries and 589 raw tests; checker-normalized 589 APIs and 556 tests; 11 gaps and 10 source findings. All implementation statuses remain unchanged.
-
-## Fresh reading and its limits
-
-Read the binding worker, blueprint, expansion, upstream and browser protocols, the complete upstream JacobianChallenge and AdicSpaces readers, this roadmap's complete campaign reader, the preceding report/handoff, the reviewed R09.4 library-audit row with its review metadata, and the reserved gerbe survey and exact owner assignment. This is not a complete audit of the other seven stages, or a reading of every referenced roadmap. In particular, no complete AlgebraicCurves reading is claimed.
-
-Examined the full JSON objects for the root and indices 19–55: 38 objects in this session. The new strand is listed below. The scope is statement, hypotheses, proof sketch, API/test text and principal-source comparison; it does **not** certify recursive closure, every secondary locator, every definition API or every suggested signature. The prior 20-node record and this record together cover 57 distinct node ids at this bounded reading level. The other 603 nodes, the recursive chains of these 57, and the full eight-stage target/ownership contract remain to review.
-
-Read the supplier objects D0 `stackification`, `groupoid-quotients-and-two-fibre-products` and `cech-to-derived-comparison`. The latter's cover/basis comparison does not by itself establish the more specific injective Čech acyclicity requested here. Read the local packet requests to SF.1/SF.2: H1 torsors, slice injectives, Kummer/Picard, affine Hopf limits and descent. These are precise supplier boundaries, not checked source theorems from those roadmaps. The full SF.1 proof chains and coherent-duality ownership import remain unchecked.
-
-| Node suffix (prefix `AlgebraicModuliForArithmeticGeometry:`) | Principal statement examined and remaining boundary |
+| Finding | Verdict and correction |
 | --- | --- |
-| `R09.4/change-band` | Contracted Isom torsors and groupoid universal property; composition and the signed contraction dictionary remain open. |
-| `R09.4/lifting-gerbe` | B-torsors lifting a D-torsor for a short exact sequence; epimorphism is sheaf-local, not globally section-surjective. |
-| `R09.4/injective-boundary-bijection` | Native derived dimension shift, using vanishing in degrees one/two and exactness. |
-| `R09.4/torsor-representative-of-class` | Inverse dimension shift followed by the requested H1 torsor comparison; hypotheses made explicit. |
-| `R09.4/injective-gerbe-neutral` | Terminal-site object from injective band; cover/slice interfaces still needed. |
-| `R09.4/class-of-gerbe` | Pair quotient with z over terminal S; sheaf/torsor construction and sign still open. |
-| `R09.4/class-choice-independent` | Neutralization comparison and common injective embedding; native naturality is available, torsor comparison still open. |
-| `R09.4/h2-classification` | Fixed-band equivalence classes and zero iff neutral; both inverse identities and coherent equivalence still open. |
-| `R09.4/root-gerbe` | Roots of a line bundle without a section; distinct from the divisor-root-stack owner. AJT's source setting is complex/smooth, so general invertible-n Kummer input is a supplier obligation. |
-| `R09.4/root-gerbe-class` | Kummer boundary on Xét with explicit geometric hypotheses; sign comparison remains open. |
-| `R09.4/root-o1-nonneutral` | Integer equation n·degree(M)=1 is impossible for n>1. The exact P1 degree dictionary is requested from upstream Layer A, not newly planned here. |
-| `R09.4/class-coefficient-map` | Same-site `Sheaf.H.map`, keeping fixed bands and class-construction inputs. |
-| `R09.4/class-site-pullback` | Geometric inverse image with a separate derived comparison; coefficient maps do not supply it. |
-| `R09.4/finite-etale-gerbe` | Finite étale groupoid presentation and gerbe condition; Bμp is excluded in characteristic p. |
-| `R09.4/compatible-limit-family` | Objects with transition isomorphisms, component arrows and coherence; E10 preserves the separate index two-arrow condition. |
-| `R09.4/limit-stack-descent` | Descent of objects, transitions and arrows component by component. |
-| `R09.4/nonempty-affine-limit-gerbe` | Nonempty-limit hypothesis retained; affine Isom limits use faithfully flat transition maps. |
-| `R09.4/profinite-etale-gerbe` | Gerbe condition plus a finite-étale two-limit presentation, without an algebraic finite-presentation assertion. |
-| `R09.4/locally-full` | Faithfully flat stabilizer maps, not surjectivity of field points. |
-| `R09.4/locally-full-isom-epi` | Affine fpqc Isom epimorphism criterion; reduction to common field requires supplier descent. |
-| `R09.4/locally-full-relative` | Faithfulness plus local fullness gives equivalence; coherence supplier still relevant. |
-| `R09.4/locally-full-limit` | Injective Hopf maps into a filtered colimit; projection conditions must remain compatible. |
-| `R09.4/z-hat-gerbe` | Neutral two-limit of factorial cyclic classifying gerbes; identification with actual profinite torsors remains a gap. |
-| `R09.4/z-hat-not-finite-type` | Every finite generator list lies at one finite stage, whereas the dimensions of later coordinate stages are unbounded. |
-| `R09.4/z-hat-not-algebraic-fp` | Published BV19 Proposition 3.1 supplies the affine-gerbe stabilizer criterion. Not an assertion about every algebraic stack's stabilizers without hypotheses. |
-| `R09.4/self-equivalence-isom-transport` | Conjugation-independent Isom transport from the band equation. |
-| `R09.4/self-equivalence-torsor` | Local Isom torsors glued without assuming a neutralization; native assembly chains still unchecked. |
-| `R09.4/all-self-equivalences` | Groupoid equivalence including modifications; locality and supplier descent still required. |
-| `R09.4/quotient-gerbe-transgression` | Finite constant group centralizers with actual equivariant gerbe structure; descent/coherence gap remains. |
-| `R09.4/inertia-stack` | Pairs (object, automorphism) and conjugating arrows; fibre automorphism sheaf retained. |
-| `R09.4/quotient-inertia-components` | Fixed loci modulo centralizers for a finite constant group; no blanket tameness hypothesis added. |
-| `R09.4/canonical-affine-factorization` | Locally-full then faithful factorization, retaining invertible modifications. |
-| `R09.5/affine-kernel-rigidification` | Quotient by stabilizer kernels with affine local groupoid descent; no unsupported generic fpqc stackification claim. |
-| `R09.4/canonical-factorization-unique` | The quotient Isom sheaf supplies the middle gerbe and uniqueness. |
-| `R09.4/finite-etale-image` | Image gerbe into a finite étale gerbe from pro-étale source; not every target object is assumed in the image. |
-| `R09.4/locally-full-finite-presentation` | Refinement/cofinality of finite images is the recorded gap, not a proved approximation result. |
-| `R09.4/relative-profinite-gerbe-finite-stages` | Finite-stage synchronization from Bresciani Lemma 2; arithmetic/anabelian inputs remain upstream. |
+| E1 (gap) | **Confirmed.** Use lifting gerbes to avoid the explicitly incomplete raw-cocycle effectivity argument; prove the quotient torsor and inverse identities as separate leaves. |
+| E2 (misprint) | **Confirmed.** The factorization-minimality paragraph proves (1)⇒(4); its following paragraph uses condition (4) to prove (1), so that next label is (4)⇒(1). |
+| E3 (misprint) | **Confirmed.** The descended torsor P′ and both torsors in the triple are over the test scheme T; the fibre product in the displayed triple is over T. |
+| E4 (misprint) | **Confirmed.** Use an fpqc covering and scheme fpqc descent from Proposition35.5.2. The fibre product is U×X Xi; the Ui in the display is undefined. |
+| E5 (misprint) | **Confirmed.** Replace the y_i in Σ_j σ(a_ij)y_i by y_j, matching the earlier expansion d(x_i)=Σ_j a_ij⊗y_j and the next displayed expression. |
+| E6 (misprint) | **Confirmed.** In the displayed square F′ is the projection to Y′ and G′ is the projection to X, so the projection identities must be F′(x′i)=y′i and G′(x′i)=xi. |
+| E7 (misprint) | **Confirmed.** Replace the circular self-reference in the full-faithfulness paragraph by the proof that an equivariant map between torsors for the same band is bijective, and the native sheaf local-bijection argument. |
+| E8 (misprint) | **Confirmed.** Read z as an object of G₁(U), the fibre over the base U used by that paragraph and its cover. |
+| E9 (error) | **Confirmed.** Descend the Γ1-torsor Q→P to P′→T, then identify Q with P×_T P′. Keep the original (Γ2×Γ1)-equivariant map P×_T P′→N. That map generally does not descend to P′→N when Γ2 acts nontrivially on N. |
+| E10 (misprint) | **Confirmed.** for each 1-arrow a : j → i |
+| E11 (misprint) | **Confirmed.** The original maps are compared on Ui×S Ui′. Write Wj,k for the actual affine member U_(i_j(k),k) of the refinement over Vj; the common refinement is {Wj,k×S Wj′,k′→Vj∩Vj′}, indexed by k∈Kj and k′∈Kj′. |
+| E12 (error) | **Confirmed.** Replace the right side by Hom in the middle gerbe at g(ξ),g(η), for Γ --g→ E --h→ Δ. The induced map to the original final-target Hom sheaf need only be injective, because h is faithful. |
+| E13 (misprint) | **Confirmed.** Use α_j inverse on the left: α_j⁻¹∘σ*φ_ij∘α_i is an automorphism of the overlap structure sheaf. |
+| E14 (misprint) | **Confirmed.** For g:T→T′, its base change is g′:X_T→X_T′. |
+| E15 (misprint) | **Confirmed.** Read H1(G)→H1(G″)→Hg2(G′)→Hg2(G)→Hg2(G″). For u:G′→G, Hom_u maps Hg2(G′)→Hg2(G). A boundary representative Q is a G″-torsor and its lifting gerbe has band G′, so the boundary target is H2(G′). |
+| E16 (error) | **Confirmed.** For a fixed kernel-sheaf band G1 impose centrality of G1 in G2. For merely abelian kernel use the conjugation-twisted band determined by the G3-torsor, rather than automatically the original G1. |
+| E17 (misprint) | **Confirmed.** Use X_(B_i×_B B_j) and O_(X_(B_i×_B B_j)) on the left, and Γ(B_i×_B B_j,O_(B_i×_B B_j)^*) on the right. |
+| E18 (misprint) | **Confirmed.** The gluing cover is {X_Ti→X_T}, obtained by base changing the given fppf cover {Ti→T}. |
 
-The table uses exact node suffixes; array indices are 19–55 at the recorded input commit. The rigidification node belongs to R09.5; its reading does not certify that stage’s audit or target coverage. No table row should be imported as a final `checked` disposition.
+E15 was checked on a rendered image of Milne IV p.9 as well as extracted text. In 1→G′→G→G″→1, lifting a G″-torsor gives a gerbe banded by G′; extension of band is covariant in its coefficient map. The author’s complete public errata list was checked and does not list these particular corrected-chapter labels.
 
-## Reserved gerbe contract
+E16 concerns the hypotheses of the author-notes Remark 31.8, not a published classification theorem: an abelian normal kernel can still have nontrivial quotient conjugation. For C3→S3→C2 on Spec(R), the nontrivial quotient torsor has inversion monodromy on the kernel band. A fixed original C3-band therefore requires centrality, or replacement by the twisted kernel band. The packet’s abelian exact sequence is central and is already correct.
 
-The survey's `algebraicgeometry/gerbes` is assigned once to `AlgebraicModuliForArithmeticGeometry:key/gerbes`. Its partial status is retained. The native root class agrees with Stacks 06NY Definition 8.11.1: a stack in groupoids, locally nonempty and locally connected. The additional projection exposes its groupoid requirement.
+E17 and E18 are distinct from the existing missing inverse and reversed rigidified-arrow findings: the overlap unit equality contains undefined S_i and N, and the final gluing family is a cover of X_T rather than X. Both corrections are forced by the preceding base/refinement definitions. These slips do not refute the Picard statement.
 
-| Survey sample clause | Planned consumer and present limitation |
-| --- | --- |
-| BA is neutral with zero class | Classifying-gerbe, neutralization and `GerbeClassTests.BA`; the root classifying suggested fixture remains omitted. |
-| Root of O(1) has Kummer class | Root-gerbe and root-gerbe-class; native Kummer/Picard and δ sign dictionary still required. |
-| Root of O(1) is nonneutral for n>1 | Root-o1-nonneutral and `GerbeTests.rootNotNeutral`; the root suggested fixture remains omitted. |
-| Fixed-band equivalence classes ↔ derived H2, zero iff neutral | Classification route with explicit native prerequisites and two inverse identities still open. |
-| Pullback preserves band/class | Relative pullback and class-site-pullback; needs the geometric change-of-site comparison. |
-| Neutral self-equivalences ↔ torsor groupoid | Neutral-self-equivalences, including isomorphisms/modifications; not merely torsor classes. |
-| Two-limit objects include coherent transitions | Compatible-limit-family and its non-example; several native API/test signatures remain in the omission ledger. |
-| B(Z_hat) is not algebraic finite presentation | Factorial finite-stage tower and non-finite-type stabilizer; torsor-limit identification and native algebraicity interface remain open. |
+## Validation and exact Lean boundary
 
-This mapping is evidence of where to finish alignment, not a declaration that the root's four incoming API entries and three tests fulfilled all eight clauses. The new gap makes that unfinished contract explicit. No general stack machinery or coherent duality is reassigned here.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json`: **zero errors, zero warnings**, using the available pinned declaration index.
+- All 251 Mathlib qualified names resolve in a temporary signature probe importing their actual modules: **exit 0, no errors or warnings**. Each of the 259 baseline statements was separately read with its source-file binders and checked against citing uses. Eight Tau Ceti declarations are source-confirmed at the exact pin.
+- Fresh excerpt audit: **124/124** distinct URL/literal pairs match after Unicode/whitespace normalization. Every locator and its mathematical context was separately checked; this text-match count alone is not a theorem check.
+- Preservation checks confirm all requests, gaps, stage statuses, original API/test names and planets survive; all 184 folded statements/hypotheses/proof steps are preserved; no removed id has a retained or external packet prerequisite consumer; all eight reserved samples appear at the root; and every retained node has a disposition.
+- Source-finding/version schema, intake deliverable/private-path checks, whitespace check and completed-review classifier pass. No new tests mirroring the implementation were added.
 
-## Source versions read in this continuation
+Only `lean-check` was used to invoke Lean. The existing shared Mathlib source tree is exactly `082e2d37e8b0463410cdb532e111cd43d5a66174`. The shared Tau Ceti HEAD is `cf386627e9176a3827c1a5fe804989fd94a4d216`, not the packet pin `f790474821cf4256814db967cb154e7af3d0c369`; the eight cited Tau Ceti module source files match their pinned git objects byte-for-byte. Available memory was 96 GiB before compilation. No build, dependency update, cache download or language server was run.
 
-Fresh downloads on 2026-10-05 match the packet's recorded SHA256 values. Read only the mathematical portions identified here; whole-paper reading is not claimed.
+**The full suggested file did not compile.** It stops before elaboration because `TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence.olean` is unavailable. Full-file or exact-Tau-build elaboration is not claimed.
 
-| Source | Fresh reading scope | SHA256 |
+For the independent Mathlib projection, blank the single `import TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence` line and the complete declaration `injective_boundary_bijective` through its admitted body. Retain every other line, all mathematical declarations and all example bodies. The authorized suggested path was changed temporarily, the original held in process memory and restored in a finally clause. This projection elaborates with **zero errors and 1039 warnings, every one `declaration uses sorry`**. It checks native signatures/admitted examples, not their proofs. The only permanent code change is the missing section end; subsequent changes are comments. The projection can be reconstructed from the committed suggested file by this exact two-omission recipe.
+
+Fixed-projection log SHA256: `2938032b25bccce1c0ff94e81e0b35194b98a5feedd6b7cb4b88899ad7361282`. Baseline signature-probe log SHA256: `c9d5113aa7052c1b044debdc5f7a509cf303ff7755ef537e486be3f58caa32d8`. Final suggested-file SHA256: `0f1da0e8f85427066acfe3b33981bc716e0ec952020678d07ced3b873b6b7575`. Logs contain local tool prefixes and remain disposable scratch; the reconstruction instructions and source receipts here are permanent.
+
+## Orchestrator follow-up
+
+This review is complete and has an overall accepted verdict; it needs no further review continuation. Generate follow-up planning jobs from the unchanged sixteen gaps, twenty-two requests and precise stage remaining lists. In particular retain the D0 coherent-inverse/torsor work, SF.1 geometric/descended-band work, SF.2 derived cohomology comparisons, general coefficient-universe normalization, genuine nonneutral geometric root example and coherent fpqc limit inputs.
+
+The reader document is not an authorized deliverable of this issue. Synchronize it separately with the corrected packet, reserved root sample exposure and target-level API folding. Supply an existing exact-pinned Tau Ceti build/module before requesting full suggested-file elaboration. No library build is requested from this worker. Ten planet names are mathematically meaningful, with five in R09.4, four in R09.3 and one in A0, all below six per layer.
+
+## Pinned baseline statement receipts
+
+All 259 entries are confirmed; no citation was removed, repaired or replaced. Each source module was read at the pin and compared byte-for-byte to its existing source tree. The table groups the full qualified references by their 87 read modules. Every reference is a baseline input, never a new implementation claim.
+
+| Module at its pinned commit | Confirmed declarations | Source SHA256 |
 | --- | --- | --- |
-| [Stacks 06NY](https://stacks.math.columbia.edu/tag/06NY) | Definition 8.11.1 | `784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e` |
-| [OG07](https://stacky.net/files/written/Stacks/Stacks.pdf) | Theorem 31.7 and Remark 31.8 classification/lifting paragraphs, PDF125–127; not a complete rereading of every diagram in §31 | `716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a` |
-| [Milne IV](https://www.jmilne.org/math/Books/ECpup4.pdf) | Printed pp.8–9, gerbes, classification, lifting and injective-band paragraph | `1aef1301a554ae7c3dd153aea53e8c8a1bdeefe3a5b6c561a280857816618bb7` |
-| [Breen94](https://www.numdam.org/item/AST_1994__225__1_0.pdf) | Printed pp.52–57, in particular §2.13 and Proposition 2.14 with proof | `04505e408bc436c4eb2281c8517cc41234ceebadb8df4c52f95aeaf449967801` |
-| [AJT11 v2](https://arxiv.org/pdf/0907.2087v2) | §2.2, Definition 2.2 and Remark 2.4, PDF5–6 | `8d07faa51c1917d2e1f0ffe8c9b55b6f79a031fb1e8ec4a158ef058d86351bbc4` |
-| [GWZ20](https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf) | Definition 2.6/self-equivalence and Construction 2.8, pp.514–519; no reread of E9's p.540 in this continuation | `f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07` |
-| [BV12 v5](https://arxiv.org/pdf/1204.1260v5) | §2 conventions, §3 through Proposition 3.9, §4 through Definition 4.6, PDF3–9 | `c2a803a6a63837670f8d5eb1b2fa19606b74ab59c81335c6df9b631fa9b21eed` |
-| [BV19 published](https://msp.org/ant/2019/13-3/ant-v13-n3-p01-s.pdf) | §3 Proposition 3.1 and proof, Definitions 3.4–3.6, Remark 3.7, factorization 3.8 and Propositions 3.9–3.11, pp.536–541 | `64fca3767f3c6cbd02fbf84f1fb456c7fda30c7bc95ddc8c8c84cd3bd8629111` |
-| [Bresciani24](https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf) | §2 including Lemmas 1–2, PDF5–7 | `77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e14812` |
+| [Mathlib/CategoryTheory/Sites/Descent/IsStack.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Descent/IsStack.lean) | `mathlib:CategoryTheory.Pseudofunctor.IsStack`, `mathlib:CategoryTheory.Pseudofunctor.isEquivalence_toDescentData`, `mathlib:CategoryTheory.Pseudofunctor.IsStack.of_isStackFor` | `389633d8611b769455a07fdb1d0b591848dfba27ba09f12274dd391d086d2a10` |
+| [Mathlib/CategoryTheory/Sites/Descent/IsPrestack.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Descent/IsPrestack.lean) | `mathlib:CategoryTheory.Pseudofunctor.IsPrestack`, `mathlib:CategoryTheory.Pseudofunctor.sheafHom`, `mathlib:CategoryTheory.Pseudofunctor.overMapCompPresheafHomIso`, `mathlib:CategoryTheory.Pseudofunctor.LocallyDiscreteOpToCat.pullHom_id`, `mathlib:CategoryTheory.Pseudofunctor.LocallyDiscreteOpToCat.pullHom_pullHom`, `mathlib:CategoryTheory.Pseudofunctor.presheafHom`, `mathlib:CategoryTheory.Pseudofunctor.LocallyDiscreteOpToCat.pullHom`, `mathlib:CategoryTheory.Pseudofunctor.presheafHomObjHomEquiv` | `470b75a20ab5cb1de6de12444a84d4b50352cbd1b6bba9224cd54779dd8b22b2` |
+| [Mathlib/CategoryTheory/Endomorphism.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Endomorphism.lean) | `mathlib:CategoryTheory.Aut`, `mathlib:CategoryTheory.Aut.autMulEquivOfIso`, `mathlib:CategoryTheory.Functor.mapAut`, `mathlib:CategoryTheory.Aut.unitsEndEquivAut` | `7c9eb33bb74caeacb6efe3bab7f7e57ad77c07b42489ba91952eebf866fcca4f` |
+| [Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean) | `mathlib:CategoryTheory.Sheaf.H`, `mathlib:CategoryTheory.Sheaf.H.map` | `5d2f823958719336846ff7b64e334267bce67f1d224929db72553337679fe639` |
+| [Mathlib/CategoryTheory/Abelian/Injective/Ext.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Abelian/Injective/Ext.lean) | `mathlib:CategoryTheory.InjectiveResolution.extAddEquivCohomologyClass` | `389fea95fa03233fd72c961d10f4b666ffe42ed650396b21057b6c22fde2dd6d` |
+| [TauCeti/CategoryTheory/Sites/SheafCohomology/LongExactSequence.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/Sites/SheafCohomology/LongExactSequence.lean) | `tauceti:TauCeti.CategoryTheory.Sheaf.H.δ`, `tauceti:TauCeti.CategoryTheory.Sheaf.H.exact_map_δ`, `tauceti:TauCeti.CategoryTheory.Sheaf.H.exact_δ_map`, `tauceti:TauCeti.CategoryTheory.Sheaf.H.δ_naturality` | `982370059eca19ef8d11dd281c29a9a5c0b884204b9fd82ba8c53009c4e08d8e` |
+| [Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean) | `mathlib:CategoryTheory.Pseudofunctor.StrongTrans`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.id`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.vcomp`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_comp_iso`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_id_iso`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_id_inv`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.naturality_comp_inv` | `4485e8cf6de3421060a3c803f2c37495a63b8ad785f956b87687c3d324011406` |
+| [Mathlib/CategoryTheory/Bicategory/Modification/Pseudo.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Bicategory/Modification/Pseudo.lean) | `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.Modification`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.homCategory`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.isoMk`, `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.homCategory.ext` | `e1a3ba61190d5e0d12e8922cbe1363a819e8a9ea59603ab2de67c483fcd15dd7` |
+| [Mathlib/Algebra/Homology/DerivedCategory/Ext/EnoughInjectives.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/DerivedCategory/Ext/EnoughInjectives.lean) | `mathlib:CategoryTheory.Abelian.Ext.eq_zero_of_injective` | `3d33509046db7e4a0bed84a5235709f6be04bafb071d5e48136dee379928facb` |
+| [Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean) | `mathlib:CategoryTheory.Pseudofunctor`, `mathlib:CategoryTheory.Pseudofunctor.comp`, `mathlib:CategoryTheory.Pseudofunctor.mapComp'`, `mathlib:CategoryTheory.Pseudofunctor.mapId'`, `mathlib:CategoryTheory.Pseudofunctor.mapComp_assoc_left_hom`, `mathlib:CategoryTheory.Pseudofunctor.mapComp_assoc_left_inv`, `mathlib:CategoryTheory.Pseudofunctor.mapComp_id_left_hom`, `mathlib:CategoryTheory.Pseudofunctor.mapComp_id_left_inv`, `mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_hom`, `mathlib:CategoryTheory.Pseudofunctor.mapComp_id_right_inv` | `d5ef476a4cbde70668b9be30cf9d8c09dd4478b17a9625abe2b9a12210e8fe1b` |
+| [Mathlib/Algebra/Category/ModuleCat/Descent.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/ModuleCat/Descent.lean) | `mathlib:comonadicExtendScalars`, `mathlib:ModuleCat.preservesFiniteLimits_extendScalars_of_flat` | `d57109e359bbc3716f16e63b1b00bce3174534368feedeaed8a51a9ad4940d43` |
+| [Mathlib/Algebra/Category/ModuleCat/Pseudofunctor.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/ModuleCat/Pseudofunctor.lean) | `mathlib:CommRingCat.moduleCatExtendScalarsPseudofunctor` | `a0ad4eeb44c17593e6f44009bdffe41274adf6d923ddba89afa868aeb0fab38c` |
+| [Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean) | `mathlib:SheafOfModules.IsQuasicoherent` | `8ec5cc58dac3ea324d3efe86de9240450e0a87c96a0e3158d85b4c36a6d30c18` |
+| [Mathlib/AlgebraicGeometry/Modules/Tilde.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Modules/Tilde.lean) | `mathlib:AlgebraicGeometry.tildeEquiv`, `mathlib:AlgebraicGeometry.tilde.adjunction`, `mathlib:AlgebraicGeometry.moduleSpecΓFunctor` | `296f682bf4d703905c207b05c033b59b25e1f8fdc875756666e8163e863d77a6` |
+| [Mathlib/AlgebraicGeometry/Modules/Sheaf.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Modules/Sheaf.lean) | `mathlib:AlgebraicGeometry.Scheme.Modules.pullback`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullbackPushforwardAdjunction`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullbackId`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp`, `mathlib:AlgebraicGeometry.Scheme.Modules.pseudofunctor_associativity`, `mathlib:AlgebraicGeometry.Scheme.Modules.pseudofunctor_left_unitality`, `mathlib:AlgebraicGeometry.Scheme.Modules.pseudofunctor_right_unitality` | `533643aaa7cfe615c84d1313d7b4e34b8b5cde3a26a4a9f5bca66e5a173fbff6` |
+| [Mathlib/CategoryTheory/Sites/Descent/DescentData.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Descent/DescentData.lean) | `mathlib:CategoryTheory.Pseudofunctor.DescentData`, `mathlib:CategoryTheory.Pseudofunctor.isPrestackFor'`, `mathlib:CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful`, `mathlib:CategoryTheory.Pseudofunctor.toDescentData`, `mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext`, `mathlib:CategoryTheory.Pseudofunctor.DescentData.isoMk`, `mathlib:CategoryTheory.Pseudofunctor.DescentData.ofObj`, `mathlib:CategoryTheory.Pseudofunctor.DescentData.iso`, `mathlib:CategoryTheory.Pseudofunctor.fullyFaithfulToDescentData`, `mathlib:CategoryTheory.Pseudofunctor.IsStackFor` | `2292153f538142a8c3879094fed08f38a619a6dd13af91ab1c2f29448fb5e13e` |
+| [Mathlib/RingTheory/Finiteness/Descent.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Finiteness/Descent.lean) | `mathlib:Module.Finite.of_finite_tensorProduct_of_faithfullyFlat` | `a8c53affd25318ea0e8eb410f4af5c538d990b29460b4d4dfbe6aa5429bf9d93` |
+| [Mathlib/Algebra/Module/FinitePresentation.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/FinitePresentation.lean) | `mathlib:Module.FinitePresentation.fg_ker_iff` | `1e967f9e7f7e7529f5905db3fd4611cb8eb1573b09f9fc6ed34e33c1f753aba4` |
+| [Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean) | `mathlib:Module.Flat.of_flat_tensorProduct` | `192d565083c2a68f0bd28a1cc258c7ad0f4322446e201b84297a98a6e18e6e8a` |
+| [Mathlib/RingTheory/Flat/EquationalCriterion.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/EquationalCriterion.lean) | `mathlib:Module.Flat.projective_of_finitePresentation` | `8d8f48dd787cc111201f640d9399d9460ea06b419ba6797e4e378ddbc3c56dca` |
+| [TauCeti/Algebra/Category/ModuleCat/Sheaf/Invertible/Basic.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Category/ModuleCat/Sheaf/Invertible/Basic.lean) | `tauceti:TauCeti.SheafOfModules.IsInvertible` | `1b3caa1c6a44884c8d612909b05f57ae7599306d2fd4fa43dc72d5a535beb12f` |
+| [TauCeti/AlgebraicGeometry/LineBundle/Basic.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/LineBundle/Basic.lean) | `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf` | `a5b3a45ddf3e6d8ecee349b6a85d8e6381127b7bfbe6a4d70ac761c0340e3e43` |
+| [TauCeti/AlgebraicGeometry/LineBundle/Class.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/LineBundle/Class.lean) | `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass`, `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff` | `beab5ca378823b69dd002d1582f945f976ec005a8528c32bf39a7bb87bc013b4` |
+| [Mathlib/CategoryTheory/Monad/Adjunction.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monad/Adjunction.lean) | `mathlib:CategoryTheory.Adjunction.toComonad`, `mathlib:CategoryTheory.Comonad.comparison` | `53c312fe3c22c71a50872457bfa57941e2e9f02fa5651f431158c449cdae5b75` |
+| [Mathlib/CategoryTheory/Monad/Algebra.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monad/Algebra.lean) | `mathlib:CategoryTheory.Comonad.Coalgebra`, `mathlib:CategoryTheory.Comonad.Coalgebra.Hom` | `2260fa156b6ab8d3e0005d2cfd9a439cd719f25c889beeb9b801fa6dae5930d6` |
+| [Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean) | `mathlib:ModuleCat.extendRestrictScalarsAdj`, `mathlib:ModuleCat.extendRestrictScalarsAdj_unit_app_apply`, `mathlib:ModuleCat.ExtendRestrictScalarsAdj.Counit.map`, `mathlib:ModuleCat.ExtendScalars.map_tmul`, `mathlib:ModuleCat.extendScalarsId`, `mathlib:ModuleCat.extendScalarsComp`, `mathlib:ModuleCat.extendScalarsComp_hom_app_one_tmul`, `mathlib:ModuleCat.extendScalars_assoc`, `mathlib:ModuleCat.extendScalars_id_comp`, `mathlib:ModuleCat.extendScalars_comp_id` | `83e7c872f0765253fda31771cbdace7b3b74cd24f1d9b3c992162078ed5da69d` |
+| [Mathlib/LinearAlgebra/TensorProduct/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/TensorProduct/Basic.lean) | `mathlib:TensorProduct.lift`, `mathlib:TensorProduct.ext'` | `7023a1345de459eb118998c95ab01dde89799ecacd2ae843760880c8e3b214da` |
+| [Mathlib/CategoryTheory/Sites/Descent/DescentDataPrime.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Descent/DescentDataPrime.lean) | `mathlib:CategoryTheory.Pseudofunctor.DescentData'`, `mathlib:CategoryTheory.Pseudofunctor.DescentData'.descentDataEquivalence`, `mathlib:CategoryTheory.Pseudofunctor.DescentData'.pullHom'_eq_pullHom`, `mathlib:CategoryTheory.Pseudofunctor.DescentData'.pullHom'_ofDescentData_hom` | `f101070b65acfcb542560568509ad492db17df5e047d12fd922bea5b9cbc472b` |
+| [Mathlib/CategoryTheory/Opposites.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Opposites.lean) | `mathlib:CategoryTheory.unopUnop` | `e53db5b1a854233f88156c346bcaee58dabf9c81a3061ecc0a7eaa56844093af` |
+| [Mathlib/CategoryTheory/Bicategory/Functor/LocallyDiscrete.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Bicategory/Functor/LocallyDiscrete.lean) | `mathlib:CategoryTheory.Functor.toPseudofunctor`, `mathlib:CategoryTheory.Functor.toPseudofunctor'` | `412205e7e04b7980e29d4825d0c13a48d5c40f1c79b3fb009bfb76d0306ada1a` |
+| [Mathlib/Algebra/Category/Ring/Constructions.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/Ring/Constructions.lean) | `mathlib:CommRingCat.pushoutCoconeIsColimit` | `6a05f566707ed59be669acbe3c1cd5029417feefa822427e1eedd8616a143697` |
+| [Mathlib/CategoryTheory/Monad/Comonadicity.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monad/Comonadicity.lean) | `mathlib:CategoryTheory.Comonad.ComonadicityInternal.comparisonRightAdjointObj`, `mathlib:CategoryTheory.Comonad.ComonadicityInternal.comparisonAdjunction_counit_f_aux` | `759fc976a6a0cd641d459e92de54d9b8c658cf7b98af3be78c3ce8de07986aea` |
+| [Mathlib/Algebra/Category/ModuleCat/Kernels.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/ModuleCat/Kernels.lean) | `mathlib:ModuleCat.kernelIsoKer` | `aaa6de9260d463f2fc022849bfc8fb3a05d988e2c83eb5f062d5d9b85e44037a` |
+| [Mathlib/CategoryTheory/Adjunction/Unique.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Adjunction/Unique.lean) | `mathlib:CategoryTheory.Adjunction.rightAdjointUniq`, `mathlib:CategoryTheory.Adjunction.unit_rightAdjointUniq_hom_app`, `mathlib:CategoryTheory.Adjunction.rightAdjointUniq_hom_app_counit` | `f11fbb6a129a1b43acd345255faf667f48ed1049e794040a044d2310e81d2516` |
+| [Mathlib/CategoryTheory/Center/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Center/Basic.lean) | `mathlib:CategoryTheory.CatCenter`, `mathlib:CategoryTheory.CatCenter.ext`, `mathlib:CategoryTheory.CatCenter.naturality`, `mathlib:CategoryTheory.CatCenter.mul_app` | `a94d5510ede4d946248e08dd97bbfee277f0f873b4175a9f0bf4a7881f76cc3f` |
+| [Mathlib/CategoryTheory/NatIso.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/NatIso.lean) | `mathlib:CategoryTheory.NatIso.ofComponents`, `mathlib:CategoryTheory.NatIso.naturality_1`, `mathlib:CategoryTheory.Iso.app` | `c2e8b0662cae553808f1973dfc6027272b8ec2697a105a487ce1b1044330d103` |
+| [Mathlib/CategoryTheory/Functor/FullyFaithful.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Functor/FullyFaithful.lean) | `mathlib:CategoryTheory.Functor.FullyFaithful.map_injective`, `mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso`, `mathlib:CategoryTheory.Functor.FullyFaithful`, `mathlib:CategoryTheory.Functor.Faithful`, `mathlib:CategoryTheory.Functor.map_injective`, `mathlib:CategoryTheory.Functor.Full`, `mathlib:CategoryTheory.Functor.FullyFaithful.ofFullyFaithful`, `mathlib:CategoryTheory.Functor.mapIso_injective` | `94c995fd165ad4c7a422bca4b64d422deb2207bc490967487bb20b16b2d3315e` |
+| [Mathlib/CategoryTheory/Sites/Grothendieck.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Grothendieck.lean) | `mathlib:CategoryTheory.GrothendieckTopology.pullback_stable`, `mathlib:CategoryTheory.GrothendieckTopology.intersection_covering`, `mathlib:CategoryTheory.GrothendieckTopology.bot_covering`, `mathlib:CategoryTheory.GrothendieckTopology.transitive`, `mathlib:CategoryTheory.GrothendieckTopology.superset_covering` | `7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d` |
+| [Mathlib/CategoryTheory/Sites/Sheaf.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Sheaf.lean) | `mathlib:CategoryTheory.Presheaf.isSheaf_comp_of_isSheaf`, `mathlib:CategoryTheory.isSheaf_iff_isSheaf_of_type`, `mathlib:CategoryTheory.Presheaf.IsSheaf`, `mathlib:CategoryTheory.fullyFaithfulSheafToPresheaf`, `mathlib:CategoryTheory.Presheaf.isSheaf_of_iso_iff`, `mathlib:CategoryTheory.Sheaf.hom_ext`, `mathlib:CategoryTheory.Presheaf.isSheaf_bot` | `e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de` |
+| [Mathlib/CategoryTheory/Sites/SheafOfTypes.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/SheafOfTypes.lean) | `mathlib:CategoryTheory.Presieve.IsSheaf.isSeparated` | `2b322b717166426aaa4390a7f5157e1fce28e636618c3d995e54f76fbec3d5f9` |
+| [Mathlib/CategoryTheory/Sites/IsSheafFor.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/IsSheafFor.lean) | `mathlib:CategoryTheory.Presieve.IsSeparatedFor.ext`, `mathlib:CategoryTheory.Presieve.IsSheafFor`, `mathlib:CategoryTheory.Presieve.FamilyOfElements`, `mathlib:CategoryTheory.Presieve.FamilyOfElements.Compatible` | `b47fe14e505dce52cac9e86a823b4b0e4968c16a898da7447c37fd705cf73653` |
+| [Mathlib/Data/ZMod/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ZMod/Basic.lean) | `mathlib:ZMod.castHom` | `fbe19ea6fc95105cf596e1ef3c730e32dffdf9f53b74a17eaab5c668e03d1b0f` |
+| [Mathlib/CategoryTheory/Sites/Sieves/Presieve.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Sieves/Presieve.lean) | `mathlib:CategoryTheory.Presieve.category` | `6e90d96313f98de2330e97f3a25711e50aba6e2d540de2624c8027b7db08c298` |
+| [Mathlib/CategoryTheory/Comma/Over/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Comma/Over/Basic.lean) | `mathlib:CategoryTheory.Over.homMk` | `3c910808171fc4d408ddef9be5213aa336a8e6387430c8dd53d9811d5958e41c` |
+| [Mathlib/CategoryTheory/Category/Cat.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Category/Cat.lean) | `mathlib:CategoryTheory.Cat.Hom.toNatIso`, `mathlib:CategoryTheory.Cat.of`, `mathlib:CategoryTheory.Cat.Hom.isoMk`, `mathlib:CategoryTheory.Cat.Hom₂.ext`, `mathlib:CategoryTheory.Cat.Hom₂.comp_app` | `9e0a731c46c8986adc4395a43e7cf14616db47ca16882b1f868bc85934beaa72` |
+| [Mathlib/CategoryTheory/Bicategory/Functor/Cat.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Bicategory/Functor/Cat.lean) | `mathlib:CategoryTheory.Pseudofunctor.mapComp'_hom_naturality`, `mathlib:CategoryTheory.Pseudofunctor.mapComp'_inv_naturality` | `aeb933e95caa385d20ea8be19f198fff644995ddb7a2f943d6bb3e0a22c6909d` |
+| [Mathlib/CategoryTheory/Category/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Category/Basic.lean) | `mathlib:CategoryTheory.cancel_epi` | `df2ca854387ea16a1defdf7bc051eafbb1bf180c84a1a52e8525376288af0bce` |
+| [Mathlib/CategoryTheory/Sites/Sieves/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Sieves/Basic.lean) | `mathlib:CategoryTheory.Sieve.pullback`, `mathlib:CategoryTheory.Sieve`, `mathlib:CategoryTheory.Sieve.ofArrows_category`, `mathlib:CategoryTheory.Sieve.ext`, `mathlib:CategoryTheory.Sieve.pullback_eq_top_of_mem` | `9d65ddf7ea8f811b0a05126c2768a9cd3ede8ecce4e0e98cb43a1d2b572cad7b` |
+| [Mathlib/Algebra/Group/Equiv/Defs.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Equiv/Defs.lean) | `mathlib:MulEquiv.ofBijective` | `27737abca9e515c38b7381864638c89c4c12bf6532821c04a78c4d8a22fdc381` |
+| [Mathlib/CategoryTheory/EqToHom.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/EqToHom.lean) | `mathlib:CategoryTheory.eqToIso`, `mathlib:CategoryTheory.eqToHom` | `2626e21deb49f8106302bd9396a3c5d08fc65318e9f13575d479eb4162544a3b` |
+| [Mathlib/CategoryTheory/EssentialImage.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/EssentialImage.lean) | `mathlib:CategoryTheory.Functor.EssSurj`, `mathlib:CategoryTheory.Functor.objPreimage`, `mathlib:CategoryTheory.Functor.objObjPreimageIso` | `a72ca2e0427028cf8ab5256b008727458aa002d52b8ca0d962eb4ef808b81691` |
+| [Mathlib/CategoryTheory/Equivalence.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Equivalence.lean) | `mathlib:CategoryTheory.Functor.IsEquivalence`, `mathlib:CategoryTheory.Functor.inv`, `mathlib:CategoryTheory.Functor.asEquivalence`, `mathlib:CategoryTheory.Functor.fun_inv_map`, `mathlib:CategoryTheory.Equivalence` | `7cdcf9ca9aa50982c7471a2f4124e667f164fd68dfc6bdad08272c6565a457ea` |
+| [Mathlib/CategoryTheory/Functor/Const.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Functor/Const.lean) | `mathlib:CategoryTheory.Functor.const` | `e4f0f3a1ec0ba21d7bc7149c8cf8e0907ada124ef1e01ad49bff52f414df6123` |
+| [Mathlib/CategoryTheory/Products/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Products/Basic.lean) | `mathlib:CategoryTheory.Prod.hom_ext`, `mathlib:CategoryTheory.isIso_prod_iff`, `mathlib:CategoryTheory.Iso.prod` | `7d04b57043d610daef8c683e752fe6750a5e5fa868a4ed92ea2e8bedb7a6c6e4` |
+| [Mathlib/CategoryTheory/SingleObj.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/SingleObj.lean) | `mathlib:CategoryTheory.SingleObj.category`, `mathlib:CategoryTheory.SingleObj.comp_as_mul`, `mathlib:CategoryTheory.SingleObj.groupoid`, `mathlib:MonCat.toCat`, `mathlib:MonoidHom.toFunctor` | `6aca3a01c2a4beddfb1c80f82695834762e1ca0b30fe33ab0bb78d43aa24da03` |
+| [Mathlib/SetTheory/Cardinal/Finite.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/SetTheory/Cardinal/Finite.lean) | `mathlib:Nat.card_congr`, `mathlib:Nat.card_eq_fintype_card` | `d0bb8f1f00469a940dcc8ca404a9d4f7157516c40a4d6aa0fbbc622e50c42e94` |
+| [Mathlib/CategoryTheory/CodiscreteCategory.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/CodiscreteCategory.lean) | `mathlib:CategoryTheory.Codiscrete`, `mathlib:CategoryTheory.Codiscrete.iso`, `mathlib:CategoryTheory.Codiscrete.eq_iso_hom` | `fef5dccd077b2b07121f612f3693036ff018fbee5708df139bed94aed02efc85` |
+| [Mathlib/GroupTheory/Subgroup/Center.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Subgroup/Center.lean) | `mathlib:Subgroup.center`, `mathlib:Subgroup.mem_center_iff`, `mathlib:CommGroup.center_eq_top` | `4f4ca009b6f8cbfc42a2c5503dba3859670abd5d43e1e8257273b4057f5bee93` |
+| [Mathlib/Algebra/Category/Grp/EquivalenceGroupAddGroup.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/Grp/EquivalenceGroupAddGroup.lean) | `mathlib:CommGrpCat.toAddCommGrp` | `13b2994ef50ea69239d6b72417ad1d1128533ee82cd1b619cb4df3989561098c` |
+| [Mathlib/Algebra/Group/TypeTags/Hom.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/TypeTags/Hom.lean) | `mathlib:AddMonoidHom.toMultiplicative` | `9d368fb1507a9ed8743b5b886b46ca989402a05daf128a658364e55bf42ea6cb` |
+| [Mathlib/CategoryTheory/ComposableArrows/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/ComposableArrows/Basic.lean) | `mathlib:CategoryTheory.ComposableArrows.mk₂` | `96f4ff71f570b96f03ce394ab10a4d13e6026f772afadb39f7ec40a27a7f4466` |
+| [Mathlib/CategoryTheory/Limits/Shapes/IsTerminal.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Limits/Shapes/IsTerminal.lean) | `mathlib:CategoryTheory.Limits.IsTerminal`, `mathlib:CategoryTheory.Limits.IsTerminal.from` | `8d5b5a158a7f940eb186b5cef72a8fcac31ca7ebf7bbe81891ff82e323f8da0f` |
+| [Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean) | `mathlib:CategoryTheory.ObjectProperty.isoMk`, `mathlib:CategoryTheory.ObjectProperty.FullSubcategory`, `mathlib:CategoryTheory.ObjectProperty.FullSubcategory.category`, `mathlib:CategoryTheory.ObjectProperty.ι`, `mathlib:CategoryTheory.ObjectProperty.homMk`, `mathlib:CategoryTheory.ObjectProperty.fullyFaithfulι`, `mathlib:CategoryTheory.ObjectProperty.hom_ext` | `1dff56d1a7b031144855d5400955be63212df3ef8d216a98bc41ebeddcb2f03d` |
+| [Mathlib/CategoryTheory/Sums/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sums/Basic.lean) | `mathlib:CategoryTheory.hom_inl_inr_false`, `mathlib:CategoryTheory.hom_inr_inl_false`, `mathlib:CategoryTheory.Functor.sum'` | `a506306839f7437ce3b754a1df908358beb5a27463efbf8fa7a314f296bf7196` |
+| [Mathlib/Algebra/Category/Grp/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/Grp/Basic.lean) | `mathlib:MulEquiv.toCommGrpIso` | `72e82023f670b938c7a59f7917e89f9abbcf009e2fc3195b1e862675cac5612c` |
+| [Mathlib/Algebra/Torsor/Defs.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Torsor/Defs.lean) | `mathlib:Torsor`, `mathlib:sdiv_smul` | `ec39a2487912ce5707a32d993a2675807b9e95c48dfb5425aa15e42a0c8f3cb0` |
+| [Mathlib/CategoryTheory/Sites/CartesianMonoidal.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/CartesianMonoidal.lean) | `mathlib:CategoryTheory.Sheaf.tensorProd_isSheaf` | `7cd13b5b460dfeffbfd5b05e79dc926f1b915e47855397da5f0f9382ee1a06e2` |
+| [Mathlib/CategoryTheory/Iso.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Iso.lean) | `mathlib:CategoryTheory.Functor.mapIso_trans`, `mathlib:CategoryTheory.asIso`, `mathlib:CategoryTheory.asIso_hom`, `mathlib:CategoryTheory.Iso.ext`, `mathlib:CategoryTheory.IsIso.inv_eq_of_hom_inv_id`, `mathlib:CategoryTheory.Functor.mapIso`, `mathlib:CategoryTheory.Functor.mapIso_refl`, `mathlib:CategoryTheory.Iso.homToEquiv`, `mathlib:CategoryTheory.Iso.refl`, `mathlib:CategoryTheory.Iso.symm`, `mathlib:CategoryTheory.Iso.trans` | `b47eab342f3e7d08f4ff8d4a16d4580b0273d63f1a790b25560236c92d4cace7` |
+| [Mathlib/CategoryTheory/HomCongr.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/HomCongr.lean) | `mathlib:CategoryTheory.Iso.isoCongr`, `mathlib:CategoryTheory.Iso.homCongr` | `186f233df03b9990f5f1a5a0b0328bed56c669a3fa821bfa825660d726482a20` |
+| [Mathlib/CategoryTheory/Sites/Over.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Over.lean) | `mathlib:CategoryTheory.Sieve.overEquiv`, `mathlib:CategoryTheory.Sieve.overEquiv_symm_iff`, `mathlib:CategoryTheory.GrothendieckTopology.overEquiv_symm_mem_over`, `mathlib:CategoryTheory.GrothendieckTopology.overMapPullbackId`, `mathlib:CategoryTheory.GrothendieckTopology.overMapPullbackComp`, `mathlib:CategoryTheory.Sieve.overEquiv_iff` | `46ba17b6ed171fefc18877d0d4470e11aea339dc56dbfd4b988266ed0bc43493` |
+| [Mathlib/CategoryTheory/Sites/LocallySurjective.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/LocallySurjective.lean) | `mathlib:CategoryTheory.Presheaf.imageSieve`, `mathlib:CategoryTheory.Presheaf.IsLocallySurjective`, `mathlib:CategoryTheory.Presheaf.imageSieve_mem` | `7a730ba6c4b580b7612e97508e1af05d6b39091b017d4d4422a2a93ce2573c64` |
+| [Mathlib/CategoryTheory/Sites/LocallyInjective.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/LocallyInjective.lean) | `mathlib:CategoryTheory.Presheaf.isLocallyInjective_of_injective`, `mathlib:CategoryTheory.Presheaf.equalizerSieve_mem` | `cef3deebb285b45abae9be3a35a464cfd1ff6bbc3e974c9ea4bfcf306a4e0728` |
+| [Mathlib/CategoryTheory/Sites/LocallyBijective.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/LocallyBijective.lean) | `mathlib:CategoryTheory.Sheaf.isLocallyBijective_iff_isIso`, `mathlib:CategoryTheory.GrothendieckTopology.WEqualsLocallyBijective` | `93c3d3a37047051791529f454e42a9717fdf5ae17c252ed5f8a3e4c5eecb83fe` |
+| [Mathlib/CategoryTheory/Groupoid.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Groupoid.lean) | `mathlib:CategoryTheory.Groupoid.ofIsIso` | `3ffaa85173f3ffc0aa0198682046ab7f7f09406c72c50dd1e2c1652d7b58ada3` |
+| [Mathlib/CategoryTheory/Action/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Action/Basic.lean) | `mathlib:Action`, `mathlib:Action.Hom`, `mathlib:Action.hom_ext`, `mathlib:Action.res` | `f77ddee62b1491667184c83c5accd077e87f49033c74e8888696c93c78150813` |
+| [Mathlib/CategoryTheory/Types/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Types/Basic.lean) | `mathlib:TypeCat.ofHom`, `mathlib:CategoryTheory.uliftFunctor` | `1d4d9ab541d36ee5a2c9e60d140219967740a36c74e147bdf77f0a32f4ec7fbb` |
+| [Mathlib/CategoryTheory/Whiskering.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Whiskering.lean) | `mathlib:CategoryTheory.Functor.whiskerRight`, `mathlib:CategoryTheory.Functor.isoWhiskerLeft`, `mathlib:CategoryTheory.Functor.isoWhiskerRight`, `mathlib:CategoryTheory.Functor.whiskeringRight` | `39524d6537900931d3a4dfe3929ba4200675f74b109a64cfe85695669bdb952d` |
+| [Mathlib/CategoryTheory/Core.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Core.lean) | `mathlib:CategoryTheory.Core`, `mathlib:CategoryTheory.CoreHom` | `0764e3243f6b76eb24d9cdc9d599556321a421cf1cbc5fe8b8a38c636debdf02` |
+| [Mathlib/CategoryTheory/Sites/Continuous.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Continuous.lean) | `mathlib:CategoryTheory.Functor.sheafPushforwardContinuous` | `c1fa75140a6bb951f46527886597a36f99871d11c03828ce54218e1131228223` |
+| [Mathlib/CategoryTheory/Functor/Category.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Functor/Category.lean) | `mathlib:CategoryTheory.Functor.rightUnitor`, `mathlib:CategoryTheory.Functor.associator` | `57b58238a105bac2f8beaa429212a3b463e815d40a37e086fdd0073a44e4bbcd` |
+| [Mathlib/CategoryTheory/Bicategory/Strict/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Bicategory/Strict/Basic.lean) | `mathlib:CategoryTheory.Bicategory.Strict` | `88b8106f5be53226fa1252745ffa494716212c633dde0a37f3a6cac91281108c` |
+| [Mathlib/CategoryTheory/Bicategory/Functor/Prelax.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Bicategory/Functor/Prelax.lean) | `mathlib:CategoryTheory.PrelaxFunctor` | `76e964068c709ac63d35d0f86e332e8b0268493abd5e30f3d18650ed41e26ede` |
+| [Mathlib/Data/Quot.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Quot.lean) | `mathlib:Quotient.map`, `mathlib:Quotient.eq` | `14af0ddf94e04029ce230f6635d339578d906014206fe4c3fc2a3f6bc25cb1a2` |
+| [Mathlib/CategoryTheory/Sites/Sheafification.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Sheafification.lean) | `mathlib:CategoryTheory.HasSheafify`, `mathlib:CategoryTheory.presheafToSheaf`, `mathlib:CategoryTheory.toSheafify_naturality`, `mathlib:CategoryTheory.sheafify_hom_ext`, `mathlib:CategoryTheory.sheafifyLift`, `mathlib:CategoryTheory.toSheafify_sheafifyLift`, `mathlib:CategoryTheory.sheafifyLift_unique` | `3df0b49f121a026db6d8c4d5c352830d46bfdeab1a340ff3bf6e214ccd27a360` |
+| [Mathlib/CategoryTheory/Filtered/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Filtered/Basic.lean) | `mathlib:CategoryTheory.IsCofiltered` | `9b490da3d94eb4b3b566dc17e4361ce1928cc2ee7aece62fd281a8864a5baa8b` |
+| [Mathlib/CategoryTheory/Skeletal.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Skeletal.lean) | `mathlib:CategoryTheory.Skeleton` | `5c56274abf5bf5a45e0557d2028a4858edb8b4c952e9d18cfa163897887fb77b` |
+| [Mathlib/CategoryTheory/Discrete/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Discrete/Basic.lean) | `mathlib:CategoryTheory.Discrete`, `mathlib:CategoryTheory.discreteCategory`, `mathlib:CategoryTheory.Discrete.eq_of_hom` | `991b2b47f290004ad22760c7bc244b2258b68e4befd4f03a8f19dfab14b9e8b8` |
 
-For the nodes citing BV19's preprint page numbers, this published comparison does not certify those preprint locators: fetch the exact cited preprint or synchronize them to the published source in a continuation. No citations were silently switched between versions. Original E1–E9 verdicts are retained from the previous checkpoint; they were not all independently replayed here.
+## Public source byte receipts
 
-E10 is the preprint phrase “for each 2-arrow a : j → i” in the morphism compatibility square. The source defines Γa and ξa for one-arrows; a two-arrow relates parallel one-arrows and has its own Γa,b coherence equation. Thus the square requires **one-arrow**. The packet records this as `misprint`, affecting `nothing`, with a bounded confirmation verdict. Title/erratum/corrigendum and exact phrase searches found no separate correction. The AMS publication download returned HTML and the SNS publication/accepted-copy attempts returned HTTP 403, so `sourceVersions.accessNote` explicitly scopes the finding to arXiv v5. The institutional publication record is [SNS 11384/55844](https://ricerca.sns.it/handle/11384/55844). No author communication was sent and no exhaustive novelty assertion is made. Section 18 verdicts do not count as completed independent review until the whole review job finishes.
+The 33 distinct source URLs were fetched afresh. All byte hashes match the corresponding incoming catalogue source receipts. The read scope is every cited node locator/excerpt and its needed mathematical context; this does not claim an end-to-end reading of every routed paper. Routed targets left not_read or undecomposed remain so. Multiple historical catalogue records can refer to the same URL.
 
-## Eight additional baseline statements read
-
-Exact pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Read statements together with their ambient category, universe and typeclass binders. Local Mathlib source bytes were compared with `git show` at the pin; Tau's module was read directly with `git show` at its pin. This authenticates source, not a full elaboration.
-
-| Declaration | Module |
+| Public URL | SHA256 |
 | --- | --- |
-| `CategoryTheory.Sheaf.H` | Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean |
-| `CategoryTheory.Sheaf.H.map` | Same |
-| `CategoryTheory.InjectiveResolution.extAddEquivCohomologyClass` | Mathlib/CategoryTheory/Abelian/Injective/Ext.lean |
-| `CategoryTheory.Abelian.Ext.eq_zero_of_injective` | Mathlib/Algebra/Homology/DerivedCategory/Ext/EnoughInjectives.lean |
-| `TauCeti.CategoryTheory.Sheaf.H.δ` | TauCeti/CategoryTheory/Sites/SheafCohomology/LongExactSequence.lean |
-| `TauCeti.CategoryTheory.Sheaf.H.exact_map_δ` | Same |
-| `TauCeti.CategoryTheory.Sheaf.H.exact_δ_map` | Same |
-| `TauCeti.CategoryTheory.Sheaf.H.δ_naturality` | Same |
+| [https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf) | `3425f2697b3600f7920f1bdce67681339d06a20dfaf39ea4fdc2a0baebc940e2` |
+| [https://arxiv.org/pdf/0907.2087v2](https://arxiv.org/pdf/0907.2087v2) | `8d07faa51c1917d2e1f0ffe8c9b55b6f79a031fb1e8ec4a158ef058d86351bbc` |
+| [https://arxiv.org/pdf/1204.1260v5](https://arxiv.org/pdf/1204.1260v5) | `c2a803a6a63837670f8d5eb1b2fa19606b74ab59c81335c6df9b631fa9b21eed` |
+| [https://arxiv.org/pdf/1610.07341v3](https://arxiv.org/pdf/1610.07341v3) | `820bc690bb5753e990b580716b93aff2326d873ae03b7bf2aee8e9e935e55ed6` |
+| [https://arxiv.org/pdf/1810.06739v2](https://arxiv.org/pdf/1810.06739v2) | `0139fc5ac0c4109e049b52c8bd298312954f84e63b29a4cb10b34cf66491a5f2` |
+| [https://jmilne.org/math/Books/ECpup4.pdf](https://jmilne.org/math/Books/ECpup4.pdf) | `1aef1301a554ae7c3dd153aea53e8c8a1bdeefe3a5b6c561a280857816618bb7` |
+| [https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf](https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf) | `f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07` |
+| [https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf](https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf) | `77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148` |
+| [https://msp.org/ant/2019/13-3/ant-v13-n3-p01-s.pdf](https://msp.org/ant/2019/13-3/ant-v13-n3-p01-s.pdf) | `64fca3767f3c6cbd02fbf84f1fb456c7fda30c7bc95ddc8c8c84cd3bd8629111` |
+| [https://stacks.math.columbia.edu/tag/00ZG](https://stacks.math.columbia.edu/tag/00ZG) | `82eb2adcf930934a9e75dd2cd7d314a8b0e63ef354c3b63b51fdd2ecbc99c474` |
+| [https://stacks.math.columbia.edu/tag/01BG](https://stacks.math.columbia.edu/tag/01BG) | `f68bf1a4192d956d97ff7493ae1c8696d66b89432f25a8dfeb14285cf2537c6a` |
+| [https://stacks.math.columbia.edu/tag/01I6](https://stacks.math.columbia.edu/tag/01I6) | `a84434c8fbcd635e95c75c323faea1f5e1f47367b3ef88e161f424d8ef10cc3d` |
+| [https://stacks.math.columbia.edu/tag/023E](https://stacks.math.columbia.edu/tag/023E) | `5135f4c1fbb1cad92a08ea0e970a889a030984be299b76f26133870dca7e6e71` |
+| [https://stacks.math.columbia.edu/tag/023F](https://stacks.math.columbia.edu/tag/023F) | `d5b82802e667aa651dffd7498d362bb9a5aadf49f838b1351233d2dc3536c282` |
+| [https://stacks.math.columbia.edu/tag/023N](https://stacks.math.columbia.edu/tag/023N) | `b8d9a77257d45cfdf1068727990ce4b697f54f311b97b80511c9ed85a5f37cbd` |
+| [https://stacks.math.columbia.edu/tag/023S](https://stacks.math.columbia.edu/tag/023S) | `ed24079eb360cc593bf8c7b473873c56f3eb6194957c0a19dff051279e2d58f4` |
+| [https://stacks.math.columbia.edu/tag/023T](https://stacks.math.columbia.edu/tag/023T) | `ca9e9d7885ae6176696fac333dbb27776f82c57818c2be11b4cb674135ec6508` |
+| [https://stacks.math.columbia.edu/tag/026F](https://stacks.math.columbia.edu/tag/026F) | `0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0` |
+| [https://stacks.math.columbia.edu/tag/03G5](https://stacks.math.columbia.edu/tag/03G5) | `77482e373a8d7168affeb85119eb59094943dd3418abc864558699bdc48a9f0b` |
+| [https://stacks.math.columbia.edu/tag/04TP](https://stacks.math.columbia.edu/tag/04TP) | `c3c5a59e827966472207a0152288814a8a761853b36a8e55445dc90e39a8f10e` |
+| [https://stacks.math.columbia.edu/tag/04W8](https://stacks.math.columbia.edu/tag/04W8) | `73b3474abccacb2ecd47229ff2322316368c60fa5f90112cb351a1f1b2fe315a` |
+| [https://stacks.math.columbia.edu/tag/05B0](https://stacks.math.columbia.edu/tag/05B0) | `6c99f3e956fdfdee18972fc6a4bfdd63f0bb44e981a5cc16d5086cb1667b56fb` |
+| [https://stacks.math.columbia.edu/tag/05B1](https://stacks.math.columbia.edu/tag/05B1) | `8bd34044a42cd72c86e46c1c4ee345b8b6e495d98836fb7881efd62e99bb6261` |
+| [https://stacks.math.columbia.edu/tag/05B2](https://stacks.math.columbia.edu/tag/05B2) | `4cbed905704a364eaded1c82d97dc23a78d6fdca51096d9753c7be72311c5dd6` |
+| [https://stacks.math.columbia.edu/tag/06NY](https://stacks.math.columbia.edu/tag/06NY) | `784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e` |
+| [https://stacks.math.columbia.edu/tag/06NZ](https://stacks.math.columbia.edu/tag/06NZ) | `b60742528d35ea2612a54bc8d95096fb2e97a39e4cba59034918834e5f414535` |
+| [https://stacks.math.columbia.edu/tag/06PD](https://stacks.math.columbia.edu/tag/06PD) | `a4eab26748859af3d26e55c73177c294c74e19e8d5cfa1811a5f5b85913cb07b` |
+| [https://stacks.math.columbia.edu/tag/0CJY](https://stacks.math.columbia.edu/tag/0CJY) | `41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e` |
+| [https://stacks.math.columbia.edu/tag/0CJZ](https://stacks.math.columbia.edu/tag/0CJZ) | `efd205b3de1fcb89659b32c6825ca04c035aed23506d23b6d7378f34ceca5a63` |
+| [https://stacks.math.columbia.edu/tag/0D02](https://stacks.math.columbia.edu/tag/0D02) | `613260ff0de0fc52e9dcec0b9192fb421e550bfb79322980a88a1a0fe7aef495` |
+| [https://stacks.math.columbia.edu/tag/0D24](https://stacks.math.columbia.edu/tag/0D24) | `d0d28a2cc8b6be6b6d0874c36e7ce653c25484bb337af1b67253eb6c71c2e3e7` |
+| [https://stacky.net/files/written/Stacks/Stacks.pdf](https://stacky.net/files/written/Stacks/Stacks.pdf) | `716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a` |
+| [https://www.numdam.org/item/AST_1994__225__1_0.pdf](https://www.numdam.org/item/AST_1994__225__1_0.pdf) | `04505e408bc436c4eb2281c8517cc41234ceebadb8df4c52f95aeaf449967801` |
 
-The module hashes, in the order of the four distinct modules above, are `5d2f823958719336846ff7b64e334267bce67f1d224929db72553337679fe639`, `389fea95fa03233fd72c961d10f4b666ffe42ed650396b21057b6c22fde2dd6d`, `3d33509046db7e4a0bed84a5235709f6be04bafb071d5e48136dee379928facb`, and `982370059eca19ef8d11dd281c29a9a5c0b884204b9fd82ba8c53009c4e08d8e`.
+## Routine API folding map
 
-Native H is Ext from the constant sheaf associated to ULift ℤ, under HasSheafify and HasExt. Its `map` changes coefficients on one site. The Basic module's cohomology-presheaf TODOs do not furnish the missing slice/global comparison. Injective coefficients give positive-degree vanishing. Tau δ is postcomposition with the short-exact-sequence Ext class, with indices n0+1=n1; exactness in degrees one/two gives the dimension shift. Its coefficient universe follows the site's morphism universe. None of these declarations supplies the quotient torsor, Kummer dictionary, geometric inverse-image cohomology map or the signed gerbe comparison automatically.
+Each row is an incoming node id, its preserved native API declaration, and its retained owner node(s). The common roadmap prefix `AlgebraicModuliForArithmeticGeometry:` is omitted in this table. `formerNodeId` records provenance only; it is not an active dependency edge.
 
-The previous ten baseline readings are historical; they are not newly counted in this run. The remaining baseline statements and every use-site hypothesis still require review before a verdict.
-
-## Validation boundary and resumption
-
-The corrected packet checker passes with zero errors/warnings. Source-finding schema/version checks, four-file intake checks, preservation checks and whitespace checks pass. The actual completion classifier reports this review unfinished.
-
-An isolated extraction of the exact root class, the existing constant-diagram alias and the new twoComponents example elaborates at the Mathlib pin, with only the intended `sorry` warning. Reconstruction: use imports `Mathlib.CategoryTheory.Sites.Descent.IsStack`, `Mathlib.CategoryTheory.Bicategory.Functor.LocallyDiscrete` and `Mathlib.CategoryTheory.Discrete.Basic`; retain the source declarations' namespaces, universes and category binders. The disposable extraction's SHA256 is `f4ba012c9f2bdb5cfb45f55d1ae0f0167bf9ade60c13ffe2de0de902507103d5`. Its success checks this statement's types; it does not prove either assertion or elaborate the rest of the suggested file.
-
-The full-file `lean-check` stops at the missing object file for `TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence`. Memory available before the fresh checks was 102 GB. Shared Mathlib is at its exact pin, but shared Tau Ceti is at `cf386627e9176a3827c1a5fe804989fd94a4d216`; no full-file or exact-Tau-pin compilation is claimed. No build, update, cache fetch or language server was started. Existing embedded implementation/proof archives were not replayed.
-
-Resume by independently checking these nine edits and E10, then the H2 quotient/sign/choice-comparison proof and its supplier chains. Obtain the exact native build before full elaboration. Continue the remaining 603 node objects and all recursive prerequisites, baseline binders, secondary locators, stage targets, APIs/tests, planets and coherent-duality imports. Align the reserved gerbe contract before changing its status. Reader synchronization remains an orchestrator task because the reader is outside this issue's permitted deliverables. Keep the packet without a top-level review until the entire issue checklist is satisfied.
-
----
-
-# Historical checkpoint: codex-izOPZo
-
-The following record describes the preceding session's input, actions and evidence. Its counts and frontier are historical; the continuation above supersedes them for resumption.
-
-# REV-AlgebraicModuliForArithmeticGeometry--A0-extension: independent review checkpoint
-
-Worker: Codex — codex-izOPZo. Date: 2026-10-05. Refs #346.
-
-**This is an unfinished review, with no overall verdict.** The packet deliberately has no top-level `review` object. The intake must merge this as a checkpoint and release the same review job for continuation. Individual source-finding verdicts are bounded evidence for that continuation; they do not accept the packet or certify implementation.
-
-The input at commit `bc9f347fa6f5969919e5f0294eb19ab1512594b4` has 660 nodes and 248 baseline declarations. It was written by other sessions, including codex-a71f92 and codex-7e92bd. This session did none of the planning. Bot confirmation on issue #346 identifies claim comment 5992867541 and Codex — codex-izOPZo. The whole issue was read before claiming and again after confirmation.
-
-## Work completed and counts
-
-- Read the worker, blueprint, expansion and upstream protocols; read the whole upstream JacobianChallenge and AdicSpaces roadmap documents. An earlier truncated AlgebraicCurves output is not counted as a complete reading.
-- Read the reviewed R09.4 library-audit row and AUDIT-01 review metadata, the R09.4 stage description, the complete reserved gerbe survey contract, its assignment and the packet's key-definition row. This does not claim a full eight-stage audit.
-- Examined the complete objects for the 20 nodes listed below, checked their principal source statements and the applicable hypotheses, and inspected the initial gerbe/band/neutralization Lean signatures. Secondary sources and prerequisite chains are not all verified. In particular, Breen94 Proposition 2.14 and the later native adapter chains still need independent reading.
-- Independently read 10 of the 248 baseline declaration statements, with their ambient binders, in six modules at the exact Mathlib pin. No baseline declaration was removed, replaced or added.
-- Confirmed all eight incoming source findings at their quoted passages and added one proof finding, E9. Added E1's missing `source: OG07` association.
-- Corrected four existing node objects and the neutrality signature. Added no nodes, API names, test names or planets. One API statement and one theorem acceptance condition were refined.
-- All 660 node ids, all 248 baseline objects, the eight coverage rows, 10 gaps and 22 requests are retained. All implementation statuses remain unchecked. The raw API/test counts remain 596/589; the checker normalizes them to 588/556.
-
-## Corrections
-
-1. **Terminal object for global neutrality.** The packet requires a chosen terminal object S, but the Lean predicate previously accepted any object S without a terminality witness. `IsNeutral` and `Neutralization.isNeutral` now take the native `Limits.IsTerminal S` witness. The neutralization node lists that existing baseline declaration and its API explicitly distinguishes global neutrality from an object on a slice. `Neutralization F S` remains actual section data over arbitrary S, so the existing restriction construction still has its proper generality. The neutralization-equivalence and neutral-self-equivalence node hypotheses now explicitly locate their object at the chosen terminal S. The fibre-category/groupoid API and the geometric examples are still to review.
-2. **Equivariant map in quotient exchange.** The commuting-quotient theorem retains its statement. Its proof now expressly keeps the map to N on Q ≅ P×_T P′. Descent of Q as a G1-torsor does not generally descend an equivariant map to a space on which G2 acts nontrivially. The source match names E3 for the test-base letters and E9 for this separate issue. An acceptance case records the constant C2 translation torsor.
-3. **Source-finding evidence.** E1–E8 now have `confirmed` verdicts naming this review job and exact checked versions. The old reading records are preserved; fresh reads below reproduce the same bytes. E2's verdict confirms the published text only and does not claim to recheck its preprint. No inherited proof archive or alternative classification proof was independently replayed.
-
-## Source findings checked
-
-| Finding | Passage independently read | Result |
+| Folded incoming node | Preserved API declaration | Retained owner(s) |
 | --- | --- | --- |
-| E1 | Olsson/Geraschenko, Theorem 31.7, PDF125–126 | Explicitly incomplete effectivity paragraph and inverse-classification exercise; theorem not disproved. |
-| E2 | Borne–Vistoli, published Proposition 3.10, p.540 | Final two factorization labels concern condition (4), not (3). |
-| E3 | Groechenig–Wyss–Ziegler, published Lemma 4.7, p.540 | Both descended torsors and their product belong over test scheme T. |
-| E4 | Stacks 04W8, full proof, step 4 | Pulled-back cover is fpqc; undefined U_i must be U. |
-| E5 | Stacks 023N, full proof | The contraction requires y_j in the intervening membership assertion. |
-| E6 | Stacks 06NY, Lemma 8.11.5, diagram and full proof | F′/G′ projection identities are interchanged. |
-| E7 | Olsson/Geraschenko, Lemma 31.3, PDF122 | Full-faithfulness paragraph cites the lemma being proved. |
-| E8 | Same lemma, PDF123 | The descended object belongs in G1(U), not G1(S). |
-| E9 (added) | Groechenig–Wyss–Ziegler, published Lemma 4.7, p.540 | The map to N stays on the torsor product; it need not descend to P′. |
-
-For E9 take S=T=Spec(k), G1 trivial, G2 the constant C2, N=G2 with translation, P=Q=G2, and Q→N the identity. Effective torsor descent gives P′=T. An identity map on the two points cannot factor through the point. Its G2-equivariance is precisely what the product-map description retains. Both possible point-to-C2 functions were exhaustively checked; neither gives that factorization. This concerns the written proof, and does not refute the quotient-exchange theorem.
-
-The new finding is scoped to the version of record. A bounded publisher/arXiv DOI/title search for corrections found no separate erratum; this is not an exhaustive novelty claim. Existing author-note warnings and the correction comment associated with E5 remain recorded as known context. No message has been sent to source authors.
-
-## Fresh source reading records
-
-All bytes below were fetched directly from the public URL on 2026-10-05, hashed, and compared with the packet's recorded version. Read: the complete mathematical content of Stacks 06NY and 06PD, and the full proofs at 04W8 and 023N; Olsson/Geraschenko PDF122–127; Borne–Vistoli published p.540 (PDF11), with the immediately preceding affine-gerbe context; GWZ published pp.514–516 and 539–540 (PDF10–12 and 35–36). Other sections, other versions and entire papers were not read. Source PDFs and HTML are disposable scratch, so these URLs, hashes and page boundaries are the reconstruction record.
-
-| Source | SHA256 |
-| --- | --- |
-| [Stacks](https://stacky.net/files/written/Stacks/Stacks.pdf) | `716bf95c7a200194d5fd1f2af48372253fde5ea65487b5d362bcccb5e0b7426a` |
-| [BV19](https://msp.org/ant/2019/13-3/ant-v13-n3-p01-s.pdf) | `64fca3767f3c6cbd02fbf84f1fb456c7fda30c7bc95ddc8c8c84cd3bd8629111` |
-| [GWZ20](https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf) | `f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07` |
-| [06NY](https://stacks.math.columbia.edu/tag/06NY) | `784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e` |
-| [04W8](https://stacks.math.columbia.edu/tag/04W8) | `73b3474abccacb2ecd47229ff2322316368c60fa5f90112cb351a1f1b2fe315a` |
-| [023N](https://stacks.math.columbia.edu/tag/023N) | `b8d9a77257d45cfdf1068727990ce4b697f54f311b97b80511c9ed85a5f37cbd` |
-| [06PD](https://stacks.math.columbia.edu/tag/06PD) | `a4eab26748859af3d26e55c73177c294c74e19e8d5cfa1811a5f5b85913cb07b` |
-
-## Baseline declarations read
-
-Mathlib commit: `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti source pin remains `f790474821cf4256814db967cb154e7af3d0c369`.
-
-Each of the six Mathlib module files was also compared byte-for-byte against `git show` at the exact pinned commit in the existing shared Mathlib checkout. This authenticates the source snapshot; it is not a declaration elaboration claim.
-
-| Declaration independently read | Module |
-| --- | --- |
-| `mathlib:CategoryTheory.Pseudofunctor.IsStack` | `Mathlib/CategoryTheory/Sites/Descent/IsStack.lean` |
-| `mathlib:CategoryTheory.Pseudofunctor.IsPrestack` | `Mathlib/CategoryTheory/Sites/Descent/IsPrestack.lean` |
-| `mathlib:CategoryTheory.Pseudofunctor.sheafHom` | `Mathlib/CategoryTheory/Sites/Descent/IsPrestack.lean` |
-| `mathlib:CategoryTheory.Aut` | `Mathlib/CategoryTheory/Endomorphism.lean` |
-| `mathlib:CategoryTheory.Aut.autMulEquivOfIso` | `Mathlib/CategoryTheory/Endomorphism.lean` |
-| `mathlib:CategoryTheory.Functor.mapAut` | `Mathlib/CategoryTheory/Endomorphism.lean` |
-| `mathlib:CategoryTheory.Pseudofunctor.StrongTrans` | `Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean` |
-| `mathlib:CategoryTheory.Pseudofunctor.StrongTrans.Modification` | `Mathlib/CategoryTheory/Bicategory/Modification/Pseudo.lean` |
-| `mathlib:CategoryTheory.Pseudofunctor.isEquivalence_toDescentData` | `Mathlib/CategoryTheory/Sites/Descent/IsStack.lean` |
-| `mathlib:CategoryTheory.Limits.IsTerminal` | `Mathlib/CategoryTheory/Limits/Shapes/IsTerminal.lean` |
-
-`IsStack` supplies effective object descent and extends `IsPrestack`; neither forces groupoid fibres. The separate invertibility field in `IsGerbe` is necessary. `sheafHom` uses the actual slice topology and preserves the two native pseudofunctor endpoint comparisons. `Aut` multiplication reverses `Iso.trans`; the band equations use the matching native conjugation and functor maps. The terminal-object abbreviation supplies exactly the witness added to the global-neutrality signature. The other 238 baseline citations remain unreviewed in this checkpoint.
-
-## Node reading frontier
-
-The rows are statement/source reading scopes, not final per-node acceptance verdicts. Every row still needs the outstanding closure, API/test and suggested-file checks appropriate to it. A simple source theorem can match while its planned prerequisite graph is still unreviewed.
-
-| Node suffix (prefix `AlgebraicModuliForArithmeticGeometry:`) | Object examined |
-| --- | --- |
-| `key/gerbes` | Gerbes on the existing stack carrier |
-| `R09.4/equivalence-invariance` | Gerbes are invariant under stack equivalence |
-| `R09.4/relative-gerbe` | Relative gerbe morphisms |
-| `R09.4/relative-pullback` | Relative gerbes under two-fibre-product base change |
-| `R09.4/relative-composition` | Composition of relative gerbes |
-| `R09.4/relative-descent` | Descent of the relative gerbe property |
-| `R09.4/abelian-banding` | Abelian bandings with conjugation compatibility |
-| `R09.4/abelian-aut-commute` | Banded automorphisms commute |
-| `R09.4/banding-iso-independent` | Conjugation is independent of the chosen object isomorphism |
-| `R09.4/intrinsic-abelian-band` | The intrinsic band of an abelian gerbe |
-| `R09.4/band-preserving-morphism` | Band-preserving morphisms and their two-morphisms |
-| `R09.4/isom-torsor` | Isom sheaves as band torsors |
-| `R09.4/band-morphism-full-faithful` | Band-preserving morphisms are fully faithful |
-| `R09.4/band-morphism-essential-surjective` | Band-preserving morphisms are essentially surjective |
-| `R09.4/band-morphism-equivalence` | Every band-preserving gerbe morphism is an equivalence |
-| `R09.4/classifying-abelian-gerbe` | The neutral classifying gerbe |
-| `R09.4/neutralization` | Neutralizations of a banded gerbe |
-| `R09.4/neutralization-equivalence` | A neutralization identifies the gerbe with BA |
-| `R09.4/neutral-self-equivalences` | The groupoid of neutral-gerbe self-equivalences |
-| `R09.4/commuting-quotient-exchange` | Exchange of commuting quotient stacks |
-
-The two D0 supplier objects `stackification` and `groupoid-quotients-and-two-fibre-products` were read, including statements, API and proof sketches. They describe the requisite generic quotient/iso-comma constructions. Their own sources and mathematical correctness have not been independently audited here. The requests to SF.1 were inspected for precise sheaf/torsor descent boundaries, but the supplying SF.1 statements remain to check. Read the generic coherent-inverse request before accepting `band-morphism-equivalence`; fibrewise equivalence alone does not supply a coherent inverse transformation.
-
-## API, tests, coverage and ownership boundary
-
-The reserved gerbe id occurs as a node definition in exactly this packet in the packet-directory name scan. Its definition uses the existing stack carrier and its local conditions correctly. The broader reserved contract includes bandings, neutralizations, derived H² classification and compatible profinite fpqc limits. Its `keyDefinitions` status correctly remains partial; this checkpoint does not close that contract.
-
-The root key has three mathematical tests, but `GerbeTests.classifying` and `GerbeTests.rootNotNeutral` are still only in the Lean omission ledger. The band-morphism, relative-gerbe and neutralization ledgers likewise retain substantial omitted fixtures. The key survey's eight sample API statements are distributed through downstream plans and are not all present in the root node's API/tests. A continuing reviewer must check the exact section 19 contract and account for these tests; a comment mentioning a test is not an elaborated example. Local signature checks and the structural checker cannot certify this alignment.
-
-R09.4 includes substantial algebraicity, atlas and moduli-stack targets beyond the gerbe strand. No stage is marked planned or closed: A0-extension, R09.3, R09.4 and R09.5 are partial; R09.1, R09.2, R09.6 and R09.7 are not_read. The existing `complete` packet status means its budget-ended planning pass, not mathematical or review closure. These open-stage statuses are permitted and are not a rejection reason by themselves. Verification of the remaining 640 node objects, their source passages, and the recursive chains of the 20 examined nodes still stands between this checkpoint and an overall review verdict. The coherent-duality import contract also remains to audit; this source/name scan does not certify cross-roadmap ownership across the entire atlas.
-
-## Validation and Lean boundary
-
-- Incoming packet checker: zero errors and warnings.
-- Corrected packet checker with the pinned declaration index: zero errors and warnings.
-- Source-issue schema/version validation: passed for all nine findings. Intake file-scope check: four files, zero problems. Whitespace check: passed. The actual `issues.deliverables_complete` function classifies this job as an unfinished checkpoint. Preservation checks confirm the entire baseline, sources, source versions, coverage, gaps, requests and key-definition rows are unchanged, and exactly four existing node objects differ.
-- Full suggested-file attempt: `lean-check` stopped on an unavailable object file for `TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence`. Available memory before the attempt was 97 GB. The shared Mathlib checkout is at the exact pin, but the shared Tau checkout is at `cf386627e9176a3827c1a5fe804989fd94a4d216`. Therefore no full-file or exact-Tau-baseline elaboration is claimed, and the corrected signature remains uncompiled. No language server, library build or cache download was started. No scratch Lean projection was created.
-
-The intake is intentionally left with an incomplete review: retain no top-level `review` until the full issue checklist has been performed. A continuing independent session must recheck these bounded changes and complete the remaining evidence. Questions for the orchestrator: make an existing exact-Tau-pin build with the required module available if feasible, and authorize any needed reader-document synchronization through an appropriate job; the reader is not a deliverable of this issue and was not edited.
+| `R09.4/band-fixture-constant-section-val` | `TauCeti.AlgebraicGeometry.BandFixtures.constantSection_val` | `R09.4/band-fixture-constant-section` |
+| `R09.4/band-fixture-component-sections-equiv-restrict` | `TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_restrict` | `R09.4/band-fixture-component-sections-equiv` |
+| `R09.4/band-fixture-constant-section-restrict` | `TauCeti.AlgebraicGeometry.BandFixtures.constantSection_restrict` | `R09.4/band-fixture-constant-section` |
+| `R09.4/band-fixture-constant-sections-equiv-apply` | `TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_apply` | `R09.4/band-fixture-constant-sections-equiv` |
+| `R09.4/band-fixture-component-center-app` | `TauCeti.AlgebraicGeometry.BandFixtures.componentCenter_app` | `R09.4/band-fixture-component-center` |
+| `R09.4/band-fixture-component-center-naturality` | `TauCeti.AlgebraicGeometry.BandFixtures.componentCenter_naturality` | `R09.4/band-fixture-component-center` |
+| `R09.4/band-fixture-component-center-unit-val` | `TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit_val` | `R09.4/band-fixture-component-center-unit` |
+| `R09.4/band-fixture-component-center-unit-inv` | `TauCeti.AlgebraicGeometry.BandFixtures.componentCenterUnit_inv` | `R09.4/band-fixture-component-center-unit` |
+| `R09.4/band-fixture-component-center-equiv-apply` | `TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv_apply` | `R09.4/band-fixture-component-center-equiv` |
+| `R09.4/band-fixture-component-sections-equiv-symm-apply` | `TauCeti.AlgebraicGeometry.BandFixtures.componentSectionsEquiv_symm_apply` | `R09.4/band-fixture-component-sections-equiv` |
+| `R09.4/connected-band-fixture-connected-sections-equiv-restrict` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_restrict` | `R09.4/connected-band-fixture-connected-sections-equiv` |
+| `R09.4/connected-band-fixture-connected-center-one` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_one` | `R09.4/connected-band-fixture-connected-center` |
+| `R09.4/connected-band-fixture-connected-center-unit-val-inv` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_val_inv` | `R09.4/connected-band-fixture-connected-center-unit` |
+| `R09.4/connected-band-fixture-connected-center-equiv-apply-symm-apply` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_apply_symm_apply` | `R09.4/connected-band-fixture-connected-center-equiv` |
+| `R09.4/connected-band-fixture-connected-aut-mul` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_mul` | `R09.4/connected-band-fixture-connected-aut` |
+| `R09.4/connected-band-fixture-connected-iso-hom-inv-id` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_hom_inv_id` | `R09.4/connected-band-fixture-connected-iso` |
+| `R09.4/connected-band-fixture-connected-center-app` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_app` | `R09.4/connected-band-fixture-connected-center` |
+| `R09.4/connected-band-fixture-connected-center-naturality` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenter_naturality` | `R09.4/connected-band-fixture-connected-center` |
+| `R09.4/connected-band-fixture-connected-center-unit-val` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_val` | `R09.4/connected-band-fixture-connected-center-unit` |
+| `R09.4/connected-band-fixture-connected-center-unit-inv` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterUnit_inv` | `R09.4/connected-band-fixture-connected-center-unit` |
+| `R09.4/connected-band-fixture-connected-center-equiv-apply` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_apply` | `R09.4/connected-band-fixture-connected-center-equiv` |
+| `R09.4/connected-band-fixture-connected-center-equiv-symm-apply` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedCenterEquiv_symm_apply` | `R09.4/connected-band-fixture-connected-center-equiv` |
+| `R09.4/connected-band-fixture-connected-sections-equiv-symm-apply` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedSectionsEquiv_symm_apply` | `R09.4/connected-band-fixture-connected-sections-equiv` |
+| `R09.4/connected-band-fixture-connected-aut-hom` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_hom` | `R09.4/connected-band-fixture-connected-aut` |
+| `R09.4/connected-band-fixture-connected-aut-inv` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedAut_inv` | `R09.4/connected-band-fixture-connected-aut` |
+| `R09.4/connected-band-fixture-connected-iso-fst` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_fst` | `R09.4/connected-band-fixture-connected-iso` |
+| `R09.4/connected-band-fixture-connected-iso-snd` | `TauCeti.AlgebraicGeometry.ConnectedBandFixtures.connectedIso_snd` | `R09.4/connected-band-fixture-connected-iso` |
+| `R09.4/restriction-band-fixture-singleCenterUnit-app` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit_app` | `R09.4/restriction-band-fixture-singleCenterUnit` |
+| `R09.4/restriction-band-fixture-groupSection-eval` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_eval` | `R09.4/restriction-band-fixture-groupSection`, `R09.4/restriction-band-fixture-groupSectionsEquiv` |
+| `R09.4/restriction-band-fixture-groupBandSheaf-obj` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheaf_obj` | `R09.4/restriction-band-fixture-groupBandSheaf` |
+| `R09.4/restriction-band-fixture-groupIso-hom` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso_hom` | `R09.4/restriction-band-fixture-groupIso` |
+| `R09.4/restriction-band-fixture-groupIso-inv` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupIso_inv` | `R09.4/restriction-band-fixture-groupIso` |
+| `R09.4/restriction-band-fixture-singleCenter-app` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter_app` | `R09.4/restriction-band-fixture-singleCenter` |
+| `R09.4/restriction-band-fixture-singleCenterUnit-mul` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenterUnit_mul` | `R09.4/restriction-band-fixture-singleCenterUnit` |
+| `R09.4/restriction-band-fixture-groupSection-one` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_one` | `R09.4/restriction-band-fixture-groupSection` |
+| `R09.4/restriction-band-fixture-groupSection-mul` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSection_mul` | `R09.4/restriction-band-fixture-groupSection` |
+| `R09.4/restriction-band-fixture-groupSectionsEquiv-symm-apply` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsEquiv_symm_apply` | `R09.4/restriction-band-fixture-groupSectionsEquiv`, `R09.4/restriction-band-fixture-groupSectionsPresheafIso`, `R09.4/restriction-band-fixture-groupBandSheafIso` |
+| `R09.4/restriction-band-fixture-groupSectionsPresheafIso-hom-app` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupSectionsPresheafIso_hom_app` | `R09.4/restriction-band-fixture-groupSectionsPresheafIso`, `R09.4/restriction-band-fixture-groupBandSheafIso` |
+| `R09.4/restriction-band-fixture-groupBandSheafIso-hom` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.groupBandSheafIso_hom` | `R09.4/restriction-band-fixture-groupBandSheafIso` |
+| `R09.4/isom-band-coordinate-change` | `TauCeti.AlgebraicGeometry.BandedIsom.coordinate_change` | `R09.4/isom-band-coordinate-equiv` |
+| `R09.4/isom-band-principal-equiv-apply` | `TauCeti.AlgebraicGeometry.BandedIsom.principalEquiv_apply` | `R09.4/isom-band-principal-equiv` |
+| `R09.4/isom-band-principal-equiv-symm-apply` | `TauCeti.AlgebraicGeometry.BandedIsom.principalEquiv_symm_apply` | `R09.4/isom-band-principal-equiv` |
+| `R09.4/isom-band-coordinate-apply` | `TauCeti.AlgebraicGeometry.BandedIsom.coordinate_apply` | `R09.4/isom-band-coordinate-equiv` |
+| `R09.4/isom-band-coordinate-symm-apply` | `TauCeti.AlgebraicGeometry.BandedIsom.coordinate_symm_apply` | `R09.4/isom-band-coordinate-equiv` |
+| `R09.4/isom-band-principal-sheaf-iso-hom` | `TauCeti.AlgebraicGeometry.BandedIsom.principalSheafIso_hom` | `R09.4/isom-band-principal-presheaf-iso`, `R09.4/isom-band-pair-sheaf`, `R09.4/isom-band-action-sheaf`, `R09.4/isom-band-principal-sheaf-iso` |
+| `R09.4/band-morphism-isom-equiv-apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.isomEquiv_apply` | `R09.4/band-morphism-isom-equiv` |
+| `R09.4/band-morphism-isom-equiv-symm` | `TauCeti.AlgebraicGeometry.BandedMorphism.isomEquiv_symm_apply` | `R09.4/band-morphism-isom-equiv` |
+| `R09.4/band-morphism-isom-equiv-anchor` | `TauCeti.AlgebraicGeometry.BandedMorphism.isomEquiv_anchor` | `R09.4/band-morphism-isom-equiv` |
+| `R09.4/band-morphism-preimage-act` | `TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_act` | `R09.4/band-morphism-preimage-isom` |
+| `R09.4/band-morphism-aut-equiv-apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.autEquiv_apply` | `R09.4/band-morphism-aut-equiv` |
+| `R09.4/band-morphism-aut-equiv-band` | `TauCeti.AlgebraicGeometry.BandedMorphism.autEquiv_band` | `R09.4/band-morphism-aut-equiv` |
+| `R09.4/band-morphism-aut-equiv-symm-band` | `TauCeti.AlgebraicGeometry.BandedMorphism.autEquiv_symm_band` | `R09.4/band-morphism-aut-equiv` |
+| `R09.4/band-morphism-preimage-id` | `TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_id` | `R09.4/band-morphism-preimage-isom` |
+| `R09.4/band-morphism-preimage-comp` | `TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_comp` | `R09.4/band-morphism-preimage-isom` |
+| `R09.4/strong-pullback/preimage-map` | `TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_map` | `R09.4/strong-pullback/preimage-isom` |
+| `R09.4/strong-pullback/preimage-anchor` | `TauCeti.AlgebraicGeometry.GerbeMorphismPullback.preimageIso_anchor` | `R09.4/strong-pullback/preimage-isom` |
+| `R09.4/strong-pullback/isom-equiv-symm` | `TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_symm_apply` | `R09.4/strong-pullback/isom-equiv` |
+| `R09.4/strong-pullback/isom-equiv-anchor` | `TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_anchor` | `R09.4/strong-pullback/isom-equiv` |
+| `R09.4/strong-pullback/comparison-inverse` | `TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_inv_hom_id` | `R09.4/strong-pullback/comparison` |
+| `R09.4/strong-pullback/comparison-band` | `TauCeti.AlgebraicGeometry.GerbeMorphismPullback.comparison_band` | `R09.4/strong-pullback/comparison` |
+| `R09.4/hom-sheaf/presheaf-naturality` | `TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homPresheafMap_naturality` | `R09.4/hom-sheaf/presheaf-map` |
+| `R09.4/hom-sheaf/inverse-anchor` | `TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafIso_inverse_anchor` | `R09.4/hom-sheaf/sheaf-isomorphism` |
+| `R09.4/hom-sheaf/inverse-restriction` | `TauCeti.AlgebraicGeometry.GerbeMorphismPullback.homSheafIso_inverse_restrict` | `R09.4/hom-sheaf/sheaf-isomorphism` |
+| `R09.4/object-descent/local-image-identity` | `TauCeti.AlgebraicGeometry.GerbeMorphismDescent.localImageSieve_identity` | `R09.4/object-descent/local-image-sieve` |
+| `R09.4/object-descent/global-image-uniqueness` | `TauCeti.AlgebraicGeometry.GerbeMorphismDescent.globalImageIso_unique` | `R09.4/object-descent/global-image-isomorphism` |
+| `R09.4/fibre-action/fibre-action-apply` | `TauCeti.AlgebraicGeometry.BandedIsom.fibreAction_apply` | `R09.4/fibre-action/fibre-action` |
+| `R09.4/fibre-action/fibre-action-empty` | `TauCeti.AlgebraicGeometry.BandedIsom.fibreAction_empty` | `R09.4/fibre-action/fibre-action` |
+| `R09.4/fibre-action/postcompose-action-iso-apply` | `TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_apply` | `R09.4/fibre-action/postcompose-action-iso` |
+| `R09.4/fibre-action/postcompose-action-iso-inv-apply` | `TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_inv_apply` | `R09.4/fibre-action/postcompose-action-iso` |
+| `R09.4/fibre-action/postcompose-action-iso-comp` | `TauCeti.AlgebraicGeometry.BandedIsom.postcomposeActionIso_comp` | `R09.4/fibre-action/postcompose-action-iso` |
+| `R09.4/fibre-action/fibre-isom-action-functor-obj` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_obj` | `R09.4/fibre-action/fibre-isom-action-functor` |
+| `R09.4/fibre-action/fibre-isom-action-functor-map-apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_map_apply` | `R09.4/fibre-action/fibre-isom-action-functor` |
+| `R09.4/fibre-action/fibre-isom-action-functor-map-inverse` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomActionFunctor_map_inverse` | `R09.4/fibre-action/fibre-isom-action-functor` |
+| `R09.4/fibre-action/self-transport-action-iso-apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_apply` | `R09.4/fibre-action/self-transport-action-iso` |
+| `R09.4/fibre-action/self-transport-action-iso-inv-apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportActionIso_inv_apply` | `R09.4/fibre-action/self-transport-action-iso` |
+| `R09.4/fibre-action/self-transport-nat-iso-app` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_app` | `R09.4/fibre-action/self-transport-nat-iso` |
+| `R09.4/fibre-action/self-transport-nat-iso-id` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_id` | `R09.4/fibre-action/self-transport-nat-iso` |
+| `R09.4/fibre-action/self-transport-nat-iso-comp` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfTransportNatIso_comp` | `R09.4/fibre-action/self-transport-nat-iso` |
+| `R09.4/fibre-restriction/restrict-action-hom-apply` | `TauCeti.AlgebraicGeometry.BandedIsom.restrictActionHom_apply` | `R09.4/fibre-restriction/restrict-action-hom` |
+| `R09.4/fibre-restriction/restrict-action-hom-postcompose` | `TauCeti.AlgebraicGeometry.BandedIsom.restrictActionHom_postcompose` | `R09.4/fibre-restriction/restrict-action-hom` |
+| `R09.4/fibre-restriction/restrict-action-hom-refl` | `TauCeti.AlgebraicGeometry.BandedIsom.restrictActionHom_refl` | `R09.4/fibre-restriction/restrict-action-hom` |
+| `R09.4/fibre-restriction/fibre-isom-restriction-nat-trans-app` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestrictionNatTrans_app` | `R09.4/fibre-restriction/fibre-isom-restriction-nat-trans` |
+| `R09.4/fibre-restriction/fibre-isom-restriction-nat-trans-naturality` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreIsomRestrictionNatTrans_naturality` | `R09.4/fibre-restriction/fibre-isom-restriction-nat-trans` |
+| `R09.4/sheaf-assembly/sheaf-map-apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMap_apply` | `R09.4/sheaf-assembly/sheaf-map` |
+| `R09.4/sheaf-assembly/section-iso-equiv-hom` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionIsoEquiv_hom` | `R09.4/sheaf-assembly/section-iso-equiv` |
+| `R09.4/sheaf-assembly/sheaf-functor-obj` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafFunctor_obj` | `R09.4/sheaf-assembly/sheaf-functor` |
+| `R09.4/sheaf-assembly/sheaf-functor-map` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafFunctor_map` | `R09.4/sheaf-assembly/sheaf-functor` |
+| `R09.4/sheaf-assembly/sheaf-map-iso-hom` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMapIso_hom` | `R09.4/sheaf-assembly/sheaf-map-iso` |
+| `R09.4/sheaf-assembly/sheaf-map-iso-inv` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMapIso_inv` | `R09.4/sheaf-assembly/sheaf-map-iso` |
+| `R09.4/sheaf-assembly/section-action-apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionAction_apply` | `R09.4/sheaf-assembly/section-action` |
+| `R09.4/sheaf-assembly/sheaf-map-equivariant` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMap_equivariant` | `R09.4/sheaf-assembly/sheaf-map` |
+| `R09.4/sheaf-assembly/transport-iso-equiv-apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomTransportIsoEquiv_apply` | `R09.4/sheaf-assembly/transport-iso-equiv` |
+| `R09.4/sheaf-assembly/sheaf-obj` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheaf_obj` | `R09.4/sheaf-assembly/fibre-hom-sheaf` |
+| `R09.4/sheaf-assembly/sheaf-is-sheaf` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheaf_isSheaf` | `R09.4/sheaf-assembly/fibre-hom-sheaf` |
+| `R09.4/sheaf-assembly/section-iso-inverse` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionIsoEquiv_symm_apply` | `R09.4/sheaf-assembly/section-iso-equiv` |
+| `R09.4/sheaf-assembly/section-iso-inverse-law` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSectionIsoEquiv_apply_symm_apply` | `R09.4/sheaf-assembly/section-iso-equiv` |
+| `R09.4/sheaf-assembly/sheaf-map-id` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMap_id` | `R09.4/sheaf-assembly/sheaf-map` |
+| `R09.4/sheaf-assembly/sheaf-functor-map-comp` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafFunctor_map_comp` | `R09.4/sheaf-assembly/sheaf-functor` |
+| `R09.4/sheaf-assembly/sheaf-map-iso-roundtrip` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomSheafMapIso_hom_inv_id` | `R09.4/sheaf-assembly/sheaf-map-iso` |
+| `R09.4/sheaf-assembly/transport-iso-inverse` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomTransportIsoEquiv_symm_apply` | `R09.4/sheaf-assembly/transport-iso-equiv` |
+| `R09.4/sheaf-transport/apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransport_apply` | `R09.4/sheaf-transport/map` |
+| `R09.4/sheaf-transport/nat-iso-app` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportNatIso_app` | `R09.4/sheaf-transport/nat-iso` |
+| `R09.4/sheaf-transport/iso-hom` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportIso_hom` | `R09.4/sheaf-transport/iso` |
+| `R09.4/sheaf-transport/iso-inv` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafTransportIso_inv` | `R09.4/sheaf-transport/iso` |
+| `R09.4/sheaf-transport/object-functor-obj` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafObjectFunctor_obj` | `R09.4/sheaf-transport/object-functor` |
+| `R09.4/sheaf-transport/object-functor-map` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomSheafObjectFunctor_map` | `R09.4/sheaf-transport/object-functor` |
+| `R09.4/sheaf-base-change/inv-apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_inv_apply` | `R09.4/sheaf-base-change/iso` |
+| `R09.4/sheaf-base-change/nat-iso-app` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_app` | `R09.4/sheaf-base-change/nat-iso` |
+| `R09.4/sheaf-base-change/nat-iso-hom` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_hom_app` | `R09.4/sheaf-base-change/nat-iso` |
+| `R09.4/sheaf-base-change/nat-iso-inv` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_inv_app` | `R09.4/sheaf-base-change/nat-iso` |
+| `R09.4/sheaf-coherence/choice` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomBaseChangeIso_transport_choice` | `R09.4/sheaf-base-change/iso` |
+| `R09.4/endpoint-transport/transport` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomEndpointTransport_transport` | `R09.4/endpoint-transport/map` |
+| `R09.4/endpoint-transport/equivariant` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomEndpointTransport_equivariant` | `R09.4/endpoint-transport/map` |
+| `R09.4/endpoint-transport/natural-app` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomEndpointTransportNatIso_app` | `R09.4/endpoint-transport/natural-iso` |
+| `R09.4/endpoint-transport/natural-identity` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomEndpointTransportNatIso_id` | `R09.4/endpoint-transport/natural-iso` |
+| `R09.4/endpoint-transport/natural-composition` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomEndpointTransportNatIso_comp` | `R09.4/endpoint-transport/natural-iso` |
+| `R09.4/endpoint-transport/iso-hom` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomEndpointTransportIso_hom` | `R09.4/endpoint-transport/iso` |
+| `R09.4/endpoint-transport/iso-inv` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomEndpointTransportIso_inv` | `R09.4/endpoint-transport/iso` |
+| `R09.4/general-base-coherence/natural-unit` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_id` | `R09.4/sheaf-base-change/nat-iso` |
+| `R09.4/general-base-coherence/natural-composition` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeNatIso_comp` | `R09.4/sheaf-base-change/nat-iso` |
+| `R09.4/general-base-coherence/unit-inverse` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_id_inv` | `R09.4/sheaf-base-change/iso` |
+| `R09.4/general-base-coherence/composition-inverse` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_comp_inv` | `R09.4/sheaf-base-change/iso` |
+| `R09.4/local-covers/object-pullback` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_pullback` | `R09.4/local-covers/object` |
+| `R09.4/local-covers/object-refinement` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_refinement_covering` | `R09.4/local-covers/object` |
+| `R09.4/local-covers/object-empty` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_identity_empty` | `R09.4/local-covers/object` |
+| `R09.4/local-covers/isom-reflexivity` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_refl` | `R09.4/local-covers/isom` |
+| `R09.4/local-covers/isom-pullback` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_pullback` | `R09.4/local-covers/isom` |
+| `R09.4/local-covers/isom-refinement` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_refinement_covering` | `R09.4/local-covers/isom` |
+| `R09.4/local-covers/overlap-swap` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover_swap` | `R09.4/local-covers/overlap` |
+| `R09.4/local-covers/overlap-pullback` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover_pullback_covering` | `R09.4/local-covers/overlap` |
+| `R09.4/local-covers/chosen-hom` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_hom` | `R09.4/local-covers/chosen-iso` |
+| `R09.4/local-covers/chosen-inverse` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_inv` | `R09.4/local-covers/chosen-iso` |
+| `R09.4/local-covers/chosen-round-trip` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_hom_inv` | `R09.4/local-covers/chosen-iso` |
+| `R09.4/local-covers/chosen-inverse-round-trip` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapIso_inv_hom` | `R09.4/local-covers/chosen-iso` |
+| `R09.4/chart-transitions/equivariant` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_equivariant` | `R09.4/chart-transitions/chart` |
+| `R09.4/chart-transitions/natural` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_naturality` | `R09.4/chart-transitions/chart` |
+| `R09.4/chart-transitions/overlap-choice` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_eq` | `R09.4/chart-transitions/overlap` |
+| `R09.4/chart-transitions/overlap-reflexive` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_refl` | `R09.4/chart-transitions/overlap` |
+| `R09.4/chart-transitions/overlap-cocycle` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_cocycle` | `R09.4/chart-transitions/overlap` |
+| `R09.4/chart-transitions/overlap-inverse` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_symm` | `R09.4/chart-transitions/overlap` |
+| `R09.4/chart-transitions/common-cover` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOverlapTransition_common_cover` | `R09.4/chart-transitions/overlap` |
+| `R09.4/chart-refinements/inv` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartRefinement_inv` | `R09.4/chart-refinements/refinement` |
+| `R09.4/chart-refinements/inverse-square` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_pullback_inverse` | `R09.4/chart-refinements/refinement` |
+| `R09.4/chart-refinements/section-square` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_pullback_section` | `R09.4/chart-refinements/refinement` |
+| `R09.4/global-hom/restriction-mk` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitRestrict_mk` | `R09.4/global-hom/restriction`, `R09.4/global-hom/presheaf` |
+| `R09.4/global-hom/sheaf-inverse` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_map_inverse` | `R09.4/global-hom/sheaf-functor` |
+| `R09.4/global-hom/map-inverse` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomOrbitMap_inverse` | `R09.4/global-hom/map`, `R09.4/global-hom/functor` |
+| `R09.4/global-hom/sheaf-ext` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_hom_ext` | `R09.4/global-hom/sheaf-functor` |
+| `R09.4/global-hom/sheaf-universal` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_universal` | `R09.4/global-hom/sheaf-functor` |
+| `R09.4/chart-global/iso-hom` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_hom` | `R09.4/chart-global/iso` |
+| `R09.4/chart-global/orbit-apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_apply` | `R09.4/chart-global/orbit-map` |
+| `R09.4/chart-global/iso-apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_apply` | `R09.4/chart-global/iso` |
+| `R09.4/chart-global/global-modification` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal_modification` | `R09.4/chart-global/global-map` |
+| `R09.4/chart-global/global-transport` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal_transport` | `R09.4/chart-global/global-map` |
+| `R09.4/chart-global/global-base-change` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToGlobal_baseChange` | `R09.4/chart-global/global-map` |
+| `R09.4/chart-global/inverse-forward` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_inv_hom` | `R09.4/chart-global/iso` |
+| `R09.4/chart-global/forward-inverse` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartGlobalIso_hom_inv` | `R09.4/chart-global/iso` |
+| `R09.4/band-fixture-constant-sections-equiv-restrict` | `TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_restrict` | `R09.4/band-fixture-constant-sections-equiv` |
+| `R09.4/band-fixture-constant-sections-equiv-symm-apply` | `TauCeti.AlgebraicGeometry.BandFixtures.constantSectionsEquiv_symm_apply` | `R09.4/band-fixture-constant-sections-equiv` |
+| `R09.4/band-fixture-component-center-equiv-symm-apply` | `TauCeti.AlgebraicGeometry.BandFixtures.componentCenterEquiv_symm_apply` | `R09.4/band-fixture-component-center-equiv` |
+| `R09.4/restriction-band-fixture-singleCenter-mul` | `TauCeti.AlgebraicGeometry.RestrictionBandFixtures.singleCenter_mul` | `R09.4/restriction-band-fixture-singleCenter` |
+| `R09.4/band-morphism-preimage-anchor` | `TauCeti.AlgebraicGeometry.BandedMorphism.preimageIso_anchor` | `R09.4/band-morphism-preimage-isom` |
+| `R09.4/strong-pullback/isom-equiv-apply` | `TauCeti.AlgebraicGeometry.GerbeMorphismPullback.isomEquiv_apply` | `R09.4/strong-pullback/isom-equiv` |
+| `R09.4/object-descent/global-image-restriction` | `TauCeti.AlgebraicGeometry.GerbeMorphismDescent.globalImageIso_restrict` | `R09.4/object-descent/global-image-isomorphism` |
+| `R09.4/fibre-action/component-iso-inv` | `TauCeti.AlgebraicGeometry.BandedMorphism.componentIso_inv` | `R09.4/fibre-action/component-iso` |
+| `R09.4/sheaf-base-change/inv-equivariant` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_inv_equivariant` | `R09.4/sheaf-base-change/iso` |
+| `R09.4/general-base-coherence/unit` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_id` | `R09.4/sheaf-base-change/iso` |
+| `R09.4/general-base-coherence/composition` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomBaseChangeIso_comp` | `R09.4/sheaf-base-change/iso` |
+| `R09.4/local-covers/object-membership` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_mem` | `R09.4/local-covers/object` |
+| `R09.4/local-covers/object-covering` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.objectCover_covering` | `R09.4/local-covers/object` |
+| `R09.4/local-covers/isom-symmetry` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_symm` | `R09.4/local-covers/isom` |
+| `R09.4/local-covers/overlap-covering` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.overlapCover_covering` | `R09.4/local-covers/overlap` |
+| `R09.4/chart-transitions/reflexive` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_refl` | `R09.4/chart-transitions/chart` |
+| `R09.4/chart-transitions/cocycle` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_cocycle` | `R09.4/chart-transitions/chart` |
+| `R09.4/chart-transitions/inverse` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_symm` | `R09.4/chart-transitions/chart` |
+| `R09.4/global-hom/sheaf-object` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_obj` | `R09.4/global-hom/sheaf-functor` |
+| `R09.4/global-hom/sheaf-unit` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomGlobalSheafFunctor_unit_naturality` | `R09.4/global-hom/sheaf-functor` |
+| `R09.4/chart-global/orbit-modification` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_modification` | `R09.4/chart-global/orbit-map` |
+| `R09.4/chart-global/orbit-transport` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_transport` | `R09.4/chart-global/orbit-map` |
+| `R09.4/chart-global/orbit-base-change` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartToOrbit_baseChange` | `R09.4/chart-global/orbit-map` |
+| `R09.4/endpoint-transport/apply` | `TauCeti.AlgebraicGeometry.BandedMorphism.fibreHomEndpointTransport_apply` | `R09.4/endpoint-transport/map` |
+| `R09.4/local-covers/isom-membership` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_mem` | `R09.4/local-covers/isom` |
+| `R09.4/local-covers/isom-covering` | `TauCeti.AlgebraicGeometry.GerbeLocalCovers.isomCover_covering` | `R09.4/local-covers/isom` |
+| `R09.4/chart-transitions/independent` | `TauCeti.AlgebraicGeometry.BandedMorphism.selfHomChartTransition_independent` | `R09.4/chart-transitions/chart` |
