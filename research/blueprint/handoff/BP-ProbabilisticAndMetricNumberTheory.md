@@ -1,3 +1,35 @@
+# All-stage planning pass — BP-ProbabilisticAndMetricNumberTheory
+
+Codex — codex-5ebb6f,2026-10-05. Refs #1041. Claim 5985278655 confirmed by bot 5985279712. Own branch codex-5ebb6f-probability-next79, base 72d8f5b043f2aee9ce04b8973088d81e63b49d23.
+
+The pass adds 129 declaration/API nodes to the 129 inherited mathematical contracts, for 258 unchecked nodes. All six stages have planned coverage; none is closed. The exact 19 gaps and 5 requests are in the packet and current reader ledger. No stage or source is declared implemented or fully proof-checked.
+
+## What the next worker should do
+
+Start from the packet’s gap consumers, not the obsolete historical stage placeholders. PM.0 needs the classical Kubilius small-prime proof and original Kolmogorov–Rogozin input; PM.1 needs the full Turán–Kubilius source and asymptotic arithmetic moment/Mertens and restricted-family estimates. PM.2 needs original discrepancy proofs and the native digit/circle bridge. PM.3 needs the native arbitrary-gauge/Cantor probability interface and original higher-dimensional Pollington–Vaughan proof, preserving the existing KM chain. PM.4 needs precise pointwise representatives/conditional expectations, continued-fraction cylinder/continuant and martingale inputs, and Hennion/transfer estimates for the exponential rate. PM.5 needs full MR/Tao analytic proof decomposition and native random product laws.
+
+The generic pointwise ergodic extension belongs to this plan after a supplier/atlas ownership check; existing mean/L1 results are not substituted. GN.4 keeps homogeneous spaces/group flows and AC.5 keeps Möbius–nilsequence/prime-pattern results. General Chowla/Sarnak are register entries only. Keep all natural/real sample indices, strict/open endpoints, log weights and normalization constants.
+
+## Preservation and source scope
+
+The 129 inherited contracts, 150 baseline objects, 14 source findings and 9 source-version receipts are preserved. Seven old planet display assignments are replaced to keep at most six per layer. The existing GS/KM source records gain explicitly bounded readings; old verification numbers stay historical. All six reviewed AUDIT-07 rows and current RS-07 ownership were read, matching link candidates screened, supplier scopes inspected and two upstream documents read. Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 remain the pins.
+
+Primary source URLs, SHA-256 hashes, versions and read passages are recorded in sources/sourceVersions. Fresh full proof passages include Sarig’s pointwise proof, BV§§1–5 and the specified Gauss exactness/transfer estimates. Published MR and Tao main statements were collated. Original Kubilius/Kolmogorov–Rogozin/Turán–Kubilius/Pollington–Vaughan proofs and the MR/Tao/Hennion analytic proofs remain expressly unread inputs. New source observations are unreviewed and use corrected node statements. The known Koymans–Pagano/E29 finding is externally confirmed and not counted as new. No author contact or exhaustive novelty claim.
+
+## Current validation
+
+The pinned-index packet checker reports zero errors and warnings: 258 nodes, 138 API items, 97 packet tests, 32 planets and 173 baseline declarations. Source-issue/version validation also reports zero errors (37 findings, 26 version records). The incoming-object preservation and four-deliverable path/JSON checks pass.
+
+The new 708-line Mathlib-only continuation elaborates with 104 named signatures, 50 examples and exactly 140 expected proof-placeholder warnings, no errors or other warnings, in 2.5 seconds. Its standalone SHA-256 is `987816afb9ad4e286cd694aad953a63fa119a010e1cdbcdb18368541e950281c`. All 2,944 reached Mathlib source files byte-match the pin. Whole-file elaboration was not performed: the existing build lacks the pinned Tau Ceti EmpiricalMeasure compiled module. No build/update/cache acquisition or language server was run.
+
+The 139 exact rational cases check inclusive means, two logarithmic Liouville computations, source derivative/boundary/gauge certificates, the zero-parameter Pareto law and coprimality distinctions. They are finite algebraic checks, not proofs of the limit theorems. Fresh-main input guard passes at `66f4e8f689a1fc6b91a296e49c105d8b78264000`; the only changed consulted supplier is the preceding authored geometry-of-numbers packet. Historical regression and compilation counts were not rerun.
+
+The worker’s scratch papers/scripts are disposable and are removed after opening the pull request. The durable handoff is this file; every source can be reacquired from its recorded URL and hash.
+
+## Historical handoff receipts
+
+The following notes describe earlier checkpoints and their own checks; their old inventories and coverage do not describe the current packet.
+
 # Fixed repeated-factor moments — BP-ProbabilisticAndMetricNumberTheory
 
 Codex — codex-a71f92, 2026-09-27. Refs #1041. Claim 5855394116 confirmed
