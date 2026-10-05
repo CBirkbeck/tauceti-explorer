@@ -1,3 +1,422 @@
+# Final independent review: accepted planning pass
+
+Issue [#526](https://github.com/CBirkbeck/tauceti-explorer/issues/526),
+job `REV-AnabelianGeometryAndNonabelianChabauty`; Codex **codex-e9o9vg**, 2026-10-05.
+This session did not write the blueprint. The final packet review accepts the
+finished planning pass after a fresh audit of **every one of its 363 nodes**.
+The checkpoint reports below retain their original attribution and describe
+historical states; this verdict and the current coverage supersede their
+unfinished-review and already-resolved-gap wording.
+
+Acceptance does not close the roadmap: NC.0 and NC.3 remain `partial`, and
+NC.1, NC.2, NC.4, NC.5 and NC.6 remain `not_read`. No stage is marked planned
+or closed; all implementation statuses remain unchecked. The issue explicitly
+permits acceptance of a budget-complete pass with honest, precise gaps.
+
+## Counts and verdict
+
+| Item | Final result |
+| --- | --- |
+| Nodes | 363: 309 verified, 54 corrected, 0 added, 0 unverifiable |
+| Node kinds | 4 definitions, 60 constructions, 265 lemmas, 27 theorems, 7 comparisons |
+| Pinned baseline declarations | All 160 confirmed in 70 modules; 0 removed or replaced |
+| Definition/construction API and tests | All 321 API entries and 254 tests across 64 nodes checked |
+| API and tests across all kinds | 341 API entries, 270 tests |
+| Suggested active declarations/examples inspected | 725 |
+| Source inventory | 28 source ids, 79 distinct source-id/locator/excerpt pairs |
+| Requests / gaps / planets | 17 / 10 / 11; unchanged counts |
+| Source issues | 1 confirmed preprint-only misprint, E1 |
+
+`review.checked` contains a verdict and mathematical note for each node.
+`independentReviewAudit` records the complete baseline table, fresh source URLs,
+hashes and exact reading scopes, corrections and supplier checks. These are
+fresh checks, not acceptance inferred from earlier checkpoints.
+
+## Corrections in this review
+
+1. Reconciled proof notes on `NC.3/functoriality`, `normal-h1-kernel`,
+   `exact-sequence` and `central-extension` with the later quotient action,
+   single-gauge image converse, named/embedded adapters and invariant-orbit
+   classification. Preserved the distinction between image equality and
+   conditional H¹ injectivity, and the genuine central H²/cochain gap.
+2. Corrected obsolete progress caveats on the 24 native twisted-kernel nodes
+   at positions 196–219 and the 26 quotient-comparison nodes at 220–245.
+   Their mathematical contracts and Lean signatures are unchanged. Later
+   constructions now supply the action and converse; a quotient map is still
+   required for inverse continuity, while a single gauge lift needs only
+   surjectivity for the mapped-fibre image statement.
+3. Replaced the accumulated NC.3 remaining list with seven present obligations.
+   Replaced the stale declaration/API-granularity gap with the actual cochain,
+   additive comparison and transport gaps. This issue is **target level**:
+   PROTOCOL §2 does not require splitting the verified target proofs further.
+4. Added fresh confirmation of the Schmidt 1996 Proposition 15 degree diagram
+   to the existing gap note. Degree pullback kills the selected H² class; it
+   does not say the target H² group is zero.
+5. Changed four historical `sourceVersions.kind` values from `arXiv` to the
+   protocol's `preprint`, preserving URLs, dates, hashes and attribution.
+6. Added confirmed source misprint E1 and fresh selected-source/version receipts.
+   Added only a final review comment to the suggested Lean file. No active
+   declaration, API, test, request, planet or owner was added or replaced.
+
+The packet's `independentReviewAudit.nodeCorrections` lists all 54 node ids,
+changed fields and reasons. No baseline citation was found to be a near miss
+requiring replacement or a new node.
+
+## Mathematical checks that determine acceptance
+
+The nonabelian convention is c(gh)=c(g)(g•c(h)), with gauge
+(u•c)(g)=u c(g)(g•u)⁻¹. All ordered gauge, source/coefficient and twist
+calculations were checked against actual continuous cocycle and native orbit
+carriers. The twist translation sends d to d(g)c(g), with target basepoint [c].
+Noncommuting S₃ examples discriminate multiplication and inverse-gauge direction.
+Same-N inflation injection uses an N-fixed gauge witness, rather than a witness
+made fixed only after enlarging N. Compact/discrete finite-quotient descent and
+the filtered-colimit argument do not extend to unipotent p-adic point topologies.
+
+Kernel image exactness lifts one constant gauge element, then restricts the
+inverse-gauge normalized cocycle. It never assumes a continuous section of an
+arbitrary surjective coefficient map. Actual quotient comparisons retain their
+quotient-map inverse-continuity hypothesis. An abstract kernel identification
+uses a topological embedding and exact range; bare group injectivity would not
+supply inverse continuity. Stabilizer correction uses x·t⁻¹ with t stabilizing
+the source cocycle. Lift independence of invariant actions uses w·u⁻¹. The
+invariant action on kernel H¹ need not preserve its neutral element. Its orbit
+quotient classifies the fibre, so an inverse selects an orbit rather than a
+unique kernel class. Injectivity means a trivial **action**, and need not mean
+a trivial invariant group. The native inner-twisted version is supplied;
+full named/embedded orbit transport and representative/stabilizer compatibility
+remain precise follow-up obligations.
+
+The central positive defect is the inverse of Kim's printed boundary, matching
+Tau Ceti's positive additive d¹; this is a convention comparison, not source
+errata. Continuous cochain/lift/representative independence and the canonical
+additive conversion are mathematically sound sketches but have no supplied
+typed interfaces. Their signatures remain explicitly omitted as PROTOCOL §13
+requires. Nonempty topological torsors have orbit homeomorphisms and both action
+compatibilities, with Uᵒᵖ implementing the right action. This supplies the stated
+abstract classification; algebraic/filtered-affine descent is a separate gap.
+
+The reserved `key/etale-k-pi-1` id occurs once. Its canonical ε compares full
+profinite SGA π₁-cohomology to the associated finite locally constant abelian
+sheaf in **all degrees n≥0** for the specified coefficient class. Full,
+prime-supported and constant-Fₚ variants stay distinct. All six reserved sample
+families appear: fields, P¹ obstruction, affine/positive-genus curves, Artin
+M₀,n towers, products and the scoped raw comparison. A constant-Fₚ edge map is
+not a justification for replacing full π₁ by maximal pro-p. The raw comparison
+retains connected geometrically-unibranch variety hypotheses; broader raw
+foundations are explicitly missing. The geometric Lean signatures are honestly
+OMITTED until canonical comparison/site/fundamental-group interfaces exist.
+
+The cohomological proof route uses all finite covers, all finite coefficients,
+prime-field dévissage and genuinely nonzero positive-degree classes. Connected
+prime covers and prime-power towers use the stated genus/degree hypotheses.
+Separable descent uses eventual equality/vanishing at a further stage, not an
+unproved injectivity of cohomology base change. Product covers are dominated by
+rectangles through open finite-index subgroups, including nonnormal covers;
+finite families include the H¹⊗H¹ contribution. The canonical Künneth and π₁
+product inputs remain exact supplier requests. No unresolved contradiction
+remains within the planned contracts.
+
+## Sources and version boundaries
+
+All 79 distinct cited locator/excerpt pairs were checked against freshly read
+public texts. The packet distinguishes source statements from authored
+abstract topological deductions. This is an audit of the **selected cited
+passages**, not a whole-paper audit or certification of every transitive proof.
+The following scope table is accompanied by exact downloaded-file SHA-256
+receipts in `independentReviewAudit.sourceReads`.
+
+| Public text | Fresh reading scope |
+| --- | --- |
+| [Kim Siegel arXiv v1](https://arxiv.org/pdf/math/0409456v1) | §1 printed pp.5–10, full selected Propositions 1–3 proofs, cochains/cocycles/gauges, coefficient functor, subgroup exactness and local-condition opening; p.10 display visually inspected |
+| [Kim Albanese arXiv v4](https://arxiv.org/pdf/math/0510441v4) | Printed pp.4,19,25–26: H¹, connecting/representability sketch, restriction, local conditions and central Selmer-fibre passage |
+| [Poonen author PDF](https://math.mit.edu/~poonen/papers/Qpoints.pdf) | Definition 1.3.14 and full Proposition 1.3.15 proof pp.11–12; §4.5 p.105; Remark 5.12.13 p.154 |
+| [Schmidt–Stix published PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf) | Lemma 2.1 statement and proof pp.821–823; §2.3 pp.826–828 including Lemma 2.7/Proposition 2.8 proofs; Definition 6.1/M₀,n p.845; A.16–A.18 pp.864–866 |
+| [Farb–Kisin–Wolfson arXiv v2](https://arxiv.org/pdf/2110.05534v2) | §2.3.1 p.16; Lemma 3.2.2 p.24 and full proof |
+| [Achinger 2014 arXiv v1](https://arxiv.org/pdf/1407.0337v1) | §§2.1–2.6 pp.5–6, Definition 3.3 and full Proposition 3.4 proof pp.7–9 |
+| [Achinger 2017 version of record](https://link.springer.com/article/10.1007/s00222-017-0733-5) | §4 online HTML, Definition 4.1, Proposition 4.2 and Lemma 4.3 with full proofs; 4.4–4.5 for scope |
+| [Schmidt 1996 published PDF](https://www.numdam.org/article/CM_1996__100_2_233_0.pdf) | Propositions 13–14 context p.242, full Proposition 15 proof pp.243–244; p.244 degree diagram visually inspected |
+| Stacks Project | Full selected cited statements/proofs at the eleven tags below; transitive generic suppliers remain recorded |
+
+- [03QQ](https://stacks.math.columbia.edu/tag/03QQ): Section 59.59, Lemmas 59.59.1–2, selected sheaf/module and cohomology-of-a-point statements and full proofs.
+- [03RQ](https://stacks.math.columbia.edu/tag/03RQ): Lemma 59.69.1, smooth projective curve cohomology with invertible torsion, statement and full Kummer proof.
+- [03RR](https://stacks.math.columbia.edu/tag/03RR): Lemma 59.69.3, smooth affine curve vanishing, statement and full proof.
+- [0AMB](https://stacks.math.columbia.edu/tag/0AMB): Lemma 59.69.2, degree pullback on H², statement and full Kummer-boundary proof.
+- [03RP](https://stacks.math.columbia.edu/tag/03RP): Proposition 39.9.11, especially (7) and surrounding proof: abelian-variety multiplication and torsion over an algebraically closed field.
+- [09YQ](https://stacks.math.columbia.edu/tag/09YQ): Theorem 59.51.3, cohomology continuity for directed qcqs schemes with affine transitions, statement and complete printed proof. The generic inverse-site Lemma 21.16.6 remains a supplier proof leaf.
+- [03RV](https://stacks.math.columbia.edu/tag/03RV): Lemma 59.64.4, finite locally constant sheaf representability and descent, statement and full printed proof.
+- [07RR](https://stacks.math.columbia.edu/tag/07RR): Lemma 32.8.15, morphism-property descent, full statement and proof in the directed affine-transition setting.
+- [01ZM](https://stacks.math.columbia.edu/tag/01ZM): Lemma 32.10.1, finite-presentation objects, morphisms and eventual equality: full statement and all three printed proofs.
+- [0F13](https://stacks.math.columbia.edu/tag/0F13): Section 59.97, canonical comparison in Lemma 59.97.8 and full Lemma 59.97.9 proof; transitive base-change/field-complex inputs remain requested.
+- [03SB](https://stacks.math.columbia.edu/tag/03SB): Lemma 59.83.2 and surrounding constant-coefficient curve context, full selected proof; not every transitive vanishing input.
+
+No Serre reading, full-paper reading, or unpublished raw-homotopy supplier
+closure is asserted. Historical broader `readSections` claims keep their original
+attribution; the fresh scope above is independently auditable.
+
+### Confirmed source issue E1
+
+In [Kim arXiv v1](https://arxiv.org/pdf/math/0409456v1), proof of Proposition 3,
+printed p.10, the final product isomorphism prints
+H⁰(G,U_(n+1)^B/U_(n+1)) ≃ H⁰(G,U_n^B/U_n) × I_n.
+The first factor on the right should be **H⁰(G,V^B/V)**,
+where V=U^(n+1)/U^(n+2). The exact sequence immediately above has that
+vector-group kernel and image I_n; the chosen section trivializes this kernel
+torsor. The previous-stage ambient base is not its kernel. The PDF text and
+page image agree. This is a clear product-factor misprint; the intended
+representability result is unchanged (`affects: nothing`).
+
+The [arXiv history](https://arxiv.org/abs/math/0409456) lists only v1.
+The [author's publications page](https://www.minhyongkim.net/research/academic-publications)
+and [publisher page](https://link.springer.com/article/10.1007/s00222-004-0433-9)
+showed no correction for this paper, and title/identifier correction searches
+found none. That is the scope of `known: new`, not an exhaustive novelty claim.
+The publisher served subscription metadata/preview only: **E1 is confined to
+the preprint**, with no accusation about the version of record. The packet
+records the exact version/hash and independent confirmed verdict under §18.
+A future representability plan must use the corrected factor.
+
+## Supplier, ownership and coverage audit
+
+Read all reviewed NC.0–NC.6 layer targets in `data/library-coverage.json` and
+the relevant IG.0/IG.1/SF.2/SF.3 boundaries. Existing ContinuousCohomology,
+SheafH, native quotient groups/cosets/actions/topologies, filtered colimits,
+fixed subgroups and torsors are reused rather than redefined as generic theory.
+No new owner, retired supplier or duplicate library target is introduced.
+Planets remain the six NC.3 and five NC.0 landmarks, within the six-per-layer
+limit, and the reserved key-definition sample API is retained.
+
+Fresh supplier packet checks found:
+
+- IG.0/IG.1 have no nodes in the partial InverseGalois packet. Its precise
+  finite-étale/fundamental-group and arithmetic exact-sequence remaining
+  obligations match the requests here. These requested exports are not
+  claimed as established inputs.
+- The accepted SchemesAndFoundations packet's actual SF.2 nodes concern
+  Azumaya/Brauer/coherent-duality/equivariant-sheaf work. They do not supply
+  the requested canonical finite-coefficient comparison, Kummer/base-change,
+  curve or limit interfaces. SF.3 has no packet nodes. The exact requests
+  and transitive generic proof leaves remain open.
+- The AbelianSchemes A2 Rosati and A6 Hom/Néron–Severi contracts were read.
+  Generic finite-generation work is not repeated. The specified A2
+  algebraic-equivalence quotient and Néron–Severi comparison/injection are
+  still needed by the routed quadratic-Chabauty work.
+
+The seven current NC.3 obligations cover additive/cochain conversion,
+central H², unipotent point topologies/algebraic inputs, geometric
+representability and filtered-affine torsors, Selmer local conditions,
+remaining orbit transport, and routed geometric/source obligations. NC.0
+coverage retains its exact site/π₁/ε, raw-homotopy, curve, product, fibration,
+moduli and routed-paper gaps. Acceptance does not claim to finish these.
+
+## Validation and practical limitation
+
+`python3 scripts/check_blueprint.py` on the final packet: **0 errors,
+0 warnings**. The §18 source-issue and version-schema checks also pass.
+All 363 node ids have exactly one final review verdict, every one of the 160
+baseline entries has a fresh receipt, all implementations remain unchecked,
+and the diff is confined to the three deliverables plus this job's handoff.
+
+The full suggested file was attempted with `lean-check` and failed before
+elaboration because the shared build lacks
+`TauCeti.RepresentationTheory.Homological.ContCohomology.LowDegree.olean`.
+No library was built or updated. With more than 20 GB available, a temporary
+projection in the authorized suggested-file path removed every `import
+TauCeti.` line and **only** `section Abelian` through `end Abelian` (original
+lines 169–193). It retained `AbelianTwistingTest`. `lean-check` exited **0**
+with **693 warnings, all declaration-uses-sorry**, and no errors or other
+warnings. The original active code was restored byte for byte before the
+final comment receipt was added. The full additive comparisons were **not
+compiled**, and admitted signatures/tests do not prove the planned results.
+No Lean process remains running. Historical encoded recovery comments were
+preserved without decoding or executing them.
+
+## Questions for the orchestrator
+
+No question blocks acceptance of this planning pass. Follow-up jobs should use
+the current coverage lists, import the precise missing supplier contracts,
+and carry the existing stronger API/tests into the reader when that path is
+authorized. A future Kim representability/source-collation job should compare
+E1 with the accessible version of record and record whether it is corrected
+there. The full suggested file still needs a check when the pinned Tau Ceti
+object is available; the successful projection does not settle that boundary.
+
+## Fresh complete baseline table
+
+Every row was read at the indicated pin with namespace and ambient hypotheses,
+and checked against its actual citing node contracts. Generated declarations
+(e.g. `to_dual`) were checked through their native generating declarations.
+The shared Tau Ceti HEAD differs from the pin; exact pinned source was read
+with `git show`, not inferred from that HEAD. The table's line anchors locate
+the source context; the packet records what each declaration supplies.
+
+| # | Declaration | Exact pinned source |
+| --- | --- | --- |
+| 0 | `mathlib:ContinuousMap` | [Defs.lean:33](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/ContinuousMap/Defs.lean#L33) |
+| 1 | `mathlib:ContinuousMonoidHom` | [ContinuousMonoidHom.lean:57](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/ContinuousMonoidHom.lean#L57) |
+| 2 | `mathlib:ContinuousSMul` | [MulAction.lean:46](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/MulAction.lean#L46) |
+| 3 | `mathlib:FixedPoints.subgroup` | [Defs.lean:203](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L203) |
+| 4 | `mathlib:IsTopologicalGroup` | [Defs.lean:110](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Defs.lean#L110) |
+| 5 | `mathlib:MulAction.QuotientAction` | [Quotient.lean:52](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Quotient.lean#L52) |
+| 6 | `mathlib:MulAction.orbitRel` | [Defs.lean:287](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L287) |
+| 7 | `mathlib:MulAction.orbitRel.Quotient` | [Defs.lean:349](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L349) |
+| 8 | `mathlib:MulAction.toPerm` | [Basic.lean:34](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Action/Basic.lean#L34) |
+| 9 | `mathlib:MulAut.conj` | [End.lean:723](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/End.lean#L723) |
+| 10 | `mathlib:MulDistribMulAction` | [Defs.lean:629](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Action/Defs.lean#L629) |
+| 11 | `mathlib:MulDistribMulAction.toMulAut` | [End.lean:232](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Action/End.lean#L232) |
+| 12 | `mathlib:Multiplicative` | [Basic.lean:46](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/TypeTags/Basic.lean#L46) |
+| 13 | `mathlib:QuotientGroup.Quotient.group` | [Defs.lean:72](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/QuotientGroup/Defs.lean#L72) |
+| 14 | `mathlib:QuotientGroup.continuous_mk` | [Quotient.lean:44](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Quotient.lean#L44) |
+| 15 | `mathlib:QuotientGroup.isOpenMap_coe` | [Quotient.lean:52](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Quotient.lean#L52) |
+| 16 | `mathlib:Subgroup.Normal` | [Defs.lean:604](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Defs.lean#L604) |
+| 17 | `mathlib:Subgroup.center` | [Center.lean:30](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Subgroup/Center.lean#L30) |
+| 18 | `mathlib:Topology.IsQuotientMap` | [Induced.lean:166](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Defs/Induced.lean#L166) |
+| 19 | `mathlib:groupCohomology.IsMulCocycle₁` | [LowDegree.lean:621](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean#L621) |
+| 20 | `tauceti:TauCeti.ContCohomology.B1` | [LowDegree.lean:174](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L174) |
+| 21 | `tauceti:TauCeti.ContCohomology.B2` | [LowDegree.lean:494](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L494) |
+| 22 | `tauceti:TauCeti.ContCohomology.H0` | [LowDegree.lean:326](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L326) |
+| 23 | `tauceti:TauCeti.ContCohomology.H1` | [LowDegree.lean:674](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L674) |
+| 24 | `tauceti:TauCeti.ContCohomology.H1EquivOfSmulEqSelf` | [LowDegree.lean:840](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L840) |
+| 25 | `tauceti:TauCeti.ContCohomology.H1pi` | [LowDegree.lean:679](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L679) |
+| 26 | `tauceti:TauCeti.ContCohomology.H2` | [LowDegree.lean:730](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L730) |
+| 27 | `tauceti:TauCeti.ContCohomology.H2pi` | [LowDegree.lean:735](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L735) |
+| 28 | `tauceti:TauCeti.ContCohomology.Z1` | [LowDegree.lean:485](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L485) |
+| 29 | `tauceti:TauCeti.ContCohomology.Z2` | [LowDegree.lean:488](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L488) |
+| 30 | `tauceti:TauCeti.ContCohomology.d0` | [LowDegree.lean:167](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L167) |
+| 31 | `tauceti:TauCeti.ContCohomology.d1` | [LowDegree.lean:228](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L228) |
+| 32 | `mathlib:AlgebraicGeometry.Scheme` | [Scheme.lean:42](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Scheme.lean#L42) |
+| 33 | `mathlib:AlgebraicGeometry.IsLocallyNoetherian` | [Noetherian.lean:56](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Noetherian.lean#L56) |
+| 34 | `mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology` | [Etale.lean:50](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Sites/Etale.lean#L50) |
+| 35 | `mathlib:continuousCohomology` | [Basic.lean:131](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean#L131) |
+| 36 | `mathlib:CategoryTheory.PreGaloisCategory.IsFundamentalGroup` | [IsFundamentalgroup.lean:232](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Galois/IsFundamentalgroup.lean#L232) |
+| 37 | `mathlib:CommAlgCat.FiniteEtale` | [Finite.lean:58](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Etale/Finite.lean#L58) |
+| 38 | `mathlib:CommAlgCat.FiniteEtale.fiber` | [Finite.lean:118](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Etale/Finite.lean#L118) |
+| 39 | `mathlib:Topology.IsEmbedding.continuous_iff` | [Basic.lean:124](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Maps/Basic.lean#L124) |
+| 40 | `mathlib:MulAction.quotient` | [Quotient.lean:83](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Quotient.lean#L83) |
+| 41 | `mathlib:MulAction.Quotient.smul_mk` | [Quotient.lean:93](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Quotient.lean#L93) |
+| 42 | `mathlib:MulAction.fixedPoints` | [Defs.lean:116](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L116) |
+| 43 | `mathlib:MulAction.mem_fixedPoints` | [Defs.lean:133](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L133) |
+| 44 | `mathlib:QuotientGroup.eq` | [Defs.lean:198](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Coset/Defs.lean#L198) |
+| 45 | `mathlib:QuotientGroup.out_eq'` | [Defs.lean:204](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Coset/Defs.lean#L204) |
+| 46 | `mathlib:QuotientGroup.mk_out_eq_mul` | [Defs.lean:216](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Coset/Defs.lean#L216) |
+| 47 | `mathlib:QuotientGroup.leftRel_apply` | [Defs.lean:71](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Coset/Defs.lean#L71) |
+| 48 | `mathlib:MulAction.left_quotientAction` | [Quotient.lean:67](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Quotient.lean#L67) |
+| 49 | `mathlib:groupCohomology.coindIso` | [Shapiro.lean:59](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/GroupCohomology/Shapiro.lean#L59) |
+| 50 | `tauceti:TauCeti.ContCohomology.explicitShapiro0` | [Shapiro.lean:120](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Shapiro.lean#L120) |
+| 51 | `tauceti:TauCeti.ContCohomology.explicitShapiro1` | [Shapiro.lean:372](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Shapiro.lean#L372) |
+| 52 | `tauceti:TauCeti.ContCohomology.exists_openNormalSubgroup_descendZ2` | [DegreeTwoDescent.lean:96](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/DegreeTwoDescent.lean#L96) |
+| 53 | `tauceti:TauCeti.ContCohomology.exists_explicitInfl2_eq` | [DegreeTwoDescent.lean:108](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/DegreeTwoDescent.lean#L108) |
+| 54 | `tauceti:TauCeti.openActionKernel` | [Discrete.lean:133](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Discrete.lean#L133) |
+| 55 | `mathlib:ZMod.instIsSimpleAddGroup` | [Cyclic.lean:282](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Cyclic.lean#L282) |
+| 56 | `mathlib:ZMod.card` | [Defs.lean:166](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ZMod/Defs.lean#L166) |
+| 57 | `mathlib:ZMod.natCast_self` | [Basic.lean:145](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ZMod/Basic.lean#L145) |
+| 58 | `mathlib:ZMod.addOrderOf_one` | [Basic.lean:122](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ZMod/Basic.lean#L122) |
+| 59 | `mathlib:ZMod.unitOfCoprime` | [Basic.lean:794](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ZMod/Basic.lean#L794) |
+| 60 | `mathlib:ZMod.coe_unitOfCoprime` | [Basic.lean:798](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ZMod/Basic.lean#L798) |
+| 61 | `mathlib:Nat.card_zmod` | [Finite.lean:249](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/SetTheory/Cardinal/Finite.lean#L249) |
+| 62 | `mathlib:Subgroup.prod` | [Basic.lean:89](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Basic.lean#L89) |
+| 63 | `mathlib:Subgroup.prod_le_iff` | [Basic.lean:137](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Basic.lean#L137) |
+| 64 | `mathlib:Subgroup.map_le_iff_le_comap` | [Map.lean:196](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Map.lean#L196) |
+| 65 | `mathlib:OpenSubgroup.comap` | [OpenSubgroup.lean:217](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/OpenSubgroup.lean#L217) |
+| 66 | `mathlib:OpenSubgroup.prod` | [OpenSubgroup.lean:160](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/OpenSubgroup.lean#L160) |
+| 67 | `mathlib:Subgroup.quotient_finite_of_isOpen` | [OpenSubgroup.lean:289](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/OpenSubgroup.lean#L289) |
+| 68 | `mathlib:MonoidHom.eqLocus` | [Ker.lean:388](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Ker.lean#L388) |
+| 69 | `mathlib:ConjAct` | [ConjAct.lean:43](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/ConjAct.lean#L43) |
+| 70 | `mathlib:ConjAct.toConjAct` | [ConjAct.lean:76](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/ConjAct.lean#L76) |
+| 71 | `mathlib:ConjAct.toConjAct_smul` | [ConjAct.lean:133](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/ConjAct.lean#L133) |
+| 72 | `mathlib:Subgroup` | [Defs.lean:296](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Defs.lean#L296) |
+| 73 | `mathlib:IsTopologicalGroup.exist_openNormalSubgroup_sub_clopen_nhds_of_one` | [ClopenNhdofOne.lean:31](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/ClopenNhdofOne.lean#L31) |
+| 74 | `mathlib:isClopen_discrete` | [Clopen.lean:123](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Clopen.lean#L123) |
+| 75 | `mathlib:IsClopen.preimage` | [Clopen.lean:90](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Clopen.lean#L90) |
+| 76 | `mathlib:isClopen_iInter_of_finite` | [Clopen.lean:78](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Clopen.lean#L78) |
+| 77 | `mathlib:Subgroup.Normal.conj_mem'` | [Defs.lean:638](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Defs.lean#L638) |
+| 78 | `mathlib:FixedPoints.mem_subgroup` | [Defs.lean:208](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L208) |
+| 79 | `tauceti:TauCeti.ContCohomology.descendZ1` | [Inflation.lean:291](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean#L291) |
+| 80 | `tauceti:TauCeti.ContCohomology.coe_descendZ1_apply_mk` | [Inflation.lean:315](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean#L315) |
+| 81 | `tauceti:TauCeti.ContCohomology.explicitInfl1_descendZ1` | [Inflation.lean:323](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Inflation.lean#L323) |
+| 82 | `mathlib:QuotientGroup.induction_on` | [Defs.lean:172](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Coset/Defs.lean#L172) |
+| 83 | `mathlib:MulAction.coe_quotient_smul_fixedPoints` | [OfQuotient.lean:34](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/OfQuotient.lean#L34) |
+| 84 | `mathlib:coe_smul_fixedPoints_of_normal` | [SubMulAction.lean:612](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/SubMulAction.lean#L612) |
+| 85 | `mathlib:QuotientGroup.eq_one_iff` | [Defs.lean:120](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/QuotientGroup/Defs.lean#L120) |
+| 86 | `mathlib:QuotientGroup.mk_mul` | [Defs.lean:163](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/QuotientGroup/Defs.lean#L163) |
+| 87 | `mathlib:QuotientGroup.isQuotientMap_mk` | [Quotient.lean:40](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Quotient.lean#L40) |
+| 88 | `mathlib:Topology.IsQuotientMap.continuous_iff` | [Basic.lean:124](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Maps/Basic.lean#L124) |
+| 89 | `mathlib:MulAction.orbitRel_apply` | [Defs.lean:294](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L294) |
+| 90 | `mathlib:MulAction.mem_orbit_iff` | [Defs.lean:55](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L55) |
+| 91 | `mathlib:inv_smul_smul` | [Defs.lean:499](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Action/Defs.lean#L499) |
+| 92 | `mathlib:continuous_subtype_val` | [Constructions.lean:380](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Constructions.lean#L380) |
+| 93 | `mathlib:Continuous.comp` | [Continuous.lean:115](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Continuous.lean#L115) |
+| 94 | `mathlib:Subgroup.continuousSMul` | [MulAction.lean:75](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/MulAction.lean#L75) |
+| 95 | `mathlib:QuotientGroup.isOpenQuotientMap_mk` | [Quotient.lean:55](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Quotient.lean#L55) |
+| 96 | `mathlib:IsOpenQuotientMap.prodMap` | [SumProd.lean:179](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Constructions/SumProd.lean#L179) |
+| 97 | `mathlib:IsOpenQuotientMap.id` | [OpenQuotient.lean:35](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Maps/OpenQuotient.lean#L35) |
+| 98 | `mathlib:IsOpenQuotientMap.continuous_comp_iff` | [OpenQuotient.lean:64](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Maps/OpenQuotient.lean#L64) |
+| 99 | `mathlib:continuous_induced_rng` | [Order.lean:781](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Order.lean#L781) |
+| 100 | `mathlib:Continuous.smul` | [MulAction.lean:108](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/MulAction.lean#L108) |
+| 101 | `mathlib:continuous_fst` | [SumProd.lean:68](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Constructions/SumProd.lean#L68) |
+| 102 | `mathlib:continuous_snd` | [SumProd.lean:104](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Constructions/SumProd.lean#L104) |
+| 103 | `mathlib:Equiv.ofBijective` | [Defs.lean:820](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Logic/Equiv/Defs.lean#L820) |
+| 104 | `mathlib:Equiv.apply_symm_apply` | [Defs.lean:248](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Logic/Equiv/Defs.lean#L248) |
+| 105 | `mathlib:Equiv.symm_apply_apply` | [Defs.lean:250](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Logic/Equiv/Defs.lean#L250) |
+| 106 | `mathlib:Equiv.injective` | [Defs.lean:178](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Logic/Equiv/Defs.lean#L178) |
+| 107 | `mathlib:CategoryTheory.Limits.Types.FilteredColimit.isColimitOf` | [Filtered.lean:59](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Limits/Types/Filtered.lean#L59) |
+| 108 | `mathlib:OpenNormalSubgroup.instSemilatticeInfOpenNormalSubgroup` | [OpenSubgroup.lean:421](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/OpenSubgroup.lean#L421) |
+| 109 | `mathlib:CategoryTheory.IsFiltered` | [Basic.lean:95](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Filtered/Basic.lean#L95) |
+| 110 | `mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso` | [IsLimit.lean:159](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Limits/IsLimit.lean#L159) |
+| 111 | `mathlib:CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_inv_comp` | [IsLimit.lean:168](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Limits/IsLimit.lean#L168) |
+| 112 | `mathlib:CategoryTheory.Limits.limit.isLimit` | [HasLimits.lean:217](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Limits/HasLimits.lean#L217) |
+| 113 | `mathlib:CategoryTheory.Iso.toEquiv` | [Basic.lean:416](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Types/Basic.lean#L416) |
+| 114 | `tauceti:TauCeti.ContCohomology.explicitFiniteQuotientTransition1` | [Explicit.lean:150](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Explicit.lean#L150) |
+| 115 | `tauceti:TauCeti.ContCohomology.explicitFiniteQuotientColimit1` | [Colimit.lean:493](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean#L493) |
+| 116 | `mathlib:MonoidHom.comp` | [Defs.lean:766](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L766) |
+| 117 | `mathlib:MonoidHom.id` | [Defs.lean:736](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L736) |
+| 118 | `mathlib:MonoidHom.comp_apply` | [Defs.lean:798](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L798) |
+| 119 | `mathlib:MonoidHom.one_apply` | [Defs.lean:1023](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L1023) |
+| 120 | `mathlib:map_mul` | [Defs.lean:326](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L326) |
+| 121 | `mathlib:map_inv` | [Defs.lean:440](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L440) |
+| 122 | `mathlib:map_one` | [Defs.lean:234](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L234) |
+| 123 | `mathlib:Subgroup.subtype` | [Defs.lean:223](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Defs.lean#L223) |
+| 124 | `mathlib:MulDistribMulAction.compHom` | [End.lean:39](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/GroupWithZero/Action/End.lean#L39) |
+| 125 | `mathlib:MulAction.continuousSMul_compHom` | [MulAction.lean:252](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/MulAction.lean#L252) |
+| 126 | `mathlib:MulEquiv.refl` | [Defs.lean:259](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Equiv/Defs.lean#L259) |
+| 127 | `mathlib:Quotient.congr` | [Defs.lean:854](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Logic/Equiv/Defs.lean#L854) |
+| 128 | `mathlib:Equiv.trans` | [Defs.lean:161](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Logic/Equiv/Defs.lean#L161) |
+| 129 | `mathlib:Equiv.symm` | [Defs.lean:145](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Logic/Equiv/Defs.lean#L145) |
+| 130 | `mathlib:MulEquiv.trans` | [Defs.lean:405](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Equiv/Defs.lean#L405) |
+| 131 | `mathlib:MulEquiv.symm` | [Defs.lean:285](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Equiv/Defs.lean#L285) |
+| 132 | `mathlib:MulEquiv.symm_apply_apply` | [Defs.lean:328](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Equiv/Defs.lean#L328) |
+| 133 | `mathlib:MonoidHom.ker` | [Ker.lean:238](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Ker.lean#L238) |
+| 134 | `mathlib:MonoidHom.mem_ker` | [Ker.lean:249](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Ker.lean#L249) |
+| 135 | `mathlib:QuotientGroup.quotientKerEquivOfSurjective` | [Basic.lean:159](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/QuotientGroup/Basic.lean#L159) |
+| 136 | `mathlib:Homeomorph.isQuotientMap` | [Defs.lean:241](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Homeomorph/Defs.lean#L241) |
+| 137 | `mathlib:Topology.IsQuotientMap.comp` | [Basic.lean:73](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Maps/Basic.lean#L73) |
+| 138 | `mathlib:QuotientGroup.mk'` | [Defs.lean:88](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/QuotientGroup/Defs.lean#L88) |
+| 139 | `mathlib:QuotientGroup.mk_surjective` | [Defs.lean:165](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Coset/Defs.lean#L165) |
+| 140 | `mathlib:Continuous.subtype_mk` | [Constructions.lean:416](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Constructions.lean#L416) |
+| 141 | `mathlib:MulEquiv` | [Defs.lean:75](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Equiv/Defs.lean#L75) |
+| 142 | `mathlib:MonoidHom.ofInjective` | [Ker.lean:205](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Ker.lean#L205) |
+| 143 | `mathlib:Topology.IsEmbedding.continuous` | [Basic.lean:133](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Maps/Basic.lean#L133) |
+| 144 | `mathlib:Topology.IsInducing.isTopologicalGroup` | [Basic.lean:227](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Basic.lean#L227) |
+| 145 | `mathlib:MulAction.stabilizer` | [Defs.lean:515](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L515) |
+| 146 | `mathlib:MulAction.mem_stabilizer_iff` | [Defs.lean:524](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L524) |
+| 147 | `mathlib:MonoidHom.liftOfSurjective` | [Basic.lean:941](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Basic.lean#L941) |
+| 148 | `mathlib:MonoidHom.liftOfRightInverse_comp_apply` | [Basic.lean:946](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Basic.lean#L946) |
+| 149 | `mathlib:MulAction.toPermHom` | [End.lean:184](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Action/End.lean#L184) |
+| 150 | `mathlib:MulAction.compHom` | [Hom.lean:48](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Action/Hom.lean#L48) |
+| 151 | `mathlib:Equiv.Perm.sign` | [Sign.lean:357](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Perm/Sign.lean#L357) |
+| 152 | `mathlib:Equiv.Perm.sign_surjective` | [Sign.lean:424](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Perm/Sign.lean#L424) |
+| 153 | `mathlib:Set.equivOfEq` | [Set.lean:51](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Logic/Equiv/Set.lean#L51) |
+| 154 | `mathlib:Equiv.subtypeEquiv` | [Basic.lean:263](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Logic/Equiv/Basic.lean#L263) |
+| 155 | `mathlib:Homeomorph` | [Defs.lean:43](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Homeomorph/Defs.lean#L43) |
+| 156 | `mathlib:Torsor` | [Defs.lean:70](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Torsor/Defs.lean#L70) |
+| 157 | `mathlib:IsTopologicalTorsor` | [Torsor.lean:35](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Torsor.lean#L35) |
+| 158 | `mathlib:Homeomorph.smulConst` | [Torsor.lean:100](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Torsor.lean#L100) |
+| 159 | `mathlib:MulOpposite.opHomeomorph` | [Constructions.lean:50](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Constructions.lean#L50) |
+
+---
+
+# Historical checkpoints (superseded by the final verdict above)
+
 # Independent review checkpoint: cocycle foundations and map naturality
 
 Issue [#526](https://github.com/CBirkbeck/tauceti-explorer/issues/526), job
