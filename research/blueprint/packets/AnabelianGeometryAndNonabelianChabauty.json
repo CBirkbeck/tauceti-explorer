@@ -1176,7 +1176,8 @@
         "Codex codex-rtOQ9t, 2026-10-02, actual H¹ inflation continuation: freshly read the complete continuous-cocycle and gauge-orbit definitions on printed p.6 and Proposition1 statement on p.5. Parsed Proposition1 proof was displayed through its end; no new torsor-classification closure or whole-paper reading is claimed. The independently downloaded exact v1 PDF has the retained SHA256. Inflation and same-N reflection are deductions, not a printed numbered Kim result.",
         "Codex codex-a71f92, 2026-10-02: exact v1 PDF independently hash-checked; complete selected parsed printed pp.5–7 definitions and Proposition1 proof read. No fresh complete Proposition2 proof, whole-paper read, published collation or Serre reading. Joint continuity and fibre equivalence are authored deductions.",
         "Codex codex-7e92bd, 2026-10-02: exact v1 PDF SHA256 verified; parsed continuous cocycle/gauge definitions and complete Proposition 1 proof on printed pp.5–7, with only the beginning of Proposition 2 read. No whole-paper claim.",
-        "Fresh independent review codex-1O5j0u, 2026-10-05: the cochain boundary formula on printed p.5, and Proposition 2's central splitting, dsi obstruction and freeness arguments on printed pp.8–9 were read in the exact arXiv v1 PDF. The positive-defect versus printed inverse-defect convention is now recorded explicitly."
+        "Fresh independent review codex-1O5j0u, 2026-10-05: the cochain boundary formula on printed p.5, and Proposition 2's central splitting, dsi obstruction and freeness arguments on printed pp.8–9 were read in the exact arXiv v1 PDF. The positive-defect versus printed inverse-defect convention is now recorded explicitly.",
+        "Fresh independent review codex-i1BjcC, 2026-10-05: printed pp.5–9 continuous cochain/cocycle/gauge definitions, Proposition 1 and central-extension passages read in the exact arXiv v1 PDF; no whole-paper or published-version collation claimed."
       ]
     },
     {
@@ -1200,7 +1201,8 @@
       "readSections": [
         "Read §1.3.5 (Definition 1.3.14, Proposition 1.3.15 and its proof, pp. 11–12), Exercise 1.9 (p. 28), §4.5 (twists and Theorem 4.5.2, pp. 105–106), §5.11 and §5.12.4 (inner twists, classification of torsors, Remark 5.12.13, pp. 153–154).",
         "Codex codex-J6LwjP,2026-10-02: fresh parsed Definition1.3.14 and opening finite-to-infinite argument of Proposition1.3.15, printedp.11. Complete proof was read earlier; it is not claimed freshly reread here. Same author-hosted PDF hash independently verified. Browser screenshot returned no viewable image; no fresh visual PDF verification is claimed. The present compact/discrete arguments are authored deductions, not printed source lemmas.",
-        "Codex codex-7e92bd, 2026-10-02: freshly downloaded matching SHA256; parsed §1.3.5 Definition 1.3.14 and the complete Proposition 1.3.15 proof, printed pp.11–12 (zero-based PDF pages24–25). No new full-book or visual collation claimed. General compact/discrete transition and colimit results are authored deductions."
+        "Codex codex-7e92bd, 2026-10-02: freshly downloaded matching SHA256; parsed §1.3.5 Definition 1.3.14 and the complete Proposition 1.3.15 proof, printed pp.11–12 (zero-based PDF pages24–25). No new full-book or visual collation claimed. General compact/discrete transition and colimit results are authored deductions.",
+        "Fresh independent review codex-i1BjcC, 2026-10-05: Definition 1.3.14 and the complete Proposition 1.3.15 proof, printed pp.11–12, read in the exact author-hosted PDF. The compact/discrete cocycle and colimit arguments are authored deductions, not a general theorem stated in this passage."
       ]
     },
     {
@@ -2376,7 +2378,7 @@
       "kind": "theorem",
       "statement": "Let Z ≤ B be a closed G-stable subgroup contained in the centre of B, and C := B/Z. (a) The abelian group H¹(G, Z) (NC.3/abelian-comparison) acts on H¹(G, B) by [z]·[c] := [g ↦ z(g)c(g)], and the fibres of H¹(G, B) → H¹(G, C) are exactly the orbits of this action. (b) Suppose the projection B → C has a continuous (set-theoretic) section s. Then there is a connecting map δ² : H¹(G, C) → H²(G, Z), Tau Ceti's explicit continuous H² (ContCohomology.H2 of Z written additively), sending the class of c̄ to the class of the 2-cocycle (g, h) ↦ c(g)·(g•c(h))·c(gh)⁻¹ for the continuous lift c = s ∘ c̄; and the image of H¹(G, B) → H¹(G, C) is δ²⁻¹(0). (c) If, for every c ∈ Z¹(G, B), the group C twisted by the image of c (NC.3/twisting) has only the trivial G-invariant element, then the action in (a) is free, so each nonempty fibre is a principal homogeneous space of H¹(G, Z). The convention in (b) is the positive defect matching Tau Ceti's additive d¹. Kim arXiv v1, printed p.5, defines dc(g,h)=c(gh)(g•c(h))⁻¹c(g)⁻¹, its inverse. Thus δ² here is the negative of Kim's printed connecting class under the additive identification of the central coefficient; their zero loci agree.",
       "hypotheses": [
-        "G is a topological group and B a topological group with an action of G by group automorphisms (MulDistribMulAction G B) such that the action map G × B → U is continuous (ContinuousSMul G B). Z closed, G-stable and central in B. For (b), a continuous section of B → C (for unipotent algebraic groups an algebraic splitting of the extension exists, as in Kim's proof). For (c), the stated vanishing of twisted invariants."
+        "G is a topological group and B a topological group with an action of G by group automorphisms (MulDistribMulAction G B) such that the action map G × B → B is continuous (ContinuousSMul G B). Z closed, G-stable and central in B. For (b), a continuous section of B → C (for unipotent algebraic groups an algebraic splitting of the extension exists, as in Kim's proof). For (c), the stated vanishing of twisted invariants."
       ],
       "proofSteps": [
         "(a) z·c is a continuous cocycle because Z is central: z(gh)c(gh) = z(g)(g•z(h))c(g)(g•c(h)) = (z(g)c(g))·g•(z(h)c(h)). The action is compatible with twisted conjugation by B (central z commutes with u), so it descends to classes; it preserves the image in H¹(G, C). Conversely if [c₁], [c₂] have the same image, replace c₂ by u·c₂ so that the images in Z¹(G, C) agree (lift one element of C); then z := c₁⁻¹c₂ is Z-valued, continuous and, Z being central, a cocycle.",
@@ -5025,7 +5027,14 @@
         "namespace": "TauCeti.NonabelianCohomology.Z1",
         "name": "TauCeti.NonabelianCohomology.Z1.mul_left_eq_of_trivial"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.mul_left_eq_of_trivial.test_requires_normal",
+          "kind": "non-example",
+          "statement": "Let G=ConjAct(S₃) act on U=S₃ by conjugation, τ=(01), n=τ, g=(12), and c(h)=τ(h•τ)⁻¹. Then c(n)=1 and c(gn)=c(g), but c(ng)≠c(g). The cocycle one-fibre is the nonnormal centralizer of τ. Thus killing a subgroup alone does not imply left-coset constancy."
+        }
+      ]
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-fixed",
@@ -5307,6 +5316,11 @@
           "name": "TauCeti.NonabelianCohomology.Z1.descend.test_proper_invariants",
           "kind": "non-example",
           "statement": "For native ConjAct S₃ acting on S₃ and N=G, the transposition(01) is not in U^N: conjugation by(12) changes it. The native coefficient target cannot be replaced by all U."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descend.test_identity_S3_values",
+          "kind": "computation",
+          "statement": "For discrete G=U=S₃ with trivial G-action, N={1}, and the identity homomorphism cocycle c(g)=g, the descended cocycle at [(01)] has underlying U-value (01), which is not 1."
         }
       ],
       "uses": [
@@ -5456,6 +5470,11 @@
           "name": "TauCeti.NonabelianCohomology.Z1.inflate.test_subgroup",
           "kind": "compatibility",
           "statement": "At any actual n∈N the inflated cocycle is1; no arbitrary chosen quotient representative is used."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.inflate.test_identity_S3_values",
+          "kind": "computation",
+          "statement": "For discrete G=U=S₃ with trivial G-action, N={1}, and d the descent of c(g)=g, inflate_N(d)((01))=(01)≠1."
         }
       ],
       "uses": [
@@ -5635,6 +5654,11 @@
           "name": "TauCeti.NonabelianCohomology.Z1.descendEquiv.test_proof_irrelevance",
           "kind": "degenerate",
           "statement": "For one actual cocycle and two triviality proofs, the forward equivalence gives the identical descended cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.descendEquiv.test_identity_S3_values",
+          "kind": "computation",
+          "statement": "For discrete G=U=S₃ with trivial G-action and N={1}, the forward descent equivalence on the identity homomorphism cocycle takes [(01)] to (01) and [(12)] to (12) in U. Unlike inverse laws alone, this fails for the descent followed by conjugation by (12)."
         }
       ],
       "uses": [
@@ -7360,7 +7384,8 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity"
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1"
       ],
       "proofSteps": [
         "Choose an actual continuous cocycle representative c of a.",
@@ -24313,75 +24338,156 @@
   },
   "independentReviewCheckpoint": {
     "job": "REV-AnabelianGeometryAndNonabelianChabauty",
-    "session": "codex-1O5j0u",
+    "session": "codex-i1BjcC",
     "date": "2026-10-05",
     "status": "partial",
-    "inputCommit": "ceae7664eb1264bc255acade6af444e36a29b0d0",
-    "baselineStatementAudit": {
-      "count": 160,
-      "mathlibNameChecks": 138,
-      "tauCetiSourceChecks": 22,
-      "scope": "All cited declarations' statements and surrounding hypotheses read at the packet pins; exact locators and important scope restrictions are in the independent review report. This is not an all-consumer proof audit. Mathlib name checks elaborate; Tau Ceti import cannot be checked because its existing LowDegree object is absent."
-    },
     "selectedNodeAudit": {
       "nodes": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-value",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-unit",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-product",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-equivariance",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-action",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-value",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-kernel",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-value",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-kernel",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-surjective",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-permutation-kernel",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-action",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-lift",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-value",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-lift-independence",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-inclusion",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-ambient-constant",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-fibre-orbit",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-equivalence",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-value",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-inverse-witness",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-inverse-projection",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-choice-independence",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-injectivity-characterisation",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-inclusion-neutral-range",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-fibre-equivalence",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-value",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-inverse-witness",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-basepoint",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-inverse",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-equivalence",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-value",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-inverse-value",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-basepoint",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action-value",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-inclusion",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-fibre-orbit",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-equivalence",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-value",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-inverse-value",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-left-inverse",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-right-inverse",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-basepoint",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-choice-independent",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-injectivity-iff",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/equivariant-topological-torsors"
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-one",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-inverse",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-one-fibre",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-one-fibre-clopen",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/discrete-normal-killing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-right-cosets",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-left-cosets",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-fixed",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-invariants",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-witness-fixed",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/finite-family-normal-killing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-unique",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/descend-inflated-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-gauge",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-inflation-equivariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-inflation-gauge-reflection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-one",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction-equivariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-neutral-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-inverse-gauge-normalization",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-restriction-image",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-unique-preimage",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-one",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-neutral-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-injective",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-identity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-composition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-diagram",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-cocone",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-surjectivity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-index-filtered",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-colimit",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-equivalence"
       ],
-      "scope": "Fresh reading of statements, hypotheses, proof sketches, APIs/tests and actual suggested signatures for the late kernel invariant-action/orbit/repointed-fibre families, plus the native topological-torsor bundle. The report records the mathematical calculations and remaining precursor/closure limits. No final per-node verdict is asserted."
+      "scope": "Fresh mathematical, source, direct-prerequisite, API/test and actual suggested-signature screen of the 50 discrete-descent, quotient-cocycle, same-N inflation/restriction, quotient-action-continuity and finite-quotient-colimit nodes. Per-node scoped findings are in the review report. No global acceptance or review verdict is asserted."
     },
     "corrections": [
-      "Pinned the central obstruction sign against Kim's printed p.5 boundary and Tau Ceti's positive additive differential; added the proved C₃/C₉ arithmetic discriminator without inventing an H² interface.",
-      "Replaced the obsolete 01ZM retrieval failure with a scoped statement/proof reading receipt; recorded fresh 03RH and Schmidt–Stix Appendix A.3 readings without closing their transitive supplier proofs.",
-      "Corrected the central-extension hypothesis spelling from the unbound coefficient U to its actual ambient group B."
+      "Added concrete identity-S₃ evaluations for actual descent, inflation and the descent equivalence; inverse laws and proof irrelevance did not pin the latter equivalence to its canonical map.",
+      "Added a native, decidable S₃ normality counterexample distinguishing right- and left-coset constancy.",
+      "Added the actual nonabelian orbit-carrier prerequisite when choosing a representative in finite-quotient class surjectivity.",
+      "Corrected the residual unbound codomain U to B in the central-extension action hypothesis."
     ],
-    "remaining": "Finish every earlier node's consumer/source/API/test/closure check and the geometric supplier proof leaves, reconcile current coverage obligations, and finish ownership/planet/source-error screening before a global review object. The blueprint stage statuses and implementation statuses are unchanged."
-  }
+    "remaining": "Complete nodes 0–50 and 101–313 (zero-based input positions), all geometric supplier/source leaves, and the whole ownership/planet/source-error screen. Reuse the preceding checkpoint for the late 49-node screen and 160-entry baseline table, without treating a source receipt or a successful projection as a final mathematical verdict.",
+    "baselineStatementAudit": {
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "count": 47,
+      "scope": "Fresh selected-consumer statements and hypotheses; prior complete locator table retained with its attribution. No all-160 fresh consumer certification."
+    },
+    "validation": {
+      "packet": "0 errors, 0 warnings",
+      "fullSuggested": "Attempted; missing pinned TauCeti LowDegree.olean prevents elaboration. No library builds.",
+      "mathlibProjection": "Exit 0, 693 admission warnings; no errors or other warnings. Projection recipe and exact hashes are in the review report.",
+      "nativeNormalityTest": "Elaborates by decide without admissions."
+    }
+  },
+  "independentReviewCheckpoints": [
+    {
+      "job": "REV-AnabelianGeometryAndNonabelianChabauty",
+      "session": "codex-1O5j0u",
+      "date": "2026-10-05",
+      "status": "partial",
+      "inputCommit": "ceae7664eb1264bc255acade6af444e36a29b0d0",
+      "baselineStatementAudit": {
+        "count": 160,
+        "mathlibNameChecks": 138,
+        "tauCetiSourceChecks": 22,
+        "scope": "All cited declarations' statements and surrounding hypotheses read at the packet pins; exact locators and important scope restrictions are in the independent review report. This is not an all-consumer proof audit. Mathlib name checks elaborate; Tau Ceti import cannot be checked because its existing LowDegree object is absent."
+      },
+      "selectedNodeAudit": {
+        "nodes": [
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-value",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-unit",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-product",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-equivariance",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-action",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-value",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-class-kernel",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-value",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-kernel",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-preimage-projection-surjective",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-preimage-permutation-kernel",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-action",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-lift",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-class-value",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-lift-independence",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-gauge-inclusion",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-ambient-constant",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-fibre-orbit",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-equivalence",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-value",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-inverse-witness",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-inverse-projection",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-image-choice-independence",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-invariant-injectivity-characterisation",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-inclusion-neutral-range",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-fibre-equivalence",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-value",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-inverse-witness",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-basepoint",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/kernel-orbit-neutral-inverse",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-equivalence",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-value",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-inverse-value",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-neutral-fibre-basepoint",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-action-value",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-inclusion",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-fibre-orbit",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-equivalence",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-value",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-inverse-value",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-left-inverse",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-right-inverse",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-basepoint",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-orbit-fibre-choice-independent",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/twisted-kernel-invariant-injectivity-iff",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/equivariant-topological-torsors"
+        ],
+        "scope": "Fresh reading of statements, hypotheses, proof sketches, APIs/tests and actual suggested signatures for the late kernel invariant-action/orbit/repointed-fibre families, plus the native topological-torsor bundle. The report records the mathematical calculations and remaining precursor/closure limits. No final per-node verdict is asserted."
+      },
+      "corrections": [
+        "Pinned the central obstruction sign against Kim's printed p.5 boundary and Tau Ceti's positive additive differential; added the proved C₃/C₉ arithmetic discriminator without inventing an H² interface.",
+        "Replaced the obsolete 01ZM retrieval failure with a scoped statement/proof reading receipt; recorded fresh 03RH and Schmidt–Stix Appendix A.3 readings without closing their transitive supplier proofs.",
+        "Corrected the central-extension hypothesis spelling from the unbound coefficient U to its actual ambient group B."
+      ],
+      "remaining": "Finish every earlier node's consumer/source/API/test/closure check and the geometric supplier proof leaves, reconcile current coverage obligations, and finish ownership/planet/source-error screening before a global review object. The blueprint stage statuses and implementation statuses are unchanged."
+    }
+  ]
 }
