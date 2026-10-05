@@ -32354,8 +32354,9 @@
    ],
    "avoidAccountOf": "BP-HabiroCyclotomicCompletions--HC.4",
    "prompt": "research/blueprint/prompts/REV-HabiroCyclotomicCompletions--HC.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6413"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6413",
+   "finishedAt": "2026-10-05T23:06:50Z"
   },
   {
    "id": "BP-HabiroCyclotomicCompletions--HC.6",
@@ -33545,7 +33546,8 @@
    ],
    "followUpOf": "BP-EllipticRegulators",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6483"
   },
   {
    "id": "REV-EllipticRegulators--ER.2",
