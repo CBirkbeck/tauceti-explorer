@@ -31594,8 +31594,9 @@
    ],
    "followUpOf": "BP-K3BlochGroups",
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6383"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6383",
+   "finishedAt": "2026-10-05T23:13:06Z"
   },
   {
    "id": "REV-K3BlochGroups--V.3",
@@ -35793,7 +35794,8 @@
    ],
    "revisionOf": "BP-KTheoryLowDegrees--Z.3",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6504"
   },
   {
    "priority": 2,
