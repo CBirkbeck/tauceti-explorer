@@ -2,7 +2,7 @@
   "roadmapId": "KTheoryLowDegrees",
   "protocol": "blueprint-v1",
   "part": "U.1",
-  "status": "partial",
+  "status": "complete",
   "scope": [
     "KTheoryLowDegrees:Z.1",
     "KTheoryLowDegrees:Z.2",
@@ -13,7 +13,7 @@
     "KTheoryLowDegrees:U.5",
     "KTheoryLowDegrees:U.6"
   ],
-  "summary": "Part U.1 of the roadmap KTheoryLowDegrees: stages Z.1, Z.2 and U.1–U.6. The companion part KTheoryLowDegrees--Z.3 holds Z.3–Z.6. The plan follows Weibel's K-book (I.1–I.3, II.1–II.2, II.7.3, III.1–III.2, IV.1), Bass's \"K-theory and stable algebra\" (1964), Dieudonné's \"Les déterminants sur un corps non commutatif\" (1943) and Bass–Milnor–Serre (1967).\n- Z.1 presents finitely generated projectives through free-summand data and idempotent matrices, classifies them by stabilised conjugacy, and defines ring K₀ as Tau Ceti's SplitK0 of finiteProjectiveModules. It also proves the stable-isomorphism criterion and builds scalar extension along any ring map, restriction along finite projective extensions and Morita invariance.\n- Z.2 gives the rank as a locally constant function on Spec A, never collapsed to one integer on a disconnected spectrum. It covers localisation and base change, K₀ of division, local and semilocal rings, the product formula and K₀(F × F) ≅ ℤ², with a non-free rank-one ideal of ℤ[√−5].\n- U.1 builds the stable GL(A) as a direct limit, elementary matrices over any ring, E(A), the commutator identities, perfectness for n ≥ 3 and Whitehead's lemma. The explicit non-examples E₂(𝔽₂) and E₂(𝔽₃) keep the stable theorem away from rank 2.\n- U.2 defines K₁(A) = GL(A)/E(A) = GL(A)^ab with its functoriality and the class of an automorphism of a projective. The class is independent of the complement, additive along filtrations and compatible with sums and scalar extension.\n- U.3 gives the stable determinant, SK₁ and the natural splitting K₁(A) ≅ Aˣ × SK₁(A). SK₁ vanishes for fields and for commutative semilocal rings by stable range one. It adds the Dieudonné determinant with K₁(D) ≅ D^×ab, and non-examples showing K₁(A) = Aˣ is not a general rule.\n- U.4 proves SK₁(O_{F,S}) = 0 along the Bass–Milnor–Serre route (stable range two, Mennicke symbols and the arithmetic Dirichlet and power-reduction theorems) and identifies K₁(O_{F,S}) ≅ O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}. S is a finite set of finite places; the determinant is canonical and the splitting depends on fundamental S-units.\n- U.5 builds the relative groups GL(I), E(A, I) and K₁(A, I) = GL(I)/E(A, I), not a kernel. It proves the degree-one sequence with its extra term (E(A) ∩ GL(I))/E(A, I) made explicit, transfer by restriction of scalars agreeing with the norm, the projection formula, and the DVR boundary ∂(π) = [k].\n- U.6 identifies π₁BGL(A)⁺ with GL(A)/E(A), with loop classes, determinant and transfer. It computes K₁ of ℤ, 𝔽_q, ℤ[1/p] and finite products of fields, and runs the triangular, diag(g, g⁻¹) and uniformiser tests.\nConventions:\n- K₀ is formed from left modules, as in Mathlib and Tau Ceti; Z.1's idempotent e presents the row-vector module Rⁿe.\n- The K₁ class of an automorphism is formed from right modules with column vectors (the K-book's and Bass's convention; in Mathlib, modules over Aᵐᵒᵖ). For commutative rings the two agree and give Mathlib's column convention.\n- The row-vector convention would transpose matrices, which inverts SK₁ classes.\nZ.1, Z.2, U.1 and U.2 are source-decomposed; U.3–U.6 remain partial. Eight gaps record inherited proof boundaries and the newly routed congruence targets:\n- the class-field-theory inputs of BMS Theorem 3.5;\n- the relative homotopy comparison;\n- the topology behind SK₁ of the real circle ring.\nNothing is formalised; implementationStatus is unchecked throughout.\nThe categorical Morita preservation proof is now sourced to checked pinned declarations and decomposed into separate order transport, finite-generation and restricted-equivalence declarations. Bass II.3 has not been read. That checkpoint retained its then-current four unrelated gaps and eight supplier requests; the current totals below supersede those historical counts.\nMilnor patching over arbitrary rings is now decomposed through compatible complements, canonical base-change maps, projective recovery, and all three Mayer–Vietoris exactness positions. U.5 uses a named ideal boundary. This closes the Milnor source gap without claiming formal proofs or closing the other gaps. The real-circle detection argument has an explicit coordinate map, finite elementary matrix homotopy and based contraction reduction. Four application lemmas now decompose its coordinate frame, stabilized Spin comparison, nonclosing lift and SO contraction obstruction. The LieGroups SL-to-SO retraction is still an open request; the Dedekind assertion is now decomposed by the explicit chart argument. Before this October continuation there were four gaps and nine supplier requests; the current packet has eight gaps and eight requests. Weibel's displayed rotation is the inverse of the packet's positive column rotation; this convention translation does not alter nontriviality. This continuation adds eight declarations proving the real-circle Dedekind property from the pinned algebra/localization baseline, with four chart tests and an exact predicate test; no whole layer is closed. The October 2026 checkpoint gives the native Morita comparison and five elementary finite-index containment lemmas, screens all 21 newly routed BS determinant items against their existing owners, and records the full BMS/Serre congruence and localized-cohomology proof boundaries. The pass remains partial. The codex-Px3FlU continuation adds twenty-three U.4 nodes for Kubota’s relative GL₂ homomorphism and its same-image/noncongruence conclusions. All 228 inherited nodes remain byte-for-byte equivalent as JSON objects; the finite-rank extension and arithmetic congruence calculations remain explicit gaps. The relative standard-form continuation supplies the finite-rank relative stable-range inputs and BMS §8 through Lemma 8.12, on the inherited matrix carriers; §9–§10 multiplicativity is still an explicit boundary.",
+  "summary": "Part U.1 of the roadmap KTheoryLowDegrees: stages Z.1, Z.2 and U.1–U.6. The companion part KTheoryLowDegrees--Z.3 holds Z.3–Z.6. The plan follows Weibel's K-book (I.1–I.3, II.1–II.2, II.7.3, III.1–III.2, IV.1), Bass's \"K-theory and stable algebra\" (1964), Dieudonné's \"Les déterminants sur un corps non commutatif\" (1943) and Bass–Milnor–Serre (1967).\n- Z.1 presents finitely generated projectives through free-summand data and idempotent matrices, classifies them by stabilised conjugacy, and defines ring K₀ as Tau Ceti's SplitK0 of finiteProjectiveModules. It also proves the stable-isomorphism criterion and builds scalar extension along any ring map, restriction along finite projective extensions and Morita invariance.\n- Z.2 gives the rank as a locally constant function on Spec A, never collapsed to one integer on a disconnected spectrum. It covers localisation and base change, K₀ of division, local and semilocal rings, the product formula and K₀(F × F) ≅ ℤ², with a non-free rank-one ideal of ℤ[√−5].\n- U.1 builds the stable GL(A) as a direct limit, elementary matrices over any ring, E(A), the commutator identities, perfectness for n ≥ 3 and Whitehead's lemma. The explicit non-examples E₂(𝔽₂) and E₂(𝔽₃) keep the stable theorem away from rank 2.\n- U.2 defines K₁(A) = GL(A)/E(A) = GL(A)^ab with its functoriality and the class of an automorphism of a projective. The class is independent of the complement, additive along filtrations and compatible with sums and scalar extension.\n- U.3 gives the stable determinant, SK₁ and the natural splitting K₁(A) ≅ Aˣ × SK₁(A). SK₁ vanishes for fields and for commutative semilocal rings by stable range one. It adds the Dieudonné determinant with K₁(D) ≅ D^×ab, and non-examples showing K₁(A) = Aˣ is not a general rule.\n- U.4 proves SK₁(O_{F,S}) = 0 along the Bass–Milnor–Serre route (stable range two, Mennicke symbols and the arithmetic Dirichlet and power-reduction theorems) and identifies K₁(O_{F,S}) ≅ O_{F,S}ˣ ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}. S is a finite set of finite places; the determinant is canonical and the splitting depends on fundamental S-units.\n- U.5 builds the relative groups GL(I), E(A, I) and K₁(A, I) = GL(I)/E(A, I), not a kernel. It proves the degree-one sequence with its extra term (E(A) ∩ GL(I))/E(A, I) made explicit, transfer by restriction of scalars agreeing with the norm, the projection formula, and the DVR boundary ∂(π) = [k].\n- U.6 identifies π₁BGL(A)⁺ with GL(A)/E(A), with loop classes, determinant and transfer. It computes K₁ of ℤ, 𝔽_q, ℤ[1/p] and finite products of fields, and runs the triangular, diag(g, g⁻¹) and uniformiser tests.\nConventions:\n- K₀ is formed from left modules, as in Mathlib and Tau Ceti; Z.1's idempotent e presents the row-vector module Rⁿe.\n- The K₁ class of an automorphism is formed from right modules with column vectors (the K-book's and Bass's convention; in Mathlib, modules over Aᵐᵒᵖ). For commutative rings the two agree and give Mathlib's column convention.\n- The row-vector convention would transpose matrices, which inverts SK₁ classes.\nZ.1, Z.2, U.1 and U.2 are source-decomposed; U.3–U.6 remain partial. Eight gaps record inherited proof boundaries and the newly routed congruence targets:\n- the class-field-theory inputs of BMS Theorem 3.5;\n- the relative homotopy comparison;\n- the topology behind SK₁ of the real circle ring.\nNothing is formalised; implementationStatus is unchecked throughout.\nThe bounded planning pass is complete at 300 nodes, as PROTOCOL §0 prescribes; this is not stage closure or formalisation. Milnor patching, Morita preservation, real-circle algebraic charts and the finite-index containment inputs retain their inherited decompositions. The finite-rank extension is now decomposed through BMS §9, Lemma 9.6: subgroup construction, pointwise conjugation invariance, image transpose and generation conditional on the last swap. The actual §10 swap calculations, finite-level universality, arithmetic congruence defect, completions, Serre SL₂ and the routed cohomology interface remain precise follow-up targets. All eight inherited gaps and eight supplier requests remain; the signed Bhatt–Scholze inventory and RS-18 ownership are unchanged.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3405,6 +3405,34 @@
         "module": "Mathlib/Data/Matrix/Mul.lean",
         "provides": "The outer product has entries a_i*b_j.",
         "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 612–621; native bytes at the pin."
+      },
+      {
+        "ref": "mathlib:finRotate",
+        "kind": "def",
+        "module": "Mathlib/Logic/Equiv/Fin/Rotate.lean",
+        "provides": "The actual native cyclic permutation adds one modulo the coordinate count; the last coordinate goes to zero.",
+        "checked": "Actual statement, hypotheses and adjoining proof read at the exact Mathlib pin on 2026-10-05, lines 24–48; Git blob 4677a3c73bf7773a98c60848b4d1389a653581ea; shared source bytes identical to the pinned blob."
+      },
+      {
+        "ref": "mathlib:Matrix.transpose_permMatrix",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Permutation.lean",
+        "provides": "Transpose of a permutation matrix is the matrix of its inverse.",
+        "checked": "Actual statement, hypotheses and adjoining proof read at the exact Mathlib pin on 2026-10-05, lines 40–54; Git blob dce2ae521d3421b1c35bb320bdb9b688a704dd30; shared source bytes identical to the pinned blob."
+      },
+      {
+        "ref": "mathlib:Subgroup.normalizer",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+        "provides": "The native set normalizer, with conjugate membership equivalence.",
+        "checked": "Actual statement, hypotheses and adjoining proof read at the exact Mathlib pin on 2026-10-05, lines 658–682; Git blob 25b204a70eaa95f84c361f95c836d9bf9ac92eb0; shared source bytes identical to the pinned blob."
+      },
+      {
+        "ref": "mathlib:MulAction.stabilizer",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+        "provides": "The native stabilizer for an actual group action; the relative pointwise stabilizer is its conjugation-function adapter.",
+        "checked": "Actual statement, hypotheses and adjoining proof read at the exact Mathlib pin on 2026-10-05, lines 507–527; Git blob b1c79cba91c012c4012dcde928bbc63bae4b859f; shared source bytes identical to the pinned blob."
       }
     ]
   },
@@ -3511,7 +3539,8 @@
         "§7 Review of the stable structure of GL_n(A), (7.1)–(7.5), pp. 105–106 (PDF 48–49)",
         "Fresh continuation read, 2026-10-05: §4 Theorem 4.1 and Corollary 4.3, pp.94–96; §7 Theorem 7.5(e), pp.105–106; §14 congruence-kernel statement and Theorem 14.1 with proof, pp.129–130. §§8–10 and the finite-level arithmetic calculation are an uncompleted proof boundary for this continuation.",
         "Fresh Codex codex-Px3FlU continuation, 2026-10-05: §2 pp.65–69 and §4–§11 pp.94–120 read; §6 pp.103–105 proof inspected also in scan. This checkpoint decomposes §6 and its relative rank-two inputs; §§8–10 extension and §11 arithmetic relations remain unplanned proof boundaries despite having been read.",
-        "Fresh Codex codex-GtWWzl continuation, 2026-10-05: printed pp.105–112, with the §8 conditions and value-independence equations also inspected in the published scan images. §§9–10 pp.112–119 read for the boundary, but their homomorphism proof is not yet decomposed in this checkpoint."
+        "Fresh Codex codex-GtWWzl continuation, 2026-10-05: printed pp.105–112, with the §8 conditions and value-independence equations also inspected in the published scan images. §§9–10 pp.112–119 read for the boundary, but their homomorphism proof is not yet decomposed in this checkpoint.",
+        "Fresh Codex codex-KB3j6C read, 2026-10-05: §§8–10, printed pp.107–119; pp.113–114 also inspected as scan images. This pass decomposes §9 through Lemma 9.6 and retains §10 swap proofs as separate follow-ups. Published 1974 erratum pp.241–244 read in full for source-finding classification; no new use of Appendix A.23 is asserted."
       ]
     },
     {
@@ -3612,6 +3641,17 @@
       "readSections": [
         "Introduction and §1.1–1.4, pp.489–491: S includes all infinite places; infinitely many units means at least two places in S",
         "§2.6 Theorems 1–2 and Corollaries 1–3 with the printed deductions, pp.498–499; the cited Moore classification and the preceding §2 proof are not fully read or decomposed."
+      ]
+    },
+    {
+      "id": "Serre.BMSErratum.1974",
+      "title": "On a functorial property of power residue symbols. Erratum: Solution of the congruence subgroup problem",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Publications Mathématiques de l’IHÉS 44 (1974), 241–244; published numdam scan",
+      "url": "https://www.numdam.org/item/10.1007/BF02685884.pdf",
+      "sha256": "2f52d05a0f1ff1563d9da85efd8b224d1e110d9f67c940f3d9c0bbd2051184f9",
+      "readSections": [
+        "Full pp.241–244 read to check whether the Lemma 9.4 generator misprint was already corrected; the erratum addresses Appendix A.23 only. Its arithmetic theorems are not newly planned or imported in this continuation."
       ]
     }
   ],
@@ -3718,6 +3758,13 @@
       "read": "2026-10-05",
       "sha256": "98bcfa4b38b7e1be99ca380f55138d5b8e6f15ad3c7f4db3d83c4958a2b6da44",
       "note": "Fresh read printed pp.16–20; inherited scan hash confirmed."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.1007/BF02685884.pdf",
+      "read": "2026-10-05",
+      "sha256": "2f52d05a0f1ff1563d9da85efd8b224d1e110d9f67c940f3d9c0bbd2051184f9",
+      "note": "Read in full for known-erratum screen of source finding E111; not used as an unscreened arithmetic dependency."
     }
   ],
   "nodes": [
@@ -22075,6 +22122,974 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/multiplier-subgroup",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "construction",
+      "title": "The multiplier subgroup of a normalized function",
+      "statement": "For groups G and C and a function f:G→C with f(1)=1, multiplierSubgroup(f) is the native subgroup H={g | for every x∈G, f(gx)=f(g)f(x)}. Its definition does not require f to be a homomorphism.",
+      "hypotheses": [
+        "G and C are groups, possibly noncommutative; f:G→C has f(1)=1."
+      ],
+      "proofSteps": [
+        "The identity lies in H by normalization. For g,h∈H, evaluate f(ghx) successively at g and h, and specialize at x=1 to identify f(gh).",
+        "For g∈H, evaluation at g⁻¹ gives f(g⁻¹)=f(g)⁻¹. Apply the multiplier identity to g(g⁻¹x) and cancel on the left to obtain the inverse identity. Use the native subgroup structure, without commuting C."
+      ],
+      "prerequisites": [
+        "mathlib:Subgroup.map"
+      ],
+      "acceptance": [
+        "Membership quantifies every right factor. Restriction is a genuine homomorphism, while H=G is equivalent to multiplication for the original function."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "multiplierSubgroup"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Definition of H and Lemma 9.1(a), printed p.112",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "mem_multiplierSubgroup",
+          "role": "characterisation",
+          "statement": "Membership is exactly f(gx)=f(g)f(x) for every x."
+        },
+        {
+          "name": "multiplierSubgroup_restrict",
+          "role": "universal-property",
+          "statement": "Restriction of f to H is a homomorphism H→C."
+        },
+        {
+          "name": "multiplierSubgroup_eq_top",
+          "role": "characterisation",
+          "statement": "H is the whole group exactly when f preserves every product."
+        }
+      ],
+      "tests": [
+        {
+          "name": "multiplierSubgroup_hom_test",
+          "kind": "compatibility",
+          "statement": "For an actual homomorphism, H=G."
+        },
+        {
+          "name": "multiplierSubgroup_trivial_test",
+          "kind": "degenerate",
+          "statement": "For the constant identity function, H=G."
+        },
+        {
+          "name": "multiplierSubgroup_square_test",
+          "kind": "non-example",
+          "statement": "Squaring on the permutation group of three letters has H≠G: two transpositions square to 1 but their product is a nontrivial three-cycle."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BMS Lemmas 9.1–9.3",
+          "how": "Detect multiplicativity of the previously constructed function without assuming it."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/conjugation-stabilizer",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "construction",
+      "title": "The conjugation stabilizer of a relative value function",
+      "statement": "For any f:GL_r(A,I)→C, conjugationStabilizer(f) is the native ambient subgroup N={τ∈GL_r(A) | f(τgτ⁻¹)=f(g) for every g∈GL_r(A,I)}. It stabilizes all values of the actual function, rather than merely its identity fibre.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "r is any natural number; f is any function on the existing congruence subgroup."
+      ],
+      "proofSteps": [
+        "Normality of the congruence kernel makes conjugation an action on its existing carrier. Precomposition by inverse conjugation acts on functions; N is the native action stabilizer, expressed by its pointwise membership equation.",
+        "Check identity, products and inverses by substituting conjugates. Postcomposition can only enlarge N; injective postcomposition preserves it exactly. The suggested predicate presentation is a coordinate adapter for this native stabilizer, not new general group-action infrastructure."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "mathlib:MulAction.stabilizer"
+      ],
+      "acceptance": [
+        "N lies in ambient GL, with no multiplicativity assumption on f; test the difference between value invariance and a kernel normalizer."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "conjugationStabilizer"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Definition of N and Lemma 9.1(b), printed p.112",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "mem_conjugationStabilizer",
+          "role": "characterisation",
+          "statement": "τ∈N exactly when f(τgτ⁻¹)=f(g) for every relative g."
+        },
+        {
+          "name": "conjugationStabilizer_comp",
+          "role": "functoriality",
+          "statement": "For any homomorphism φ:C→D, N(f) is contained in N(φ∘f)."
+        },
+        {
+          "name": "conjugationStabilizer_comp_eq",
+          "role": "functoriality",
+          "statement": "If φ is injective, the two stabilizers are equal."
+        }
+      ],
+      "tests": [
+        {
+          "name": "conjugationStabilizer_trivial_test",
+          "kind": "degenerate",
+          "statement": "The constant identity function has all ambient GL as stabilizer."
+        },
+        {
+          "name": "conjugationStabilizer_bot_test",
+          "kind": "degenerate",
+          "statement": "At I=0 the relative domain is trivial, so every function has all ambient GL as stabilizer."
+        },
+        {
+          "name": "conjugationStabilizer_faithful_test",
+          "kind": "characterisation",
+          "statement": "At I=A the faithful value g↦g into ambient GL has stabilizer exactly the native centre, although its kernel is trivial and its kernel normalizer is all GL."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BMS §9",
+          "how": "Prove pointwise conjugation invariance before bundling an extension."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/ge-subgroup",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "definition",
+      "title": "Elementary matrices and diagonal units",
+      "statement": "GE_r(A) is the join of the existing E_r(A) with the native subgroup closure of all diagonal unit matrices. This specifies the finite-rank group generated by those two families; no determinant-one condition is imposed.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "r is any natural number."
+      ],
+      "proofSteps": [
+        "Use the native subgroup lattice join and closure on the existing GL, E and diagUnit carriers.",
+        "The native join and closure universal properties give its criterion for inclusion in any ambient subgroup."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.1/elementary-subgroup",
+        "mathlib:Subgroup.closure",
+        "mathlib:Subgroup.closure_le"
+      ],
+      "acceptance": [
+        "Use the finite-rank native join, keeping diagonal units with arbitrary determinant."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "GE"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Corollary 9.3 and generator description in Lemma 9.6, printed pp.113–114",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "elementarySubgroup_le_GE",
+          "role": "compatibility",
+          "statement": "E_r(A) is contained in GE_r(A)."
+        },
+        {
+          "name": "diagUnit_mem_GE",
+          "role": "constructor",
+          "statement": "Every diagonal of r units is in GE_r(A)."
+        },
+        {
+          "name": "GE_le_iff",
+          "role": "universal-property",
+          "statement": "GE_r(A)⊆K exactly when E_r(A)⊆K and every diagonal unit matrix lies in K."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GE_rank_one_test",
+          "kind": "computation",
+          "statement": "GE₁(A)=GL₁(A), including the zero ring."
+        },
+        {
+          "name": "GE_diagonal_test",
+          "kind": "non-example",
+          "statement": "diag(−1,1) over ℤ is in GE₂ but not E₂, since its determinant is −1."
+        },
+        {
+          "name": "GE_permutation_test",
+          "kind": "compatibility",
+          "statement": "The permutation swapping the first and last coordinates in rank three lies in GE₃ over every commutative ring."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BMS (8.2), Corollary 9.3 and Lemma 9.6",
+          "how": "Name the exact generator group used by the next-rank kernel bound and final generation argument."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/stabilizer-normalizes-multiplier",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "The stabilizer normalizes the multiplier subgroup",
+      "statement": "For f:GL_r(A,I)→C normalized at 1, N(f) is contained in the native normalizer in GL_r(A) of the image of H(f) under the congruence-subgroup inclusion.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "f is any function on GL_r(A,I), with f(1)=1."
+      ],
+      "proofSteps": [
+        "For τ∈N and g∈H evaluate f((τgτ⁻¹)x) by conjugating the whole product back to g(τ⁻¹xτ); use the defining identity of H, and invariance of both factors under τ and τ⁻¹.",
+        "The inverse membership of N gives the reverse set inclusion. Apply the native normalizer membership criterion to the included subgroup."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/multiplier-subgroup",
+        "KTheoryLowDegrees:U.4/conjugation-stabilizer",
+        "mathlib:Subgroup.normalizer"
+      ],
+      "acceptance": [
+        "Normalize the actual multiplier subgroup under its native inclusion; no normalizer of a putative kernel is substituted."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "stabilizer_normalizes_multiplier"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Lemma 9.1(b), printed p.112",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/type-l-normalized-generation",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Generation by type L and elementary conjugation",
+      "statement": "For n≥1 and HasStableRange A (n+1), any subgroup K of GL_{n+2}(A,I) containing every L(a,y) and invariant under conjugation by E_{n+2}(A) is the whole congruence group.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "n≥1 and HasStableRange A (n+1); K is a subgroup of the actual relative group."
+      ],
+      "proofSteps": [
+        "Type L contains the stabilized rank n+1 congruence group and the level-I root e₀₁(t). Elementary signed coordinate changes obtain every level-I root from this root; elementary conjugation closure then puts the existing E_{n+2}(A,I) in K.",
+        "Relative GL reduction with k=n+1 and r=n+2 expresses every relative matrix as a stabilized corner times a relative elementary matrix, both in K. The stable-range inequality is explicit."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/relative-left-block",
+        "KTheoryLowDegrees:U.4/relative-gl-reduction",
+        "KTheoryLowDegrees:U.5/relative-elementary-subgroup",
+        "KTheoryLowDegrees:U.1/elementary-commutator-chain"
+      ],
+      "acceptance": [
+        "Keep the rank n+2≥3, stable-range hypothesis and E-normal closure. Do not assert unrestricted rank-two GL normality."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "typeL_normalized_eq_top"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Lemma 9.2, printed p.113",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/type-l-multiplier",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Type L matrices are multipliers",
+      "statement": "Under the next-rank evaluation hypotheses, every L(a,y) belongs to the multiplier subgroup of extendedValue, with its inherited normalization at 1.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "For next-rank evaluation only: n≥1, HasStableRange A (n+1), uniform relative GL transitivity in rank n+1 over every ideal, and ExtensionConditions(κ). The function is the inherited extendedValue, not an assumed homomorphism."
+      ],
+      "proofSteps": [
+        "Set the right type-R factor in the inherited two-sided covariance formula to 1. The resulting f(Lg)=κ(a)f(g) and f(L)=κ(a) are precisely multiplier membership."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/multiplier-subgroup",
+        "KTheoryLowDegrees:U.4/extended-value-two-sided",
+        "KTheoryLowDegrees:U.4/extended-value-type-l"
+      ],
+      "acceptance": [
+        "Use the inherited function and normalization; do not invoke multiplication for arbitrary matrices."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "typeL_mem_multiplier"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Lemma 9.1(a), printed p.112",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/conditional-ge-multiplicativity",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "GE invariance implies a homomorphic extension",
+      "statement": "Under the next-rank hypotheses, if GE_{n+2}(A)⊆N(extendedValue), then extendedValue preserves products, annihilates E_{n+2}(A,I), and annihilates every commutator τgτ⁻¹g⁻¹ with τ∈GE_{n+2}(A) and g relative. The GE inclusion remains an explicit premise.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "For next-rank evaluation only: n≥1, HasStableRange A (n+1), uniform relative GL transitivity in rank n+1 over every ideal, and ExtensionConditions(κ). The function is the inherited extendedValue, not an assumed homomorphism."
+      ],
+      "proofSteps": [
+        "Type L lies in H; N normalizes H. The assumed E⊆GE⊆N and the type-L generation criterion give H equal to the full relative group, hence multiplication.",
+        "Type L includes the relative root e₀₁(t), whose value is 1 because κ kills the corner relative elementary group. Conjugation invariance and native closure then kill every generator of E_{n+2}(A,I) and its closure.",
+        "Evaluate the displayed commutator with the newly obtained product law and cancel the invariant value of g with its inverse."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/type-l-multiplier",
+        "KTheoryLowDegrees:U.4/stabilizer-normalizes-multiplier",
+        "KTheoryLowDegrees:U.4/type-l-normalized-generation",
+        "KTheoryLowDegrees:U.4/ge-subgroup",
+        "KTheoryLowDegrees:U.4/extension-conditions",
+        "KTheoryLowDegrees:U.5/relative-elementary-subgroup"
+      ],
+      "acceptance": [
+        "All three conclusions are conditional on GE invariance; no existence theorem or new-rank homomorphism is bundled yet."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "multiplicative_of_GE_invariant"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Corollary 9.3, printed p.113",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/diagonal-stabilizer",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Diagonal conjugators preserve the next-rank value",
+      "statement": "Under the next-rank hypotheses, every diagonal unit matrix in GL_{n+2}(A) belongs to N(extendedValue).",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "For next-rank evaluation only: n≥1, HasStableRange A (n+1), uniform relative GL transitivity in rank n+1 over every ideal, and ExtensionConditions(κ). The function is the inherited extendedValue, not an assumed homomorphism."
+      ],
+      "proofSteps": [
+        "Conjugate a supplied standard form L(a,y)e_last,0(s)R(b,p). A diagonal preserves both block shapes and replaces s by the ratio of its last and first units times s, still in I.",
+        "The corner matrices are conjugated by their diagonal unit restrictions. ExtensionConditions makes each κ-value invariant; evaluation on the new standard form equals the old value."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/conjugation-stabilizer",
+        "KTheoryLowDegrees:U.4/extended-value",
+        "KTheoryLowDegrees:U.4/relative-standard-form",
+        "KTheoryLowDegrees:U.4/extension-conditions"
+      ],
+      "acceptance": [
+        "Allow arbitrary diagonal units, not only units congruent to 1 or determinant-one diagonals."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "diagonal_mem_stabilizer"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Lemma 9.4, diagonal-generator case, printed p.113",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/interior-stabilizer",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Interior block conjugators preserve the value",
+      "statement": "Under the next-rank hypotheses, diag(1,v,1) belongs to N(extendedValue) for every v∈GE_n(A). The corner has exactly the n interior coordinates.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "For next-rank evaluation only: n≥1, HasStableRange A (n+1), uniform relative GL transitivity in rank n+1 over every ideal, and ExtensionConditions(κ). The function is the inherited extendedValue, not an assumed homomorphism."
+      ],
+      "proofSteps": [
+        "The explicit coordinate helper interiorGL expands the native block diagonal diag(1,v,1), with inverse diag(1,v⁻¹,1); it introduces no new group carrier.",
+        "Conjugation preserves type L, type R and the middle root. The left corner conjugator is diag(1,v), the right one diag(v,1); both lie in GE_{n+1}(A) by transporting elementary and diagonal generators.",
+        "Extend the κ conjugation equations from elementary and diagonal generators to their native join. Evaluate the unchanged middle and invariant corner values."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/ge-subgroup",
+        "KTheoryLowDegrees:U.4/conjugation-stabilizer",
+        "KTheoryLowDegrees:U.4/extended-value",
+        "KTheoryLowDegrees:U.4/extension-conditions",
+        "KTheoryLowDegrees:U.1/stabilisation-map"
+      ],
+      "acceptance": [
+        "Use the n-dimensional interior block, including n=1; no arbitrary GL_n invariance is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "interior_mem_stabilizer"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Lemma 9.4, interior-generator case, printed p.113",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/first-root-stabilizer",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "The first upper root preserves the value",
+      "statement": "Under the next-rank hypotheses, e₀₁(t) belongs to N(extendedValue) for every t∈A, with no ideal-level restriction on t.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "For next-rank evaluation only: n≥1, HasStableRange A (n+1), uniform relative GL transitivity in rank n+1 over every ideal, and ExtensionConditions(κ). The function is the inherited extendedValue, not an assumed homomorphism."
+      ],
+      "proofSteps": [
+        "For the middle ε=e_last,0(s), direct multiplication gives e₀₁(t)εe₀₁(−t)=εe_last,1(−st). Since s∈I, the correction is a relative elementary type-R factor.",
+        "Conjugation preserves the L/R shapes. The left corner is conjugated by e₀₁(t) in rank n+1; the right corner is unchanged apart from the relative correction. Absorb that correction on the right in the standard form, and use κ conjugation invariance and its relative elementary kernel."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/conjugation-stabilizer",
+        "KTheoryLowDegrees:U.4/extended-value",
+        "KTheoryLowDegrees:U.1/elementary-matrix",
+        "KTheoryLowDegrees:U.4/extension-conditions",
+        "KTheoryLowDegrees:U.1/elementary-commutator-chain"
+      ],
+      "acceptance": [
+        "The parameter is arbitrary in A. The −st correction is in I and stays on the right, preserving multiplication order."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "firstRoot_mem_stabilizer"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Lemma 9.4, e₁₂(t) case, printed p.113; corrected generator parameter (source finding E111)",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/last-root-stabilizer",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "The last upper root preserves the value",
+      "statement": "Under the next-rank hypotheses, e_{n,n+1}(t) belongs to N(extendedValue) for every t∈A.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "For next-rank evaluation only: n≥1, HasStableRange A (n+1), uniform relative GL transitivity in rank n+1 over every ideal, and ExtensionConditions(κ). The function is the inherited extendedValue, not an assumed homomorphism."
+      ],
+      "proofSteps": [
+        "Conjugating ε=e_{n+1,0}(s) by this root gives e_{n,0}(ts)ε. This time the correction is a relative elementary type-L factor and is absorbed on the left.",
+        "The left corner is otherwise unchanged and the right corner is conjugated by the corresponding rank n+1 elementary root. Evaluate the corrected standard form with κ relative-kernel and conjugation invariance equations."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/conjugation-stabilizer",
+        "KTheoryLowDegrees:U.4/extended-value",
+        "KTheoryLowDegrees:U.1/elementary-matrix",
+        "KTheoryLowDegrees:U.4/extension-conditions",
+        "KTheoryLowDegrees:U.1/elementary-commutator-chain"
+      ],
+      "acceptance": [
+        "Expose the positive ts correction on the left; do not transpose the first-root sign or impose t∈I."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "lastRoot_mem_stabilizer"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Lemma 9.4, e_m,m+1(t) case, printed p.113",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/upper-block-stabilizer",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Upper block matrices stabilize the value",
+      "statement": "Under the next-rank hypotheses, N contains every ambient matrix with three-by-three block shape ((u,*,*),(0,v,*),(0,0,w)), where u,w∈Aˣ and v∈GE_n(A). The stars are arbitrary ring entries.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "For next-rank evaluation only: n≥1, HasStableRange A (n+1), uniform relative GL transitivity in rank n+1 over every ideal, and ExtensionConditions(κ). The function is the inherited extendedValue, not an assumed homomorphism."
+      ],
+      "proofSteps": [
+        "The displayed matrices form a subgroup. Eliminate the unit first and last diagonal entries and the GE interior block, leaving the two outer rows of upper unipotent entries.",
+        "For n≥2, elementary coordinate changes in the interior generate all first-to-interior and interior-to-last roots from e₀₁ and e_n,n+1. For n=1 those are already all such roots. Their commutator obtains e₀,n+1; all parameters are arbitrary ring elements.",
+        "The four generator lemmas put this whole subgroup in the native stabilizer, which is closed under multiplication and inverses."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/diagonal-stabilizer",
+        "KTheoryLowDegrees:U.4/interior-stabilizer",
+        "KTheoryLowDegrees:U.4/first-root-stabilizer",
+        "KTheoryLowDegrees:U.4/last-root-stabilizer",
+        "KTheoryLowDegrees:U.1/elementary-commutator-chain"
+      ],
+      "acceptance": [
+        "The suggested coordinate conditions recover all lower-zero blocks, both unit endpoints and the exact GE interior block."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "upperBlock_mem_stabilizer"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Lemma 9.4, printed p.113",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/transpose-image",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "construction",
+      "title": "Transpose on the image of a relative homomorphism",
+      "statement": "If κ:GL_r(A,I)→C has transpose-stable kernel, matrix transpose induces an involutive multiplicative equivalence from the native subgroup im(κ) to its opposite group. It sends κ(g) to κ(gᵀ). It is defined on im(κ), not on the arbitrary target C.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "r is any natural number; κ is a homomorphism and κ(g)=1 implies κ(gᵀ)=1."
+      ],
+      "proofSteps": [
+        "If κ(g)=κ(h), then gh⁻¹ is in the kernel. Transpose stability gives κ((hᵀ)⁻¹gᵀ)=1, hence κ(gᵀ)=κ(hᵀ). Thus evaluation on a chosen preimage is independent of that choice.",
+        "Matrix transpose reverses products and squares to the identity. The native range subgroup and opposite group encode reversal, and repeating the construction gives its inverse.",
+        "An injective target homomorphism transports the kernel condition; evaluate the comparison on an actual preimage to obtain naturality."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "mathlib:Matrix.transpose_mul",
+        "mathlib:MulOpposite"
+      ],
+      "acceptance": [
+        "Bundle the anti-operation through the native range and opposite group; do not extend it to unrelated elements of C."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "transposeImage"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Paragraph following Lemma 9.4, printed pp.113–114",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "transposeImage_apply",
+          "role": "simp",
+          "statement": "On κ(g) the opposite-valued equivalence gives κ(gᵀ)."
+        },
+        {
+          "name": "transposeImage_involutive",
+          "role": "relation",
+          "statement": "After removing opposite tags, applying transposeImage twice is the identity."
+        },
+        {
+          "name": "transposeImage_natural",
+          "role": "functoriality",
+          "statement": "For injective φ:C→D and the transported kernel condition, transpose on the image of φκ agrees with φ of transpose on im(κ)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "transposeImage_one_test",
+          "kind": "degenerate",
+          "statement": "The image identity is sent to the image identity."
+        },
+        {
+          "name": "transposeImage_reversal_test",
+          "kind": "characterisation",
+          "statement": "Removing opposite tags reverses the order of a product of image elements."
+        },
+        {
+          "name": "transposeImage_kernel_test",
+          "kind": "compatibility",
+          "statement": "Two relative preimages with equal κ-values have equal transposed κ-values; a representative-dependent definition would fail this test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BMS Lemma 9.5",
+          "how": "Reflect the next-rank value without inventing a transpose operation on the whole target group."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/reflected-transpose",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "construction",
+      "title": "Transpose reflected at the endpoint coordinates",
+      "statement": "For GL_{n+2}(A), let φ be the native permutation matrix swapping coordinate 0 with coordinate n+1 and fixing every interior coordinate. Define g♯=φgᵀφ⁻¹. This is an anti-involution preserving the existing relative congruence subgroup. reflectedLevel is its subtype restriction.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "n is any natural number."
+      ],
+      "proofSteps": [
+        "Use the inherited permGL helper on the native endpoint swap. The permutation matrix is symmetric and involutive; transpose of g is invertible with inverse transpose of g⁻¹.",
+        "Native transpose-product reversal and the permutation inverse equation give (gh)♯=h♯g♯ and (g♯)♯=g. Entrywise ideal congruence to the identity is preserved by transpose and permutation.",
+        "The suggested reflectedLevel is only native subtype bookkeeping, and its underlying matrix is exactly reflectedTranspose of the original matrix."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "mathlib:Equiv.Perm.permMatrix",
+        "mathlib:Matrix.transpose_permMatrix",
+        "mathlib:Matrix.transpose_mul"
+      ],
+      "acceptance": [
+        "Swap only the endpoints. Preserve the actual middle root and all interior indices; reversing every coordinate is a different operation."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "reflectedTranspose"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Reflected transpose paragraph, printed p.114",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "reflectedTranspose_mul",
+          "role": "relation",
+          "statement": "Reflected transpose reverses multiplication."
+        },
+        {
+          "name": "reflectedTranspose_involutive",
+          "role": "relation",
+          "statement": "Reflected transpose is involutive."
+        },
+        {
+          "name": "reflectedTranspose_level_iff",
+          "role": "compatibility",
+          "statement": "g♯ lies in GL_{n+2}(A,I) exactly when g does."
+        }
+      ],
+      "tests": [
+        {
+          "name": "reflectedTranspose_middle_test",
+          "kind": "computation",
+          "statement": "The relative root e_last,0(s) is fixed, with the same coefficient s."
+        },
+        {
+          "name": "reflectedTranspose_entry_test",
+          "kind": "computation",
+          "statement": "In rank four, the (1,2) entry of g♯ is g(2,1), since both coordinates are interior."
+        },
+        {
+          "name": "reflectedTranspose_root_test",
+          "kind": "computation",
+          "statement": "In rank four, e₀₁(t) is sent to e₁₃(t). Full coordinate reversal would send it to e₂₃(t), so this distinguishes the intended reflection."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BMS Lemmas 9.5–9.6",
+          "how": "Transport the stabilizer and generate the missing first-column roots."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/reflected-left-block",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Reflection takes type L to type R",
+      "statement": "With π=permGL(finRotate(n+1)), reflection sends L(a,y) to R(πaᵀπ⁻¹, y∘finRotate(n+1)). In coordinates the new row is (y₁,…,y_n,y₀).",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "n is any natural number; a is a relative rank n+1 matrix and y an I-valued column."
+      ],
+      "proofSteps": [
+        "For every matrix entry use g♯(i,j)=g(swap(j),swap(i)). The lower-right corner is ordered by the original indices 1,…,n,0, so native cyclic reindexing gives πaᵀπ⁻¹.",
+        "The new upper row follows the same coordinate order. Recover each actual block entry and the unchanged relative congruences."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/reflected-transpose",
+        "KTheoryLowDegrees:U.4/relative-left-block",
+        "KTheoryLowDegrees:U.4/relative-right-block",
+        "mathlib:finRotate",
+        "mathlib:Equiv.Perm.permMatrix"
+      ],
+      "acceptance": [
+        "Use the forward cycle for both the row and the corner conjugator; no inverse cycle or full reversal is substituted."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "reflectedLevel_left"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Type-L calculation, printed p.114",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/reflected-right-block",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Reflection takes type R to type L",
+      "statement": "With the same π, reflection sends R(b,p) to L(π⁻¹bᵀπ, p∘finRotate(n+1)⁻¹). In coordinates the new column is (p_n,p₀,…,p_{n−1}).",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "n is any natural number; b is a relative rank n+1 matrix and p an I-valued row."
+      ],
+      "proofSteps": [
+        "Evaluate endpoint-reflected transposed entries. The new upper-left corner uses the original lower-right indices in order n,0,…,n−1, which is the inverse native cycle.",
+        "Read the last column in that same order. Its entries remain in I and its corner is the stated cyclic conjugate of bᵀ."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/reflected-transpose",
+        "KTheoryLowDegrees:U.4/relative-left-block",
+        "KTheoryLowDegrees:U.4/relative-right-block",
+        "mathlib:finRotate",
+        "mathlib:Equiv.Perm.permMatrix"
+      ],
+      "acceptance": [
+        "Keep the inverse cycle in both the column and the corner conjugation, consistently with the type-L formula."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "reflectedLevel_right"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Type-R calculation, printed p.114",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/extended-value-reflected",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "Reflection transposes the next-rank value in the image",
+      "statement": "Under the next-rank hypotheses, extendedValue(g) belongs to im(κ), and extendedValue(g♯) is its transposeImage value with the opposite tag removed. This statement supplies the image-membership witness, not an operation on all of C.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "For next-rank evaluation only: n≥1, HasStableRange A (n+1), uniform relative GL transitivity in rank n+1 over every ideal, and ExtensionConditions(κ). The function is the inherited extendedValue, not an assumed homomorphism."
+      ],
+      "proofSteps": [
+        "For any standard form g=L(a,y)εR(b,p), its value κ(a)κ(b)=κ(ab) is in the native range.",
+        "Reflection reverses the factors, exchanges type L and R by their distinct cyclic corner formulas, and fixes ε. It thus gives a standard form for g♯.",
+        "The cyclic corner permutation lies in GE_{n+1}(A); the elementary/diagonal conjugation equations of κ preserve the corner values. Evaluate as κ(bᵀ)κ(aᵀ), which is precisely transposeImage of κ(a)κ(b)."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/transpose-image",
+        "KTheoryLowDegrees:U.4/reflected-left-block",
+        "KTheoryLowDegrees:U.4/reflected-right-block",
+        "KTheoryLowDegrees:U.4/ge-subgroup",
+        "KTheoryLowDegrees:U.4/extended-value",
+        "KTheoryLowDegrees:U.4/extension-conditions"
+      ],
+      "acceptance": [
+        "Supply actual range membership and reverse the order of the two corner values. Neither C commutative nor f multiplicative is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "extendedValue_reflected"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Value calculation preceding Lemma 9.5, printed p.114",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/stabilizer-reflected",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "The stabilizer is stable under reflected transpose",
+      "statement": "Under the next-rank hypotheses, τ∈N(extendedValue) implies τ♯∈N(extendedValue).",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "For next-rank evaluation only: n≥1, HasStableRange A (n+1), uniform relative GL transitivity in rank n+1 over every ideal, and ExtensionConditions(κ). The function is the inherited extendedValue, not an assumed homomorphism."
+      ],
+      "proofSteps": [
+        "Anti-involution gives (τ♯g(τ♯)⁻¹)♯=τ⁻¹g♯τ. The inverse τ⁻¹ also belongs to N.",
+        "Use image-valued reflection on the conjugated matrix and on g, apply invariance under τ⁻¹ to g♯, and use involutivity of transposeImage to remove the two image anti-operations. The result is f(τ♯g(τ♯)⁻¹)=f(g)."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/conjugation-stabilizer",
+        "KTheoryLowDegrees:U.4/reflected-transpose",
+        "KTheoryLowDegrees:U.4/extended-value-reflected",
+        "KTheoryLowDegrees:U.4/transpose-image"
+      ],
+      "acceptance": [
+        "Use τ⁻¹ after reflection, and remove image transpose by its involution. No target-wide anti-operation is required."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "stabilizer_reflected"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Lemma 9.5, printed p.114",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.4/ge-stabilizer-swap-reduction",
+      "parentStageId": "KTheoryLowDegrees:U.4",
+      "realises": [
+        "KTheoryLowDegrees:U.4"
+      ],
+      "kind": "lemma",
+      "title": "The last swap reduces GE invariance to one matrix",
+      "statement": "Under the next-rank hypotheses, let P swap the last two coordinates n and n+1. If P belongs to N(extendedValue), then GE_{n+2}(A) is contained in N. The membership of P is an explicit unresolved §10 hypothesis.",
+      "hypotheses": [
+        "A is a commutative unital ring, I an ideal and C an arbitrary group. The zero ideal and zero ring are allowed.",
+        "For next-rank evaluation only: n≥1, HasStableRange A (n+1), uniform relative GL transitivity in rank n+1 over every ideal, and ExtensionConditions(κ). The function is the inherited extendedValue, not an assumed homomorphism."
+      ],
+      "proofSteps": [
+        "Upper-block invariance supplies all diagonal units and all roots e_ij(t) except those in the last row or first column.",
+        "Conjugate e_n,n+1(t) by P to obtain e_n+1,n(t). Commutators with e_n,j(1) give all last-row roots with j≠0,n+1, using rank n+2≥3.",
+        "Reflected transpose sends those roots to e_j,0(t) for interior j. The remaining e_n+1,0(t) is the commutator of e_n+1,n(t) with e_n,0(1). Native root and diagonal generation gives GE⊆N.",
+        "The source Lemma 9.6 is pure subgroup generation. Here its subgroup is the already specified N, with reflected stability supplied separately; the theorem deliberately retains the remaining swap premise."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.4/upper-block-stabilizer",
+        "KTheoryLowDegrees:U.4/stabilizer-reflected",
+        "KTheoryLowDegrees:U.4/ge-subgroup",
+        "KTheoryLowDegrees:U.1/elementary-commutator-chain",
+        "KTheoryLowDegrees:U.1/elementary-subgroup"
+      ],
+      "acceptance": [
+        "Do not discharge the P premise by generation: §10 supplies separate higher-rank and Dedekind rank-two calculations. Endpoint reflection φ and last swap P are different matrices."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/Congruence/MennickeExtension",
+        "namespace": "TauCeti.MennickeExtension",
+        "declaration": "GE_le_stabilizer_of_swap"
+      },
+      "sources": [
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Lemma 9.6 and opening of §10, printed pp.114–115",
+          "match": "Published scan read on 2026-10-05; statements distinguish actual functions, subgroup membership and the conditional last-swap reduction. Source coordinates 1,…,m+1 are translated to 0,…,n+1 with m=n+1."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "coverage": [
@@ -22113,12 +23128,12 @@
     {
       "stageId": "KTheoryLowDegrees:U.4",
       "status": "partial",
-      "note": "S is a finite set of finite places and O_{F,S} = Set.integer S F, as in ArithmeticKTheory N.1 and K2SymbolsBrauer T.5; the rank is r₁ + r₂ + |S| − 1. Targets: SK₁(O_{F,S}) = 0 (U.4/bass-milnor-serre), decomposed as BMS do — stable range of Dedekind domains (U.4/dedekind-stable-range-two, with U.3's stable-range definition and surjective stability), Mennicke symbols and the universal Mennicke group (U.4/mennicke-symbol, universal-mennicke-group, Lemmas 2.1–2.9, the SK₁ symbol of Mennicke's theorem and its surjectivity), and the arithmetic of BMS §3 and the appendix ((A.7), (A.8), (A.10), (A.11), Theorems 3.2, 3.5, 3.6); class-field-theory inputs are requested from Tau Ceti ClassFieldTheory, Chebotarev and GlobalNumberFields with their stated forms; K₁(O_{F,S}) ≅ O_{F,S}^× canonically (K1-S-integers-determinant); Dirichlet's S-unit theorem and fundamental S-units (s-unit-theorem, fundamental-s-units, K1-S-integers-structure); the unit inclusion into K₁(F) and the residue-field and local-ring specialisations. The non-example 'an arbitrary Dedekind-domain SK₁ vanishing theorem is not an acceptable substitute' is U.3/SK1-real-circle-nonzero (K-book III.1.5.4), cited rather than duplicated. The newly routed CG source adds the full congruence-subgroup theorem, so BMS Theorem 4.1(c), the finite-level C_I calculation and Theorem 14.1 now are U.4 targets. Five elementary-containment lemmas supply its algebraic first step; the relative universality, finite arithmetic defect, completion/kernel argument, Serre SL₂ and localized-H¹ interfaces remain explicit target gaps. The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction. Twenty-three further nodes now decompose Kubota Theorem 6.1 and its genuine relative rank-two reduction inputs. The finite-rank extension and arithmetic defect remain open; neither is replaced by the absolute SK₁ theorem. The relative standard-form continuation supplies §8 through Lemma 8.12. The added construction stops at a choice-independent function; the §9–§10 homomorphism proof, finite-level relative universality and arithmetic congruence defect are still explicit remaining targets.",
+      "note": "S is a finite set of finite places and O_{F,S} = Set.integer S F, as in ArithmeticKTheory N.1 and K2SymbolsBrauer T.5; the rank is r₁ + r₂ + |S| − 1. Targets: SK₁(O_{F,S}) = 0 (U.4/bass-milnor-serre), decomposed as BMS do — stable range of Dedekind domains (U.4/dedekind-stable-range-two, with U.3's stable-range definition and surjective stability), Mennicke symbols and the universal Mennicke group (U.4/mennicke-symbol, universal-mennicke-group, Lemmas 2.1–2.9, the SK₁ symbol of Mennicke's theorem and its surjectivity), and the arithmetic of BMS §3 and the appendix ((A.7), (A.8), (A.10), (A.11), Theorems 3.2, 3.5, 3.6); class-field-theory inputs are requested from Tau Ceti ClassFieldTheory, Chebotarev and GlobalNumberFields with their stated forms; K₁(O_{F,S}) ≅ O_{F,S}^× canonically (K1-S-integers-determinant); Dirichlet's S-unit theorem and fundamental S-units (s-unit-theorem, fundamental-s-units, K1-S-integers-structure); the unit inclusion into K₁(F) and the residue-field and local-ring specialisations. The non-example 'an arbitrary Dedekind-domain SK₁ vanishing theorem is not an acceptable substitute' is U.3/SK1-real-circle-nonzero (K-book III.1.5.4), cited rather than duplicated. The newly routed CG source adds the full congruence-subgroup theorem, so BMS Theorem 4.1(c), the finite-level C_I calculation and Theorem 14.1 now are U.4 targets. Five elementary-containment lemmas supply its algebraic first step; the relative universality, finite arithmetic defect, completion/kernel argument, Serre SL₂ and localized-H¹ interfaces remain explicit target gaps. The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction. Twenty-three further nodes now decompose Kubota Theorem 6.1 and its genuine relative rank-two reduction inputs. The finite-rank extension and arithmetic defect remain open; neither is replaced by the absolute SK₁ theorem. The relative standard-form continuation supplies §8 through Lemma 8.12. Nineteen further declarations decompose §9 through Lemma 9.6, including H and N, the concrete generator calculations, image-only transpose and the reflected generation argument. The next-rank value remains a function until the §10 last-swap premise is proved. The bounded pass stops at 300 nodes; it does not close this stage.",
       "remaining": [
         "Import the tame formula (A.16), the degree-m product formula (A.19) and the reciprocity law (A.21) once the CA.1 → K2SymbolsBrauer:T.7 cycle is removed (gap; restructure).",
         "Source and plan BMS (A.17)–(A.18) (Serre, Corps locaux XIV) for the totally imaginary case (gap).",
         "Receive the requested Tau Ceti inputs: ClassFieldTheory Layers 5, 12, 13; Chebotarev Layers 4, 10; GlobalNumberFields Layers 6, 7.",
-        "Full relative Mennicke universality and the finite arithmetic congruence defect: The finite-level arithmetic congruence-defect theorem supplying Theorem 14.1.",
+        "Prove BMS §10 last-swap invariance in its two distinct cases (higher-rank Proposition 8.6 and Dedekind rank-two Proposition 8.5), bundle and iterate the actual extension, then decompose §11 Theorem 4.1(c), Corollary 4.3 r(I), transition maps and compatible roots-of-unity normalization for the finite arithmetic congruence defect.",
         "The arithmetic and congruence completions and the central kernel: BMS Theorem 14.1, finite central congruence kernel for n≥3.",
         "Serre’s SL₂ congruence-kernel theorem at infinite unit rank: The SL₂ CM-quartic case invoked by CG Remark 9.3.",
         "The congruence-kernel-to-localized-H¹ interface for Calegari–Geraghty: The consumer interface after the U.4 arithmetic congruence theorem."
@@ -22175,7 +23190,7 @@
     },
     {
       "title": "Full relative Mennicke universality and the finite arithmetic congruence defect",
-      "detail": "For A=O_{F,S}, n≥3 and I≠0, the CG route needs BMS Theorem 4.1(c), then Corollary 4.3 and Theorem 14.1. This continuation supplies the relative stable-range prerequisites and BMS §8 through Lemma 8.12, including the asymmetric relation and its zero-divisor correction, the uniform ideal transitivity requirement, choice-independent next-rank value, extension uniqueness and the two-sided covariance. The next-rank value is still only a function. Resume at §9 Lemma 9.1 (multiplier subgroup H and conjugation stabilizer N), Lemmas 9.4–9.6, then §10: the higher-rank swap calculation and the separate Dedekind rank-two swap argument. Their combination is required for Propositions 8.5–8.6. Then plan §11 finite-rank relative universality, the arithmetic r(I) calculation and transition maps, with compatible roots-of-unity normalization. No stable SK₁=0 or abstract universal Mennicke group substitutes for these finite-level assertions.",
+      "detail": "For A=O_{F,S}, rank≥3 and I≠0, the CG route needs BMS Theorem 4.1(c), Corollary 4.3 and Theorem 14.1. The plan now supplies §§7–9 through Lemma 9.6: next-rank standard-form evaluation, multiplier and conjugation subgroups, diagonal/interior/root invariance, reflected transpose on matrices and im(κ), and GE generation conditional on the final swap. Resume at §10, printed p.115: Lemma 10.2 and the higher-rank swap calculation under Proposition 8.6’s stronger corner stable-range hypotheses; separately the Dedekind rank-two calculation under Proposition 8.5, with its nonzero/pair-choice and Mennicke-symbol argument. Then bundle the actual multiplicative extension, prove its remaining kernel conditions and iterate it. Decompose §11 finite-rank relative universality and the arithmetic r(I) calculation/transition maps with compatible roots-of-unity normalization. No stable SK₁=0 or abstract universal Mennicke group substitutes for these finite-level assertions. This is an open-stage follow-up after the 300-node bounded pass, not a checkpoint pretending the entire stage closed.",
       "neededBy": [],
       "stageIds": [
         "KTheoryLowDegrees:U.4"
@@ -22518,125 +23533,160 @@
         "the K-book, which cites the theorem without proof"
       ],
       "id": "KTheoryLowDegrees/E110"
+    },
+    {
+      "id": "KTheoryLowDegrees/E111",
+      "source": "BMS.1967",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 9.4, generator sentence, printed p.113 (PDF p.56)",
+      "printed": "t∈q",
+      "correction": "t∈A",
+      "reason": "The stated upper-block subgroup has arbitrary ring entries in its off-diagonal stars. At I=0 all the printed level-I roots are identities, so together with diagonals and diag(1,v,1) they cannot generate e₀₁(1) over ℤ. The very next calculation in the published proof explicitly takes t∈A; its correction has coefficient −st∈I because s∈I. The last-root calculation has the same unrestricted parameter. Correcting the generator sentence makes the proof and the statement agree.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published scan p.113 inspected as an image, confirming the printed ideal restriction and the subsequent arbitrary-ring parameter.",
+        "Serre, published 1974 erratum, On a functorial property of power residue symbols, pp.241–244, read in full: concerns Appendix A.23, not Lemma 9.4.",
+        "Primary publication records and web search for Bass–Milnor–Serre Lemma 9.4 errata on 2026-10-05 found no correction of this sentence."
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees/E112",
+      "source": "BMS.1967",
+      "kind": "error",
+      "locator": "Appendix (A.23)(b) and its proof, published 1967 scan, printed pp.90–91; corrected in Serre’s published 1974 erratum, pp.241–244",
+      "printed": "e=(1+m/2+m₁/2)dm/m₁",
+      "correction": "Remove this numerical formula. Define the exponent in ℤ/mℤ by the homomorphism φ from (A.23)(a), namely φ(z^(m₁/m))=N_{k₁/k}(z) for every z∈μ(k₁). Its value is not determined by d,m,m₁ alone. The functorial power-residue formula (A.23)(c) remains true with this norm-defined φ, using the corrected transfer proof in the 1974 erratum.",
+      "reason": "Serre’s Theorem 1 gives k₁=ℚ(ζ₈) and k=ℚ(√2) or ℚ(√−2). In both cases d=2,m=2,m₁=8, so dm/m₁=1/2 has denominator divisible by m. The actual exponent is 0 in the first case and 1 in the second. The claimed prime-by-prime root-of-unity dévissage on p.91 is invalid. No current node cites (A.23)(b), so this known correction changes no planned declaration.",
+      "affects": "a stated result",
+      "known": "Jean-Pierre Serre, On a functorial property of power residue symbols, Publications Mathématiques de l’IHÉS 44 (1974), 241–244, Theorem 1 and §§2–3; https://www.numdam.org/item/10.1007/BF02685884.pdf",
+      "searched": [
+        "The complete published 1974 erratum, compared with the original published 1967 scan pp.90–91 (both pages inspected as images).",
+        "Current node inventory screened for (A.23) and its false exponent formula; no node uses it."
+      ]
     }
   ],
   "continuationAudit": {
-    "session": "codex-GtWWzl",
+    "agent": "Codex",
+    "session": "codex-KB3j6C",
     "date": "2026-10-05",
-    "issue": 764,
-    "scope": "BMS §7 relative stable-range inputs and §8 through Lemma 8.12. No §9–§10 homomorphism theorem or finite arithmetic defect is claimed.",
-    "inheritedNodes": 251,
-    "newNodeIds": [
-      "KTheoryLowDegrees:U.4/relative-unimodular-column",
-      "KTheoryLowDegrees:U.4/relative-shortening",
-      "KTheoryLowDegrees:U.4/relative-elementary-transitive",
-      "KTheoryLowDegrees:U.4/relative-gl-reduction",
-      "KTheoryLowDegrees:U.4/relative-rank-one-conjugate",
-      "KTheoryLowDegrees:U.4/relative-elementary-normal",
-      "KTheoryLowDegrees:U.5/relative-elementary-commutator",
-      "KTheoryLowDegrees:U.4/relative-ge-commutator",
-      "KTheoryLowDegrees:U.4/dedekind-relative-gl-transitive",
-      "KTheoryLowDegrees:U.4/asymmetric-related-matrices",
-      "KTheoryLowDegrees:U.4/related-product",
-      "KTheoryLowDegrees:U.4/related-stabilized-commutator",
-      "KTheoryLowDegrees:U.4/relative-left-block",
-      "KTheoryLowDegrees:U.4/relative-right-block",
-      "KTheoryLowDegrees:U.4/relative-standard-form",
-      "KTheoryLowDegrees:U.4/relative-standard-form-exists",
-      "KTheoryLowDegrees:U.4/related-relative-elementary",
-      "KTheoryLowDegrees:U.4/extension-conditions",
-      "KTheoryLowDegrees:U.4/kubota-extension-conditions",
-      "KTheoryLowDegrees:U.4/extension-unique",
-      "KTheoryLowDegrees:U.4/extension-transpose-kernel",
-      "KTheoryLowDegrees:U.4/extension-related-invariance",
-      "KTheoryLowDegrees:U.4/standard-form-value",
-      "KTheoryLowDegrees:U.4/standard-form-value-independent",
-      "KTheoryLowDegrees:U.4/extended-value",
-      "KTheoryLowDegrees:U.4/extended-value-type-l",
-      "KTheoryLowDegrees:U.4/extended-value-type-r",
-      "KTheoryLowDegrees:U.4/extended-value-two-sided",
-      "KTheoryLowDegrees:U.4/kubota-relative-kernel",
-      "KTheoryLowDegrees:U.4/kubota-commutator-kernel"
+    "status": "complete",
+    "boundary": "Bounded pass reaches 300 nodes. New decomposition covers BMS §9 through Lemma 9.6; §10 last-swap membership remains an explicit premise and open-stage follow-up.",
+    "newNodes": [
+      "KTheoryLowDegrees:U.4/multiplier-subgroup",
+      "KTheoryLowDegrees:U.4/conjugation-stabilizer",
+      "KTheoryLowDegrees:U.4/ge-subgroup",
+      "KTheoryLowDegrees:U.4/stabilizer-normalizes-multiplier",
+      "KTheoryLowDegrees:U.4/type-l-normalized-generation",
+      "KTheoryLowDegrees:U.4/type-l-multiplier",
+      "KTheoryLowDegrees:U.4/conditional-ge-multiplicativity",
+      "KTheoryLowDegrees:U.4/diagonal-stabilizer",
+      "KTheoryLowDegrees:U.4/interior-stabilizer",
+      "KTheoryLowDegrees:U.4/first-root-stabilizer",
+      "KTheoryLowDegrees:U.4/last-root-stabilizer",
+      "KTheoryLowDegrees:U.4/upper-block-stabilizer",
+      "KTheoryLowDegrees:U.4/transpose-image",
+      "KTheoryLowDegrees:U.4/reflected-transpose",
+      "KTheoryLowDegrees:U.4/reflected-left-block",
+      "KTheoryLowDegrees:U.4/reflected-right-block",
+      "KTheoryLowDegrees:U.4/extended-value-reflected",
+      "KTheoryLowDegrees:U.4/stabilizer-reflected",
+      "KTheoryLowDegrees:U.4/ge-stabilizer-swap-reduction"
     ],
     "sourceReads": [
-      "BMS published numdam scan, printed pp.105–112, especially pp.107 and 111 inspected as images; §§9–10 pp.112–119 read to identify the uncompleted boundary.",
-      "Bass published numdam scan, Theorem 4.2(a)–(d) and proof, printed pp.14–17."
+      "BMS published scan §§8–10, printed pp.107–119, with pp.113–114 read as images.",
+      "Serre published 1974 erratum, full printed pp.241–244, for E111 known-erratum screen.",
+      "Original BMS published scan pp.90–91 inspected as images against the known 1974 Appendix A.23 correction; E112 records it and no current node uses the false exponent formula."
     ],
     "baselineReads": [
       {
-        "ref": "mathlib:Matrix.GeneralLinearGroup.mk''",
-        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "ref": "mathlib:finRotate",
+        "module": "Mathlib/Logic/Equiv/Fin/Rotate.lean",
         "lines": [
-          140,
-          146
+          24,
+          48
         ],
         "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-        "blob": "144bfedfb2910bac26eb05c87c72cda6f782c6f0"
+        "blob": "4677a3c73bf7773a98c60848b4d1389a653581ea"
       },
       {
-        "ref": "mathlib:Matrix.transpose_mul",
-        "module": "Mathlib/Data/Matrix/Mul.lean",
+        "ref": "mathlib:Matrix.transpose_permMatrix",
+        "module": "Mathlib/LinearAlgebra/Matrix/Permutation.lean",
         "lines": [
-          1160,
-          1169
+          40,
+          54
         ],
         "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-        "blob": "c9d0bd3135adf22b022674e128af3dd9cd0efde5"
+        "blob": "dce2ae521d3421b1c35bb320bdb9b688a704dd30"
       },
       {
-        "ref": "mathlib:Matrix.det_transpose",
-        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "ref": "mathlib:Subgroup.normalizer",
+        "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
         "lines": [
-          200,
-          207
+          658,
+          682
         ],
         "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-        "blob": "66f8b885e8ce08fecc06336d6a26d5eff6c15aa6"
+        "blob": "25b204a70eaa95f84c361f95c836d9bf9ac92eb0"
       },
       {
-        "ref": "mathlib:Matrix.vecMulVec",
-        "module": "Mathlib/Data/Matrix/Mul.lean",
+        "ref": "mathlib:MulAction.stabilizer",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "lines": [
-          612,
-          621
+          507,
+          527
         ],
         "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-        "blob": "c9d0bd3135adf22b022674e128af3dd9cd0efde5"
+        "blob": "b1c79cba91c012c4012dcde928bbc63bae4b859f"
       }
     ],
-    "negativeSearch": "No Mennicke/Kubota or relative stable-range hit in pinned Tau Ceti source (git grep at f790474) or pinned Mathlib LinearAlgebra/GroupTheory source. The reviewed AUDIT-29 supplies the wider absence screen.",
+    "negativeSearch": "Pinned relevant Mathlib and Tau Ceti sources plus reviewed AUDIT-29: no Mennicke next-rank multiplier/stabilizer argument. Native action stabilizer, subgroup normalizer, cyclic permutation and matrix transpose are reused as adapters, never replanned as generic infrastructure.",
     "validation": {
-      "packetChecker": "Indexed checker: zero errors and warnings; packet remains partial.",
-      "preservation": "All 251 inherited node objects and 471 inherited baseline records unchanged; requests, restructuring, source findings, routed-source inventory and planets preserved.",
-      "nameAndContractParity": "All new node/API/test names and statement/proof steps agree between packet and reader; all 30 node declarations and 34 API names resolve in the Lean fragment.",
-      "dependencyGraph": "Acyclic internal prerequisite graph.",
+      "packetChecker": "Indexed checker: zero errors and warnings. Packet complete at the prescribed 300-node bound; four stages source_decomposed and four partial, none closed.",
+      "fragment": "Exact inherited carriers, Kubota and standard-form sections plus the exact new normalizer section elaborate at pinned Mathlib with autoImplicit disabled. All 19 node declarations, 15 API names and 15 new typed examples elaborate, with only proof-placeholder warnings. Fully qualified checks retain ExtensionConditions and the unresolved last-swap premise. This is signature validation, not proof checking or full-file compilation.",
+      "wholeSuggestedFile": "Did not elaborate: the shared build lacks TauCeti.CategoryTheory.Exact.Functor.olean, so import loading fails before declarations. No library build was attempted.",
+      "preservation": "All 281 inherited nodes and 475 inherited baseline records remain equal as JSON objects. Eight supplier requests, restructuring, routed-source inventory, resolved requests and 44 planets unchanged. Ten inherited source findings unchanged; E111 and the known published correction E112 added.",
       "counts": {
-        "inheritedNodesUnchanged": 251,
-        "inheritedBaselineRecordsUnchanged": 471,
+        "newNodes": 19,
         "newKinds": {
-          "definition": 5,
-          "lemma": 22,
-          "construction": 3
+          "construction": 4,
+          "definition": 1,
+          "lemma": 14
         },
-        "newAPIs": 34,
-        "newTests": 25,
-        "rawAPIs": 487,
-        "rawTests": 272,
-        "typedExamples": 282,
-        "internalEdges": 819,
-        "totalPrerequisites": 1578
+        "newAPIs": 15,
+        "newTests": 15,
+        "nodes": 300,
+        "kinds": {
+          "definition": 22,
+          "lemma": 147,
+          "construction": 48,
+          "theorem": 64,
+          "comparison": 9,
+          "application": 10
+        },
+        "rawAPIs": 502,
+        "rawTests": 287,
+        "typedExamples": 297,
+        "planets": 44,
+        "baselineRecords": 479,
+        "internalEdges": 883,
+        "totalPrerequisites": 1656
       },
+      "memoryAndProcess": "94–96 GB available before sequential lean-check calls; no build, cache download, language server or repository copy; no compilation left running.",
       "arithmeticChecks": {
-        "relatedProductChecks": 22032,
-        "zeroDivisorProductChecks": 6948,
-        "relatedDeterminantChecks": 71575,
-        "rankOneCommutatorChecks": 1863,
-        "asymmetryAndNonuniquenessChecks": 2
+        "firstRootCorrections": 3272,
+        "lastRootCorrections": 3272,
+        "middleReflection": 3272,
+        "leftReflection": 2880,
+        "rightReflection": 2880,
+        "reflectionInvolution": 2880,
+        "reflectionProductReversal": 2880,
+        "squareMultiplierElements": 1,
+        "rank3F2GeneratedMatrices": 168
       },
-      "wholeSuggestedFile": "Did not elaborate: import loading fails because the shared pinned build lacks the TauCeti.CategoryTheory.Exact.Functor object file.",
-      "fragment": "Exact inherited carriers plus Kubota and standard-form sections elaborate with autoImplicit disabled and only proof-placeholder warnings. Includes 25 new typed examples and fully qualified declaration/API checks; evaluation lemmas retain ExtensionConditions. This is signature checking, not proof checking.",
-      "baselineSourceBytes": "Each added declaration source was compared byte-for-byte with its pinned Mathlib Git blob.",
-      "memoryAndProcess": "More than 90 GB available before each compilation; checks sequential via lean-check; no build or language server."
+      "nameAndContractParity": "Every new statement, proof step, API and test name/statement occurs in the reader; all new named node/API declarations resolve in the exact elaborated section.",
+      "dependencyGraph": "Acyclic internal prerequisite graph; 883 internal edges, 1656 total prerequisites.",
+      "baselineSourceBytes": "All four new native source files match their pinned Mathlib Git blobs byte-for-byte."
     }
   },
   "previousContinuationAudits": [
@@ -24032,6 +25082,125 @@
         }
       },
       "publicationBase": "191364dff75f3ee36bd2ee867ae3843c8148e8e6"
+    },
+    {
+      "session": "codex-GtWWzl",
+      "date": "2026-10-05",
+      "issue": 764,
+      "scope": "BMS §7 relative stable-range inputs and §8 through Lemma 8.12. No §9–§10 homomorphism theorem or finite arithmetic defect is claimed.",
+      "inheritedNodes": 251,
+      "newNodeIds": [
+        "KTheoryLowDegrees:U.4/relative-unimodular-column",
+        "KTheoryLowDegrees:U.4/relative-shortening",
+        "KTheoryLowDegrees:U.4/relative-elementary-transitive",
+        "KTheoryLowDegrees:U.4/relative-gl-reduction",
+        "KTheoryLowDegrees:U.4/relative-rank-one-conjugate",
+        "KTheoryLowDegrees:U.4/relative-elementary-normal",
+        "KTheoryLowDegrees:U.5/relative-elementary-commutator",
+        "KTheoryLowDegrees:U.4/relative-ge-commutator",
+        "KTheoryLowDegrees:U.4/dedekind-relative-gl-transitive",
+        "KTheoryLowDegrees:U.4/asymmetric-related-matrices",
+        "KTheoryLowDegrees:U.4/related-product",
+        "KTheoryLowDegrees:U.4/related-stabilized-commutator",
+        "KTheoryLowDegrees:U.4/relative-left-block",
+        "KTheoryLowDegrees:U.4/relative-right-block",
+        "KTheoryLowDegrees:U.4/relative-standard-form",
+        "KTheoryLowDegrees:U.4/relative-standard-form-exists",
+        "KTheoryLowDegrees:U.4/related-relative-elementary",
+        "KTheoryLowDegrees:U.4/extension-conditions",
+        "KTheoryLowDegrees:U.4/kubota-extension-conditions",
+        "KTheoryLowDegrees:U.4/extension-unique",
+        "KTheoryLowDegrees:U.4/extension-transpose-kernel",
+        "KTheoryLowDegrees:U.4/extension-related-invariance",
+        "KTheoryLowDegrees:U.4/standard-form-value",
+        "KTheoryLowDegrees:U.4/standard-form-value-independent",
+        "KTheoryLowDegrees:U.4/extended-value",
+        "KTheoryLowDegrees:U.4/extended-value-type-l",
+        "KTheoryLowDegrees:U.4/extended-value-type-r",
+        "KTheoryLowDegrees:U.4/extended-value-two-sided",
+        "KTheoryLowDegrees:U.4/kubota-relative-kernel",
+        "KTheoryLowDegrees:U.4/kubota-commutator-kernel"
+      ],
+      "sourceReads": [
+        "BMS published numdam scan, printed pp.105–112, especially pp.107 and 111 inspected as images; §§9–10 pp.112–119 read to identify the uncompleted boundary.",
+        "Bass published numdam scan, Theorem 4.2(a)–(d) and proof, printed pp.14–17."
+      ],
+      "baselineReads": [
+        {
+          "ref": "mathlib:Matrix.GeneralLinearGroup.mk''",
+          "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+          "lines": [
+            140,
+            146
+          ],
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "blob": "144bfedfb2910bac26eb05c87c72cda6f782c6f0"
+        },
+        {
+          "ref": "mathlib:Matrix.transpose_mul",
+          "module": "Mathlib/Data/Matrix/Mul.lean",
+          "lines": [
+            1160,
+            1169
+          ],
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "blob": "c9d0bd3135adf22b022674e128af3dd9cd0efde5"
+        },
+        {
+          "ref": "mathlib:Matrix.det_transpose",
+          "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+          "lines": [
+            200,
+            207
+          ],
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "blob": "66f8b885e8ce08fecc06336d6a26d5eff6c15aa6"
+        },
+        {
+          "ref": "mathlib:Matrix.vecMulVec",
+          "module": "Mathlib/Data/Matrix/Mul.lean",
+          "lines": [
+            612,
+            621
+          ],
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "blob": "c9d0bd3135adf22b022674e128af3dd9cd0efde5"
+        }
+      ],
+      "negativeSearch": "No Mennicke/Kubota or relative stable-range hit in pinned Tau Ceti source (git grep at f790474) or pinned Mathlib LinearAlgebra/GroupTheory source. The reviewed AUDIT-29 supplies the wider absence screen.",
+      "validation": {
+        "packetChecker": "Indexed checker: zero errors and warnings; packet remains partial.",
+        "preservation": "All 251 inherited node objects and 471 inherited baseline records unchanged; requests, restructuring, source findings, routed-source inventory and planets preserved.",
+        "nameAndContractParity": "All new node/API/test names and statement/proof steps agree between packet and reader; all 30 node declarations and 34 API names resolve in the Lean fragment.",
+        "dependencyGraph": "Acyclic internal prerequisite graph.",
+        "counts": {
+          "inheritedNodesUnchanged": 251,
+          "inheritedBaselineRecordsUnchanged": 471,
+          "newKinds": {
+            "definition": 5,
+            "lemma": 22,
+            "construction": 3
+          },
+          "newAPIs": 34,
+          "newTests": 25,
+          "rawAPIs": 487,
+          "rawTests": 272,
+          "typedExamples": 282,
+          "internalEdges": 819,
+          "totalPrerequisites": 1578
+        },
+        "arithmeticChecks": {
+          "relatedProductChecks": 22032,
+          "zeroDivisorProductChecks": 6948,
+          "relatedDeterminantChecks": 71575,
+          "rankOneCommutatorChecks": 1863,
+          "asymmetryAndNonuniquenessChecks": 2
+        },
+        "wholeSuggestedFile": "Did not elaborate: import loading fails because the shared pinned build lacks the TauCeti.CategoryTheory.Exact.Functor object file.",
+        "fragment": "Exact inherited carriers plus Kubota and standard-form sections elaborate with autoImplicit disabled and only proof-placeholder warnings. Includes 25 new typed examples and fully qualified declaration/API checks; evaluation lemmas retain ExtensionConditions. This is signature checking, not proof checking.",
+        "baselineSourceBytes": "Each added declaration source was compared byte-for-byte with its pinned Mathlib Git blob.",
+        "memoryAndProcess": "More than 90 GB available before each compilation; checks sequential via lean-check; no build or language server."
+      }
     }
   ],
   "resolvedRequests": [
