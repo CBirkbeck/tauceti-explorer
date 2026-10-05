@@ -1,8 +1,8 @@
 {
-  "roadmaps": 224,
-  "stages": 3140,
-  "originalStages": 2049,
-  "sourceRefinements": 1091,
+  "roadmaps": 226,
+  "stages": 3223,
+  "originalStages": 2067,
+  "sourceRefinements": 1156,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -327,7 +327,7 @@
       "deferredLinks": 0
     }
   ],
-  "terminalTargets": 1977,
+  "terminalTargets": 1995,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -336,7 +336,7 @@
   "estimatedRoadmaps": 0,
   "distanceBases": {
     "judged": 203,
-    "measured": 4,
+    "measured": 6,
     "built": 7,
     "children": 1
   },
@@ -344,18 +344,18 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 27,
   "additionalRegions": 0,
-  "mathematicalSummaries": 224,
+  "mathematicalSummaries": 226,
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3039,
+  "mathematicalStars": 3122,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 35,
   "bibliographicSources": 46,
-  "roadmapEdges": 1793,
-  "stageEdges": 8895,
+  "roadmapEdges": 1802,
+  "stageEdges": 9042,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -411,6 +411,12 @@
       "roadmap": "ClassicalSerreModularity",
       "nodes": 8,
       "reviewer": "independent-review-REV-FIX-RT-BP-ClassicalSerreModularity--R33.5"
+    },
+    {
+      "file": "ConformalMappingPartII",
+      "roadmap": "ConformalMappingPartII",
+      "nodes": 98,
+      "reviewer": "independent-review-REV-DESIGN-ConformalMappingPartII"
     },
     {
       "file": "DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -497,6 +503,12 @@
       "reviewer": "independent-review-REV-DESIGN-InductionRestrictionPartII"
     },
     {
+      "file": "JacobianChallengePartII",
+      "roadmap": "JacobianChallengePartII",
+      "nodes": 48,
+      "reviewer": "independent-review-REV-DESIGN-JacobianChallengePartII"
+    },
+    {
       "file": "K2SymbolsBrauer--T.3",
       "roadmap": "K2SymbolsBrauer",
       "nodes": 58,
@@ -528,8 +540,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 31055671,
-  "htmlSha256": "9b5dfb60d2c08578a534cdbbec4824045e81889f7ce6f1e2f42f179521b61a43",
+  "htmlBytes": 31273188,
+  "htmlSha256": "3e8021bd1662c96de9efb5a59fbfb0f57e5a1a9a2fcb1282de002a638475d3e7",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -560,8 +572,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "476e36d1edc08b5aa4317d5a5b123286c7cc82e2ab43697b90e7c3fa0cd48b77",
-    "data/galaxy-layout.json": "a4cd38a0706b41da1057d34666072311a2912073eaeb5975806c3f35ab72e59a",
+    "data/roadmap-distances.json": "78f2c1d4d47bb356f8cc23b57e591376d4c2ca0a359296ff22acb7eee4087607",
+    "data/galaxy-layout.json": "6d616ade6f623d8f9d1637c31e6c11937700818c129c44783548c35ae0093833",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -636,6 +648,8 @@
     "data/blueprints/ClassicalSerreModularity--R27.3.md": "065d11b977a14df5a67d62820bfeb223730332e27f3683fc66045ad5df0f503d",
     "data/blueprints/ClassicalSerreModularity--R33.5.json": "5763d16595d69e1a5f2f4a220c03127950801a2dc45bbf9f01cf741fa517276f",
     "data/blueprints/ClassicalSerreModularity--R33.5.md": "99edb64836667376d2ab5f016e2103f7025733514c844da969a0f8f37f816756",
+    "data/blueprints/ConformalMappingPartII.json": "14d52fe162118fb2d04f31304a43d60f8b882ac4d85332d633d0d258ee1744a3",
+    "data/blueprints/ConformalMappingPartII.md": "83d804e8e91cac36717619b4ff44202e1f35e55e6e9ea63756d4bb0304b7c560",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.json": "7d5095850eca12bc0d5930af24e45a800c675c46a491d99a38bf1eed5f5930be",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md": "5cb32739e0e0e2d6b2a7497f810abcee961f72e8c8cbb434012ef9811e3649c4",
     "data/blueprints/EllipticCurveModularity.json": "5eb2631efd9128f36e333420d4c67e10720b1e462134ada41b5dcc073d62364e",
@@ -664,6 +678,8 @@
     "data/blueprints/HabiroRings.md": "160228b0864d6bc3f4ce34b83994e5cda0e423f1127f1b39d61e4fd735e0560c",
     "data/blueprints/InductionRestrictionPartII.json": "0db4b3e80ab6e85338b576ea40139b9cde93c466049c714d359abb50181af1a2",
     "data/blueprints/InductionRestrictionPartII.md": "62bab3a7d7a78e2b81f254fdb13b351108bd5ad2d51a12a409e8c8ff9eddb7e3",
+    "data/blueprints/JacobianChallengePartII.json": "fe5ba0926b48925f60ff4f689dad88c54a684b257f9318c41d878e0543484b82",
+    "data/blueprints/JacobianChallengePartII.md": "630fa6d551abfef4d0e916d091f7c82fd89e93f3db947ff3747dc84de0bf821c",
     "data/blueprints/K2SymbolsBrauer--T.3.json": "2f6d249a186a84fd2d5e79c950a1f825a7ed89a019bb1b408d62caed1e6f73ec",
     "data/blueprints/K2SymbolsBrauer--T.3.md": "008cc52b3b52ce5e0674e8af693faa037a4932c9096fc8e64a06c947216c1ed9",
     "data/blueprints/K3BlochGroups.json": "ac9ba93202af2d2e5d7dcf6a6db0c8c84550756cad0cede5425905a178aac599",
@@ -675,8 +691,10 @@
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.json": "fb0daca4a0b888dfad1d7bb862a800af846fc2f9553abe9f9cd2e61567e6d3a7",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
     "data/blueprints/roadmaps/AbelianVarietiesIsogenousToNoJacobian.json": "2bf1f5bf267748898edb5c660f847da5daca1f83422fc4f0bb5cdb5b842d0414",
+    "data/blueprints/roadmaps/ConformalMappingPartII.json": "ddd4e3d4097c295f24ab7f018f6427105621a2335e2040955e49fd8f5137088b",
     "data/blueprints/roadmaps/GenericDoublePointInterpolation.json": "bea51793a161eba89a41cd1b9296431a0feec87374a8009e0ee3c9f008f0ddaf",
     "data/blueprints/roadmaps/InductionRestrictionPartII.json": "610f6d9d6d58360ee2e0f342c5a27188ba677510f9f294f621675be04172ed16",
+    "data/blueprints/roadmaps/JacobianChallengePartII.json": "9125c2f7116f65188ada8a2d42c9c4220297bf09ac49d4de1235728506276698",
     "data/blueprints/roadmaps/SemisimpleAlgebrasPartII.json": "deab3aab287fec5e5304f5ca49ea05c149e532c66341477eff5c83ea6ac9d4fc",
     "data/links/tauceti_Completed_EffectiveBounds.json": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805",
     "data/links/tauceti_Completed_OrthogonalL2Bases.json": "34ad7cad18dde976767ba8df3183e3b3ec9586ddb040ecff1654dbdd2bec5a46",

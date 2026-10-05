@@ -10,7 +10,7 @@
  },
  "bases": {
   "judged": 203,
-  "measured": 4,
+  "measured": 6,
   "built": 7,
   "children": 1
  },
@@ -68,7 +68,7 @@
   },
   "splitHalfShiftSpearman": 0.483,
   "splitHalfRoadmaps": 136,
-  "distanceVsClassification": 0.864,
+  "distanceVsClassification": 0.862,
   "distanceVsMissingTargets": 0.96,
   "distanceVsMissingLayers": 0.962,
   "distanceVsDepth": 0.945,
@@ -78,7 +78,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.132
+  "declarationsVsDistance": -0.165
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -460,7 +460,7 @@
    "usedBy": [
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 10
+     "roadmaps": 11
     },
     {
      "galaxy": "langlands",
@@ -1523,6 +1523,34 @@
      "roadmaps": 1
     }
    ]
+  },
+  "ConformalMappingPartII": {
+   "classification": 5,
+   "structure": {
+    "layers": 10,
+    "missingOwn": 10.0,
+    "missingLayers": 12.0,
+    "missingTargets": 51.6,
+    "depth": 7,
+    "suppliers": 1,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 98,
+     "missingDeclarations": 98,
+     "depth": 18,
+     "layersCovered": 10,
+     "layers": 10,
+     "sourcePages": 22
+    }
+   },
+   "measurement": 3.1,
+   "judgements": 0,
+   "distance": 3.1,
+   "low": 1.94,
+   "high": 4.25,
+   "basis": "measured",
+   "usedBy": []
   },
   "CrystallineCohomology": {
    "classification": 8,
@@ -3209,6 +3237,34 @@
    "low": 4.29,
    "high": 5.59,
    "basis": "judged",
+   "usedBy": []
+  },
+  "JacobianChallengePartII": {
+   "classification": 9,
+   "structure": {
+    "layers": 8,
+    "missingOwn": 8.0,
+    "missingLayers": 58.5,
+    "missingTargets": 322.5,
+    "depth": 14,
+    "suppliers": 14,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 48,
+     "missingDeclarations": 48,
+     "depth": 13,
+     "layersCovered": 8,
+     "layers": 8,
+     "sourcePages": 28
+    }
+   },
+   "measurement": 4.63,
+   "judgements": 0,
+   "distance": 4.63,
+   "low": 3.48,
+   "high": 5.79,
+   "basis": "measured",
    "usedBy": []
   },
   "K2SymbolsBrauer": {
@@ -5879,7 +5935,7 @@
    "usedBy": [
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 8
+     "roadmaps": 9
     },
     {
      "galaxy": "etale",
@@ -6682,7 +6738,7 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 3
+     "roadmaps": 4
     },
     {
      "galaxy": "etale",
@@ -6752,6 +6808,10 @@
     {
      "galaxy": "ktheory",
      "roadmaps": 5
+    },
+    {
+     "galaxy": "analysis",
+     "roadmaps": 1
     }
    ]
   },
@@ -6781,7 +6841,7 @@
    "supplies": [
     {
      "galaxy": "arithmeticgeometry",
-     "links": 35,
+     "links": 38,
      "examples": [
       {
        "supplier": "AlgebraicModuliForArithmeticGeometry",
@@ -7286,8 +7346,8 @@
    "upstreamOnly": false
   },
   "analysis": {
-   "distance": 1.27,
-   "roadmaps": 6,
+   "distance": 1.53,
+   "roadmaps": 7,
    "supplies": [
     {
      "galaxy": "automorphic",
@@ -7322,7 +7382,7 @@
    ],
    "frontier": [],
    "frontierRoadmaps": 0,
-   "upstreamOnly": true
+   "upstreamOnly": false
   },
   "analytic": {
    "distance": 3.78,
@@ -7465,8 +7525,8 @@
    "upstreamOnly": false
   },
   "arithmeticgeometry": {
-   "distance": 5.64,
-   "roadmaps": 20,
+   "distance": 5.6,
+   "roadmaps": 21,
    "supplies": [
     {
      "galaxy": "iwasawa",
@@ -10075,6 +10135,16 @@
       {
        "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology",
        "consumer": "AutomorphicSpectralTheory"
+      }
+     ]
+    },
+    {
+     "galaxy": "analysis",
+     "links": 1,
+     "examples": [
+      {
+       "supplier": "tauceti:TauCetiRoadmap/UniversalCovers",
+       "consumer": "ConformalMappingPartII"
       }
      ]
     },
