@@ -30,6 +30,15 @@ This file is not the roadmap and is not exhaustive. The roadmap document is defi
 The statements suggest Lean forms so that contributors and reviewers converge on names
 and signatures. All proposed results are unproved prototypes at the pinned baseline.
 
+Review checkpoint REV-AnabelianGeometryAndNonabelianChabauty, 2026-10-05:
+encoded recovery payloads and their hashes below are historical receipts from the
+incoming file at explorer commit 3f2daf22c9620e59cdac2fc35a6203a4e0c45181.
+They are preserved verbatim, not regenerated or independently executed in this review.
+Any claimed canonical prefix refers to that historical version, not this edited file.
+The full file was not compiled: the available build lacks the Tau Ceti LowDegree
+object file. A projection removing TauCeti imports and section Abelian elaborates
+at the pinned Mathlib with only sorry warnings; it does not check the comparisons.
+
 The component is nonabelian continuous cohomology `H⁰(G, U)`, `H¹(G, U)` of a topological
 group `G` acting continuously by automorphisms on a topological group `U`, following
 Kim, *The motivic fundamental group of P¹ ∖ {0,1,∞} and the theorem of Siegel*, §1.
@@ -55,6 +64,10 @@ variable {G U}
 
 instance : CoeFun (Z1 G U) (fun _ => G → U) := ⟨Subtype.val⟩
 
+theorem mem_iff (f : G → U) :
+    (∃ c : Z1 G U, (c : G → U) = f) ↔
+      Continuous f ∧ ∀ g h, f (g * h) = f g * g • f h := by sorry
+
 @[ext] theorem ext {c c' : Z1 G U} (h : ∀ g, c g = c' g) : c = c' := by sorry
 
 theorem continuous (c : Z1 G U) : Continuous (c : G → U) := c.2.1
@@ -62,7 +75,7 @@ theorem continuous (c : Z1 G U) : Continuous (c : G → U) := c.2.1
 theorem map_mul (c : Z1 G U) (g h : G) : c (g * h) = c g * g • c h := c.2.2 g h
 
 /-- The trivial cocycle, the base point. -/
-instance : One (Z1 G U) := ⟨⟨fun _ => 1, continuous_const, by sorry⟩⟩
+instance instOne : One (Z1 G U) := ⟨⟨fun _ => 1, continuous_const, by sorry⟩⟩
 
 theorem map_one (c : Z1 G U) : c 1 = 1 := by sorry
 
@@ -107,6 +120,18 @@ instance instOne : One (H1 G U) := ⟨mk 1⟩
 
 theorem mk_eq_one_iff (c : Z1 G U) : mk c = 1 ↔ ∃ x : U, ∀ g, c g = x * (g • x)⁻¹ := by sorry
 
+/-- Under trivial coefficient action, the quotient is by ordinary conjugation of homomorphisms. -/
+def equivOfTrivial [IsTopologicalGroup G]
+    (htriv : ∀ (g : G) (x : U), g • x = x) :
+    H1 G U ≃
+      (letI : MulAction U (ContinuousMonoidHom G U) :=
+        { smul := fun x f =>
+            { toMonoidHom := (MulAut.conj x).toMonoidHom.comp f.toMonoidHom
+              continuous_toFun := by sorry }
+          one_smul := by sorry
+          mul_smul := by sorry }
+       MulAction.orbitRel.Quotient U (ContinuousMonoidHom G U)) := sorry
+
 end H1
 end Basic
 
@@ -150,6 +175,14 @@ at the pin). -/
 instance instMulDistribMulActionMultiplicative : MulDistribMulAction G (Multiplicative M) := sorry
 
 instance : ContinuousSMul G (Multiplicative M) := sorry
+
+/-- The identity on functions, with the additive cocycle identity on the target. -/
+def Z1.equivContCohomology :
+    Z1 G (Multiplicative M) ≃ TauCeti.ContCohomology.Z1 G M := sorry
+
+/-- Invariants agree after changing between additive and multiplicative notation. -/
+def H0.equivContCohomology :
+    H0 G (Multiplicative M) ≃* Multiplicative (TauCeti.ContCohomology.H0 G M) := sorry
 
 /-- NC.3/abelian-comparison. -/
 def H1.equivContCohomology : H1 G (Multiplicative M) ≃ TauCeti.ContCohomology.H1 G M := sorry
@@ -451,7 +484,10 @@ def Twist.toOriginal (c : Z1 G U) : Twist c ≃* U := by sorry
 
 /-- The twisted action `g ⋆ u = c(g) · (g • u) · c(g)⁻¹`. -/
 instance (c : Z1 G U) : MulDistribMulAction G (Twist c) := sorry
-instance (c : Z1 G U) : ContinuousSMul G (Twist c) := sorry
+instance Twist.continuousSMul (c : Z1 G U) : ContinuousSMul G (Twist c) := sorry
+
+theorem Twist.self (g : G) (x : U) :
+    g • (show Twist (1 : Z1 G U) from x) = (show Twist (1 : Z1 G U) from g • x) := by sorry
 
 theorem Twist.smul_def (c : Z1 G U) (g : G) (x : Twist c) :
     g • x = (show Twist c from c g * (g • (show U from x)) * (c g)⁻¹) := by sorry
@@ -515,9 +551,33 @@ example [TopologicalSpace (Multiplicative (ZMod 1))]
 example : ∃ c : Equiv.Perm (Fin 3) → Equiv.Perm (Fin 3),
     (∀ g h, c (g * h) = c g * c h) ∧ ¬ ∀ g h, c (g * h) = c h * c g := by sorry
 
--- TauCeti.NonabelianCohomology.tests.h1_S3 and .not_coboundary_quotient: with `G = Multiplicative
---   (ZMod 2)` acting trivially on `Equiv.Perm (Fin 3)` (discrete), `Nat.card (Z1 G U) = 4` and
---   `Nat.card (H1 G U) = 2`; the trivial action needs a `MulDistribMulAction` instance.
+section FiniteCoreTests
+variable [TopologicalSpace (Multiplicative (ZMod 2))]
+  [DiscreteTopology (Multiplicative (ZMod 2))]
+  [TopologicalSpace (Equiv.Perm (Fin 3))] [DiscreteTopology (Equiv.Perm (Fin 3))]
+  [MulDistribMulAction (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))]
+  [ContinuousSMul (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))]
+  (htriv : ∀ (g : Multiplicative (ZMod 2)) (x : Equiv.Perm (Fin 3)), g • x = x)
+
+include htriv
+
+-- TauCeti.NonabelianCohomology.tests.trivial_action_hom
+example : Nat.card (Z1 (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))) = 4 := by
+  sorry
+
+-- TauCeti.NonabelianCohomology.tests.h1_S3
+example : Nat.card (H1 (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))) = 2 := by
+  sorry
+
+-- TauCeti.NonabelianCohomology.tests.not_coboundary_quotient
+example :
+    (∀ c c' : Z1 (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3)),
+      (∃ x : Equiv.Perm (Fin 3), ∀ g, c' g = c g * x * (g • x)⁻¹) ↔ c' = c) ∧
+    Nat.card (Z1 (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))) = 4 ∧
+    Nat.card (H1 (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))) = 2 := by
+  sorry
+
+end FiniteCoreTests
 
 -- Discrete cocycle descent continuation.
 namespace Z1
@@ -964,13 +1024,13 @@ EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H0
 API: H⁰(G, U) = FixedPoints.subgroup G U, the subgroup of G-invariant elements.
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
-OMITTED TauCeti.NonabelianCohomology.Z1.mem_iff
+REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.Z1.mem_iff
 API: c ∈ Z¹ iff c is continuous and satisfies the cocycle identity.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
-OMITTED TauCeti.NonabelianCohomology.Z1.one
+REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.Z1.instOne
 API: The trivial cocycle g ↦ 1, the base point.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
 EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Z1.map_one
 API: c(1) = 1 for every cocycle.
@@ -996,9 +1056,9 @@ EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.tests.trivial_group
 test: If G is the trivial group, Z¹(G, U) = {1}.
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
-OMITTED TauCeti.NonabelianCohomology.tests.trivial_action_hom
+REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.tests.trivial_action_hom
 test: For G = ℤ/2 (discrete) acting trivially on the symmetric group S₃ (discrete), Z¹(G, S₃) has exactly 4 elements: the trivial map and the three maps sending the generator to a transposition.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
 EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.tests.factor_order
 test: For G = U = S₃ with the trivial action, the identity map satisfies c(gh) = c(g)·(g•c(h)) but not c(gh) = (g•c(h))·c(g) (it is a homomorphism, not an anti-homomorphism): the factor order of the cocycle condition matters for nonabelian U.
@@ -1040,21 +1100,21 @@ EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.mk_eq_one_iff
 API: mk c = 1 iff there is u ∈ U with c(g) = u·(g•u)⁻¹ for all g.
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
-OMITTED TauCeti.NonabelianCohomology.H1.equivOfTrivial
+REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.H1.equivOfTrivial
 API: For trivial action, H¹(G, U) ≃ (G →ₜ* U) modulo conjugation by U.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
 OMITTED TauCeti.NonabelianCohomology.tests.h1_trivial_group
 test: If G is the trivial group, H¹(G, U) is a single point.
 Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
 
-OMITTED TauCeti.NonabelianCohomology.tests.h1_S3
+REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.tests.h1_S3
 test: For G = ℤ/2 acting trivially on S₃ (both discrete), H¹(G, S₃) has exactly 2 elements: the base point and the class of the transpositions.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
-OMITTED TauCeti.NonabelianCohomology.tests.not_coboundary_quotient
+REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.tests.not_coboundary_quotient
 test: In the same example, identifying cocycles c, c′ when c′(g) = c(g)·u(g•u)⁻¹ for some u gives 4 classes (the action is trivial, so every such b is trivial), not 2: the correct relation is twisted conjugation.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
 OMITTED TauCeti.NonabelianCohomology.tests.h1_abelian
 test: For G = ℤ/2 acting on U = ℤ/3 (additive, discrete) by negation, H¹ is a single point, agreeing with Tau Ceti's ContCohomology.H1 (the orders are coprime).
@@ -1096,17 +1156,17 @@ OMITTED TauCeti.NonabelianCohomology.instMulDistribMulActionMultiplicative
 API: A DistribMulAction of G on the additive group M induces a MulDistribMulAction of G on Multiplicative M (not an instance in Mathlib at the pin), and continuity of the action transfers.
 Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
 
-OMITTED TauCeti.NonabelianCohomology.Z1.equivContCohomology
+REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.Z1.equivContCohomology
 API: Z¹(G, Multiplicative M) ≃ ContCohomology.Z1 G M, the identity on underlying functions.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
 EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.equivContCohomology_one
 API: The base point goes to 0.
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
-OMITTED TauCeti.NonabelianCohomology.H0.equivContCohomology
+REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.H0.equivContCohomology
 API: H⁰(G, Multiplicative M) corresponds to ContCohomology.H0 G M.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
 EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.exact_H1_of_subgroup
 node: Let A ≤ B be a closed subgroup of a topological group B stable under a continuous action of G by automorphisms, and B/A the coset space with the induced (continuous) G-action. (a) The sequence of pointed sets 1 → A^G → B^G → (B/A)^G →δ H¹(G, A) → H¹(G, B) is exact (at each term the image of the incoming map is the preimage of the base point), where δ(bA) is the class of the continuous cocycle g ↦ b⁻¹·(g•b); moreover δ(x) = δ(y) iff x and y lie in one B^G-orbit of (B/A)^G. (b) If A is normal, B/A is a topological group with continuous G-action, and the sequence continues exactly with → H¹(G, B/A): a class of H¹(G, B) maps to the base point of H¹(G, B/A) iff it comes from H¹(G, A). No continuous section of B → B/A is needed.
@@ -1124,9 +1184,9 @@ EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Twist.smul_def
 API: g ⋆ u = c(g)·(g•u)·c(g)⁻¹.
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
-OMITTED TauCeti.NonabelianCohomology.Twist.continuousSMul
+REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.Twist.continuousSMul
 API: The twisted action is continuous.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
 EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.Z1.twistEquiv
 API: The bijection Z¹(G, ₍c₎U) ≃ Z¹(G, U), c′ ↦ c′·c.
@@ -1140,9 +1200,9 @@ EXISTING PARTIAL PROTOTYPE TauCeti.NonabelianCohomology.H1.twistEquiv_one
 API: twistEquiv sends the base point to the class of c.
 Status: exact-name prototype retained, unproved and uncompiled. It is not a certificate that the full bundled node/API contract or all instance hypotheses are supplied.
 
-OMITTED TauCeti.NonabelianCohomology.Twist.self
+REVIEW CHECKPOINT PROTOTYPE TauCeti.NonabelianCohomology.Twist.self
 API: Twisting by the trivial cocycle is the original action.
-Reason: no exact named declaration/typed example was found in the inherited suggested file. Required NC.3 API needs native action/orbit/torsor/continuous-H² packaging and granular statements; finite-cardinality tests also need explicit discrete trivial-action instances. Keep this omission open, do not infer a signature from a name in a comment.
+Status: exact typed signature supplied by REV-AnabelianGeometryAndNonabelianChabauty; proofs remain sorry. Mathlib-only forms are checked in the projection; abelian comparisons require the unavailable pinned Tau Ceti artifact.
 
 OMITTED TauCeti.NonabelianCohomology.tests.twist_trivial
 test: Twisting by the trivial cocycle gives back U with its action, and twistEquiv is the identity.
