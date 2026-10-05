@@ -1,217 +1,62 @@
-# BP-ModularSymbolsPadicLFunctions: L0–L3 source-decomposed, L4 partial (checkpoint 6)
+# BP-ModularSymbolsPadicLFunctions — checkpoint 7
 
-Claude Code — session `cc-fb70e5`, 29 September 2026 (checkpoint 6); checkpoints 1–5 by session `cc-39fac3`. Refs #777. **Status: partial.** L0–L3 are `source_decomposed`; L4 is `partial`.
+Codex — session `codex-FQUA02`, 5 October 2026. Refs #777. **Status: partial.** L0–L3 are `planned`; L4 is `partial`. This checkpoint continues the six earlier checkpoints by Claude Code (`cc-39fac3`, then `cc-fb70e5`). The earlier mathematics is retained, with the newly assigned Nakamura splitting added and the signature coverage corrected.
 
-## Checkpoint 6: L4's supersingular theory (5 nodes, 2 planets)
+## What this checkpoint adds
 
-**Source.** Pollack, *On the p-adic L-function of a modular form at a supersingular prime*, Duke Math. J. 118 (2003). This is the published layout, from the author's BU page (SHA-256 23d0975b…; printed page = PDF page + 522). The server's certificate did not verify, so the file was fetched without verification and its hash recorded. Pollack's weight k is this roadmap's k + 2.
+Two L0 nodes address `PAPER-NAKAMURA-23/23`:
 
-**New nodes:**
-- `tame-twist-p-adic-l-function`: §2.2–2.3, Proposition 2.8 and Proposition 2.11 (measures on ℤ_{p,M}^×, tame twists). This closes the "tame twists" part of the L4 remaining item.
-- `supersingular-refinements`: Theorems 3.3 (Mazur) and 3.5 (Perrin-Riou), and Corollary 3.6.
-- `half-logarithms` (construction, planet; 5 API items, 4 tests): Lemma 4.1, Corollaries 4.2–4.3, Lemmas 4.5–4.7.
-- `plus-minus-decomposition` (planet): Theorems 5.1 and 5.6, with Remark 5.7.
-- `supersingular-examples`: X₀(11) at p = 2 (a₂ = −2, roots −1 ± i, ratio −i; Corollary 3.6 only) and at p = 19 (a₁₉ = 0, Theorem 5.6). The coefficients were computed from the eta-product to q⁶⁰: a₁₉ = a₂₉ = 0.
+- `rational-hecke-separation`: coprime rational annihilators for the parabolic subspace and boundary quotient in the good Hecke algebra. Elkik supplies the weight-two proof; the higher-weight primary-source step remains an explicit gap.
+- `drinfeld-manin-splitting`: the unique rational Hecke-equivariant retraction, built from those annihilators by a Bézout polynomial projector. Seven API items and four discriminating tests are actual Lean declarations and examples. The tests distinguish ordinary from parabolic cohomology, exclude the zero retraction, check a nontrivial polynomial projector, and exhibit an integral obstruction.
 
-**Still open in L4:**
-- Coefficient embeddings and primitive/imprimitive level change (Mazur–Tate–Teitelbaum is not read).
-- a_p ≠ 0 supersingular decompositions (Sprung).
-- The earlier pointer to RJW §§6–8 was wrong: those sections are on Kubota–Leopoldt. The coverage now says so.
+The new suggested section uses native `Γ(N)`, `groupCohomology`, the existing parabolic carrier, `Module.End`, `Algebra.adjoin`, `IsCoprime`, and native projection theory. Its full-level Hecke actions are expressly prototypes to be transported through the requested coefficient dictionary. Their pairwise commutation is stated. All seven new API names and four test names occur outside comments, together with the separation theorem. No arithmetic realization or Galois action is invented to make the file elaborate.
 
-**No new source issues.** Lemma 4.7's exponents p^{−(n+1)/2} and p^{−n/2−1} look off by one at first. They are right, because of the leading 1/p in Lemma 4.1's definition, and the node records that factor.
+The inherited `slash`, `heckeT` and `heckeU` signatures now require a genuine right monoid action, represented by `(Sigma0 N)ᵐᵒᵖ →* Module.End R V`. Preservation and `heckeT_comm` require its restriction to the given Γ-action; commutation also requires an equivariant symbol and both indices prime to the level. This fixes missing hypotheses, rather than asserting preservation for arbitrary coefficient maps.
 
-**Lean.** Seven new checked examples, and the whole suggested file compiles with exit 0:
-- p ≥ 5, p | a and a² < 4p give a = 0 (the Hasse argument of Corollary 3.6);
-- −1 + i is a root of X² + 2X + 2, of norm 2, with (−1 + i)·i = −1 − i;
-- the Lemma 4.7 exponent bookkeeping.
+L0 still has six planets. The period-symbol node remains; its planet slot now displays **Drinfeld–Manin splitting**. No imported Div⁰, Manin, homological symbol or period-map construction is re-planned.
 
-**Checks.**
-- `check_blueprint --index`: 0 errors, 0 warnings.
-- `check-files`: 0 problems.
-- Every new excerpt was checked by script against its page's text.
+## Source results and the boundary of the proof
 
-## Checkpoint 5 (cc-39fac3)
+Sources added and read on 5 October 2026:
 
-## Checkpoint 5: L3 (6 nodes, 1 planet) and L4 (2 nodes)
+1. Kentaro Nakamura, *Zeta morphisms for rank two universal deformations*, Invent. Math. 234 (2023), 171–290. [Published open-access PDF](https://link.springer.com/content/pdf/10.1007/s00222-023-01203-7.pdf). Read §3.1.1–3.1.2, pp. 202–207, and the opening of §3.2, p. 220, including (20)–(21). Printed page is PDF page plus 170. SHA-256: `47682f856244439d8cc3d3e6e0a4e1f804e6a710ec1a2dde8fad76f94aea20e4`.
+2. Renée Elkik, *Le théorème de Manin–Drinfeld*, Astérisque 183 (1990), 59–67. [Numdam PDF](https://www.numdam.org/item/AST_1990__183__59_0.pdf). Read the introduction and §§I–III, with the weight-two spectral proof in §III, pp. 64–66. Printed page is PDF page plus 57. SHA-256: `7618e61b8ec287b9fcce61fb4ac7d89ea98d58ca9274fa899ed52cda670b19b5`.
+3. Romyar Sharifi, *Modular curves and cyclotomic fields*, AWS 2018 notes. [Course PDF](https://swc-math.github.io/aws/2018/2018SharifiNotes.pdf). Read §3.4, pp. 34–38, including Theorem 3.4.16, its proof paragraph and Remark 3.4.17. Printed page equals PDF page. SHA-256: `8fe8f4c77019e84c7c6c80bdaedcc507c643ab3a952e3b0b9fe22ccf888d5621`.
 
-Sources: Pollack–Stevens §§5.4, 6.4 and 8.4; Bellaïche, arXiv:0912.2925v1, §1.4 (new source, sha256 recorded); Pollack's
-AWS notes §6.
+Nakamura explicitly rationalizes the cohomology before constructing the unique retraction. His modular-form weight is this packet's polynomial degree plus two. His full-level arithmetic curve contains all geometric components; a group-cohomology carrier for Γ(N) models one connected Betti component. His dual symmetric-power local system has to be identified with the packet's adjugate polynomial action with the determinant twist recorded. The usual/adjoint relation in Lemma 3.1 is T′_ℓ=ℓ^k T_ℓ S_ℓ⁻¹ and S′_ℓ=ℓ^(2k)S_ℓ⁻¹ in this packet's notation.
 
-**Scope (RS-08).** The general critical-slope, θ-critical and secondary theory is PadicFamilies L3 (checkpoint 3 of that
-packet, merged). These L3 nodes cite it directly and add only the single-form normalisations and comparisons; the new
-request to PadicFamilies L3 records the import.
+Elkik's proof is for the trivial local system, hence weight two. Choose a prime ℓ ≡ 1 mod N. The boundary eigenvalue is ℓ+1; the Petersson norm argument excludes that eigenvalue on cusp forms without Deligne. Native `Nat.exists_prime_gt_modEq_one` supplies the prime. Cayley–Hamilton produces the parabolic annihilator, coprime to X−(ℓ+1). The exact normalization is still part of the geometric/coefficient comparison request.
 
-- **`non-theta-critical-lift`** (planet). The eigen-lift of φ^± normalised by specialisation; it equals Bellaïche's L± with
-  the scalars fixed. The test excludes X₀(32) at p = 5, which is CM, hence decent (Bellaïche Proposition 2.15(iv)), and
-  critical.
-- **`critical-slope-interpolation`.** Proposition 6.5, with E6.
-- **`critical-slope-non-uniqueness`.** log^{[k]} gives nonzero (k + 1)-admissible distributions vanishing at every z^jχ.
-- **`theta-critical-comparison`.** The θ-critical case goes through the top secondary L-function (Bellaïche §1.4.5).
-- **`family-comparison-principle`.** Comparisons at a critical point go through the two-variable function on a
-  neighbourhood (Bellaïche Theorem 3), not through values.
-- **`critical-slope-examples`.** Examples 8.6–8.8, with 8.8 made a theorem by Bellaïche's Remark 1.
-- **L4 `level-eleven-examples`.** AWS §6: φ_f = (1/5, −3/2, 1/2), the 11-adic trivial zero with unit linear
-  coefficient (μ = 0, λ = 1), and the vanishing Eisenstein L-function.
-- **L4 `euler-factor-comparison`.** The two Euler factors at p, one from the distribution and one from p-stabilisation.
+Sharifi's higher-weight rational splitting cites Shokurov, *Shimura integrals of cusp forms*, Izv. Akad. Nauk SSSR Ser. Mat. 44 (1980), 670–718, 720, for the rational left kernel of the integration pairing. **That primary source has not been read.** Neither its exact cohomological transport nor the coprime-annihilator statement is declared source-closed. Elkik's proof must not be extended to arbitrary k without establishing the additional inputs.
 
-**New source issue: E9 (misprint, reaches a stated result).** Bellaïche (5) prints the factors of f_β with α in place of β.
-Only arXiv v1 exists on arXiv; the Inventiones version was not obtained, so it is recorded as new.
+The algebraic construction after separation is explicit: if aF+bG=1, e=b(A)G(A) has range in P and fixes P. Equivariance follows from commutation with A. For another equivariant retraction t, t(1−e)=a(A)|_P F(A)|_P t=0, so t=e with codomain P. This also proves conditional naturality. Rational coprimality need not be integral coprimality.
 
-**New request:** PadicFamilies L3.
+## Library, supplier and overlap audit
 
-**Lean.** A comment block with the L3/L4 signatures, and four proved checks: the vanishing of the polynomial model of
-log^{[k]}, the Euler-factor identity ε(p)p^{k−j}/α = β/p^{j+1}, the first Greenberg lift at level 11 modulo 11², and
-11 ∤ 1490719231. It compiles with 0 errors and 69 `sorry` warnings (unchanged).
+Read the reviewed library audit, the accepted RS-08 keeps/boundaries, ModularForms Layer 8 and the relevant upstream Hecke, lattice and dimension interfaces. Existing roadmaps retain ownership. The 30 relevant link records were examined: 28 were negative records, and the two positive links did not supply this splitting. No competing blueprint construction of it was found.
 
-**Totals.** 52 nodes, 80 API items, 63 unit tests, 16 planets, 46 baseline declarations, 13 requests and 9 source issues.
-`check_blueprint.py`: 0 errors, 0 warnings.
+Seven baseline declarations were newly read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and added with their exact modules: `CongruenceSubgroup.Gamma`, `Algebra.adjoin`, `IsCoprime`, `LinearMap.aeval_self_charpoly`, `Submodule.projectionOnto`, `LinearMap.isCompl_of_proj`, and `Nat.exists_prime_gt_modEq_one`. The previous 46 baseline references retain their prior provenance; this checkpoint does not claim a new audit of all inherited source mathematics. Tau Ceti remains pinned at `f790474821cf4256814db967cb154e7af3d0c369`.
 
-## Checkpoint 4: L2 (12 nodes, 5 planets)
+Two supplier requests were added:
 
-Source: Pollack–Stevens §§3–6, read in full for these sections, with the displayed formulas of §6 read on the page images.
+- **ModularCurvesPartII R14.3:** all-component full-level Betti/group/étale comparison with rational symmetric-power coefficients, the coefficient-system dictionary, ordinary/parabolic comparison, usual/adjoint Hecke normalization, and real/Galois actions. Its current `betti-modular-symbols` node covers weight two at Γ₁(N); that is not the requested full-level higher-weight interface. The splitting itself belongs here, not to R14.3.
+- **ModularForms 10C:** the weight-two full-level dimension instances dim S₂(Γ(3))=0 and dim S₂(Γ(6))=1, used by the zero and nonzero retraction tests.
 
-- **`p-stabilisation`, `refinement`, `refined-eigenline`.** f_α = f° − βf°(pz). U_p f_α = αf_α is proved from Tau Ceti's
-  coefficient characterisations (`heckeUCuspNat_…`, `heckeTCuspNat_…`, `CuspForm.qExpansion_levelRaise`). U_p is a
-  companion matrix on span(f°, f°(pz)), so the refined eigenline is a line even when α = β.
-  - At p | N the refinement is (f, a_p) at level Γ₁(N). Pollack–Stevens' proofs need only Γ₀ ⊆ Σ₀(p) and the U_p formula,
-    so they cover this case.
-  - The eigenline needs the p-oldspace (ModularForms Layer 4) and level-Np Eisenstein separation (Layer 5), both requested.
-- **`weight-k-distributions`, `specialisation-map`.** The weight-k action, moments (D = bounded sequences), the contraction
-  ‖μ|γ‖_{r/pⁿ} ≤ ‖μ‖_r (only for r < p, E8), and the equivariance of ρ_k.
-- **`overconvergent-lift`, `slope-decomposition-fibre`, `control-theorem`.** Theorems 4.5 and 5.1, Lemma 5.3,
-  Corollary 5.4, Propositions 5.6–5.7 and Theorems 5.9/5.12. Pollack–Stevens cite the first isomorphism of Theorem 5.12
-  to their unread critical-slope preprint; it is derived here from the contraction bound.
-- **`eigensymbol-admissibility`, `p-adic-l-function`.** Lemma 6.2 and Proposition 6.3 with the distribution relation.
-  Pollack–Stevens' φ^± is −(1 ± (−1)^kι)ψ/(2Ω^±), so their ± label is the ι-sign times (−1)^k.
-- **`interpolation-and-uniqueness`.** Summing (2) against χ with L1's twisted Mellin formula gives
-  L_p(z^jχ) = e·α^{−n}p^{nj}τ(χ)j!/(2πi)^j·L(f_α, χ^{−1}, j+1)/Ω^± with ± = (−1)^jχ(−1) and e = 1 − p^j/α at n = 0.
-  This is RJW B.1 with Ω_{B.1} = −Ω/(2πi), independent of j, which closes the normalization question L1 left open.
-- **`ordinary-integral-measure`.** Values on balls are α^{−n}·[Y^k]φ(…), the total-mass coefficient, which has no binomial
-  denominator. So integral generators give 𝒪⟦ℤ_p^×⟧, and arbitrary bases only 𝒪⟦ℤ_p^×⟧[1/p].
+The existing thirteen requests remain. Distribution spaces, admissibility, bounded measures and finite-slope functional analysis stay with LocallyAnalyticDistributions/PadicMeasuresIwasawaAlgebras. General critical and secondary L-functions stay with PadicFamilies L3 under RS-08.
 
-**New source issues (Pollack–Stevens):**
-- **E4 (misprint).** (1) and (2) differ by the sign (−1)^jχ(−1), that is on the −-part.
-- **E5 (error).** (1) omits the factor 1 − p^j/α at n = 0.
-- **E6 (misprint).** Proposition 6.5 (3) prints L(f, χ^{−1}, 1) for L(f, χ^{−1}, j + 1).
-- **E7 (misprint).** Definition 6.4 prints S_k(Γ, ℚ̄_p) for S_{k+2}(Γ₀, ℚ̄_p).
-- **E8 (error).** The action on A[r] and the contraction need r < p.
+## Where the next worker should resume
 
-All reach nothing. `sourceVersions` now records the Numdam PDF read, with its sha256.
+1. **Close the two recorded L0 mathematical gaps.** Obtain and read Shokurov's primary result; identify its rational-kernel theorem exactly and prove the route to higher-weight rational separation. Reconcile the full-level local systems and Hecke actions with R14.3, distinguishing one Betti component from the full arithmetic curve. Then type the real and p-adic Galois compatibilities against those genuine carriers. Preserve rationalization before splitting.
+2. **Complete signature coverage across all five layers.** The previous L0–L3 `source_decomposed` statuses overstated completion: many API names and tests were missing as typed declarations, and most L1–L4 interfaces were only comment outlines. A comment-stripped short-name inventory finds 123 packet API/test names lacking a corresponding declaration: L0 59, L1 15, L2 33, L3 7, L4 9 (57 API names and 66 test names). Some mathematical examples are anonymous; this name audit is not a claim that every such statement is absent. Match every packet definition, API and named test to an actual signature/example, using the supplier's hypotheses. The newly added splitting names pass this audit. Elaborating a file never checks its comment-only signatures.
+3. **Finish L4's actual missing targets.** Source coefficient embeddings of forms and their periods, and primitive/imprimitive level change with the ℓ-Euler factors. Mazur–Tate–Teitelbaum has not been read. RJW §§6–8 are about Kubota–Leopoldt and do not provide this material. Distinguish embeddings inducing the same p-adic place from different places when comparing slopes. Both refinements and worked supersingular examples are already planned; a general Sprung ♯/♭ decomposition was an unnecessary expansion of the target and is no longer required. Type the half-logarithms, their full API/tests, and the remaining L4 statements.
+4. **Keep the inherited normalization checks and source issues visible.** The divided-power lattice matters for integral polynomial duality when k! is not a unit. The twisted Mellin formula uses χ̄ and the parity sign; the p-adic distribution uses the cusps −a/pⁿ and the n=0 Euler factor. E1–E8 concern Pollack–Stevens. E9 concerns Bellaïche's arXiv-v1 factors for f_β, printed with α. Check E9 against the published Inventiones text before claiming that the journal version has the same misprint.
 
-**New requests:**
-- LocallyAnalyticDistributions L0 (the spaces) and L2 (admissibility, uniqueness, bounded measures);
-- ModularForms Layer 4 (the p-oldspace, and U_p f = a_p f at p | N);
-- ModularForms Layer 5 (Eisenstein separation at level Np).
+The definitive objects, normalization formulas and all nine inherited source issues are in the packet and README. Earlier source reads retain their provenance: Pollack–Stevens §§2–6 and §8.4; Wiese §§1,4–7; Pollack AWS §§2,6; Bellaïche §1.4; RJW B.1; and Pollack Duke §§1–5,7. No new source issue is asserted by this checkpoint.
 
-**Lean.** Six new proved checks: the p-stabilisation recurrence, ρ_k-equivariance, the Lemma 5.3 binomial expansion, the
-n = 0 factor, the E4 ratio and the E8 pole. There is one new `sorry` declaration, `Sigma0p`, and L2 signatures in a
-comment block. It compiles with 0 errors and 69 `sorry` warnings.
+## Checks and totals
 
-**Totals.** 44 nodes, 76 API items, 60 unit tests, 15 planets, 46 baseline declarations, 12 requests and 8 source
-issues. `check_blueprint.py`: 0 errors, 0 warnings.
+`check_blueprint.py` with the pinned declaration index: **0 errors, 0 warnings**. `intake.py check-files`: **four permitted files, 0 problems**. `git diff --check`: clean. The final suggested Lean file elaborated with `lean-check` against the shared pinned Mathlib build: **exit 0, 0 errors, 90 warnings, all declaration-uses-`sorry` warnings**. Available memory was above 20 GB before each check. These are proposed statements, not proved roadmap implementations. It imports Mathlib, while Tau Ceti results are source-backed references in the packet.
 
-## Checkpoint 3: L1 (6 nodes, 4 planets)
+The rational model and integral obstruction were separately verified by scratch Lean proofs with no `sorry`: the projector identities by linear-map extensionality and rational arithmetic, and the integral contradiction by additivity, ℤ-linearity and `omega`. The deliverable retains the required proposed signatures with `sorry`; no roadmap implementation is claimed. There is no dependency on scratch files for resumption.
 
-- **`period-lines`.** Lines come first, and a period Ω(φ) exists only after a basis is chosen, with Ω(λφ) = λ⁻¹Ω(φ).
-  The eigenspaces are L0's `eigenspace-dimension`.
-- **`integral-period-lattices`.** Saturation over a DVR gives the integral period, canonical up to 𝒪^×. It depends on
-  the choice between V_k(𝒪) and its dual when p ≤ k. Multiplicity one is needed only for Hecke-module comparisons.
-- **`twisted-mellin-formula`.** Σχ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)j!/(−2πi)^j·L(f, χ̄, j+1). Birch's lemma
-  and the Mellin transform are transcribed, with every convention explicit.
-  - **Checked numerically** with PARI/GP 2.17.2 (cypari2 via uv, in scratch) for characters of order 3 and 6 modulo 7:
-    11a1 to 10⁻¹⁴, and the level-5 weight-4 newform (j = 0, 1, 2) to 10⁻¹¹.
-  - The χ-reading fails.
-- **`critical-value-algebraicity`.** The sign is ε = (−1)^{k−j}χ(−1), derived from L0's ι and V_k conventions.
-- **`p-stabilised-euler-factors`.** L(f_α, s) = (1 − βp^{−s})L(f°, s).
-- **`rjw-b1-comparison`.** The exact identity: for n ≥ 1, B.1's right side is (−1)^{j+1}/(2πiΩ) times the Riemann sum
-  through a/pⁿ, and −ε(−1)^k/(2πiΩ) times the sum through −a/pⁿ.
-  - **Consequence for L2:** normalize the distribution through −a/pⁿ, as Pollack–Stevens (1) does. Otherwise B.1 needs a
-    period depending on j.
-  - n = 0 gives the two Euler factors.
-
-**Transcription caution.** Text extraction drops overbars. AWS (2), (7), AWS p. 13 and RJW B.1 all print χ̄; this was
-read on the page images, and they agree with the verified formula. The roadmap stage text's quotation of B.1 drops the
-bar. No source issue is recorded.
-
-**New source:** RJW, arXiv:2309.15692v2.
-
-**New request:** Tau Ceti ModularForms Layer 7 (L-functions, Mellin and twists).
-
-**Lean:** three proved checks, for the period rescaling, the Mellin constant and the B.1 conversion constant. It compiles
-with 0 errors and 68 `sorry` warnings (unchanged).
-
-## What changed since checkpoint 1
-
-**Duplication removed.** AUDIT-26, the reviewed library audit, lists Tau Ceti's ModularForms Layer 8 as a duplicate of this layer. The checkpoint-1 nodes `steinberg-module`, `unimodular-map`, `manin-surjectivity` and `manin-relations` planned Layer 8's Div⁰ and Manin theory, so they are withdrawn. The packet now requests these from Layer 8:
-- Div⁰ with the degree sequence;
-- Manin's theorem;
-- the fundamental-domain presentation;
-- 𝕄 and the period map.
-
-The suggested Lean file keeps `Delta0`, `unimodularMap` and friends only as labelled stand-ins, so the Hom-side API can be stated.
-
-**New nodes.** 18 L0 nodes plan Pollack–Stevens' Hom-side symbols for arbitrary coefficient modules. Layer 8 does not plan these, and L2 needs them for distributions:
-- `symbols-coset-description`, `symbols-generator-values` (PS Corollaries 2.7/2.10, sign-corrected) and `symbols-base-change`;
-- `boundary-symbols`, `symbols-to-cohomology`, `symbols-cohomology-sequence` (the integral exact sequence), `parabolic-cohomology` and `symbols-mod-eisenstein`;
-- `symbols-level-descent`: integral for symbols, and for cohomology after inverting the index;
-- `diamond-operators`, `hecke-operators-gamma1`, `nebentypus-symbols` and `nebentypus-decomposition`;
-- `symbols-coinvariants-duality` and `polynomial-duality`: V_k ≅ Hom(Sym^k, ·) only when k! is invertible;
-- `period-symbol`, `parabolic-cohomology-dimension`, `eichler-shimura-isomorphism` (Wiese's proof) and `eigenspace-dimension`.
-
-**Totals.**
-- 26 nodes, 49 API items, 39 unit tests, 6 planets and 42 baseline declarations.
-- 7 requests and 3 source issues.
-- `check_blueprint.py`: 0 errors, 0 warnings.
-
-## Source issues (Pollack–Stevens 2011)
-
-- **E1 (error).** Theorem 2.6/Corollary 2.7 and Theorem 2.9/Corollary 2.10 print the D∞ relation with the wrong sign.
-  - *Correct form:* Σ(γ_i^{-1} − 1)D_i + ΣD′_i + ΣD″_i = (1 − T^{-1})D∞, and v∞|Δ = Σ v_i|(1 − γ_i) − Σ v′_i − Σ v″_i.
-  - *Why:* this is what the paper's own boundary relation on p. 11 gives. For Γ₀(2), the printed relation forces 2D′₁ = 0.
-  - *Corroboration:* Pollack's AWS notes (footnote 10, Γ₀(11)) and the Sage implementation (v∞ = −μ) both use the corrected sign.
-- **E2 (misprint).** p. 11 prints (γ′_i + 1)e_i for (γ′_i + 1)e′_i.
-- **E3 (misprint).** Corollary 2.10 prints γ′_i for γ″_i in the three-term relation, and undefined m′_i, m″_i.
-
-No erratum turned up on Numdam or in the Crossref record.
-
-## Requests
-
-- **ModularForms Layer 8, four requests:**
-  - Div⁰ with its GL₂⁺(ℚ) action and the degree sequence;
-  - Manin's theorem for Div⁰ itself;
-  - the fundamental-domain presentation for Div⁰ itself, with the corrected sign;
-  - 𝕄 with Hecke and diamond operators and `periodMap′` with its milestones.
-- **ModularForms Layer 5:** cuspidal and Eisenstein eigensystems are distinct. Hecke's bound only gives this in weight > 2.
-- **ModularForms 10C:** the dimension formula for S_k(Γ₁(N)).
-- **ModularCurvesPartII R14.3:** Symb_Γ(V) ≅ H¹_c(Y_Γ, Ṽ) (Ash–Stevens Proposition 4.2). This is the L0 target "functorial comparison with the analytic modular-curve carrier".
-
-## Suggested Lean file
-
-`suggested/ModularSymbolsPadicLFunctions.lean` imports Mathlib only; there are no Tau Ceti oleans at `f790474` on this server. Tau Ceti declarations (`diamondOp`, `cuspFormCharSpace`, the Petersson and multiplicity-one results) are cited in the packet, not imported.
-
-It was compiled with the v4.34.0-rc2 `lean` against the prebuilt Mathlib 082e2d3 oleans: **0 errors**, 69 warnings at checkpoint 4 (68 before), all `declaration uses 'sorry'`.
-
-New signatures:
-- `bsymbols`, `res`, `eisSymbols`;
-- `toH1`, `H1par`, `ker_toH1`, `range_toH1`, `symbols_le_of_le`;
-- `diamond` and its API, `symbolsChar`;
-- `vkPairing`;
-- `periodSymbol`, `periodSymbol_toH1_injective`, `finrank_H1par_eq_two_mul`.
-
-## What a continuation should do
-
-1. **Finish L4.** Tame twists, coefficient embeddings and level change with the ℓ-Euler factors (Mazur–Tate–Teitelbaum
-   1986; RJW §§6–8), and both refinements at a good supersingular prime with a worked example.
-2. **Integral lattices.** Compare Symb_Γ(V_k(ℤ)) with Hom(𝕄, ℤ) through divided powers. `polynomial-duality` holds only
-   after inverting k!, and `integral-period-lattices` records the dependence.
-3. **Check E9 against the Inventiones text** if it can be obtained.
-
-## Sources read
-
-- Pollack–Stevens 2011 (Numdam), §§2.1–2.6, 3–6, §8.4 (Examples 8.6–8.8), the §8 examples for X₀(11), and the references.
-- Wiese, arXiv:1809.04645v1, §§1.2–1.3, 4.3–4.5, 5, 6, 7.1–7.5.
-- Pollack, AWS 2011 notes, §§2 and 6.
-- Bellaïche, arXiv:0912.2925v1, §1.4 (pp. 5–11).
-- Sage `pollack_stevens` source, only for the sign cross-check.
-
-Not used: Ash–Stevens (Duke 1986), which is not freely available. The topological comparison it proves is requested from R14.3.
+**Totals:** 59 nodes (8 definitions, 11 lemmas, 14 constructions, 21 theorems, 2 comparisons, 3 applications), 92 API items, 71 unit tests, 18 planets, 53 baseline declarations, 15 requests, 2 explicit mathematical gaps and 9 source issues. Five layers are in scope; none is declared closed.
