@@ -1,0 +1,13 @@
+# REV-BorelRegulators handoff
+
+Completed independent review of issue #141 by Codex / `codex-wLlZfF` / GPT-6 on 2026-10-05. This is a completed review with **needs_changes**, not an unfinished checkpoint. The author was session `codex-QK3Umo`; this reviewer did none of the original work.
+
+The packet now has 56 nodes: 24 verified, 31 corrected, one added compact-fiber comparison. All 27 exact-pin baseline citations are confirmed and retained. Clear corrections cover full K-component invariants, finite-rank compact-dual stability, exactly one Tate coordinate conversion, explicit period-to-measure scalar, integral versus rational Bloch symbol, early ALS comparison scope, early K.2:plus and K.3 transfer owners, and primary printed locators. All eight confirmed red-team findings were checked. E1 is confirmed; author-copy source misprints E2/E3 and exact version/access records are added.
+
+Validation: packet checker zero errors/warnings; source-issue/version validators no errors; final `lean-check` exits zero with 68 expected sorry warnings only; dependency graph and packet/signature register checked; diff whitespace check clean. The native Lean body is unchanged, with missing higher carriers still explicit commented signatures. No formalization or promotion is claimed.
+
+**Where to resume:** the issue did not authorize editing `research/blueprint/readmes/BorelRegulators.md`, so the remaining contradiction is its disagreement with the corrected packet. Route a revision that includes that reader. The complete per-node change ledger and exact reader reconciliation list are in `research/blueprint/reviews/REV-BorelRegulators.md`. Update its R.2/R.3/R.4/R.5/R.6/R.7 statements, dependencies, sources, requests/gaps and error/version records from the packet, then independently review their agreement before acceptance. Do not treat existing honest primary-source/carrier/PartII gaps as a reason to demand a closed or implemented plan.
+
+Owner follow-ups: split ALS.5’s nonautomorphic Betti/de Rham/relative-Lie comparison into an early export; supply K.3 finite-projective transfer specialization; retain the existing H-space, integral duality, symmetric-pair, splitting-degree, AF analytic and higher Chern/Weil requests. Source follow-ups remain Weil’s specialized primary proof, Bloch’s exact lecture pairing, and λ_BW normalization. E2/E3 refer only to the hashed public Weibel author copies: Rutgers errata link404 and AMS full text403 prevented version-of-record collation. All needed URLs/hashes and reasons are in the packet/report; nothing required for follow-up lives in ephemeral scratch.
+
+Submitted via the branch `codex-wLlZfF-review-borel-regulators`, PR referencing #141. No second job is claimed.

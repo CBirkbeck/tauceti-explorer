@@ -22,189 +22,216 @@
         "kind": "structure",
         "module": "Mathlib/Algebra/BrauerGroup/Defs.lean",
         "provides": "Finite-dimensional central simple algebras over a field, with Algebra.IsCentral, IsSimpleRing and FiniteDimensional instances. Division-algebra orders and reduced norms are additional arithmetic inputs.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:ExteriorAlgebra",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
         "provides": "Exterior algebra of an R-module, the Clifford algebra for the zero quadratic form; it is not a graded cohomology comparison theorem.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:TopRep.homogeneousCochains",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
         "provides": "The homogeneous continuous cochain complex of a topological representation, as a cochain complex in TopModuleCat.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:continuousCohomology",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
         "provides": "Degree-n homology of TopRep.homogeneousCochains; continuous group cohomology with topological coefficients.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:ContinuousCohomology.cochainsMap",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
         "provides": "Restriction along a continuous homomorphism H→G and compatible continuous coefficient map res X→Y, by precomposition of cochains.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:ContinuousCohomology.cochainsMap_comp",
         "kind": "lemma",
         "module": "Mathlib/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
         "provides": "The cochain map of composed continuous group and coefficient morphisms equals the composite of cochain maps, with the explicit restriction functor on coefficients.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:NumberField.ComplexEmbedding.involutive_conjugate",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
         "provides": "Complex conjugation is an involution on ring embeddings of a number field into C.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.mk_eq_iff",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "Two complex embeddings have the same infinite place iff they are equal or complex conjugate.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.nrRealPlaces",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "r1 is the finite cardinality of the subtype of real infinite places.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "r2 is the finite cardinality of the subtype of complex infinite places, counting pairs once.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "For a number field F, r1+2r2=finrank Q F.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:IsZLattice",
         "kind": "class",
         "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
         "provides": "For a discrete Z-submodule L of a normed K-vector space, its K-linear span is the full space. The discreteness instance is a separate hypothesis.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:ZLattice.covolume",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
         "provides": "Real covolume of a Z-submodule with respect to a specified additive Haar measure; defined as addCovolume.toReal.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:ZLattice.covolume_eq_det",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
         "provides": "For a discrete full Z-lattice L⊂(ι→R), a finite integral basis b gives covolume L=|det(Matrix.of(inclusion∘b))| under coordinate volume.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:Matrix.trace_mul_comm",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "trace(AB)=trace(BA) for rectangular matrices over a commutative coefficient magma with additive commutative monoid structure.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:Matrix.trace_conjTranspose",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "trace(A conjugate-transpose)=star(trace A) for finite square matrices over a star additive monoid.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:NumberField.dedekindZeta",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
         "provides": "The Dedekind L-series of the sequence counting nonzero ideals by absolute norm. This definition alone does not provide continuation at negative integers.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "tauceti:TauCeti.dedekindZeta_eulerProduct_hasProd",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
         "provides": "For Re(s)>1, the height-one-prime Euler product converges to NumberField.dedekindZeta F s.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "tauceti:TauCeti.dedekindZeta_ne_zero_of_one_lt_re",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/EulerProduct/Analytic.lean",
         "provides": "For Re(s)>1 the Dedekind zeta L-series is nonzero, using the convergent Euler product; no statement outside that half-plane.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.explicitH2IsoGroupCohomology",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/GroupCohomologyIso.lean",
         "provides": "For a discrete group and a topological additive coefficient group with continuous action, an additive equivalence from the explicit continuous H2 quotient to Mathlib discrete group cohomology. This supplies degree two, not an all-degree relative-Lie comparison.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:AlgHom.card",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/PrimitiveElement.lean",
         "provides": "For a finite separable extension E/F and an algebraically closed F-algebra C, card(E→ₐ[F]C)=finrank F E. Giving C its F-algebra structure through a fixed embedding identifies this AlgHom set with the fiber of complex embeddings extending it.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:NumberField.basisMatrix",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/NumberField/EquivReindex.lean",
         "provides": "The matrix of the chosen integral lattice basis under all complex embeddings, reindexed by the native embedding-to-basis equivalence. An arbitrary ordered integral basis gives the corresponding unimodular change of this matrix.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:NumberField.discr_eq_basisMatrix_det_sq",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
         "provides": "The signed number-field discriminant, coerced to C, equals det(basisMatrix F)^2; the matrix uses the chosen integral basis and embedding indexing.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:NumberField.sign_discr",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
         "provides": "The sign of the integer discriminant is (−1)^nrComplexPlaces F.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:LinearMap.toMatrix",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
         "provides": "For specified bases of modules over a commutative semiring, linear maps are linearly equivalent to matrices indexed by the two bases. This is the matrix API used after genuine regulators and coordinate equivalences exist.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:riemannZeta_neg_nat_eq_bernoulli",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
         "provides": "For k a natural number, the continued Riemann zeta at −k equals (−1)^k bernoulli(k+1)/(k+1). In particular ζ(−1)=−1/12.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       },
       {
         "ref": "mathlib:iteratedDeriv",
         "kind": "def",
         "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
         "provides": "The n-th iterated derivative of a function between normed spaces over a nontrivially normed field, evaluated by iteratedFDeriv on the constant tuple 1; permits the native Taylor-coefficient prototype over C.",
-        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05."
+        "checked": "Declaration statement and hypotheses read in source at the recorded pinned commit, 2026-10-05.",
+        "reviewedBy": "REV-BorelRegulators"
       }
     ]
   },
@@ -266,7 +293,7 @@
       "sha256": "9e10948869fcaf64251261294efddf3f4c13ec31838d9a89a7b5b96a4f0c933b",
       "accessed": "2026-10-05",
       "readSections": [
-        "§1, Theorems 1–3 and proof of Theorem 1, pp.179–185 (scan headers 195–201)"
+        "§1, Theorems 1–3 and proof of Theorem 1, pp.179–185 (scan headers 195–201); §2, building and Solomon–Tits proof, pp.185–190 (scan headers 201–206)"
       ]
     },
     {
@@ -290,7 +317,7 @@
       "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
       "accessed": "2026-10-05",
       "readSections": [
-        "§§1–4, plus construction and group completion; cited as supplier context"
+        "§1, plus construction, homological stability, Theorems 1.17–1.18 and Regulator Maps 1.18.1, pp.2–13; §§3–4, realization and group-completion context"
       ]
     },
     {
@@ -302,7 +329,8 @@
       "sha256": "efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1",
       "accessed": "2026-10-05",
       "readSections": [
-        "§§2–4: Borel ranks, finite generation and regulators"
+        "§4, motivic-cohomology context; §8, number-field data, p.47. Borel ranks/regulators are in Chapter IV §1, not Chapter VI §4.",
+        "§10, Theorem 10.1 and Table 10.1.1, pp.60–61: K₂(Z)=Z/2 for the E2 counterexample"
       ]
     },
     {
@@ -326,7 +354,19 @@
       "sha256": "ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db",
       "accessed": "2026-10-05",
       "readSections": [
-        "Introduction equations (8),(11); §§5.4–5.5, equations (61),(64) and Theorem 5.7, pp.41–46; §§5.1–5.3 for the regulator-map conventions"
+        "Introduction equations (8),(11); §§5.4–5.5, equations (61),(64) and Theorem 5.7, pp.43–47; §§5.1–5.3 for the regulator-map conventions"
+      ]
+    },
+    {
+      "id": "borel1953",
+      "title": "Sur la cohomologie des espaces fibrés principaux et des espaces homogènes de groupes de Lie compacts",
+      "authors": "Armand Borel",
+      "edition": "Annals of Mathematics 57 (1953), 115–207; published scan",
+      "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Borel-Sur.pdf",
+      "sha256": "53411a87149a3e967847a8cebae63407b8025473516ae362ef5126751f5c3aa8",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§31.4–31.5, Propositions 31.3–31.4 and transgression calculations, pp.203–205"
       ]
     }
   ],
@@ -356,7 +396,7 @@
       "sources": [
         {
           "sourceId": "borel1974",
-          "locator": "§11.5, pp.266–267",
+          "locator": "§11.5, p.268",
           "excerpt": "11.5.",
           "match": "Arithmetic subgroups over orders and the three archimedean factors are the system used in Proposition 12.2."
         }
@@ -453,7 +493,7 @@
       "sources": [
         {
           "sourceId": "quillen1973",
-          "locator": "§1, proof of Theorem 2 and Theorem 3, pp.181–184",
+          "locator": "§1, introduction to Theorem 2, p.180; §2, pp.185–190 (scan headers 196,201–206)",
           "excerpt": "building",
           "match": "Quillen uses the Tits building of the generic-fiber vector space, including division-algebra orders."
         }
@@ -544,7 +584,7 @@
       "sources": [
         {
           "sourceId": "quillen1973",
-          "locator": "§1, Theorem 2, pp.181–182",
+          "locator": "§1, definition before Theorem 3, p.181 (scan header 197)",
           "excerpt": "Steinberg",
           "match": "The coefficient in Quillen’s rank-filtration argument is the top reduced homology of the building."
         }
@@ -642,7 +682,7 @@
       "sources": [
         {
           "sourceId": "quillen1973",
-          "locator": "§1, Theorem 2, pp.181–182",
+          "locator": "§1, Theorem 2, p.180; §2, proof, pp.186–188 (scan headers 196,202–204)",
           "excerpt": "THEOREM 2",
           "match": "The quoted Tits theorem supplies the building homology used in the proof."
         }
@@ -686,7 +726,7 @@
       "sources": [
         {
           "sourceId": "quillen1973",
-          "locator": "§1, proof of Theorem 1, pp.184–185",
+          "locator": "§1, proof of Theorem 1, pp.183–184 (scan headers 199–200)",
           "excerpt": "Borel-Serre",
           "match": "Quillen’s finiteness proof invokes arithmetic duality for the Steinberg module and integral descent."
         }
@@ -725,12 +765,12 @@
       "prerequisites": [
         "BorelRegulators:R.1/steinberg-duality-finiteness",
         "ArithmeticKTheory:N.3:finite-generation",
-        "GeneralAlgebraicKTheory:K.2"
+        "GeneralAlgebraicKTheory:K.2:plus"
       ],
       "sources": [
         {
           "sourceId": "quillen1973",
-          "locator": "§1, Theorem 3 and proof of Theorem 1, pp.182–185",
+          "locator": "§1, Theorem 3, p.181 and proof of Theorem 1, pp.182–185 (scan headers 197–201)",
           "excerpt": "THEOREM 3",
           "match": "The relative groups and finite projective-class sum are the exact input that the owner of the rank filtration needs."
         }
@@ -766,13 +806,13 @@
         "BorelRegulators:R.1/quillen-finiteness-interface",
         "StableHomotopyKTheory:H.3",
         "StableHomotopyKTheory:H.4",
-        "GeneralAlgebraicKTheory:K.2",
+        "GeneralAlgebraicKTheory:K.2:plus",
         "ArithmeticKTheory:N.3:finite-generation"
       ],
       "sources": [
         {
           "sourceId": "quillen1973",
-          "locator": "§1, proof of Theorem 1, pp.184–185",
+          "locator": "§1, proof of Theorem 1, pp.184–185 (scan headers 200–201)",
           "excerpt": "H-space",
           "match": "The proof passes from finite homology to finite homotopy for the K-theory H-space."
         }
@@ -895,19 +935,19 @@
       ],
       "title": "The invariant-form arithmetic comparison",
       "kind": "construction",
-      "statement": "For a connected semisimple real algebraic group G, maximal compact K, torsion-free arithmetic Γ and X=K\\G(R), j_Γ:H^q(g,k;R)→H^q(Γ,R) sends a relative Lie class to its G-invariant differential form descended to X/Γ and then to its singular cohomology class. For general Γ use the finite-index torsion-free subgroup and real-coefficient invariant descent. Via van Est it equals arithmeticRestriction. Component-group invariants are retained when G(R) is disconnected.",
+      "statement": "For a connected semisimple real algebraic group G, maximal compact K, torsion-free arithmetic Γ and X=K\\G(R), j_Γ:(H^q(g,k;R))^{K/K°}→H^q(Γ,R) sends a full-K-invariant relative Lie class to its G(R)-invariant differential form descended to X/Γ and then to its singular cohomology class. Equivalently the source is H^q(g,K;R), with the K-component action retained. For general Γ use a torsion-free normal finite-index subgroup and real-coefficient invariant descent. Via van Est it equals arithmeticRestriction. If G(R) is connected, the component restriction reduces to the usual connected relative comparison.",
       "hypotheses": [
-        "Invariant forms, van Est and the early Betti/de Rham comparison are supplied by AF.1a and ALS.5:finite-level-duality."
+        "AF.1a supplies the full (g,K) convention and van Est; the nonautomorphic Betti/de Rham part of ALS.5 must be split into an early comparison export. ALS.5:finite-level-duality alone does not supply this extra comparison."
       ],
       "proofSteps": [
         "Apply AF.1a invariant-form realization and van Est.",
-        "Use the ALS.5 early de Rham/singular identification on the torsion-free quotient.",
+        "Use the requested early nonautomorphic part of ALS.5 to identify de Rham and singular cohomology on the torsion-free quotient; first retain K/K° invariants in the source.",
         "Descend by finite-quotient invariants over R, and compare with continuous-cochain restriction."
       ],
       "prerequisites": [
         "BorelRegulators:R.2/arithmetic-restriction",
         "AutomorphicFormsOnReductiveGroups:AF.1a",
-        "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+        "ArithmeticLocallySymmetricSpaces:ALS.5",
         "ArithmeticLocallySymmetricSpaces:ALS.2"
       ],
       "sources": [
@@ -968,7 +1008,7 @@
         {
           "name": "TauCeti.Borel.arithmeticInvariantFormMap_component_invariants",
           "kind": "non-example",
-          "statement": "For disconnected G(R), replacing the invariant source by unrestricted connected-component cohomology is disallowed whenever the component action is nontrivial."
+          "statement": "For G=PGL₂ over R, K=PO₂ and compact dual S² for the identity component, the nonidentity K-component reverses the two-dimensional tangent orientation. It acts by −1 on H²(S²;R), so the full-K-invariant degree-two source is zero although H²(S²;R)=R."
         }
       ],
       "uses": [
@@ -1003,7 +1043,7 @@
         "BorelRegulators:R.2/arithmetic-invariant-form-map",
         "BorelRegulators:R.1/order-arithmetic-system",
         "AutomorphicFormsOnReductiveGroups:AF.1a",
-        "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+        "ArithmeticLocallySymmetricSpaces:ALS.5",
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions"
       ],
       "sources": [
@@ -1049,7 +1089,7 @@
       "sources": [
         {
           "sourceId": "borel1974",
-          "locator": "§10.6 and §12.1, pp.264–265,270",
+          "locator": "§10.6 and §12.1, pp.265–266,270",
           "excerpt": "indecomposable",
           "match": "The rank argument uses the stable Hopf algebra and its indecomposable classes."
         }
@@ -1089,7 +1129,7 @@
       "sources": [
         {
           "sourceId": "borel1974",
-          "locator": "§§10.2,10.6 and 11.5, pp.263–267",
+          "locator": "§§10.2,10.6 and 11.5, pp.263,265–266,268",
           "excerpt": "compact dual",
           "match": "The classical compact twins supply the three factor calculations."
         }
@@ -1115,13 +1155,13 @@
       ],
       "title": "Stable exterior cohomology of classical compact duals",
       "kind": "theorem",
-      "statement": "With real coefficients, the degreewise stable cohomology rings are H*(SU)=Λ(x_3,x_5,x_7,…), H*(SU/SO)=Λ(y_5,y_9,y_13,…) and H*(SU/USp)=Λ(z_5,z_9,z_13,…). The named generators are primitive for stable block sum. The finite-dimensional groups and homogeneous spaces have their own unstable relations; the displayed infinite exterior algebras assert only degreewise stable cohomology.",
+      "statement": "With real coefficients, the degreewise stable cohomology rings are H*(SU)=Λ(x_3,x_5,x_7,…), H*(SU/SO)=Λ(y_5,y_9,y_13,…) and H*(SU/USp)=Λ(z_5,z_9,z_13,…). The named generators are primitive for stable block sum. The finite-dimensional groups and homogeneous spaces have their own unstable relations; the displayed infinite exterior algebras assert only degreewise stable cohomology. For finite ranks m≥1, H*(SU_m;R)=Λ(x_3,x_5,…,x_{2m−1}); H*(SU_{2m+1}/SO_{2m+1};R)=Λ(y_5,y_9,…,y_{4m+1}); H*(SU_{2m}/SO_{2m};R)=Λ(y_5,y_9,…,y_{4m−3})⊗R[e_{2m}]/(e_{2m}²); and H*(SU_{2m}/USp_{2m};R)=Λ(z_5,z_9,…,z_{4m−3}), with empty generator ranges interpreted as R. Block pullback preserves the named transgressed odd generators wherever they occur; the even-rank Euler class is unstable.",
       "hypotheses": [
         "Stability maps come from the compatible classical block inclusions."
       ],
       "proofSteps": [
         "Import the Serre spectral sequence, monodromy and transgression for the classical-group fibrations from AT.5.",
-        "Compute the SU primitive transgressions and the SO/USp quotients as in Borel §10.6; retain unstable Euler classes until outside the tested degree.",
+        "Compute the finite-rank rings from the classical transgression calculation: Borel 1953 Propositions 31.3–31.4 compute U(2m)/Sp(m) and U(n)/SO(n); remove the determinant S¹ factor to obtain the displayed SU quotients over R. Retain the even-rank Euler generator and its square-zero relation. Borel 1974 §10.6 then gives the degreewise stable rings.",
         "Use block multiplication to verify the generator coproduct x↦x⊗1+1⊗x."
       ],
       "prerequisites": [
@@ -1133,9 +1173,15 @@
       "sources": [
         {
           "sourceId": "borel1974",
-          "locator": "§10.6, pp.264–265",
+          "locator": "§10.6, pp.265–266",
           "excerpt": "10.6.",
           "match": "The stable compact-space cohomology calculations and primitive degrees are stated here."
+        },
+        {
+          "sourceId": "borel1953",
+          "locator": "Propositions 31.3–31.4 and their transgression calculations, pp.203–205",
+          "excerpt": "PROPOSITION 31.4.",
+          "match": "Finite-rank generators, the even-rank Euler factor and restriction of transgressive classes justify the conservative bound; the SU quotients remove the determinant degree-one factor."
         }
       ],
       "acceptance": [
@@ -1165,7 +1211,7 @@
         "n is the rank over D, rather than the absolute matrix size ne; quaternionic D has even e."
       ],
       "proofSteps": [
-        "Read the finite-rank exterior generators in Borel §10.6 and the classical fibration filtration.",
+        "Use the finite-rank presentations in compactDual_stableExterior, including the Euler generator in degree 2m and the largest odd generator in each family. Borel 1953 pp.203–205 also computes restriction on transgressive generators; stationarity alone would not establish the numerical bound.",
         "Use the conservative bound on all local matrix sizes to remove each unstable generator in degree ≤q.",
         "Apply R.2 block naturality to identify the chosen maps."
       ],
@@ -1177,9 +1223,15 @@
       "sources": [
         {
           "sourceId": "borel1974",
-          "locator": "§§10.1 and 10.6, pp.263–265",
+          "locator": "§§10.1 and 10.6, pp.263,265–266",
           "excerpt": "stationary",
           "match": "The source uses stationarity in each degree, not an ungraded inverse limit."
+        },
+        {
+          "sourceId": "borel1953",
+          "locator": "Propositions 31.3–31.4 and their transgression calculations, pp.203–205",
+          "excerpt": "PROPOSITION 31.4.",
+          "match": "Finite-rank generators, the even-rank Euler factor and restriction of transgressive classes justify the conservative bound; the SU quotients remove the determinant degree-one factor."
         }
       ],
       "acceptance": [
@@ -1219,7 +1271,7 @@
       "sources": [
         {
           "sourceId": "borel1974",
-          "locator": "Theorem 7.5, §§9.3–9.5 and §11.5, pp.258,262,266–267",
+          "locator": "Theorem 7.5, §§9.3–9.5 and §11.5, pp.259,262,268",
           "excerpt": "7.5.",
           "match": "Combines the actual arithmetic map, its two bounds, and the explicit rational-rank lower estimate."
         }
@@ -1266,7 +1318,7 @@
       "sources": [
         {
           "sourceId": "borel1974",
-          "locator": "Theorem 11.1 and §11.5, pp.265–267",
+          "locator": "Theorem 11.1 and §11.5, pp.266,268",
           "excerpt": "11.1.",
           "match": "The arithmetic sequence satisfies the comparison hypotheses and yields the stable exterior algebra."
         }
@@ -1303,14 +1355,14 @@
       ],
       "prerequisites": [
         "BorelRegulators:R.3/stable-arithmetic-exterior",
-        "GeneralAlgebraicKTheory:K.2",
+        "GeneralAlgebraicKTheory:K.2:plus",
         "StableHomotopyKTheory:H.3",
         "StableHomotopyKTheory:H.4"
       ],
       "sources": [
         {
           "sourceId": "borel1974",
-          "locator": "§12.1, pp.270–271",
+          "locator": "§12.1, p.270",
           "excerpt": "12.1.",
           "match": "Quillen’s plus construction connects stable arithmetic homology to higher K-homotopy."
         }
@@ -1541,7 +1593,7 @@
       "sources": [
         {
           "sourceId": "quillen1973",
-          "locator": "§1, Remark (2) after Theorem 1, p.179",
+          "locator": "§1, Remark (2) after Theorem 1, pp.179–180 (scan headers 195–196)",
           "excerpt": "localisation",
           "match": "The finite-residue localization argument is the correct route to S-integers."
         }
@@ -1705,7 +1757,7 @@
         {
           "name": "TauCeti.Borel.targetCoordinates_apply",
           "role": "projection",
-          "statement": "The v-coordinate is evaluation at the selected embedding σ_v divided by the fixed Tate generator."
+          "statement": "In the native real-function model, c_j(x)(v)=x(σ_v). Starting from the complex Tate model, first use archimedeanTarget_twist to divide by the fixed generator (2πi)^{j−1} exactly once, then evaluate; no second division occurs in c_j."
         },
         {
           "name": "TauCeti.Borel.targetCoordinates_symm",
@@ -1828,7 +1880,7 @@
       "sources": [
         {
           "sourceId": "burgos2002",
-          "locator": "Definition 9.24 and Remark 4.25, pp.86–87,31",
+          "locator": "Definition 9.24 and Remark 4.25, pp.86–87,32",
           "excerpt": "9.24.",
           "match": "Defines the universal renormalized class; the Chern character fixes factorial and Tate factors."
         }
@@ -1926,7 +1978,7 @@
       "sources": [
         {
           "sourceId": "burgos2002",
-          "locator": "§9.7, Propositions 9.25–9.26, pp.87–89",
+          "locator": "§9.7, Propositions 9.25–9.26, pp.87–88",
           "excerpt": "9.26.",
           "match": "The explicit alternating trace form gives the precise representative and factor two."
         }
@@ -2024,7 +2076,7 @@
         "BorelRegulators:R.4/universal-borel-class",
         "BorelRegulators:R.4/archimedean-target",
         "BorelRegulators:R.2/arithmetic-restriction",
-        "GeneralAlgebraicKTheory:K.2",
+        "GeneralAlgebraicKTheory:K.2:plus",
         "StableHomotopyKTheory:H.3",
         "ArithmeticKTheory:N.3:ranks",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology"
@@ -2238,8 +2290,9 @@
       "prerequisites": [
         "BorelRegulators:R.4/borel-regulator",
         "BorelRegulators:R.4/embedding-pull-trace",
-        "GeneralAlgebraicKTheory:K.2",
-        "ArithmeticKTheory:N.3:ranks"
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "ArithmeticKTheory:N.3:ranks",
+        "GeneralAlgebraicKTheory:K.3"
       ],
       "sources": [
         {
@@ -2823,6 +2876,61 @@
       "declarationName": "TauCeti.Borel.zetaLeading_functionalEquation"
     },
     {
+      "id": "BorelRegulators:R.5/compact-factor-comparison",
+      "parentStageId": "BorelRegulators:R.5",
+      "realises": [
+        "BorelRegulators:R.5"
+      ],
+      "title": "Absolute and relative arithmetic cohomology with the compact fiber",
+      "kind": "theorem",
+      "statement": "Let F be a number field, N odd, G_N=SL_N(F⊗R), K_N its standard maximal compact, Γ⊂SL_N(F) a torsion-free arithmetic subgroup, Y_N=Γ\\G_N and X_N=Γ\\G_N/K_N. Put g=Lie(G_N)⊗C, k=Lie(K_N)⊗C and let G_u be the compact real form with compact dual X_u=G_u/K_N. Absolute invariant forms give β:H*(g;C)→H*(Y_N;C), and relative invariant forms give j:H*(g,k;C)→H*(X_N;C). The compact-form isomorphisms α:H*(g;C)≅H*(G_u;C) and α_rel:H*(g,k;C)≅H*(X_u;C) commute with relative-to-absolute inclusion and quotient pullback: β∘incl=p*∘j. The corresponding three compact-fiber spectral sequences commute. For odd N the restriction H*(G_u;C)→H*(K_N;C) is onto, these spectral sequences degenerate, and H*(G_u;C)=Λ(P_base⊕P_K), where quotient pullback identifies Λ(P_base) with H*(X_u;C) and restriction identifies Λ(P_K) with H*(K_N;C). Whenever the arithmetic relative comparison is an isomorphism in degrees ≤q, so is β in degrees ≤q. In those degrees the decomposition induces the compact/base primitive determinant-line factorization used in the period theorem; comparisons of its algebraic and singular rational structures retain Borel’s coefficient-conversion table.",
+      "hypotheses": [
+        "N odd is essential for the real SO_N compact fiber to be totally nonhomologous to zero; N even is not asserted. Γ is torsion-free for the manifold bundle; real/complex finite-index descent is applied separately. A sufficient arithmetic bound is N−1>4[F:Q]q."
+      ],
+      "proofSteps": [
+        "Construct absolute and relative invariant-form maps using the nonautomorphic de Rham comparison and AF.1a; at the cochain level inclusion is exactly quotient pullback.",
+        "Apply AT.5 to K_N→G_u→X_u and K_N→Y_N→X_N. Borel 1953 Proposition 31.4 gives surjectivity for SO_N⊂SU_N when N is odd; the complex-place diagonal compact factor is onto by restriction.",
+        "Transfer the invariant-form spectral-sequence comparison of Borel 1977 §3.5. Its fiber edge is the compact-form isomorphism and surjectivity forces zero transgressions, so the arithmetic bundle sequence degenerates.",
+        "Use the exterior primitive splitting of Borel §5.2 and the relative stable comparison to compare the associated graded spaces, then the total spaces in degrees ≤q. Take determinants of the primitive exact sequence; use Borel §4 and §6.2 for rational structures rather than treating an arbitrary complex splitting as rational."
+      ],
+      "prerequisites": [
+        "BorelRegulators:R.2/arithmetic-invariant-form-map",
+        "BorelRegulators:R.3/classical-compact-duals",
+        "BorelRegulators:R.3/compact-dual-cohomology",
+        "BorelRegulators:R.3/arithmetic-stable-range",
+        "AutomorphicFormsOnReductiveGroups:AF.1a",
+        "ArithmeticLocallySymmetricSpaces:ALS.5",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ],
+      "sources": [
+        {
+          "sourceId": "borel1977",
+          "locator": "§§3.4–3.5, pp.621–622; §5.2, pp.626–627; §6.2, pp.631–632",
+          "excerpt": "3.5.",
+          "match": "The maps, commuting spectral sequences, odd-rank compact-fiber degeneration and primitive splitting are explicitly established here."
+        },
+        {
+          "sourceId": "borel1953",
+          "locator": "Proposition 31.4, p.204",
+          "excerpt": "PROPOSITION 31.4.",
+          "match": "Odd-dimensional SO is totally nonhomologous to zero; the even case retains an Euler class and is not substituted."
+        }
+      ],
+      "acceptance": [
+        "For a complex place the compact-dual group is SU_N×SU_N and the diagonal SU_N fiber restricts surjectively; the base primitive is the difference of the two factor primitives.",
+        "The degree-one real SO₂ fiber in SU₂ is not onto on H¹; the odd-rank hypothesis cannot be dropped.",
+        "The period theorem uses β on the full arithmetic quotient, while the stable-rank theorem uses j on the symmetric-space quotient. Their commuting diagram is required before determinant splitting."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Borel/R5",
+        "namespace": "TauCeti.Borel"
+      },
+      "declarationName": "TauCeti.Borel.arithmeticCompactFactorComparison",
+      "addedBy": "REV-BorelRegulators"
+    },
+    {
       "id": "BorelRegulators:R.5/borel-positive-zeta-period",
       "parentStageId": "BorelRegulators:R.5",
       "realises": [
@@ -2837,7 +2945,7 @@
       "proofSteps": [
         "Use R.6 compact anisotropic inner-form cycles and their nonzero primitive restrictions.",
         "Integrate the top invariant form; R.6 expresses the volume as the product ζ_F(2)…ζ_F(n).",
-        "Perform Borel §5.5 induction on primitive wedge degree and split off compact-factor primitives in §6.2.",
+        "Use arithmeticCompactFactorComparison to identify the absolute map on Y_N and its compact/base primitive determinant lines. Perform Borel §5.5 induction on primitive wedge degree; the compact-factor coefficient conversion in §6.2 retains the specified rational structures.",
         "Apply the corrected signed-discriminant identities in 5.4 and 6.2, retaining phase cancellation."
       ],
       "prerequisites": [
@@ -2847,7 +2955,9 @@
         "BorelRegulators:R.3/arithmetic-stable-range",
         "BorelRegulators:R.3/compact-dual-cohomology",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+        "BorelRegulators:R.5/compact-factor-comparison",
+        "BorelRegulators:R.6/adelic-period-pairing"
       ],
       "sources": [
         {
@@ -3036,7 +3146,7 @@
       "sources": [
         {
           "sourceId": "borel1977",
-          "locator": "Proof of Proposition 2.4, p.619, local factor (2)",
+          "locator": "Proof of Proposition 2.4, pp.618–619, local factor (2)",
           "excerpt": "2.4.",
           "match": "The good-place volume is the inverse Euler factor product for a=2,…,e."
         }
@@ -3227,6 +3337,7 @@
         "Choose N≥e² and large enough for the primitive-degree arithmetic comparison; torsion-free/neat descent is imported from ALS.2."
       ],
       "proofSteps": [
+        "Use arithmeticCompactFactorComparison to place the algebraic absolute primitive classes on the full Γ\\G quotient. Compact-dual relative cohomology alone would not supply their full invariant-form period.",
         "Use the requested split division form and AA.3 compactness, then ALS.2 torsion-free finite-index passage.",
         "Use the left regular representation, whose determinant is reducedNorm^e, and choose a Γ-stable integral lattice.",
         "Apply native fundamental-class/integration pairing from AT.6; the regular representation is e copies of the standard representation at every split embedding, giving the nonzero primitive restriction."
@@ -3237,12 +3348,13 @@
         "BorelRegulators:R.3/compact-dual-cohomology",
         "AdelicAlgebraicGroups:AA.1",
         "ArithmeticLocallySymmetricSpaces:ALS.2",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+        "BorelRegulators:R.5/compact-factor-comparison"
       ],
       "sources": [
         {
           "sourceId": "borel1977",
-          "locator": "Proof of Theorem 5.5, pp.628–630",
+          "locator": "Theorem 5.5 and proof, pp.628–630",
           "excerpt": "5.5.",
           "match": "The compact inner-form cycles and primitive restrictions supply the nonzero periods used in the induction."
         }
@@ -3324,13 +3436,13 @@
       ],
       "title": "Adelic primitive period pairing",
       "kind": "construction",
-      "statement": "For the compact cycle Z_D, a rational invariant top form η and compact-open U with Γ_D=H(F)∩H_∞U, define I_D(η,U)=∫_{Z_D}η using the chosen orientation. After the restriction-of-scalars normalization, its absolute value is the corresponding positive archimedean quotient volume. The product-measure equation |I_D(η,U)|vol_f(U)=τ(H) includes the explicit conversion from η to the AA.2 Tamagawa form. For primitive wedge forms this integral is the singular/de Rham cohomology pairing with [Z_D]. This is the specialized period interface needed in Bloch’s Tamagawa formulation.",
+      "statement": "For the compact oriented cycle Z_D and compact-open U with Γ_D=H(F)∩H_∞U, define I_D(η,U)=∫_{Z_D}η for every real-valued rational invariant top form η, including zero. For nonzero η let c_η>0 be the explicitly computed conversion scalar satisfying μ_∞^Tam=c_η|η| in the fixed AA.2 normalization. Then μ_∞^Tam(Z_D)=c_η|I_D(η,U)| and c_η|I_D(η,U)|vol_f(U)=τ(H). The scalar is obtained from the differential-form and restriction-of-scalars conventions, rather than assumed equal to one. For primitive wedge forms this integral equals the singular/de Rham pairing with [Z_D]. This is the specialized period interface needed in Bloch’s Tamagawa formulation.",
       "hypotheses": [
-        "The top form is nonzero, the quotient is compact, and all local measure choices are made compatibly; the absolute value formula includes the conversion scalar."
+        "The quotient is compact and oriented. The integration map is defined for zero; c_η and the volume formula require η≠0. All local measures and the selected rational Tamagawa form are fixed compatibly."
       ],
       "proofSteps": [
-        "Use AT.6 fundamental-class integration and ALS.5 early Betti/de Rham comparison.",
-        "Apply restrictionScalarsForm to express the form in the adopted Tamagawa normalization.",
+        "Use AT.6 fundamental-class integration and the requested early nonautomorphic Betti/de Rham part of ALS.5.",
+        "Apply restrictionScalarsForm and the specified rational Tamagawa form to compute c_η from μ_∞^Tam=c_η|η|. It transforms as c_{aη}=c_η/|a| for a∈Q×.",
         "Use normOne_archimedeanVolume and the adelic quotient product-measure equation."
       ],
       "prerequisites": [
@@ -3338,7 +3450,7 @@
         "BorelRegulators:R.6/restriction-scalars-form",
         "BorelRegulators:R.6/norm-one-volume",
         "AdelicAlgebraicGroups:AA.2",
-        "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+        "ArithmeticLocallySymmetricSpaces:ALS.5",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
       ],
       "sources": [
@@ -3372,7 +3484,7 @@
         {
           "name": "TauCeti.Borel.adelicPeriodPairing_volume",
           "role": "characterisation",
-          "statement": "After exact form-to-measure conversion, |I_D| is the positive archimedean quotient volume."
+          "statement": "For η≠0, μ_∞^Tam(Z_D)=c_η|I_D(η,U)| and c_η|I_D(η,U)|vol_f(U)=τ(H), with c_η specified by the actual form-to-measure equality."
         },
         {
           "name": "TauCeti.Borel.adelicPeriodPairing_local_rescale",
@@ -3383,6 +3495,11 @@
           "name": "TauCeti.Borel.adelicPeriodPairing_cover",
           "role": "functoriality",
           "statement": "Finite cover of degree a multiplies the integral by a."
+        },
+        {
+          "name": "TauCeti.Borel.adelicPeriodPairing_form_rescale",
+          "role": "relation",
+          "statement": "With measures fixed and a∈Q×, I_D(aη,U)=aI_D(η,U) and c_{aη}=c_η/|a|. Thus the converted quotient volume is unchanged."
         }
       ],
       "tests": [
@@ -3400,6 +3517,11 @@
           "name": "TauCeti.Borel.adelicPeriodPairing_rescale",
           "kind": "compatibility",
           "statement": "Doubling one finite local measure doubles the finite product; the normalization equation cannot stay unchanged without its compensating global conversion."
+        },
+        {
+          "name": "TauCeti.Borel.adelicPeriodPairing_double_form",
+          "kind": "computation",
+          "statement": "With all Tamagawa measures fixed, replacing nonzero η by 2η doubles I_D and halves c_η; the unconverted equation |I_D|vol_f(U)=τ(H) cannot hold for both forms."
         }
       ],
       "uses": [
@@ -3520,7 +3642,7 @@
       "sources": [
         {
           "sourceId": "burgos2002",
-          "locator": "Theorems 8.12,8.15; Lemma 10.10 and Proposition 10.11, pp.68–72,98–100",
+          "locator": "Theorems 8.12,8.15, pp.70–71,73; Lemma 10.10 and Proposition 10.11, p.97",
           "excerpt": "10.11.",
           "match": "The all-weight Beilinson representative is obtained from the infinitesimal diagonal, not extrapolated from a dilogarithm."
         }
@@ -3565,7 +3687,7 @@
       "sources": [
         {
           "sourceId": "burgos2002",
-          "locator": "Theorem 10.9 and proof, pp.98–100",
+          "locator": "Theorem 10.9 and proof, pp.95–97",
           "excerpt": "10.9.",
           "match": "This fixes the exact scalar for every weight under the adopted primary convention."
         }
@@ -3611,7 +3733,7 @@
       "sources": [
         {
           "sourceId": "burgos2002",
-          "locator": "Theorem 10.9 with Definitions 9.19 and 10.8",
+          "locator": "Theorem 10.9, pp.95–97, with Definitions 9.19 and 10.8, pp.84,94",
           "excerpt": "10.9.",
           "match": "The universal comparison yields the map equality, and the determinant power follows by multilinearity."
         }
@@ -3659,7 +3781,7 @@
       "sources": [
         {
           "sourceId": "goncharov2004",
-          "locator": "§§5.4–5.5, equations (61),(64), Theorem 5.7, pp.41–46; introduction equation (11)",
+          "locator": "§§5.4–5.5, equations (61),(64), Theorem 5.7 and proof, pp.43–47; introduction equation (11)",
           "excerpt": "5.7",
           "match": "The source fixes the Dynkin cohomology coefficient; an explicit convention comparison to the Burgos-normalized map remains required."
         }
@@ -3682,14 +3804,14 @@
       ],
       "title": "Zero-rank and imaginary-quadratic regulator tests",
       "kind": "application",
-      "statement": "For Q and every even j≥2, V_j(Q)=0, the rational odd K-group is zero and its arithmetic regulator covolume is 1. For an imaginary quadratic F and j=2, V_2(F) is one-dimensional with components (a,−a); the arithmetic regulator image is a full rank-one lattice and changes sign when the selected embedding is conjugated. For F=Q(√−3), the Bloch class of ζ_6=(1+√−3)/2 has zero boundary because 1−ζ_6=ζ_6^{-1}, and its Bloch–Wigner value is positive at the upper-half-plane embedding. The exact numerical conversion to the adopted Borel coordinate uses the unresolved λ_BW test, while rank one and nonzero image follow independently from the real regulator isomorphism.",
+      "statement": "For Q and every even j≥2, V_j(Q)=0, the rational odd K-group is zero and its arithmetic regulator covolume is 1. For an imaginary quadratic F and j=2, V_2(F) is one-dimensional with components (a,−a); the arithmetic regulator image is a full rank-one lattice and changes sign when the selected embedding is conjugated. For F=Q(√−3), put ζ_6=(1+√−3)/2. With Suslin’s antisymmetric tensor quotient, ∂[ζ_6]=−ζ_6⊗ζ_6 can be nonzero 2-torsion; consequently 2[ζ_6] is an integral Bloch element and [ζ_6] is a rational Bloch element. This follows from 1−ζ_6=ζ_6^{-1} and 2(ζ_6⊗ζ_6)=0. The Bloch–Wigner values D(ζ_6) and 2D(ζ_6) are positive at the upper-half-plane embedding. The exact numerical conversion to the adopted Borel coordinate uses the unresolved λ_BW test, while rank one and nonzero image follow independently from the real regulator isomorphism.",
       "hypotheses": [
         "j≥2; ζ_6 is tested in the rationalized Suslin/Bloch comparison, with the stated boundary convention."
       ],
       "proofSteps": [
         "Use the pinned signature counts, R.3 rank theorem and R.4 target coordinates.",
         "Apply the full-lattice theorem for the imaginary-quadratic field.",
-        "Use P.1 positivity and P.2 descent for ζ_6; keep its exact Borel coefficient linked to the weight-two normalization gap."
+        "Use the V.3 antisymmetric tensor relation to show ∂(2[ζ_6])=0, then rationalize if using [ζ_6]. Apply P.1 positivity and P.2 descent; keep the exact Borel coefficient linked to the weight-two normalization gap."
       ],
       "prerequisites": [
         "BorelRegulators:R.3/borel-rank-theorem",
@@ -3699,19 +3821,29 @@
         "BorelRegulators:R.7/weight-two-bloch-wigner",
         "Polylogarithms:P.1/bloch-wigner-positivity",
         "Polylogarithms:P.2/bloch-wigner-descent",
-        "K3BlochGroups:V.4/suslin-exact-sequence"
+        "K3BlochGroups:V.4/suslin-exact-sequence",
+        "K3BlochGroups:V.3/antisymmetric-tensor-quotient",
+        "K3BlochGroups:V.3/bloch-boundary",
+        "K3BlochGroups:V.3/bloch-group"
       ],
       "sources": [
         {
-          "sourceId": "weibelVI",
-          "locator": "§4, number-field regulator and signature discussion",
-          "excerpt": "Borel",
-          "match": "The standard signature cases specialize the rank and regulator theorems; the concrete Bloch symbol uses the imported polylogarithm statements."
+          "sourceId": "borel1974",
+          "locator": "Proposition 12.2, p.271",
+          "excerpt": "12.2.",
+          "match": "Primary rank theorem supplies the zero-rank and imaginary-quadratic cases; the symbol boundary and positivity are explicit applications of V.3 and P.1–P.2."
+        },
+        {
+          "sourceId": "weibelIV",
+          "locator": "Theorems 1.17–1.18 and Regulator Maps 1.18.1, pp.12–13, author chapter PDF; corrected as E2",
+          "excerpt": "Theorem 1.18 (Borel).",
+          "match": "The signature discussion is here, not in Chapter VI §4. Rationalize both sides of the displayed comparison in Theorem 1.18."
         }
       ],
       "acceptance": [
         "At Q,j=2 the zeta value is nonzero although the rational K3 rank is zero.",
-        "At an imaginary quadratic field switching embedding changes orientation but preserves absolute determinant."
+        "At an imaginary quadratic field switching embedding changes orientation but preserves absolute determinant.",
+        "The integral test is 2[ζ_6]; replacing the antisymmetric tensor quotient by an exterior square would incorrectly kill every diagonal tensor. The rationalized test may use [ζ_6]."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -3880,12 +4012,13 @@
       ]
     },
     {
-      "supplier": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
-      "need": "Early finite-level singular/Betti-to-de Rham comparison on torsion-free arithmetic quotients, naturality under group maps and finite covers, wedge/cup compatibility, and integration against fundamental cycles. Use ALS.5:finite-level-duality rather than the downstream automorphic comparison AS.5.",
+      "supplier": "ArithmeticLocallySymmetricSpaces:ALS.5",
+      "need": "Split the nonautomorphic Betti/de Rham/relative-Lie part of ALS.5 into an EARLY comparison export, natural under compatible group maps and finite covers, respecting wedge/cup and fundamental-cycle integration. The existing early ALS.5:finite-level-duality prefix expressly supplies duality and support pairings, not these extra identifications. Only the further automorphic comparison uses AS.5; that late part must remain downstream. This is a requested supplier refinement, not an assertion that the early prefix already exports de Rham comparison.",
       "neededBy": [
         "BorelRegulators:R.6/adelic-period-pairing",
         "BorelRegulators:R.2/arithmetic-invariant-form-map",
-        "BorelRegulators:R.2/block-comparison-naturality"
+        "BorelRegulators:R.2/block-comparison-naturality",
+        "BorelRegulators:R.5/compact-factor-comparison"
       ]
     },
     {
@@ -3900,7 +4033,8 @@
         "BorelRegulators:R.3/arithmetic-stable-range",
         "BorelRegulators:R.2/arithmetic-restriction",
         "BorelRegulators:R.2/arithmetic-invariant-form-map",
-        "BorelRegulators:R.2/block-comparison-naturality"
+        "BorelRegulators:R.2/block-comparison-naturality",
+        "BorelRegulators:R.5/compact-factor-comparison"
       ]
     },
     {
@@ -3923,14 +4057,14 @@
       ]
     },
     {
-      "supplier": "GeneralAlgebraicKTheory:K.2",
-      "need": "Map-level plus/Q comparison for the actual K-groups, stable elementary subgroup perfectness and the SL/GL higher-primitive comparison; embeddings and exact-category restriction-of-scalars transfers, their additivity, embedding-fiber Mackey/base-change formula after tensoring to C, and compatibility with localization from rings of integers. Fields and O_E/O_F use finite projective transfer, not an unproved finite-étale formula at ramified primes.",
+      "supplier": "GeneralAlgebraicKTheory:K.2:plus",
+      "need": "Use the EARLY functorial ring/plus and Q/group-completion comparison on genuine higher K-groups, with stable elementary subgroup perfectness, cofinal projective complements and block-sum naturality. Do not import K.2:low-degree-comparisons, which can depend on the later K3/Bloch interface. Generic exact-functor additivity and the transfer specialization are requested separately from K.3.",
       "neededBy": [
         "BorelRegulators:R.1/quillen-finiteness-interface",
         "BorelRegulators:R.1/finite-type-plus-consequences",
         "BorelRegulators:R.4/borel-regulator",
-        "BorelRegulators:R.4/regulator-transfer",
-        "BorelRegulators:R.3/gl-sl-primitive-comparison"
+        "BorelRegulators:R.3/gl-sl-primitive-comparison",
+        "BorelRegulators:R.4/regulator-transfer"
       ]
     },
     {
@@ -3998,7 +4132,8 @@
         "BorelRegulators:R.7/relative-absolute-injectivity",
         "BorelRegulators:R.5/borel-positive-zeta-period",
         "BorelRegulators:R.3/compact-dual-cohomology",
-        "BorelRegulators:R.3/compact-dual-degree-stability"
+        "BorelRegulators:R.3/compact-dual-degree-stability",
+        "BorelRegulators:R.5/compact-factor-comparison"
       ]
     },
     {
@@ -4011,7 +4146,8 @@
         "BorelRegulators:R.3/compact-dual-cohomology",
         "BorelRegulators:R.3/stable-arithmetic-exterior",
         "BorelRegulators:R.3/cartan-serre-application",
-        "BorelRegulators:R.2/stable-hopf-compatibility"
+        "BorelRegulators:R.2/stable-hopf-compatibility",
+        "BorelRegulators:R.5/compact-factor-comparison"
       ]
     },
     {
@@ -4044,6 +4180,13 @@
       "neededBy": [
         "BorelRegulators:R.6/archimedean-split-division"
       ]
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.3",
+      "need": "Import generic exact-functor additivity, and supply as a K.3 extension the finite-projective restriction-of-scalars transfer and embedding-fiber base-change identity after tensoring a finite separable field extension with C. Prove the finite-projective O_E/O_F transfer and compatibility with localization; no finite-étale hypothesis is imposed at ramified primes. K.2:plus supplies model comparison, not this transfer/additivity theorem.",
+      "neededBy": [
+        "BorelRegulators:R.4/regulator-transfer"
+      ]
     }
   ],
   "coverage": [
@@ -4053,7 +4196,7 @@
       "remaining": [
         "Missing canonical higher-object Lean interfaces",
         "Connected H-space and arithmetic finiteness supplier strengthening",
-        "Close requested interfaces: AdelicAlgebraicGroups:AA.1, ArithmeticLocallySymmetricSpaces:ALS.2, StableHomotopyKTheory:H.3, StableHomotopyKTheory:H.4, GeneralAlgebraicKTheory:K.2, ArithmeticKTheory:N.3:finite-generation, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent, tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions."
+        "Close requested interfaces: AdelicAlgebraicGroups:AA.1, ArithmeticLocallySymmetricSpaces:ALS.2, StableHomotopyKTheory:H.3, StableHomotopyKTheory:H.4, GeneralAlgebraicKTheory:K.2:plus, ArithmeticKTheory:N.3:finite-generation, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent, tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions."
       ]
     },
     {
@@ -4061,7 +4204,8 @@
       "status": "planned",
       "remaining": [
         "Missing canonical higher-object Lean interfaces",
-        "Close requested interfaces: ArithmeticLocallySymmetricSpaces:ALS.2, ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality, AutomorphicFormsOnReductiveGroups:AF.1a, StableHomotopyKTheory:H.4, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality, tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions."
+        "Early nonautomorphic de Rham comparison and generic transfer extensions",
+        "Close requested interfaces: ArithmeticLocallySymmetricSpaces:ALS.2, ArithmeticLocallySymmetricSpaces:ALS.5, AutomorphicFormsOnReductiveGroups:AF.1a, StableHomotopyKTheory:H.4, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality, tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions."
       ]
     },
     {
@@ -4071,7 +4215,8 @@
         "Missing canonical higher-object Lean interfaces",
         "Connected H-space and arithmetic finiteness supplier strengthening",
         "Symmetric-pair compact dual beyond existing Lie groups",
-        "Close requested interfaces: ArithmeticLocallySymmetricSpaces:ALS.2, AutomorphicFormsOnReductiveGroups:AF.1a, StableHomotopyKTheory:H.3, StableHomotopyKTheory:H.4, GeneralAlgebraicKTheory:K.2, ArithmeticKTheory:N.3:ranks, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality, tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms, tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions."
+        "Early nonautomorphic de Rham comparison and generic transfer extensions",
+        "Close requested interfaces: ArithmeticLocallySymmetricSpaces:ALS.2, AutomorphicFormsOnReductiveGroups:AF.1a, StableHomotopyKTheory:H.3, StableHomotopyKTheory:H.4, GeneralAlgebraicKTheory:K.2:plus, ArithmeticKTheory:N.3:ranks, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality, tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms, tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions."
       ]
     },
     {
@@ -4080,7 +4225,8 @@
       "remaining": [
         "Missing canonical higher-object Lean interfaces",
         "Early Chern/Weil interface and dependency boundary",
-        "Close requested interfaces: AutomorphicFormsOnReductiveGroups:AF.1a, StableHomotopyKTheory:H.3, GeneralAlgebraicKTheory:K.2, ArithmeticKTheory:N.3:finite-generation, ArithmeticKTheory:N.3:ranks, MotivicEtaleKTheory:M.8, RefinedTraceMethods:RT.4:topological, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology."
+        "Early nonautomorphic de Rham comparison and generic transfer extensions",
+        "Close requested interfaces: AutomorphicFormsOnReductiveGroups:AF.1a, StableHomotopyKTheory:H.3, GeneralAlgebraicKTheory:K.2:plus, ArithmeticKTheory:N.3:finite-generation, ArithmeticKTheory:N.3:ranks, MotivicEtaleKTheory:M.8, RefinedTraceMethods:RT.4:topological, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology, GeneralAlgebraicKTheory:K.3."
       ]
     },
     {
@@ -4088,7 +4234,8 @@
       "status": "planned",
       "remaining": [
         "Missing canonical higher-object Lean interfaces",
-        "Close requested interfaces: tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality."
+        "Early nonautomorphic de Rham comparison and generic transfer extensions",
+        "Close requested interfaces: ArithmeticLocallySymmetricSpaces:ALS.5, AutomorphicFormsOnReductiveGroups:AF.1a, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality."
       ]
     },
     {
@@ -4099,7 +4246,8 @@
         "Degree-e splitting input beyond the global Brauer sequence",
         "Primary proof of the specialized Tamagawa-number theorem",
         "Bloch first-four-lectures pairing convention",
-        "Close requested interfaces: AdelicAlgebraicGroups:AA.1, AdelicAlgebraicGroups:AA.2, AdelicAlgebraicGroups:AA.3, AdelicAlgebraicGroups:AA.4, ArithmeticLocallySymmetricSpaces:ALS.2, ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants."
+        "Early nonautomorphic de Rham comparison and generic transfer extensions",
+        "Close requested interfaces: AdelicAlgebraicGroups:AA.1, AdelicAlgebraicGroups:AA.2, AdelicAlgebraicGroups:AA.3, AdelicAlgebraicGroups:AA.4, ArithmeticLocallySymmetricSpaces:ALS.2, ArithmeticLocallySymmetricSpaces:ALS.5, tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants."
       ]
     },
     {
@@ -4165,7 +4313,8 @@
         "BorelRegulators:R.2/arithmetic-restriction",
         "BorelRegulators:R.2/arithmetic-invariant-form-map",
         "BorelRegulators:R.2/block-comparison-naturality",
-        "BorelRegulators:R.2/stable-hopf-compatibility"
+        "BorelRegulators:R.2/stable-hopf-compatibility",
+        "BorelRegulators:R.5/compact-factor-comparison"
       ]
     },
     {
@@ -4225,6 +4374,18 @@
         "BorelRegulators:R.7/weight-two-bloch-wigner",
         "BorelRegulators:R.7/number-field-small-cases"
       ]
+    },
+    {
+      "title": "Early nonautomorphic de Rham comparison and generic transfer extensions",
+      "detail": "ALS.5:finite-level-duality explicitly excludes the later Betti/de Rham/relative-Lie identifications. Split the nonautomorphic comparison into an early export for R.2/R.5/R.6 while leaving only the automorphic suffix dependent on AS.5. AF.1a currently supplies relative cochains and van Est, not the requested logarithmic-growth/L²/Matsushima analytic resolution; that remains AF Part II. K.3 supplies additivity, but the precise finite-projective transfer/base-change specialization requested here needs its own extension. K.2:plus supplies the early model without depending on late K3 comparison.",
+      "neededBy": [
+        "BorelRegulators:R.2/arithmetic-invariant-form-map",
+        "BorelRegulators:R.2/block-comparison-naturality",
+        "BorelRegulators:R.3/arithmetic-stable-range",
+        "BorelRegulators:R.4/regulator-transfer",
+        "BorelRegulators:R.5/compact-factor-comparison",
+        "BorelRegulators:R.6/adelic-period-pairing"
+      ]
     }
   ],
   "sourceIssues": [
@@ -4236,7 +4397,7 @@
         "BorelRegulators:R.5/borel-positive-zeta-period",
         "BorelRegulators:R.5/borel-zeta-proportionality"
       ],
-      "locator": "Borel 1977 pp.616,627,628; 5.5(1),(4), 6.2(5); corrected by Borel 1980 p.373",
+      "locator": "Borel 1977 pp.616,627,628,632; 5.5(1),(4) and 6.2(5); corrected by the published Borel 1980 erratum p.373",
       "printed": "“|D|” in the algebraic restriction-of-scalars normalization, and “i^{r₂}” in 5.5(1),(4) and 6.2(5), transcribed from the original mathematical typography.",
       "correction": "Use the chosen signed discriminant square root D^{1/2}=det(σ_i(α_a)) in those algebraic form normalizations and delete the specified i^{r2} factors. Positive Haar measure still uses |D|^{1/2}; other orientation phases are not all deleted.",
       "reason": "The embedding determinant squares to the signed discriminant. For Q(i) it is −2i with the stated ordered basis, whereas |D|^{1/2}=2 loses the algebraic phase.",
@@ -4246,7 +4407,64 @@
         "Published 1980 Errata-Corrigé, complete text and visual formula inspection",
         "Numdam metadata for the 1977 paper and its 1980 correction"
       ],
-      "sourceId": "borel1980erratum"
+      "sourceId": "borel1980erratum",
+      "source": "borel1977",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the published 1977 formulas and the complete published 1980 correction, including its discriminant determinant and the specified deleted i-powers. The correction applies to algebraic forms; positive Haar measures still use the absolute discriminant.",
+        "by": "REV-BorelRegulators"
+      }
+    },
+    {
+      "id": "BorelRegulators/E2",
+      "source": "weibelIV",
+      "sourceId": "weibelIV",
+      "kind": "misprint",
+      "locator": "Author Chapter IV PDF, Theorem 1.18, p.12, version accessed 2026-10-05; published-book collation unavailable",
+      "printed": "K_n(A) ⊗ Q ≅ K_n(F)",
+      "correction": "K_n(A) ⊗ Q ≅ K_n(F) ⊗ Q for n≥2. The rank table is unchanged.",
+      "reason": "Take A=F=Q and n=2. The left side is zero by the same displayed even-degree rank statement, but K₂(Q) has nonzero torsion (the order-two K₂(Z) class injects by localization, since finite residue fields have K₂=0). The intended comparison is between rationalized groups, as in the preceding Theorem 1.17 and Borel 1974 Proposition 12.2.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html and its errata link; both www.math.rutgers.edu and sites.math.rutgers.edu Kbook.errata.pdf returned 404",
+        "Search of the author’s public pages for Theorem 1.18 corrections",
+        "AMS version-of-record endpoint https://www.ams.org/books/gsm/145/gsm145.pdf returned HTTP 403 / Cloudflare challenge; no claim made about the printed AMS edition"
+      ],
+      "affectedNodes": [
+        "BorelRegulators:R.7/number-field-small-cases"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The missing right-hand rationalization is visible in the author PDF, not an extraction artifact. The small case above contradicts the literal integral right-hand side. This verdict is scoped to that author copy pending published collation.",
+        "by": "REV-BorelRegulators"
+      }
+    },
+    {
+      "id": "BorelRegulators/E3",
+      "source": "weibelVI",
+      "sourceId": "weibelVI",
+      "kind": "misprint",
+      "locator": "Author Chapter VI PDF, Classical Data 8.1, p.47, version accessed 2026-10-05; published-book collation unavailable",
+      "printed": "the groups K_n(F) are finite when n is even and nonzero",
+      "correction": "The finiteness statement concerns K_n(O_S), for a ring of S-integers with finite S, rather than K_n(F). The following finite-group-plus-free-group statement should consistently use O_S too; its rational rank formula agrees with the field after localization.",
+      "reason": "For F=Q, localization has K₂(Q)→⊕_p K₁(F_p)→K₁(Z)→K₁(Q). The last map is injective, so the first map is onto an infinite direct sum of finite unit groups, and K₂(Q) is infinite. By contrast K₂(O_S) is finite for finite S by Quillen finite generation and the even-degree rank theorem. The same paragraph starts with O_S and cites the ring-of-integers finite-generation theorem IV.6.9.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html and its errata link, which returned 404 on both Rutgers hostnames",
+        "Search of the author’s public pages for Classical Data 8.1 corrections; current chapter and full author PDFs still display F",
+        "AMS version-of-record endpoint https://www.ams.org/books/gsm/145/gsm145.pdf returned HTTP 403 / Cloudflare challenge; published collation not claimed"
+      ],
+      "affectedNodes": [
+        "BorelRegulators:R.1/quillen-finiteness-interface",
+        "BorelRegulators:R.3/s-integer-rank-import"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the F subscript visually in the author chapter PDF and checked the localization counterexample. Scoped to this author copy; the plan keeps integral finiteness for O_S and only rational localization for F.",
+        "by": "REV-BorelRegulators"
+      }
     }
   ],
   "restructure": [
@@ -4311,5 +4529,321 @@
       ],
       "note": "ABHN/sum-of-invariants exactness does not alone prove the degree-e division algebra existence used in Borel Lemma 2.2. Record the additional splitting-degree/period-index theorem in a Part II rather than inferring it from class existence."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf",
+      "read": "2026-10-05",
+      "sha256": "f27dc4622583423cdcfc66671cffd38904f3ecf4d97b8b1352fcf3dbf3a295b5"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/ASNSP_1980_4_7_2_373_0.pdf",
+      "read": "2026-10-05",
+      "sha256": "4f87e0cd23458a43bcb073ed30c4ab00fad221ca02f7479112fa6af045b9959a"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+      "read": "2026-10-05",
+      "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+      "note": "The AMS book endpoint returned HTTP403 with a Cloudflare challenge. E2 is scoped to this author chapter copy; no accusation about the version of record is made."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf",
+      "read": "2026-10-05",
+      "sha256": "efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1",
+      "note": "AMS full text returned HTTP403 with a Cloudflare challenge. E3 is scoped to this author chapter copy pending published collation."
+    }
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-BorelRegulators",
+    "date": "2026-10-05",
+    "notes": "Finished independent target-level review of all 55 original nodes, 27 exact-pin baseline statements, 10 original source PDFs plus Borel 1953, all supplier contracts and eight confirmed red-team findings. Corrected clear mathematical/convention and source-locator errors and added one key compact-fiber comparison. The packet is a complete planned pass, with explicit carrier/source/supplier gaps and no claim of formalization. Needs changes solely because the reader document repeats the superseded statements and is outside this review’s authorized deliverables: reconcile it with the corrected packet and signature register before acceptance/promotion (PROTOCOL §8). See REV-BorelRegulators.md for exact reader sections and validation.",
+    "checked": [
+      {
+        "nodeId": "BorelRegulators:R.1/order-arithmetic-system",
+        "verdict": "corrected",
+        "note": "Confirmed the division-order arithmetic system, reduced norm, rank_Q=n−1, block maps and all three archimedean factors in Borel §11.5. Corrected its printed page to268; CSA supplies no orders or reduced norm by itself."
+      },
+      {
+        "nodeId": "BorelRegulators:R.1/division-building",
+        "verdict": "corrected",
+        "note": "Verified proper nonzero right D-subspaces and flags, the empty rank-one convention, transport/action and the order-lattice nonexample. Corrected the introduction/proof locator to Quillen p.180 and §2 pp185–190."
+      },
+      {
+        "nodeId": "BorelRegulators:R.1/steinberg-module",
+        "verdict": "corrected",
+        "note": "Verified augmented degree n−2, integral action and apartment classes. In rank one reduced H_{−1}(empty)=Z; over F_q rank two the rank is q. Corrected the definition locator to Quillen p.181."
+      },
+      {
+        "nodeId": "BorelRegulators:R.1/solomon-tits",
+        "verdict": "corrected",
+        "note": "Read the primary building proof in Quillen §2; division-ring hypothesis and wedge degree n−2 are retained, with a separate empty rank-one convention. Corrected theorem/proof pages."
+      },
+      {
+        "nodeId": "BorelRegulators:R.1/steinberg-duality-finiteness",
+        "verdict": "corrected",
+        "note": "Read the duality passage and finite-quotient descent: integral twisted group homology is finite type even though the Steinberg module is not finite over Z. Orientation and neatness remain explicit supplier extensions; corrected pp183–184."
+      },
+      {
+        "nodeId": "BorelRegulators:R.1/quillen-finiteness-interface",
+        "verdict": "corrected",
+        "note": "Verified maximal-order rank filtration and shifted Steinberg homology, with the early N.3 filtration separated from its final K-finiteness endpoint. Uses K.2:plus rather than late low-degree comparisons; corrected theorem/proof locator."
+      },
+      {
+        "nodeId": "BorelRegulators:R.1/finite-type-plus-consequences",
+        "verdict": "corrected",
+        "note": "Verified connected simple H-space finite-type and Cartan–Serre requirements: K₁ and its trivial higher action survive. No simply connected surrogate or circular assumption of K-finiteness; corrected source pages and early plus import."
+      },
+      {
+        "nodeId": "BorelRegulators:R.2/arithmetic-restriction",
+        "verdict": "verified",
+        "note": "Confirmed cochain precomposition and coefficient restriction against exact pinned ContinuousCohomology.cochainsMap(_comp). The all-degree discrete comparison is requested; the pinned explicitH2 export is used only in degree two."
+      },
+      {
+        "nodeId": "BorelRegulators:R.2/arithmetic-invariant-form-map",
+        "verdict": "corrected",
+        "note": "Corrected the source to full K-component invariants, supplied the concrete PGL₂ orientation test, and scoped early ALS comparison as a requested extension."
+      },
+      {
+        "nodeId": "BorelRegulators:R.2/block-comparison-naturality",
+        "verdict": "corrected",
+        "note": "Verified pullback square for compatible maximal compacts, coefficient extension and finite-cover descent in Borel §10.3. Changed the ALS dependency to the requested early nonautomorphic part of full ALS.5."
+      },
+      {
+        "nodeId": "BorelRegulators:R.2/stable-hopf-compatibility",
+        "verdict": "corrected",
+        "note": "Checked block-sum cup/Hopf compatibility and preservation of primitive/indecomposable classes in §10.6/§12.1; corrected pp265–266,270. Genuine group completion remains H.4-owned."
+      },
+      {
+        "nodeId": "BorelRegulators:R.3/classical-compact-duals",
+        "verdict": "corrected",
+        "note": "Verified SU/SO, SU/USp and SU for real, quaternionic and complex factors, with matrix-size conventions and compact-component action. Corrected §11.5 to p.268 and retained the LieGroups PartII quotient request."
+      },
+      {
+        "nodeId": "BorelRegulators:R.3/compact-dual-cohomology",
+        "verdict": "corrected",
+        "note": "Added the finite-rank ring presentations and a read primary source, including the even-rank Euler factor; stable block primitives retain transgression normalization."
+      },
+      {
+        "nodeId": "BorelRegulators:R.3/compact-dual-degree-stability",
+        "verdict": "corrected",
+        "note": "Verified the conservative 2q+3 bound from finite-rank generators and restriction, not mere stationarity; corrected primary locator."
+      },
+      {
+        "nodeId": "BorelRegulators:R.3/arithmetic-stable-range",
+        "verdict": "corrected",
+        "note": "Checked injective/surjective range and the conservative strict inequality4q<n−1 from the rational-rank root estimate. Corrected Theorem 7.5 to p.259 and division case to p.268; generic logarithmic-growth/L² inputs remain AF PartII."
+      },
+      {
+        "nodeId": "BorelRegulators:R.3/stable-arithmetic-exterior",
+        "verdict": "corrected",
+        "note": "Verified real primitive degrees4a+1 and complex degrees2a+1, multiplicities r₁,r₂, degreewise stationarity and finite-dimensional duality. No completed product or K₁ generator inserted. Corrected theorem pages."
+      },
+      {
+        "nodeId": "BorelRegulators:R.3/gl-sl-primitive-comparison",
+        "verdict": "corrected",
+        "note": "Checked the determinant/unit factor and the higher-degree primitive comparison, not an equality of full GL and SL cohomology rings. Preserves π₁ and imports early K.2:plus; corrected §12.1 p.270."
+      },
+      {
+        "nodeId": "BorelRegulators:R.3/cartan-serre-application",
+        "verdict": "verified",
+        "note": "Checked rational Hurewicz on the connected simple arithmetic plus H-space, primitive homology versus cohomological indecomposables and degreewise finite duality. Early K.2:plus avoids the later K₃ comparison."
+      },
+      {
+        "nodeId": "BorelRegulators:R.3/division-order-rank-period",
+        "verdict": "verified",
+        "note": "Verified Proposition 12.2 for arbitrary full orders and i≥2, period-four ranks and independence from real quaternion ramification. It does not assert integral finite generation for nonmaximal orders."
+      },
+      {
+        "nodeId": "BorelRegulators:R.3/borel-rank-theorem",
+        "verdict": "verified",
+        "note": "Checked the number-field specialization and all four congruence classes for i≥2, including zero rank at i=2,3 over Q. The reserved declaration remains the canonical supplier to N.3 and Zagier."
+      },
+      {
+        "nodeId": "BorelRegulators:R.3/s-integer-rank-import",
+        "verdict": "corrected",
+        "note": "Verified localization only after rationalization in degrees i≥2 and finite residue-field vanishing. N.3 owns the S-integer endpoint; corrected the localization remark to pp179–180."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/archimedean-target",
+        "verdict": "verified",
+        "note": "Verified simultaneous conjugation on both coefficients and embeddings, parity(−1)^{j−1}, real fixed points and conjugate pairs. Native Submodule and ext/reindex API reuse existing Mathlib."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/target-coordinates",
+        "verdict": "corrected",
+        "note": "Verified selected embeddings and inverse reconstruction, including representative sign and covolume-one measure. Corrected evaluation to use native real coordinates; Tate division happens exactly once in the model conversion."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/target-dimension",
+        "verdict": "verified",
+        "note": "Checked finite involution orbit decomposition and pinned r₁+2r₂=[F:Q] signature. Dimension is r₁+r₂ for odd j, r₂ for even j, and Q weight two has zero target."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/universal-borel-class",
+        "verdict": "corrected",
+        "note": "Checked Burgos suspended higher Chern character, Bott/Hurewicz normalization, conjugation and stabilization, including the real-place factor. Corrected Remark 4.25 p.32; RT.4 higher interface remains an explicit extension."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/trace-cocycle",
+        "verdict": "corrected",
+        "note": "Checked the alternating-trace factorial/sign, adjoint input, Tate projection and equality of absolute cohomology classes rather than pointwise forms. The Pauli value−2i is discriminating; corrected Proposition 9.26 p.88."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/borel-regulator",
+        "verdict": "corrected",
+        "note": "Verified the actual Hurewicz/cohomology evaluation, embedding assembly, parity, integral localization and torsion vanishing. Uses early K.2:plus; no class/matrix declaration substitutes for the genuine K-map."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/embedding-pull-trace",
+        "verdict": "verified",
+        "note": "Verified full embedding-fiber sum including conjugates and separable fiber cardinality [E:F] from pinned AlgHom.card. Pull/trace identity and composition, odd quadratic and even zero-target cases are correct."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/regulator-transfer",
+        "verdict": "corrected",
+        "note": "Narrowed the plus model import and separately requested K.3 additivity/finite-projective transfer; O_E/O_F is finite projective, not assumed étale."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/regulator-adams-products",
+        "verdict": "verified",
+        "note": "Checked the genuine higher operations against four S.6 supplier statements and Bott/Chern normalization. The proof uses higher topological compatibility requested from RT.4 independently of R.7; K₀ operations do not suffice."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/regulator-real-isomorphism",
+        "verdict": "verified",
+        "note": "Verified primitive stable arithmetic comparison plus Cartan–Serre gives the actual isomorphism, not dimension counting. Integral finite generation is not used for rational real invertibility."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/regulator-lattice",
+        "verdict": "verified",
+        "note": "Verified integral finite generation plus the regulator real isomorphism yields a discrete full image after killing torsion. K_n(F) itself is not assumed finitely generated; field/order identification is rational."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/regulator-determinant",
+        "verdict": "verified",
+        "note": "Checked row/column convention, integral and target basis changes, top exterior determinant, |λ|^d scaling and empty determinant1. Native matrix API reused with genuine arithmetic specialization pending."
+      },
+      {
+        "nodeId": "BorelRegulators:R.4/regulator-covolume",
+        "verdict": "verified",
+        "note": "Checked native coordinate Haar volume, discrete IsZLattice assumptions, basis independence, rank-zero1 and Burgos’s original-to-renormalized(2π)^d and extra2^{r₁} factors."
+      },
+      {
+        "nodeId": "BorelRegulators:R.5/completed-zeta-conventions",
+        "verdict": "verified",
+        "note": "Checked the primary functional-equation convention and exact AL.1 statements. Its complex factor differs byπ; the adopted discriminant/completion conversion is explicit, and the pinned L-series supplies only Re(s)>1."
+      },
+      {
+        "nodeId": "BorelRegulators:R.5/zeta-zero-order",
+        "verdict": "verified",
+        "note": "Checked all gamma poles at1−j and nonvanishing at j≥2: d_j real-plus-complex for odd j, complex-only for even j. The continued function is holomorphic there; no extra zero inferred."
+      },
+      {
+        "nodeId": "BorelRegulators:R.5/zeta-leading-coefficient",
+        "verdict": "verified",
+        "note": "Verified derivative divided by d!, analytic germ and punctured-limit descriptions. Native zero/square/wrong-order tests distinguish a Taylor coefficient from a raw derivative."
+      },
+      {
+        "nodeId": "BorelRegulators:R.5/leading-term-functional-equation",
+        "verdict": "verified",
+        "note": "Checked the exact discriminant exponent j−1/2, nonzero gamma Laurent coefficient and rational/transcendental separation. Q,j=2 gives−1/12 with the stated normalization."
+      },
+      {
+        "nodeId": "BorelRegulators:R.5/compact-factor-comparison",
+        "verdict": "added",
+        "note": "Read Borel 1977 §§3.4–3.5,5.2 and Borel 1953 Proposition 31.4. This key commuting spectral-sequence and odd-rank compact-fiber theorem supplies the missing full-quotient comparison before period integration; all generic inputs remain owner requests."
+      },
+      {
+        "nodeId": "BorelRegulators:R.5/borel-positive-zeta-period",
+        "verdict": "corrected",
+        "note": "Added the missing compact-fiber comparison and actual period-pairing prerequisite; checked the odd-rank bound, full quotient, rational structures and corrected discriminant phases."
+      },
+      {
+        "nodeId": "BorelRegulators:R.5/borel-zeta-proportionality",
+        "verdict": "verified",
+        "note": "Checked Borel §6.4 and Burgos Theorem 9.12/Remark 9.20: the renormalized covolume is rationally proportional to the absolute leading term. No integral torsion-order identity or unrecordedπ factor is asserted."
+      },
+      {
+        "nodeId": "BorelRegulators:R.6/archimedean-split-division",
+        "verdict": "verified",
+        "note": "Verified finite local invariants1/e with zero archimedean invariants. Global Brauer exactness alone gives no degree-e algebra; the degree-controlled splitting/period=index input remains a precise ClassFieldTheory PartII gap."
+      },
+      {
+        "nodeId": "BorelRegulators:R.6/norm-one-tamagawa",
+        "verdict": "verified",
+        "note": "Verified SL₁(D) simply connected anisotropic inner form, canonical Tamagawa normalization and Borel’s explicit invocation of Weil. The unavailable primary proof is honestly a source gap; generic AA.2 is not treated as τ=1."
+      },
+      {
+        "nodeId": "BorelRegulators:R.6/local-sl-volume",
+        "verdict": "corrected",
+        "note": "Checked q^{−dim}#SL_e(F_q)=∏_{a=2}^e(1−q^{−a}), positive rational exceptional factors and the e=q=2 value3/4. Corrected locator to include Proposition 2.4 on p.618; no ζ(1) factor."
+      },
+      {
+        "nodeId": "BorelRegulators:R.6/norm-one-volume",
+        "verdict": "verified",
+        "note": "Checked strong approximation needs noncompact archimedean factors, quotient product measure and finite-open volumes. The result is the productζ_F(2)…ζ_F(e) up to positive rational indices, independent of R.5."
+      },
+      {
+        "nodeId": "BorelRegulators:R.6/restriction-scalars-form",
+        "verdict": "verified",
+        "note": "Verified δ² is the signed discriminant and δ^{−q} algebraic wedge normalization versus |D|^{−h/2} positive Haar normalization. Q(i) phase and determinant-order signs detect the published misprint; E1 confirmed."
+      },
+      {
+        "nodeId": "BorelRegulators:R.6/compact-period-cycles",
+        "verdict": "corrected",
+        "note": "Added the full-quotient absolute/relative comparison prerequisite; verified division compactness, degree e² representation, primitive factor e and finite-cover orientation laws."
+      },
+      {
+        "nodeId": "BorelRegulators:R.6/adelic-period-pairing",
+        "verdict": "corrected",
+        "note": "Inserted the explicit positive c_η in both volume equations, separated zero-form integration from the nonzero-form volume specialization, and added the doubled-form discriminating test."
+      },
+      {
+        "nodeId": "BorelRegulators:R.6/bloch-borel-interface",
+        "verdict": "verified",
+        "note": "Checked this is a map/pairing-level comparison with specified measure conversions, conditional on an independently read Bloch source. The exact first-four-lectures locator remains a transparent gap, not a claim that Borel’s conclusion is an axiom."
+      },
+      {
+        "nodeId": "BorelRegulators:R.7/relative-absolute-injectivity",
+        "verdict": "verified",
+        "note": "Verified the GL_N(C),U_N compact dual U_N×U_N and difference of primitive factors, yielding injection. No corresponding claim is made for an arbitrary symmetric pair."
+      },
+      {
+        "nodeId": "BorelRegulators:R.7/beilinson-infinitesimal-representative",
+        "verdict": "corrected",
+        "note": "Checked infinitesimal-diagonal, Weil and Chern–Weil/van Est interfaces against Burgos; corrected pp.70–71,73,97 and retained the explicit supplier gap."
+      },
+      {
+        "nodeId": "BorelRegulators:R.7/universal-factor-two",
+        "verdict": "corrected",
+        "note": "Checked Burgos all-weight cohomology proof, relative-to-absolute injectivity, Tate/Chern conventions and corrected printed pages 95–97."
+      },
+      {
+        "nodeId": "BorelRegulators:R.7/regulator-factor-two",
+        "verdict": "corrected",
+        "note": "Checked equality of actual field and integral maps, actual Deligne quotient C/R(j), common Tate projection, localization and determinant/covolume factor2^{d_j}. Corrected Burgos theorem/definition pages."
+      },
+      {
+        "nodeId": "BorelRegulators:R.7/weight-two-bloch-wigner",
+        "verdict": "corrected",
+        "note": "Read Goncharov equations61,64 and Theorem 5.7 through the proof’s end p.47. The Dynkin scalar alone does not identify the Suslin/real-Tate scalar; cross-ratio and λ_BW remain an exact scoped gap."
+      },
+      {
+        "nodeId": "BorelRegulators:R.7/number-field-small-cases",
+        "verdict": "corrected",
+        "note": "Corrected the Chapter VI locator to IV plus primary Borel; distinguished integral 2[ζ₆] from rational [ζ₆] in the Suslin tensor convention and added V.3 prerequisites."
+      },
+      {
+        "nodeId": "BorelRegulators:R.7/extension-matrix",
+        "verdict": "verified",
+        "note": "Verified native matrices represent coordinate-free pull/trace maps, signed representative changes and T_fP_f=[E:F]I. Rectangular cases have no asserted square determinant; the quadratic even/odd tests are valid."
+      }
+    ]
+  }
 }
