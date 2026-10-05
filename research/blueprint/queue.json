@@ -11918,7 +11918,8 @@
    "avoidAccountOf": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3580"
   },
   {
    "id": "DESIGN-SmallRamificationAndAbelianVarietyBaseCasesPartII",
@@ -23784,8 +23785,9 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L1",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5874"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5874",
+   "finishedAt": "2026-10-05T10:53:50Z"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L2",
@@ -30370,7 +30372,8 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory--AN.8",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #528"
   },
   {
    "id": "BP-ArithmeticDynamics",
