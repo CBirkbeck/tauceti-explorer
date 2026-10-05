@@ -1,3 +1,292 @@
+# Independent review checkpoint: cocycle foundations and map naturality
+
+Issue [#526](https://github.com/CBirkbeck/tauceti-explorer/issues/526), job
+`REV-AnabelianGeometryAndNonabelianChabauty`; Codex `codex-m9Qr3w`, 2026-10-05.
+Input explorer revision `e944b1df8e7f100d50bf3de50ef3e38ae054040d`.
+This session did not author the blueprint. Earlier checkpoints, including
+[#6184](https://github.com/CBirkbeck/tauceti-explorer/pull/6184), are retained below
+with their original attribution and in `independentReviewCheckpoints`.
+
+**Checkpoint; the independent review remains unfinished.** Fresh scope is
+80 nodes at zero-based packet positions 0–13, 26–36 and 101–155: cocycles,
+orbit H¹, subgroup connecting maps, fixed cosets, coefficient/source maps,
+inner twisting and coefficient naturality. Every row below records a fresh
+calculation of its stated mathematics, hypotheses, proof sketch, declared
+inputs and suggested signature. Definition/construction APIs and tests in
+these families were read. Node 362 was also read as the topological torsor
+supplier. This is not a final per-node verification of transitive closure.
+No top-level packet `review` object or acceptance verdict is added.
+
+Counts: 363 nodes (4 definitions, 60 constructions, 265 lemmas, 27 theorems,
+7 comparisons), 160 baseline declarations, 17 requests, 10 gaps, 11 planets.
+Definition/construction APIs: 321; their tests: 254. Across all node kinds:
+341 API entries and 270 tests. No nodes, gaps, requests or planets added;
+all implementations remain unchecked. NC.0/NC.3 stay partial; NC.1/NC.2/
+NC.4/NC.5/NC.6 stay not_read. The packet's complete status denotes its
+budget-complete planning pass, not review completion or mathematical closure.
+
+## Corrections and discriminators
+
+1. The original factor-order example quantified over an unrelated ordinary
+   homomorphism and did not use Z¹. It now tests the actual explicitly
+   constructed identity continuous cocycle on discrete S₃. For g=(01),
+   h=(12), c(gh)=c(g)c(h) and c(gh)≠c(h)c(g). This arithmetic is proved
+   without admissions. The specified trivial action makes these precisely
+   the ordered and swapped cocycle expressions. An initial raw scalar
+   spelling selected Lean's native multiplication action on S₃ acting on
+   itself; the final test avoids that instance ambiguity.
+2. `Twist.toOriginal` now uses pinned native `MulEquiv.refl U`. The earlier
+   admitted equivalence had no equation specifying the identity on its
+   underlying synonym. Added `Twist.toOriginal_apply` to the packet API and
+   suggested signatures. Twisting still changes the G-action.
+3. Added an actual forward-map test for τ_c. With identity cocycle c:S₃→S₃,
+   x=(01), twisted coboundary d(h)=x(h⋆x)⁻¹ and g=(12), τ_c(d)(g)=xgx⁻¹
+   differs from c(g)j_c(d(g)). Indeed d(g)=xgx⁻¹g⁻¹, so d(g)c(g)=xgx⁻¹
+   whereas c(g)d(g)=gxgx⁻¹g⁻¹; their values differ. This prototype test is
+   admitted, and its mathematical calculation discriminates the forward
+   multiplication order. Inverse laws alone would allow a changed bijection.
+4. Normalized two connecting-cocycle test-kind labels from base-case/comparison
+   to degenerate/compatibility. Their mathematical statements are unchanged.
+
+No reader, supplier packet, atlas data or author handoff is changed.
+Reader reconciliation should carry the stronger tests and underlying-identity
+API when authorized. Historical encoded payloads remain unchanged; they were
+not decoded or executed.
+
+## Sources, version boundaries and closure
+
+Freshly read the exact [Kim Siegel arXiv v1 PDF](https://arxiv.org/pdf/math/0409456v1),
+printed pp.5–10, including Proposition 1 and its entire proof, the ordered
+cocycle/gauge definitions, coefficient-functor passage, central-extension
+argument and subgroup exactness. SHA-256:
+`00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941`.
+The general topological exactness and functor/twist statements are authored
+deductions from these conventions, as their matches say; they are not new
+numbered theorems in Kim. The positive central defect remains the inverse of
+Kim's printed dc, matching Tau Ceti's d¹. This is a convention difference.
+
+Freshly read the exact [Kim Albanese arXiv v4 PDF](https://arxiv.org/pdf/math/0510441v4),
+printed pp.4,19,25–26, checking the selected H¹ motivation, crystalline
+connecting map, restriction and central-fibre passages. SHA-256:
+`7b404331925f1d8e9bce81e9b16473f0d65a7f1ac2948ccff0db3a6e7b0d0f19`.
+No full-paper, published-version collation or source-error absence is certified.
+The [Poonen supplementary PDF](https://math.mit.edu/~poonen/papers/Qpoints.pdf)
+was requested both directly and through the browser, but timed out. This pass
+has not freshly verified its locators on nodes 0,12,13; previous readings keep
+their original attribution. Serre was not freshly read.
+
+The 80 nodes use 52 distinct baseline references. Their exact qualified
+statements and ambient assumptions were read at the packet pins, together
+with five native torsor inputs. The table below links these 57 declarations.
+The Mathlib shared source is exactly `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+The shared Tau Ceti tree is at `cf386627e9176a3827c1a5fe804989fd94a4d216`, so
+its source was not used to assert the baseline. Instead the exact
+[LowDegree source at f790474](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean)
+was fetched and read. In particular B² is d¹ of continuous cochains, H¹ uses
+B¹ inside Z¹, H² uses B² inside Z², and the additive cocycle comparison is
+only a comparison of pointed carriers. There is no all-160 fresh audit here.
+
+All seven layer descriptions and their reviewed library coverage were read,
+along with the upstream AlgebraicTopology and JacobianChallenge documents.
+The native coset, fixed-subgroup and torsor machinery is reused; abstract
+nonabelian H¹ is absent according to the reviewed audit. No foreign objects
+were reconstructed in this scope. Full ownership and planet screening remain
+unfinished. Aggregate nodes 2,9,10,11 also cite later kernel, representative
+and twisted-source adapters outside this fresh screen; inspecting the initial
+formula does not certify those transitive proofs. The central obstruction and
+freeness signatures, exact additive class-map comparison, and geometric torsor
+comparison remain explicit omissions. Recorded gaps and later calculations
+do not prove them. Honest partial/not_read coverage alone is not a reason to
+reject a budget-complete pass.
+
+## Fresh scoped node calculations
+
+All node suffixes below are in `AnabelianGeometryAndNonabelianChabauty:NC.3/`.
+Rows are scoped findings, not final packet `review.checked` verdicts. Supplemental
+source and missing-signature boundaries above apply to the indicated rows.
+
+| Position | Node suffix | Scoped finding | Calculation and boundary |
+| --- | --- | --- | --- |
+| 0 | `continuous-cocycles` | Corrected | Ordered cocycle law, identity/inverse and continuity checked. Strengthened factor-order test to use the actual identity Z¹ cocycle at two noncommuting transpositions; native arithmetic proves it. Supplemental Poonen locator not freshly available. |
+| 1 | `nonabelian-h1` | Scoped check | Gauge multiplication is ordered uv; its neutral orbit is exactly the coboundaries. C₂→S₃ gives four cocycles but two conjugacy classes; C₂ acting by negation on C₃ has trivial H¹. |
+| 2 | `functoriality` | Scoped check | Coefficient and source parts are ordinary postcomposition/precomposition and commute. Its extra kernel/representative-source dependencies lie outside this scoped screen; aggregate closure remains pending. |
+| 3 | `abelian-comparison` | Scoped check; Lean omission | Underlying cocycle identity is additive; gauge translation is −d⁰m, whose range is still B¹. Exact pinned Tau Ceti carriers read. Native class-map compatibility lacks a suggested lemma; full additive compilation unavailable. |
+| 4 | `connecting-cocycle` | Corrected | Unique A-preimage of b⁻¹g(b) exists by range membership and injectivity; embedding transfers continuity. Cocycle expansion uses no normality or continuous section. Normalized two test-kind labels to section 12. |
+| 5 | `connecting-cocycle-image` | Scoped check | Evaluation is the defining pointwise lift identity; it pins b⁻¹g(b), not its inverse. |
+| 6 | `connecting-change-lift` | Scoped check | Right change b·i(a) yields a⁻¹c(g)g(a), hence gauge by a⁻¹. Membership follows from subgroup closure; the extra suggested membership proof is derivable. |
+| 7 | `connecting-class-zero` | Scoped check | c(g)=a·g(a)⁻¹ is equivalent to fixedness of b·i(a), by injectivity and the displayed lift identity. |
+| 8 | `connecting-fixed-orbits` | Scoped check | Equal classes give b′=t·b·i(a) with fixed t=b′i(a)⁻¹b⁻¹. Conversely this factorization gives the inverse-gauge witness. Left fixed factors and right subgroup factors have distinct roles. |
+| 9 | `normal-h1-kernel` | Scoped check | A neutral projected class has a single gauge witness in C; surjectivity lifts that element to B. Inverse gauge then takes values in A; embedding gives continuity. Openness is surplus for this argument. Later kernel adapters are unreviewed inputs. |
+| 10 | `exact-sequence` | Scoped check | A class dies under inclusion exactly when its representative is the B-coboundary of b⁻¹; this gives the invariant coset and its connecting class. Repointed/representative adapter proofs remain external to this screen. |
+| 11 | `central-extension` | Scoped check; Lean omission | Central multiplication defines the H¹(Z)-action; equal projected classes can be normalized before taking their central difference. Positive defect changes by d¹z, and zero obstruction means a continuous cochain correction. Freeness uses twisted quotient invariants. The H²/action/freeness signatures remain explicit omissions, not checked implementations. |
+| 12 | `twisting` | Corrected | Inner action and τ_c(d)=d·c follow from the ordered cocycle law; the inverse divides on the right. Target neutral point is [c]. Pinned native refl now realizes the underlying group identification; added its exact value API. Supplemental Poonen locator remains unread this pass. |
+| 13 | `torsor-classification` | Scoped check | Point cocycle and inverse-gauge point change give the topological classification; left multiplication intertwines cohomologous models. Read native torsor supplier 362 and its five baseline inputs. Kim’s algebraic category comparison remains a gap; supplemental Poonen locator not freshly available. |
+| 26 | `quotient-action` | Scoped check | Equivariance preserves the ordered coset relation b⁻¹b′∈i(A), supplying native QuotientAction without normality. |
+| 27 | `fixed-coset-criterion` | Scoped check | Native fixed-point condition and coset equality identify exactly b⁻¹g(b)∈i(A); fixedness equality is reversed as needed. |
+| 28 | `invariant-coset-projection` | Scoped check | Projection sends the fixed element b to its actual left coset. Tests cover identity subgroup, trivial subgroup and nonnormal order-two subgroup of S₃. |
+| 29 | `invariant-coset-image` | Scoped check | Subtype projection is literally the canonical coset class of b. |
+| 30 | `connecting-map` | Scoped check | Quotient choice supplies b; change-of-lift gauges by a⁻¹, so the chosen class is representative-independent. Odd coset of C₄ with negation action gives the nonneutral C₂ class. |
+| 31 | `connecting-map-lift` | Scoped check | Compare chosen and supplied representatives by a right i(a) factor; change-of-lift gives the same H¹ class for every membership proof. |
+| 32 | `invariants-injection` | Scoped check | Equality after i on fixed subgroups reflects by injectivity of the closed embedding. |
+| 33 | `invariants-kernel` | Scoped check | Neutral coset means b∈i(A); fixedness of its A-preimage follows by equivariance and injectivity. |
+| 34 | `invariant-coset-kernel` | Scoped check | The boundary is neutral exactly when b·i(a) is a fixed representative, hence the coset is in the actual fixed-element projection image. |
+| 35 | `connecting-image-kernel` | Scoped check | The inclusion-kernel lift theorem gives a fixed coset; evaluation of the actual connecting map identifies its class. Converse is the ambient coboundary of b⁻¹. |
+| 36 | `connecting-quotient-fibres` | Scoped check | The lift-class factorization removes its right subgroup factor under the coset quotient. Left translation by a fixed element preserves invariance; no quotient-group structure is used. |
+| 101 | `coefficient-cocycle-map` | Scoped check | Actual map is f∘c; continuity and ordered multiplicativity follow by composition and equivariance. Tests pin identity, zero homomorphism, evaluation and a transposition. |
+| 102 | `coefficient-cocycle-gauge` | Scoped check | Expand f(x c(g) g(x)⁻¹), retaining order, to get gauge witness f(x). |
+| 103 | `coefficient-cocycle-identity` | Scoped check | Underlying map is identity; cocycle proof fields are irrelevant. |
+| 104 | `coefficient-cocycle-composition` | Scoped check | Both actual maps evaluate to f′(f(c(g))); no map reversal. |
+| 105 | `coefficient-h1-map` | Scoped check | Gauge compatibility descends the actual cocycle map to the orbit carrier. Nonneutral S₂→S₃ transposition class maps to neutral under constant-one coefficient map. |
+| 106 | `coefficient-h1-one` | Scoped check | f(1)=1 gives neutral cocycle and then neutral class. |
+| 107 | `coefficient-h1-identity` | Scoped check | Class-map surjectivity reduces identity to the actual representative identity. |
+| 108 | `coefficient-h1-composition` | Scoped check | Class-map surjectivity reduces composition to ordered coefficient composition. |
+| 109 | `coefficient-invariant-map` | Scoped check | Equivariance sends fixed elements to fixed elements and preserves group operations. Native H⁰ subgroups require no topology. Evaluation/identity/constant/transposition tests checked. |
+| 110 | `coefficient-invariant-identity` | Scoped check | Native identity homomorphism on fixed subgroups, with proof irrelevance. |
+| 111 | `coefficient-invariant-composition` | Scoped check | Both native homomorphisms send x to f′(f(x)). |
+| 112 | `source-cocycle-restriction` | Scoped check | Precomposition along continuous φ preserves cocycles using h·u=φ(h)·u. Values, identity, constant source and subgroup tests checked. |
+| 113 | `source-cocycle-value` | Scoped check | Exact evaluation c(φ(h)). |
+| 114 | `source-cocycle-neutral` | Scoped check | Precomposition of the constant-one cocycle is constant one. |
+| 115 | `source-cocycle-identity` | Scoped check | Identity precomposition fixes the actual cocycle subtype. |
+| 116 | `source-cocycle-composition` | Scoped check | res_(φ∘ψ)=res_ψ∘res_φ; both evaluate c(φ(ψ(k))). |
+| 117 | `source-cocycle-surjective-injection` | Scoped check | Choose a preimage of each g under surjective φ to reflect equality of cocycles. |
+| 118 | `source-cocycle-subgroup` | Scoped check | Subgroup restriction evaluates at the underlying group element; closedness is unnecessary. |
+| 119 | `source-cocycle-gauge` | Scoped check | Gauge witness x survives source restriction, by the compatible-action equality. |
+| 120 | `source-h1-restriction` | Scoped check | Same-U gauge compatibility gives the quotient lift. Pullback uses native compHom and its continuity theorem. Constant-source example disproves general injectivity. |
+| 121 | `source-h1-representative` | Scoped check | Native quotient evaluation gives the actual restricted representative. |
+| 122 | `source-h1-neutral` | Scoped check | Restrict the representative one cocycle to obtain the neutral class. |
+| 123 | `source-h1-identity` | Scoped check | Class representative and cocycle identity prove restriction identity. |
+| 124 | `source-h1-composition` | Scoped check | Class representative and cocycle composition prove contravariant restriction composition. |
+| 125 | `source-h1-surjective-injection` | Scoped check | A gauge witness after restriction reflects via surjective φ; this proves class injectivity without assuming coefficient injectivity. |
+| 126 | `source-h1-subgroup` | Scoped check | Both class maps use the same subgroup-restricted cocycle. |
+| 127 | `source-coefficient-cocycle-square` | Scoped check | Both cocycle-square paths evaluate f(c(φ(h))). Induced H-equivariance is derived from the two action equalities. |
+| 128 | `source-coefficient-h1-square` | Scoped check | Reduce the H¹ square to representatives and the cocycle square. |
+| 129 | `source-invariant-restriction` | Scoped check | Invariant inclusion preserves the underlying U-element, with no topological hypothesis. Tests cover identity, one and exact value. |
+| 130 | `source-invariant-value` | Scoped check | The underlying invariant value is x itself. |
+| 131 | `source-invariant-identity` | Scoped check | Identity homomorphism between identical native fixed subgroups. |
+| 132 | `source-invariant-composition` | Scoped check | Both invariant composites preserve the same underlying U-element. |
+| 133 | `source-invariant-injection` | Scoped check | Invariant restriction is always injective by subtype extensionality, with no surjectivity of φ. |
+| 134 | `source-coefficient-invariant-square` | Scoped check | Both invariant homomorphisms have value f(x); no continuity is needed. |
+| 135 | `twist-underlying-group` | Corrected | Native MulEquiv.refl is the exact identity on the synonym. Replaced an unconstrained admitted equivalence in the suggested file with that native map; no G-equivariance is asserted. |
+| 136 | `twist-cocycle-equivalence` | Corrected | Twisted cocycle multiplication by c is on the right, and inverse division is on the right. Added noncommuting S₃ forward-value test: inverse laws alone do not pin the forward map. |
+| 137 | `twist-cocycle-value` | Scoped check | Exact forward value j_c(d(g))·c(g), with fixed order. |
+| 138 | `twist-cocycle-inverse-value` | Scoped check | Exact inverse value e(g)·c(g)⁻¹, with fixed order. |
+| 139 | `twist-gauge-equivariance` | Scoped check | Expand g⋆x=c(g)g(x)c(g)⁻¹ to get same underlying gauge witness under τ_c. |
+| 140 | `twist-h1-equivalence` | Scoped check | Same gauge witness in both directions and native Quotient.congr give the actual orbit equivalence; source one maps to [c]. Nonneutral transposition test checks repointing. |
+| 141 | `twist-h1-representative` | Scoped check | Quotient congruence evaluates on the actual τ_c representative. |
+| 142 | `twist-h1-neutral-fibre` | Scoped check | Injectivity of T_c and T_c(1)=[c] give the precise neutral fibre. |
+| 143 | `twist-invariant-criterion` | Scoped check | Fixedness in the twist is c(g)g(x)=x c(g), by right cancellation. |
+| 144 | `twist-coefficient-map` | Scoped check | Underlying map is exactly f, continuous for inherited topology and equivariant for twists by c and f∘c. Tests cover value, identity, constant map, cocycle square and repointed neutral value. |
+| 145 | `twist-coefficient-value` | Scoped check | Actual underlying value is f(j_c(x)). |
+| 146 | `twist-coefficient-continuity` | Scoped check | Topologies on both synonyms are inherited; use the given hf. |
+| 147 | `twist-coefficient-equivariance` | Scoped check | Multiplicativity, inverse preservation and original equivariance give f(c(g)g(x)c(g)⁻¹) in the correct order. |
+| 148 | `twist-coefficient-identity` | Scoped check | Mapped identity cocycle and underlying identity homomorphism agree definitionally. |
+| 149 | `twist-coefficient-composition` | Scoped check | Mapped cocycle composition and underlying native composition agree definitionally; no action preservation is assumed beyond proved equivariance. |
+| 150 | `twist-coefficient-cocycle-square` | Scoped check | At g the square is f(d(g))f(c(g))=f(d(g)c(g)). |
+| 151 | `twist-coefficient-inverse-cocycle-square` | Scoped check | Apply injectivity of τ_(f∘c), forward cocycle square and inverse laws; no injectivity of f. |
+| 152 | `twist-coefficient-h1-square` | Scoped check | Actual representative surjectivity reduces to the cocycle square and class formulas. |
+| 153 | `twist-coefficient-inverse-h1-square` | Scoped check | Apply injectivity of the orbit equivalence, forward square and inverse laws. |
+| 154 | `twist-coefficient-repointed-neutral` | Scoped check | Mapped target point is [f∘c], which need not be neutral. |
+| 155 | `twist-coefficient-repointed-fibre` | Scoped check | Forward square followed by the neutral-fibre criterion identifies the fibre over [f∘c], without coefficient injectivity. |
+
+## Fresh selected baseline statement locators
+
+Names were checked in their actual namespace and hypothesis context; basename
+matches such as IsInducing.continuous_iff, OneHom.comp or DistribMulAction.compHom
+are not substitutes for the qualified declarations below. These are the same
+pin-qualified locators as the historical table, freshly reread for this scope.
+
+| Declaration | Pinned source |
+| --- | --- |
+| `mathlib:ContinuousMap` | [Mathlib/Topology/ContinuousMap/Defs.lean:33](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/ContinuousMap/Defs.lean#L33) |
+| `mathlib:ContinuousMonoidHom` | [Mathlib/Topology/Algebra/ContinuousMonoidHom.lean:57](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/ContinuousMonoidHom.lean#L57) |
+| `mathlib:ContinuousSMul` | [Mathlib/Topology/Algebra/MulAction.lean:46](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/MulAction.lean#L46) |
+| `mathlib:FixedPoints.subgroup` | [Mathlib/GroupTheory/GroupAction/Defs.lean:203](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L203) |
+| `mathlib:IsTopologicalGroup` | [Mathlib/Topology/Algebra/Group/Defs.lean:110](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Defs.lean#L110) |
+| `mathlib:MulAction.QuotientAction` | [Mathlib/GroupTheory/GroupAction/Quotient.lean:52](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Quotient.lean#L52) |
+| `mathlib:MulAction.orbitRel` | [Mathlib/GroupTheory/GroupAction/Defs.lean:287](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L287) |
+| `mathlib:MulAction.orbitRel.Quotient` | [Mathlib/GroupTheory/GroupAction/Defs.lean:349](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L349) |
+| `mathlib:MulAut.conj` | [Mathlib/Algebra/Group/End.lean:723](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/End.lean#L723) |
+| `mathlib:MulDistribMulAction` | [Mathlib/Algebra/Group/Action/Defs.lean:629](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Action/Defs.lean#L629) |
+| `mathlib:MulDistribMulAction.toMulAut` | [Mathlib/Algebra/Group/Action/End.lean:232](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Action/End.lean#L232) |
+| `mathlib:Multiplicative` | [Mathlib/Algebra/Group/TypeTags/Basic.lean:46](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/TypeTags/Basic.lean#L46) |
+| `mathlib:QuotientGroup.continuous_mk` | [Mathlib/Topology/Algebra/Group/Quotient.lean:44](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Quotient.lean#L44) |
+| `mathlib:QuotientGroup.isOpenMap_coe` | [Mathlib/Topology/Algebra/Group/Quotient.lean:52](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Quotient.lean#L52) |
+| `mathlib:Subgroup.center` | [Mathlib/GroupTheory/Subgroup/Center.lean:30](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Subgroup/Center.lean#L30) |
+| `mathlib:groupCohomology.IsMulCocycle₁` | [Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean:621](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean#L621) |
+| `tauceti:TauCeti.ContCohomology.B1` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:174](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L174) |
+| `tauceti:TauCeti.ContCohomology.B2` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:494](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L494) |
+| `tauceti:TauCeti.ContCohomology.H0` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:326](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L326) |
+| `tauceti:TauCeti.ContCohomology.H1` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:674](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L674) |
+| `tauceti:TauCeti.ContCohomology.H1EquivOfSmulEqSelf` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:840](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L840) |
+| `tauceti:TauCeti.ContCohomology.H1pi` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:679](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L679) |
+| `tauceti:TauCeti.ContCohomology.H2` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:730](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L730) |
+| `tauceti:TauCeti.ContCohomology.H2pi` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:735](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L735) |
+| `tauceti:TauCeti.ContCohomology.Z1` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:485](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L485) |
+| `tauceti:TauCeti.ContCohomology.Z2` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:488](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L488) |
+| `tauceti:TauCeti.ContCohomology.d0` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:167](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L167) |
+| `tauceti:TauCeti.ContCohomology.d1` | [TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:228](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L228) |
+| `mathlib:Topology.IsEmbedding.continuous_iff` | [Mathlib/Topology/Maps/Basic.lean:245](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Maps/Basic.lean#L245) |
+| `mathlib:MulAction.quotient` | [Mathlib/GroupTheory/GroupAction/Quotient.lean:83](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Quotient.lean#L83) |
+| `mathlib:MulAction.Quotient.smul_mk` | [Mathlib/GroupTheory/GroupAction/Quotient.lean:93](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Quotient.lean#L93) |
+| `mathlib:MulAction.fixedPoints` | [Mathlib/GroupTheory/GroupAction/Defs.lean:116](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L116) |
+| `mathlib:MulAction.mem_fixedPoints` | [Mathlib/GroupTheory/GroupAction/Defs.lean:133](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L133) |
+| `mathlib:QuotientGroup.eq` | [Mathlib/GroupTheory/Coset/Defs.lean:198](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Coset/Defs.lean#L198) |
+| `mathlib:QuotientGroup.out_eq'` | [Mathlib/GroupTheory/Coset/Defs.lean:204](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Coset/Defs.lean#L204) |
+| `mathlib:QuotientGroup.mk_out_eq_mul` | [Mathlib/GroupTheory/Coset/Defs.lean:216](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Coset/Defs.lean#L216) |
+| `mathlib:QuotientGroup.leftRel_apply` | [Mathlib/GroupTheory/Coset/Defs.lean:71](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Coset/Defs.lean#L71) |
+| `mathlib:MulAction.left_quotientAction` | [Mathlib/GroupTheory/GroupAction/Quotient.lean:67](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Quotient.lean#L67) |
+| `mathlib:FixedPoints.mem_subgroup` | [Mathlib/GroupTheory/GroupAction/Defs.lean:208](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L208) |
+| `mathlib:MulAction.orbitRel_apply` | [Mathlib/GroupTheory/GroupAction/Defs.lean:294](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/GroupAction/Defs.lean#L294) |
+| `mathlib:Continuous.comp` | [Mathlib/Topology/Continuous.lean:115](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Continuous.lean#L115) |
+| `mathlib:MonoidHom.comp` | [Mathlib/Algebra/Group/Hom/Defs.lean:779](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L779) |
+| `mathlib:MonoidHom.id` | [Mathlib/Algebra/Group/Hom/Defs.lean:750](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L750) |
+| `mathlib:MonoidHom.comp_apply` | [Mathlib/Algebra/Group/Hom/Defs.lean:806](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L806) |
+| `mathlib:map_mul` | [Mathlib/Algebra/Group/Hom/Defs.lean:326](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L326) |
+| `mathlib:map_inv` | [Mathlib/Algebra/Group/Hom/Defs.lean:440](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L440) |
+| `mathlib:map_one` | [Mathlib/Algebra/Group/Hom/Defs.lean:234](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L234) |
+| `mathlib:Subgroup.subtype` | [Mathlib/Algebra/Group/Subgroup/Defs.lean:563](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Defs.lean#L563) |
+| `mathlib:MulDistribMulAction.compHom` | [Mathlib/Algebra/GroupWithZero/Action/End.lean:50](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/GroupWithZero/Action/End.lean#L50) |
+| `mathlib:MulAction.continuousSMul_compHom` | [Mathlib/Topology/Algebra/MulAction.lean:252](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/MulAction.lean#L252) |
+| `mathlib:MulEquiv.refl` | [Mathlib/Algebra/Group/Equiv/Defs.lean:259](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Equiv/Defs.lean#L259) |
+| `mathlib:Quotient.congr` | [Mathlib/Logic/Equiv/Defs.lean:884](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Logic/Equiv/Defs.lean#L884) |
+| `mathlib:Homeomorph` | [Mathlib/Topology/Homeomorph/Defs.lean:43](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Homeomorph/Defs.lean#L43) |
+| `mathlib:Torsor` | [Mathlib/Algebra/Torsor/Defs.lean:70](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Torsor/Defs.lean#L70) |
+| `mathlib:IsTopologicalTorsor` | [Mathlib/Topology/Algebra/Group/Torsor.lean:35](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Torsor.lean#L35) |
+| `mathlib:Homeomorph.smulConst` | [Mathlib/Topology/Algebra/Group/Torsor.lean:100](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Torsor.lean#L100) |
+| `mathlib:MulOpposite.opHomeomorph` | [Mathlib/Topology/Algebra/Constructions.lean:50](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Constructions.lean#L50) |
+
+## Validation and resumption
+
+- Packet checker: 0 errors, 0 warnings.
+- Full suggested file attempted with lean-check: missing Tau Ceti LowDegree
+  object file prevents elaboration. No builds or dependency updates performed;
+  no full pinned Tau Ceti compilation claimed.
+- Mathlib projection: exit 0, 693 warnings, all sorry; no errors or other
+  warnings. The actual-cocycle factor-order example is proved by decide.
+- Memory before the final projection: 95 GiB available. No Lean language server
+  or background job was started.
+
+Projection recipe: delete exactly import lines starting `import TauCeti.` and
+  the exact `section Abelian` through `end Abelian` block, retaining
+  `section AbelianTwistingTest`. This tests the remaining signatures, not the
+  omitted additive comparison or geometric interfaces, nor the admitted proofs.
+Suggested SHA-256: `4ab8a0985990c946ece7301c60780ba57d42fa25c2c063536b0a16e826c60b7b`.
+Projection SHA-256: `ce5afacf0a8d2b4f8d1df6b3c023aed77b1e2b85bb1da96cdee6f62a0412e350`.
+
+Continue positions 14–25 and 37–50 (geometry) and 156–313 (representative-change,
+source twisting, kernel adapters and stabilizers). Reuse the preceding 51–100
+and 314–362 scoped tables, but check all transitive inputs and supplementary
+sources before a final verdict. Then finish supplier/ownership/planet checks,
+reserved étale K(π,1) scope and sample API, sourceIssues, omitted signatures,
+coverage/gap supersession and every baseline consumer. Preserve the positive
+central defect, full profinite π for arbitrary finite/p-primary coefficients,
+and separate cohomological/raw-homotopy scopes. SourceIssues remains empty
+with an unfinished screen. No scratch file is required to resume.
+
+---
+
+## Earlier independent review checkpoints (historical)
+
 # Independent review checkpoint: Anabelian geometry and nonabelian Chabauty
 
 Issue [#526](https://github.com/CBirkbeck/tauceti-explorer/issues/526), job

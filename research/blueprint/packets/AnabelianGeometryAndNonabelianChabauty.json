@@ -22,56 +22,56 @@
         "kind": "structure",
         "module": "Mathlib/Topology/ContinuousMap/Defs.lean",
         "provides": "Continuous maps, for continuous cochains.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/ContinuousMap/Defs.lean:33; no all-160 claim."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom",
         "kind": "structure",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Continuous homomorphisms, the cocycles of a trivial action.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Algebra/ContinuousMonoidHom.lean:57; no all-160 claim."
       },
       {
         "ref": "mathlib:ContinuousSMul",
         "kind": "class",
         "module": "Mathlib/Topology/Algebra/MulAction.lean",
         "provides": "Continuity of the action map G × U → U.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Algebra/MulAction.lean:46; no all-160 claim."
       },
       {
         "ref": "mathlib:FixedPoints.subgroup",
         "kind": "def",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "The subgroup of elements fixed by a MulDistribMulAction: H⁰.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/GroupAction/Defs.lean:203; no all-160 claim."
       },
       {
         "ref": "mathlib:IsTopologicalGroup",
         "kind": "class",
         "module": "Mathlib/Topology/Algebra/Group/Defs.lean",
         "provides": "Topological groups.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Algebra/Group/Defs.lean:110; no all-160 claim."
       },
       {
         "ref": "mathlib:MulAction.QuotientAction",
         "kind": "class",
         "module": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
         "provides": "Actions descending to coset spaces.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/GroupAction/Quotient.lean:52; no all-160 claim."
       },
       {
         "ref": "mathlib:MulAction.orbitRel",
         "kind": "def",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "The orbit relation of a group action.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/GroupAction/Defs.lean:287; no all-160 claim."
       },
       {
         "ref": "mathlib:MulAction.orbitRel.Quotient",
         "kind": "abbrev",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "The orbit set of a group action, the carrier of H¹.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/GroupAction/Defs.lean:349; no all-160 claim."
       },
       {
         "ref": "mathlib:MulAction.toPerm",
@@ -85,28 +85,28 @@
         "kind": "def",
         "module": "Mathlib/Algebra/Group/End.lean",
         "provides": "Conjugation as a group automorphism.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/End.lean:723; no all-160 claim."
       },
       {
         "ref": "mathlib:MulDistribMulAction",
         "kind": "class",
         "module": "Mathlib/Algebra/Group/Action/Defs.lean",
         "provides": "Actions of a monoid on a group by group endomorphisms (here automorphisms).",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/Action/Defs.lean:629; no all-160 claim."
       },
       {
         "ref": "mathlib:MulDistribMulAction.toMulAut",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Action/End.lean",
         "provides": "The homomorphism to automorphisms given by a MulDistribMulAction.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/Action/End.lean:232; no all-160 claim."
       },
       {
         "ref": "mathlib:Multiplicative",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
         "provides": "The multiplicative type synonym of an additive group.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/TypeTags/Basic.lean:46; no all-160 claim."
       },
       {
         "ref": "mathlib:QuotientGroup.Quotient.group",
@@ -120,14 +120,14 @@
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Group/Quotient.lean",
         "provides": "The quotient map of topological groups is continuous.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Algebra/Group/Quotient.lean:44; no all-160 claim."
       },
       {
         "ref": "mathlib:QuotientGroup.isOpenMap_coe",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Group/Quotient.lean",
         "provides": "The quotient map of topological groups is open.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Algebra/Group/Quotient.lean:52; no all-160 claim."
       },
       {
         "ref": "mathlib:Subgroup.Normal",
@@ -141,7 +141,7 @@
         "kind": "def",
         "module": "Mathlib/GroupTheory/Subgroup/Center.lean",
         "provides": "The centre of a group.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/Subgroup/Center.lean:30; no all-160 claim."
       },
       {
         "ref": "mathlib:Topology.IsQuotientMap",
@@ -155,91 +155,91 @@
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean",
         "provides": "Mathlib's multiplicative 1-cocycle condition for commutative coefficients, f(gh) = g•f(h)·f(g).",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean:621; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.B1",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "Explicit 1-coboundaries, the range of d⁰.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:174; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.B2",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "Coboundaries of continuous 1-cochains.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:494; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.H0",
         "kind": "abbrev",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "H⁰ as the fixed-point additive subgroup.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:326; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.H1",
         "kind": "abbrev",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "Explicit continuous H¹ = Z¹/B¹.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:674; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.H1EquivOfSmulEqSelf",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "For a trivial action, H¹ is the group of continuous homomorphisms.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:840; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.H1pi",
         "kind": "abbrev",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "The class map Z¹ → H¹.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:679; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.H2",
         "kind": "abbrev",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "Explicit continuous H² = Z²/B², B² the coboundaries of continuous cochains.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:730; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.H2pi",
         "kind": "abbrev",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "The class map Z² → H².",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:735; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.Z1",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "Explicit continuous 1-cocycles C¹ ⊓ ker d¹ of a topological module.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:485; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.Z2",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "Explicit continuous 2-cocycles.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:488; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.d0",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "The differential d⁰m(g) = g•m − m.",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:167; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.d1",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "The differential d¹f(g, h) = g•f(h) − f(gh) + f(g).",
-        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:228; no all-160 claim."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme",
@@ -295,70 +295,70 @@
         "kind": "lemma",
         "module": "Mathlib/Topology/Maps/Basic.lean",
         "provides": "For an embedding g and any f between topological spaces, Continuous f iff Continuous (g ∘ f). Transfers continuity to subgroup-valued preimages.",
-        "checked": "Complete statement, local variables and embedding hypotheses read personally at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact canonical name confirmed in the pinned index."
+        "checked": "Complete statement, local variables and embedding hypotheses read personally at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP; exact canonical name confirmed in the pinned index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Maps/Basic.lean:245; no all-160 claim."
       },
       {
         "ref": "mathlib:MulAction.quotient",
         "kind": "instance",
         "module": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
         "provides": "Existing group action on the coset quotient under QuotientAction.",
-        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 83."
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 83. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/GroupAction/Quotient.lean:83; no all-160 claim."
       },
       {
         "ref": "mathlib:MulAction.Quotient.smul_mk",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
         "provides": "The descended action sends the class of b to the class of g acting on b.",
-        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 93."
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 93. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/GroupAction/Quotient.lean:93; no all-160 claim."
       },
       {
         "ref": "mathlib:MulAction.fixedPoints",
         "kind": "def",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "The subset of a native action carrier fixed by all scalars.",
-        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 116."
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 116. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/GroupAction/Defs.lean:116; no all-160 claim."
       },
       {
         "ref": "mathlib:MulAction.mem_fixedPoints",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "Membership iff every scalar fixes the element.",
-        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 133."
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 133. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/GroupAction/Defs.lean:133; no all-160 claim."
       },
       {
         "ref": "mathlib:QuotientGroup.eq",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/Coset/Defs.lean",
         "provides": "Equality of left cosets iff the ordered difference a⁻¹b belongs to the subgroup.",
-        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 198."
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 198. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/Coset/Defs.lean:198; no all-160 claim."
       },
       {
         "ref": "mathlib:QuotientGroup.out_eq'",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/Coset/Defs.lean",
         "provides": "The chosen representative maps to the original native coset.",
-        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 204."
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 204. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/Coset/Defs.lean:204; no all-160 claim."
       },
       {
         "ref": "mathlib:QuotientGroup.mk_out_eq_mul",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/Coset/Defs.lean",
         "provides": "A chosen representative of the class of b is b times an element of the subgroup.",
-        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 216."
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 216. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/Coset/Defs.lean:216; no all-160 claim."
       },
       {
         "ref": "mathlib:QuotientGroup.leftRel_apply",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/Coset/Defs.lean",
         "provides": "Existing left-coset relation identified with ordered difference subgroup membership.",
-        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 71."
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 71. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/Coset/Defs.lean:71; no all-160 claim."
       },
       {
         "ref": "mathlib:MulAction.left_quotientAction",
         "kind": "instance",
         "module": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
         "provides": "Left multiplication descends to the coset set for every subgroup, without normality.",
-        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 67."
+        "checked": "Complete declaration and local hypotheses personally read by Codex codex-rtOQ9t at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; canonical name confirmed in the pinned index. Source line 67. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/GroupAction/Quotient.lean:67; no all-160 claim."
       },
       {
         "ref": "mathlib:groupCohomology.coindIso",
@@ -568,7 +568,7 @@
         "kind": "lemma",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "Membership in the native automorphism-action fixed subgroup is equivalent to every scalar fixing the member.",
-        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
+        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/GroupAction/Defs.lean:208; no all-160 claim."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.descendZ1",
@@ -645,7 +645,7 @@
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "The native orbit relation between a,b means a belongs to the orbit of b, fixing its argument orientation.",
-        "checked": "Statement and ambient action hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02."
+        "checked": "Statement and ambient action hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/GroupTheory/GroupAction/Defs.lean:294; no all-160 claim."
       },
       {
         "ref": "mathlib:MulAction.mem_orbit_iff",
@@ -673,7 +673,7 @@
         "kind": "theorem",
         "module": "Mathlib/Topology/Continuous.lean",
         "provides": "A composite of continuous functions is continuous.",
-        "checked": "Actual statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name confirmed in the pinned declaration index."
+        "checked": "Actual statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name confirmed in the pinned declaration index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Continuous.lean:115; no all-160 claim."
       },
       {
         "ref": "mathlib:Subgroup.continuousSMul",
@@ -834,21 +834,21 @@
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
         "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
-        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:779, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:779, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/Hom/Defs.lean:779; no all-160 claim."
       },
       {
         "ref": "mathlib:MonoidHom.id",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
         "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
-        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:750, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:750, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/Hom/Defs.lean:750; no all-160 claim."
       },
       {
         "ref": "mathlib:MonoidHom.comp_apply",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
         "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
-        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:806, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:806, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/Hom/Defs.lean:806; no all-160 claim."
       },
       {
         "ref": "mathlib:MonoidHom.one_apply",
@@ -862,56 +862,56 @@
         "kind": "theorem",
         "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
         "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
-        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:326, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:326, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/Hom/Defs.lean:326; no all-160 claim."
       },
       {
         "ref": "mathlib:map_inv",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
         "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
-        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:440, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:440, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/Hom/Defs.lean:440; no all-160 claim."
       },
       {
         "ref": "mathlib:map_one",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
         "provides": "Existing native coefficient homomorphism identity/composition/evaluation or preservation of multiplication, inverse and one, consumed by the nonabelian coefficient-map laws/tests.",
-        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:234, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified."
+        "checked": "Complete actual statement/defining fields and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/Group/Hom/Defs.lean:234, 2026-10-02 by Codex codex-J6LwjP. Exact indexed name verified. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/Hom/Defs.lean:234; no all-160 claim."
       },
       {
         "ref": "mathlib:Subgroup.subtype",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
         "provides": "Native inclusion homomorphism of a subgroup.",
-        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03."
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/Subgroup/Defs.lean:563; no all-160 claim."
       },
       {
         "ref": "mathlib:MulDistribMulAction.compHom",
         "kind": "abbrev",
         "module": "Mathlib/Algebra/GroupWithZero/Action/End.lean",
         "provides": "Native pullback of an automorphism action along a monoid homomorphism, line50.",
-        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03."
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/GroupWithZero/Action/End.lean:50; no all-160 claim."
       },
       {
         "ref": "mathlib:MulAction.continuousSMul_compHom",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/MulAction.lean",
         "provides": "Joint continuity of the pulled-back action from a continuous source homomorphism, line252.",
-        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03."
+        "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-03. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Algebra/MulAction.lean:252; no all-160 claim."
       },
       {
         "ref": "mathlib:MulEquiv.refl",
         "kind": "definition",
         "module": "Mathlib/Algebra/Group/Equiv/Defs.lean",
         "provides": "The native multiplicative identity equivalence, specialized to the original group and its actual twist synonym; it does not identify the G-actions.",
-        "checked": "Complete statement/body and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact declaration name verified in its index."
+        "checked": "Complete statement/body and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact declaration name verified in its index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Group/Equiv/Defs.lean:259; no all-160 claim."
       },
       {
         "ref": "mathlib:Quotient.congr",
         "kind": "definition",
         "module": "Mathlib/Logic/Equiv/Defs.lean",
         "provides": "An actual equivalence respecting the two setoid relations induces an equivalence of their quotient types.",
-        "checked": "Complete statement/body and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact declaration name verified in its index."
+        "checked": "Complete statement/body and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-03; exact declaration name verified in its index. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Logic/Equiv/Defs.lean:884; no all-160 claim."
       },
       {
         "ref": "mathlib:Equiv.trans",
@@ -1126,7 +1126,7 @@
         "module": "Mathlib/Topology/Homeomorph/Defs.lean",
         "sourceLine": 43,
         "provides": "A native equivalence with continuous forward and inverse functions between two topological spaces.",
-        "checked": "Complete statement, body and surrounding topological-space hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05. No additional finiteness or separation hypothesis."
+        "checked": "Complete statement, body and surrounding topological-space hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05. No additional finiteness or separation hypothesis. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Homeomorph/Defs.lean:43; no all-160 claim."
       },
       {
         "ref": "mathlib:Torsor",
@@ -1134,7 +1134,7 @@
         "module": "Mathlib/Algebra/Torsor/Defs.lean",
         "sourceLine": 70,
         "provides": "Native nonempty free-transitive multiplicative action with scalar division. Used on Uᵐᵒᵖ to encode the right U-torsor, rather than redefining its group-action theory.",
-        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05."
+        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Algebra/Torsor/Defs.lean:70; no all-160 claim."
       },
       {
         "ref": "mathlib:IsTopologicalTorsor",
@@ -1142,7 +1142,7 @@
         "module": "Mathlib/Topology/Algebra/Group/Torsor.lean",
         "sourceLine": 35,
         "provides": "Native jointly continuous scalar multiplication and scalar division on a genuine torsor. These give continuous orbit maps and inverses.",
-        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05."
+        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Algebra/Group/Torsor.lean:35; no all-160 claim."
       },
       {
         "ref": "mathlib:Homeomorph.smulConst",
@@ -1150,7 +1150,7 @@
         "module": "Mathlib/Topology/Algebra/Group/Torsor.lean",
         "sourceLine": 100,
         "provides": "The native torsor orbit map v↦v•p bundled as a homeomorphism; specialize the acting group to Uᵐᵒᵖ.",
-        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05."
+        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Algebra/Group/Torsor.lean:100; no all-160 claim."
       },
       {
         "ref": "mathlib:MulOpposite.opHomeomorph",
@@ -1158,7 +1158,7 @@
         "module": "Mathlib/Topology/Algebra/Constructions.lean",
         "sourceLine": 50,
         "provides": "The actual homeomorphism U≃Uᵐᵒᵖ whose forward function is MulOpposite.op; compose with the native torsor orbit homeomorphism.",
-        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05."
+        "checked": "Complete statement, body and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Codex codex-CS32rR, 2026-10-05. Fresh selected-consumer rereading by independent reviewer Codex codex-m9Qr3w, 2026-10-05: exact qualified declaration, ambient hypotheses and its use inspected at the packet pin, Mathlib/Topology/Algebra/Constructions.lean:50; no all-160 claim."
       }
     ]
   },
@@ -1177,7 +1177,8 @@
         "Codex codex-a71f92, 2026-10-02: exact v1 PDF independently hash-checked; complete selected parsed printed pp.5–7 definitions and Proposition1 proof read. No fresh complete Proposition2 proof, whole-paper read, published collation or Serre reading. Joint continuity and fibre equivalence are authored deductions.",
         "Codex codex-7e92bd, 2026-10-02: exact v1 PDF SHA256 verified; parsed continuous cocycle/gauge definitions and complete Proposition 1 proof on printed pp.5–7, with only the beginning of Proposition 2 read. No whole-paper claim.",
         "Fresh independent review codex-1O5j0u, 2026-10-05: the cochain boundary formula on printed p.5, and Proposition 2's central splitting, dsi obstruction and freeness arguments on printed pp.8–9 were read in the exact arXiv v1 PDF. The positive-defect versus printed inverse-defect convention is now recorded explicitly.",
-        "Fresh independent review codex-i1BjcC, 2026-10-05: printed pp.5–9 continuous cochain/cocycle/gauge definitions, Proposition 1 and central-extension passages read in the exact arXiv v1 PDF; no whole-paper or published-version collation claimed."
+        "Fresh independent review codex-i1BjcC, 2026-10-05: printed pp.5–9 continuous cochain/cocycle/gauge definitions, Proposition 1 and central-extension passages read in the exact arXiv v1 PDF; no whole-paper or published-version collation claimed.",
+        "Fresh independent review Codex codex-m9Qr3w, 2026-10-05: exact matching arXiv v1 PDF printed pp.5–10 read, including the continuous ordered cocycle/gauge formulas, complete Proposition 1 proof, coefficient-functor passage, central extension proof and subgroup exactness. General topological/coefficient/source/twist statements are independently calculated deductions, not additional numbered Kim theorems; no published-version collation or earlier topology lemmas certified."
       ]
     },
     {
@@ -1188,7 +1189,8 @@
       "url": "https://arxiv.org/abs/math/0510441v4",
       "sha256": "7b404331925f1d8e9bce81e9b16473f0d65a7f1ac2948ccff0db3a6e7b0d0f19",
       "readSections": [
-        "Read the introduction (pp. 1–5) and the passages of §3 on local conditions, the connecting map from H⁰(G_v, U(B_cr ⊗ R)/U(R)), restriction maps and the central-extension structure of Selmer varieties (pp. 19–26). The rest was not read."
+        "Read the introduction (pp. 1–5) and the passages of §3 on local conditions, the connecting map from H⁰(G_v, U(B_cr ⊗ R)/U(R)), restriction maps and the central-extension structure of Selmer varieties (pp. 19–26). The rest was not read.",
+        "Fresh independent review Codex codex-m9Qr3w, 2026-10-05: exact matching arXiv v4 PDF printed pp.4,19,25–26 read, checking all selected nonabelian-H¹, crystalline-boundary, restriction and central-fibre locators. No whole-paper, published-version or geometric proof closure claimed."
       ]
     },
     {
@@ -1657,7 +1659,7 @@
         {
           "name": "TauCeti.NonabelianCohomology.tests.factor_order",
           "kind": "non-example",
-          "statement": "For G = U = S₃ with the trivial action, the identity map satisfies c(gh) = c(g)·(g•c(h)) but not c(gh) = (g•c(h))·c(g) (it is a homomorphism, not an anti-homomorphism): the factor order of the cocycle condition matters for nonabelian U."
+          "statement": "For discrete G = U = S₃ with trivial action, construct the actual identity continuous cocycle c. At g=(01), h=(12), c(gh)=c(g)·(g•c(h)), whereas c(gh)≠(g•c(h))·c(g). The test uses the planned Z¹ carrier and its concrete representative, rather than an unrelated function satisfying a homomorphism condition."
         },
         {
           "name": "TauCeti.NonabelianCohomology.tests.invariants",
@@ -2079,12 +2081,12 @@
       "tests": [
         {
           "name": "TauCeti.NonabelianCohomology.tests.connecting_fixed_lift",
-          "kind": "base-case",
+          "kind": "degenerate",
           "statement": "A G-fixed lift b gives c_b = 1 for every equivariant closed embedding i."
         },
         {
           "name": "TauCeti.NonabelianCohomology.tests.connecting_identity_embedding",
-          "kind": "comparison",
+          "kind": "compatibility",
           "statement": "For i the identity embedding of B and arbitrary b, c_b = coboundary(b⁻¹), with coboundary(u)(g)=u(g•u)⁻¹."
         },
         {
@@ -2567,6 +2569,11 @@
           "name": "TauCeti.NonabelianCohomology.Twist.mem_fixed_iff",
           "role": "characterisation",
           "statement": "For x∈Twist(c), x belongs to H⁰(G,Twist(c)) if and only if c(g)·g(j_c(x))=j_c(x)·c(g) for every g∈G."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.toOriginal_apply",
+          "role": "simp",
+          "statement": "For every actual x∈Twist(c), j_c(x) is exactly x regarded in U. This is the native identity equivalence on the underlying group, not an unspecified automorphism."
         }
       ],
       "tests": [
@@ -9564,6 +9571,11 @@
           "name": "TauCeti.NonabelianCohomology.tests.twist_translation_order",
           "kind": "compatibility",
           "statement": "For every twisted continuous cocycle d and g, τ_c⁻¹(τ_c(d))(g)=d(g). Division on the right exactly cancels multiplication on the right."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_right_translation_S3",
+          "kind": "non-example",
+          "statement": "Take discrete G=U=S₃ with trivial original action, the actual identity cocycle c, x=(01) in Twist(c), the twisted coboundary d(g)=x·(g⋆x)⁻¹, and g=(12). The actual forward cocycle equivalence satisfies τ_c(d)(g)=xgx⁻¹, and this value differs from c(g)·j_c(d(g)). Thus swapping the forward multiplication order fails on an actual twisted cocycle."
         }
       ]
     },
@@ -24338,82 +24350,110 @@
   },
   "independentReviewCheckpoint": {
     "job": "REV-AnabelianGeometryAndNonabelianChabauty",
-    "session": "codex-i1BjcC",
+    "session": "codex-m9Qr3w",
     "date": "2026-10-05",
     "status": "partial",
     "selectedNodeAudit": {
       "nodes": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-one",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-inverse",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-one-fibre",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-one-fibre-clopen",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/discrete-normal-killing",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-right-cosets",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-left-cosets",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-fixed",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-invariants",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-witness-fixed",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/finite-family-normal-killing",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-unique",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/descend-inflated-cocycle",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-equivalence",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-gauge",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-inflation-equivariance",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-inflation-gauge-reflection",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-one",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction-equivariance",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-neutral-criterion",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-inverse-gauge-normalization",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction-inflation",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction-inflation",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-restriction-image",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-unique-preimage",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-one",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-neutral-equivalence",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-injective",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition-inflation",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-identity",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-composition",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-diagram",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-cocone",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-surjectivity",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-index-filtered",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-colimit",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-equivalence"
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/abelian-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-cocycle-image",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-change-lift",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-class-zero",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-fixed-orbits",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/normal-h1-kernel",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-action",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/fixed-coset-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-projection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-image",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-map-lift",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariants-injection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariants-kernel",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-kernel",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-image-kernel",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/connecting-quotient-fibres",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-gauge",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-identity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-cocycle-composition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-one",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-identity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-h1-composition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-identity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/coefficient-invariant-composition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-restriction",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-neutral",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-identity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-composition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-surjective-injection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-subgroup",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-cocycle-gauge",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-restriction",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-representative",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-neutral",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-identity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-composition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-surjective-injection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-h1-subgroup",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-coefficient-cocycle-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-coefficient-h1-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-restriction",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-identity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-composition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-invariant-injection",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/source-coefficient-invariant-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-underlying-group",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-cocycle-inverse-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-gauge-equivariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-equivalence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-representative",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-h1-neutral-fibre",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-invariant-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-map",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-value",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-continuity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-equivariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-identity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-composition",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-cocycle-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-inverse-cocycle-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-h1-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-inverse-h1-square",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-neutral",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twist-coefficient-repointed-fibre"
       ],
-      "scope": "Fresh mathematical, source, direct-prerequisite, API/test and actual suggested-signature screen of the 50 discrete-descent, quotient-cocycle, same-N inflation/restriction, quotient-action-continuity and finite-quotient-colimit nodes. Per-node scoped findings are in the review report. No global acceptance or review verdict is asserted."
+      "scope": "80 fresh scoped mathematical, hypothesis, direct-prerequisite, API/test and actual suggested-signature checks at zero-based positions 0–13,26–36,101–155. Node 362 read as native torsor supplier. Kim locators checked; supplementary Poonen locators unavailable this pass. Per-node calculations and boundaries in the review report; no final review verdict or full transitive closure."
     },
     "corrections": [
-      "Added concrete identity-S₃ evaluations for actual descent, inflation and the descent equivalence; inverse laws and proof irrelevance did not pin the latter equivalence to its canonical map.",
-      "Added a native, decidable S₃ normality counterexample distinguishing right- and left-coset constancy.",
-      "Added the actual nonabelian orbit-carrier prerequisite when choosing a representative in finite-quotient class surjectivity.",
-      "Corrected the residual unbound codomain U to B in the central-extension action hypothesis."
+      "The factor-order test now uses an explicitly constructed identity continuous Z¹ cocycle and two noncommuting S₃ transpositions; native by-decide arithmetic proves it. Trivial action is expressed without ambiguous same-type scalar notation.",
+      "The twist underlying-group map now is the pinned native MulEquiv.refl, with an exact value API signature.",
+      "Added an actual twisted S₃ coboundary forward-value test discriminating multiplication on the right.",
+      "Normalized two connecting-cocycle test kinds to degenerate and compatibility."
     ],
-    "remaining": "Complete nodes 0–50 and 101–313 (zero-based input positions), all geometric supplier/source leaves, and the whole ownership/planet/source-error screen. Reuse the preceding checkpoint for the late 49-node screen and 160-entry baseline table, without treating a source receipt or a successful projection as a final mathematical verdict.",
     "baselineStatementAudit": {
-      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-      "count": 47,
-      "scope": "Fresh selected-consumer statements and hypotheses; prior complete locator table retained with its attribution. No all-160 fresh consumer certification."
+      "count": 57,
+      "scope": "52 distinct direct inputs of the selected 80 nodes, plus five native torsor supplier inputs; exact qualified declarations at the recorded Mathlib/Tau Ceti pins. The report links each statement."
     },
     "validation": {
-      "packet": "0 errors, 0 warnings",
-      "fullSuggested": "Attempted; missing pinned TauCeti LowDegree.olean prevents elaboration. No library builds.",
-      "mathlibProjection": "Exit 0, 693 admission warnings; no errors or other warnings. Projection recipe and exact hashes are in the review report.",
-      "nativeNormalityTest": "Elaborates by decide without admissions."
-    }
+      "packet": "0 errors,0 warnings",
+      "fullSuggested": "Attempted; missing TauCeti LowDegree.olean. Shared Tau Ceti source HEAD differs from packet pin; no full pinned Tau Ceti elaboration claimed. Exact pinned source was fetched and read.",
+      "mathlibProjection": "Exit 0; 693 admission warnings. No errors or other warnings. Actual cocycle factor-order arithmetic checks without admissions."
+    },
+    "remaining": "Complete geometric positions 14–25, 37–50 and positions 156–313; reuse the earlier 51–100 and 314–362 scoped screens with their attribution, then close transitive inputs and all sources/ownership/key-definition/planet checks. Poonen supplementary locators 0/12/13 were not freshly served. Full review and explicit omissions, especially central/additive/geometric interfaces, remain unfinished."
   },
   "independentReviewCheckpoints": [
     {
@@ -24488,6 +24528,85 @@
         "Corrected the central-extension hypothesis spelling from the unbound coefficient U to its actual ambient group B."
       ],
       "remaining": "Finish every earlier node's consumer/source/API/test/closure check and the geometric supplier proof leaves, reconcile current coverage obligations, and finish ownership/planet/source-error screening before a global review object. The blueprint stage statuses and implementation statuses are unchanged."
+    },
+    {
+      "job": "REV-AnabelianGeometryAndNonabelianChabauty",
+      "session": "codex-i1BjcC",
+      "date": "2026-10-05",
+      "status": "partial",
+      "selectedNodeAudit": {
+        "nodes": [
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-one",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-inverse",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-one-fibre",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-one-fibre-clopen",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/discrete-normal-killing",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-right-cosets",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-left-cosets",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-fixed",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-invariants",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-witness-fixed",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/finite-family-normal-killing",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-descent",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-unique",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/inflate-descended-cocycle",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/descend-inflated-cocycle",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-equivalence",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-gauge",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-orbit-criterion",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-inflation-equivariance",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-inflation-gauge-reflection",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-one",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction-equivariance",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-neutral-criterion",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-inverse-gauge-normalization",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-restriction-inflation",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction-inflation",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-restriction-image",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-unique-preimage",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-one",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-neutral-equivalence",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-injective",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-transition-inflation",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-inflation",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-identity",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-transition-composition",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-diagram",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-cocone",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-surjectivity",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-quotient-index-filtered",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-colimit",
+          "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-finite-quotient-equivalence"
+        ],
+        "scope": "Fresh mathematical, source, direct-prerequisite, API/test and actual suggested-signature screen of the 50 discrete-descent, quotient-cocycle, same-N inflation/restriction, quotient-action-continuity and finite-quotient-colimit nodes. Per-node scoped findings are in the review report. No global acceptance or review verdict is asserted."
+      },
+      "corrections": [
+        "Added concrete identity-S₃ evaluations for actual descent, inflation and the descent equivalence; inverse laws and proof irrelevance did not pin the latter equivalence to its canonical map.",
+        "Added a native, decidable S₃ normality counterexample distinguishing right- and left-coset constancy.",
+        "Added the actual nonabelian orbit-carrier prerequisite when choosing a representative in finite-quotient class surjectivity.",
+        "Corrected the residual unbound codomain U to B in the central-extension action hypothesis."
+      ],
+      "remaining": "Complete nodes 0–50 and 101–313 (zero-based input positions), all geometric supplier/source leaves, and the whole ownership/planet/source-error screen. Reuse the preceding checkpoint for the late 49-node screen and 160-entry baseline table, without treating a source receipt or a successful projection as a final mathematical verdict.",
+      "baselineStatementAudit": {
+        "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "count": 47,
+        "scope": "Fresh selected-consumer statements and hypotheses; prior complete locator table retained with its attribution. No all-160 fresh consumer certification."
+      },
+      "validation": {
+        "packet": "0 errors, 0 warnings",
+        "fullSuggested": "Attempted; missing pinned TauCeti LowDegree.olean prevents elaboration. No library builds.",
+        "mathlibProjection": "Exit 0, 693 admission warnings; no errors or other warnings. Projection recipe and exact hashes are in the review report.",
+        "nativeNormalityTest": "Elaborates by decide without admissions."
+      }
     }
   ]
 }
