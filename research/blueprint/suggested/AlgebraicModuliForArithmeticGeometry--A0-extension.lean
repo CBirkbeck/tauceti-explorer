@@ -27,8 +27,9 @@ can converge on names and signatures. Nothing here claims an implementation.
 
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Full file not compiled.
-The Mathlib-only intrinsic-band extraction elaborates; its validation boundary
-is recorded in the reader and handoff.
+The earlier Mathlib-only intrinsic-band extraction and the current compatible-
+family category/pullback/fixture fragment elaborate with planning admissions.
+Their separate validation boundaries are recorded in the review and handoff.
 The final omission ledger names every interface requiring an unavailable
 supplier. No desired theorem is encoded as an unspecified Prop-valued field.
 -/
@@ -36,6 +37,8 @@ supplier. No desired theorem is encoded as an unspecified Prop-valued field.
 import Mathlib.CategoryTheory.SingleObj
 import Mathlib.CategoryTheory.Products.Basic
 import Mathlib.CategoryTheory.Discrete.Basic
+import Mathlib.CategoryTheory.Filtered.Basic
+import Mathlib.CategoryTheory.Skeletal
 import Mathlib.CategoryTheory.Bicategory.Functor.LocallyDiscrete
 import Mathlib.Data.ZMod.Basic
 import Mathlib.SetTheory.Cardinal.Finite
@@ -281,6 +284,46 @@ theorem hom_ext {x y : GerbeLimitFamily Φ} (f g : Hom x y)
     (h : ∀ i, f.component i = g.component i) : f = g := by
   sorry
 
+-- API: GerbeLimitFamily.category. Keep the actual compatible arrows as Hom;
+-- an opaque category instance would lose the componentwise interface.
+instance category : Category (GerbeLimitFamily Φ) where
+  Hom := Hom
+  id x :=
+    { component := fun i => 𝟙 (x.component i)
+      naturality := by sorry }
+  comp f g :=
+    { component := fun i => f.component i ≫ g.component i
+      naturality := by sorry }
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+
+-- API: GerbeLimitFamily.evaluation.
+def evaluation (i : I) : GerbeLimitFamily Φ ⥤ Φ.obj (.mk i) where
+  obj x := x.component i
+  map f := f.component i
+  map_id := by sorry
+  map_comp := by sorry
+
+-- API: GerbeLimitFamily.isIso_of_components. No groupoid instance replaces
+-- the category installed above: invertibility is proved in that category.
+theorem isIso_of_components {x y : GerbeLimitFamily Φ} (f : x ⟶ y)
+    (hf : ∀ i : I, IsIso (f.component i)) : IsIso f := by
+  sorry
+
+-- API: GerbeLimitFamily.pullback. A site restriction supplies such a strong
+-- transformation between the two diagrams of fibre categories.
+noncomputable def pullback {Ψ : LocallyDiscrete I ⥤ᵖ Cat.{v', u'}}
+    (η : Pseudofunctor.StrongTrans Φ Ψ) :
+    GerbeLimitFamily Φ ⥤ GerbeLimitFamily Ψ := by
+  sorry
+
+theorem pullback_component {Ψ : LocallyDiscrete I ⥤ᵖ Cat.{v', u'}}
+    (η : Pseudofunctor.StrongTrans Φ Ψ) (x : GerbeLimitFamily Φ) (i : I) :
+    ((pullback η).obj x).component i =
+      (η.app (.mk i)).toFunctor.obj (x.component i) := by
+  sorry
+
 -- Unit and composition coherence are equations, not uninstantiated flags.
 example (x : GerbeLimitFamily Φ) (i : I) :
     (x.transition (𝟙 i)).hom =
@@ -294,6 +337,47 @@ example (x : GerbeLimitFamily Φ) {i j k : I} (f : i ⟶ j) (g : j ⟶ k) :
   sorry
 
 end GerbeLimitFamily
+
+namespace LimitFamilyTests
+
+-- The singleton check uses an arbitrary pseudofunctor on the actual
+-- one-object discrete index, including its possibly nontrivial unit data.
+example (Φ : LocallyDiscrete (Discrete PUnit) ⥤ᵖ Cat.{v', u'}) :
+    Nonempty (GerbeLimitFamily Φ ≌ Φ.obj (.mk (Discrete.mk PUnit.unit))) := by
+  sorry
+
+-- Retain the category of arrows of the constant groupoid, not just its
+-- isomorphism-class set. IsCofiltered includes nonemptiness.
+example [IsCofiltered I] (G : Type v') [Group G] :
+    let Φ := ((Functor.const I).obj (Cat.of (SingleObj G))).toPseudofunctor'
+    Nonempty (GerbeLimitFamily Φ ≌ SingleObj G) := by
+  sorry
+
+-- A concrete C3 calculation on the same native compatible-family carrier.
+-- The classifying-stack comparison is a separate geometric supplier input.
+example :
+    let Φ := ((Functor.const (Discrete PUnit)).obj
+      (Cat.of (SingleObj (Multiplicative (ZMod 3))))).toPseudofunctor'
+    Nonempty (GerbeLimitFamily Φ) ∧
+      Subsingleton (Skeleton (GerbeLimitFamily Φ)) ∧
+      ∀ x : GerbeLimitFamily Φ, Nat.card (x ⟶ x) = 3 := by
+  sorry
+
+end LimitFamilyTests
+
+namespace CanonicalFactorTests
+
+-- Partial native fibre fixture for notTarget and source finding E12.
+-- The geometric B1 → B(C2) comparison remains in the omission ledger.
+example :
+    let f := (1 : PUnit →* Multiplicative (ZMod 2)).toFunctor
+    f.Faithful ∧ ¬ f.Full ∧
+      Nat.card (SingleObj.star PUnit ⟶ SingleObj.star PUnit) = 1 ∧
+      Nat.card (SingleObj.star (Multiplicative (ZMod 2)) ⟶
+        SingleObj.star (Multiplicative (ZMod 2))) = 2 := by
+  sorry
+
+end CanonicalFactorTests
 
 end TauCeti.AlgebraicGeometry
 
@@ -679,23 +763,12 @@ BG for a finite constant group G is a finite étale gerbe, including nonabelian 
 Omitted FiniteGerbeTests.muP
 In characteristic p, Bμp is a finite fppf gerbe but is not a finite étale gerbe.
 
-Omitted GerbeLimitFamily.pullback
-Restriction along T′→T applies to objects, transitions and arrows with inherited coherence.
-
-Omitted LimitFamilyTests.singleton
-For a singleton index, the groupoid of compatible families is equivalent to the sole stack fibre.
-
-Omitted LimitFamilyTests.identityTower
-For the constant identity system BA, its compatible-family groupoid is equivalent to BA(T), retaining A(T) automorphisms.
-
-Omitted LimitFamilyTests.classesInsufficient
-For the constant identity system B(Z/3Z) over an algebraically closed point, the inverse system of singleton isomorphism-class sets has no record of the three automorphisms of a compatible object.
-
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent
 The compatible-family construction for a small diagram of fpqc stacks is an fpqc stack in groupoids.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe
 For a cofiltered system of affine fpqc gerbes over a field, if its compatible-family stack has an object over some nonempty k-scheme X, then the 2-limit is an affine fpqc gerbe. This assumption is not a k-rational neutralization and is not suppressed.
+Hypotheses: Small cofiltered system of affine fpqc gerbes over k. A compatible object exists over a nonempty k-scheme X. Inverse limits of affine faithfully flat schemes in this field-gerbe situation are affine faithfully flat.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/profinite-etale-gerbe
 A profinite étale gerbe over k is an fpqc gerbe with a specified presentation, up to coherent equivalence, as the compatible-family 2-limit of a small cofiltered system of finite étale gerbes. Its data include the transition functors, coherence and comparison equivalence. It is not defined by a sequence of isomorphism classes and is not asserted algebraic or of finite presentation.
@@ -747,6 +820,7 @@ A morphism of affine fpqc gerbes is locally full iff it is a relative gerbe. A f
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/locally-full-limit
 Let Γ→lim_iΔi be a morphism of affine fpqc gerbes. If each Γ→Δi is locally full, then Γ→lim_iΔi is locally full.
+Hypotheses: A field k and a small nonempty cofiltered index category (or cofiltered poset), so the coordinate-ring diagram is filtered after taking opposites. Both Γ and the compatible limit are already affine fpqc gerbes. The affine-group Hopf-algebra faithful-flatness criterion is supplied.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/z-hat-gerbe
 Over a field k, let G=lim_m (Z/m!Z)_k as affine group schemes, with the quotient transition maps. Its fpqc torsor stack BG is an fpqc gerbe and is presented as the 2-limit of B(Z/m!Z)_k. A compatible family of finite torsors yields a G-torsor by affine inverse limit with its action; the torsor comparison and local triviality must be verified in the fpqc topology.
@@ -849,6 +923,7 @@ For a finite constant group Γ acting on Y, I[Y/Γ]≃⊔_[γ] [Yγ/CΓ(γ)], wh
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/canonical-affine-factorization
 For f:Γ→Δ between affine fpqc gerbes over k, a canonical factorization consists of an affine fpqc gerbe E, maps g:Γ→E and h:E→Δ, an invertible modification h∘g≅f, proof that g is locally full, and proof that h is faithful on all fibre groupoids. Equivalence of such data includes the compatible modification over Δ.
+Hypotheses: Γ and Δ are affine fpqc gerbes over a field k.
 
 Omitted AffineGerbeFactorization.sourceMap
 The first map g is locally full.
@@ -866,16 +941,17 @@ Omitted CanonicalFactorTests.kernel
 For a group morphism G→H the neutral factor is B(G/ker f)→BH.
 
 Omitted CanonicalFactorTests.notTarget
-The inclusion B1→B(Z/2Z) cannot have E=B(Z/2Z), because its first map is not locally full.
+The inclusion B1→B(C2) cannot have E=B(C2), because its first map is not locally full. With trivial stabilizer kernel the actual middle gerbe is B1; at the trivial object the quotient source Isom sheaf has one arrow while the final-target Isom sheaf has two. The native SingleObj PUnit→SingleObj(Multiplicative(ZMod 2)) fixture is faithful but not full and has these Hom cardinalities; its geometric comparison remains required.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.5/affine-kernel-rigidification
 For f:Γ→Δ between affine fpqc gerbes, there is a canonical factorization Γ→E→Δ. Choose an affine fpqc cover U→Γ, put R=U×ΓU, and let K be the normal stabilizer-kernel sheaf. The quotient sheaf R/K carries an induced groupoid structure over U; its torsor stack E is an affine fpqc gerbe. Affineness of R/K follows after a faithfully flat field extension by identifying it with the quotient of an affine group scheme by a normal subgroup and then descending affineness. No general fpqc stackification in unrestricted universes is presumed.
+Hypotheses: Affine fpqc gerbes over a field. The precise affine normal-quotient and affine fpqc-descent inputs in the supplier request.
 
 Omitted AffineKernelRigidification.factor
 Produces the displayed canonical factorization of f.
 
 Omitted AffineKernelRigidification.homSheaf
-For source objects x,y the target Isom sheaf is IsomΓ(x,y)/Kx.
+For f≅h∘g and source objects x,y, Isom_E(gx,gy) is the fpqc quotient Isom_Γ(x,y)/Kx, compatibly with composition. It is generally only a subfunctor of Isom_Δ(fx,fy), not equal to that final-target sheaf.
 
 Omitted AffineKernelRigidification.neutral
 For BG→BH the construction identifies with B(G/ker f)→BH.
@@ -891,6 +967,7 @@ The quotient B(Z/4Z)→B(Z/2Z) retains Z/2Z as inertia; its middle gerbe is not 
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/canonical-factorization-unique
 Two canonical factorizations of the same f:Γ→Δ have equivalent middle affine gerbes over Δ, compatibly with the maps from Γ.
+Hypotheses: Two canonical factorizations of an affine-gerbe morphism over a field.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/finite-etale-image
 For a profinite étale fpqc gerbe Γ over k and a morphism Γ→Δ to a finite étale gerbe, its canonical affine factor E is finite étale, and Γ→E is locally full. The faithful map E→Δ is representable.
@@ -1065,6 +1142,7 @@ For any fpqc covering {Xi→X} of algebraic spaces, the canonical functor QCoh(X
 
 Omitted AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf
 For f:X→B, define PicX/B as the fppf sheafification on Sch/B of T↦Pic(XT), where Pic denotes invertible modules up to isomorphism. Equivalently sheafify the quotient presheaf Pic(XT)/fT*Pic(T), since every line bundle on T is locally trivial. Tensor product supplies the abelian group law. This does not identify its T-points with actual line bundles modulo pullback without a separate descent theorem.
+Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.
 
 Omitted RelativePicard.ofLineBundle
 An invertible sheaf on XT gives a point of PicX/B(T).
@@ -1076,7 +1154,7 @@ Omitted RelativePicard.baseLineBundle
 A line bundle pulled back from T maps to zero.
 
 Omitted RelativePicard.quotientSheaf
-Sheafifying Pic(XT)/Pic(T) gives the same fppf sheaf.
+Sheafifying T↦Pic(X_T)/im(f_T*:Pic(T)→Pic(X_T)) gives the same fppf sheaf as sheafifying T↦Pic(X_T); injectivity of f_T* is not presumed.
 
 Omitted PicardSheafTests.identity
 For X=B and f=id, the relative Picard sheaf is zero, even when Pic(B) is nonzero.
@@ -1089,12 +1167,15 @@ Without a section or a separate obstruction-vanishing hypothesis, a point of the
 
 Omitted AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-base-change
 For a scheme T→B, the restriction of PicX/B to Sch/T is naturally PicXT/T. Equivalently it is the fibre product of the relative Picard sheaf over B with T.
+Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.
 
 Omitted AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-kernel
 If OT→fT*OXT is an isomorphism for every scheme T→B, then 0→Pic(T)→Pic(XT)→PicX/B(T) is exact. No surjectivity at the last arrow is asserted.
+Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites. For every scheme T→B, the canonical map of sheaves of rings O_T→(f_T)_*O_(X_T) is an isomorphism; the compatible comparison on global units is supplied.
 
 Omitted AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard
 For a section σ:B→X, a rigidified Picard object over T is an invertible sheaf L on XT and an isomorphism α:OT≅σT*L. An arrow is an isomorphism of line bundles preserving α. Under universal OT≅fT*OXT every such object has only the identity automorphism, and its isomorphism class lies in ker(σT*:Pic(XT)→Pic(T)). The trivialization is retained in the object, not discarded before descent.
+Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites. A specified S-morphism σ:B→X with f∘σ=id_B and its induced sections σ_T:T→X_T. The universal structure-sheaf isomorphism is required only for the asserted trivial-automorphism conclusion, not for defining the rigidified groupoid.
 
 Omitted RigidifiedPicard.lineBundle
 The underlying invertible sheaf on XT.
@@ -1103,7 +1184,19 @@ Omitted RigidifiedPicard.trivialization
 The specified isomorphism OT≅σT*L.
 
 Omitted RigidifiedPicard.pullback
-Pullback of rigidified objects retains its unit and composition constraints.
+For q:T′→T over B, pull back L and α along X_(T′)→X_T and q, using the structure-sheaf unit and σ-square comparison. Identity and composite pullbacks satisfy the inherited module-pseudofunctor constraints.
+
+Omitted RigidifiedPicard.mk
+An invertible sheaf L on X_T and an isomorphism α:O_T≅σ_T*L construct a rigidified object, without a universal global-functions hypothesis.
+
+Omitted RigidifiedPicard.hom
+In the fixed T-fibre an arrow (L,α)→(M,β) is a sheaf isomorphism φ:L≅M satisfying σ_T*(φ)∘α=β. Identity and composition are those of the underlying sheaf isomorphisms.
+
+Omitted RigidifiedPicard.hom_ext
+Two rigidified arrows are equal exactly when their underlying sheaf isomorphisms agree.
+
+Omitted RigidifiedPicard.trivial
+The structure sheaf O_(X_T), with the canonical pullback unit isomorphism O_T≅σ_T*O_(X_T), is the trivial rigidified object.
 
 Omitted RigidifiedPicardTests.identity
 For X=B the unique class is the trivial line bundle with its rigidification.
@@ -1116,9 +1209,11 @@ For P1 with its section, the classes of O(d) retain all integer degrees; rigidif
 
 Omitted AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid
 Under universal OT≅fT*OXT, an automorphism of (L,α) is identity. Any two choices of α for the same L give isomorphic rigidified objects, because their ratio is a base unit.
+Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites. For every scheme T→B, the canonical map of sheaves of rings O_T→(f_T)_*O_(X_T) is an isomorphism; the compatible comparison on global units is supplied. A specified S-morphism σ:B→X with f∘σ=id_B and its induced sections σ_T:T→X_T.
 
 Omitted AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split
 If σ:B→X is a section and OT→fT*OXT is an isomorphism for all T→B, then 0→Pic(T)→Pic(XT)→PicX/B(T)→0 is split exact, with retraction σT*. Equivalently PicX/B(T)≅ker σT*, naturally in T.
+Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites. For every scheme T→B, the canonical map of sheaves of rings O_T→(f_T)_*O_(X_T) is an isomorphism; the compatible comparison on global units is supplied. A specified S-morphism σ:B→X with f∘σ=id_B and its induced sections σ_T:T→X_T.
 
 END GENERATED SIGNATURE OMISSIONS -/
 
