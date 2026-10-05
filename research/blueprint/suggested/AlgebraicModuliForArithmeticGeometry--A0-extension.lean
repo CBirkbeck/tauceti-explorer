@@ -320,6 +320,26 @@ noncomputable def affine_pullback_tensor {R B : CommRingCat.{u}}
       tilde ((ModuleCat.extendScalars f.hom).obj M) := by
   sorry
 
+-- API: affine_pullback_tensor.naturality. This compares actual sheaf maps.
+theorem affine_pullback_tensor.naturality {R B : CommRingCat.{u}}
+    (f : R ⟶ B) {M N : ModuleCat.{u} R} (h : M ⟶ N) :
+    (Scheme.Modules.pullback (Spec.map f)).map ((tilde.functor R).map h) ≫
+        (affine_pullback_tensor f N).hom =
+      (affine_pullback_tensor f M).hom ≫
+        (tilde.functor B).map ((ModuleCat.extendScalars f.hom).map h) := by
+  sorry
+
+-- Test: AffinePullbackTests.nonflat. The original mono becomes zero on a
+-- nonzero sheaf after the nonflat base change Z → Z/2Z.
+example :
+    let f := CommRingCat.ofHom (Int.castRingHom (ZMod 2))
+    let h := (tilde.functor (CommRingCat.of ℤ)).map
+      (ModuleCat.ofHom (2 • LinearMap.id : ℤ →ₗ[ℤ] ℤ))
+    Mono h ∧
+      (Scheme.Modules.pullback (Spec.map f)).map h = 0 ∧
+      ¬ Mono ((Scheme.Modules.pullback (Spec.map f)).map h) := by
+  sorry
+
 namespace QCohPseudofunctor
 
 -- The exact full-subcategory restriction of the existing module pullback.
@@ -351,13 +371,17 @@ theorem QCohPseudofunctor.fibre (X : Scheme.{u}) :
       Cat.of (SheafOfModules.isQuasicoherent X.ringCatSheaf).FullSubcategory := by
   sorry
 
--- All modules are admitted; this example imposes no finite-generation bound.
-example (R : CommRingCat.{u}) (M : ModuleCat.{u} R) :
-    (tilde M).IsQuasicoherent := by
+-- Test: QCohPseudoTests.infiniteModule. A particular infinite free module
+-- is admitted, and its failure of finite generation is part of the check.
+example (K : Type u) [Field K] :
+    (tilde (R := CommRingCat.of K) (ModuleCat.of K (ℕ →₀ K))).IsQuasicoherent ∧
+      ¬ Module.Finite K (ℕ →₀ K) := by
   sorry
 
--- QCohPseudoTests.nonInvertibleArrow: the fibres retain noninvertible maps.
-example : ¬ IsIso (ModuleCat.ofHom (2 • LinearMap.id : ℤ →ₗ[ℤ] ℤ)) := by
+-- Test: QCohPseudoTests.nonInvertibleArrow. Test the actual sheaf-module
+-- arrow; a failure of invertibility only in ModuleCat would be weaker.
+example : ¬ IsIso ((tilde.functor (CommRingCat.of ℤ)).map
+    (ModuleCat.ofHom (2 • LinearMap.id : ℤ →ₗ[ℤ] ℤ))) := by
   sorry
 
 end TauCeti.AlgebraicGeometry
@@ -877,9 +901,6 @@ Every profinite étale fpqc gerbe Γ has a cofinal finite étale presentation Γ
 Omitted AlgebraicModuliForArithmeticGeometry:R09.4/relative-profinite-gerbe-finite-stages
 Let f:Γ→Δ be a locally full map of profinite étale fpqc gerbes over k. Choose synchronized cofinal finite presentations Γ≃lim E_i and Δ≃lim D_i with locally full projections and maps E_i→D_i. Each E_i→D_i is a proper étale relative gerbe. For any scheme C→Δ the pullback Γ×Δ C→C is the compatible two-limit of E_i×D_i C→C, each a proper étale relative gerbe.
 
-Omitted affine_pullback_tensor.naturality
-For every module map the square between the two displayed pullback comparisons commutes.
-
 Omitted affine_pullback_tensor.comp
 For R→A→B the two successive comparisons agree with the composite comparison through the baseline tensor and pullback associators.
 
@@ -889,17 +910,11 @@ For R→R the comparison agrees with the baseline pullback and scalar-extension 
 Omitted AffinePullbackTests.localization
 For R→R[f⁻¹], the comparison recovers restriction of tilde M to the basic open D(f).
 
-Omitted AffinePullbackTests.nonflat
-The comparison also holds for Z→Z/2Z without a flatness hypothesis; it identifies pullback with right-exact tensor extension, not an exact functor.
-
 Omitted QCohPseudofunctor.affine
 The affine comparison through tildeEquiv identifies arrow maps with extendScalars.
 
 Omitted QCohPseudoTests.identity
 The unit map is the baseline pullbackId restricted to the full subcategory.
-
-Omitted QCohPseudoTests.infiniteModule
-The direct sum of countably many copies of R on Spec R is admitted even though it is not finitely generated when R is a field.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction
 For every commutative ring map R→A, tensor-overlap module descent is equivalent to the existing scalar-extension comonad coalgebras, preserving the underlying A-module and every morphism. The native all-test-object DescentData category is identified with this presentation through Mathlib’s existing chosen-pullback descent equivalence and the module-specific coordinate comparison. The coaction is d(n)=θ(n⊗1); the reverse transition and its inverse are the inherited coaction-transition maps. No flatness is required for these presentation comparisons.

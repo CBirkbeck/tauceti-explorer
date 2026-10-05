@@ -1,3 +1,125 @@
+# Review continuation: codex-BTpcaN
+
+Codex — codex-BTpcaN, 2026-10-05. Refs #346. Input commit: `0fbbbfccdad9e3c5e0db40cd5e401ea500b23b65`. Claim comment 5994365139 was confirmed by bot reply 5994367586. The issue was read before claiming and again after confirmation. This session did none of the planning under review.
+
+**Unfinished review checkpoint; no overall verdict.** The packet still has no top-level `review`. Its planning `status: complete`, eight partial/not_read coverage rows, partial reserved gerbe contract and all unchecked implementation statuses remain unchanged. An open gap or partial stage is permitted by the protocol; those facts are not a rejection verdict. The two earlier checkpoints below remain historical evidence from their named sessions.
+
+## Corrections in this session
+
+1. **All-module Hom calculation.** `R09.3/affine-pullback-tensor` used the mapping property of tilde and the pullback adjunction without naming either adjunction among its direct inputs. Add the actual baseline `AlgebraicGeometry.tilde.adjunction`, `AlgebraicGeometry.moduleSpecΓFunctor` and the already cited scheme-module pullback adjunction. The affine equivalence `tildeEquiv` alone handles quasi-coherent targets; the proof uses the tilde adjunction on arbitrary sheaf-module targets. Record the native global-sections/pushforward/restrictScalars comparison as an outstanding transport obligation rather than silently inferring it from an equivalence of fibres.
+2. **Existing coherence.** `R09.3/quasicoherent-pseudofunctor` now explicitly imports the three existing scheme-module associativity/left-unit/right-unit equations. They live beside the already existing `Adj(Cat)`-valued scheme-module pseudofunctor. Restricting its left-adjoint constraints to the full quasi-coherent subcategories reuses that mathematics. The generic coherence is not a new construction; the quasi-coherence-preservation and restricted comparisons remain obligations.
+3. **Faithfully flat hypotheses.** Replace the unrelated schemes boilerplate in `affine-module-descent-equivalence.hypotheses` by the actual ring map, faithful flatness, module universes and unrestricted module morphisms its statement uses. No theorem is generalized or weakened.
+4. **Common-refinement members.** Spell out the actual finite affine refinement members and their products over S in the fullness proof, leaving the intersections possibly nonaffine. Record E11 for the source's undefined base U and mistaken V_k member labels. The corrected proof uses the mathematical refinement already intended by the source.
+5. **Space-to-scheme reduction.** The algebraic-space descent proof now names scheme charts Tij→Xi and applies the scheme theorem to U×X Tij, after using X's representable diagonal. It no longer writes the unrefined U×X Xi as though it were automatically a scheme. The final original-datum comparison remains required.
+6. **Suggested signatures and discriminating examples.** State the actual affine pullback naturality square. Replace a generic tilde-is-quasi-coherent example by the particular countably infinite free module over a field, including its failure of finite generation. Replace the ModuleCat-only noninvertibility check by the actual tilde sheaf-module map. Add the nonflat Z→Z/2Z fixture: the monomorphism multiplication by two pulls back to zero on a nonzero sheaf and loses monicity. Remove exactly the three corresponding omission-ledger entries; composition, localization, unit comparisons and all other omissions remain. These are suggested signatures with `sorry`, not compiled definitions or proofs.
+7. **Explicit boundary.** Add one gap for the native structure-sheaf unit/slice comparisons used by quasi-coherence pullback, the global-sections transport used by affine pullback, the remaining signatures and the small-étale/Zariski comparison. This does not close the older chosen-overlap adapter gap or any supplier request.
+
+Exactly five existing node objects change: indices 57, 58, 60, 63 and 78 in the incoming array. No node is added or removed. All 660 ids, 72 source objects, 22 requests, coverage rows, key-definition rows, planets and implementation statuses are preserved. Baseline declarations increase 248→253 (five confirmed additions, no removal), gaps 11→12, source findings 10→11. Raw API/test counts stay 597/589; checker-normalized counts stay 589/556. The corresponding reader document is outside the issue's permitted files and was not edited; its affected paragraphs and generated omission summaries need synchronization by an authorized reader job.
+
+## Fresh reading scope
+
+Read the binding worker, blueprint, expansion and upstream instructions; read both upstream JacobianChallenge and ReductiveGroups documents in full, and this roadmap's campaign reader. AdicSpaces and AlgebraicCurves were read only in part and are not counted toward the two-document requirement. Read the reviewed R09.3 audit row with AUDIT-01 review metadata, and the SF.1 atlas stage plus the exact requests this strand places on it. Those requests cover topology refinements, ordinary gluing, charts, rank comparison and scheme-site comparison; the SF.1 description is broad, not a proof that every requested interface is already supplied. No complete cross-atlas ownership screen, gerbe sample-API audit or coherent-duality import audit is claimed.
+
+Examined the statement, hypotheses, proof sketches and API/test text of the following 38 existing objects, with principal-source comparison. This is a bounded reading record, **not** final per-node verification: secondary locators, recursive closure, every baseline binder and each omitted native signature are not all checked. The previous records concern 57 other ids. Together their reading frontiers and this one identify 95 distinct objects; the remaining 565 objects still need even that bounded pass. All 660 still need a reconciled final checked disposition before a verdict.
+
+| Incoming zero-based index | Node suffix after `AlgebraicModuliForArithmeticGeometry:` |
+| --- | --- |
+| 56 | `R09.3/quasicoherent-pullback` |
+| 57 | `R09.3/affine-pullback-tensor` |
+| 58 | `R09.3/quasicoherent-pseudofunctor` |
+| 59 | `R09.3/module-descent-coaction` |
+| 60 | `R09.3/affine-module-descent-equivalence` |
+| 61 | `R09.3/affine-fpqc-quasicoherent-descent` |
+| 62 | `R09.3/fpqc-quasicoherent-descent-faithful` |
+| 63 | `R09.3/fpqc-quasicoherent-descent-full` |
+| 64 | `R09.3/fpqc-quasicoherent-descent-effective` |
+| 65 | `R09.3/fpqc-quasicoherent-descent` |
+| 75 | `R09.3/finite-presentation-module-descent` |
+| 76 | `R09.3/finite-locally-free-descent` |
+| 77 | `R09.3/space-quasicoherent-modules` |
+| 78 | `R09.3/space-fpqc-quasicoherent-descent` |
+| 85 | `R09.3/module-overlap-datum` |
+| 86 | `R09.3/tensor-comonad-coordinates` |
+| 87 | `R09.3/overlap-diagonal` |
+| 88 | `R09.3/overlap-to-coalgebra` |
+| 89 | `R09.3/coaction-transition-maps` |
+| 90 | `R09.3/coaction-transition-inverses` |
+| 91 | `R09.3/coaction-transition-cocycle` |
+| 92 | `R09.3/coalgebra-to-overlap` |
+| 93 | `R09.3/overlap-coaction-roundtrips` |
+| 94 | `R09.3/overlap-coalgebra-morphisms` |
+| 95 | `R09.3/overlap-coalgebra-equivalence` |
+| 96 | `R09.3/overlap-comparison-canonical` |
+| 97 | `R09.3/canonical-overlap-functor` |
+| 98 | `R09.3/overlap-pullback-coordinates` |
+| 99 | `R09.3/overlap-pullback-diagonal` |
+| 100 | `R09.3/overlap-pullback-triple` |
+| 101 | `R09.3/overlap-to-chosen-descent` |
+| 102 | `R09.3/chosen-descent-to-overlap` |
+| 103 | `R09.3/chosen-overlap-roundtrips` |
+| 104 | `R09.3/chosen-overlap-morphisms` |
+| 105 | `R09.3/chosen-overlap-equivalence` |
+| 106 | `R09.3/native-module-descent-coalgebra` |
+| 107 | `R09.3/native-module-canonical-comparison` |
+| 108 | `R09.3/descent-equalizer-module-coordinates` |
+
+The overlap/coalgebra strand fixes the first and second scalar-factor actions. In particular, its reverse transition formula uses the coaction, the two inverse calculations use different trilinear maps, and its object correspondence needs no flatness. Faithful flatness enters when comparing ModuleCat R to these presentation categories. The chosen/all-test-object equivalence and equalizer/counit compatibility still need complete pinned-carrier and baseline verification; reading their mathematical route is not an elaboration or closure claim.
+
+The source proof of 023N omits the categorical equivalence and inverse-functor checks; the packet rightly supplies separate native comparison leaves instead of treating those omitted details as printed proofs. The full scheme-descent proof keeps arbitrary modules and nonaffine intersections. Its local-to-global comparison must return an isomorphism of the original descent data, not only a sheaf with isomorphic local modules. The space reduction likewise retains its final original-datum comparison. For finite local freeness, finite presentation plus flatness gives projectivity, and the rank/invertibility dictionary is still a precise SF.1 supplier boundary.
+
+## Baseline reading
+
+Freshly read 19 Mathlib declaration statements with their ambient binders at `082e2d37e8b0463410cdb532e111cd43d5a66174`, and one Tau Ceti statement directly using `git show` at `f790474821cf4256814db967cb154e7af3d0c369`. Existing Mathlib files were compared byte-for-byte to `git show` at the pin. No declaration name search alone is counted as verification. Other module hashes inspected as authentication aids do not certify unread declarations.
+
+| Module | Declaration statements read |
+| --- | --- |
+| Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean | `CategoryTheory.Pseudofunctor` |
+| Mathlib/Algebra/Category/ModuleCat/Descent.lean | `comonadicExtendScalars` |
+| Mathlib/Algebra/Category/ModuleCat/Pseudofunctor.lean | `CommRingCat.moduleCatExtendScalarsPseudofunctor` |
+| Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean | `SheafOfModules.IsQuasicoherent` |
+| Mathlib/AlgebraicGeometry/Modules/Tilde.lean | `AlgebraicGeometry.tildeEquiv`, **added** `AlgebraicGeometry.tilde.adjunction`, **added** `AlgebraicGeometry.moduleSpecΓFunctor` |
+| Mathlib/AlgebraicGeometry/Modules/Sheaf.lean | `AlgebraicGeometry.Scheme.Modules.pullback`, `.pullbackPushforwardAdjunction`, `.pullbackId`, `.pullbackComp`; **added** `.pseudofunctor_associativity`, `.pseudofunctor_left_unitality`, `.pseudofunctor_right_unitality` |
+| Mathlib/CategoryTheory/Sites/Descent/DescentData.lean | `CategoryTheory.Pseudofunctor.DescentData` |
+| Mathlib/RingTheory/Finiteness/Descent.lean | `Module.Finite.of_finite_tensorProduct_of_faithfullyFlat` |
+| Mathlib/Algebra/Module/FinitePresentation.lean | `Module.FinitePresentation.fg_ker_iff` |
+| Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean | `Module.Flat.of_flat_tensorProduct` |
+| Mathlib/RingTheory/Flat/EquationalCriterion.lean | `Module.Flat.projective_of_finitePresentation` |
+| TauCeti/Algebra/Category/ModuleCat/Sheaf/Invertible/Basic.lean | `TauCeti.SheafOfModules.IsInvertible` |
+
+The Tau predicate uses a covering with freely generating singleton basis types, not a bare abstract rank-one label. The generic Mathlib PullbackFree unit/free isomorphisms were additionally read as leads: their hypotheses include finality of the underlying site functor. That hypothesis must be discharged for the actual scheme/slice transport before they can serve the new gap; they were not added as unconditional citations. Of the packet's 253 baseline objects, 233 were not freshly read in this session. Earlier sessions' readings remain attributed to them; the native adapter baseline citations are not certified by this session merely because the containing modules were authenticated.
+
+## Sources and source findings
+
+Fresh HTML downloads on 2026-10-05 match the packet's source SHA256 values below. Reading is limited to the listed sections; no whole catalogue or whole-book reading is claimed. These public URLs and hashes reconstruct the disposable source evidence.
+
+| Source | Reading scope | SHA256 |
+| --- | --- | --- |
+| [Stacks 01BG](https://stacks.math.columbia.edu/tag/01BG) | Lemma 17.10.4 and proof | `f68bf1a4192d956d97ff7493ae1c8696d66b89432f25a8dfeb14285cf2537c6a` |
+| [Stacks 01I6](https://stacks.math.columbia.edu/tag/01I6) | Lemmas 26.7.1 and 26.7.3, mapping property and pullback comparison | `a84434c8fbcd635e95c75c323faea1f5e1f47367b3ef88e161f424d8ef10cc3d` |
+| [Stacks 023F](https://stacks.math.columbia.edu/tag/023F) | Definition 35.3.1, Lemmas 35.3.2–35.3.3 and tensor/cocycle formulas | `d5b82802e667aa651dffd7498d362bb9a5aadf49f838b1351233d2dc3536c282` |
+| [Stacks 023N](https://stacks.math.columbia.edu/tag/023N) | Proposition 35.3.9 and proof/comments; E5 rechecked | `b8d9a77257d45cfdf1068727990ce4b697f54f311b97b80511c9ed85a5f37cbd` |
+| [Stacks 023S](https://stacks.math.columbia.edu/tag/023S) | Lemma 35.5.1 and full finite-union reduction | `ed24079eb360cc593bf8c7b473873c56f3eb6194957c0a19dff051279e2d58f4` |
+| [Stacks 023T](https://stacks.math.columbia.edu/tag/023T) | Proposition 35.5.2 and full proof/comments | `ca9e9d7885ae6176696fac333dbb27776f82c57818c2be11b4cb674135ec6508` |
+| [Stacks 023E](https://stacks.math.columbia.edu/tag/023E) | Lemma 35.2.4 and proof | `5135f4c1fbb1cad92a08ea0e970a889a030984be299b76f26133870dca7e6e71` |
+| [Stacks 05B0](https://stacks.math.columbia.edu/tag/05B0) | Lemma 35.7.3 and its affine-reference boundary | `6c99f3e956fdfdee18972fc6a4bfdd63f0bb44e981a5cc16d5086cb1667b56fb` |
+| [Stacks 05B2](https://stacks.math.columbia.edu/tag/05B2) | Lemma 35.7.6 and proof | `4cbed905704a364eaded1c82d97dc23a78d6fdca51096d9753c7be72311c5dd6` |
+| [Stacks 03G5](https://stacks.math.columbia.edu/tag/03G5) | Definition 66.29.1 and Lemmas 66.29.2–66.29.3 | `77482e373a8d7168affeb85119eb59094943dd3418abc864558699bdc48a9f0b` |
+| [Stacks 04W8](https://stacks.math.columbia.edu/tag/04W8) | Proposition 74.4.1 and all seven proof steps | `73b3474abccacb2ecd47229ff2322316368c60fa5f90112cb351a1f1b2fe315a` |
+
+Rechecked E5 at 023N: its contracted sum uses y_j where the intervening membership sentence prints y_i; the existing verdict is preserved. E1–E4 and E6–E10 were not freshly replayed. E11 was checked in both 023T HTML and the public [descent.tex](https://raw.githubusercontent.com/stacks/stacks-project/master/descent.tex), under `proposition-fpqc-descent-quasi-coherent`. The public TeX hash is `49483b3bcb36427a607a8227f4ea67730fcddf1eeccb8e992ca61915ace3b31d`. The comments' 2023 correction concerns the domains of restricted maps, not these two remaining labels; current TeX still contains both. `known: new` records this bounded search, not an exhaustive novelty claim. The two slips affect notation only; the theorem is not refuted. SourceVersions records both texts. No author was contacted.
+
+## Validation and continuation
+
+The packet checker reports zero errors and warnings. Source-finding/version schemas, intake four-file scope, preservation checks and whitespace checks pass. The actual completion classifier reports this review unfinished. No overall verdict is added.
+
+The final suggested file was checked serially with `lean-check`; memory available immediately beforehand was 95 GB (102 GB at the first attempt). Both attempts stop at the unavailable `TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence` object file. Shared Mathlib matches its exact pin; shared Tau Ceti is `cf386627e9176a3827c1a5fe804989fd94a4d216`, not the required Tau pin. **No full-file or new-signature elaboration is claimed.** No scratch Lean file, language server, library build, dependency update or cache download was created. Existing embedded proofs were not replayed.
+
+Resume by rechecking the five edits, E11 and new suggested statements; obtain an already built exact-Tau-pin environment for elaboration. Finish the unit/slice and Gamma transport gap, affine identity/composition/localization examples, restricted QCoh constraints, chosen-overlap native carriers and all baseline statements those adapters cite. Continue all unexamined nodes and reconcile each earlier bounded reading with full recursive closure/API/test/source checks. The H2 quotient/sign/inverse identities, reserved gerbe contract, coherent-duality imports and full eight-stage coverage/ownership checklist from the preceding handoff remain outstanding. Reader synchronization needs authorization in a separate issue or expanded deliverables; this review does not edit it.
+
+---
+
+# Historical checkpoints before codex-BTpcaN
+
 # Review continuation: codex-Z21ta0
 
 Codex — codex-Z21ta0, 2026-10-05. Refs #346. Input commit: `e553dc9b084c4494bb4773794cd7d64f7dcd8594`. Bot reply 5993594502 confirms this session's claim comment 5993584008. The issue was read before claiming and again after confirmation. This session did none of the input planning. The preceding checkpoint below is preserved as **historical evidence from codex-izOPZo**, not fresh verification by this session.
