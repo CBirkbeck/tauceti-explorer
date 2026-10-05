@@ -2,6 +2,9 @@
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 These statements suggest Lean forms so contributors and reviewers converge on names
 and signatures. Every admission is a prototype, not an implementation.
+Independent review: needs_changes. Essential arithmetic identifications remain
+omitted; the resulting general-carrier signatures are conditional sketches,
+not universally valid algebraic theorems. See the packet review and named gaps.
 
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti
 f790474821cf4256814db967cb154e7af3d0c369.
@@ -219,7 +222,7 @@ theorem dihedral_conjugation {G : Type*} [Group G] (τ σ : G) : τ * σ * τ⁻
   sorry
 
 /- HeegnerPointEulerSystems:HE.0/relative-cm-conductor-tower
-Let F be totally real, K/F totally imaginary quadratic and P a finite prime of F. The imported orders O_Pn=O_F+PⁿO_K and class fields K[Pⁿ] have a compatible Galois inverse limit G∞. The finite idele/unit quotient realizes this limit; G∞ has finite torsion subgroup G0 and G∞/G0≃Z_p^[F_P:Q_p]. For sufficiently large n, [K[Pⁿ⁺¹]:K[Pⁿ]]=N(P), with the finite initial global-unit indices retained. The admissible level subgroup is the intersection with the specified quaternionic level, not an arbitrary replacement.
+Let F be totally real, K/F totally imaginary quadratic and P a finite prime of F of residue characteristic p. The imported orders O_Pn=O_F+PⁿO_K and class fields K[Pⁿ] have a compatible Galois inverse limit G∞. The finite idele/unit quotient realizes this limit; G∞ has finite torsion subgroup G0 and G∞/G0≃Z_p^[F_P:Q_p]. For sufficiently large n, [K[Pⁿ⁺¹]:K[Pⁿ]]=N(P), with the finite initial global-unit indices retained. The admissible level subgroup is the intersection with the specified quaternionic level, not an arbitrary replacement.
 Omitted conditions: the exact arithmetic object/field/level/local-condition
 identifications and all source-qualified hypotheses in this node. The signature
 expresses its indicated algebraic conclusion only; see the packet prototype gap. -/
@@ -435,7 +438,7 @@ theorem coefficient_and_prime_set_compatibility {C C' : Type*} [AddCommGroup C] 
   sorry
 
 /- HeegnerPointEulerSystems:HE.4/complex-conjugation-parity
-For odd p and the clean classical branch, if ε is the Fricke eigenvalue of the eigenquotient, τc_m(n)=ε(−1)^ν(n)c_m(n); equivalently using the global root number w=−ε, this is w(−1)^ν(n)+1. The torsion term from the basepoint/Fricke relation is removed only after its prime-to-p proof. At p=2 this formula does not yield an integral direct-sum eigenspace decomposition.
+For odd p and the clean classical branch, if ε is the Fricke eigenvalue of the eigenquotient, τc_m(n)=ε(−1)^ν(n)c_m(n); equivalently using the global root number w=−ε, this is w(−1)^(ν(n)+1). The torsion term from the basepoint/Fricke relation is removed only after its prime-to-p proof. At p=2 this formula does not yield an integral direct-sum eigenspace decomposition.
 Omitted conditions: the exact arithmetic object/field/level/local-condition
 identifications and all source-qualified hypotheses in this node. The signature
 expresses its indicated algebraic conclusion only; see the packet prototype gap. -/
@@ -575,11 +578,11 @@ For a weight-two newform g and its GL₂-type A_g/Q with coefficient prime 𝔭|
 Omitted conditions: the exact arithmetic object/field/level/local-condition
 identifications and all source-qualified hypotheses in this node. The signature
 expresses its indicated algebraic conclusion only; see the packet prototype gap. -/
-theorem zhang_rank_zero_over_K (p : ℕ) [Fact p.Prime] {R S : Type*} [CommRing R] [AddCommGroup S] [Module R S] (normalizedValue : ℚ_[p]) (valuation : ℚ_[p] → ℕ∞) (tamagawaLength : ℕ∞) : (normalizedValue ≠ 0 ↔ Finite S) ∧ valuation normalizedValue = Module.length R S + tamagawaLength := by
+theorem zhang_rank_zero_over_K (p : ℕ) [Fact p.Prime] {R S : Type*} [CommRing R] [AddCommGroup S] [Module R S] (normalizedValue : ℚ_[p]) (valuation : ℚ_[p] → ℕ∞) (tamagawaLength : ℕ∞) : (normalizedValue ≠ 0 ↔ Finite S) ∧ (normalizedValue ≠ 0 → valuation normalizedValue = Module.length R S + tamagawaLength) := by
   sorry
 
 /- HeegnerPointEulerSystems:HE.6/zhang-jochnowitz-special-value
-For g satisfying Hypothesis♥ and an admissible q, the Heegner bottom class is locally nonzero at q iff L^alg(g′/K,1) is a 𝔭′-adic unit. Here g′ is the chosen raised form, Ω_g′^can=〈g′,g′〉_Pet/η_g′(Nq), ξ_g′ is the norm of the integral primitive definite eigenfunction, η_g′,N+,N−q=η_g′(Nq)/ξ_g′, and L^alg=L/Ω^can·η_ratio⁻¹. Its integrality/unit status is proved by the explicit Waldspurger/Gross formula, not built into a definition.
+For g as in Zhang’s Notations satisfying Hypothesis♥, with N− squarefree and ν(N−) even, and an admissible q, the Heegner bottom class is locally nonzero at q iff L^alg(g′/K,1) is a 𝔭′-adic unit. Here g′ is the chosen raised form, Ω_g′^can=〈g′,g′〉_Pet/η_g′(Nq), ξ_g′ is the norm of the integral primitive definite eigenfunction, η_g′,N+,N−q=η_g′(Nq)/ξ_g′, and L^alg=L/Ω^can·η_ratio⁻¹. Its integrality/unit status is proved by the explicit Waldspurger/Gross formula, not built into a definition.
 Omitted conditions: the exact arithmetic object/field/level/local-condition
 identifications and all source-qualified hypotheses in this node. The signature
 expresses its indicated algebraic conclusion only; see the packet prototype gap. -/
@@ -595,7 +598,7 @@ theorem ribet_takahashi_tamagawa_comparison {R : Type*} [CommRing R] (periodRati
   sorry
 
 /- HeegnerPointEulerSystems:HE.6/zhang-triangular-selmer-basis
-For a nonzero residual Heegner system κ_g satisfying Zhang Hypothesis♥, let ν=min{ν(n):c(n)≠0}, ε_ν=w_g(−1)^ν+1 and B(κ) its base locus of vanishing localizations away from DKNp. The ε_ν Selmer eigenspace has dimension ν+1 and a triangular basis of ν+1 actual c(n_i), detected at selected 2ν+1 auxiliary primes. The opposite eigenspace has dimension ≤ν. Relaxing at the base locus does not enlarge the first eigenspace and preserves that opposite bound.
+For g as in Zhang’s Notations with N− squarefree and ν(N−) even, and a nonzero residual Heegner system κ_g satisfying Hypothesis♥, let ν=min{ν(n):c(n)≠0}, ε_ν=w_g(−1)^(ν+1) and B(κ) its base locus of vanishing localizations away from DKNp. The ε_ν Selmer eigenspace has dimension ν+1 and a triangular basis of ν+1 actual c(n_i), detected at selected 2ν+1 auxiliary primes. The opposite eigenspace has dimension ≤ν. Relaxing at the base locus does not enlarge the first eigenspace and preserves that opposite bound.
 Omitted conditions: the exact arithmetic object/field/level/local-condition
 identifications and all source-qualified hypotheses in this node. The signature
 expresses its indicated algebraic conclusion only; see the packet prototype gap. -/
@@ -615,7 +618,8 @@ For non-torsion y_K∈E(K), Mordell–Weil finite generation implies y_K∉pE(K)
 Omitted conditions: the exact arithmetic object/field/level/local-condition
 identifications and all source-qualified hypotheses in this node. The signature
 expresses its indicated algebraic conclusion only; see the packet prototype gap. -/
-theorem non_torsion_point_prime_divisibility {M : Type*} [AddCommGroup M] (y : M) : ∃ excluded : Finset ℕ, ∀ p : ℕ, p.Prime → p ∉ excluded → ¬ ∃ z : M, p • z = y := by
+theorem non_torsion_point_prime_divisibility {M : Type*} [AddCommGroup M]
+    [AddGroup.FG M] (y : M) (hy : ∀ n : ℕ, 0 < n → n • y ≠ 0) : ∃ excluded : Finset ℕ, ∀ p : ℕ, p.Prime → p ∉ excluded → ¬ ∃ z : M, p • z = y := by
   sorry
 
 /- HeegnerPointEulerSystems:HE.7/non-cm-open-image-application
@@ -635,7 +639,7 @@ theorem almost_all_primary_sha_vanishing {Sha : Type*} [AddCommGroup Sha] : ∃ 
   sorry
 
 /- HeegnerPointEulerSystems:HE.7/bounded-arithmetic-derivative-denominators
-For the actual classical ring-class tower, prove the bounded-denominator derivative construction at each exceptional p, retaining nonzero restriction/inflation kernels, torsion invariants, unit factors, local component and parametrization/Hodge denominators. Its annihilator constants must be uniform in the finite torsion exponent m. Bound the bad-reduction and fixed parametrization contributions by a fixed nonzero integer, rather than increasing an unexplained denominator with m. ES3/4 supplies the general error-tolerant construction; HE.7 must supply these arithmetic bounds.
+For non-CM E/Q and its actual classical ring-class tower, prove the bounded-denominator derivative construction at each exceptional p, retaining nonzero restriction/inflation kernels, torsion invariants, unit factors, local component and parametrization/Hodge denominators. Its annihilator constants must be uniform in the finite torsion exponent m. Bound the bad-reduction and fixed parametrization contributions by a fixed nonzero integer, rather than increasing an unexplained denominator with m. ES3/4 supplies the general error-tolerant construction; HE.7 must supply these arithmetic bounds.
 Omitted conditions: the exact arithmetic object/field/level/local-condition
 identifications and all source-qualified hypotheses in this node. The signature
 expresses its indicated algebraic conclusion only; see the packet prototype gap. -/
@@ -643,7 +647,7 @@ theorem bounded_arithmetic_derivative_denominators {C : Type*} [AddCommGroup C] 
   sorry
 
 /- HeegnerPointEulerSystems:HE.7/dyadic-integral-conjugation-descent
-At p=2 in the actual Heegner setting, use restriction/corestriction, integral 1±τ maps and real-place Tate cohomology to bound the invariant and local-condition errors uniformly in m. Keep the kernels/cokernels of the integral maps; do not split the Z₂ module by (1±τ)/2. Combine these bounds with the actual bounded-denominator derivative classes and the general ES4 descent engine.
+At p=2 in the non-CM classical Heegner branch, use restriction/corestriction, integral 1±τ maps and real-place Tate cohomology to bound the invariant and local-condition errors uniformly in m. Keep the kernels/cokernels of the integral maps; do not split the Z₂ module by (1±τ)/2. Combine these bounds with the actual bounded-denominator derivative classes and the general ES4 descent engine.
 Omitted conditions: the exact arithmetic object/field/level/local-condition
 identifications and all source-qualified hypotheses in this node. The signature
 expresses its indicated algebraic conclusion only; see the packet prototype gap. -/
@@ -675,7 +679,7 @@ theorem classical_full_sha_finiteness {V Sha : Type*} [AddCommGroup V] [Module �
   sorry
 
 /- HeegnerPointEulerSystems:HE.7/admissible-rm-kolyvagin-logachev
-Let A/Q be a simple admissible RM quotient of J₀(N), End_Q(A)⊗Q totally real of degree dim A=d, with the specified Heegner modular quotient and analytic rank d. The appropriate higher Gross–Zagier height nonvanishing and Kolyvagin–Logachev descent give rank A(K)=d and finite entire Sha(A/K), under the exact arithmetic/local hypotheses of that theorem. Quaternionic/RM variants require the named field, level, integral quotient and Hecke compatibility and a source that establishes that extension; no unrestricted statement for all abelian varieties over all totally real fields is intended.
+Let A/Q be a simple admissible RM quotient of J₀(N), End_Q(A)⊗Q totally real of degree dim A=d, with a chosen surjective J₀(N)→A, a classical Heegner field K, and analytic rank d for L(A/K,s). The appropriate higher Gross–Zagier height nonvanishing and Kolyvagin–Logachev descent give rank A(K)=d and finite entire Sha(A/K), under the exact arithmetic/local hypotheses of that theorem. Quaternionic/RM variants require the named field, level, integral quotient and Hecke compatibility and a source that establishes that extension; no unrestricted statement for all abelian varieties over all totally real fields is intended.
 Omitted conditions: the exact arithmetic object/field/level/local-condition
 identifications and all source-qualified hypotheses in this node. The signature
 expresses its indicated algebraic conclusion only; see the packet prototype gap. -/
