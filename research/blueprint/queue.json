@@ -23827,7 +23827,8 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L2",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5875"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L3",
@@ -23875,8 +23876,9 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L3",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5876"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5876",
+   "finishedAt": "2026-10-05T08:08:36Z"
   },
   {
    "id": "BP-DirichletPadicLFunctions--L4",
