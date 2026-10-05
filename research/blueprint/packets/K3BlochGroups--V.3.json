@@ -1,0 +1,1647 @@
+{
+  "roadmapId": "K3BlochGroups",
+  "protocol": "blueprint-v1",
+  "part": "V.3",
+  "scope": [
+    "K3BlochGroups:V.3"
+  ],
+  "status": "complete",
+  "summary": "Follow-up to the accepted K3BlochGroups packet. It supplies Bloch's full-tensor lecture kernel, Goncharov's generic configuration presentation and rational curve-specialization variant, and the published CGZ modified group. It keeps the inherited Suslin group and the older repaired CGZ convention distinct. Every comparison states its exact kernel and cokernel before changing coefficients; the raw lecture kernel has an infinite relation kernel. Analytic dilogarithms remain owned by Polylogarithms.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:FreeAbelianGroup",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
+        "provides": "The free additive commutative group on a type; not an unspecified symbol module.",
+        "checked": "Statement read at the pinned commit, Mathlib/GroupTheory/FreeAbelianGroup.lean:96. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:FreeAbelianGroup.lift",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
+        "provides": "Assignments into an AddCommGroup are equivalent to additive homomorphisms out of its free group.",
+        "checked": "Statement read at the pinned commit, Mathlib/GroupTheory/FreeAbelianGroup.lean:112. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:TensorProduct",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "provides": "The balanced tensor-product carrier over a semiring, used here over ℤ with additive unit groups.",
+        "checked": "Statement read at the pinned commit, Mathlib/LinearAlgebra/TensorProduct/Defs.lean:71. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:TensorProduct.comm",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
+        "provides": "The linear equivalence swapping factors, with comm_tmul evaluating it on pure tensors.",
+        "checked": "Statement read at the pinned commit, Mathlib/LinearAlgebra/TensorProduct/Basic.lean:264. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:TensorProduct.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "The linear tensor map on two linear maps; used for units under embeddings and coefficient changes.",
+        "checked": "Statement read at the pinned commit, Mathlib/LinearAlgebra/TensorProduct/Map.lean:53. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:MonoidHom.ker",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "The subgroup of elements mapped to 1; its to_additive twin AddMonoidHom.ker is the subgroup mapped to 0. The generated additive name is omitted from the text-based index but used by the suggested signatures.",
+        "checked": "Statement read at the pinned commit, Mathlib/Algebra/Group/Subgroup/Ker.lean:238. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.mk'",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "The quotient projection as a homomorphism; its to_additive twin QuotientAddGroup.mk' projects an additive group to its additive-subgroup quotient. The generated additive name is absent from the text-based index.",
+        "checked": "Statement read at the pinned commit, Mathlib/GroupTheory/QuotientGroup/Defs.lean:88. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:Function.MulExact",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Exact/Basic.lean",
+        "provides": "For maps f,g, g(y)=1 iff y∈range f; the to_additive twin Function.Exact uses 0, and for additive homomorphisms means range f=ker g. The generated name is absent from the text-based index.",
+        "checked": "Statement read at the pinned commit, Mathlib/Algebra/Exact/Basic.lean:45. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "The linear quotient projection M→M/p for a submodule p, with its surjectivity theorem.",
+        "checked": "Statement read at the pinned commit, Mathlib/LinearAlgebra/Quotient/Defs.lean:227. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:Submodule.liftQ",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "Descent of a linear map annihilating a submodule; its composite with mkQ is the original map.",
+        "checked": "Statement read at the pinned commit, Mathlib/LinearAlgebra/Quotient/Basic.lean:118. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:Finsupp.linearCombination",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean",
+        "provides": "The ℚ-linear extension of a basis assignment on finite-support functions; used for rational symbol boundaries and specialization.",
+        "checked": "Statement read at the pinned commit, Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean:52. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.functionField",
+        "kind": "abbrev",
+        "module": "Mathlib/AlgebraicGeometry/FunctionField.lean",
+        "provides": "The generic-point stalk of an irreducible scheme, with the Field instance under IsIntegral; this is the function-field carrier, not the missing evaluation-at-a-point API.",
+        "checked": "Statement read at the pinned commit, Mathlib/AlgebraicGeometry/FunctionField.lean:37. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsIntegral",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Properties.lean",
+        "provides": "A nonempty scheme whose sections on every nonempty open are domains; this gives the function-field Field instance.",
+        "checked": "Statement read at the pinned commit, Mathlib/AlgebraicGeometry/Properties.lean:240. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+        "provides": "The actual local standard-smooth relative-dimension predicate on a scheme morphism, used with n=1 over Spec F.",
+        "checked": "Statement read at the pinned commit, Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean:130. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:Module.Flat.lTensor_exact",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "provides": "Tensoring by a flat module preserves Function.Exact for linear maps of modules over a ring; used for ℚ and localizations, not ℤ/n.",
+        "checked": "Statement read at the pinned commit, Mathlib/RingTheory/Flat/Basic.lean:323. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:Module.Flat.lTensor_preserves_injective_linearMap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "provides": "Tensoring an injective linear map with a flat module preserves injectivity.",
+        "checked": "Statement read at the pinned commit, Mathlib/RingTheory/Flat/Basic.lean:131. Generated additive twin also checked through elaboration where applicable."
+      },
+      {
+        "ref": "mathlib:Additive",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
+        "provides": "The standard type tag converting multiplicative commutative groups into additive groups; used for Fˣ.",
+        "checked": "Statement read at the pinned commit, Mathlib/Algebra/Group/TypeTags/Basic.lean:42. Generated additive twin also checked through elaboration where applicable."
+      }
+    ],
+    "searches": [
+      {
+        "library": "mathlib",
+        "terms": [
+          "Bloch",
+          "preBloch",
+          "fiveTerm",
+          "polylogarithmic group"
+        ],
+        "result": "No field Bloch/presentation declarations found at the pin. Tensor, additive quotient, free group, exterior-power and scheme/function-field primitives were read; the antisymmetric quotient is inherited, not a new baseline claim."
+      },
+      {
+        "library": "tauceti",
+        "terms": [
+          "Bloch",
+          "preBloch",
+          "fiveTerm"
+        ],
+        "result": "No matching field-group declarations in the pinned TauCeti tree. TauCeti antisymmetricTensors is a kernel of 1+flip, whereas V.3 uses its cokernel; it is not a substitute."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Bloch2000",
+      "title": "Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves",
+      "authors": "Spencer Bloch",
+      "edition": "CRM Monograph Series 11, AMS (2000), DOI 10.1090/crmm/011; book text in a public HTML mirror",
+      "url": "https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html",
+      "accessed": "2026-10-05",
+      "sha256": "3a275bf712085565937d3410f049a59f2e72f13dc17145d4c0c67dcb8e21c4f2",
+      "readSections": [
+        "Lecture 6 §6.1, p. 43, equation (6.1.2)",
+        "Lecture 7 §7.2, pp. 51–54",
+        "Lecture 7 §7.4, pp. 57–60, especially Lemma 7.4.3"
+      ]
+    },
+    {
+      "id": "Goncharov1995",
+      "title": "Geometry of configurations, polylogarithms, and motivic cohomology",
+      "authors": "Alexander B. Goncharov",
+      "edition": "Advances in Mathematics 114 (1995), 197–318; DOI 10.1006/aima.1995.1045; author-hosted published scan",
+      "url": "https://sasha-goncharov.github.io/Advances1995.pdf",
+      "accessed": "2026-10-05",
+      "sha256": "434fd9093d2e27e96fae240f8f591ca532baa2f9cc7cdfeb8bc087f5235f5344",
+      "readSections": [
+        "Introduction pp. 202–204: reduced generators and generic cross-ratios",
+        "§1.8 pp. 217–219: the weight-two boundary and the wedge convention",
+        "§1.9 pp. 221–225: smooth-curve specializations and Conjecture 1.20",
+        "§2.3 pp. 253–255: generic cross-ratio five-term presentation"
+      ]
+    },
+    {
+      "id": "Goncharov1991",
+      "title": "Geometry of configurations, polylogarithms, and motivic cohomology (preprint)",
+      "authors": "Alexander B. Goncharov",
+      "edition": "MPIM preprint 1991-64; search aid, locators verified against the published scan where used",
+      "url": "https://archive.mpim-bonn.mpg.de/916/1/preprint_1991_64.pdf",
+      "accessed": "2026-10-05",
+      "sha256": "4b918d5b77b86d129c1d5f2d0d1e948c83a723b2a551319cb54e6507547f701f",
+      "readSections": [
+        "§§1.8–1.9 and 2.3: searchable counterpart of the published passages"
+      ]
+    },
+    {
+      "id": "CGZ2023",
+      "title": "Bloch groups, algebraic K-theory, units, and Nahm’s conjecture",
+      "authors": "Frank Calegari, Stavros Garoufalidis, Don Zagier",
+      "edition": "Annales scientifiques de l’École normale supérieure 56 (2023), 383–426; DOI 10.24033/asens.2537; published author PDF",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/CGZ.pdf",
+      "accessed": "2026-10-05",
+      "sha256": "8003ee09bfec725127f4b5c2058c5516834a91a160d9c4428d962b1e5a1f0212",
+      "readSections": [
+        "Definition 1.1 and equations (1)–(4), pp. 384–385",
+        "§2.1 pp. 390–392, Definition 2.1, equation (21), Lemma 2.2 and proof",
+        "Acknowledgements: correction of the earlier definition"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "K3BlochGroups:V.3/bloch-lecture-kernel",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "Bloch’s full-tensor lecture kernel",
+      "kind": "definition",
+      "statement": "For every field F put A₀(F)=ℤ[F−{0,1}], T(F)=Additive(Fˣ)⊗ℤ Additive(Fˣ), and λ:A₀(F)→T(F), [x]↦(1−x)⊗x. Define B_raw(F)=ker λ as a subgroup of A₀(F), before imposing any five-term relations. Symbols at 0 and 1, when used in formulas, mean zero in A₀. Its inclusion into A₀ is part of the interface. This is Bloch’s lecture object, not the inherited Suslin kernel inside P(F).",
+      "hypotheses": [
+        "F is a field; no field-size hypothesis."
+      ],
+      "proofSteps": [
+        "Use FreeAbelianGroup on the subtype x≠0,1, and its lift to extend the displayed generator assignment. The codomain is the full tensor product, not either wedge quotient.",
+        "Take the additive kernel. Restricting the free-symbol field-embedding map gives functoriality, because embeddings preserve units and commute with λ."
+      ],
+      "prerequisites": [
+        "mathlib:FreeAbelianGroup",
+        "mathlib:FreeAbelianGroup.lift",
+        "mathlib:TensorProduct",
+        "mathlib:MonoidHom.ker",
+        "mathlib:Additive"
+      ],
+      "acceptance": [
+        "The F₃ kernel is 2ℤ inside ℤ[−1].",
+        "Five-term elements need not be λ-cycles."
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch2000",
+          "locator": "§6.1, p. 43, (6.1.2)",
+          "excerpt": "B(f ) = Ker λ.",
+          "match": "The raw lecture object; the capital F in the field argument is understood from the preceding displayed sequence. Comparisons below are derived using the inherited five-term presentation, not asserted by this passage."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      },
+      "api": [
+        {
+          "name": "LectureBloch.lambda_symbol",
+          "role": "simp",
+          "statement": "λ([x])=(1−x)⊗x for x≠0,1."
+        },
+        {
+          "name": "LectureBloch.mem_iff",
+          "role": "characterisation",
+          "statement": "α lies in B_raw exactly when λ(α)=0; equality in B_raw is equality in A₀."
+        },
+        {
+          "name": "LectureBloch.inclusion_injective",
+          "role": "compatibility",
+          "statement": "The kernel inclusion B_raw→A₀ is injective, using the Mathlib additive-kernel subtype."
+        },
+        {
+          "name": "LectureBloch.map_symbol",
+          "role": "functoriality",
+          "statement": "For a field embedding f:F→E, the free map [x]↦[f(x)] commutes with λ via the tensor map of units, restricts to B_raw, and has identity/composition laws."
+        }
+      ],
+      "tests": [
+        {
+          "name": "LectureBloch.test_F2",
+          "kind": "degenerate",
+          "statement": "B_raw(F₂)=0 because A₀(F₂)=0."
+        },
+        {
+          "name": "LectureBloch.test_F3",
+          "kind": "computation",
+          "statement": "A₀(F₃)≅ℤ on [−1], T(F₃)≅ℤ/2, and λ([−1]) is its nonzero generator; B_raw(F₃)=2ℤ."
+        },
+        {
+          "name": "LectureBloch.test_F5_relation",
+          "kind": "non-example",
+          "statement": "Over F₅ the admissible relation R(2,3) equals [4] in A₀, and λ([4]) is nonzero of order 2. The ordinary relation subgroup is not contained in B_raw."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bloch §6.1 and §7.2",
+          "how": "specifies the source of the full-tensor regulator construction without moving its K₃ comparison from V.4/V.6"
+        },
+        {
+          "where": "V.3 convention ledger; V.6 consumers",
+          "how": "prevents replacing a full-tensor cycle by an arbitrary five-term class"
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.3/bloch-lecture-comparison",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "The map from lecture cycles to Suslin classes",
+      "kind": "construction",
+      "statement": "Let R₅≤A₀ be generated by the inherited admissible five-term elements, q:A₀↠P(F) the reduced-generator presentation map, and π:T↠Q_s the inherited antisymmetric tensor quotient. Then ∂q=−πλ. Hence q restricts to μ:B_raw→B(F). Define K_raw=R₅∩ker λ, regarded as a subgroup of B_raw. The induced map μ_rel:B_raw/K_raw→B(F) is injective and has image μ(B_raw). No quotient A₀/R₅→T with generator assignment λ exists in general.",
+      "hypotheses": [
+        "F is a field; all symbols and signs as in bloch-lecture-kernel and the inherited bloch-boundary."
+      ],
+      "proofSteps": [
+        "Identify A₀/R₅ with the inherited free-on-F−0 presentation killing [1], by the two inverse generator maps.",
+        "For each nondegenerate generator π((1−x)⊗x)=−x∧(1−x); extend by the free universal property.",
+        "Restrict q to ker λ, identify its kernel with R₅∩ker λ, and use the additive quotient to obtain μ_rel."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/bloch-lecture-kernel",
+        "K3BlochGroups:V.3/pre-bloch-group",
+        "K3BlochGroups:V.3/five-term-relation",
+        "K3BlochGroups:V.3/bloch-boundary",
+        "K3BlochGroups:V.3/bloch-group",
+        "K3BlochGroups:V.3/antisymmetric-tensor-quotient",
+        "mathlib:QuotientGroup.mk'"
+      ],
+      "acceptance": [
+        "The sign is negative before kernels are taken.",
+        "The kernel of μ is a relation kernel, without a torsion bound."
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch2000",
+          "locator": "§6.1, p. 43, (6.1.2)",
+          "excerpt": "B(f ) = Ker λ.",
+          "match": "The raw lecture object; the capital F in the field argument is understood from the preceding displayed sequence. Comparisons below are derived using the inherited five-term presentation, not asserted by this passage."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      },
+      "api": [
+        {
+          "name": "LectureBloch.boundary_compare",
+          "role": "compatibility",
+          "statement": "∂∘q=−π∘λ as homomorphisms A₀→Q_s."
+        },
+        {
+          "name": "LectureBloch.mu_coe",
+          "role": "simp",
+          "statement": "For α∈B_raw the image of μ(α) in P(F) is q(α)."
+        },
+        {
+          "name": "LectureBloch.mu_ker",
+          "role": "characterisation",
+          "statement": "μ(α)=0 iff the underlying free element α belongs to R₅."
+        },
+        {
+          "name": "LectureBloch.muRel_injective",
+          "role": "universal-property",
+          "statement": "μ_rel is the unique map from B_raw/K_raw composing with the quotient map to μ, and is injective."
+        }
+      ],
+      "tests": [
+        {
+          "name": "LectureBloch.test_F5_kernel",
+          "kind": "non-example",
+          "statement": "The nonzero free element 2[4] in A₀(F₅) is a lecture cycle and maps to zero under μ; K_raw is not finite torsion."
+        },
+        {
+          "name": "LectureBloch.test_F5_generator",
+          "kind": "computation",
+          "statement": "The lecture cycle 4[3] over F₅ maps to 4[3]=2c, a nonzero generator of B(F₅)≅ℤ/3."
+        },
+        {
+          "name": "LectureBloch.test_Q_kernel",
+          "kind": "non-example",
+          "statement": "Over ℚ, 4[−1] is a nonzero lecture cycle in ker μ and has infinite additive order. Thus μ⊗ℚ itself is not injective."
+        }
+      ],
+      "uses": [
+        {
+          "where": "V.3 rational convention comparisons",
+          "how": "specifies which relation quotient has a rational identification"
+        },
+        {
+          "where": "V.6 explicit cycle recipes",
+          "how": "tests whether a representative really is a full-tensor cycle"
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.3/bloch-lecture-obstruction",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "The exact obstruction to lifting a Suslin class",
+      "kind": "theorem",
+      "statement": "For every field F set S=range(1+τ)≤T, E=im λ∩S and L=λ(R₅)≤E. There is a canonical obstruction o:B(F)→E/L: choose α with qα=β and take λ(α) mod L. It is independent of the lift and is surjective. The sequence 0→K_raw→B_raw→B(F)→E/L→0 is exact. In particular ker μ=K_raw and coker μ≅E/L, not merely an unspecified torsion discrepancy.",
+      "hypotheses": [
+        "F is a field.",
+        "τ is the tensor flip; R₅, q, λ and K_raw are the preceding definitions."
+      ],
+      "proofSteps": [
+        "Since ∂R₅=0 and ∂q=−πλ, λ(R₅) lies in ker π=S, proving L≤E.",
+        "A lift of a boundary-zero class has λ-image in E. Changing the lift by an element of R₅ changes λ by an element of L, so the additive quotient lift is well-defined.",
+        "Every e∈E has e=λ(α), and πe=0 implies qα∈B(F); this proves surjectivity. The obstruction vanishes exactly when subtracting a relation from α produces a lecture cycle.",
+        "Identify the first kernel using the preceding comparison and translate range=kernel into Function.Exact."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/bloch-lecture-comparison",
+        "K3BlochGroups:V.3/antisymmetric-tensor-quotient",
+        "mathlib:Function.MulExact",
+        "mathlib:QuotientGroup.mk'"
+      ],
+      "acceptance": [
+        "Over F₅, E=L≅ℤ/2, so μ is surjective even though it has an infinite kernel.",
+        "The formula remains meaningful over F₂ and F₃, where the six-torsion identities need not hold."
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch2000",
+          "locator": "§6.1, p. 43, (6.1.2)",
+          "excerpt": "B(f ) = Ker λ.",
+          "match": "The raw lecture object; the capital F in the field argument is understood from the preceding displayed sequence. Comparisons below are derived using the inherited five-term presentation, not asserted by this passage."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.3/bloch-lecture-six-torsion",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "Six kills the lecture comparison obstruction",
+      "kind": "theorem",
+      "statement": "For a field F with at least four elements, 6·(E/L)=0. Consequently μ_rel:B_raw/K_raw→B(F) is injective with cokernel killed by 6, and becomes an isomorphism after tensoring with ℤ[1/6] or ℚ. Explicitly, if qα=β∈B(F), let σ[x]=[1−x], let deg([x])=1, and interpret [−1]=0 in characteristic 2. Then γ=3(α−σα)+deg(α)·2[−1] belongs to B_raw and μγ=6β. No such conclusion identifies B_raw itself rationally with B(F).",
+      "hypotheses": [
+        "F is a field with at least four elements."
+      ],
+      "proofSteps": [
+        "The full tensor flip sends λ(α) to λ(σα). Since λ(α)∈range(1+τ), applying 1−τ gives λ(α−σα)=0.",
+        "The inherited constant relation gives q(σα)=deg(α)c−β, hence q(α−σα)=2β−deg(α)c.",
+        "The symbol 2[−1] is a lecture cycle since the second tensor factor has order dividing 2. Its image is h(−1)=3c, by the inherited three-c-angle-minus-one. The displayed γ therefore maps to 6β.",
+        "Apply exactness and flat localization; the quotient by K_raw must precede the coefficient change. The coefficient-exports node also treats coprime moduli."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/bloch-lecture-obstruction",
+        "K3BlochGroups:V.3/element-c",
+        "K3BlochGroups:V.3/three-c-angle-minus-one",
+        "mathlib:TensorProduct.comm",
+        "mathlib:Module.Flat.lTensor_exact"
+      ],
+      "acceptance": [
+        "The lift is explicit and compatible with the sign convention.",
+        "The nonzero rational kernel 4[−1] over ℚ survives if K_raw is omitted.",
+        "For F₂/F₃ use direct presentations, not the |F|≥4 constant and angle identities."
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch2000",
+          "locator": "§6.1, p. 43, (6.1.2)",
+          "excerpt": "B(f ) = Ker λ.",
+          "match": "The raw lecture object; the capital F in the field argument is understood from the preceding displayed sequence. Comparisons below are derived using the inherited five-term presentation, not asserted by this passage."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.3/goncharov-generic-b2",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "Goncharov’s generic configuration group B₂",
+      "kind": "definition",
+      "statement": "For every field F define G₂^gen(F)=A₀(F)/R_conf, where R_conf is generated by ∑_{i=0}^4(−1)^i[cr(x₀,…,x̂ᵢ,…,x₄)] for pairwise distinct points x₀,…,x₄∈P¹(F). Use exactly the cross-ratio of K3BlochGroups:V.4/cross-ratio, cr(0,∞,1,z)=z. The generators are P¹(F)−{0,1,∞}; degenerate symbols are zero by notation. No relations from coinciding points are imposed. Its boundary δ_gen is [x]↦(1−x)∧x in Q_s, with descent proved in goncharov-generic-comparison.",
+      "hypotheses": [
+        "F is a field, possibly F₂ or F₃.",
+        "Only injective five-tuples occur in R_conf."
+      ],
+      "proofSteps": [
+        "Import the cross-ratio and its five normalized face values from V.4, rather than reconstructing configurations or PGL₂.",
+        "Form the free additive relation subgroup and quotient. The reduced generators are explicit on p. 218; p. 203’s projective-line shorthand does not authorize free degenerate generators.",
+        "The map induced by a field embedding respects cross-ratios, so it takes R_conf into the corresponding relation subgroup; the universal property is the ordinary additive quotient lift."
+      ],
+      "prerequisites": [
+        "mathlib:FreeAbelianGroup",
+        "mathlib:QuotientGroup.mk'",
+        "K3BlochGroups:V.4/cross-ratio"
+      ],
+      "acceptance": [
+        "A five-point relation is the inherited admissible five-term relation after normalization.",
+        "Reducing the generator set does not kill the inherited constant c."
+      ],
+      "sources": [
+        {
+          "sourceId": "Goncharov1995",
+          "locator": "pp. 202–203 and §2.3 pp. 253–254",
+          "excerpt": "B₂(F)",
+          "match": "The generic reduced-generator cross-ratio presentation. Mathematical formulas in statements are transcriptions; no extra degenerate specializations are inferred."
+        },
+        {
+          "sourceId": "Goncharov1995",
+          "locator": "§1.8, p. 218, definition before the Bloch–Suslin complex",
+          "excerpt": "ℤ[P¹\u0000,1,∞]",
+          "match": "The source explicitly excludes the three degenerate generators and uses the antisymmetric tensor wedge."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      },
+      "api": [
+        {
+          "name": "GoncharovB2.class",
+          "role": "constructor",
+          "statement": "For x≠0,1, class(x) is the quotient class of [x]; symbols 0,1,∞ evaluate to zero."
+        },
+        {
+          "name": "GoncharovB2.eq_iff",
+          "role": "characterisation",
+          "statement": "The classes of α and β agree iff α−β belongs to R_conf."
+        },
+        {
+          "name": "GoncharovB2.lift",
+          "role": "universal-property",
+          "statement": "Any assignment into an abelian group annihilating all injective five-point relations extends uniquely to G₂^gen."
+        },
+        {
+          "name": "GoncharovB2.map_symbol",
+          "role": "functoriality",
+          "statement": "A field embedding maps class(x) to class(f(x)); identity and composition maps agree with those on the free symbols."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GoncharovB2.test_F2",
+          "kind": "degenerate",
+          "statement": "G₂^gen(F₂)=0; the projective line has only three points and there are no nondegenerate generators."
+        },
+        {
+          "name": "GoncharovB2.test_F3",
+          "kind": "computation",
+          "statement": "G₂^gen(F₃)≅ℤ on [−1], since its projective line has only four points and no relation five-tuple."
+        },
+        {
+          "name": "GoncharovB2.test_F5",
+          "kind": "non-example",
+          "statement": "G₂^gen(F₅)≅ℤ/6 on [3], while its boundary kernel is ℤ/3. In particular G₂^gen is not the Bloch kernel."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Goncharov §1.8 Bloch–Suslin complex",
+          "how": "places the generic B₂ in degree one before taking its boundary kernel"
+        },
+        {
+          "where": "Polylogarithms:P.3/polylogarithmic-complex and P.4/explicit-to-inductive-comparison",
+          "how": "imports the algebraic weight-two presentation and boundary sign"
+        },
+        {
+          "where": "K3BlochGroups:V.4 configuration homology",
+          "how": "shares one cross-ratio convention and relation set"
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.3/goncharov-generic-comparison",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "Integral identification of the generic B₂ presentation",
+      "kind": "comparison",
+      "statement": "For every field F the identity on nondegenerate symbols gives e_gen:G₂^gen(F)≃P(F), integrally, and δ_gen=−∂∘e_gen into Q_s. Consequently ker δ_gen≃B(F), with zero kernel and zero cokernel. If one instead composes with the ordinary exterior-square projection, its kernel corresponds to the inherited B̃(F); the exact discrepancy is exterior-kernel-discrepancy. Tensoring with ℚ makes both wedge targets coincide. Neither G₂^gen itself nor a free projective-line presentation is identified with B(F).",
+      "hypotheses": [
+        "F is a field; the boundary uses the antisymmetric tensor quotient specified on p. 218."
+      ],
+      "proofSteps": [
+        "Normalize any injective five-tuple by the imported V.4 three-point normalization. Its five face cross-ratios give exactly [x]−[y]+[y/x]−[(1−x⁻¹)/(1−y⁻¹)]+[(1−x)/(1−y)].",
+        "Conversely each admissible pair x,y gives the injective tuple (0,∞,1,x,y); hence R_conf=R₅. The additive quotient yields the inverse generator maps.",
+        "Extend the displayed negative boundary identity by the universal property; transfer kernels, and apply the inherited antisymmetric/exterior exact sequence for the alternative wedge target."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/goncharov-generic-b2",
+        "K3BlochGroups:V.4/cross-ratio",
+        "K3BlochGroups:V.3/pre-bloch-group",
+        "K3BlochGroups:V.3/bloch-boundary",
+        "K3BlochGroups:V.3/bloch-group",
+        "K3BlochGroups:V.3/antisym-exterior-comparison",
+        "K3BlochGroups:V.3/exterior-kernel-discrepancy"
+      ],
+      "acceptance": [
+        "Over F₅, [3] has nonzero boundary, c=[2] has order 3 and lies in the kernel.",
+        "Over F₁₁, c has order 6: the notation [0]=0 in the reduced free group does not imply [x]+[1−x]=0.",
+        "The rational degree-one cohomology identification with K₃^ind is imported from V.4, not proved a second time."
+      ],
+      "sources": [
+        {
+          "sourceId": "Goncharov1995",
+          "locator": "pp. 202–203 and §2.3 pp. 253–254",
+          "excerpt": "B₂(F)",
+          "match": "The generic reduced-generator cross-ratio presentation. Mathematical formulas in statements are transcriptions; no extra degenerate specializations are inferred."
+        },
+        {
+          "sourceId": "Goncharov1995",
+          "locator": "§1.8 p. 218, displayed Bloch–Suslin complex",
+          "excerpt": "δ₂ : [x] ↦ (1−x) ∧ x",
+          "match": "The sign is opposite to the inherited boundary; the target wedge is defined on the same page by adjacent antisymmetry relations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.3/goncharov-curve-b2",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "Goncharov’s rational smooth-curve group",
+      "kind": "definition",
+      "statement": "For every field F let V_F=ℚ[P¹(F)] and W_F=ℚ⊗ℤ Q_s(F), and define d_F:V_F→W_F by [x]↦1⊗((1−x)∧x) for x≠0,1,∞, with degenerate values zero. For each smooth connected curve X/F and F-rational points u,v, projective specialization sends rational functions in F(X) to F∪{∞}. Let R_curv^ℚ(F) be the ℚ-span of [0], [∞], and sp_u(α)−sp_v(α), for every such curve and every α∈ker d_{F(X)}. Define G₂^curv(F)=V_F/R_curv^ℚ(F). This is the rational version of §1.9, (1.25a), with the rationalization on both sides. Smooth connected curves over a field are integral; the suggested carrier uses integral schemes smooth of relative dimension one, not arbitrary fields with unexplained evaluation maps.",
+      "hypotheses": [
+        "F is a field.",
+        "u,v are F-rational points, not geometric points over an unspecified extension.",
+        "Specializations take zeros to 0 and poles to ∞.",
+        "All smooth connected curves occur; F(t) alone is a different relation set."
+      ],
+      "proofSteps": [
+        "Use the Mathlib smooth-relative-dimension, integral-scheme and function-field carriers. Import the canonical projective specialization at rational points from the AlgebraicCurves dictionary; it is an explicit outstanding request, not a new curve theory planned here.",
+        "Use Finsupp over ℚ for V_F and the tensor product for W_F. The relation subspace is the span of the displayed degenerate generators and all specialized cycle differences.",
+        "The rational version agrees with rationalizing the source’s integral cycle-difference relations: any rational cycle can be multiplied by a common denominator to become an integral cycle, by flatness of ℚ.",
+        "Taking X=P¹ and the cycle [t]+[1−t], specializing at 0 and ∞ and using the two degenerate generators gives [1]∈R_curv^ℚ. This also pins the rationalization convention independently of (1.25a)’s typography."
+      ],
+      "prerequisites": [
+        "mathlib:Finsupp.linearCombination",
+        "mathlib:Submodule.mkQ",
+        "mathlib:AlgebraicGeometry.Scheme.functionField",
+        "mathlib:AlgebraicGeometry.IsIntegral",
+        "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension",
+        "mathlib:Module.Flat.lTensor_exact",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ],
+      "acceptance": [
+        "The definition is rational and quantifies over all curves.",
+        "The missing canonical specialization API remains visible in requests/gaps; arbitrary evaluation data do not discharge it."
+      ],
+      "sources": [
+        {
+          "sourceId": "Goncharov1995",
+          "locator": "§1.9, pp. 221–224, (1.25a) and Corollary 1.19",
+          "excerpt": "𝓑₂(F)",
+          "match": "The rational smooth-curve-specialization presentation, with all connected smooth curves, not only F(t)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      },
+      "api": [
+        {
+          "name": "GoncharovCurve.class",
+          "role": "constructor",
+          "statement": "class_F(z) is the image of the basis vector [z] under the Mathlib submodule quotient projection."
+        },
+        {
+          "name": "GoncharovCurve.eq_iff",
+          "role": "characterisation",
+          "statement": "class(α)=class(β) iff α−β∈R_curv^ℚ."
+        },
+        {
+          "name": "GoncharovCurve.lift",
+          "role": "universal-property",
+          "statement": "An ℚ-linear map V_F→M annihilating [0], [∞] and every specialized cycle difference factors uniquely through G₂^curv(F)."
+        },
+        {
+          "name": "GoncharovCurve.specialization_relation",
+          "role": "relation",
+          "statement": "For every smooth connected X/F, u,v∈X(F) and α∈ker d_{F(X)}, the quotient classes of sp_u α and sp_v α agree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GoncharovCurve.test_zero",
+          "kind": "degenerate",
+          "statement": "class(0)=0 and class(∞)=0; both are relation generators, not additional free summands."
+        },
+        {
+          "name": "GoncharovCurve.test_one",
+          "kind": "computation",
+          "statement": "class(1)=0, using [t]+[1−t] and the points 0,∞ on P¹."
+        },
+        {
+          "name": "GoncharovCurve.test_inversion",
+          "kind": "characterisation",
+          "statement": "For x∈Fˣ, class(x)+class(x⁻¹)=0: rationally [t]+[t⁻¹] is a cycle, and specialize at x and 0. The same integral assertion in P(F) is false in general."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Goncharov §1.9, Conjecture 1.20",
+          "how": "keeps the generic and universal-curve relation presentations distinct"
+        },
+        {
+          "where": "Polylogarithms:P.4 inductive presentation",
+          "how": "records the difference between all curves and the relation construction over F(t)"
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.3/goncharov-curve-boundary",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "Boundary descent for curve specializations",
+      "kind": "construction",
+      "statement": "For every field F, R_curv^ℚ(F)≤ker d_F. Therefore d_F descends uniquely to δ_curv:G₂^curv(F)→W_F, with δ_curv class(x)=1⊗((1−x)∧x). At a rational point u of a smooth curve, the local ring is a DVR with residue field F. The degree-two valuation-specialization formula, imported from Polylogarithms:P.4/specialization-and-delta, implies d_F(sp_u α)=0 whenever d_{F(X)}α=0. This supplies boundary descent once the requested geometric dictionary is instantiated.",
+      "hypotheses": [
+        "F is a field; canonical projective specialization as in goncharov-curve-b2.",
+        "The scalar field is ℚ: diagonal and sign 2-torsion vanish."
+      ],
+      "proofSteps": [
+        "Obtain the local DVR, its fraction field identification with F(X), and residue identification with F from the requested curve dictionary.",
+        "Apply the degree-two identity Λ²(u_π)∘δ₂=δ₂∘s_v of the imported specialization-and-delta node. Its zero/pole convention agrees with projective evaluation followed by killing [0] and [∞]. Thus each specialized cycle has zero boundary.",
+        "The two explicit degenerate relation generators also have zero boundary. Extend over their ℚ-span and descend through Submodule.liftQ; the formula and uniqueness use the quotient universal property."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/goncharov-curve-b2",
+        "Polylogarithms:P.4/specialization-and-delta",
+        "mathlib:Submodule.liftQ",
+        "K3BlochGroups:V.3/antisym-exterior-comparison",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ],
+      "acceptance": [
+        "The formula is independent of the chosen uniformizer on cycles.",
+        "No geometric evaluation is assumed to be a field homomorphism; poles are retained before the quotient kills them."
+      ],
+      "sources": [
+        {
+          "sourceId": "Goncharov1995",
+          "locator": "§1.9, pp. 221–224, (1.25a) and Corollary 1.19",
+          "excerpt": "𝓑₂(F)",
+          "match": "The rational smooth-curve-specialization presentation, with all connected smooth curves, not only F(t)."
+        },
+        {
+          "sourceId": "Goncharov1995",
+          "locator": "§1.9 pp. 221–222, Lemma 1.16",
+          "excerpt": "Lemma 1.16.",
+          "match": "The curve relation group is annihilated by the boundary; this plan uses the already-owned rational degree-two valuation calculation for the algebraic step."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      },
+      "api": [
+        {
+          "name": "GoncharovCurve.boundary_class",
+          "role": "simp",
+          "statement": "δ_curv(class(x))=d_F([x]); it is zero on the three degenerate classes."
+        },
+        {
+          "name": "GoncharovCurve.boundary_unique",
+          "role": "universal-property",
+          "statement": "δ_curv is the unique linear map whose composite with the quotient projection is d_F."
+        },
+        {
+          "name": "GoncharovCurve.mem_kernel",
+          "role": "characterisation",
+          "statement": "For α∈V_F, its quotient class lies in ker δ_curv iff d_F(α)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GoncharovCurve.test_boundary_degenerate",
+          "kind": "degenerate",
+          "statement": "δ_curv(class(0))=δ_curv(class(1))=δ_curv(class(∞))=0."
+        },
+        {
+          "name": "GoncharovCurve.test_boundary_sign",
+          "kind": "compatibility",
+          "statement": "Under the generic comparison, δ_curv of an image is −(∂⊗ℚ) of its Suslin pre-Bloch class, in W_F."
+        },
+        {
+          "name": "GoncharovCurve.test_boundary_complex",
+          "kind": "non-example",
+          "statement": "Over ℂ, δ_curv(class(i))=1⊗((1−i)∧i)=0, since i is torsion in ℂˣ; class(i) is a cycle. Replacing the wedge of multiplicative units by the field’s additive vector space would not give this value."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Goncharov’s weight-two motivic complex",
+          "how": "makes the all-curve degree-one kernel a specified object"
+        },
+        {
+          "where": "V.3 comparison with Suslin cycles",
+          "how": "distinguishes a quotient comparison from an asserted isomorphism"
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.3/goncharov-curve-comparison",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "The rational generic-to-curve quotient comparison",
+      "kind": "comparison",
+      "statement": "For every field F the identity on symbols induces a surjection ψ:P(F)⊗ℚ→G₂^curv(F), compatible with δ_curv=−∂_ℚ. Let R_red=spanℚ([0],[1],[∞])+R₅⊗ℚ inside V_F and K_curv=R_curv^ℚ/R_red. Then ker ψ≅K_curv and coker ψ=0. Because K_curv consists of cycles, ψ restricts to a surjection B(F)⊗ℚ→ker δ_curv with the same kernel K_curv. Over F₃, canonical projective-line inversion gives class(−1)+class(−1)=0, so G₂^curv(F₃)=0 and K_curv≅ℚ, whereas P(F₃)⊗ℚ≅ℚ. Over F₂ both groups and K_curv are zero. Thus an all-field isomorphism is false, and any relation-equality theorem must respect small-field exceptions. No bound by 2, 3 or 6 can dispose of a nonzero rational vector-space kernel. For fields with at least four elements, the statement K_curv=0 is the rational weight-two instance of Conjecture 1.20 in the source; this pass has not established it. The separate F(t)-inductive comparison for infinite fields is imported from Polylogarithms:P.4/explicit-to-inductive-comparison, and is not substituted for the all-curve assertion.",
+      "hypotheses": [
+        "F is a field.",
+        "All-curve specializations and the boundary closure are as in the preceding two nodes.",
+        "For the separate imported F(t) theorem, F is infinite as required by its supplier."
+      ],
+      "proofSteps": [
+        "The degenerate symbols lie in R_curv^ℚ. For an admissible pair x,y, use on P¹ the free cycle R(1+t(x−1),y); its values at t=1 and t=0 are R(x,y) and [1]. This puts every R₅ generator into R_curv^ℚ, as claimed on p. 225.",
+        "The inclusion R_red≤R_curv^ℚ gives a surjective linear quotient map. The quotient-of-quotient theorem identifies its exact kernel with R_curv^ℚ/R_red.",
+        "Boundary compatibility follows on generators and hence everywhere. Since R_curv^ℚ is a cycle subspace, every preimage of a δ_curv-cycle is already a ∂_ℚ-cycle, proving surjectivity on kernels with the same kernel.",
+        "Record injectivity as a source-sensitive mathematical gap; use the P.4 theorem only for its explicitly different F(t) relation set."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/goncharov-generic-comparison",
+        "K3BlochGroups:V.3/goncharov-curve-b2",
+        "K3BlochGroups:V.3/goncharov-curve-boundary",
+        "K3BlochGroups:V.3/bloch-group",
+        "mathlib:Submodule.mkQ",
+        "Polylogarithms:P.4/explicit-to-inductive-comparison"
+      ],
+      "acceptance": [
+        "For F₂ the rational generic group, curve group and correction are zero. For F₃ the rational generic group is ℚ, the curve group is zero by inversion antisymmetry, and K_curv≅ℚ. A relation-equality theorem needs a field-size qualification.",
+        "The equality conjecture is not passed to downstream consumers as an unconditional rational identification."
+      ],
+      "sources": [
+        {
+          "sourceId": "Goncharov1995",
+          "locator": "§1.9, p. 225, Conjecture 1.20",
+          "excerpt": "Conjecture 1.20.",
+          "match": "Equality of generic and all-curve relation groups is conjectural in the source. The unconditional plan supplies the quotient map and its exact kernel; it does not assert injectivity."
+        },
+        {
+          "sourceId": "Goncharov1995",
+          "locator": "§1.9, pp. 221–224, (1.25a) and Corollary 1.19",
+          "excerpt": "𝓑₂(F)",
+          "match": "The rational smooth-curve-specialization presentation, with all connected smooth curves, not only F(t)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.3/cgz-published-negative-tensor",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "The published CGZ negative-unit tensor quotient",
+      "kind": "definition",
+      "statement": "For every field F let N_neg≤T(F) be the subgroup generated by u⊗(−u), u∈Fˣ, and put Q_neg(F)=T(F)/N_neg, where −u means the multiplicative unit −1 times u, not the inverse or the additive negative of Additive Fˣ. Write ρ:T↠Q_neg. Since range(1+τ)≤N_neg, ρ factors uniquely as T↠Q_s --p_neg→Q_neg. The factor is surjective and its kernel is the subgroup generated by the classes u∧(−u), killed by 2. This is not in general the ordinary exterior square.",
+      "hypotheses": [
+        "F is a field; no field-size hypothesis for the tensor quotient."
+      ],
+      "proofSteps": [
+        "Generate the ℤ-submodule of the actual tensor product from the stated pure tensors and form its Mathlib submodule quotient.",
+        "For multiplicative units x,y, expand n(xy)−n(x)−n(y)=x⊗y+y⊗x. This proves the symmetrizer range is contained in N_neg and constructs p_neg by quotient descent.",
+        "Its kernel is the image of N_neg in Q_s; each generator u∧(−u) is killed by 2 since u∧u is and −1 has order dividing 2."
+      ],
+      "prerequisites": [
+        "mathlib:TensorProduct",
+        "mathlib:Submodule.mkQ",
+        "mathlib:Submodule.liftQ",
+        "K3BlochGroups:V.3/antisymmetric-tensor-quotient"
+      ],
+      "acceptance": [
+        "The minus in −u is an operation in the field’s multiplicative units.",
+        "Over F₃, Q_neg≅ℤ/2 while the ordinary exterior square of F₃ˣ is zero."
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Definition 2.1",
+          "excerpt": "We define the modified Bloch group",
+          "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      },
+      "api": [
+        {
+          "name": "CGZPublished.negativeTensor_zero",
+          "role": "relation",
+          "statement": "ρ(u⊗(−u))=0 for every multiplicative unit u."
+        },
+        {
+          "name": "CGZPublished.tensorProjection_surjective",
+          "role": "projection",
+          "statement": "The canonical ρ:T→Q_neg is surjective, and p_neg∘π=ρ."
+        },
+        {
+          "name": "CGZPublished.tensorLift",
+          "role": "universal-property",
+          "statement": "A ℤ-linear map T→M killing every u⊗(−u) factors uniquely through Q_neg."
+        },
+        {
+          "name": "CGZPublished.symmetrizer_le",
+          "role": "compatibility",
+          "statement": "range(1+τ)≤N_neg; the comparison from Q_s is a quotient map, not a projection to the exterior square."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CGZPublished.test_tensor_F3",
+          "kind": "computation",
+          "statement": "Q_neg(F₃)≅ℤ/2, whereas ⋀² Additive(F₃ˣ)=0."
+        },
+        {
+          "name": "CGZPublished.test_tensor_F5",
+          "kind": "computation",
+          "statement": "Q_s(F₅)≅ℤ/2 but Q_neg(F₅)=0, since for a generator g of F₅ˣ, g⊗(−g) is 3 times the generator of T≅ℤ/4."
+        },
+        {
+          "name": "CGZPublished.test_tensor_Q",
+          "kind": "non-example",
+          "statement": "In the ordinary exterior square of ℚˣ, 2∧(−2)=2∧(−1)≠0, while Q_neg kills it. Thus the ordinary exterior boundary cannot be substituted for the published target."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CGZ published Definition 2.1",
+          "how": "ensures every allowed projective five-term specialization has zero boundary"
+        },
+        {
+          "where": "HB.1 finite Chern-class input; QT.5 quantum dilogarithm input",
+          "how": "provides the versioned boundary target and the exact 2-primary comparison"
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.3/cgz-published-target-kernel",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "The negative-target kernel is the boundary of the angle image",
+      "kind": "lemma",
+      "statement": "Assume |F|≥4 and let H=im(h:Fˣ→P(F)), h(u)=[u]+[u⁻¹], as in angle-bracket-homomorphism. Then ker(p_neg:Q_s→Q_neg)=∂H. Equivalently ker(p_neg∘∂:P→Q_neg)=B(F)+H. Here H lies in P(F) and need not be a subgroup of B(F); only B(F)∩H is a Bloch subgroup. Also 2H=0.",
+      "hypotheses": [
+        "F is a field with at least four elements."
+      ],
+      "proofSteps": [
+        "The negative-target kernel is generated by u∧(−u). The inherited angle homomorphism computes ∂h(u)=u∧(−u), so its image is exactly that kernel.",
+        "If p_neg(∂α)=0, choose h∈H with ∂h=∂α; then α−h∈B. Conversely B+H is killed by the composite.",
+        "Use the inherited 2-torsion angle relation, not an assertion that each angle symbol is a Bloch cycle."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/cgz-published-negative-tensor",
+        "K3BlochGroups:V.3/angle-bracket-homomorphism",
+        "K3BlochGroups:V.3/angle-bracket-two-torsion",
+        "K3BlochGroups:V.3/bloch-group"
+      ],
+      "acceptance": [
+        "Over F₅, h(2) has nonzero boundary in Q_s and zero boundary in Q_neg.",
+        "Over F₃, the H-torsion statement is not used."
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Definition 2.1",
+          "excerpt": "We define the modified Bloch group",
+          "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
+        },
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Lemma 2.2 and proof",
+          "excerpt": "There is a surjection",
+          "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.3/cgz-published-boundary",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "The published projective boundary and its relation subgroup",
+      "kind": "construction",
+      "statement": "For every field F define d_new:Z_P¹(F)=ℤ[P¹(F)]→Q_neg(F) by [x]↦ρ(x⊗(1−x)) when x≠0,1,∞ and the three degenerate symbols↦0. Reuse the projective arithmetic and all admissible extended five-term elements ξ_{X,Y} of the inherited cgz-bloch-group, including diagonal X=Y when the displayed fractions are defined. Let C_ext be their generated subgroup, unchanged from the inherited CGZ presentation. Then C_ext≤ker d_new. Thus d_new descends to d_quot:Z_P¹/C_ext→Q_neg. No intersection repair is necessary for this published definition.",
+      "hypotheses": [
+        "F is a field.",
+        "Admissibility forbids 0/0 and ∞/∞; it does not simply exclude all degenerate points."
+      ],
+      "proofSteps": [
+        "Use the inherited projective arithmetic and the free additive lift; keep d_new’s generator sign x⊗(1−x), which is opposite to Bloch’s λ.",
+        "For nondegenerate admissible pairs, apply the inherited five-term boundary calculation and project Q_s→Q_neg.",
+        "For degenerate and diagonal pairs use the inherited complete specializations: their boundaries are combinations of u∧(−u), hence vanish in Q_neg. Degenerate tensor terms vanish by definition. This direct finite list also covers F₂ and F₃ without invoking angle-torsion identities.",
+        "Extend to the generated relation subgroup and descend using the additive quotient universal property."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/cgz-published-negative-tensor",
+        "K3BlochGroups:V.3/cgz-bloch-group",
+        "K3BlochGroups:V.3/cgz-degenerate-relations",
+        "K3BlochGroups:V.3/bloch-boundary",
+        "K3BlochGroups:V.3/five-term-relation",
+        "mathlib:FreeAbelianGroup.lift",
+        "mathlib:QuotientGroup.mk'"
+      ],
+      "acceptance": [
+        "The boundary of ξ_{2,1} is zero in Q_neg, although it can be nonzero in either wedge target.",
+        "The relation subgroup is the same one used by the older repaired CGZ convention."
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Definition 2.1",
+          "excerpt": "We define the modified Bloch group",
+          "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      },
+      "api": [
+        {
+          "name": "CGZPublished.boundary_symbol",
+          "role": "simp",
+          "statement": "d_new([x])=ρ(x⊗(1−x)) for x≠0,1,∞; d_new([0])=d_new([1])=d_new([∞])=0."
+        },
+        {
+          "name": "CGZPublished.relations_le_kernel",
+          "role": "relation",
+          "statement": "Every admissible extended ξ_{X,Y} belongs to ker d_new; hence C_ext≤ker d_new."
+        },
+        {
+          "name": "CGZPublished.boundaryQuotient_unique",
+          "role": "universal-property",
+          "statement": "d_quot is the unique additive map with d_quot∘q_ext=d_new."
+        },
+        {
+          "name": "CGZPublished.boundary_ordinary",
+          "role": "compatibility",
+          "statement": "On reduced nondegenerate symbols, d_quot∘j=p_neg∘∂, where j:P(F)→Z_P¹/C_ext is the inherited presentation map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CGZPublished.test_boundary_degenerate",
+          "kind": "degenerate",
+          "statement": "The three free symbols [0],[1],[∞] all have zero d_new boundary before taking the quotient."
+        },
+        {
+          "name": "CGZPublished.test_boundary_F5",
+          "kind": "computation",
+          "statement": "d_new([2]+[3])=0 in Q_neg(F₅), although ∂([2]+[3])≠0 in Q_s(F₅)."
+        },
+        {
+          "name": "CGZPublished.test_boundary_Q_relation",
+          "kind": "compatibility",
+          "statement": "For F=ℚ, ξ_{2,1}=[2]+[1/2]−[1] has d_new boundary zero; its ordinary-exterior boundary is the nonzero 2∧(−1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CGZ Definition 2.1 and Lemma 2.2",
+          "how": "makes the quotient ker(d_new)/C_ext a legal additive-group quotient"
+        },
+        {
+          "where": "HabiroNumberFields:HB.1",
+          "how": "imports this algebraic input before constructing the finite Chern maps"
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.3/cgz-published-bloch-group",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "The published modified CGZ Bloch group",
+      "kind": "definition",
+      "statement": "Define B_new(F)=ker(d_new)/C_ext for every field F, using the containment from cgz-published-boundary. Equivalently B_new≃ker(d_quot:Z_P¹/C_ext→Q_neg), via the inclusion of free cycles. The kernel presentation is the suggested carrier; it canonically agrees with the cycle quotient. For |F|≥4 the extended pre-Bloch presentation is P(F)/H, so B_new≃(B(F)+H)/H. In particular the modified cycle condition, not the exterior cycle condition, selects its subgroup of P/H. The inherited id cgz-bloch-group continues to denote B_old, the repaired arXiv-v3 exterior-kernel convention.",
+      "hypotheses": [
+        "F is a field.",
+        "The P/H description uses |F|≥4; the free projective presentation itself does not."
+      ],
+      "proofSteps": [
+        "Take the additive kernel of d_quot; the first-isomorphism theorem identifies it with ker(d_new)/C_ext because C_ext≤ker d_new.",
+        "For fields of size at least four, import cgz-degenerate-relations to identify Z_P¹/C_ext with P/H. The target-kernel lemma identifies the preimage of the modified cycle subgroup with B+H.",
+        "The equivalence of the two presentations is explicit on cycle representatives and does not relabel the inherited older object."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/cgz-published-boundary",
+        "K3BlochGroups:V.3/cgz-published-target-kernel",
+        "K3BlochGroups:V.3/cgz-degenerate-relations",
+        "mathlib:MonoidHom.ker",
+        "mathlib:QuotientGroup.mk'"
+      ],
+      "acceptance": [
+        "B_new(F₃)=0, whereas the inherited exterior convention B_old(F₃)≅ℤ/2.",
+        "The containment C_ext≤ker d_new is part of the definition contract."
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Definition 2.1",
+          "excerpt": "We define the modified Bloch group",
+          "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
+        },
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Lemma 2.2 and proof",
+          "excerpt": "There is a surjection",
+          "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      },
+      "api": [
+        {
+          "name": "CGZPublished.cycleClass",
+          "role": "constructor",
+          "statement": "A free projective cycle α∈ker d_new gives cycleClass(α)∈B_new."
+        },
+        {
+          "name": "CGZPublished.cycleClass_eq_iff",
+          "role": "characterisation",
+          "statement": "cycleClass(α)=cycleClass(β) iff α−β∈C_ext."
+        },
+        {
+          "name": "CGZPublished.kernelEquiv",
+          "role": "compatibility",
+          "statement": "The map ker(d_new)/C_ext≃ker d_quot sends a cycle class to its class in the extended presentation."
+        },
+        {
+          "name": "CGZPublished.cycleLift",
+          "role": "universal-property",
+          "statement": "An additive map ker d_new→M killing C_ext descends uniquely to B_new."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CGZPublished.test_group_F2",
+          "kind": "non-example",
+          "statement": "B_new(F₂)≅ℤ/3 on [0], although B(F₂)=0. The unrestricted field version of Lemma 2.2 is false."
+        },
+        {
+          "name": "CGZPublished.test_group_F3",
+          "kind": "computation",
+          "statement": "B_new(F₃)=0. The extended presentation is ℤ/2 on [−1], whose d_quot map to Q_neg≅ℤ/2 is an isomorphism."
+        },
+        {
+          "name": "CGZPublished.test_group_F11",
+          "kind": "non-example",
+          "statement": "B_new(F₁₁)≅ℤ/3 on the image of c, whereas B_old(F₁₁)≅ℤ/6. The two CGZ versions are not interchangeable integrally."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Published CGZ Lemma 2.2",
+          "how": "the actual target of its surjection from the classical group"
+        },
+        {
+          "where": "HB.1/HB.2 and ArithmeticQuantumTopology:QT.5",
+          "how": "consumes the modified group with its version and coefficient restrictions explicit"
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.3/cgz-published-comparison-map",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "The classical-to-published CGZ map",
+      "kind": "construction",
+      "statement": "For every field F, inclusion of nondegenerate symbols induces κ_new:B(F)→B_new(F), by boundary compatibility. For |F|≥4, identify it with B↪B+H↠(B+H)/H. It sends c to [0], sends h(u) to zero whenever h(u) lies in B, and is natural under field embeddings. Its quotient target does not mean all h(u) are Bloch cycles. Surjectivity and the exact 2-primary kernel are the separate published-lemma-two-two theorem.",
+      "hypotheses": [
+        "F is a field.",
+        "Statements involving the inherited c and H use |F|≥4."
+      ],
+      "proofSteps": [
+        "The reduced-symbol inclusion into the extended quotient is well-defined by the ordinary five-term relations. Compose boundary compatibility with the B-kernel inclusion to factor through the d_quot-kernel.",
+        "Use the inherited degenerate relations for c↦[0] and h(u)↦0. The target-kernel description identifies the factor with the displayed map.",
+        "Field embeddings preserve the symbol assignment, negative-unit relation and projective arithmetic, yielding naturality; the maps’ identity/composition laws follow on generators."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/cgz-published-bloch-group",
+        "K3BlochGroups:V.3/cgz-published-boundary",
+        "K3BlochGroups:V.3/bloch-group",
+        "K3BlochGroups:V.3/element-c",
+        "K3BlochGroups:V.3/cgz-degenerate-relations",
+        "K3BlochGroups:V.3/angle-bracket-homomorphism"
+      ],
+      "acceptance": [
+        "κ_new(c)=[0], with 3[0]=0 when |F|≥4.",
+        "No integral inverse is offered before the exact kernel is checked."
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Lemma 2.2 and proof",
+          "excerpt": "There is a surjection",
+          "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
+        },
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Definition 2.1",
+          "excerpt": "We define the modified Bloch group",
+          "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      },
+      "api": [
+        {
+          "name": "CGZPublished.compare_coe",
+          "role": "compatibility",
+          "statement": "The underlying extended-quotient class of κ_new(β) is j(β) for β∈B."
+        },
+        {
+          "name": "CGZPublished.compare_c",
+          "role": "simp",
+          "statement": "For |F|≥4, κ_new(c)=[0] in B_new."
+        },
+        {
+          "name": "CGZPublished.compare_angle",
+          "role": "relation",
+          "statement": "For |F|≥4, if h(u)∈B then κ_new(h(u))=0; the membership hypothesis is required."
+        },
+        {
+          "name": "CGZPublished.compare_natural",
+          "role": "functoriality",
+          "statement": "For a field embedding f, the Bloch and modified-CGZ symbol maps commute with κ_new, with identity/composition laws inherited from the free maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CGZPublished.test_compare_F5",
+          "kind": "computation",
+          "statement": "κ_new:B(F₅)≅ℤ/3→B_new(F₅)≅ℤ/3 is an isomorphism and preserves c."
+        },
+        {
+          "name": "CGZPublished.test_compare_F7",
+          "kind": "non-example",
+          "statement": "κ_new:B(F₇)≅ℤ/4→B_new(F₇)≅ℤ/2 has kernel generated by h(−1)=c, of order 2; κ_new(c)=0."
+        },
+        {
+          "name": "CGZPublished.test_compare_F11",
+          "kind": "computation",
+          "statement": "κ_new:B(F₁₁)≅ℤ/6→B_new(F₁₁)≅ℤ/3 sends c to a generator and has kernel {0,3c}."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CGZ §2.1 and HB.1",
+          "how": "provides a canonical input conversion before odd-primary finite Chern constructions"
+        },
+        {
+          "where": "V.3 coefficient exports",
+          "how": "specifies which integral map becomes the rational isomorphism"
+        }
+      ]
+    },
+    {
+      "id": "K3BlochGroups:V.3/cgz-published-lemma-two-two",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "CGZ Lemma 2.2 with its exact kernel",
+      "kind": "theorem",
+      "statement": "For |F|≥4, κ_new:B(F)→B_new(F) is surjective, ker κ_new=B(F)∩H and 2·ker κ_new=0. Thus 0→B∩H→B→B_new→0 is exact, and B_new≃B/(B∩H) canonically. The cokernel is zero. This proves the published Lemma 2.2 without importing the nonzero-cokernel statement belonging to the older exterior convention. The |F|≥4 hypothesis is necessary for this theorem as stated: F₂ has a nonzero cokernel, and F₃ has an infinite kernel not killed by 2.",
+      "hypotheses": [
+        "F is a field with at least four elements."
+      ],
+      "proofSteps": [
+        "Combine ker(p_neg∘∂)=B+H with Z_P¹/C_ext≃P/H, so B_new=(B+H)/H.",
+        "Every class represented by b+h equals the class of b, giving surjectivity. A Bloch class maps to zero exactly when it lies in H.",
+        "The inherited angle image is killed by 2, so its intersection with B is killed by 2. Use the additive quotient first-isomorphism theorem.",
+        "For F₂/F₃ compute the finite extended-relation matrices directly; no field-size-dependent angle lemma is invoked."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/cgz-published-comparison-map",
+        "K3BlochGroups:V.3/cgz-published-target-kernel",
+        "K3BlochGroups:V.3/cgz-degenerate-relations",
+        "K3BlochGroups:V.3/angle-bracket-two-torsion",
+        "K3BlochGroups:V.3/small-field-conventions",
+        "mathlib:Function.MulExact"
+      ],
+      "acceptance": [
+        "F₅ has zero kernel; F₇ and F₁₁ have a nonzero kernel of order 2.",
+        "F₂ gives B=0 and B_new=ℤ/3; F₃ gives B=2ℤ and B_new=0."
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Lemma 2.2 and proof",
+          "excerpt": "There is a surjection",
+          "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.3/cgz-published-to-older",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "The inclusion of the published group into the older CGZ convention",
+      "kind": "comparison",
+      "statement": "For |F|≥4 let B_old be the inherited repaired exterior-kernel group. There is a canonical injection ι_new_old:B_new→B_old, identifying B_new with the image of B inside P/H. Its kernel is zero and its cokernel is B̃/(B+(B̃∩H)), killed by 2. The older comparison factors as κ_old=ι_new_old∘κ_new. The map is defined using the shared extended presentation P/H, not by a nonexistent general projection Q_neg→⋀²Fˣ. Over F₁₁ the inclusion is ℤ/3↪ℤ/6 of index 2. Over F₇ it is ℤ/2↪ℤ/4 of index 2. Hence the source version changes the integral target even though all three groups agree after inverting 2.",
+      "hypotheses": [
+        "F is a field with at least four elements.",
+        "B_old retains the inherited id cgz-bloch-group and its repaired cycle-quotient definition."
+      ],
+      "proofSteps": [
+        "Inside P/H the inherited old group is the image of B̃ and the published new group is the image of B. Since B≤B̃, their images have a canonical subgroup inclusion.",
+        "The image of B̃ is B̃/(B̃∩H); divide by the image of B to obtain the displayed cokernel. Injectivity is the subgroup inclusion, and its factorization follows on Bloch classes.",
+        "The inherited exterior-kernel-discrepancy, or cgz-convention-comparison, kills this cokernel by 2. The preceding published theorem supplies κ_new’s exact kernel."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/cgz-published-lemma-two-two",
+        "K3BlochGroups:V.3/cgz-bloch-group",
+        "K3BlochGroups:V.3/cgz-degenerate-relations",
+        "K3BlochGroups:V.3/cgz-convention-comparison",
+        "K3BlochGroups:V.3/exterior-kernel-discrepancy"
+      ],
+      "acceptance": [
+        "Published surjectivity and older non-surjectivity are simultaneously visible in the F₁₁ diagram.",
+        "Consumers cite a versioned node, not an unqualified CGZ Definition number."
+      ],
+      "sources": [
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Lemma 2.2 and proof",
+          "excerpt": "There is a surjection",
+          "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
+        },
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Definition 2.1",
+          "excerpt": "We define the modified Bloch group",
+          "match": "The published modified target and projective five-term quotient, replacing the earlier incompatible exterior-square definition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      }
+    },
+    {
+      "id": "K3BlochGroups:V.3/convention-coefficient-exports",
+      "parentStageId": "K3BlochGroups:V.3",
+      "realises": [
+        "K3BlochGroups:V.3"
+      ],
+      "title": "Coefficient changes for the exact convention maps",
+      "kind": "theorem",
+      "statement": "For |F|≥4, tensoring κ_new and ι_new_old with ℤ[1/2] or ℚ gives isomorphisms B→B_new→B_old; κ_old is their composite. Tensoring these maps with ℤ/n gives isomorphisms whenever n>0 is odd. The lecture comparison μ_rel:B_raw/K_raw→B becomes an isomorphism over ℤ[1/6] and ℚ, and modulo n>0 coprime to 6. These are the specified canonical maps, not merely abstract isomorphisms. The integral generic Goncharov comparison already has zero correction. For G₂^curv the exact rational kernel K_curv remains; its vanishing is not a coefficient export. Imposing the further relation [0]=0 on B_new kills its subgroup generated by κ_new(c), of order dividing 3, and the composite B→B_new/⟨[0]⟩ has exact kernel (B∩H)+⟨c⟩, killed by 6, with zero cokernel. This last quotient describes the effect of an extra degenerate-zero relation; it is not the generic Goncharov presentation.",
+      "hypotheses": [
+        "F is a field with at least four elements.",
+        "Modulo n uses n>0 and the stated coprimality; the 2 and 3 exclusions are mathematical, not blanket algorithmic exclusions."
+      ],
+      "proofSteps": [
+        "Flat localization or rationalization kills the displayed bounded-torsion kernels/cokernels while preserving exactness; apply the pinned Module.Flat.lTensor_exact and injectivity theorem.",
+        "For modulo n, do not invoke flatness of ℤ/n. If K and C are killed by m coprime to n, multiplication by n on them is an automorphism: Bézout gives the inverse. Use the two short exact sequences through the image to check f induces an isomorphism on quotient-by-n groups; then identify those with tensoring ℤ/n.",
+        "Apply this with m=2 to κ_new and ι_new_old, and m=6 to μ_rel; use the integral generic identification unchanged.",
+        "The extra quotient kills precisely the image of c: preimages differ by ker κ_new=B∩H. The inherited 6c=0 and 2H=0 give the kernel bound, with its 3-primary contribution explicitly located."
+      ],
+      "prerequisites": [
+        "K3BlochGroups:V.3/bloch-lecture-six-torsion",
+        "K3BlochGroups:V.3/cgz-published-lemma-two-two",
+        "K3BlochGroups:V.3/cgz-published-to-older",
+        "K3BlochGroups:V.3/goncharov-generic-comparison",
+        "K3BlochGroups:V.3/goncharov-curve-comparison",
+        "K3BlochGroups:V.3/three-c-angle-minus-one",
+        "mathlib:Module.Flat.lTensor_exact",
+        "mathlib:Module.Flat.lTensor_preserves_injective_linearMap",
+        "mathlib:TensorProduct.map"
+      ],
+      "acceptance": [
+        "For F₁₁ the maps fail modulo 2 and become isomorphisms modulo every odd n.",
+        "For F₅ the additional [0]=0 quotient is zero; its map from B≅ℤ/3 fails modulo 3.",
+        "The lecture relation kernel is removed before tensoring: B_raw(ℚ)⊗ℚ→B(ℚ)⊗ℚ still has the infinite-order 4[−1] in its kernel."
+      ],
+      "sources": [
+        {
+          "sourceId": "Bloch2000",
+          "locator": "§6.1, p. 43, (6.1.2)",
+          "excerpt": "B(f ) = Ker λ.",
+          "match": "The raw lecture object; the capital F in the field argument is understood from the preceding displayed sequence. Comparisons below are derived using the inherited five-term presentation, not asserted by this passage."
+        },
+        {
+          "sourceId": "CGZ2023",
+          "locator": "§2.1, p. 391, Lemma 2.2 and proof",
+          "excerpt": "There is a surjection",
+          "match": "The published surjection and 2-torsion kernel; the exact kernel is derived from the inherited angle-bracket and degenerate-relation results. The field-size qualification is checked separately."
+        },
+        {
+          "sourceId": "Goncharov1995",
+          "locator": "§1.9, p. 225, Conjecture 1.20",
+          "excerpt": "Conjecture 1.20.",
+          "match": "Equality of generic and all-curve relation groups is conjectural in the source. The unconditional plan supplies the quotient map and its exact kernel; it does not assert injectivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K3/BlochConventions",
+        "namespace": "TauCeti.BlochConventions"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "need": "For an integral scheme X smooth of relative dimension one over Spec F and an F-rational section u, identify the local ring at u with a DVR having fraction field X.functionField and residue field F; supply canonical projective specialization F(X)→P¹(F), evaluation of regular functions and constants, zeros/poles, and its compatibility with the projective line and field embeddings. V.3 imports this geometry and uses Polylogarithms:P.4/specialization-and-delta for the algebraic cycle formula.",
+      "neededBy": [
+        "K3BlochGroups:V.3/goncharov-curve-b2",
+        "K3BlochGroups:V.3/goncharov-curve-boundary",
+        "K3BlochGroups:V.3/goncharov-curve-comparison"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "K3BlochGroups:V.3",
+      "status": "planned",
+      "note": "The accepted Suslin/exterior/older-CGZ nodes are reused. All remaining convention targets have precise presentations and comparison maps, including the corrected published CGZ version and exact coefficient restrictions. This is a complete target-level pass, not a closed claim about the all-curve variant.",
+      "remaining": [
+        "Supply the canonical smooth-curve local-DVR and projective-specialization contract from the upstream AlgebraicCurves dictionary.",
+        "Establish, from a read applicable source, whether K_curv vanishes for the all-curve Goncharov rational presentation over fields with at least four elements; retain the proved F₃ exception; preserve Conjecture 1.20 as a gap until then.",
+        "Assembly/consumer maintenance outside this issue’s file permissions: update the HB.1 and PLAN-HABIRO convention references, direct V.3→HB.1 edge, and analytic reservations/consumer pointers as detailed in the handoff."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Canonical smooth-curve projective specialization is an upstream dictionary input",
+      "detail": "The pinned library has the scheme, integral/smooth predicates and function field, but no verified canonical map F(X)→P¹(F) at F-rational points with the complete local-DVR comparison contract. The requested AlgebraicCurves dictionary owns this input. Suggested signatures use its concrete typed imported map and do not define a private Prop proxy or assert this geometry is implemented. Boundary descent and the curve quotient comparison are conditional on that imported canonical construction.",
+      "neededBy": [
+        "K3BlochGroups:V.3/goncharov-curve-b2",
+        "K3BlochGroups:V.3/goncharov-curve-boundary",
+        "K3BlochGroups:V.3/goncharov-curve-comparison"
+      ]
+    },
+    {
+      "title": "The all-curve generic comparison has an unestablished rational kernel",
+      "detail": "For fields with at least four elements and the precise all-smooth-connected-curves relation set of Goncharov 1995 §1.9, the map is a surjection with exact kernel K_curv=R_curv^ℚ/R_red. Equality of relation groups is Conjecture 1.20 in that source. No proof of the weight-two all-curve assertion for those fields was verified in this pass. F₃ is a demonstrated exception with K_curv≅ℚ, not an unresolved case. The F(t)-only isomorphism from Polylogarithms:P.4 is a different statement and does not discharge this gap. A follow-up must locate and read an applicable proof or preserve this as a conjectural comparison; it must not claim a bounded-torsion correction for a rational vector-space kernel.",
+      "neededBy": [
+        "K3BlochGroups:V.3/goncharov-curve-comparison",
+        "K3BlochGroups:V.3/convention-coefficient-exports"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "K3BlochGroups/E101",
+      "kind": "error",
+      "locator": "CGZ published 2023, §2.1, p. 391, Lemma 2.2 (field unrestricted in the statement)",
+      "printed": "There is a surjection B(F) → B̃(F)",
+      "correction": "Assume |F|≥4 for the stated surjection with 2-torsion kernel. Here B̃ denotes the published modified group, not the older exterior group. Its exact kernel is B(F)∩H.",
+      "reason": "The full extended relation matrices give B_new(F₂)=ℤ/3 while B(F₂)=0, so surjectivity fails. Over F₃, Z[P¹]/C_ext=ℤ/2 and its modified boundary is an isomorphism to Q_neg=ℤ/2, so B_new=0; B(F₃)=2ℤ has an infinite kernel not killed by 2. The proof’s cited angle-torsion identities require |F|≥4. This is the published-version continuation of accepted finding K3BlochGroups/E14 for arXiv-v3, not a new claim that the old invalid target persists.",
+      "affects": "a stated result",
+      "known": "The analogous arXiv-v3 small-field qualification is recorded and independently confirmed in inherited K3BlochGroups/E14. The published version corrects the target definition but leaves this unrestricted wording.",
+      "searched": [
+        "2026-10-05: author-hosted published CGZ PDF pp. 390–392 and acknowledgements p. 424; no further field-size correction there.",
+        "2026-10-05: Calegari research page https://math.uchicago.edu/~fcale/research.html and arXiv https://arxiv.org/abs/1712.04887 (latest listed version v3, 6 April 2021); no further small-field erratum found."
+      ],
+      "source": "CGZ2023"
+    },
+    {
+      "id": "K3BlochGroups/E102",
+      "kind": "misprint",
+      "locator": "Goncharov 1995 §1.9, p. 222, equation (1.25a), read together with p. 221 inversion-cycle sentence and p. 224 Corollary 1.19",
+      "printed": "𝓑_p(F)_ℚ = ℤ[P¹_F]/𝓡_p(F)",
+      "correction": "When the left side is rationalized, rationalize the quotient on the right as well: ℚ[P¹(F)]/𝓡_p(F)_ℚ. Interpret the accompanying weight-two inversion-cycle claim rationally; integrally δ([x]+[x⁻¹])=x∧(−x) can be nonzero 2-torsion.",
+      "reason": "The displayed right side is an abelian-group quotient, not automatically a ℚ-vector space. Corollary 1.19 explicitly uses the rational relation subspace in ℚ[P¹], and the surrounding motivic complex uses rational coefficients. At weight two the antisymmetric wedge defined on p. 218 retains diagonal 2-torsion, so the unqualified inversion-cycle sentence is not an integral cycle identity; e.g. the boundary of h(2) in P(F₅) is nonzero. The packet implements the consistently rational version and asserts no integral all-curve identification.",
+      "affects": "nothing",
+      "known": "No separate published erratum found; the rational reading is explicit in the source’s Corollary 1.19 and its rational motivic formulation.",
+      "searched": [
+        "2026-10-05: published scan pp. 218 and 221–225 and MPIM 1991 preprint counterpart.",
+        "2026-10-05: author publications page https://sasha-goncharov.github.io/ and its Advances1995.pdf link; no linked erratum to this display."
+      ],
+      "source": "Goncharov1995"
+    },
+    {
+      "id": "K3BlochGroups/E103",
+      "source": "Goncharov1995",
+      "kind": "error",
+      "locator": "Published Goncharov 1995 §1.8 p. 217 (arbitrary field), §1.9 p. 225 Conjecture 1.20, with the literal reduced five-tuple presentation on p. 218",
+      "printed": "Rₙ(F)=𝓡ₙ(F) for n=2,3.",
+      "correction": "The equality cannot include F₃ with the literal generic five-tuple relations: G₂^gen(F₃)⊗ℚ≅ℚ but G₂^curv(F₃)=0. A comparison-isomorphism formulation must exclude this field or use an explicitly changed small-field presentation. For fields with at least four elements, injectivity remains unestablished in this pass; no correction here asserts that general equality.",
+      "reason": "P¹(F₃) has four points, so no injective five-tuple exists and G₂^gen is ℤ on [−1]. For the rational curve presentation, [0],[∞] are zero, [1] is zero by [t]+[1−t], and [−1]+[−1]=0 by specializing the rational cycle [t]+[t⁻¹] at −1 and 0 on P¹. Every rational generator is therefore zero. Multiplying the inversion cycle by 2 also gives an integral cycle, so the conclusion is compatible with rationalizing the integral relation definition. The rational comparison kernel is ℚ.",
+      "affects": "a stated result",
+      "known": "No linked erratum to this field-size point found; this entry records the explicit exception to the displayed conjectural equality, not a claimed failure of a proved infinite-field theorem.",
+      "searched": [
+        "2026-10-05: published scan pp. 217–225, including the arbitrary-field scope and complete all-curve definition.",
+        "2026-10-05: author publications page https://sasha-goncharov.github.io/ and its Advances1995.pdf link; no linked erratum.",
+        "2026-10-05: searches for Goncharov Conjecture 1.20 finite-field qualification and published-paper erratum; no applicable correction located."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://dokumen.pub/higher-regulators-algebraic-k-theory-and-zeta-functions-of-elliptic-curves-0821821148.html",
+      "read": "2026-10-05",
+      "sha256": "3a275bf712085565937d3410f049a59f2e72f13dc17145d4c0c67dcb8e21c4f2",
+      "citation": "Public HTML book-text mirror of Bloch (2000); the publisher endpoint did not supply text, and the raw-kernel locator is scoped to the text read."
+    },
+    {
+      "kind": "published",
+      "url": "https://sasha-goncharov.github.io/Advances1995.pdf",
+      "read": "2026-10-05",
+      "sha256": "434fd9093d2e27e96fae240f8f591ca532baa2f9cc7cdfeb8bc087f5235f5344",
+      "citation": "Advances in Mathematics 114 (1995), 197–318; DOI 10.1006/aima.1995.1045; author-hosted published scan"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://archive.mpim-bonn.mpg.de/916/1/preprint_1991_64.pdf",
+      "read": "2026-10-05",
+      "sha256": "4b918d5b77b86d129c1d5f2d0d1e948c83a723b2a551319cb54e6507547f701f",
+      "citation": "MPIM preprint 1991-64; search aid, locators verified against the published scan where used"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/CGZ.pdf",
+      "read": "2026-10-05",
+      "sha256": "8003ee09bfec725127f4b5c2058c5516834a91a160d9c4428d962b1e5a1f0212",
+      "citation": "Annales scientifiques de l’École normale supérieure 56 (2023), 383–426; DOI 10.24033/asens.2537; published author PDF"
+    }
+  ],
+  "ownership": {
+    "inheritsFrom": "research/blueprint/packets/K3BlochGroups.json",
+    "analyticOwner": "Polylogarithms:P.1",
+    "analyticDescentOwner": "Polylogarithms:P.2",
+    "cgzConventionOwner": "K3BlochGroups:V.3",
+    "finiteChernOwner": "HabiroNumberFields:HB.1",
+    "newPlanetCount": 0,
+    "reason": "The inherited V.3 packet already assigns six planets. This part adds none and cites those inherited landmarks; combined layer count remains six."
+  },
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves"
+      ],
+      "note": "A canonical projective-specialization interface is required for the all-curve Goncharov variant. The request belongs in the existing function-field/curve dictionary, not a duplicate curve foundation in V.3."
+    }
+  ],
+  "restructure": [
+    {
+      "kind": "sublayers",
+      "stageId": "K3BlochGroups:V.3",
+      "reason": "The inherited six landmarks already fill V.3. An assembly may separate tensor/presentation foundations from versioned integral convention comparisons while preserving ownership; no extra planets are introduced in this part.",
+      "proposed": [
+        {
+          "title": "Tensor boundaries and five-term presentations",
+          "nodes": [
+            "K3BlochGroups:V.3/antisymmetric-tensor-quotient",
+            "K3BlochGroups:V.3/five-term-relation",
+            "K3BlochGroups:V.3/pre-bloch-group",
+            "K3BlochGroups:V.3/bloch-group"
+          ]
+        },
+        {
+          "title": "Bloch and Goncharov convention comparisons",
+          "nodes": [
+            "K3BlochGroups:V.3/bloch-lecture-kernel",
+            "K3BlochGroups:V.3/bloch-lecture-obstruction",
+            "K3BlochGroups:V.3/bloch-lecture-six-torsion",
+            "K3BlochGroups:V.3/goncharov-generic-b2",
+            "K3BlochGroups:V.3/goncharov-generic-comparison",
+            "K3BlochGroups:V.3/goncharov-curve-b2",
+            "K3BlochGroups:V.3/goncharov-curve-comparison"
+          ]
+        },
+        {
+          "title": "Versioned CGZ groups and coefficient exports",
+          "nodes": [
+            "K3BlochGroups:V.3/cgz-bloch-group",
+            "K3BlochGroups:V.3/cgz-published-bloch-group",
+            "K3BlochGroups:V.3/cgz-published-lemma-two-two",
+            "K3BlochGroups:V.3/cgz-published-to-older",
+            "K3BlochGroups:V.3/convention-coefficient-exports"
+          ]
+        }
+      ]
+    }
+  ],
+  "formalPrototype": {
+    "status": "elaborated-signatures-only",
+    "note": "The suggested file uses concrete free groups, kernels, tensor and subgroup/submodule quotients. Its Imported namespace supplies signature forms for the cited same-roadmap objects; these remain planned, not implemented. For the curve nodes, an explicit family of projective evaluation functions is a parameter. Unconditional quotient APIs apply to any such family, while geometric conclusions need the canonical supplier. GoncharovCurve.boundary and its APIs take the exact relation-subspace containment R_curv≤ker d as the quotient-descent input. GoncharovCurve.genericCompare takes R_red≤R_curv, and cycleCompare takes both containments. The two projective-line tests display the precise evaluation equalities at 0/∞ or x/0. These conditions expose the missing dictionary, and are not new theorem assumptions that replace its construction. No unconditional boundary closure or generic-relation containment is asserted for arbitrary evaluation functions.",
+    "curveInputs": [
+      "Canonical projective specialization at every F-rational point and its projective-line evaluation equalities.",
+      "R_curv^ℚ≤ker d, from the local-DVR dictionary and Polylogarithms:P.4/specialization-and-delta.",
+      "R_red≤R_curv^ℚ, from the projective-line cycle R(1+t(x−1),y)."
+    ]
+  }
+}
