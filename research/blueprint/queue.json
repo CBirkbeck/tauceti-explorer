@@ -10835,8 +10835,9 @@
    "avoidAccountOf": "DESIGN-AbelianSchemesAndArithmeticModuliPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3483"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3483",
+   "finishedAt": "2026-10-05T02:03:53Z"
   },
   {
    "id": "DESIGN-MordellLawrenceVenkateshPartII",
@@ -21161,7 +21162,8 @@
    ],
    "avoidAccountOf": "BP-PadicMeasuresIwasawaAlgebras",
    "prompt": "research/blueprint/prompts/REV-PadicMeasuresIwasawaAlgebras.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #146"
   },
   {
    "id": "BP-LocallyAnalyticDistributions",
@@ -27225,8 +27227,9 @@
    ],
    "avoidAccountOf": "BP-NeronModelsAndSemistableAbelianVarieties",
    "prompt": "research/blueprint/prompts/REV-NeronModelsAndSemistableAbelianVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #457"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #457",
+   "finishedAt": "2026-10-05T02:03:56Z"
   },
   {
    "id": "BP-OrdinaryAutomorphicFormsAndModularityLifting",
@@ -31350,7 +31353,8 @@
    ],
    "avoidAccountOf": "BP-ProbabilisticAndMetricNumberTheory",
    "prompt": "research/blueprint/prompts/REV-ProbabilisticAndMetricNumberTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #548"
   },
   {
    "id": "BP-QSeriesPartitionsAndMockModularForms",
