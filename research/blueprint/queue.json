@@ -21730,8 +21730,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
-   "state": "pending",
-   "note": "released on GitHub issue #346"
+   "state": "external",
+   "note": "claimed on GitHub issue #346"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -22987,11 +22987,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ColemanIntegration.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "released on GitHub issue #698"
+   "note": "claimed on GitHub issue #698"
   },
   {
    "id": "REV-ColemanIntegration",
@@ -23037,11 +23037,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #699"
+   "note": "released on GitHub issue #699"
   },
   {
    "id": "REV-ColemanPowerSeries",
@@ -26396,9 +26396,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-KTheoryFiniteLocalFields.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #763"
+   "note": "claimed on GitHub issue #763"
   },
   {
    "id": "REV-KTheoryFiniteLocalFields",
@@ -30265,8 +30265,9 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #526"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #526",
+   "finishedAt": "2026-10-05T15:38:26Z"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.0",
