@@ -23756,12 +23756,13 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions--L1.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #5879"
+   "note": "deliverables arrived from an external worker on issue #5879",
+   "finishedAt": "2026-10-05T09:36:09Z"
   },
   {
    "id": "REV-DirichletPadicLFunctions--L1",
@@ -59768,8 +59769,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticLegendreCharacterInterfaces.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1692"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1692",
+   "finishedAt": "2026-10-05T09:36:10Z"
   },
   {
    "id": "REV-DESIGN-EllipticLegendreCharacterInterfaces",
