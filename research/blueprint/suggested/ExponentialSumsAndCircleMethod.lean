@@ -1,3 +1,18 @@
+import Mathlib.Algebra.MvPolynomial.Eval
+import Mathlib.Algebra.MvPolynomial.Degrees
+import Mathlib.RingTheory.MvPolynomial.Homogeneous
+import Mathlib.Algebra.GCDMonoid.Finset
+import Mathlib.Topology.Algebra.InfiniteSum.Defs
+import Mathlib.Analysis.SpecialFunctions.Gamma.Basic
+import Mathlib.Algebra.Group.ForwardDiff
+import Mathlib.Analysis.Fourier.AddCircle
+import Mathlib.MeasureTheory.Integral.Pi
+import Mathlib.MeasureTheory.Integral.Bochner.Set
+import Mathlib.Analysis.Normed.Group.AddCircle
+import Mathlib.Analysis.InnerProductSpace.PiL2
+import Mathlib.MeasureTheory.Measure.WithDensity
+import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+import Mathlib.MeasureTheory.Function.LpSeminorm.Defs
 import Mathlib.Data.Int.Interval
 import Mathlib.Algebra.Order.BigOperators.Ring.Finset
 import Mathlib.Algebra.BigOperators.Intervals
@@ -19,7 +34,7 @@ import Mathlib.Tactic
 
 /-! This file is not the roadmap and is not exhaustive; the roadmap document
 is definitive. These suggested Lean forms help contributors and reviewers
-converge on names and signatures for the ES.0 conductor and modulus-packing checkpoints.
+converge on names and signatures for the ES.0–ES.5 planning checkpoints.
 All new declarations are planning obligations, not implementations.
 Existing DirichletCharacter, periodicity, finite intervals and Möbius are reused. -/
 noncomputable section
@@ -729,4 +744,701 @@ example :
         (if n + (k : ℤ) = 1 then (1 : ℂ) else if n + (k : ℤ) = 2 then -1 else 0)‖ ^ 2) = 2 := by sorry
 /-- The uniform theorem permits an empty off-diagonal premise at r=N. -/
 example (N : ℕ) (hN : 0 < N) : Finset.Ico 1 (N / N) = ∅ := by sorry
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+open MeasureTheory
+open scoped ComplexConjugate
+
+/-- ES.1/weighted-torus-sum. Native torus characters and finite carrier. -/
+def weightedTorusSum {ι : Type*} (n : ℕ) (A : Finset ι)
+    (Φ : ι → Fin n → ℤ) (w : ι → ℂ) (α : Fin n → AddCircle (1 : ℝ)) : ℂ :=
+  ∑ a ∈ A, w a * ∏ j : Fin n, fourier (Φ a j) (α j)
+
+theorem weightedTorusSum_empty {ι : Type*} (n : ℕ)
+    (Φ : ι → Fin n → ℤ) (w : ι → ℂ) (α : Fin n → AddCircle (1 : ℝ)) :
+    weightedTorusSum n ∅ Φ w α = 0 := by sorry
+theorem weightedTorusSum_singleton {ι : Type*} [DecidableEq ι] (n : ℕ)
+    (a : ι) (Φ : ι → Fin n → ℤ) (w : ι → ℂ) (α : Fin n → AddCircle (1 : ℝ)) :
+    weightedTorusSum n {a} Φ w α = w a * ∏ j : Fin n, fourier (Φ a j) (α j) := by sorry
+theorem weightedTorusSum_zero {ι : Type*} (n : ℕ) (A : Finset ι)
+    (Φ : ι → Fin n → ℤ) (w : ι → ℂ) :
+    weightedTorusSum n A Φ w 0 = ∑ a ∈ A, w a := by sorry
+theorem weightedTorusSum_add_weights {ι : Type*} (n : ℕ) (A : Finset ι)
+    (Φ : ι → Fin n → ℤ) (u v : ι → ℂ) (α : Fin n → AddCircle (1 : ℝ)) :
+    weightedTorusSum n A Φ (u + v) α =
+      weightedTorusSum n A Φ u α + weightedTorusSum n A Φ v α := by sorry
+theorem weightedTorusSum_continuous {ι : Type*} (n : ℕ) (A : Finset ι)
+    (Φ : ι → Fin n → ℤ) (w : ι → ℂ) : Continuous (weightedTorusSum n A Φ w) := by sorry
+theorem weightedTorusSum_integer_phase {ι : Type*} (n : ℕ) (A : Finset ι)
+    (Φ : ι → Fin n → ℤ) (w : ι → ℂ) (x : Fin n → ℝ) :
+    weightedTorusSum n A Φ w (fun j => (x j : AddCircle (1 : ℝ))) =
+      ∑ a ∈ A, w a * Complex.exp (2 * Real.pi * Complex.I *
+        (∑ j : Fin n, (Φ a j : ℝ) * x j)) := by sorry
+theorem weightedTorusSum_zero_dimension {ι : Type*} (A : Finset ι)
+    (Φ : ι → Fin 0 → ℤ) (w : ι → ℂ) (α : Fin 0 → AddCircle (1 : ℝ)) :
+    weightedTorusSum 0 A Φ w α = ∑ a ∈ A, w a := by sorry
+
+/-- ES.1/torus-coefficient-extraction. The measure has total mass one. -/
+theorem torus_coefficient_extraction {ι : Type*} (n : ℕ) (A : Finset ι)
+    (Φ : ι → Fin n → ℤ) (w : ι → ℂ) (b : Fin n → ℤ) :
+    (∫ α : Fin n → AddCircle (1 : ℝ),
+      weightedTorusSum n A Φ w α * ∏ j : Fin n, fourier (-b j) (α j)
+      ∂Measure.pi (fun _ => AddCircle.haarAddCircle)) =
+      ∑ a ∈ A, if Φ a = b then w a else 0 := by sorry
+
+/-- ES.1/moment-weyl-sum. Positive interval; coordinate j has degree j+1. -/
+def momentWeylSum (n N : ℕ) (α : Fin n → AddCircle (1 : ℝ)) : ℂ :=
+  weightedTorusSum n (Finset.Icc 1 N)
+    (fun m j => (m : ℤ) ^ (j.val + 1)) (fun _ => 1) α
+theorem momentWeylSum_eq_weightedTorusSum (n N : ℕ) (α : Fin n → AddCircle (1 : ℝ)) :
+    momentWeylSum n N α = weightedTorusSum n (Finset.Icc 1 N)
+      (fun m j => (m : ℤ) ^ (j.val + 1)) (fun _ => 1) α := by sorry
+theorem momentWeylSum_zero_cutoff (n : ℕ) (α : Fin n → AddCircle (1 : ℝ)) :
+    momentWeylSum n 0 α = 0 := by sorry
+theorem momentWeylSum_zero_phase (n N : ℕ) : momentWeylSum n N 0 = N := by sorry
+theorem momentWeylSum_zero_dimension (N : ℕ) (α : Fin 0 → AddCircle (1 : ℝ)) :
+    momentWeylSum 0 N α = N := by sorry
+theorem momentWeylSum_real_lift (n N : ℕ) (x : Fin n → ℝ) :
+    momentWeylSum n N (fun j => (x j : AddCircle (1 : ℝ))) =
+      ∑ m ∈ Finset.Icc 1 N, Complex.exp (2 * Real.pi * Complex.I *
+        (∑ j : Fin n, x j * (m : ℝ) ^ (j.val + 1))) := by sorry
+
+/-- ES.2/vinogradov-mean-value. Ordered pairs, not permutation classes. -/
+def vinogradovMeanValue (n s N : ℕ) : ℕ :=
+  Fintype.card {xy : (Fin s → Fin N) × (Fin s → Fin N) //
+    ∀ j : Fin n, (∑ i : Fin s, ((xy.1 i).val + 1) ^ (j.val + 1)) =
+      ∑ i : Fin s, ((xy.2 i).val + 1) ^ (j.val + 1)}
+theorem vinogradovMeanValue_source_count (n s N : ℕ) :
+    vinogradovMeanValue n s N = Fintype.card
+      {xy : (Fin s → Fin N) × (Fin s → Fin N) //
+        ∀ j : Fin n, (∑ i : Fin s, ((xy.1 i).val + 1) ^ (j.val + 1)) =
+          ∑ i : Fin s, ((xy.2 i).val + 1) ^ (j.val + 1)} := by sorry
+theorem vinogradovMeanValue_zero_variables (n N : ℕ) :
+    vinogradovMeanValue n 0 N = 1 := by sorry
+theorem vinogradovMeanValue_zero_degree (s N : ℕ) :
+    vinogradovMeanValue 0 s N = N ^ (2 * s) := by sorry
+theorem vinogradovMeanValue_one_variable (n N : ℕ) (hn : 1 ≤ n) :
+    vinogradovMeanValue n 1 N = N := by sorry
+theorem vinogradovMeanValue_one_cutoff (n s : ℕ) :
+    vinogradovMeanValue n s 1 = 1 := by sorry
+theorem vinogradovMeanValue_zero_cutoff (n s : ℕ) (hs : 0 < s) :
+    vinogradovMeanValue n s 0 = 0 := by sorry
+theorem vinogradovMeanValue_mono_degree (n m s N : ℕ) (h : n ≤ m) :
+    vinogradovMeanValue m s N ≤ vinogradovMeanValue n s N := by sorry
+
+/-- ES.1/vinogradov-counting-integral. All finite boundary cases are retained. -/
+theorem vinogradov_counting_integral (n s N : ℕ) :
+    (vinogradovMeanValue n s N : ℝ) =
+      ∫ α : Fin n → AddCircle (1 : ℝ), ‖momentWeylSum n N α‖ ^ (2 * s)
+        ∂Measure.pi (fun _ => AddCircle.haarAddCircle) := by sorry
+
+/-! weightedTorusSum_empty_test -/
+example (n : ℕ) (Φ : ℤ → Fin n → ℤ) (w : ℤ → ℂ)
+    (α : Fin n → AddCircle (1 : ℝ)) : weightedTorusSum n ∅ Φ w α = 0 := by sorry
+/-! weightedTorusSum_singleton_negative_test -/
+example : weightedTorusSum 1 ({0} : Finset ℤ) (fun _ _ => -1) (fun _ => 2)
+    (fun _ => ((1 / 4 : ℝ) : AddCircle (1 : ℝ))) = -2 * Complex.I := by sorry
+/-! weightedTorusSum_fourier_test -/
+example (m : ℤ) (α : Fin 1 → AddCircle (1 : ℝ)) :
+    weightedTorusSum 1 ({0} : Finset ℤ) (fun _ _ => m) (fun _ => 1) α =
+      fourier m (α 0) := by sorry
+/-! weightedTorusSum_zero_dimension_test -/
+example (α : Fin 0 → AddCircle (1 : ℝ)) :
+    weightedTorusSum 0 ({0, 1} : Finset ℤ) (fun _ _ => 0)
+      (fun i => if i = 0 then 2 else -3) α = -1 := by sorry
+/-! momentWeylSum_zero_cutoff_test -/
+example (n : ℕ) (α : Fin n → AddCircle (1 : ℝ)) : momentWeylSum n 0 α = 0 := by sorry
+/-! momentWeylSum_zero_phase_test -/
+example : momentWeylSum 2 3 0 = 3 := by sorry
+/-! momentWeylSum_linear_test -/
+example (α : Fin 1 → AddCircle (1 : ℝ)) :
+    momentWeylSum 1 1 α = fourier 1 (α 0) := by sorry
+/-! momentWeylSum_signed_value_test -/
+example : momentWeylSum 1 2 (fun _ => ((1 / 2 : ℝ) : AddCircle (1 : ℝ))) = 0 := by sorry
+/-! vinogradovMeanValue_ordered_test -/
+example : vinogradovMeanValue 2 2 2 = 6 := by sorry
+/-! vinogradovMeanValue_empty_pair_test -/
+example (n : ℕ) : vinogradovMeanValue n 0 0 = 1 := by sorry
+/-! vinogradovMeanValue_linear_count_test -/
+example (n N : ℕ) (h : 1 ≤ n) :
+    vinogradovMeanValue n 1 N = (Finset.Icc 1 N).card := by sorry
+/-! vinogradovMeanValue_three_variables_test -/
+example : vinogradovMeanValue 2 3 2 = 20 := by sorry
+
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+open MeasureTheory
+
+/-- ES.1/reduced-arc-indices. The zero centre has the single representative (0,1). -/
+def reducedArcIndices (Q : ℕ) : Finset (ℕ × ℕ) :=
+  ((Finset.range (Q + 1)).product (Finset.range (Q + 1))).filter
+    (fun aq => 1 ≤ aq.2 ∧ aq.1 < aq.2 ∧ Nat.Coprime aq.1 aq.2)
+theorem mem_reducedArcIndices (Q a q : ℕ) :
+    (a,q) ∈ reducedArcIndices Q ↔ 1 ≤ q ∧ q ≤ Q ∧ a < q ∧ Nat.Coprime a q := by sorry
+theorem reducedArcIndices_zero : reducedArcIndices 0 = ∅ := by sorry
+theorem reducedArcIndices_one : reducedArcIndices 1 = {(0,1)} := by sorry
+theorem reducedArcIndices_mono (Q R : ℕ) (h : Q ≤ R) :
+    reducedArcIndices Q ⊆ reducedArcIndices R := by sorry
+
+/-- ES.1/major-arc. Native closed torus ball, with wraparound built in. -/
+def majorArc (aq : ℕ × ℕ) (η : ℝ) : Set (AddCircle (1 : ℝ)) :=
+  Metric.closedBall (((aq.1 : ℝ) / aq.2 : ℝ) : AddCircle (1 : ℝ)) η
+theorem mem_majorArc (aq : ℕ × ℕ) (η : ℝ) (α : AddCircle (1 : ℝ)) :
+    α ∈ majorArc aq η ↔ dist α (((aq.1 : ℝ) / aq.2 : ℝ) : AddCircle (1 : ℝ)) ≤ η := by sorry
+theorem majorArc_lift (aq : ℕ × ℕ) (η x : ℝ) :
+    (x : AddCircle (1 : ℝ)) ∈ majorArc aq η ↔
+      ∃ z : ℤ, |x - (aq.1 : ℝ) / aq.2 - z| ≤ η := by sorry
+theorem majorArc_negative (aq : ℕ × ℕ) (η : ℝ) (h : η < 0) :
+    majorArc aq η = ∅ := by sorry
+theorem majorArc_centre_mem (aq : ℕ × ℕ) (η : ℝ) (h : 0 ≤ η) :
+    (((aq.1 : ℝ) / aq.2 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArc aq η := by sorry
+theorem majorArc_measurable (aq : ℕ × ℕ) (η : ℝ) :
+    IsClosed (majorArc aq η) ∧ MeasurableSet (majorArc aq η) := by sorry
+
+/-- ES.1/major-arcs. No disjointness is assumed in this definition. -/
+def majorArcs (Q : ℕ) (η : ℝ) : Set (AddCircle (1 : ℝ)) :=
+  ⋃ aq ∈ reducedArcIndices Q, majorArc aq η
+theorem mem_majorArcs (Q : ℕ) (η : ℝ) (α : AddCircle (1 : ℝ)) :
+    α ∈ majorArcs Q η ↔ ∃ aq ∈ reducedArcIndices Q, α ∈ majorArc aq η := by sorry
+theorem majorArcs_zero (η : ℝ) : majorArcs 0 η = ∅ := by sorry
+theorem majorArcs_one (η : ℝ) : majorArcs 1 η = majorArc (0,1) η := by sorry
+theorem majorArcs_mono (Q R : ℕ) (η θ : ℝ) (hq : Q ≤ R) (hr : η ≤ θ) :
+    majorArcs Q η ⊆ majorArcs R θ := by sorry
+theorem majorArcs_measurable (Q : ℕ) (η : ℝ) :
+    IsClosed (majorArcs Q η) ∧ MeasurableSet (majorArcs Q η) := by sorry
+
+/-- ES.1/minor-arcs. Closed major boundaries are not minor. -/
+def minorArcs (Q : ℕ) (η : ℝ) : Set (AddCircle (1 : ℝ)) := (majorArcs Q η)ᶜ
+theorem mem_minorArcs (Q : ℕ) (η : ℝ) (α : AddCircle (1 : ℝ)) :
+    α ∈ minorArcs Q η ↔ ∀ aq ∈ reducedArcIndices Q,
+      η < dist α (((aq.1 : ℝ) / aq.2 : ℝ) : AddCircle (1 : ℝ)) := by sorry
+theorem minorArcs_zero (η : ℝ) : minorArcs 0 η = Set.univ := by sorry
+theorem minorArcs_measurable (Q : ℕ) (η : ℝ) :
+    IsOpen (minorArcs Q η) ∧ MeasurableSet (minorArcs Q η) := by sorry
+theorem minorArcs_antitone (Q R : ℕ) (η θ : ℝ) (hq : Q ≤ R) (hr : η ≤ θ) :
+    minorArcs R θ ⊆ minorArcs Q η := by sorry
+
+theorem reduced_centre_separation (Q : ℕ) (u v : ℕ × ℕ)
+    (hu : u ∈ reducedArcIndices Q) (hv : v ∈ reducedArcIndices Q) (hne : u ≠ v) :
+    1 / ((u.2 : ℝ) * v.2) ≤
+      dist (((u.1 : ℝ) / u.2 : ℝ) : AddCircle (1 : ℝ))
+        (((v.1 : ℝ) / v.2 : ℝ) : AddCircle (1 : ℝ)) ∧
+    1 / (Q : ℝ) ^ 2 ≤
+      dist (((u.1 : ℝ) / u.2 : ℝ) : AddCircle (1 : ℝ))
+        (((v.1 : ℝ) / v.2 : ℝ) : AddCircle (1 : ℝ)) := by sorry
+theorem major_arcs_disjoint (Q : ℕ) (η : ℝ) (hq : 1 ≤ Q) (hη : 0 ≤ η)
+    (hsize : 2 * η * (Q : ℝ)^2 < 1) :
+    Set.Pairwise (↑(reducedArcIndices Q)) (fun u v => Disjoint (majorArc u η) (majorArc v η)) := by sorry
+theorem major_minor_counting_partition (Q : ℕ) (η : ℝ) (hq : 1 ≤ Q)
+    (hη : 0 ≤ η) (hsize : 2 * η * (Q : ℝ)^2 < 1)
+    (F : AddCircle (1 : ℝ) → ℂ) (hF : Integrable F AddCircle.haarAddCircle) :
+    (∫ α, F α ∂AddCircle.haarAddCircle) =
+      (∑ aq ∈ reducedArcIndices Q, ∫ α in majorArc aq η, F α ∂AddCircle.haarAddCircle) +
+        ∫ α in minorArcs Q η, F α ∂AddCircle.haarAddCircle := by sorry
+
+/-! reducedArcIndices_zero_test -/
+example : reducedArcIndices 0 = ∅ := by sorry
+/-! reducedArcIndices_one_test -/
+example : reducedArcIndices 1 = {(0,1)} := by sorry
+/-! reducedArcIndices_three_test -/
+example : reducedArcIndices 3 = {(0,1),(1,2),(1,3),(2,3)} := by sorry
+/-! reducedArcIndices_nonreduced_test -/
+example : (1,2) ∈ reducedArcIndices 4 ∧ (2,4) ∉ reducedArcIndices 4 := by sorry
+/-! majorArc_wrap_test -/
+example : ((19/20 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArc (0,1) (1/10) := by sorry
+/-! majorArc_boundary_test -/
+example : ((1/4 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArc (0,1) (1/4) := by sorry
+/-! majorArc_negative_test -/
+example : majorArc (1,2) (-1) = ∅ := by sorry
+/-! majorArc_native_ball_test -/
+example (u : ℕ × ℕ) (η : ℝ) : majorArc u η =
+    Metric.closedBall (((u.1 : ℝ)/u.2 : ℝ) : AddCircle (1 : ℝ)) η := by sorry
+/-! majorArcs_zero_test -/
+example : majorArcs 0 1 = ∅ := by sorry
+/-! majorArcs_one_test -/
+example : ((19/20 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArcs 1 (1/10) := by sorry
+/-! majorArcs_half_test -/
+example : ((1/2 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArcs 2 0 := by sorry
+/-! majorArcs_native_union_test -/
+example (η : ℝ) : majorArcs 3 η =
+    majorArc (0,1) η ∪ majorArc (1,2) η ∪ majorArc (1,3) η ∪ majorArc (2,3) η := by sorry
+/-! minorArcs_zero_test -/
+example : (0 : AddCircle (1 : ℝ)) ∈ minorArcs 0 1 := by sorry
+/-! minorArcs_centre_test -/
+example : (0 : AddCircle (1 : ℝ)) ∉ minorArcs 1 0 := by sorry
+/-! minorArcs_interior_test -/
+example : ((1/2 : ℝ) : AddCircle (1 : ℝ)) ∈ minorArcs 1 (1/10) := by sorry
+/-! minorArcs_boundary_test -/
+example : ((1/4 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArcs 1 (1/4) ∧
+    ((1/4 : ℝ) : AddCircle (1 : ℝ)) ∉ minorArcs 1 (1/4) := by sorry
+example : ((1/4 : ℝ) : AddCircle (1 : ℝ)) ∈ majorArc (0,1) (1/4) ∩
+    majorArc (1,2) (1/4) := by sorry
+
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+open MeasureTheory
+open scoped ENNReal
+
+/-- ES.2/moment-curve. Native Euclidean space, not the Pi sup norm. -/
+def momentCurve (n : ℕ) (t : ℝ) : EuclideanSpace ℝ (Fin n) :=
+  WithLp.toLp 2 (fun j => t ^ (j.val + 1))
+theorem momentCurve_apply (n : ℕ) (t : ℝ) (j : Fin n) :
+    momentCurve n t j = t ^ (j.val + 1) := by sorry
+theorem momentCurve_zero (n : ℕ) : momentCurve n 0 = 0 := by sorry
+theorem momentCurve_continuous (n : ℕ) : Continuous (momentCurve n) := by sorry
+theorem momentCurve_first_injective (n : ℕ) (hn : 1 ≤ n) :
+    Function.Injective (momentCurve n) := by sorry
+
+/-- ES.2/decoupling-weight. Use withDensity and eLpNorm, not a replacement Lp space. -/
+def decouplingWeight (n E : ℕ) (c : EuclideanSpace ℝ (Fin n)) (R : ℝ)
+    (x : EuclideanSpace ℝ (Fin n)) : ℝ := ((1 + ‖x - c‖ / R) ^ E)⁻¹
+theorem decouplingWeight_centre (n E : ℕ) (c : EuclideanSpace ℝ (Fin n))
+    (R : ℝ) : decouplingWeight n E c R c = 1 := by sorry
+theorem decouplingWeight_bounds (n E : ℕ) (c : EuclideanSpace ℝ (Fin n))
+    (R : ℝ) (hR : 0 < R) (x : EuclideanSpace ℝ (Fin n)) :
+    0 < decouplingWeight n E c R x ∧ decouplingWeight n E c R x ≤ 1 := by sorry
+theorem decouplingWeight_continuous (n E : ℕ) (c : EuclideanSpace ℝ (Fin n))
+    (R : ℝ) (hR : 0 < R) : Continuous (decouplingWeight n E c R) := by sorry
+theorem decouplingWeight_translate (n E : ℕ) (c z x : EuclideanSpace ℝ (Fin n))
+    (R : ℝ) : decouplingWeight n E (c + z) R (x + z) = decouplingWeight n E c R x := by sorry
+theorem decouplingWeight_zero_exponent (n : ℕ) (c : EuclideanSpace ℝ (Fin n))
+    (R : ℝ) (x : EuclideanSpace ℝ (Fin n)) : decouplingWeight n 0 c R x = 1 := by sorry
+
+/-- ES.2/moment-extension. Hypotheses prevent junk values of the native Bochner integral. -/
+def momentExtension (n : ℕ) (a b : ℝ) (g : ℝ → ℂ)
+    (x : EuclideanSpace ℝ (Fin n)) : ℂ :=
+  ∫ t in Set.Icc a b, g t * Complex.exp
+    ((2 * Real.pi * (∑ j : Fin n, x j * t ^ (j.val + 1)) : ℝ) * Complex.I)
+theorem momentExtension_empty (n : ℕ) (a b : ℝ) (h : b < a) (g : ℝ → ℂ) :
+    momentExtension n a b g = 0 := by sorry
+theorem momentExtension_zero_amplitude (n : ℕ) (a b : ℝ) :
+    momentExtension n a b (fun _ => 0) = 0 := by sorry
+theorem momentExtension_add (n : ℕ) (a b : ℝ) (g h : ℝ → ℂ)
+    (hg : IntegrableOn g (Set.Icc a b)) (hh : IntegrableOn h (Set.Icc a b)) :
+    momentExtension n a b (g + h) = momentExtension n a b g + momentExtension n a b h := by sorry
+theorem momentExtension_smul (n : ℕ) (a b : ℝ) (g : ℝ → ℂ) (z : ℂ) :
+    momentExtension n a b (z • g) = z • momentExtension n a b g := by sorry
+theorem momentExtension_zero_spatial (n : ℕ) (a b : ℝ) (g : ℝ → ℂ) :
+    momentExtension n a b g 0 = ∫ t in Set.Icc a b, g t := by sorry
+theorem momentExtension_norm_bound (n : ℕ) (a b : ℝ) (g : ℝ → ℂ)
+    (hg : IntegrableOn g (Set.Icc a b)) (x : EuclideanSpace ℝ (Fin n)) :
+    ‖momentExtension n a b g x‖ ≤ ∫ t in Set.Icc a b, ‖g t‖ := by sorry
+theorem momentExtension_continuous (n : ℕ) (a b : ℝ) (g : ℝ → ℂ)
+    (hg : IntegrableOn g (Set.Icc a b)) : Continuous (momentExtension n a b g) := by sorry
+theorem momentExtension_partition (n M : ℕ) (hM : 1 ≤ M) (g : ℝ → ℂ)
+    (hg : IntegrableOn g (Set.Icc 0 1)) (x : EuclideanSpace ℝ (Fin n)) :
+    momentExtension n 0 1 g x = ∑ i : Fin M,
+      momentExtension n ((i.val : ℝ)/M) (((i.val : ℝ)+1)/M) g x := by sorry
+
+/-- ES.2/weighted-extension-finite. Native MemLp; E>n is explicit. -/
+theorem weighted_extension_finite (n E : ℕ) (hE : n < E)
+    (c : EuclideanSpace ℝ (Fin n)) (R : ℝ) (hR : 0 < R) (p : ℝ) (hp : 1 ≤ p)
+    (a b : ℝ) (g : ℝ → ℂ) (hg : IntegrableOn g (Set.Icc a b)) :
+    MemLp (momentExtension n a b g) (ENNReal.ofReal p)
+      (volume.withDensity (fun x => ENNReal.ofReal (decouplingWeight n E c R x))) := by sorry
+
+/-- ES.2/critical-decoupling. The conclusion is not a field of an assumed record. -/
+theorem critical_decoupling (n E : ℕ) (hn : 2 ≤ n) (hE : 100*n ≤ E)
+    (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (M : ℕ), 1 ≤ M →
+      ∀ (c : EuclideanSpace ℝ (Fin n)) (g : ℝ → ℂ),
+      IntegrableOn g (Set.Icc 0 1) →
+      eLpNorm (momentExtension n 0 1 g) (n*(n+1) : ℝ≥0∞)
+          (volume.withDensity (fun x => ENNReal.ofReal
+            (decouplingWeight n E c ((M : ℝ)^n) x))) ≤
+        ENNReal.ofReal (C * (M : ℝ)^ε) *
+          (∑ i : Fin M, eLpNorm
+            (momentExtension n ((i.val : ℝ)/M) (((i.val : ℝ)+1)/M) g)
+            (n*(n+1) : ℝ≥0∞)
+            (volume.withDensity (fun x => ENNReal.ofReal
+              (decouplingWeight n E c ((M : ℝ)^n) x))) ^ (2 : ℕ)) ^ (1/2 : ℝ) := by sorry
+
+/-- ES.2/discrete-restriction. Critical discrete moment with arbitrary complex coefficients. -/
+theorem discrete_restriction_critical (n E : ℕ) (hn : 2 ≤ n) (hE : 100*n ≤ E)
+    (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (N : ℕ), 1 ≤ N →
+      ∀ (t : Fin N → ℝ), (∀ i, (i.val : ℝ)/N < t i ∧ t i ≤ ((i.val : ℝ)+1)/N) →
+      ∀ (a : Fin N → ℂ) (c : EuclideanSpace ℝ (Fin n)),
+      eLpNorm (fun x : EuclideanSpace ℝ (Fin n) => ∑ i : Fin N,
+        a i * Complex.exp ((2 * Real.pi *
+          (∑ j : Fin n, x j * t i ^ (j.val + 1)) : ℝ) * Complex.I))
+        (n*(n+1) : ℝ≥0∞)
+        ((volume (Metric.ball c ((N : ℝ)^n)))⁻¹ •
+          volume.withDensity (fun x => ENNReal.ofReal
+            (decouplingWeight n E c ((N : ℝ)^n) x))) ≤
+        ENNReal.ofReal (C * (N : ℝ)^ε * (∑ i : Fin N, ‖a i‖^2) ^ (1/2 : ℝ)) := by sorry
+
+/-- ES.2/vinogradov-main-bound. Both terms; the constant is uniform in N. -/
+theorem vinogradov_main_bound (n s : ℕ) (hn : 2 ≤ n) (hs : 1 ≤ s)
+    (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ N : ℕ, 2 ≤ N →
+      (vinogradovMeanValue n s N : ℝ) ≤
+        C * ((N : ℝ)^((s : ℝ)+ε) +
+          (N : ℝ)^(2*(s : ℝ) - (n : ℝ)*(n+1)/2 + ε)) := by sorry
+
+/-- ES.2/linear-mean-bound. Independent elementary degree-one route. -/
+theorem linear_mean_bound (s N : ℕ) (hs : 1 ≤ s) :
+    vinogradovMeanValue 1 s N ≤ N^(2*s-1) := by sorry
+
+/-! momentCurve_quadratic_test -/
+example : momentCurve 2 2 = WithLp.toLp 2 (fun j : Fin 2 => if j = 0 then 2 else 4) := by sorry
+/-! momentCurve_zero_dimension_test -/
+example : momentCurve 0 3 = 0 := by sorry
+/-! momentCurve_linear_test -/
+example (t : ℝ) : momentCurve 1 t 0 = t := by sorry
+/-! decouplingWeight_value_test -/
+example : decouplingWeight 1 2 0 1 (WithLp.toLp 2 (fun _ => 1)) = 1/4 := by sorry
+/-! decouplingWeight_scale_test -/
+example : decouplingWeight 1 2 0 2 (WithLp.toLp 2 (fun _ => 2)) = 1/4 := by sorry
+/-! decouplingWeight_zero_exponent_test -/
+example (x : EuclideanSpace ℝ (Fin 2)) : decouplingWeight 2 0 0 1 x = 1 := by sorry
+/-! momentExtension_constant_test -/
+example : momentExtension 1 0 1 (fun _ => 1) 0 = 1 := by sorry
+/-! momentExtension_empty_test -/
+example : momentExtension 2 1 0 (fun _ => 1) = 0 := by sorry
+/-! momentExtension_negative_test -/
+example : momentExtension 1 0 1 (fun _ => -1) 0 = -1 := by sorry
+/-! momentExtension_zero_dimension_test -/
+example (g : ℝ → ℂ) : momentExtension 0 0 1 g 0 = ∫ t in Set.Icc 0 1, g t := by sorry
+example : vinogradovMeanValue 1 2 3 = 19 := by sorry
+
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+open MeasureTheory
+
+theorem polynomial_weyl_inequality (d : ℕ) (hd : 2 ≤ d) (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (f : Polynomial ℝ), f.natDegree = d →
+      ∀ (a : ℤ) (q N : ℕ), 1 ≤ q → 1 ≤ N → Nat.Coprime a.natAbs q →
+      |f.leadingCoeff - (a : ℝ)/q| ≤ 1/(q : ℝ)^2 →
+      ‖∑ m ∈ Finset.Icc 1 N, Complex.exp ((2 * Real.pi * f.eval (m : ℝ) : ℝ) * Complex.I)‖ ≤
+        C * (N : ℝ)^(1+ε) *
+          (1/(N : ℝ) + 1/(q : ℝ) + q/(N : ℝ)^d)^(1/((2 : ℝ)^(d-1))) := by sorry
+theorem hua_mean_value (d v : ℕ) (hd : 2 ≤ d) (hv : 1 ≤ v) (hvd : v ≤ d)
+    (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ N : ℕ, 1 ≤ N →
+      (∫ α : AddCircle (1 : ℝ),
+        ‖∑ m ∈ Finset.Icc 1 N, fourier ((m : ℤ)^d) α‖^(2^v)
+          ∂AddCircle.haarAddCircle) ≤
+        C * (N : ℝ)^(((2^v : ℕ) : ℝ) - v + ε) := by sorry
+
+example (x : ℝ) :
+    ([2,3] : List ℝ).foldr (fun h F => fwdDiff h F) (fun y => y^3) x = 36*x+90 := by sorry
+example :
+    Fintype.card {h : Fin 2 → Fin 3 //
+      6 * ∏ i : Fin 2, ((h i).val+1) = 12} = 2 := by sorry
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+open MeasureTheory
+open scoped ComplexConjugate Topology
+
+/-- ES.0/complete-power-sum. Complete residues, including zero; no character is redefined. -/
+def completePowerSum (d q : ℕ) (a : ℤ) : ℂ :=
+  ∑ x : Fin q, fourier (a * (x.val : ℤ)^d) (((1 : ℝ)/q : ℝ) : AddCircle (1 : ℝ))
+theorem completePowerSum_zero_modulus (d : ℕ) (a : ℤ) : completePowerSum d 0 a = 0 := by sorry
+theorem completePowerSum_one_modulus (d : ℕ) (a : ℤ) : completePowerSum d 1 a = 1 := by sorry
+theorem completePowerSum_zero_frequency (d q : ℕ) : completePowerSum d q 0 = q := by sorry
+theorem completePowerSum_conjugate (d q : ℕ) (a : ℤ) :
+    conj (completePowerSum d q a) = completePowerSum d q (-a) := by sorry
+theorem completePowerSum_residue_formula (d q : ℕ) (a : ℤ) :
+    completePowerSum d q a = ∑ x : Fin q,
+      Complex.exp ((2*Real.pi*(a : ℝ)*(x.val : ℝ)^d/q : ℝ)*Complex.I) := by sorry
+theorem complete_power_bound (d : ℕ) (hd : 3 ≤ d) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (q : ℕ) (a : ℤ), 1 ≤ q → Nat.Coprime a.natAbs q →
+      ‖completePowerSum d q a‖ ≤ C*(q : ℝ)^(1-1/(d : ℝ)) := by sorry
+
+/-- ES.3/waring-series-coefficient. A(0)=0 and A(1)=1. -/
+def waringSeriesCoeff (d s m q : ℕ) : ℂ :=
+  ∑ a : Fin q, if Nat.Coprime a.val q then
+    ((q : ℂ)⁻¹ * completePowerSum d q (a.val : ℤ))^s *
+      fourier (-(a.val : ℤ)*(m : ℤ)) (((1 : ℝ)/q : ℝ) : AddCircle (1 : ℝ))
+    else 0
+theorem waringSeriesCoeff_zero (d s m : ℕ) : waringSeriesCoeff d s m 0 = 0 := by sorry
+theorem waringSeriesCoeff_one (d s m : ℕ) : waringSeriesCoeff d s m 1 = 1 := by sorry
+theorem waringSeriesCoeff_conjugate (d s m q : ℕ) :
+    conj (waringSeriesCoeff d s m q) = waringSeriesCoeff d s m q := by sorry
+theorem waringSeriesCoeff_periodic_target (d s m q : ℕ) :
+    waringSeriesCoeff d s (m+q) q = waringSeriesCoeff d s m q := by sorry
+theorem waring_series_multiplicative (d s m u v : ℕ) (hu : 1 ≤ u) (hv : 1 ≤ v)
+    (hcop : Nat.Coprime u v) :
+    waringSeriesCoeff d s m (u*v) = waringSeriesCoeff d s m u * waringSeriesCoeff d s m v := by sorry
+
+/-- ES.3/waring-singular-series. Summability is required before interpreting this as an analytic sum. -/
+def waringSingularSeries (d s m : ℕ) : ℂ := ∑' q : ℕ, waringSeriesCoeff d s m q
+theorem waringSingularSeries_eq_tsum (d s m : ℕ) :
+    waringSingularSeries d s m = ∑' q : ℕ, waringSeriesCoeff d s m q := by sorry
+theorem waringSingularSeries_hasSum (d s m : ℕ) (h : Summable (waringSeriesCoeff d s m)) :
+    HasSum (waringSeriesCoeff d s m) (waringSingularSeries d s m) := by sorry
+theorem waringSingularSeries_real (d s m : ℕ) (h : Summable (waringSeriesCoeff d s m)) :
+    (waringSingularSeries d s m).im = 0 := by sorry
+theorem waring_series_absolute_convergence (d s m : ℕ) (hd : 3 ≤ d) (hs : 2*d+1 ≤ s) :
+    Summable (fun q => ‖waringSeriesCoeff d s m q‖) := by sorry
+
+/-- ES.3/waring-singular-integral. Full real frequency integral with the 2π character convention. -/
+def waringSingularIntegral (d s : ℕ) : ℂ :=
+  ∫ β : ℝ, (∫ t in Set.Icc (0 : ℝ) 1,
+    Complex.exp ((2*Real.pi*β*t^d : ℝ)*Complex.I))^s *
+      Complex.exp ((-2*Real.pi*β : ℝ)*Complex.I)
+theorem waringSingularIntegral_eq_integral (d s : ℕ) :
+    waringSingularIntegral d s =
+      ∫ β : ℝ, (∫ t in Set.Icc (0 : ℝ) 1,
+        Complex.exp ((2*Real.pi*β*t^d : ℝ)*Complex.I))^s *
+          Complex.exp ((-2*Real.pi*β : ℝ)*Complex.I) := by sorry
+theorem waringSingularIntegral_integrable (d s : ℕ) (hd : 1 ≤ d) (hs : d < s) :
+    Integrable (fun β : ℝ => (∫ t in Set.Icc (0 : ℝ) 1,
+      Complex.exp ((2*Real.pi*β*t^d : ℝ)*Complex.I))^s *
+        Complex.exp ((-2*Real.pi*β : ℝ)*Complex.I)) := by sorry
+theorem waring_singular_integral_evaluation (d s : ℕ) (hd : 1 ≤ d) (hs : d < s) :
+    waringSingularIntegral d s =
+      ((Real.Gamma (1+1/(d : ℝ)))^s/Real.Gamma ((s : ℝ)/d) : ℝ) := by sorry
+theorem waringSingularIntegral_positive (d s : ℕ) (hd : 1 ≤ d) (hs : d < s) :
+    0 < (waringSingularIntegral d s).re := by sorry
+
+/-- ES.3/waring-congruence-count. Native finite quotient ring, not positive bounded tuples. -/
+def waringCongruenceCount (d s m q : ℕ) [NeZero q] : ℕ :=
+  Fintype.card {x : Fin s → ZMod q // (∑ i : Fin s, (x i)^d) = (m : ZMod q)}
+theorem waringCongruenceCount_one (d s m : ℕ) : waringCongruenceCount d s m 1 = 1 := by sorry
+theorem waringCongruenceCount_empty_tuple (d m q : ℕ) [NeZero q] :
+    waringCongruenceCount d 0 m q = if (m : ZMod q) = 0 then 1 else 0 := by sorry
+theorem waringCongruenceCount_linear_one (m q : ℕ) [NeZero q] :
+    waringCongruenceCount 1 1 m q = 1 := by sorry
+theorem waringCongruenceCount_periodic_target (d s m q : ℕ) [NeZero q] :
+    waringCongruenceCount d s (m+q) q = waringCongruenceCount d s m q := by sorry
+
+/-- ES.3/waring-local-factor. The convergent local series agrees with normalized solution densities. -/
+def waringLocalFactor (d s m p : ℕ) : ℂ :=
+  ∑' e : ℕ, waringSeriesCoeff d s m (p^e)
+theorem waringLocalFactor_eq_tsum (d s m p : ℕ) :
+    waringLocalFactor d s m p = ∑' e : ℕ, waringSeriesCoeff d s m (p^e) := by sorry
+theorem waringLocalFactor_hasSum (d s m p : ℕ)
+    (h : Summable (fun e => waringSeriesCoeff d s m (p^e))) :
+    HasSum (fun e => waringSeriesCoeff d s m (p^e)) (waringLocalFactor d s m p) := by sorry
+theorem waringLocalFactor_real (d s m p : ℕ)
+    (h : Summable (fun e => waringSeriesCoeff d s m (p^e))) :
+    (waringLocalFactor d s m p).im = 0 := by sorry
+theorem waring_local_density_limit (d s m p : ℕ) [NeZero p]
+    (hp : p.Prime) (hd : 3 ≤ d) (hs : 2*d+1 ≤ s) :
+    Filter.Tendsto (fun e : ℕ =>
+      (waringCongruenceCount d s m (p^e) : ℝ) /
+        (p : ℝ)^((e : ℤ)*((s : ℤ)-1)))
+      Filter.atTop (nhds (waringLocalFactor d s m p).re) := by sorry
+theorem waring_series_euler_product (d s m : ℕ) (hd : 3 ≤ d) (hs : 2*d+1 ≤ s) :
+    waringSingularSeries d s m =
+      ∏' p : {p : ℕ // p.Prime}, waringLocalFactor d s m p.val := by sorry
+
+/-! completePowerSum_zero_test -/
+example : completePowerSum 3 0 1 = 0 := by sorry
+/-! completePowerSum_one_test -/
+example : completePowerSum 3 1 7 = 1 := by sorry
+/-! completePowerSum_linear_test -/
+example : completePowerSum 1 2 1 = 0 := by sorry
+/-! completePowerSum_quadratic_test -/
+example : completePowerSum 2 3 1 = Complex.I * Real.sqrt 3 := by sorry
+/-! waringSeriesCoeff_zero_test -/
+example : waringSeriesCoeff 3 7 1 0 = 0 := by sorry
+/-! waringSeriesCoeff_one_test -/
+example : waringSeriesCoeff 3 7 1 1 = 1 := by sorry
+/-! waringSeriesCoeff_normalization_test -/
+example : waringSeriesCoeff 2 2 1 3 = 1/3 := by sorry
+/-! waringSeriesCoeff_negative_test -/
+example : waringSeriesCoeff 2 2 0 3 = -2/3 := by sorry
+/-! waringSingularSeries_linear_test -/
+example (m : ℕ) : waringSingularSeries 1 2 m = 1 := by sorry
+/-! waringSingularSeries_native_limit_test -/
+example (m : ℕ) (h : Summable (waringSeriesCoeff 3 7 m)) :
+    HasSum (waringSeriesCoeff 3 7 m) (waringSingularSeries 3 7 m) := by sorry
+/-! waringSingularSeries_real_test -/
+example (d s m : ℕ) (h : Summable (waringSeriesCoeff d s m)) :
+    (waringSingularSeries d s m).im = 0 := by sorry
+/-! waringSingularIntegral_linear_test -/
+example : waringSingularIntegral 1 2 = 1 := by sorry
+/-! waringSingularIntegral_three_test -/
+example : waringSingularIntegral 1 3 = 1/2 := by sorry
+/-! waringSingularIntegral_quadratic_test -/
+example : waringSingularIntegral 2 3 = Real.pi/4 := by sorry
+/-! waringCongruenceCount_one_test -/
+example (m : ℕ) : waringCongruenceCount 3 7 m 1 = 1 := by sorry
+/-! native_modulus_one_extra -/
+example : waringCongruenceCount 3 7 1 1 = 1 := by sorry
+/-! waringCongruenceCount_three_test -/
+example : waringCongruenceCount 2 2 1 3 = 4 := by sorry
+/-! waringCongruenceCount_empty_test -/
+example : waringCongruenceCount 3 0 0 2 = 1 ∧ waringCongruenceCount 3 0 1 2 = 0 := by sorry
+/-! waringCongruenceCount_native_linear_test -/
+example (m q : ℕ) [NeZero q] : waringCongruenceCount 1 1 m q = 1 := by sorry
+/-! waringLocalFactor_linear_test -/
+example : waringLocalFactor 1 2 1 3 = 1 := by sorry
+/-! waringLocalFactor_three_normalization_test -/
+example : waringLocalFactor 2 2 1 3 = 4/3 := by sorry
+/-! waringLocalFactor_native_limit_test -/
+example (d s m : ℕ) (h : Summable (fun e => waringSeriesCoeff d s m (3^e))) :
+    HasSum (fun e => waringSeriesCoeff d s m (3^e)) (waringLocalFactor d s m 3) := by sorry
+/-! waringLocalFactor_real_test -/
+example (d s m p : ℕ) (h : Summable (fun e => waringSeriesCoeff d s m (p^e))) :
+    (waringLocalFactor d s m p).im = 0 := by sorry
+
+end TauCeti.ExponentialSumsPlan
+namespace TauCeti.ExponentialSumsPlan
+open MeasureTheory
+open scoped ComplexConjugate Topology
+
+def powerWeylSum (d N : ℕ) (α : AddCircle (1 : ℝ)) : ℂ :=
+  ∑ x ∈ Finset.Icc 1 N, fourier ((x : ℤ)^d) α
+theorem powerWeylSum_eq_sum (d N : ℕ) (α : AddCircle (1 : ℝ)) :
+    powerWeylSum d N α = ∑ x ∈ Finset.Icc 1 N, fourier ((x : ℤ)^d) α := by sorry
+theorem powerWeylSum_zero_cutoff (d : ℕ) (α : AddCircle (1 : ℝ)) : powerWeylSum d 0 α = 0 := by sorry
+theorem powerWeylSum_zero_phase (d N : ℕ) : powerWeylSum d N 0 = N := by sorry
+theorem powerWeylSum_zero_degree (N : ℕ) (α : AddCircle (1 : ℝ)) :
+    powerWeylSum 0 N α = (N : ℂ)*fourier 1 α := by sorry
+theorem powerWeylSum_conjugate (d N : ℕ) (α : AddCircle (1 : ℝ)) :
+    conj (powerWeylSum d N α) = powerWeylSum d N (-α) := by sorry
+
+def waringPositiveCount (d s m : ℕ) : ℕ :=
+  Fintype.card {x : Fin s → Fin m // (∑ i : Fin s, ((x i).val+1)^d) = m}
+theorem waringPositiveCount_eq_card (d s m : ℕ) :
+    waringPositiveCount d s m = Fintype.card
+      {x : Fin s → Fin m // (∑ i : Fin s, ((x i).val+1)^d) = m} := by sorry
+theorem waringPositiveCount_empty_tuple (d m : ℕ) :
+    waringPositiveCount d 0 m = if m=0 then 1 else 0 := by sorry
+theorem waringPositiveCount_zero_target (d s : ℕ) (hs : 0 < s) :
+    waringPositiveCount d s 0 = 0 := by sorry
+theorem waringPositiveCount_one_variable (d m : ℕ) (hd : 1 ≤ d) :
+    waringPositiveCount d 1 m =
+      @ite ℕ (∃ x : ℕ, 1 ≤ x ∧ x^d=m) (Classical.propDecidable _) 1 0 := by sorry
+theorem waringPositiveCount_cutoff (d s m P : ℕ) (hd : 1 ≤ d) (hm : m ≤ P^d) :
+    waringPositiveCount d s m = Fintype.card
+      {x : Fin s → Fin P // (∑ i : Fin s, ((x i).val+1)^d) = m} := by sorry
+theorem waring_counting_integral (d s m P : ℕ) (hd : 1 ≤ d) (hm : m ≤ P^d) :
+    (∫ α : AddCircle (1 : ℝ), (powerWeylSum d P α)^s * fourier (-(m : ℤ)) α
+      ∂AddCircle.haarAddCircle) = (waringPositiveCount d s m : ℂ) := by sorry
+
+theorem waring_major_arc_approximation (d : ℕ) (hd : 1 ≤ d) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (P q : ℕ) (a : ℤ) (β : ℝ), 1 ≤ P → 1 ≤ q →
+      ‖powerWeylSum d P ((((a : ℝ)/q+β : ℝ)) : AddCircle (1 : ℝ)) -
+        (q : ℂ)⁻¹ * completePowerSum d q a *
+          (∫ t in Set.Icc (0 : ℝ) (P : ℝ),
+            Complex.exp ((2*Real.pi*β*t^d : ℝ)*Complex.I))‖ ≤
+      C*(q : ℝ)*(1 + |β| * (P : ℝ)^d) := by sorry
+theorem waring_classical_minor_arcs (d s : ℕ) (hd : 3 ≤ d) (hs : 2^d+1 ≤ s)
+    (δ : ℝ) (hδ : 0 < δ) (hsmall : δ < 1/10) :
+    ∃ C : ℝ, 0 < C ∧ ∀ P : ℕ, 2 ≤ P →
+      (∫ α in minorArcs (Nat.floor ((P : ℝ)^δ)) ((P : ℝ)^(-(d : ℝ)+δ)),
+        ‖powerWeylSum d P α‖^s ∂AddCircle.haarAddCircle) ≤
+      C*(P : ℝ)^((s : ℝ)-d-δ/(2 : ℝ)^d) := by sorry
+theorem waring_primitive_local_positivity (d s m p τ u : ℕ) [NeZero p]
+    (hd : 3 ≤ d) (hs : 2*d+1 ≤ s) (hp : p.Prime)
+    (hfactor : d=p^τ*u) (hu : Nat.Coprime u p)
+    (hsol : ∃ x : Fin s → ZMod (p^(τ+if p=2 then 2 else 1)),
+      (∑ i : Fin s, (x i)^d) = (m : ZMod (p^(τ+if p=2 then 2 else 1))) ∧
+      ∃ i : Fin s, IsUnit (x i)) :
+    (p : ℝ)^(-((τ+if p=2 then 2 else 1 : ℕ) : ℝ)*((s : ℝ)-1)) ≤
+      (waringLocalFactor d s m p).re ∧ 0 < (waringLocalFactor d s m p).re := by sorry
+theorem waring_uniform_series_positivity (d s : ℕ) (hd : 3 ≤ d) (hs : 2^d+1 ≤ s) :
+    ∃ c : ℝ, 0 < c ∧ ∀ m : ℕ, c ≤ (waringSingularSeries d s m).re := by sorry
+theorem waring_classical_asymptotic (d s : ℕ) (hd : 3 ≤ d) (hs : 2^d+1 ≤ s) :
+    ∃ (σ C : ℝ) (M₀ : ℕ), 0 < σ ∧ 0 < C ∧ ∀ m : ℕ, M₀ ≤ m →
+      |(waringPositiveCount d s m : ℝ) -
+        (Real.Gamma (1+1/(d : ℝ)))^s/Real.Gamma ((s : ℝ)/d) *
+          (waringSingularSeries d s m).re * (m : ℝ)^((s : ℝ)/d-1)| ≤
+      C*(m : ℝ)^((s : ℝ)/d-1-σ) := by sorry
+theorem waring_eventual_representation (d s : ℕ) (hd : 3 ≤ d) (hs : 2^d+1 ≤ s) :
+    ∃ M₀ : ℕ, ∀ m : ℕ, M₀ ≤ m → ∃ x : Fin s → ℕ,
+      (∀ i, 1 ≤ x i) ∧ (∑ i : Fin s, (x i)^d) = m := by sorry
+
+/-- powerWeylSum_empty_test -/
+example : powerWeylSum 3 0 0 = 0 := by sorry
+/-- powerWeylSum_linear_test -/
+example : powerWeylSum 1 2 ((1/2 : ℝ) : AddCircle (1 : ℝ)) = 0 := by sorry
+/-- powerWeylSum_zero_phase_test -/
+example : powerWeylSum 3 4 0 = 4 := by sorry
+/-- powerWeylSum_weighted_test -/
+example (α : AddCircle (1 : ℝ)) : powerWeylSum 2 3 α =
+    weightedTorusSum 1 (Finset.Icc 1 3) (fun x (_ : Fin 1) => (x : ℤ)^2)
+      (fun _ => 1) (fun _ => α) := by sorry
+/-- waringPositiveCount_linear_test -/
+example : waringPositiveCount 1 2 4 = 3 := by sorry
+/-- waringPositiveCount_squares_test -/
+example : waringPositiveCount 2 2 5 = 2 := by sorry
+/-- waringPositiveCount_empty_test -/
+example : waringPositiveCount 3 0 0 = 1 ∧ waringPositiveCount 3 0 1 = 0 := by sorry
+/-- waringPositiveCount_positive_test -/
+example : waringPositiveCount 1 2 2 = 1 := by sorry
+
+end TauCeti.ExponentialSumsPlan
+namespace TauCeti.ExponentialSumsPlan
+open MvPolynomial
+
+def boundedProjectivePointCount {n : ℕ} (F : MvPolynomial (Fin n) ℤ) (B : Fin n → ℕ) : ℕ :=
+  Fintype.card {k : (i : Fin n) → Fin (2*B i+1) //
+    MvPolynomial.eval (fun i => ((k i).val : ℤ)-(B i : ℤ)) F=0 ∧
+    Finset.univ.gcd (fun i => (((k i).val : ℤ)-(B i : ℤ)).natAbs)=1 ∧
+    ∃ i : Fin n, 0 < ((k i).val : ℤ)-(B i : ℤ) ∧
+      ∀ j : Fin n, j < i → ((k j).val : ℤ)-(B j : ℤ)=0}
+theorem boundedProjectivePointCount_eq_card {n : ℕ} (F : MvPolynomial (Fin n) ℤ) (B : Fin n → ℕ) :
+    boundedProjectivePointCount F B = Fintype.card
+      {k : (i : Fin n) → Fin (2*B i+1) //
+        MvPolynomial.eval (fun i => ((k i).val : ℤ)-(B i : ℤ)) F=0 ∧
+        Finset.univ.gcd (fun i => (((k i).val : ℤ)-(B i : ℤ)).natAbs)=1 ∧
+        ∃ i : Fin n, 0 < ((k i).val : ℤ)-(B i : ℤ) ∧
+          ∀ j : Fin n, j < i → ((k j).val : ℤ)-(B j : ℤ)=0} := by sorry
+theorem boundedProjectivePointCount_zero_box {n : ℕ} (F : MvPolynomial (Fin n) ℤ) :
+    boundedProjectivePointCount F (fun _ => 0)=0 := by sorry
+theorem boundedProjectivePointCount_one_polynomial (n : ℕ) (B : Fin n → ℕ) :
+    boundedProjectivePointCount (1 : MvPolynomial (Fin n) ℤ) B=0 := by sorry
+theorem boundedProjectivePointCount_scale {n : ℕ} (F : MvPolynomial (Fin n) ℤ)
+    (B : Fin n → ℕ) (a : ℤ) (ha : a ≠ 0) :
+    boundedProjectivePointCount (MvPolynomial.C a*F) B=boundedProjectivePointCount F B := by sorry
+theorem boundedProjectivePointCount_mono {n : ℕ} (F : MvPolynomial (Fin n) ℤ)
+    (B R : Fin n → ℕ) (h : ∀ i, B i ≤ R i) :
+    boundedProjectivePointCount F B ≤ boundedProjectivePointCount F R := by sorry
+theorem ternary_coefficient_height_alternative (d : ℕ) (hd : 1 ≤ d) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (F : MvPolynomial (Fin 3) ℤ) (B : ℕ), 1 ≤ B →
+      F.IsHomogeneous d → Irreducible (MvPolynomial.map (Int.castRingHom ℚ) F) →
+      F.support.gcd (fun e => (F.coeff e).natAbs)=1 →
+      boundedProjectivePointCount F (fun _ => B) ≤ d^2 ∨
+      ((F.support.sup (fun e => (F.coeff e).natAbs) : ℕ) : ℝ) ≤
+        C*(B : ℝ)^(d*(d+1)*(d+2)/2) := by sorry
+theorem determinant_auxiliary_cover (n d : ℕ) (hn : 3 ≤ n) (hd : 2 ≤ d)
+    (ε : ℝ) (hε : 0 < ε) :
+    ∃ (C : ℝ) (D : ℕ), 0 < C ∧ ∀ (F : MvPolynomial (Fin n) ℤ) (B : Fin n → ℕ),
+      (∀ i, 1 ≤ B i) → F.IsHomogeneous d →
+      Irreducible (MvPolynomial.map (Int.castRingHom ℚ) F) →
+      2 ≤ F.support.sup (fun e => (F.coeff e).natAbs) →
+      ∃ G : Finset (MvPolynomial (Fin n) ℤ),
+        (∀ g ∈ G, g.totalDegree ≤ D ∧
+          ¬MvPolynomial.map (Int.castRingHom ℚ) F ∣ MvPolynomial.map (Int.castRingHom ℚ) g ∧
+          ∃ e : ℕ, g.IsHomogeneous e) ∧
+        (∀ x : Fin n → ℤ, (∀ i, (x i).natAbs ≤ B i) → MvPolynomial.eval x F=0 →
+          Finset.univ.gcd (fun i => (x i).natAbs)=1 →
+          (∃ i : Fin n, 0 < x i ∧ ∀ j : Fin n, j < i → x j=0) →
+          ∃ g ∈ G, MvPolynomial.eval x g=0) ∧
+        (G.card : ℝ) ≤ C*
+          (((∏ i : Fin n, (B i : ℝ))^d) /
+            ((F.support.sup (fun e => ∏ i : Fin n, B i^(e i)) : ℕ) : ℝ))^
+              ((d : ℝ)^(-((n : ℝ)-1)/((n : ℝ)-2))) *
+          (∏ i : Fin n, (B i : ℝ))^ε *
+          (Real.log ((F.support.sup (fun e => (F.coeff e).natAbs) : ℕ) : ℝ))^(2*n-3) := by sorry
+theorem uniform_ternary_curve_bound (d : ℕ) (hd : 2 ≤ d) (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (F : MvPolynomial (Fin 3) ℤ) (B : Fin 3 → ℕ),
+      (∀ i, 1 ≤ B i) → F.IsHomogeneous d →
+      Irreducible (MvPolynomial.map (Int.castRingHom ℚ) F) →
+      (boundedProjectivePointCount F B : ℝ) ≤
+        C*((F.support.sup (fun e => ∏ i : Fin 3, B i^(e i)) : ℕ) : ℝ)^(-1/(d : ℝ)^2)*
+          (∏ i : Fin 3, (B i : ℝ))^(1/(d : ℝ)+ε) := by sorry
+
+/-- boundedProjectivePointCount_line_test -/
+example : boundedProjectivePointCount (MvPolynomial.X (0 : Fin 3)) (fun _ => 1)=4 := by sorry
+/-- boundedProjectivePointCount_zero_box_test -/
+example (F : MvPolynomial (Fin 3) ℤ) : boundedProjectivePointCount F (fun _ => 0)=0 := by sorry
+/-- boundedProjectivePointCount_conic_test -/
+example : boundedProjectivePointCount
+    (MvPolynomial.X (0 : Fin 3)*MvPolynomial.X (2 : Fin 3)-(MvPolynomial.X (1 : Fin 3))^2)
+      (fun _ => 1)=4 := by sorry
+/-- boundedProjectivePointCount_sign_test -/
+example : boundedProjectivePointCount (0 : MvPolynomial (Fin 3) ℤ) (fun _ => 1)=13 := by sorry
+
 end TauCeti.ExponentialSumsPlan
