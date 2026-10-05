@@ -1,8 +1,8 @@
 {
   "roadmaps": 229,
-  "stages": 3543,
+  "stages": 3545,
   "originalStages": 2098,
-  "sourceRefinements": 1445,
+  "sourceRefinements": 1447,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -334,14 +334,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 3442,
+  "mathematicalStars": 3444,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 1852,
-  "stageEdges": 9479,
+  "stageEdges": 9482,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -555,10 +555,22 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-etale~2"
     },
     {
+      "file": "HabiroCyclotomicCompletions--HC.6",
+      "roadmap": "HabiroCyclotomicCompletions",
+      "nodes": 0,
+      "reviewer": "independent-review-REV-HabiroCyclotomicCompletions--HC.6"
+    },
+    {
       "file": "HabiroCyclotomicCompletions",
       "roadmap": "HabiroCyclotomicCompletions",
       "nodes": 48,
       "reviewer": "independent-review-REV-HabiroCyclotomicCompletions"
+    },
+    {
+      "file": "HabiroNahmSeries--HB.3",
+      "roadmap": "HabiroNahmSeries",
+      "nodes": 7,
+      "reviewer": "independent-review-REV-HabiroNahmSeries--HB.3"
     },
     {
       "file": "HabiroNahmSeries",
@@ -640,8 +652,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 32253652,
-  "htmlSha256": "0d68cfe7300a730b3e1e2b600cc4eb0a36c252bc267701a628677a8c15781c66",
+  "htmlBytes": 32260266,
+  "htmlSha256": "a18899357298cd2d955733a02444728cf8d10a6ddcbb46ac87f906f5c4c0569c",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -672,7 +684,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "949edb1e497722c99789b44a4e5690ce535cce095ec756e7e5defcfa03f64f32",
+    "data/roadmap-distances.json": "be6e3f3404b572370ff91b1049a591c047bb850e0dff596a942aa3fedc06c49e",
     "data/galaxy-layout.json": "92f736cdbedc11ea25886ab1b3da97c6e1364c28c6170267d456a29ecb7f702a",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -800,8 +812,12 @@
     "data/blueprints/GlobalGaloisDeformations.md": "4f917fe4c79aa4e3221ea7b4a2ffbaa562c8d034e3f66d80268642ae3e83fa02",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.json": "b0c8f42d8d1bfce1a87085fc717eb06658de3f72500d771a68f637513b690eb7",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.md": "1234aa3f09946c388578081fe64b6f03e4f617df8bc79dbce4ac41f6c5bef30b",
+    "data/blueprints/HabiroCyclotomicCompletions--HC.6.json": "82131cad84d4f13959b9d7b8a38b1ccb605967a60eb47f54804df51245e2a946",
+    "data/blueprints/HabiroCyclotomicCompletions--HC.6.md": "9eff109528364e4cb5acf8707f70394d169049699cee5995fbe23689fdad03d4",
     "data/blueprints/HabiroCyclotomicCompletions.json": "8c78181e54669682102500158cf934aa102adb38fd0af43cca7417623495b50a",
     "data/blueprints/HabiroCyclotomicCompletions.md": "4639b41bf3f48f54a55066d96efa11ab071b16e2da2437309f6971dc97624a06",
+    "data/blueprints/HabiroNahmSeries--HB.3.json": "1eb1f858c20df30b49253c9bf0a0cdbad5fd0ed29b579fe8c9ec972f08309918",
+    "data/blueprints/HabiroNahmSeries--HB.3.md": "701231796e07ac1ee49a7382a2e83016602beed50ed6b8dfa076fd56d2ffe698",
     "data/blueprints/HabiroNahmSeries.json": "eb0ca2488778710e8ca3d30f9389870faa9119d10c37b9b771c3d435904d358d",
     "data/blueprints/HabiroNahmSeries.md": "57e69d599eabed639adfa0cd5958bb19f50385bc3b2737e77a60c045aacd4b23",
     "data/blueprints/HabiroNumberFields.json": "4fdb7141018eab742384a041a6a5e2baa437a2e5b746e46bb34e1eadd6e35d36",

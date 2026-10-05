@@ -1,0 +1,978 @@
+{
+  "roadmapId": "HabiroNahmSeries",
+  "protocol": "blueprint-v1",
+  "part": "HB.3",
+  "scope": [
+    "HabiroNahmSeries:HB.3"
+  ],
+  "status": "complete",
+  "summary": "A finished target-level follow-up of the accepted parent HB.3 plan. It obtains Zagier’s survey, closes the local nonsingular-zero algebraicity gap through pinned differential and unramified machinery, makes denominator/root fields and the exact polynomial Jacobian explicit, and records the precise remaining Rogers, Borel, unique-divisibility and signed integral convention interfaces. Every original target is imported by its accepted node id; no supplier objects or parent declarations are replanned.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:MvPolynomial.aeval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Evaluation of multivariate polynomials as an algebra homomorphism.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.pderiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/PDeriv.lean",
+        "provides": "The polynomial partial derivative as a derivation.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Determinant of a finite square matrix.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.PosDef",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/PosDef.lean",
+        "provides": "Hermitian matrices with strictly positive quadratic form on nonzero finitely supported vectors.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.PosDef.det_pos",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Matrix/PosDef.lean",
+        "provides": "The determinant of a real or complex positive-definite matrix is strictly positive.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:KaehlerDifferential.D",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+        "provides": "Universal derivation S to the S-module of Kahler differentials over R.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:KaehlerDifferential.span_range_derivation",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+        "provides": "The S-span of the range of the universal derivation equals the whole differential module.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Algebra.FormallyUnramified",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/Unramified/Basic.lean",
+        "provides": "Formal unramifiedness is defined by subsingleton Kahler differentials.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Algebra.FormallyUnramified.finite_of_free",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Unramified/Finite.lean",
+        "provides": "A formally unramified, essentially finite type algebra that is free over the base is a finite module; fields are free vector spaces.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:IntermediateField.adjoin",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
+        "provides": "Smallest intermediate field containing a specified set.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:IntermediateField.adjoin_induction",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
+        "provides": "Induction over field generators, base scalars, addition, multiplication and inversion.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:IntermediateField.fg_adjoin_of_finite",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
+        "provides": "The field adjoined by a finite set is finitely generated as an intermediate field.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:IntermediateField.fg_top_iff",
+        "kind": "lemma",
+        "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Algebra.lean",
+        "provides": "For fields F⊆E, (top : IntermediateField F E).FG is equivalent to Algebra.EssFiniteType F E, directly on the ambient field E.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Real.rpow_inv_natCast_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "For nonnegative x and nonzero natural d, (x^(1/d))^d=x.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:exteriorPower.ιMulti",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
+        "provides": "Canonical alternating map of n vectors into the nth exterior power; use n=2 on Additive Fˣ.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:IsAlgClosed.surjective_domRestrict_of_isAlgebraic",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IsAlgClosed/Basic.lean",
+        "provides": "Every base-linear embedding into an algebraically closed field extends across an algebraic field extension.",
+        "checked": "Statement and surrounding typeclass hypotheses read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "cgz-v3",
+      "title": "Bloch groups, algebraic K-theory, units, and Nahm’s conjecture",
+      "authors": "Frank Calegari, Stavros Garoufalidis and Don Zagier",
+      "edition": "arXiv:1712.04887v3, 6 April 2021",
+      "url": "https://arxiv.org/pdf/1712.04887v3",
+      "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§1.1, Definition 1.1",
+        "§1.3",
+        "§2.1",
+        "§7.1, observations (i)–(ii) and (41)–(42)"
+      ]
+    },
+    {
+      "id": "zagier-2007",
+      "title": "The Dilogarithm Function",
+      "authors": "Don Zagier",
+      "edition": "Frontiers in Number Theory, Physics, and Geometry II (2007), pp. 3–65; public chapter copy",
+      "url": "https://www.maths.dur.ac.uk/users/herbert.gangl/zagier_dilog.pdf",
+      "sha256": "1cf7df610343bce19f72ae5990f344c0f4ba7004078caf17381cf6645df92d10",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "II.1A, pp. 23–24",
+        "II.3A, (3.3), pp. 42–43",
+        "II.3B(a)–(c), pp. 44–45"
+      ]
+    },
+    {
+      "id": "gswz-v2",
+      "title": "The Habiro ring of a number field",
+      "authors": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler and Don Zagier",
+      "edition": "arXiv:2412.04241v2, 27 August 2025",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "§1.7, (34)–(42), pp. 13–15",
+        "§3.1, pp. 37–38"
+      ]
+    },
+    {
+      "id": "stacks-unramified",
+      "title": "Formally unramified maps",
+      "authors": "The Stacks Project Authors",
+      "edition": "The Stacks Project, Lemma 10.148.3, tag 00UO, accessed 5 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/00UO",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Lemma 10.148.3 and proof"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HabiroNahmSeries:HB.3/clearing-polynomial-system",
+      "parentStageId": "HabiroNahmSeries:HB.3",
+      "realises": [
+        "HabiroNahmSeries:HB.3"
+      ],
+      "title": "Polynomial equations with cleared denominators",
+      "kind": "definition",
+      "declarationName": "clearingPolynomial",
+      "statement": "For n finite, d∈N, M∈Mat_n(Z), ε∈Z^n, define P_i∈Q[Y_1,…,Y_n] by P_i=(1−Y_i^d)∏_j Y_j^{max(−M_ij,0)}−ε_i∏_j Y_j^{max(M_ij,0)}. For d>0 and all y_j nonzero in a Q-algebra field, P_i(y)=0 exactly when 1−y_i^d=ε_i∏_j y_j^{M_ij}. For rational A=M/d and unsigned analytic data ε_i=1, put x_i=y_i^d; these are polynomial equations for coherent dth roots of the Nahm coordinates. Clearing negative exponents does not license y_j=0.",
+      "hypotheses": [
+        "n is a natural number; empty systems are permitted.",
+        "d>0 for its interpretation as denominator clearing.",
+        "All coordinates are units for the Laurent-equation equivalence; no positivity or symmetry is needed for this definition."
+      ],
+      "proofSteps": [
+        "Split M_ij into its positive and negative parts, and multiply each Laurent equation by the negative-exponent monomial.",
+        "Use the existing multivariate-polynomial evaluation and its algebra-homomorphism laws.",
+        "Over a field, cancel the clearing monomial only under the explicit unit hypothesis."
+      ],
+      "acceptance": [
+        "For n=1,d=1,M=(2),ε=1, P=1−Y−Y².",
+        "For M=(−1), P=(1−Y)Y−1, not 1−Y−Y.",
+        "For the symmetric two-variable matrix with diagonal −1 and off-diagonal 1, the origin is a polynomial zero but is not a Laurent solution."
+      ],
+      "prerequisites": [
+        "mathlib:MvPolynomial.aeval",
+        "HabiroNahmSeries:HB.3/nahm-equations"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-2007",
+          "locator": "II.3A, (3.3), p. 43",
+          "excerpt": "1 − Q = Qᴬ",
+          "match": "The root polynomial is an explicit refinement of the rational-power convention, allowing negative integral entries."
+        },
+        {
+          "sourceId": "gswz-v2",
+          "locator": "§1.7, (41), p. 14",
+          "excerpt": "1 − zⱼ = (−1)ᴬʲʲ ∏ᵢ zⱼᴬⁱʲ",
+          "match": "Taking d=1 and ε_j=(−1)^M_jj supplies the signed formal system, without positivity assumptions. The excerpt retains the printed z_j inside the product; the node uses the corrected z_i as in the already confirmed HabiroNahmSeries/E36, carried below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Equations",
+        "namespace": "TauCeti.Nahm"
+      },
+      "uses": [
+        {
+          "where": "HB.3/algebraicity-and-the-nahm-field in the accepted parent",
+          "how": "Replaces rational powers by an explicitly specified polynomial system whose Jacobian can be checked."
+        },
+        {
+          "where": "GSWZ §1.7 and HB.8–HB.9",
+          "how": "The d=1 signed specialization supplies the same Laurent equations; roots and signs remain separate data."
+        }
+      ],
+      "api": [
+        {
+          "name": "clearingPolynomial.eval",
+          "role": "compatibility",
+          "statement": "For any Q-algebra field K and y∈K^n, aeval_y(P_i)=(1−y_i^d)∏y_j^{max(−M_ij,0)}−ε_i∏y_j^{max(M_ij,0)}."
+        },
+        {
+          "name": "clearingPolynomial.zero_iff",
+          "role": "characterisation",
+          "statement": "For d>0 and all y_j≠0, P_i(y)=0 iff 1−y_i^d=ε_i∏y_j^{M_ij}."
+        },
+        {
+          "name": "clearingPolynomial.nonnegative",
+          "role": "simp",
+          "statement": "If every M_ij≥0, P_i=1−Y_i^d−ε_i∏Y_j^{M_ij}."
+        },
+        {
+          "name": "clearingPolynomial.map",
+          "role": "functoriality",
+          "statement": "For a Q-algebra field homomorphism φ:K→L, φ(aeval_y P_i)=aeval_{φ∘y} P_i."
+        },
+        {
+          "name": "clearingPolynomial.reindex",
+          "role": "equivalence",
+          "statement": "For a permutation e of the indices, rename_e(P_i(d,M,ε))=P_{e(i)}(d,M∘(e⁻¹,e⁻¹),ε∘e⁻¹)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "clearingPolynomial_rank_one",
+          "kind": "computation",
+          "statement": "For d=1,M=(2),ε=1, P_1=1−Y_1−Y_1²."
+        },
+        {
+          "name": "clearingPolynomial_negative_entry",
+          "kind": "computation",
+          "statement": "For d=1,M=(−1),ε=1, P_1=(1−Y_1)Y_1−1."
+        },
+        {
+          "name": "clearingPolynomial_zero_denominator",
+          "kind": "degenerate",
+          "statement": "For d=0,M=(0),ε=1 in rank one, P_1=−1. The polynomial definition makes sense, but d=0 cannot represent a denominator or root lift."
+        },
+        {
+          "name": "clearingPolynomial_boundary_zero",
+          "kind": "non-example",
+          "statement": "For n=2,d=1,ε=(1,1),M_ii=−1 and M_ij=1 for i≠j, P_i(0,0)=0 for both i; the Laurent equivalence fails at the origin."
+        },
+        {
+          "name": "clearingPolynomial_aeval_compatibility",
+          "kind": "compatibility",
+          "statement": "For rational y in rank one with d=1,M=(2),ε=1, the existing MvPolynomial.aeval returns 1−y−y²."
+        }
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/cleared-system-jacobian",
+      "parentStageId": "HabiroNahmSeries:HB.3",
+      "realises": [
+        "HabiroNahmSeries:HB.3"
+      ],
+      "title": "Jacobian of the cleared Nahm equations",
+      "kind": "theorem",
+      "declarationName": "clearingJacobian",
+      "statement": "Let d>0, M integral, ε integral, K a Q-algebra field, and y∈K^n satisfy P_i(y)=0, y_i≠0 and 1−y_i^d≠0. Set x_i=y_i^d, c_i=(1−x_i)∏_j y_j^{max(−M_ij,0)}, B=M+d diag(x_i/(1−x_i)). Then J_ij=(∂P_i/∂Y_j)(y) is exactly −diag(c) B diag(y_j⁻¹). In particular det J=(−1)^n(∏c_i)(∏y_i⁻¹)det B and det J≠0 iff det B≠0. When M=dA, B=d(A+diag(x/(1−x))); hence positive-definite A and x∈(0,1)^n imply a nonsingular polynomial Jacobian.",
+      "hypotheses": [
+        "The polynomial zero is a unit zero, and x_i≠1.",
+        "The final positivity consequence is over R, with A=M/d symmetric positive definite; the factorization itself needs no symmetry or positivity."
+      ],
+      "proofSteps": [
+        "Differentiate (1−Y_i^d) times the clearing monomial and the positive monomial term using pderiv.",
+        "Write a_ij=max(M_ij,0). Before restricting to a zero, J_ij+c_i(M_ij+d δ_ij x_i/(1−x_i))/y_j=a_ij P_i(y)/y_j. Hence at P_i(y)=0 the logarithmic derivative is exactly −c_i(M_ij+d δ_ij x_i/(1−x_i))/y_j; no clearing-factor derivative is discarded without its vanishing-equation hypothesis.",
+        "Take determinants of the three factors. All row and column scaling factors are units.",
+        "For the analytic solution, the parent distinguished-solution node gives positivity of A+diag(x/(1−x)); use Matrix.PosDef.det_pos."
+      ],
+      "acceptance": [
+        "For d=1,M=(2), at 1−y=y² the formula gives P′(y)=−1−2y.",
+        "For d=2,M=(1), P=1−y²−y, its positive root has derivative −2y−1; no d factor may be omitted.",
+        "For n=0, the determinant is 1 and every empty product is 1."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.3/clearing-polynomial-system",
+        "mathlib:MvPolynomial.pderiv",
+        "mathlib:Matrix.det",
+        "mathlib:Matrix.PosDef",
+        "mathlib:Matrix.PosDef.det_pos",
+        "HabiroNahmSeries:HB.3/distinguished-solution",
+        "HabiroNahmSeries:HB.3/nondegenerate-solution-and-discriminant"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "§1.7, (36), p. 13",
+          "excerpt": "det(diag(1 − z(t))A + diag(z(t)))",
+          "match": "The d=1 logarithmic Jacobian underlying δ; the displayed factorization extends it to root variables and cleared monomials."
+        },
+        {
+          "sourceId": "zagier-2007",
+          "locator": "II.3A, (3.3), p. 43",
+          "excerpt": "1 − Q = Qᴬ",
+          "match": "The polynomial differentiation is derived here, not a quoted general algebraicity theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Equations",
+        "namespace": "TauCeti.Nahm"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/coordinate-field-differential-bridge",
+      "parentStageId": "HabiroNahmSeries:HB.3",
+      "realises": [
+        "HabiroNahmSeries:HB.3"
+      ],
+      "title": "The coordinate field of a nonsingular polynomial zero",
+      "kind": "theorem",
+      "declarationName": "coordinateFieldUnramified",
+      "statement": "Let k⊆L be fields, p=(p_1,…,p_n)∈L^n generate L as a field over k, and f_1,…,f_n∈k[Y_1,…,Y_n] satisfy f_i(p)=0. If det((∂f_i/∂Y_j)(p))≠0, then Ω_{L/k}=0, so L is formally unramified over k and is a finite-dimensional k-vector space. This supplies the previously missing differential/finite-generation input to the accepted parent nondegenerate-points-are-algebraic node; it does not assume beforehand that the coordinates are algebraic.",
+      "hypotheses": [
+        "n is finite, including n=0.",
+        "L=k(p_1,…,p_n) as a field; L is not assumed generated as a k-algebra.",
+        "The Jacobian is square and invertible over L; no analytic isolation argument is assumed."
+      ],
+      "proofSteps": [
+        "Apply the universal k-derivation to f_i(p)=0. A monomial induction using Leibniz gives ∑_j (∂f_i/∂Y_j)(p) dp_j=0. Multiplication by the inverse Jacobian makes every dp_j zero.",
+        "The kernel of the universal derivation contains k and each p_j and is closed under addition, multiplication and inversion: differentiating aa⁻¹=1 gives the inverse rule. IntermediateField.adjoin_induction and field generation imply D(a)=0 for every a∈L.",
+        "KaehlerDifferential.span_range_derivation now makes Ω_{L/k} zero. This is exactly Algebra.FormallyUnramified and Stacks 00UO.",
+        "The finite set of field generators gives (top : IntermediateField k L).FG by IntermediateField.fg_adjoin_of_finite and the hypothesis adjoin k (range p)=top. Apply IntermediateField.fg_top_iff to obtain Algebra.EssFiniteType k L on L itself. A vector space over a field is free. Algebra.FormallyUnramified.finite_of_free therefore gives Module.Finite k L.",
+        "For a polynomial zero in C over Q, apply this argument to Q(p) and transport its finite-dimensional conclusion to algebraicity of each coordinate. This is the missing proof input for the existing parent target, not a second version of that target."
+      ],
+      "acceptance": [
+        "f=Y²−2 at p=√2 gives the finite field Q(√2).",
+        "The zero polynomial at a transcendental p has zero Jacobian and supplies no algebraicity conclusion.",
+        "No use of the real or complex inverse function theorem is required."
+      ],
+      "prerequisites": [
+        "mathlib:MvPolynomial.aeval",
+        "mathlib:MvPolynomial.pderiv",
+        "mathlib:Matrix.det",
+        "mathlib:KaehlerDifferential.D",
+        "mathlib:KaehlerDifferential.span_range_derivation",
+        "mathlib:Algebra.FormallyUnramified",
+        "mathlib:IntermediateField.adjoin_induction",
+        "mathlib:IntermediateField.fg_adjoin_of_finite",
+        "mathlib:IntermediateField.fg_top_iff",
+        "mathlib:Algebra.FormallyUnramified.finite_of_free"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-unramified",
+          "locator": "Lemma 10.148.3, tag 00UO",
+          "excerpt": "the module of differentials Ω_{S/R} is zero",
+          "match": "The equivalence with formal unramifiedness; the finite conclusion follows the pinned Mathlib theorem whose hypotheses are verified above."
+        },
+        {
+          "sourceId": "cgz-v3",
+          "locator": "§7.1, observation (i), p. 35",
+          "excerpt": "generically defines a 0-dimensional variety",
+          "match": "Motivates the finite coordinate field. The nonsingular-zero theorem is established by the differential argument, not by the source’s generic dimension heuristic."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Equations",
+        "namespace": "TauCeti.Nahm"
+      },
+      "planet": {
+        "name": "Nondegenerate Nahm solutions"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/positive-coherent-root-lift",
+      "parentStageId": "HabiroNahmSeries:HB.3",
+      "realises": [
+        "HabiroNahmSeries:HB.3"
+      ],
+      "title": "Positive coherent roots and the root field",
+      "kind": "construction",
+      "declarationName": "positiveRootLift",
+      "statement": "For d∈N and x∈R^n, define positiveRootLift(d,x)_i=x_i^{1/d} using Real.rpow. Its use is restricted to d>0 and x∈(0,1)^n. For A=M/d, M integral, and 1−x_i=∏x_j^{A_ij}, the canonical y=positiveRootLift(d,x) lies in (0,1)^n, y_i^d=x_i and 1−x_i=∏y_j^{M_ij}. Define E=Q(y_1,…,y_n) with the existing IntermediateField.adjoin, and F=Q(x_1,…,x_n); F⊆E. If A is positive definite, E is a number field by the cleared Jacobian and coordinate-field bridge, and therefore F is also a number field. Neither E=F nor arbitrary complex choices of roots are asserted.",
+      "hypotheses": [
+        "d>0 for every root, field or algebraicity assertion.",
+        "The equation uses positive real rational powers; x∈(0,1)^n.",
+        "Positive definiteness is required only for the finite-field conclusion, not for constructing the positive roots or proving the exact coherent equations."
+      ],
+      "proofSteps": [
+        "Use the positive real branch of rpow and Real.rpow_inv_natCast_pow to recover x. Logarithms show y_j^{M_ij}=x_j^{M_ij/d}, including negative integer M_ij.",
+        "Apply clearingPolynomial.zero_iff with ε=1, and clearingJacobian plus positivity to obtain a nonsingular rational polynomial zero.",
+        "Apply coordinateFieldUnramified to the field generated by y. This gives E finite over Q; no independent field abstraction is introduced.",
+        "Because x_i=y_i^d, the existing adjoin universal property gives F⊆E. Preserve the choice of roots when transporting symbols and regulators."
+      ],
+      "acceptance": [
+        "For A=(1/2),d=2,M=(1), x=(3−√5)/2 and y=(√5−1)/2, so y²=x and 1−x=y.",
+        "For d=1 and nonnegative x, the lift is x and the two coordinate fields coincide.",
+        "For n=0, the field adjoined by the empty coordinate list is Q."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.3/clearing-polynomial-system",
+        "HabiroNahmSeries:HB.3/cleared-system-jacobian",
+        "HabiroNahmSeries:HB.3/coordinate-field-differential-bridge",
+        "HabiroNahmSeries:HB.3/distinguished-solution",
+        "mathlib:Real.rpow_inv_natCast_pow",
+        "mathlib:IntermediateField.adjoin"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-2007",
+          "locator": "II.3A, p. 43, rational A paragraph",
+          "excerpt": "choice of determinations",
+          "match": "The survey requires coherent rational powers; positive roots supply the canonical coherent lift on the distinguished real component."
+        },
+        {
+          "sourceId": "cgz-v3",
+          "locator": "§7.1, after (42), p. 36",
+          "excerpt": "positive nth roots xᵢ of the Xᵢ",
+          "match": "CGZ explicitly distinguishes the coordinate field from a field containing chosen roots; denominator roots use the same field discipline."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Equations",
+        "namespace": "TauCeti.Nahm"
+      },
+      "planet": {
+        "name": "Coherent roots of Nahm solutions"
+      },
+      "uses": [
+        {
+          "where": "Zagier II.3A, rational coefficient paragraph",
+          "how": "Coherent powers are needed before asserting an integral symbol boundary."
+        },
+        {
+          "where": "HB.3/bloch-class-of-a-solution and HB.4",
+          "how": "The coordinate field F controls embeddings, while the root field E certifies an integral class and fixes positive branches used by asymptotics."
+        }
+      ],
+      "api": [
+        {
+          "name": "positiveRootLift.eq_rpow",
+          "role": "projection",
+          "statement": "For every i, positiveRootLift(d,x)_i=Real.rpow(x_i,1/d)."
+        },
+        {
+          "name": "positiveRootLift.pow",
+          "role": "simp",
+          "statement": "For d>0 and x_i≥0, positiveRootLift(d,x)_i^d=x_i."
+        },
+        {
+          "name": "positiveRootLift.mem_cube",
+          "role": "structure",
+          "statement": "For d>0 and x∈(0,1)^n, the root lift is also in (0,1)^n."
+        },
+        {
+          "name": "positiveRootLift.one",
+          "role": "simp",
+          "statement": "For nonnegative x, positiveRootLift(1,x)=x."
+        },
+        {
+          "name": "positiveRootLift.unique",
+          "role": "characterisation",
+          "statement": "For d>0 and nonnegative x,y with y_i^d=x_i, y=positiveRootLift(d,x)."
+        },
+        {
+          "name": "positiveRootLift.equations",
+          "role": "compatibility",
+          "statement": "For d>0, x∈(0,1)^n satisfying 1−x_i=∏x_j^{M_ij/d}, the lift y satisfies 1−x_i=∏y_j^{M_ij}."
+        },
+        {
+          "name": "positiveRootLift.field_le",
+          "role": "compatibility",
+          "statement": "For d>0 and nonnegative x, adjoin_Q(range x)≤adjoin_Q(range positiveRootLift(d,x))."
+        },
+        {
+          "name": "positiveRootLift.finite",
+          "role": "instance",
+          "statement": "For d>0, positive-definite A=M/d and x∈(0,1)^n satisfying its Nahm equations, Q(positiveRootLift(d,x)) is a finite Q-module, hence a number field."
+        }
+      ],
+      "tests": [
+        {
+          "name": "positiveRootLift_rank_one_half",
+          "kind": "computation",
+          "statement": "positiveRootLift(2,((3−√5)/2))=(√5−1)/2 in rank one."
+        },
+        {
+          "name": "positiveRootLift_denominator_one",
+          "kind": "computation",
+          "statement": "positiveRootLift(1,(1/2))=1/2 in rank one."
+        },
+        {
+          "name": "positiveRootLift_empty",
+          "kind": "degenerate",
+          "statement": "For n=0 and d=2, IntermediateField.adjoin Q of the root coordinates is the bottom intermediate field Q."
+        },
+        {
+          "name": "positiveRootLift_negative_branch",
+          "kind": "non-example",
+          "statement": "positiveRootLift(2,(1/4))≠−1/2: the other square root is not the canonical coherent lift."
+        }
+      ]
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/coherent-root-exterior-boundary",
+      "parentStageId": "HabiroNahmSeries:HB.3",
+      "realises": [
+        "HabiroNahmSeries:HB.3"
+      ],
+      "title": "The integral exterior boundary in the root field",
+      "kind": "theorem",
+      "declarationName": "coherentRootBoundary",
+      "statement": "Let K be a field, d∈N, M a symmetric integral matrix, and y_i,t_i∈Kˣ satisfy t_i=1−y_i^d and t_i=∏_j y_j^{M_ij}. Then ∑_i (y_i^d)∧t_i=0 in Λ²_Z(Additive Kˣ). Thus, for d>0, x_i=y_i^d and x_i≠0,1, the symbol sum ∑[x_i] is in the exact exterior kernel over the field containing the coherent roots, and defines an integral class in the corrected CGZ convention of K3BlochGroups V.3. In the coordinate field F alone, multiplying the boundary by d gives zero; the unmultiplied integral boundary is not thereby proved zero.",
+      "hypotheses": [
+        "M is symmetric.",
+        "The roots satisfy the unraised coherent equations, not merely their dth powers.",
+        "Units t_i encode x_i≠1; positivity is unnecessary once coherent roots exist."
+      ],
+      "proofSteps": [
+        "Bilinearity gives ∑(y_i^d)∧t_i=d∑_{i,j}M_ij y_i∧y_j.",
+        "Pair off-diagonal terms using symmetry and antisymmetry; alternatingness kills every diagonal term.",
+        "Use K3BlochGroups:V.3/cgz-bloch-group to pass from this zero boundary to its corrected integral class. Use the existing parent bloch-class-of-a-solution for the rationalized coordinate-field class.",
+        "Keep the exact Suslin antisymmetric-square convention separate: its diagonal squares need not vanish, as the parent suslin-obstruction node records."
+      ],
+      "acceptance": [
+        "For d=2,M=(1), the rank-one root-field boundary is y²∧y=0.",
+        "For unsigned integral A=(1), x=1/2 has exterior boundary zero but may have the parent’s nonzero diagonal 2-torsion in the antisymmetric square.",
+        "A root with the wrong phase can satisfy a raised equation while failing the unraised coherent equation; this theorem does not apply to it."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.3/positive-coherent-root-lift",
+        "mathlib:exteriorPower.ιMulti",
+        "HabiroNahmSeries:HB.3/bloch-class-of-a-solution",
+        "HabiroNahmSeries:HB.3/suslin-obstruction-of-the-nahm-element",
+        "K3BlochGroups:V.3/cgz-bloch-group",
+        "K3BlochGroups:V.3/antisym-exterior-comparison"
+      ],
+      "sources": [
+        {
+          "sourceId": "zagier-2007",
+          "locator": "II.3A, p. 43, boundary calculation after (3.3)",
+          "excerpt": "∑ᵢⱼ aᵢⱼ (Qᵢ) ∧ (Qⱼ)",
+          "match": "The symmetric boundary cancellation is valid integrally in the coherent root field; the display here uses integral M before any rationalization."
+        },
+        {
+          "sourceId": "cgz-v3",
+          "locator": "§7.1, observation (i), p. 35",
+          "excerpt": "tensor everything with Q",
+          "match": "The coordinate-field assertion is rationalized; no division in the integral exterior square is made."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Equations",
+        "namespace": "TauCeti.Nahm"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/signed-exterior-boundary-obstruction",
+      "parentStageId": "HabiroNahmSeries:HB.3",
+      "realises": [
+        "HabiroNahmSeries:HB.3"
+      ],
+      "title": "The boundary left by the formal diagonal signs",
+      "kind": "theorem",
+      "declarationName": "signedBoundaryObstruction",
+      "statement": "Let K be a field, M symmetric integral, and z_i,t_i∈Kˣ satisfy t_i=1−z_i and t_i=(−1)^{M_ii}∏_j z_j^{M_ij}. In the true exterior square, ∑z_i∧t_i=∑M_ii z_i∧(−1), and twice this boundary is zero. Thus 2∑[z_i] is an integral exterior-kernel class, and ∑[z_i] defines a rationalized CGZ class. This calculation alone does not give the unmultiplied integral CGZ class or the integral K3 element used by GSWZ; their exact convention requires the V.3 supplier interface.",
+      "hypotheses": [
+        "Each z_i and 1−z_i is a unit.",
+        "No positive definiteness is imposed on the formal integral datum.",
+        "The sign is (−1)^{M_ii}, exactly GSWZ (41)."
+      ],
+      "proofSteps": [
+        "Expand the signed product in the second wedge coordinate.",
+        "The unsigned symmetric double sum cancels exactly as in coherentRootBoundary with d=1. The diagonal signs remain ∑M_ii z_i∧(−1).",
+        "The unit −1 has order dividing 2, so twice every remaining wedge vanishes.",
+        "Apply the corrected CGZ exterior-kernel definition only to the doubled symbol. The parent general-nondegenerate-class cannot be used for an unmultiplied integral class until the convention request is supplied."
+      ],
+      "acceptance": [
+        "If every diagonal entry is even, the sign contribution is zero, recovering the unsigned result.",
+        "In characteristic 2, −1=1 and the obstruction is zero.",
+        "For odd diagonal entries, symmetry alone cancels the double sum but supplies no reason for the remaining wedge to be zero."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.3/coherent-root-exterior-boundary",
+        "mathlib:exteriorPower.ιMulti",
+        "HabiroNahmSeries:HB.3/nahm-data",
+        "K3BlochGroups:V.3/cgz-bloch-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "gswz-v2",
+          "locator": "§1.7, (41) and the following class assertion, p. 14",
+          "excerpt": "1 − zⱼ = (−1)ᴬʲʲ ∏ᵢ zⱼᴬⁱʲ",
+          "match": "The source’s signed equation is retained exactly. The obstruction is a derived boundary calculation, and its integral interpretation is requested rather than silently identified with CGZ. The excerpt retains the printed z_j inside the product; the node uses the corrected z_i as in the already confirmed HabiroNahmSeries/E36, carried below."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Equations",
+        "namespace": "TauCeti.Nahm"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison",
+      "parentStageId": "HabiroNahmSeries:HB.3",
+      "realises": [
+        "HabiroNahmSeries:HB.3"
+      ],
+      "title": "Field change and the regulator conventions",
+      "kind": "comparison",
+      "declarationName": "regulatorConventionComparison",
+      "statement": "For symmetric rational A=M/d, the distinguished x, F=Q(x) and E=Q(positiveRootLift(d,x)), let c_d∈B_CGZ(F) be represented by d∑[x_i], and β∈B_CGZ(E) by ∑[x_i]. The field map sends c_d to dβ; hence ξ_F=c_d/d∈B_CGZ(F)⊗Q maps to β⊗1. The definition of ξ_F is independent of the clearing denominator. For every embedding τ:E→C, its Bloch–Wigner evaluation is ∑D(τx_i), equal to the evaluation of ξ_F at τ restricted to F; every embedding of F extends to E. With the requested Borel injectivity and unique divisibility, ξ_F=0 iff β is torsion iff β maps to zero over Qbar. At the preferred real embedding, put S=∑L_CGZ(x_i), with L_CGZ=π²/6−L_std and period π²/2. The Rogers map is applied to integral c_d or β: L(c_d)=dS modulo π²/2. Torsion of c_d implies S∈Qπ². A circle-valued Rogers map is never assigned a Q-linear extension or a unique division by d.",
+      "hypotheses": [
+        "Use the corrected CGZ convention imported from K3BlochGroups V.3; regulator comparison with the exact Suslin convention is only rational.",
+        "Rogers values are asserted at a specified real embedding and for an integral class; arbitrary conjugates need not lie in the positive cube.",
+        "The signed formal class has a separate integral convention request and only the doubled/rationalized class is certified locally."
+      ],
+      "proofSteps": [
+        "Use coherentRootBoundary in E and the accepted denominator-clearing construction in F. Functoriality of symbols gives c_d↦dβ. Rationalization embeds the relevant kernel into the rational pre-Bloch group, so changing d gives the same rational class.",
+        "Extend embeddings of F into C across the algebraic extension E/F using IsAlgClosed.surjective_domRestrict_of_isAlgebraic. Finite sums and the imported Bloch–Wigner descent give the same evaluations after restriction.",
+        "Import the parent torsion-criterion-by-regulators, with the nonzero rational scalar comparison from Polylogarithms P.2; exact scalar or sign is unnecessary for zero detection. The Borel injectivity request is still open.",
+        "Import the parent torsion-in-the-algebraic-closure subject to its precise unique-divisibility request. Torsion maps to zero over Qbar. Conversely fix an inclusion E→Qbar; for each τ:E→C, extend τ across the algebraic extension Qbar/E by IsAlgClosed.surjective_domRestrict_of_isAlgebraic. If β has zero image in B(Qbar), functoriality through each extended embedding gives all Bloch–Wigner values zero; the number-field Borel criterion then makes β torsion. No unsupported integral injection is used.",
+        "Use CGZ (42) and Zagier II.1A to pin the real convention. If m c_d=0, then m d S∈(π²/2)Z, so S∈Qπ². This is integer arithmetic and requires no division homomorphism on the circle."
+      ],
+      "acceptance": [
+        "At 0,1,∞ the CGZ circle values are respectively π²/6,0,−π²/6; the period is π²/2, not π²/6.",
+        "For A=(1/2),(1),(2), the preferred S values are π²/10,π²/12,π²/15 respectively; the source’s reversed rank-one coordinates are corrected in E-HB3-rank-one.",
+        "Vanishing at the preferred real place alone proves nothing about torsion: Bloch–Wigner vanishes at every real argument, and every complex embedding must be checked.",
+        "Choosing an arbitrary dth preimage of a circle value is noncanonical and is not the asserted Rogers evaluation of ξ_F."
+      ],
+      "prerequisites": [
+        "HabiroNahmSeries:HB.3/positive-coherent-root-lift",
+        "HabiroNahmSeries:HB.3/coherent-root-exterior-boundary",
+        "HabiroNahmSeries:HB.3/signed-exterior-boundary-obstruction",
+        "HabiroNahmSeries:HB.3/embeddings-and-regulator-evaluations",
+        "HabiroNahmSeries:HB.3/torsion-criterion-by-regulators",
+        "HabiroNahmSeries:HB.3/torsion-in-the-algebraic-closure",
+        "K3BlochGroups:V.3/cgz-convention-comparison",
+        "Polylogarithms:P.2/borel-comparison",
+        "Polylogarithms:P.1",
+        "BorelRegulators:R.4",
+        "K3BlochGroups:V.4",
+        "K3BlochGroups:V.3",
+        "mathlib:IsAlgClosed.surjective_domRestrict_of_isAlgebraic"
+      ],
+      "sources": [
+        {
+          "sourceId": "cgz-v3",
+          "locator": "§7.1, (42), p. 36",
+          "excerpt": "π²/6 − Li₂(x) − ½ log(x) log(1 − x)",
+          "match": "Pins the normalization on the positive interval and the immediately following projective extension and period."
+        },
+        {
+          "sourceId": "zagier-2007",
+          "locator": "II.1A, pp. 23–24",
+          "excerpt": "L(x) = Li₂(x) + ½ log(x) log(1 − x)",
+          "match": "The standard normalization; its difference from CGZ is reflected in the corrected rank-one examples."
+        },
+        {
+          "sourceId": "cgz-v3",
+          "locator": "§1.3, p. 6; §7.1(i), p. 35",
+          "excerpt": "B(Q̄) and B(C) are uniquely divisible",
+          "match": "The algebraic-closure criterion is imported with an exact supplier request, not assumed built."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Nahm/Equations",
+        "namespace": "TauCeti.Nahm"
+      }
+    }
+  ],
+  "imports": [
+    {
+      "id": "HabiroNahmSeries:HB.3/nahm-data",
+      "supplies": "The two kinds of Nahm data"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/nahm-equations",
+      "supplies": "Nahm's equations"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/distinguished-solution",
+      "supplies": "Existence and uniqueness of the distinguished solution"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/nondegenerate-solution-and-discriminant",
+      "supplies": "Non-degenerate solutions and the discriminant delta"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/nondegenerate-points-are-algebraic",
+      "supplies": "Non-degenerate complex zeros of a polynomial system over Q are algebraic"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/algebraicity-and-the-nahm-field",
+      "supplies": "Algebraicity of the distinguished solution and the Nahm field",
+      "restriction": "For d>1, use the cleared-system-jacobian and coordinate-field-differential-bridge of this part. The parent d=1 discriminant definition is not applied directly to the root system 1−y_i^d=product y_j^M_ij."
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/bloch-class-of-a-solution",
+      "supplies": "The Bloch class of a solution and the vanishing of its boundary"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/general-nondegenerate-class",
+      "supplies": "The class of an arbitrary non-degenerate solution, and the ring it generates",
+      "restriction": "Import its nondegenerate coordinate field and discriminant-ring data. Its unmultiplied integral Bloch/K3 identification is subject to the signed-convention request below; it is not used as an established corrected-CGZ class."
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/embeddings-and-regulator-evaluations",
+      "supplies": "Embeddings of the solution field and the regulator evaluations",
+      "restriction": "Bloch–Wigner evaluation extends Q-linearly. For rational A, Rogers evaluation means the real coordinate sum and the integral evaluations of c_d or β in regulator-field-and-normalization-comparison; no circle-valued homomorphism on B(F) tensor Q is imported."
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/torsion-criterion-by-regulators",
+      "supplies": "Torsion of a Bloch class is detected by the Bloch-Wigner evaluations"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/torsion-in-the-algebraic-closure",
+      "supplies": "Torsion, and what vanishing in the Bloch group of the algebraic numbers means"
+    },
+    {
+      "id": "HabiroNahmSeries:HB.3/suslin-obstruction-of-the-nahm-element",
+      "supplies": "The Nahm element in Suslin's antisymmetric convention"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "Polylogarithms:P.1",
+      "need": "The real Rogers dilogarithm in CGZ (42): L_CGZ=π²/6−Li₂−½ log(x)log(1−x) on (0,1), with the specified x>1 and x<0 continuations, extended to P¹(R) with values in R/(π²/2)Z and values π²/6,0,−π²/6 at 0,1,∞. Its linear extension must kill the CGZ projective five-term relations and descend to the corrected integral B_CGZ(R); include the standard-normalization comparison and the three rank-one values.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison",
+        "HabiroNahmSeries:HB.3/embeddings-and-regulator-evaluations"
+      ]
+    },
+    {
+      "supplier": "BorelRegulators:R.4",
+      "need": "For each number field F, the degree-three Borel regulator on K₃(F)⊗Q is injective, with kernel before rationalization exactly torsion. Through the existing rational Suslin/Bloch comparison and Polylogarithms:P.2/borel-comparison, this detects the zero of ξ in B_CGZ(F)⊗Q by all complex-place Bloch–Wigner evaluations. Only the nonzero rational comparison scalar is needed.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison",
+        "HabiroNahmSeries:HB.3/torsion-criterion-by-regulators"
+      ]
+    },
+    {
+      "supplier": "K3BlochGroups:V.4",
+      "need": "For an algebraically closed field of characteristic zero, in particular Qbar and C, B in the exact V.3 convention is uniquely divisible (Suslin, Theorem 6.3 cited by CGZ §1.3). Transport this to the corrected CGZ convention through the V.3 comparison, explaining why torsion maps to zero and rationalization does not change the algebraically closed group.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison",
+        "HabiroNahmSeries:HB.3/torsion-in-the-algebraic-closure"
+      ]
+    },
+    {
+      "supplier": "K3BlochGroups:V.3",
+      "need": "Specify the integral Bloch/K₃ convention for GSWZ §1.7 (41)–(42): a signed symmetric integral solution has exterior boundary sum_i M_ii z_i wedge (−1), generally only certified 2-torsion. Give the correct integral target or an explicit lift and its relation to the V.3 antisymmetric and corrected CGZ conventions; explain what identifies the unmultiplied ξ used by the Habiro module. The local doubled CGZ class is insufficient for an assertion about its integral torsion order.",
+      "neededBy": [
+        "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison",
+        "HabiroNahmSeries:HB.3/general-nondegenerate-class"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Rogers supplier interface remains unsupplied",
+      "neededBy": [
+        "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison",
+        "HabiroNahmSeries:HB.3/embeddings-and-regulator-evaluations"
+      ],
+      "detail": "The real Rogers dilogarithm in CGZ (42): L_CGZ=π²/6−Li₂−½ log(x)log(1−x) on (0,1), with the specified x>1 and x<0 continuations, extended to P¹(R) with values in R/(π²/2)Z and values π²/6,0,−π²/6 at 0,1,∞. Its linear extension must kill the CGZ projective five-term relations and descend to the corrected integral B_CGZ(R); include the standard-normalization comparison and the three rank-one values."
+    },
+    {
+      "title": "Borel regulator injectivity remains unsupplied",
+      "neededBy": [
+        "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison",
+        "HabiroNahmSeries:HB.3/torsion-criterion-by-regulators"
+      ],
+      "detail": "For each number field F, the degree-three Borel regulator on K₃(F)⊗Q is injective, with kernel before rationalization exactly torsion. Through the existing rational Suslin/Bloch comparison and Polylogarithms:P.2/borel-comparison, this detects the zero of ξ in B_CGZ(F)⊗Q by all complex-place Bloch–Wigner evaluations. Only the nonzero rational comparison scalar is needed."
+    },
+    {
+      "title": "Unique divisibility remains unsupplied",
+      "neededBy": [
+        "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison",
+        "HabiroNahmSeries:HB.3/torsion-in-the-algebraic-closure"
+      ],
+      "detail": "For an algebraically closed field of characteristic zero, in particular Qbar and C, B in the exact V.3 convention is uniquely divisible (Suslin, Theorem 6.3 cited by CGZ §1.3). Transport this to the corrected CGZ convention through the V.3 comparison, explaining why torsion maps to zero and rationalization does not change the algebraically closed group."
+    },
+    {
+      "title": "Integral convention of the signed formal class remains unresolved",
+      "neededBy": [
+        "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison",
+        "HabiroNahmSeries:HB.3/general-nondegenerate-class"
+      ],
+      "detail": "Specify the integral Bloch/K₃ convention for GSWZ §1.7 (41)–(42): a signed symmetric integral solution has exterior boundary sum_i M_ii z_i wedge (−1), generally only certified 2-torsion. Give the correct integral target or an explicit lift and its relation to the V.3 antisymmetric and corrected CGZ conventions; explain what identifies the unmultiplied ξ used by the Habiro module. The local doubled CGZ class is insufficient for an assertion about its integral torsion order."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HabiroNahmSeries:HB.3",
+      "status": "planned",
+      "remaining": [
+        "Supply and integrate the four exact owner interfaces in requests; the local algebraicity argument and HB.3 source access are resolved.",
+        "Replace the commented regulator comparison in the suggested file by actual supplier signatures once their types are available.",
+        "Reconcile the parent general-nondegenerate-class integral assertion with the signed-boundary calculation before its integral Habiro/K₃ interpretation is used."
+      ]
+    }
+  ],
+  "resolvedParentGaps": [
+    {
+      "title": "Zagier survey access for HB.3",
+      "resolution": "The public chapter was obtained and II.1A and II.3A–B read. No closure claim is made for parent HB.4 or HB.5 source gaps."
+    },
+    {
+      "title": "Nondegenerate-zero algebraicity",
+      "resolution": "coordinate-field-differential-bridge supplies the missing input, with pinned essential-finite-type and finite_of_free hypotheses verified."
+    },
+    {
+      "title": "Owner of Rogers on P¹(R)",
+      "resolution": "The exact extension and five-term API is explicitly requested from Polylogarithms:P.1, which owns real dilogarithms; supplying it remains open."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "HabiroNahmSeries/E-HB3-rank-one",
+      "kind": "misprint",
+      "locator": "II.3B(a), printed p. 44 (public PDF page 42), rank-one paragraph below Table 1",
+      "printed": "A = 1/2, 1 or 2 (corresponding to Q₁ = (−1 + √5)/2, 1/2 and (3 − √5)/2, respectively).",
+      "correction": "For equation 1−Q=Q^A, the order of the first and last displayed solutions is reversed: A=1/2 gives (3−√5)/2, A=1 gives 1/2, A=2 gives (√5−1)/2.",
+      "reason": "Let r=(√5−1)/2. Then r²=1−r, so 1−r=r² solves A=2. Put s=r²; then 1−s=r=√s solves A=1/2. Direct substitution disproves the printed assignment.",
+      "affects": "nothing",
+      "known": "new: no published correction located in the searches listed; this is a source-copy finding, not a claim that nobody has noticed it.",
+      "searched": [
+        "Visual inspection of the public Durham chapter, PDF page 42.",
+        "Search for Zagier The Dilogarithm Function errata and rank-one 1/2 solutions, 5 October 2026.",
+        "CGZ v3 §7.1 equation (41), which independently fixes the 1−X=X^A convention."
+      ],
+      "source": "zagier-2007",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually read the public chapter PDF page 42 (printed p.44). For r=(sqrt(5)−1)/2, r²=1−r: r solves A=2 and r² solves A=1/2. The printed first/last assignments are reversed; the set of three rank-one matrices is unaffected.",
+        "by": "REV-HabiroNahmSeries--HB.3"
+      }
+    },
+    {
+      "id": "HabiroNahmSeries/E36",
+      "source": "gswz-v2",
+      "kind": "misprint",
+      "locator": "arXiv:2412.04241v2, §1.7, (34), printed p.13 and (41), printed p.14 (PDF pages 13 and 14)",
+      "printed": "∏_{i=1}^N z_j^{A_{i,j}}",
+      "correction": "The base inside the product must be z_i (and z_i(t) in (34)), with j fixed as the equation index.",
+      "reason": "In (33) each shift operator σ_i occurs to the exponent A_ij. Setting q=1 and σ_i→z_i gives the corrected product. For M=[[2,1],[1,1]], the first unsigned monomial must be z_1² z_2; the printed monomial is z_1³. Symmetry does not fix that difference.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed as HabiroNahmSeries/E36 in the accepted parent packet; no claim of a new discovery or a published erratum.",
+      "searched": [
+        "Accepted parent HabiroNahmSeries.json sourceIssues E36 and its independent review.",
+        "Visual inspection of the actual GSWZ arXiv v2 PDF, pp.13–14, on 5 October 2026.",
+        "arXiv submission history at https://arxiv.org/abs/2412.04241 (latest listed revision v2, checked 5 October 2026)."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The PDF visibly prints z_j inside both products; q=1 in (33) supplies z_i. The two local source excerpts now retain the printed text and identify the correction explicitly. Reuse the parent E36 identifier for this same finding.",
+        "by": "REV-HabiroNahmSeries--HB.3"
+      }
+    }
+  ],
+  "planningNotes": [
+    "Reviewed HB.3 library audit: not built; existing polynomial, matrix, number-field, differential and exterior-power machinery is consumed rather than redefined.",
+    "All entries in blueprint link maps mentioning this roadmap were read; none adds an HB.3 object beyond the atlas Polylogarithms:P.1 edge and HB.4/KU consumers.",
+    "Upstream style documents read in full: Multiquadratic and Completed/ContourIntegration.",
+    "The two new planets plus the parent’s three HB.3 planets give five in assembly, below the limit of six.",
+    "The unavailable supplier types are comments in the suggested file, never dummy structures or empty conditions.",
+    "Independent review restricts three parent imports to the interfaces justified here: d>1 algebraicity uses this part’s root-system Jacobian, Rogers is applied only to integral classes, and the signed integral class remains an explicit supplier gap. Parent files are outside this review’s edit scope."
+  ],
+  "sourceVersions": [
+    {
+      "source": "cgz-v3",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1712.04887v3",
+      "read": "2026-10-05",
+      "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5"
+    },
+    {
+      "source": "zagier-2007",
+      "kind": "author copy",
+      "url": "https://www.maths.dur.ac.uk/users/herbert.gangl/zagier_dilog.pdf",
+      "read": "2026-10-05",
+      "sha256": "1cf7df610343bce19f72ae5990f344c0f4ba7004078caf17381cf6645df92d10"
+    },
+    {
+      "source": "gswz-v2",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "read": "2026-10-05",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HabiroNahmSeries--HB.3",
+    "date": "2026-10-05",
+    "notes": "Independent target-level review of all seven nodes, all sixteen baseline declarations at the pins, twelve parent imports, four external supplier nodes, the reviewed HB.3 audit, thirteen API items, nine tests and two planets. Corrected two GSWZ excerpts and confirmed both source findings, sharpened the field-generation baseline, completed the Jacobian signature and clarified embedding transport and import restrictions. Packet is a complete planning pass with HB.3 planned, not closed: four exact supplier gaps remain. Suggested Lean elaborates with only expected placeholder warnings; unavailable Bloch/regulator types remain honest mathematical comments.",
+    "checked": [
+      {
+        "nodeId": "HabiroNahmSeries:HB.3/clearing-polynomial-system",
+        "verdict": "corrected",
+        "note": "Checked the clearing formula, nonunit restriction, all five API items and five tests. The GSWZ quotation now preserves its printed index and explicitly invokes confirmed E36."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.3/cleared-system-jacobian",
+        "verdict": "corrected",
+        "note": "Verified the exact row/column scaling and determinant formula. Added the off-zero derivative identity to the proof sketch and the determinant equality to the Lean signature."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.3/coordinate-field-differential-bridge",
+        "verdict": "corrected",
+        "note": "Verified the differential, field-generation, essential-finite-type and freeness argument at the pins. Replaced essFiniteType_iff by fg_top_iff to obtain the instance directly on the ambient field."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.3/positive-coherent-root-lift",
+        "verdict": "verified",
+        "note": "Verified the canonical positive roots, inclusion F into E, finite-field argument, eight API items and four tests; no equality F=E or arbitrary complex root choice is assumed."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.3/coherent-root-exterior-boundary",
+        "verdict": "verified",
+        "note": "Verified cancellation in the true alternating exterior square and the corrected CGZ supplier statement. The coordinate-field boundary is only certified after multiplying by the denominator."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.3/signed-exterior-boundary-obstruction",
+        "verdict": "corrected",
+        "note": "Verified the signed boundary and its doubled vanishing. Restored the literal GSWZ quotation with explicit E36 correction; the unmultiplied integral class remains a precise V.3 request."
+      },
+      {
+        "nodeId": "HabiroNahmSeries:HB.3/regulator-field-and-normalization-comparison",
+        "verdict": "corrected",
+        "note": "Verified the rational field/class comparison, integral-only Rogers evaluation and normalizations subject to four recorded requests. Made the Qbar-to-complex embedding extension explicit and restricted the parent imports accordingly."
+      }
+    ]
+  }
+}
