@@ -1,5 +1,39 @@
 # REV-AnalyticNumberTheory--AN.0 — current checkpoint
 
+Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-ywaJcp`,2026-10-05. [Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5998388142). Input `581f7aaf96426f2fd30da917c3b6ff212b7b9f7c`; branch `codex-ywaJcp-review-analytic-527`.
+
+**Partial independent review; no final verdict or top-level packet `review` object.** Inherited `status:complete` belongs to the author's plan. Intake must classify this as an incomplete-review checkpoint. Preserve all historical receipts below at their individual scopes; none is blanket source/node certification. This session submits one job and stops.
+
+## Saved work
+
+29 changed existing payloads: input zero-based191–218 and223. Six added lemmas241–246: harmonic remainder, hyperbola identity, Beurling count growth, prime-power correction, z-monodromy shift and solvable descent. The prior handoff's191 label was wrong:191 is divisor average;195 is Beurling. The selected Beurling original proof and Lerch continuation/monodromy proof were freshly read, while moment targets192–194 and general mean-square198 still have unacquired-original-proof gaps.
+
+- Beurling preserves repeated-prime multiplicity, positive multiplicative finite-product norms and ordinary inclusive prime counts. Summability is additional to the system axioms. The complete selected all-log proof now specifies smooth-boundary, Laplace/Fourier and matched analytic-log inputs without claiming them supplied.
+- Lerch separates initial series, principal-sheet integral, based cover and solvable quotient. Positive c strata need actual holomorphic filling. The a and z logarithm cuts differ from an unrestricted principal log. UniversalCovers Stage0/Stage2 requests import the canonical cover interfaces; the two new cover lemmas still lack native canonical signatures.
+- Joint derivative compact bounds, s/z/c derivative APIs, rational initial-order identities, complex Hurwitz H/R existence and Bernoulli contracts, nonreal shift and finite Dirichlet/periodic adapters now have admitted native signatures. R(1,c)=1 is a removable extension, not a pointwise totalized pole product.
+- Eight new local source findings E21–E28. Most materially, published LerchIII Theorem6.1(2) fails at m=0: for z=−1/2 its periodic value is−1/3, whereas q₀=2/3. Keep the formula for m≥1 and subtract1 at m=0. Its printed periodic integral is missing z exp(−t) and diverges at infinity. Publisher pp40–42 and preliminary hyperbola p39 were inspected as images. Novelty search is bounded. These local confirmed receipts are not final completed-review verdicts.
+
+Totals:247 nodes,105 APIs,83 tests,26 planets,150 baseline declarations,43 gaps,38 requests, six ownership proposals,26 source issues. No planet or ownership proposal changes. Four definition-carrier omissions and the cover theorem/interface omissions remain. Full source URLs, byte hashes and exact reading limits are in the [latest report](../reviews/REV-AnalyticNumberTheory--AN.0.md) and packet; reacquire those public files. No scratch file is needed.
+
+## Validation
+
+`lean-check`:exit0,300 warnings, all admitted proofs;0 errors/other warnings.96 GiB available. Suggested-file SHA256 `f2e353dc48f8bc7c752bc655e382226a974bdbe07b4f48143056d12770a96249`. Mathlib pin `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti pin `f790474821cf4256814db967cb154e7af3d0c369`. Mathlib-only elaboration, no project/build/cache operation, LSP or surviving compile.
+
+Pinned packet checker:0 errors/0 warnings. Shared source-issue/version schema, submission paths/no-private-path rules, whitespace, within-packet dependency acyclicity and intake incomplete-review classification checked before PR. Only the three deliverables and this handoff changed. Scratch is deleted after the PR opens.
+
+## Required continuation
+
+1. **Continue the whole-review closure pass**, starting with indices219–240 and the historical inventories. Some have earlier scoped receipts (220/221/224–240); do not blindly redo them or infer final verdicts.223's initial zero-order correction is freshly checked. Explicitly return to unaudited72 and all historical proof/interface gaps. No final node verdicts have yet been assembled.
+2. Acquire original proofs for second/fourth moments, general logarithmic-frequency Hilbert mean-value bound and PM.5's exact conjectural a(k),g(k) model. The current formulas are targets, not fresh source certification. Read LerchI/Weil's real Fourier–Mellin functional equation, the complex-c Hurwitz Taylor-subtraction/Bernoulli proof and remaining published III passages. SourceIII's Theorem6.1 is not a substitute for those proofs.
+3. Split the Beurling Tauberian/Abelian/nonvanishing inputs and resolve Fourier/distribution/Laplace-Stieltjes regular-boundary contracts (gap15). Match infinite-product finite-support exhaustion at the pin. Match divisor-pair cardinality/summation adapters (gap13). Resolve the actual UniversalCovers Stage0/Stage2 based lifting, quotient/descent and chart contracts plus the monodromy cocycle (gaps17/39). Never replace the genuine carriers with arbitrary Prop witnesses.
+4. Audit all150 baseline consumers, every source issue including E21–E28, all22 definitions' APIs/tests/native signatures,26 planets, stage/target closure and ownership/library deduplication. Revisit named RT-AREA-analytic/1, RT-AREA-combinatorics/8 and RS-07, including arithmetic-scheme Chebotarev, growing W(N), maximal divisor order, zero-free and AN.2→AC.4 routes.
+5. The reader is **outside #527 deliverables**. Its authorized synchronization and full independent audit remain required, including the six new lemma specifications, branch/pole distinctions and E26's order-zero exception. Do not edit it under this claim or accept before this obligation is resolved.
+6. Only after the entire independent review, add the final top-level review naming `independent-review-REV-AnalyticNumberTheory--AN.0`, with per-node/finding verdicts. Run packet/submission checks and appropriate Lean verification. Let intake handle merging/labels; do not manually promote, merge or close.
+
+No maintainer decision is needed to continue. Claim no second job in this process.
+
+# Historical checkpoint — Codex `codex-LO9Eha`
+
 Issue [#527](https://github.com/CBirkbeck/tauceti-explorer/issues/527), Codex — `codex-LO9Eha`,2026-10-05. [Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/527#issuecomment-5997409963). Input commit `fc7ba4734182295dc26e3a96c9c22d56181dfe98`; branch `codex-LO9Eha-review-analytic-527`.
 
 **Partial independent review; no final verdict or top-level packet `review` object.** The inherited `status:complete` belongs to the author's planning pass. Intake must classify this submission as an incomplete-review checkpoint. Preserve every historical receipt below at its stated scope; no node newly receives a final verified verdict.
