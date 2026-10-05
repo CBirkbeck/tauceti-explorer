@@ -360,6 +360,18 @@
     "data/blueprints/ClassicalSerreModularity--R33.5.md"
    ]
   },
+  "research/blueprint/packets/ConformalMappingPartII.json": {
+   "promotedAt": "2026-10-05T00:41:27Z",
+   "review": "1b52c82111c436bc",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-DESIGN-ConformalMappingPartII",
+   "sha256": "14d52fe162118fb2d04f31304a43d60f8b882ac4d85332d633d0d258ee1744a3",
+   "to": [
+    "data/blueprints/ConformalMappingPartII.json",
+    "data/blueprints/ConformalMappingPartII.md",
+    "data/blueprints/roadmaps/ConformalMappingPartII.json"
+   ]
+  },
   "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.6.json": {
    "promotedAt": "2026-09-28T13:45:03Z",
    "review": "918a718d825d5efb",
@@ -514,6 +526,18 @@
     "data/blueprints/InductionRestrictionPartII.json",
     "data/blueprints/InductionRestrictionPartII.md",
     "data/blueprints/roadmaps/InductionRestrictionPartII.json"
+   ]
+  },
+  "research/blueprint/packets/JacobianChallengePartII.json": {
+   "promotedAt": "2026-10-05T00:41:27Z",
+   "review": "d9a3b59097af94b5",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-DESIGN-JacobianChallengePartII",
+   "sha256": "fe5ba0926b48925f60ff4f689dad88c54a684b257f9318c41d878e0543484b82",
+   "to": [
+    "data/blueprints/JacobianChallengePartII.json",
+    "data/blueprints/JacobianChallengePartII.md",
+    "data/blueprints/roadmaps/JacobianChallengePartII.json"
    ]
   },
   "research/blueprint/packets/K2SymbolsBrauer--T.3.json": {
