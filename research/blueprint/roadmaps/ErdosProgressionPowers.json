@@ -1,0 +1,151 @@
+{
+  "id": "ErdosProgressionPowers",
+  "title": "Perfect powers in primitive arithmetic progressions",
+  "area": "arithmeticgeometry",
+  "parent": null,
+  "summary": "Bennett and Siksek attach two families of Frey curves to primitive progression products, derive a simultaneous family of quadratic characters, and contradict its large weighted sums by either a smooth-conductor sieve or Granville’s exceptional-modulus method. The endpoint bounds prime exponents effectively and yields finiteness for each fixed sufficiently large length. Generic elliptic, modular, analytic, additive and rational-point inputs remain with their existing owners.",
+  "readme": "# Perfect powers in primitive arithmetic progressions\n\nThis roadmap develops the Bennett–Siksek modular-method treatment of primitive arithmetic-progression products and both of its analytic endgames. Its unconditional endpoint is an effective prime-exponent bound and fixed-length finiteness. It does not prove the stronger Erdős nonexistence conjecture, an effective point-enumeration algorithm or finiteness as the progression length varies.\n\nThe product uses indices 0,...,k-1. Integer gcd is positive. The factors A_i retain all powers of primes below k and are positive; the factors y_i carry signs and use odd exponent ell. Logarithms and exponentials are real; exp(10^k) is not exp(10*k). The half interval is k/2<m<=k. Prime-weighted and von-Mangoldt-weighted sums are distinguished. The character lower bound uses absolute value, the conclusion directly supported by the four-character projection.\n\nThe generic Frey curve, elliptic reduction, torsion, Galois representations and modularity belong to their existing owners. This roadmap constructs only progression-specific coefficients, second-family data and comparison adapters. Generic character, analytic, sieve, Roth, CM and Faltings machinery is imported. The complete declaration specifications are in the associated reader and packet; their recorded source and supplier boundaries are part of the plan.\n\nThe target-level pass contains 48 declaration nodes and a historical statement register. Every stage is planned, not closed. Explicit supplier requests and gaps remain; all declarations are unchecked. The printed quantitative claims are distinguished from the executed certified bounds.\n",
+  "prerequisites": [
+    "AdditiveCombinatorics",
+    "AnalyticNumberTheory",
+    "ArithmeticGaloisRepresentations",
+    "ClassicalArithmeticCompletion",
+    "ComplexMultiplicationAndExplicitReciprocity",
+    "EllipticModularityEffectiveComparisons",
+    "ExponentialSumsAndCircleMethod",
+    "HeightsRationalPointsAndObstructions",
+    "SchemeAndStackFoundations",
+    "SerreWeightAndLevelOptimisation",
+    "SieveMethodsAndPrimePatterns",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+  ],
+  "stages": [
+    {
+      "key": "EP.0",
+      "title": "Primitive solutions and signed factors",
+      "description": "Define primitive nontrivial solutions with n,d,y in Z, positive length k and prime exponent ell, using the exact product over 0<=i<k and positive integer gcd. Prove the gcd-of-two-terms and large-prime valuation contracts. Construct the unique positive small-prime factors A_i with signed large-prime factors y_i for odd ell. Define strict arithmetic-progression triples and equal-sum quadruples. Define divisibility index sets and their one-residue-class cardinal bounds, including the +1 boundary.",
+      "requires": []
+    },
+    {
+      "key": "EP.1",
+      "title": "Frey families and residual comparisons",
+      "description": "Normalize the three progression terms to coprime a+b+c=0 and specialize the upstream Frey-Hellegouarch model, without constructing a second generic curve. Build the application-specific equal-sum second model, its discriminant and odd-prime local tests. Prove the reduced-level divisibility, odd squarefreeness and exponential bounds for both families. Prove that primes k/2<p<=k divide d under k>=10^8 and ell>exp(10^k); the two-term case needs its own c4-unit test. Establish the coefficient-prime Serre-weight/conductor bridge, compare to an actual full-two-torsion curve at the reduced level using Kraus, and prove good reduction and equality of integer traces throughout the half interval, including forced trace zero at primes 3 modulo4.",
+      "requires": [
+        "AnalyticNumberTheory:AN.2",
+        "AnalyticNumberTheory:AN.5",
+        "ArithmeticGaloisRepresentations:R01.3",
+        "EllipticModularityEffectiveComparisons:EC.1",
+        "EllipticModularityEffectiveComparisons:EC.2",
+        "EllipticModularityEffectiveComparisons:EC.3",
+        "EllipticModularityEffectiveComparisons:EC.4",
+        "ErdosProgressionPowers:EP.0",
+        "SerreWeightAndLevelOptimisation:R20.2",
+        "SerreWeightAndLevelOptimisation:R20.4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters"
+      ]
+    },
+    {
+      "key": "EP.2",
+      "title": "Legendre cases and the simultaneous character family",
+      "description": "Partition the six Legendre parameters by -Q^2 union2Q^2. Prove the application-specific nonsquare test at primes 3 mod 8, positive normalization lambda=2t^2 and 1-lambda=2v^2 in CaseII, and the tv square test at primes 5 mod 8 using the corrected order-four witness imported from the Legendre-interface owner. Exclude complex multiplication of the progression Frey curve. Under k>=2*10^10 construct one fixed family of primitive quadratic characters of conductors N_a with squarefree nontrivial odd part dividing M_a and absolute von-Mangoldt half-interval sum greater than 0.1239k. Both cases must give all conclusions for the same character; positivity of the signed sum is not assumed.",
+      "requires": [
+        "AnalyticNumberTheory:AN.2",
+        "ClassicalArithmeticCompletion:CA.1",
+        "ClassicalArithmeticCompletion:CA.4",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+        "EllipticModularityEffectiveComparisons:EC.5",
+        "ErdosProgressionPowers:EP.0",
+        "ErdosProgressionPowers:EP.1"
+      ]
+    },
+    {
+      "key": "EP.3",
+      "title": "The original analytic contradiction criteria",
+      "description": "Prove the progression-specific harmonic-family criterion of Proposition 7.2 for pairwise distinct largest conductor primes, P(N_a)<(log k)^(1-c1) and reciprocal mass at least 0.166, retaining effective dependence on 0<c1<1 and decay exponent min(c1,1/2). Prove the distinct-character criterion of Proposition 8.1 for more than 17 log k characters, P(N_a)<=k^(7/16) and N_a<k^c2 with c2>10. Import the generic character PNT, exceptional-zero repulsion, checked small-conductor zero exclusion, pairwise smooth-modulus cancellation and Bombieri-Selberg inequality. Apply the exact diagonal/off-diagonal bounds and the margin 1/68<0.1239^2.",
+      "requires": [
+        "AnalyticNumberTheory:AN.2",
+        "AnalyticNumberTheory:AN.3",
+        "AnalyticNumberTheory:AN.5",
+        "ErdosProgressionPowers:EP.2",
+        "ExponentialSumsAndCircleMethod:ES.0",
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ]
+    },
+    {
+      "key": "EP.4",
+      "title": "Thin-prime sieves and the original proof assembly",
+      "description": "Define survivors avoiding a prime set S of reciprocal mass below 0.17 and the two open-left sieving intervals. Bound the losses, perform maximal-valuation deletion so the surviving A-product divides(k-1)!, and prove the smooth factorial bound and density of A_i<=k^139. At the certified threshold k>=exp(exp(10^7)), use the imported quantitative Roth bound to choose one triple simultaneously avoiding S, with P(N_a)<=k^(7/16), no conductor prime in((log k)^(1-10^-4),10^4log k], and N_a<k^418. Keep the printed 10^6 threshold in the source register with its proof gap, not as an executed estimate. Build the maximal distinct-largest-prime family, prove its reciprocal-mass dichotomy and dispatch the small endpoint with c1=1/20000. This is one complete original-route reduction to an effective bound on k.",
+      "requires": [
+        "AdditiveCombinatorics:AC.2",
+        "AnalyticNumberTheory:AN.2",
+        "AnalyticNumberTheory:AN.5",
+        "ErdosProgressionPowers:EP.0",
+        "ErdosProgressionPowers:EP.2",
+        "ErdosProgressionPowers:EP.3"
+      ]
+    },
+    {
+      "key": "EP.5",
+      "title": "Granville exceptional moduli and a single witness",
+      "description": "For a bounded-height Landau-Page constant c>0 define T=exp(c log k/(3log log k)) and the moduli 1<=q<=k^4 having a primitive L-function zero with |Im rho|<=T and Re rho>1-3log log k/log k. Prove the polylogarithmic cardinal bound, minimum modulus>=log k and at-most-one modulus below T. Apply the corrected half-interval explicit formula to primitive nonprincipal characters outside this set. Define the exceptional divisibility indices with r|q and r>=q^(1/3)/2 and prove their sparse cardinal bound with all k/r+1 losses retained. Combine maximal-valuation deletion with disjoint triples to choose one triple that both avoids these indices and satisfies 8A_iA_jA_h<=k^4. Odd-conductor divisibility and the bound N<=8Nodd force that same conductor outside the exceptional set. The resulting contradiction gives an independent effective bound on k without Roth or short-sum cancellation.",
+      "requires": [
+        "AnalyticNumberTheory:AN.3",
+        "AnalyticNumberTheory:AN.5",
+        "ErdosProgressionPowers:EP.0",
+        "ErdosProgressionPowers:EP.2",
+        "ErdosProgressionPowers:EP.4"
+      ]
+    },
+    {
+      "key": "EP.6",
+      "title": "Effective exponent bound and fixed-length finiteness",
+      "description": "Prove the main theorem: an effectively computable absolute k0 exists such that every primitive integer progression product of length k>=k0 with prime exponent ell has y*d=0 or ell<=exp(10^k). Either proof route supplies such a threshold. For each fixed k>=k0, increased to at least5, import Faltings and construct the Darmon-Granville fixed-exponent adapter. Reduce composite exponents to prime divisors and exclude power variables0,1,-1 in nontrivial sufficiently long progressions. Deduce finiteness of positive integer(n,d,y,ell) tuples for each fixed k and all ell>=2, not one finite set over all lengths and not an effective enumeration of points.",
+      "requires": [
+        "ErdosProgressionPowers:EP.0",
+        "ErdosProgressionPowers:EP.4",
+        "ErdosProgressionPowers:EP.5",
+        "HeightsRationalPointsAndObstructions:RP.4",
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula"
+      ]
+    },
+    {
+      "key": "EP.7",
+      "title": "The statement register and scope",
+      "description": "Import the Erdős-Selfridge theorem for positive consecutive integers from its classical-arithmetic owner. State the stronger Erdős eventual-nonexistence conjecture with positivity and the gcd condition, without proving it or using it as an assumption. Register the Section 11 smooth-multiplier equation product(n+id)=b*y^ell with nonzero b supported on primes<=tau*k for fixed tau<1/2, marking the announced extension as lacking a separate quantified proof. Specify the two assertions and test their domains; neither is a shortcut in either unconditional proof route.",
+      "requires": [
+        "ClassicalArithmeticCompletion:CA.4",
+        "ErdosProgressionPowers:EP.0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BS20",
+      "title": "A conjecture of Erdős, supersingular primes and short character sums",
+      "authors": "Michael A. Bennett and Samir Siksek",
+      "edition": "Published Annals of Mathematics 191 (2020), no. 2, 355–392, including §12 (Granville addendum); publisher PDF, 38 pages",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
+      "readSections": [
+        "Published §§1–12 and references, pp.355–392; full text re-read 2026-10-05. Images inspected at pp.357,361,371,384."
+      ]
+    },
+    {
+      "id": "DG95",
+      "title": "On the equations z^m=F(x,y) and Ax^p+By^q=Cz^r",
+      "authors": "Henri Darmon and Andrew Granville",
+      "edition": "Author-hosted scan of Bulletin of the London Mathematical Society 27 (1995), 513–543; accessed 2026-10-05; not independently collated with the publisher",
+      "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Research/12.Granville/pub12.pdf",
+      "sha256": "2a77462524aebdce6a34c540e99afb3913c2c6113b597af9792bed6c82376aca",
+      "readSections": [
+        "§2.1, Corollary 2.1 and its complete printed proof, pp.520–521; selected §2 descent setup pp.519–520. Genus formula verified on the p.521 image. No full-paper reading or publisher collation is claimed."
+      ]
+    }
+  ],
+  "status": "draft"
+}
