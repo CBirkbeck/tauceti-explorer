@@ -1,3 +1,11 @@
+/-
+This file is not the roadmap and is not exhaustive. The roadmap reader document
+is definitive and its packet specifies the same contracts. These are suggested Lean forms so that contributors and
+reviewers converge on names and signatures; every implementationStatus is unchecked.
+Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and
+Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+-/
+
 import Mathlib.GroupTheory.Index
 import Mathlib.Logic.Equiv.Fin.Rotate
 import TauCeti.CategoryTheory.Exact.Functor
@@ -101,31 +109,14 @@ import TauCeti.LinearAlgebra.GeneralLinearGroup.Prod
 import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.LeftMulMatrix
 import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Transvection
 import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Diagonal
+import TauCeti.NumberTheory.NumberField.Cyclotomic.Frobenius
 import TauCeti.NumberTheory.NumberField.Units.Dirichlet
 import TauCeti.RingTheory.DedekindDomain.SInteger.Spectrum
 import TauCeti.RingTheory.DedekindDomain.SInteger.Unit
 import TauCeti.RingTheory.Idempotents.Connected.Components
 
 /-!
-# Suggested Lean forms for `KTheoryLowDegrees--U.1` (stages Z.1, Z.2, U.1–U.6)
-
-This file is not the roadmap and is not exhaustive. The reviewed packet
-`research/blueprint/packets/KTheoryLowDegrees--U.1.json` specifies the contracts. The reader
-document requires regeneration after this independent review. The statements below suggest
-Lean forms so that contributors and reviewers converge on names and signatures; they claim no
-implementation, and `implementationStatus` stays `"unchecked"` for every node.
-
-Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`.
-
-An earlier checkpoint reported compilation of its then-current file against these pins.
-That historical result does not validate later continuations. In this run the prescribed
-`lean-check` stops at import loading: the shared build lacks
-`TauCeti.CategoryTheory.Exact.Functor.olean`, so the complete file did not elaborate.
-The new Kubota section elaborates separately against the pinned Mathlib with exact inherited
-carrier definitions extracted into a scratch harness, with `autoImplicit` disabled. Its
-proof placeholders give expected `sorry` warnings. This checks the new signatures and typed
-tests, not the complete file or mathematical proofs. No library build was started.
+# Suggested Lean forms for `KTheoryLowDegrees--U.1` (Z.1, Z.2, U.1–U.6)
 
 ## Pinned conventions
 
@@ -7659,12 +7650,13 @@ end TauCeti.KTheory
 namespace TauCeti.RelativeK1
 
 -- `TauCeti.RelativeK1.relative_K1_homotopy_comparison`
--- (`KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison`): not stated here; needs the K-theory
+-- (`KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison`): explicit proof gap; needs the K-theory
 -- spaces `K(A)`, the homotopy fibre `K(A, I)` of `K(A) → K(A/I)` and its homotopy groups `π₀`, `π₁`
--- (supplier: `GeneralAlgebraicKTheory:K.5/relative-K-theory-and-excision-boundary` for the fibre,
+-- (supplier: `GeneralAlgebraicKTheory:K.5/relative-K-theory` for the fibre,
 -- `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`,
 -- `StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence`; the proof also needs
--- `K2SymbolsBrauer:T.1` and `T.6`). Suggested form: `RelK1 I ≃* π₁ (K(A, I))` and
+-- `K2SymbolsBrauer:T.1` and `T.6`, an actual relative-plus/excision-defect argument,
+-- and the degree-two boundary comparison). Suggested form: `RelK1 I ≃* π₁ (K(A, I))` and
 -- `RelativeK0.RelK0 I ≃+ π₀ (K(A, I))`, compatible with `RelK1.toK1` and `RelativeK0.RelK0.toK0`.
 
 end TauCeti.RelativeK1
@@ -9041,4 +9033,5 @@ be elaborated in the supplied shared build: import loading fails before declarat
 checked. No historical fragment check certifies the current complete file. The relative
 homotopy comparison still needs an actual relative-plus/excision-defect argument; a five-lemma
 argument between the double-ring and quotient sequences has nonisomorphic adjacent maps.
-The reader document contains superseded statements and must be regenerated before promotion. -/
+Revision BP-KTheoryLowDegrees--U.1~2 synchronizes the reader with the corrected packet.
+Full-file elaboration at the exact pins remains unestablished. -/
