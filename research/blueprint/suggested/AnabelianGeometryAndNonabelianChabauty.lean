@@ -31,7 +31,14 @@ This file is not the roadmap and is not exhaustive. The roadmap document is defi
 The statements suggest Lean forms so that contributors and reviewers converge on names
 and signatures. All proposed results are unproved prototypes at the pinned baseline.
 
-Review checkpoint REV-AnabelianGeometryAndNonabelianChabauty, 2026-10-05:
+Final independent review accepted the planning pass on 2026-10-05 (Codex codex-e9o9vg).
+All active signatures and packet API/test correspondences were inspected. Full lean-check
+stopped at the missing shared Tau Ceti LowDegree object; removing TauCeti imports and
+only section Abelian gave a fresh successful Mathlib check with 693 sorry warnings.
+The original active code was restored; the omitted comparisons were not compiled.
+Geometric/cochain signatures marked OMITTED remain open under PROTOCOL section 13.
+
+Historical Review checkpoint REV-AnabelianGeometryAndNonabelianChabauty, 2026-10-05:
 encoded recovery payloads and their hashes below are historical receipts from the
 incoming file at explorer commit 3f2daf22c9620e59cdac2fc35a6203a4e0c45181.
 They are preserved verbatim, not regenerated or independently executed in this review.
