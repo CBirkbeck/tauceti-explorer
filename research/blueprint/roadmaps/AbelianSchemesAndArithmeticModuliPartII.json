@@ -7,11 +7,13 @@
   "readme": "The definitive reader document gives all 17 layers, their exact conventions, declarations, proof spines, APIs, tests, sources and recorded gaps. The completed planning pass imports parent abelian schemes and Poincaré geometry, and keeps Betti and finite-field consumers in one parent-based family.",
   "prerequisites": [
     "AbelianSchemesAndArithmeticModuli",
+    "AdelicAlgebraicGroups",
     "AlgebraicModuliForArithmeticGeometry",
     "ComplexComparisonPartII",
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
     "GeometryOfNumbersAndQuadraticArithmetic",
     "HodgeStructuresPartII",
+    "JacobianChallengePartII",
     "LogicAndDefinabilityInNumberTheory",
     "PELModuli",
     "SchemeAndStackFoundations"
@@ -28,10 +30,10 @@
       "title": "Universal vector extensions",
       "description": "Represent rigidified line bundles with integrable relative connection by the universal vector extension of the dual abelian scheme. Identify its Hodge and cotangent sequences. Targets: Universal vector extension of the dual; Lie and cotangent identifications.",
       "requires": [
-        "AbelianSchemesAndArithmeticModuliPartII:P0",
-        "AbelianSchemesAndArithmeticModuli:A0",
+        "AbelianSchemesAndArithmeticModuli:A1",
         "AbelianSchemesAndArithmeticModuli:A2",
-        "AbelianSchemesAndArithmeticModuli:A4"
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "AbelianSchemesAndArithmeticModuliPartII:P0"
       ]
     },
     {
@@ -39,10 +41,10 @@
       "title": "Completed Poincaré bundles",
       "description": "Specialize imported formal completion to the unit of a smooth group. Construct moment maps, finite and completed Poincaré sheaves, isogeny functoriality, torsion splittings, equivariance, comultiplication and top cohomology. Targets: Moments of a formal smooth group; Fourier–Mukai input for completed Poincaré cohomology; Completed sheaves and the completed Poincaré bundles 𝒫̂, 𝒫̂^♮; Functoriality of the completed Poincaré bundle for isogenies (Theorem 2.8); The splitting principle (Corollary 2.9, Definition 2.10); Γ-equivariance of the completed Poincaré bundle (Corollary 2.11); Comultiplication on the completed Poincaré bundle (Proposition 2.12, Corollary 2.14); Vanishing of the cohomology of 𝒫̂ ⊗ Ω^d (Theorem 2.15).",
       "requires": [
-        "AbelianSchemesAndArithmeticModuliPartII:P0",
-        "AbelianSchemesAndArithmeticModuliPartII:P1",
         "AbelianSchemesAndArithmeticModuli:A2",
         "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuliPartII:P0",
+        "AbelianSchemesAndArithmeticModuliPartII:P1",
         "SchemeAndStackFoundations:SF.2",
         "SchemeAndStackFoundations:SF.4"
       ]
@@ -52,8 +54,10 @@
       "title": "Logarithm and smooth realizations",
       "description": "Identify the characteristic-zero logarithm sheaf with the completed universal connection. Give the smooth d+ν model and the Dolbeault comparison with its precise analytic prerequisites. Targets: Square-zero deformation and the logarithm class; The smooth d+ν connection; The completed Poincaré bundle with connection is the logarithm sheaf (Scheider); The C^∞ description of the completed Poincaré bundle (Theorem 3.5).",
       "requires": [
-        "AbelianSchemesAndArithmeticModuliPartII:P2",
         "AbelianSchemesAndArithmeticModuli:A5",
+        "AbelianSchemesAndArithmeticModuliPartII:P0",
+        "AbelianSchemesAndArithmeticModuliPartII:P1",
+        "AbelianSchemesAndArithmeticModuliPartII:P2",
         "ComplexComparisonPartII:C0"
       ]
     },
@@ -62,9 +66,9 @@
       "title": "Ordinary CM formal trivializations",
       "description": "Use a noetherian CM model and completed base change to O_Cp. Construct integral ordinary formal trivialization, the projected connection and each translation compatibility. Targets: Ordinary CM completion and completed base change; Infinitesimal trivialization of the Poincaré bundle over 𝒪_{ℂ_p} (Proposition 5.9, Lemma 5.11); Translation invariance and the trivializations ϱ̂_y (Lemmas 5.12, 5.14; Definition 5.13).",
       "requires": [
-        "AbelianSchemesAndArithmeticModuliPartII:P2",
-        "AbelianSchemesAndArithmeticModuliPartII:P3",
         "AbelianSchemesAndArithmeticModuli:A4",
+        "AbelianSchemesAndArithmeticModuliPartII:P1",
+        "AbelianSchemesAndArithmeticModuliPartII:P2",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
       ]
     },
@@ -92,20 +96,22 @@
       "title": "Curve monodromy and constant traces",
       "description": "Construct curve degeneracy, prove the definable-set and monodromy steps, state a genuine function-field trace and isolate the fixed-part and trace-reduction gaps. Targets: Degeneracy over a curve; Function-field trace and constant part; Integer characters and countably many closed torus subgroups; Free matrix word growth at bounded height; Fixed homology and equivariant Hom; Generically special subvarieties; Lemma 5.2 (invariant definable sets of Ax-type); Proposition 5.3 (monodromy-invariant subvarieties of an abelian variety); Proposition 5.4 (monodromy transport along Betti fibres); Tits: free subgroups of linear groups; Lemma 5.5 (free subgroups in monodromy); Lemma 5.6 (invariant homology forces a non-zero trace); Lemma 5.8 (virtually monodromy-invariant subvarieties lie in kernels); Theorem 5.1 (degenerate implies generically special); Lemma 6.2 (non-generically special subvarieties have full Betti rank); Invariance of domain in equal real dimension; Real constant-rank theorem for Betti fibres; Integer-character description of closed subgroups of a real torus; Good-cover refinement on a Riemann surface.",
       "requires": [
+        "AbelianSchemesAndArithmeticModuli:A5",
+        "AbelianSchemesAndArithmeticModuli:A6",
         "AbelianSchemesAndArithmeticModuliPartII:B0",
         "AbelianSchemesAndArithmeticModuliPartII:B1",
         "HodgeStructuresPartII:H.2",
-        "HodgeStructuresPartII:H.3",
         "LogicAndDefinabilityInNumberTheory:LD.6"
       ]
     },
     {
       "key": "B3",
       "title": "Degeneracy loci and quotient criteria",
-      "description": "Define special-generically closures and t-degeneracy, decompose the mixed Ax–Schanuel input into exact owner requests, and prove finite-data closedness, descent and the quotient-rank criterion. Targets: Horizontal and vertical growth in mixed Ax–Schanuel; Bigness of the rational stabilizer; Normality and quotient induction; Finite weakly optimal quotient data; Gao t-degeneracy loci; Zariski closedness of degeneracy loci; Gao quotient criterion for Betti rank.",
+      "description": "Define special-generically closures and t-degeneracy; request normalized mixed Ax–Schanuel finite data and a global closedness proof that handles exceptional modular fibres. Retain the exact quotient-rank threshold. Targets: Horizontal and vertical growth in mixed Ax–Schanuel; Bigness of the rational stabilizer; Normality and quotient induction; Finite weakly optimal quotient data; Gao t-degeneracy loci; Zariski closedness of degeneracy loci; Gao quotient criterion for Betti rank.",
       "requires": [
         "AbelianSchemesAndArithmeticModuliPartII:B1",
         "AbelianSchemesAndArithmeticModuliPartII:B2",
+        "HodgeStructuresPartII:H.2",
         "LogicAndDefinabilityInNumberTheory:LD.6"
       ]
     },
@@ -114,8 +120,13 @@
       "title": "Fibre powers and differences",
       "description": "Prove the fibre-power induction with geometric generic irreducibility, re-diagonalizing the kernel at every step; prove the product lemma and apply it to differences and universal curves. Targets: Non-degeneracy of a dominant fibre product; The fibre-power dimension induction; Theorem 6.2 (non-degeneracy of D_M(C_S^{[M+1]}), Gao); Gao's non-degeneracy criterion for fibered powers; Non-degeneracy is preserved by the difference construction.",
       "requires": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "AbelianSchemesAndArithmeticModuliPartII:B0",
+        "AbelianSchemesAndArithmeticModuliPartII:B1",
         "AbelianSchemesAndArithmeticModuliPartII:B2",
-        "AbelianSchemesAndArithmeticModuliPartII:B3"
+        "AbelianSchemesAndArithmeticModuliPartII:B3",
+        "JacobianChallengePartII:JC2",
+        "JacobianChallengePartII:JC7"
       ]
     },
     {
@@ -123,19 +134,9 @@
       "title": "Finite-field Frobenius and Tate",
       "description": "Keep q=p^a throughout Tate full faithfulness and Frobenius polynomials, with ℓ independence and point counts. Honda multiplicities follow in F3 after characteristic-prime local invariants. Targets: Compact preimages and exact lattice limits; Tate at a split Frobenius prime; Frobenius polynomial and reciprocity; Weil q-numbers; Tate full faithfulness over finite fields; Tate’s isotropic image lemma; Point counts are isogeny invariant.",
       "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A6",
         "PELModuli:M6"
-      ]
-    },
-    {
-      "key": "F1",
-      "title": "Characteristic-prime realization",
-      "description": "Use the imported contravariant Dieudonné carrier, the determinant/length formula, integral saturation, resultant recognition and cyclic block algebras to prove p-Tate and local invariants. Targets: Degree from Dieudonné cokernel length; Characteristic polynomial on the p-realization; Rational and integral p-Tate comparison; Algebra acting on a Frobenius polynomial block; Integral Tate full faithfulness at the characteristic prime; Rational p-Tate comparison; Saturated injection on integral p-realization Hom groups; Semisimplicity of the linear q-Frobenius realization; Central simplicity of a Frobenius block algebra; Dimension of the semilinear Frobenius commutant; Characteristic-prime invariant of a simple endomorphism algebra.",
-      "requires": [
-        "AbelianSchemesAndArithmeticModuliPartII:F0",
-        "AbelianSchemesAndArithmeticModuliPartII:F2",
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-5-skolem-noether-and-the-centralizer-theorem"
       ]
     },
     {
@@ -145,13 +146,31 @@
       "requires": []
     },
     {
+      "key": "F1",
+      "title": "Characteristic-prime realization",
+      "description": "Use the imported contravariant Dieudonné carrier, the determinant/length formula, integral saturation, resultant recognition and cyclic block algebras to prove p-Tate and local invariants. Targets: Degree from Dieudonné cokernel length; Characteristic polynomial on the p-realization; Rational and integral p-Tate comparison; Algebra acting on a Frobenius polynomial block; Integral Tate full faithfulness at the characteristic prime; Rational p-Tate comparison; Saturated injection on integral p-realization Hom groups; Semisimplicity of the linear q-Frobenius realization; Central simplicity of a Frobenius block algebra; Dimension of the semilinear Frobenius commutant; Characteristic-prime invariant of a simple endomorphism algebra.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "AbelianSchemesAndArithmeticModuliPartII:F0",
+        "AbelianSchemesAndArithmeticModuliPartII:F2",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-5-skolem-noether-and-the-centralizer-theorem"
+      ]
+    },
+    {
       "key": "F3",
       "title": "Honda–Tate and lattice classifications",
       "description": "Classify simple classes by Weil numbers with the division-algebra multiplicity, then classify marked finite-support lattices and rational unmarked orbits. Keep the prime-field linear-dual convention explicit. Targets: Prime-to-p and p lattice spaces; Honda–Tate simple isogeny classification; Frobenius polynomial determines the isogeny class; Commutative endomorphisms in the nonreal prime-field case; Realization of nonreal prime-field orders; Marked quasi-isogenies classified by lattices; Isomorphism classes as rational orbits; Prime-field p-realization Frobenius polynomial; Finite-support lattice tuples are realized over the prime field; Prime-field marked and unmarked classification.",
       "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
         "AbelianSchemesAndArithmeticModuliPartII:F0",
         "AbelianSchemesAndArithmeticModuliPartII:F1",
         "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants"
       ]
     },
@@ -160,7 +179,12 @@
       "title": "Adelic class sets and local bounds",
       "description": "Define the exact lattice stabilizers and adelic class set. Use ordered unequal-root discriminants, reduced norms, narrow class groups and precise local orbit requests. Targets: Adelic class set of the endomorphism group; Finite-support adelic stabilizers in a prime-field isogeny class; The prime-field p-component reduction; Class-set comparison by reduced norms; Correct elementary discriminant estimate; Conditional rational-orbit bound from local lattices; Coarse prime-field isomorphism count at fixed adelic level.",
       "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:F0",
+        "AbelianSchemesAndArithmeticModuliPartII:F1",
         "AbelianSchemesAndArithmeticModuliPartII:F3",
+        "AdelicAlgebraicGroups:AA.1",
+        "AdelicAlgebraicGroups:AA.3",
+        "AdelicAlgebraicGroups:AA.4",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
         "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets"
       ]
@@ -170,9 +194,12 @@
       "title": "Polarizations and CM powers",
       "description": "Import Rosati and principal polarization orbits; descend line bundles over finite fields. Bound squarefree nonreal classes and count CM elliptic-power polarizations with correctly normalized masses. Targets: Lang surjectivity for an abelian variety; Line-bundle realization over a finite field; Units that are norms modulo norms of units (Lemmermeyer); Squarefree nonreal polarization bound; Density of primes splitting in a class-number-one CM field; Elliptic curve with class-number-one endomorphisms; Lemma 5.19, corrected: odd characteristic; Lemma 5.11, corrected: principal polarizations on E^g.",
       "requires": [
-        "AbelianSchemesAndArithmeticModuliPartII:F0",
-        "AbelianSchemesAndArithmeticModuliPartII:F4",
+        "AbelianSchemesAndArithmeticModuli:A2",
         "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "AbelianSchemesAndArithmeticModuliPartII:F0",
+        "AbelianSchemesAndArithmeticModuliPartII:F3",
+        "AbelianSchemesAndArithmeticModuliPartII:F4",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
         "tauceti:Completed/EffectiveBounds#layer-1-effective-upper-bounds-the-first-migration-targets",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
@@ -181,8 +208,10 @@
     {
       "key": "F6",
       "title": "Counting isogeny and isomorphism classes",
-      "description": "Count reciprocal Weil polynomials and ordinary lattice points. Assemble the conditional repaired 69/4 bound and the repeated-factor comparison with the 1/2 coefficient. Targets: Lemma 2.1, corrected: counting Weil polynomials; Asymptotic count of isogeny classes; DiPippo–Howe lower bound for isogeny classes; Theorem 0.1, corrected: abelian varieties over F_p number p^(O(g²)); Theorem 0.3 (Proposition 4.17): most ppavs over F_p have a repeated factor; Reconstruction from integer power sums.",
+      "description": "Count reciprocal Weil polynomials using the existing Newton recurrence and ordinary lattice points. Plan log B(p,g)=O_p(g²); the69/4 coefficient is a conditional specialization awaiting an exact uniform local estimate. Compare with CM elliptic-power masses of coefficient1/2 and retain the real-Weil exclusion in the squarefree event. Targets: Lemma 2.1, corrected: counting Weil polynomials; Asymptotic count of isogeny classes; DiPippo–Howe lower bound for isogeny classes; Theorem 0.1, corrected: abelian varieties over F_p number p^(O(g²)); Asymptotic exclusion of squarefree nonreal ppavs; Reconstruction from integer power sums.",
       "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:F0",
+        "AbelianSchemesAndArithmeticModuliPartII:F3",
         "AbelianSchemesAndArithmeticModuliPartII:F4",
         "AbelianSchemesAndArithmeticModuliPartII:F5"
       ]
@@ -394,5 +423,11 @@
       ]
     }
   ],
-  "status": "draft"
+  "status": "draft",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
+    "date": "2026-10-05",
+    "notes": "Seventeen target stages, parent boundary, suppliers and corrected target names checked; stage and node ordering are validated in the assembled candidate. No implementation promotion."
+  }
 }
