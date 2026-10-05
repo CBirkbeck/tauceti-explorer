@@ -550,6 +550,17 @@
     "data/blueprints/roadmaps/EllipticLegendreCharacterInterfaces.json"
    ]
   },
+  "research/blueprint/packets/EllipticRegulators--ER.2.json": {
+   "promotedAt": "2026-10-05T23:56:50Z",
+   "review": "78d660a41a1bf65b",
+   "reviewDate": "2026-10-05",
+   "reviewer": "independent-review-REV-EllipticRegulators--ER.2",
+   "sha256": "c7fc473f0fcb76efd258c8d9e4cd453fdeb577ccc08964685e6e2d40b4a833db",
+   "to": [
+    "data/blueprints/EllipticRegulators--ER.2.json",
+    "data/blueprints/EllipticRegulators--ER.2.md"
+   ]
+  },
   "research/blueprint/packets/EllipticRegulators.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "e1d26973bb20d433",
