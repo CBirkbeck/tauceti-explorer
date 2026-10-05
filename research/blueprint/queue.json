@@ -10270,8 +10270,9 @@
    "avoidAccountOf": "DESIGN-JacobianChallengePartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3554"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3554",
+   "finishedAt": "2026-10-05T00:41:08Z"
   },
   {
    "id": "DESIGN-StableReductionPartII",
@@ -15715,8 +15716,9 @@
    "avoidAccountOf": "DESIGN-ConformalMappingPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ConformalMappingPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3511"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3511",
+   "finishedAt": "2026-10-05T00:41:12Z"
   },
   {
    "id": "DESIGN-PadicHodgeParametersInLocallyAnalyticRepresentations",
@@ -30717,7 +30719,8 @@
    ],
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #536"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic",
