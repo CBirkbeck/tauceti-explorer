@@ -31546,8 +31546,9 @@
    ],
    "followUpOf": "BP-K3BlochGroups",
    "prompt": "research/blueprint/prompts/BP-K3BlochGroups--V.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6382"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6382",
+   "finishedAt": "2026-10-05T22:49:48Z"
   },
   {
    "id": "REV-K3BlochGroups--V.2",
@@ -32395,7 +32396,8 @@
    ],
    "avoidAccountOf": "BP-HabiroCyclotomicCompletions--HC.6",
    "prompt": "research/blueprint/prompts/REV-HabiroCyclotomicCompletions--HC.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6414"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.0",
