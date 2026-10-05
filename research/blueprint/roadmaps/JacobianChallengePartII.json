@@ -4,7 +4,7 @@
   "area": "arithmeticgeometry",
   "parent": "tauceti:TauCetiRoadmap/JacobianChallenge",
   "summary": "Extend the field-level Jacobian challenge to smooth projective geometrically connected positive-genus curve families over noetherian bases. Build degree Picard torsors and the relative Jacobian, use the canonical principal polarization to obtain a section-free twice-theta bundle, establish actual-line-bundle descent and theta identities, and supply universal Faltings–Zhang constructions and the stable semi-abelian Hodge comparison.",
-  "readme": "The definitive roadmap document is research/blueprint/readmes/JacobianChallengePartII.md. Generic Picard sheaves, rigidification, abelian schemes, duals, torsion and generalized Jacobians are imported from their owners. A global base point, degree-one line bundle or theta divisor is never part of the standing family hypotheses. Analytic metrics, adelic pairings and nondegeneracy are consumers rather than extra targets here.",
+  "readme": "The definitive roadmap document is research/blueprint/readmes/JacobianChallengePartII.md. Generic Picard sheaves, rigidification, abelian schemes, duals, torsion and generalized Jacobians are imported from their owners. A global base point, degree-one line bundle or theta divisor is never part of the standing family hypotheses. Analytic metrics, adelic pairings and nondegeneracy are consumers rather than extra targets here. The reviewed packet specifies the signed Poincaré comparison and imports nodal duality and fibrewise ampleness from upstream StableReduction Layer2. Regeneration of the separately owned reader document must use these reviewed contracts.",
   "prerequisites": [
     "AbelianSchemesAndArithmeticModuli",
     "AlgebraicModuliForArithmeticGeometry",
@@ -56,7 +56,7 @@
     {
       "key": "JC3",
       "title": "Theta and normalized Poincaré identities",
-      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nNormalized Jacobian Poincaré bundle. Let P_X on J×_S J be the pullback of the rigidified Poincaré bundle via the canonical identification of J with its dual, using Yuan’s convention: on a field fibre with theta line L, its class is m*L⁻¹⊗p₁*L⊗p₂*L. It is rigidified along both zero axes. The sign comparison between this convention and the supplier φ_L convention is a required named comparison.\n\nTheta divisor with a degree-one class. Over a field K, for a smooth projective geometrically connected C of genus g>0 and an actual degree-one divisor α, θ_α is the image of Sym^{g−1}C→J, D↦[D−(g−1)α], with its effective Cartier divisor structure. For g=1 the symmetric power is Spec K and θ_α is the origin. This translates the parent theta construction to arbitrary degree-one α, which need not be effective or a rational point.\n\nCanonical twice-theta bundle. Define Θ_X:=Δ_J*(P_X∨), an actual invertible sheaf on J with the induced zero rigidification. This is defined without a degree-one bundle on X; it is not a chosen theta divisor.\n\nPullback of inverse theta. i_α*O_J([-1]*θ_α)≅O_C(gα).\n\nPullback of theta. i_α*O_J(θ_α)≅ω_{C/K}⊗O_C((2−g)α).\n\nPoincaré addition identity. In Pic(J×J), P=m*O_J(−θ_α)⊗p₁*O_J(θ_α)⊗p₂*O_J(θ_α). As a rigidified isomorphism, include the constant fibre normalization of O_J(θ_α) at the origin; the displayed formula alone is a class equality over the field.\n\nPoincaré pullback on the curve square. In Pic(C×C), (i_α,i_α)*P=O(Δ_C)⊗p₁*O_C(−α)⊗p₂*O_C(−α). There is no assumption (2g−2)α=ω_C.\n\nTheta doubling formula. [2]*O_J(θ_α)≅O_J(3θ_α+[-1]*θ_α) as a Picard class over K.\n\nPoincaré diagonal identity. Δ_J*P≅O_J(−θ_α−[-1]*θ_α).\n\nGeometric fibre twice-theta class. For every geometric point s of S, Θ_s is algebraically equivalent to twice a theta divisor on J_s. With a chosen degree-one α over the algebraically closed residue field, its Picard class is θ_α+[-1]*θ_α.\n\nSymmetry of twice-theta. [-1]*Θ_X≅Θ_X as zero-rigidified bundles over S, not merely on geometric fibres.\n\nZero rigidification of twice-theta. The zero-axis trivializations of P induce e*Θ_X≅O_S, compatible with base change.\n\nRelative ampleness of twice-theta. Θ_X is relatively ample for J→S; hence J→S is projective. The proof uses properness and the fibrewise ampleness criterion over noetherian S.",
+      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nNormalized Jacobian Poincaré bundle. Let P_X on J×_S J be the pullback of the rigidified Poincaré bundle via the canonical identification of J with its dual, using Yuan’s convention: on a field fibre with theta line L, its class is m*L⁻¹⊗p₁*L⊗p₂*L. It is rigidified along both zero axes. The sign comparison between this convention and the supplier φ_L convention is a required named comparison.\n\nTheta divisor with a degree-one class. Over a field K, for a smooth projective geometrically connected C of genus g>0 and an actual degree-one divisor α, θ_α is the image of Sym^{g−1}C→J, D↦[D−(g−1)α], with its effective Cartier divisor structure. For g=1 the symmetric power is Spec K and θ_α is the origin. This translates the parent theta construction to arbitrary degree-one α, which need not be effective or a rational point.\n\nCanonical twice-theta bundle. Define Θ_X:=Δ_J*(P_X∨), an actual invertible sheaf on J with the induced zero rigidification. This is defined without a degree-one bundle on X; it is not a chosen theta divisor.\n\nPullback of inverse theta. i_α*O_J([-1]*θ_α)≅O_C(gα).\n\nPullback of theta. i_α*O_J(θ_α)≅ω_{C/K}⊗O_C((2−g)α).\n\nPoincaré addition identity. In Pic(J×J), P=m*O_J(−θ_α)⊗p₁*O_J(θ_α)⊗p₂*O_J(θ_α). As a rigidified isomorphism, include the constant fibre normalization of O_J(θ_α) at the origin; the displayed formula alone is a class equality over the field.\n\nPoincaré pullback on the curve square. In Pic(C×C), (i_α,i_α)*P=O(Δ_C)⊗p₁*O_C(−α)⊗p₂*O_C(−α). There is no assumption (2g−2)α=ω_C.\n\nTheta doubling formula. [2]*O_J(θ_α)≅O_J(3θ_α+[-1]*θ_α) as a Picard class over K.\n\nPoincaré diagonal identity. Δ_J*P≅O_J(−θ_α−[-1]*θ_α).\n\nGeometric fibre twice-theta class. For every geometric point s of S, Θ_s is algebraically equivalent to twice a theta divisor on J_s. With a chosen degree-one α over the algebraically closed residue field, its Picard class is θ_α+[-1]*θ_α.\n\nSymmetry of twice-theta. [-1]*Θ_X≅Θ_X as zero-rigidified bundles over S, not merely on geometric fibres.\n\nZero rigidification of twice-theta. The zero-axis trivializations of P induce e*Θ_X≅O_S, compatible with base change.\n\nRelative ampleness of twice-theta. Θ_X is relatively ample for J→S; hence J→S is projective. The proof uses properness and the fibrewise ampleness criterion over noetherian S.\n\nFor the evaluation-normalized supplier bundle U with U_b=b and φ_L(a)=t_a*L⊗L⁻¹, define Yuan’s P_X by (id,−λ_X)*U. The signed comparison and fibre-at-zero rigidification are explicit. The proper-family fibrewise ampleness criterion is imported from upstream StableReduction Layer2.",
       "requires": [
         "AbelianSchemesAndArithmeticModuli:A1",
         "AbelianSchemesAndArithmeticModuli:A2",
@@ -66,7 +66,8 @@
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ]
     },
     {
@@ -98,11 +99,11 @@
     {
       "key": "JC6",
       "title": "Stable curve–Jacobian Hodge comparison",
-      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nPicard Lie algebra and coherent cohomology. For an integral noetherian S and a stable connected nodal genus-g>1 family π:X→S, let G=Pic⁰_{X/S} be the smooth separated semi-abelian group supplied by Néron R11.4. There is a canonical O_S-linear isomorphism Lie(G/S)≅R¹π_*O_X, compatible with base change.\n\nCurve and Jacobian Hodge bundles. Under the hypotheses of the Picard Lie comparison, relative duality gives π_*ω_{X/S}≅e*Ω¹_{G/S}. Both are locally free of rank g and commute with the allowed base changes; the right side uses invariant differentials of the semi-abelian G.\n\nCurve–Jacobian Hodge line isomorphism. For the same stable family, λ_X:=det(π_*ω_{X/S}) is canonically isomorphic to det(e*Ω¹_{G/S}); the isomorphism is the determinant of the vector-bundle comparison and is compatible with its base-change isomorphisms.",
+      "description": "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.\n\nTargets:\n\nPicard Lie algebra and coherent cohomology. For an integral noetherian S and a stable connected nodal genus-g>1 family π:X→S, let G=Pic⁰_{X/S} be the smooth separated semi-abelian group supplied by Néron R11.4. There is a canonical O_S-linear isomorphism Lie(G/S)≅R¹π_*O_X, compatible with base change.\n\nCurve and Jacobian Hodge bundles. Under the hypotheses of the Picard Lie comparison, relative duality gives π_*ω_{X/S}≅e*Ω¹_{G/S}. Both are locally free of rank g and commute with the allowed base changes; the right side uses invariant differentials of the semi-abelian G.\n\nCurve–Jacobian Hodge line isomorphism. For the same stable family, λ_X:=det(π_*ω_{X/S}) is canonically isomorphic to det(e*Ω¹_{G/S}); the isomorphism is the determinant of the vector-bundle comparison and is compatible with its base-change isomorphisms.\n\nThe nodal relative dualizing sheaf, genus-rank cohomology and relative-duality/base-change maps are supplied by upstream StableReduction Layer2; the field-only parent Jacobian duality is not used as a stable-family theorem.",
       "requires": [
         "NeronModelsAndSemistableAbelianVarieties:R11.4",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ]
     },
     {
@@ -126,13 +127,13 @@
       "edition": "Author manuscript dated21 August2024,126 pages; printed page equals PDF page. The Annals203(2026) typeset text was not obtained.",
       "url": "http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
       "sha256": "b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
         "§2.2.1–2.2.2 pp.29–32 including Proposition2.6 algebraic argument",
         "Theorems2.9–2.10 and proof pp.35–39 for algebraic morphisms; metric statements are external consumers",
         "Lemma3.4 and proof pp.43–44",
         "§4.6.2 Theorem4.17 and proof pp.98–99 for the FZ and shifted coordinate constructions",
-        "§A.3 p.109 axis-normalized classes; TheoremA.3 and proof pp.110–111"
+        "§A.3 axis-normalized classes p.109; §A.4 TheoremA.3 and proof pp.110–111"
       ]
     },
     {
@@ -142,7 +143,7 @@
       "edition": "arXiv2001.10276v3,49 pages; printed pp.23–25 correspond to PDF pages23–25. Published Annals194(2021) wording not collated.",
       "url": "https://arxiv.org/pdf/2001.10276v3",
       "sha256": "5fc8e86f53ee43e9d18e8239a8db986bff74115ddb947abef4902a72dde338a4",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
         "§6.1 pp.23–25 through the universal Picard, section-free Abel, difference and Faltings–Zhang construction; numerical heights are outside this algebraic roadmap"
       ]
@@ -154,25 +155,22 @@
       "edition": "Springer1990, public scan neron4.pdf containing printed pp.170–261; each scan page is a two-page spread.",
       "url": "https://archive.math.arizona.edu/cais/scans/BLR-Neron_Models/neron4.pdf",
       "sha256": "88610c3ffba4eeaec738bb635a54a12c7fd6f4c69597045914feb6f33da284aa",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "§8.1 pp.199–205, in particular Proposition4 and its Leray/rigidification argument",
-        "§8.4 Theorem1 and proof pp.231–232, Proposition2 and Theorem3 p.232",
-        "§9.2 Corollaries11–14 pp.250–251",
-        "§9.3 Theorem1 and proof, Remark2 and symmetric-power/Abel chart construction pp.252–258",
-        "§9.4 Theorem1 and Proposition4 with the beginning of its canonical-theta proof pp.259–261"
+        "Review visually inspected the source scans: §8.1 pp.202–205, especially Leray p.203 and Proposition4 pp.204–205; §8.4 Theorem1 and proof pp.231–232, Proposition2 and Theorem3 statement p.232; §9.2 Corollaries11–14 pp.250–251; §9.3 Theorem1 and proof p.252; §9.4 Theorem1 p.259 and Proposition4 with its complete printed proof pp.260–261. The full auxiliary representability and properness proofs remain gaps."
       ]
     },
     {
       "id": "milne",
       "title": "Jacobian Varieties",
       "authors": "J. S. Milne",
-      "edition": "Public notes, §8 Theorem8.1 and following paragraph, printed pp.27–28, inspected through the web PDF text; PDF download returned406, so no byte hash is claimed.",
+      "edition": "Public notes dated12June2021 (corrected reprint of1986 article),50 pages; downloaded and hashed by this review.",
       "url": "https://www.jmilne.org/math/xnotes/JVs.pdf",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
         "§8 Theorem8.1 and the base-change/abelian-scheme paragraph pp.27–28"
-      ]
+      ],
+      "sha256": "36c3f09c7462dbbd4ae1f8b81a02bd9ff84f03c5a346351d7d5d78fc3f173486"
     }
   ],
   "status": "draft"

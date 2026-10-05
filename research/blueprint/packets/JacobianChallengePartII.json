@@ -23,77 +23,77 @@
         "kind": "abbrev",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
         "provides": "Actual invertible O_X-modules as a full subcategory; not a Picard group or fppf Picard functor.",
-        "checked": "Personally read the actual statement in the existing pinned source checkout on2026-10-04; reviewed AUDIT-02 parent entries inspected before planning."
+        "checked": "Independently read the actual declaration and context at the recorded pin on2026-10-05; byte parity with git-show authenticated. The provides boundary is confirmed, not a stronger geometric theorem."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
         "provides": "Skeleton of invertible sheaves with commutative monoid tensor structure; missing inverses cannot be inferred.",
-        "checked": "Personally read the actual statement in the existing pinned source checkout on2026-10-04; reviewed AUDIT-02 parent entries inspected before planning."
+        "checked": "Independently read the actual declaration and context at the recorded pin on2026-10-05; byte parity with git-show authenticated. The provides boundary is confirmed, not a stronger geometric theorem."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
         "provides": "Tensor of two actual invertible sheaves.",
-        "checked": "Personally read the actual statement in the existing pinned source checkout on2026-10-04; reviewed AUDIT-02 parent entries inspected before planning."
+        "checked": "Independently read the actual declaration and context at the recorded pin on2026-10-05; byte parity with git-show authenticated. The provides boundary is confirmed, not a stronger geometric theorem."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.relativeDegree",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Degree.lean",
         "provides": "Residue-weighted degree of actual scheme Weil divisors.",
-        "checked": "Personally read the actual statement in the existing pinned source checkout on2026-10-04; reviewed AUDIT-02 parent entries inspected before planning."
+        "checked": "Independently read the actual declaration and context at the recorded pin on2026-10-05; byte parity with git-show authenticated. The provides boundary is confirmed, not a stronger geometric theorem."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
         "kind": "abbrev",
         "module": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
         "provides": "Sheaf cohomology of an O_X-module; no proper pushforward or duality theorem follows from the definition.",
-        "checked": "Personally read the actual statement in the existing pinned source checkout on2026-10-04; reviewed AUDIT-02 parent entries inspected before planning."
+        "checked": "Independently read the actual declaration and context at the recorded pin on2026-10-05; byte parity with git-show authenticated. The provides boundary is confirmed, not a stronger geometric theorem."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
         "kind": "structure",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
         "provides": "Field-valued proper geometrically integral group scheme; not an arbitrary-base abelian scheme.",
-        "checked": "Personally read the actual statement in the existing pinned source checkout on2026-10-04; reviewed AUDIT-02 parent entries inspected before planning."
+        "checked": "Independently read the actual declaration and context at the recorded pin on2026-10-05; byte parity with git-show authenticated. The provides boundary is confirmed, not a stronger geometric theorem."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.fppfTopology",
         "kind": "abbrev",
         "module": "Mathlib/AlgebraicGeometry/Sites/Fpqc.lean",
         "provides": "The generated fppf Grothendieck topology on schemes.",
-        "checked": "Personally read the actual statement in the existing pinned source checkout on2026-10-04; reviewed AUDIT-02 parent entries inspected before planning."
+        "checked": "Independently read the actual declaration and context at the recorded pin on2026-10-05; byte parity with git-show authenticated. The provides boundary is confirmed, not a stronger geometric theorem."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Smooth",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
         "provides": "Native smooth scheme morphism predicate.",
-        "checked": "Personally read the actual statement in the existing pinned source checkout on2026-10-04; reviewed AUDIT-02 parent entries inspected before planning."
+        "checked": "Independently read the actual declaration and context at the recorded pin on2026-10-05; byte parity with git-show authenticated. The provides boundary is confirmed, not a stronger geometric theorem."
       },
       {
         "ref": "mathlib:CommRing.Pic",
         "kind": "def",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "Picard group of a commutative semiring, an affine-module notion rather than relative Picard representability.",
-        "checked": "Personally read the actual statement in the existing pinned source checkout on2026-10-04; reviewed AUDIT-02 parent entries inspected before planning."
+        "checked": "Independently read the actual declaration and context at the recorded pin on2026-10-05; byte parity with git-show authenticated. The provides boundary is confirmed, not a stronger geometric theorem."
       },
       {
         "ref": "mathlib:CategoryTheory.Hom.group",
         "kind": "abbrev",
         "module": "Mathlib/CategoryTheory/Monoidal/Cartesian/Grp.lean",
         "provides": "Actual Hom(T,A) is a group for a native group object A in a Cartesian monoidal category.",
-        "checked": "Personally read the actual statement in the existing pinned source checkout on2026-10-04; reviewed AUDIT-02 parent entries inspected before planning."
+        "checked": "Independently read the actual declaration and context at the recorded pin on2026-10-05; byte parity with git-show authenticated. The provides boundary is confirmed, not a stronger geometric theorem."
       },
       {
         "ref": "mathlib:CategoryTheory.GrpObj.comp_div",
         "kind": "lemma",
         "module": "Mathlib/CategoryTheory/Monoidal/Cartesian/Grp.lean",
         "provides": "Precomposition preserves division of actual group-object-valued morphisms.",
-        "checked": "Personally read the actual statement in the existing pinned source checkout on2026-10-04; reviewed AUDIT-02 parent entries inspected before planning."
+        "checked": "Independently read the actual declaration and context at the recorded pin on2026-10-05; byte parity with git-show authenticated. The provides boundary is confirmed, not a stronger geometric theorem."
       }
     ]
   },
@@ -105,13 +105,13 @@
       "edition": "Author manuscript dated21 August2024,126 pages; printed page equals PDF page. The Annals203(2026) typeset text was not obtained.",
       "url": "http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
       "sha256": "b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
         "§2.2.1–2.2.2 pp.29–32 including Proposition2.6 algebraic argument",
         "Theorems2.9–2.10 and proof pp.35–39 for algebraic morphisms; metric statements are external consumers",
         "Lemma3.4 and proof pp.43–44",
         "§4.6.2 Theorem4.17 and proof pp.98–99 for the FZ and shifted coordinate constructions",
-        "§A.3 p.109 axis-normalized classes; TheoremA.3 and proof pp.110–111"
+        "§A.3 axis-normalized classes p.109; §A.4 TheoremA.3 and proof pp.110–111"
       ]
     },
     {
@@ -121,7 +121,7 @@
       "edition": "arXiv2001.10276v3,49 pages; printed pp.23–25 correspond to PDF pages23–25. Published Annals194(2021) wording not collated.",
       "url": "https://arxiv.org/pdf/2001.10276v3",
       "sha256": "5fc8e86f53ee43e9d18e8239a8db986bff74115ddb947abef4902a72dde338a4",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
         "§6.1 pp.23–25 through the universal Picard, section-free Abel, difference and Faltings–Zhang construction; numerical heights are outside this algebraic roadmap"
       ]
@@ -133,38 +133,35 @@
       "edition": "Springer1990, public scan neron4.pdf containing printed pp.170–261; each scan page is a two-page spread.",
       "url": "https://archive.math.arizona.edu/cais/scans/BLR-Neron_Models/neron4.pdf",
       "sha256": "88610c3ffba4eeaec738bb635a54a12c7fd6f4c69597045914feb6f33da284aa",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
-        "§8.1 pp.199–205, in particular Proposition4 and its Leray/rigidification argument",
-        "§8.4 Theorem1 and proof pp.231–232, Proposition2 and Theorem3 p.232",
-        "§9.2 Corollaries11–14 pp.250–251",
-        "§9.3 Theorem1 and proof, Remark2 and symmetric-power/Abel chart construction pp.252–258",
-        "§9.4 Theorem1 and Proposition4 with the beginning of its canonical-theta proof pp.259–261"
+        "Review visually inspected the source scans: §8.1 pp.202–205, especially Leray p.203 and Proposition4 pp.204–205; §8.4 Theorem1 and proof pp.231–232, Proposition2 and Theorem3 statement p.232; §9.2 Corollaries11–14 pp.250–251; §9.3 Theorem1 and proof p.252; §9.4 Theorem1 p.259 and Proposition4 with its complete printed proof pp.260–261. The full auxiliary representability and properness proofs remain gaps."
       ]
     },
     {
       "id": "milne",
       "title": "Jacobian Varieties",
       "authors": "J. S. Milne",
-      "edition": "Public notes, §8 Theorem8.1 and following paragraph, printed pp.27–28, inspected through the web PDF text; PDF download returned406, so no byte hash is claimed.",
+      "edition": "Public notes dated12June2021 (corrected reprint of1986 article),50 pages; downloaded and hashed by this review.",
       "url": "https://www.jmilne.org/math/xnotes/JVs.pdf",
-      "accessed": "2026-10-04",
+      "accessed": "2026-10-05",
       "readSections": [
         "§8 Theorem8.1 and the base-change/abelian-scheme paragraph pp.27–28"
-      ]
+      ],
+      "sha256": "36c3f09c7462dbbd4ae1f8b81a02bd9ff84f03c5a346351d7d5d78fc3f173486"
     }
   ],
   "sourceVersions": [
     {
       "kind": "author copy",
       "url": "http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
-      "read": "2026-10-04",
+      "read": "2026-10-05",
       "sha256": "b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2001.10276v3",
-      "read": "2026-10-04",
+      "read": "2026-10-05",
       "sha256": "5fc8e86f53ee43e9d18e8239a8db986bff74115ddb947abef4902a72dde338a4"
     }
   ],
@@ -181,9 +178,15 @@
       "searched": [
         "Author manuscript re-downloaded2026-10-04; unchanged hash.",
         "Accepted extraction and its confirmed REV-PAPER-YUAN-26 finding.",
-        "Annals publisher page accessed2026-10-04; it exposes metadata/abstract, not the typeset statement."
+        "Annals publisher page accessed2026-10-04; it exposes metadata/abstract, not the typeset statement.",
+        "Reviewer re-downloaded the same author copy on2026-10-05 and checked the Annals203(2026) publisher listing https://annals.math.princeton.edu/2026/203-1/p02; only metadata was read there."
       ],
-      "source": "yuan"
+      "source": "yuan",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read p.29 and Proposition2.6 pp.31–32 in the matching21August2024 manuscript. On a nonempty positive-genus curve fibre d=0 gives a constant map, whose positive-dimensional fibre prevents finiteness. Nonzero d factors locally through a degree-one closed immersion, finite multiplication and translation. This confirms the already known extraction finding only for the author copy; no typeset collation is claimed.",
+        "by": "REV-DESIGN-JacobianChallengePartII"
+      }
     }
   ],
   "nodes": [
@@ -219,10 +222,16 @@
       },
       "sources": [
         {
-          "sourceId": "yuan",
-          "locator": "§2.2.1 pp.29–31; DGH §6.1 pp.23–24",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "sourceId": "blr",
+          "locator": "§9.3 Theorem1 and proof p.252",
+          "excerpt": "Pic",
+          "match": "Degree components, torsors and quasi-projectivity are stated together; the imported sheaf, Euler-characteristic local constancy and representability proof inputs remain explicit."
+        },
+        {
+          "sourceId": "dgh",
+          "locator": "§6.1 p.24",
+          "excerpt": "Pic1",
+          "match": "The universal Picard degree decomposition and section-free degree-one target motivate JC0."
         }
       ],
       "implementationStatus": "unchecked",
@@ -244,6 +253,12 @@
           "name": "RelativeJacobian.RelativeDegreeComponents.baseChange",
           "role": "functoriality",
           "statement": "Picᵈ_{X/S} restricted to Sch/T identifies with Picᵈ_{X_T/T}."
+        },
+        {
+          "name": "RelativeJacobian.RelativeDegreeComponents.inverse",
+          "role": "structure",
+          "statement": "Inversion of line classes sends Picᵈ to Pic⁻ᵈ and carries the structure-sheaf class to itself.",
+          "addedBy": "REV-DESIGN-JacobianChallengePartII"
         }
       ],
       "tests": [
@@ -305,9 +320,9 @@
       "sources": [
         {
           "sourceId": "blr",
-          "locator": "§9.1 degree discussion; §9.3 Theorem1 p.252",
-          "excerpt": "Pic",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§9.3 Theorem1 proof p.252, invoking §9.1/2",
+          "excerpt": "is constant",
+          "match": "The degree constancy argument is reduced to parent proper-flat cohomology and Euler characteristics, rather than asserted as a baseline theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -347,8 +362,8 @@
         {
           "sourceId": "blr",
           "locator": "§9.3 Theorem1 and proof p.252",
-          "excerpt": "Pic",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "excerpt": "smooth and separated",
+          "match": "Projective flat finitely presented curves with reduced irreducible geometric fibres satisfy the represented Picard statement, with degree-zero identity component and quasi-projective degree torsors. Arbitrary base change follows from the imported fppf sheaf."
         }
       ],
       "implementationStatus": "unchecked",
@@ -389,9 +404,9 @@
       "sources": [
         {
           "sourceId": "blr",
-          "locator": "§9.3 Theorem1 p.252",
-          "excerpt": "Pic",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§9.3 Theorem1 and proof p.252",
+          "excerpt": "is a torsor",
+          "match": "The proof acquires a section by faithfully flat base extension; no S-point is inserted in the torsor data."
         }
       ],
       "implementationStatus": "unchecked",
@@ -413,6 +428,12 @@
           "name": "RelativeJacobian.PicardTorsors.translation",
           "role": "equivalence",
           "statement": "A chosen β∈Picᵈ(T) identifies Picᵈ_T with J_T by L↦L⊗β⁻¹."
+        },
+        {
+          "name": "RelativeJacobian.PicardTorsors.action_difference",
+          "role": "relation",
+          "statement": "For L,M∈Picᵈ(T), δ(L,M)⊗L=M; tensor action has identity and associativity, and δ(L,L)=0.",
+          "addedBy": "REV-DESIGN-JacobianChallengePartII"
         }
       ],
       "tests": [
@@ -476,9 +497,15 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "§2.2.1 p.29; BLR §9.4 Proposition4 pp.260–261",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§2.2.1 p.29",
+          "excerpt": "J = Pic",
+          "match": "Yuan defines the relative Jacobian; BLR9.4/4 p.260 supplies the abelian-scheme conclusion, while the dimension comparison uses the parent curve tangent/cohomology target."
+        },
+        {
+          "sourceId": "blr",
+          "locator": "§9.4 Proposition4 p.260",
+          "excerpt": "abelian",
+          "match": "BLR supplies the relative abelian-scheme assertion."
         }
       ],
       "implementationStatus": "unchecked",
@@ -500,6 +527,12 @@
           "name": "RelativeJacobian.RelativeJacobian.field",
           "role": "compatibility",
           "statement": "At every field-valued base the result is the parent Jacobian, as an abelian variety."
+        },
+        {
+          "name": "RelativeJacobian.RelativeJacobian.groupLaw",
+          "role": "simp",
+          "statement": "Under J(T)=Pic⁰_{X/S}(T), the identity is [O] and addition/inverse are tensor product/dual.",
+          "addedBy": "REV-DESIGN-JacobianChallengePartII"
         }
       ],
       "tests": [
@@ -561,9 +594,9 @@
       "sources": [
         {
           "sourceId": "blr",
-          "locator": "§9.4 Proposition4 and proof pp.260–261",
-          "excerpt": "Pic",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§9.4 Proposition4 and proof p.260, invoking §8.4/3",
+          "excerpt": "proper over S",
+          "match": "The proof separates properness from the canonical ample bundle construction. Full §8.4/3 proof inputs remain a refinement gap."
         }
       ],
       "implementationStatus": "unchecked"
@@ -600,9 +633,9 @@
       "sources": [
         {
           "sourceId": "milne",
-          "locator": "§8 Generalizations, Theorem8.1 and following paragraph pp.27–28",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§8 Theorem8.1 p.27 and following paragraph p.28",
+          "excerpt": "commutes with base change",
+          "match": "The paragraph states Jacobian base change; the proof route uses the exact supplier sheaf restriction and degree-zero criterion on every test scheme."
         }
       ],
       "implementationStatus": "unchecked"
@@ -640,9 +673,15 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "§2.2.1 p.30 (MFK §6.1 Proposition6.9)",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§2.2.1 p.30, citing MFK §6.1 Proposition6.9",
+          "excerpt": "canonical principal polarization",
+          "match": "Yuan explicitly allows no global degree-one bundle. BLR9.4/4 pp.260–261 describes translation independence and descent; MFK proof/overlap comparisons remain a gap."
+        },
+        {
+          "sourceId": "blr",
+          "locator": "§9.4 Proposition4 proof pp.260–261",
+          "excerpt": "φ",
+          "match": "The theta-induced homomorphism is independent of the local section and descends."
         }
       ],
       "implementationStatus": "unchecked",
@@ -725,9 +764,9 @@
       "sources": [
         {
           "sourceId": "dgh",
-          "locator": "§6.1 pp.24–25",
-          "excerpt": "Pic",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§6.1 p.24, paragraph defining the Faltings–Zhang morphism",
+          "excerpt": "Pic1",
+          "match": "DGH uses the section-free curve→Pic¹ map. The diagonal Cartier construction and its arbitrary-base-change API extend this universal-family instance through the imported curve theory."
         }
       ],
       "implementationStatus": "unchecked",
@@ -812,8 +851,8 @@
         {
           "sourceId": "yuan",
           "locator": "§2.2.1 p.29",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "excerpt": "iα :X−→J",
+          "match": "The displayed degree-d map defines the natural transformation; finiteness is corrected separately to d≠0, and the construction also makes sense for zero and negative d."
         }
       ],
       "implementationStatus": "unchecked",
@@ -904,9 +943,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "§2.2.1 pp.29–31",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§2.2.1 p.29; Proposition2.6 proof p.31",
+          "excerpt": "dx−α",
+          "match": "The pointed factorization is the direct Picard-group identity d(x−x₀)+(dx₀−α); Yoneda makes it a morphism equality, not a fibre-only check."
         }
       ],
       "implementationStatus": "unchecked"
@@ -945,9 +984,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "§2.2.1 p.29; TheoremA.3 p.110",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§A.4 TheoremA.3 p.110; §2.2.1 p.29",
+          "excerpt": "canonical embedding",
+          "match": "A.3 supplies the field degree-one embedding. The relative closed-immersion bridge is explicitly unclosed and descended after a section-acquiring cover."
         }
       ],
       "implementationStatus": "unchecked",
@@ -992,9 +1031,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "§2.2.1 p.29; Proposition2.6 p.31",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§2.2.1 p.29; Proposition2.6 proof p.31",
+          "excerpt": "d > 0",
+          "match": "The positive-degree uses repair the omitted premise on p.29. Negative degrees are independently justified by inversion and finite multiplication, including inseparable cases."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1035,9 +1074,15 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "Theorem2.10(2) p.37; DGH §6.1 pp.24–25",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "Theorem2.10(2) p.37; proof pp.38–39",
+          "excerpt": "y−x",
+          "match": "The difference order agrees with DGH6.1 pp.24–25. The geometric definition itself requires neither g>1 nor the arithmetic/metric hypotheses of Theorem2.10."
+        },
+        {
+          "sourceId": "dgh",
+          "locator": "§6.1 pp.24–25",
+          "excerpt": "P1 − P0",
+          "match": "DGH fixes the same difference sign."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1064,6 +1109,12 @@
           "name": "RelativeJacobian.CurveDifference.pointed",
           "role": "compatibility",
           "statement": "With a degree-one α, j(x,y)=i_α(y)−i_α(x)."
+        },
+        {
+          "name": "RelativeJacobian.CurveDifference.cocycle",
+          "role": "relation",
+          "statement": "On X³, j(x,z)=j(x,y)+j(y,z) on every test scheme.",
+          "addedBy": "REV-DESIGN-JacobianChallengePartII"
         }
       ],
       "tests": [
@@ -1081,6 +1132,12 @@
           "name": "RelativeJacobian.CurveDifference.test_noSection",
           "kind": "non-example",
           "statement": "The construction applies to a nontrivial genus-one torsor and must not choose a point of it."
+        },
+        {
+          "name": "RelativeJacobian.CurveDifference.test_triangle",
+          "kind": "computation",
+          "statement": "For three points x,y,z, j(x,y)+j(y,z)=j(x,z); replacing the order in just one difference fails this identity.",
+          "addedBy": "REV-DESIGN-JacobianChallengePartII"
         }
       ],
       "uses": [
@@ -1130,9 +1187,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "proof of Theorem2.10(2) pp.38–39",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "proof of Theorem2.10(2) p.38",
+          "excerpt": "(x,y−x)",
+          "match": "The source identifies the diagonal-section Abel map over X and its projection to J; the proof is a natural Picard-sheaf comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1145,7 +1202,7 @@
       ],
       "kind": "construction",
       "title": "Normalized Jacobian Poincaré bundle",
-      "statement": "Let P_X on J×_S J be the pullback of the rigidified Poincaré bundle via the canonical identification of J with its dual, using Yuan’s convention: on a field fibre with theta line L, its class is m*L⁻¹⊗p₁*L⊗p₂*L. It is rigidified along both zero axes. The sign comparison between this convention and the supplier φ_L convention is a required named comparison.",
+      "statement": "Let U on J×_S J∨ be the normalized universal bundle with U|_{J×{b}} representing b. Fix the supplier convention φ_L(a)=t_a*L⊗L⁻¹ and the positive canonical theta polarization λ_X. Define P_X=(id_J,−λ_X)*U on J×_S J. Thus on a field fibre with theta line L its Picard class is m*L⁻¹⊗p₁*L⊗p₂*L, Yuan’s negative addition convention. Both zero axes are rigidified. The comparison with the supplier evaluation and φ_L conventions is required on all test schemes, including nonreduced ones.",
       "hypotheses": [
         "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified."
       ],
@@ -1154,9 +1211,9 @@
         "AbelianSchemesAndArithmeticModuli:A2"
       ],
       "proofSteps": [
-        "Import the dual and normalized universal bundle.",
-        "Fix the sign by the displayed field formula, rather than by the informal word standard.",
-        "Pull back the universal bundle and its two rigidifications; verify the supplier-convention comparison."
+        "Import J∨ and the normalized universal U, with evaluation U_b=b.",
+        "Use the specified −λ_X in the second factor; compare φ_L with U to obtain the negative addition class, including the fibre-at-zero factor for a rigidified isomorphism.",
+        "Pull back both compatible axis rigidifications and the biextension identities. The exact convention comparison remains in the sign gap."
       ],
       "acceptance": [
         "Retain the displayed hypotheses and functorial identifications under every base change; verify morphism identities on all test schemes, including nonreduced ones."
@@ -1168,9 +1225,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "§2.2.1 p.30; TheoremA.3(2) pp.110–111",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§2.2.1 p.30; §A.4 TheoremA.3(2) p.110 and proof p.111",
+          "excerpt": "P =m",
+          "match": "The negative addition formula fixes which signed self-duality pulls back the evaluation-normalized supplier bundle. The zero-axis normalization and all-test-scheme comparison remain named obligations."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1191,7 +1248,7 @@
         {
           "name": "RelativeJacobian.JacobianPoincare.thetaSign",
           "role": "compatibility",
-          "statement": "Its class on a field fibre is m*L⁻¹+p₁*L+p₂*L in additive Picard notation."
+          "statement": "With U_b=b and φ_L(a)=t_a*L⊗L⁻¹, P_X=(id,−λ_X)*U has class m*L⁻¹+p₁*L+p₂*L; the rigidified comparison also normalizes L at zero."
         }
       ],
       "tests": [
@@ -1254,9 +1311,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "TheoremA.3 pp.110–111",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§A.4 TheoremA.3 p.110",
+          "excerpt": "theta divisor",
+          "match": "The source defines the degree-(g−1) Abel image; factoring through Sym^{g−1} and retaining the Cartier structure imports the parent theta/symmetric-power targets."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1340,8 +1397,8 @@
         {
           "sourceId": "yuan",
           "locator": "Definition2.4 p.30",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "excerpt": "Θ = ∆",
+          "match": "The definition dualizes P before diagonal pullback, ensuring the positive twice-theta class."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1428,9 +1485,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "TheoremA.3(1), first identity, p.110; proof p.111",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§A.4 TheoremA.3(1) first identity p.110; proof p.111",
+          "excerpt": "gα",
+          "match": "The source allows any field and any degree-one divisor, not just an effective rational point. Serre’s translated-theta proof remains a gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1470,9 +1527,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "TheoremA.3(1), second identity, p.110; proof p.111",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§A.4 TheoremA.3(1) second identity p.110; proof p.111",
+          "excerpt": "(2−g)α",
+          "match": "The formula includes ω and preserves arbitrary degree-one α; no symmetry or canonical-root hypothesis is added."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1512,9 +1569,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "TheoremA.3(2), p.110; proof p.111",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§A.4 TheoremA.3(2) p.110; proof p.111",
+          "excerpt": "P =m",
+          "match": "The addition formula is a Picard-class equality; a rigidified isomorphism additionally uses the fibre-at-zero factor."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1557,9 +1614,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "TheoremA.3(3) p.110; proof p.111",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§A.4 TheoremA.3(3) p.110; proof p.111",
+          "excerpt": "O(∆)−p",
+          "match": "The diagonal has positive sign. The source explicitly removes Serre’s canonical-root premise by an extra computation, retained as a proof gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1600,9 +1657,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "proof of TheoremA.3(4), p.111",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "proof of §A.4 TheoremA.3(4) p.111",
+          "excerpt": "O(3θα",
+          "match": "The cube recurrence keeps the inversion term; no symmetric-theta assumption is inserted."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1637,9 +1694,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "TheoremA.3(4) p.111",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§A.4 TheoremA.3(4) and proof p.111",
+          "excerpt": "∆",
+          "match": "The diagonal identity follows by pulling back addition and substituting the nonsymmetric doubling formula."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1665,7 +1722,8 @@
       "prerequisites": [
         "JacobianChallengePartII:JC3/twice-theta",
         "JacobianChallengePartII:JC3/poincare-diagonal",
-        "JacobianChallengePartII:JC1/jacobian-base-change"
+        "JacobianChallengePartII:JC1/jacobian-base-change",
+        "AbelianSchemesAndArithmeticModuli:A1"
       ],
       "proofSteps": [
         "Base change the normalized Poincaré bundle.",
@@ -1682,9 +1740,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "Definition2.4 p.30",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "Definition2.4 and following paragraph p.30; §A.4 TheoremA.3(4) p.111",
+          "excerpt": "twice",
+          "match": "The geometric-fibre algebraic-equivalence statement is weaker than choosing a global theta divisor. The A1 square/cube input supplies inversion on Néron–Severi classes."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1723,9 +1781,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "Definition2.4 p.30",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "Definition2.4 and following paragraph p.30",
+          "excerpt": "symmetric",
+          "match": "The source asserts symmetry; the proof uses the normalized biextension’s simultaneous inversion, not equality on geometric fibres."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1763,9 +1821,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "Definition2.4 p.30",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "Definition2.4 and following paragraph p.30",
+          "excerpt": "rigidiﬁed",
+          "match": "The two Poincaré axis trivializations induce the zero trivialization after dualization and diagonal pullback."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1789,7 +1847,8 @@
         "JacobianChallengePartII:JC3/geometric-twice-theta",
         "JacobianChallengePartII:JC1/jacobian-proper",
         "AbelianSchemesAndArithmeticModuli:A2",
-        "AlgebraicModuliForArithmeticGeometry:R09.2"
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Twice the principal theta class is ample on every geometric fibre.",
@@ -1805,9 +1864,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "Definition2.4 p.30",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "Definition2.4 and following paragraph p.30",
+          "excerpt": "relatively ample",
+          "match": "The source passes from geometric twice-theta to relative ampleness. The proper-family criterion is imported from upstream StableReduction Layer2."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1850,8 +1909,8 @@
         {
           "sourceId": "yuan",
           "locator": "Proposition2.6 proof p.31",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "excerpt": "Pic0(Y )",
+          "match": "This is the actual fibrewise algebraically trivial subgroup; equality with relative sheaf sections is not assumed."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1936,9 +1995,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "Proposition2.6 proof pp.31–32",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "Proposition2.6 proof p.31",
+          "excerpt": "Pic00",
+          "match": "Both projection-fibre conditions are part of the actual subgroup, and base classes are retained."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2023,8 +2082,8 @@
         {
           "sourceId": "yuan",
           "locator": "Proposition2.6 proof p.31",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "excerpt": "multiplication",
+          "match": "The source states autoduality and multiplication by d; its fibrewise check does not close the nonreduced-base descent gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2040,9 +2099,9 @@
       ],
       "kind": "lemma",
       "title": "Actual Picard classes and the Brauer obstruction",
-      "statement": "For proper flat Y/S with O_S≅f_*O_Y universally, 0→Pic(S)→Pic(Y)→Pic_{Y/S}(S)→Br(S)→Br(Y) is exact. For J/S its identity section kills the obstruction, so Pic⁰(J/S)/Pic(S)≅Pic⁰_{J/S}(S). For X/S the same map is only injective without a section.",
+      "statement": "For proper flat Y/S with O_S≅f_*O_Y universally, 0→Pic(S)→Pic(Y)→Pic_{Y/S}(S)→H²_fppf(S,G_m)→H²_fppf(Y,G_m) is exact. These are the cohomological Brauer groups, not an unproved identification with Azumaya classes; the boundary is the Leray differential d₂^{0,1}. For J/S its identity section kills the obstruction, so Pic⁰(J/S)/Pic(S)≅Pic⁰_{J/S}(S). For X/S the same map is only injective without a section.",
       "hypotheses": [
-        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified."
+        "Y→S is proper, flat and finitely presented, with O_T≅(f_T)_*O_{Y_T} for every T→S. For the Pic⁰ restrictions, use the smooth geometrically connected curve X/S and its abelian-scheme Jacobian J/S in the standing scope."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-kernel",
@@ -2066,9 +2125,9 @@
       "sources": [
         {
           "sourceId": "blr",
-          "locator": "§8.1 Proposition4 pp.203–205",
-          "excerpt": "Pic",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§8.1 Leray discussion p.203 and Proposition4 pp.204–205",
+          "excerpt": "Br(T)",
+          "match": "The source defines Br as cohomological H² and states the exact sequence under universal global-functions hypotheses. A section eliminates the obstruction."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2108,8 +2167,8 @@
         {
           "sourceId": "yuan",
           "locator": "Proposition2.6 proof p.31",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "excerpt": "torsion cokernel",
+          "match": "The actual-class proof lifts using the Jacobian identity section and absorbs the base line; it does not assume [d] surjective on S-points."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2154,8 +2213,8 @@
         {
           "sourceId": "yuan",
           "locator": "Proposition2.6 proof pp.31–32",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "excerpt": "Pic00",
+          "match": "The two pullback factorizations are stated, but retaining algebraic triviality along the other projection is an explicit additional proof obligation."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2192,8 +2251,8 @@
         {
           "sourceId": "yuan",
           "locator": "Proposition2.6 proof pp.31–32",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "excerpt": "Pic00",
+          "match": "Compose the two condition-preserving one-factor lifts; the exponent may depend on the class."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2235,9 +2294,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "§A.3 p.109",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§A.3 p.109, axis-normalized subgroups",
+          "excerpt": "Pic−",
+          "match": "The restrictions to both pointed axes are trivial as actual line classes; these are not chosen trivializations or the larger bi-zero group."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2295,7 +2354,7 @@
       "title": "Pointed square Picard comparison",
       "statement": "With x₀ as above and i=i_{O(x₀)}, (i,i)*:Pic⁻(J²)→Pic⁻(C²) is an isomorphism. The application over complete nonarchimedean K uses only this algebraic assertion here; its metrics belong to the Arakelov owner.",
       "hypotheses": [
-        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified."
+        "K is a field; C/K is smooth projective geometrically connected of genus g>0; x₀∈C(K), and i=i_{O(x₀)}. No complete-valued-field assumption is used by the algebraic comparison."
       ],
       "prerequisites": [
         "JacobianChallengePartII:JC4/axis-normalized-picard",
@@ -2321,8 +2380,8 @@
         {
           "sourceId": "yuan",
           "locator": "§A.3 p.109, citing Zhang Lemmas2.2.1–2.2.3",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "excerpt": "Pic−",
+          "match": "The comparison is an actual-group isomorphism after choosing a rational point. The algebraic argument is separated from its complete-valued-field metric application."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2340,7 +2399,8 @@
       "title": "Canonical-bundle Abel morphism",
       "statement": "For g>1, ω_{X/S} has relative degree 2g−2, so i_ω(x)=[(2g−2)Γ_x−ω_{X/S}] is a finite S-morphism X→J.",
       "hypotheses": [
-        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified."
+        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.",
+        "g>1; in the fibre-power assertions m≥1."
       ],
       "prerequisites": [
         "JacobianChallengePartII:JC2/degree-abel-map",
@@ -2362,9 +2422,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "Theorem2.10(1) p.37",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "Theorem2.10(1) p.37; §2.2.1 p.29",
+          "excerpt": "ωX/S",
+          "match": "The canonical bundle has degree2g−2, so the corrected finite degree-Abel theorem applies for g>1. Metric conclusions are external consumers."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2379,7 +2439,8 @@
       "title": "Universal shifted canonical morphism",
       "statement": "For g>1, τ:J×_S X→J×_S J is (y,x)↦(y,y+i_ω(x)); it is a morphism over the first J-factor and has no global-section hypothesis.",
       "hypotheses": [
-        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified."
+        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.",
+        "g>1; in the fibre-power assertions m≥1."
       ],
       "prerequisites": [
         "JacobianChallengePartII:JC5/canonical-abel-map",
@@ -2400,8 +2461,8 @@
         {
           "sourceId": "yuan",
           "locator": "Theorem2.10(3) p.37",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "excerpt": "(y,y +",
+          "match": "The first Jacobian coordinate remains y; the shifted second coordinate uses the canonical bundle. The construction is algebraic and section-free."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2487,9 +2548,15 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "§4.6.2 Theorem4.17 pp.98–99; DGH §6.1 pp.24–25",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§4.6.2 preceding Theorem4.17 p.98 and proof p.99",
+          "excerpt": "iFZ,m",
+          "match": "The tuple consists of x_r−x₀. Maximal variation and dimension bounds apply to nondegeneracy, not to defining the proper algebraic morphism."
+        },
+        {
+          "sourceId": "dgh",
+          "locator": "§6.1 equation(6.3) and paragraph after(6.5) p.25",
+          "excerpt": "proper",
+          "match": "The source explicitly states properness after base change."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2511,6 +2578,12 @@
           "name": "RelativeJacobian.FaltingsZhang.pointed",
           "role": "compatibility",
           "statement": "Fixing x₀=P₀ on a fibre gives the m-fold product of the pointed Abel embedding C−P₀."
+        },
+        {
+          "name": "RelativeJacobian.FaltingsZhang.proper",
+          "role": "structure",
+          "statement": "FZ_m is proper: its source is proper over S and J^m is separated over S, so the graph factorization is proper.",
+          "addedBy": "REV-DESIGN-JacobianChallengePartII"
         }
       ],
       "tests": [
@@ -2554,7 +2627,8 @@
       "title": "Shifted Faltings–Zhang morphism",
       "statement": "For g>1 and m≥1, τ_m:X^m_S×_S J→J^m_S sends (x₁,…,x_m,y) to (i_ω(x₁)+y,j(x₁,x₂),…,j(x₁,x_m)). The source order, first shift and unscaled remaining differences are part of the definition.",
       "hypotheses": [
-        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified."
+        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.",
+        "g>1; in the fibre-power assertions m≥1."
       ],
       "prerequisites": [
         "JacobianChallengePartII:JC5/universal-shift",
@@ -2575,9 +2649,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "§4.6.2 pp.98–99",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§4.6.2 preceding Theorem4.17 p.98 and proof p.99",
+          "excerpt": "τm",
+          "match": "The first coordinate is shifted canonical Abel and the tail differences are unscaled. The source order X^m×J is kept."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2659,9 +2733,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "proof of Theorem4.17(5), p.99",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "proof of Theorem4.17(5) p.99",
+          "excerpt": "y 2−y1",
+          "match": "The Jacobian triangular coordinate change extends by group cancellation to native Hom(T,A) for any group object, without asserting a noncommutative group-homomorphism property."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2685,6 +2759,12 @@
           "name": "RelativeJacobian.TriangularCoordinateEquivalence.natural",
           "role": "functoriality",
           "statement": "For h:U→T, R(i↦h∘q_i)=i↦h∘R(q)_i."
+        },
+        {
+          "name": "RelativeJacobian.TriangularCoordinateEquivalence.inverse_natural",
+          "role": "functoriality",
+          "statement": "For h:U→T, precomposition commutes with R⁻¹ as well as R; no commutativity of the group object is needed.",
+          "addedBy": "REV-DESIGN-JacobianChallengePartII"
         }
       ],
       "tests": [
@@ -2721,7 +2801,8 @@
       "title": "Shifted-power factorization",
       "statement": "Let B_m(x₁,…,x_m,y)=(i_ω(x₁)+y,…,i_ω(x_m)+y). After the triangular change R on J^m, R∘B_m=D∘τ_m, where D fixes the first coordinate and multiplies each tail by 2g−2. This equality holds as S-morphisms; D is a finite locally free isogeny for g>1.",
       "hypotheses": [
-        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified."
+        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified.",
+        "g>1; in the fibre-power assertions m≥1."
       ],
       "prerequisites": [
         "JacobianChallengePartII:JC5/triangular-coordinate-equivalence",
@@ -2746,9 +2827,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "proof Theorem4.17(5) p.99",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "proof of Theorem4.17(5) p.99",
+          "excerpt": "(2g−2)(x2−x1)",
+          "match": "The coordinate identity separates the tail isogeny D from the unscaled shifted FZ map; in characteristic dividing2g−2 finiteness remains."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2763,12 +2844,13 @@
       "title": "Picard Lie algebra and coherent cohomology",
       "statement": "For an integral noetherian S and a stable connected nodal genus-g>1 family π:X→S, let G=Pic⁰_{X/S} be the smooth separated semi-abelian group supplied by Néron R11.4. There is a canonical O_S-linear isomorphism Lie(G/S)≅R¹π_*O_X, compatible with base change.",
       "hypotheses": [
-        "Integral noetherian S; a stable connected nodal relative curve of genus g>1; the Picard-space and cohomological-flatness inputs of BLR8.4/1."
+        "S is integral and noetherian; π:X→S is a proper flat finitely presented stable connected nodal curve of constant arithmetic genus g>1. G=Pic⁰_{X/S} is the smooth separated semi-abelian generalized Jacobian, and the relative-duality/base-change isomorphisms of JC6 are fixed."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarieties:R11.4",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
-        "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology"
+        "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Verify O_S≅π_*O_X universally for the stable connected reduced fibres.",
@@ -2785,9 +2867,15 @@
       "sources": [
         {
           "sourceId": "blr",
-          "locator": "§8.4 Theorem1 and proof pp.231–232; Yuan Lemma3.4 pp.43–44",
-          "excerpt": "Pic",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§8.4 Theorem1(a) and proof pp.231–232; §9.4 Theorem1 p.259",
+          "excerpt": "Lie",
+          "match": "The infinitesimal Picard calculation requires cohomological flatness in degree zero and Picard-space representability. Nodal identity components belong to R11.4; nodal duality/cohomology belongs to upstream StableReduction Layer2."
+        },
+        {
+          "sourceId": "yuan",
+          "locator": "Lemma3.4 proof p.44",
+          "excerpt": "Lie(J/S)",
+          "match": "Yuan gives the exact stable-family Hodge application."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2802,13 +2890,13 @@
       "title": "Curve and Jacobian Hodge bundles",
       "statement": "Under the hypotheses of the Picard Lie comparison, relative duality gives π_*ω_{X/S}≅e*Ω¹_{G/S}. Both are locally free of rank g and commute with the allowed base changes; the right side uses invariant differentials of the semi-abelian G.",
       "hypotheses": [
-        "The same stable-family hypotheses as the Lie comparison; relative duality and its base-change comparison."
+        "S is integral and noetherian; π:X→S is a proper flat finitely presented stable connected nodal curve of constant arithmetic genus g>1. G=Pic⁰_{X/S} is the smooth separated semi-abelian generalized Jacobian, and the relative-duality/base-change isomorphisms of JC6 are fixed."
       ],
       "prerequisites": [
         "JacobianChallengePartII:JC6/picard-lie-cohomology",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
-        "NeronModelsAndSemistableAbelianVarieties:R11.4"
+        "NeronModelsAndSemistableAbelianVarieties:R11.4",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
       ],
       "proofSteps": [
         "Dualize the Lie/cohomology isomorphism.",
@@ -2826,8 +2914,8 @@
         {
           "sourceId": "yuan",
           "locator": "Lemma3.4 and proof pp.43–44",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "excerpt": "Lie(J/S)",
+          "match": "The source dualizes Picard Lie/cohomology to obtain the rank-g Hodge-bundle comparison for stable families, with relative duality imported from its nodal owner."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2842,7 +2930,7 @@
       "title": "Curve–Jacobian Hodge line isomorphism",
       "statement": "For the same stable family, λ_X:=det(π_*ω_{X/S}) is canonically isomorphic to det(e*Ω¹_{G/S}); the isomorphism is the determinant of the vector-bundle comparison and is compatible with its base-change isomorphisms.",
       "hypotheses": [
-        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified."
+        "S is integral and noetherian; π:X→S is a proper flat finitely presented stable connected nodal curve of constant arithmetic genus g>1. G=Pic⁰_{X/S} is the smooth separated semi-abelian generalized Jacobian, and the relative-duality/base-change isomorphisms of JC6 are fixed."
       ],
       "prerequisites": [
         "JacobianChallengePartII:JC6/curve-jacobian-hodge-bundles"
@@ -2863,9 +2951,9 @@
       "sources": [
         {
           "sourceId": "yuan",
-          "locator": "Lemma3.4 pp.43–44",
-          "excerpt": "Jacobian",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "Lemma3.4 and proof pp.43–44",
+          "excerpt": "λS",
+          "match": "The determinant of the vector-bundle comparison supplies the algebraic Hodge-line isomorphism; the complex metric equality is outside scope."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2909,9 +2997,9 @@
       "sources": [
         {
           "sourceId": "dgh",
-          "locator": "§6.1 pp.23–25",
-          "excerpt": "Pic",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§6.1 pp.23–24, universal relative Jacobian and equation(6.1)",
+          "excerpt": "level-",
+          "match": "DGH works over Q in a chosen component. The broader prime-to-level integral application is justified by the exact StableReductionPartII fine-level suppliers, not attributed to DGH alone."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2929,7 +3017,7 @@
       "title": "Faltings–Zhang for the universal curve",
       "statement": "For every S→M_g[ℓ] in the chosen level convention and m≥1, base change the universal curve and its Jacobian. FZ_m:C_S^{m+1}→J_S^m is a morphism over S. On a field fibre with P₀∈C(k), fixing its first coordinate gives the m-fold pointed Abel embedding C−P₀.",
       "hypotheses": [
-        "Unless narrowed explicitly, S is noetherian and π:X→S is smooth projective of relative dimension one, with geometrically connected fibres of constant genus g>0. Disconnected bases are handled componentwise. Picard objects are fppf sheaves; all equalities of bundles mean isomorphism classes unless a rigidification is specified."
+        "g≥2, ℓ≥3 invertible on the base, and the fixed symplectic component over ℤ[1/ℓ,ζ_ℓ] of the imported fine-level curve scheme; S→M_g[ℓ] is arbitrary and m≥1. The smooth universal curve and its Jacobian are pulled back to S; S need not be noetherian."
       ],
       "prerequisites": [
         "JacobianChallengePartII:JC7/universal-level-jacobian",
@@ -2950,9 +3038,9 @@
       "sources": [
         {
           "sourceId": "dgh",
-          "locator": "§6.1 equations(6.1),(6.3) pp.24–25",
-          "excerpt": "Pic",
-          "match": "The cited passage supplies the stated construction or proof route; any unread auxiliary argument is an explicit gap below."
+          "locator": "§6.1 equation(6.3) and base change equation(6.5) p.25",
+          "excerpt": "P1 − P0",
+          "match": "The universal difference tuple is pulled back to arbitrary S. A chosen field point is used only for the pointed fibre restriction."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2975,14 +3063,13 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
-      "need": "Curve Riemann–Roch, canonical degree2g−2 and Serre duality; their stable relative duality extension is required for the explicitly nodal Hodge comparison.",
+      "need": "Field curve Riemann–Roch, canonical degree2g−2 and Serre duality. The nodal relative dualizing sheaf and stable relative duality are imported separately from upstream StableReduction Layer2.",
       "neededBy": [
         "JacobianChallengePartII:JC0/degree-locally-constant",
         "JacobianChallengePartII:JC3/degree-one-theta",
         "JacobianChallengePartII:JC3/theta-inverse-pullback",
         "JacobianChallengePartII:JC3/theta-pullback",
-        "JacobianChallengePartII:JC5/canonical-abel-map",
-        "JacobianChallengePartII:JC6/curve-jacobian-hodge-bundles"
+        "JacobianChallengePartII:JC5/canonical-abel-map"
       ]
     },
     {
@@ -3035,7 +3122,8 @@
         "JacobianChallengePartII:JC3/poincare-addition-identity",
         "JacobianChallengePartII:JC3/theta-doubling-formula",
         "JacobianChallengePartII:JC5/universal-shift",
-        "JacobianChallengePartII:JC5/faltings-zhang"
+        "JacobianChallengePartII:JC5/faltings-zhang",
+        "JacobianChallengePartII:JC3/geometric-twice-theta"
       ]
     },
     {
@@ -3065,10 +3153,9 @@
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.2",
-      "need": "Relative Hilbert/Div representability, the projective relative-curve Picard quotient infrastructure and the proper-family fibrewise ampleness criterion; parameter-space flatness must not be inferred from universal-family flatness.",
+      "need": "Relative Hilbert/Div representability and projective relative-curve Picard quotient infrastructure; universal-family flatness does not imply parameter-space flatness. The proper-family fibrewise ampleness criterion is supplied separately by upstream StableReduction Layer2.",
       "neededBy": [
-        "JacobianChallengePartII:JC0/picard-representability",
-        "JacobianChallengePartII:JC3/twice-theta-relatively-ample"
+        "JacobianChallengePartII:JC0/picard-representability"
       ]
     },
     {
@@ -3087,6 +3174,15 @@
         "JacobianChallengePartII:JC6/picard-lie-cohomology",
         "JacobianChallengePartII:JC6/curve-jacobian-hodge-bundles"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "need": "For proper flat finitely presented stable nodal Gorenstein curves of genus g, provide the invertible relative dualizing sheaf, R¹π_*O_X locally free of rank g, π_*ω_{X/S}≅(R¹π_*O_X)∨, and the canonical arbitrary-base-change maps. For a proper finitely presented family with an actual invertible sheaf, identify geometric-fibre ampleness with relative ampleness over the noetherian base. These targets are stated explicitly in upstream Layer2.",
+      "neededBy": [
+        "JacobianChallengePartII:JC3/twice-theta-relatively-ample",
+        "JacobianChallengePartII:JC6/picard-lie-cohomology",
+        "JacobianChallengePartII:JC6/curve-jacobian-hodge-bundles"
+      ]
     }
   ],
   "coverage": [
@@ -3095,12 +3191,13 @@
       "status": "planned",
       "remaining": [
         "Relative Picard representability proof inputs: BLR9.3/1 p.252 has been read with its proof; its nonroutine prerequisites 8.2/1, 8.2/5, 8.4/2 and the degree criterion9.2/13 must be supplied at declaration granularity. 8.4/2 and9.2/13 were read in this pass; the full representability/quotient proof of8.2/1 and8.2/5 was not read. Resolve the Hilbert/quotient supplier request rather than treating Theorem9.3/1 as a black-box baseline.",
+        "Prototype interfaces absent at the pinned baseline: Executable Lean prototypes only the actual group-object Hom-valued triangular equivalence and all its APIs/tests. Every other node has a named omission record; the geometric definitions, tests and named theorems must be expressed against their supplying Picard, abelian-scheme, duality and actual-line-bundle APIs. Elaborating the native portion is not checking the omitted mathematics.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree: Picard group of actual invertible sheaves with duals, pullback and divisor-to-line-bundle comparison; line-bundle fibre degree agrees with weighted scheme-divisor degree.",
-        "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality: Curve Riemann–Roch, canonical degree2g−2 and Serre duality; their stable relative duality extension is required for the explicitly nodal Hodge comparison.",
+        "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality: Field curve Riemann–Roch, canonical degree2g−2 and Serre duality. The nodal relative dualizing sheaf and stable relative duality are imported separately from upstream StableReduction Layer2.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change: Proper-flat curve cohomology and arbitrary base-change comparisons, relative effective Cartier sections and diagonals, symmetric-power representability with universal relative divisors.",
-        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.2: Relative Hilbert/Div representability, the projective relative-curve Picard quotient infrastructure and the proper-family fibrewise ampleness criterion; parameter-space flatness must not be inferred from universal-family flatness.",
+        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.2: Relative Hilbert/Div representability and projective relative-curve Picard quotient infrastructure; universal-family flatness does not imply parameter-space flatness. The proper-family fibrewise ampleness criterion is supplied separately by upstream StableReduction Layer2.",
         "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.3: Effective fppf descent of the represented projective Picard objects, closed immersions, finiteness and actual invertible sheaves; maintain the distinction between descent of a bundle and of its class.",
-        "Replace the exact prototype omissions for this stage when the imported geometric interfaces can express them; compile the complete geometric signatures without surrogate predicates."
+        "Replace the exact geometric signature omissions when the imported interfaces can express them; compile those signatures without surrogate predicates."
       ],
       "note": "All stated targets have declaration-sized nodes; chains terminate in pinned references, read supplier nodes, exact requested stages, or named gaps. Planned does not mean mathematically closed or implemented."
     },
@@ -3108,12 +3205,13 @@
       "stageId": "JacobianChallengePartII:JC1",
       "status": "planned",
       "remaining": [
-        "Relative properness and canonical polarization descent: BLR9.4 Proposition4 pp.260–262 and its theta-polarization construction were inspected, and Yuan explicitly cites MFK6.9. Verify the entire MFK6.9 proof and all nilpotent-base cocycles for the canonical principal polarization, and the exact proper identity-component criterion invoked in BLR8.4/3. A geometric-fibre polarization alone does not define an S-morphism.",
+        "Relative properness and canonical polarization descent: BLR9.4 Proposition4 and its printed proof pp.260–261 have now been visually read completely. It invokes the exact proper identity-component theorem8.4/3, the theta Cartier/birational input9.3/5 and field autoduality. Read and discharge those auxiliary proofs and the full MFK6.9 argument; compare the section-independence and polarization descent on all test schemes, including nilpotent bases. The printed proof ends on p.261, not p.262.",
+        "Prototype interfaces absent at the pinned baseline: Executable Lean prototypes only the actual group-object Hom-valued triangular equivalence and all its APIs/tests. Every other node has a named omission record; the geometric definitions, tests and named theorems must be expressed against their supplying Picard, abelian-scheme, duality and actual-line-bundle APIs. Elaborating the native portion is not checking the omitted mathematics.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme: Field Picard representability and properness; imported only for fibre and parent specialization checks, not as a theorem over an arbitrary noetherian base.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties: Field Jacobian tangent dimension, classical theta polarization and theta Cartier-divisor construction; no relative extension is silently assumed.",
         "Resolve supplier AbelianSchemesAndArithmeticModuli:A1: Abelian schemes, translations, rigidity over nonreduced bases, fibre powers, theorem of the square/cube, and homomorphism descent.",
         "Resolve supplier AbelianSchemesAndArithmeticModuli:A2: Dual abelian schemes, normalized Poincaré bundle, biduality, Pic⁰ translation invariance, polarization sign convention and normalized seesaw on products.",
-        "Replace the exact prototype omissions for this stage when the imported geometric interfaces can express them; compile the complete geometric signatures without surrogate predicates."
+        "Replace the exact geometric signature omissions when the imported interfaces can express them; compile those signatures without surrogate predicates."
       ],
       "note": "All stated targets have declaration-sized nodes; chains terminate in pinned references, read supplier nodes, exact requested stages, or named gaps. Planned does not mean mathematically closed or implemented."
     },
@@ -3122,12 +3220,13 @@
       "status": "planned",
       "remaining": [
         "Relative pointed Abel immersion bridge: The parent F gives the field pointed Abel map and universal property. Establish the pointed relative closed immersion from a proper monomorphism or a fully justified relative fibre/tangent criterion, then descend. The present packet does not claim that field immersions alone automatically prove relative immersion.",
+        "Prototype interfaces absent at the pinned baseline: Executable Lean prototypes only the actual group-object Hom-valued triangular equivalence and all its APIs/tests. Every other node has a named omission record; the geometric definitions, tests and named theorems must be expressed against their supplying Picard, abelian-scheme, duality and actual-line-bundle APIs. Elaborating the native portion is not checking the omitted mathematics.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change: Proper-flat curve cohomology and arbitrary base-change comparisons, relative effective Cartier sections and diagonals, symmetric-power representability with universal relative divisors.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property: Pointed field Abel–Jacobi universal property and its pullback autoduality characterization; the relative pointed closed-immersion bridge is a gap in this packet.",
         "Resolve supplier AbelianSchemesAndArithmeticModuli:A1: Abelian schemes, translations, rigidity over nonreduced bases, fibre powers, theorem of the square/cube, and homomorphism descent.",
         "Resolve supplier AbelianSchemesAndArithmeticModuli:A3: For every nonzero integer d, multiplication[d] on an abelian scheme is finite locally free, with scheme-theoretic torsion and Weil pairing; no invertibility of d in the base is needed for finiteness.",
         "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.3: Effective fppf descent of the represented projective Picard objects, closed immersions, finiteness and actual invertible sheaves; maintain the distinction between descent of a bundle and of its class.",
-        "Replace the exact prototype omissions for this stage when the imported geometric interfaces can express them; compile the complete geometric signatures without surrogate predicates."
+        "Replace the exact geometric signature omissions when the imported interfaces can express them; compile those signatures without surrogate predicates."
       ],
       "note": "All stated targets have declaration-sized nodes; chains terminate in pinned references, read supplier nodes, exact requested stages, or named gaps. Planned does not mean mathematically closed or implemented."
     },
@@ -3136,17 +3235,18 @@
       "status": "planned",
       "remaining": [
         "Algebraic equivalence of geometric-fibre line classes: Verify the exact algebraic-equivalence definition used for projective geometric fibres, its tensor/inverse/pullback closure, and its comparison with the identity component of the represented Picard functor. Curve degree zero and abelian Picard duality supply the relevant specialization tests, but neither is a generic definition for arbitrary projective flat Y/S. This is a recorded boundary of the actual Picard subgroup and its two-projection version, rather than an assumed baseline predicate.",
-        "Poincaré sign and normalized seesaw: Compare the A2 supplier’s convention for φ_L with Yuan’s negative addition formula on all test schemes. Prove the corresponding rigidified-bundle identity, including the fibre-at-zero normalization when a canonical map is claimed.",
+        "Poincaré sign and normalized seesaw: Fix evaluation U_b=b and φ_L(a)=t_a*L⊗L⁻¹. Yuan’s negative addition formula uses (id,−λ_X)*U, whereas BLR’s p.261 bundle uses the positive addition formula. Verify this signed comparison and the normalized seesaw identities on all test schemes, including the fibre-at-zero factor for rigidified isomorphisms.",
         "Translated theta pullback calculation: Yuan TheoremA.3 and its proof pp.110–111 were read. The auxiliary Serre §5.6 equations on pp.74–76 were not obtained. Verify the translated theta formula for arbitrary degree-one divisor α, not just a point or a canonical root.",
         "Arbitrary-alpha curve-square computation: Yuan notes that Serre’s formula assumes(2g−2)α=ω but says an extra computation removes it. Supply that computation or a full normalized Poincaré universal-property proof over the given field. Do not add the canonical-root hypothesis to the routed target.",
         "Cube recurrence in the theta doubling formula: The source cites Serre p.33 for [2]*L=3L+[-1]*L. Read the exact recurrence proof and discharge it through A1; no symmetric-theta assumption is allowed.",
-        "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality: Curve Riemann–Roch, canonical degree2g−2 and Serre duality; their stable relative duality extension is required for the explicitly nodal Hodge comparison.",
+        "Prototype interfaces absent at the pinned baseline: Executable Lean prototypes only the actual group-object Hom-valued triangular equivalence and all its APIs/tests. Every other node has a named omission record; the geometric definitions, tests and named theorems must be expressed against their supplying Picard, abelian-scheme, duality and actual-line-bundle APIs. Elaborating the native portion is not checking the omitted mathematics.",
+        "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality: Field curve Riemann–Roch, canonical degree2g−2 and Serre duality. The nodal relative dualizing sheaf and stable relative duality are imported separately from upstream StableReduction Layer2.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties: Field Jacobian tangent dimension, classical theta polarization and theta Cartier-divisor construction; no relative extension is silently assumed.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property: Pointed field Abel–Jacobi universal property and its pullback autoduality characterization; the relative pointed closed-immersion bridge is a gap in this packet.",
         "Resolve supplier AbelianSchemesAndArithmeticModuli:A1: Abelian schemes, translations, rigidity over nonreduced bases, fibre powers, theorem of the square/cube, and homomorphism descent.",
         "Resolve supplier AbelianSchemesAndArithmeticModuli:A2: Dual abelian schemes, normalized Poincaré bundle, biduality, Pic⁰ translation invariance, polarization sign convention and normalized seesaw on products.",
-        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.2: Relative Hilbert/Div representability, the projective relative-curve Picard quotient infrastructure and the proper-family fibrewise ampleness criterion; parameter-space flatness must not be inferred from universal-family flatness.",
-        "Replace the exact prototype omissions for this stage when the imported geometric interfaces can express them; compile the complete geometric signatures without surrogate predicates."
+        "Resolve supplier tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity: For proper flat finitely presented stable nodal Gorenstein curves of genus g, provide the invertible relative dualizing sheaf, R¹π_*O_X locally free of rank g, π_*ω_{X/S}≅(R¹π_*O_X)∨, and the canonical arbitrary-base-change maps. For a proper finitely presented family with an actual invertible sheaf, identify geometric-fibre ampleness with relative ampleness over the noetherian base. These targets are stated explicitly in upstream Layer2.",
+        "Replace the exact geometric signature omissions when the imported interfaces can express them; compile those signatures without surrogate predicates."
       ],
       "note": "All stated targets have declaration-sized nodes; chains terminate in pinned references, read supplier nodes, exact requested stages, or named gaps. Planned does not mean mathematically closed or implemented."
     },
@@ -3158,11 +3258,12 @@
         "Relative autoduality over nonreduced bases: BLR8.1/4 has now been read exactly, removing the formerly unverified Leray-sequence source boundary. The remaining issue is the construction/descent of u and the equality i_α*=[d]∘u on all test schemes. Yuan’s fibrewise sentence is a lead, not a valid general nilpotent-base proof.",
         "Bi-Picard lifting retains the other projection condition: Proposition2.6’s two pullback factorizations were read, but the chosen lifts must remain algebraically trivial on every geometric fibre of the other projection. Verify this using relative autoduality/normalized seesaw, with correction of any base line; unrestricted Pic⁰ torsion cokernels alone do not prove the Pic⁰⁰ statement.",
         "Axis-normalized square comparison proof: The rational point and the exact two axis conditions in Yuan §A.3 p.109 were read. Obtain and inspect Zhang Lemmas2.2.1–2.2.3 cited there, or give the full Picard-family currying plus Albanese/seesaw argument. The target is an isomorphism of actual groups over K, not a rationalized or geometric-point comparison.",
+        "Prototype interfaces absent at the pinned baseline: Executable Lean prototypes only the actual group-object Hom-valued triangular equivalence and all its APIs/tests. Every other node has a named omission record; the geometric definitions, tests and named theorems must be expressed against their supplying Picard, abelian-scheme, duality and actual-line-bundle APIs. Elaborating the native portion is not checking the omitted mathematics.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree: Picard group of actual invertible sheaves with duals, pullback and divisor-to-line-bundle comparison; line-bundle fibre degree agrees with weighted scheme-divisor degree.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change: Proper-flat curve cohomology and arbitrary base-change comparisons, relative effective Cartier sections and diagonals, symmetric-power representability with universal relative divisors.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property: Pointed field Abel–Jacobi universal property and its pullback autoduality characterization; the relative pointed closed-immersion bridge is a gap in this packet.",
         "Resolve supplier AbelianSchemesAndArithmeticModuli:A2: Dual abelian schemes, normalized Poincaré bundle, biduality, Pic⁰ translation invariance, polarization sign convention and normalized seesaw on products.",
-        "Replace the exact prototype omissions for this stage when the imported geometric interfaces can express them; compile the complete geometric signatures without surrogate predicates."
+        "Replace the exact geometric signature omissions when the imported interfaces can express them; compile those signatures without surrogate predicates."
       ],
       "note": "All stated targets have declaration-sized nodes; chains terminate in pinned references, read supplier nodes, exact requested stages, or named gaps. Planned does not mean mathematically closed or implemented."
     },
@@ -3170,10 +3271,11 @@
       "stageId": "JacobianChallengePartII:JC5",
       "status": "planned",
       "remaining": [
-        "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality: Curve Riemann–Roch, canonical degree2g−2 and Serre duality; their stable relative duality extension is required for the explicitly nodal Hodge comparison.",
+        "Prototype interfaces absent at the pinned baseline: Executable Lean prototypes only the actual group-object Hom-valued triangular equivalence and all its APIs/tests. Every other node has a named omission record; the geometric definitions, tests and named theorems must be expressed against their supplying Picard, abelian-scheme, duality and actual-line-bundle APIs. Elaborating the native portion is not checking the omitted mathematics.",
+        "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality: Field curve Riemann–Roch, canonical degree2g−2 and Serre duality. The nodal relative dualizing sheaf and stable relative duality are imported separately from upstream StableReduction Layer2.",
         "Resolve supplier AbelianSchemesAndArithmeticModuli:A1: Abelian schemes, translations, rigidity over nonreduced bases, fibre powers, theorem of the square/cube, and homomorphism descent.",
         "Resolve supplier AbelianSchemesAndArithmeticModuli:A3: For every nonzero integer d, multiplication[d] on an abelian scheme is finite locally free, with scheme-theoretic torsion and Weil pairing; no invertibility of d in the base is needed for finiteness.",
-        "Replace the exact prototype omissions for this stage when the imported geometric interfaces can express them; compile the complete geometric signatures without surrogate predicates."
+        "Replace the exact geometric signature omissions when the imported interfaces can express them; compile those signatures without surrogate predicates."
       ],
       "note": "All stated targets have declaration-sized nodes; chains terminate in pinned references, read supplier nodes, exact requested stages, or named gaps. Planned does not mean mathematically closed or implemented."
     },
@@ -3181,11 +3283,12 @@
       "stageId": "JacobianChallengePartII:JC6",
       "status": "planned",
       "remaining": [
-        "Stable relative duality and determinant API: BLR8.4/1 pp.231–232 and Yuan Lemma3.4 pp.43–44 were read with proofs, establishing the exact Lie input hypotheses. Resolve the stable Gorenstein relative-duality and base-change maps in the parent/coherent-curve supplier, and the determinant/invariant-differential identifications on the imported semi-abelian object.",
-        "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality: Curve Riemann–Roch, canonical degree2g−2 and Serre duality; their stable relative duality extension is required for the explicitly nodal Hodge comparison.",
+        "Stable relative duality and determinant API: BLR8.4/1 pp.231–232 and Yuan Lemma3.4 pp.43–44 were read with proofs, establishing the exact Lie input hypotheses. Resolve the stable Gorenstein relative-duality and base-change maps in the upstream StableReduction Layer2 supplier, and the determinant/invariant-differential identifications on the imported semi-abelian object.",
+        "Prototype interfaces absent at the pinned baseline: Executable Lean prototypes only the actual group-object Hom-valued triangular equivalence and all its APIs/tests. Every other node has a named omission record; the geometric definitions, tests and named theorems must be expressed against their supplying Picard, abelian-scheme, duality and actual-line-bundle APIs. Elaborating the native portion is not checking the omitted mathematics.",
         "Resolve supplier tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change: Proper-flat curve cohomology and arbitrary base-change comparisons, relative effective Cartier sections and diagonals, symmetric-power representability with universal relative divisors.",
         "Resolve supplier NeronModelsAndSemistableAbelianVarieties:R11.4: For stable connected nodal curves, represent Pic⁰ by a smooth separated semi-abelian group, with the Picard-space identity-component comparison and invariant-differential/Lie sheaf API; no properness of this generalized Jacobian is assumed.",
-        "Replace the exact prototype omissions for this stage when the imported geometric interfaces can express them; compile the complete geometric signatures without surrogate predicates."
+        "Resolve supplier tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity: For proper flat finitely presented stable nodal Gorenstein curves of genus g, provide the invertible relative dualizing sheaf, R¹π_*O_X locally free of rank g, π_*ω_{X/S}≅(R¹π_*O_X)∨, and the canonical arbitrary-base-change maps. For a proper finitely presented family with an actual invertible sheaf, identify geometric-fibre ampleness with relative ampleness over the noetherian base. These targets are stated explicitly in upstream Layer2.",
+        "Replace the exact geometric signature omissions when the imported interfaces can express them; compile those signatures without surrogate predicates."
       ],
       "note": "All stated targets have declaration-sized nodes; chains terminate in pinned references, read supplier nodes, exact requested stages, or named gaps. Planned does not mean mathematically closed or implemented."
     },
@@ -3194,9 +3297,9 @@
       "status": "planned",
       "remaining": [
         "Fine-level supplier assembly: StableReductionPartII MC.4/fine-level-scheme and full-level are exact proposed supplier nodes, but MC.4 is absent from the accepted atlas at the immutable base. Current candidate-only atlas assembly therefore retains precisely the pending MC.4→JC7 link. Verify the combined proposed supplier assembly for cycles, and integrate this edge after independent acceptance of the fine-level supplier; the generic JC0–JC5 construction must never acquire MC.4 as an input.",
+        "Prototype interfaces absent at the pinned baseline: Executable Lean prototypes only the actual group-object Hom-valued triangular equivalence and all its APIs/tests. Every other node has a named omission record; the geometric definitions, tests and named theorems must be expressed against their supplying Picard, abelian-scheme, duality and actual-line-bundle APIs. Elaborating the native portion is not checking the omitted mathematics.",
         "Resolve supplier AbelianSchemesAndArithmeticModuli:A3: For every nonzero integer d, multiplication[d] on an abelian scheme is finite locally free, with scheme-theoretic torsion and Weil pairing; no invertibility of d in the base is needed for finiteness.",
-        "The supplier fine-level scheme and Jacobian-torsion convention are planned input nodes, not implemented declarations; complete their independent accepted assembly.",
-        "Replace the exact prototype omissions for this stage when the imported geometric interfaces can express them; compile the complete geometric signatures without surrogate predicates."
+        "Replace the exact geometric signature omissions when the imported interfaces can express them; compile those signatures without surrogate predicates."
       ],
       "note": "All stated targets have declaration-sized nodes; chains terminate in pinned references, read supplier nodes, exact requested stages, or named gaps. Planned does not mean mathematically closed or implemented."
     }
@@ -3229,7 +3332,7 @@
     },
     {
       "title": "Relative properness and canonical polarization descent",
-      "detail": "BLR9.4 Proposition4 pp.260–262 and its theta-polarization construction were inspected, and Yuan explicitly cites MFK6.9. Verify the entire MFK6.9 proof and all nilpotent-base cocycles for the canonical principal polarization, and the exact proper identity-component criterion invoked in BLR8.4/3. A geometric-fibre polarization alone does not define an S-morphism.",
+      "detail": "BLR9.4 Proposition4 and its printed proof pp.260–261 have now been visually read completely. It invokes the exact proper identity-component theorem8.4/3, the theta Cartier/birational input9.3/5 and field autoduality. Read and discharge those auxiliary proofs and the full MFK6.9 argument; compare the section-independence and polarization descent on all test schemes, including nilpotent bases. The printed proof ends on p.261, not p.262.",
       "neededBy": [
         "JacobianChallengePartII:JC1/jacobian-proper",
         "JacobianChallengePartII:JC1/principal-polarization"
@@ -3244,7 +3347,7 @@
     },
     {
       "title": "Poincaré sign and normalized seesaw",
-      "detail": "Compare the A2 supplier’s convention for φ_L with Yuan’s negative addition formula on all test schemes. Prove the corresponding rigidified-bundle identity, including the fibre-at-zero normalization when a canonical map is claimed.",
+      "detail": "Fix evaluation U_b=b and φ_L(a)=t_a*L⊗L⁻¹. Yuan’s negative addition formula uses (id,−λ_X)*U, whereas BLR’s p.261 bundle uses the positive addition formula. Verify this signed comparison and the normalized seesaw identities on all test schemes, including the fibre-at-zero factor for rigidified isomorphisms.",
       "neededBy": [
         "JacobianChallengePartII:JC3/jacobian-poincare",
         "JacobianChallengePartII:JC3/poincare-addition-identity",
@@ -3298,7 +3401,7 @@
     },
     {
       "title": "Stable relative duality and determinant API",
-      "detail": "BLR8.4/1 pp.231–232 and Yuan Lemma3.4 pp.43–44 were read with proofs, establishing the exact Lie input hypotheses. Resolve the stable Gorenstein relative-duality and base-change maps in the parent/coherent-curve supplier, and the determinant/invariant-differential identifications on the imported semi-abelian object.",
+      "detail": "BLR8.4/1 pp.231–232 and Yuan Lemma3.4 pp.43–44 were read with proofs, establishing the exact Lie input hypotheses. Resolve the stable Gorenstein relative-duality and base-change maps in the upstream StableReduction Layer2 supplier, and the determinant/invariant-differential identifications on the imported semi-abelian object.",
       "neededBy": [
         "JacobianChallengePartII:JC6/picard-lie-cohomology",
         "JacobianChallengePartII:JC6/curve-jacobian-hodge-bundles",
@@ -3545,25 +3648,26 @@
           "RelativeJacobian.RelativeDegreeComponents.mem",
           "RelativeJacobian.RelativeDegreeComponents.tensor",
           "RelativeJacobian.RelativeDegreeComponents.baseChange",
+          "RelativeJacobian.RelativeDegreeComponents.inverse",
           "RelativeJacobian.RelativeDegreeComponents.test_elliptic",
           "RelativeJacobian.RelativeDegreeComponents.test_disconnected",
           "RelativeJacobian.RelativeDegreeComponents.test_field"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC0/degree-locally-constant",
         "names": [
           "Local constancy of relative degree"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC0/picard-representability",
         "names": [
           "Relative curve Picard scheme"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC0/picard-torsors",
@@ -3572,11 +3676,12 @@
           "RelativeJacobian.PicardTorsors.action",
           "RelativeJacobian.PicardTorsors.difference",
           "RelativeJacobian.PicardTorsors.translation",
+          "RelativeJacobian.PicardTorsors.action_difference",
           "RelativeJacobian.PicardTorsors.test_zero",
           "RelativeJacobian.PicardTorsors.test_genusOne",
           "RelativeJacobian.PicardTorsors.test_swap"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC1/relative-jacobian",
@@ -3585,25 +3690,26 @@
           "RelativeJacobian.RelativeJacobian.points",
           "RelativeJacobian.RelativeJacobian.baseChange",
           "RelativeJacobian.RelativeJacobian.field",
+          "RelativeJacobian.RelativeJacobian.groupLaw",
           "RelativeJacobian.RelativeJacobian.test_elliptic",
           "RelativeJacobian.RelativeJacobian.test_unpointed",
           "RelativeJacobian.RelativeJacobian.test_singular"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC1/jacobian-proper",
         "names": [
           "Properness of the relative Jacobian"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC1/jacobian-base-change",
         "names": [
           "Base change of the relative Jacobian"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC1/principal-polarization",
@@ -3616,7 +3722,7 @@
           "RelativeJacobian.PrincipalPolarization.test_noTheta",
           "RelativeJacobian.PrincipalPolarization.test_dualNumbers"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC2/section-free-abel-map",
@@ -3629,7 +3735,7 @@
           "RelativeJacobian.SectionFreeAbelMap.test_degree",
           "RelativeJacobian.SectionFreeAbelMap.test_noOrigin"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC2/degree-abel-map",
@@ -3643,28 +3749,28 @@
           "RelativeJacobian.DegreeAbelMap.test_one",
           "RelativeJacobian.DegreeAbelMap.test_inseparable"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC2/pointed-factorization",
         "names": [
           "Local pointed factorization"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC2/degree-one-closed-immersion",
         "names": [
           "Degree-one Abel immersion"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC2/nonzero-degree-finite",
         "names": [
           "Finiteness of nonzero-degree Abel maps"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC2/curve-difference",
@@ -3674,18 +3780,20 @@
           "RelativeJacobian.CurveDifference.diagonal",
           "RelativeJacobian.CurveDifference.baseChange",
           "RelativeJacobian.CurveDifference.pointed",
+          "RelativeJacobian.CurveDifference.cocycle",
           "RelativeJacobian.CurveDifference.test_equal",
           "RelativeJacobian.CurveDifference.test_sign",
-          "RelativeJacobian.CurveDifference.test_noSection"
+          "RelativeJacobian.CurveDifference.test_noSection",
+          "RelativeJacobian.CurveDifference.test_triangle"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC2/diagonal-base-change",
         "names": [
           "Difference as the Abel map over X"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/jacobian-poincare",
@@ -3698,7 +3806,7 @@
           "RelativeJacobian.JacobianPoincare.test_elliptic",
           "RelativeJacobian.JacobianPoincare.test_baseTwist"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/degree-one-theta",
@@ -3711,7 +3819,7 @@
           "RelativeJacobian.DegreeOneTheta.test_genusTwo",
           "RelativeJacobian.DegreeOneTheta.test_notSymmetric"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/twice-theta",
@@ -3724,77 +3832,77 @@
           "RelativeJacobian.TwiceTheta.test_negative",
           "RelativeJacobian.TwiceTheta.test_noDegreeOne"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/theta-inverse-pullback",
         "names": [
           "Pullback of inverse theta"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/theta-pullback",
         "names": [
           "Pullback of theta"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/poincare-addition-identity",
         "names": [
           "Poincaré addition identity"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/poincare-curve-square",
         "names": [
           "Poincaré pullback on the curve square"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/theta-doubling-formula",
         "names": [
           "Theta doubling formula"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/poincare-diagonal",
         "names": [
           "Poincaré diagonal identity"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/geometric-twice-theta",
         "names": [
           "Geometric fibre twice-theta class"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/twice-theta-symmetric",
         "names": [
           "Symmetry of twice-theta"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/twice-theta-zero-rigidified",
         "names": [
           "Zero rigidification of twice-theta"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC3/twice-theta-relatively-ample",
         "names": [
           "Relative ampleness of twice-theta"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC4/actual-picard-zero",
@@ -3807,7 +3915,7 @@
           "RelativeJacobian.ActualPicardZero.test_curve",
           "RelativeJacobian.ActualPicardZero.test_brauer"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC4/actual-picard-bizero",
@@ -3820,42 +3928,42 @@
           "RelativeJacobian.ActualPicardBizero.test_oneAxis",
           "RelativeJacobian.ActualPicardBizero.test_poincare"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC4/relative-autoduality-pullback",
         "names": [
           "Relative curve autoduality"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC4/actual-to-relative-obstruction",
         "names": [
           "Actual Picard classes and the Brauer obstruction"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC4/actual-pullback-torsion-cokernel",
         "names": [
           "Actual Picard pullback torsion cokernel"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC4/bizero-lift-one-factor",
         "names": [
           "Lift preserving both fibre conditions"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC4/bizero-pullback-torsion-cokernel",
         "names": [
           "Bi-Picard pullback torsion cokernel"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC4/axis-normalized-picard",
@@ -3868,21 +3976,21 @@
           "RelativeJacobian.AxisNormalizedPicard.test_positiveBase",
           "RelativeJacobian.AxisNormalizedPicard.test_elliptic"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC4/pointed-square-picard-isomorphism",
         "names": [
           "Pointed square Picard comparison"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC5/canonical-abel-map",
         "names": [
           "Canonical-bundle Abel morphism"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC5/universal-shift",
@@ -3895,7 +4003,7 @@
           "RelativeJacobian.UniversalShift.test_genusOne",
           "RelativeJacobian.UniversalShift.test_firstCoordinate"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC5/faltings-zhang",
@@ -3904,11 +4012,12 @@
           "RelativeJacobian.FaltingsZhang.coordinate",
           "RelativeJacobian.FaltingsZhang.baseChange",
           "RelativeJacobian.FaltingsZhang.pointed",
+          "RelativeJacobian.FaltingsZhang.proper",
           "RelativeJacobian.FaltingsZhang.test_one",
           "RelativeJacobian.FaltingsZhang.test_diagonal",
           "RelativeJacobian.FaltingsZhang.test_originChange"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC5/shifted-faltings-zhang",
@@ -3921,68 +4030,69 @@
           "RelativeJacobian.ShiftedFaltingsZhang.test_sign",
           "RelativeJacobian.ShiftedFaltingsZhang.test_diagonal"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC5/shifted-power-factorization",
         "names": [
           "Shifted-power factorization"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC6/picard-lie-cohomology",
         "names": [
           "Picard Lie algebra and coherent cohomology"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC6/curve-jacobian-hodge-bundles",
         "names": [
           "Curve and Jacobian Hodge bundles"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC6/hodge-line-isomorphism",
         "names": [
           "Curve–Jacobian Hodge line isomorphism"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC7/universal-level-jacobian",
         "names": [
           "Universal Jacobian with full level"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       },
       {
         "nodeId": "JacobianChallengePartII:JC7/universal-faltings-zhang",
         "names": [
           "Faltings–Zhang for the universal curve"
         ],
-        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the packet and definitive document, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
+        "reason": "The pinned libraries lack the relative Picard/abelian-scheme/dualizing or algebraic-equivalence interface needed by this exact statement. It is retained in the reviewed packet; the separately owned reader must be regenerated when its contract changes, and omitted from executable signatures under PROTOCOL13. No arbitrary predicate field or synthetic bundle carrier replaces it."
       }
     ],
     "compiled": true,
     "note": "No formalization claim; compiling the suggested file checks only its explicit native signature subset.",
     "geometricSignaturesCompiled": false,
     "compilationReceipt": {
-      "sourceSha256": "8ddc9c6ad3fe931788ddc613212f11f7629447f9c59c309bca4702d66a9e70fe",
-      "logSha256": "3b3313d46af46c8cf9f6295dc1419b95e335ce2376cc3dfdb38223692536db17",
+      "sourceSha256": "6b79ba6dde654b7203fcae210cabd48489c52c1780916222b117b114653dc30d",
+      "logSha256": "ee1f0a37969d5de07e1002a865580a847b3877799456f7220bc053f73504f2d3",
       "exitCode": 0,
       "errors": 0,
-      "warnings": 8,
-      "admittedDeclarations": 8,
+      "warnings": 9,
+      "warningKind": "admission only",
+      "admittedDeclarations": 9,
       "examples": 3,
-      "availableGiB": 37,
-      "elapsed": "0:05.10",
-      "maxRSSKiB": 3379752,
+      "availableGiB": 35,
+      "elapsed": "0:02.30",
+      "maxRSSKiB": 3392132,
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "lean": "6a10ac8c22beadecabdbb0919c2b50214762f91d",
-      "compiledScope": "one native coordinate equivalence, four API signatures, three examples; 47 geometric nodes explicitly omitted"
+      "compiledScope": "One native represented-point coordinate equivalence with explicit coordinate data, five API signatures and three examples. Forty-seven geometric nodes, their APIs and tests are comments only."
     }
   },
   "upstreamNotes": [
@@ -3996,5 +4106,253 @@
     "targetsFirst": true,
     "stagesPlanned": 8,
     "stopReason": "Every stage is planned at its stated target level, with explicit proof/supplier/interface boundaries. The budget is a ceiling rather than a quota."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-JacobianChallengePartII",
+    "date": "2026-10-05",
+    "notes": "Independent target-level review of all48 nodes and11 pinned baseline entries, four primary sources,24 routed requirements, API/tests, prototype omissions, planets, and supplier ownership. Corrected source locators/excerpts, Poincaré sign data, cohomological Brauer interpretation, local hypotheses and StableReduction Layer2 supplier links; all8 stages remain planned with honest proof/interface gaps. Geometric signatures are omitted, not compiled or implemented. See the review report for reproducible checks and reader-regeneration request.",
+    "checked": [
+      {
+        "nodeId": "JacobianChallengePartII:JC0/relative-degree-components",
+        "verdict": "corrected",
+        "note": "Degree components, torsors and quasi-projectivity are stated together; the imported sheaf, Euler-characteristic local constancy and representability proof inputs remain explicit."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC0/degree-locally-constant",
+        "verdict": "corrected",
+        "note": "The degree constancy argument is reduced to parent proper-flat cohomology and Euler characteristics, rather than asserted as a baseline theorem."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC0/picard-representability",
+        "verdict": "corrected",
+        "note": "Projective flat finitely presented curves with reduced irreducible geometric fibres satisfy the represented Picard statement, with degree-zero identity component and quasi-projective degree torsors. Arbitrary base change follows from the imported fppf sheaf."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC0/picard-torsors",
+        "verdict": "corrected",
+        "note": "The proof acquires a section by faithfully flat base extension; no S-point is inserted in the torsor data."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC1/relative-jacobian",
+        "verdict": "corrected",
+        "note": "Yuan defines the relative Jacobian; BLR9.4/4 p.260 supplies the abelian-scheme conclusion, while the dimension comparison uses the parent curve tangent/cohomology target."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC1/jacobian-proper",
+        "verdict": "corrected",
+        "note": "The proof separates properness from the canonical ample bundle construction. Full §8.4/3 proof inputs remain a refinement gap."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC1/jacobian-base-change",
+        "verdict": "corrected",
+        "note": "The paragraph states Jacobian base change; the proof route uses the exact supplier sheaf restriction and degree-zero criterion on every test scheme."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC1/principal-polarization",
+        "verdict": "corrected",
+        "note": "Yuan explicitly allows no global degree-one bundle. BLR9.4/4 pp.260–261 describes translation independence and descent; MFK proof/overlap comparisons remain a gap."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC2/section-free-abel-map",
+        "verdict": "corrected",
+        "note": "DGH uses the section-free curve→Pic¹ map. The diagonal Cartier construction and its arbitrary-base-change API extend this universal-family instance through the imported curve theory."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC2/degree-abel-map",
+        "verdict": "corrected",
+        "note": "The displayed degree-d map defines the natural transformation; finiteness is corrected separately to d≠0, and the construction also makes sense for zero and negative d."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC2/pointed-factorization",
+        "verdict": "corrected",
+        "note": "The pointed factorization is the direct Picard-group identity d(x−x₀)+(dx₀−α); Yoneda makes it a morphism equality, not a fibre-only check."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC2/degree-one-closed-immersion",
+        "verdict": "corrected",
+        "note": "A.3 supplies the field degree-one embedding. The relative closed-immersion bridge is explicitly unclosed and descended after a section-acquiring cover."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC2/nonzero-degree-finite",
+        "verdict": "corrected",
+        "note": "The positive-degree uses repair the omitted premise on p.29. Negative degrees are independently justified by inversion and finite multiplication, including inseparable cases."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC2/curve-difference",
+        "verdict": "corrected",
+        "note": "The difference order agrees with DGH6.1 pp.24–25. The geometric definition itself requires neither g>1 nor the arithmetic/metric hypotheses of Theorem2.10."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC2/diagonal-base-change",
+        "verdict": "corrected",
+        "note": "The source identifies the diagonal-section Abel map over X and its projection to J; the proof is a natural Picard-sheaf comparison."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/jacobian-poincare",
+        "verdict": "corrected",
+        "note": "The negative addition formula fixes which signed self-duality pulls back the evaluation-normalized supplier bundle. The zero-axis normalization and all-test-scheme comparison remain named obligations."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/degree-one-theta",
+        "verdict": "corrected",
+        "note": "The source defines the degree-(g−1) Abel image; factoring through Sym^{g−1} and retaining the Cartier structure imports the parent theta/symmetric-power targets."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/twice-theta",
+        "verdict": "corrected",
+        "note": "The definition dualizes P before diagonal pullback, ensuring the positive twice-theta class."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/theta-inverse-pullback",
+        "verdict": "corrected",
+        "note": "The source allows any field and any degree-one divisor, not just an effective rational point. Serre’s translated-theta proof remains a gap."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/theta-pullback",
+        "verdict": "corrected",
+        "note": "The formula includes ω and preserves arbitrary degree-one α; no symmetry or canonical-root hypothesis is added."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/poincare-addition-identity",
+        "verdict": "corrected",
+        "note": "The addition formula is a Picard-class equality; a rigidified isomorphism additionally uses the fibre-at-zero factor."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/poincare-curve-square",
+        "verdict": "corrected",
+        "note": "The diagonal has positive sign. The source explicitly removes Serre’s canonical-root premise by an extra computation, retained as a proof gap."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/theta-doubling-formula",
+        "verdict": "corrected",
+        "note": "The cube recurrence keeps the inversion term; no symmetric-theta assumption is inserted."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/poincare-diagonal",
+        "verdict": "corrected",
+        "note": "The diagonal identity follows by pulling back addition and substituting the nonsymmetric doubling formula."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/geometric-twice-theta",
+        "verdict": "corrected",
+        "note": "The geometric-fibre algebraic-equivalence statement is weaker than choosing a global theta divisor. The A1 square/cube input supplies inversion on Néron–Severi classes."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/twice-theta-symmetric",
+        "verdict": "corrected",
+        "note": "The source asserts symmetry; the proof uses the normalized biextension’s simultaneous inversion, not equality on geometric fibres."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/twice-theta-zero-rigidified",
+        "verdict": "corrected",
+        "note": "The two Poincaré axis trivializations induce the zero trivialization after dualization and diagonal pullback."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC3/twice-theta-relatively-ample",
+        "verdict": "corrected",
+        "note": "The source passes from geometric twice-theta to relative ampleness. The proper-family criterion is imported from upstream StableReduction Layer2."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC4/actual-picard-zero",
+        "verdict": "corrected",
+        "note": "This is the actual fibrewise algebraically trivial subgroup; equality with relative sheaf sections is not assumed."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC4/actual-picard-bizero",
+        "verdict": "corrected",
+        "note": "Both projection-fibre conditions are part of the actual subgroup, and base classes are retained."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC4/relative-autoduality-pullback",
+        "verdict": "corrected",
+        "note": "The source states autoduality and multiplication by d; its fibrewise check does not close the nonreduced-base descent gap."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC4/actual-to-relative-obstruction",
+        "verdict": "corrected",
+        "note": "The source defines Br as cohomological H² and states the exact sequence under universal global-functions hypotheses. A section eliminates the obstruction."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC4/actual-pullback-torsion-cokernel",
+        "verdict": "corrected",
+        "note": "The actual-class proof lifts using the Jacobian identity section and absorbs the base line; it does not assume [d] surjective on S-points."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC4/bizero-lift-one-factor",
+        "verdict": "corrected",
+        "note": "The two pullback factorizations are stated, but retaining algebraic triviality along the other projection is an explicit additional proof obligation."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC4/bizero-pullback-torsion-cokernel",
+        "verdict": "corrected",
+        "note": "Compose the two condition-preserving one-factor lifts; the exponent may depend on the class."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC4/axis-normalized-picard",
+        "verdict": "corrected",
+        "note": "The restrictions to both pointed axes are trivial as actual line classes; these are not chosen trivializations or the larger bi-zero group."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC4/pointed-square-picard-isomorphism",
+        "verdict": "corrected",
+        "note": "The comparison is an actual-group isomorphism after choosing a rational point. The algebraic argument is separated from its complete-valued-field metric application."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC5/canonical-abel-map",
+        "verdict": "corrected",
+        "note": "The canonical bundle has degree2g−2, so the corrected finite degree-Abel theorem applies for g>1. Metric conclusions are external consumers."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC5/universal-shift",
+        "verdict": "corrected",
+        "note": "The first Jacobian coordinate remains y; the shifted second coordinate uses the canonical bundle. The construction is algebraic and section-free."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC5/faltings-zhang",
+        "verdict": "corrected",
+        "note": "The tuple consists of x_r−x₀. Maximal variation and dimension bounds apply to nondegeneracy, not to defining the proper algebraic morphism."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC5/shifted-faltings-zhang",
+        "verdict": "corrected",
+        "note": "The first coordinate is shifted canonical Abel and the tail differences are unscaled. The source order X^m×J is kept."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC5/triangular-coordinate-equivalence",
+        "verdict": "corrected",
+        "note": "The Jacobian triangular coordinate change extends by group cancellation to native Hom(T,A) for any group object, without asserting a noncommutative group-homomorphism property."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC5/shifted-power-factorization",
+        "verdict": "corrected",
+        "note": "The coordinate identity separates the tail isogeny D from the unscaled shifted FZ map; in characteristic dividing2g−2 finiteness remains."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC6/picard-lie-cohomology",
+        "verdict": "corrected",
+        "note": "The infinitesimal Picard calculation requires cohomological flatness in degree zero and Picard-space representability. Nodal identity components belong to R11.4; nodal duality/cohomology belongs to upstream StableReduction Layer2."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC6/curve-jacobian-hodge-bundles",
+        "verdict": "corrected",
+        "note": "The source dualizes Picard Lie/cohomology to obtain the rank-g Hodge-bundle comparison for stable families, with relative duality imported from its nodal owner."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC6/hodge-line-isomorphism",
+        "verdict": "corrected",
+        "note": "The determinant of the vector-bundle comparison supplies the algebraic Hodge-line isomorphism; the complex metric equality is outside scope."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC7/universal-level-jacobian",
+        "verdict": "corrected",
+        "note": "DGH works over Q in a chosen component. The broader prime-to-level integral application is justified by the exact StableReductionPartII fine-level suppliers, not attributed to DGH alone."
+      },
+      {
+        "nodeId": "JacobianChallengePartII:JC7/universal-faltings-zhang",
+        "verdict": "corrected",
+        "note": "The universal difference tuple is pulled back to arbitrary S. A chosen field point is used only for the pointed fibre restriction."
+      }
+    ]
   }
 }
