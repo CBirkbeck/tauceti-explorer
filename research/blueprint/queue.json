@@ -26446,9 +26446,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #764"
+   "note": "claimed on GitHub issue #764"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.1",
@@ -30264,8 +30264,8 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #526"
+   "state": "pending",
+   "note": "released on GitHub issue #526"
   },
   {
    "id": "BP-AnalyticNumberTheory--AN.0",
