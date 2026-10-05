@@ -4,6 +4,8 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Codex (codex-a71f92), Codex (codex-hjdg0j), Claude Code (cc-39fac3)
 -/
 import Mathlib.Analysis.Fourier.ZMod
+import Mathlib.NumberTheory.AlmostPrime
+import Mathlib.Data.Finset.Sort
 import Mathlib.NumberTheory.DirichletCharacter.Orthogonality
 import Mathlib.Data.Rat.Lemmas
 import Mathlib.NumberTheory.SelbergSieve
@@ -1588,3 +1590,272 @@ theorem positive_proportion_prime_tuples (m : ℕ) (hm : 1 ≤ m) :
   sorry
 
 end SieveMaynard
+
+/-! ## Quantitative sieve and Brun continuation
+Concrete predicates are written out; they are not admitted opaque Prop packages.
+The generic smooth-number Rankin count is requested from AN.5 and is not redeclared.
+-/
+namespace SieveQuantitative
+open scoped BigOperators
+attribute [local instance] Classical.propDecidable
+
+def HasLogSieveDimension (P : Set ℕ) (g : ℕ → ℝ) (κ C : ℝ) : Prop := by
+  classical
+  exact ∀ z : ℝ, 2 ≤ z →
+    (∑ p ∈ (Finset.range (Nat.floor z + 1)).filter (fun p => p.Prime ∧ p ∈ P),
+      g p * Real.log p) ≤ κ * Real.log z + C
+
+def HasProductSieveDimension (P : Set ℕ) (g : ℕ → ℝ) (κ K : ℝ) : Prop := by
+  classical
+  exact ∀ w z : ℝ, 2 ≤ w → w ≤ z →
+    (∏ p ∈ (Finset.range (Nat.ceil z)).filter
+      (fun p => p.Prime ∧ p ∈ P ∧ w ≤ (p : ℝ)), (1 - g p)⁻¹) ≤
+        K * (Real.log z / Real.log w) ^ κ
+
+def remainderMass (s : BoundingSieve) (D : ℝ) : ℝ :=
+  ∑ d ∈ s.prodPrimes.divisors.filter (fun d : ℕ => (d : ℝ) < D), |s.rem d|
+
+def HasSieveLevel (F : ℝ → BoundingSieve) (θ : ℝ) : Prop :=
+  0 < θ ∧ (∀ x : ℝ, 2 ≤ x → 0 ≤ (F x).totalMass) ∧
+    ∀ A : ℝ, 0 < A → ∃ B C x₀ : ℝ,
+      0 < B ∧ 0 < C ∧ 2 ≤ x₀ ∧ ∀ x : ℝ, x₀ ≤ x →
+        remainderMass (F x) (x ^ θ / (Real.log x) ^ B) ≤
+          C * (F x).totalMass / (Real.log x) ^ A
+
+theorem HasLogSieveDimension.mono_constant {P g κ C C' }
+    (h : HasLogSieveDimension P g κ C) (hC : C ≤ C') :
+    HasLogSieveDimension P g κ C' := by sorry
+theorem HasLogSieveDimension.mono_dimension {P g κ κ' C}
+    (h : HasLogSieveDimension P g κ C) (hκ : κ ≤ κ') :
+    HasLogSieveDimension P g κ' C := by sorry
+theorem HasLogSieveDimension.mono_density {P g h κ C}
+    (hg : HasLogSieveDimension P g κ C)
+    (hcomp : ∀ p : ℕ, p.Prime → p ∈ P → h p ≤ g p) :
+    HasLogSieveDimension P h κ C := by sorry
+theorem hasLogSieveDimension_empty (g : ℕ → ℝ) {κ C : ℝ}
+    (hκ : 0 ≤ κ) (hC : 0 ≤ C) : HasLogSieveDimension ∅ g κ C := by sorry
+
+theorem HasProductSieveDimension.mono_constant {P g κ K K'}
+    (h : HasProductSieveDimension P g κ K) (hK : K ≤ K') :
+    HasProductSieveDimension P g κ K' := by sorry
+theorem HasProductSieveDimension.mono_dimension {P g κ κ' K}
+    (h : HasProductSieveDimension P g κ K) (hK : 0 ≤ K) (hκ : κ ≤ κ') :
+    HasProductSieveDimension P g κ' K := by sorry
+theorem HasProductSieveDimension.interval_bound {P g κ K w z}
+    (h : HasProductSieveDimension P g κ K) (hw : 2 ≤ w) (hwz : w ≤ z) :
+    (∏ p ∈ (Finset.range (Nat.ceil z)).filter
+      (fun p => p.Prime ∧ p ∈ P ∧ w ≤ (p : ℝ)), (1 - g p)⁻¹) ≤
+        K * (Real.log z / Real.log w) ^ κ := by
+  classical
+  sorry
+theorem hasProductSieveDimension_zero_density (P : Set ℕ) {κ K : ℝ}
+    (hκ : 0 ≤ κ) (hK : 1 ≤ K) :
+    HasProductSieveDimension P (fun _ => 0) κ K := by sorry
+
+theorem remainderMass_nonneg (s : BoundingSieve) (D : ℝ) :
+    0 ≤ remainderMass s D := by sorry
+theorem remainderMass_mono (s : BoundingSieve) {D E : ℝ} (h : D ≤ E) :
+    remainderMass s D ≤ remainderMass s E := by sorry
+theorem remainderMass_of_le_one (s : BoundingSieve) {D : ℝ} (h : D ≤ 1) :
+    remainderMass s D = 0 := by sorry
+theorem remainderMass_eq_of_remainders (s t : BoundingSieve) (D : ℝ)
+    (hP : s.prodPrimes = t.prodPrimes)
+    (hR : ∀ d ∈ s.prodPrimes.divisors, s.rem d = t.rem d) :
+    remainderMass s D = remainderMass t D := by sorry
+/-- SV.0/coefficient-error-remainder-mass, promoted API. -/
+theorem errSum_le_remainderMass (s : BoundingSieve) (c : ℕ → ℝ) {D L : ℝ}
+    (hL : 0 ≤ L) (hb : ∀ d ∈ s.prodPrimes.divisors, |c d| ≤ L)
+    (hs : ∀ d ∈ s.prodPrimes.divisors, D ≤ (d : ℝ) → c d = 0) :
+    s.errSum c ≤ L * remainderMass s D := by sorry
+
+theorem HasSieveLevel.bound {F θ} (h : HasSieveLevel F θ) {A : ℝ} (hA : 0 < A) :
+    ∃ B C x₀ : ℝ, 0 < B ∧ 0 < C ∧ 2 ≤ x₀ ∧ ∀ x : ℝ, x₀ ≤ x →
+      remainderMass (F x) (x ^ θ / (Real.log x) ^ B) ≤
+        C * (F x).totalMass / (Real.log x) ^ A := by sorry
+theorem HasSieveLevel.mono {F θ η} (h : HasSieveLevel F θ)
+    (hη : 0 < η) (hηθ : η ≤ θ) : HasSieveLevel F η := by sorry
+theorem HasSieveLevel.mass_nonneg {F θ} (h : HasSieveLevel F θ) {x : ℝ}
+    (hx : 2 ≤ x) : 0 ≤ (F x).totalMass := by sorry
+theorem hasSieveLevel_of_zero_remainders (F : ℝ → BoundingSieve) {θ : ℝ}
+    (hθ : 0 < θ) (hm : ∀ x : ℝ, 2 ≤ x → 0 ≤ (F x).totalMass)
+    (hR : ∀ x : ℝ, 2 ≤ x → ∀ d ∈ (F x).prodPrimes.divisors, (F x).rem d = 0) :
+    HasSieveLevel F θ := by sorry
+
+/-- SV.0/density-euler-moment. -/
+theorem density_euler_moment (s : BoundingSieve) (a : ℝ) :
+    (∑ d ∈ s.prodPrimes.divisors, s.nu d * (d : ℝ) ^ a) =
+      ∏ p ∈ s.prodPrimes.primeFactors, (1 + s.nu p * (p : ℝ) ^ a) := by sorry
+/-- SV.0/rankin-weighted-prefix. -/
+theorem rankin_weighted_prefix (s : BoundingSieve) {x σ : ℝ}
+    (hx : 0 < x) (hσ : 0 ≤ σ) :
+    (∑ d ∈ s.prodPrimes.divisors.filter (fun d : ℕ => (d : ℝ) ≤ x), (d : ℝ) * s.nu d) ≤
+      x ^ σ * ∏ p ∈ s.prodPrimes.primeFactors,
+        (1 + s.nu p * (p : ℝ) ^ (1 - σ)) := by sorry
+/-- SV.0/rankin-weighted-tail. -/
+theorem rankin_weighted_tail (s : BoundingSieve) {x a : ℝ}
+    (hx : 0 < x) (ha : 0 ≤ a) :
+    (∑ d ∈ s.prodPrimes.divisors.filter (fun d : ℕ => x < (d : ℝ)), s.nu d) ≤
+      x ^ (-a) * ∏ p ∈ s.prodPrimes.primeFactors,
+        (1 + s.nu p * (p : ℝ) ^ a) := by sorry
+/-- SV.0/log-dimension-euler-bound. -/
+theorem log_dimension_euler_bound (P : Set ℕ) (g : ℕ → ℝ) {κ C : ℝ}
+    (hκ : 0 < κ) (hC : 0 ≤ C)
+    (hg : ∀ p : ℕ, p.Prime → p ∈ P → 0 ≤ g p)
+    (hd : HasLogSieveDimension P g κ C) :
+    ∃ K z₀ : ℝ, 0 < K ∧ Real.exp 2 ≤ z₀ ∧ ∀ z : ℝ, z₀ ≤ z →
+      (∏ p ∈ (Finset.range (Nat.floor z + 1)).filter (fun p => p.Prime ∧ p ∈ P),
+        (1 + g p * (p : ℝ) ^ (1 / Real.log z))) ≤ K * (Real.log z) ^ κ := by
+  classical
+  sorry
+/-- SV.0/dimension-divisor-count. -/
+theorem dimension_divisor_count (P : Set ℕ) (g : ℕ → ℝ) {κ C : ℝ}
+    (hκ : 0 < κ) (hC : 0 ≤ C)
+    (hg : ∀ p : ℕ, p.Prime → p ∈ P → 0 ≤ g p)
+    (hd : HasLogSieveDimension P g κ C) :
+    ∃ K z₀ : ℝ, 0 < K ∧ Real.exp 2 ≤ z₀ ∧ ∀ z : ℝ, z₀ ≤ z →
+      ∀ x : ℝ, 0 < x → ∀ s : BoundingSieve,
+        (∀ p : ℕ, p ∈ s.prodPrimes.primeFactors ↔ p.Prime ∧ p ∈ P ∧ (p : ℝ) ≤ z) →
+        (∀ p ∈ s.prodPrimes.primeFactors, s.nu p = g p) →
+          (∑ d ∈ s.prodPrimes.divisors.filter (fun d : ℕ => (d : ℝ) ≤ x), (d : ℝ) * s.nu d) ≤
+            K * x * (Real.log z) ^ κ * Real.exp (-Real.log x / Real.log z) := by sorry
+/-- SV.0/dimension-divisor-tail. -/
+theorem dimension_divisor_tail (P : Set ℕ) (g : ℕ → ℝ) {κ C : ℝ}
+    (hκ : 0 < κ) (hC : 0 ≤ C)
+    (hg : ∀ p : ℕ, p.Prime → p ∈ P → 0 ≤ g p)
+    (hd : HasLogSieveDimension P g κ C) :
+    ∃ K z₀ : ℝ, 0 < K ∧ Real.exp 2 ≤ z₀ ∧ ∀ z : ℝ, z₀ ≤ z →
+      ∀ x : ℝ, 0 < x → ∀ s : BoundingSieve,
+        (∀ p : ℕ, p ∈ s.prodPrimes.primeFactors ↔ p.Prime ∧ p ∈ P ∧ (p : ℝ) ≤ z) →
+        (∀ p ∈ s.prodPrimes.primeFactors, s.nu p = g p) →
+          (∑ d ∈ s.prodPrimes.divisors.filter (fun d : ℕ => x < (d : ℝ)), s.nu d) ≤
+            K * (Real.log z) ^ κ * Real.exp (-Real.log x / Real.log z) := by sorry
+/-- SV.0/eratosthenes-mass-cutoff. -/
+theorem eratosthenes_mass_cutoff (s : BoundingSieve) {x c M σ : ℝ}
+    (hx : 0 < x) (hc : 0 ≤ c) (hM : 0 ≤ M) (hσ : 0 < σ) (hσ1 : σ < 1)
+    (hX : 0 ≤ s.totalMass) (hXm : s.totalMass ≤ M * x)
+    (hR : ∀ d ∈ s.prodPrimes.divisors, (d : ℝ) ≤ x → |s.rem d| ≤ c * d * s.nu d)
+    (hA : ∀ d ∈ s.prodPrimes.divisors, x < (d : ℝ) → s.multSum d = 0) :
+    |s.siftedSum - s.totalMass * (∏ p ∈ s.prodPrimes.primeFactors, (1 - s.nu p))| ≤
+      (c + M) * x ^ σ * ∏ p ∈ s.prodPrimes.primeFactors,
+        (1 + s.nu p * (p : ℝ) ^ (1 - σ)) := by sorry
+
+/-! New definition examples; these are typed specifications, not proof receipts. -/
+/-- dimension_empty -/
+example : HasLogSieveDimension ∅ (fun _ => 0) 0 0 := by sorry
+/-- dimension_negative_constant -/
+example : ¬ HasLogSieveDimension ∅ (fun _ => 0) 0 (-1) := by sorry
+/-- dimension_single_prime -/
+example : HasLogSieveDimension {2} (fun _ => 1/2) 0 (Real.log 2 / 2) := by sorry
+/-- dimension_single_cutoff_not_uniform -/
+example : ¬ HasLogSieveDimension Set.univ (fun p => if p = 3 then 1 else 0) 0 0 := by sorry
+/-- product_dimension_zero -/
+example : HasProductSieveDimension Set.univ (fun _ => 0) 0 1 := by sorry
+/-- product_dimension_diagonal -/
+example : ¬ HasProductSieveDimension ∅ (fun _ => 0) 0 (1/2) := by sorry
+/-- product_dimension_endpoint -/
+example : ((1 - (1/2 : ℝ))⁻¹) = 2 := by sorry
+/-- product_dimension_unit_density -/
+example : HasProductSieveDimension {2} (fun _ => 1) 0 1 := by sorry
+/-- remainder_mass_endpoint -/
+example (s : BoundingSieve) (hP : s.prodPrimes = 6)
+    (hR : ∀ d ∈ s.prodPrimes.divisors, s.rem d = 1) :
+    remainderMass s 6 = 3 ∧ remainderMass s 7 = 4 := by sorry
+/-- remainder_mass_signed -/
+example (s : BoundingSieve) (hP : s.prodPrimes = 6)
+    (h1 : s.rem 1 = 0) (h2 : s.rem 2 = 1) (h3 : s.rem 3 = -1) :
+    remainderMass s 4 = 2 := by sorry
+/-- remainder_mass_mass_error -/
+example (s : BoundingSieve) (hP : s.prodPrimes = 1) :
+    remainderMass s 2 = |s.multSum 1 - s.totalMass| := by sorry
+/-- remainder_mass_negative_cutoff -/
+example (s : BoundingSieve) : remainderMass s (-3) = 0 := by sorry
+/-- family_level_exact -/
+example (F : ℝ → BoundingSieve) (hm : ∀ x : ℝ, 2 ≤ x → 0 ≤ (F x).totalMass)
+    (hR : ∀ x : ℝ, 2 ≤ x → ∀ d ∈ (F x).prodPrimes.divisors, (F x).rem d = 0) :
+    HasSieveLevel F 1 := by sorry
+/-- family_level_zero -/
+example (F : ℝ → BoundingSieve) : ¬ HasSieveLevel F 0 := by sorry
+/-- family_level_fixed_mass_error -/
+example (F : ℝ → BoundingSieve) (hX : ∀ x : ℝ, 2 ≤ x → (F x).totalMass = 1)
+    (hR : ∀ x : ℝ, 2 ≤ x → |(F x).rem 1| = 1) {θ : ℝ} :
+    ¬ HasSieveLevel F θ := by sorry
+/-- family_level_zero_mass -/
+example (F : ℝ → BoundingSieve) (hm : ∀ x : ℝ, 2 ≤ x → (F x).totalMass = 0)
+    (hR : ∀ x : ℝ, 2 ≤ x → ∀ d ∈ (F x).prodPrimes.divisors, (F x).rem d = 0) :
+    HasSieveLevel F 1 := by sorry
+end SieveQuantitative
+
+namespace SieveBrun
+open scoped ArithmeticFunction.Moebius BigOperators
+
+def brunCoefficients (P : ℕ) (y β : ℝ) (parity d : ℕ) : ℝ := by
+  classical
+  let ps := d.primeFactors.sort (· ≥ ·)
+  exact if d ∈ P.divisors ∧ ∀ m ∈ Finset.Icc 1 ps.length, m % 2 = parity →
+    ((ps.getD (m-1) 0 : ℕ) : ℝ) <
+      (y / ((ps.take m).prod : ℝ)) ^ (1/β)
+    then (μ d : ℝ) else 0
+
+theorem brunCoefficients_one {P : ℕ} (hP : Squarefree P) {y β : ℝ}
+    (hy : 1 < y) (ε : ℕ) : brunCoefficients P y β ε 1 = 1 := by sorry
+theorem brunCoefficients_of_not_dvd {P d : ℕ} (h : d ∉ P.divisors)
+    (y β : ℝ) (ε : ℕ) : brunCoefficients P y β ε d = 0 := by sorry
+theorem abs_brunCoefficients_le_one (P d ε : ℕ) (y β : ℝ) :
+    |brunCoefficients P y β ε d| ≤ 1 := by sorry
+theorem brunCoefficients_support_lt {P d ε : ℕ} (hP : Squarefree P)
+    (hε : ε = 0 ∨ ε = 1) {y z β : ℝ} (hy : 1 < y) (hβ : 1 < β)
+    (hz : z ≤ y) (hp : ∀ p ∈ P.primeFactors, (p : ℝ) < z)
+    (hd : brunCoefficients P y β ε d ≠ 0) : (d : ℝ) < y := by sorry
+
+theorem brun_divisor_brackets {P r : ℕ} (hP : Squarefree P) (hr : r ∣ P)
+    {y β : ℝ} (hy : 1 < y) (hβ : 1 < β) :
+    (∑ d ∈ r.divisors, brunCoefficients P y β 0 d) ≤
+      (if r = 1 then (1 : ℝ) else 0) ∧
+    (if r = 1 then (1 : ℝ) else 0) ≤
+      ∑ d ∈ r.divisors, brunCoefficients P y β 1 d := by sorry
+
+theorem brun_main_term_bounds (s : BoundingSieve) {κ K u y z : ℝ}
+    (hκ : 0 < κ) (hK : 1 < K) (hu : 9*κ+1 ≤ u) (hy : 1 < y)
+    (hz : z = y ^ (1/u)) (hp : ∀ p ∈ s.prodPrimes.primeFactors, (p : ℝ) < z)
+    (hd : SieveQuantitative.HasProductSieveDimension
+      {p | p ∈ s.prodPrimes.primeFactors} s.nu κ K) :
+    let V := ∏ p ∈ s.prodPrimes.primeFactors, (1 - s.nu p)
+    let δ := Real.exp (9*κ+1-u) * K^10
+    (1-δ)*V ≤ s.mainSum (brunCoefficients s.prodPrimes y (9*κ+1) 0) ∧
+      s.mainSum (brunCoefficients s.prodPrimes y (9*κ+1) 0) ≤ V ∧
+      V ≤ s.mainSum (brunCoefficients s.prodPrimes y (9*κ+1) 1) ∧
+      s.mainSum (brunCoefficients s.prodPrimes y (9*κ+1) 1) ≤ (1+δ)*V := by
+  classical
+  sorry
+
+theorem brun_fundamental_estimate (s : BoundingSieve) {κ K u y z : ℝ}
+    (hκ : 0 < κ) (hK : 1 < K) (hu : 9*κ+1 ≤ u) (hy : 1 < y)
+    (hz : z = y ^ (1/u)) (hp : ∀ p ∈ s.prodPrimes.primeFactors, (p : ℝ) < z)
+    (hd : SieveQuantitative.HasProductSieveDimension
+      {p | p ∈ s.prodPrimes.primeFactors} s.nu κ K) (hX : 0 ≤ s.totalMass) :
+    let V := ∏ p ∈ s.prodPrimes.primeFactors, (1 - s.nu p)
+    let δ := Real.exp (9*κ+1-u) * K^10
+    (1-δ)*V*s.totalMass - SieveQuantitative.remainderMass s y ≤ s.siftedSum ∧
+      s.siftedSum ≤ (1+δ)*V*s.totalMass + SieveQuantitative.remainderMass s y := by
+  classical
+  sorry
+
+/-- brun_no_primes -/
+example : brunCoefficients 1 2 2 0 1 = 1 ∧ brunCoefficients 1 2 2 1 1 = 1 := by sorry
+/-- brun_prefix_retained -/
+example : brunCoefficients 6 100 2 0 6 = 1 ∧ brunCoefficients 6 100 2 1 6 = 1 := by sorry
+/-- brun_lower_parity -/
+example : (∑ d ∈ (6 : ℕ).divisors, brunCoefficients 6 4 2 0 d) = -1 := by sorry
+/-- brun_strict_boundary -/
+example : brunCoefficients 2 8 2 1 2 = 0 := by sorry
+end SieveBrun
+
+namespace SieveAlmostPrime
+theorem rough_to_at_most_almost_prime {z n k : ℕ} (hz : 2 ≤ z) (hn : n ≠ 0)
+    (hsmall : n < z^(k+1)) (hrough : ∀ p : ℕ, p.Prime → p ∣ n → z ≤ p) :
+    Nat.IsAtMostAlmostPrime k n := by sorry
+example : Nat.IsAtMostAlmostPrime 0 1 := by sorry
+example : ¬ Nat.IsAtMostAlmostPrime 2 8 := by sorry
+example : Nat.IsAtMostAlmostPrime 2 25 := by sorry
+example : ¬ Nat.IsAtMostAlmostPrime 100 0 := by sorry
+end SieveAlmostPrime
