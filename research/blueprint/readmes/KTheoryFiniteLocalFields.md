@@ -16,7 +16,7 @@ This roadmap computes the algebraic K-theory of finite fields and of nonarchimed
 - **L.6** assembles the p-adic K-groups of local fields: ranks and torsion through Galois cohomology, the divisible and finite parts of the integral groups, the comparison maps with their kernels and cokernels, and the equal-characteristic case.
 - **L.7** proves that completion at a finite place of a number field is compatible with restriction, transfer, localisation boundaries, Hilbert symbols, étale Chern classes and cyclotomic traces.
 
-The blueprint has 254 nodes. Every stage is `partial`: 30 gaps name unfinished proofs or newly routed targets; 31 requests retain supplier boundaries. This continuation adds seven published Nikolaus–Scholze IV.4 calculation nodes and migrates five general log-Witt nodes to the Crystalline Cohomology import contract. The positive-characteristic Milnor uncountability proof and all 39 inherited source findings are preserved.
+The blueprint has 269 nodes. Every stage remains `partial`: 33 gaps name unfinished proofs and supplier boundaries; 33 requests specify imports. This checkpoint adds eleven finite/perfect-field hermitian nodes in L.1 and four dyadic comparison nodes in L.6. All 254 inherited nodes, 39 source findings, 209 local definition/construction API items, 117 tests and 42 planets remain. The integral full-spectrum comparisons, comparisons after 2-completion and classical connective comparisons have separate statements.
 
 ## Boundaries
 
@@ -33,6 +33,7 @@ The roadmap imports what other roadmaps own and plans nothing twice. The request
 - **CrystallineCohomology.** CR.4 (ordinary de Rham–Witt complexes) and CR.5:log-algebra.
 - **MotivicEtaleKTheory.** M.1 and M.4–M.8: the étale side (Tate twists, the norm-residue theorem, the étale comparison and étale Chern classes).
 - **ArithmeticGaloisDuality.** R02.1 and D7.
+- **GeometryOfNumbersAndQuadraticArithmetic.** GN.6 supplies the registered residue-duality line and symmetric localization nodes. General Poincaré GW/L spectra and their square belong to the routed `HermitianKTheoryOfPoincareCategories` design, whose stage/node identifiers remain unregistered; the foundation gap records the exact import contract.
 - **SchemeKTheoryOperations.** S.6: λ-operations.
 - **The Tau Ceti roadmaps.** LocalFieldsRamification (layers 0–2), ClassFieldTheory (layers 5–6), NumberFieldArithmetic (layer 5) and ProfiniteCohomology (layer 9).
 - **The libraries.** Mathlib supplies Witt vectors, finite fields, local rings and completions; Tau Ceti supplies K₀ and local-field arithmetic.
@@ -215,7 +216,7 @@ Neither library has algebraic K-groups beyond K₀, K-theory with coefficients, 
 - `mathlib:FiniteField.algebraMap_norm_eq_pow` (Mathlib/FieldTheory/Finite/GaloisField.lean): For finite fields K ⊆ K′, algebraMap K K′ (Algebra.norm K x) = x^((|K′| − 1)/(|K| − 1)): the field norm as a power, the degree-one transfer formula.
 
 
-### Sources read for this continuation
+### Sources read for the preceding continuation
 
 - **On topological cyclic homology**, Thomas Nikolaus and Peter Scholze. Acta Mathematica 221 (2018), 203–409, published PDF. [Source](https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf), id `NikolausScholze.2018.published`, SHA-256 `8b1856fa8faefa3efebd64580249aa6fbc0c918f69820bba01410ab0ef1eb8ef`. Read: IV.4 in full, printed pp.355–365: propositions, constructions and proofs; earlier II.4 statements are inherited reads, not a fresh full proof audit.
 - **Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings**, Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle. arXiv:2009.07225v4; routed version of record Annals of Mathematics 204 (2026), paper 02 was not read. [Source](https://arxiv.org/pdf/2009.07225v4), id `CalmesEtAl.2026.v4`, SHA-256 `1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c`. Read: §3.1.1–3.1.10, including proofs of Proposition3.1.4 and Remark3.1.10; targeted scope read, no complete new blueprint chain supplied.
@@ -224,23 +225,31 @@ Neither library has algebraic K-groups beyond K₀, K-theory with coefficients, 
 
 The fresh HM download has SHA-256 `38f4919e35a7afedc8503c921929ac892fb1fe102d461724ce464d6923e44d0e`; only §3.2, pp.47–51 was reread. Its bytes differ from the inherited arXiv record; old hashes and locators remain attached to their original excerpts. Nikolaus–Scholze’s published IV.4 is a separate source record from the inherited arXiv II.4 record. The known capitalization typo in IV.4.6 (paper finding E11) is normalized to lowercase v. Abdurrahman–Venkatesh’s known E3 warning is recorded as a scope constraint, not a newly verified published erratum.
 
+### Sources read in this checkpoint (Codex — codex-Gcq0RM)
+
+The III v4 hash above was independently confirmed. Fresh reads covered §§3.1.1–3.1.10 and their proofs (printed pp.49–53), R.10 and its preceding metabolic sequence, Corollaries 1.3.3–1.3.4 and Remark 1.3.5 (p.28), Corollaries 1.3.14–1.3.15 (pp.31–32), and Corollary 2.2.5 and Remark 2.2.6 (p.39). Original finite-field classical, finite-vcd₂, Hiller and Lam proofs remain gaps.
+
+**Hermitian K-theory for stable ∞-categories II: Cobordism categories and Additivity**, Calmès, Dotto, Harpaz, Hebestreit, Land, Moi, Nardin, Nikolaus and Steimle. [arXiv:2009.07224v5](https://arxiv.org/pdf/2009.07224v5), 11 April 2025 (title-page date 14 April); source id `CalmesEtAl.II.20261005`, SHA-256 `eaa19b40046c953f6aedc5d11ed86eaee16018fcad995fcbafeb4746af6239a3`. Read Example 1.2.5 (pp.20–21), Corollary 4.4.13 and its proof reduction with adjoining Theorem 4.4.11/Corollary 4.5.1 (pp.106–107). This establishes the square/shift import contract; the foundational proofs cited by that reduction were not fully audited.
+
+The Annals III full-article route and the Inventiones Abdurrahman–Venkatesh PDF route returned HTML access/challenge responses. Those published texts were not read. The inherited Abdurrahman–Venkatesh E3 source warning remains a constraint on the pending finite-rank route; no new published erratum is claimed.
+
 ## Layer overview
 
 | Layer | Title | Nodes | Planets | Coverage |
 |---|---|---|---|---|
-| L.1 | Quillen's finite-field calculation | 39 | 6 | partial |
+| L.1 | Quillen's finite-field calculation | 50 | 6 | partial |
 | L.2 | Henselian local rings away from the residue characteristic | 17 | 6 | partial |
 | L.3 | Integral K₂ of local fields | 21 | 6 | partial |
 | L.4 | Trace constructions | 35 | 6 | partial |
 | L.5 | Witt vectors and residue-characteristic calculations | 85 | 6 | partial |
-| L.6 | Local higher K-groups | 46 | 6 | partial |
+| L.6 | Local higher K-groups | 50 | 6 | partial |
 | L.7 | Local-to-global compatibility | 11 | 6 | partial |
 
 Each layer section below opens with the layer's coverage record, then states every node: its statement and hypotheses, the proof outline, for definitions and constructions the API and the unit tests, its acceptance checks, its dependencies and its sources.
 
 ## L.1 — Quillen's finite-field calculation
 
-*Coverage: partial.* Quillen's calculation is decomposed along Quillen's own route as written out by Haine and Mestel: the Brauer character and Brauer lifting (with Green's theorem cited), its ψ^q-invariance, λ-compatibility, stabilisation and the lift of F_{q^r}; the homotopy fixed points FΨ^q, its homotopy groups and the lifting bijection; Quillen's map θ; the cohomology of FΨ^q (additively for every ℓ ≠ p, as a ring for odd ℓ); the Sylow count and the detection theorem for H^*(GL_n(F_q); F_ℓ) at odd ℓ; the integral homology equivalence; Theorem IV.1.12 and Corollary IV.1.13. The Adams/Frobenius comparison is proved on FΨ^q (Frobenius corresponds to ψ̃^p) and, in the K-book's form, through the Quillen–Hiller operations imported from SchemeKTheoryOperations S.6. Restriction and transfer are constructed in both models; the Galois formulas (Ex. IV.6.13, through the splitting of ℓ ⊗_k ℓ), the Galois action, injectivity onto the invariants and surjectivity of transfer are proved without choosing a generator. The determinant in degree one is imported from KTheoryLowDegrees U.6 and compared with the norm (U.5); the degree-two symbol calculation is recovered in Quillen's model and compared with K2SymbolsBrauer T.2/k2-finite-field as an acceptance check (see restructure for why it is not a prerequisite). K_0(F_q) = Z is the baseline TauCeti.SplitK0.finrankEquiv (with KTheoryLowDegrees Z.2). Finite coefficients (K(R)/m, the Bott element, products) are planned here because no stage owned them (ArithmeticKTheory N.1's gap), together with K_*(F_q; Z/m), Browder's ring (cited) and the algebraic closure. Topological K-theory and Bott periodicity are imported from RefinedTraceMethods RT.4:topological, the plus construction from StableHomotopyKTheory H.3 and GeneralAlgebraicKTheory K.2:plus, the Bockstein sequence from StableHomotopyKTheory H.6.
+*Coverage: partial.* Quillen's calculation is decomposed along Quillen's own route as written out by Haine and Mestel: the Brauer character and Brauer lifting (with Green's theorem cited), its ψ^q-invariance, λ-compatibility, stabilisation and the lift of F_{q^r}; the homotopy fixed points FΨ^q, its homotopy groups and the lifting bijection; Quillen's map θ; the cohomology of FΨ^q (additively for every ℓ ≠ p, as a ring for odd ℓ); the Sylow count and the detection theorem for H^*(GL_n(F_q); F_ℓ) at odd ℓ; the integral homology equivalence; Theorem IV.1.12 and Corollary IV.1.13. The Adams/Frobenius comparison is proved on FΨ^q (Frobenius corresponds to ψ̃^p) and, in the K-book's form, through the Quillen–Hiller operations imported from SchemeKTheoryOperations S.6. Restriction and transfer are constructed in both models; the Galois formulas (Ex. IV.6.13, through the splitting of ℓ ⊗_k ℓ), the Galois action, injectivity onto the invariants and surjectivity of transfer are proved without choosing a generator. The determinant in degree one is imported from KTheoryLowDegrees U.6 and compared with the norm (U.5); the degree-two symbol calculation is recovered in Quillen's model and compared with K2SymbolsBrauer T.2/k2-finite-field as an acceptance check (see restructure for why it is not a prerequisite). K_0(F_q) = Z is the baseline TauCeti.SplitK0.finrankEquiv (with KTheoryLowDegrees Z.2). Finite coefficients (K(R)/m, the Bott element, products) are planned here because no stage owned them (ArithmeticKTheory N.1's gap), together with K_*(F_q; Z/m), Browder's ring (cited) and the algebraic closure. Topological K-theory and Bott periodicity are imported from RefinedTraceMethods RT.4:topological, the plus construction from StableHomotopyKTheory H.3 and GeneralAlgebraicKTheory K.2:plus, the Bockstein sequence from StableHomotopyKTheory H.6. Continuation 2026-10-05: eleven new hermitian finite/perfect-field application and comparison nodes are appended, preserving integral/all-shift versus classical/connective versus2-complete conventions. General Poincaré theory remains imported through an explicit unregistered-owner gap.
 
 - Remaining: Quillen's vanishing of H̃_*(GL(F_q); F_p) (Quillen 1972, §11): gap, node L.1/gl-mod-p-acyclic.
 - Remaining: The prime ℓ = 2 (q odd) in the cohomology comparison: gap, nodes L.1/fpsi-cohomology-ring, L.1/gl-cohomology-detection, L.1/quillen-homology-iso.
@@ -250,7 +259,7 @@ Each layer section below opens with the layer's coverage record, then states eve
 - Remaining: Answers to the requests to RefinedTraceMethods RT.4:topological (Adams operations on BU, Atiyah map, K̃U^1(BG) = 0; proposed as a Part II), StableHomotopyKTheory H.6 (Moore multiplications, Eilenberg–Moore spectral sequence), SchemeKTheoryOperations S.6 (Quillen–Hiller operations and Hiller's universality), GeneralAlgebraicKTheory K.7, KTheoryLowDegrees U.5 and U.6.
 - Remaining: Re-derive Mestel's Lemmas 26–29 (the classes c_i(W), e_{jr}(W) and the product formula) against Quillen 1972 §§8–9 before implementation (gap on the expository source).
 - Remaining: Once K2SymbolsBrauer--T.1 cites GeneralAlgebraicKTheory K.2:plus instead of the umbrella K.2 (restructure), add K2SymbolsBrauer:T.2/k2-finite-field and K2SymbolsBrauer:T.1/k2-pi2 as prerequisites of L.1/degree-two-symbols.
-- Remaining: Decompose the newly routed Calmès finite-field hermitian comparison targets and Abdurrahman–Venkatesh finite-rank H_3/2 and c_et targets listed in the two new gaps.
+- Remaining: Finite-field and perfect-characteristic 2 hermitian targets are now explicit local nodes. Obtain the registered Poincaré foundation exports, original odd-field connective proof and Hiller perfect-field proof; continue the separate Abdurrahman–Venkatesh finite-rank H₃/2 and c_et route.
 
 ### K-theory of a ring with coefficients Z/m
 
@@ -1657,6 +1666,367 @@ Let R be a ring with unit and ℓ a prime. The ℓ-completed K-theory spectrum o
 
 - `Kbook.2013`, IV.2.9, The ℓ-adic completion (PDF p. 290; book p. 282): “The ℓ-adic completion of a spectrum E, ˆEℓ, is the homotopy limit (over ν) of the spectra E ∧P∞(Z/ℓν). We let πn(E; Zℓ) denote the homotopy groups of this spectrum; if E = K(R) we write Kn(R; Zℓ)” — The definition of the carrier and of K_n(R; ℤ_ℓ).
 - `Weibel.Handbook.I5`, Completed K-theory 59 (p. 164; PDF p. 26): “It will be convenient to fix a prime ℓ and pass to the ℓ-adic completion K(R) of the K-theory space K(R), where R is any ring. We also write Kn(R; Zℓ) for πnK(R).” — The same carrier in the survey the stage text cites.
+
+### 2-completed K-theory of an even finite field
+
+`L.1/finite-even-k-two-completion` · theorem
+
+For q=2^r with r≥1 the canonical rank/Postnikov map K(F_q)→Hℤ is a C₂-equivariant 2-adic equivalence for symmetric duality. Its degree-zero action is trivial. Thus K(F_q)^∧₂≃Hℤ₂; this does not identify integral K(F_q) with Hℤ.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_k_two_completion` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+- q=2^r, r≥1.
+
+**Proof.**
+
+1. Use quillen-k-groups: positive odd K-groups have order q^j−1, which is odd, and positive even groups vanish.
+2. The Bockstein sequence gives π₀(K(F_q)/2^ν)=ℤ/2^ν and vanishing in all other degrees, including the torsion contribution one degree above an odd K-group.
+3. The rank map agrees with dualization on K₀; the Postnikov truncation of the duality action is the trivial action on Hℤ. Complete the tower using H.6, keeping the equivariant map.
+
+**Acceptance.**
+
+- For F₂ the integral group K₃ is ℤ/3 although its 2-completion is zero.
+- For F₄ the positive group K₃ is ℤ/15 and contributes no 2-primary Bockstein term.
+- The statement requires q even: K₁(F₃)=ℤ/2 obstructs the same rank equivalence.
+
+**Depends on.** `L.1/quillen-k-groups`, `L.1/k-theory-mod-m`, `L.1/completed-k-theory`, `StableHomotopyKTheory:H.6`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Proposition 3.1.4, proof, pp.50–51: “3.1.4. Proposition.” — The proof uses Quillen’s odd positive torsion to identify the equivariant rank map after 2-completion; the Bockstein reduction is made explicit here.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/403`.
+
+### Tate K-groups of an even finite field
+
+`L.1/finite-even-tate-k-groups` · comparison
+
+For q=2^r, r≥1, and unshifted symmetric duality, rank induces K(F_q;Qˢ)^{tC₂}≃(Hℤ)^{tC₂}. Hence π_n is ℤ/2 for every even integer n and zero for every odd integer n. The class of a one-dimensional vector space maps to 1 modulo 2 in degree zero.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_tate_k_groups` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+- The connective inputs K(F_q) and Hℤ are bounded below; use RT.2’s finite-group Tate construction and its 2-adic invariance on these inputs.
+
+**Proof.**
+
+1. Apply finite-even-k-two-completion and RT.2’s Tate invariance under 2-adic equivalence of bounded-below C₂-spectra.
+2. Compute (Hℤ)^{tC₂} by the complete 2-periodic resolution with trivial C₂-action: its alternating maps are 0 and multiplication by 2.
+3. Identify π₀ with invariants modulo the norm; rank one represents the nonzero element. Do not confuse the spectrum Tate construction with an unbounded cochain complex without the Eilenberg–Mac Lane comparison.
+
+**Acceptance.**
+
+- π₋₂=ℤ/2 and π₋₁=0: connective truncation loses a required comparison degree.
+- The norm on K₀=ℤ is multiplication by 2, not zero.
+
+**Depends on.** `L.1/finite-even-k-two-completion`, `RefinedTraceMethods:RT.2`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Proposition 3.1.4, proof, pp.50–51: “3.1.4. Proposition.” — The proof passes from the rank equivalence to Tate K, computes the degree-zero and degree-one groups, and uses 2-periodicity.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/403`.
+
+### Symmetric L-groups of an even finite field
+
+`L.1/finite-even-symmetric-l-groups` · comparison
+
+For q=2^r, r≥1, π_{2a}L(F_q;Qˢ)=Wˢ(F_q)≅ℤ/2 and π_{2a+1}L(F_q;Qˢ)=0 for every integer a. In degree zero the class of the nonsingular bilinear form ⟨1⟩ is the generator. This is symmetric bilinear Witt theory in characteristic 2, not quadratic Witt theory.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_symmetric_l_groups` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+- Use the general field L₀-to-symmetric-Witt comparison, odd-dimensional vanishing and characteristic-2 2-periodicity from the Poincaré design owner; their contract is recorded as a gap.
+
+**Proof.**
+
+1. Specialize the imported field comparison of Corollaries 1.3.3–1.3.4: L₀ is the symmetric Witt group and odd L-groups vanish by Remark 1.3.5.
+2. Every alternating nonsingular bilinear form is hyperbolic; the remaining Witt classes are sums of rank-one forms. Frobenius is surjective in F_q, so each ⟨a⟩≅⟨1⟩.
+3. The form ⟨1,1⟩ is metabolic with diagonal Lagrangian, while ⟨1⟩ has nonzero rank mod 2. Apply the imported 2-periodicity from R.10 in both positive and negative degrees.
+
+**Acceptance.**
+
+- Over F₂ the alternating plane [[0,1],[1,0]] is zero in Wˢ, but the rank-one form is nonzero.
+- This is an all-integer-degree statement, not just L₀.
+
+**Depends on.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Proposition 3.1.4, proof, p.50; Corollaries 1.3.3–1.3.4, Remark 1.3.5 and R.10: “3.1.4. Proposition.” — The proof identifies L₀ with the rank-mod-2 symmetric bilinear Witt group and uses odd vanishing and natural 2-periodicity.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/403`.
+
+### The unit form under the L-to-Tate comparison
+
+`L.1/finite-even-l-tate-generator` · lemma
+
+For q=2^r, r≥1, the canonical map Ξ:L(F_q;Qˢ)→K(F_q;Qˢ)^{tC₂} sends [⟨1⟩]∈L₀ to the nonzero element of π₀≅ℤ/2.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_l_tate_generator` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+
+**Proof.**
+
+1. Use the imported fundamental square and the source diagram from components of Poincaré objects through GW₀, L₀, duality-invariant K₀ and its Tate quotient.
+2. The forgetful map sends the rank-one form to 1 in K₀(F_q)=ℤ, using the existing dimension equivalence.
+3. Its image modulo the norm 2ℤ is 1, which is nonzero. The commutative diagram identifies this quotient with the π₀ Tate target.
+
+**Acceptance.**
+
+- A comparison map that is zero on π₀ fails this check even though its source and target have the same abstract groups.
+- The hyperbolic plane maps to 2 and then zero modulo the norm.
+
+**Depends on.** `L.1/finite-even-symmetric-l-groups`, `L.1/finite-even-tate-k-groups`, `tauceti:TauCeti.SplitK0.finrankEquiv`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Proposition 3.1.4, final diagram and proof, p.51: “3.1.4. Proposition.” — The final diagram sends the unit form through the forgetful map to rank one in K₀, and hence to the nonzero Tate quotient class.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/403`.
+
+### L-to-Tate equivalence over even finite fields
+
+`L.1/finite-even-l-tate-equivalence` · comparison
+
+For q=2^r, r≥1, the canonical Ξ:L(F_q;Qˢ)→K(F_q;Qˢ)^{tC₂} is an integral equivalence of spectra. The equivalence is that of the canonical map, not an arbitrarily chosen isomorphism of homotopy groups.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_l_tate_equivalence` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+
+**Proof.**
+
+1. finite-even-symmetric-l-groups and finite-even-tate-k-groups identify the degree-one groups as zero.
+2. finite-even-l-tate-generator makes Ξ an isomorphism in degree zero.
+3. Use the imported simultaneous 2-periodicity of L and Tate K and compatibility of Ξ with that periodicity to propagate to every integer degree; apply stable Whitehead.
+
+**Acceptance.**
+
+- Check both π₀ and π₁ before propagating periodically.
+- The argument includes negative degrees and uses the actual natural transformation Ξ.
+
+**Depends on.** `L.1/finite-even-symmetric-l-groups`, `L.1/finite-even-tate-k-groups`, `L.1/finite-even-l-tate-generator`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Proposition 3.1.4, proof, pp.50–51: “3.1.4. Proposition.” — The source proves that the canonical L-to-Tate map is an equivalence by its degree-zero generator, degree-one vanishing and compatible periodicity.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/403`.
+
+### The shifted homotopy limit theorem for even finite fields
+
+`L.1/finite-even-shifted-hermitian-comparison` · theorem
+
+For q=2^r, r≥1, and every integer m, the canonical map GW(F_q;(Qˢ)[m])→K(F_q;(Qˢ)[m])^{hC₂} is an integral equivalence of full spectra.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_shifted_hermitian_comparison` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+- m is the shift of the Poincaré structure, not a homotopy-group index.
+
+**Proof.**
+
+1. Import the cartesian GW/L/K^{hC₂}/K^{tC₂} square, Paper II Corollary 4.4.13.
+2. Import the metabolic-sequence suspension identifications L(Q[m])≃Σ^mL(Q) and K(Q[m])^{tC₂}≃Σ^mK(Q)^{tC₂}, compatible with Ξ, to transport finite-even-l-tate-equivalence to every shift.
+3. Pull back the equivalence on the right side of the square; the canonical map on the left is an equivalence. Homotopy fixed K is not asserted to be Σ^m of its unshifted value.
+
+**Acceptance.**
+
+- For F₂, m=−1 is included and cannot be deduced solely from a connective-cover theorem.
+- Shifting the duality changes its coherent C₂-action; the underlying K-spectrum alone does not determine the target.
+
+**Depends on.** `L.1/finite-even-l-tate-equivalence`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Proposition 3.1.4, statement and proof, pp.50–51: “3.1.4. Proposition.” — The proposition states the integral full-spectrum comparison for every integer Poincaré shift; its proof transports L and Tate together via a metabolic sequence and uses the cartesian square.
+- `CalmesEtAl.II.20261005`, Corollary 4.4.13 and proof, p.107: “The fundamental fibre square” — The cartesian square is an imported universal theorem; its proof cites Corollaries 3.6.7 and 4.3.1 and Theorem 4.4.11. Reading this reduction does not close those supplier proofs.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/403`.
+
+### Classical finite-field Grothendieck–Witt comparison
+
+`L.1/finite-field-classical-hermitian-connective-comparison` · theorem
+
+For every prime power q and ε=±1, the canonical map GWˢ_cl(F_q;ε)→K(F_q;ε)^{hC₂} is an equivalence on connective covers. Here GWˢ_cl is classical symmetric Grothendieck–Witt theory; no integral full-spectrum equivalence for odd q is asserted by this statement.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.finite_field_classical_hermitian_connective_comparison` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- Use the genuine/classical-to-non-genuine symmetric comparison in the source’s precise connective range.
+- For q odd the original Friedlander/Fiedorowicz–Priddy finite-group computations and topological real/symplectic comparison proofs remain unread, recorded as a gap.
+
+**Proof.**
+
+1. For q even apply finite-even-shifted-hermitian-comparison at the relevant symmetric duality and import Corollary 1.3.15’s comparison on connective covers.
+2. For q odd use the source’s Adams-operation description of finite-field GW-spaces and BO/BSp, with the positive complex-field homotopy-limit solution. These original proof inputs are imported from GN.6/RT.4:topological and recorded as unread.
+3. Pass to connective covers; retain the different quadratic and symmetric models, especially in characteristic 2.
+
+**Acceptance.**
+
+- For q even, classical quadratic GW₁ is ℤ/2 according to the cited corrected calculation; it is not erased by treating quadratic and symmetric forms as identical.
+- The conclusion specifies the map and the connective range, not just abstract positive GW-group orders.
+
+**Depends on.** `L.1/finite-even-shifted-hermitian-comparison`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6`, `RefinedTraceMethods:RT.4:topological`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Theorem 3.1.3 and preceding discussion, p.50; Corollary 1.3.15, pp.31–32: “3.1.3. Theorem.” — The theorem states the classical symmetric comparison for both signs and every finite field on connective covers; the preceding original computations and the model comparison remain supplier inputs.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/401`, `PAPER-CALMES-ETAL-26/402`.
+
+### Multiplicative L-to-Tate comparison over even finite fields
+
+`L.1/finite-even-multiplicative-l-tate-comparison` · comparison
+
+For q=2^r, r≥1, using the imported E∞ refinement of Ξ for commutative rings, the map Ξ:L(F_q;Qˢ)→K(F_q;Qˢ)^{tC₂} induces an isomorphism of graded homotopy rings, each identified with F₂[x,x⁻¹], |x|=2. This supplies the multiplicative proof of its equivalence.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.finite_even_multiplicative_l_tate_comparison` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+- The E∞ natural transformation is an input from Paper IV, not proved in Paper III; it is recorded as a distinct supplier proof boundary.
+
+**Proof.**
+
+1. Apply finite-even-symmetric-l-groups and finite-even-tate-k-groups with the source’s multiplicative periodicity normalizations.
+2. The source map is a unital degree-preserving ring homomorphism. The generator x is an invertible degree 2 element, so its image must be the unique nonzero degree 2 element and its inverse must map compatibly.
+3. Thus the induced graded ring map is an isomorphism; apply stable Whitehead. An ungraded ring endomorphism x↦x² would not give this argument.
+
+**Acceptance.**
+
+- Degree preservation forces x↦x; it excludes the ungraded map x↦x².
+- A non-unital zero map cannot satisfy the E∞ comparison contract.
+
+**Depends on.** `L.1/finite-even-symmetric-l-groups`, `L.1/finite-even-tate-k-groups`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6`, `GeneralAlgebraicKTheory:K.7`, `RefinedTraceMethods:RT.2`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Remark 3.1.5, p.51: “3.1.5. Remark.” — The remark gives the multiplicative alternative using the E∞ refinement proved in Paper IV and the graded homotopy ring F₂[x±1]. The local outline spells out why degree preservation is essential.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/404`.
+
+### 2-completed K-theory of a perfect characteristic-two field
+
+`L.1/perfect-char-two-k-two-completion` · theorem
+
+For a perfect field k of characteristic 2 the map F₂→k induces K(F₂)^∧₂≃K(k)^∧₂, compatible with symmetric duality; each side is Hℤ₂. The assertion concerns derived 2-completion and does not assert equality of integral positive K-groups.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.perfect_char_two_k_two_completion` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- k is a perfect field of characteristic 2; it need not be finite.
+- Hiller Theorem 5.4’s Adams/Frobenius proof has not been read; its exact positive-degree unique 2-divisibility input remains a source gap.
+
+**Proof.**
+
+1. Import the Adams operations and their Frobenius compatibility from SchemeKTheoryOperations:S.6.
+2. Use the cited Hiller theorem: positive K-groups of a perfect characteristic 2 field are uniquely 2-divisible. Unlike the finite case, Quillen’s group orders cannot establish this statement.
+3. Use the Bockstein sequence in every degree and K₀(k)=ℤ by dimension to show F₂→k is an equivalence modulo every 2^ν; take the derived tower. The map respects the duality and hence the coherent C₂-action.
+
+**Acceptance.**
+
+- Apply to an algebraic closure of F₂ and to the perfect closure of F₂(t).
+- The same proof cannot be applied to F₂(t), whose Frobenius is not surjective.
+
+**Depends on.** `L.1/finite-even-k-two-completion`, `L.1/k-theory-mod-m`, `StableHomotopyKTheory:H.6`, `SchemeKTheoryOperations:S.6`, `tauceti:TauCeti.SplitK0.finrankEquiv`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Remark 3.1.6, p.51, citing Hiller Theorem 5.4: “3.1.6. Remark.” — The remark cites Hiller’s Adams-operation analysis for the perfect-field K-completion equivalence. The asserted positive-degree input and its unread original proof remain an explicit S.6 contract.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/405`.
+
+### Symmetric L-theory under perfect characteristic-two base change
+
+`L.1/perfect-char-two-symmetric-l-base-change` · comparison
+
+For a perfect field k of characteristic 2, extension F₂→k induces an integral equivalence L(F₂;Qˢ)≃L(k;Qˢ). On degree-zero symmetric Witt groups its comparison is rank modulo 2, sending ⟨1⟩ to ⟨1⟩; all odd groups vanish and even groups are ℤ/2.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.perfect_char_two_symmetric_l_base_change` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+- k is perfect of characteristic 2.
+
+**Proof.**
+
+1. Import the field L/Witt comparison and vanishing from the Poincaré owner. Every nonsingular alternating form is metabolic; symmetric Witt classes are generated by rank-one forms.
+2. Perfection writes a=y² for every nonzero a, and multiplication by y⁻¹ is an isometry ⟨a⟩≅⟨1⟩. The rank-mod 2 map and the unit form are inverse identifications with ℤ/2.
+3. Compare degree 0 under F₂→k and zero odd degrees, then use natural 2-periodicity from R.10 for all integer degrees.
+
+**Acceptance.**
+
+- The element t of F₂(t) is not a square, illustrating why perfection is an actual hypothesis in the rank-one comparison.
+- The symmetric bilinear Witt group is used; characteristic 2 quadratic Witt theory is not a replacement.
+
+**Depends on.** `L.1/finite-even-symmetric-l-groups`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Remark 3.1.6, pp.51–52: “3.1.6. Remark.” — The remark reduces to symmetric Witt groups and uses surjective Frobenius to identify all rank-one forms with the unit form.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/405`.
+
+### The homotopy limit theorem for perfect characteristic-two fields
+
+`L.1/perfect-char-two-shifted-hermitian-comparison` · theorem
+
+For every perfect field k of characteristic 2 and every integer m, the canonical map GW(k;(Qˢ)[m])→K(k;(Qˢ)[m])^{hC₂} is an integral equivalence of full spectra.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.perfect_char_two_shifted_hermitian_comparison` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+- k is perfect; m∈ℤ.
+
+**Proof.**
+
+1. Use perfect-char-two-k-two-completion and RT.2’s Tate invariance to identify Tate K under F₂→k.
+2. Use perfect-char-two-symmetric-l-base-change. Naturality of Ξ and finite-even-l-tate-equivalence give an equivalence Ξ for k.
+3. Apply the imported metabolic shift identifications and the fundamental cartesian square exactly as for finite-even-shifted-hermitian-comparison. Integral equivalence comes from integral L and Tate equivalences, rather than by dropping completion from a K-equivalence.
+
+**Acceptance.**
+
+- The conclusion includes k algebraically closed and m<0.
+- Positive integral K(k) can be nonzero and uniquely 2-divisible although the completed input is Hℤ₂.
+
+**Depends on.** `L.1/perfect-char-two-k-two-completion`, `L.1/perfect-char-two-symmetric-l-base-change`, `L.1/finite-even-l-tate-equivalence`, `L.1/finite-even-shifted-hermitian-comparison`, `RefinedTraceMethods:RT.2`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Remark 3.1.6, pp.51–52, with the shifted argument of Proposition 3.1.4: “3.1.6. Remark.” — The remark combines the L and completed K base-change equivalences to solve the homotopy limit problem; the every-shift conclusion uses the metabolic argument read in Proposition 3.1.4.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/405`.
 
 ## L.2 — Henselian local rings away from the residue characteristic
 
@@ -6595,7 +6965,7 @@ For a discrete commutative F_p-algebra A, p-complete TC(A) is fib(can−φ^hT:TH
 
 ## L.6 — Local higher K-groups
 
-*Coverage: partial.* Every target of the stage text is realised. 'Local-field descriptions in Handbook I.5 §5.6' (the author copy's §5.6 Local Fields, items 56–67, pp. 162–167): Theorem 56 → equal-characteristic-integral-structure; Theorem 57 (Moore) is L.3's; Proposition 58 is L.2's; 59 → completed-k-theory and completion-exact-sequence; Warning 60 → the comparison nodes; Theorem 61 → completed-k-groups-of-p-adic-fields, finite-coefficient-lichtenbaum-quillen, even-integral-k-groups; Remark 62 → the odd comparison; Corollary 63 → k3-torsion-free-lattice; Examples 64–66 concern number fields and belong to L.7/ArithmeticKTheory (not planned here); Theorem 67 → hm-theorem-d. 'Combine localisation, trace calculations and M's étale comparison': ring-of-integers-versus-field (localisation), hm-etale-comparison and hm-theorem-a (L.5's trace calculations), finite-coefficient-lichtenbaum-quillen (M.7, all p). Rank [L:ℚ_p] of K_{2j−1}(L;ℤ_p), j ≥ 2, and its torsion by the Galois cohomology H^0(L, ℚ_p/ℤ_p(j)) inside H^1(L, ℤ_p(j)): p-adic-w-invariant, h1-of-tate-twists, odd-completed-k-groups-are-h1, completed-k-groups-of-p-adic-fields, with the ℚ_p cases in p-adic-w-invariant-of-q-p and completed-k-groups-of-q-p. Even groups' p-primary finite components by twist and duality: local-duality-for-tate-twists (H²(L, ℤ_p(i+1)) ≅ H⁰(L, ℤ/p^ν(−i))^∨, w_{−i} = w_i), even-completed-k-groups-are-h2, even-integral-k-groups. Divisible components of the integral groups: maximal-divisible-subgroup, divisible-subgroup-criterion, even-integral-k-groups, even-k-groups-tate-module, divisible-rank-relation, k3-torsion-free-lattice, uniquely-divisible-summand. No finite generation transferred to K_n(L): uniquely-divisible-summand and the comparison nodes. Exact comparison maps with kernels and cokernels (the handoff table's 'integral divisible subgroup, finite torsion quotient, derived p-completion and H1/H2 comparison'): even- and odd-integral-to-completed-comparison, discrete-coefficient-k-groups, odd- and even-completed-k-groups-are-h1/h2. Equal characteristic with its own de Rham–Witt argument: power-series-de-rham-witt, geisser-hesselholt-regular-local, equal-characteristic-relative-k-theory, equal-characteristic-completed-k-groups, equal-characteristic-unique-p-divisibility, equal-characteristic-integral-structure. Consumers: PadicHodgeRegulators D.3 (completed-k3-of-unramified-fields; restructure entry on ownership); D.4 consumes L.6 through L.7's global-to-local map; ArithmeticKTheory N.6/divisible-subgroup-and-the-wild-kernel uses, through L.7, that the maps K_{2i}(F) → K_{2i}(F_v) land in groups whose quotient by the divisible part is the finite group ℤ/w_i(F_v) (even-integral-k-groups) and N.6/tame-and-wild-kernels uses Moore's theorem (L.3). Continuation: the five lemmas from uncountable-transcendence-basis to equal-characteristic-milnor-uncountable give an independent residue-and-transfer proof of the missing positive-characteristic cardinality input; they do not resolve the distinct unique-divisibility supplier boundaries.
+*Coverage: partial.* Every target of the stage text is realised. 'Local-field descriptions in Handbook I.5 §5.6' (the author copy's §5.6 Local Fields, items 56–67, pp. 162–167): Theorem 56 → equal-characteristic-integral-structure; Theorem 57 (Moore) is L.3's; Proposition 58 is L.2's; 59 → completed-k-theory and completion-exact-sequence; Warning 60 → the comparison nodes; Theorem 61 → completed-k-groups-of-p-adic-fields, finite-coefficient-lichtenbaum-quillen, even-integral-k-groups; Remark 62 → the odd comparison; Corollary 63 → k3-torsion-free-lattice; Examples 64–66 concern number fields and belong to L.7/ArithmeticKTheory (not planned here); Theorem 67 → hm-theorem-d. 'Combine localisation, trace calculations and M's étale comparison': ring-of-integers-versus-field (localisation), hm-etale-comparison and hm-theorem-a (L.5's trace calculations), finite-coefficient-lichtenbaum-quillen (M.7, all p). Rank [L:ℚ_p] of K_{2j−1}(L;ℤ_p), j ≥ 2, and its torsion by the Galois cohomology H^0(L, ℚ_p/ℤ_p(j)) inside H^1(L, ℤ_p(j)): p-adic-w-invariant, h1-of-tate-twists, odd-completed-k-groups-are-h1, completed-k-groups-of-p-adic-fields, with the ℚ_p cases in p-adic-w-invariant-of-q-p and completed-k-groups-of-q-p. Even groups' p-primary finite components by twist and duality: local-duality-for-tate-twists (H²(L, ℤ_p(i+1)) ≅ H⁰(L, ℤ/p^ν(−i))^∨, w_{−i} = w_i), even-completed-k-groups-are-h2, even-integral-k-groups. Divisible components of the integral groups: maximal-divisible-subgroup, divisible-subgroup-criterion, even-integral-k-groups, even-k-groups-tate-module, divisible-rank-relation, k3-torsion-free-lattice, uniquely-divisible-summand. No finite generation transferred to K_n(L): uniquely-divisible-summand and the comparison nodes. Exact comparison maps with kernels and cokernels (the handoff table's 'integral divisible subgroup, finite torsion quotient, derived p-completion and H1/H2 comparison'): even- and odd-integral-to-completed-comparison, discrete-coefficient-k-groups, odd- and even-completed-k-groups-are-h1/h2. Equal characteristic with its own de Rham–Witt argument: power-series-de-rham-witt, geisser-hesselholt-regular-local, equal-characteristic-relative-k-theory, equal-characteristic-completed-k-groups, equal-characteristic-unique-p-divisibility, equal-characteristic-integral-structure. Consumers: PadicHodgeRegulators D.3 (completed-k3-of-unramified-fields; restructure entry on ownership); D.4 consumes L.6 through L.7's global-to-local map; ArithmeticKTheory N.6/divisible-subgroup-and-the-wild-kernel uses, through L.7, that the maps K_{2i}(F) → K_{2i}(F_v) land in groups whose quotient by the divisible part is the finite group ℤ/w_i(F_v) (even-integral-k-groups) and N.6/tame-and-wild-kernels uses Moore's theorem (L.3). Continuation: the five lemmas from uncountable-transcendence-basis to equal-characteristic-milnor-uncountable give an independent residue-and-transfer proof of the missing positive-characteristic cardinality input; they do not resolve the distinct unique-divisibility supplier boundaries. Continuation 2026-10-05: four dyadic-field/integer hermitian nodes specify the 2-complete and integral assertions separately.
 
 - Remaining: Obtain Dwyer–Mitchell and Thomason's calculation of the p-adic homotopy type of K^ét of a p-adic field and decompose the equivalences of L.6/hm-theorem-d, including the valuation-ring form (gap).
 - Remaining: Resolve the requests to MotivicEtaleKTheory M.1, M.4, M.5, M.6, M.7, M.8, ArithmeticGaloisDuality R02.1, CrystallineCohomology CR.4, RefinedTraceMethods RT.4:topological and Tau Ceti ClassFieldTheory Layer 5 / LocalFieldsRamification Layer 1, replacing the stage prerequisites by node ids once those blueprints exist.
@@ -6603,7 +6973,8 @@ For a discrete commutative F_p-algebra A, p-complete TC(A) is fib(can−φ^hT:TH
 - Remaining: Decide whether the natural splitting in Hesselholt–Madsen's Theorem A for v > 1 is needed anywhere; if so, find its argument (gap).
 - Remaining: Rognes–Weibel's proof for p = 2 (K-book [161, 3.7], Handbook [51]) was not read; the p = 2 case rests on M.7's Quillen–Lichtenbaum statement for fields of 2-cohomological dimension 2.
 - Remaining: Route Examples VI.7.6–7.8 of the K-book (Handbook 64–66), which are local–global, to L.7 (restructure entry).
-- Remaining: Decompose Calmès Remark3.1.10 for local rings at residue characteristic2 with its field comparison, GW localization and bounded 2-primary L-theory imports; no hermitian carrier is defined here.
+- Remaining: Decompose Calmès Remark 3.1.10 for local rings at residue characteristic 2 with its field comparison, GW localization and bounded 2-primary L-theory imports; no hermitian carrier is defined here.
+- Remaining: Dyadic-integer hermitian integral/full-spectrum comparison has explicit reduction through the 2-adic field theorem, canonical shifted localization, bounded 2-primary L-theory and the fundamental square. Original finite-vcd₂ and local Witt proofs and registered Poincaré carriers remain supplier gaps.
 
 ### The maximal divisible subgroup Div(A) of an abelian group
 
@@ -8086,6 +8457,141 @@ Let E = 𝔽_q((t)), V = 𝔽_q[[t]] and n ≥ 2. There are canonical isomorphis
 - `Weibel.Handbook.I5`, Theorem 56 (p. 162; PDF p. 24): “Theorem 56 Let V = Fq[[π]] be the ring of integers in the local field E = Fq((π)). For n ≥2 there are uncountable, uniquely divisible abelian groups Un so that” — The same theorem in the survey.
 - `Weibel.Handbook.I5`, Proof of Theorem 56 (p. 163; PDF p. 25): “If n ≥2 then KM n (E) is a summand of the Quillen K-group Kn(E) by [61]. On the other hand, Geisser and Levine proved in [19] that the complementary summand is uniquely p-divisible.” — The survey's p-divisibility argument; this node uses the de Rham–Witt route instead.
 
+### 2-adic hermitian comparison for a dyadic local field
+
+`L.6/dyadic-field-hermitian-two-comparison` · application
+
+For a finite extension K/ℚ₂ and every integer m, the canonical map GW(K;(Qˢ)[m])→K(K;(Qˢ)[m])^{hC₂} is a 2-adic equivalence.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.dyadic_field_hermitian_two_comparison` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+- K is a finite extension of ℚ₂, so char K=0, cd₂(K)=2 and vcd₂(K)≤2.
+
+**Proof.**
+
+1. Specialize L.6/local-duality-for-tate-twists at p=2: finite 2-primary coefficient cohomology vanishes above degree 2 and H²(K,μ₂)=ℤ/2. These are exactly the upper and lower cohomological-dimension bounds; the source/supplier boundary of that existing local theorem is retained.
+2. Apply the characteristic≠2 finite-vcd₂ homotopy-limit theorem of source Theorem 3.1.1 in the symmetric ± flavours, with its original proof a GN.6 supplier obligation.
+3. Transport to all duality shifts using the imported general Poincaré comparison/periodicity machinery. This is not a claim that the proof for finite residue fields alone establishes the fraction-field comparison.
+
+**Acceptance.**
+
+- K=ℚ₂ satisfies the hypotheses.
+- Only a 2-adic equivalence is used here; the integral refinement for the integers needs its separate L-completeness argument.
+
+**Depends on.** `GeometryOfNumbersAndQuadraticArithmetic:GN.6`, `L.6/local-duality-for-tate-twists`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Remark 3.1.10, pp.52–53; Theorem 3.1.1, p.49: “3.1.10. Remark.” — The remark uses cd₂(K)=2 and Theorem 3.1.1 to obtain the fraction-field 2-adic comparison. The original characteristic-zero homotopy-limit proof is an imported obligation.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/400`, `PAPER-CALMES-ETAL-26/409`.
+
+### 2-adic hermitian comparison for dyadic integers
+
+`L.6/dyadic-integer-hermitian-two-comparison` · theorem
+
+Let K be a finite extension of ℚ₂, R its ring of integers and k its finite residue field. For every integer m, GW(R;(Qˢ)[m])→K(R;(Qˢ)[m])^{hC₂} is a 2-adic equivalence.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.dyadic_integer_hermitian_two_comparison` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+- R is a complete DVR with finite characteristic 2 residue field. The coefficient line with involution ±1 is trivial as a line because R is local; m records the Poincaré shift.
+
+**Proof.**
+
+1. Import the canonical residue-duality coefficient RHom_R(k,R)=(𝔪⁻¹/R)[−1] and symmetric GW localization. A uniformizer identifies the residue term with shift m−1.
+2. Use the ordinary K localization sequence with duality action and exactness of homotopy fixed points to form the vertical comparison of fibre sequences.
+3. The residue map is an integral equivalence by finite-even-shifted-hermitian-comparison at shift m−1. The field map is a 2-adic equivalence by dyadic-field-hermitian-two-comparison. Complete the two fibre sequences and use two-out-of-three for the middle map.
+
+**Acceptance.**
+
+- For R=ℤ₂ the residue coefficient has shift m−1, not m.
+- A ramified extension does not send a chosen uniformizer to a uniformizer in general; naturality is via the canonical duality line.
+
+**Depends on.** `L.6/dyadic-field-hermitian-two-comparison`, `L.1/finite-even-shifted-hermitian-comparison`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization`, `GeneralAlgebraicKTheory:K.3`, `StableHomotopyKTheory:H.6`, `RefinedTraceMethods:RT.2`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Remark 3.1.10, pp.52–53; Corollary 2.2.5 and Remark 2.2.6, p.39: “3.1.10. Remark.” — The displayed fibre sequences use residue shift m−1 and deduce the middle 2-adic comparison from the even finite-field and dyadic fraction-field comparisons.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/409`.
+
+### Derived 2-completeness of symmetric L-theory of dyadic integers
+
+`L.6/dyadic-integer-symmetric-l-two-complete` · lemma
+
+For K a finite extension of ℚ₂ with integers R and residue field k, the symmetric L-spectrum L(R;Qˢ) is derived 2-complete, as are all its Poincaré shifts L(R;(Qˢ)[m]).
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.dyadic_integer_symmetric_l_two_complete` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+- The local symmetric Witt group Wˢ(K) has bounded 2-power exponent; this original Lam input remains a source/supplier gap.
+
+**Proof.**
+
+1. The imported field L/Witt identification gives 4-periodic L(K;Qˢ), with symmetric Witt groups in degrees 0 mod 4 and zero other degrees; the finite dyadic Witt group has bounded 2-power exponent.
+2. Finite-even-symmetric-l-groups gives 2-torsion for every even-degree L(k) and zero odd groups.
+3. Use symmetric L localization (Corollary 2.2.5, requested from GN.6 alongside its GW theorem): L(k;Qˢ[m−1])→L(R;Qˢ[m])→L(K;Qˢ[m]). Bounded 2-power exponent of the outside homotopy groups bounds the middle groups, including extensions.
+4. Use H.6’s derived completion criterion for spectra with uniformly bounded 2-primary homotopy, and the metabolic shift equivalence. No finite generation of ordinary K(R) is inferred.
+
+**Acceptance.**
+
+- For ℤ₂ this excludes a free integral signature summand.
+- The argument uses the bounded exponent, not merely an assertion of torsion without a bound.
+
+**Depends on.** `L.1/finite-even-symmetric-l-groups`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6`, `StableHomotopyKTheory:H.6`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Remark 3.1.10, p.53, referring to Lam VI.2.29; Remark 3.1.9, p.52: “3.1.10. Remark.” — The remark cites bounded 2-power torsion of L(K). The explicit local reduction additionally uses finite-residue L-groups, the read localization theorem and the requested derived-completion criterion.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/409`.
+
+### Integral homotopy limit theorem for dyadic integers
+
+`L.6/dyadic-integer-integral-hermitian-comparison` · theorem
+
+For K a finite extension of ℚ₂, R its ring of integers and every integer m, the canonical map GW(R;(Qˢ)[m])→K(R;(Qˢ)[m])^{hC₂} is an integral equivalence of full spectra.
+
+**Proposed declaration.** `TauCeti.KTheoryFiniteLocal.Hermitian.dyadic_integer_integral_hermitian_comparison` in `TauCeti/KTheory/FiniteLocal/Hermitian` (unchecked).
+
+**Hypotheses.**
+
+- K is connective algebraic K-theory of perfect complexes, with the C₂-action induced by the indicated duality; GW and L use the non-genuine symmetric Poincaré structure Qˢ, not a substitute classical or genuine spectrum.
+- General Poincaré carriers and the fundamental square are missing registered supplier contracts, as recorded in the hermitian foundation gap.
+- This is the R-spectrum comparison; no assertion that arbitrary Dedekind rings with real fraction fields satisfy integral homotopy-limit equivalence is made.
+
+**Proof.**
+
+1. The fundamental cartesian square identifies the fibre of the GW-to-homotopy-fixed comparison with the fibre of Ξ:L(R;Qˢ[m])→K(R;Qˢ[m])^{tC₂}.
+2. dyadic-integer-hermitian-two-comparison makes this fibre zero after 2-completion.
+3. dyadic-integer-symmetric-l-two-complete makes its L term complete; RT.2 makes Tate K complete for connective K(R). The fibre of a map of complete spectra is complete.
+4. A complete spectrum with zero 2-completion is zero. Hence the fibre vanishes integrally and the canonical comparison is an equivalence.
+
+**Acceptance.**
+
+- R=ℤ₂ is an integral full-spectrum example even though 2 is not a unit.
+- Replacing R by a number ring with a real embedding does not preserve the L-completeness input.
+
+**Depends on.** `L.6/dyadic-integer-hermitian-two-comparison`, `L.6/dyadic-integer-symmetric-l-two-complete`, `GeometryOfNumbersAndQuadraticArithmetic:GN.6`, `RefinedTraceMethods:RT.2`, `StableHomotopyKTheory:H.6`.
+
+**Sources.**
+
+- `CalmesEtAl.2026.v4`, Remark 3.1.10, p.53, with the fundamental-square argument of Remark 3.1.9: “3.1.10. Remark.” — The remark concludes that the middle map is an integral equivalence. The outline spells out the complete L/Tate fibre argument used in the preceding Remark 3.1.9.
+- `CalmesEtAl.II.20261005`, Corollary 4.4.13 and proof, p.107: “The fundamental fibre square” — The cartesian square is an imported universal theorem; its proof cites Corollaries 3.6.7 and 4.3.1 and Theorem 4.4.11. Reading this reduction does not close those supplier proofs.
+
+**Routed catalogue items.** `PAPER-CALMES-ETAL-26/409`.
+
 ## L.7 — Local-to-global compatibility
 
 *Coverage: partial.* The stage text asks for the compatibility of local restriction and transfer, arithmetic Chern classes, Hilbert symbols and cyclotomic traces with completion of a number field at a finite place. The completion maps are L.7/completion-map; restriction and transfer are L.7/restriction-completion-square and L.7/transfer-completion-formula; the localisation boundary, which N's local conditions need, is L.7/boundary-completion-compatibility, from L.7/boundary-at-a-prime-via-localisation and Karoubi's square L.7/karoubi-completion-square; Hilbert symbols are L.7/hilbert-symbol-completion, including the kernel of K₂(F) → K₂(F_v) on torsion classes that ArithmeticKTheory N.6 requests; étale Chern classes are L.7/etale-chern-class-completion and L.7/unramified-chern-class-reduction, the latter supplying HabiroNumberFields HB.2's request (CGZ Lemma 4.1); cyclotomic traces are L.7/cyclotomic-trace-completion, on L.4's localisation square. 'D's regulator map' and 'the completed K₃ model' are L.7/semilocal-completed-map with its restriction and transfer compatibilities; the completed groups K_n(F_v; ℤ_p) themselves are L.6's, and the unramified p > 3 regulator theorem, the Frobenius compatibility and the regulator export stay with PadicHodgeRegulators D.3–D.4 (restructure). The stage text concerns finite places only: the real places that N.6's wild kernel also uses are not supplied here (restructure).
@@ -8966,43 +9472,61 @@ L.6's equal-characteristic route (Geisser–Hesselholt Theorem 3.1) and the p-to
 
 Needed by: `L.6/geisser-hesselholt-regular-local`, `L.6/equal-characteristic-completed-k-groups`, `L.6/milnor-k-of-local-fields`.
 
-### New routed hermitian K-theory inputs: supplier carriers and finite/local proof chains
-
-Issue763 routes Calmès et al. III catalog400–405,409 to L.1/L.6. The targeted v4 read establishes the required targets: connective finite-field symmetric GW→K^hC2 (Theorem3.1.3); for finite even-q fields, full GW(F_q;(Q^s)[m])→K(F_q)^hC2 for every integer m (Proposition3.1.4), including the shifted L/Tate square; its multiplicative proof (Remark3.1.5); the perfect-char2 extension (Remark3.1.6); and the mixed-(0,2) local-ring comparison via residue/fraction-field localization and bounded 2-primary L-groups (Remark3.1.10). General hermitian/GW/L carrier definitions must come from their design owner, not be invented in this packet. Next worker must identify that owner, read the universal cartesian square and localization suppliers, and split these targets into fully sourced nodes. A targeted source read is recorded, not a completed comparison plan.
-
-Needed by: `L.1/quillen-k-groups`, `L.6/hm-theorem-d`.
-
 ### New finite-rank symplectic degree-three and étale Chern-class route
 
 Issue763 routes Abdurrahman–Venkatesh §2.7 (catalog17–18) to L.1. Required targets for odd q: H_3(Sp_(2r)(F_q),Z/2)→H_3(SL_(2r)(F_q),Z/2) is an isomorphism of groups of order2; c_et:H_3(Sp_(2r)(F_q),Z)/2→F_q^×/2 is an isomorphism. Read v1 §2.7 pp.16–17, but finite-rank stabilization, the universal-cover Hurewicz argument, and its identification with Weibel’s K_3/2 étale class need declaration-sized proofs. The reviewed PAPER-ABDURRAHMAN-VENKATESH-25/E3 warns that H_2(SL_2(F_9),Z)=Z/3, so the printed blanket H_2=0 claim cannot be imported; odd-order H_2 suffices for the mod2 universal-coefficient step. Check the published version and corrected rank/exception hypotheses before planning; the general K_3(F_q) and transfer calculation is imported from L.1 by K3BlochGroups V.5, not duplicated there.
 
 Needed by: `L.1/quillen-k-groups`, `L.1/finite-field-transfer-formulas`.
 
+### Unregistered general Poincaré hermitian supplier contracts
+
+The accepted PAPER-CALMES-ETAL-26 route names HermitianKTheoryOfPoincareCategories, but no roadmap/stage/packet or reserved node for that design exists in this snapshot. It owns perfect-category Poincaré structures Qˢ and their shifts, GW and L spectra with duality-induced C₂-actions, the canonical Ξ and cartesian square (Paper II 4.4.13), metabolic shift equivalences compatible with Ξ (II 1.2.5 and III beforeR. 10), natural periodicity (II/III R.10), field L₀/Witt and odd-L vanishing (III 1.3.3–1.3.5), the genuine/classical/non-genuine comparisons, and the commutative-ring E∞ refinement cited from Paper IV. These are imports, not local definition nodes. II 4.4.13’s proof reduction, II 1.2.5 and the listed III reductions were read; their entire foundational proofs were not. GN.6 supplies actual registered residue-line and GW localization nodes, whose own Poincaré gaps remain open; its classical carriers cannot silently supply the missing full square. Register the design and replace this boundary with its precise node ids, keeping local finite-field calculations here.
+
+Needed by: `L.1/finite-even-tate-k-groups`, `L.1/finite-even-symmetric-l-groups`, `L.1/finite-even-l-tate-generator`, `L.1/finite-even-l-tate-equivalence`, `L.1/finite-even-shifted-hermitian-comparison`, `L.1/finite-field-classical-hermitian-connective-comparison`, `L.1/finite-even-multiplicative-l-tate-comparison`, `L.1/perfect-char-two-symmetric-l-base-change`, `L.1/perfect-char-two-shifted-hermitian-comparison`, `L.6/dyadic-field-hermitian-two-comparison`, `L.6/dyadic-integer-hermitian-two-comparison`, `L.6/dyadic-integer-symmetric-l-two-complete`, `L.6/dyadic-integer-integral-hermitian-comparison`.
+
+### Original finite-field classical and finite-vcd₂ homotopy-limit proofs
+
+III 3.1.1–3.1.3 state the imported HKO11/BKSØ15/BH20 characteristic≠2 field theorem and the Friedlander1976/Fiedorowicz–Priddy1978 finite-field classical theorem with real/symplectic topological input BK05. These original proofs were not read. GN.6 and RT.4:topological requests specify the exact field, flavour and connective/completion contracts. III’s corrected quadratic GW₁(F_q)=ℤ/2 at even q is inherited literature evidence, not a new erratum claim. The arbitrary finite-vcd₂ theorem is an import; only its finite/dyadic field applications are local nodes.
+
+Needed by: `L.1/finite-field-classical-hermitian-connective-comparison`, `L.6/dyadic-field-hermitian-two-comparison`.
+
+### Hiller perfect-characteristic-two K-theory proof
+
+III 3.1.6 cites Hiller1981 λ-rings and algebraic K-theory, Theorem 5.4, for the perfect-field K-completion input. Its original proof was not obtained/read. The exact unique 2-divisibility/Frobenius-Adams contract is requested from S.6; the Bockstein reduction is now explicit. Do not use Quillen’s finite-field group orders to prove it for arbitrary perfect fields.
+
+Needed by: `L.1/perfect-char-two-k-two-completion`, `L.1/perfect-char-two-shifted-hermitian-comparison`.
+
+### Dyadic Witt exponent and symmetric L-completion suppliers
+
+III 3.1.10 cites Lam Quadratic Forms over Fields, VI.2.29, for bounded 2-primary symmetric Witt/L theory of a finite extension of ℚ₂. The original Lam proof was not read. Import this field input from the general quadratic/hermitian owner (GN.6 currently records the contract); combine with the imported L-localization sequence, finite-even L-groups and H.6’s bounded-exponent derived-completion criterion. No characteristic0 all-local-fields cohomological-dimension statement with arbitrary residue field is asserted.
+
+Needed by: `L.6/dyadic-integer-symmetric-l-two-complete`, `L.6/dyadic-integer-integral-hermitian-comparison`.
+
 ## Requests
 
 ### RefinedTraceMethods:RT.4:topological
 
-RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication ... Identify π_*ku=ℤ[β] and π_*KU=ℤ[β,β⁻¹]'. L.1 uses BU as a homotopy-commutative H-group with π_{2i}(BU) ≅ Z, π_{2i−1}(BU) = 0, and additionally needs, beyond that text: (a) Adams operations ψ^k: BU → BU as H-maps representing ψ^k on K̃U^0, with ψ^jψ^k ≃ ψ^{jk}, ψ^kψ^q ≃ ψ^qψ^k, ψ^k = k^i on π_{2i}(BU) = K̃U(S^{2i}) (K-book Example II.4.4.1) and ψ^q acting by q^i on the mod-ℓ Chern class c_i ∈ H^{2i}(BU; F_ℓ); (b) the λ-ring structure on [X, BU] (K-book Example IV.5.7.1); (c) the Atiyah map R_C(G) → [BG, Z × BU] as a λ-ring homomorphism; (d) K̃U^1(BG) = 0 for finite G and the vanishing of lim^1 of K̃U^0(BGL_n(F_q)) (Atiyah–Segal). Items (a)–(d) are proposed as 'RefinedTraceMethods, Part II' in restructure if RT.4:topological does not take them. RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication, and define ku as the connective cover of KU.' L.6 needs, beyond that text and beyond L.1's request for integral Adams operations: the p-adic Adams operations Ψ^k, k ∈ ℤ_p^×, on the p-completions of ℤ × BU and BU, acting on π_{2i} by k^i, so that FΨ^k = hofib(Ψ^k − 1) is defined for p-adic k (Hesselholt–Madsen Theorem D, K-book Theorem VI.7.9). Completion contract (Atiyah–Segal1969 Theorem2.1, Proposition4.2): for finite G and augmentation ideal I=ker(dim:R_C(G)→Z), the Atiyah λ-ring map identifies KU^0(BG) with lim_n R_C(G)/I^n, and KU^1(BG)=0, with the Milnor lim¹ term controlled by the completed/pro tower. This is a supplier theorem of RT.4:topological, not a new L.1 proof; its full source proof remains to read. The point specialization was inspected in the published scan, and RT-AREA-ktheory-1/37b requests it explicitly.
+RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication ... Identify π_*ku=ℤ[β] and π_*KU=ℤ[β,β⁻¹]'. L.1 uses BU as a homotopy-commutative H-group with π_{2i}(BU) ≅ Z, π_{2i−1}(BU) = 0, and additionally needs, beyond that text: (a) Adams operations ψ^k: BU → BU as H-maps representing ψ^k on K̃U^0, with ψ^jψ^k ≃ ψ^{jk}, ψ^kψ^q ≃ ψ^qψ^k, ψ^k = k^i on π_{2i}(BU) = K̃U(S^{2i}) (K-book Example II.4.4.1) and ψ^q acting by q^i on the mod-ℓ Chern class c_i ∈ H^{2i}(BU; F_ℓ); (b) the λ-ring structure on [X, BU] (K-book Example IV.5.7.1); (c) the Atiyah map R_C(G) → [BG, Z × BU] as a λ-ring homomorphism; (d) K̃U^1(BG) = 0 for finite G and the vanishing of lim^1 of K̃U^0(BGL_n(F_q)) (Atiyah–Segal). Items (a)–(d) are proposed as 'RefinedTraceMethods, Part II' in restructure if RT.4:topological does not take them. RT.4:topological's text: 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication, and define ku as the connective cover of KU.' L.6 needs, beyond that text and beyond L.1's request for integral Adams operations: the p-adic Adams operations Ψ^k, k ∈ ℤ_p^×, on the p-completions of ℤ × BU and BU, acting on π_{2i} by k^i, so that FΨ^k = hofib(Ψ^k − 1) is defined for p-adic k (Hesselholt–Madsen Theorem D, K-book Theorem VI.7.9). Completion contract (Atiyah–Segal1969 Theorem 2.1, Proposition 4.2): for finite G and augmentation ideal I=ker(dim:R_C(G)→Z), the Atiyah λ-ring map identifies KU^0(BG) with lim_n R_C(G)/I^n, and KU^1(BG)=0, with the Milnor lim¹ term controlled by the completed/pro tower. This is a supplier theorem of RT.4:topological, not a new L.1 proof; its full source proof remains to read. The point specialization was inspected in the published scan, and RT-AREA-ktheory-1/37b requests it explicitly. For III 3.1.2–3.1.3’s finite-field classical comparison import the real and symplectic topological fixed-point comparisons and Adams-operation models, with their2-completion/connective restrictions from the original references. The original proofs have not been read here.
 
-Needed by: `L.1/fpsi`, `L.1/fpsi-homotopy`, `L.1/fpsi-lifting`, `L.1/quillen-map`, `L.1/fpsi-cohomology`, `L.1/frobenius-is-adams`, `L.1/adams-on-finite-field-k`, `L.6/hm-theorem-d`, `L.1/brauer-lift`.
+Needed by: `L.1/fpsi`, `L.1/fpsi-homotopy`, `L.1/fpsi-lifting`, `L.1/quillen-map`, `L.1/fpsi-cohomology`, `L.1/frobenius-is-adams`, `L.1/adams-on-finite-field-k`, `L.6/hm-theorem-d`, `L.1/brauer-lift`, `L.1/finite-field-classical-hermitian-connective-comparison`.
 
 ### StableHomotopyKTheory:H.6
 
-H.6's text: 'Define E/m as the cofiber of multiplication by m on a spectrum. Prove the Bockstein exact sequence ... Construct exact couples from filtered spectra and convergence statements ... These are used in M and L'. L.1 needs, beyond the Bockstein node StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence: (a) the homotopy associative and commutative multiplication on the Moore spectrum P^∞(Z/ℓ^ν) for ℓ^ν ∉ {2, 3, 4, 8} (Araki–Toda; K-book IV.2, Products) and Browder's scholium for spectra with no positive even homotopy; (b) the Eilenberg–Moore spectral sequence H^*(X ×_B Y; k) ⇐ Tor_{H^*(B)}(H^*(X), H^*(Y)) for a fibration over a simply connected base with finite type cohomology, used for H^*(FΨ^q; F_ℓ).
+H.6's text: 'Define E/m as the cofiber of multiplication by m on a spectrum. Prove the Bockstein exact sequence ... Construct exact couples from filtered spectra and convergence statements ... These are used in M and L'. L.1 needs, beyond the Bockstein node StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence: (a) the homotopy associative and commutative multiplication on the Moore spectrum P^∞(Z/ℓ^ν) for ℓ^ν ∉ {2, 3, 4, 8} (Araki–Toda; K-book IV.2, Products) and Browder's scholium for spectra with no positive even homotopy; (b) the Eilenberg–Moore spectral sequence H^*(X ×_B Y; k) ⇐ Tor_{H^*(B)}(H^*(X), H^*(Y)) for a fibration over a simply connected base with finite type cohomology, used for H^*(FΨ^q; F_ℓ). Also provide equivariant rank truncation/derived completion compatibility, preservation of fibre sequences by derived completion, and the criterion that a spectrum with homotopy uniformly killed by a fixed 2-power is derived 2-complete; these are completion foundations for the dyadic L/Tate argument.
 
-Needed by: `L.1/mod-m-products`, `L.1/fpsi-cohomology`, `L.1/k-theory-mod-m`, `L.1/bott-element`, `L.2/rigidity-l-adic`, `L.2/localisation-bockstein-compatibility`, `L.2/odd-k-l-torsion`, `L.4/p-typical-tc`, `L.4/moore-spectrum-splitting-for-hz-modules`, `L.4/integral-and-p-typical-tc-agree-after-completion`, `L.4/multiplicative-tate-spectral-sequence`, `L.5/thh-of-dvr-p-adic`, `L.5/log-thh-mod-p`, `L.5/log-thh-p-adic`, `L.5/connecting-map-of-kappa`, `L.5/bott-element-in-tr`, `L.5/gamma-hat-all-levels`, `L.5/frobenius-surjective-odd-degrees`, `L.5/log-de-rham-witt-tr-mod-pv`, `L.5/roots-of-unity-torsion-in-log-drw`, `L.5/thh-of-perfect-field`, `L.5/trace-equivalence-finite-witt-algebras`, `L.5/trace-isomorphism-for-local-field`, `L.5/thh-of-truncated-polynomial-algebra`, `L.5/relative-tc-of-truncated-polynomial-algebra`, `L.5/relative-k-of-truncated-polynomial-over-perfect-field`, `L.5/relative-k-of-truncated-polynomial-regular-fp`, `L.5/relative-k-of-truncated-polynomial-char-zero`, `L.5/tc-of-regular-fp-algebra`, `L.1/completed-k-theory`, `L.6/completion-exact-sequence`, `L.6/hm-etale-comparison`, `L.7/completion-map`, `L.7/transfer-completion-formula`, `L.7/karoubi-completion-square`, `L.7/semilocal-completed-map`.
+Needed by: `L.1/mod-m-products`, `L.1/fpsi-cohomology`, `L.1/k-theory-mod-m`, `L.1/bott-element`, `L.2/rigidity-l-adic`, `L.2/localisation-bockstein-compatibility`, `L.2/odd-k-l-torsion`, `L.4/p-typical-tc`, `L.4/moore-spectrum-splitting-for-hz-modules`, `L.4/integral-and-p-typical-tc-agree-after-completion`, `L.4/multiplicative-tate-spectral-sequence`, `L.5/thh-of-dvr-p-adic`, `L.5/log-thh-mod-p`, `L.5/log-thh-p-adic`, `L.5/connecting-map-of-kappa`, `L.5/bott-element-in-tr`, `L.5/gamma-hat-all-levels`, `L.5/frobenius-surjective-odd-degrees`, `L.5/log-de-rham-witt-tr-mod-pv`, `L.5/roots-of-unity-torsion-in-log-drw`, `L.5/thh-of-perfect-field`, `L.5/trace-equivalence-finite-witt-algebras`, `L.5/trace-isomorphism-for-local-field`, `L.5/thh-of-truncated-polynomial-algebra`, `L.5/relative-tc-of-truncated-polynomial-algebra`, `L.5/relative-k-of-truncated-polynomial-over-perfect-field`, `L.5/relative-k-of-truncated-polynomial-regular-fp`, `L.5/relative-k-of-truncated-polynomial-char-zero`, `L.5/tc-of-regular-fp-algebra`, `L.1/completed-k-theory`, `L.6/completion-exact-sequence`, `L.6/hm-etale-comparison`, `L.7/completion-map`, `L.7/transfer-completion-formula`, `L.7/karoubi-completion-square`, `L.7/semilocal-completed-map`, `L.1/finite-even-k-two-completion`, `L.1/perfect-char-two-k-two-completion`, `L.6/dyadic-integer-hermitian-two-comparison`, `L.6/dyadic-integer-symmetric-l-two-complete`, `L.6/dyadic-integer-integral-hermitian-comparison`.
 
 ### GeneralAlgebraicKTheory:K.7
 
 K.7's text: 'Construct external products from biexact functors and their associativity, unit and symmetry homotopies. For commutative rings obtain graded-commutative K-groups. Prove compatibility with relative groups, localisation boundaries and transfers.' L.1 needs K(R) as a homotopy commutative ring spectrum (for K(R)/ℓ^ν to be a ring spectrum); L.2 needs the K_*(O)-linearity of the localisation boundary of a DVR, ∂(x·y) = r(x)·∂(y), with its sign stated (the K-book uses both orders, see sourceIssues).
 
-Needed by: `L.1/mod-m-products`, `L.2/dvr-localisation`, `L.1/k-theory-mod-m`, `L.1/restriction-and-transfer`, `L.1/finite-field-products-vanish`, `L.2/even-k-field-splitting`, `L.4/thh-of-linear-waldhausen-category`, `L.1/completed-k-theory`, `L.7/completion-map`, `L.7/transfer-completion-formula`, `L.7/semilocal-completed-map`.
+Needed by: `L.1/mod-m-products`, `L.2/dvr-localisation`, `L.1/k-theory-mod-m`, `L.1/restriction-and-transfer`, `L.1/finite-field-products-vanish`, `L.2/even-k-field-splitting`, `L.4/thh-of-linear-waldhausen-category`, `L.1/completed-k-theory`, `L.7/completion-map`, `L.7/transfer-completion-formula`, `L.7/semilocal-completed-map`, `L.1/finite-even-multiplicative-l-tate-comparison`.
 
 ### SchemeKTheoryOperations:S.6
 
-S.6's text: 'Construct λ-operations using a genuine higher K-theory construction, not just the exterior-power functor on objects. Establish Adams operations ψ^k and their multiplication law.' L.1 needs these for affine schemes in the Quillen–Hiller form of K-book IV.5: λ^k and ψ^k on K_0(A) × [X, BGL(A)^+] for commutative A, induced from the representation rings R_A(GL_n(A)) through q (Proposition IV.5.3, Example IV.5.3.1), natural in A, with ψ^jψ^k = ψ^{jk}, ψ^k additive on K_n(A) for n > 0, ψ^p = Φ^* on R_A(G) when pA = 0 (Ex. II.4.2(b)), and Hiller's universality (Proposition IV.5.7) for maps to representable functors.
+S.6's text: 'Construct λ-operations using a genuine higher K-theory construction, not just the exterior-power functor on objects. Establish Adams operations ψ^k and their multiplication law.' L.1 needs these for affine schemes in the Quillen–Hiller form of K-book IV.5: λ^k and ψ^k on K_0(A) × [X, BGL(A)^+] for commutative A, induced from the representation rings R_A(GL_n(A)) through q (Proposition IV.5.3, Example IV.5.3.1), natural in A, with ψ^jψ^k = ψ^{jk}, ψ^k additive on K_n(A) for n > 0, ψ^p = Φ^* on R_A(G) when pA = 0 (Ex. II.4.2(b)), and Hiller's universality (Proposition IV.5.7) for maps to representable functors. The perfect characteristic 2 K-completion application needs Hiller’s exact Frobenius/Adams operation identity and its positive-degree unique 2-divisibility consequence; Hiller Theorem 5.4 is cited by III 3.1.6 but its proof remains unread. This is not obtained from finite-field orders.
 
-Needed by: `L.1/adams-psi-p-frobenius`, `L.1/adams-on-finite-field-k`.
+Needed by: `L.1/adams-psi-p-frobenius`, `L.1/adams-on-finite-field-k`, `L.1/perfect-char-two-k-two-completion`.
 
 ### KTheoryLowDegrees:U.6
 
@@ -9102,9 +9626,9 @@ Needed by: `L.4/connes-operator`, `L.5/hochschild-homology-of-perfect-field`, `L
 
 ### RefinedTraceMethods:RT.2
 
-THH of spectral categories (in particular of Z-linear categories via Eilenberg–Mac Lane spectra of the Hom-groups) by cyclic realisation, with the T-action as coherent data and its genuine cyclotomic structure (genuine C_{p^n}-fixed points, restriction R through geometric fixed points, inclusion F, transfer V), homotopy orbits, homotopy fixed points and Tate constructions with the norm cofibre sequence and multiplicative structure, and the agreement of the classical genuine TR/TC with the Nikolaus–Scholze TC for bounded-below cyclotomic spectra. RT.2's text: 'Construct THH of spectral categories and E₁-algebras by cyclic realization. Give the S¹-action as coherent data … Construct restriction, homotopy orbits, homotopy fixed points and Tate constructions with their norm/fibre sequence and multiplicative structure … State bounded-below/completion hypotheses when using the modern fixed-point formula, and prove agreement with the classical genuine-equivariant TR/TC formulation used by local K-theory calculations.' L.4 builds Hesselholt–Madsen's T(C) of a linear Waldhausen category, its TR^n, R, F, V and TC(C;p) on these foundations and specialises the comparison to T(k), T(A), T(A|K). For the prime-field NS IV.4 calculation also export: the circle/finite-Tate base-change formulas for HZ-module circle spectra (Lemma IV.4.12); the comparison square followed by augmentation to HF_p and the nonzero orientation in π_−2HF_p^tC_p, without using IV.4.13; the trivial cyclotomic spectrum/TC adjunction (IV.4.14); the connective shift τ≥0(−^tC_p) with residual action and induced Frobenius (IV.4.15); and the characteristic-p E₂ cyclotomic-module TC fibre theorem, including the stronger unbounded HZ-module version (end IV.4). RT.2 owns these general statements; L.5 applies them to fields and the F_p-algebras in its calculation scope.
+THH of spectral categories (in particular of Z-linear categories via Eilenberg–Mac Lane spectra of the Hom-groups) by cyclic realisation, with the T-action as coherent data and its genuine cyclotomic structure (genuine C_{p^n}-fixed points, restriction R through geometric fixed points, inclusion F, transfer V), homotopy orbits, homotopy fixed points and Tate constructions with the norm cofibre sequence and multiplicative structure, and the agreement of the classical genuine TR/TC with the Nikolaus–Scholze TC for bounded-below cyclotomic spectra. RT.2's text: 'Construct THH of spectral categories and E₁-algebras by cyclic realization. Give the S¹-action as coherent data … Construct restriction, homotopy orbits, homotopy fixed points and Tate constructions with their norm/fibre sequence and multiplicative structure … State bounded-below/completion hypotheses when using the modern fixed-point formula, and prove agreement with the classical genuine-equivariant TR/TC formulation used by local K-theory calculations.' L.4 builds Hesselholt–Madsen's T(C) of a linear Waldhausen category, its TR^n, R, F, V and TC(C;p) on these foundations and specialises the comparison to T(k), T(A), T(A|K). For the prime-field NS IV.4 calculation also export: the circle/finite-Tate base-change formulas for HZ-module circle spectra (Lemma IV.4.12); the comparison square followed by augmentation to HF_p and the nonzero orientation in π_−2HF_p^tC_p, without using IV.4.13; the trivial cyclotomic spectrum/TC adjunction (IV.4.14); the connective shift τ≥0(−^tC_p) with residual action and induced Frobenius (IV.4.15); and the characteristic-p E₂ cyclotomic-module TC fibre theorem, including the stronger unbounded HZ-module version (end IV.4). RT.2 owns these general statements; L.5 applies them to fields and the F_p-algebras in its calculation scope. The hermitian applications use the same general C₂ homotopy-fixed and Tate functors: exactness, their norm sequence, invariance of Tate under2-adic equivalence for bounded-below inputs, derived 2-completeness of the Tate target, its unital multiplication, and the Eilenberg–Mac Lane comparison computing (Hℤ)^{tC₂} from the complete cyclic resolution (π_even=ℤ/2, π_odd=0). Supply these general exports once, not a second local Tate construction.
 
-Needed by: `L.4/thh-of-linear-waldhausen-category`, `L.4/tr-pro-spectrum`, `L.4/norm-restriction-cofibre-sequence`, `L.4/p-typical-tc`, `L.4/hm-conventions-agree-with-nikolaus-scholze`, `L.4/log-thh-bounded-below`, `L.4/multiplicative-tate-spectral-sequence`, `L.4/dundas-mccarthy-equivalence-criterion`, `L.4/thh-structure-maps-f-equivalences`, `L.4/connes-operator`, `L.4/tr-homotopy-orbit-spectral-sequence`, `L.4/integral-and-p-typical-tc-agree-after-completion`, `L.4/thh-additivity-theorem`, `L.4/dvr-tr-agrees-with-ring-tr`, `L.5/log-thh-tame-descent`, `L.5/gamma-hat-all-levels`, `L.5/thh-of-perfect-field`, `L.5/thh-of-pointed-monoid-algebra`, `L.5/fp-tc-minus-filtration-extension`, `L.5/fp-negative-topological-cyclic-homology`, `L.5/fp-periodic-topological-cyclic-homology`, `L.5/fp-cyclotomic-frobenius-on-tc-minus`, `L.5/fp-cyclotomic-tate-cover`, `L.5/fp-cyclotomic-shift-model`, `L.5/char-p-algebra-tc-fibre-sequence`, `L.5/tc-of-perfect-field`.
+Needed by: `L.4/thh-of-linear-waldhausen-category`, `L.4/tr-pro-spectrum`, `L.4/norm-restriction-cofibre-sequence`, `L.4/p-typical-tc`, `L.4/hm-conventions-agree-with-nikolaus-scholze`, `L.4/log-thh-bounded-below`, `L.4/multiplicative-tate-spectral-sequence`, `L.4/dundas-mccarthy-equivalence-criterion`, `L.4/thh-structure-maps-f-equivalences`, `L.4/connes-operator`, `L.4/tr-homotopy-orbit-spectral-sequence`, `L.4/integral-and-p-typical-tc-agree-after-completion`, `L.4/thh-additivity-theorem`, `L.4/dvr-tr-agrees-with-ring-tr`, `L.5/log-thh-tame-descent`, `L.5/gamma-hat-all-levels`, `L.5/thh-of-perfect-field`, `L.5/thh-of-pointed-monoid-algebra`, `L.5/fp-tc-minus-filtration-extension`, `L.5/fp-negative-topological-cyclic-homology`, `L.5/fp-periodic-topological-cyclic-homology`, `L.5/fp-cyclotomic-frobenius-on-tc-minus`, `L.5/fp-cyclotomic-tate-cover`, `L.5/fp-cyclotomic-shift-model`, `L.5/char-p-algebra-tc-fibre-sequence`, `L.5/tc-of-perfect-field`, `L.1/finite-even-tate-k-groups`, `L.1/finite-even-multiplicative-l-tate-comparison`, `L.1/perfect-char-two-shifted-hermitian-comparison`, `L.6/dyadic-integer-hermitian-two-comparison`, `L.6/dyadic-integer-integral-hermitian-comparison`.
 
 ### CrystallineCohomology:CR.4
 
@@ -9348,6 +9872,18 @@ Supply the existing H.3/plus-construction-universal-property node in its exact B
 
 Needed by: `L.1/quillen-fibration`.
 
+### GeometryOfNumbersAndQuadraticArithmetic:GN.6
+
+For the newly routed local hermitian applications, supply the classical-to-non-genuine symmetric connective comparison (III 1.3.15; Paper II B.2.2 when 2 is invertible), the source-scoped finite-vcd₂ field homotopy-limit theorem III 3.1.1 for ε=±1 and its shift transport, and symmetric L localization alongside GN.6/dedekind-symmetric-localization with the same canonical residue duality line. Import the general Poincaré carriers from the routed HermitianKTheoryOfPoincareCategories design; that design has no registered stage/node, and the exact foundational square/shift/Witt/periodicity/multiplicative contracts are recorded as a gap. These contracts are not supplied by the classical exact GW-space node alone. Do not use the number-ring theorem for a dyadic local fraction field.
+
+Needed by: `L.1/finite-even-symmetric-l-groups`, `L.1/finite-even-l-tate-generator`, `L.1/finite-even-l-tate-equivalence`, `L.1/finite-even-shifted-hermitian-comparison`, `L.1/finite-field-classical-hermitian-connective-comparison`, `L.1/finite-even-multiplicative-l-tate-comparison`, `L.1/perfect-char-two-symmetric-l-base-change`, `L.1/perfect-char-two-shifted-hermitian-comparison`, `L.6/dyadic-field-hermitian-two-comparison`, `L.6/dyadic-integer-hermitian-two-comparison`, `L.6/dyadic-integer-symmetric-l-two-complete`, `L.6/dyadic-integer-integral-hermitian-comparison`.
+
+### GeneralAlgebraicKTheory:K.3
+
+Specialize the existing ordinary Dedekind/DVR localization fibre sequence to R=O_K and K=FracR, retaining the derived residue coefficient for the coherent C₂-duality action. Supply its comparison with GN.6’s symmetric GW/L localization and exactness after homotopy fixed points; no second localization theorem is constructed here.
+
+Needed by: `L.6/dyadic-integer-hermitian-two-comparison`.
+
 ## Structural proposals
 
 ### Rigidity for henselian pairs is owned by L.2; MotivicEtaleKTheory M.7 imports it
@@ -9477,8 +10013,16 @@ The atlas requirements of each layer:
 - **p = 2.** The new NS prime-field TC^-/TP/Frobenius calculations include p = 2. HM’s log-Witt and ramified-DVR comparison nodes retain their p-odd hypothesis. The p = 2 case of the local-field descriptions rests on MotivicEtaleKTheory M.7.
 - **Formalisation.** Nothing here is formalised. The suggested Lean file names the objects and states what the pinned libraries can express; the rest is recorded there as comments.
 
-## Latest continuation and proof status
+## Preceding continuation and proof status
 
 The seven new NS IV.4 nodes calculate actual prime-field spectra imported from RT.2; the suggested names and acceptance checks remain comments because cyclotomic spectra, circle fixed/Tate constructions, E∞ maps and their homotopy groups are absent from the pinned carriers. No replacement Prop-valued object is introduced. The two superseded generic definitions/constructions retain all 15 API names and nine tests in the CR.4 supplier specification and in the suggested-file import comments. The other three superseded lemmas are requested there too.
 
 This session's `lean-check` stopped before elaboration because the pinned shared build lacks the imported TauCeti.CategoryTheory.GrothendieckGroup.Abelian object file. It does not establish compilation of this version. The earlier successful Lean result belongs to the unchanged historical continuation record; no build or update was run. The inherited Milnor uncountability signatures and examples remain intact. The narrowly corrected connectivity lemma restricts its torsion-to-torsion-free π_0 argument to mixed characteristic; connectivity itself still holds for any DVR.
+
+## Current checkpoint and proof status
+
+Fifteen new nodes specify the routed hermitian finite/perfect-field and dyadic-integer comparisons. The ordinary K rank map is used after 2-completion; the full integral GW equivalence follows from the actual L-to-Tate map. Its degree-zero check sends the unit form to rank one modulo the norm. Metabolic shifts transport L and Tate simultaneously; they do not identify homotopy fixed K with a suspension. Dyadic localization retains the canonical residue line and shift m−1, followed by a separate bounded-exponent L-completeness argument for the integral comparison.
+
+No definition or construction is added: general Poincaré, GW/L, Tate, completion, duality and localization structures are supplier imports. The routed general Poincaré owner has no registered stage or reserved node; no synthetic identifier or replacement carrier is introduced. The new suggested names, exact hypotheses, statements, proof reductions and acceptance checks remain comments because the pinned spectrum carriers needed for executable signatures are absent. All implementation statuses remain unchecked.
+
+The current `lean-check` attempt stopped before elaboration: the shared pinned build lacks `TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`. This version was not compiled; no build or update was run. All seven stages remain partial and the pending Abdurrahman–Venkatesh finite-rank H₃/2 and étale Chern-class chain remains a gap. The existing 42 planets (six per stage) are retained; these checkpoint nodes do not add an atlas planet or assert completion of the roadmap.

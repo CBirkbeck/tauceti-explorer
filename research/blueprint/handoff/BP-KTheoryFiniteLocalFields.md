@@ -1,6 +1,207 @@
 # Handoff: BP-KTheoryFiniteLocalFields (issue #763)
 
-## Current checkpoint — Codex — codex-nlUyak, 5 October 2026
+## Current checkpoint — Codex — codex-Gcq0RM, 5 October 2026
+
+Claim [5998536610](https://github.com/CBirkbeck/tauceti-explorer/issues/763#issuecomment-5998536610)
+was confirmed by bot [5998539186](https://github.com/CBirkbeck/tauceti-explorer/issues/763#issuecomment-5998539186).
+The whole issue was reread after confirmation. Branch:
+`codex-Gcq0RM-k-finite-local`. This is a **partial checkpoint**. Only the
+four authorized deliverables change. No second job was claimed, and no
+implementation or supplier completion is claimed.
+
+### What changed
+
+Fifteen new nodes decompose the routed Calmès et al. III finite/perfect-field
+and dyadic-local targets: eleven in L.1, four in L.6. All 254 inherited node
+records, all 96 baseline entries and all 39 source findings are unchanged as
+JSON data. The 42 planets (six per stage), 209 local definition/construction
+API items and 117 local definition/construction unit tests remain unchanged.
+No general definition or construction is duplicated.
+
+The even-field proof has separate targets for the equivariant rank map after
+2-completion, Tate K-groups, symmetric bilinear L-groups, the image of the unit
+form under the canonical L-to-Tate map, that map's integral equivalence, the
+all-integer-shift full GW comparison, and the multiplicative alternative.
+The proof checks the actual map: the unit form forgets to rank one, which
+survives modulo the norm 2. Both degree-zero and degree-one comparisons are
+checked, then propagated to every integer degree. Metabolic sequences suspend
+L and Tate together; they do not identify homotopy fixed K with a suspension.
+The classical finite-field theorem is separately stated on connective covers
+for every q and both signs; its original odd-field proofs remain imported.
+The multiplicative argument uses a unital **graded** map of F₂[x±1], |x|=2;
+an arbitrary ungraded endomorphism would not suffice.
+
+Three perfect-characteristic-two targets distinguish the K-completion input
+from the integral L base change and the full integral hermitian conclusion.
+The Bockstein reduction and rank-mod-2 Witt calculation are explicit. Hiller's
+original Adams/Frobenius proof is a named source gap requested from S.6; finite
+field group orders are not used to prove the arbitrary perfect-field assertion.
+
+The dyadic proof separately specifies the field's 2-adic comparison, the
+integers' 2-adic comparison, derived completeness of their symmetric L-theory,
+and the integral full-spectrum comparison for every shift. The field's
+cd₂=2 reduction uses the existing L.6/local-duality-for-tate-twists node;
+its original supplier boundary remains. Localization imports the two actual
+GN.6 nodes `dedekind-residue-duality-line` and
+`dedekind-symmetric-localization`. The canonical coefficient is
+RHom_R(k,R)=(𝔪⁻¹/R)[−1]; a chosen uniformizer identifies the residue shift
+as m−1. Base-change naturality uses the canonical line, because a uniformizer
+need not map to a uniformizer under ramification. Bounded 2-power exponent
+of the fraction-field Witt group and finite-residue L-groups, L localization
+and derived completion give the integral refinement through the cartesian
+L/Tate square. No number-ring theorem is applied to the dyadic fraction field.
+
+### Supplier boundaries and remaining research
+
+The accepted paper route proposes `HermitianKTheoryOfPoincareCategories`, but
+this repository snapshot has no registered roadmap, stage, packet or reserved
+node for it. No synthetic identifier was invented. The named foundation gap
+lists its exact required carriers and exports: non-genuine symmetric
+Poincaré structures and their shifts; full GW/L spectra; the duality-induced
+coherent C₂-action; canonical L-to-Tate transformation and cartesian square;
+metabolic shift compatibility; field L/Witt comparison and odd vanishing;
+periodicity; classical/genuine/non-genuine model comparisons; and Paper IV's
+E∞ refinement. GN.6's classical carriers do not by themselves supply these.
+
+Two new supplier requests name GN.6 and GeneralAlgebraicKTheory K.3. GN.6's
+registered residue-line/localization exports are reused, with its additional
+symmetric L localization, model-comparison and source-scoped finite-vcd₂
+field theorem obligations recorded. K.3's ordinary localization must carry
+the duality action and its natural forgetful comparison with GW localization.
+Existing RT.2, H.6, RT.4:topological, S.6 and K.7 requests are extended:
+RT.2 owns the spectral Tate/norm/fixed-point foundations and Tate invariance;
+H.6 owns exact derived completion and the bounded-exponent criterion;
+RT.4 owns the real/symplectic topological comparison; S.6 owns the Hiller input;
+K.7 supplies the already-requested multiplication. These are contracts,
+not claims that the suppliers have proved them.
+
+The prior aggregate hermitian gap becomes four precise gaps: unregistered
+Poincaré foundations; original finite-field classical and finite-vcd₂
+homotopy-limit proofs; Hiller's perfect-field proof; and Lam's dyadic Witt
+exponent with L-completion suppliers. The separate Abdurrahman–Venkatesh
+finite-rank H₃/2 and c_et gap is preserved and remains the next local route.
+The other 28 inherited gaps and all inherited structural proposals survive.
+
+Confirmed red-team findings retain the preceding checkpoint's fixes, without
+new changes to those nodes: RT-AREA-ktheory-1/37 imports InductionRestriction
+Layer6 for Green, RT.4's completion contract and H.3's exact plus-universal
+property; /39 keeps universal log-Witt definitions/API/tests in the CR.4
+supplier specification and proposes the CR.5:log-algebra edge; RT-AREA-ktheory-2/21
+keeps finite K₃/transfer ownership in L.1; /33 keeps the general genuine/modern
+comparison in RT.2 and only HM-specific hypotheses here. Their original proof
+and supplier gaps remain where the prior handoff records them.
+
+### Sources and pinned-library checks
+
+WORKERS, both protocols, UPSTREAM_GUIDE, the full issue, the campaign document,
+reviewed AUDIT-29's seven entries, incident atlas/link records, routed paper
+records and relevant supplier nodes were read. GrothendieckEulerForms and
+JacobianChallenge were read as the two nearby upstream models. The pins were
+confirmed in the existing baseline trees: Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. The exact statement of
+TauCeti.SplitK0.finrankEquiv was reread. The Mathlib chain/cochain Tate
+construction was inspected; it does not supply spectral Tate or full GW/L
+carriers. Targeted full-tree name searches found no relevant full Poincaré/GW/L
+spectrum carrier. This is a focused screen, not a fresh audit of all inherited
+baseline citations.
+
+Fresh source evidence is reproducible from public URLs and hashes:
+
+- [Calmès et al. III v4](https://arxiv.org/pdf/2009.07225v4), SHA-256
+  `1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c`
+  (same bytes as the inherited source). Read §§3.1.1–3.1.10 with proofs,
+  printed pp.49–53; R.10 and preceding metabolic discussion; Corollaries
+  1.3.3–1.3.4/Remark 1.3.5, p.28; Corollaries 1.3.14–1.3.15, pp.31–32;
+  Corollary 2.2.5/Remark 2.2.6, p.39.
+- [Calmès et al. II v5](https://arxiv.org/pdf/2009.07224v5), 11 April 2025,
+  title-page date 14 April; retrieved through the unversioned arXiv PDF URL.
+  SHA-256 `eaa19b40046c953f6aedc5d11ed86eaee16018fcad995fcbafeb4746af6239a3`.
+  Read Example 1.2.5, pp.20–21, Corollary 4.4.13 and its proof reduction
+  with adjoining Theorem 4.4.11/Corollary 4.5.1, pp.106–107. Its cited general
+  foundational proofs were not fully audited.
+- The Annals III full-article route and the Inventiones
+  Abdurrahman–Venkatesh PDF route returned HTML access/challenge responses;
+  those published texts were not obtained/read. No new published erratum
+  or version-of-record proof audit is claimed. The existing imported
+  PAPER-ABDURRAHMAN-VENKATESH-25/E3 warning is retained.
+- Hiller's original Theorem 5.4, Lam VI.2.29, the original
+  Friedlander/Fiedorowicz–Priddy computations and the original finite-vcd₂
+  homotopy-limit proofs were not read. The packet records these exact limits.
+
+Unneeded downloads and extracted texts are scratch only. They are not resume
+inputs. No new source mistake is asserted; the source imports and previous
+continuation audit survive in the packet's history.
+
+### Checks and compilation limit
+
+Current inventory: **269 nodes** — 13 definitions, 13 constructions,
+114 theorems, 109 lemmas, 17 comparisons, 3 applications — **209 API items**,
+**117 unit tests**, **42 planets**, **96 baseline declarations**, **33 gaps**
+and **33 requests**. All seven stages remain **partial**; none is planned or
+closed. Every implementation status remains unchecked.
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/KTheoryFiniteLocalFields.json`:
+  zero errors and zero warnings against the existing pinned declaration index.
+- `python3 research/blueprint/intake.py check-files` on all four deliverables:
+  zero problems. JSON parsing and `git diff --check` pass.
+- Focused concordance: every live node has one reader marker and its exact
+  statement; every coverage remaining list, gap and supplier contract agrees;
+  all 15 new proposed names, hypotheses, proof steps and acceptance checks
+  agree across packet, reader and suggested file. All new literal excerpts
+  occur in their source text, and both PDF hashes were confirmed.
+- Focused dependency graph audit uses exact-node prerequisites in integrated
+  decompositions/current packets and the atlas's stage `requires` edges.
+  No prerequisite returns to any of the 15 new nodes. This does not assert
+  a fresh independent review of the entire atlas graph or missing owner.
+- Executable Lean declarations are unchanged after stripping nested block
+  and line comments. No placeholder carrier was added. New mathematical
+  specifications remain comments until the supplier carriers exist.
+- `lean-check research/blueprint/suggested/KTheoryFiniteLocalFields.lean`
+  was attempted after `free -g` reported 96GB available. It stopped at line1
+  before elaboration: the shared pinned build lacks
+  `TauCeti/CategoryTheory/GrothendieckGroup/Abelian.olean`.
+  **This version was not compiled.** The historical successful compilation
+  claim at the suggested-file top was corrected to historical evidence.
+  No build, update, cache command or language server was run; no compiler
+  remains running.
+
+### Where to resume
+
+1. Continue the pending Abdurrahman–Venkatesh §2.7 route. Obtain/read its
+   published version and original Quillen Lang-fibration/Weibel étale-class
+   proofs. Plan the finite-rank and stabilization comparisons, mod-2 UCT,
+   universal-cover Hurewicz and K₃/2 étale class as target-level declarations.
+   For odd q and r≥1, use H₂[2]=0, not blanket integral H₂=0: the inherited
+   SL₂(F₉) exception is Z/3, which still has zero 2-torsion. Tor(H₂,Z/2)
+   is H₂[2]. Keep the direction of cohomology restriction explicit. The
+   general c_et definition belongs to its routed torsion owner/M.8, not a
+   duplicate local construction.
+2. Register/obtain the general Poincaré owner's exact exports and replace
+   the named foundation boundary with its actual stage/node identifiers.
+   Read its full square/shift/periodicity/multiplicative proofs. Obtain the
+   original finite-vcd₂ field proof, odd finite-field classical proof,
+   Hiller perfect-field proof and Lam dyadic Witt exponent proof before
+   closing their supplier/source gaps. The local reductions now have exact
+   statements and acceptance checks, so they need not be decomposed again.
+3. Continue the inherited Quillen §11 and ℓ=2 cohomology, Green,
+   Atiyah–Segal full proof, Gabber, Merkurjev, continuity and distinct
+   integral divisible-component gaps; obtain the CR.4/CR.5 and RT.1/RT.2
+   exports already specified. Preserve the established Milnor
+   uncountability proof and prior ownership fixes. Exact stage remaining
+   lists are in both packet and reader.
+4. Repeat `lean-check` only after the shared pinned imports become available;
+   do not build libraries or add artificial spectrum stand-ins.
+
+This checkpoint stops below the 300-node budget because the remaining routed
+chains require unregistered foundations and original proofs not obtained at
+this depth. Schema success does not make the seven stages complete. Source
+URLs, hashes, exact supplier contracts and resume points above survive scratch
+deletion.
+
+---
+
+## Historical checkpoint — Codex — codex-nlUyak, 5 October 2026
 
 Claim [5997778824](https://github.com/CBirkbeck/tauceti-explorer/issues/763#issuecomment-5997778824)
 was confirmed by bot [5997782125](https://github.com/CBirkbeck/tauceti-explorer/issues/763#issuecomment-5997782125).
